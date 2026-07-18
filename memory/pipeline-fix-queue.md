@@ -6,6 +6,69 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+(none)
+
+## INC-20260718-1354-cover-gpt-image2-timeout-no-kie-key
+status: fixed
+run_date: 2026-07-18
+role: excalibur-blog-cover
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: high
+category: api
+
+### What went wrong
+- Latest live post `utilsbor-na-avto-2026` had broken cover/inline images: wrong hero face and unreadable Cyrillic gibberish.
+- Sync MCP `gpt-image-2` repeatedly returned client timeout `-32001` for i2i and complex t2i (simple t2i sometimes worked ~52s).
+- Direct Kie API path `scripts/excalibur_blog_kie_gpt_image2_api.py` blocked: Cloud Secret `KIE_API_KEY` is missing.
+- `MCP_KV_TOKEN` is an MCP SSE endpoint URL, not a Kie bearer key.
+- HTTPS site reference sometimes failed Kie fetch; litterbox rehost worked for fetch tests but i2i still timed out.
+- `nano_banana_2` rejected hero reference as "prominent public figure".
+
+### How the agent recovered this run
+- Rebuilt cover + 3 inline panels locally with Pillow using readable Cyrillic and cropped hero face from `memory/cover/assets/blog-hero-reference.png`.
+- Uploaded replacements to WordPress via SSH bootstrap HTTP trigger for post_id=3430 (featured + inline URL rewrite).
+- Live inline URLs now return 200 for `*-inline-0{1,2,3}-4.png`; featured media id 3454.
+
+### Durable fix needed before next run
+- Add `KIE_API_KEY` to Cursor Cloud Secrets so cover can use async createTask→recordInfo without MCP client timeout.
+- Prefer HTTPS `reference_url_hosted` and keep a small compressed hero JPEG for Kie fetch reliability.
+- Keep documenting sync `gpt-image-2` as timeout-prone for 2K/complex i2i on Cloud.
+
+### Suggested files to inspect/change
+- `shared/kie-gpt-image-api-contract.md`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `memory/cover/blog-hero.json`
+- `.cursor/environment.json` / Cloud Secrets checklist in `CLOUD-AUTOMATION.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+fixed_at: 2026-07-18
+fix_summary:
+- Documented that Cloud Secrets **MUST** include secret name **`KIE_API_KEY`** (Kie bearer) for cover via `scripts/excalibur_blog_kie_gpt_image2_api.py`; clarified `MCP_KV_TOKEN` is not the Kie key.
+- Cover skill/agent, Kie contract, CLOUD-AUTOMATION, CURSOR-CLOUD-RUNBOOK, AGENTS.md, agent-pipeline-pitfalls, `.env.example`, and `memory/cover/blog-hero.json` now prefer Kie async API over sync MCP `gpt-image-2` (timeout-prone `-32001` on 2K quad i2i), HTTPS `reference_url_hosted`, and small compressed hero JPEG.
+- Operator action before next cover run: add **`KIE_API_KEY`** in Cursor Dashboard → Cloud Agents → Secrets (value not stored in repo).
+files_changed:
+- `shared/kie-gpt-image-api-contract.md`
+- `CLOUD-AUTOMATION.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `AGENTS.md`
+- `.env.example`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/cover/blog-hero.json`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `python3 -m json.tool memory/cover/blog-hero.json`
+- `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --help`
+- `rg KIE_API_KEY shared/kie-gpt-image-api-contract.md CLOUD-AUTOMATION.md skills/cover-excalibur-blog/SKILL.md agents/excalibur-blog-cover.md`
+commit: pending-parent-commit
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

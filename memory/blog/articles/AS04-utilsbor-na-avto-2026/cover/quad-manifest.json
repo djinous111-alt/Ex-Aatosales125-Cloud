@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS04",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "2 л.с. в рекламе — бюджет сгорел",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split. CRITICAL: all Cyrillic text must be PERFECT spelling, no gibberish.",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс с документами и параметрами авто до депозита, плашка утильсбор 2026, Владивосток",
+      "scene_hint": "WEATHER: cloudy Vladivostok office/docs desk near window; OUTFIT: smart-casual navy button shirt (NOT reference tank top), NO cap NO hood, glasses on; EXACT face from reference; holding phone with fake power/kW passport card + customs checklist scrap; torn paper hook «2 л.с. в рекламе — бюджет сгорел» yellow highlight on «бюджет сгорел»; sticky «сверь кВт до депозита»; shocked meme cutout; DIY zine; corner ONLY avto-sales125.ru; NEVER Wordstat/Metrika; ALL Cyrillic PERFECT spelling — no typos, no gibberish letters",
+      "meme_caption_ru": "Сверь кВт до депозита"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Соберите паспорт параметров машины за 15 минут",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU table UI «Паспорт параметров»: rows кВт | объём | возраст | статус физлица with short readable values; yellow sticky «15 минут»; tape corner; NO hero face; PERFECT Cyrillic spelling only — no gibberish, no Latin typos; no Wordstat/Metrika",
+      "alt": "Таблица паспорта параметров авто: кВт, объём, возраст, статус физлица"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сверьте мощность в документах, а не в рекламе",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow sticky notes with arrows: Реклама л.с. → Документы кВт → Порог льготы → Депозит; labels EXACT words Реклама, Документы, Льгота, Депозит — PERFECT Cyrillic only; NO hero face; no Wordstat",
+      "alt": "Схема: от мощности в рекламе к кВт в документах и порогу льготы"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сравните: страна не меняет формулу утильсбора",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board: Корея | Китай | Япония — same formula stamp «формула одна»; red X on myth «страна меняет расчёт»; sticky «миф»; NO hero face; PERFECT Cyrillic only — words Корея Китай Япония формула миф; no gibberish",
+      "alt": "Чеклист-миф: Корея, Китай, Япония — страна не меняет формулу утильсбора"
+    }
+  }
+}

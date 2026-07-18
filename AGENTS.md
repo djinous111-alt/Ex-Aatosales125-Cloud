@@ -100,7 +100,7 @@ python3 scripts/excalibur_blog_research_start.py --topic-id B01
 
 Только Cloud Secrets / env vars. Не печатать SSH/API ключи в handoff, PR, ответах.
 
-- `SSH_*`, `PUBLIC_SITE_URL`, `EXCALIBUR_BLOG_ALLOW_PUBLISH`
+- `SSH_*`, `PUBLIC_SITE_URL`, `EXCALIBUR_BLOG_ALLOW_PUBLISH`, **`KIE_API_KEY`** (cover async GPT Image 2 via `scripts/excalibur_blog_kie_gpt_image2_api.py`; not `MCP_KV_TOKEN`)
 - Publish transport: только SSH; legacy upload-алиасы не использовать.
 - MCP через `${env:...}` в mcp.json
 

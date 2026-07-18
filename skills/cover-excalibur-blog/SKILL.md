@@ -11,13 +11,17 @@
 ## Архитектура (зафиксировано)
 
 ```text
-reference PNG → reference_url_hosted
+reference PNG → HTTPS reference_url_hosted (small compressed JPEG preferred)
        ↓
 quad-manifest.json (agent fills hooks + scene_hint)
        ↓
 quad-mcp-batch.json (1 job, input_urls)
        ↓
-ONE MCP gpt-image-2 i2i → canvas-quad.png 2048×1152
+PRIMARY: Kie async API (excalibur_blog_kie_gpt_image2_api.py, needs KIE_API_KEY)
+       ↓
+FALLBACK ONLY: sync MCP gpt-image-2 i2i (timeout-prone -32001 on Cloud 2K quad)
+       ↓
+canvas-quad.png 2048×1152
        ↓
 split → cover.png + inline-01..03.png (1200×675)
        ↓
@@ -32,7 +36,8 @@ inject <figure> after H2 in article.html
 
 | Путь | Назначение |
 |------|------------|
-| `shared/blog-cover-quad-canvas-contract.md` | канонический контракт |
+| `shared/kie-gpt-image-api-contract.md` | Kie async API (primary Cloud path) |
+| `shared/blog-cover-quad-canvas-contract.md` | канонический quad-контракт |
 | `agents/excalibur-blog-cover.md` | agent-md (этот skill дублирует runbook) |
 | `memory/cover/blog-hero.json` | visual_lock, outfit_rule, reference_url_hosted |
 | `memory/cover/assets/blog-hero-reference.png` | локальный эталон лица |
@@ -93,8 +98,9 @@ inject <figure> after H2 in article.html
 python scripts/excalibur_blog_hero_reference_url.py
 ```
 
-Проверить `memory/cover/blog-hero.json` → `reference_url_hosted`.  
-Fallback env: `BLOG_HERO_REFERENCE_URL`.
+Проверить `memory/cover/blog-hero.json` → `reference_url_hosted` (**HTTPS**, желательно небольшой сжатый JPEG лица).  
+Fallback env: `BLOG_HERO_REFERENCE_URL`.  
+`MCP_KV_TOKEN` ≠ `KIE_API_KEY` — для cover нужен **`KIE_API_KEY`** в Cloud Secrets (см. `shared/kie-gpt-image-api-contract.md`).
 
 ### Шаг 2 — manifest
 
@@ -122,21 +128,31 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image job (Kie async, primary)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+**Primary (Cloud):** async Kie API — без sync MCP client timeout:
+
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+Требует `KIE_API_KEY` в Cloud Secrets. Пишет `cover/quad-mcp-result.json` и `cover/kie-image-task.json`.
+
+**Legacy fallback only:** sync `CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
+Аргументы = `jobs[0].mcp_args` из batch. Sync MCP **часто** даёт `-32001` на 2K quad i2i; не повторять create вслепую.
 
 Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
   --inject-html
 ```
+
+(`--url` опционален, если есть `cover/quad-mcp-result.json` от Kie или MCP.)
 
 Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
 
@@ -163,8 +179,10 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 
 ## QA перед ✅
 
-- [ ] 1 MCP, не 4
-- [ ] input_urls в MCP
+- [ ] `KIE_API_KEY` доступен в Cloud (или задокументирован blocker)
+- [ ] `reference_url_hosted` — HTTPS, fetchable для Kie
+- [ ] 1 image job (Kie async или legacy sync MCP), не 4
+- [ ] input_urls в batch / Kie payload
 - [ ] cover.png + 3 inline существуют
 - [ ] alt в registry для всех 4
 - [ ] inline привязаны к H2 (`h2_anchor`)
@@ -176,7 +194,9 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 
 ## Blockers → verdict ❌
 
-- нет reference_url_hosted
+- нет `KIE_API_KEY` в Cloud → `KIE API BLOCKER` (добавить secret в Dashboard)
+- нет reference_url_hosted или не HTTPS
+- sync MCP `-32001` без task_id/URL и без Kie fallback
 - MCP text-only (без input_urls)
 - 4 отдельные генерации
 - QUAD SPLIT fail

@@ -45,7 +45,10 @@ SSH_PASS=<password>
 SSH_ROOT=.
 SSH_PORT=22
 EXCALIBUR_BLOG_ALLOW_PUBLISH=yes
+KIE_API_KEY=<kie-bearer-for-cover-async-gpt-image-2>
 ```
+
+`KIE_API_KEY` — Kie API bearer для `scripts/excalibur_blog_kie_gpt_image2_api.py`. Это **не** `MCP_KV_TOKEN` (MCP SSE URL). Без `KIE_API_KEY` sync MCP `gpt-image-2` на 2K quad i2i часто падает по client timeout `-32001`.
 
 Дополнительно:
 

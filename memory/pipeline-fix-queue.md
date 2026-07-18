@@ -288,6 +288,39 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20260718-1145-research-wordstat-truncated-totalcount
+status: open
+run_date: 2026-07-18
+role: excalibur-blog-research
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: low
+category: api
+
+### What went wrong
+- MCP `wordstat_get_top_requests` for low-volume phrases (`как читать encar`, `читать encar`) returned truncated payload `{"totalCount":"2"}` without phrase list (same class of failure noted on AS09 for some check-phrases).
+- Research notes gate also requires `accessed_at:` label count ≥5 and pain/solution keywords inside `pain_solution_map` rows; date-only table cells and Russian-only pain rows caused first gate BLOCK until format tweak.
+
+### How the agent recovered this run
+- Used successful Wordstat tops for `encar на русском`, `encar`, `проверка авто koreя`, `trust encar`; documented truncated phrases explicitly without inventing volumes.
+- Rewrote `source_table` cells as `accessed_at: 2026-07-18` and prefixed pain/solution/reader_result in map rows; gate PASS.
+
+### Durable fix needed before next run
+- Document Wordstat truncated-`totalCount` fallback in research skill (retry sibling phrasing; never invent impressions).
+- Document research-notes gate expectations: ≥5 `accessed_at:` labels; pain_solution_map rows must contain pain|solution|result|боль|решение|результат.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_research_notes_gate.py` (optional clearer error hints)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

@@ -61,7 +61,7 @@ files_changed:
 checks_run:
 - `python3 scripts/test_excalibur_blog_utility_gate_empty_markers.py`
 - JSON parse `memory/brief/editorial-policy.json`
-commit: 10de824
+commit: 861d86b
 
 
 ## INC-20260718-1708-research-notes-gate-accessed-at-format
@@ -110,7 +110,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
 - PYTHONPATH selftest accessed_at column + technical_topic
-commit: 10de824
+commit: 861d86b
 
 ## INC-20260718-1705-director-today-as-regex
 status: fixed
@@ -157,7 +157,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_today.py` → suggested AS01, selection=ready
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → AS10, pool=9
 - `rg` no B-only topic regex left in today/scout_helper
-commit: 10de824
+commit: 861d86b
 
 ## INC-20260718-1705-director-doctor-llms-blog-path
 status: fixed
@@ -195,7 +195,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0; OK llms --blog-dir
 - `rg` no `--blog-path` in doctor
-commit: 10de824
+commit: 861d86b
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -248,7 +248,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: 10de824
+commit: 861d86b
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -299,7 +299,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: 10de824
+commit: 861d86b
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -340,7 +340,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: 10de824
+commit: 861d86b
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -387,7 +387,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: 10de824
+commit: 861d86b
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -441,7 +441,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: 10de824
+commit: 861d86b
 
 ## INC-20260718-1714-cover-gpt-image2-timeout-zimage-fallback
 status: fixed
@@ -490,7 +490,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` z-image fallback / KIE_API_KEY guidance in cover skill
-commit: 10de824
+commit: 861d86b
 
 ## INC-20260718-1717-publish-paramiko-missing
 status: fixed
@@ -534,4 +534,4 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → OK paramiko; SUMMARY errors=0
 - `rg` paramiko in install.sh + requirements.txt
-commit: 10de824
+commit: 861d86b

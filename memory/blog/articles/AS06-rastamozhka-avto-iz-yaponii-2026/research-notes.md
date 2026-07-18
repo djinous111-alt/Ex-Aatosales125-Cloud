@@ -126,5 +126,5 @@ LSI / смежные (из похожих Wordstat + SERP; для копирай
 ## editorial_constraints
 - fact-bank: нельзя публиковать готовые суммы пошлин/утильсбора как калькулятор — отправлять в каталог за расчётом.
 - Не выдумывать цены лотов и VIN.
-- CTA: каталог + Telegram @avtosales125 (лимиты conversion-map); хаб — Владивосток.
+- CTA: каталог + Telegram @[REDACTED] (лимиты conversion-map); хаб — Владивосток.
 - research freshness: prefer_sources_after 2026-04-19; год в материале — 2026.

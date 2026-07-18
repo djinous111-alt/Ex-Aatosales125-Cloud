@@ -1,7 +1,7 @@
 # Promotion checklist — AS06 rastamozhka-avto-iz-yaponii-2026
 
 Дата публикации: 2026-07-18  
-Live URL: https://avtosales125.ru/blog/rastamozhka-avto-iz-yaponii-2026/
+Live URL: [REDACTED]/2026/07/18/rastamozhka-avto-iz-yaponii-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • «Растаможка» = блоки платежей, не одна цифра
 • До депозита: СВХ Владивосток + СБКТС→ЭПТС + смета под лот
 
-Читать: https://avtosales125.ru/blog/rastamozhka-avto-iz-yaponii-2026/
+Читать: [REDACTED]/2026/07/18/rastamozhka-avto-iz-yaponii-2026/
 ```
 
 ## Перелинковка
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir ... --site-base` — Found 0 internal linking opportunities; report: `memory/blog/interlink-suggestions.json`.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (CLI: `--blog-dir`, без `--blog-path`).
-- Publish: pending (Indexer only).
+- Publish: PASS post_id=3460 (2026-07-18).

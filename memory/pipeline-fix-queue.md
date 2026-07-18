@@ -422,3 +422,33 @@ category: api
 
 ### Fixer resolution
 - pending
+
+## INC-20260718-1717-publish-paramiko-missing
+status: open
+run_date: 2026-07-18
+role: excalibur-blog-publish
+topic_id: AS06
+article_dir: memory/blog/articles/AS06-rastamozhka-avto-iz-yaponii-2026
+severity: low
+category: env
+
+### What went wrong
+- `paramiko` отсутствует в Cloud image (`ModuleNotFoundError`); SSH publish transport требует пакет.
+
+### How the agent recovered this run
+- `pip3 install --break-system-packages paramiko` перед `--env-check` / real publish.
+- Publish PASS без HTTP fallback (~114s SSH upload + HTTP trigger).
+
+### Durable fix needed before next run
+- Добавить `paramiko` в `.cursor/environment.json` / install.sh / requirements, чтобы publish не ставил пакет вручную каждый run.
+
+### Suggested files to inspect/change
+- `.cursor/environment.json`
+- `scripts/install.sh` (если есть)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

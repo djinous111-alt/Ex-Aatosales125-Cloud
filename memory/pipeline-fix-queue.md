@@ -6,6 +6,97 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260718-1708-research-notes-gate-accessed-at-format
+status: open
+run_date: 2026-07-18
+role: excalibur-blog-research
+topic_id: AS06
+article_dir: memory/blog/articles/AS06-rastamozhka-avto-iz-yaponii-2026
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` counts only literal `accessed_at:` tokens (`\baccessed_at\b\s*:`), so a Markdown source table with column header `accessed_at` and date cells `2026-07-18` scores `accessed_at=1` and BLOCK even when every row has a date.
+- Same gate marks non-tech auto topics as `technical_topic=true` if notes contain markers like `github` / `mcp` (required `github_evidence` + Wordstat MCP wording), then warns about missing `/docs` developer URL.
+
+### How the agent recovered this run
+- Rewrote source_table date cells as `accessed_at: 2026-07-18` so the counter reached ≥5; gate PASS with warning only.
+
+### Durable fix needed before next run
+- Count accessed dates from source_table date column OR accept ISO dates in an `accessed_at` column without requiring the label in every cell.
+- Scope `technical_topic` to topic card fields / primary_query, not body mentions of `github_evidence` / MCP.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260718-1705-director-today-as-regex
+status: open
+run_date: 2026-07-18
+role: excalibur-blog-director
+topic_id: AS06
+article_dir: memory/blog/articles/AS06-rastamozhka-avto-iz-yaponii-2026
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_today.py` and `scripts/excalibur_blog_scout_helper.py` match only `## B\d+` topic headers, so AS* P0 topics in `memory/topics/blog-topics.md` are invisible → `EXCALIBUR_TOPIC_SELECTION=needs_scout` and scout pool count 0.
+- Memory claimed AS|B fix was done, but code still uses B-only regex; `active_article_topic_ids` also only matches `B\d+-`.
+
+### How the agent recovered this run
+- Manually selected next utility-PASS free topic AS06 (P1) after P0 AS01/AS03/AS05 failed utility markers; ran research_start successfully.
+
+### Durable fix needed before next run
+- Update topic regex in today.py and scout_helper to `(?:AS|B)\d+` (headers, lookbehind, active article dirs, next_id generation for AS prefix).
+- Ensure today.py prefers unused P0 AS* before needs_scout when utility-PASS topics remain.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260718-1705-director-doctor-llms-blog-path
+status: open
+run_date: 2026-07-18
+role: excalibur-blog-director
+topic_id: AS06
+article_dir: memory/blog/articles/AS06-rastamozhka-avto-iz-yaponii-2026
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` checks that llms generator help contains `--blog-path`, but `excalibur_blog_llms_generator.py` exposes `--blog-dir` only → doctor SUMMARY errors=1.
+
+### How the agent recovered this run
+- Continued pipeline; indexer uses `--blog-dir` per actual CLI.
+
+### Durable fix needed before next run
+- Align doctor check with `--blog-dir` (or add `--blog-path` alias to llms generator).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

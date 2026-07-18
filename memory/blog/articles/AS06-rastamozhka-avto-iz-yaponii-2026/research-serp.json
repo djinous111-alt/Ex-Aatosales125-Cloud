@@ -1,0 +1,556 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-18",
+    "today_ru": "18.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-19",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-18 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS06",
+    "priority": "P1",
+    "slug": "rastamozhka-avto-iz-yaponii-2026",
+    "h1": "Растаможка авто из Японии: обновлённый чек-лист на 2026",
+    "primary_query": "растаможка авто из японии",
+    "secondary_queries": [
+      "авто из японии владивосток",
+      "японский аукцион растаможка"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "растаможка авто из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Растаможка авто из Японии в 2026 году: актуальные ставки пошлин и ...",
+          "url": "https://seite1.ru/obzory-i-sovety/rastamozhka-avto-iz-yaponii-v-2026-godu-aktualnye-stavki-poshlin-i-polnyj-raschet-platezhej/.html",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка Авто Из Японии 2026: Цена И Пошлины | Azway",
+          "url": "https://azway.ru/blog/rastamozhka-avto-iz-yaponii-2026",
+          "snippet": "В 2026 году в правилах и ставках произошли важные изменения, которые напрямую влияют на конечную цену. В этой статье мы подробно разберем актуальные ставки пошлин, расскажем, как правильно рассчитать все платежи, и приведем наглядные примеры.Более подробную информацию можно посмотреть здесь."
+        },
+        {
+          "title": "Растаможка авто из Японии в 2026: калькулятор, пошлины, стоимость",
+          "url": "https://calc-up.ru/kalkulyator-avto-iz-yaponii",
+          "snippet": "Полное руководство по растаможке автомобиля из Японии в 2026 году. Таблицы пошлин, калькулятор утильсбора, новые правила с 1 декабря 2025, всё в одной статье."
+        },
+        {
+          "title": "Растаможка автомобиля из Японии в 2026 году: полный расчёт стоимости",
+          "url": "https://autoprofiasia.ru/article.php?slug=rastamozhka-avto-iz-yaponii-2026",
+          "snippet": "Рассчитайте точную стоимость ввоза японского автомобиля за минуту! Укажите год выпуска, тип двигателя, объем мотора и стоимость - наш калькулятор автоматически определит размер таможенной пошлины (от 15%), утильсбора, НДС и акциза с учетом актуальных ставок 2026 года."
+        },
+        {
+          "title": "Растаможка авто из Японии в 2026 году: полное руководство для начинающих",
+          "url": "https://building-ooo.ru/vse-dlya-stroitelstva-stati/rastamozhka-avto-iz-yaponii-v-2026-godu-polnoe-rukovodstvo-dlya-nachinayushhix/.html",
+          "snippet": "Сколько стоит растаможить автомобиль из Японии в 2026 году? Таблицы пошлин, расчёт для физических лиц, утилизационный сбор и полная стоимость под ключ с примерами."
+        },
+        {
+          "title": "Калькулятор растаможки 2026: расчёт пошлины и утильсбора",
+          "url": "https://calculatorov.ru/kalkulyator-rastamozhki-2026/",
+          "snippet": "В этом руководстве мы разберем все этапы растаможки, актуальные ставки, скрытые риски и дадим пошаговую инструкцию для тех, кто решился на такой шаг.Более подробную информацию можно ..."
+        }
+      ],
+      "searched_at": "2026-07-18"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "растаможка авто из японии июль 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Растаможка авто из Японии в 2026 году: актуальные ставки пошлин и ...",
+          "url": "https://seite1.ru/obzory-i-sovety/rastamozhka-avto-iz-yaponii-v-2026-godu-aktualnye-stavki-poshlin-i-polnyj-raschet-platezhej/.html",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка автомобиля из Японии в 2026 году: полный расчёт стоимости",
+          "url": "https://autoprofiasia.ru/article.php?slug=rastamozhka-avto-iz-yaponii-2026",
+          "snippet": "Растаможка автомобиля из Японии в 2026 году — это процесс, который требует внимательного подхода и четкого понимания всех статей расходов."
+        },
+        {
+          "title": "Растаможка авто из Японии в 2026: калькулятор, пошлины, стоимость",
+          "url": "https://calc-up.ru/kalkulyator-avto-iz-yaponii",
+          "snippet": "Сколько стоит растаможить автомобиль из Японии в 2026 году? Таблицы пошлин, расчёт для физических лиц, утилизационный сбор и полная стоимость под ключ с примерами."
+        },
+        {
+          "title": "Калькулятор растаможки авто из Японии - точный расчет таможенных ...",
+          "url": "https://calc-rastamozhki-avto.ru/yaponiya/",
+          "snippet": "Рассчитайте точную стоимость ввоза японского автомобиля за минуту! Укажите год выпуска, тип двигателя, объем мотора и стоимость - наш калькулятор автоматически определит размер таможенной пошлины (от 15%), утильсбора, НДС и акциза с учетом актуальных ставок 2026 года."
+        },
+        {
+          "title": "Растаможка авто из Японии 2026 | АВТОСАХ.РФ",
+          "url": "https://sakhavto.ru/news/rastamozhka-avto-iz-yaponii-2026",
+          "snippet": "Калькулятор растаможки автомобилей из Японии в Россию в 2026 году. Простой и точный расчет таможенных пошлин и платежей для вашего автомобиля с учетом актуальных официальных ставок и пошлин."
+        },
+        {
+          "title": "Растаможка авто из Японии 2026 | calcal.ru",
+          "url": "https://calcal.ru/rastamozka-avto-iz-yaponii-2026",
+          "snippet": "Мы рассчитываем полную стоимость «под ключ» — с пошлиной, утильсбором и доставкой — ещё до того, как вы внесёте задаток, и помогаем подобрать авто под самую выгодную растаможку."
+        }
+      ],
+      "searched_at": "2026-07-18"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "растаможка авто из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Растаможка авто из Японии 2026 | АВТОСАХ.РФ",
+          "url": "https://sakhavto.ru/zh/news/rastamozhka-avto-iz-yaponii-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка авто из Японии в 2026 году: актуальные ставки пошлин и ...",
+          "url": "https://seite1.ru/obzory-i-sovety/rastamozhka-avto-iz-yaponii-v-2026-godu-aktualnye-stavki-poshlin-i-polnyj-raschet-platezhej/.html",
+          "snippet": "Сколько стоит растаможить авто из Японии в 2026: единая ставка, утильсбор и порог 160 л.с. Объясняем новые правила и подсказываем, как сэкономить."
+        },
+        {
+          "title": "Растаможка автомобиля из Японии в 2026 году: полный расчёт стоимости",
+          "url": "https://autoprofiasia.ru/article.php?slug=rastamozhka-avto-iz-yaponii-2026",
+          "snippet": "В 2026 году в правилах и ставках произошли важные изменения, которые напрямую влияют на конечную цену. В этой статье мы подробно разберем актуальные ставки пошлин, расскажем, как правильно рассчитать все платежи, и приведем наглядные примеры.Более подробную информацию можно посмотреть здесь."
+        },
+        {
+          "title": "Растаможка Авто Из Японии 2026: Цена И Пошлины | Azway",
+          "url": "https://azway.ru/blog/rastamozhka-avto-iz-yaponii-2026",
+          "snippet": "Сколько стоит растаможить автомобиль из Японии в 2026 году? Таблицы пошлин, расчёт для физических лиц, утилизационный сбор и полная стоимость под ключ с примерами."
+        },
+        {
+          "title": "Растаможка 2026: новые правила и их влияние на пошлины для авто",
+          "url": "https://dzen.ru/a/aTbQ3JmXjixmmiM0",
+          "snippet": "Полное руководство по растаможке автомобиля из Японии в 2026 году. Таблицы пошлин, калькулятор утильсбора, новые правила с 1 декабря 2025, всё в одной статье."
+        },
+        {
+          "title": "Как растаможить авто из Японии в 2026 году: пошаговая инструкция",
+          "url": "https://avto-listing.ru/blog/kak-rastamozhit-avto-iz-yaponii-2026",
+          "snippet": "Статья автора «Авто-Сейлс» в Дзене : Новые правила растаможки 2026 года изменят импорт автомобилей и запчастей. Узнайте, как избежать сюрпризов и адаптироваться к новым условиям!"
+        }
+      ],
+      "searched_at": "2026-07-18"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com растаможка авто из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "kudryashov20091991-lang/calculator-auto-2026 - GitHub",
+          "url": "https://github.com/kudryashov20091991-lang/calculator-auto-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Tks-api: Калькулятор Таможенных Платежей Для Автомобилей",
+          "url": "https://github.com/markolofsen/tks-api",
+          "snippet": "Калькулятор растаможки авто 2026. Contribute to kudryashov20091991-lang/calculator-auto-2026 development by creating an account on GitHub."
+        },
+        {
+          "title": "GitHub - FeT677/JapanCalculator: Автоматический расчёт всех расходов ...",
+          "url": "https://github.com/FeT677/JapanCalculator",
+          "snippet": "С её помощью вы можете узнать полную стоимость растаможки вашего автомобиля всего за несколько шагов."
+        },
+        {
+          "title": "aizavod-platform/data/certifier/parallel_import.txt at master ... - GitHub",
+          "url": "https://github.com/MASTER116/aizavod-platform/blob/master/data/certifier/parallel_import.txt",
+          "snippet": "JapanCalculator - калькулятор расчета стоимости покупки/таможни/доставки автомобиля из Японии. Курсы валют с сайта Центробанка подтягиваются автоматически, как и текущая дата."
+        },
+        {
+          "title": "Neon-Tic-Tac-Toe/sound-volume.svg at main - GitHub",
+          "url": "https://github.com/Hetarth1/Neon-Tic-Tac-Toe/blob/main/sound-volume.svg",
+          "snippet": "AI ZAVOD — мультиагентная SaaS-платформа для автоматизации бизнес-процессов РФ/ЕАЭС - MASTER116/aizavod-platform"
+        },
+        {
+          "title": "TASK2-ONLINE-LEARNING-PLATFORM/category-1.svg at main - GitHub",
+          "url": "https://github.com/AjayAsirSamuel/TASK2-ONLINE-LEARNING-PLATFORM/blob/main/category-1.svg",
+          "snippet": "Contribute to Hetarth1/Neon-Tic-Tac-Toe development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-07-18"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "растаможка авто из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Документы для растаможки авто — полный список 2026",
+          "url": "https://rastamozhka-calc.ru/dokumenty-dlya-rastamozhki/",
+          "snippet": ""
+        },
+        {
+          "title": "Как растаможить авто из Японии в 2026 году: пошаговая инструкция",
+          "url": "https://avto-listing.ru/blog/kak-rastamozhit-avto-iz-yaponii-2026",
+          "snippet": "Какие документы нужны для растаможки автомобиля в России в 2026 году. Полный список для физлиц и юрлиц."
+        },
+        {
+          "title": "Растаможка авто из Японии в 2026 году: актуальные ставки пошлин и ...",
+          "url": "https://seite1.ru/obzory-i-sovety/rastamozhka-avto-iz-yaponii-v-2026-godu-aktualnye-stavki-poshlin-i-polnyj-raschet-platezhej/.html",
+          "snippet": "В этой статье — полная пошаговая инструкция по растаможке автомобиля из Японии в 2026 году: какие документы нужны, как рассчитать пошлины, что такое утилизационный сбор и как оформить ..."
+        },
+        {
+          "title": "Растаможка авто из Японии в 2026 году: полное руководство для начинающих",
+          "url": "https://building-ooo.ru/vse-dlya-stroitelstva-stati/rastamozhka-avto-iz-yaponii-v-2026-godu-polnoe-rukovodstvo-dlya-nachinayushhix/.html",
+          "snippet": "В 2026 году в правилах и ставках произошли важные изменения, которые напрямую влияют на конечную цену. В этой статье мы подробно разберем актуальные ставки пошлин, расскажем, как правильно рассчитать все платежи, и приведем наглядные примеры.Более подробную информацию можно посмотреть здесь."
+        },
+        {
+          "title": "Как привезти авто из Японии в 2026: пошаговая инструкция с расчётом ...",
+          "url": "https://autobarnhk.ru/tpost/4vstpa9hh1-import-avto-iz-yaponii-poshagovii-gaid",
+          "snippet": "В этом руководстве мы разберем все этапы растаможки, актуальные ставки, скрытые риски и дадим пошаговую инструкцию для тех, кто решился на такой шаг.Более подробную информацию можно ..."
+        },
+        {
+          "title": "Таможенное оформление автомобилей 2026: инструкция по растаможке авто ...",
+          "url": "https://avtovoz.clever-logistics.ru/articles/tamozhennoe-oformlenie-avtomobilej-polnoe-rukovodstvo",
+          "snippet": "Полная инструкция по импорту авто из Японии в 2026 году. Этапы покупки, растаможка, документы, сроки и реальные цены. Советы от экспертов АвтоБар"
+        }
+      ],
+      "searched_at": "2026-07-18"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "растаможка авто из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как растаможить авто из Японии в 2026 году: пошаговая инструкция",
+          "url": "https://avto-listing.ru/blog/kak-rastamozhit-avto-iz-yaponii-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка авто из Японии 2026 | calcal.ru",
+          "url": "https://calcal.ru/rastamozka-avto-iz-yaponii-2026",
+          "snippet": "В этой статье — полная пошаговая инструкция по растаможке автомобиля из Японии в 2026 году: какие документы нужны, как рассчитать пошлины, что такое утилизационный сбор и как оформить ..."
+        },
+        {
+          "title": "Растаможка Авто Из Японии 2026: Цена И Пошлины | Azway",
+          "url": "https://azway.ru/blog/rastamozhka-avto-iz-yaponii-2026",
+          "snippet": "Растаможка авто из Японии 2026: пошлина, утильсбор, доставка контейнером во Владивосток, перепродажа по РФ."
+        },
+        {
+          "title": "Импорт автомобилей из Японии в 2026 году: грядущие изменения на ...",
+          "url": "https://mycarjp.ru/blog/import-avtomobiley-iz-yaponii-v-2026/",
+          "snippet": "Полное руководство по растаможке автомобиля из Японии в 2026 году. Таблицы пошлин, калькулятор утильсбора, новые правила с 1 декабря 2025, всё в одной статье."
+        },
+        {
+          "title": "Сколько стоит растаможить авто из Японии в 2026 году: полный расчёт ...",
+          "url": "https://onlyjpcars.ru/blog/rastamojit-avto-iz-yaponii-2026",
+          "snippet": "Давайте поговорим о правилах ввоза авто из Японии в 2026 году и разложим все по полочкам. Первый важный момент: как считается та самая финальная таможенная пошлина на ввоз машин из Японии. Тут нет волшебной формулы типа «цена плюс кусочек налогов». Таможня оперирует «таможенной стоимостью»."
+        },
+        {
+          "title": "Растаможка 2026: новые правила и их влияние на пошлины для авто",
+          "url": "https://dzen.ru/a/aTbQ3JmXjixmmiM0",
+          "snippet": "Актуальный расчёт таможенных пошлин и утилизационного сбора на авто из Японии в 2026 году. Таблицы, примеры для Toyota, Mazda, Lexus, льготный утильсбор. Методика OnlyJPCars."
+        }
+      ],
+      "searched_at": "2026-07-18"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "авто из японии владивосток 2026",
+      "purpose": "вторичный запрос: авто из японии владивосток",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Купить авто из Японии в 2026 году — пошаговая схема от аукциона до ...",
+          "url": "https://vc.ru/money/2909067-kupit-avto-iz-yaponii-poshagovaya-shema",
+          "snippet": ""
+        },
+        {
+          "title": "Авто из Японии под заказ с доставкой во Владивостоке",
+          "url": "https://japanlife-auto.ru/",
+          "snippet": "Покупка авто из Японии в 2026 году — это не «выбрал лот и через две недели катаешься». Это последовательность из 8-10 этапов, в каждом из которых может застрять и сделка, и деньги."
+        },
+        {
+          "title": "Авто из Японии, Кореи и Китая с доставкой во Владивосток — Владдилер",
+          "url": "https://vladdiler.ru/",
+          "snippet": "Покупка и доставка автомобилей из Японии, отправка по России. Уникальный каталог Японских авто с выбором комплектаций и модификаций авто, цены со всеми расходами во Владивостоке."
+        },
+        {
+          "title": "Фрахт и логистика: как автомобили попадают из Японии во Владивосток",
+          "url": "https://peregonpro.ru/poleznoe/fraht-i-logistika-kak-avtomobili-popadayut-iz-yaponii-vo-vladivostok/",
+          "snippet": "Подбор, покупка и доставка автомобилей из Японии, Кореи и Китая в РФ под ключ во Владивостоке. Прозрачная схема работы, проверенные аукционы, контрактные авто. Рассчитаем стоимость бесплатно!"
+        },
+        {
+          "title": "Авто из Японии | Автомобили из Японии - купить под заказ во Владивостоке",
+          "url": "https://autoland-dv.com/japan/",
+          "snippet": "От аукциона в Японии до получения ключей во Владивостоке: полный путь автомобиля. Сроки доставки, этапы фрахта, таможенное оформление, риски и реалии 2026 года."
+        },
+        {
+          "title": "Nohara Auto - Авто Из Японии Под Заказ",
+          "url": "https://noharaauto.com/",
+          "snippet": "Доставка авто из Японии включает не только перевозку до Владивостока, но и решение всех формальных вопросов. Мы берём на себя оформление документов, прохождение таможни и выдачу ПТС. Клиент получает: возможность забрать машину во Владивостоке или оформить доставку в свой регион."
+        }
+      ],
+      "searched_at": "2026-07-18"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "японский аукцион растаможка 2026",
+      "purpose": "вторичный запрос: японский аукцион растаможка",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Купить авто из Японии в 2026 году — пошаговая схема от аукциона до ...",
+          "url": "https://vc.ru/money/2909067-kupit-avto-iz-yaponii-poshagovaya-shema",
+          "snippet": ""
+        },
+        {
+          "title": "Ввезти авто из Японии летом 2026: полный расклад цен — от аукциона до ...",
+          "url": "https://auto.yuga.ru/articles/2663.html",
+          "snippet": "Покупка авто из Японии в 2026 году — это не «выбрал лот и через две недели катаешься». Это последовательность из 8-10 этапов, в каждом из которых может застрять и сделка, и деньги."
+        },
+        {
+          "title": "Растаможка авто из Японии в 2026 году: актуальные ставки пошлин и ...",
+          "url": "https://seite1.ru/obzory-i-sovety/rastamozhka-avto-iz-yaponii-v-2026-godu-aktualnye-stavki-poshlin-i-polnyj-raschet-platezhej/.html",
+          "snippet": "Привезти японский автомобиль летом 2026 года — реально. И для многих жителей Дальнего Востока и Сибири это по-прежнему выгоднее, чем покупать аналогичный по качеству европейский или ..."
+        },
+        {
+          "title": "Растаможка Авто Из Японии 2026: Цена И Пошлины | Azway",
+          "url": "https://azway.ru/blog/rastamozhka-avto-iz-yaponii-2026",
+          "snippet": "В 2026 году в правилах и ставках произошли важные изменения, которые напрямую влияют на конечную цену. В этой статье мы подробно разберем актуальные ставки пошлин, расскажем, как правильно рассчитать все платежи, и приведем наглядные примеры.Более подробную информацию можно посмотреть здесь."
+        },
+        {
+          "title": "Сколько стоит растаможить авто из Японии в 2026 году: полный расчёт ...",
+          "url": "https://onlyjpcars.ru/blog/rastamojit-avto-iz-yaponii-2026",
+          "snippet": "Полное руководство по растаможке автомобиля из Японии в 2026 году. Таблицы пошлин, калькулятор утильсбора, новые правила с 1 декабря 2025, всё в одной статье."
+        },
+        {
+          "title": "Как растаможить авто из Японии в 2026 году: пошаговая инструкция",
+          "url": "https://avto-listing.ru/blog/kak-rastamozhit-avto-iz-yaponii-2026",
+          "snippet": "В этой статье — полная актуальная методика 2026 года: что входит, как считается и как проверить цифры самостоятельно."
+        }
+      ],
+      "searched_at": "2026-07-18"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Растаможка авто из Японии: обновлённый чек-лист на 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Растаможка авто из Японии: полный разбор стоимости и калькулятор 2025",
+          "url": "https://importex.pro/to/rastamozhka-avto-iz-yaponii.html",
+          "snippet": ""
+        },
+        {
+          "title": "Калькулятор растаможки авто из Японии в Россию",
+          "url": "https://calc-rastamozhki-avto.ru/yaponiya/",
+          "snippet": "Растаможка авто из Японии 2025: калькулятор, цены, пошлины, НДС и утильсбор. Полное руководство от выбора до постановки на учет в России от Импортэкс 🚗."
+        },
+        {
+          "title": "Калькулятор растаможки автомобилей из Японии - Токай Авто",
+          "url": "https://tokai-auto.ru/calculator/",
+          "snippet": "Калькулятор растаможки автомобилей из Японии в Россию в 2026 году. Простой и точный расчет таможенных пошлин и платежей для вашего автомобиля с учетом актуальных официальных ставок и пошлин."
+        },
+        {
+          "title": "Калькулятор растаможки авто 2026 — онлайн расчёт пошлины машины: точный ...",
+          "url": "https://top-autoimport.ru/kalkulyator-rastamozhki",
+          "snippet": "Рассчитайте стоимость растаможки автомобилей из Японии с помощью нашего калькулятора. Узнайте актуальные расценки на растаможку, включая все сборы и пошлины для автомобилей 2024 года и старше. Быстрая и удобная процедура расчета."
+        },
+        {
+          "title": "Растаможка автомобиля из Японии в 2026 году: полный расчёт стоимости",
+          "url": "https://autoprofiasia.ru/article.php?slug=rastamozhka-avto-iz-yaponii-2026",
+          "snippet": "Рассчитайте стоимость растаможки автомобиля онлайн за несколько секунд. Калькулятор учитывает все обязательные таможенные платежи при ввозе легкового автомобиля в Россию: таможенную пошлину, утилизационный сбор, таможенный сбор, акциз и НДС — по актуальным ставкам ФТС России на 2026 год."
+        },
+        {
+          "title": "Калькулятор растаможки авто из Японии 2026 | Стоимость ввоза авто в ...",
+          "url": "https://bravomotorrs.com/calculator/japan/",
+          "snippet": "Сколько стоит растаможить автомобиль из Японии в 2026 году? Таблицы пошлин, расчёт для физических лиц, утилизационный сбор и полная стоимость под ключ с примерами."
+        }
+      ],
+      "searched_at": "2026-07-18"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://seite1.ru/obzory-i-sovety/rastamozhka-avto-iz-yaponii-v-2026-godu-aktualnye-stavki-poshlin-i-polnyj-raschet-platezhej/.html",
+      "title": "Растаможка авто из Японии в 2026 году: актуальные ставки пошлин и ...",
+      "from_query": "растаможка авто из японии 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/rastamozhka-avto-iz-yaponii-2026",
+      "title": "Растаможка Авто Из Японии 2026: Цена И Пошлины | Azway",
+      "from_query": "растаможка авто из японии 2026"
+    },
+    {
+      "url": "https://calc-up.ru/kalkulyator-avto-iz-yaponii",
+      "title": "Растаможка авто из Японии в 2026: калькулятор, пошлины, стоимость",
+      "from_query": "растаможка авто из японии 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/article.php?slug=rastamozhka-avto-iz-yaponii-2026",
+      "title": "Растаможка автомобиля из Японии в 2026 году: полный расчёт стоимости",
+      "from_query": "растаможка авто из японии 2026"
+    },
+    {
+      "url": "https://building-ooo.ru/vse-dlya-stroitelstva-stati/rastamozhka-avto-iz-yaponii-v-2026-godu-polnoe-rukovodstvo-dlya-nachinayushhix/.html",
+      "title": "Растаможка авто из Японии в 2026 году: полное руководство для начинающих",
+      "from_query": "растаможка авто из японии 2026"
+    },
+    {
+      "url": "https://calculatorov.ru/kalkulyator-rastamozhki-2026/",
+      "title": "Калькулятор растаможки 2026: расчёт пошлины и утильсбора",
+      "from_query": "растаможка авто из японии 2026"
+    },
+    {
+      "url": "https://calc-rastamozhki-avto.ru/yaponiya/",
+      "title": "Калькулятор растаможки авто из Японии - точный расчет таможенных ...",
+      "from_query": "растаможка авто из японии июль 2026"
+    },
+    {
+      "url": "https://sakhavto.ru/news/rastamozhka-avto-iz-yaponii-2026",
+      "title": "Растаможка авто из Японии 2026 | АВТОСАХ.РФ",
+      "from_query": "растаможка авто из японии июль 2026"
+    },
+    {
+      "url": "https://calcal.ru/rastamozka-avto-iz-yaponii-2026",
+      "title": "Растаможка авто из Японии 2026 | calcal.ru",
+      "from_query": "растаможка авто из японии июль 2026"
+    },
+    {
+      "url": "https://sakhavto.ru/zh/news/rastamozhka-avto-iz-yaponii-2026",
+      "title": "Растаможка авто из Японии 2026 | АВТОСАХ.РФ",
+      "from_query": "растаможка авто из японии новости 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/aTbQ3JmXjixmmiM0",
+      "title": "Растаможка 2026: новые правила и их влияние на пошлины для авто",
+      "from_query": "растаможка авто из японии новости 2026"
+    },
+    {
+      "url": "https://avto-listing.ru/blog/kak-rastamozhit-avto-iz-yaponii-2026",
+      "title": "Как растаможить авто из Японии в 2026 году: пошаговая инструкция",
+      "from_query": "растаможка авто из японии новости 2026"
+    },
+    {
+      "url": "https://github.com/kudryashov20091991-lang/calculator-auto-2026",
+      "title": "kudryashov20091991-lang/calculator-auto-2026 - GitHub",
+      "from_query": "site:github.com растаможка авто из японии 2026"
+    },
+    {
+      "url": "https://github.com/markolofsen/tks-api",
+      "title": "Tks-api: Калькулятор Таможенных Платежей Для Автомобилей",
+      "from_query": "site:github.com растаможка авто из японии 2026"
+    },
+    {
+      "url": "https://github.com/FeT677/JapanCalculator",
+      "title": "GitHub - FeT677/JapanCalculator: Автоматический расчёт всех расходов ...",
+      "from_query": "site:github.com растаможка авто из японии 2026"
+    },
+    {
+      "url": "https://github.com/MASTER116/aizavod-platform/blob/master/data/certifier/parallel_import.txt",
+      "title": "aizavod-platform/data/certifier/parallel_import.txt at master ... - GitHub",
+      "from_query": "site:github.com растаможка авто из японии 2026"
+    },
+    {
+      "url": "https://github.com/Hetarth1/Neon-Tic-Tac-Toe/blob/main/sound-volume.svg",
+      "title": "Neon-Tic-Tac-Toe/sound-volume.svg at main - GitHub",
+      "from_query": "site:github.com растаможка авто из японии 2026"
+    },
+    {
+      "url": "https://github.com/AjayAsirSamuel/TASK2-ONLINE-LEARNING-PLATFORM/blob/main/category-1.svg",
+      "title": "TASK2-ONLINE-LEARNING-PLATFORM/category-1.svg at main - GitHub",
+      "from_query": "site:github.com растаможка авто из японии 2026"
+    },
+    {
+      "url": "https://rastamozhka-calc.ru/dokumenty-dlya-rastamozhki/",
+      "title": "Документы для растаможки авто — полный список 2026",
+      "from_query": "растаможка авто из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://autobarnhk.ru/tpost/4vstpa9hh1-import-avto-iz-yaponii-poshagovii-gaid",
+      "title": "Как привезти авто из Японии в 2026: пошаговая инструкция с расчётом ...",
+      "from_query": "растаможка авто из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://avtovoz.clever-logistics.ru/articles/tamozhennoe-oformlenie-avtomobilej-polnoe-rukovodstvo",
+      "title": "Таможенное оформление автомобилей 2026: инструкция по растаможке авто ...",
+      "from_query": "растаможка авто из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://mycarjp.ru/blog/import-avtomobiley-iz-yaponii-v-2026/",
+      "title": "Импорт автомобилей из Японии в 2026 году: грядущие изменения на ...",
+      "from_query": "растаможка авто из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/rastamojit-avto-iz-yaponii-2026",
+      "title": "Сколько стоит растаможить авто из Японии в 2026 году: полный расчёт ...",
+      "from_query": "растаможка авто из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://vc.ru/money/2909067-kupit-avto-iz-yaponii-poshagovaya-shema",
+      "title": "Купить авто из Японии в 2026 году — пошаговая схема от аукциона до ...",
+      "from_query": "авто из японии владивосток 2026"
+    },
+    {
+      "url": "https://japanlife-auto.ru/",
+      "title": "Авто из Японии под заказ с доставкой во Владивостоке",
+      "from_query": "авто из японии владивосток 2026"
+    },
+    {
+      "url": "https://vladdiler.ru/",
+      "title": "Авто из Японии, Кореи и Китая с доставкой во Владивосток — Владдилер",
+      "from_query": "авто из японии владивосток 2026"
+    },
+    {
+      "url": "https://peregonpro.ru/poleznoe/fraht-i-logistika-kak-avtomobili-popadayut-iz-yaponii-vo-vladivostok/",
+      "title": "Фрахт и логистика: как автомобили попадают из Японии во Владивосток",
+      "from_query": "авто из японии владивосток 2026"
+    },
+    {
+      "url": "https://autoland-dv.com/japan/",
+      "title": "Авто из Японии | Автомобили из Японии - купить под заказ во Владивостоке",
+      "from_query": "авто из японии владивосток 2026"
+    },
+    {
+      "url": "https://noharaauto.com/",
+      "title": "Nohara Auto - Авто Из Японии Под Заказ",
+      "from_query": "авто из японии владивосток 2026"
+    },
+    {
+      "url": "https://auto.yuga.ru/articles/2663.html",
+      "title": "Ввезти авто из Японии летом 2026: полный расклад цен — от аукциона до ...",
+      "from_query": "японский аукцион растаможка 2026"
+    },
+    {
+      "url": "https://importex.pro/to/rastamozhka-avto-iz-yaponii.html",
+      "title": "Растаможка авто из Японии: полный разбор стоимости и калькулятор 2025",
+      "from_query": "Растаможка авто из Японии: обновлённый чек-лист на 2026 2026"
+    },
+    {
+      "url": "https://tokai-auto.ru/calculator/",
+      "title": "Калькулятор растаможки автомобилей из Японии - Токай Авто",
+      "from_query": "Растаможка авто из Японии: обновлённый чек-лист на 2026 2026"
+    },
+    {
+      "url": "https://top-autoimport.ru/kalkulyator-rastamozhki",
+      "title": "Калькулятор растаможки авто 2026 — онлайн расчёт пошлины машины: точный ...",
+      "from_query": "Растаможка авто из Японии: обновлённый чек-лист на 2026 2026"
+    },
+    {
+      "url": "https://bravomotorrs.com/calculator/japan/",
+      "title": "Калькулятор растаможки авто из Японии 2026 | Стоимость ввоза авто в ...",
+      "from_query": "Растаможка авто из Японии: обновлённый чек-лист на 2026 2026"
+    }
+  ]
+}

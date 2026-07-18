@@ -1,0 +1,24 @@
+{
+  "article": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 2,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 1,
+  "facts": [
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "++; углублённый Diagnostic++ анонсировали в июле 2025). Это проверка на стороне Encar, а не русский сай",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 минут",
+      "kind": "metric_or_duration",
+      "context": "сивые фото. Ниже – короткий ритуал чтения лота за 10 минут: поля, схема кузова X/W, красные флаги и стоп до",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    }
+  ]
+}

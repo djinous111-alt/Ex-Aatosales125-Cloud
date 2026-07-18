@@ -354,6 +354,76 @@ category: env
 ### Fixer resolution
 - pending
 
+## INC-20260718-1154-geo-qa-cta-redacted-href
+status: open
+run_date: 2026-07-18
+role: excalibur-blog-geo-qa
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: qa
+
+### What went wrong
+- Writer left literal `href="[REDACTED]"` for catalog/Telegram CTAs after secret-scan block.
+- `excalibur_blog_link_verify.py` classifies `[REDACTED]` as internal_relative and checks `SITE/[REDACTED]` → HTTP 404 → link-verify FAIL.
+- Writer incident claimed AS08/AS09 use the same placeholder pattern; committed AS08/AS09 HTML keep live public marketing URLs (25-char catalog/Telegram hrefs), not the 10-char literal `[REDACTED]`.
+
+### How the agent recovered this run
+- Restored CTA hrefs from env `CATALOG_URL`×2 and `TELEGRAM_URL`×1 (public marketing URLs, same as AS09).
+- Re-ran link-verify → PASS (4/4).
+- Kept relative internal blog link `/blog/trust-encar-carhistory-proverka-do-depozita/`.
+
+### Durable fix needed before next run
+- Correct Writer skill/pitfalls: do **not** write literal `[REDACTED]` into hrefs — it breaks link-verify.
+- Prefer live public catalog/Telegram URLs in article.html (AS09 pattern) OR relative site paths; if secret-scan blocks commit, redact only in commit staging / publish artifacts, not in QA-time HTML.
+- Update INC-20260718-1150 recovery guidance accordingly.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_link_verify.py` (optional soft-skip for placeholder hrefs — not preferred)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260718-1154-geo-qa-utility-pain-outcome-policy
+status: open
+run_date: 2026-07-18
+role: excalibur-blog-geo-qa
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always enforced `min_pain_markers=2` and `min_outcome_markers=3` even when `pain_markers_ru` / `outcome_markers_ru` were missing from `memory/brief/editorial-policy.json`.
+- Empty marker lists → count 0 → utility gate BLOCK for every article (including previously PASS AS09).
+
+### How the agent recovered this run
+- Added `pain_markers_ru` / `outcome_markers_ru` (+ mins) to `memory/brief/editorial-policy.json`, aligned with `excalibur_blog_human_voice_gate.py` marker lists.
+- Hardened script: enforce pain/outcome only when marker lists are configured in policy.
+- Re-ran utility gate on AS02 and AS09 → PASS.
+
+### Durable fix needed before next run
+- Keep policy marker lists in sync with human-voice gate constants (or share one source).
+- Add a unit/smoke check that utility gate PASS is possible on a known-good article fixture.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/editorial-utility-only.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

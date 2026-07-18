@@ -111,3 +111,11 @@ git add .github/workflows/cloud-preflight.yml
 git commit -m "Add cloud preflight workflow"
 git push
 ```
+
+## Secrets
+
+Required Cloud Secrets / env (never commit real values):
+
+- `SSH_*`, `PUBLIC_SITE_URL`, `EXCALIBUR_BLOG_ALLOW_PUBLISH`
+- `KIE_API_KEY` — Kie.ai GPT Image 2 cover i2i (`https://kie.ai/gpt-image-2?model=gpt-image-2-image-to-image`). Used by `scripts/excalibur_blog_kie_gpt_image2_api.py`. Local copy may live in gitignored `memory/site.env.local`.
+

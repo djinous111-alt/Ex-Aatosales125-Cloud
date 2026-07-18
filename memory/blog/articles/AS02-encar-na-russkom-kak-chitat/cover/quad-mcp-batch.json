@@ -1,6 +1,6 @@
 {
   "pipeline": "quad_canvas_1x_image_api",
-  "reference_url_hosted": "[REDACTED]/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+  "reference_url_hosted": "http://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
   "output_canvas": "cover/canvas-quad.png",
   "expected_runtime_seconds": 900,
   "preferred_image_flow": {
@@ -36,13 +36,13 @@
     {
       "slot": "canvas_quad",
       "tool": "gpt-image-2",
-      "note": "ONE successful image only — 4 panels inside, then excalibur_blog_cover_quad_split.py. Prefer async start/status tools when available. HTTP -32001 from sync gpt-image-2 means client timeout; do not blindly retry sync create.",
+      "note": "ONE Kie gpt-image-2-image-to-image via scripts/excalibur_blog_kie_gpt_image2_api.py",
       "api_args": {
         "model": "gpt-image-2-image-to-image",
         "input": {
           "prompt": "Russian human-made Excalibur BLOG hook collage on PURE WHITE #FFFFFF. Zine DIY: torn paper, scotch tape, pink sticky notes, marker arrows, fake RU UI, meme cutouts. Bold Cyrillic. Hot accents. Not corporate.\nSingle 2048x1152 canvas, exact 2x2 grid, four equal 16:9 panels (1024x576). Thin center gutters only; no bleed.\nWhite #FFFFFF base on all panels. Non-toxic stickers: no insults, no «лох».\nREFERENCE FACE only top-left: keep glasses/face likeness. Outfit: dark neat casual jacket (Vladivostok evening Encar vibe), NOT reference tee, NO cap/hood/headphones. Holds smartphone.\nTop-left COVER: hook «Красивое фото ещё не проверка лота»; caption «Не бери кота в мешке»; phone shows fake Encar card (price/mileage/Performance Check); pink sticky «стоп до депозита»; shocked cat meme; yellow highlight; corner avto-sales125.ru; NO Wordstat/Metrika/Telegram handle.\nTop-right: tool screenshot — Russian mirror vs live encar.com Performance Check; arrow «открой живую»; sticky «зеркало ≠ проверка»; NO hero.\nBottom-left: checklist table 5 Encar fields (цена, пробег, тип продажи, год/модель, фото) + timer «10 мин»; NO hero.\nBottom-right: car body scheme X=замена W=работа on pillars; arrow «силовые = стоп»; steps open→X/W→verdict; NO hero.\nNegative: beige/gray/gradient backgrounds, English UI, watermark, 9:16, corporate stock, extra faces on inline, toxic slang.",
           "input_urls": [
-            "[REDACTED]/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png"
+            "http://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png"
           ],
           "aspect_ratio": "16:9",
           "resolution": "2K"
@@ -51,7 +51,7 @@
       "mcp_args": {
         "prompt": "Russian human-made Excalibur BLOG hook collage on PURE WHITE #FFFFFF. Zine DIY: torn paper, scotch tape, pink sticky notes, marker arrows, fake RU UI, meme cutouts. Bold Cyrillic. Hot accents. Not corporate.\nSingle 2048x1152 canvas, exact 2x2 grid, four equal 16:9 panels (1024x576). Thin center gutters only; no bleed.\nWhite #FFFFFF base on all panels. Non-toxic stickers: no insults, no «лох».\nREFERENCE FACE only top-left: keep glasses/face likeness. Outfit: dark neat casual jacket (Vladivostok evening Encar vibe), NOT reference tee, NO cap/hood/headphones. Holds smartphone.\nTop-left COVER: hook «Красивое фото ещё не проверка лота»; caption «Не бери кота в мешке»; phone shows fake Encar card (price/mileage/Performance Check); pink sticky «стоп до депозита»; shocked cat meme; yellow highlight; corner avto-sales125.ru; NO Wordstat/Metrika/Telegram handle.\nTop-right: tool screenshot — Russian mirror vs live encar.com Performance Check; arrow «открой живую»; sticky «зеркало ≠ проверка»; NO hero.\nBottom-left: checklist table 5 Encar fields (цена, пробег, тип продажи, год/модель, фото) + timer «10 мин»; NO hero.\nBottom-right: car body scheme X=замена W=работа on pillars; arrow «силовые = стоп»; steps open→X/W→verdict; NO hero.\nNegative: beige/gray/gradient backgrounds, English UI, watermark, 9:16, corporate stock, extra faces on inline, toxic slang.",
         "input_urls": [
-          "[REDACTED]/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png"
+          "http://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png"
         ],
         "aspect_ratio": "16:9",
         "resolution": "2K"

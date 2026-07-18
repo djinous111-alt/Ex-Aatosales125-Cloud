@@ -64,3 +64,11 @@
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
 - `llms*.txt` / `interlink-suggestions.json` коммить только с `site_base=[REDACTED]` (`--commit-safe` default). Live `PUBLIC_SITE_URL` — только working-tree `--no-commit-safe` перед upload.
+
+## Cover / Kie GPT Image 2
+
+- Preferred path: Cloud Secret / `memory/site.env.local` → `KIE_API_KEY` → `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir …` then `quad_apply --inject-html`.
+- Docs: https://kie.ai/gpt-image-2?model=gpt-image-2-image-to-image
+- `createTask` code `402 Credits insufficient` = key valid but balance too low (check `GET https://api.kie.ai/api/v1/chat/credit`). Top up before regenerating covers.
+- Do not leave `reference_url_hosted` as `[REDACTED]/…` in `quad-mcp-batch.json`; restore from `memory/cover/blog-hero.json`.
+

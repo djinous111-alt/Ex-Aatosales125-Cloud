@@ -242,6 +242,19 @@ def main() -> int:
     args = ap.parse_args()
 
     root = project_root()
+    # Prefer process env; fall back to gitignored memory/site.env.local (never commit the key).
+    if not os.environ.get(args.api_key_env, "").strip():
+        local_env = root / "memory/site.env.local"
+        if local_env.is_file():
+            for line in local_env.read_text(encoding="utf-8").splitlines():
+                line = line.strip()
+                if line.startswith("#") or "=" not in line:
+                    continue
+                k, v = line.split("=", 1)
+                if k.strip() == args.api_key_env and v.strip():
+                    os.environ[args.api_key_env] = v.strip()
+                    break
+
     batch_path = resolve_path(root, args.article_dir, args.batch)
     result_path = resolve_path(root, args.article_dir, args.result)
     task_record_path = resolve_path(root, args.article_dir, args.task_record)

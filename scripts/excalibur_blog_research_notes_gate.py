@@ -73,24 +73,81 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_in_blob(marker: str, blob: str) -> bool:
+    """Substring for long stems; word-boundary for short tokens (avoid японии→ии)."""
+    m = marker.lower()
+    if len(m) <= 3:
+        return bool(re.search(rf"(?<![a-zа-яё0-9]){re.escape(m)}(?![a-zа-яё0-9])", blob, flags=re.I))
+    return m in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Technical only from topic card / context — not research-notes body.
+
+    Notes often mention github_evidence, MCP/Wordstat tooling for non-tech
+    auto topics; scanning the body false-positives technical_topic=true.
+    """
+    del notes  # kept for call-site compatibility
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
-        for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
+        for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug", "topic_id")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    return any(_marker_in_blob(marker, blob) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:
     if field == "utility_verdict: PASS":
         return bool(re.search(r"utility[_\s-]*verdict\s*:\s*pass", text_lower, flags=re.I))
+    if field == "accessed_at":
+        # Header column `accessed_at` or labeled `accessed_at: YYYY-MM-DD`
+        return bool(re.search(r"\baccessed_at\b", text_lower))
     if field in {"action_outline", "github_evidence", "pain_solution_map"}:
         field_pattern = re.escape(field).replace("_", r"[_\s-]")
         return bool(re.search(rf"^\s*##\s*\d*\.?\s*{field_pattern}\b", text_lower, flags=re.I | re.M))
     field_pattern = re.escape(field).replace("_", r"[_\s-]")
     return bool(re.search(rf"\b{field_pattern}\b\s*:", text_lower, flags=re.I))
+
+
+ISO_DATE_RE = re.compile(r"20\d{2}-\d{2}-\d{2}")
+
+
+def count_accessed_at_table_dates(text: str) -> int:
+    """Count ISO dates in a markdown table column whose header is accessed_at."""
+    count = 0
+    lines = text.splitlines()
+    i = 0
+    while i < len(lines):
+        if "|" not in lines[i]:
+            i += 1
+            continue
+        table_lines: list[str] = []
+        while i < len(lines) and "|" in lines[i]:
+            table_lines.append(lines[i])
+            i += 1
+        if len(table_lines) < 2:
+            continue
+        headers = [c.strip().lower() for c in table_lines[0].strip().strip("|").split("|")]
+        idx = next((hi for hi, h in enumerate(headers) if "accessed_at" in h.replace(" ", "")), None)
+        if idx is None:
+            continue
+        for row in table_lines[1:]:
+            if re.match(r"^\s*\|?[\s|:-]+$", row):
+                continue
+            cells = [c.strip() for c in row.strip().strip("|").split("|")]
+            if idx >= len(cells):
+                continue
+            if ISO_DATE_RE.search(cells[idx]):
+                count += 1
+    return count
+
+
+def count_accessed_dates(text: str) -> int:
+    """Accept labeled cells or ISO dates under an accessed_at column header."""
+    labeled = len(re.findall(r"\baccessed_at\b\s*:\s*20\d{2}-\d{2}-\d{2}", text, flags=re.I))
+    column_dates = count_accessed_at_table_dates(text)
+    # Prefer the stronger signal; avoid double-counting mixed labeled+column rows.
+    return max(labeled, column_dates)
 
 
 def validate_research_notes(article_dir: Path) -> dict[str, Any]:
@@ -130,7 +187,7 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_dates(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
     pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
     action_items = count_action_items(text)

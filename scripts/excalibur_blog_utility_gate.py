@@ -28,7 +28,7 @@ def save_json(path: Path, data: dict[str, Any]) -> None:
 
 def parse_topic_card(topics_path: Path, topic_id: str) -> dict[str, str]:
     text = topics_path.read_text(encoding="utf-8")
-    pattern = rf"##\s+{re.escape(topic_id)}\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+[A-Z]\d+|\Z)"
+    pattern = rf"##\s+{re.escape(topic_id)}\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)"
     match = re.search(pattern, text, re.DOTALL | re.IGNORECASE)
     if not match:
         raise ValueError(f"topic card not found: {topic_id}")

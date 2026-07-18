@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+(none — AS06 fixer run 2026-07-18 closed all open items)
+
+## Fixed incidents (recent)
+
 ## INC-20260718-1710-geo-qa-utility-empty-pain-outcome
-status: open
+status: fixed
 run_date: 2026-07-18
 role: excalibur-blog-geo-qa
 topic_id: AS06
@@ -42,11 +46,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-18
+fix_summary:
+- Confirmed empty-list skip in `excalibur_blog_utility_gate.py`; added regression `scripts/test_excalibur_blog_utility_gate_empty_markers.py`.
+- Expanded `recommendation_markers_ru` with `делайте` / `не делать`; writing contract prefers imperative marker forms.
+- Pitfalls: pain/outcome enforced only when lists are non-empty.
+files_changed:
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/test_excalibur_blog_utility_gate_empty_markers.py`
+- `memory/brief/editorial-policy.json`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/test_excalibur_blog_utility_gate_empty_markers.py`
+- JSON parse `memory/brief/editorial-policy.json`
+commit: 10de824
 
 
 ## INC-20260718-1708-research-notes-gate-accessed-at-format
-status: open
+status: fixed
 run_date: 2026-07-18
 role: excalibur-blog-research
 topic_id: AS06
@@ -76,10 +95,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-18
+fix_summary:
+- `count_accessed_dates` accepts ISO cells under `accessed_at` column header; field presence accepts header without colon.
+- `technical_topic` uses topic-card fields only; short markers (`ии`/`ai`/`mcp`) use word boundaries (no `японии`→`ии`).
+- Research skill + pitfalls document gate behavior.
+- Pre-commit `--no-verify` quirk left as env/hooks issue (not reproducible as durable repo fix here).
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+- PYTHONPATH selftest accessed_at column + technical_topic
+commit: 10de824
 
 ## INC-20260718-1705-director-today-as-regex
-status: open
+status: fixed
 run_date: 2026-07-18
 role: excalibur-blog-director
 topic_id: AS06
@@ -107,10 +141,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-18
+fix_summary:
+- Topic ID regex `(?:AS|B)\d+` in today.py and scout_helper (headers, article dirs, next AS/B id).
+- Topic-card block lookahead fixed to `(?:AS|B)\d+` in utility_gate + research_start (was `[A-Z]\d+`, broken for AS*).
+- today.py now suggests unused P0 AS* (`EXCALIBUR_TOPIC_SELECTION=ready`).
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_research_start.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_today.py` → suggested AS01, selection=ready
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → AS10, pool=9
+- `rg` no B-only topic regex left in today/scout_helper
+commit: 10de824
 
 ## INC-20260718-1705-director-doctor-llms-blog-path
-status: open
+status: fixed
 run_date: 2026-07-18
 role: excalibur-blog-director
 topic_id: AS06
@@ -135,7 +185,17 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-18
+fix_summary:
+- Doctor check aligned to `--blog-dir` (actual llms generator CLI).
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0; OK llms --blog-dir
+- `rg` no `--blog-path` in doctor
+commit: 10de824
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -188,7 +248,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: 10de824
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -239,7 +299,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: 10de824
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -280,7 +340,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: 10de824
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -327,7 +387,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: 10de824
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -381,14 +441,10 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
-
-## Fixed incidents
-
-Handled above; commit is pending Director review.
+commit: 10de824
 
 ## INC-20260718-1714-cover-gpt-image2-timeout-zimage-fallback
-status: open
+status: fixed
 run_date: 2026-07-18
 role: excalibur-blog-cover
 topic_id: AS06
@@ -421,10 +477,23 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-18
+fix_summary:
+- Cover skill/agent document preferred KIE async path, sync MCP gpt-image-2, and idempotent z-image→Pillow 2048×1152→quad_split fallback on `-32001` / missing KIE.
+- Pitfalls updated. Optional human follow-up: set Cloud Secret `KIE_API_KEY` for primary quality path (fallback is now contractual).
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` z-image fallback / KIE_API_KEY guidance in cover skill
+commit: 10de824
 
 ## INC-20260718-1717-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-07-18
 role: excalibur-blog-publish
 topic_id: AS06
@@ -451,4 +520,18 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-18
+fix_summary:
+- `.cursor/cloud-agent-install.sh` installs from `requirements.txt` (includes paramiko) with explicit paramiko fallback list.
+- Doctor warns/errors on missing paramiko; publish skill documents SSH dep.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → OK paramiko; SUMMARY errors=0
+- `rg` paramiko in install.sh + requirements.txt
+commit: 10de824

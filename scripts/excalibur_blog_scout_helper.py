@@ -10,6 +10,16 @@ import sys
 from pathlib import Path
 from typing import Any
 
+# Topic IDs: legacy B01+ and Autosaless AS01+
+TOPIC_ID = r"(?:AS|B)\d+"
+TOPIC_HEADER_RE = re.compile(
+    rf"##\s+({TOPIC_ID})\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)|\Z)",
+    re.DOTALL | re.IGNORECASE,
+)
+ARTICLE_DIR_RE = re.compile(rf"^({TOPIC_ID})-", re.IGNORECASE)
+TOPIC_NUM_RE = re.compile(r"^(AS|B)(\d+)$", re.IGNORECASE)
+
+
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
@@ -34,7 +44,7 @@ def load_active_article_topics(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = ARTICLE_DIR_RE.match(path.name)
         if match:
             active.add(match.group(1).upper())
     return active
@@ -46,7 +56,7 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
     if not topics_path.is_file():
         return topics
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in TOPIC_HEADER_RE.finditer(text):
         topic_id = match.group(1).upper()
         block = match.group(2)
         
@@ -130,14 +140,30 @@ def main() -> int:
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
-        max_num = 0
+        max_as = 0
+        max_b = 0
+        as_count = 0
+        b_count = 0
         for t in existing:
-            m = re.match(r"B(\d+)", t["topic_id"])
-            if m:
-                max_num = max(max_num, int(m.group(1)))
-        
-        next_id = f"B{max_num + 1:02d}"
+            m = TOPIC_NUM_RE.match(t["topic_id"])
+            if not m:
+                continue
+            prefix, num = m.group(1).upper(), int(m.group(2))
+            if prefix == "AS":
+                max_as = max(max_as, num)
+                as_count += 1
+            else:
+                max_b = max(max_b, num)
+                b_count += 1
+
+        # Prefer the dominant series in the pool (AS for Autosaless blog).
+        if as_count >= b_count:
+            next_id = f"AS{max_as + 1:02d}"
+        else:
+            next_id = f"B{max_b + 1:02d}"
         print(f"Next available topic ID: {next_id}")
+        if as_count and b_count:
+            print(f"Also available: AS{max_as + 1:02d} / B{max_b + 1:02d}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")
         print(f"Active article dirs: {sorted(active)}")

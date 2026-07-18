@@ -73,12 +73,14 @@ python scripts/excalibur_blog_quad_manifest.py --article-dir "$ARTICLE" --merge
 # 4. Промпт + batch (1 job)
 python scripts/excalibur_blog_cover_quad_prompt.py --article-dir "$ARTICLE" --write-batch
 
-# 5. ONE CallMcpTool user-mcp-kv / gpt-image-2
-#    аргументы из cover/quad-mcp-batch.json → jobs[0].mcp_args
-#    aspect_ratio: 16:9, resolution: 2K, input_urls обязателен
+# 5. Preferred: python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir "$ARTICLE"
+#    (нужен KIE_API_KEY). Else ONE CallMcpTool MCP-KV / gpt-image-2 (jobs[0].mcp_args).
+#    On -32001/timeout or missing KIE: ONE z-image 16:9 → Pillow 2048×1152 →
+#    python3 scripts/excalibur_blog_cover_quad_split.py --article-dir "$ARTICLE" --inject-html
+#    (см. skills/cover-excalibur-blog/SKILL.md). Do not launch a second gpt-image-2 job.
 
-# 6. Скачать + split + inject
-python scripts/excalibur_blog_quad_apply.py \
+# 6. Если есть URL от gpt-image-2/KIE: скачать + split + inject
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir "$ARTICLE" \
   --url "<url из MCP>" \
   --inject-html
@@ -98,6 +100,8 @@ python scripts/excalibur_blog_quad_apply.py \
 ```
 
 Перед вызовом: `tools/list` → `gpt-image-2` schema. Без `input_urls` → **❌ COVER HERO BLOCKER**.
+
+**Fallback:** sync MCP timeout (`-32001`) или нет `KIE_API_KEY` → ONE `z-image` t2i 16:9 → Pillow `canvas-quad.png` 2048×1152 → `cover_quad_split --inject-html`. Подробности в skill.
 
 ---
 

@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS07",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Оплатил — а VIN левый?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс с лупой у документов и китайского EV: проверка VIN до оплаты",
+      "scene_hint": "Владивосток порт, пасмурно; герой (reference face + glasses) в светлой smart-casual рубашке и тонком тёмно-синем пиджаке (НЕ майка с reference), держит лупу над пачкой бумаг и шильдиком VIN; рядом белый китайский EV; fake UI: чеклист документов «до оплаты» + рваный инвойс со скотчем; стикер «СТОП депозит»; мем shocked-face; уголок avto-sales125.ru; без Wordstat/Метрики/Telegram",
+      "meme_caption_ru": "Сначала бумага — потом деньги"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разделите пакет: что нужно до оплаты, а что после ввоза",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Чистая UI-таблица 2 колонки: «До оплаты» (VIN, шильдик, инвойс, контракт) vs «После ввоза» (СБКТС, ЭПТС, таможня); розовый стикер «не путать пакеты»; скотч на углу; БЕЗ лица героя",
+      "alt": "Таблица: документы до оплаты и после ввоза авто из Китая"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сверьте VIN: объявление, инвойс, контракт и шильдик",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake скрин сверки VIN: 4 поля объявление / инвойс / контракт / шильдик, зелёные галочки и одна красная «не совпало»; мини-фото шильдика; маркер-стрелка; БЕЗ лица героя, без SEO-аналитики",
+      "alt": "Скрин сверки VIN: объявление, инвойс, контракт и шильдик"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте инвойс: цена, модель и кто получает деньги",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист-доска инвойса: цена, модель, получатель денег, реквизиты; галочки и один красный флаг «получатель ≠ экспортёр»; sticky note «проверь до депозита»; БЕЗ лица героя",
+      "alt": "Чеклист проверки инвойса: цена, модель, получатель денег"
+    }
+  }
+}

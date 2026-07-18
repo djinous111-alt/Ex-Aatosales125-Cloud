@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260718-2128-cover-gpt-image2-timeout-zimage-fallback
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-cover
+topic_id: AS07
+article_dir: memory/blog/articles/AS07-dokumenty-na-avto-iz-kitaya
+severity: medium
+category: api
+
+### What went wrong
+- Preferred Kie direct API (`scripts/excalibur_blog_kie_gpt_image2_api.py`) unavailable: `KIE_API_KEY` missing in Cloud env.
+- Sync MCP `gpt-image-2` i2i (ONE call, `input_urls` set, 16:9 2K) returned `HTTP MCP -32001 Request timed out`.
+- No async create/status MCP tools; MCP logs had no late `task_id`/`url` after 15–30s polling (~1 min wait).
+- Blind second sync create avoided per `shared/mcp-image-async-contract.md`.
+
+### How the agent recovered this run
+- Documented AS06 fallback: ONE MCP `z-image` 16:9 (non-toxic prompt, no лох/лохов).
+- Downloaded result → Pillow resize to 2048×1152 → `excalibur_blog_cover_quad_split.py --inject-html`.
+- Split report PASS; 3 `<figure>` injected after H2. Cover theme OK (лупа/документы/EV); Cyrillic on z-image panels partially garbled; inline panels use silhouette placeholders (not photoreal hero face).
+
+### Durable fix needed before next run
+- Set Cloud Secret `KIE_API_KEY` so cover prefers async Kie createTask→recordInfo (avoids MCP client -32001).
+- Optionally add MCP async `gpt-image-2-create`/`gpt-image-2-status` tools per `shared/mcp-image-async-contract.md`.
+- Ensure cover skill documents z-image→Pillow 2048×1152 fallback as last resort when KIE key missing + sync MCP times out without recoverable URL.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `shared/mcp-image-async-contract.md`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- Cursor Cloud Secrets (`KIE_API_KEY`)
+
+### Secrets
+- none recorded (note: `KIE_API_KEY` was missing; do not commit keys)
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260718-2122-geo-qa-elpts-rst-links
 status: open
 run_date: 2026-07-19
@@ -399,6 +438,38 @@ category: api
 - agents/excalibur-blog-research.md
 - scripts/excalibur_blog_research_notes_gate.py
 - shared/agent-pipeline-pitfalls.md
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260718-2123-director-geo-qa-task-type-missing
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-director
+topic_id: AS07
+article_dir: memory/blog/articles/AS07-dokumenty-na-avto-iz-kitaya
+severity: medium
+category: docs
+
+### What went wrong
+- Cloud Task enum rejected `excalibur-blog-geo-qa` (not in available subagent_types).
+- Available excalibur types: research, writer, cover, schema, indexer, publish, fixer, scout — без geo-qa.
+
+### How the agent recovered this run
+- Ran GEO QA via `Task(generalPurpose)` with `.cursor/agents/excalibur-blog-geo-qa.md` + skill path; verdict PASS score 87.
+
+### Durable fix needed before next run
+- Register `excalibur-blog-geo-qa` in Cloud Task/subagent enum (`.cursor/agents/` + environment/plugin docs), or document mandatory generalPurpose fallback for GEO QA in AGENTS.md / pipeline-task-map / pitfalls.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `shared/pipeline-task-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `.cursor/environment.json` / plugin agent registration if applicable
 
 ### Secrets
 - none recorded

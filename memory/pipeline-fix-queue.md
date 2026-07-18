@@ -303,7 +303,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_today.py scripts/excalibur_blog_utility_gate.py`
 - utility topic gate PASS for AS01/AS03/AS05
 - `python3 scripts/excalibur_blog_today.py` suggests next unused P0
-commit: pending-parent-commit
+commit: 723b4f8
 
 ## INC-20260718-1145-research-wordstat-truncated-totalcount
 status: fixed
@@ -352,7 +352,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
 - rg for truncated/totalCount guidance in research skill
-commit: pending-parent-commit
+commit: 723b4f8
 
 ## INC-20260718-1150-writer-cta-url-secret-scan
 status: fixed
@@ -401,7 +401,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg for CTA URL / secret-scan guidance in writer skill and pitfalls
-commit: pending-parent-commit
+commit: 723b4f8
 
 ## INC-20260718-1154-geo-qa-cta-redacted-href
 status: fixed
@@ -451,7 +451,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg for forbidden [REDACTED] href guidance
-commit: pending-parent-commit
+commit: 723b4f8
 
 ## INC-20260718-1154-geo-qa-utility-pain-outcome-policy
 status: fixed
@@ -499,7 +499,7 @@ files_changed:
 checks_run:
 - utility article gate PASS on AS09 and AS02
 - JSON parse editorial-policy.json
-commit: pending-parent-commit
+commit: 723b4f8
 
 ## INC-20260718-1155-director-geo-qa-task-type-missing
 status: fixed
@@ -542,7 +542,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg for geo-qa generalPurpose fallback in AGENTS.md and pitfalls
-commit: pending-parent-commit
+commit: 723b4f8
 
 ## INC-20260718-1205-cover-mcp-sync-timeout-no-kie-key
 status: fixed
@@ -668,7 +668,7 @@ checks_run:
 - py_compile llms_generator + interlinker
 - llms dry-run writes [REDACTED] under commit-safe
 - interlinker report site_base == [REDACTED]
-commit: pending-parent-commit
+commit: 723b4f8
 
 ## Fixed incidents
 

@@ -321,6 +321,39 @@ category: api
 ### Fixer resolution
 - pending
 
+## INC-20260718-1150-writer-cta-url-secret-scan
+status: open
+run_date: 2026-07-18
+role: excalibur-blog-writer
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: env
+
+### What went wrong
+- Writer put live CATALOG_URL / TELEGRAM_URL / PUBLIC_SITE_URL values into article.html hrefs.
+- git commit blocked by Cursor secret scan (CURSOR_SECRET_SCAN_BLOCKED) even though these are public marketing URLs also stored as Cloud Secrets.
+
+### How the agent recovered this run
+- Replaced CTA hrefs with literal [REDACTED] placeholders (same pattern as AS08/AS09 committed HTML).
+- Internal blog link written as relative /blog/trust-encar-carhistory-proverka-do-depozita/.
+
+### Durable fix needed before next run
+- Document in Writer skill/contract: in Cloud runs, CTA hrefs for catalog/Telegram/site must be [REDACTED] (or relative paths), not env-expanded absolute URLs; publish/indexer expand them later.
+- Optionally add a writer preflight that rewrites known env URL values to [REDACTED] before commit.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/brief/conversion-map.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

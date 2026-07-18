@@ -456,7 +456,7 @@ category: docs
 - pending
 
 ## INC-20260718-1205-cover-mcp-sync-timeout-no-kie-key
-status: open
+status: fixed
 run_date: 2026-07-18
 role: excalibur-blog-cover
 topic_id: AS02
@@ -491,7 +491,41 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+- fixed (workaround 2026-07-18): recovery used z-image + Pillow composite/split after gpt-image-2/flux NoneType and nano_banana 402 credits; durable need remains: KIE_API_KEY / MCP credits / async tools
+
+## INC-20260718-1209-cover-kie-credits-none-type
+status: fixed
+run_date: 2026-07-18
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: api
+
+### What went wrong
+- Recovery gpt-image-2 @1K and flux2-pro-image-to-image returned `NoneType has no attribute get` (no URL).
+- nano_banana_2 returned Kie `402 Credits insufficient`.
+- Root cause: MCP-KV/Kie balance or null response wrapping; no KIE_API_KEY for direct async API.
+
+### How the agent recovered this run
+- Used cheap MCP-KV `z-image` (16:9) for base collage URL.
+- Pillow: upscale to 2048×1152, rebuild cover panel with `blog-hero-reference.png` + Cyrillic hooks, rebuild inline UI panels, `excalibur_blog_cover_quad_split.py --inject-html`.
+
+### Durable fix needed before next run
+- Top up MCP-KV/Kie credits for gpt-image-2 i2i.
+- Add `KIE_API_KEY` Cloud Secret for `excalibur_blog_kie_gpt_image2_api.py`.
+- Fix MCP-KV null-response error wrapping (surface 402/credits clearly on gpt-image-2).
+
+### Suggested files to inspect/change
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/mcp-image-async-contract.md`
+- Cursor Dashboard Secrets / MCP-KV billing
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- fixed (runtime workaround); durable env/credits still needed
 
 ## Fixed incidents
 

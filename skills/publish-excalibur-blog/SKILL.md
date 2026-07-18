@@ -61,15 +61,17 @@ python scripts/excalibur_blog_wp_publish.py \
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
 - пишет post meta `_excalibur_blog_schema_jsonld`.
 
-### 4. Cloud WebFetch Fallback
+### 4. Cloud WebFetch / SSH PHP Fallback
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060 / Gateway 504):
 
-1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+1. Скрипт **сначала** пробует SSH PHP exec (`SSH_PHP_BIN`, default `/usr/local/bin/php8.2`) на загруженном bootstrap.
+2. Если SSH PHP тоже недоступен — печатает `=== FALLBACK_TRIGGER_URL ===` и ждёт `memory/webfetch-response.txt` (WebFetch).
+3. Cloud-агент при WebFetch-пути открывает URL и пишет ответ в файл; скрипт продолжает.
 
-**Не останавливайся** на первом timeout — используй fallback.
+Preflight: `python3 -c "import paramiko"` (ставится через `.cursor/cloud-agent-install.sh`).
+
+**Не останавливайся** на первом timeout — используй fallback chain.
 
 ### 5. Post-publish артефакты
 

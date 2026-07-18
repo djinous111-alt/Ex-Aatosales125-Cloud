@@ -203,9 +203,28 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Validate research-notes.md freshness and depth")
-    ap.add_argument("--article-dir", type=Path, required=True)
+    ap.add_argument("--article-dir", type=Path, default=None)
     ap.add_argument("-o", "--output", type=Path, default=None)
+    ap.add_argument(
+        "--self-test",
+        action="store_true",
+        help="Smoke-test TECH_MARKERS word-boundary (Японии/России must not be technical)",
+    )
     args = ap.parse_args()
+
+    if args.self_test:
+        # Short markers ai/ии must not match inside country names.
+        assert not is_technical_topic({"topic": {"h1": "Утильсбор на авто из Японии 2026"}}, "")
+        assert not is_technical_topic({"topic": {"h1": "Авто из России под заказ"}}, "")
+        assert not is_technical_topic({"topic": {"primary_query": "растаможка корея"}}, "")
+        assert is_technical_topic({"topic": {"h1": "Как подключить MCP API агента"}}, "")
+        assert is_technical_topic({"topic": {"h1": "Внедрение ИИ в отдел продаж"}}, "")
+        assert is_technical_topic({"topic": {"h1": "AI workflow automation"}}, "")
+        print("research_notes_gate self-test: PASS")
+        return 0
+
+    if not args.article_dir:
+        ap.error("--article-dir is required unless --self-test")
 
     root = project_root()
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir

@@ -105,7 +105,15 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Generate AI-friendly llms.txt and llms-full.txt")
-    ap.add_argument("--blog-dir", type=Path, default=None)
+    # --blog-path is a stable alias for --blog-dir (doctor + older indexer docs).
+    ap.add_argument(
+        "--blog-dir",
+        "--blog-path",
+        dest="blog_dir",
+        type=Path,
+        default=None,
+        help="Path to articles/ directory (alias: --blog-path)",
+    )
     ap.add_argument("--site-name", type=str, default="Авто-Сейлс")
     ap.add_argument("--site-desc", type=str, default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.")
     ap.add_argument("--site-base", type=str, default="https://avtosales125.ru")

@@ -199,7 +199,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Excalibur BLOG Hub-and-Spoke Interlinker")
     ap.add_argument("--blog-dir", type=Path, default=None, help="Path to articles/ directory")
     ap.add_argument("--article-dir", type=Path, default=None, help="Limit suggestions to one article as source or target")
-    ap.add_argument("--site-base", type=str, default="https://example.com", help="Base site URL")
+    ap.add_argument("--site-base", type=str, default="https://avtosales125.ru", help="Base site URL")
     ap.add_argument("--apply", action="store_true", help="Directly edit html files to apply links")
     ap.add_argument("--output", type=Path, default=None, help="Output path for JSON suggestions report")
     args = ap.parse_args()

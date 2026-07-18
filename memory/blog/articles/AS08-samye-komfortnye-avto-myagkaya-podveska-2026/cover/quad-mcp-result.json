@@ -1,0 +1,12 @@
+{
+  "tool": "gpt-image-2",
+  "mode": "image-to-image",
+  "task_id": "494a1ca69ac43cef8b760ba5a8d8b50b",
+  "result_url": "https://tempfile.aiquickdraw.com/p/494a1ca69ac43cef8b760ba5a8d8b50b_1_1784267776_5079.png",
+  "input_urls": [
+    "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png"
+  ],
+  "aspect_ratio": "16:9",
+  "resolution": "2K",
+  "note": "First long-prompt attempt rejected by provider; success on shortened HTTPS i2i. Apply download hung — canvas saved manually then split."
+}

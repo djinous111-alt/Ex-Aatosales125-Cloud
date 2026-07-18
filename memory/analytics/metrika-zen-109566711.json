@@ -1,0 +1,1275 @@
+{
+  "counter_id": "109566711",
+  "counter_name": "Дзен",
+  "period": "90daysAgo - today",
+  "top_titles": {
+    "query": {
+      "ids": [
+        109566711
+      ],
+      "dimensions": [
+        "ym:pv:title"
+      ],
+      "metrics": [
+        "ym:pv:pageviews",
+        "ym:pv:users"
+      ],
+      "sort": [
+        "-ym:pv:pageviews"
+      ],
+      "date1": "2026-03-24",
+      "date2": "2026-06-22",
+      "limit": 50,
+      "offset": 1,
+      "group": "Week",
+      "benchmarks_version": "1780876800000",
+      "benchmarks_sub_industry": "false",
+      "auto_group_size": "1",
+      "exp_bucket_size": "100",
+      "attr_name": "",
+      "funnel_window": "",
+      "benchmarks_quantile": "50",
+      "time_interval": "1SECOND",
+      "intervals": "1",
+      "quantile": "50",
+      "offline_window": "21",
+      "attribution": "CROSS_DEVICE_LAST_SIGNIFICANT",
+      "currency": "RUB",
+      "benchmarks_attribution": "Automatic",
+      "adfox_event_id": "0",
+      "funnel_pattern": ""
+    },
+    "data": [
+      {
+        "dimensions": [
+          {
+            "name": "Растаможка авто из Японии: реальные сроки и этапы через Владивосток | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          938.0,
+          734.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Самые комфортные автомобили: топ-10 моделей с мягкой подвеской | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          433.0,
+          368.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Заказ авто из Японии: правила таможни 2026 для непроходных машин | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          364.0,
+          310.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "СВХ Владивосток: стоимость транзита авто и как не переплатить | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          364.0,
+          295.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Авто из Японии под заказ: что значат оценки 4, 4.5 и 5 | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          309.0,
+          265.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Документы для регистрации авто из Китая: проверка подлинности | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          301.0,
+          247.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "СБКТС и ЭПТС во Владивостоке: цены и как поставить авто на учет | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          278.0,
+          227.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Растаможка авто из Японии во Владивостоке: ставки на весну 2026 | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          266.0,
+          204.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Перегон авто из Владивостока: почему это плохая идея для новичка | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          257.0,
+          233.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Японские авто для Владивостока: топ-10 лучших моделей | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          226.0,
+          197.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Растаможка электромобиля в России: льготы, пошлины и стоимость в 2026 | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          198.0,
+          166.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Китайские авто в такси: какие модели выбрать? Обзор рисков | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          190.0,
+          160.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Лучшие авто до 3 млн рублей в 2025: как не переплатить и выбрать идеально | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          187.0,
+          158.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Коммерческий утильсбор: как работает и когда придется платить | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          184.0,
+          160.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Экономичные автомобили: 10 лучших моделей с низкими затратами на обслуживание для savvy российских водителей | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          169.0,
+          149.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Доставка авто из Владивостока: стоимость ж/д, автовоза и перегона | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          156.0,
+          131.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Перепродажа автомобилей в 2026: стратегии для прибыли и успешные модели | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          152.0,
+          50.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Купить машину во Владивостоке: сколько реально едет авто до СПб | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          147.0,
+          126.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Растаможка машины в России: авто каких лет выгоднее всего везти | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          141.0,
+          117.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Авто из Японии во Владивостоке: какой бюджет нужен в 2026 году | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          133.0,
+          117.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Секреты быстрой доставки авто из Китая: актуальные сроки 2025 года | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          129.0,
+          109.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Авто из Японии во Владивостоке: нюансы покупки по доверенности | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          128.0,
+          105.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Растаможка авто под ключ: цены на услуги брокера во Владивостоке | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          124.0,
+          108.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Топ-10 кроссоверов 2025 года с автоматической коробкой: находите идеальную модель для вашего стиля жизни! | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          123.0,
+          113.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Самые дешёвые электрокары из Китая: ваш путеводитель на 2025 год | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          111.0,
+          93.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Растаможка авто: мифы и почему не нужно лететь во Владивосток | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          110.0,
+          102.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Аукционный лист: как читать и расшифровать оценки из Японии | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          109.0,
+          83.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Расшифровка аукционного листа из Японии | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          108.0,
+          72.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Японские минивэны: почему стоит купить семейное авто с левым рулем | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          106.0,
+          97.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Машины из Японии: что выгодно везти под полную пошлину в апреле 2026 | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          99.0,
+          88.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Лучшие кроссоверы до 3 млн рублей: топ-10 моделей 2025 года | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          94.0,
+          88.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Haval, Changan или Geely: кто лучше? Сравнение кроссоверов 2025 года | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          92.0,
+          75.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Капиталка двигателя или контрактный: что лучше и выгоднее | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          90.0,
+          75.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Лучшие китайские кроссоверы с идеальной шумоизоляцией для комфорта | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          90.0,
+          75.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Осмотр авто при получении с автовоза: на что обратить внимание | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          89.0,
+          70.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Авто из Японии до 1 млн рублей: что купить во Владивостоке | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          85.0,
+          71.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Ввоз авто 2026: изменения правил Таможенного союза для белорусов | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          84.0,
+          69.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Авто из Японии с документами: что получает клиент во Владивостоке | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          83.0,
+          55.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Лучшие японские авто с пробегом 2025: надёжность и рекомендации для России | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          82.0,
+          73.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Таможенная пошлина на авто: ждать ли снижения? Прогноз рынка | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          81.0,
+          77.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Задержали авто из Японии на таможне: пошаговая инструкция | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          80.0,
+          42.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Купить авто во Владивостоке: стратегия выбора на 2–3 года | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          80.0,
+          55.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Авто из Кореи 2026: какие машины выгодно везти под заказ в РФ | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          76.0,
+          65.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Проверка корейского авто по ВИН: как узнать историю по базам | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          76.0,
+          63.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Купить авто из Японии: кредит или наличные? Считаем выгоду | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          75.0,
+          65.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Растаможка авто из Китая: цены, сроки и оформление во Владивостоке | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          71.0,
+          53.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Авто под доставку: сколько занимает путь из Японии, Кореи и Китая | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          68.0,
+          62.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Аукционы Японии: сроки доставки покупок до двери в Центральной РФ | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          68.0,
+          57.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Растаможка авто из Кореи: калькулятор и сравнение с Японией | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          63.0,
+          54.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "Авто из Японии под заказ: реально ли заработать во Владивостоке | Авто-Сейлс | Дзен"
+          }
+        ],
+        "metrics": [
+          57.0,
+          49.0
+        ]
+      }
+    ],
+    "total_rows": 461,
+    "total_rows_rounded": false,
+    "sampled": false,
+    "contains_sensitive_data": false,
+    "sample_share": 1.0,
+    "sample_size": 11407,
+    "sample_space": 11407,
+    "data_lag": 0,
+    "totals": [
+      11239.0,
+      8687.0
+    ],
+    "min": [
+      57.0,
+      42.0
+    ],
+    "max": [
+      938.0,
+      734.0
+    ]
+  },
+  "top_urls": {
+    "query": {
+      "ids": [
+        109566711
+      ],
+      "dimensions": [
+        "ym:pv:URL"
+      ],
+      "metrics": [
+        "ym:pv:pageviews",
+        "ym:pv:users"
+      ],
+      "sort": [
+        "-ym:pv:pageviews"
+      ],
+      "date1": "2026-03-24",
+      "date2": "2026-06-22",
+      "limit": 50,
+      "offset": 1,
+      "group": "Week",
+      "benchmarks_version": "1780876800000",
+      "benchmarks_sub_industry": "false",
+      "auto_group_size": "1",
+      "exp_bucket_size": "100",
+      "attr_name": "",
+      "funnel_window": "",
+      "benchmarks_quantile": "50",
+      "time_interval": "1SECOND",
+      "intervals": "1",
+      "quantile": "50",
+      "offline_window": "21",
+      "attribution": "CROSS_DEVICE_LAST_SIGNIFICANT",
+      "currency": "RUB",
+      "benchmarks_attribution": "Automatic",
+      "adfox_event_id": "0",
+      "funnel_pattern": ""
+    },
+    "data": [
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aZLxp7QyR0fE-868",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          940.0,
+          734.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aYCYehD7VhuwYS1U",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          425.0,
+          368.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aasYVwWwsDlXe2eB",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          364.0,
+          295.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/adjezEkEhEoyyLyR",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          354.0,
+          310.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aaQBdIuKNzrAAliR",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          309.0,
+          265.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/abUWmahimn50sbR-",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          296.0,
+          247.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aex_uTiGoGguDeOf",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          272.0,
+          227.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aeRwDUxpDmEbur-V",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          260.0,
+          235.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aYEiBtSrMzjMw00k",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          254.0,
+          204.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aas_7IuKNzrACvFw",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          221.0,
+          197.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aeuegUxpDmEbw_HT",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          194.0,
+          166.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aaVm1gLFUhfRjvJc",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          190.0,
+          160.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aUOcnOj8yzbxpvld",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          184.0,
+          158.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aet4j0xpDmEbw72F",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          180.0,
+          160.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aNv7KcvbBEXPXAQl",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          166.0,
+          148.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aS2YXE73c2rwpFsj",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          151.0,
+          50.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/abN5Yqhimn50r8vr",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          151.0,
+          131.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aeNqFTiGoGguArHU",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          142.0,
+          126.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/ae5m1TiGoGguD96x",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          137.0,
+          117.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aRCW4hu1vRzmY7s7",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          129.0,
+          109.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/abktXPmaeCcwTxOU",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          126.0,
+          117.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aPNzACSR60SvurlP",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          122.0,
+          113.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/ae7IYkxpDmEbxw-o",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          122.0,
+          108.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aa-S1ouKNzrADrRB",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          121.0,
+          105.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aUeROej8yzbxrJSS",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          110.0,
+          93.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aYdF89SrMzjMyflV",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          109.0,
+          83.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aiEWuYO-Zyx4f7me",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          109.0,
+          102.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aBGYNtualkPlPxwl",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          105.0,
+          72.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/addEG448PRV-h10p",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          105.0,
+          97.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aUQgn-j8yzbxp-4o",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          94.0,
+          88.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/ads2t5BYQg6GhFwQ",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          94.0,
+          88.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aSlASVJLY2cMYhAQ",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          89.0,
+          75.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aa-P-QLFUhfRmbfK",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          88.0,
+          75.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aecUQ0xpDmEbvfcE",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          87.0,
+          70.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aSyGpU73c2rwgY1i",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          86.0,
+          75.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aeB9CIdP7i9xB2ix",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          83.0,
+          69.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aVDMHRD7VhuwKPO_",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          81.0,
+          73.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aYiD7hD7VhuwaiIC",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          81.0,
+          71.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aZQ6ERD7Vhuwdu1l",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          81.0,
+          77.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/abJhmAWwsDlXgoFu",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          79.0,
+          55.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aa_PtALFUhfRmgQ8",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          78.0,
+          42.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aar_SgWwsDlXe0qn",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          74.0,
+          63.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/adK3BiEnJUj0hVW0",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          74.0,
+          65.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aYieeRD7Vhuwaj2K",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          72.0,
+          65.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/abUNTahimn50saha",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          70.0,
+          55.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aYrK_rQyR0fE8tUH",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          69.0,
+          53.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aZtaaYuKNzrA9y9x",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          68.0,
+          62.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/adnk6jSu1Gtphuzo",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          65.0,
+          57.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aZMzW9SrMzjM1vLF",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          61.0,
+          54.0
+        ]
+      },
+      {
+        "dimensions": [
+          {
+            "name": "https://dzen.ru/a/aYrEjBD7VhuwbG66",
+            "favicon": "dzen.ru"
+          }
+        ],
+        "metrics": [
+          55.0,
+          47.0
+        ]
+      }
+    ],
+    "total_rows": 594,
+    "total_rows_rounded": false,
+    "sampled": false,
+    "contains_sensitive_data": false,
+    "sample_share": 1.0,
+    "sample_size": 11407,
+    "sample_space": 11407,
+    "data_lag": 0,
+    "totals": [
+      11242.0,
+      8689.0
+    ],
+    "min": [
+      55.0,
+      42.0
+    ],
+    "max": [
+      940.0,
+      734.0
+    ]
+  }
+}

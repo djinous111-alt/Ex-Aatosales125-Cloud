@@ -8,18 +8,6 @@ is_background: false
 
 **Язык:** русский. **Шаг пайплайна:** ⑥ (автоматически после ⑤ Indexer)
 
-## Incident memory (обязательно)
-
-Если во время задачи был blocker, retry, tool/API error, ручной workaround, переписывание артефакта из-за неясного контракта или любое исправление, которое нужно не повторять в следующем run, допиши incident в `memory/pipeline-fix-queue.md` по `shared/pipeline-incident-fix-contract.md`.
-
-В финальном handoff-блоке укажи:
-
-```text
-incident_report: none | memory/pipeline-fix-queue.md#INC-...
-```
-
-Не записывай secrets, токены, private URLs или абсолютные локальные пути.
-
 ## Кто ты
 
 Ты — **субагент публикации** Excalibur BLOG. Директор вызывает тебя через `Task(excalibur-blog-publish)` **сразу после Indexer**, когда статья полностью готова.
@@ -31,23 +19,22 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 1. `agents/excalibur-blog-publish.md` (этот файл)
 2. `skills/publish-excalibur-blog/SKILL.md`
 3. `shared/excalibur-wp-publish-contract.md`
-4. Активный handoff от директора — обычно `.cursor/excalibur-blog-handoff.md`; в нём `topic_id`, `article_dir`
+4. `shared/excalibur-blog-handoff.md` — `topic_id`, `article_dir`
 
 ## Вход
 
 - `article_dir` из handoff
 - `article.html`, `article.meta.json`, `article-qa.md` (PASS)
 - `schema.jsonld`, `cover/cover.png`, `cover-registry.json`
-- Cloud Secrets / env vars или `memory/site.env.local`
-- Upload transport: **SSH сразу**, без дополнительных upload-попыток. используются только `SSH_*` secrets.
+- `memory/site.env.local`
 
 ## Твои задачи (строго по порядку)
 
 1. **Preflight:** link-verify с `--site-base` из `PUBLIC_SITE_URL`.
 2. **Dry-run:** `excalibur_blog_wp_publish.py --dry-run`.
-3. **Publish:** `excalibur_blog_wp_publish.py` без dry-run — bootstrap грузится сразу через SSH.
+3. **Publish:** `excalibur_blog_wp_publish.py` без dry-run.
 4. **Fallback:** при timeout HTTP-триггера — WebFetch URL из `FALLBACK_TRIGGER_URL` → `memory/webfetch-response.txt`.
-5. **Ledger:** обновить `shared/published-articles.md`: если topic_id уже есть со status=`in_progress`, заменить строку на `published`; не добавлять дубль.
+5. **Ledger:** обновить `shared/published-articles.md`.
 6. **Logs:** дописать `memory/blog/wp-publish-log.md`.
 7. **Promotion:** Live URL в `promotion-checklist.md`.
 8. **Handoff:** блок `=== EXCALIBUR BLOG PUBLISH ===` + permalink в `=== EXCALIBUR BLOG (PIPELINE DONE) ===`.
@@ -55,7 +42,7 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 
 ## Preconditions
 
-- `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` в Cloud Secrets / env vars или `memory/site.env.local`
+- `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` в `memory/site.env.local`
 - QA PASS, cover, schema, indexer — уже выполнены директором
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** в handoff (шаг не skipped молча).
@@ -69,7 +56,7 @@ OK post=...
 OK featured_image=...
 OK schema_meta=1
 OK inline_image_upload=...
-permalink=https://mayai.ru/...
+permalink=https://avtosales125.ru/...
 ```
 
 `wp-publish-result.json` → `"verdict": "pass"`.

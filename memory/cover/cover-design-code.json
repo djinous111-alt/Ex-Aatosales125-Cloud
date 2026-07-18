@@ -1,39 +1,40 @@
 {
   "design_code_id": "human_hook_collage_16x9",
-  "label_ru": "Человеческий hook-коллаж 16:9",
-  "reference_notes": "Адаптация carousel/trash-design референсов: чисто белый фон, рваная бумага, скотч, стикеры, розовый маркер, «скрины», мем-реакции — но формат 16:9 для блога.",
+  "label_ru": "Человеческий hook-коллаж 16:9 (Авто-Сейлс)",
+  "reference_notes": "Hook-коллаж 16:9 для блога авто: рваная бумага, скотч, стикеры, плашка, сцены авто/порта/Азии. Без SEO-инструментов в кадре.",
   "openability_rules": [
-    "Первый кадр (cover panel) = pattern interrupt: провокация + узнаваемая боль",
-    "Крупный hook-текст с розовым/жёлтым highlight на ключевом слове",
-    "Типографика обложки вдохновлена DESIGN.md-референсом: очень жирный condensed uppercase Cyrillic; hot-акценты чередуются от обложки к обложке (hot pink, hot purple, hot blue, hot orange и другие) и выбираются дизайнером под hook. Sticker labels, brush bubbles и handwritten speech notes оставить в дизайн-языке; price badges не использовать",
-    "Минимум 1 fake UI screenshot (Wordstat, отзыв, Telegram, analytics) — «сделал человек»",
+    "Первый кадр (cover panel) = pattern interrupt: боль выбора авто / таможни / дороги",
+    "Крупный hook-текст с жёлтым/красным highlight на ключевом слове",
+    "Минимум 1 fake UI: карточка каталога/авто, отзыв 2GIS, Encar/аукцион, чеклист документов — «сделал человек»",
     "1–2 мем-реакции (разные форматы, не повторять Drake везде)",
-    "Handwritten arrows, marker circles and visual meme reaction cutouts for intrigue",
+    "Handwritten стрелка/стикер «жиза» / «но…» для интриги",
     "Не выглядеть как корпоративный баннер или stock photo",
-    "Текст на стикерах и мем-подписях — дерзкий, но не токсичный: без оскорблений, унижающих ярлыков и слов «лох», «лохов», «для лохов»"
+    "Угол обложки: мелкий текст каталога avto-sales125.ru (НЕ Telegram / НЕ @avtosales125)",
+    "ЗАПРЕТ на кадре и в тексте на картинке: Wordstat, Вордстат, Metrika, Метрика, analytics dashboard SEO"
   ],
   "visual_motifs": [
-    "torn paper strips with pink/black edges",
+    "torn paper strips with red/black edges",
     "clear scotch tape holding scraps",
-    "pink sticky notes with marker handwriting",
-    "highlighter pink brush stroke behind 1-2 Cyrillic words",
+    "sticky notes with marker handwriting",
+    "highlighter brush stroke behind 1-2 Cyrillic words",
     "hand-drawn arrows and stars",
-    "phone screenshot UI frames (Telegram chat, Yandex Wordstat, review stars)",
+    "phone screenshot UI frames (car catalog card, 2GIS review stars, Encar/auction card mock, customs checklist)",
     "meme reaction cutouts with rough white outline",
-    "pure white #FFFFFF background, no beige paper tint",
-    "black bold condensed Cyrillic headlines"
+    "grunge paper texture or dark navy auto vibe",
+    "black bold condensed Cyrillic headlines",
+    "modern cars Japan/Korea/China, Vladivostok port hints",
+    "small corner brand text: avto-sales125.ru"
   ],
   "color_palette": {
-    "background": "#FFFFFF",
-    "paper_white": "#FFFFFF",
-    "ink_black": "#1A1A2E",
-    "highlight_pink": "#FF1493",
-    "accent_coral": "#E85D4C",
+    "background": "#F5F5F0",
+    "paper_white": "#FAFAF7",
+    "ink_black": "#0B1F3A",
+    "highlight_pink": "#C8102E",
+    "accent_coral": "#C8102E",
     "marker_yellow": "#FFD93D"
   },
-  "typography_reference": "Like the provided DESIGN.md cover reference in energy, scale and readable Cyrillic hierarchy, but rotate hot accent colors from cover to cover: hot pink, hot purple, hot blue, hot orange and other hot accents chosen by the designer for the hook. Keep the core sticker/meme/collage language; use sticker label blocks, brush bubbles, marker underlines, or handwritten speech notes. Do not use price badges. Keep text readable and Russian-only.",
-  "cover_panel_prompt_block": "16:9 hook collage panel on pure white #FFFFFF background: blog host cutout (reference face, thick heavyweight white hoodie outfit lock, varied pose/gesture/angle/expression/props/composition), layered fake screenshots (Wordstat keys, zero reads analytics, 5-star review snippet or Telegram «где трафик?»), torn paper + tape + pink sticky note, 1-2 different meme reaction faces, huge Cyrillic hook headline in DESIGN.md-inspired bold condensed type with designer-chosen accent palette and varied editorial devices, handwritten arrow, neutral/non-insulting sticker text, DIY human-made zine aesthetic NOT corporate ad",
-  "inline_human_touch": "Add subtle human-made layer on pure white #FFFFFF base: small sticky note, tape corner, or mini screenshot inset — still readable utility UI/diagram underneath",
+  "cover_panel_prompt_block": "16:9 hook collage panel for AVTO SALES car-import blog: blog host cutout (EXACT face from reference + glasses; CHANGE clothes to match WEATHER of the scene and ARTICLE TOPIC — winter coat/snow, rain jacket/rain, light shirt/summer, smart casual/customs; do NOT copy reference tank top/t-shirt), layered fake screenshots of car catalog cards, 2GIS reviews, Encar/auction card, or customs checklist — NEVER Wordstat, NEVER Metrika, NEVER SEO analytics; corner brand MUST be catalog site avto-sales125.ru (NOT Telegram, NOT @avtosales125); torn paper + tape + sticky note; 1-2 meme reaction faces; huge Cyrillic hook about cars/comfort/customs; handwritten arrow; DIY human-made zine aesthetic NOT corporate ad",
+  "inline_human_touch": "Add subtle human-made layer: small sticky note, tape corner, or mini catalog/checklist inset — still readable utility UI/diagram underneath; no Wordstat/Metrika UI; no Telegram handle on cover corner",
   "meme_rotation": [
     "shocked face reaction",
     "facepalm / понятно",
@@ -41,5 +42,5 @@
     "cat/dog meme reaction",
     "before/after split sticker"
   ],
-  "global_negative": "beige/cream/off-white full background, gray background, gradient background, grunge paper background, vertical carousel 9:16, instagram story layout, corporate stock banner, clean minimal SaaS only, English text, watermark, same meme repeated 4 times, polished ad look, headphones, headset, earbuds, toxic sticker text, insults, humiliating labels, words «лох», «лохов», «для лохов»"
+  "global_negative": "vertical carousel 9:16, instagram story layout, corporate stock banner, English text, watermark, same meme repeated 4 times, polished ad look, Wordstat, Vordstat, Metrika, Metrica, Yandex Metrika UI, SEO analytics dashboard, keyword research tool screenshot"
 }

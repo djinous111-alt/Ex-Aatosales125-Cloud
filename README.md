@@ -1,10 +1,22 @@
+# Ex-Aatosales125-Cloud
+
+Cursor Cloud Excalibur BLOG для **Авто-Сейлс (AVTO SALES)** — статьи про авто из Японии, Кореи и Китая.
+
+- Блог: https://avtosales125.ru
+- Каталог: https://avto-sales125.ru/
+- Telegram: https://t.me/avtosales125
+
+Базовый шаблон: [excalibur-blog-cloud-public](https://github.com/Horosheff/excalibur-blog-cloud-public).
+
+---
+
 # Excalibur Blog Cloud — Плагин для Cursor-автоматизации
 
 ![Excalibur Blog Cloud cover](assets/excalibur-blog-cover.png)
 
 <p align="center">
-  <a href="https://t.me/maya_pro">
-    <img src="https://img.shields.io/badge/Telegram-Maya%20Pro-229ED9?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram Maya Pro">
+  <a href="https://t.me/avtosales125">
+    <img src="https://img.shields.io/badge/Telegram-avtosales125-229ED9?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram Авто-Сейлс">
   </a>
 </p>
 
@@ -92,25 +104,30 @@ python scripts/excalibur_blog_setup.py
 Или явно:
 
 ```text
-/excalibur-blog-run topic_id: B10 publish: no
+/excalibur-blog-run topic_id: AS10 publish: no
 ```
 
 ## Secrets
 
-Секреты не хранятся в репозитории. Для публикации нужны только SSH-переменные:
+Секреты не хранятся в репозитории. Для Авто-Сейлс в Cloud Dashboard / `memory/site.env.local`:
 
 ```env
-PUBLIC_SITE_URL=https://example.com
+PUBLIC_SITE_URL=https://avtosales125.ru
 EXCALIBUR_BLOG_ALLOW_PUBLISH=yes
 
-SSH_HOST=example.com
+FTP_HOST=djinoum7.beget.tech
+FTP_USER=
+FTP_PASSWORD=
+FTP_ROOT=/
+
+SSH_HOST=djinoum7.beget.tech
 SSH_PORT=22
 SSH_USER=
-SSH_PASS=
-SSH_ROOT=/
+SSH_PASSWORD=
+SSH_PATH=/avtosales125/public_html
 ```
 
-`FTP_*` больше не используются. Публикация идёт только через SSH.
+Публикация: FTP и/или SSH (см. `shared/excalibur-wp-publish-contract.md` и `.env.example`).
 
 ## Основные Команды
 
@@ -119,13 +136,13 @@ SSH_ROOT=/
 python scripts/excalibur_blog_doctor.py
 
 # подготовить research-контекст по теме
-python scripts/excalibur_blog_research_start.py --topic-id B01
+python scripts/excalibur_blog_research_start.py --topic-id AS01
 
 # проверить статью перед публикацией
-python scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-slug/article.html
+python scripts/excalibur_blog_link_verify.py memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/article.html
 
 # dry-run публикации
-python scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-slug --dry-run
+python scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita --dry-run
 
 # publish
 python scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-slug

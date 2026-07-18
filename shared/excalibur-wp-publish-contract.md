@@ -1,6 +1,6 @@
 ﻿# Excalibur BLOG — WordPress publish contract
 
-Excalibur BLOG готовит артефакты локально; публикация — через `scripts/excalibur_blog_wp_publish.py` и SSH bootstrap.
+Excalibur BLOG готовит артефакты локально; публикация — через `scripts/excalibur_blog_wp_publish.py` и FTP bootstrap.
 
 ## Prerequisites
 
@@ -8,8 +8,7 @@ Excalibur BLOG готовит артефакты локально; публик�
 - `schema.jsonld`
 - `cover/cover.png` + `cover-registry.json` (alt)
 - `link-verify.json` (verdict pass)
-- Cloud Secrets / env vars или `memory/site.env.local` — SSH доступ + `SSH_ROOT` (корень WP, где `wp-load.php`) + `PUBLIC_SITE_URL` + `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`
-- Env precedence: переменные окружения перекрывают `memory/site.env.local`; поддерживаются только `SSH_HOST`, `SSH_USER`, `SSH_PASS`/`SSH_PASSWORD`, `SSH_ROOT`; transport всегда SSH.
+- `memory/site.env.local` — FTP + `FTP_ROOT` (корень WP, где `wp-load.php`) + `PUBLIC_SITE_URL` + `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`
 
 ## Скрипт
 
@@ -17,13 +16,13 @@ Excalibur BLOG готовит артефакты локально; публик�
 python scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/B01-slug/article.html \
   -o memory/blog/articles/B01-slug/link-verify.json \
-  --site-base https://example.com
+  --site-base https://avtosales125.ru
 
 python scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/B01-slug
 ```
 
-`--dry-run` — проверка payload без SSH upload.
+`--dry-run` — проверка payload без FTP.
 
 ## Что делает publish
 
@@ -37,7 +36,7 @@ python scripts/excalibur_blog_wp_publish.py \
 
 Excalibur кладёт в `post_content` **один** FAQ по теме (`<h2>Частые вопросы</h2>`).
 
-Тема mayai.ru может **дописывать** после контента второй блок «Часто задаваемые вопросы по теме (FAQ)» с универсальными вопросами про контент-завод — это **не** часть `article.html`.
+Тема WordPress на avtosales125.ru может **дописывать** после контента глобальные блоки темы — это **не** часть `article.html`. Тематический FAQ пишет только Excalibur Writer.
 
 **Исправление в теме WordPress** (`single.php` или фильтр `the_content`):
 

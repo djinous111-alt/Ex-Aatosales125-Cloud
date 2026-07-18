@@ -1,24 +1,30 @@
 {
-  "concept_version": "1",
+  "concept_version": "2",
+  "brand": "Avto-Sales",
   "cover_family": "brand_collage",
-  "cover_family_label_ru": "Фирменный коллаж",
-  "allowed_cover_families_considered": ["brand_collage", "illustrated_flat", "gradient_abstract"],
-  "cover_family_selection_rationale": "Quad canvas: RU meme collage + blog-host hero; см. memory/cover/quad-style-digital-meme-collage-ru.json",
+  "cover_family_label_ru": "Action selfie + meme-плашка Авто-Сейлс",
+  "allowed_cover_families_considered": ["brand_collage", "action_selfie", "illustrated_flat"],
+  "cover_family_selection_rationale": "Blueprint Make: hyper-realistic action selfie героя + референсы плашек; ниша авто из Азии",
   "quad_style_preset": "memory/cover/quad-style-digital-meme-collage-ru.json",
-  "secondary_cover_families": [],
+  "secondary_cover_families": ["action_selfie"],
   "prompt_assembly_mode": "prefix_scene_suffix",
-  "global_prompt_prefix": "Russian meme collage, blog host hero, Cyrillic Impact captions, ironic SEO humor, no watermark,",
-  "global_prompt_suffix": "16:9 panels, consistent hero likeness, readable Russian meme text on each panel, high detail",
-  "global_negative_prompt": "English text, Latin letters, watermark, logo, blurry, generic stock photo, no humor, panels without captions, extra fingers",
+  "global_prompt_prefix": "Photorealistic AVTO SALES cover, blog host from reference, Japan Korea China car import, Cyrillic headline plaque, Vladivostok/Asia logistics vibe,",
+  "global_prompt_suffix": "16:9, hero outfit MUST match scene weather and article topic (not reference t-shirt), no cap no hood, subtle corner brand avto-sales125.ru catalog site (NOT Telegram handle), modern cars only, high detail",
+  "global_negative_prompt": "English text, Latin letters, watermark, blurry face, cartoon, illustration, cap, hoodie, vintage yellow filter, sepia, fake lot numbers, unrelated tech-blog branding, Wordstat, Vordstat, Metrika, Metrica, Yandex Metrika UI, SEO analytics dashboard",
   "composition_lock": {
     "aspect_ratio": "16:9",
     "target_size": "1200x675",
-    "layout_description": "main subject right 55%, brand color band left",
-    "thumbnail_safe_zone": "center-right"
+    "layout_description": "hero face sharp foreground, dynamic auto/Asia/port scene background, RU title plaque",
+    "thumbnail_safe_zone": "center"
   },
   "color_lock": {
-    "background": "#FAFAF7",
-    "accent_primary": "#E85D4C",
-    "accent_secondary": "#1A1A2E"
-  }
+    "background": "#0B1F3A",
+    "accent_primary": "#C8102E",
+    "accent_secondary": "#E8F1FF"
+  },
+  "image_inputs_blueprint": [
+    "memory/cover/assets/blog-hero-reference.png",
+    "memory/cover/assets/style-ref-cover-01.jpg",
+    "memory/cover/assets/style-ref-cover-02.jpg"
+  ]
 }

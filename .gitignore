@@ -1,5 +1,6 @@
 memory/site.env.local
-memory/site.env.local.example
+# keep example committed
+!memory/site.env.local.example
 .cursor/excalibur-blog-handoff.md
 shared/excalibur-blog-handoff.md
 .cursor/excalibur-blog-fragments/

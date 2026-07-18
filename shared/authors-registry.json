@@ -1,22 +1,34 @@
 {
-  "registry_version": "1.0",
-  "comment": "E-E-A-T Authors Registry for Maya AI / Ковчег blog. Provides authoritative profiles for article attribution and sameAs schema.org generation.",
+  "registry_version": "1.1",
+  "comment": "E-E-A-T Authors Registry for Авто-Сейлс (AVTO SALES) blog. Brand voice for schema.org and bylines.",
   "authors": [
     {
-      "id": "artur-horoshev",
-      "name_ru": "Артур Хорошев",
-      "name_en": "Artur Horoshev",
-      "job_title_ru": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
-      "job_title_en": "CEO at Maya AI, Make.com & Vibecoding Course Author",
-      "bio_short_ru": "Эксперт по автоматизации бизнес-процессов на Make.com, вайбкодингу и AI-агентам. Тестировщик нейросетей Microsoft и Google, основатель сообщества «Ковчег».",
-      "bio_long_ru": "Артур Хорошев — ведущий российский эксперт по Make.com, вайбкодингу и AI-контент-заводам. Автор флагманского курса на kv-ai.ru (159+ уроков), спикер Московского Политеха, neuro-дизайнер и digital-маркетолог. Обучает создавать сложные автоматизации, кастомные модули и AI-агентов без знания программирования — через Cursor AI, OpenClaw и MCP.",
-      "expertise_tags": ["make_integromat", "vibecoding", "cursor_ai", "openclaw", "mcp", "ai_agents", "content_factory", "prompt_engineering", "geo", "seo", "telegram_bots", "marketing_automation"],
-      "avatar_url": "https://kv-ai.ru/artur-horosheff",
+      "id": "avtosales-editorial",
+      "name_ru": "Редакция Авто-Сейлс",
+      "name_en": "AVTO SALES Editorial",
+      "job_title_ru": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+      "job_title_en": "Experts in Japan, Korea and China car import",
+      "bio_short_ru": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+      "bio_long_ru": "Авто-Сейлс (AVTO SALES) — компания во Владивостоке (Днепровская 40а, стр. 4), которая привозит автомобили под заказ из Японии, Кореи и Китая. В блоге разбираем аукционы, Encar, документы, СВХ и типичные ловушки покупателя. Связь: Telegram @avtosales125, каталог avto-sales125.ru.",
+      "expertise_tags": [
+        "japan_auction",
+        "korea_encar",
+        "china_cars",
+        "customs_vladivostok",
+        "svh",
+        "util_sbor",
+        "car_import",
+        "vin_check",
+        "logistics_russia"
+      ],
+      "avatar_url": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
       "sameAs": [
-        "https://kv-ai.ru/artur-horosheff",
-        "https://mayai.ru/obo-mne/",
-        "https://t.me/maya_pro",
-        "https://t.me/horosheff"
+        "https://avtosales125.ru/",
+        "https://avto-sales125.ru/",
+        "https://t.me/avtosales125",
+        "https://max.ru/id2508140890_biz",
+        "https://www.instagram.com/avtosales_rf",
+        "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
       ]
     }
   ]

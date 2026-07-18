@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1019,
+      572
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 572,
+        "end": 581
+      },
+      "v_gutter_px": {
+        "start": 1019,
+        "end": 1029
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1019,
+          "bottom": 572
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1019,
+          "bottom": 572
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс в дождевике со смартфоном: крючок про проверку Trust Encar и Carhistory до депозита",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1029,
+          "top": 0,
+          "right": 2048,
+          "bottom": 572
+        },
+        "raw_box_px": {
+          "left": 1029,
+          "top": 0,
+          "right": 2048,
+          "bottom": 572
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист: проверка VIN, Encar и Carhistory строго до депозита",
+        "h2_anchor": "Зафиксируйте правило: проверка до депозита, а не после оплаты"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 0,
+          "top": 581,
+          "right": 1019,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 581,
+          "right": 1019,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап: Trust Encar как бренд vs инструменты Performance Check и Insurance History",
+        "h2_anchor": "Разведите Trust Encar и инструменты проверки"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1029,
+          "top": 581,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1029,
+          "top": 581,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: Performance Check vs Insurance History — на что смотреть в карточке Encar",
+        "h2_anchor": "Проверьте карточку Encar: Performance Check и Insurance History"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте правило: проверка до депозита, а не после оплаты",
+    "injected inline_2 after H2 — Разведите Trust Encar и инструменты проверки",
+    "injected inline_3 after H2 — Проверьте карточку Encar: Performance Check и Insurance History"
+  ]
+}

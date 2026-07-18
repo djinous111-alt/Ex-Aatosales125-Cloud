@@ -1,0 +1,25 @@
+{
+  "name": "excalibur-blog-pipeline",
+  "timezone": "Asia/Vladivostok",
+  "timezone_note": "Локальное время Владивостока (UTC+10). Окно 09:00–22:00.",
+  "runs_per_day": 4,
+  "window": { "start": "09:00", "end": "22:00" },
+  "times_local": ["09:00", "13:00", "17:00", "21:00"],
+  "cron": {
+    "local_vladivostok": "0 9,13,17,21 * * *",
+    "comment": "Минута 0, часы 9/13/17/21 каждый день"
+  },
+  "cursor_cloud_automation": {
+    "schedule": "0 9,13,17,21 * * *",
+    "schedule_tz_hint": "Если Automation в UTC — пересчитать: 23,3,7,11 UTC (= 09/13/17/21 VLAT)",
+    "cron_utc_equivalent": "0 23,3,7,11 * * *",
+    "pool": "excalibur-blog",
+    "publish": "yes"
+  },
+  "windows_task_scheduler": {
+    "task_prefix": "ExcaliburBlog",
+    "install_script": "scripts/install_excalibur_windows_cron.ps1",
+    "run_script": "scripts/excalibur_blog_cron_run.ps1"
+  },
+  "pipeline": "today → pick topic → research → writer → geo-qa → cover||schema → indexer → publish"
+}

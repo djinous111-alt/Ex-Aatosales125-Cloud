@@ -223,17 +223,17 @@ Design Guardian / Excalibur run log проверяет:
 
 ---
 
-## Примеры (Kovcheg Kids)
+## Примеры (Авто-Сейлс / AVTO SALES)
 
-**Family:** `brand_collage` + элементы `mascot_series`
+**Family:** `brand_collage` + human hook collage (quad 2×2)
 
-- Fixed: off-white `#FAFAF7`, lime `#B8FF3C`, pink `#FF3CAC`, yellow `#FFE066`, rounded sticker frames, soft grain, mascot style match hero
-- Variable: robot + topic prop (laptop / shield / game icons)
-- Collage: 2–3 layered cutouts, overlap, **не** photoreal stock children faces
+- Fixed: navy `#0B1F3A`, red `#C8102E`, light `#E8F1FF`; corner brand `avto-sales125.ru` (каталог, не Telegram)
+- Variable: JP/KR/CN cars, Encar/auction cards, customs checklist, 2GIS reviews, weather-matched hero outfit
+- Collage: face+glasses locked from hero reference; **не** копировать майку reference; NO Wordstat/Metrika UI
 
-**Family:** `editorial_photo` (Petman)
+**Family:** `editorial_photo` (опционально)
 
-- Fixed: warm natural light, green `#2D6A4F` overlay 20%, leash/harness motif subtle
-- Variable: dog breed silhouette or walker POV, Moscow park bokeh
+- Fixed: Vladivostok port / customs atmosphere, cool daylight
+- Variable: car model class (crossover / sedan / kei) under topic
 
-AURA выбирает **один** primary per project.
+AURA / cover agent выбирает **один** primary per topic.

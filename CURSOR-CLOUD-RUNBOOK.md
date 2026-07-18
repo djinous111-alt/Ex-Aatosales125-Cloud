@@ -30,15 +30,15 @@
 Минимум для dry-run:
 
 ```text
-PUBLIC_SITE_URL=https://mayai.ru
+PUBLIC_SITE_URL=https://avtosales125.ru
 EXCALIBUR_BLOG_ALLOW_PUBLISH=no
 ```
 
 Для боевой публикации:
 
 ```text
-PUBLIC_SITE_URL=https://mayai.ru
-WP_SITE_URL=https://mayai.ru
+PUBLIC_SITE_URL=https://avtosales125.ru
+WP_SITE_URL=https://avtosales125.ru
 SSH_HOST=<host>
 SSH_USER=<user>
 SSH_PASS=<password>
@@ -84,7 +84,7 @@ EXCALIBUR_TOPIC_ID=<optional fixed topic id>
 ```bash
 python3 scripts/excalibur_blog_doctor.py
 python3 scripts/excalibur_blog_today.py
-python3 scripts/excalibur_blog_research_start.py --topic-id B01
+python3 scripts/excalibur_blog_research_start.py --topic-id AS01
 ```
 
 Для publish-preflight:

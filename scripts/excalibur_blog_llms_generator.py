@@ -61,21 +61,8 @@ def load_articles(blog_dir: Path) -> list[dict[str, Any]]:
     return articles
 
 
-def article_url(site_base: str, blog_path: str, slug: str) -> str:
+def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]], site_base: str) -> str:
     site_base = site_base.rstrip("/")
-    path = "/" + blog_path.strip("/")
-    if path == "/":
-        return f"{site_base}/{slug}/"
-    return f"{site_base}{path}/{slug}/"
-
-
-def build_llms_txt(
-    site_name: str,
-    site_desc: str,
-    articles: list[dict[str, Any]],
-    site_base: str,
-    blog_path: str,
-) -> str:
     lines = [
         f"# {site_name}",
         f"> {site_desc}",
@@ -84,13 +71,14 @@ def build_llms_txt(
         ""
     ]
     for a in articles:
-        url = article_url(site_base, blog_path, a["slug"])
+        url = f"{site_base}/blog/{a['slug']}/"
         lines.append(f"- [{a['title']}]({url}): {a['description']}")
 
     return "\n".join(lines) + "\n"
 
 
-def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_base: str, blog_path: str) -> str:
+def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_base: str) -> str:
+    site_base = site_base.rstrip("/")
     lines = [
         f"# {site_name} - Full LLM Knowledge Base",
         "This file contains full plain-text articles optimized for AI reasoning and semantic search.",
@@ -100,7 +88,7 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
     ]
 
     for a in articles:
-        url = article_url(site_base, blog_path, a["slug"])
+        url = f"{site_base}/blog/{a['slug']}/"
         lines.extend([
             f"## {a['title']}",
             f"- **URL**: {url}",
@@ -118,10 +106,9 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
 def main() -> int:
     ap = argparse.ArgumentParser(description="Generate AI-friendly llms.txt and llms-full.txt")
     ap.add_argument("--blog-dir", type=Path, default=None)
-    ap.add_argument("--site-name", type=str, default="Maya AI — Excalibur BLOG")
-    ap.add_argument("--site-desc", type=str, default="Практический блог по автоматизации бизнеса на Make.com, вайбкодингу и ИИ-агентам.")
-    ap.add_argument("--site-base", type=str, default="https://mayai.ru")
-    ap.add_argument("--blog-path", type=str, default="/", help="URL prefix for posts, e.g. /blog/ or /")
+    ap.add_argument("--site-name", type=str, default="Авто-Сейлс")
+    ap.add_argument("--site-desc", type=str, default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.")
+    ap.add_argument("--site-base", type=str, default="https://avtosales125.ru")
     ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for llms.txt/llms-full.txt")
     args = ap.parse_args()
 
@@ -137,8 +124,8 @@ def main() -> int:
     articles = load_articles(blog_dir)
     print(f"Loaded {len(articles)} articles to index for LLMs.")
 
-    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, args.site_base, args.blog_path)
-    llms_full_txt = build_llms_full_txt(args.site_name, articles, args.site_base, args.blog_path)
+    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, args.site_base)
+    llms_full_txt = build_llms_full_txt(args.site_name, articles, args.site_base)
 
     llms_path = out_dir / "llms.txt"
     llms_full_path = out_dir / "llms-full.txt"

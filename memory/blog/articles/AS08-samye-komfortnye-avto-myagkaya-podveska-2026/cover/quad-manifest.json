@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS08",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Спорт-пакет «комфорт» — спина скажет нет",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс на фоне ям: крючок про мягкую подвеску и спорт-пакет",
+      "scene_hint": "reference face + same t-shirt lock, NO cap/hood, glasses on; casual jeans; action selfie near modern crossover on broken asphalt; fake Wordstat «мягкая подвеска» screenshot taped; pink sticky «жиза»; shocked meme cutout; huge Cyrillic hook with pink highlight on «Спорт-пакет»; torn paper scraps; subtle @avtosales125 footer",
+      "meme_caption_ru": "Ямы vs спорт-пакет"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разберите, что значит мягкая подвеска на практике",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: «мягкие кресла» vs «мягкий ход» vs «энергоёмкость»; columns критерий / что даёт / на ямах; pink sticky corner «не путать»; NO hero face",
+      "alt": "Таблица: кресла vs мягкий ход vs энергоёмкость подвески"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как проверить комфорт до покупки: тест, отзывы, тип подвески",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board RU: сценарий поездок, тип задней оси, диски/профиль, видео хода, осмотр стоек; checkmarks; mini Telegram tape inset; NO hero face",
+      "alt": "Чеклист проверки комфорта до покупки: ось, диски, осмотр"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сравните классы кузовов: седан, кроссовер, минивэн",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "3-column body-class diagram RU: седан → кроссовер → минивэн with short comfort notes under each; arrows; small sticky «класс ≠ мягкость»; NO hero face",
+      "alt": "Схема сравнения классов: седан, кроссовер, минивэн по комфорту"
+    }
+  }
+}

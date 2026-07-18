@@ -1,0 +1,80 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-17",
+    "today_ru": "17.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-18",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-17 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS08",
+    "priority": "P0",
+    "slug": "samye-komfortnye-avto-myagkaya-podveska-2026",
+    "h1": "Самые комфортные автомобили: как выбрать модель с мягкой подвеской в 2026",
+    "primary_query": "самые комфортные автомобили",
+    "secondary_queries": [
+      "автомобили с мягкой подвеской",
+      "комфортный кроссовер для плохих дорог",
+      "мягкая подвеска япония корея китай"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS08",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "самые комфортные автомобили 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "самые комфортные автомобили июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "самые комфортные автомобили новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "secondary_1",
+      "query": "автомобили с мягкой подвеской 2026",
+      "purpose": "вторичный запрос: автомобили с мягкой подвеской"
+    },
+    {
+      "id": "secondary_2",
+      "query": "комфортный кроссовер для плохих дорог 2026",
+      "purpose": "вторичный запрос: комфортный кроссовер для плохих дорог"
+    },
+    {
+      "id": "secondary_3",
+      "query": "мягкая подвеска япония корея китай 2026",
+      "purpose": "вторичный запрос: мягкая подвеска япония корея китай"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Самые комфортные автомобили: как выбрать модель с мягкой подвеской в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS08-samye-komfortnye-avto-myagkaya-podveska-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

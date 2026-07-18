@@ -1,0 +1,43 @@
+{
+  "topic_id": "AS09",
+  "slug": "trust-encar-carhistory-proverka-do-depozita",
+  "title": "Trust Encar и Carhistory: как проверить авто до депозита",
+  "h1": "Trust Encar и Carhistory: как проверить корейское авто до депозита",
+  "description": "Trust Encar vs Carhistory: чеклист проверки корейского авто до депозита. Performance Check, VIN-отчёт, flood и осмотр. Подбор – в каталоге Авто-Сейлс.",
+  "cover_alt": "Герой Авто-Сейлс со смартфоном и отчётом проверки авто, плашка до депозита, Владивосток",
+  "primary_query": "trust encar",
+  "secondary_queries": [
+    "carhistory корея",
+    "проверка авто encar",
+    "история авто корея"
+  ],
+  "char_count": 8829,
+  "article_mode": "B",
+  "author_id": "avtosales-editorial",
+  "anchor_variants": [
+    "проверка корейского авто до депозита",
+    "как читать Carhistory и Encar до оплаты",
+    "чеклист Trust Encar и VIN-отчёта"
+  ],
+  "meta_ab": {
+    "title_seo": "Trust Encar и Carhistory: проверка авто до депозита",
+    "title_ctr": "🚗 Trust Encar и Carhistory: что проверить до депозита, чтобы не купить битое?",
+    "title_aeo": "Как проверить корейское авто через Trust Encar и Carhistory до депозита?",
+    "description_seo": "Trust Encar vs Carhistory: чеклист проверки корейского авто до депозита. Performance Check, VIN-отчёт, flood и осмотр. Подбор – в каталоге Авто-Сейлс.",
+    "description_ctr": "⚡ Депозит без VIN и Carhistory – лотерея. Чеклист Encar + flood + осмотр до оплаты. Стоп-правила и красные флаги внутри.",
+    "description_aeo": "До депозита за корейское авто нужны VIN, Performance Check на Encar, отчёт Carhistory и живой осмотр. Trust Encar в выдаче – не замена отчёту."
+  },
+  "geo_qa": {
+    "score": 88,
+    "verdict": "PASS",
+    "date": "2026-07-17",
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "fact_check": "PASS",
+    "link_verify": "PASS",
+    "utility_gate": "PASS",
+    "core_eeat": "19/20"
+  },
+  "cover_family": "brand_collage"
+}

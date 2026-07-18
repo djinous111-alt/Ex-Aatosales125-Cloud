@@ -1,27 +1,52 @@
 {
   "hero_id": "blog-host",
-  "name_ru": "Артур Хорошев",
+  "name_ru": "Герой Авто-Сейлс",
+  "brand": "Avto-Sales",
   "reference_image": "memory/cover/assets/blog-hero-reference.png",
-  "reference_notes": "Reference = только лицо (очки, quiff, борода). Мемный образ человека оставлять как в старом промпте; одежду агент меняет свободно под крючок и тему статьи — не копировать костюм с фото.",
-  "visual_lock": {
-    "face": "овальное лицо, дружелюбная улыбка",
-    "glasses": "круглые чёрные очки",
-    "hair": "густая светло-русый/пепельный quiff, зачёс вверх и вправо",
-    "beard": "аккуратная короткая борода с сединой",
-    "energy": "харизматичный ведущий, ироничный, не клоун"
-  },
-  "outfit_rule": "Основной outfit героя на обложке: белое плотное худи heavyweight fabric. Поза, жест, ракурс, выражение, реквизит и композиция должны заметно меняться от обложки к обложке, но одежда не должна превращаться в наушники/headset-образ. Reference photo outfit is NOT mandatory.",
-  "reference_outfit_hint": "На эталонном фото — красный пиджак и бабочка; это лишь один из вариантов, не lock.",
-  "prompt_fragment": "Blog host on COVER ONLY: preserve EXACT face likeness from reference — round black glasses, ash-blonde quiff, salt-and-pepper beard; keep the old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition for every cover. No headphones, no headset, no earbuds. Do NOT copy reference photo clothing unless scene_hint asks.",
-  "cover_hook_rules": [
-    "Обложка = крючок: провокация, узнаваемая боль SEOшника, желание кликнуть",
-    "Крупный русский meme-caption на обложке (2–6 слов), читаемый",
-    "Герой смотрит в камеру или жестом указывает на текст",
-    "Не спойлерить весь гайд — намекнуть на конфликт SEO vs GEO / «текст не читают»",
-    "Одежда героя — белое плотное худи из плотной ткани; поза, жест, ракурс, выражение и реквизит должны заметно отличаться от прошлых обложек. Наушники/headset/earbuds запрещены. Лицо с reference обязательно",
-    "Design code: fake скрины (Wordstat, отзывы, Telegram), рваная бумага, скотч, розовый маркер, разные мем-реакции — «сделал человек», 16:9"
+  "style_reference_images": [
+    "memory/cover/assets/style-ref-cover-01.jpg",
+    "memory/cover/assets/style-ref-cover-02.jpg"
   ],
-  "reference_url_hosted": "https://mayai.ru/wp-content/uploads/2026/06/ava.jpg",
-  "reference_url_source": "wordpress-media",
-  "reference_url_updated_at": "2026-06-16T06:17:00+03:00"
+  "reference_urls_blueprint": [
+    "http://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+    "https://i.pinimg.com/1200x/9c/52/0e/9c520e71056f936329a0980b52d383ed.jpg",
+    "https://i.pinimg.com/736x/f5/d8/37/f5d837f70cf9a502245348efb3d48773.jpg"
+  ],
+  "reference_notes": "Первое изображение = только лицо героя (i2i likeness). Одежду ОБЯЗАТЕЛЬНО менять под погоду сцены и тему статьи. Без кепки и капюшона. Очки оставить. Стиль: hyper-realistic action selfie + плашка с коротким RU-заголовком.",
+  "visual_lock": {
+    "face": "узнаваемое лицо героя с reference, чёткий фокус",
+    "glasses": "фирменные очки героя (отражения сцены)",
+    "hair": "как на reference, без кепки/капюшона",
+    "energy": "стильный, смешной/прикольный, не клоун-кринж"
+  },
+  "outfit_rule": "Одежду героя менять под ПОГОДУ сцены и ТЕМУ статьи. Примеры: зима/снег Владивосток — пуховик, шарф; дождь/порт — дождевик или куртка; лето/жара — лёгкая рубашка/футболка; таможня/документы — smart casual; Encar/аукцион — neat casual; комфорт/подвеска — удобный городской look. Майку с reference НЕ копировать. Кепку и капюшон не надевать.",
+  "weather_outfit_examples": {
+    "winter_snow": "пуховик / тёплая куртка, шарф, перчатки опционально",
+    "rain_fog_port": "непромокаемая куртка, слой под дождь",
+    "summer_heat": "лёгкая рубашка или футболка, без тяжёлого верха",
+    "night_city": "стильный бомбер / кожанка",
+    "office_docs_customs": "рубашка / лёгкий пиджак smart casual"
+  },
+  "topic_outfit_hint": "Сначала определи weather из scene_hint/cover_hook (снег, дождь, солнце, туман, ночь), затем подстрой одежду под тему (порт, аукцион, салон авто, ямы на дороге, семья).",
+  "prompt_fragment": "AVTO SALES blog host from first reference image: keep EXACT face likeness and stylish glasses ONLY; CHANGE full outfit to match scene WEATHER and ARTICLE TOPIC (winter coat in snow, rain jacket in rain, light shirt in summer heat, smart casual for customs/docs, casual for comfort/suspension road scenes); DO NOT copy reference t-shirt; NO cap NO hood; photorealistic action selfie 24mm wide-angle; funny/serious reaction; modern cars from Japan/Korea/China when cars appear; Cyrillic headline plaque; subtle catalog site footer in corner: avto-sales125.ru (NOT Telegram).",
+  "cover_hook_rules": [
+    "Обложка = крючок про боль выбора авто / таможню / Азию",
+    "Короткий русский заголовок на красивой плашке (не весь H1)",
+    "Угол обложки (футер): мелкий сайт каталога avto-sales125.ru — НЕ Telegram",
+    "Одежда героя = погода сцены + тема статьи (обязательно менять)",
+    "Фон и сцена из категорий blueprint: авторынок vs заказ, путь машины, радость получения, технологии vs реальность",
+    "Если на фоне авто — только современный автомобиль",
+    "16:9, 8k photoreal, без иллюстраций и латиницы на картинке"
+  ],
+  "cover_corner_brand": {
+    "type": "catalog_url",
+    "text": "avto-sales125.ru",
+    "url": "https://avto-sales125.ru/",
+    "placement": "corner_footer",
+    "forbidden_on_cover_corner": ["Telegram", "@avtosales125", "t.me"]
+  },
+  "cover_prompt_example_ru": "Дизайнерский фотореалистичный баннер/обложка для Avto-Sales: привоз авто из Китая, Кореи, Японии; герой с первого референса — лицо то же, одежду сменить под погоду и тему; в углу обложки сайт каталога avto-sales125.ru (не Telegram); без кепки; смешной и стильный; красивые шрифты.",
+  "reference_url_hosted": "http://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+  "reference_url_source": "avtosales125.ru",
+  "reference_url_updated_at": "2026-07-17T00:00:00+00:00"
 }

@@ -15,16 +15,16 @@ reference PNG → reference_url_hosted
        ↓
 quad-manifest.json (agent fills hooks + scene_hint)
        ↓
-quad-mcp-batch.json (1 job, input_urls, api_args)
+quad-mcp-batch.json (1 job, input_urls)
        ↓
-ONE Kie GPT Image 2 i2i API task → canvas-quad.png 2048×1152
+ONE MCP gpt-image-2 i2i → canvas-quad.png 2048×1152
        ↓
 split → cover.png + inline-01..03.png (1200×675)
        ↓
 inject <figure> after H2 in article.html
 ```
 
-**Запрещено:** 4 отдельных image jobs на cover + inline.
+**Запрещено:** 4 отдельных MCP на cover + inline.
 
 ---
 
@@ -33,8 +33,6 @@ inject <figure> after H2 in article.html
 | Путь | Назначение |
 |------|------------|
 | `shared/blog-cover-quad-canvas-contract.md` | канонический контракт |
-| `shared/kie-gpt-image-api-contract.md` | прямой async Kie API для Cursor Cloud |
-| `shared/mcp-image-async-contract.md` | legacy async contract для image MCP tools |
 | `agents/excalibur-blog-cover.md` | agent-md (этот skill дублирует runbook) |
 | `memory/cover/blog-hero.json` | visual_lock, outfit_rule, reference_url_hosted |
 | `memory/cover/assets/blog-hero-reference.png` | локальный эталон лица |
@@ -58,10 +56,11 @@ inject <figure> after H2 in article.html
 
 ## Герой (blog-host)
 
-**Lock (reference i2i):** очки, quiff, борода — то же лицо.  
-**Lock (outfit):** белое плотное худи heavyweight fabric.
-**Free (агент):** поза, жест, ракурс, выражение, реквизит и композиция — по `cover_hook` и `scene_hint`; каждый раз заметно разные. Наушники/headset/earbuds запрещены.
-**Не** копировать костюм с reference-фото, если scene_hint не просит.
+**Lock (reference i2i):** только лицо и очки с `blog-hero-reference.png`.  
+**Одежда (обязательно менять):** под **погоду** сцены (снег/дождь/жара/туман/ночь) и **тему** статьи (порт, таможня, Encar, салон, ямы/комфорт и т.д.). Майку с reference не копировать.  
+**Запрет:** кепка, капюшон.  
+**Footer / угол обложки:** сайт каталога `avto-sales125.ru` (не Telegram).  
+**Стиль:** hyper-realistic action selfie + плашка (blueprint Avto-Sales).
 
 ---
 
@@ -69,14 +68,14 @@ inject <figure> after H2 in article.html
 
 Из `cover-design-code.json`:
 
-1. Fake UI: Wordstat, Metrica, Telegram, отзывы ★☆☆☆☆
-2. Background: чистый белый `#FFFFFF` для cover и всех inline; без бежевого/серого/grunge-фона
-3. Typography: как на DESIGN.md-референсе — жирный condensed Cyrillic, ротация hot-акцентов (hot pink, hot purple, hot blue, hot orange и другие), sticker labels, brush bubbles, handwritten speech bubble; без price badges
-4. DIY: torn paper, scotch tape, pink sticky notes, marker arrows
-5. Highlight: розовый маркер на ключевом слове hook
-6. Memes: визуальные reaction cutouts (cat, facepalm, rough-edge visual cutout) — max 1 Drake на холст, без принудительного сленга и без токсичных/оскорбительных sticker-фраз
-7. Формат **16:9**, не Instagram carousel 9:16
-8. Inline: полезный UI + обязательный human layer (рваная бумага, tape, pink sticky note, marker annotation, маленький visual meme reaction cutout) на белой базе. Plain whiteboard / минималистичная SaaS-схема = blocker.
+1. Fake UI: карточка каталога, отзывы 2GIS, Encar/аукцион, чеклист документов  
+   **Угол обложки:** `avto-sales125.ru` (каталог), не Telegram  
+   **Запрещено на картинках:** Wordstat, Вордстат, Metrika, Метрика, SEO analytics
+2. DIY: torn paper, scotch tape, sticky notes, marker arrows
+3. Highlight: маркер на ключевом слове hook
+4. Memes: **разные** реакции (cat, facepalm…) — max 1 Drake на холст
+5. Формат **16:9**, не Instagram carousel 9:16
+6. Inline: полезный UI авто/логистики + лёгкий human layer (стикер, tape)
 
 ---
 
@@ -108,9 +107,9 @@ python scripts/excalibur_blog_quad_manifest.py \
 **Руками** доработать `cover/quad-manifest.json`:
 
 - `cover_hook` — провокация
-- `slots.cover.meme_caption_ru` — 2–6 слов, дерзко/иронично, но без оскорблений и унижающих ярлыков (`лох`, `лохов`, `для лохов` и похожее запрещены)
-- `slots.cover.scene_hint` — fake скрины + мемы + белое плотное худи + новая поза/жест/ракурс агента; без наушников/headset/earbuds
-- `slots.inline_*.scene_hint` — конкретика H2 + чисто белый фон `#FFFFFF`
+- `slots.cover.meme_caption_ru` — 2–6 слов
+- `slots.cover.scene_hint` — fake скрины + мемы + outfit агента
+- `slots.inline_*.scene_hint` — конкретика H2
 - `alt` — осмысленные, не «seo картинка»
 
 ### Шаг 3 — prompt + batch
@@ -123,57 +122,19 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-Hard checks перед MCP:
+### Шаг 4 — ONE MCP
 
-- batch всегда пересобран в текущем run; не использовать старый `quad-mcp-batch.json`
-- `validation.prompt_chars <= 3500`
-- `reference_url_hosted` содержит `mayai.ru`, не `files.catbox.moe`
-- `jobs[0].mcp_args.resolution === "2K"`
+`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
+Аргументы = `jobs[0].mcp_args` из batch.
 
-### Шаг 4 — Kie image API
-
-Правильный контракт для Cursor Cloud: **async HTTP API flow**, не sync MCP call.
-
-```bash
-python scripts/excalibur_blog_kie_gpt_image2_api.py \
-  --article-dir memory/blog/articles/<topic_id>-<slug>
-```
-
-Требования:
-
-- `KIE_API_KEY` задан в Cloud Secrets/env; ключ не писать в файлы, handoff, PR или terminal output.
-- Скрипт читает `cover/quad-mcp-batch.json`, создаёт `createTask`, polling'ом вызывает `recordInfo`, пишет `cover/quad-mcp-result.json`.
-- `cover/kie-image-task.json` хранит `task_id`/status без секретов.
-
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, resolution 2K.
-
-Prompt budget: короткий compact prompt. Не дублировать полный brand-lock, suffix и negative на каждую панель; одна общая style-инструкция + короткое описание 4 квадрантов.
-
-### Шаг 4.1 — legacy MCP fallback / timeout policy
-
-Backend `gpt-image-2` может ждать Kie.ai до **15 минут**. В Cloud HTTP-клиент MCP может оборвать sync call раньше с:
-
-```text
-HTTP MCP tool execution failed: MCP error -32001: Request timed out
-```
-
-Это означает, что Cursor MCP client оборвал длинный sync call раньше, чем backend вернул URL. Делай так:
-
-1. Убедись, что ошибка именно `-32001 Request timed out`, а не schema/auth/input.
-2. Не ищи URL в `cover/*` или других article files: при timeout `quad-mcp-result.json` ещё не существует, пока агент сам не запишет URL.
-3. Проверь expanded MCP tool response / Cursor MCP Logs: если там уже появился generated image URL, это **успех**.
-4. Если в логе есть `task_id`, но нет URL — используй status/result MCP tool, если он доступен.
-5. Если нет URL, нет `task_id` и нет status/result tool — используй прямой Kie API script. Если прямой API недоступен — `COVER MCP ASYNC BLOCKER`.
-
-MCP-вызов теперь только legacy fallback. Основной Cloud path — `scripts/excalibur_blog_kie_gpt_image2_api.py`.
-
-Запрещено: останавливать cover после первого timeout без диагностики, запускать повторную sync-генерацию после client timeout, делать 4 отдельных генерации, вызывать MCP через скрипт, идти дальше без URL.
+Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
 
 ### Шаг 5 — apply
 
 ```bash
 python scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --url "<MCP result url>" \
   --inject-html
 ```
 
@@ -182,12 +143,6 @@ python scripts/excalibur_blog_quad_apply.py \
 ### Шаг 6 — fragment
 
 `.cursor/excalibur-blog-fragments/cover.md` — шаблон в `agents/excalibur-blog-cover.md`.
-
-### Шаг 6.5 — visual QA PNG
-
-Открыть/проверить `cover/cover.png` и `cover/inline-01..03.png`.
-
-`quad-split-report.json PASS` проверяет геометрию, но не стиль. Если inline-панель выглядит как plain whiteboard / минималистичная SaaS-схема без рваной бумаги, скотча, розового стикера, маркерной пометки и visual meme cutout — это `COVER STYLE BLOCKER`, нужна перегенерация quad canvas.
 
 ---
 
@@ -199,7 +154,7 @@ python scripts/excalibur_blog_quad_apply.py \
 | `workflow_diagram` | структура, шаги, longread |
 | `checklist_board` | чеклист, публикация |
 | `schema_faq_ui` | FAQ, schema, JSON-LD |
-| `tool_screenshot` | Wordstat, инструменты |
+| `tool_screenshot` | Encar / аукционный лист / карточка авто |
 | `infographic_card` | цифры, факты |
 
 Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
@@ -208,18 +163,13 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 
 ## QA перед ✅
 
-- [ ] 1 image job, не 4
-- [ ] input_urls в image API/MCP
+- [ ] 1 MCP, не 4
+- [ ] input_urls в MCP
 - [ ] cover.png + 3 inline существуют
 - [ ] alt в registry для всех 4
 - [ ] inline привязаны к H2 (`h2_anchor`)
 - [ ] cover: hook + meme caption видны на PNG
-- [ ] cover/inline visible text: нет токсичных или оскорбительных sticker-фраз (`лох`, `лохов`, `для лохов`, унижающие ярлыки)
 - [ ] inline: без лица героя
-- [ ] cover и inline: чистый белый фон `#FFFFFF`, без бежевого/серого/grunge-фона
-- [ ] cover: typography похожа на DESIGN.md-референс (жирный condensed Cyrillic, hot-акценты чередуются: hot pink/hot purple/другие, sticker labels/brush bubbles/handwritten notes, без price badges)
-- [ ] inline: в стиле Excalibur series, не plain whiteboard/minimal SaaS
-- [ ] визуальные meme reaction cutouts есть на cover и хотя бы малым sticker-layer на inline, без forced slang
 - [ ] fragment cover.md записан
 
 ---
@@ -227,16 +177,10 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 ## Blockers → verdict ❌
 
 - нет reference_url_hosted
-- image call text-only (без input_urls)
-- `KIE API BLOCKER`: нет `KIE_API_KEY`, createTask/recordInfo fail, polling timeout или нет resultUrls
-- async status/result tool подтвердил failed/no result или повторный timeout уже в status/result flow
-- `COVER MCP RECOVERY NEEDED`: после timeout агент не имеет доступа к MCP/Cursor log, где виден generated URL; нужен URL из лога, повторять генерацию вслепую нельзя
-- `COVER MCP ASYNC BLOCKER`: sync `gpt-image-2` обрывается по client timeout, а MCP server не даёт `task_id` и отдельный status/result tool для получения позднего URL
+- MCP text-only (без input_urls)
 - 4 отдельные генерации
 - QUAD SPLIT fail
 - inline = meme с ведущим вместо UI
-- inline = plain whiteboard/minimal SaaS без рваной бумаги, скотча, розового стикера, маркерной пометки и визуального meme cutout
-- visible generated sticker text contains insults/toxic labels (`лох`, `лохов`, `для лохов`, унижающие ярлыки)
 
 ---
 

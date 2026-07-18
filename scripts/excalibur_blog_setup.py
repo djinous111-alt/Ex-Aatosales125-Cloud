@@ -52,13 +52,13 @@ def main() -> int:
     # ШАГ 1: Информация о бизнесе и сайте
     # -------------------------------------------------------------------------
     print("--- ШАГ 1: ИНФОРМАЦИЯ О САЙТЕ И БИЗНЕСЕ ---")
-    site_name = get_input("Введите название вашего блога/сайта", "Пример Блога")
-    site_url = get_input("Введите полный URL сайта (с https://)", "https://example.com")
-    blog_path = get_input("Укажите путь к блогу на сайте", "/blog/")
-    niche = get_input("Какая у вас ниша? (например: SaaS автоматизация, EdTech, b2b услуги)", "SaaS автоматизация бизнеса")
+    site_name = get_input("Введите название вашего блога/сайта", "Авто-Сейлс")
+    site_url = get_input("Введите полный URL сайта (с https://)", "https://avtosales125.ru")
+    blog_path = get_input("Укажите путь к блогу на сайте", "/")
+    niche = get_input("Какая у вас ниша? (например: SaaS автоматизация, EdTech, b2b услуги)", "авто из Японии, Кореи и Китая под ключ")
     audience = get_input(
         "Опишите целевую аудиторию (простым языком)", 
-        "предприниматели, новички, менеджеры, специалисты разного уровня без технического бэкграунда"
+        "покупатели авто с пробегом из Азии, Владивосток и регионы РФ"
     )
     
     # -------------------------------------------------------------------------
@@ -66,13 +66,13 @@ def main() -> int:
     # -------------------------------------------------------------------------
     print("\n--- ШАГ 2: НАСТРОЙКА ИНТЕГРАЦИИ И ИМПОРТА В WORDPRESS (SSH) ---")
     print("Для публикации статей напрямую в вашу WP-тему, укажите данные SSH-сервера.")
-    ssh_host = get_input("SSH хост (например: example.com)", "example.com")
+    ssh_host = get_input("SSH хост (например: djinoum7.beget.tech)", "djinoum7.beget.tech")
     ssh_port = get_input("SSH порт", "22")
     ssh_user = get_input("SSH пользователь", "")
     ssh_pass = get_input("SSH пароль", "")
     ssh_root = get_input(
         "SSH путь к корню WordPress (где wp-load.php)",
-        "/public_html/",
+        "/avtosales125/public_html",
     )
     
     allow_publish_input = get_input("Разрешить автоматическую публикацию на боевой сайт? (yes/no)", "no")
@@ -118,13 +118,17 @@ EXCALIBUR_BLOG_ALLOW_PUBLISH={allow_publish}
     if not env_example_path.is_file():
         example_content = """# Excalibur BLOG — credentials (copy to site.env.local)
 
-PUBLIC_SITE_URL=https://example.com
-SSH_HOST=example.com
+PUBLIC_SITE_URL=https://avtosales125.ru
+SSH_HOST=djinoum7.beget.tech
 SSH_PORT=22
 SSH_USER=
 SSH_PASS=
-SSH_ROOT=/public_html/
+SSH_ROOT=/avtosales125/public_html
+FTP_HOST=djinoum7.beget.tech
+FTP_ROOT=/
 EXCALIBUR_BLOG_ALLOW_PUBLISH=no
+CATALOG_URL=https://avto-sales125.ru/
+TELEGRAM_URL=https://t.me/avtosales125
 """
         env_example_path.write_text(example_content, encoding="utf-8")
 
@@ -137,10 +141,10 @@ EXCALIBUR_BLOG_ALLOW_PUBLISH=no
     print("\nЧто делать дальше:")
     print("1. Запустите Scout-агента для поиска новых трендовых тем и наполнения пула:")
     print("   👉 Запустите субагента: Task(excalibur-blog-scout)")
-    print("\n2. Либо запустите полный автоматический пайплайн для готовой темы B01:")
+    print("\n2. Либо запустите полный автоматический пайплайн для темы AS01:")
     print("   👉 Выполните в терминале:")
     print("      python scripts/excalibur_blog_today.py")
-    print("      python scripts/excalibur_blog_research_start.py --topic-id B01")
+    print("      python scripts/excalibur_blog_research_start.py --topic-id AS01")
     print("   👉 Затем запустите Директора: excalibur-blog-director")
     print("\nУдачной и легкой автоматизации вашего контента в 2026 году! 🚀\n")
 

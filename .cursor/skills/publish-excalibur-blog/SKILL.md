@@ -20,7 +20,7 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | Cloud Secrets/env или `memory/site.env.local`: `SSH_*`, `SSH_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
@@ -33,45 +33,35 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 python scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
-  --site-base https://mayai.ru
+  --site-base https://avtosales125.ru
 ```
 
 Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
 
-### 2. Env-check
+### 2. Dry-run
 
 ```bash
-python3 scripts/excalibur_blog_wp_publish.py --env-check
-```
-
-Проверяет allow flag, public URL и SSH-переменные без вывода секретов. Для ad-hoc Python-проверок не импортируй `excalibur_blog_wp_publish.py` из корня без `scripts/` в `sys.path`; безопаснее использовать этот CLI.
-
-### 3. Dry-run
-
-```bash
-python3 scripts/excalibur_blog_wp_publish.py \
+python scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
 
 Проверь: slug, title, размер PHP payload без ошибок.
 
-### 4. Publish
+### 3. Publish
 
 ```bash
-python3 scripts/excalibur_blog_wp_publish.py \
+python scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
 Скрипт:
-- грузит bootstrap сразу через **SSH** (порт 22 по умолчанию), без дополнительных upload-попыток;
-- если настроенный `SSH_ROOT` возвращает SSH ENOENT до upload, один раз пробует `.` и пишет warning без раскрытия секретов; после такого warning лучше обновить Cloud Secret root на `.`;
 - создаёт/обновляет WP post;
 - загружает featured image + alt;
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
 - пишет post meta `_excalibur_blog_schema_jsonld`.
 
-### 5. Cloud WebFetch Fallback
+### 4. Cloud WebFetch Fallback
 
 Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
 
@@ -81,22 +71,22 @@ python3 scripts/excalibur_blog_wp_publish.py \
 
 **Не останавливайся** на первом timeout — используй fallback.
 
-### 6. Post-publish артефакты
+### 5. Post-publish артефакты
 
 | Файл | Действие |
 |------|----------|
 | `wp-publish-result.json` | создаёт скрипт (verdict pass/fail) |
 | `memory/blog/wp-publish-log.md` | допиши секцию с post_id, permalink, inline ids |
-| `shared/published-articles.md` | если есть строка topic_id со status=in_progress — обнови date/url/status=published; иначе добавь строку |
+| `shared/published-articles.md` | строка: date, topic_id, slug, url, status=published |
 | `promotion-checklist.md` | Live URL = permalink |
 | handoff | блок `=== EXCALIBUR BLOG PUBLISH ===` + permalink в `PIPELINE DONE` |
 
-### 7. Post-publish (рекомендуется)
+### 6. Post-publish (рекомендуется)
 
 ```bash
-python3 scripts/excalibur_blog_interlinker.py --apply \
-  --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --site-base https://mayai.ru
+python scripts/excalibur_blog_interlinker.py --apply \
+  --blog-dir memory/blog/articles \
+  --site-base https://avtosales125.ru
 ```
 
 Inbound-ссылки из старых статей на новую.
@@ -128,4 +118,4 @@ blockers:
 - Писать или переписывать longread
 - Генерировать cover/schema с нуля
 - Пропускать dry-run
-- Завершать пайплайн без записи или обновления `published-articles.md` при успешном publish
+- Завершать пайплайн без записи в `published-articles.md` при успешном publish

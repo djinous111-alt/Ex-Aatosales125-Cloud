@@ -1,30 +1,29 @@
-# Cover concept — Excalibur BLOG
+# Cover concept — Авто-Сейлс
 
-Единый визуальный язык обложек. **Excalibur BLOG** сам выбирает и фиксирует `cover_family` при первом прогоне (не AURA).
+Единый визуальный язык обложек блога AVTO SALES.
 
 Machine-readable: `cover-concept.json`  
-Реестр семейств: `shared/blog-cover-family-registry.json`  
-Методология: `shared/blog-cover-brand-concept.md`
+Герой: `blog-hero.json`  
+Референсы blueprint:
 
-## Fixed (не менять между темами)
+1. `assets/blog-hero-reference.png` — лицо героя (одежду менять под погоду и тему)
+2. `assets/style-ref-cover-01.jpg` — стиль плашки/композиции
+3. `assets/style-ref-cover-02.jpg` — доп. стиль
 
-- `cover_family` из JSON
-- `global_prompt_prefix` / `global_prompt_suffix` / `global_negative_prompt`
-- `color_lock`, `composition_lock`
+## Fixed
 
-## Variable (на тему)
+- `cover_family`, color_lock, composition 16:9
+- Угол обложки: каталог `avto-sales125.ru` (не Telegram)
+- Без кепки/капюшона у героя
 
-- `topic_scene_descriptor` в `cover-prompts.json`
-- alt-текст обложки
+## Variable
 
-## Сборка промпта MCP
+- Сцена из категорий blueprint (авторынок vs заказ, путь машины, радость получения, технологии vs реальность, метафоры)
+- Короткий RU-заголовок на плашке под тему статьи
+
+## Сборка промпта
 
 ```text
 {global_prompt_prefix} + {topic_scene_descriptor} + {global_prompt_suffix}
++ hero prompt_fragment from blog-hero.json
 ```
-
-Negative: `global_negative_prompt`
-
-## Style anchor (опционально)
-
-`memory/cover/assets/style-anchor.png` — эталон серии для MCP reference.

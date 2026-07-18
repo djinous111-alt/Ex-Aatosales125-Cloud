@@ -1,7 +1,7 @@
 {
-  "name": "excalibur-blog",
-  "displayName": "Excalibur Blog Cloud — Cursor Automation Plugin",
-  "description": "Плагин для Cursor-автоматизации блога: оркестратор + субагенты для SEO/GEO статей, визуалов, QA, indexer и WordPress publish.",
+  "name": "ex-aatosales125-cloud",
+  "displayName": "Ex-Aatosales125-Cloud",
+  "description": "Excalibur BLOG Cloud for AVTO SALES (avtosales125.ru)",
   "version": "0.2.1",
   "keywords": [
     "excalibur",

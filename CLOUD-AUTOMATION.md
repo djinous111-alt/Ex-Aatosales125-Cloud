@@ -1,13 +1,13 @@
 # Excalibur BLOG — Cloud Automation Setup
 
-Настройка запуска в **Cursor Cloud Agents / Automations** по образцу [kovcheg-office-cloud](https://github.com/Horosheff/kovcheg-office-cloud).
+Настройка запуска в **Cursor Cloud Agents / Automations** для Авто-Сейлс (AVTO SALES). База: [excalibur-blog-cloud-public](https://github.com/Horosheff/excalibur-blog-cloud-public).
 
 ## Что запускаем
 
 Пайплайн одной статьи:
 
 ```text
-doctor + today + research_start → research → writer → geo-qa → cover||schema → indexer → publish (auto; skip только publish:no)
+today + research_start → research → writer → geo-qa → cover||schema → indexer → publish?
 ```
 
 ## Структура репозитория (как у Kovcheg Cloud)
@@ -39,29 +39,30 @@ doctor + today + research_start → research → writer → geo-qa → cover||sc
 - [Self-hosted pool](https://cursor.com/docs/cloud-agent/self-hosted-pool.md)
 - [MCP in Cloud](https://cursor.com/docs/cloud-agent/capabilities.md#mcp-tools)
 
-Локальная выжимка без внешней навигации: [`CURSOR-CLOUD-RUNBOOK.md`](CURSOR-CLOUD-RUNBOOK.md).
+## Cloud environment (Dockerfile) — как запускать
 
-## Repo infrastructure
+В репозитории уже есть:
 
-Cursor Cloud должен использовать `.cursor/environment.json`:
+- `.cursor/Dockerfile`
+- `.cursor/environment.json` (**без** поля `snapshot`)
+- `.cursor/cloud-agent-install.sh`
 
-```json
-{
-  "install": "python3 -m pip install --user -r requirements.txt && python3 scripts/excalibur_blog_doctor.py",
-  "start": "",
-  "terminals": []
-}
-```
+**Не нажимайте** «Set up agent» / «Среда установки» (~20 мин). Этот мастер часто падает с «Не удалось запустить среду установки» и **игнорирует Dockerfile**.
 
-Опциональный GitHub Actions preflight лежит как пример: `shared/cloud-preflight-workflow.yml.example`.
-Чтобы активировать его, скопируй файл в `.github/workflows/cloud-preflight.yml` после `gh auth refresh -s workflow` или через GitHub UI.
+Правильный путь:
+
+1. Репозиторий Cloud: **Ex-Aatosales125-Cloud** (этот проект).
+2. В Dashboard → Cloud Agents → Secrets: `FTP_*` (`FTP_ROOT=/`), `PUBLIC_SITE_URL=https://avtosales125.ru`, `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`.
+3. Если в Environments есть старый broken snapshot — удалите или создайте Personal environment с новым именем.
+4. Запустите **обычного** Cloud Agent на ветке `main` — образ соберётся из `.cursor/Dockerfile` (не жмите «Среда установки»).
+5. Automation cron: `0 23,3,7,11 * * *` (UTC = 09/13/17/21 Владивосток) или `0 9,13,17,21 * * *` если TZ = Asia/Vladivostok.
 
 ## Self-hosted worker
 
 Нужен, если в облаке Cursor нет:
 
 - MCP KV (`gpt-image-2` для обложек);
-- SSH к WordPress;
+- FTP к WordPress;
 - стабильного web search для research.
 
 ```powershell
@@ -78,7 +79,7 @@ agent worker start --pool --pool-name excalibur-blog --idle-release-timeout 600
 | Variable | Зачем |
 |----------|-------|
 | `PUBLIC_SITE_URL` | link verify, recent WP posts |
-| `SSH_*` | `excalibur_blog_wp_publish.py`; transport сразу SSH, только `SSH_*` secrets |
+| `FTP_*` | `excalibur_blog_wp_publish.py` |
 | `EXCALIBUR_BLOG_ALLOW_PUBLISH` | `yes` только когда готовы публиковать |
 | `EXCALIBUR_TOPIC_ID` | опционально фиксировать тему (иначе today.py предложит P0) |
 | `EXCALIBUR_PROJECT_ROOT` | корень репо на worker |
@@ -87,15 +88,36 @@ agent worker start --pool --pool-name excalibur-blog --idle-release-timeout 600
 
 ## Automation schedule
 
-Cursor Automation → Schedule, пример:
+**Авто-Сейлс / Владивосток:** 4 запуска в день в окне **09:00–22:00** (Asia/Vladivostok, UTC+10).
+
+| Слот | Локальное время |
+|------|-----------------|
+| 1 | 09:00 |
+| 2 | 13:00 |
+| 3 | 17:00 |
+| 4 | 21:00 |
+
+Cron (локально / если Automation в TZ Владивостока):
 
 ```text
-0 10,15,20 * * *
+0 9,13,17,21 * * *
 ```
 
-- Repository: ваш fork `excalibur-blog` / EXCALIBUR
+Если Cursor Automation крутится в **UTC**, эквивалент:
+
+```text
+0 23,3,7,11 * * *
+```
+
+(`23` UTC = 09 VLAT предыдущих/текущих суток — проверьте календарь Automation.)
+
+Машиночитаемо: `shared/excalibur-cron-schedule.json`  
+Windows Планировщик: `scripts/install_excalibur_windows_cron.ps1`
+
+- Repository: https://github.com/djinous111-alt/Ex-Aatosales125-Cloud
 - Worker pool: `excalibur-blog`
 - Branch: `main`
+- Publish: `yes` (EXCALIBUR_BLOG_ALLOW_PUBLISH=yes)
 
 ## Automation prompt (шаблон)
 
@@ -105,21 +127,17 @@ Cursor Automation → Schedule, пример:
 Запусти полный пайплайн SEO/GEO статьи через оркестратора (Директор), не выполняя роли сам.
 
 0. Прочитай AGENTS.md и shared/agent-pipeline-pitfalls.md.
-0.1. Прочитай CURSOR-CLOUD-RUNBOOK.md и убедись, что работаешь в Cloud-ready repo.
-1. python3 scripts/excalibur_blog_doctor.py — preflight окружения (для боевого publish: добавь --publish).
-2. python3 scripts/excalibur_blog_today.py — зафиксируй дату и topic_id.
-3. Сбрось .cursor/excalibur-blog-handoff.md одной строкой "# Excalibur BLOG — новая сессия".
-4. Очисти .cursor/excalibur-blog-fragments/.
-5. Если `EXCALIBUR_TOPIC_SELECTION=needs_scout` — запусти Task(excalibur-blog-scout), затем возьми новый topic_id.
-6. python3 scripts/excalibur_blog_research_start.py --topic-id <из EXCALIBUR_SUGGESTED_TOPIC_ID или env/scout> — резервирует topic_id в `shared/published-articles.md` как `in_progress`.
-7. Task(excalibur-blog-research) → current-date deep research: research-notes.md + pain_solution_map + research-notes-gate.json PASS.
-8. Task(excalibur-blog-writer) → human article.html + meta from reader_pain/reader_story/voice_angle/surprising_fact, with clear reader outcome.
-9. Task(excalibur-blog-geo-qa) → PASS + все QA JSON, включая human-voice-report.json.
-10. ПАРАЛЛЕЛЬНО Task(excalibur-blog-cover) + Task(excalibur-blog-schema).
+1. python3 scripts/excalibur_blog_today.py — зафиксируй дату и topic_id.
+2. Сбрось .cursor/excalibur-blog-handoff.md одной строкой "# Excalibur BLOG — новая сессия".
+3. Очисти .cursor/excalibur-blog-fragments/.
+4. python3 scripts/excalibur_blog_research_start.py --topic-id <из EXCALIBUR_SUGGESTED_TOPIC_ID или env>.
+5. Task(excalibur-blog-research) → research-notes.md.
+6. Task(excalibur-blog-writer) → article.html + meta.
+7. Task(excalibur-blog-geo-qa) → PASS + все QA JSON.
+8. ПАРАЛЛЕЛЬНО Task(excalibur-blog-cover) + Task(excalibur-blog-schema).
    Cover/schema пишут во fragments; перенеси в handoff.
-   Cover: перед MCP обязательно пересобрать `quad-mcp-batch.json`; hard gate: `validation.prompt_chars <= 3500`, `reference_url_hosted` содержит `mayai.ru` (не `files.catbox.moe`), `jobs[0].mcp_args.resolution == "2K"`. Если gate не проходит — не вызывать MCP, исправить batch. Image MCP должен быть client-timeout-safe. Если Available Tools содержит async image create/start + status/result — использовать async flow: create once → task_id → status/result → url. Если доступен только sync `gpt-image-2` — вызвать один раз с JSON arguments из `jobs[0].mcp_args`. Если sync call вернул `HTTP MCP -32001 Request timed out`, не retry вслепую и не искать URL в `cover/*`; проверить expanded tool response / Cursor MCP Logs. URL → записать `cover/quad-mcp-result.json`; task_id → использовать status/result tool. Если нет URL/task_id/status tool — `COVER MCP ASYNC BLOCKER`: backend должен дать async retrieval для позднего URL.
-11. Task(excalibur-blog-indexer).
-12. Task(excalibur-blog-publish) — **автоматически** после Indexer (skip только publish:no). Skill: publish-excalibur-blog. Обнови shared/published-articles.md.
+9. Task(excalibur-blog-indexer).
+10. Task(excalibur-blog-publish) — **автоматически** после Indexer (skip только publish:no). Skill: publish-excalibur-blog. Обнови shared/published-articles.md.
 
 Fallback: если Task types недоступны — generalPurpose per role (см. AGENTS.md).
 

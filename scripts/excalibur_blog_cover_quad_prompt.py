@@ -11,7 +11,7 @@ from pathlib import Path
 
 
 MAX_MCP_PROMPT_CHARS = 3500
-REQUIRED_REFERENCE_HOST = "mayai.ru"
+REQUIRED_REFERENCE_HOST = "avtosales125.ru"
 MCP_RESOLUTION = "2K"
 KIE_IMAGE_MODEL = "gpt-image-2-image-to-image"
 

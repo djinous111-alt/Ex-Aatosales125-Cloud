@@ -1,0 +1,407 @@
+{
+  "site": "https://avtosales125.ru",
+  "fetched_at": "2026-07-17T15:39:47.8232028+10:00",
+  "count": 100,
+  "posts": [
+    {
+      "slug": "kitajskie-elektromobili-obzor-li-auto-i-zeekr-komu-oni-podhodyat",
+      "title": "Китайские электромобили: обзор Li Auto и Zeekr — кому они подходят"
+    },
+    {
+      "slug": "kia-seltos-iz-korei-plyusy-i-minusy-gorodskogo-krossovera",
+      "title": "Киа Селтос из Кореи: плюсы и минусы городского кроссовера"
+    },
+    {
+      "slug": "yaponskie-krossovery-s-probegom-samye-nadezhnye-modeli-dlya-rf",
+      "title": "Японские кроссоверы с пробегом: самые надежные модели для РФ"
+    },
+    {
+      "slug": "avto-iz-korei-v-krasnodar-rastamozhka-i-dostavka-bez-syurprizov",
+      "title": "Авто из Кореи в Краснодар: растаможка и доставка без сюрпризов"
+    },
+    {
+      "slug": "chery-omoda-ili-exeed-sravnenie-brendov-odnogo-konczerna",
+      "title": "Chery, Omoda или Exeed: сравнение брендов одного концерна"
+    },
+    {
+      "slug": "hendaj-stariya-iz-korei-passazhirskij-ili-kommercheskij-chto-vybrat",
+      "title": "Хендай Стария из Кореи: пассажирский или коммерческий — что выбрать"
+    },
+    {
+      "slug": "zaderzhali-avto-na-tamozhne-kak-zabrat-mashinu-poshagovyj-plan",
+      "title": "Задержали авто на таможне: как забрать машину — пошаговый план"
+    },
+    {
+      "slug": "kitajskie-mashiny-czeny-do-15-mln-i-avto-kotorye-ne-razocharuyut",
+      "title": "Китайские машины: цены до 1,5 млн и авто, которые не разочаруют"
+    },
+    {
+      "slug": "kia-karnival-iz-korei-kak-kupit-miniven-dlya-semi-i-biznesa",
+      "title": "Киа Карнивал из Кореи: как купить минивэн для семьи и бизнеса"
+    },
+    {
+      "slug": "rastamozhka-elektromobilya-iz-yaponii-lgoty-i-riski-2026-goda",
+      "title": "Растаможка электромобиля из Японии: льготы и риски 2026 года"
+    },
+    {
+      "slug": "dostavka-avto-iz-kitaya-v-2026-sroki-i-sposoby-prignat-mashinu",
+      "title": "Доставка авто из Китая в 2026: сроки и способы пригнать машину"
+    },
+    {
+      "slug": "rastamozhka-avto-iz-korei-i-yaponii-gde-bystree-i-proshhe-v-2026",
+      "title": "Растаможка авто из Кореи и Японии: где быстрее и проще в 2026"
+    },
+    {
+      "slug": "yaponskie-avto-vo-vladivostoke-riski-pokupki-po-doverennosti",
+      "title": "Японские авто во Владивостоке: риски покупки по доверенности"
+    },
+    {
+      "slug": "zakaz-avto-iz-korei-v-spb-logistika-i-tipichnye-oshibki",
+      "title": "Заказ авто из Кореи в СПб: логистика и типичные ошибки"
+    },
+    {
+      "slug": "kitajskij-vin-i-sertifikaty-chto-proverit-do-pokupki-avto",
+      "title": "Китайский VIN и сертификаты: что проверить до покупки авто"
+    },
+    {
+      "slug": "rastamozhka-avto-5-mifov-pochemu-ne-stoit-letet-vo-vladivostok",
+      "title": "Растаможка авто: 5 мифов — почему не стоит лететь во Владивосток"
+    },
+    {
+      "slug": "santa-fe-iz-korei-tipichnye-bolyachki-i-kak-ih-izbezhat",
+      "title": "Санта Фе из Кореи: типичные болячки и как их избежать"
+    },
+    {
+      "slug": "aukcziony-yaponii-sroki-dostavki-do-dveri-v-czentralnoj-rossii",
+      "title": "Аукционы Японии: сроки доставки до двери в Центральной России"
+    },
+    {
+      "slug": "kitajskie-ramnye-vnedorozhniki-komu-nuzhen-nastoyashhij-4x4",
+      "title": "Китайские рамные внедорожники: кому нужен настоящий 4&#215;4?"
+    },
+    {
+      "slug": "kia-k5-i-sonata-iz-korei-sravnenie-dlya-taksi-i-semi",
+      "title": "Киа К5 и Соната из Кореи: сравнение для такси и семьи"
+    },
+    {
+      "slug": "yaponskie-mashiny-10-likvidnyh-modelej-dlya-pokupki-vo-vladivostoke",
+      "title": "Японские машины: 10 ликвидных моделей для покупки во Владивостоке"
+    },
+    {
+      "slug": "kitajskie-krossovery-top-7-s-luchshej-shumoizolyacziej-dlya-trassy",
+      "title": "Китайские кроссоверы: топ-7 с лучшей шумоизоляцией для трассы"
+    },
+    {
+      "slug": "kamri-gibrid-ili-hyundai-stoit-li-pereplata-otzyvy-vladelczev",
+      "title": "Камри гибрид или Hyundai: стоит ли переплата — отзывы владельцев"
+    },
+    {
+      "slug": "avto-iz-yaponii-do-milliona-kakuyu-mashinu-vygodno-prignat",
+      "title": "Авто из Японии до миллиона: какую машину выгодно пригнать"
+    },
+    {
+      "slug": "mashiny-iz-korei-skolko-edet-avto-do-moskvy-tajmlajn-2026",
+      "title": "Машины из Кореи: сколько едет авто до Москвы — таймлайн 2026"
+    },
+    {
+      "slug": "kitajskie-novinki-2026-chto-uzhe-mozhno-zakazat-a-chto-net",
+      "title": "Китайские новинки 2026: что уже можно заказать, а что — нет"
+    },
+    {
+      "slug": "sbkts-i-epts-vo-vladivostoke-kak-poluchit-na-avto-iz-azii",
+      "title": "СБКТС и ЭПТС во Владивостоке: как получить на авто из Азии"
+    },
+    {
+      "slug": "kupit-genesis-iz-korei-biznes-klass-bez-salonnoj-naczenki",
+      "title": "Купить Genesis из Кореи: бизнес-класс без салонной наценки"
+    },
+    {
+      "slug": "zakaz-avto-iz-yaponii-pravila-tamozhni-2026-dlya-neprohodnyh-mashin-2",
+      "title": "Заказ авто из Японии: правила таможни 2026 для непроходных машин"
+    },
+    {
+      "slug": "deshevye-kitajskie-elektromobili-zapas-hoda-i-servis-v-regionah",
+      "title": "Дешевые китайские электромобили: запас хода и сервис в регионах"
+    },
+    {
+      "slug": "avto-iz-korei-do-2-mln-kak-kupit-mashinu-pod-klyuch-v-2026",
+      "title": "Авто из Кореи до 2 млн: как купить машину под ключ в 2026"
+    },
+    {
+      "slug": "yaponskie-miniveny-7-semejnyh-modelej-s-levym-rulem",
+      "title": "Японские минивэны: 7 семейных моделей с левым рулем"
+    },
+    {
+      "slug": "kitajskie-avto-zimoj-2026-sravnenie-haval-changan-i-geely",
+      "title": "Китайские авто зимой 2026: сравнение Haval, Changan и Geely"
+    },
+    {
+      "slug": "kia-sorento-iz-korei-benzin-dizel-gibrid-chto-prignat",
+      "title": "Киа Соренто из Кореи: бензин, дизель, гибрид — что пригнать"
+    },
+    {
+      "slug": "hendaj-palisad-iz-korei-kak-kupit-7-mestnyj-suv-bez-pereplaty-dileru",
+      "title": "Хендай Палисад из Кореи: как купить 7-местный SUV без переплаты дилеру"
+    },
+    {
+      "slug": "aukczionnyj-list-iz-yaponii-podrobnaya-rasshifrovka-polej",
+      "title": "Аукционный лист из Японии: подробная расшифровка полей"
+    },
+    {
+      "slug": "dostavka-mashiny-iz-vladivostoka-zh-d-avtovoz-i-peregon-chto-vybrat",
+      "title": "Доставка машины из Владивостока: ж/д, автовоз и перегон — что выбрать"
+    },
+    {
+      "slug": "proverka-mashiny-na-enkar-kak-vybrat-korejskoe-avto-do-depozita",
+      "title": "Проверка машины на Энкар: как выбрать корейское авто до депозита"
+    },
+    {
+      "slug": "kitajskie-avto-dlya-taksi-kakie-mashiny-ne-razoryat-avtopark",
+      "title": "Китайские авто для такси: какие машины не разорят автопарк"
+    },
+    {
+      "slug": "peregon-iz-vladivostoka-czena-chastye-oshibki-i-ekonomiya",
+      "title": "Перегон из Владивостока: цена, частые ошибки и экономия"
+    },
+    {
+      "slug": "kia-sportejdzh-iz-korei-2026-vybiraem-polnyj-privod-ili-perednij",
+      "title": "Киа Спортейдж из Кореи 2026: выбираем полный привод или передний"
+    },
+    {
+      "slug": "rastamozhka-avto-iz-kitaya-sroki-dokumenty-i-kak-izbezhat-zaderzhek",
+      "title": "Растаможка авто из Китая: сроки, документы и как избежать задержек"
+    },
+    {
+      "slug": "hendaj-tussan-iz-korei-za-chto-pereplachivayut-i-kogda-ne-stoit-brat",
+      "title": "Хендай Туссан из Кореи: за что переплачивают и когда не стоит брать"
+    },
+    {
+      "slug": "yaponskie-aukcziony-chto-skryto-za-aukczionnoj-oczenkoj-4-4-5-i-5",
+      "title": "Японские аукционы: что скрыто за аукционной оценкой 4, 4.5 и 5"
+    },
+    {
+      "slug": "kitajskie-avto-ili-koreya-za-odin-byudzhet-krossover-ili-sedan",
+      "title": "Китайские авто или Корея за один бюджет: кроссовер или седан"
+    },
+    {
+      "slug": "svh-vladivostok-tranzit-avto-iz-3-stran-bez-pereplat-v-2026",
+      "title": "СВХ Владивосток: транзит авто из 3 стран без переплат в 2026"
+    },
+    {
+      "slug": "avto-iz-korei-pod-zakaz-polnyj-put-ot-encar-do-postanovki-na-uchyot",
+      "title": "Авто из Кореи под заказ: полный путь от Encar до постановки на учёт"
+    },
+    {
+      "slug": "dokumenty-na-avto-iz-kitaya-kak-otlichit-poddelku-do-oplaty",
+      "title": "Документы на авто из Китая: как отличить подделку до оплаты"
+    },
+    {
+      "slug": "rastamozhka-mashiny-iz-yaponii-obnovlyonnyj-chek-list-na-leto-2026",
+      "title": "Растаможка машины из Японии: обновлённый чек-лист на лето 2026"
+    },
+    {
+      "slug": "kia-k5-iz-korei-komplektaczii-lovushki-probega-i-pravila-vybora",
+      "title": "Kia K5 из Кореи: комплектации, ловушки пробега и правила выбора"
+    },
+    {
+      "slug": "proverka-po-vin-avto-iz-korei-bazy-dtp-i-skrytye-avarii",
+      "title": "Проверка по VIN: авто из Кореи, базы ДТП и скрытые аварии"
+    },
+    {
+      "slug": "utilsbor-na-avto-2026-raschet-dlya-mashin-iz-korei-kitaya-i-yaponii",
+      "title": "Утильсбор на авто 2026: расчет для машин из Кореи, Китая и Японии"
+    },
+    {
+      "slug": "avto-iz-korei-ili-yaponii-pod-polnuyu-poshlinu-chto-vygodnee-v-2026",
+      "title": "Авто из Кореи или Японии под полную пошлину: что выгоднее в 2026"
+    },
+    {
+      "slug": "encar-na-russkom-kak-chitat-obyavleniya-i-bezopasno-kupit-avto",
+      "title": "Encar на русском: как читать объявления и безопасно купить авто"
+    },
+    {
+      "slug": "rastamozhka-avto-iz-korei-sroki-i-etapy-cherez-vladivostok-v-2026",
+      "title": "Растаможка авто из Кореи: сроки и этапы через Владивосток в 2026"
+    },
+    {
+      "slug": "perekup-avto-gde-berut-mashiny-dlya-vygodnoj-pereprodazhi",
+      "title": "Перекуп авто: где берут машины для выгодной перепродажи"
+    },
+    {
+      "slug": "kupit-mashinu-pochemu-aprel-idealnoe-vremya-dlya-zakaza-avto",
+      "title": "Купить машину: почему апрель — идеальное время для заказа авто"
+    },
+    {
+      "slug": "dostavka-mashiny-po-rossii-kak-sekonomit-bez-ushherba-bezopasnosti",
+      "title": "Доставка машины по России: как сэкономить без ущерба безопасности"
+    },
+    {
+      "slug": "vvoz-mashin-kak-geopolitika-izmenila-logistiku-avto-v-rossiyu",
+      "title": "Ввоз машин: как геополитика изменила логистику авто в Россию"
+    },
+    {
+      "slug": "prigon-avto-iz-evropy-i-ssha-pochemu-my-ne-vozim-mashiny-v-2026-godu",
+      "title": "Пригон авто из Европы и США: почему мы не возим машины в 2026 году"
+    },
+    {
+      "slug": "bityj-avto-pod-vosstanovlenie-ili-czelyj-chto-vygodnee-prignat",
+      "title": "Битый авто под восстановление или целый: что выгоднее пригнать?"
+    },
+    {
+      "slug": "elektronnyj-pts-kak-poluchit-za-1-den-po-novym-pravilam",
+      "title": "Электронный ПТС: как получить за 1 день по новым правилам"
+    },
+    {
+      "slug": "mashiny-iz-azii-v-2026-pochemu-spros-na-dostavku-bet-rekordy",
+      "title": "Машины из Азии в 2026: почему спрос на доставку бьет рекорды"
+    },
+    {
+      "slug": "rastamozhka-avto-kakie-mashiny-zavisli-i-kak-izbezhat-zaderzhek-na-tamozhne",
+      "title": "Растаможка авто: какие машины зависли и как избежать задержек на таможне"
+    },
+    {
+      "slug": "kupit-mashinu-skidki-na-modeli-2024-i-kak-vygodno-zabrat-avto-2025",
+      "title": "Купить машину: скидки на модели 2024 и как выгодно забрать авто 2025"
+    },
+    {
+      "slug": "i-cannot-fulfill-this-request-8",
+      "title": "I cannot fulfill this request."
+    },
+    {
+      "slug": "kak-prodat-mashinu-i-bystro-zakazat-novuyu-s-dostavkoj-na-dom",
+      "title": "Как продать машину и быстро заказать новую с доставкой на дом"
+    },
+    {
+      "slug": "kitajskie-mashiny-chestnye-otzyvy-i-kachestvo-spustya-3-goda",
+      "title": "Китайские машины: честные отзывы и качество спустя 3 года"
+    },
+    {
+      "slug": "rastamozhka-avto-s-1-aprelya-kak-ne-pereplatit-pri-pokupke",
+      "title": "Растаможка авто с 1 апреля: как не переплатить при покупке"
+    },
+    {
+      "slug": "zakazat-avto-iz-azii-v-2026-pochemu-mashina-s-zavoda-vygodnee",
+      "title": "Заказать авто из Азии в 2026: почему машина с завода выгоднее"
+    },
+    {
+      "slug": "zapret-na-vvoz-avto-iz-za-graniczy-chernyj-spisok-dlya-pokupatelya",
+      "title": "Запрет на ввоз авто из-за границы: черный список для покупателя"
+    },
+    {
+      "slug": "rastamozhka-avto-kak-uspet-prignat-mashinu-do-poshlin-2026-goda",
+      "title": "Растаможка авто: как успеть пригнать машину до пошлин 2026 года"
+    },
+    {
+      "slug": "dostavka-avto-v-regiony-kak-izmenyatsya-czeny-k-sezonu-otpuskov",
+      "title": "Доставка авто в регионы: как изменятся цены к сезону отпусков"
+    },
+    {
+      "slug": "sravnenie-stoimosti-soderzhaniya-dilerskie-avto-i-mashiny-pod-zakaz",
+      "title": "Сравнение стоимости содержания: дилерские авто и машины под заказ"
+    },
+    {
+      "slug": "dostavka-mashiny-pochemu-vesnoj-vygodno-prignat-avto-cherez-vladivostok",
+      "title": "Доставка машины: почему весной выгодно пригнать авто через Владивосток"
+    },
+    {
+      "slug": "aziatskie-mashiny-pochemu-moskvichi-massovo-pokupayut-ih-vesnoj-2026",
+      "title": "Азиатские машины: почему москвичи массово покупают их весной 2026"
+    },
+    {
+      "slug": "kak-kupit-novuyu-mashinu-na-20-deshevle-skidki-v-avtosalonah",
+      "title": "Как купить новую машину на 20% дешевле: скидки в автосалонах"
+    },
+    {
+      "slug": "mashiny-na-zakaz-5-dorogih-oshibok-pri-prigone-avto-iz-za-graniczy",
+      "title": "Машины на заказ: 5 дорогих ошибок при пригоне авто из-за границы"
+    },
+    {
+      "slug": "kupit-mashinu-sejchas-ili-zhdat-leta-prognoz-avtorynka-ot-ekspertov",
+      "title": "Купить машину сейчас или ждать лета: прогноз авторынка от экспертов"
+    },
+    {
+      "slug": "prognoz-czen-na-avto-chego-zhdat-ot-rynka-vvoza-v-mae-2026-goda",
+      "title": "Прогноз цен на авто: чего ждать от рынка ввоза в мае 2026 года"
+    },
+    {
+      "slug": "zakaz-avto-prozrachnyj-proczess-poiska-mashin-i-dovolnye-klienty",
+      "title": "Заказ авто: прозрачный процесс поиска машин и довольные клиенты"
+    },
+    {
+      "slug": "fiksirovannaya-czena-na-uslugi-garantiya-bez-skrytyh-platezhej",
+      "title": "Фиксированная цена на услуги: гарантия без скрытых платежей"
+    },
+    {
+      "slug": "pereprodazha-avto-kak-stat-perekupom-i-partnerom-v-vashem-regione",
+      "title": "Перепродажа авто: как стать перекупом и партнером в вашем регионе"
+    },
+    {
+      "slug": "izgotovlenie-na-zakaz-pochemu-my-ne-rabotaem-na-potoke",
+      "title": "Изготовление на заказ: почему мы не работаем на потоке"
+    },
+    {
+      "slug": "tamozhennoe-oformlenie-kak-rabotaet-zashhita-personalnyh-dannyh",
+      "title": "Таможенное оформление: как работает защита персональных данных"
+    },
+    {
+      "slug": "podbor-avto-ekspertnyj-opyt-kak-zakazat-mashinu-iz-za-rubezha",
+      "title": "Подбор авто: экспертный опыт, как заказать машину из-за рубежа"
+    },
+    {
+      "slug": "princzipy-raboty-kompanii-pochemu-nas-rekomenduyut-druzyam",
+      "title": "Принципы работы компании: почему нас рекомендуют друзьям"
+    },
+    {
+      "slug": "pomoshh-v-postanovke-na-uchet-registracziya-avto-bez-problem",
+      "title": "Помощь в постановке на учет: регистрация авто без проблем"
+    },
+    {
+      "slug": "kak-zabrat-mashinu-vo-vladivostoke-samomu-organizuem-vstrechu",
+      "title": "Как забрать машину во Владивостоке самому: организуем встречу"
+    },
+    {
+      "slug": "otvetstvennost-posrednika-finansovye-garantii-pered-zakazchikom",
+      "title": "Ответственность посредника: финансовые гарантии перед заказчиком"
+    },
+    {
+      "slug": "postavka-mashin-kak-my-privezli-50-avto-korporativnomu-klientu",
+      "title": "Поставка машин: как мы привезли 50 авто корпоративному клиенту"
+    },
+    {
+      "slug": "pokupka-mashiny-pochemu-my-otseivaem-podozritelno-deshevye-avto",
+      "title": "Покупка машины: почему мы отсеиваем подозрительно дешевые авто"
+    },
+    {
+      "slug": "otpravka-avto-iz-vladivostoka-kak-komanda-gotovit-mashiny-k-dostavke",
+      "title": "Отправка авто из Владивостока: как команда готовит машины к доставке"
+    },
+    {
+      "slug": "videootchet-iz-avtoservisa-vsyo-o-remonte-avto-na-kazhdom-etape",
+      "title": "Видеоотчет из автосервиса: всё о ремонте авто на каждом этапе"
+    },
+    {
+      "slug": "dogovor-postavki-avto-prozrachnye-usloviya-bez-melkogo-shrifta",
+      "title": "Договор поставки авто: прозрачные условия без мелкого шрифта"
+    },
+    {
+      "slug": "dilery-kitaya-kak-my-vedem-peregovory-i-poluchaem-skidki-klientam",
+      "title": "Дилеры Китая: как мы ведем переговоры и получаем скидки клиентам"
+    },
+    {
+      "slug": "proverka-avto-iz-korei-kak-my-oczenivaem-lkp-pered-pokupkoj",
+      "title": "Проверка авто из Кореи: как мы оцениваем ЛКП перед покупкой"
+    },
+    {
+      "slug": "dostavka-avto-iz-vladivostoka-v-moskvu-komu-doveryayut-dorogie-mashiny",
+      "title": "Доставка авто из Владивостока в Москву: кому доверяют дорогие машины"
+    },
+    {
+      "slug": "kruglosutochnaya-podderzhka-klientov-kak-rabotaet-lichnyj-menedzher",
+      "title": "Круглосуточная поддержка клиентов: как работает личный менеджер"
+    },
+    {
+      "slug": "dostavka-mashiny-pochemu-my-pokazyvaem-vsyu-kuhnyu-biznesa-klientam",
+      "title": "Доставка машины: почему мы показываем всю кухню бизнеса клиентам"
+    }
+  ]
+}

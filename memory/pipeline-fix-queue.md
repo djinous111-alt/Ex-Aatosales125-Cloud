@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260718-2110-writer-utility-pain-markers
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-writer
+topic_id: AS07
+article_dir: memory/blog/articles/AS07-dokumenty-na-avto-iz-kitaya
+severity: medium
+category: contract
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` requires `pain_markers_ru` / `outcome_markers_ru` from editorial policy (defaults min 2 / 3), but `memory/brief/editorial-policy.json` had neither list.
+- Empty lists → always pain_markers=0 / outcome_markers=0 → every article BLOCK after the check was added.
+- Writer also needed ≥8 recommendation markers; bare "Делать/Не делать" does not match policy tokens `сделайте` / `не делайте`.
+
+### How the agent recovered this run
+- Patched `memory/brief/editorial-policy.json` with pain/outcome marker lists aligned to `excalibur_blog_human_voice_gate.py` (plus `страх`).
+- Rewrote AS07 body to use `Сделайте` / `Не делайте`, `Шаг N`, `проверьте`, `избегайте`, `используйте`, `чеклист`, and pain/outcome wording; trimmed to 8500–9500 chars.
+- Utility gate PASS; HTML linter PASS.
+
+### Durable fix needed before next run
+- Keep editorial-policy pain/outcome lists in sync with human_voice_gate constants (single source of truth preferred).
+- Document in writer skill: recommendation markers must use imperative forms from policy (`сделайте`, not only `Делать:`).
+- Optional: utility_gate should skip pain/outcome checks when policy lists are empty, or fail loudly at load time.
+
+### Suggested files to inspect/change
+- memory/brief/editorial-policy.json
+- scripts/excalibur_blog_utility_gate.py
+- scripts/excalibur_blog_human_voice_gate.py
+- .cursor/skills/writer-excalibur-blog/SKILL.md
+- shared/agent-pipeline-pitfalls.md
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

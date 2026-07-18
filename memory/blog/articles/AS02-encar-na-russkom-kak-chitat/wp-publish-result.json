@@ -1,0 +1,15 @@
+{
+  "slug": "encar-na-russkom-kak-chitat",
+  "topic_id": "AS02",
+  "permalink": "[REDACTED]/2026/07/18/encar-na-russkom-kak-chitat/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1228221,
+    "detected_format": "png"
+  },
+  "raw_output": "Using PHP_BIN=/usr/local/bin/php7.4\nOK post=3394 slug=encar-na-russkom-kak-chitat\nOK featured_image=3425\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3426 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/07/encar-na-russkom-kak-chitat-inline-01-5.png\n\nWarning: Packets out of order. Expected 1 received 0. Packet size=145 in /home/d/djinoum7[REDACTED]/wp-includes/class-wpdb.php on line 2351\nOK inline_image_upload=3427 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/07/encar-na-russkom-kak-chitat-inline-02-5.png\nOK inline_image_upload=3428 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/07/encar-na-russkom-kak-chitat-inline-03-5.png\npermalink=[REDACTED]/2026/07/18/encar-na-russkom-kak-chitat/\n",
+  "verdict": "pass"
+}

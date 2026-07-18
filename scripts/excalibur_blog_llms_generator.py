@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Excalibur BLOG LLMs Generator: AI-First Crawler Policy.
 
 Generates and maintains standard llms.txt and llms-full.txt in the root folder,
@@ -103,17 +103,38 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
     return "\n".join(lines)
 
 
+def resolve_site_base(raw: str, *, commit_safe: bool) -> str:
+    """Committed llms*.txt must not embed PUBLIC_SITE_URL (Cursor secret-scan)."""
+    if commit_safe:
+        return "[REDACTED]"
+    value = (raw or "").strip().rstrip("/")
+    return value or "[REDACTED]"
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Generate AI-friendly llms.txt and llms-full.txt")
     ap.add_argument("--blog-dir", type=Path, default=None)
+    ap.add_argument(
+        "--blog-path",
+        type=str,
+        default="/",
+        help="Public blog path prefix on the site (e.g. / or /blog/). Kept for indexer/doctor CLI compatibility.",
+    )
     ap.add_argument("--site-name", type=str, default="Авто-Сейлс")
     ap.add_argument("--site-desc", type=str, default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.")
     ap.add_argument("--site-base", type=str, default="https://avtosales125.ru")
+    ap.add_argument(
+        "--commit-safe",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Write [REDACTED] host in llms*.txt (default). Use --no-commit-safe for live deploy copies only.",
+    )
     ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for llms.txt/llms-full.txt")
     args = ap.parse_args()
 
     root = project_root()
     blog_dir = args.blog_dir or root / "memory/blog/articles"
+    _ = args.blog_path  # reserved for URL path prefix; article URLs use site-base + slug
     if not blog_dir.is_absolute():
         blog_dir = root / blog_dir
 
@@ -124,8 +145,12 @@ def main() -> int:
     articles = load_articles(blog_dir)
     print(f"Loaded {len(articles)} articles to index for LLMs.")
 
-    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, args.site_base)
-    llms_full_txt = build_llms_full_txt(args.site_name, articles, args.site_base)
+    site_base = resolve_site_base(args.site_base, commit_safe=args.commit_safe)
+    if args.commit_safe and args.site_base.strip().rstrip("/") not in {"", "[REDACTED]"}:
+        print("NOTE: --commit-safe on → site_base written as [REDACTED] (secret-scan safe)")
+
+    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, site_base)
+    llms_full_txt = build_llms_full_txt(args.site_name, articles, site_base)
 
     llms_path = out_dir / "llms.txt"
     llms_full_path = out_dir / "llms-full.txt"

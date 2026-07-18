@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Excalibur BLOG Interlinker: Hub-and-Spoke internal linking manager.
 
 Scans articles in memory/blog/articles/, matches keywords to other articles,
@@ -195,11 +195,25 @@ def apply_interlinks(suggestions: list[dict[str, Any]], articles: list[dict[str,
     return applied_count
 
 
+def resolve_report_site_base(raw: str, *, commit_safe: bool) -> str:
+    """interlink-suggestions.json is often committed; never store live PUBLIC_SITE_URL there."""
+    if commit_safe:
+        return "[REDACTED]"
+    value = (raw or "").strip().rstrip("/")
+    return value or "[REDACTED]"
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Excalibur BLOG Hub-and-Spoke Interlinker")
     ap.add_argument("--blog-dir", type=Path, default=None, help="Path to articles/ directory")
     ap.add_argument("--article-dir", type=Path, default=None, help="Limit suggestions to one article as source or target")
     ap.add_argument("--site-base", type=str, default="https://avtosales125.ru", help="Base site URL")
+    ap.add_argument(
+        "--commit-safe",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Store [REDACTED] as site_base in JSON report (default). Applied HTML links stay relative /blog/...",
+    )
     ap.add_argument("--apply", action="store_true", help="Directly edit html files to apply links")
     ap.add_argument("--output", type=Path, default=None, help="Output path for JSON suggestions report")
     args = ap.parse_args()
@@ -216,7 +230,8 @@ def main() -> int:
     articles = load_all_articles(blog_dir)
     print(f"Loaded {len(articles)} articles from memory.")
 
-    suggestions = find_linking_opportunities(articles, args.site_base)
+    link_base = resolve_report_site_base(args.site_base, commit_safe=args.commit_safe)
+    suggestions = find_linking_opportunities(articles, link_base)
     article_dir = args.article_dir
     if article_dir and not article_dir.is_absolute():
         article_dir = root / article_dir
@@ -224,7 +239,7 @@ def main() -> int:
     print(f"Found {len(suggestions)} internal linking opportunities.")
 
     report = {
-        "site_base": args.site_base,
+        "site_base": link_base,
         "total_articles": len(articles),
         "opportunities_found": len(suggestions),
         "suggestions": [

@@ -28,7 +28,7 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 4. Писать максимально доступно для новичков и обычных людей без технического бэкграунда. Объяснять любые сложные термины (RAG, Docker, API, Self-hosted, MCP, агент, workflow) «на пальцах» простыми словами и аналогиями. Не писать как для профи, разработчиков, архитекторов или админов.
 5. Outline H2/H3, hook 350–500 символов, body 8 500–9 500 символов; каждый H2 закрывает конкретную боль новичка из `pain_solution_map` и содержит пример, ошибку или решение из research. В каждой статье должен быть понятный первый результат: что читатель сможет сделать сегодня без команды разработчиков.
 6. **Без оглавления в теле:** не вставляй `<ol>`/`<ul>` с якорными ссылками на H2 после TL;DR (см. контракт, блок 3).
-7. FAQ 5–7 пар в HTML; CTA из `conversion-map.md` (≤3).
+7. FAQ 5–7 пар в HTML; CTA из `conversion-map.md` (≤3). Href каталога/Telegram — live env (`CATALOG_URL`/`TELEGRAM_URL`) или относительный path; **не** `href="[REDACTED]"` (ломает link-verify). Redact только в commit staging.
 8. `article.meta.json` с `meta_ab`, `topic_id`, `slug`, `char_count`.
 9. Handoff `=== EXCALIBUR BLOG WRITER ===`.
 

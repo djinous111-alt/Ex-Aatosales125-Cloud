@@ -1,0 +1,500 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-18",
+    "today_ru": "18.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-19",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-18 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS02",
+    "priority": "P0",
+    "slug": "encar-na-russkom-kak-chitat",
+    "h1": "Encar на русском: как читать объявления и не купить «кота в мешке»",
+    "primary_query": "encar на русском",
+    "secondary_queries": [
+      "как читать encar",
+      "проверка авто корея"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "encar на русском 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Авто из Кореи - Подбор и доставка в Россию - Encar",
+          "url": "https://encar-russia.ru/",
+          "snippet": ""
+        },
+        {
+          "title": "Как заказать авто из Кореи через Encar в 2026 году: Мой опыт ...",
+          "url": "https://vc.ru/transport/2125149-kak-zakazat-avto-iz-korei",
+          "snippet": "Полный каталог на русском языке. Актуальные цены указаны \"под ключ\" с доставкой в Россию."
+        },
+        {
+          "title": "Encar.Expert - Выкуп и доставка автомобилей из Кореи - Encar на русском",
+          "url": "https://encar.expert/?route=basic-nda",
+          "snippet": "Так я узнал про площадку Encar (энкар) — крупнейший сайт, где выставлены тысячи объявлений от корейских дилеров и частников. Идея заказать машину напрямую через Encar меня заинтриговала."
+        },
+        {
+          "title": "Encar как пользоваться сайтом авто из Кореи? Разбираю с нуля на русском ...",
+          "url": "https://rutube.ru/video/4dcc57722abd6d8abd57d7845897e8ff/",
+          "snippet": "Последнее обновление базы: 11 июля 2026 г."
+        },
+        {
+          "title": "Encar.Expert - Выкуп и доставка автомобилей из Кореи - Encar на русском",
+          "url": "https://encar.expert/",
+          "snippet": "Хочешь купить авто из Кореи но не знаешь с какого сайта начать? Сегодня разбираю Encar именно тот сайт которым мы пользуемся каждый день при подборе машин для наших клиентов."
+        },
+        {
+          "title": "Encar 2026: Как снизить бюджет на корейское авто в 1.5 раза - Новости ...",
+          "url": "https://xenon-car.ru/zakaz-avto-s-encar-2026/",
+          "snippet": "Здравствуйте! Готов помочь вам. Напишите мне, если у вас появятся вопросы. Последнее обновление базы: 11 июля 2026 г."
+        }
+      ],
+      "searched_at": "2026-07-18"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "encar на русском июль 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Авто из Кореи - Подбор и доставка в Россию - Encar",
+          "url": "https://encar-russia.ru/",
+          "snippet": ""
+        },
+        {
+          "title": "Encar.Expert - Выкуп и доставка автомобилей из Кореи - Encar на русском",
+          "url": "https://encar.expert/?route=basic-nda",
+          "snippet": "Хотите купить авто из Кореи с encar.com? Полный каталог на русском языке. Актуальные цены указаны \"под ключ\" с доставкой в Россию."
+        },
+        {
+          "title": "Encar.Expert - Выкуп и доставка автомобилей из Кореи - Encar на русском",
+          "url": "https://encar.expert/",
+          "snippet": "Последнее обновление базы: 11 июля 2026 г."
+        },
+        {
+          "title": "CarsKorea — авто из Южной Кореи под заказ с Енкар (Encar)",
+          "url": "https://carskorea.shop/",
+          "snippet": "Напишите мне, если у вас появятся вопросы. Последнее обновление базы: 11 июля 2026 г."
+        },
+        {
+          "title": "Как заказать авто из Кореи через Encar в 2026 году: Мой опыт ...",
+          "url": "https://vc.ru/transport/2125149-kak-zakazat-avto-iz-korei",
+          "snippet": "Мы — экспортер автомобилей из Южной Кореи. Лучшие авто с Енкар (Encar) под заказ. Поможем купить авто с доставкой в Россию. Encar доступен на русском языке."
+        },
+        {
+          "title": "Корейские автомобили напрямую из Южной Кореи без посредников под заказ",
+          "url": "https://encar.com.ru/",
+          "snippet": "Так я узнал про площадку Encar (энкар) — крупнейший сайт, где выставлены тысячи объявлений от корейских дилеров и частников. Идея заказать машину напрямую через Encar меня заинтриговала."
+        }
+      ],
+      "searched_at": "2026-07-18"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "encar на русском новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Encar 2026: Как снизить бюджет на корейское авто в 1.5 раза - Новости ...",
+          "url": "https://xenon-car.ru/zakaz-avto-s-encar-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Авто из Кореи - Подбор и доставка в Россию - Encar",
+          "url": "https://encar-russia.ru/",
+          "snippet": "Корейский авторынок в 2026 году бьет рекорды. Пока Китай падает, а Европа лихорадит, Южная Корея показывает рост продаж на 13.5% только за январь. Импортные машины там раскупают как горячие пирожки - плюс 38% к прошлому году."
+        },
+        {
+          "title": "Как заказать авто из Кореи через Encar в 2026 году: Мой опыт ...",
+          "url": "https://vc.ru/transport/2125149-kak-zakazat-avto-iz-korei",
+          "snippet": "Хотите купить авто из Кореи с encar.com? Полный каталог на русском языке. Актуальные цены указаны \"под ключ\" с доставкой в Россию."
+        },
+        {
+          "title": "Encar.Expert - Выкуп и доставка автомобилей из Кореи - Encar на русском",
+          "url": "https://encar.expert/?route=basic-nda",
+          "snippet": "Ключевой момент 2026 года: когда я обсуждал заказ в августе 2025 года, в TrustAutoGlobal сразу предупредили о грядущей реформе утильсбора с 1 декабря 2025 года и порекомендовали ускорить процесс ..."
+        },
+        {
+          "title": "CarsKorea — авто из Южной Кореи под заказ с Енкар (Encar)",
+          "url": "https://carskorea.shop/",
+          "snippet": "Последнее обновление базы: 11 июля 2026 г."
+        },
+        {
+          "title": "Encar.Expert - Выкуп и доставка автомобилей из Кореи - Encar на русском",
+          "url": "https://encar.expert/",
+          "snippet": "Мы — экспортер автомобилей из Южной Кореи. Лучшие авто с Енкар (Encar) под заказ. Поможем купить авто с доставкой в Россию. Encar доступен на русском языке."
+        }
+      ],
+      "searched_at": "2026-07-18"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com encar на русском 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - i146akm/encarnn",
+          "url": "https://github.com/i146akm/encarnn",
+          "snippet": ""
+        },
+        {
+          "title": "GitHub - Mikejkee/encar_scraper_system",
+          "url": "https://github.com/Mikejkee/encar_scraper_system",
+          "snippet": "Парсер автомобилей с корейского сайта Encar, сохраняющий информацию в базу данных SQLite и автоматически рассчитывающий таможенные пошлины на основе параметров автомобиля."
+        },
+        {
+          "title": "GitHub - logg1n/parser",
+          "url": "https://github.com/logg1n/parser",
+          "snippet": "ETL система основанная на Airflow, которая парсит данные с сайта encar.com по поиску машин. Собирает информацию о машине, страховке, диагностке."
+        },
+        {
+          "title": "GitHub - nagaevkirill/encar_bot_carpride_2026",
+          "url": "https://github.com/nagaevkirill/encar_bot_carpride_2026",
+          "snippet": "Парсер автомобилей с encar.com.ru Описание проекта Проект состоит из двух взаимосвязанных парсеров: encar_parser.py - Собирает списки автомобилей (Корея и Китай)"
+        },
+        {
+          "title": "GitHub - deflexor/encar_test",
+          "url": "https://github.com/deflexor/encar_test",
+          "snippet": "Contribute to nagaevkirill/encar_bot_carpride_2026 development by creating an account on GitHub."
+        },
+        {
+          "title": "GitHub - OlegGorsky/procks",
+          "url": "https://github.com/OlegGorsky/procks",
+          "snippet": "Если лимит MyMemory исчерпан или сеть недоступна, для оставшегося корейского текста используется результат подстановки словаря (часть фраз может остаться на корейском)."
+        }
+      ],
+      "searched_at": "2026-07-18"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "encar на русском official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Авто из Кореи - Подбор и доставка в Россию - Encar",
+          "url": "https://encar-russia.ru/",
+          "snippet": ""
+        },
+        {
+          "title": "Official Document System - Search",
+          "url": "https://documents.un.org/",
+          "snippet": "Полный каталог на русском языке. Актуальные цены указаны \"под ключ\" с доставкой в Россию."
+        },
+        {
+          "title": "Encar - #1 Trusted Korean Used Car Export Service",
+          "url": "https://global.encar.com/export-service/intro",
+          "snippet": "The Official Document System (ODS) is an online database of UN documents that was first launched in 1993 and updated in 2016. ODS has full-text, born-digital UN documents published from 1993 onward, including documents of the Security Council, the General Assembly, the Economic and Social Council and their subsidiaries, as well as ..."
+        },
+        {
+          "title": "Encar.com: как читать корейский аукцион — Altezza",
+          "url": "https://altezza.team/blog/encar-guide.html",
+          "snippet": "Trusted by global buyers, Encar provides premium used cars from Korea. Source reliable cars at Encar.com with professional inspection and global shipping."
+        },
+        {
+          "title": "Encar.Expert - Выкуп и доставка автомобилей из Кореи - Encar на русском",
+          "url": "https://encar.expert/",
+          "snippet": "Коротко: Гайд по Encar.com — крупнейшему корейскому автоаукциону. Коды состояния A/B/C, скрытые лоты Hidden.Y, как читать историю владельцев, какие модели брать в 2026."
+        },
+        {
+          "title": "Корейские автомобили напрямую из Южной Кореи без посредников под заказ",
+          "url": "https://encar.com.ru/",
+          "snippet": "Готов помочь вам. Напишите мне, если у вас появятся вопросы. Последнее обновление базы: 11 июля 2026 г."
+        }
+      ],
+      "searched_at": "2026-07-18"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "encar на русском forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как заказать авто из Кореи через Encar в 2026 году: Мой опыт ...",
+          "url": "https://vc.ru/transport/2125149-kak-zakazat-avto-iz-korei",
+          "snippet": ""
+        },
+        {
+          "title": "Encar 2026: Как снизить бюджет на корейское авто в 1.5 раза - Новости ...",
+          "url": "https://xenon-car.ru/zakaz-avto-s-encar-2026/",
+          "snippet": "К маю 2026 эксплуатирую его уже 8 месяцев, и впечатления — только положительные. Делюсь полным опытом: где я ошибался, как нашёл надёжного партнёра и почему успешно успел заказать машину до реформы утильсбора. Если планируете заказать авто из Кореи сейчас, важно понимать новые правила."
+        },
+        {
+          "title": "МОЙ ЛИЧНЫЙ ОПЫТ ЗАКАЗА АВТОМОБИЛЯ ИЗ КОРЕИ / ПОЛНАЯ КАЛЬКУЛЯЦИЯ, СРОКИ ...",
+          "url": "https://www.drive2.ru/l/657952706937226154/",
+          "snippet": "Авто старше 5 лет считаются по шкале от 1.5 до 3.6 евро за кубик, в зависимости от литража. Но такие машины уже не дают супервыгоды из-за возраста и потенциальных проблем с запчастями."
+        },
+        {
+          "title": "Авто из Кореи - Подбор и доставка в Россию - Encar",
+          "url": "https://encar-russia.ru/",
+          "snippet": "• Автор рассказывает о своем опыте заказа автомобиля из Кореи и в компании Encar.store которая помогла ему в этом."
+        },
+        {
+          "title": "Encar как пользоваться сайтом авто из Кореи? Разбираю с нуля на русском ...",
+          "url": "https://rutube.ru/video/4dcc57722abd6d8abd57d7845897e8ff/",
+          "snippet": "Хотите купить авто из Кореи с encar.com? Полный каталог на русском языке. Актуальные цены указаны \"под ключ\" с доставкой в Россию."
+        },
+        {
+          "title": "Is buying used Korean cars and importing them a good idea? - Reddit",
+          "url": "https://www.reddit.com/r/UsedCars/comments/1aex8u6/is_buying_used_korean_cars_and_importing_them_a/",
+          "snippet": "Хочешь купить авто из Кореи но не знаешь с какого сайта начать? Сегодня разбираю Encar именно тот сайт которым мы пользуемся каждый день при подборе машин для наших клиентов."
+        }
+      ],
+      "searched_at": "2026-07-18"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "как читать encar 2026",
+      "purpose": "вторичный запрос: как читать encar",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как проверить машину на Encar: пошагово с примерами",
+          "url": "https://carto-auto.ru/blog/guide-encar/",
+          "snippet": ""
+        },
+        {
+          "title": "Encar.com: как читать корейский аукцион — Altezza",
+          "url": "https://altezza.team/blog/encar-guide.html",
+          "snippet": "В этом гайде разбираем, как самому проверить лот перед тем, как платить. Это не заменяет работу нашего эксперта, но даёт понимание, на что мы смотрим и почему отказываемся от 30% машин, которые клиенты находят сами."
+        },
+        {
+          "title": "Аукционный лист USS и Encar — как читать в 2026 (баллы 1-6, карта)",
+          "url": "https://globamart.ru/guides/auktsionnye-listy",
+          "snippet": "Коротко: Гайд по Encar.com — крупнейшему корейскому автоаукциону. Коды состояния A/B/C, скрытые лоты Hidden.Y, как читать историю владельцев, какие модели брать в 2026."
+        },
+        {
+          "title": "Как привезти авто из Кореи в 2026: полный гайд — Altezza",
+          "url": "https://altezza.team/blog/import-korea-2026.html",
+          "snippet": "Как читать аукционный лист USS и Encar. Шкала баллов 1-6 / R / RA на USS, TAA, JU. Оценка салона A-E. Кузовная карта (carta) с обозначениями. Корейские пометки в Encar и Performance Check Report."
+        },
+        {
+          "title": "Encar как пользоваться сайтом авто из Кореи? Разбираю с нуля на русском ...",
+          "url": "https://rutube.ru/video/4dcc57722abd6d8abd57d7845897e8ff/",
+          "snippet": "Пошаговая инструкция импорта авто из Кореи в Россию в 2026 году. Подбор на Encar, осмотр, оплата, доставка, растаможка — все этапы с реальными цифрами и сроками."
+        },
+        {
+          "title": "Как купить авто на аукционе в Корее (Encar) — пошаговый гайд",
+          "url": "https://onlyjpcars.ru/blog/kak-kupit-avto-v-koree-encar",
+          "snippet": "Хочешь купить авто из Кореи но не знаешь с какого сайта начать? Сегодня разбираю Encar именно тот сайт которым мы пользуемся каждый день при подборе машин для наших клиентов."
+        }
+      ],
+      "searched_at": "2026-07-18"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "проверка авто корея 2026",
+      "purpose": "вторичный запрос: проверка авто корея",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Проверить Авто Из Кореи По Vin - Дтп, Пробег, Ремонты, Работа В Такси ...",
+          "url": "https://realcar.ru/",
+          "snippet": ""
+        },
+        {
+          "title": "Как проверить авто из Кореи по ВИН-коду в 2026: узнать пробег машины",
+          "url": "https://top-autoimport.ru/blog/kak-proverit-mashinu-iz-korei",
+          "snippet": "Проверка авто из Кореи по VIN-номеру: пробег на момент вывоза, ДТП, ремонты, страховые выплаты, работа в такси, аренда и история эксплуатации."
+        },
+        {
+          "title": "Проверка Авто Из Кореи По Vin — История Пробега, Дтп, Ремонтов",
+          "url": "https://korea-cars.com/",
+          "snippet": "Рассмотрим подробно все этапы проверки машины из Кореи в 2025 году. От простых бесплатных вариантов до комплексных физических осмотров авто."
+        },
+        {
+          "title": "Проверить авто из Кореи по Вин-Коду - проверка корейского автомобиля",
+          "url": "https://checkcar.vin/ru/page/vin-check-korea",
+          "snippet": "Проверка авто из Кореи по VIN: реальный пробег, ДТП, затопления, дата выпуска и страховая история. Узнайте правду о машине перед покупкой за 2 минуты."
+        },
+        {
+          "title": "Проверка пробега автомобиля из Кореи",
+          "url": "https://koreacars.me/proverka-probega",
+          "snippet": "Проверить авто из Кореи можно по 17-значному VIN-коду в онлайн-сервисе CheckCar.vin: достаточно ввести номер в форму — и в течение нескольких секунд вы получите историю автомобиля."
+        },
+        {
+          "title": "Проверка Корейского Авто По Vin — Бесплатно И Платно — Авто Из Кореи И ...",
+          "url": "https://encarrus.ru/news/proverka-koreyskogo-avto-po-vin/",
+          "snippet": "Проверив корейский автомобиль по VIN коду вы сможете узнать о его пробеге и всю историю владения машиной. Проверка по ВИН номеру бесплатная и предоставляет всю необходимую информацию."
+        }
+      ],
+      "searched_at": "2026-07-18"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Encar на русском: как читать объявления и не купить «кота в мешке» 2026",
+      "purpose": "SERP по H1",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-07-18"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://encar-russia.ru/",
+      "title": "Авто из Кореи - Подбор и доставка в Россию - Encar",
+      "from_query": "encar на русском 2026"
+    },
+    {
+      "url": "https://vc.ru/transport/2125149-kak-zakazat-avto-iz-korei",
+      "title": "Как заказать авто из Кореи через Encar в 2026 году: Мой опыт ...",
+      "from_query": "encar на русском 2026"
+    },
+    {
+      "url": "https://encar.expert/?route=basic-nda",
+      "title": "Encar.Expert - Выкуп и доставка автомобилей из Кореи - Encar на русском",
+      "from_query": "encar на русском 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/4dcc57722abd6d8abd57d7845897e8ff/",
+      "title": "Encar как пользоваться сайтом авто из Кореи? Разбираю с нуля на русском ...",
+      "from_query": "encar на русском 2026"
+    },
+    {
+      "url": "https://encar.expert/",
+      "title": "Encar.Expert - Выкуп и доставка автомобилей из Кореи - Encar на русском",
+      "from_query": "encar на русском 2026"
+    },
+    {
+      "url": "https://xenon-car.ru/zakaz-avto-s-encar-2026/",
+      "title": "Encar 2026: Как снизить бюджет на корейское авто в 1.5 раза - Новости ...",
+      "from_query": "encar на русском 2026"
+    },
+    {
+      "url": "https://carskorea.shop/",
+      "title": "CarsKorea — авто из Южной Кореи под заказ с Енкар (Encar)",
+      "from_query": "encar на русском июль 2026"
+    },
+    {
+      "url": "https://encar.com.ru/",
+      "title": "Корейские автомобили напрямую из Южной Кореи без посредников под заказ",
+      "from_query": "encar на русском июль 2026"
+    },
+    {
+      "url": "https://github.com/i146akm/encarnn",
+      "title": "GitHub - i146akm/encarnn",
+      "from_query": "site:github.com encar на русском 2026"
+    },
+    {
+      "url": "https://github.com/Mikejkee/encar_scraper_system",
+      "title": "GitHub - Mikejkee/encar_scraper_system",
+      "from_query": "site:github.com encar на русском 2026"
+    },
+    {
+      "url": "https://github.com/logg1n/parser",
+      "title": "GitHub - logg1n/parser",
+      "from_query": "site:github.com encar на русском 2026"
+    },
+    {
+      "url": "https://github.com/nagaevkirill/encar_bot_carpride_2026",
+      "title": "GitHub - nagaevkirill/encar_bot_carpride_2026",
+      "from_query": "site:github.com encar на русском 2026"
+    },
+    {
+      "url": "https://github.com/deflexor/encar_test",
+      "title": "GitHub - deflexor/encar_test",
+      "from_query": "site:github.com encar на русском 2026"
+    },
+    {
+      "url": "https://github.com/OlegGorsky/procks",
+      "title": "GitHub - OlegGorsky/procks",
+      "from_query": "site:github.com encar на русском 2026"
+    },
+    {
+      "url": "https://documents.un.org/",
+      "title": "Official Document System - Search",
+      "from_query": "encar на русском official docs documentation 2026"
+    },
+    {
+      "url": "https://global.encar.com/export-service/intro",
+      "title": "Encar - #1 Trusted Korean Used Car Export Service",
+      "from_query": "encar на русском official docs documentation 2026"
+    },
+    {
+      "url": "https://altezza.team/blog/encar-guide.html",
+      "title": "Encar.com: как читать корейский аукцион — Altezza",
+      "from_query": "encar на русском official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/l/657952706937226154/",
+      "title": "МОЙ ЛИЧНЫЙ ОПЫТ ЗАКАЗА АВТОМОБИЛЯ ИЗ КОРЕИ / ПОЛНАЯ КАЛЬКУЛЯЦИЯ, СРОКИ ...",
+      "from_query": "encar на русском forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.reddit.com/r/UsedCars/comments/1aex8u6/is_buying_used_korean_cars_and_importing_them_a/",
+      "title": "Is buying used Korean cars and importing them a good idea? - Reddit",
+      "from_query": "encar на русском forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/guide-encar/",
+      "title": "Как проверить машину на Encar: пошагово с примерами",
+      "from_query": "как читать encar 2026"
+    },
+    {
+      "url": "https://globamart.ru/guides/auktsionnye-listy",
+      "title": "Аукционный лист USS и Encar — как читать в 2026 (баллы 1-6, карта)",
+      "from_query": "как читать encar 2026"
+    },
+    {
+      "url": "https://altezza.team/blog/import-korea-2026.html",
+      "title": "Как привезти авто из Кореи в 2026: полный гайд — Altezza",
+      "from_query": "как читать encar 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/kak-kupit-avto-v-koree-encar",
+      "title": "Как купить авто на аукционе в Корее (Encar) — пошаговый гайд",
+      "from_query": "как читать encar 2026"
+    },
+    {
+      "url": "https://realcar.ru/",
+      "title": "Проверить Авто Из Кореи По Vin - Дтп, Пробег, Ремонты, Работа В Такси ...",
+      "from_query": "проверка авто корея 2026"
+    },
+    {
+      "url": "https://top-autoimport.ru/blog/kak-proverit-mashinu-iz-korei",
+      "title": "Как проверить авто из Кореи по ВИН-коду в 2026: узнать пробег машины",
+      "from_query": "проверка авто корея 2026"
+    },
+    {
+      "url": "https://korea-cars.com/",
+      "title": "Проверка Авто Из Кореи По Vin — История Пробега, Дтп, Ремонтов",
+      "from_query": "проверка авто корея 2026"
+    },
+    {
+      "url": "https://checkcar.vin/ru/page/vin-check-korea",
+      "title": "Проверить авто из Кореи по Вин-Коду - проверка корейского автомобиля",
+      "from_query": "проверка авто корея 2026"
+    },
+    {
+      "url": "https://koreacars.me/proverka-probega",
+      "title": "Проверка пробега автомобиля из Кореи",
+      "from_query": "проверка авто корея 2026"
+    },
+    {
+      "url": "https://encarrus.ru/news/proverka-koreyskogo-avto-po-vin/",
+      "title": "Проверка Корейского Авто По Vin — Бесплатно И Платно — Авто Из Кореи И ...",
+      "from_query": "проверка авто корея 2026"
+    }
+  ]
+}

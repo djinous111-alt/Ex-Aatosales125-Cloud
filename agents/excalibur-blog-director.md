@@ -40,6 +40,8 @@ Cover и Schema **не пишут** напрямую в handoff — только
 
 Если Cloud не принимает `excalibur-blog-`* как Task types → **отдельный `Task(generalPurpose)` на каждую роль** с `.cursor/agents/<role>.md` + skill path.
 
+**GEO QA:** typed `excalibur-blog-geo-qa` часто отсутствует в Cloud enum → сразу `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
 Если недоступен даже `generalPurpose`:
 
 `❌ БЛОКЕР: Cloud Agent не может запускать отдельные Task/subagents даже через generalPurpose. Single-agent pipeline запрещён.`

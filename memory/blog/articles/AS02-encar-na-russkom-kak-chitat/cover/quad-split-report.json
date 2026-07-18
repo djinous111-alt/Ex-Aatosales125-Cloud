@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1029,
+      575
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 575,
+        "end": 610
+      },
+      "v_gutter_px": {
+        "start": 1029,
+        "end": 1058
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 3,
+          "top": 0,
+          "right": 1025,
+          "bottom": 575
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1029,
+          "bottom": 575
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс в очках со смартфоном: экран Encar и ирония «кот в мешке»",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1058,
+          "top": 9,
+          "right": 2048,
+          "bottom": 566
+        },
+        "raw_box_px": {
+          "left": 1058,
+          "top": 0,
+          "right": 2048,
+          "bottom": 575
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Сравнение русского зеркала и живой карточки encar.com с вкладкой Performance Check",
+        "h2_anchor": "Откройте живую карточку на encar.com, а не только русское зеркало"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 32,
+          "top": 610,
+          "right": 996,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 610,
+          "right": 1029,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист пяти полей карточки Encar за 10 минут с таймером",
+        "h2_anchor": "Зафиксируйте за 10 минут пять полей карточки и все фото"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1071,
+          "top": 610,
+          "right": 2035,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1058,
+          "top": 610,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема кузова Performance Check с кодами X и W на силовых элементах",
+        "h2_anchor": "Как читать Performance Check: коды X и W на схеме кузова"
+      }
+    }
+  },
+  "html_inject": [
+    "skip inline_1: already injected",
+    "skip inline_2: already injected",
+    "skip inline_3: already injected"
+  ]
+}

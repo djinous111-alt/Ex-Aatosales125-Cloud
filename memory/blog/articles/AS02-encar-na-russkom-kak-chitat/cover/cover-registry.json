@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS02",
+  "slug": "encar-na-russkom-kak-chitat",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс в очках со смартфоном: экран Encar и ирония «кот в мешке»",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-07-18T09:37:04+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс в очках со смартфоном: экран Encar и ирония «кот в мешке»",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Сравнение русского зеркала и живой карточки encar.com с вкладкой Performance Check",
+      "h2_anchor": "Откройте живую карточку на encar.com, а не только русское зеркало",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Чеклист пяти полей карточки Encar за 10 минут с таймером",
+      "h2_anchor": "Зафиксируйте за 10 минут пять полей карточки и все фото",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема кузова Performance Check с кодами X и W на силовых элементах",
+      "h2_anchor": "Как читать Performance Check: коды X и W на схеме кузова",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

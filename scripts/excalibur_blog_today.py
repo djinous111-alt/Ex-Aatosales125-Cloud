@@ -60,10 +60,45 @@ def active_article_topic_ids(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = re.match(r"([A-Z]{1,3}\d+)-", path.name, flags=re.IGNORECASE)
         if match:
             active.add(match.group(1).upper())
     return active
+
+
+def _topic_fields_from_block(topic_id: str, block: str) -> dict[str, str]:
+    def field(name: str, default: str = "") -> str:
+        m = re.search(rf"-\s*\*\*{re.escape(name)}:\*\*\s*(.+)", block, re.IGNORECASE)
+        return m.group(1).strip() if m else default
+
+    return {
+        "topic_id": topic_id.upper(),
+        "priority": field("priority"),
+        "slug": field("slug"),
+        "h1": field("h1"),
+        "primary_query": field("primary_query"),
+        "search_intent": field("search_intent"),
+        "article_mode": field("article_mode"),
+        "h2_outline": field("h2_outline"),
+    }
+
+
+def _topic_utility_pass(root: Path, topic: dict[str, str]) -> bool:
+    """Skip P0 cards that would fail utility topic gate (optional soft-skip)."""
+    try:
+        scripts_dir = Path(__file__).resolve().parent
+        if str(scripts_dir) not in sys.path:
+            sys.path.insert(0, str(scripts_dir))
+        from excalibur_blog_utility_gate import gate_topic, load_json
+
+        policy_path = root / "memory/brief/editorial-policy.json"
+        if not policy_path.is_file():
+            return True
+        report = gate_topic(topic, load_json(policy_path))
+        return report.get("status") == "PASS"
+    except Exception as exc:  # noqa: BLE001
+        print(f"EXCALIBUR_TOPIC_UTILITY_CHECK_ERROR={type(exc).__name__}: {exc}", file=sys.stderr)
+        return True
 
 
 def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
@@ -78,15 +113,38 @@ def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
     }
     used.update(active_article_topic_ids(root))
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    # Support Autosalеs AS## and legacy B## topic cards.
+    skipped: list[str] = []
+    for match in re.finditer(
+        r"##\s+([A-Z]{1,3}\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+[A-Z]{1,3}\d+|\Z)",
+        text,
+        re.DOTALL,
+    ):
         topic_id = match.group(1).upper()
         block = match.group(2)
         if "priority:** P0" not in block and "**priority:** P0" not in block:
             pri = re.search(r"-\s*\*\*priority:\*\*\s*(\S+)", block)
             if not pri or pri.group(1).upper() != "P0":
                 continue
-        if topic_id not in used:
-            return topic_id
+        if topic_id in used:
+            continue
+        topic = _topic_fields_from_block(topic_id, block)
+        if not _topic_utility_pass(root, topic):
+            skipped.append(topic_id)
+            continue
+        if skipped:
+            print(
+                "EXCALIBUR_TOPIC_SKIPPED_UTILITY_FAIL="
+                + json.dumps(skipped, ensure_ascii=False),
+                file=sys.stderr,
+            )
+        return topic_id
+    if skipped:
+        print(
+            "EXCALIBUR_TOPIC_SKIPPED_UTILITY_FAIL="
+            + json.dumps(skipped, ensure_ascii=False),
+            file=sys.stderr,
+        )
     return ""
 
 

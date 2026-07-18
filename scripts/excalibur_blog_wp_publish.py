@@ -467,6 +467,48 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
+def trigger_bootstrap_ssh_php(env: dict[str, str], remote_path: str) -> str:
+    """Run the uploaded bootstrap via php-cli over SSH (avoids nginx/HTTP timeouts on large payloads)."""
+    import paramiko
+
+    host, port, user, password = _ssh_creds(env)
+    client = paramiko.SSHClient()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    client.connect(hostname=host, port=port, username=user, password=password, timeout=60)
+    try:
+        # Prefer modern php binaries on shared hosting (default `php` may be 5.6).
+        php_bins = (
+            "/usr/local/bin/php7.4",
+            "/usr/local/bin/php8.1",
+            "/usr/local/bin/php8.2",
+            "/usr/local/bin/php8.3",
+            "/usr/bin/php",
+            "php",
+        )
+        bin_list = " ".join(php_bins)
+        cmd = (
+            f"PHP_BIN=''; "
+            f"for c in {bin_list}; do "
+            f"if [ -x \"$c\" ] || command -v \"$c\" >/dev/null 2>&1; then PHP_BIN=\"$c\"; break; fi; "
+            f"done; "
+            f"if [ -z \"$PHP_BIN\" ]; then echo 'ERR no php binary' >&2; exit 127; fi; "
+            f"echo \"Using PHP_BIN=$PHP_BIN\"; "
+            f"\"$PHP_BIN\" -d display_errors=1 -d memory_limit=512M {remote_path}"
+        )
+        print(f"Triggering SSH php-cli publish on {remote_path}...")
+        _stdin, stdout, stderr = client.exec_command(cmd, timeout=600)
+        out = stdout.read().decode("utf-8", errors="replace")
+        err = stderr.read().decode("utf-8", errors="replace")
+        exit_status = stdout.channel.recv_exit_status()
+        if err.strip():
+            print(f"WARN ssh php stderr: {err[:500]}", file=sys.stderr)
+        if exit_status != 0 and "OK post=" not in out:
+            raise RuntimeError(f"SSH php-cli publish failed (exit={exit_status}): {out[:1000] or err[:1000]}")
+        return out
+    finally:
+        client.close()
+
+
 def trigger_bootstrap_http(url: str, root: Path) -> str:
     try:
         print(f"Triggering HTTP publish on {url}...")
@@ -502,7 +544,22 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        prefer_ssh = (os.environ.get("EXCALIBUR_PUBLISH_SSH_PHP") or "").strip().lower() in {
+            "1",
+            "yes",
+            "true",
+        }
+        if prefer_ssh:
+            out = trigger_bootstrap_ssh_php(env, uploaded_remote_path)
+        else:
+            try:
+                out = trigger_bootstrap_http(url, root)
+            except Exception as http_exc:  # noqa: BLE001
+                print(
+                    f"HTTP/WebFetch publish path failed ({type(http_exc).__name__}: {http_exc}). "
+                    "Retrying via SSH php-cli..."
+                )
+                out = trigger_bootstrap_ssh_php(env, uploaded_remote_path)
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)

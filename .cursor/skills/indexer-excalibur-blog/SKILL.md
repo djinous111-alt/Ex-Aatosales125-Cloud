@@ -21,6 +21,14 @@ python3 scripts/excalibur_blog_llms_generator.py \
   --out-dir memory/blog
 ```
 
+
+## Commit-safe site base
+
+- По умолчанию оба скрипта пишут `site_base=[REDACTED]` (`--commit-safe`, default on): иначе Cursor secret-scan блокирует commit `llms*.txt` / `interlink-suggestions.json`, если в артефакт попал `PUBLIC_SITE_URL`.
+- Не передавай live `PUBLIC_SITE_URL` в `--site-base` для файлов, которые уйдут в git.
+- Для publish-deploy live-копии: `python3 scripts/excalibur_blog_llms_generator.py ... --no-commit-safe --site-base "$PUBLIC_SITE_URL"` **только в working tree**, без commit.
+- Applied interlinks в HTML всегда относительные `/blog/.../`.
+
 ## Выход
 
 - обновлённый `article.html` (контекстные ссылки)

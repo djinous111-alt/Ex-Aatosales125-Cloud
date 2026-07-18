@@ -46,6 +46,11 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
   - Если вызов успешен:
     - Сформируй в `research-notes.md` таблицу спроса: Фраза | Показы в месяц.
     - Выдели сопутствующие LSI-запросы из топа выдачи Вордстата для использования копирайтером.
+  - Если ответ **усечён** до `{"totalCount": "N"}` без списка фраз (low-volume / truncated payload):
+    - Это **не fatal** и не повод выдумывать показы.
+    - Повтори запрос на sibling/parent phrasing (широкий кластер → соседние how-to).
+    - В `research-notes.md` явно отметь truncated phrases и опирайся только на успешные tops.
+  - `research-notes-gate.py` требует ≥5 литералов `accessed_at: YYYY-MM-DD` в source_table (дата без лейбла не считается) и строки `pain_solution_map` с маркерами pain|solution|result|боль|решение|результат.
 2. **Замена уличных поисковиков (DuckDuckGo) на WebSearch Курсора:**
   Мы **отказываемся** от ненадежных сторонних утилит и парсеров DuckDuckGo («уток»).
   - Агент имеет полноценный доступ в интернет через нативный инструмент `**WebSearch`** (или `WebFetch` для чтения конкретных страниц).

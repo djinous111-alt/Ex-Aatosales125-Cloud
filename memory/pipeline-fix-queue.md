@@ -527,6 +527,43 @@ category: api
 ### Fixer resolution
 - fixed (runtime workaround); durable env/credits still needed
 
+## INC-20260718-1212-indexer-llms-public-site-url-secret-scan
+status: open
+run_date: 2026-07-18
+role: excalibur-blog-indexer
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: env
+
+### What went wrong
+- `excalibur_blog_llms_generator.py` writes absolute `PUBLIC_SITE_URL` into `memory/blog/llms.txt` and `llms-full.txt`.
+- Cursor secret-scan blocks commit (`CURSOR_SECRET_SCAN_BLOCKED`) because `PUBLIC_SITE_URL` is a configured Cloud Secret even when it is a public marketing URL.
+- Same for `interlink-suggestions.json` `site_base` field.
+
+### How the agent recovered this run
+- Replaced site base with `[REDACTED]` in `llms.txt`, `llms-full.txt`, `interlink-suggestions.json` for git commit.
+- Restored live site base in working-tree copies after commit for publish deploy of llms artifacts.
+- Interlinker itself PASS with 0 new links (AS02→AS09 already present).
+
+### Durable fix needed before next run
+- Indexer skill: after llms/interlink generate, redact `PUBLIC_SITE_URL` before commit; restore for publish upload.
+- Or add `--redact-site-base` / commit-safe mode to `excalibur_blog_llms_generator.py` and interlinker report writer.
+- Document in pitfalls: committed `memory/blog/llms*.txt` must use `[REDACTED]` host (existing HEAD already does).
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

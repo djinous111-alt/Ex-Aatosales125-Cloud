@@ -2,6 +2,111 @@
 
 Open incidents first; fixed incidents retained for fixer audit.
 
+## INC-20260718-1250-publish-paramiko-missing
+status: open
+run_date: 2026-07-18
+role: excalibur-blog-publish
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: medium
+category: env
+
+### What went wrong
+- `scripts/excalibur_blog_wp_publish.py` requires `import paramiko` for SSH transport.
+- Cloud/runtime image had no `paramiko`; `apt python3-paramiko` unavailable; first publish crashed with `ModuleNotFoundError`.
+
+### How the agent recovered this run
+- Installed with `pip3 install --break-system-packages paramiko` (PEP 668 externally-managed env).
+- Re-ran publish successfully after install.
+
+### Durable fix needed before next run
+- Add `paramiko` to Cloud environment deps (`.cursor/environment.json` / snapshot install / requirements).
+- Document in pitfalls + publish skill: preflight `python3 -c "import paramiko"` before SSH publish.
+- Prefer apt/venv pin over ad-hoc `--break-system-packages` when possible.
+
+### Suggested files to inspect/change
+- `.cursor/environment.json`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py` (optional env dep check)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260718-1255-publish-http-gateway-504-ssh-php-exec
+status: open
+run_date: 2026-07-18
+role: excalibur-blog-publish
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: high
+category: publish
+
+### What went wrong
+- SSH upload of `excalibur-blog-publish-once.php` (~5.6MB with cover+inline base64) succeeded.
+- Local HTTP trigger timed out at 120s; Cloud WebFetch/urllib fallback got Gateway 504 (~120s).
+- Script deletes bootstrap in `finally` after fallback timeout → second HTTP attempt lost the file.
+- Same class of failure as AS08/AS09 (then cured with curl `--max-time 300` over FTP); now transport is SSH-only and HTTP path still too short for heavy media payloads.
+
+### How the agent recovered this run
+- Workaround: SSH upload + SSH exec `/usr/local/bin/php8.2 -d memory_limit=512M -d max_execution_time=600 excalibur-blog-publish-once.php` (~143s) → PASS.
+- Wrote `wp-publish-result.json`, updated ledger/log/promotion/handoff; cleaned bootstrap.
+
+### Durable fix needed before next run
+- Add SSH-exec trigger path in `excalibur_blog_wp_publish.py` (prefer over HTTP for large payloads / when HTTP times out).
+- Increase HTTP timeout and/or keep bootstrap until a successful trigger response (do not delete on fallback wait timeout before agent can refetch).
+- Pre-seed `memory/webfetch-response.txt` watcher or longer fallback wait; document php8.x binary candidates on host.
+- Set `SSH_ROOT=.` in Cloud Secrets (cwd is WP root; `SSH_PATH=.../public_html` is not a valid SFTP path from login cwd).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`publish_via_ssh` / `trigger_bootstrap_http`)
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20260718-1245-indexer-interlink-suggestions-live-site-base
+status: open
+run_date: 2026-07-18
+role: excalibur-blog-indexer
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_interlinker.py --apply` with live `$PUBLIC_SITE_URL` пишет `site_base` в `memory/blog/interlink-suggestions.json`.
+- Первый commit indexer пропустил secret-scan для этого JSON (live base попал в git history); llms генерировали отдельно с `[REDACTED]`.
+
+### How the agent recovered this run
+- Fixup commit: заменил `site_base` на литерал `[REDACTED]` в `interlink-suggestions.json` и запушил.
+- llms.txt / llms-full.txt изначально с `--site-base '[REDACTED]'`.
+
+### Durable fix needed before next run
+- Interlinker: default/`--commit-safe` пишет `[REDACTED]` в JSON report (как ожидалось в fixer notes), live URL только для apply href если нужно.
+- Indexer skill/pitfalls: после interlinker проверять `PUBLIC_SITE_URL not in interlink-suggestions.json` перед git add.
+- Doctor/docs: не требовать `--blog-path` у llms generator (см. INC-1521).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_interlinker.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260718-1520-director-topic-id-prefix-as-vs-b
 status: open
 run_date: 2026-07-18

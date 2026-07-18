@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir …/AS04-utilsbor-na-avto-2026 --site-base [REDACTED]` — 0 links applied.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (site-base `[REDACTED]`, site-name «Авто-Сейлс»; CLI без `--blog-path`, только `--blog-dir`).
-- Cover + Schema PASS до Indexer; publish — следующий шаг.
+- **Published 2026-07-18:** post_id=3430, featured=3449, inline=3450/3451/3452, schema_meta=ok. Method: SSH upload + php8.2 exec (HTTP/WebFetch 504).

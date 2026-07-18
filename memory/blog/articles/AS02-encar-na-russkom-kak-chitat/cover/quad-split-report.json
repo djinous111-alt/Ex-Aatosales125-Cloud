@@ -9,18 +9,18 @@
       1152
     ],
     "panel_size_px": [
-      1001,
-      560
+      1029,
+      575
     ],
     "split_meta": {
       "split_mode": "gutter_detect",
       "h_gutter_px": {
-        "start": 560,
-        "end": 592
+        "start": 575,
+        "end": 610
       },
       "v_gutter_px": {
-        "start": 1001,
-        "end": 1048
+        "start": 1029,
+        "end": 1058
       }
     },
     "output_size_px": [
@@ -32,16 +32,16 @@
         "file": "cover/cover.png",
         "quadrant": "top_left",
         "box_px": {
-          "left": 0,
+          "left": 3,
           "top": 0,
-          "right": 1001,
-          "bottom": 560
+          "right": 1025,
+          "bottom": 575
         },
         "raw_box_px": {
           "left": 0,
           "top": 0,
-          "right": 1001,
-          "bottom": 560
+          "right": 1029,
+          "bottom": 575
         },
         "size_px": [
           1200,
@@ -55,16 +55,16 @@
         "file": "cover/inline-01.png",
         "quadrant": "top_right",
         "box_px": {
-          "left": 1048,
-          "top": 0,
+          "left": 1058,
+          "top": 9,
           "right": 2048,
-          "bottom": 560
+          "bottom": 566
         },
         "raw_box_px": {
-          "left": 1048,
+          "left": 1058,
           "top": 0,
           "right": 2048,
-          "bottom": 560
+          "bottom": 575
         },
         "size_px": [
           1200,
@@ -78,15 +78,15 @@
         "file": "cover/inline-02.png",
         "quadrant": "bottom_left",
         "box_px": {
-          "left": 0,
-          "top": 592,
-          "right": 1001,
+          "left": 32,
+          "top": 610,
+          "right": 996,
           "bottom": 1152
         },
         "raw_box_px": {
           "left": 0,
-          "top": 592,
-          "right": 1001,
+          "top": 610,
+          "right": 1029,
           "bottom": 1152
         },
         "size_px": [
@@ -101,14 +101,14 @@
         "file": "cover/inline-03.png",
         "quadrant": "bottom_right",
         "box_px": {
-          "left": 1048,
-          "top": 592,
-          "right": 2048,
+          "left": 1071,
+          "top": 610,
+          "right": 2035,
           "bottom": 1152
         },
         "raw_box_px": {
-          "left": 1048,
-          "top": 592,
+          "left": 1058,
+          "top": 610,
           "right": 2048,
           "bottom": 1152
         },

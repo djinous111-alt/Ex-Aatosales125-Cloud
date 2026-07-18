@@ -1,16 +1,3 @@
 {
-  "tool": "z-image",
-  "mode": "text-to-image-then-pillow-composite",
-  "recovery": true,
-  "result_url": "https://file.aiquickdraw.com/s/1784365705_87a6dcb7630d41f88295fec35e6b9d44.png",
-  "task_id": "14b660d1c8abedf48d0535520bcbfe2e",
-  "aspect_ratio": "16:9",
-  "resolution": "1K",
-  "note": "gpt-image-2 1K and flux2-pro-i2i failed (NoneType); nano_banana 402 credits; z-image OK then Pillow: resize 2048x1152, rebuild cover with blog-hero-reference + Cyrillic hooks, rebuild inline-01..03 UI panels, split+inject.",
-  "mcp_attempts": {
-    "gpt-image-2_1K": "API NoneType",
-    "flux2-pro-image-to-image_1K": "API NoneType",
-    "nano_banana_2_1K": "402 credits insufficient",
-    "z-image_16x9": "success"
-  }
+  "url": "https://tempfile.aiquickdraw.com/a2/7696480ea6d7df87d89e590a8968ec76_1784367394094.png"
 }

@@ -757,4 +757,4 @@ checks_run:
 - unit: parse_ok_post_id + build_php guards (attachment/stale id/post type)
 - python3 scripts/excalibur_blog_wp_publish.py --dry-run --article-dir AS07… → rc0
 - rg for rest_verify / attachment slug / False PASS docs
-commit: cedf0ea
+commit: 368cfc5

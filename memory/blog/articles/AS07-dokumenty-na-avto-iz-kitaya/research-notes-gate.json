@@ -1,0 +1,24 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/AS07-dokumenty-na-avto-iz-kitaya",
+  "notes": "memory/blog/articles/AS07-dokumenty-na-avto-iz-kitaya/research-notes.md",
+  "context": "memory/blog/articles/AS07-dokumenty-na-avto-iz-kitaya/research-context.json",
+  "errors": [],
+  "warnings": [
+    "technical topic has no obvious official docs/developer documentation URL"
+  ],
+  "metrics": {
+    "today_iso": "2026-07-19",
+    "prefer_sources_after": "2026-04-20",
+    "source_urls": 30,
+    "source_domains": 14,
+    "source_table_rows": 29,
+    "accessed_at": 28,
+    "github_urls": 3,
+    "official_doc_urls": 0,
+    "action_outline_items": 8,
+    "pain_solution_rows": 3,
+    "technical_topic": true
+  }
+}

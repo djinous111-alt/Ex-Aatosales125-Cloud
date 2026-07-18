@@ -1,0 +1,546 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-19",
+    "today_ru": "19.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-20",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-19 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS07",
+    "priority": "P1",
+    "slug": "dokumenty-na-avto-iz-kitaya",
+    "h1": "Документы на авто из Китая: как отличить подделку до оплаты",
+    "primary_query": "документы на авто из китая",
+    "secondary_queries": [
+      "растаможка авто китай",
+      "проверка документов китай авто"
+    ],
+    "search_intent": "troubleshooting",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "документы на авто из китая 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Растаможка авто из Китая 2026: цены, документы, инструкция",
+          "url": "https://cargo-hunter.ru/rastamozhka-avto-iz-kitaya-v-rossiyu-v-2026-godu-polnyj-gajd-po-stoimosti-i-proczedure/",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка автомобиля из Китая в 2026 году. Правила, платежи и ...",
+          "url": "https://autohubexport.ru/article/rastamozhka-avto-iz-kitaya-v-2026/",
+          "snippet": "Полный гайд по растаможке автомобилей из Китая в 2026. Актуальные ставки пошлин и утильсбора, пошаговая инструкция, расчеты. Новые правила с 1 апреля."
+        },
+        {
+          "title": "Документы для ввоза авто из Китая 2026: полный список",
+          "url": "https://ezzhev.ru/how-buy-car/dokumenty-dlya-vvoza-avto-iz-kitaya/",
+          "snippet": "Для оформления потребуется стандартный набор: договор купли-продажи, технический паспорт автомобиля, паспорт владельца, СНИЛС и ИНН. Также нужно подготовить подтверждение оплаты утилизационного сбора и, при необходимости, внести депозит на таможенный счет."
+        },
+        {
+          "title": "Растаможка авто из Китая в России 2026: правила, документы, пошлины и ...",
+          "url": "https://ruforma.info/rastamozhka-avto-iz-kitaya-v-rossii-2026-pravila-dokumenty-poshliny-i-sovety.html",
+          "snippet": "Какие документы нужны для покупки, доставки и растаможки автомобиля из Китая в Россию? Подробная инструкция, расчет пошлин и советы эксперта. Узнайте всё!"
+        },
+        {
+          "title": "Таможня нового авто из Китая 2026: пошлины, утильсбор, документы и ...",
+          "url": "https://excellent-moto.ru/tamozhnya-novogo-avto-iz-kitaya-2026/",
+          "snippet": "Растаможка авто из Китая: пошаговые правила, документы, расчёт пошлин и утильсбора, сроки и частые ошибки. Практичные советы для ввоза и регистрации."
+        },
+        {
+          "title": "Растаможка авто из Китая 2026 — калькулятор, пошлины, ЭПТС",
+          "url": "https://import-panda.ru/blog/rastamozhka-avto-iz-kitaya-2026/",
+          "snippet": "Полное руководство по таможенному оформлению новых автомобилей из Китая: актуальные ставки пошлин, расчёт утильсбора, список документов, сроки и советы по легальному ввозу в 2026 году."
+        }
+      ],
+      "searched_at": "2026-07-19"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "документы на авто из китая июль 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Растаможка авто из Китая 2026: цены, документы, инструкция",
+          "url": "https://cargo-hunter.ru/rastamozhka-avto-iz-kitaya-v-rossiyu-v-2026-godu-polnyj-gajd-po-stoimosti-i-proczedure/",
+          "snippet": ""
+        },
+        {
+          "title": "Документы для ввоза авто из Китая 2026: полный список",
+          "url": "https://ezzhev.ru/how-buy-car/dokumenty-dlya-vvoza-avto-iz-kitaya/",
+          "snippet": "Полный гайд по растаможке автомобилей из Китая в 2026. Актуальные ставки пошлин и утильсбора, пошаговая инструкция, расчеты. Новые правила с 1 апреля."
+        },
+        {
+          "title": "Растаможка автомобиля из Китая в 2026 году. Правила, платежи и ...",
+          "url": "https://autohubexport.ru/article/rastamozhka-avto-iz-kitaya-v-2026/",
+          "snippet": "Какие документы нужны для покупки, доставки и растаможки автомобиля из Китая в Россию? Подробная инструкция, расчет пошлин и советы эксперта. Узнайте всё!"
+        },
+        {
+          "title": "Какие документы нужны для ввоза авто из Китая (список 2026)",
+          "url": "https://ezzhev.ru/how-buy-car/kakie-dokumenty-nuzhny-dlya-vvoza-avto-iz/",
+          "snippet": "Для оформления потребуется стандартный набор: договор купли-продажи, технический паспорт автомобиля, паспорт владельца, СНИЛС и ИНН. Также нужно подготовить подтверждение оплаты утилизационного сбора и, при необходимости, внести депозит на таможенный счет."
+        },
+        {
+          "title": "Растаможка авто из Китая в России 2026: правила, документы, пошлины и ...",
+          "url": "https://ruforma.info/rastamozhka-avto-iz-kitaya-v-rossii-2026-pravila-dokumenty-poshliny-i-sovety.html",
+          "snippet": "Узнайте, какие документы нужны для ввоза авто из Китая в Россию в 2026 году. Полный список для таможни, ЭПТС и ГАИ. Рассчитайте стоимость онлайн!"
+        },
+        {
+          "title": "Растаможка авто из Китая 2026 — калькулятор, пошлины, ЭПТС",
+          "url": "https://import-panda.ru/blog/rastamozhka-avto-iz-kitaya-2026/",
+          "snippet": "Растаможка авто из Китая: пошаговые правила, документы, расчёт пошлин и утильсбора, сроки и частые ошибки. Практичные советы для ввоза и регистрации."
+        }
+      ],
+      "searched_at": "2026-07-19"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "документы на авто из китая новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Растаможка автомобиля из Китая в 2026 году. Правила, платежи и ...",
+          "url": "https://autohubexport.ru/article/rastamozhka-avto-iz-kitaya-v-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Импорт из Китая в 2026 году: изменения на таможне и путь к легальному ...",
+          "url": "https://vc.ru/flagman_alexander/2662337-import-iz-kitaya-v-2026-godu",
+          "snippet": "Для оформления потребуется стандартный набор: договор купли-продажи, технический паспорт автомобиля, паспорт владельца, СНИЛС и ИНН. Также нужно подготовить подтверждение оплаты утилизационного сбора и, при необходимости, внести депозит на таможенный счет."
+        },
+        {
+          "title": "Импорт авто из Китая: новые правила вывоза в 2026 году",
+          "url": "https://ezzhev.ru/news/novye-pravila-eksporta-avto-kitay-2026/",
+          "snippet": "В этой статье разберём ключевые изменения 2026 года, их влияние на логистику и таможню, а также пошагово покажем, как перейти на «белый» импорт без потери рентабельности. С 1 января 2026 года Китай вводит новые правила экспорта автомобилей."
+        },
+        {
+          "title": "Растаможка авто из Китая 2026: цены, документы, инструкция",
+          "url": "https://cargo-hunter.ru/rastamozhka-avto-iz-kitaya-v-rossiyu-v-2026-godu-polnyj-gajd-po-stoimosti-i-proczedure/",
+          "snippet": "Легальный ввоз транспортного средства требует тщательной проверки документов. Покупателю необходимо запрашивать экспортную декларацию и убеждаться в прозрачности цепочки поставок."
+        },
+        {
+          "title": "Документы для ввоза авто из Китая 2026: полный список",
+          "url": "https://ezzhev.ru/how-buy-car/dokumenty-dlya-vvoza-avto-iz-kitaya/",
+          "snippet": "Полный гайд по растаможке автомобилей из Китая в 2026. Актуальные ставки пошлин и утильсбора, пошаговая инструкция, расчеты. Новые правила с 1 апреля."
+        },
+        {
+          "title": "Вывоз автомобилей из Китая в 2026 году: правило 180 дней и новые ...",
+          "url": "https://dvbr.ru/novosti/post/vyvoz-avtomobilej-iz-kitaya-v-2026-godu-pravilo-180-dnej-i-novye-trebovaniya-k-eksportu",
+          "snippet": "Какие документы нужны для покупки, доставки и растаможки автомобиля из Китая в Россию? Подробная инструкция, расчет пошлин и советы эксперта. Узнайте всё!"
+        }
+      ],
+      "searched_at": "2026-07-19"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com документы на авто из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "stanislavmareshkin/parallel-import-guide-2026 - GitHub",
+          "url": "https://github.com/stanislavmareshkin/parallel-import-guide-2026",
+          "snippet": ""
+        },
+        {
+          "title": "GitHub - wheel-pet-project/vehicle-docs: Микросервис для хранения ...",
+          "url": "https://github.com/wheel-pet-project/vehicle-docs",
+          "snippet": "Экспертный гайд от ELP Cargo — логистической компании с 13-летним опытом международных перевозок. Параллельный импорт — это легальная схема ввоза товаров в обход официальных дистрибьюторов. С 2022 года в России этот механизм стал полностью законным для широкого спектра товаров."
+        },
+        {
+          "title": "my-calculator/index.html at main · mensikovstepan1977-creator ... - GitHub",
+          "url": "https://github.com/mensikovstepan1977-creator/my-calculator/blob/main/index.html",
+          "snippet": "Описание Микросервис VehicleDocuments предоставляет полный набор функций для управления документами транспортных средств в ИС для каршеринга."
+        },
+        {
+          "title": "aizavod-platform/data/certifier/parallel_import.txt at master ... - GitHub",
+          "url": "https://github.com/MASTER116/aizavod-platform/blob/master/data/certifier/parallel_import.txt",
+          "snippet": "Калькулятор для рассчета привоза авто. Contribute to mensikovstepan1977-creator/my-calculator development by creating an account on ..."
+        },
+        {
+          "title": "128k-tokens/o200k_base.txt at main · willhama/128k-tokens",
+          "url": "https://github.com/willhama/128k-tokens/blob/main/o200k_base.txt",
+          "snippet": "Шаг 1: Покупка автомобиля за рубежом - Популярные страны: ОАЭ, Южная Корея, Китай, Япония, Грузия, Армения - Оформление экспортных документов в стране покупки Шаг 2: Доставка в Россию"
+        },
+        {
+          "title": "russian/100000-russian-words.txt at master · hingston/russian",
+          "url": "https://github.com/hingston/russian/blob/master/100000-russian-words.txt",
+          "snippet": "Visualization of different context lengths in text - willhama/128k-tokens"
+        }
+      ],
+      "searched_at": "2026-07-19"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "документы на авто из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Документы для ввоза авто из Китая 2026: полный список",
+          "url": "https://ezzhev.ru/how-buy-car/dokumenty-dlya-vvoza-avto-iz-kitaya/",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка авто из Китая 2026: цены, документы, инструкция",
+          "url": "https://cargo-hunter.ru/rastamozhka-avto-iz-kitaya-v-rossiyu-v-2026-godu-polnyj-gajd-po-stoimosti-i-proczedure/",
+          "snippet": "Комплект документации для импорта автомобиля из Китая представляет собой совокупность юридических, таможенных и технических бумаг, которые требуются для законного приобретения, перевозки и постановки на учёт транспортного средства в России."
+        },
+        {
+          "title": "Какие документы нужны для ввоза авто из Китая (список 2026)",
+          "url": "https://ezzhev.ru/how-buy-car/kakie-dokumenty-nuzhny-dlya-vvoza-avto-iz/",
+          "snippet": "Полный гайд по растаможке автомобилей из Китая в 2026. Актуальные ставки пошлин и утильсбора, пошаговая инструкция, расчеты. Новые правила с 1 апреля."
+        },
+        {
+          "title": "Растаможка авто из Китая в России 2026: правила, документы, пошлины и ...",
+          "url": "https://ruforma.info/rastamozhka-avto-iz-kitaya-v-rossii-2026-pravila-dokumenty-poshliny-i-sovety.html",
+          "snippet": "Узнайте, какие документы нужны для ввоза авто из Китая в Россию в 2026 году. Полный список для таможни, ЭПТС и ГАИ. Рассчитайте стоимость онлайн!"
+        },
+        {
+          "title": "Растаможка автомобиля из Китая в 2026 году. Правила, платежи и ...",
+          "url": "https://autohubexport.ru/article/rastamozhka-avto-iz-kitaya-v-2026/",
+          "snippet": "Растаможка авто из Китая: пошаговые правила, документы, расчёт пошлин и утильсбора, сроки и частые ошибки. Практичные советы для ввоза и регистрации."
+        },
+        {
+          "title": "Таможня нового авто из Китая 2026: пошлины, утильсбор, документы и ...",
+          "url": "https://excellent-moto.ru/tamozhnya-novogo-avto-iz-kitaya-2026/",
+          "snippet": "Для оформления потребуется стандартный набор: договор купли-продажи, технический паспорт автомобиля, паспорт владельца, СНИЛС и ИНН. Также нужно подготовить подтверждение оплаты утилизационного сбора и, при необходимости, внести депозит на таможенный счет."
+        }
+      ],
+      "searched_at": "2026-07-19"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "документы на авто из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Растаможка автомобиля из Китая в 2026 году. Правила, платежи и ...",
+          "url": "https://autohubexport.ru/article/rastamozhka-avto-iz-kitaya-v-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Покупка авто из Китая напрямую — перегон, таможня, риски и реальные ...",
+          "url": "https://www.pro-avto-forum.ru/viewtopic.php?t=652",
+          "snippet": "Сколько реально стоит привезти и растаможить автомобиль из Китая в России в 2026 году. Расчет пошлин, утильсбора, НДС. Пошаговый алгоритм оформления для физических лиц без переплат."
+        },
+        {
+          "title": "Растаможка авто из Китая в России 2026: правила, документы, пошлины и ...",
+          "url": "https://ruforma.info/rastamozhka-avto-iz-kitaya-v-rossii-2026-pravila-dokumenty-poshliny-i-sovety.html",
+          "snippet": "Разбираем покупку авто из Китая напрямую: как проходит перегон, сколько стоит растаможка, реальные риски и практические советы из личного опыта. Полный гид по импорту автомобилей из ..."
+        },
+        {
+          "title": "Растаможка авто из Китая 2026: цены, документы, инструкция",
+          "url": "https://cargo-hunter.ru/rastamozhka-avto-iz-kitaya-v-rossiyu-v-2026-godu-polnyj-gajd-po-stoimosti-i-proczedure/",
+          "snippet": "Растаможка авто из Китая: пошаговые правила, документы, расчёт пошлин и утильсбора, сроки и частые ошибки. Практичные советы для ввоза и регистрации."
+        },
+        {
+          "title": "ЭПТС и СБКТС на авто из Китая: как получить в 2026 году?",
+          "url": "https://ezzhev.ru/how-buy-car/epts-sbkts-na-kitayskiy-avto/",
+          "snippet": "Полный гайд по растаможке автомобилей из Китая в 2026. Актуальные ставки пошлин и утильсбора, пошаговая инструкция, расчеты. Новые правила с 1 апреля."
+        },
+        {
+          "title": "Авто из Китая самому в 2026: как привезти, растаможить и оформить без ...",
+          "url": "https://avtoport-msk.ru/avto-iz-kitaya-kak-mozhno-privezti-v-2026-godu-i-ne-utonut-v-bumagah/",
+          "snippet": "Полное руководство по оформлению ЭПТС и СБКТС для автомобилей из Китая. Узнайте сроки, стоимость и список документов. Рассчитайте цену на сайте!"
+        }
+      ],
+      "searched_at": "2026-07-19"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "растаможка авто китай 2026",
+      "purpose": "вторичный запрос: растаможка авто китай",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Растаможка авто из Китая 2026: цены, документы, инструкция",
+          "url": "https://cargo-hunter.ru/rastamozhka-avto-iz-kitaya-v-rossiyu-v-2026-godu-polnyj-gajd-po-stoimosti-i-proczedure/",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка авто из Китая в 2026: калькулятор и примеры расчётов",
+          "url": "https://autohubexport.ru/article/rastamozhka-avto-iz-kitaya-v-2026-kalkulator-i-primeri/",
+          "snippet": "Полный гайд по растаможке автомобилей из Китая в 2026. Актуальные ставки пошлин и утильсбора, пошаговая инструкция, расчеты. Новые правила с 1 апреля."
+        },
+        {
+          "title": "Растаможка авто из Китая в 2026 году: полный расчёт от покупки до ...",
+          "url": "https://jckauto.ru/blog/rastamozhka-avto-iz-kitaya-polnyy-raschet-2026",
+          "snippet": "Разбираем, какие платежи входят в растаможку автомобиля из Китая, от чего зависит итоговая сумма, почему важны возраст, объём двигателя и мощность, а также какие ошибки могут привести ..."
+        },
+        {
+          "title": "Растаможка автомобиля из Китая в 2026 году. Правила, платежи и ...",
+          "url": "https://autohubexport.ru/article/rastamozhka-avto-iz-kitaya-v-2026/",
+          "snippet": "Разбираем, из чего складывается стоимость растаможки автомобиля из Китая в 2026 году: пошлины, сборы, утильсбор, доставка. Реальный расчёт на примере Volkswagen Tayron."
+        },
+        {
+          "title": "Растаможка авто из Китая 2026 — калькулятор, пошлины, ЭПТС",
+          "url": "https://import-panda.ru/blog/rastamozhka-avto-iz-kitaya-2026/",
+          "snippet": "Сколько реально стоит привезти и растаможить автомобиль из Китая в России в 2026 году. Расчет пошлин, утильсбора, НДС. Пошаговый алгоритм оформления для физических лиц без переплат."
+        },
+        {
+          "title": "Растаможка авто из Китая в 2026 году: пошлина, утильсбор, НДС",
+          "url": "https://63company.ru/guides/rastamozhka-avto-iz-kitaya-2026",
+          "snippet": "Растаможка автомобиля из Китая в 2026 году: актуальные пошлины, утилизационный сбор, акцизы, ЭПТС. Калькулятор и пошаговая инструкция."
+        }
+      ],
+      "searched_at": "2026-07-19"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "проверка документов китай авто 2026",
+      "purpose": "вторичный запрос: проверка документов китай авто",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Новые правила экспорта авто из Китая с 2026 | Гайд для покупателя",
+          "url": "https://ezzhev.ru/news/novye-pravila-export-avto-kitay-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Как проверить китайского поставщика авто (2026): Полный чек-лист",
+          "url": "https://newage-trading.com/ru/blog/verify-chinese-car-supplier-2026/",
+          "snippet": "Для экспорта потребуется расширенный пакет документов, подтверждающих не только техническое состояние, но и юридическую чистоту автомобиля, включая его историю."
+        },
+        {
+          "title": "Эптс и сбктс на китайский авто 2026: цены и алгоритм",
+          "url": "https://ezzhev.ru/how-buy-car/epts-i-sbkts-na-kitayskiy-avto-2026/",
+          "snippet": "Перед оплатой проверьте 7 пунктов: лицензия, экспортные документы, репутация, документы авто, сторонний осмотр, безопасность оплаты, контракт."
+        },
+        {
+          "title": "Растаможка авто из Китая 2026: цены, документы, инструкция",
+          "url": "https://cargo-hunter.ru/rastamozhka-avto-iz-kitaya-v-rossiyu-v-2026-godu-polnyj-gajd-po-stoimosti-i-proczedure/",
+          "snippet": "Оформляем эптс и сбктс на китайский авто 2026 года. Узнайте, как проверить документы, пройти лабораторию и поставить машину на учет без рисков и штрафов."
+        },
+        {
+          "title": "Авто из Китая под ключ в 2026: как проходит подбор, оплата, доставка ...",
+          "url": "https://www.sarbc.ru/link_articles/avto-iz-kitaya-pod-klyuch-v-2026-kak-prohodit-podbor-oplata-dostavka-oformlenie-i-vydacha.html",
+          "snippet": "Из чего складывается стоимость растаможки авто из Китая В 2026 году итоговая сумма легализации китайского автомобиля в России состоит из четырех основных платежей."
+        },
+        {
+          "title": "Растаможка авто из Китая в России 2026: правила, документы, пошлины и ...",
+          "url": "https://ruforma.info/rastamozhka-avto-iz-kitaya-v-rossii-2026-pravila-dokumenty-poshliny-i-sovety.html",
+          "snippet": "Авто из Китая под ключ в 2026 году это управляемая цепочка: подбор и проверка конкретного авто, фиксация условий, оплата по этапам, доставка, таможенное оформление и выдача."
+        }
+      ],
+      "searched_at": "2026-07-19"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Документы на авто из Китая: как отличить подделку до оплаты 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Правило 180 дней для авто из Китая: проверка до оплаты",
+          "url": "https://kitayavtos.com/vpravilo-180-dney-avto-iz-kitaya-nulevoy-bu-proverka/",
+          "snippet": ""
+        },
+        {
+          "title": "Инвойс на автомобиль из Китая: как получить и что проверять",
+          "url": "https://www.drive2.ru/o/b/719676266063599964/",
+          "snippet": "Наша задача — помочь покупателю разобраться в китайской части сделки до оплаты: автомобиль, VIN, документы, поставщик, регистрация и предварительная экспортная готовность."
+        },
+        {
+          "title": "Инвойс на авто из Китая: как ошибки в этом документе могут сорвать ...",
+          "url": "https://dvbr.ru/stati/post/invojs-na-avto-iz-kitaya-kak-oshibki-v-etom-dokumente-mogut-sorvat-rastamozhku",
+          "snippet": "Чтобы вам не пришлось учиться на собственных ошибках и переплачивать, разберем, каким должен быть инвойс на автомобиль из Китая, что в нём проверять и как избежать неприятных ..."
+        },
+        {
+          "title": "Авто из Китая: как не перепутать документы при доставке и растаможке ...",
+          "url": "https://russia-expo.com/avto-iz-kitaya-kak-ne-pereputat-dokumenty-pri-dostavke-i-rastamozhke/",
+          "snippet": "В статье разберем, на какие поля в инвойсе обращать внимание, чем опасно занижение цены и как проверить документ еще до отправки на таможню. Что такое инвойс и почему он важен для ..."
+        },
+        {
+          "title": "Авто из Китая под заказ: какие риски проверить до оплаты и как не ...",
+          "url": "https://russia-expo.com/avto-iz-kitaya-pod-zakaz-kakie-riski-proverit-do-oplaty-i-kak-ne-oshibitsya-s-prodavczom/",
+          "snippet": "Простая памятка: что проверить в документах перед покупкой авто из Китая, чтобы не получить задержки при доставке и оформлении."
+        },
+        {
+          "title": "Как отличить надёжного поставщика авто из Китая от мошенника: 7 ...",
+          "url": "https://vk.com/@dalianauto-kak-otlichit-nadezhnogo-postavschika-avto-iz-kitaya-ot-moshe",
+          "snippet": "Как проверить продавца и риски покупки авто из Китая до оплаты, чтобы не ошибиться с заказом и документами."
+        }
+      ],
+      "searched_at": "2026-07-19"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://cargo-hunter.ru/rastamozhka-avto-iz-kitaya-v-rossiyu-v-2026-godu-polnyj-gajd-po-stoimosti-i-proczedure/",
+      "title": "Растаможка авто из Китая 2026: цены, документы, инструкция",
+      "from_query": "документы на авто из китая 2026"
+    },
+    {
+      "url": "https://autohubexport.ru/article/rastamozhka-avto-iz-kitaya-v-2026/",
+      "title": "Растаможка автомобиля из Китая в 2026 году. Правила, платежи и ...",
+      "from_query": "документы на авто из китая 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/how-buy-car/dokumenty-dlya-vvoza-avto-iz-kitaya/",
+      "title": "Документы для ввоза авто из Китая 2026: полный список",
+      "from_query": "документы на авто из китая 2026"
+    },
+    {
+      "url": "https://ruforma.info/rastamozhka-avto-iz-kitaya-v-rossii-2026-pravila-dokumenty-poshliny-i-sovety.html",
+      "title": "Растаможка авто из Китая в России 2026: правила, документы, пошлины и ...",
+      "from_query": "документы на авто из китая 2026"
+    },
+    {
+      "url": "https://excellent-moto.ru/tamozhnya-novogo-avto-iz-kitaya-2026/",
+      "title": "Таможня нового авто из Китая 2026: пошлины, утильсбор, документы и ...",
+      "from_query": "документы на авто из китая 2026"
+    },
+    {
+      "url": "https://import-panda.ru/blog/rastamozhka-avto-iz-kitaya-2026/",
+      "title": "Растаможка авто из Китая 2026 — калькулятор, пошлины, ЭПТС",
+      "from_query": "документы на авто из китая 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/how-buy-car/kakie-dokumenty-nuzhny-dlya-vvoza-avto-iz/",
+      "title": "Какие документы нужны для ввоза авто из Китая (список 2026)",
+      "from_query": "документы на авто из китая июль 2026"
+    },
+    {
+      "url": "https://vc.ru/flagman_alexander/2662337-import-iz-kitaya-v-2026-godu",
+      "title": "Импорт из Китая в 2026 году: изменения на таможне и путь к легальному ...",
+      "from_query": "документы на авто из китая новости 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/news/novye-pravila-eksporta-avto-kitay-2026/",
+      "title": "Импорт авто из Китая: новые правила вывоза в 2026 году",
+      "from_query": "документы на авто из китая новости 2026"
+    },
+    {
+      "url": "https://dvbr.ru/novosti/post/vyvoz-avtomobilej-iz-kitaya-v-2026-godu-pravilo-180-dnej-i-novye-trebovaniya-k-eksportu",
+      "title": "Вывоз автомобилей из Китая в 2026 году: правило 180 дней и новые ...",
+      "from_query": "документы на авто из китая новости 2026"
+    },
+    {
+      "url": "https://github.com/stanislavmareshkin/parallel-import-guide-2026",
+      "title": "stanislavmareshkin/parallel-import-guide-2026 - GitHub",
+      "from_query": "site:github.com документы на авто из китая 2026"
+    },
+    {
+      "url": "https://github.com/wheel-pet-project/vehicle-docs",
+      "title": "GitHub - wheel-pet-project/vehicle-docs: Микросервис для хранения ...",
+      "from_query": "site:github.com документы на авто из китая 2026"
+    },
+    {
+      "url": "https://github.com/mensikovstepan1977-creator/my-calculator/blob/main/index.html",
+      "title": "my-calculator/index.html at main · mensikovstepan1977-creator ... - GitHub",
+      "from_query": "site:github.com документы на авто из китая 2026"
+    },
+    {
+      "url": "https://github.com/MASTER116/aizavod-platform/blob/master/data/certifier/parallel_import.txt",
+      "title": "aizavod-platform/data/certifier/parallel_import.txt at master ... - GitHub",
+      "from_query": "site:github.com документы на авто из китая 2026"
+    },
+    {
+      "url": "https://github.com/willhama/128k-tokens/blob/main/o200k_base.txt",
+      "title": "128k-tokens/o200k_base.txt at main · willhama/128k-tokens",
+      "from_query": "site:github.com документы на авто из китая 2026"
+    },
+    {
+      "url": "https://github.com/hingston/russian/blob/master/100000-russian-words.txt",
+      "title": "russian/100000-russian-words.txt at master · hingston/russian",
+      "from_query": "site:github.com документы на авто из китая 2026"
+    },
+    {
+      "url": "https://www.pro-avto-forum.ru/viewtopic.php?t=652",
+      "title": "Покупка авто из Китая напрямую — перегон, таможня, риски и реальные ...",
+      "from_query": "документы на авто из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/how-buy-car/epts-sbkts-na-kitayskiy-avto/",
+      "title": "ЭПТС и СБКТС на авто из Китая: как получить в 2026 году?",
+      "from_query": "документы на авто из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://avtoport-msk.ru/avto-iz-kitaya-kak-mozhno-privezti-v-2026-godu-i-ne-utonut-v-bumagah/",
+      "title": "Авто из Китая самому в 2026: как привезти, растаможить и оформить без ...",
+      "from_query": "документы на авто из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://autohubexport.ru/article/rastamozhka-avto-iz-kitaya-v-2026-kalkulator-i-primeri/",
+      "title": "Растаможка авто из Китая в 2026: калькулятор и примеры расчётов",
+      "from_query": "растаможка авто китай 2026"
+    },
+    {
+      "url": "https://jckauto.ru/blog/rastamozhka-avto-iz-kitaya-polnyy-raschet-2026",
+      "title": "Растаможка авто из Китая в 2026 году: полный расчёт от покупки до ...",
+      "from_query": "растаможка авто китай 2026"
+    },
+    {
+      "url": "https://63company.ru/guides/rastamozhka-avto-iz-kitaya-2026",
+      "title": "Растаможка авто из Китая в 2026 году: пошлина, утильсбор, НДС",
+      "from_query": "растаможка авто китай 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/news/novye-pravila-export-avto-kitay-2026/",
+      "title": "Новые правила экспорта авто из Китая с 2026 | Гайд для покупателя",
+      "from_query": "проверка документов китай авто 2026"
+    },
+    {
+      "url": "https://newage-trading.com/ru/blog/verify-chinese-car-supplier-2026/",
+      "title": "Как проверить китайского поставщика авто (2026): Полный чек-лист",
+      "from_query": "проверка документов китай авто 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/how-buy-car/epts-i-sbkts-na-kitayskiy-avto-2026/",
+      "title": "Эптс и сбктс на китайский авто 2026: цены и алгоритм",
+      "from_query": "проверка документов китай авто 2026"
+    },
+    {
+      "url": "https://www.sarbc.ru/link_articles/avto-iz-kitaya-pod-klyuch-v-2026-kak-prohodit-podbor-oplata-dostavka-oformlenie-i-vydacha.html",
+      "title": "Авто из Китая под ключ в 2026: как проходит подбор, оплата, доставка ...",
+      "from_query": "проверка документов китай авто 2026"
+    },
+    {
+      "url": "https://kitayavtos.com/vpravilo-180-dney-avto-iz-kitaya-nulevoy-bu-proverka/",
+      "title": "Правило 180 дней для авто из Китая: проверка до оплаты",
+      "from_query": "Документы на авто из Китая: как отличить подделку до оплаты 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/o/b/719676266063599964/",
+      "title": "Инвойс на автомобиль из Китая: как получить и что проверять",
+      "from_query": "Документы на авто из Китая: как отличить подделку до оплаты 2026"
+    },
+    {
+      "url": "https://dvbr.ru/stati/post/invojs-na-avto-iz-kitaya-kak-oshibki-v-etom-dokumente-mogut-sorvat-rastamozhku",
+      "title": "Инвойс на авто из Китая: как ошибки в этом документе могут сорвать ...",
+      "from_query": "Документы на авто из Китая: как отличить подделку до оплаты 2026"
+    },
+    {
+      "url": "https://russia-expo.com/avto-iz-kitaya-kak-ne-pereputat-dokumenty-pri-dostavke-i-rastamozhke/",
+      "title": "Авто из Китая: как не перепутать документы при доставке и растаможке ...",
+      "from_query": "Документы на авто из Китая: как отличить подделку до оплаты 2026"
+    },
+    {
+      "url": "https://russia-expo.com/avto-iz-kitaya-pod-zakaz-kakie-riski-proverit-do-oplaty-i-kak-ne-oshibitsya-s-prodavczom/",
+      "title": "Авто из Китая под заказ: какие риски проверить до оплаты и как не ...",
+      "from_query": "Документы на авто из Китая: как отличить подделку до оплаты 2026"
+    },
+    {
+      "url": "https://vk.com/@dalianauto-kak-otlichit-nadezhnogo-postavschika-avto-iz-kitaya-ot-moshe",
+      "title": "Как отличить надёжного поставщика авто из Китая от мошенника: 7 ...",
+      "from_query": "Документы на авто из Китая: как отличить подделку до оплаты 2026"
+    }
+  ]
+}

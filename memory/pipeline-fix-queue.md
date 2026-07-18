@@ -254,3 +254,77 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20260718-2103-director-today-as-regex
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-director
+topic_id: AS07
+article_dir: memory/blog/articles/AS07-dokumenty-na-avto-iz-kitaya
+severity: high
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_today.py` and `scripts/excalibur_blog_scout_helper.py` match only `B\\d+` topic IDs / article dirs, so AS-topics in `blog-topics.md` are invisible.
+- `EXCALIBUR_TOPIC_SELECTION=needs_scout` despite free AS01/AS03/AS05/AS07 P0/P1 topics.
+- Automation memory claimed AS|B regex was already fixed after AS06, but current branch still has `B\\d+` only.
+- Doctor FAIL: checks llms generator for `--blog-path` while CLI exposes `--blog-dir`.
+
+### How the agent recovered this run
+- Manually selected AS07 (utility PASS, slug not on live WP recent posts).
+- Ran `excalibur_blog_research_start.py --topic-id AS07` and reserved ledger `in_progress`.
+
+### Durable fix needed before next run
+- Update today.py + scout_helper.py topic/article regex to `(?:AS|B)\\d+` (and section split markers).
+- Align doctor check with `--blog-dir` or add `--blog-path` alias to llms generator.
+- Add h1 practical markers to AS01/AS03/AS05 topic cards so utility gate can PASS them next time.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `memory/topics/blog-topics.md` (AS01/AS03/AS05 h1)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260718-2107-research-wordstat-totalcount
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-research
+topic_id: AS07
+article_dir: memory/blog/articles/AS07-dokumenty-na-avto-iz-kitaya
+severity: low
+category: api
+
+### What went wrong
+- MCP wordstat_get_top_requests for primary "документы на авто из китая" and secondary "проверка документов китай авто" returned truncated payload with only totalCount (489 and 1), no top phrases list.
+- Related: already-fixed scout incident INC-20260616-1950, but research skill/agent still does not require cluster-first Wordstat fallback.
+- Gate is_technical_topic false-positive: substring "ai" matches inside field name reader_pain, forcing GitHub evidence for a non-tech auto topic.
+
+### How the agent recovered this run
+- Used successful broader clusters: растаможка авто китай (6808), ЭПТС проверить (5607), СБКТС проверить (699), инвойс авто китай (640); recorded totalCount-only rows without inventing top phrases.
+- Added 3 GitHub URLs to satisfy false-positive technical gate; research-notes-gate PASS.
+
+### Durable fix needed before next run
+- Mirror scout cluster-first Wordstat guidance into research agent/skill: treat totalCount-only as low-result signal, broaden query, never invent impressions.
+- Fix excalibur_blog_research_notes_gate.py TECH_MARKERS matching to use word boundaries (so ai does not match inside pain).
+
+### Suggested files to inspect/change
+- .cursor/skills/excalibur-research/SKILL.md
+- .cursor/agents/excalibur-blog-research.md
+- skills/excalibur-research/SKILL.md
+- agents/excalibur-blog-research.md
+- scripts/excalibur_blog_research_notes_gate.py
+- shared/agent-pipeline-pitfalls.md
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

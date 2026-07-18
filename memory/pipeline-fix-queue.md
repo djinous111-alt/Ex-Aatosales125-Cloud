@@ -425,6 +425,74 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20260718-1155-director-geo-qa-task-type-missing
+status: open
+run_date: 2026-07-18
+role: excalibur-blog-director
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: docs
+
+### What went wrong
+- Cloud Task enum rejected `excalibur-blog-geo-qa`; available typed roles include research/writer/cover/schema/indexer/publish/scout/fixer but not geo-qa.
+
+### How the agent recovered this run
+- Ran GEO QA via `Task(generalPurpose)` with `.cursor/agents/excalibur-blog-geo-qa.md` + skill path; achieved PASS.
+
+### Durable fix needed before next run
+- Register `excalibur-blog-geo-qa` as a typed Cloud Task subagent (or document mandatory generalPurpose fallback in AGENTS.md/pitfalls).
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `AGENTS.md`
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Cloud Task type registration for this repo
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260718-1205-cover-mcp-sync-timeout-no-kie-key
+status: open
+run_date: 2026-07-18
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: blocker
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` (MCP-KV) returned `-32001 Request timed out` on 2 attempts at 2K HTTPS i2i and 1 recovery at 1K.
+- No async MCP tools (`gpt-image-2-create` / status/result) available on MCP-KV.
+- Env secret `KIE_API_KEY` missing — preferred shell path `excalibur_blog_kie_gpt_image2_api.py` cannot run.
+- MCP client logs / transcript had no `tempfile.aiquickdraw.com` URL and no `task_id` to poll.
+- Manifest/prompt/batch for AS02 Encar cover were prepared (hook, non-toxic stickers, HTTPS reference).
+
+### How the agent recovered this run
+- Could not recover: no URL, no task_id, no Kie key. Stopped without apply/split (no blind 4th create). Wrote FAIL fragment.
+
+### Durable fix needed before next run
+- Add Cursor Cloud Secret `KIE_API_KEY` and prefer `scripts/excalibur_blog_kie_gpt_image2_api.py` for cover.
+- Or expose async MCP tools on MCP-KV (`gpt-image-2-create` + `gpt-image-2-status`) per `shared/mcp-image-async-contract.md`.
+- Raise MCP client/proxy timeout for 2K i2i if sync remains the only path.
+
+### Suggested files to inspect/change
+- `shared/mcp-image-async-contract.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py` (timeout_policy)
+- Cursor Dashboard Secrets (`KIE_API_KEY`)
+- MCP-KV server image-tool contract
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

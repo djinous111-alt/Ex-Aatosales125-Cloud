@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS02",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Красивое фото ещё не проверка лота",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс в очках со смартфоном: экран Encar и ирония «кот в мешке»",
+      "scene_hint": "Reference face + glasses; neat casual dark jacket (Vladivostok cool evening, Encar/auction vibe) — NOT reference t-shirt; NO cap/hood. Holds smartphone with fake Encar lot card UI (Korean/Cyrillic fields: price, mileage, Performance Check). Torn paper + scotch tape + pink sticky note «стоп до депозита»; shocked cat meme cutout for «кот в мешке» irony; huge Cyrillic hook with yellow highlight on «кота в мешке»; corner brand avto-sales125.ru; NO Wordstat/Metrika/Telegram handle; no toxic slang on stickers",
+      "meme_caption_ru": "Не бери кота в мешке"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Откройте живую карточку на encar.com, а не только русское зеркало",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Split UI mock: left = Russian mirror catalog card with pretty photos; right = real encar.com lot page with Performance Check tab. Red marker arrow «открой живую». Small sticky «зеркало ≠ проверка». NO hero face. Tape corner. Readable Cyrillic labels only.",
+      "alt": "Сравнение русского зеркала и живой карточки encar.com с вкладкой Performance Check"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Зафиксируйте за 10 минут пять полей карточки и все фото",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Checklist board / table UI: 5 fields — цена, пробег, тип продажи, год/модель, фото кузова+салон+двигатель. Checkmarks and timer sticker «10 мин». Mini phone frame with Encar fields. NO hero. Human DIY tape + sticky «выпиши до депозита».",
+      "alt": "Чеклист пяти полей карточки Encar за 10 минут с таймером"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Как читать Performance Check: коды X и W на схеме кузова",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Car body diagram UI: panels with codes X (замена) and W (шпаклёвка/сварка) highlighted on pillars/longeron in red. Legend sticker: X=замена, W=работа. Arrow «силовые = стоп». Workflow steps 1→2→3 open check → find X/W → verdict. NO hero face. Scotch tape corner.",
+      "alt": "Схема кузова Performance Check с кодами X и W на силовых элементах"
+    }
+  }
+}

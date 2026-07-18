@@ -1,0 +1,15 @@
+{
+  "slug": "dokumenty-na-avto-iz-kitaya",
+  "topic_id": "AS07",
+  "permalink": "[REDACTED]/dokumenty-na-avto-iz-kitaya/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/AS07-dokumenty-na-avto-iz-kitaya/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 876809,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3194 slug=dokumenty-na-avto-iz-kitaya\nOK featured_image=3466\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3467 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/06/dokumenty-na-avto-iz-kitaya-inline-01.png\nOK inline_image_upload=3468 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/06/dokumenty-na-avto-iz-kitaya-inline-02.png\nOK inline_image_upload=3469 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/06/dokumenty-na-avto-iz-kitaya-inline-03.png\npermalink=[REDACTED]/dokumenty-na-avto-iz-kitaya/\n",
+  "verdict": "pass"
+}

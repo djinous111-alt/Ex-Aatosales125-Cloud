@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260718-2138-publish-paramiko-ssh-path
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-publish
+topic_id: AS07
+article_dir: memory/blog/articles/AS07-dokumenty-na-avto-iz-kitaya
+severity: medium
+category: env
+
+### What went wrong
+- Cloud runtime had no `paramiko` (`ModuleNotFoundError`); system pip is PEP 668 externally-managed.
+- Cloud Secrets expose `SSH_PATH` but publish script reads only `SSH_ROOT` (`PUBLISH_ENV_KEYS`); without mapping, root was unset until agent mapped session env / wrote gitignored `memory/site.env.local`.
+- Configured remote root from `SSH_PATH` still returned ENOENT; script auto-fallback to `.` succeeded (known pattern from fixed INC-20260616-2042), but Cloud Secret still not set to `.`.
+
+### How the agent recovered this run
+- Installed paramiko via `pip3 install --break-system-packages paramiko` (apt python3-paramiko unavailable/quiet fail).
+- Mapped `SSH_PATH` → `SSH_ROOT` for the session and wrote gitignored `memory/site.env.local` from Cloud env (not committed).
+- Relied on script ENOENT→`.` fallback; publish PASS (post 3194, featured 3466, inline 3467–3469, schema_meta ok).
+
+### Durable fix needed before next run
+- Bake `paramiko` into Cloud image / `.cursor/environment.json` install (or document `pip3 install --break-system-packages paramiko` in publish preflight).
+- Align Cloud Secrets: set `SSH_ROOT=.` (or map `SSH_PATH`→`SSH_ROOT` inside `load_env()` in `excalibur_blog_wp_publish.py`).
+- Optionally teach `load_env()` to accept `SSH_PATH` as alias for `SSH_ROOT`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`load_env` / `PUBLISH_ENV_KEYS`)
+- `.cursor/environment.json` / `CURSOR-CLOUD-RUNBOOK.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- Cursor Dashboard Cloud Secrets (`SSH_ROOT` / `SSH_PATH` naming; no values recorded)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260718-2128-cover-gpt-image2-timeout-zimage-fallback
 status: open
 run_date: 2026-07-19

@@ -1,0 +1,89 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-18",
+    "today_ru": "18.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-19",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-18 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS04",
+    "priority": "P0",
+    "slug": "utilsbor-na-avto-2026",
+    "h1": "Утильсбор на авто 2026: как считают для машин из Кореи, Китая и Японии",
+    "primary_query": "утильсбор на авто 2026",
+    "secondary_queries": [
+      "утильсбор корея китай япония",
+      "расчет утильсбора"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS04",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "утильсбор на авто 2026 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "утильсбор на авто 2026 июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "утильсбор на авто 2026 новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com утильсбор на авто 2026 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "утильсбор на авто 2026 official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "утильсбор на авто 2026 forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "утильсбор корея китай япония 2026",
+      "purpose": "вторичный запрос: утильсбор корея китай япония"
+    },
+    {
+      "id": "secondary_2",
+      "query": "расчет утильсбора 2026",
+      "purpose": "вторичный запрос: расчет утильсбора"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Утильсбор на авто 2026: как считают для машин из Кореи, Китая и Японии 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS04-utilsbor-na-avto-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

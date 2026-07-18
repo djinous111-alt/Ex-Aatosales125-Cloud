@@ -6,6 +6,129 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260718-1520-director-topic-id-prefix-as-vs-b
+status: open
+run_date: 2026-07-18
+role: excalibur-blog-director
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: high
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_today.py` `next_p0_topic()` и `scripts/excalibur_blog_scout_helper.py` парсят только `## B\d+` / `(B\d+)-` article dirs.
+- Пул тем Авто-Сейлс использует `AS01`…`AS09`, поэтому today.py вернул `EXCALIBUR_TOPIC_SELECTION=needs_scout` и пустой `SUGGESTED_TOPIC_ID` при наличии ненаписанных P0.
+- Scout helper показал `Total topics in pool: 0` при 9 карточках в `blog-topics.md`.
+
+### How the agent recovered this run
+- Директор вручную выбрал AS04 (utility PASS, slug свободен на WP, не published в ledger) и запустил `research_start.py --topic-id AS04`.
+
+### Durable fix needed before next run
+- Расширить regex topic_id до `(?:AS|B)\d+` (или общего `[A-Z]+\d+`) в `excalibur_blog_today.py`, `excalibur_blog_scout_helper.py` и связанных проверках active article dirs.
+- Убедиться, что utility soft-skip для FAIL P0 (AS01/AS03/AS05) работает после фикса префикса.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260718-1521-director-llms-blog-path-cli
+status: open
+run_date: 2026-07-18
+role: excalibur-blog-director
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` требует `llms generator supports --blog-path`.
+- `excalibur_blog_llms_generator.py --help` показывает только `--blog-dir` (и нет `--blog-path`) → doctor SUMMARY errors=1.
+
+### How the agent recovered this run
+- Продолжили пайплайн; indexer/fixer должны выровнять CLI и doctor check.
+
+### Durable fix needed before next run
+- Либо добавить alias `--blog-path` в llms generator, либо поменять doctor check на `--blog-dir`, плюс обновить skills/docs indexer.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260718-1525-research-wordstat-compound-phrase-totalcount
+status: open
+run_date: 2026-07-18
+role: excalibur-blog-research
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: low
+category: api
+
+### What went wrong
+- `wordstat_get_top_requests` для составной фразы «утильсбор корея китай япония» вернул нестандартный ответ `{"totalCount":"17"}` без топа фраз (аналог known scout pitfall).
+
+### How the agent recovered this run
+- Повторил запросы по отдельным кластерам: «утильсбор корея», «утильсбор япония», «утильсбор китай»; цифры в research-notes только из успешных ответов.
+
+### Durable fix needed before next run
+- В skill research: при secondary из 3+ стран/слов — сразу бить Wordstat по частям; `totalCount`-only = low-result, не fatal.
+- Опционально: soft-retry wrapper в MCP/docs.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260718-1526-research-notes-gate-tech-marker-ii-false-positive
+status: open
+run_date: 2026-07-18
+role: excalibur-blog-research
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` `TECH_MARKERS` содержал короткие подстроки `ai` / `ии` без границ слова.
+- H1 с «Японии» давал `technical_topic=true` → требование `github_urls>=3` для нетехнической авто-темы → BLOCK.
+
+### How the agent recovered this run
+- Добавлен `_marker_matches()` с word-boundary для маркеров длиной ≤3; gate PASS без фейковых GitHub URL.
+- Также выровнены форматы `accessed_at:` в source_table и keywords pain/solution/result в pain_solution_map (gate regex).
+
+### Durable fix needed before next run
+- Закрепить word-boundary для коротких TECH_MARKERS в gate; добавить unit/smoke-тест на тему с «Японии»/«России».
+- Документировать контракт pain_solution_map rows (нужны слова pain|solution|result|боль|…) и `accessed_at:` ≥5.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

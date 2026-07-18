@@ -1,7 +1,7 @@
 # Promotion checklist — AS02 encar-na-russkom-kak-chitat
 
 Дата публикации: 2026-07-18  
-Live URL: [REDACTED]/blog/encar-na-russkom-kak-chitat/
+Live URL: [REDACTED]/2026/07/18/encar-na-russkom-kak-chitat/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -48,4 +48,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir …/AS02-encar-na-russkom-kak-chitat --site-base [REDACTED]` — 0 links applied.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (AS02 в индексе).
-- Publish: pending (Indexer only).
+- Publish: PASS post=3394 permalink=[REDACTED]/2026/07/18/encar-na-russkom-kak-chitat/

@@ -286,7 +286,7 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+- fixed: added paramiko (+ numpy) to `.cursor/cloud-agent-install.sh` pip list
 
 ## INC-20260718-1145-research-wordstat-truncated-totalcount
 status: open
@@ -567,3 +567,33 @@ category: env
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20260718-0915-publish-paramiko-missing
+status: fixed
+run_date: 2026-07-18
+role: excalibur-blog-publish
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: env
+
+### What went wrong
+- First publish attempt failed: `ModuleNotFoundError: No module named 'paramiko'`.
+- `requirements.txt` lists paramiko, but `.cursor/cloud-agent-install.sh` only installs `requests pillow python-dotenv`.
+
+### How the agent recovered this run
+- Installed paramiko via `pip install --break-system-packages paramiko` and re-ran publish successfully (post=3394).
+
+### Durable fix needed before next run
+- Add `paramiko` (and ideally `Pillow`/`numpy` already used) to `.cursor/cloud-agent-install.sh` pip install list so Cloud Agents boot with SSH publish transport ready.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt` (already has paramiko)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- fixed: added paramiko (+ numpy) to `.cursor/cloud-agent-install.sh` pip list
+

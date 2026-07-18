@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS04-utilsbor-na-avto-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      946,
+      572
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 572,
+        "end": 656
+      },
+      "v_gutter_px": {
+        "start": 946,
+        "end": 1104
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 20,
+          "right": 946,
+          "bottom": 552
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 946,
+          "bottom": 572
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс со смартфоном и паспортом параметров: крючок про ошибку мощности и утильсбор до депозита",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1104,
+          "top": 20,
+          "right": 2048,
+          "bottom": 551
+        },
+        "raw_box_px": {
+          "left": 1104,
+          "top": 0,
+          "right": 2048,
+          "bottom": 572
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица паспорта параметров авто: кВт, объём, возраст, статус физлица",
+        "h2_anchor": "Соберите паспорт параметров машины за 15 минут"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 32,
+          "top": 656,
+          "right": 914,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 656,
+          "right": 946,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: от мощности в рекламе к кВт в документах и порогу льготы",
+        "h2_anchor": "Сверьте мощность в документах, а не в рекламе"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1135,
+          "top": 656,
+          "right": 2017,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1104,
+          "top": 656,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист-миф: Корея, Китай, Япония — страна не меняет формулу утильсбора",
+        "h2_anchor": "Сравните: страна не меняет формулу утильсбора"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Соберите паспорт параметров машины за 15 минут",
+    "injected inline_2 after H2 — Сверьте мощность в документах, а не в рекламе",
+    "injected inline_3 after H2 — Сравните: страна не меняет формулу утильсбора"
+  ]
+}

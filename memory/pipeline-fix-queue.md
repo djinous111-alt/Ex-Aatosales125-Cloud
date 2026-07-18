@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260718-1239-cover-mcp-timeout-kie-missing-zimage-fallback
+status: open
+run_date: 2026-07-18
+role: excalibur-blog-cover
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: high
+category: api
+
+### What went wrong
+- Preferred path `KIE_API_KEY` + `scripts/excalibur_blog_kie_gpt_image2_api.py` unavailable: env secret missing, no `memory/site.env.local`.
+- Sync MCP-KV `gpt-image-2` i2i 2K timed out with client `-32001`; no late URL/task_id recoverable from logs; no async create/status MCP tools exposed.
+- Forced documented fallback: ONE `z-image` 16:9 → Pillow rebuild/confirm 2048×1152 → `quad_split --inject-html`.
+- Side effect: z-image is t2i (no `input_urls`), so hero likeness is approximate; Cyrillic on panels is partially garbled (readable hooks/caption still present on cover).
+
+### How the agent recovered this run
+- Kept ONE-canvas rule (not 4 separate gens).
+- Generated via `z-image`, saved `cover/quad-mcp-result.json`, ensured `canvas-quad.png` 2048×1152, split+inject PASS.
+- Cover hook/caption non-toxic; brand corner `avto-sales125.ru`; inline panels without hero face.
+
+### Durable fix needed before next run
+- Ensure Cloud Secret `KIE_API_KEY` is set and funded (previous runs hit 402 at ~1.43 credits).
+- Prefer async Kie script over sync MCP `gpt-image-2` for 2K i2i.
+- Optionally expose async MCP create/status tools so timeout recovery can poll `task_id`.
+- Document z-image fallback quality limits (face lock + Cyrillic) in cover skill/pitfalls.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Dashboard Secrets (`KIE_API_KEY` only; no values recorded)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260718-1520-director-topic-id-prefix-as-vs-b
 status: open
 run_date: 2026-07-18

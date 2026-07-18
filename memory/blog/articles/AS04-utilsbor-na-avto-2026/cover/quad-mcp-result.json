@@ -1,0 +1,14 @@
+{
+  "url": "https://tempfile.aiquickdraw.com/zimage/1784378268846-w894w3xf44i.png",
+  "source": "z-image-fallback",
+  "task_id": "be7c505c17a6613251c0d94ef33113fb",
+  "note": "gpt-image-2 MCP -32001 timeout; KIE_API_KEY missing; ONE z-image 16:9 + Pillow rebuild 2048x1152",
+  "original_size": [
+    2048,
+    1152
+  ],
+  "canvas_size": [
+    2048,
+    1152
+  ]
+}

@@ -644,3 +644,45 @@ checks_run:
 - python3 scripts/excalibur_blog_utility_gate.py --topic-id AS01/AS03/AS05 → PASS
 - PYTHONPATH=scripts unit checks: tech marker word-boundary, sanitize_site_base
 commit: 0ebb811
+
+## INC-20260718-2148-publish-false-pass-missing-post
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-publish
+topic_id: AS07
+article_dir: memory/blog/articles/AS07-dokumenty-na-avto-iz-kitaya
+severity: blocker
+category: publish
+
+### What went wrong
+- Publish agent reported PASS with post_id **3194** and permalink `/dokumenty-na-avto-iz-kitaya/`.
+- Live WP REST: `GET /wp-json/wp/v2/posts/3194` → 404; slug search for posts → empty.
+- id **3194** is an **attachment** (media) owning slug `dokumenty-na-avto-iz-kitaya`; URL returned HTTP 200 **PNG**, not HTML.
+- Bootstrap `wp_update_post` used stale/attachment id without `post_type === post` check; script still printed `OK post=3194`.
+- Media 3466–3469 uploaded as orphans (parent=3194). Ledger marked published (false positive).
+
+### How the agent recovered this run
+- Confirmed attachment 3194 held the slug; one-shot SSH bootstrap renamed it to `dokumenty-na-avto-iz-kitaya-orphan-media-3194`.
+- Republish with `post_id=0` (did not pass 3194): `wp_insert_post` → **post_id=3470**, featured **3471**, inline **3472–3474** (fresh uploads).
+- **Mandatory verify before PASS:** GET `/wp-json/wp/v2/posts/3470` → 200 `status=publish` `type=post`; `posts?slug=dokumenty-na-avto-iz-kitaya` count=1; permalink `text/html` with article title (not PNG).
+- Updated ledger `published`, wp-publish-log, promotion Live URL, handoff republish + PIPELINE DONE fields.
+
+### Durable fix needed before next run
+- Publish script must REST-verify post (by id or slug, `type=post`, `status=publish`) before ledger `published` / handoff PASS.
+- Reject success when REST 404 even if media OK / stdout has `OK post=`.
+- Bootstrap: never `wp_update_post` without confirming target `post_type === 'post'`; missing/wrong type → `get_page_by_path` / `wp_insert_post`.
+- Detect slug owned by attachment and free/rename or fail before insert; avoid non-HTML 200 on intended article URL.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (post-verify + post_type guard in script — left for fixer)
+

@@ -1,7 +1,7 @@
 # Promotion checklist — AS07 dokumenty-na-avto-iz-kitaya
 
 Дата публикации: 2026-07-19  
-Live URL: [REDACTED]/dokumenty-na-avto-iz-kitaya/
+Live URL: [REDACTED]/2026/07/19/dokumenty-na-avto-iz-kitaya/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • СБКТС — в реестре Росстандарта, ЭПТС — на elpts.ru
 • Нет записи или размытый инвойс — перевод не отправляете
 
-Читать: [REDACTED]/dokumenty-na-avto-iz-kitaya/
+Читать: [REDACTED]/2026/07/19/dokumenty-na-avto-iz-kitaya/
 ```
 
 ## Перелинковка

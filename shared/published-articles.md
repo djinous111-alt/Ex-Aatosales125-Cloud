@@ -4,6 +4,6 @@
 | --- | --- | --- | --- | --- |
 | 2026-07-17 | AS08 | samye-komfortnye-avto-myagkaya-podveska-2026 | [REDACTED]/2026/07/17/samye-komfortnye-avto-myagkaya-podveska-2026/ | published |
 | 2026-07-17 | AS09 | trust-encar-carhistory-proverka-do-depozita | [REDACTED]/2026/07/17/trust-encar-carhistory-proverka-do-depozita/ | published |
-| 2026-07-19 | AS07 | dokumenty-na-avto-iz-kitaya | [REDACTED]/dokumenty-na-avto-iz-kitaya/ | published |
+| 2026-07-19 | AS07 | dokumenty-na-avto-iz-kitaya | [REDACTED]/2026/07/19/dokumenty-na-avto-iz-kitaya/ | published |
 
 > Ledger сброшен при перенастройке под AVTO SALES (2026-07-17).

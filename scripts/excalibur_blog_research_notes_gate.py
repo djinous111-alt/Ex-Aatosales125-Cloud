@@ -73,14 +73,24 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_in_blob(marker: str, blob: str) -> bool:
+    """Match tech markers without false positives (e.g. 'ai' inside 'pain')."""
+    # Short Latin tokens need word boundaries; Cyrillic stems stay substring.
+    if re.fullmatch(r"[a-z0-9]+", marker):
+        return bool(re.search(rf"(?<![a-z0-9]){re.escape(marker)}(?![a-z0-9])", blob))
+    return marker in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
+    # Only topic fields — not raw notes field names like reader_pain (contains "ai").
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
+    # Also scan notes body, but still use word-boundary matching for Latin tokens.
     blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    return any(_marker_in_blob(marker, blob) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:

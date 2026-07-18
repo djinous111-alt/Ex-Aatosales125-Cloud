@@ -124,10 +124,21 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 ### Шаг 4 — ONE MCP
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
+Предпочтительно: direct Kie async (`scripts/excalibur_blog_kie_gpt_image2_api.py`) при наличии `KIE_API_KEY`.
+
+Иначе sync MCP: `CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
 Аргументы = `jobs[0].mcp_args` из batch.
 
 Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+
+**Timeout `-32001` / нет URL:** не делай второй sync create (см. `shared/mcp-image-async-contract.md`).
+
+**Last resort (KIE key missing + sync timeout без recoverable URL):**
+
+1. ONE MCP `z-image` text-to-image, aspect **16:9**, non-toxic prompt (без `лох`/`лохов`).
+2. Скачай URL → Pillow resize до **2048×1152**.
+3. `python3 scripts/excalibur_blog_cover_quad_split.py --article-dir … --inject-html` (или `quad_apply` если URL уже canvas).
+4. В fragment укажи `mcp_mode: z-image fallback` и `incident_report` если был workaround.
 
 ### Шаг 5 — apply
 

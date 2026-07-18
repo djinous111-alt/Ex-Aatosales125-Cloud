@@ -29,6 +29,8 @@ shell today + research_start
 - один Task = одна роль;
 - параллель `cover || schema` — **два отдельных Task** в одном сообщении.
 
+**Известный пробел enum:** `excalibur-blog-geo-qa` часто **не** в Cloud `subagent_types` (при этом research/writer/cover/schema/indexer/publish/fixer/scout есть). Директор обязан сразу запускать GEO QA через `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`, не пропуская шаг и не делая QA в parent.
+
 Если недоступен даже `generalPurpose` Task:
 
 `❌ БЛОКЕР: Cloud Agent не может запускать отдельные Task/subagents даже через generalPurpose. Single-agent pipeline запрещён.`

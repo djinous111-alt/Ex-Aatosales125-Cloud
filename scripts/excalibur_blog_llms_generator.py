@@ -8,13 +8,54 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
+import sys
 from pathlib import Path
 from typing import Any
 
 
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
+
+
+def sanitize_site_base(site_base: str) -> str:
+    """Keep committed llms artifacts secret-scan safe.
+
+    Prefer ``[REDACTED]`` for git. Absolute public URLs from Cloud Secrets
+    (PUBLIC_SITE_URL / WP_SITE_URL) must not land in llms.txt unless
+    EXCALIBUR_LLMS_ALLOW_ABSOLUTE=yes.
+    """
+    raw = (site_base or "").strip().rstrip("/")
+    if not raw or raw.upper() in {"[REDACTED]", "REDACTED"}:
+        return "[REDACTED]"
+    allow = os.environ.get("EXCALIBUR_LLMS_ALLOW_ABSOLUTE", "").strip().lower() in {
+        "1",
+        "yes",
+        "true",
+    }
+    public_candidates = [
+        (os.environ.get(key) or "").strip().rstrip("/")
+        for key in ("PUBLIC_SITE_URL", "WP_SITE_URL", "WP_HOME")
+    ]
+    public_candidates = [u for u in public_candidates if u]
+    if any(raw == pub or raw.startswith(pub + "/") for pub in public_candidates):
+        if not allow:
+            print(
+                "WARNING: --site-base matches PUBLIC/WP site URL; "
+                "rewriting to [REDACTED] for git-safe llms output "
+                "(set EXCALIBUR_LLMS_ALLOW_ABSOLUTE=yes to keep absolute URLs).",
+                file=sys.stderr,
+            )
+            return "[REDACTED]"
+    if raw.startswith(("http://", "https://")) and not allow:
+        print(
+            "WARNING: absolute --site-base redacted for git-safe llms output "
+            "(set EXCALIBUR_LLMS_ALLOW_ABSOLUTE=yes to keep absolute URLs).",
+            file=sys.stderr,
+        )
+        return "[REDACTED]"
+    return raw
 
 
 def strip_html(html: str) -> str:
@@ -105,10 +146,22 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Generate AI-friendly llms.txt and llms-full.txt")
-    ap.add_argument("--blog-dir", type=Path, default=None)
+    ap.add_argument(
+        "--blog-dir",
+        "--blog-path",
+        type=Path,
+        default=None,
+        dest="blog_dir",
+        help="Articles directory (alias: --blog-path)",
+    )
     ap.add_argument("--site-name", type=str, default="Авто-Сейлс")
     ap.add_argument("--site-desc", type=str, default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.")
-    ap.add_argument("--site-base", type=str, default="https://avtosales125.ru")
+    ap.add_argument(
+        "--site-base",
+        type=str,
+        default="[REDACTED]",
+        help="Public site base. Prefer [REDACTED] for git commits (secret-scan safe).",
+    )
     ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for llms.txt/llms-full.txt")
     args = ap.parse_args()
 
@@ -124,8 +177,9 @@ def main() -> int:
     articles = load_articles(blog_dir)
     print(f"Loaded {len(articles)} articles to index for LLMs.")
 
-    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, args.site_base)
-    llms_full_txt = build_llms_full_txt(args.site_name, articles, args.site_base)
+    site_base = sanitize_site_base(args.site_base)
+    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, site_base)
+    llms_full_txt = build_llms_full_txt(args.site_name, articles, site_base)
 
     llms_path = out_dir / "llms.txt"
     llms_full_path = out_dir / "llms-full.txt"

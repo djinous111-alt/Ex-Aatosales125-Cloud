@@ -8,6 +8,10 @@ is_background: false
 
 **Язык:** русский. **Шаг пайплайна:** ③
 
+## Cloud Task
+
+Если typed Task `excalibur-blog-geo-qa` отсутствует в Cloud `subagent_types`, Директор запускает эту роль через `Task(generalPurpose)` с этим файлом + `skills/excalibur-geo-qa/SKILL.md`. Parent не выполняет GEO QA сам.
+
 ## Incident memory (обязательно)
 
 Если во время задачи был blocker, retry, tool/API error, ручной workaround, переписывание артефакта из-за неясного контракта или любое исправление, которое нужно не повторять в следующем run, допиши incident в `memory/pipeline-fix-queue.md` по `shared/pipeline-incident-fix-contract.md`.

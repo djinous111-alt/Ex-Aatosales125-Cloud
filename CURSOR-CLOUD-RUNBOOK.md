@@ -43,8 +43,11 @@ SSH_HOST=<host>
 SSH_USER=<user>
 SSH_PASS=<password>
 SSH_ROOT=.
+# Optional alias accepted by load_env(): SSH_PATH → SSH_ROOT
 SSH_PORT=22
 EXCALIBUR_BLOG_ALLOW_PUBLISH=yes
+# Cover preferred path (avoids MCP gpt-image-2 -32001):
+# KIE_API_KEY=<kie key>
 ```
 
 Дополнительно:
@@ -52,6 +55,8 @@ EXCALIBUR_BLOG_ALLOW_PUBLISH=yes
 ```text
 EXCALIBUR_TOPIC_ID=<optional fixed topic id>
 ```
+
+`paramiko` ставится через `.cursor/cloud-agent-install.sh` / `requirements.txt`. Если ModuleNotFoundError: `pip3 install --break-system-packages paramiko`.
 
 Запрещено добавлять в repo реальные `.env`, `memory/site.env.local`, MCP tokens, SSH credentials, Cursor API keys.
 

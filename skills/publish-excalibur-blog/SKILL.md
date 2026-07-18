@@ -20,10 +20,18 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | Cloud Secrets / `memory/site.env.local`: `SSH_HOST`, `SSH_USER`, `SSH_PASS` (или `SSH_PASSWORD`), `SSH_ROOT` (алиас `SSH_PATH` → `SSH_ROOT`), `PUBLIC_SITE_URL` |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
+
+Нужен пакет `paramiko` (`requirements.txt`, `.cursor/cloud-agent-install.sh`). Preflight:
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+Если `SSH_ROOT`/mapped `SSH_PATH` даёт ENOENT — скрипт пробует `.`; после warning выставь Cloud Secret `SSH_ROOT=.`.
 
 ## Алгоритм
 

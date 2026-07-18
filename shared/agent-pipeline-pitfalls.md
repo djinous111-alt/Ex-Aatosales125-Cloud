@@ -38,6 +38,9 @@
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- **Cloud cover:** sync MCP `gpt-image-2` часто даёт client timeout `-32001` на 2K quad i2i. Предпочитай `python3 scripts/excalibur_blog_kie_gpt_image2_api.py` (async Kie API); для этого в Cloud Secrets **обязателен `KIE_API_KEY`** (Kie bearer, **не** `MCP_KV_TOKEN`).
+- `reference_url_hosted` для i2i — **HTTPS**; держи небольшой сжатый JPEG лица для надёжного fetch Kie (см. `memory/cover/blog-hero.json`).
+- После Kie script `quad_apply` читает `cover/quad-mcp-result.json` без `--url`. Не повторяй sync MCP create после `-32001`, если уже есть `task_id` или URL в логах.
 
 ## Scout
 

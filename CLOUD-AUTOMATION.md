@@ -52,7 +52,7 @@ today + research_start → research → writer → geo-qa → cover||schema → 
 Правильный путь:
 
 1. Репозиторий Cloud: **Ex-Aatosales125-Cloud** (этот проект).
-2. В Dashboard → Cloud Agents → Secrets: `FTP_*` (`FTP_ROOT=/`), `PUBLIC_SITE_URL=https://avtosales125.ru`, `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`.
+2. В Dashboard → Cloud Agents → Secrets: `FTP_*` (`FTP_ROOT=/`), `PUBLIC_SITE_URL=https://avtosales125.ru`, `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`, **`KIE_API_KEY`** (Kie bearer для cover — см. «Cover generation» ниже).
 3. Если в Environments есть старый broken snapshot — удалите или создайте Personal environment с новым именем.
 4. Запустите **обычного** Cloud Agent на ветке `main` — образ соберётся из `.cursor/Dockerfile` (не жмите «Среда установки»).
 5. Automation cron: `0 23,3,7,11 * * *` (UTC = 09/13/17/21 Владивосток) или `0 9,13,17,21 * * *` если TZ = Asia/Vladivostok.
@@ -81,10 +81,28 @@ agent worker start --pool --pool-name excalibur-blog --idle-release-timeout 600
 | `PUBLIC_SITE_URL` | link verify, recent WP posts |
 | `FTP_*` | `excalibur_blog_wp_publish.py` |
 | `EXCALIBUR_BLOG_ALLOW_PUBLISH` | `yes` только когда готовы публиковать |
+| **`KIE_API_KEY`** | **обязателен для cover:** async GPT Image 2 через `scripts/excalibur_blog_kie_gpt_image2_api.py` (`createTask` → poll `recordInfo`). Это **Kie bearer key**, не `MCP_KV_TOKEN`. |
 | `EXCALIBUR_TOPIC_ID` | опционально фиксировать тему (иначе today.py предложит P0) |
 | `EXCALIBUR_PROJECT_ROOT` | корень репо на worker |
 
-Не коммитить: `memory/site.env.local`, реальные ключи MCP.
+### Cover generation (Cloud)
+
+Sync MCP `gpt-image-2` через `user-mcp-kv` **склонен к client timeout `-32001`** на 2K quad i2i в Cloud Agent. Предпочтительный путь:
+
+```bash
+python3 scripts/excalibur_blog_hero_reference_url.py   # HTTPS reference_url_hosted
+python3 scripts/excalibur_blog_cover_quad_prompt.py --article-dir "$ARTICLE" --write-batch
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir "$ARTICLE"
+python3 scripts/excalibur_blog_quad_apply.py --article-dir "$ARTICLE" --inject-html
+```
+
+- `KIE_API_KEY` **MUST** быть в Cloud Secrets; без него cover получит `KIE API BLOCKER`.
+- `reference_url_hosted` — **HTTPS**, желательно небольшой сжатый JPEG лица (см. `memory/cover/blog-hero.json`).
+- Sync MCP `gpt-image-2` — только legacy fallback, если нет `KIE_API_KEY` и нет async MCP tools.
+
+Контракт: `shared/kie-gpt-image-api-contract.md`.
+
+Не коммитить: `memory/site.env.local`, реальные ключи MCP/Kie.
 
 ## Automation schedule
 

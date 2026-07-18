@@ -43,10 +43,21 @@
     "text": "avto-sales125.ru",
     "url": "https://avto-sales125.ru/",
     "placement": "corner_footer",
-    "forbidden_on_cover_corner": ["Telegram", "@avtosales125", "t.me"]
+    "forbidden_on_cover_corner": [
+      "Telegram",
+      "@avtosales125",
+      "t.me"
+    ]
   },
   "cover_prompt_example_ru": "Дизайнерский фотореалистичный баннер/обложка для Avto-Sales: привоз авто из Китая, Кореи, Японии; герой с первого референса — лицо то же, одежду сменить под погоду и тему; в углу обложки сайт каталога avto-sales125.ru (не Telegram); без кепки; смешной и стильный; красивые шрифты.",
-  "reference_url_hosted": "http://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
-  "reference_url_source": "avtosales125.ru",
-  "reference_url_updated_at": "2026-07-17T00:00:00+00:00"
+  "reference_url_hosted": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+  "reference_url_source": "avtosales125.ru-https",
+  "reference_url_updated_at": "2026-07-17T00:00:00+00:00",
+  "reference_url_requirements": {
+    "scheme": "HTTPS required for Kie input_urls fetch",
+    "size": "prefer small compressed JPEG face crop (~500 KB or less); large PNG may fail or slow Kie fetch",
+    "hosted_field": "reference_url_hosted must be fetchable by api.kie.ai before cover createTask",
+    "refresh": "python3 scripts/excalibur_blog_hero_reference_url.py when fetch fails or URL is stale",
+    "auth_note": "Cover async API uses KIE_API_KEY (Cloud Secret), not MCP_KV_TOKEN"
+  }
 }

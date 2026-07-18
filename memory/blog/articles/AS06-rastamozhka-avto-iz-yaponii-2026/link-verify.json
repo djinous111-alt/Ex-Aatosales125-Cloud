@@ -1,0 +1,26 @@
+{
+  "source": "memory/blog/articles/AS06-rastamozhka-avto-iz-yaponii-2026/article.html",
+  "total_links": 2,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "[REDACTED]/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "[REDACTED]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

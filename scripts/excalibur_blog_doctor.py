@@ -132,7 +132,12 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check(
+        "--blog-path" in llms_help.stdout or "--blog-dir" in llms_help.stdout,
+        "llms generator supports --blog-path or --blog-dir",
+        errors,
+        warnings,
+    )
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

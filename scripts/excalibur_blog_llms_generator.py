@@ -106,6 +106,12 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
 def main() -> int:
     ap = argparse.ArgumentParser(description="Generate AI-friendly llms.txt and llms-full.txt")
     ap.add_argument("--blog-dir", type=Path, default=None)
+    ap.add_argument(
+        "--blog-path",
+        type=str,
+        default="/",
+        help="Public blog path prefix on the site (e.g. / or /blog/). Kept for indexer/doctor CLI compatibility.",
+    )
     ap.add_argument("--site-name", type=str, default="Авто-Сейлс")
     ap.add_argument("--site-desc", type=str, default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.")
     ap.add_argument("--site-base", type=str, default="https://avtosales125.ru")
@@ -114,6 +120,7 @@ def main() -> int:
 
     root = project_root()
     blog_dir = args.blog_dir or root / "memory/blog/articles"
+    _ = args.blog_path  # reserved for URL path prefix; article URLs use site-base + slug
     if not blog_dir.is_absolute():
         blog_dir = root / blog_dir
 

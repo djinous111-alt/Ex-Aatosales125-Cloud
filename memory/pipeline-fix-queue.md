@@ -251,6 +251,43 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20260718-1141-director-as-topic-id-regex
+status: open
+run_date: 2026-07-18
+role: excalibur-blog-director
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_today.py` and `excalibur_blog_scout_helper.py` matched only `B\\d+` topic cards, so the Авто-Сейлс pool (`AS01`–`AS09`) looked empty and today reported `needs_scout`.
+- Active article dirs also matched only `B\\d+-`, ignoring `AS08`/`AS09` folders.
+- Doctor required llms generator `--blog-path`, while the script only exposed `--blog-dir` (indexer docs still pass `--blog-path /`).
+
+### How the agent recovered this run
+- Extended topic ID regex to `[A-Z]{1,3}\\d+` in today + scout_helper; scout next-id prefers `AS##`.
+- Added `--blog-path` CLI flag to `excalibur_blog_llms_generator.py` and relaxed doctor check to `--blog-path` or `--blog-dir`.
+- AS01 failed utility gate (no how-to marker in h1) → started AS02 after PASS.
+
+### Durable fix needed before next run
+- Keep AS/B dual ID support in pitfalls docs; optionally teach today.py to skip utility-fail P0 and pick next.
+- Soft-fix AS01/AS03/AS05 h1 wording to include как/чек-лист so they pass utility gate.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/topics/blog-topics.md` (AS01/AS03/AS05 h1)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

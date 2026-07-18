@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Красивый лот — а вывезти нельзя?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у японского авто на ролкере во Владивостоке, плашка чек-лист растаможки 2026",
+      "scene_hint": "WEATHER: cool foggy Vladivostok port morning, grey sea mist; OUTFIT: navy waterproof port jacket over grey fleece (NOT reference t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; hyper-realistic action selfie on roll-on/roll-off ship deck with modern Japanese sports sedan behind (silver/white, 2018+); torn paper Cyrillic hook plaque «Красивый лот — а вывезти нельзя?» with yellow highlighter on «вывезти»; fake auction sheet scrap + customs checklist sticky taped with scotch; shocked cat meme cutout + facepalm sticker (different formats); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics",
+      "meme_caption_ru": "Сначала фильтр"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Проверьте японский экспортный фильтр до депозита",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable checklist board for Japan export filter before deposit: 1) ДВС ≤1,9 л 2) не полный гибрид/EV 3) мягкий гибрид оговорка 4) год/возраст 5) VIN сверить; red stamp «до депозита»; pink sticky «экспорт OK?»; scotch tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Чеклист японского экспортного фильтра до депозита: объём, гибрид, год, VIN"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Разложите растаможку на блоки платежей \"на пальцах\"",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI of payment blocks: пошлина+НДС | утильсбор | таможенный сбор | фрахт/СВХ/лаборатория; columns «блок» «зачем»; yellow highlight on утильсбор row; tape corner mini catalog card; NO hero face; NO Wordstat/Metrika; NO concrete ruble totals as calculator",
+      "alt": "Таблица блоков платежей растаможки: пошлина, утильсбор, сбор, логистика"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Как не попасть на \"дорогой\" утильсбор по мощности",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 4 steps: л.с. из аукционного листа → сравнить порог льготы → сверить тип топлива/двигатель → запросить смету по VIN; arrow markers; sticky «мощность решает»; NO hero face; NO Wordstat/Metrika; NO fake exact fee amounts",
+      "alt": "Схема: мощность лота → порог утильсбора → сверка → смета по VIN"
+    }
+  }
+}

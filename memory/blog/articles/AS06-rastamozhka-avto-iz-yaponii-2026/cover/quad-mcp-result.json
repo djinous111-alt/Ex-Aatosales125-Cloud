@@ -1,0 +1,24 @@
+{
+  "url": "https://file.aiquickdraw.com/s/1784394805_547fc16c8e6d474facb8e438b11c61a8.png",
+  "source": "z-image-fallback",
+  "mcp_tool": "z-image",
+  "attempts": [
+    {
+      "tool": "gpt-image-2",
+      "mode": "i2i",
+      "result": "timeout_-32001"
+    },
+    {
+      "tool": "z-image",
+      "mode": "t2i",
+      "result": "ok",
+      "task_id": "3c4ac4bc8ecabe4c17c62dfd1d868e94"
+    }
+  ],
+  "note": "No KIE_API_KEY in env; gpt-image-2 timed out; ONE z-image then Pillow 2048x1152 then quad_split --inject-html",
+  "canvas_local": "cover/canvas-quad.png",
+  "canvas_size_px": [
+    2048,
+    1152
+  ]
+}

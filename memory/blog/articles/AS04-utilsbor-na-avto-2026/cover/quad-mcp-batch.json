@@ -1,0 +1,20 @@
+{
+  "pipeline": "quad_canvas_1x_mcp",
+  "reference_url_hosted": "https://litter.catbox.moe/gewuoq.jpg",
+  "output_canvas": "cover/canvas-quad.png",
+  "jobs": [
+    {
+      "slot": "canvas_quad",
+      "tool": "gpt-image-2",
+      "note": "ONE call only",
+      "mcp_args": {
+        "prompt": "AVTO SALES RU blog 2x2 collage on pure white, 2048x1152, four 16:9 panels, thin white gutters.\nTop-left COVER: EXACT face from input photo (Black man, stylish glasses), navy shirt not tank top, no cap/hood; torn paper text exactly «2 л.с. в рекламе — бюджет сгорел»; sticky «Сверь кВт до депозита»; footer avto-sales125.ru; DIY tape/memes.\nTop-right NO face: table «Паспорт параметров» rows кВт, объём, возраст, статус физлица; sticky «15 минут».\nBottom-left NO face: workflow Реклама → Документы → Льгота → Депозит.\nBottom-right NO face: checklist Корея Китай Япония stamp «формула одна» sticky «миф».\nPERFECT Cyrillic spelling only. No Wordstat/Metrika/Telegram.",
+        "input_urls": [
+          "https://litter.catbox.moe/gewuoq.jpg"
+        ],
+        "aspect_ratio": "16:9",
+        "resolution": "1K"
+      }
+    }
+  ]
+}

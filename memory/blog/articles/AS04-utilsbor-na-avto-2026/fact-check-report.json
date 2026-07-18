@@ -1,0 +1,108 @@
+{
+  "article": "memory/blog/articles/AS04-utilsbor-na-avto-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 14,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 12,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "сбор ушёл в коммерческую шкалу. Утильсбор на авто 2026 пугает именно так: калькуляторы спорят, а ошибка в",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "оверьте, попадает ли авто в льготную зону С 01.12.2025 по ПП РФ № 1713 к правилам ПП № 1291 для легковых",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "15 минут",
+      "kind": "metric_or_duration",
+      "context": "ь для таможни – разные миры. Честно говоря, лучше 15 минут на сверку бумаг, чем потом объяснять себе, почему",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "скрину аукциона. Определите возраст для утиля: до 3 лет или старше по дате выпуска, не по учёту за рубежо",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "12 месяцев",
+      "kind": "metric_or_duration",
+      "context": "е чаще одного авто в год, готовность не продавать 12 месяцев. Сверьте мощность с порогом около 160 л.с. для ДВ",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "150",
+      "kind": "large_number",
+      "context": "бирска почти внёс депозит за корейский кроссовер \"150 сил по объявлению\". В экспортных бумагах вылезло 1",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "162",
+      "kind": "large_number",
+      "context": "сил по объявлению\". В экспортных бумагах вылезло 162 л.с. – и вместо льготных тысяч рублей утильсбор уш",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "вать 12 месяцев. Сверьте мощность с порогом около 160 л.с. для ДВС (или около 80 л.с. для EV и последова",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "159",
+      "kind": "large_number",
+      "context": "рекламе Типичная ошибка Антона: в объявлении 149–159 л.с., а в экспортной спецификации выше порога. На",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "т ли авто в льготную зону С 01.12.2025 по ПП РФ № 1713 к правилам ПП № 1291 для легковых М1 в расчёт доба",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1291",
+      "kind": "large_number",
+      "context": "зону С 01.12.2025 по ПП РФ № 1713 к правилам ПП № 1291 для легковых М1 в расчёт добавлена мощность. Для ф",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 400",
+      "kind": "large_number",
+      "context": "а в обзорах часто указывают ориентир льготы около 3 400 ₽ (до 3 лет) и около 5 200 ₽ (старше 3 лет) при Д",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 200",
+      "kind": "large_number",
+      "context": "ориентир льготы около 3 400 ₽ (до 3 лет) и около 5 200 ₽ (старше 3 лет) при ДВС до 160 л.с. Это ориентир",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "20 000",
+      "kind": "large_number",
+      "context": "о-Сейлс. Базовая ставка легковых в обзорах 2026 – 20 000 ₽; коммерческий итог = база × коэффициент (индекс",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -10,7 +10,7 @@
     "растаможка авто китай",
     "проверка документов китай авто"
   ],
-  "char_count": 9032,
+  "char_count": 9078,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -22,17 +22,22 @@
     "title_seo": "Документы на авто из Китая: как отличить подделку",
     "title_ctr": "🚗 Документы на авто из Китая: как не купить подделку до оплаты?",
     "title_aeo": "Как проверить документы на авто из Китая и отличить подделку до оплаты?",
-    "description_seo": "Чеклист до оплаты авто из Китая: VIN, инвойс, шильдик, СБКТС в Росстандарте и ЭПТС на portal.elpts.ru. Стоп-правила предоплаты без бумаг.",
+    "description_seo": "Чеклист до оплаты авто из Китая: VIN, инвойс, шильдик, СБКТС в Росстандарте и ЭПТС на elpts.ru. Стоп-правила предоплаты без бумаг.",
     "description_ctr": "⚡ Размытый инвойс и \"документы потом\" – стоп. Чеклист сверки VIN и реестров до депозита. Не платите вслепую.",
-    "description_aeo": "До оплаты авто из Китая нужны VIN, фото шильдика, контракт и инвойс; СБКТС проверяют в Росстандарте, ЭПТС – на portal.elpts.ru. Нет записи – не платите."
+    "description_aeo": "До оплаты авто из Китая нужны VIN, фото шильдика, контракт и инвойс; СБКТС проверяют в Росстандарте, ЭПТС – на elpts.ru. Нет записи – не платите."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 87,
+    "verdict": "PASS",
     "date": "2026-07-19",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "WARNING",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility_gate": "PASS",
+    "research_notes_gate": "PASS",
+    "link_verify": "PASS",
+    "core_eeat": "19/20"
   },
   "cover_family": "brand_collage"
 }

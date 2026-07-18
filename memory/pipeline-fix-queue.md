@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260718-2122-geo-qa-elpts-rst-links
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-geo-qa
+topic_id: AS07
+article_dir: memory/blog/articles/AS07-dokumenty-na-avto-iz-kitaya
+severity: medium
+category: qa
+
+### What went wrong
+- Writer linked `https://portal.elpts.ru` for ЭПТС/СЭП, but the hostname does not resolve (DNS NXDOMAIN) from Cloud; `https://elpts.ru` returns HTTP 200.
+- Official Rosstandart SBKTS deep-link `https://www.rst.gov.ru/.../safetycertificate018` fails link-verify with TLS `Connection reset by peer` from this environment (DNS resolves; egress not restricted, host still unreachable).
+- Research notes and article meta repeated the dead `portal.elpts.ru` hostname as the canonical check URL.
+
+### How the agent recovered this run
+- Replaced ЭПТС href/text with `https://elpts.ru`.
+- Removed clickable `rst.gov.ru` deep-link; left plain-text instruction to check the Rosstandart registry on rst.gov.ru (so link-verify can PASS without a fake mirror).
+- Renamed insight label from `TL;DR / Быстрый инсайт` to `Коротко` per GEO QA skill.
+- Re-ran all QA scripts → article-qa PASS (score 87).
+
+### Durable fix needed before next run
+- Document canonical ЭПТС portal URL as `https://elpts.ru` (not `portal.elpts.ru`) in research/writer contracts and pitfalls.
+- Optionally soft-fail `*.gov.ru` network/TLS resets in `excalibur_blog_link_verify.py` when DNS resolves and status is null, so official registry hrefs can stay clickable in Cloud QA.
+- Add research note check: do not cite hostnames that fail DNS at research time.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260718-2110-writer-utility-pain-markers
 status: open
 run_date: 2026-07-19

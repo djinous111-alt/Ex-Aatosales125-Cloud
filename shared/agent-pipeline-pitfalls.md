@@ -3,8 +3,15 @@
 ## Cloud / Task
 
 - Cloud не принимает `excalibur-blog-*` как Task types → fallback `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path.
+- Особенно часто отсутствует typed Task `excalibur-blog-geo-qa` → **сразу** `Task(generalPurpose)` с `.cursor/agents/excalibur-blog-geo-qa.md` + `excalibur-geo-qa` skill; не тратить ретраи на typed enum.
 - Parent-agent сам пишет статью вместо `excalibur-blog-writer` → **блокер**, перезапуск writer Task.
 - Объединение cover+schema в один Task → запрещено; только параллельные отдельные Task.
+
+## Topic IDs (AS / B)
+
+- Карточки и article dirs: `[A-Z]{1,3}\d+` (`AS01`, `B09`). Скрипты `today.py` / `scout_helper.py` / utility gate обязаны понимать оба префикса.
+- `today.py` soft-skip: P0 с utility topic BLOCK пропускается, берётся следующий PASS (`EXCALIBUR_TOPIC_SKIPPED_UTILITY_FAIL`).
+- h1/primary_query P0 обязаны содержать маркер из `topic_title_must_match` (как/чек-лист/сравнение/…).
 
 ## Handoff / fragments
 
@@ -39,10 +46,21 @@
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
 
-## Scout
+## Scout / Research Wordstat
 
-- Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only / truncated payload без списка фраз = low-result signal, не fatal; sibling phrasing, без выдуманных показов.
+- Research gate: ≥5 `accessed_at: YYYY-MM-DD` лейблов; строки `pain_solution_map` с pain|solution|result|боль|решение|результат.
+
+## Writer / CTA / secret-scan
+
+- QA-time HTML: живые `CATALOG_URL`/`TELEGRAM_URL` или относительные пути. **Не** `href="[REDACTED]"` — ломает link-verify.
+- Commit: если secret-scan блокирует публичные URL из Cloud Secrets — redact только в staging; working tree для publish снова с live hrefs.
+
+## Utility / pain-outcome
+
+- `pain_markers_ru` / `outcome_markers_ru` в `editorial-policy.json` должны совпадать с константами `human_voice_gate.py`. Utility gate enforce pain/outcome **только если** списки в policy непустые.
 
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- `llms*.txt` / `interlink-suggestions.json` коммить только с `site_base=[REDACTED]` (`--commit-safe` default). Live `PUBLIC_SITE_URL` — только working-tree `--no-commit-safe` перед upload.

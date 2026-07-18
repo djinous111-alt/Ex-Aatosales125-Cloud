@@ -37,6 +37,13 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## CTA URL / secret-scan (Cloud)
+
+- В **QA-time** `article.html` ставь **живые** публичные URL каталога/Telegram из env (`CATALOG_URL`, `TELEGRAM_URL`) **или** относительные пути сайта. Internal blog links — относительные `/blog/<slug>/`.
+- **Запрещено** писать литерал `href="[REDACTED]"` в HTML: `link_verify` считает это internal path и падает с 404.
+- `conversion-map.md` может хранить `[REDACTED]` как placeholder «взять из env», не копируй placeholder в href.
+- Если Cursor secret-scan блокирует commit из‑за Cloud Secrets на публичных URL: redact **только в staging/commit**, затем верни live hrefs в working tree для publish. Не оставляй `[REDACTED]` в HTML на шаге GEO QA.
+
 ## Blockers
 
 - нет research-notes.md

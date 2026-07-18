@@ -24,6 +24,7 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 
 1. Проверить, что `research-notes-gate.json` существует и `status: PASS`.
 2. Запустить скрипты (см. skill): fact-check, link-verify, html-linter, slop, cannibalization, utility gate, human voice gate.
+   - Если CTA `href="[REDACTED]"` → вернуть writer: нужны live env URLs или relative paths (placeholder ломает link-verify).
 3. Проверить pain/solution: lead называет боль, H2 дают решения, до FAQ есть понятный результат/критерий успеха.
 4. Self-check CORE-EEAT lite ≥16/20, score ≥80.
 5. `article-qa.md` verdict **PASS** (или FIX → вернуть writer, max 2 цикла).

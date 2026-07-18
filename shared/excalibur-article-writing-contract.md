@@ -232,7 +232,9 @@ Excalibur BLOG следует этому контракту для каждой 
 
 ### Блок 4: Мягкий CTA бренда (внутри одной секции блока 3)
 
-2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-tracking-map.md` / `offers-map.md`.  
+2–3 предложения **только если** уместно по теме. Бери формулировку из `memory/brief/conversion-map.md`; URL каталога/Telegram — из env (`CATALOG_URL`, `TELEGRAM_URL`) или относительный path.  
+В QA-time HTML **не** ставь `href="[REDACTED]"` (ломает link-verify). Placeholder `[REDACTED]` в conversion-map = «подставь из env», не копируй в href.  
+Если secret-scan блокирует commit — redact только в staging; для GEO QA и publish working tree держи live hrefs.  
 Не больше **3** упоминаний основного офера/CTA на статью (включая баннер и «что дальше»).
 
 ### Блок 5: Inline-баннер (опционально)

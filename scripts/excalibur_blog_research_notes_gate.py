@@ -142,7 +142,10 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     if today_iso and today_iso not in text:
         errors.append(f"research_date must match current context today_iso={today_iso}")
     if today_iso and accessed_count < 5:
-        errors.append(f"too few source access dates: accessed_at={accessed_count} < 5")
+        errors.append(
+            f"too few source access dates: accessed_at={accessed_count} < 5 "
+            "(put literal `accessed_at: YYYY-MM-DD` in ≥5 source_table cells; date-only cells do not count)"
+        )
     if len(urls) < 8:
         errors.append(f"too few source URLs: {len(urls)} < 8")
     if len(domains) < 5:
@@ -154,7 +157,10 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     if action_items < 5:
         errors.append(f"action_outline too short: {action_items} < 5")
     if pain_map_rows < 3:
-        errors.append(f"pain_solution_map too thin: rows={pain_map_rows} < 3")
+        errors.append(
+            f"pain_solution_map too thin: rows={pain_map_rows} < 3 "
+            "(each data row must contain pain|solution|result|боль|решение|результат labels)"
+        )
     if "⚠️ wordstat auth warning" in text_lower and "показы" not in text_lower:
         warnings.append("Wordstat auth warning present; exact demand volumes were not verified")
 

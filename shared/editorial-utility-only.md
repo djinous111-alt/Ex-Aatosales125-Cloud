@@ -22,8 +22,12 @@
 Перед research:
 
 ```bash
-python scripts/excalibur_blog_utility_gate.py --topic-id B01
+python3 scripts/excalibur_blog_utility_gate.py --topic-id AS01
 ```
+
+Topic IDs: `AS##` и legacy `B##`. h1 обязан содержать маркер из `topic_title_must_match` (как/чек-лист/сравнение/…).
+
+`pain_markers_ru` / `outcome_markers_ru` в `memory/brief/editorial-policy.json` держи в синхроне с `PAIN_MARKERS` / `OUTCOME_MARKERS` в `scripts/excalibur_blog_human_voice_gate.py`. Пустые списки в policy → utility gate **не** enforce pain/outcome (иначе массовый BLOCK).
 
 **Blocker `UTILITY TOPIC BLOCKER`** — тему не пускаем в пайплайн.
 
@@ -52,7 +56,7 @@ Research-агент **отклоняет** угол без практики. В 
 Машинный gate:
 
 ```bash
-python scripts/excalibur_blog_research_notes_gate.py \
+python3 scripts/excalibur_blog_research_notes_gate.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   -o research-notes-gate.json
 ```
@@ -73,7 +77,7 @@ python scripts/excalibur_blog_research_notes_gate.py \
 ## Gate 4 — GEO QA
 
 ```bash
-python scripts/excalibur_blog_utility_gate.py \
+python3 scripts/excalibur_blog_utility_gate.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 

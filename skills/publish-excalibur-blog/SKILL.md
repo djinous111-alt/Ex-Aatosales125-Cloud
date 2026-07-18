@@ -64,10 +64,24 @@ python scripts/excalibur_blog_wp_publish.py \
 ```
 
 Скрипт:
-- создаёт/обновляет WP post;
+- создаёт/обновляет WP post **только** если candidate `post_id` — существующий `post` (publish/draft/…); attachment/stale id игнорируется;
+- отказывается публиковать, если slug занят attachment (URL отдал бы image);
+- после create/update требует `type=post` + `status=publish` в PHP;
 - загружает featured image + alt;
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
-- пишет post meta `_excalibur_blog_schema_jsonld`.
+- пишет post meta `_excalibur_blog_schema_jsonld`;
+- **до ledger/verdict pass** проверяет public REST `GET /wp-json/wp/v2/posts/<id>` (+ slug search). Media OK при 404 поста = FAIL.
+
+### 3b. Обязательный REST verify (агент)
+
+Даже если читаешь `raw_output` вручную — не ставь handoff PASS и не правь ledger в `published`, пока не подтверждено:
+
+```text
+GET {PUBLIC_SITE_URL}/wp-json/wp/v2/posts/{post_id} → 200, status=publish
+GET .../wp/v2/posts?slug={slug} → содержит тот же id
+```
+
+Симптом attachment-slug collision: permalink HTTP 200 отдаёт PNG/JPEG, REST `/posts/<id>` 404. Rename orphan media → publish с `post_id=0`.
 
 ### 4. Cloud WebFetch Fallback
 
@@ -119,7 +133,8 @@ blockers:
 ## Blockers
 
 - `❌ PUBLISH BLOCKER` — QA не PASS, link-verify fail, нет cover/schema, credentials, allow flag
-- `❌ PUBLISH FAIL` — скрипт вернул fail (смотри `raw_output` в wp-publish-result.json)
+- `❌ PUBLISH FAIL` — скрипт вернул fail (смотри `raw_output` / `rest_verify` в wp-publish-result.json)
+- False PASS запрещён: `OK post=` без REST 200/`publish` не считается успехом; ledger не писать
 
 ## Запрещено
 

@@ -29,6 +29,8 @@
 - Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
 - Нужен пакет `paramiko` (в `requirements.txt` + `.cursor/cloud-agent-install.sh`). Если ModuleNotFoundError: `pip3 install --break-system-packages paramiko`.
 - Cloud Secrets: предпочитай `SSH_ROOT=.`; алиас `SSH_PATH` мапится в `SSH_ROOT` внутри `load_env()`. ENOENT на настроенном root → auto-fallback `.`.
+- **Не доверяй `OK post=<id>` без REST-verify.** Перед ledger `published` и handoff PASS скрипт обязан подтвердить `GET /wp-json/wp/v2/posts/<id>` → 200, `status=publish`, type post; иначе verdict fail (media upload ≠ пост).
+- **Attachment slug collision:** если slug занят attachment, permalink может отдать PNG/JPEG при HTTP 200. Симптом: REST `/posts/<id>` 404 или пустой slug search, URL — image bytes. Не reuse stale `post_id` из `wp-publish-result.json`, если это не `post` (publish/draft). Rename orphan media, затем `post_id=0` → insert.
 
 ## Writer / Fact Check Box
 

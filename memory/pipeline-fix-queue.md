@@ -700,3 +700,61 @@ checks_run:
 - python3 scripts/excalibur_blog_utility_gate.py --topic-id AS01/AS03/AS05 → PASS
 - PYTHONPATH=scripts unit checks: tech marker word-boundary, sanitize_site_base
 commit: 0ebb811
+
+## INC-20260718-2148-publish-false-pass-missing-post
+status: fixed
+run_date: 2026-07-19
+role: excalibur-blog-director
+topic_id: AS07
+article_dir: memory/blog/articles/AS07-dokumenty-na-avto-iz-kitaya
+severity: blocker
+category: publish
+
+### What went wrong
+- Publish agent reported PASS with post_id 3194 and permalink `/dokumenty-na-avto-iz-kitaya/`.
+- Live WP REST: `GET /wp-json/wp/v2/posts/3194` → 404; slug search → empty.
+- Media 3466–3469 exist (cover/inline uploaded 2026-07-19).
+- URL `/dokumenty-na-avto-iz-kitaya/` returns HTTP 200 PNG bytes (not HTML article).
+- Ledger already marked AS07 published — false positive blocks retry/dedupe.
+
+### How the agent recovered this run
+- Detected mismatch after PIPELINE DONE; reopen publish Task to create real post; will correct ledger if needed.
+- Runtime recovery: renamed orphan attachment 3194, `post_id=0` → new post 3470; REST+HTML verified; ledger AS07 → published post 3470.
+
+### Durable fix needed before next run
+- Publish contract/script must verify post via public REST (GET by id or slug) before writing ledger `published` and handoff PASS.
+- Reject success when post_id missing/404 even if media uploads OK.
+- Avoid slug collisions with media/attachment URLs that return non-HTML 200.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- PHP bootstrap: refuse attachment-owned slug; ignore stale post_id unless type=post + usable status; after update require type=post status=publish or ERR.
+- Python: parse OK post id; public REST verify by id+slug before ledger/verdict pass; media-only success no longer passes.
+- Documented in publish skill/agent/contract/pitfalls (attachment slug → image URL symptom).
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-publish.md`
+- `.cursor/agents/excalibur-blog-publish.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/pipeline-fix-queue.md`
+checks_run:
+- python3 -m py_compile scripts/excalibur_blog_wp_publish.py
+- unit: parse_ok_post_id + build_php guards (attachment/stale id/post type)
+- python3 scripts/excalibur_blog_wp_publish.py --dry-run --article-dir AS07… → rc0
+- rg for rest_verify / attachment slug / False PASS docs
+commit: cedf0ea

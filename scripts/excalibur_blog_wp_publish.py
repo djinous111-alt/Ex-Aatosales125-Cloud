@@ -8,6 +8,8 @@ import io
 import json
 import os
 import sys
+import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -256,46 +258,104 @@ require_once ABSPATH . 'wp-admin/includes/image.php';
 require_once ABSPATH . 'wp-admin/includes/post.php';
 
 $p = json_decode(base64_decode('{b64}'), true);
-$slug = $p['slug'];
-$post_id = 0;
-if (!empty($p['post_id'])) {{
-    $post_id = (int) $p['post_id'];
-    wp_update_post([
-        'ID' => $post_id,
-        'post_title' => $p['title'],
-        'post_name' => $slug,
-        'post_content' => $p['content'],
-        'post_excerpt' => $p['excerpt'],
-        'post_status' => 'publish',
-    ]);
-}} else {{
-$existing = get_page_by_path($slug, OBJECT, 'post');
-if ($existing instanceof WP_Post) {{
-    $post_id = (int) $existing->ID;
-    wp_update_post([
-        'ID' => $post_id,
-        'post_title' => $p['title'],
-        'post_name' => $slug,
-        'post_content' => $p['content'],
-        'post_excerpt' => $p['excerpt'],
-        'post_status' => 'publish',
-    ]);
-}} else {{
-    $post_id = (int) wp_insert_post([
-        'post_title' => $p['title'],
-        'post_name' => $slug,
-        'post_content' => $p['content'],
-        'post_excerpt' => $p['excerpt'],
-        'post_status' => 'publish',
-        'post_type' => 'post',
-    ], true);
-}}
-}}
-if (is_wp_error($post_id)) {{
-    echo 'ERR post: ' . $post_id->get_error_message() . PHP_EOL;
+$slug = sanitize_title($p['slug']);
+$usable_statuses = array('publish', 'draft', 'pending', 'future', 'private');
+
+$excalibur_is_usable_post = function ($id) use ($usable_statuses) {{
+    $id = (int) $id;
+    if ($id <= 0) {{
+        return false;
+    }}
+    $post = get_post($id);
+    if (!$post instanceof WP_Post) {{
+        return false;
+    }}
+    if ($post->post_type !== 'post') {{
+        return false;
+    }}
+    if (!in_array($post->post_status, $usable_statuses, true)) {{
+        return false;
+    }}
+    return true;
+}};
+
+// Never publish into a slug owned by an attachment (URL would serve image bytes).
+$attachment_owner = get_page_by_path($slug, OBJECT, 'attachment');
+if ($attachment_owner instanceof WP_Post) {{
+    echo 'ERR post: slug owned by attachment id=' . (int) $attachment_owner->ID
+        . ' (rename/orphan media before publish; URL would return image)' . PHP_EOL;
     exit(1);
 }}
-echo 'OK post=' . $post_id . ' slug=' . $slug . PHP_EOL;
+
+$post_fields = [
+    'post_title' => $p['title'],
+    'post_name' => $slug,
+    'post_content' => $p['content'],
+    'post_excerpt' => $p['excerpt'],
+    'post_status' => 'publish',
+    'post_type' => 'post',
+];
+
+$post_id = 0;
+$candidate_id = !empty($p['post_id']) ? (int) $p['post_id'] : 0;
+if ($candidate_id > 0) {{
+    if ($excalibur_is_usable_post($candidate_id)) {{
+        $post_id = $candidate_id;
+        $update = $post_fields;
+        $update['ID'] = $post_id;
+        $updated = wp_update_post($update, true);
+        if (is_wp_error($updated)) {{
+            echo 'ERR post: ' . $updated->get_error_message() . PHP_EOL;
+            exit(1);
+        }}
+    }} else {{
+        $bad = get_post($candidate_id);
+        $bad_type = $bad instanceof WP_Post ? $bad->post_type : 'missing';
+        $bad_status = $bad instanceof WP_Post ? $bad->post_status : 'n/a';
+        echo 'WARN ignore_stale_post_id=' . $candidate_id
+            . ' type=' . $bad_type . ' status=' . $bad_status . PHP_EOL;
+        $candidate_id = 0;
+    }}
+}}
+
+if ($post_id <= 0) {{
+    $existing = get_page_by_path($slug, OBJECT, 'post');
+    if ($existing instanceof WP_Post && $excalibur_is_usable_post((int) $existing->ID)) {{
+        $post_id = (int) $existing->ID;
+        $update = $post_fields;
+        $update['ID'] = $post_id;
+        $updated = wp_update_post($update, true);
+        if (is_wp_error($updated)) {{
+            echo 'ERR post: ' . $updated->get_error_message() . PHP_EOL;
+            exit(1);
+        }}
+    }} else {{
+        $inserted = wp_insert_post($post_fields, true);
+        if (is_wp_error($inserted)) {{
+            echo 'ERR post: ' . $inserted->get_error_message() . PHP_EOL;
+            exit(1);
+        }}
+        $post_id = (int) $inserted;
+    }}
+}}
+
+if ($post_id <= 0 || is_wp_error($post_id)) {{
+    echo 'ERR post: invalid post_id after create/update' . PHP_EOL;
+    exit(1);
+}}
+
+$final = get_post($post_id);
+if (!$final instanceof WP_Post
+    || $final->post_type !== 'post'
+    || $final->post_status !== 'publish'
+) {{
+    $ftype = $final instanceof WP_Post ? $final->post_type : 'missing';
+    $fstatus = $final instanceof WP_Post ? $final->post_status : 'n/a';
+    echo 'ERR post: after publish expected type=post status=publish, got type='
+        . $ftype . ' status=' . $fstatus . ' id=' . (int) $post_id . PHP_EOL;
+    exit(1);
+}}
+echo 'OK post=' . $post_id . ' slug=' . $slug . ' type=post status=publish' . PHP_EOL;
 
 if (!empty($p['cover_b64'])) {{
     $bin = base64_decode($p['cover_b64']);
@@ -515,6 +575,105 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     return out
 
 
+def parse_ok_post_id(raw_output: str) -> int:
+    """Extract post id from bootstrap line `OK post=<id> ...`."""
+    import re
+
+    for line in raw_output.splitlines():
+        match = re.match(r"^OK post=(\d+)\b", line.strip())
+        if match:
+            return int(match.group(1))
+    return 0
+
+
+def verify_published_post_rest(
+    public_base: str,
+    *,
+    post_id: int,
+    slug: str,
+    timeout: float = 20.0,
+) -> dict[str, Any]:
+    """Require a real WP post via public REST before ledger/verdict pass.
+
+    Catches false PASS when bootstrap updated an attachment (or missing id):
+    GET /wp/v2/posts/<id> would 404 while media still uploaded and URL may
+    return image bytes for an attachment-owned slug.
+    """
+    base = public_base.rstrip("/")
+    report: dict[str, Any] = {
+        "ok": False,
+        "post_id": post_id,
+        "slug": slug,
+        "by_id": None,
+        "by_slug": None,
+        "error": None,
+    }
+    if post_id <= 0:
+        report["error"] = "missing_post_id"
+        return report
+
+    def _get_json(url: str) -> tuple[int, Any]:
+        req = urllib.request.Request(url, headers={"User-Agent": "excalibur-blog-publish/1.0"})
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                status = int(getattr(resp, "status", 200) or 200)
+                body = resp.read().decode("utf-8", errors="replace")
+        except urllib.error.HTTPError as http_err:
+            body = http_err.read().decode("utf-8", errors="replace") if http_err.fp else ""
+            try:
+                data = json.loads(body) if body else {"code": "http_error"}
+            except json.JSONDecodeError:
+                data = {"raw": body[:200]}
+            return int(http_err.code), data
+        try:
+            data = json.loads(body)
+        except json.JSONDecodeError:
+            data = body[:200]
+        return status, data
+
+    try:
+        id_url = f"{base}/wp-json/wp/v2/posts/{post_id}"
+        status, data = _get_json(id_url)
+        report["by_id"] = {"url": id_url, "http_status": status, "data": data if isinstance(data, dict) else {"raw": data}}
+        if status != 200 or not isinstance(data, dict):
+            report["error"] = f"rest_by_id_http_{status}"
+            return report
+        rest_type = str(data.get("type") or "post")
+        rest_status = str(data.get("status") or "")
+        rest_slug = str(data.get("slug") or "")
+        if rest_status != "publish":
+            report["error"] = f"rest_status_{rest_status or 'empty'}"
+            return report
+        if rest_type and rest_type != "post":
+            report["error"] = f"rest_type_{rest_type}"
+            return report
+        if slug and rest_slug and rest_slug != slug:
+            report["error"] = f"rest_slug_mismatch_{rest_slug}"
+            return report
+
+        slug_url = f"{base}/wp-json/wp/v2/posts?slug={urllib.parse.quote(slug)}&status=publish"
+        slug_status, slug_data = _get_json(slug_url)
+        report["by_slug"] = {
+            "url": slug_url,
+            "http_status": slug_status,
+            "count": len(slug_data) if isinstance(slug_data, list) else 0,
+        }
+        if slug_status != 200 or not isinstance(slug_data, list) or not slug_data:
+            report["error"] = "rest_slug_empty"
+            return report
+        found_ids = [int(item.get("id") or 0) for item in slug_data if isinstance(item, dict)]
+        if post_id not in found_ids:
+            report["error"] = f"rest_slug_id_mismatch_{found_ids}"
+            return report
+
+        report["ok"] = True
+        report["error"] = None
+        return report
+    except Exception as exc:  # noqa: BLE001
+        report["error"] = f"rest_verify_exception:{type(exc).__name__}"
+        return report
+
+
 def upsert_publish_ledger(root: Path, payload: dict[str, Any], permalink: str) -> None:
     if not permalink:
         return
@@ -600,19 +759,53 @@ def main() -> int:
     for line in out.splitlines():
         if line.startswith("permalink="):
             permalink = line.split("=", 1)[1].strip()
+    post_id = parse_ok_post_id(out)
+    bootstrap_ok = "OK post=" in out and "ERR post:" not in out and post_id > 0
+
+    rest_verify: dict[str, Any] | None = None
+    verdict = "fail"
+    if bootstrap_ok:
+        rest_verify = verify_published_post_rest(
+            public,
+            post_id=post_id,
+            slug=str(payload.get("slug") or ""),
+        )
+        # Keep only identity fields in result artifact (drop HTML body).
+        if isinstance(rest_verify.get("by_id"), dict):
+            data = rest_verify["by_id"].get("data")
+            if isinstance(data, dict):
+                rest_verify["by_id"]["data"] = {
+                    "id": data.get("id"),
+                    "slug": data.get("slug"),
+                    "status": data.get("status"),
+                    "type": data.get("type"),
+                    "link": data.get("link"),
+                }
+        if rest_verify.get("ok"):
+            verdict = "pass"
+        else:
+            print(
+                f"ERR rest_verify: post_id={post_id} error={rest_verify.get('error')}",
+                file=sys.stderr,
+            )
+    elif "OK post=" in out and post_id <= 0:
+        print("ERR parse: OK post= present but post_id missing", file=sys.stderr)
+
     result = {
         "slug": payload["slug"],
         "topic_id": payload["topic_id"],
+        "post_id": post_id,
         "permalink": permalink,
         "publish_method": "ssh",
         "cover_evidence": payload.get("cover_evidence", {}),
         "raw_output": out,
-        "verdict": "pass" if "OK post=" in out else "fail",
+        "rest_verify": rest_verify,
+        "verdict": verdict,
     }
     result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    if result["verdict"] == "pass":
+    if verdict == "pass":
         upsert_publish_ledger(root, payload, permalink)
-    return 0 if result["verdict"] == "pass" else 1
+    return 0 if verdict == "pass" else 1
 
 
 if __name__ == "__main__":

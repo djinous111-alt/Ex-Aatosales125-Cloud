@@ -14,29 +14,30 @@
       "quadrant": "top_left",
       "role": "cover_meme_hero",
       "alt": "Герой Авто-Сейлс со смартфоном и паспортом параметров: крючок про ошибку мощности и утильсбор до депозита",
-      "scene_hint": "WEATHER: bright Vladivostok summer office near window, soft daylight; OUTFIT: light smart-casual navy shirt + thin charcoal blazer (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie holding phone with fake customs checklist + catalog card scrap taped with scotch showing kW vs hp mismatch; torn paper hook plaque Cyrillic «2 л.с. в рекламе — и бюджет сгорел» with yellow highlighter on «бюджет»; sticky note «сверь кВт»; shocked meme cutout + facepalm sticker (different formats); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; NO toxic labels",
-      "meme_caption_ru": "Сверь кВт до депозита"
+      "scene_hint": "WEATHER: bright Vladivostok summer office near window; OUTFIT: light smart-casual navy shirt + thin charcoal blazer, glasses on, NO cap NO hood; hero selfie holding phone with fake customs util checklist + catalog card scrap taped; pink sticky «до депозита»; tape; meme reaction cutouts; Cyrillic hook huge",
+      "meme_caption_ru": "Сверь кВт до депозита",
+      "cover_hook": "2 л.с. в рекламе — и бюджет сгорел"
     },
     "inline_1": {
       "quadrant": "top_right",
       "h2_anchor": "Соберите паспорт параметров машины за 15 минут",
       "visual_type": "comparison_table_ui",
-      "scene_hint": "Clean RU comparison table UI 16:9: columns Параметр | Откуда брать | Зачем; rows марка/модель, кВт из документов, объём, возраст до/после 3 лет, статус физлица; yellow highlight on кВт row; pink sticky «15 минут»; tape corner mini catalog card; NO hero face; NO Wordstat/Metrika",
-      "alt": "Таблица паспорта параметров авто: кВт, объём, возраст, статус физлица"
+      "scene_hint": "Таблица SEO vs GEO: критерии, цели, человек vs AI — «Соберите паспорт параметров машины за 15 минут»",
+      "alt": "Сравнительная таблица / UI-мокап: Соберите паспорт параметров машины за 15 минут"
     },
     "inline_2": {
       "quadrant": "bottom_left",
       "h2_anchor": "Сверьте мощность в документах, а не в рекламе",
       "visual_type": "workflow_diagram",
-      "scene_hint": "RU workflow diagram 6 steps with arrows: объявление → экспортный лист → кВт → л.с. → порог льготы → стоп до депозита; red stamp «не по буклету»; sticky «документы > реклама»; NO hero face; NO Wordstat/Metrika",
-      "alt": "Схема: от мощности в рекламе к кВт в документах и порогу льготы"
+      "scene_hint": "6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «Сверьте мощность в документах, а не в рекламе»",
+      "alt": "Схема workflow / шаги: Сверьте мощность в документах, а не в рекламе"
     },
     "inline_3": {
       "quadrant": "bottom_right",
       "h2_anchor": "Сравните: страна не меняет формулу утильсбора",
       "visual_type": "checklist_board",
-      "scene_hint": "RU checklist board with three equal country cards Korea / China / Japan crossed-out 'дешевле/дороже' myths; big check «формула одна»; sticky «страна ≠ ставка»; tape; NO hero face; NO Wordstat/Metrika",
-      "alt": "Чеклист-миф: Корея, Китай, Япония — страна не меняет формулу утильсбора"
+      "scene_hint": "Printable чеклист перед публикацией — «Сравните: страна не меняет формулу утильсбора»",
+      "alt": "Чеклист / printable board: Сравните: страна не меняет формулу утильсбора"
     }
   }
 }

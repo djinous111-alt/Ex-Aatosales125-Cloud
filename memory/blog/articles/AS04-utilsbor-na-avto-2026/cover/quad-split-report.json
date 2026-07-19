@@ -9,19 +9,13 @@
       1152
     ],
     "panel_size_px": [
-      946,
-      572
+      1024,
+      576
     ],
     "split_meta": {
-      "split_mode": "gutter_detect",
-      "h_gutter_px": {
-        "start": 572,
-        "end": 656
-      },
-      "v_gutter_px": {
-        "start": 946,
-        "end": 1104
-      }
+      "split_mode": "mechanical_center",
+      "h_gutter_px": null,
+      "v_gutter_px": null
     },
     "output_size_px": [
       1200,
@@ -33,15 +27,15 @@
         "quadrant": "top_left",
         "box_px": {
           "left": 0,
-          "top": 20,
-          "right": 946,
-          "bottom": 552
+          "top": 0,
+          "right": 1024,
+          "bottom": 576
         },
         "raw_box_px": {
           "left": 0,
           "top": 0,
-          "right": 946,
-          "bottom": 572
+          "right": 1024,
+          "bottom": 576
         },
         "size_px": [
           1200,
@@ -55,38 +49,38 @@
         "file": "cover/inline-01.png",
         "quadrant": "top_right",
         "box_px": {
-          "left": 1104,
-          "top": 20,
-          "right": 2048,
-          "bottom": 551
-        },
-        "raw_box_px": {
-          "left": 1104,
+          "left": 1024,
           "top": 0,
           "right": 2048,
-          "bottom": 572
+          "bottom": 576
+        },
+        "raw_box_px": {
+          "left": 1024,
+          "top": 0,
+          "right": 2048,
+          "bottom": 576
         },
         "size_px": [
           1200,
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "Таблица паспорта параметров авто: кВт, объём, возраст, статус физлица",
+        "alt": "Сравнительная таблица / UI-мокап: Соберите паспорт параметров машины за 15 минут",
         "h2_anchor": "Соберите паспорт параметров машины за 15 минут"
       },
       "inline_2": {
         "file": "cover/inline-02.png",
         "quadrant": "bottom_left",
         "box_px": {
-          "left": 32,
-          "top": 656,
-          "right": 914,
+          "left": 0,
+          "top": 576,
+          "right": 1024,
           "bottom": 1152
         },
         "raw_box_px": {
           "left": 0,
-          "top": 656,
-          "right": 946,
+          "top": 576,
+          "right": 1024,
           "bottom": 1152
         },
         "size_px": [
@@ -94,21 +88,21 @@
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "Схема: от мощности в рекламе к кВт в документах и порогу льготы",
+        "alt": "Схема workflow / шаги: Сверьте мощность в документах, а не в рекламе",
         "h2_anchor": "Сверьте мощность в документах, а не в рекламе"
       },
       "inline_3": {
         "file": "cover/inline-03.png",
         "quadrant": "bottom_right",
         "box_px": {
-          "left": 1135,
-          "top": 656,
-          "right": 2017,
+          "left": 1024,
+          "top": 576,
+          "right": 2048,
           "bottom": 1152
         },
         "raw_box_px": {
-          "left": 1104,
-          "top": 656,
+          "left": 1024,
+          "top": 576,
           "right": 2048,
           "bottom": 1152
         },
@@ -117,7 +111,7 @@
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "Чеклист-миф: Корея, Китай, Япония — страна не меняет формулу утильсбора",
+        "alt": "Чеклист / printable board: Сравните: страна не меняет формулу утильсбора",
         "h2_anchor": "Сравните: страна не меняет формулу утильсбора"
       }
     }

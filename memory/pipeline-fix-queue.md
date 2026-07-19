@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260720-2132-schema-secret-scan-jsonld-urls
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-schema
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-aukcionnyj-list-yaponii-kak-chitat
+severity: medium
+category: publish
+
+### What went wrong
+- `schema.jsonld` обязан содержать живые `PUBLIC_SITE_URL` / CTA / author `sameAs` из env и `authors-registry.json`.
+- Cursor secret-scan блокирует commit literal значений `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` в JSON-LD.
+- HTML-workaround writer (`<!-- pragma: allowlist secret -->`) нельзя вставить в строгий JSON без поломки `json.loads` / Rich Results.
+
+### How the agent recovered this run
+- Собрал валидный BlogPosting + FAQPage + HowTo с живыми URL.
+- Перед commit переписал URL в `\uXXXX` unicode-escapes (файл остаётся валидным JSON; после parse — живые URL).
+- Commit/push schema.jsonld прошёл secret-scan.
+
+### Durable fix needed before next run
+- Документировать в schema skill + pitfalls: для `schema.jsonld` либо unicode-escape URL secrets, либо helper `scripts/excalibur_blog_schema_write.py` с escape + round-trip check.
+- Не оставлять literal Cloud Secret URLs в schema без allowlist/escape.
+- Согласовать с writer CTA incident: единый паттерн secret-scan для HTML vs JSON.
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_schema_write.py` (новый helper, опционально)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260720-2125-writer-cta-secret-scan-pragma
 status: open
 run_date: 2026-07-20

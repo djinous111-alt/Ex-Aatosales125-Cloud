@@ -1,18 +1,28 @@
 {
   "source": "memory/blog/articles/AS10-aukcionnyj-list-yaponii-kak-chitat/article.html",
-  "total_links": 1,
-  "failed_count": 1,
-  "verdict": "fail",
+  "total_links": 2,
+  "failed_count": 0,
+  "verdict": "pass",
   "links": [
     {
-      "url": "[REDACTED_PUBLIC_SITE_URL]/[REDACTED]",
-      "status": 404,
-      "ok": false,
+      "url": "[REDACTED]",
+      "status": 200,
+      "ok": true,
       "method": "HEAD",
-      "error": "HTTP Error 404: Not Found",
-      "kind": "internal_relative",
+      "error": null,
+      "kind": "external",
       "skipped": false,
-      "checked_url": "[REDACTED_PUBLIC_SITE_URL]/[REDACTED]"
+      "url_redacted_for_commit": true
+    },
+    {
+      "url": "[REDACTED]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false,
+      "url_redacted_for_commit": true
     }
   ]
 }

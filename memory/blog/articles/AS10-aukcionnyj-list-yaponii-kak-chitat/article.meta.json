@@ -12,7 +12,7 @@
     "оценка в аукционном листе японии",
     "обозначения на аукционном листе японии"
   ],
-  "char_count": 9331,
+  "char_count": 9277,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -36,11 +36,13 @@
     "slop_score": "PASS",
     "cannibalization": "PASS",
     "fact_check": "PASS",
-    "link_verify": "FAIL",
-    "utility_gate": "BLOCK",
-    "human_voice": "BLOCK",
+    "link_verify": "PASS",
+    "utility_gate": "PASS",
+    "human_voice": "PASS",
     "research_notes_gate": "PASS",
-    "core_eeat": "17/20"
+    "core_eeat": "17/20",
+    "writer_fix": "2026-07-20-cta-markers",
+    "note": "local recheck after writer FIX; full GEO QA score pending re-run"
   },
   "cover_family": "brand_collage"
 }

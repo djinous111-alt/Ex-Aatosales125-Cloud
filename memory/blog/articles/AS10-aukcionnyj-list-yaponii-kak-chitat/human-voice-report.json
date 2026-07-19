@@ -1,18 +1,16 @@
 {
   "gate": "human-voice",
-  "status": "BLOCK",
+  "status": "PASS",
   "article_dir": "memory/blog/articles/AS10-aukcionnyj-list-yaponii-kak-chitat",
-  "errors": [
-    "reader outcome is weak or invisible: article must promise and deliver a usable result"
-  ],
+  "errors": [],
   "warnings": [],
   "metrics": {
     "h2_count": 7,
     "repeated_h2_openers": [],
     "textbook_h2_count": 0,
     "paragraph_count": 31,
-    "paragraph_avg_words": 30.9,
-    "paragraph_variance_ratio": 0.48,
+    "paragraph_avg_words": 30.6,
+    "paragraph_variance_ratio": 0.53,
     "concrete_markers": [
       "например",
       "на практике",
@@ -25,7 +23,10 @@
     ],
     "outcome_markers": [
       "результат",
-      "проверьте"
+      "получите",
+      "сможете",
+      "проверьте",
+      "выберите"
     ],
     "ai_opening_hits": [],
     "reader_story_overlap": [
@@ -73,10 +74,8 @@
       "перевода",
       "понятной",
       "примечания",
-      "причиной",
       "салон",
       "сверка",
-      "скажет",
       "схема",
       "уточнение",
       "шапка"
@@ -86,7 +85,6 @@
       "заполненный",
       "зафиксировано",
       "красные",
-      "мини-чек-лист",
       "общая",
       "одним",
       "оценка",

@@ -52,7 +52,7 @@ Task(generalPurpose):
 
 ## Cloud Task fallback
 
-См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
+См. `AGENTS.md`. Кратко: если typed `excalibur-blog-*` (в т.ч. geo-qa) отклонён Cloud API — это не blocker; `Task(generalPurpose)` per role + `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`. Один Task = одна роль.
 
 ## Preflight (shell, директор)
 

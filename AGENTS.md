@@ -21,13 +21,15 @@ shell today + research_start
 
 ## Cloud Task fallback
 
-Если Cloud API не принимает `excalibur-blog-research`, `excalibur-blog-writer`, … как Task types:
+Если Cloud API не принимает typed Task names (`excalibur-blog-research`, `excalibur-blog-writer`, `excalibur-blog-geo-qa`, `excalibur-blog-cover`, `excalibur-blog-schema`, `excalibur-blog-indexer`, `excalibur-blog-publish`, `excalibur-blog-fixer`, …):
 
-- **отдельный `Task(generalPurpose)` на каждую роль**;
+- это **ожидаемый** Cloud API quirk, не blocker пайплайна;
+- **отдельный `Task(generalPurpose)` на каждую роль** (включая GEO QA);
 - передай путь `.cursor/agents/<role>.md` и `.cursor/skills/<skill>/SKILL.md`;
 - короткий контракт: входные файлы, маркер результата, запреты;
 - один Task = одна роль;
-- параллель `cover || schema` — **два отдельных Task** в одном сообщении.
+- параллель `cover || schema` — **два отдельных Task** в одном сообщении;
+- не пиши article/cover/schema сам в parent — только через отдельный Task.
 
 Если недоступен даже `generalPurpose` Task:
 

@@ -2,9 +2,31 @@
 
 ## Cloud / Task
 
-- Cloud не принимает `excalibur-blog-*` как Task types → fallback `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path.
+- Cloud часто не принимает typed `excalibur-blog-*` (в т.ч. `excalibur-blog-geo-qa`) → это не blocker: `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path на **каждую** роль.
 - Parent-agent сам пишет статью вместо `excalibur-blog-writer` → **блокер**, перезапуск writer Task.
 - Объединение cover+schema в один Task → запрещено; только параллельные отдельные Task.
+
+## Git / secret-scan pre-commit
+
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` — **только** comma-separated имена env vars (`CATALOG_URL,TELEGRAM_URL,…`), никогда URL-значения и никогда space-join.
+- Невалидный идентификатор в списке → bash `${!SECRET_NAME}` → `invalid variable name` в `pre-commit.cursor` **и** `commit-msg.cursor`. Harden: `scripts/excalibur_blog_patch_cursor_precommit.sh` (вызывается из `.cursor/cloud-agent-install.sh`).
+- В Dashboard Secrets: secret *name* = `CATALOG_URL`, не `https://…`.
+
+## Writer / CTA href
+
+- В `article.html` CTA `href` бери из env `CATALOG_URL` / `TELEGRAM_URL` (или публичный brand host без trailing slash, если env совпадает с secret-scan).
+- **Запрещено** копировать `[REDACTED]` из `conversion-map.md` / `site-brief.md` в `href` (битые ссылки в RSS/Дзен).
+- Публичные catalog / `t.me` / brand hosts в runtime HTML до publish — ок; secret-scan redaction — для committed publish artifacts с `PUBLIC_SITE_URL`, не для живых CTA в draft HTML.
+
+## Research / notes gate
+
+- `research-notes-gate` technical_topic смотрит **только** topic-card поля (h1/query/slug), word-boundary маркеры. Авто-ниша («из Японии») не должна требовать 3× github.com.
+- Wordstat MCP: ответ `{}` или только `{"totalCount":N}` без списка фраз — не 401 и не fatal; cluster-first (широкий parent → узкий how-to), без выдуманных показов.
+
+## Topics / utility markers
+
+- В карточке темы `h1` **и** `primary_query` обязаны содержать utility-маркер (`как` / `чек-лист` / `сравнение` / …) согласованный с `search_intent`.
+- Перед `needs_scout` / research_start: `python3 scripts/excalibur_blog_utility_gate.py --topic-id <AS|B id>` на unpublished P0.
 
 ## Handoff / fragments
 

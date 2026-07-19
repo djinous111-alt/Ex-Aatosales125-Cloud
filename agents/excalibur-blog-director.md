@@ -38,7 +38,7 @@ Cover и Schema **не пишут** напрямую в handoff — только
 
 ## Cloud Task fallback
 
-Если Cloud не принимает `excalibur-blog-`* как Task types → **отдельный `Task(generalPurpose)` на каждую роль** с `.cursor/agents/<role>.md` + skill path.
+Если Cloud не принимает typed `excalibur-blog-*` (включая `excalibur-blog-geo-qa`) → это ожидаемо: **отдельный `Task(generalPurpose)` на каждую роль** с `.cursor/agents/<role>.md` + skill path. Не считать typed-reject blocker и не выполнять роль в parent.
 
 Если недоступен даже `generalPurpose`:
 

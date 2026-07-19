@@ -58,8 +58,8 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 
 - **priority:** P0 (если высокий спрос) | P1
 - **slug:** {kebab-case-slug}
-- **h1:** {Заголовок с глаголом действия: Как / Чек-лист / Инструкция}
-- **primary_query:** {главный запрос из Вордстата}
+- **h1:** {Обязательный utility-маркер в заголовке: Как… / Чек-лист… / Сравнение… / Инструкция…}
+- **primary_query:** {тот же utility-маркер + главный запрос из Вордстата; не голый entity без «как/сравнение»}
 - **secondary_queries:** {2-3 сопутствующих запроса из Вордстата}
 - **search_intent:** how_to | checklist | comparison | troubleshooting | workflow | parent_guide
 - **article_mode:** B
@@ -72,6 +72,11 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 - **internal_links:** /
 - **cover_scene_hint:** {Краткое ТЗ для картинки - обстановка, элементы DIY-коллажа}
 ```
+
+**Обязательно до append:**
+1. `h1` и `primary_query` содержат utility-маркер, согласованный с `search_intent` (`как` / `чек-лист` / `сравнение` / …). Карточка с comparison-intent, но без «сравнение/vs/или» в h1/query → utility gate BLOCK (см. AS03/AS05).
+2. Проверка: `python3 scripts/excalibur_blog_utility_gate.py --topic-id {ID}` → PASS.
+3. Перед `needs_scout`: проверь unpublished AS*/B* P0 тем же utility gate, не объявляй needs_scout из-за карточек без маркеров.
 
 Допиши (append) карточку в конец `memory/topics/blog-topics.md`.
 

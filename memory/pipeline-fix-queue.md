@@ -47,7 +47,7 @@ fix_summary:
 commit: pending-parent-commit
 
 ## INC-20260719-1321-geo-qa-typed-task-fallback
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-geo-qa
 topic_id: AS03
@@ -74,10 +74,24 @@ category: handoff
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Documented typed Task reject (incl. geo-qa) as expected Cloud quirk → `Task(generalPurpose)` per role; not a pipeline blocker.
+- Synced AGENTS.md, pitfalls, director agents/skills.
+files_changed:
+- `AGENTS.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `agents/excalibur-blog-director.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+checks_run:
+- `rg` for generalPurpose + excalibur-blog-geo-qa in AGENTS/pitfalls/director
+commit: a747cbf
 
 ## INC-20260719-1318-writer-precommit-invalid-secret-name
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-writer
 topic_id: AS03
@@ -109,10 +123,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Hardened pre-commit.cursor to skip non-identifier SECRET_NAME (URL-as-name) instead of crashing `${!SECRET_NAME}`.
+- Added durable `scripts/excalibur_blog_patch_cursor_precommit.sh` + call from `.cursor/cloud-agent-install.sh`.
+- Documented comma-separated names-only rule in CURSOR-CLOUD-RUNBOOK + pitfalls.
+- Remaining human hygiene: remove URL entry from Cloud Dashboard secret *names* (hook no longer blocks commits).
+files_changed:
+- `scripts/excalibur_blog_patch_cursor_precommit.sh`
+- `.cursor/cloud-agent-install.sh`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- live hook run exit 0 with invalid name present
+- `bash scripts/excalibur_blog_patch_cursor_precommit.sh` (already hardened)
+commit: a747cbf
 
 ## INC-20260719-1315-writer-cta-env-not-redacted
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-writer
 topic_id: AS03
@@ -144,10 +173,21 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Writer skill + writing contract + pitfalls: CTA href from env; forbid `[REDACTED]` in href; public brand host OK vs secret-scan.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` for CATALOG_URL / [REDACTED] CTA guidance
+commit: a747cbf
 
 ## INC-20260719-1310-research-notes-gate-false-tech
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-research
 topic_id: AS03
@@ -179,7 +219,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- technical_topic: word-boundary markers + topic-card fields only (no notes[:2000] false hits).
+- Tech evidence: github>=3 OR combined github+official_docs>=3.
+- Research skill + pitfalls: Wordstat `{}`/`totalCount`-only quirk + non-tech niche guidance.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+- AS03 research-notes-gate PASS with `technical_topic: false`
+- unit asserts for Японии/reader_pain vs n8n
+commit: a747cbf
 
 ## INC-20260719-1304-director-as-regex-today
 status: fixed
@@ -222,7 +277,7 @@ fix_summary:
 commit: pending-parent-commit
 
 ## INC-20260719-1304-director-as03-utility-markers
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-director
 topic_id: AS03
@@ -249,7 +304,21 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Scout skill/agent + editorial-utility-only: h1 AND primary_query must carry utility markers; utility_gate before append/needs_scout.
+- AS03/AS05 topic cards already updated earlier this run (not reopened).
+files_changed:
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` utility-маркер / primary_query in scout + editorial-utility-only
+commit: a747cbf
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch

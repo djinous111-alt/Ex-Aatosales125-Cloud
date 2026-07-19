@@ -46,6 +46,7 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
   - Если вызов успешен:
     - Сформируй в `research-notes.md` таблицу спроса: Фраза | Показы в месяц.
     - Выдели сопутствующие LSI-запросы из топа выдачи Вордстата для использования копирайтером.
+  - Если ответ `{}` или только `{"totalCount":N}` без списка фраз (не 401): это known API quirk / low-result, не fatal. Сделай cluster-first: широкий parent-запрос → узкий how-to; не выдумывай показы по пустым фразам. Зафиксируй partial failure в notes.
 2. **Замена уличных поисковиков (DuckDuckGo) на WebSearch Курсора:**
   Мы **отказываемся** от ненадежных сторонних утилит и парсеров DuckDuckGo («уток»).
   - Агент имеет полноценный доступ в интернет через нативный инструмент `**WebSearch`** (или `WebFetch` для чтения конкретных страниц).
@@ -55,7 +56,7 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 ## Правила
 
 1. **Сначала** `excalibur_blog_research_start.py` (шаг 0) — для валидации даты/года и utility-gate темы.
-2. Web research 15–25 мин: используй инструмент `**WebSearch`** Курсора для глубинного анализа ТОП-5 конкурентов в реальном времени. GitHub/docs/community нужны для фактов, но итоговый угол обязан быть beginner-first: что новичку нажать, подключить, проверить и как не сломать процесс. Приоритетный источник фактов — `fact-bank.md`.
+2. Web research 15–25 мин: используй инструмент `**WebSearch`** Курсора для глубинного анализа ТОП-5 конкурентов в реальном времени. GitHub/docs/community нужны для фактов на tech-нише (AI/n8n/MCP); для авто-импорта и non-tech niche достаточно community/docs — не подставляй случайные github.com ради gate. `research-notes-gate` technical_topic смотрит topic-card поля с word-boundary маркерами. Итоговый угол обязан быть beginner-first. Приоритетный источник фактов — `fact-bank.md`.
 3. Микро-исследование Wordstat через `user-mcp-kv` -> `wordstat_get_top_requests` (см. выше).
 4. Извлеки минимум 10–15 проверенных фактов (цифр/утверждений) с точными URL источников из твоего интернет-поиска.
 5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.

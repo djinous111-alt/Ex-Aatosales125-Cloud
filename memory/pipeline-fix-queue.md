@@ -59,7 +59,7 @@ files_changed:
 checks_run:
 - `rg --blog-path` в skills/agents/shared → empty
 - `python3 scripts/excalibur_blog_doctor.py` errors=0
-commit: pending-parent-commit
+commit: f89515e
 
 
 ## INC-20260720-2134-cover-mcp-32001-kie-fallback
@@ -108,7 +108,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` Kie-first guidance in cover skill/contract
-commit: pending-parent-commit
+commit: f89515e
 
 
 ## INC-20260720-2132-schema-secret-scan-jsonld-urls
@@ -159,7 +159,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_schema_write.py`
 - `schema_write.py --check` на AS10 → json_ok, no literal secrets
-commit: pending-parent-commit
+commit: f89515e
 
 
 ## INC-20260720-2125-writer-cta-secret-scan-pragma
@@ -207,7 +207,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg pragma: allowlist secret` in writer skill
-commit: pending-parent-commit
+commit: f89515e
 
 
 ## INC-20260720-2116-geo-qa-utility-empty-pain-outcome-markers
@@ -296,7 +296,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_topic_id_regression.py`
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
-commit: pending-parent-commit
+commit: f89515e
 
 
 ## INC-20260720-0002-director-as-regex-ledger
@@ -358,7 +358,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_topic_id_regression.py`
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → AS11
 - `python3 scripts/excalibur_blog_doctor.py` errors=0
-commit: pending-parent-commit
+commit: f89515e
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -645,7 +645,7 @@ files_changed:
 checks_run:
 - unit: verify_article with REDACTED href → fail
 - `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
-commit: pending-parent-commit
+commit: f89515e
 
 
 ## INC-20260719-2144-publish-paramiko-missing
@@ -688,7 +688,7 @@ files_changed:
 checks_run:
 - `python3 -c 'import paramiko'` (runtime may already have it)
 - `bash -n .cursor/cloud-agent-install.sh`
-commit: pending-parent-commit
+commit: f89515e
 
 
 ## INC-20260719-2144-publish-ssh-root-unset
@@ -735,6 +735,6 @@ files_changed:
 checks_run:
 - SSH_PATH=. → env-check root=dot
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
-commit: pending-parent-commit
+commit: f89515e
 
 

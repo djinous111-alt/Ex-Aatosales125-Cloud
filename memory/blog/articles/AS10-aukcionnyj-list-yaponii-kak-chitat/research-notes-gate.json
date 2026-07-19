@@ -1,0 +1,24 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/AS10-aukcionnyj-list-yaponii-kak-chitat",
+  "notes": "memory/blog/articles/AS10-aukcionnyj-list-yaponii-kak-chitat/research-notes.md",
+  "context": "memory/blog/articles/AS10-aukcionnyj-list-yaponii-kak-chitat/research-context.json",
+  "errors": [],
+  "warnings": [
+    "technical topic has no obvious official docs/developer documentation URL"
+  ],
+  "metrics": {
+    "today_iso": "2026-07-20",
+    "prefer_sources_after": "2026-04-21",
+    "source_urls": 18,
+    "source_domains": 14,
+    "source_table_rows": 18,
+    "accessed_at": 17,
+    "github_urls": 3,
+    "official_doc_urls": 0,
+    "action_outline_items": 9,
+    "pain_solution_rows": 3,
+    "technical_topic": true
+  }
+}

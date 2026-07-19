@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260720-0010-research-tech-marker-false-positive
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-research
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-aukcionnyj-list-yaponii-kak-chitat
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` `TECH_MARKERS` uses bare substring match: `ии` hits «Японии» in topic h1/primary; `ai` hits required field name `reader_pain`.
+- Non-tech auto niche AS10 was flagged `technical_topic: true` and demanded 3 GitHub URLs + preferred `/docs` URLs.
+- Separately, gate counts `accessed_at:` with colon; ISO dates in source_table column alone do not satisfy `accessed_at >= 5`.
+
+### How the agent recovered this run
+- Rewrote source_table date cells as `accessed_at: 2026-07-20`.
+- Added 3 github.com URLs as negative evidence (Yahoo/Buyee scrapers ≠ USS sheet) to clear GitHub quota.
+- Documented false-positive in github_evidence section.
+
+### Durable fix needed before next run
+- Match TECH_MARKERS on word boundaries / token lists, exclude required field names (`reader_pain`, etc.).
+- Do not treat Cyrillic double-и inside country names as AI marker; niche-aware skip for auto topics.
+- Count `accessed_at` from source_table date column OR accept `YYYY-MM-DD` cells under accessed_at header.
+- Allow explicit `github_evidence: n/a` with reason for non-technical topics without forcing 3 URLs.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/editorial-utility-only.md` (research gate notes)
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260720-0002-director-as-regex-ledger
 status: open
 run_date: 2026-07-20

@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/AS03-avto-iz-korei-ili-yaponii-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "брать авто из Кореи или Японии под полную пошлину 2026: четыре фильтра, таблица сравнения и два расчёта",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "тно просел после ужесточения утильсбора с декабря 2025: популярные турбо-кроссоверы часто выпадают из \"в",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "ость и утиль, потом страну. Турбо выше ориентира ~160 л.с. меняет экономику ввоза, а правый руль с японс",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "150",
+      "kind": "large_number",
+      "context": "тех же разборах – Tucson / K5 / Sonata 2.0 около 150 л.с. Япония сильнее выбором Toyota/Honda и гибридо",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -6,6 +6,72 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260719-1320-geo-qa-utility-defaults-missing
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-geo-qa
+topic_id: AS03
+article_dir: memory/blog/articles/AS03-avto-iz-korei-ili-yaponii-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` on this Cloud branch requires `pain_markers_ru` / `outcome_markers_ru` from `memory/brief/editorial-policy.json`, but policy has neither key.
+- Empty lists → pain_count/outcome_count always 0 → hard BLOCK (`min_pain=2`, `min_outcome=3`) even when article text already matches human-voice markers (AS03: human-voice PASS; with defaults pain≈5 outcome≈8).
+- Durable fix with `DEFAULT_PAIN_MARKERS_RU` / `DEFAULT_OUTCOME_MARKERS_RU` + `resolve_marker_lists()` exists in commit `0ebb811` on another branch, but is **not** on current HEAD.
+
+### How the agent recovered this run
+- Did not edit `article.html` (GEO QA contract).
+- Documented false pain/outcome FAIL in `article-qa.md`; real content FIX for writer is only `action_markers 6 < 8`.
+- Returned FAIL to Director; cover/schema not started.
+
+### Durable fix needed before next run
+- Port `resolve_marker_lists` + defaults into `scripts/excalibur_blog_utility_gate.py` on the active Cloud branch (or merge `0ebb811` fix).
+- Add `pain_markers_ru` / `outcome_markers_ru` to `memory/brief/editorial-policy.json` (sync with `excalibur_blog_human_voice_gate.py`).
+- Optionally accept «делать/не делать» as aliases of «сделайте/не делайте» in `recommendation_markers_ru` to match writer contract wording.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_utility_gate.py`
+- `memory/brief/editorial-policy.json`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260719-1321-geo-qa-typed-task-fallback
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-geo-qa
+topic_id: AS03
+article_dir: memory/blog/articles/AS03-avto-iz-korei-ili-yaponii-2026
+severity: medium
+category: handoff
+
+### What went wrong
+- Typed Cloud Task `excalibur-blog-geo-qa` unavailable; Director launched `Task(generalPurpose)` fallback with agent/skill paths.
+
+### How the agent recovered this run
+- Ran full GEO QA role via generalPurpose: all scripts + `article-qa.md` + handoff block `=== EXCALIBUR BLOG GEO QA ===`.
+
+### Durable fix needed before next run
+- Keep AGENTS.md / pitfalls documenting generalPurpose fallback for typed Excalibur Task types when Cloud API rejects custom names.
+- Prefer registering typed Task `excalibur-blog-geo-qa` in Cloud if platform allows.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/agents/excalibur-blog-director.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260719-1318-writer-precommit-invalid-secret-name
 status: open
 run_date: 2026-07-19

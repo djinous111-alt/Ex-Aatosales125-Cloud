@@ -13,3 +13,4 @@
 | 2026-07-19 | AS07 | dokumenty-na-avto-iz-kitaya | [REDACTED]/2026/07/19/dokumenty-na-avto-iz-kitaya/ | published |
 
 > Ledger synced from live WP posts for AS01–AS09 on 2026-07-20 (Director preflight; previous reset left AS01–AS07 unpublished in ledger).
+| 2026-07-20 | AS10 | aukcionnyj-list-yaponii-kak-chitat | memory/blog/articles/AS10-aukcionnyj-list-yaponii-kak-chitat | in_progress |

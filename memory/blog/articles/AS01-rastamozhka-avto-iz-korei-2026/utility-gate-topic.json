@@ -1,9 +1,15 @@
 {
-  "gate": "topic",
-  "topic_id": "AS01",
-  "status": "PASS",
-  "search_intent": "how_to",
-  "article_mode": "B",
-  "errors": [],
-  "warnings": []
+  "policy_id": "utility_only_v1",
+  "overall": "PASS",
+  "reports": [
+    {
+      "gate": "topic",
+      "topic_id": "AS01",
+      "status": "PASS",
+      "search_intent": "how_to",
+      "article_mode": "B",
+      "errors": [],
+      "warnings": []
+    }
+  ]
 }

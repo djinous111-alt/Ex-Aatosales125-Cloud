@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/AS01-rastamozhka-avto-iz-korei-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "чем он разобрался в СБКТС. Ниже – живой таймлайн 2026: этапы, сроки и чеклист документов до оплаты, что",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "4 недель",
+      "kind": "metric_or_duration",
+      "context": "АГО → ГИБДД. Море обычно от нескольких дней до ~2–4 недель, таможня около 5–12 рабочих дней, лаборатория 3–7",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "45 дней",
+      "kind": "metric_or_duration",
+      "context": ", лаборатория 3–7, ЭПТС 1–3. Полный путь часто 30–45 дней, при заминках до ~60. Точные суммы пошлин и утиль",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4 месяцев",
+      "kind": "metric_or_duration",
+      "context": "ростой; предельный срок хранения по правилам – до 4 месяцев. На практике за ~7 дней реально закрыть таможню +",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "7 дней",
+      "kind": "metric_or_duration",
+      "context": "нения по правилам – до 4 месяцев. На практике за ~7 дней реально закрыть таможню + лабораторию + ЭПТС, есл",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 дней",
+      "kind": "metric_or_duration",
+      "context": "ельно считать простой. Не делать: смешивать \"море 10 дней\" с \"уже на учёте\". Соберите документы до прихода",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    }
+  ]
+}

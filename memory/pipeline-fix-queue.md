@@ -6,6 +6,78 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260719-0915-geo-qa-utility-pain-markers-empty
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-geo-qa
+topic_id: AS01
+article_dir: memory/blog/articles/AS01-rastamozhka-avto-iz-korei-2026
+severity: blocker
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always BLOCKs articles: `pain_markers=0 < 2` and `outcome_markers=0 < 3`.
+- `memory/brief/editorial-policy.json` has no `pain_markers_ru` / `outcome_markers_ru` and no `min_pain_markers` / `min_outcome_markers`, but the script defaults mins to 2/3 against empty lists.
+- Same BLOCK reproduces on previously published AS09 when re-run.
+
+### How the agent recovered this run
+- Confirmed human-voice gate PASS (its own PAIN/OUTCOME_MARKERS find hits in AS01).
+- Did not invent article filler; recorded FAIL in `article-qa.md` and returned FIX to Fixer/Director for policy/script.
+
+### Durable fix needed before next run
+- Either skip pain/outcome checks when marker lists are empty, or populate `pain_markers_ru` / `outcome_markers_ru` (+ mins) in `editorial-policy.json` aligned with human-voice markers.
+- Add regression: AS09 (or fixture) must PASS utility article gate after fix.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_utility_gate.py`
+- `memory/brief/editorial-policy.json`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20260719-0915-geo-qa-cta-literal-redacted
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-geo-qa
+topic_id: AS01
+article_dir: memory/blog/articles/AS01-rastamozhka-avto-iz-korei-2026
+severity: high
+category: qa
+
+### What went wrong
+- AS01 `article.html` contains three CTA anchors with literal `href="[REDACTED]"` (on-disk bytes, len=10), not real catalog/Telegram URLs.
+- `link-verify` FAIL: unique `[REDACTED]` treated as relative path → HTTP 404 against site base.
+- Likely Writer over-redacted after secret-scan lessons instead of writing public CTA URLs.
+
+### How the agent recovered this run
+- Did not rewrite article.html (GEO QA report-only); FIX list to Writer: restore catalog + Telegram hrefs from fact-bank/site brief.
+- Overall article-qa verdict FAIL; cover/schema blocked.
+
+### Durable fix needed before next run
+- Writer/skill contract: public CTA (site catalog, Telegram handle) must never be written as the placeholder string `[REDACTED]` in `article.html`.
+- Pitfalls: redact secrets in SERP/env dumps, not marketing CTA URLs.
+- Optional linter/gate: fail if `href="[REDACTED]"` or `href` equals placeholder.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_link_verify.py` (optional placeholder detect)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260719-0910-research-secret-scan-serp
 status: open
 run_date: 2026-07-19

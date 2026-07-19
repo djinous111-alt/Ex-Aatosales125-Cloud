@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None — AS10 post-run fixer closed all listed open incidents._
+
+## Fixed incidents
+
 ## INC-20260720-2138-indexer-llms-stale-blog-path-flag
-status: open
+status: fixed
 run_date: 2026-07-20
 role: excalibur-blog-indexer
 topic_id: AS10
@@ -41,11 +45,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- Indexer agent/skills: убран `--blog-path`; CLI только `--blog-dir`/`--site-base`/`--out-dir`.
+- Документирован secret-scan redact llms/checklist перед commit; pitfalls обновлены.
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg --blog-path` в skills/agents/shared → empty
+- `python3 scripts/excalibur_blog_doctor.py` errors=0
+commit: pending-parent-commit
 
 
 ## INC-20260720-2134-cover-mcp-32001-kie-fallback
-status: open
+status: fixed
 run_date: 2026-07-20
 role: excalibur-blog-cover
 topic_id: AS10
@@ -78,11 +96,23 @@ category: cover
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- Cover skill + quad contract: при `KIE_API_KEY` сразу Kie async; sync MCP — fallback; `-32001` ≠ blocker.
+- Запрет blind second sync create и apply без URL.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/blog-cover-quad-canvas-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` Kie-first guidance in cover skill/contract
+commit: pending-parent-commit
 
 
 ## INC-20260720-2132-schema-secret-scan-jsonld-urls
-status: open
+status: fixed
 run_date: 2026-07-20
 role: excalibur-blog-schema
 topic_id: AS10
@@ -115,10 +145,25 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- Добавлен `scripts/excalibur_blog_schema_write.py` (unicode-escape + round-trip).
+- Schema skill документирует `--in-place` / `--check` перед commit.
+files_changed:
+- `scripts/excalibur_blog_schema_write.py`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/excalibur-article-writing-contract.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_schema_write.py`
+- `schema_write.py --check` на AS10 → json_ok, no literal secrets
+commit: pending-parent-commit
+
 
 ## INC-20260720-2125-writer-cta-secret-scan-pragma
-status: open
+status: fixed
 run_date: 2026-07-20
 role: excalibur-blog-writer
 topic_id: AS10
@@ -151,7 +196,19 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- Writer skill + writing contract: живые CTA из env + `pragma: allowlist secret`; запрет literal REDACTED href.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg pragma: allowlist secret` in writer skill
+commit: pending-parent-commit
+
 
 ## INC-20260720-2116-geo-qa-utility-empty-pain-outcome-markers
 status: fixed
@@ -189,7 +246,7 @@ category: script
 - fixed by geo-qa (restored AS02 policy+script); article text FAIL remains for writer FIX
 
 ## INC-20260720-0010-research-tech-marker-false-positive
-status: open
+status: fixed
 run_date: 2026-07-20
 role: excalibur-blog-research
 topic_id: AS10
@@ -224,10 +281,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- TECH_MARKERS: token match + scrub field names; AS* не technical из-за «Японии»/reader_pain.
+- `accessed_at` считает ISO в source rows; github n/a для non-tech/AS*; research_start redact secret URLs в serp.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `scripts/excalibur_blog_research_start.py`
+- `scripts/excalibur_blog_topic_id_regression.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_topic_id_regression.py`
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+commit: pending-parent-commit
+
 
 ## INC-20260720-0002-director-as-regex-ledger
-status: open
+status: fixed
 run_date: 2026-07-20
 role: excalibur-blog-director
 topic_id: n/a
@@ -263,7 +336,30 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- Shared `excalibur_blog_topic_ids.py` + today/scout_helper на `(?:AS|B)\d+`; regression test.
+- Doctor уже на `--blog-dir`; Scout agent/skill переведены на нишу Авто-Сейлс AS*.
+- Director duty: ledger↔WP sync перед выбором topic_id.
+files_changed:
+- `scripts/excalibur_blog_topic_ids.py`
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_topic_id_regression.py`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_topic_id_regression.py`
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → AS11
+- `python3 scripts/excalibur_blog_doctor.py` errors=0
+commit: pending-parent-commit
+
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -456,7 +552,6 @@ checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
 commit: pending-parent-commit
 
-
 ## INC-20260616-2042-publish-ssh-root-dot
 status: fixed
 run_date: 2026-06-16
@@ -511,7 +606,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20260719-2144-publish-cta-literal-redacted
-status: open
+status: fixed
 run_date: 2026-07-20
 role: excalibur-blog-publish
 topic_id: AS10
@@ -537,10 +632,24 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- `link_verify` FAIL на literal `[REDACTED]` в href до HTTP; publish skill требует restore CTA из env.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: verify_article with REDACTED href → fail
+- `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
+commit: pending-parent-commit
+
 
 ## INC-20260719-2144-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-07-20
 role: excalibur-blog-publish
 topic_id: AS10
@@ -566,10 +675,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- `.cursor/cloud-agent-install.sh` ставит `requirements.txt` (paramiko) + smoke import.
+- Publish skill документирует fallback pip install; runbook обновлён.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 -c 'import paramiko'` (runtime may already have it)
+- `bash -n .cursor/cloud-agent-install.sh`
+commit: pending-parent-commit
+
 
 ## INC-20260719-2144-publish-ssh-root-unset
-status: open
+status: fixed
 run_date: 2026-07-20
 role: excalibur-blog-publish
 topic_id: AS10
@@ -593,9 +716,25 @@ category: env
 ### Secrets
 - none recorded
 
-### Fixer resolution
-- pending
 
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- `load_env` мапит legacy `SSH_PATH` → `SSH_ROOT` если SSH_ROOT пуст.
+- Документировано: в Dashboard предпочтительно `SSH_ROOT=.`.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- SSH_PATH=. → env-check root=dot
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+commit: pending-parent-commit
+
+

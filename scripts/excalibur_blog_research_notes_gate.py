@@ -14,7 +14,9 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short markers must match whole tokens (avoid «ии» inside «Японии», «ai» inside «reader_pain»).
+# Longer stems may match as substrings.
+TECH_MARKERS_TOKEN = (
     "ai",
     "ии",
     "agent",
@@ -22,16 +24,34 @@ TECH_MARKERS = (
     "mcp",
     "api",
     "cursor",
-    "make",
     "n8n",
-    "github",
     "docker",
     "rag",
+)
+TECH_MARKERS_STEM = (
+    "github",
     "workflow",
     "автоматизац",
     "нейросет",
 )
+# «make» is too ambiguous for auto niche; only count as token in non-AS topics.
+TECH_MARKERS_WEAK_TOKEN = ("make",)
 
+# Field names / section headers that must not trigger technical_topic.
+TECH_SCAN_NOISE = (
+    "reader_pain",
+    "reader_outcome",
+    "success_criteria",
+    "voice_angle",
+    "reader_story",
+    "surprising_fact",
+    "pain_solution_map",
+    "github_evidence",
+    "action_outline",
+    "research_date",
+    "accessed_at",
+    "utility_verdict",
+)
 
 REQUIRED_FIELDS = (
     "research_date",
@@ -73,14 +93,68 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _scrub_tech_noise(text: str) -> str:
+    scrubbed = text
+    for name in TECH_SCAN_NOISE:
+        scrubbed = re.sub(re.escape(name), " ", scrubbed, flags=re.I)
+    return scrubbed
+
+
+def _tokens(text: str) -> set[str]:
+    return set(re.findall(r"[a-z0-9а-яё]+", text.lower(), flags=re.I))
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect genuine tech/AI topics; avoid false positives on auto niche / field names."""
     topic = context.get("topic") or {}
-    blob = " ".join(
+    topic_id = str(topic.get("topic_id") or "").strip().upper()
+    topic_blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    notes_blob = _scrub_tech_noise(notes[:2000]).lower()
+    blob = f"{topic_blob} {notes_blob}"
+    tokens = _tokens(blob)
+
+    for stem in TECH_MARKERS_STEM:
+        if stem in blob:
+            return True
+    for marker in TECH_MARKERS_TOKEN:
+        if marker in tokens:
+            return True
+
+    # AS* = Авто-Сейлс auto niche: ignore weak/ambiguous markers like «make».
+    if topic_id.startswith("AS"):
+        return False
+
+    for marker in TECH_MARKERS_WEAK_TOKEN:
+        if marker in tokens:
+            return True
+    return False
+
+
+def github_evidence_is_na(text_lower: str) -> bool:
+    section = re.search(
+        r"##\s*\d*\.?\s*github[_\s-]*evidence\b([\s\S]*?)(?=\n##\s|\Z)",
+        text_lower,
+        flags=re.I,
+    )
+    body = section.group(1) if section else text_lower
+    return bool(re.search(r"\bn/?a\b", body)) or bool(
+        re.search(r"github[_\s-]*evidence\s*:\s*n/?a\b", text_lower)
+    )
+
+
+def count_accessed_at(text: str) -> int:
+    """Count access dates: explicit `accessed_at:` labels and/or ISO dates on source URL rows."""
+    text_lower = text.lower()
+    explicit = len(re.findall(r"\baccessed_at\b\s*:\s*\d{4}-\d{2}-\d{2}", text_lower))
+    labeled = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    iso_on_source_rows = 0
+    for line in text.splitlines():
+        if re.search(r"https?://", line) and line.strip().startswith("|"):
+            iso_on_source_rows += len(re.findall(r"\b20\d{2}-\d{2}-\d{2}\b", line))
+    return max(explicit, labeled, iso_on_source_rows)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -121,6 +195,8 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     today_iso = str(ctx.get("today_iso") or "")
     year = str(ctx.get("year") or "")
     prefer_after = str((ctx.get("freshness_window") or {}).get("prefer_sources_after") or "")
+    topic = context.get("topic") or {}
+    topic_id = str(topic.get("topic_id") or "").strip().upper()
 
     urls = extract_urls(text)
     domains = Counter(urlparse(url).netloc.lower().removeprefix("www.") for url in urls)
@@ -130,7 +206,7 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
     pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
     action_items = count_action_items(text)
@@ -159,8 +235,21 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         warnings.append("Wordstat auth warning present; exact demand volumes were not verified")
 
     technical = is_technical_topic(context, text)
+    github_na = github_evidence_is_na(text_lower)
     if technical and len(github_urls) < 3:
-        errors.append(f"technical topic requires GitHub evidence: github_urls={len(github_urls)} < 3")
+        if github_na and topic_id.startswith("AS"):
+            warnings.append(
+                "technical_topic with github_evidence n/a on AS niche; GitHub URL quota skipped"
+            )
+        elif github_na and not topic_id.startswith("AS"):
+            errors.append(
+                f"technical topic requires GitHub evidence: github_urls={len(github_urls)} < 3 "
+                "(github_evidence n/a is only accepted for non-technical or AS* auto niche)"
+            )
+        else:
+            errors.append(f"technical topic requires GitHub evidence: github_urls={len(github_urls)} < 3")
+    if not technical and github_na:
+        warnings.append("github_evidence marked n/a (acceptable for non-technical topic)")
     if technical and not official_doc_urls:
         warnings.append("technical topic has no obvious official docs/developer documentation URL")
 
@@ -190,6 +279,7 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
             "action_outline_items": action_items,
             "pain_solution_rows": pain_map_rows,
             "technical_topic": technical,
+            "github_evidence_na": github_na,
         },
     }
 

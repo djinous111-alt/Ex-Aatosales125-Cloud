@@ -130,6 +130,19 @@ def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
     return any(token in error for token in ("timed out", "timeout", "ssl", "network"))
 
 
+_REDACTED_HREF_RE = re.compile(r"\[REDACTED\]", re.IGNORECASE)
+
+
+def is_literal_redacted_href(href: str) -> bool:
+    """True when href still contains a secret-scan redaction token (not a live URL)."""
+    value = (href or "").strip()
+    if not value:
+        return False
+    if _REDACTED_HREF_RE.search(value):
+        return True
+    return value.upper() in {"REDACTED", "HTTP://REDACTED", "HTTPS://REDACTED"}
+
+
 def verify_article(
     html_path: Path,
     *,
@@ -142,6 +155,22 @@ def verify_article(
     user_agent = "ExcaliburBlogLinkVerify/1.0"
     results: list[dict[str, Any]] = []
     for href in links:
+        if is_literal_redacted_href(href):
+            results.append(
+                {
+                    "url": href,
+                    "kind": "external",
+                    "status": None,
+                    "ok": False,
+                    "skipped": False,
+                    "method": None,
+                    "error": (
+                        "literal [REDACTED] href — restore live CATALOG_URL/TELEGRAM_URL "
+                        "from env before QA/publish (use <!-- pragma: allowlist secret --> on CTA line for commit)"
+                    ),
+                }
+            )
+            continue
         kind = classify_link(href, site_base)
         if skip_external and kind == "external":
             results.append(

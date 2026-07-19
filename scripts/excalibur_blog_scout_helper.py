@@ -10,6 +10,9 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from excalibur_blog_topic_ids import iter_topic_cards, topic_id_from_article_dirname
+
+
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
@@ -34,9 +37,9 @@ def load_active_article_topics(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"((?:AS|B)\d+)-", path.name, flags=re.IGNORECASE)
-        if match:
-            active.add(match.group(1).upper())
+        topic_id = topic_id_from_article_dirname(path.name)
+        if topic_id:
+            active.add(topic_id)
     return active
 
 
@@ -46,13 +49,7 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
     if not topics_path.is_file():
         return topics
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(
-        r"##\s+((?:AS|B)\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)",
-        text,
-        re.DOTALL | re.IGNORECASE,
-    ):
-        topic_id = match.group(1).upper()
-        block = match.group(2)
+    for topic_id, block in iter_topic_cards(text):
         
         def field(name: str) -> str:
             # Flexible matching for bullet points with different formats

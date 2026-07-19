@@ -10,17 +10,19 @@ description: Excalibur BLOG Research — topic research перед статьё�
 **Шаг 0 (скрипт, обязательно):** перед любым research — зафиксировать дату и собрать свежий SERP.
 
 ```bash
-python scripts/excalibur_blog_research_start.py --topic-id B01
+python3 scripts/excalibur_blog_research_start.py --topic-id AS11
 ```
 
 Создаёт в папке статьи:
 
 - `research-context.json` — сегодняшняя дата, год, окно свежести, тема, список поисковых запросов
-- `research-serp.json` — результаты web-поиска по запросам с `{year}` и текущим месяцем
+- `research-serp.json` — результаты web-поиска (Cloud Secret URLs уже redact'ятся при записи)
 
 `--dry-run` — только дата и запросы без HTTP.
 
 Перед **каждой** статьей затем пиши `research-notes.md`. Без него нельзя утверждать цены, даты, версии, статистику.
+
+Ниша Авто-Сейлс (`AS*`): GitHub/docs не обязательны. В `github_evidence` допустимо `n/a` с причиной (scrapers ≠ USS sheet и т.п.). Gate больше не считает «ии» внутри «Японии» / имя поля `reader_pain` за technical_topic.
 
 ## Вход
 
@@ -55,13 +57,12 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 ## Правила
 
 1. **Сначала** `excalibur_blog_research_start.py` (шаг 0) — для валидации даты/года и utility-gate темы.
-2. Web research 15–25 мин: используй инструмент `**WebSearch`** Курсора для глубинного анализа ТОП-5 конкурентов в реальном времени. GitHub/docs/community нужны для фактов, но итоговый угол обязан быть beginner-first: что новичку нажать, подключить, проверить и как не сломать процесс. Приоритетный источник фактов — `fact-bank.md`.
+2. Web research 15–25 мин: используй инструмент `**WebSearch`** Курсора. Для AS* auto niche приоритет — официальные аукционы/Encar/таможня/СВХ/сообщества покупателей; GitHub только если реально релевантен. Итоговый угол: что читателю проверить до депозита/оплаты. Приоритетный источник фактов — `fact-bank.md`.
 3. Микро-исследование Wordstat через `user-mcp-kv` -> `wordstat_get_top_requests` (см. выше).
 4. Извлеки минимум 10–15 проверенных фактов (цифр/утверждений) с точными URL источников из твоего интернет-поиска.
-5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.
+5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать. В source table даты доступа: `accessed_at: YYYY-MM-DD` или ISO-дата в ячейке строки с URL (≥5).
 6. Не копировать структуру конкурента 1:1.
-7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
-
+7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного покупателя авто из Азии.
 ## Blockers
 
 - `❌ RESEARCH BLOCKER` — тема не найдена и не создана из запроса пользователя

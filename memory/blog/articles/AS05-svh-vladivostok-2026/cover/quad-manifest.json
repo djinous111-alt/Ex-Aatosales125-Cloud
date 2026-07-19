@@ -1,0 +1,48 @@
+{
+  "topic_id": "AS05",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "4 месяца закона ≠ бесплатные сутки",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "seo_filenames": {
+    "cover": "svh-vladivostok-2026-cover.png",
+    "inline_1": "svh-vladivostok-chto-takoe-prostymi-slovami.png",
+    "inline_2": "svh-vladivostok-dve-shkaly-srokov.png",
+    "inline_3": "svh-vladivostok-cheklist-do-depozita.png"
+  },
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у ночного СВХ Владивостока: крючок про льготные сутки и перестой",
+      "scene_hint": "WEATHER: foggy rainy Vladivostok port night, Golden Bridge glow behind mist; OUTFIT: matte navy rain jacket + scarf over dark layer (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie at SVH terminal fence with cars under protective film; fake UI taped: customs storage checklist card + 2GIS warehouse rating scrap (NOT Wordstat NOT Metrika); torn paper Cyrillic hook plaque «4 месяца закона ≠ бесплатные сутки» with yellow highlighter on «бесплатные сутки»; sticky note «с выгрузки»; shocked meme cutout + cat reaction sticker (different formats, max one Drake if any); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics",
+      "meme_caption_ru": "СВХ ≠ парковка"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разберите, что такое СВХ простыми словами",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI 16:9: columns «СВХ» | «обычная парковка» | «таможенный склад»; rows контроль / можно ли уехать / кто выставляет счёт; pink sticky «не путать»; tape corner; NO hero face; NO Wordstat/Metrika; NO toxic labels",
+      "alt": "Таблица: СВХ vs обычная парковка vs таможенный склад — чем отличается"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните две шкалы сроков: закон и льгота склада",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU dual timeline workflow diagram: top bar «закон до 4 месяцев» vs bottom bar «льгота склада 5–10 суток с выгрузки»; arrow from ship unload day; sticky «не путать шкалы»; tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема двух шкал сроков СВХ: закон 4 месяца vs льгота склада 5–10 суток"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Соберите чеклист вопросов до депозита",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable checklist board before deposit: 1) льгота суток 2) ПРР 3) перестой 4) кто платит 5) слот выдачи; red stamp «до депозита»; pink sticky «5 вопросов»; scotch tape; NO hero face; NO Wordstat/Metrika; NO toxic insult stickers",
+      "alt": "Чеклист пяти вопросов до депозита: льгота, ПРР, перестой, кто платит, слот"
+    }
+  }
+}

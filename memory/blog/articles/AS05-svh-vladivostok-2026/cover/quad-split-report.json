@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS05-svh-vladivostok-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1008,
+      572
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 572,
+        "end": 605
+      },
+      "v_gutter_px": {
+        "start": 1008,
+        "end": 1039
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 2,
+          "right": 1008,
+          "bottom": 569
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1008,
+          "bottom": 572
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у ночного СВХ Владивостока: крючок про льготные сутки и перестой",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1039,
+          "top": 2,
+          "right": 2048,
+          "bottom": 570
+        },
+        "raw_box_px": {
+          "left": 1039,
+          "top": 0,
+          "right": 2048,
+          "bottom": 572
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: СВХ vs обычная парковка vs таможенный склад — чем отличается",
+        "h2_anchor": "Разберите, что такое СВХ простыми словами"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 18,
+          "top": 605,
+          "right": 990,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 605,
+          "right": 1008,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема двух шкал сроков СВХ: закон 4 месяца vs льгота склада 5–10 суток",
+        "h2_anchor": "Сравните две шкалы сроков: закон и льгота склада"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1057,
+          "top": 605,
+          "right": 2029,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1039,
+          "top": 605,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист пяти вопросов до депозита: льгота, ПРР, перестой, кто платит, слот",
+        "h2_anchor": "Соберите чеклист вопросов до депозита"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разберите, что такое СВХ простыми словами",
+    "injected inline_2 after H2 — Сравните две шкалы сроков: закон и льгота склада",
+    "injected inline_3 after H2 — Соберите чеклист вопросов до депозита"
+  ]
+}

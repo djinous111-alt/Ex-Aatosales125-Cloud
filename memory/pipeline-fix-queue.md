@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260719-1725-cover-kie-api-500-retry
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-cover
+topic_id: AS05
+article_dir: memory/blog/articles/AS05-svh-vladivostok-2026
+severity: low
+category: tool
+
+### What went wrong
+- Preferred `scripts/excalibur_blog_kie_gpt_image2_api.py` first createTask (`task_id=1b880dde51557ad55cb6315bb4c590ff`) reached state=fail with `failCode=500` / Internal Error.
+- Transient Kie upstream failure during gpt-image-2 i2i for AS05 quad canvas.
+
+### How the agent recovered this run
+- Immediate second create+poll (`task_id=d4143b2ca35465ad6fe6c4bd106455e1`) → success; canvas URL saved to `cover/quad-mcp-result.json`.
+- Split+inject PASS; SEO filenames applied; ONE job only (no 4-call fallback).
+
+### Durable fix needed before next run
+- Document in cover skill/runbook: on Kie `failCode=500`, retry once (same batch) before MCP fallback; keep max_wait ≥900s.
+- Optional: surface failCode in `kie-image-task.json` for fixer metrics.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py` (auto-retry once on 500)
+- `shared/agent-pipeline-pitfalls.md` (Cover section)
+
+### Secrets
+- none recorded (KIE_API_KEY used from env only)
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260719-1715-geo-qa-typed-task-unavailable
 status: open
 run_date: 2026-07-19

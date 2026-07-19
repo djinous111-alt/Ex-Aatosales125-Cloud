@@ -1,0 +1,15 @@
+{
+  "slug": "utilsbor-na-avto-2026",
+  "topic_id": "AS04",
+  "permalink": "[REDACTED]/2026/07/18/utilsbor-na-avto-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/AS04-utilsbor-na-avto-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1209620,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3430 slug=utilsbor-na-avto-2026\nOK featured_image=3498\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3500 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/07/utilsbor-na-avto-2026-inline-01-6.png\nOK inline_image_upload=3502 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/07/utilsbor-na-avto-2026-inline-02-6.png\nOK inline_image_upload=3503 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/07/utilsbor-na-avto-2026-inline-03-6.png\npermalink=[REDACTED]/2026/07/18/utilsbor-na-avto-2026/\n",
+  "verdict": "pass"
+}

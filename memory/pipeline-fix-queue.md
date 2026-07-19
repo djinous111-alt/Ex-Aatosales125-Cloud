@@ -6,6 +6,391 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_none (2026-07-18 AS04 fixer pass)_
+
+## INC-20260718-1239-cover-mcp-timeout-kie-missing-zimage-fallback
+status: fixed
+run_date: 2026-07-18
+role: excalibur-blog-cover
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: high
+category: api
+
+### What went wrong
+- Preferred path `KIE_API_KEY` + `scripts/excalibur_blog_kie_gpt_image2_api.py` unavailable: env secret missing, no `memory/site.env.local`.
+- Sync MCP-KV `gpt-image-2` i2i 2K timed out with client `-32001`; no late URL/task_id recoverable from logs; no async create/status MCP tools exposed.
+- Forced documented fallback: ONE `z-image` 16:9 → Pillow rebuild/confirm 2048×1152 → `quad_split --inject-html`.
+- Side effect: z-image is t2i (no `input_urls`), so hero likeness is approximate; Cyrillic on panels is partially garbled (readable hooks/caption still present on cover).
+
+### How the agent recovered this run
+- Kept ONE-canvas rule (not 4 separate gens).
+- Generated via `z-image`, saved `cover/quad-mcp-result.json`, ensured `canvas-quad.png` 2048×1152, split+inject PASS.
+- Cover hook/caption non-toxic; brand corner `avto-sales125.ru`; inline panels without hero face.
+
+### Durable fix needed before next run
+- Ensure Cloud Secret `KIE_API_KEY` is set and funded (previous runs hit 402 at ~1.43 credits).
+- Prefer async Kie script over sync MCP `gpt-image-2` for 2K i2i.
+- Optionally expose async MCP create/status tools so timeout recovery can poll `task_id`.
+- Document z-image fallback quality limits (face lock + Cyrillic) in cover skill/pitfalls.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Dashboard Secrets (`KIE_API_KEY` only; no values recorded)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-18
+fix_summary:
+- Cover skill/pitfalls: prefer async `excalibur_blog_kie_gpt_image2_api.py` when `KIE_API_KEY` present; sync MCP timeout → ONE z-image fallback with documented face-lock/Cyrillic limits.
+- Funding/setting `KIE_API_KEY` remains a Dashboard secret action (not a code blocker; fallback path is durable).
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` for z-image/KIE fallback guidance in cover skill + pitfalls
+commit: pending-parent-commit
+
+
+## INC-20260718-1520-director-topic-id-prefix-as-vs-b
+status: fixed
+run_date: 2026-07-18
+role: excalibur-blog-director
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: high
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_today.py` `next_p0_topic()` и `scripts/excalibur_blog_scout_helper.py` парсят только `## B\d+` / `(B\d+)-` article dirs.
+- Пул тем Авто-Сейлс использует `AS01`…`AS09`, поэтому today.py вернул `EXCALIBUR_TOPIC_SELECTION=needs_scout` и пустой `SUGGESTED_TOPIC_ID` при наличии ненаписанных P0.
+- Scout helper показал `Total topics in pool: 0` при 9 карточках в `blog-topics.md`.
+
+### How the agent recovered this run
+- Директор вручную выбрал AS04 (utility PASS, slug свободен на WP, не published в ledger) и запустил `research_start.py --topic-id AS04`.
+
+### Durable fix needed before next run
+- Расширить regex topic_id до `(?:AS|B)\d+` (или общего `[A-Z]+\d+`) в `excalibur_blog_today.py`, `excalibur_blog_scout_helper.py` и связанных проверках active article dirs.
+- Убедиться, что utility soft-skip для FAIL P0 (AS01/AS03/AS05) работает после фикса префикса.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-18
+fix_summary:
+- `today.py` / `scout_helper` topic regex expanded to `(?:AS|B)\d+`.
+- `today.py` soft-skips P0 topics that fail utility gate (AS01/AS03/AS05).
+- Scout `--suggest-next` reports AS* pool correctly (Next AS10 when AS09 exists).
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_today.py scripts/excalibur_blog_scout_helper.py`
+- `python3 scripts/excalibur_blog_today.py` → SUGGESTED=AS02 SELECTION=ready
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → pool=9
+commit: pending-parent-commit
+
+
+## INC-20260718-1521-director-llms-blog-path-cli
+status: fixed
+run_date: 2026-07-18
+role: excalibur-blog-director
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` требует `llms generator supports --blog-path`.
+- `excalibur_blog_llms_generator.py --help` показывает только `--blog-dir` (и нет `--blog-path`) → doctor SUMMARY errors=1.
+
+### How the agent recovered this run
+- Продолжили пайплайн; indexer/fixer должны выровнять CLI и doctor check.
+
+### Durable fix needed before next run
+- Либо добавить alias `--blog-path` в llms generator, либо поменять doctor check на `--blog-dir`, плюс обновить skills/docs indexer.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-18
+fix_summary:
+- Added `--blog-path` as argparse alias of `--blog-dir` in llms generator.
+- Indexer skill cleaned (removed bogus `--blog-path /`); documents alias.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_llms_generator.py --help` shows `--blog-path`
+- `python3 scripts/excalibur_blog_doctor.py` → OK blog-path; SUMMARY errors=0
+commit: pending-parent-commit
+
+
+## INC-20260718-1525-research-wordstat-compound-phrase-totalcount
+status: fixed
+run_date: 2026-07-18
+role: excalibur-blog-research
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: low
+category: api
+
+### What went wrong
+- `wordstat_get_top_requests` для составной фразы «утильсбор корея китай япония» вернул нестандартный ответ `{"totalCount":"17"}` без топа фраз (аналог known scout pitfall).
+
+### How the agent recovered this run
+- Повторил запросы по отдельным кластерам: «утильсбор корея», «утильсбор япония», «утильсбор китай»; цифры в research-notes только из успешных ответов.
+
+### Durable fix needed before next run
+- В skill research: при secondary из 3+ стран/слов — сразу бить Wordstat по частям; `totalCount`-only = low-result, не fatal.
+- Опционально: soft-retry wrapper в MCP/docs.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-18
+fix_summary:
+- Research skill + pitfalls: compound secondary (3+ words/countries) → Wordstat by parts; totalCount-only = low-result, not fatal.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` for totalCount/compound Wordstat guidance
+commit: pending-parent-commit
+
+
+## INC-20260718-1526-research-notes-gate-tech-marker-ii-false-positive
+status: fixed
+run_date: 2026-07-18
+role: excalibur-blog-research
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` `TECH_MARKERS` содержал короткие подстроки `ai` / `ии` без границ слова.
+- H1 с «Японии» давал `technical_topic=true` → требование `github_urls>=3` для нетехнической авто-темы → BLOCK.
+
+### How the agent recovered this run
+- Добавлен `_marker_matches()` с word-boundary для маркеров длиной ≤3; gate PASS без фейковых GitHub URL.
+- Также выровнены форматы `accessed_at:` в source_table и keywords pain/solution/result в pain_solution_map (gate regex).
+
+### Durable fix needed before next run
+- Закрепить word-boundary для коротких TECH_MARKERS в gate; добавить unit/smoke-тест на тему с «Японии»/«России».
+- Документировать контракт pain_solution_map rows (нужны слова pain|solution|result|боль|…) и `accessed_at:` ≥5.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-18
+fix_summary:
+- Kept `_marker_matches()` word-boundary for short TECH_MARKERS; added `--self-test` smoke (Японии/России not technical; ИИ/MCP are).
+- Research skill documents pain_solution_map markers + accessed_at ≥5.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --self-test` → PASS
+commit: pending-parent-commit
+
+
+## INC-20260718-1250-publish-paramiko-missing
+status: fixed
+run_date: 2026-07-18
+role: excalibur-blog-publish
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: high
+category: env
+
+### What went wrong
+- `paramiko` missing in Cloud image; publish SSH import failed until ad-hoc pip install.
+
+### How the agent recovered this run
+- `pip3 install --break-system-packages paramiko` for this run.
+
+### Durable fix needed before next run
+- Add paramiko to cloud-agent-install and document preflight import.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-18
+fix_summary:
+- `.cursor/cloud-agent-install.sh` installs + verifies `paramiko`.
+- Publish skill notes preflight `python3 -c "import paramiko"`.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -c "import paramiko"`
+commit: pending-parent-commit
+
+## INC-20260718-1255-publish-http-gateway-504-ssh-php-exec
+status: fixed
+run_date: 2026-07-18
+role: excalibur-blog-publish
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: medium
+category: publish
+
+### What went wrong
+- Local HTTP bootstrap trigger hit timeout/Gateway 504; agent recovered via manual SSH PHP exec.
+
+### How the agent recovered this run
+- SSH exec `/usr/local/bin/php8.2` on uploaded bootstrap → PASS.
+
+### Durable fix needed before next run
+- Automate HTTP → SSH PHP exec → WebFetch fallback chain in publish script + docs.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-18
+fix_summary:
+- `publish_via_ssh` now tries SSH PHP exec (`SSH_PHP_BIN`, default php8.2) before WebFetch wait when HTTP fails.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+commit: pending-parent-commit
+
+## INC-20260718-1245-indexer-interlink-suggestions-live-site-base
+status: fixed
+run_date: 2026-07-18
+role: excalibur-blog-indexer
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: low
+category: script
+
+### What went wrong
+- Interlinker JSON report could embed live `PUBLIC_SITE_URL` when passed as `--site-base` (commit/secret-scan risk).
+
+### How the agent recovered this run
+- Regenerated llms/interlink artifacts with `[REDACTED]` site-base.
+
+### Durable fix needed before next run
+- Redact live URLs in interlink report; default `--site-base [REDACTED]`; keep relative href inject.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_interlinker.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-18
+fix_summary:
+- `commit_safe_site_base()` redacts live URLs in JSON report; default site-base `[REDACTED]`; indexer skill updated.
+files_changed:
+- `scripts/excalibur_blog_interlinker.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit assert `commit_safe_site_base('https://example.com') == '[REDACTED]'`
+commit: pending-parent-commit
+
+
+## INC-20260718-1536-geo-qa-utility-empty-pain-outcome-markers
+status: fixed
+run_date: 2026-07-18
+role: excalibur-blog-geo-qa
+topic_id: AS04
+article_dir: memory/blog/articles/AS04-utilsbor-na-avto-2026
+severity: medium
+category: qa
+
+### What went wrong
+- Utility article gate treated empty `pain_markers_ru` / `outcome_markers_ru` as hard fail (counts vs defaults) when lists were missing from editorial-policy.json.
+
+### How the agent recovered this run
+- Policy lists filled; gate now skips pain/outcome checks when marker lists are empty.
+
+### Durable fix needed before next run
+- Populate policy marker lists; skip enforcement when lists empty.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-18
+fix_summary:
+- Added pain/outcome marker lists to editorial-policy.json.
+- Utility gate enforces min_pain/min_outcome only when marker lists are non-empty.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
+commit: pending-parent-commit
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

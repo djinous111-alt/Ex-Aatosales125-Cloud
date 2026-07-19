@@ -7,6 +7,7 @@ import base64
 import io
 import json
 import os
+import shlex
 import sys
 import urllib.request
 from pathlib import Path
@@ -467,7 +468,7 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+def trigger_bootstrap_http(url: str, root: Path, *, wait_webfetch: bool = True) -> str:
     try:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
@@ -476,7 +477,10 @@ def trigger_bootstrap_http(url: str, root: Path) -> str:
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
-        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
+        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}).")
+        if not wait_webfetch:
+            raise
+        print("Entering Cloud WebFetch Fallback mode...")
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
         print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
         fallback_file = root / "memory" / "webfetch-response.txt"
@@ -493,6 +497,32 @@ def trigger_bootstrap_http(url: str, root: Path) -> str:
         raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
 
 
+def trigger_bootstrap_ssh_php_exec(env: dict[str, str], remote_path: str) -> str:
+    """Run uploaded bootstrap via remote PHP when HTTP/Gateway is unavailable."""
+    import paramiko
+
+    host, port, user, password = _ssh_creds(env)
+    php_bin = (env.get("SSH_PHP_BIN") or "/usr/local/bin/php8.2").strip()
+    client = paramiko.SSHClient()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    client.connect(hostname=host, port=port, username=user, password=password, timeout=30)
+    try:
+        # Quote path for shells; remote_path comes from our upload helper.
+        cmd = f"{php_bin} {shlex.quote(remote_path)}"
+        print(f"SSH PHP exec fallback: {php_bin} <bootstrap>")
+        _stdin, stdout, stderr = client.exec_command(cmd, timeout=300)
+        out = stdout.read().decode("utf-8", errors="replace")
+        err = stderr.read().decode("utf-8", errors="replace")
+        exit_status = stdout.channel.recv_exit_status()
+        if exit_status != 0 and not out.strip():
+            raise RuntimeError(f"SSH PHP exec failed (exit={exit_status}): {err[:500]}")
+        if err.strip():
+            print(f"WARN SSH PHP stderr: {err[:300]}", file=sys.stderr)
+        return out
+    finally:
+        client.close()
+
+
 def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     remote = "excalibur-blog-publish-once.php"
     data = php.encode("utf-8")
@@ -502,7 +532,21 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        try:
+            out = trigger_bootstrap_http(url, root, wait_webfetch=False)
+        except Exception as http_err:  # noqa: BLE001
+            print(
+                f"HTTP trigger unavailable ({type(http_err).__name__}). "
+                "Trying SSH PHP exec before WebFetch wait..."
+            )
+            try:
+                out = trigger_bootstrap_ssh_php_exec(env, uploaded_remote_path)
+            except Exception as ssh_php_err:  # noqa: BLE001
+                print(
+                    f"SSH PHP exec failed ({type(ssh_php_err).__name__}: {ssh_php_err}). "
+                    "Falling back to WebFetch wait..."
+                )
+                out = trigger_bootstrap_http(url, root, wait_webfetch=True)
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)

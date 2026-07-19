@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS01-rastamozhka-avto-iz-korei-sroki-i-etapy-cherez-vladivostok-v-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1028,
+      571
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 571,
+        "end": 591
+      },
+      "v_gutter_px": {
+        "start": 1028,
+        "end": 1045
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 6,
+          "top": 0,
+          "right": 1021,
+          "bottom": 571
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1028,
+          "bottom": 571
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Обложка: Растаможка авто из Кореи: сроки и этапы через Владивосток в 2026",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1045,
+          "top": 3,
+          "right": 2048,
+          "bottom": 567
+        },
+        "raw_box_px": {
+          "left": 1045,
+          "top": 0,
+          "right": 2048,
+          "bottom": 571
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Сравнительная таблица / UI-мокап: Анатомия импорта: этапы и подводные камни 2026 года",
+        "h2_anchor": "Анатомия импорта: этапы и подводные камни 2026 года"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 15,
+          "top": 591,
+          "right": 1012,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 591,
+          "right": 1028,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Карточка-инфографика: Цифры и факты: растаможка сроки и стоимость доставки",
+        "h2_anchor": "Цифры и факты: растаможка сроки и стоимость доставки"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1048,
+          "top": 591,
+          "right": 2045,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1045,
+          "top": 591,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема workflow / шаги: Почему автомобиль под заказ — это правильный выбор",
+        "h2_anchor": "Почему автомобиль под заказ — это правильный выбор"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Анатомия импорта: этапы и подводные камни 2026 года",
+    "injected inline_2 after H2 — Цифры и факты: растаможка сроки и стоимость доставки",
+    "injected inline_3 after H2 — Почему автомобиль под заказ — это правильный выбор"
+  ]
+}

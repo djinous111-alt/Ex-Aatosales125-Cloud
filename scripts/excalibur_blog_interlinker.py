@@ -195,11 +195,27 @@ def apply_interlinks(suggestions: list[dict[str, Any]], articles: list[dict[str,
     return applied_count
 
 
+
+def commit_safe_site_base(site_base: str) -> str:
+    """Keep committed interlink reports free of live PUBLIC_SITE_URL values."""
+    value = (site_base or "").strip()
+    if not value or value.upper() in {"[REDACTED]", "REDACTED"}:
+        return "[REDACTED]"
+    if "://" in value or value.startswith("www."):
+        return "[REDACTED]"
+    return value
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Excalibur BLOG Hub-and-Spoke Interlinker")
     ap.add_argument("--blog-dir", type=Path, default=None, help="Path to articles/ directory")
     ap.add_argument("--article-dir", type=Path, default=None, help="Limit suggestions to one article as source or target")
-    ap.add_argument("--site-base", type=str, default="https://avtosales125.ru", help="Base site URL")
+    ap.add_argument(
+        "--site-base",
+        type=str,
+        default="[REDACTED]",
+        help="Base site URL; JSON report stores [REDACTED] when a live URL is passed",
+    )
     ap.add_argument("--apply", action="store_true", help="Directly edit html files to apply links")
     ap.add_argument("--output", type=Path, default=None, help="Output path for JSON suggestions report")
     args = ap.parse_args()
@@ -224,7 +240,7 @@ def main() -> int:
     print(f"Found {len(suggestions)} internal linking opportunities.")
 
     report = {
-        "site_base": args.site_base,
+        "site_base": commit_safe_site_base(args.site_base),
         "total_articles": len(articles),
         "opportunities_found": len(suggestions),
         "suggestions": [

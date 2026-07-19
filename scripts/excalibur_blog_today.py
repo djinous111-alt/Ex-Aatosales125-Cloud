@@ -19,6 +19,8 @@ LEDGER_PATHS = (
     Path("shared/published-articles.md"),
 )
 DEFAULT_SITE_URL = ""
+# Авто-Сейлс pool uses AS##; legacy Excalibur pool uses B##.
+TOPIC_ID_RE = r"(?:AS|B)\d+"
 
 
 def project_root() -> Path:
@@ -60,10 +62,29 @@ def active_article_topic_ids(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = re.match(rf"({TOPIC_ID_RE})-", path.name, flags=re.IGNORECASE)
         if match:
             active.add(match.group(1).upper())
     return active
+
+
+def topic_passes_utility_soft(root: Path, topic_id: str) -> bool:
+    """Soft-skip P0 cards that fail the topic utility gate (e.g. AS01/AS03/AS05)."""
+    try:
+        from excalibur_blog_utility_gate import gate_topic, load_json, parse_topic_card
+    except ImportError:
+        return True
+    topics_path = root / "memory/topics/blog-topics.md"
+    policy_path = root / "memory/brief/editorial-policy.json"
+    if not topics_path.is_file() or not policy_path.is_file():
+        return True
+    try:
+        topic = parse_topic_card(topics_path, topic_id)
+        policy = load_json(policy_path)
+        report = gate_topic(topic, policy)
+        return str(report.get("status") or "").upper() == "PASS"
+    except Exception:  # noqa: BLE001
+        return True
 
 
 def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
@@ -78,15 +99,19 @@ def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
     }
     used.update(active_article_topic_ids(root))
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    card_re = rf"##\s+({TOPIC_ID_RE})\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)"
+    for match in re.finditer(card_re, text, re.DOTALL | re.IGNORECASE):
         topic_id = match.group(1).upper()
         block = match.group(2)
         if "priority:** P0" not in block and "**priority:** P0" not in block:
             pri = re.search(r"-\s*\*\*priority:\*\*\s*(\S+)", block)
             if not pri or pri.group(1).upper() != "P0":
                 continue
-        if topic_id not in used:
-            return topic_id
+        if topic_id in used:
+            continue
+        if not topic_passes_utility_soft(root, topic_id):
+            continue
+        return topic_id
     return ""
 
 

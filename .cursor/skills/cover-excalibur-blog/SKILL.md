@@ -122,19 +122,37 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — генерация (порядок fallback)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+**Предпочтительно (async, 2K i2i, face lock):**
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+```bash
+# Требует Cloud Secret KIE_API_KEY (и положительный баланс Kie).
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+Скрипт пишет `cover/quad-mcp-result.json` (тот же контракт, что у MCP).
+
+**Альтернатива:** sync MCP `CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
+Аргументы = `jobs[0].mcp_args` из batch. Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+
+**Если sync MCP таймаутит (`-32001`) и нет `task_id` для poll:** не крутить 4 отдельные генерации.  
+Переходи к Kie script (если ключ есть) или к **одному** `z-image` 16:9 (t2i, без `input_urls`).
+
+**Лимиты z-image fallback (документированный trade-off):**
+- нет `input_urls` → likeness героя приблизительный (не face-lock);
+- кириллица на стикерах/плашках может быть частично искажена;
+- всё равно ONE-canvas 16:9 → Pillow довести до 2048×1152 → `quad_split --inject-html`.
+
+Ожидание Kie/MCP: Image to Image, 1 входное фото, aspect 16:9, 2K.
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --url "<result url>" \
   --inject-html
 ```
 

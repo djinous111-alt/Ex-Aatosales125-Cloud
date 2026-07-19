@@ -10,6 +10,10 @@ import sys
 from pathlib import Path
 from typing import Any
 
+# Авто-Сейлс pool uses AS##; legacy Excalibur pool uses B##.
+TOPIC_ID_RE = r"(?:AS|B)\d+"
+
+
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
@@ -34,7 +38,7 @@ def load_active_article_topics(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = re.match(rf"({TOPIC_ID_RE})-", path.name, flags=re.IGNORECASE)
         if match:
             active.add(match.group(1).upper())
     return active
@@ -46,7 +50,8 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
     if not topics_path.is_file():
         return topics
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    card_re = rf"##\s+({TOPIC_ID_RE})\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)"
+    for match in re.finditer(card_re, text, re.DOTALL | re.IGNORECASE):
         topic_id = match.group(1).upper()
         block = match.group(2)
         
@@ -130,18 +135,26 @@ def main() -> int:
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
-        max_num = 0
+        max_by_prefix: dict[str, int] = {}
         for t in existing:
-            m = re.match(r"B(\d+)", t["topic_id"])
+            m = re.match(r"([A-Z]+)(\d+)$", t["topic_id"])
             if m:
-                max_num = max(max_num, int(m.group(1)))
-        
-        next_id = f"B{max_num + 1:02d}"
-        print(f"Next available topic ID: {next_id}")
+                prefix, num = m.group(1), int(m.group(2))
+                max_by_prefix[prefix] = max(max_by_prefix.get(prefix, 0), num)
+
+        if not max_by_prefix:
+            print("Next available topic ID: AS01")
+        else:
+            # Prefer the dominant pool prefix (AS for Авто-Сейлс, else B).
+            preferred = "AS" if "AS" in max_by_prefix else sorted(max_by_prefix)[0]
+            next_id = f"{preferred}{max_by_prefix[preferred] + 1:02d}"
+            print(f"Next available topic ID: {next_id}")
+            for prefix, max_num in sorted(max_by_prefix.items()):
+                print(f"Next available {prefix}* topic ID: {prefix}{max_num + 1:02d}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")
         print(f"Active article dirs: {sorted(active)}")
-        
+
         unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
         print(f"Unwritten topic IDs in pool: {unwritten}")
         return 0

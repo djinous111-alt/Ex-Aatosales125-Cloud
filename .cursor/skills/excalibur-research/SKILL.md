@@ -40,12 +40,15 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 1. **Анализ спроса через Wordstat API:**
   Каждый прогон исследования **обязан** задействовать инструмент `wordstat_get_top_requests` сервера `user-mcp-kv` для анализа спроса:
   - Вызови `wordstat_get_top_requests` для `primary_query` и ключевых `secondary_queries`.
+  - **Составные secondary (3+ стран/слов в одной фразе):** не жди полный топ — сразу бей Wordstat по частям («утильсбор корея», «утильсбор япония», …). Ответ вида `{"totalCount":"N"}` без списка фраз = **low-result signal**, не fatal API error (как у Scout cluster-first).
   - Если вызов вернул `401 Unauthorized` (токен устарел):
     - Запиши в `research-notes.md` предупреждение: `⚠️ WORDSTAT AUTH WARNING: Токен Wordstat устарел. Обновите токен через: https://oauth.yandex.ru/authorize?response_type=token&client_id=c654b948515a4a07a4c89648a0831d40`
     - Сделай экспертную оценку семантики, но явно укажи, что точные объемы спроса не получены из-за авторизации.
   - Если вызов успешен:
     - Сформируй в `research-notes.md` таблицу спроса: Фраза | Показы в месяц.
     - Выдели сопутствующие LSI-запросы из топа выдачи Вордстата для использования копирайтером.
+  - В `pain_solution_map` строки таблицы должны содержать маркеры `pain|solution|result` или `боль|решение|результат` (иначе research-notes gate BLOCK).
+  - В source table у каждого URL укажи `accessed_at:` (≥5 штук). Gate трактует короткие TECH_MARKERS (`ai`/`ии`) как целые слова — «Японии»/«России» не делают тему technical.
 2. **Замена уличных поисковиков (DuckDuckGo) на WebSearch Курсора:**
   Мы **отказываемся** от ненадежных сторонних утилит и парсеров DuckDuckGo («уток»).
   - Агент имеет полноценный доступ в интернет через нативный инструмент `**WebSearch`** (или `WebFetch` для чтения конкретных страниц).

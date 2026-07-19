@@ -7,6 +7,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 
+## INC-20260719-0931-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-indexer
+topic_id: AS01
+article_dir: memory/blog/articles/AS01-rastamozhka-avto-iz-korei-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_doctor.py` FAIL: expects `llms generator supports --blog-path`, but `excalibur_blog_llms_generator.py --help` has no `--blog-path`.
+- Indexer skill shell still shows `--blog-path /` (stale contract vs actual CLI).
+- Step 0 already noted doctor FAIL as non-blocker; Indexer would fail if blindly copied skill args.
+
+### How the agent recovered this run
+- Ran `python3 scripts/excalibur_blog_llms_generator.py --help` and used current flags only: `--blog-dir`, `--site-base`, `--out-dir`, `--site-name`.
+- Generated `memory/blog/llms.txt` and `memory/blog/llms-full.txt` successfully (3 articles incl. AS01).
+
+### Durable fix needed before next run
+- Remove `--blog-path` from doctor check OR restore the flag in llms generator if still required.
+- Sync indexer skill examples (repo + `.cursor/skills`) with actual CLI.
+- Mention in pitfalls: always prefer `--help` over skill snippet when doctor flags llms args drift.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260719-0926-cover-hero-host-upload
 status: open
 run_date: 2026-07-19

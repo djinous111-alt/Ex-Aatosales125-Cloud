@@ -1,0 +1,16 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Растаможка авто из Кореи: сроки и этапы через Владивосток в 2026",
+      "datePublished": "2026-06-25",
+      "author": {
+        "@type": "Organization",
+        "name": "Редакция Авто-Сейлс"
+      },
+      "image": "cover/cover.png",
+      "mainEntityOfPage": "[REDACTED]/rastamozhka-avto-iz-korei-sroki-i-etapy-cherez-vladivostok-v-2026/"
+    }
+  ]
+}

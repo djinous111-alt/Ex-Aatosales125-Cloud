@@ -7,3 +7,6 @@
 
 > Ledger сброшен при перенастройке под AVTO SALES (2026-07-17).
 | 2026-07-18 | AS04 | utilsbor-na-avto-2026 | [REDACTED]/2026/07/18/utilsbor-na-avto-2026/ | published |
+| 2026-07-19 | AS01 | rastamozhka-avto-iz-korei-sroki-i-etapy-cherez-vladivostok-v-2026 | [REDACTED]/2026/06/25/rastamozhka-avto-iz-korei-sroki-i-etapy-cherez-vladivostok-v-2026/ | published |
+| 2026-07-19 | AS06 | rastamozhka-avto-iz-yaponii-2026 | [REDACTED]/2026/07/18/rastamozhka-avto-iz-yaponii-2026/ | published |
+| 2026-07-19 | AS07 | dokumenty-na-avto-iz-kitaya | [REDACTED]/2026/07/19/dokumenty-na-avto-iz-kitaya/ | published |

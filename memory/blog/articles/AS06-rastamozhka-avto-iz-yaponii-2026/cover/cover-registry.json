@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS06",
+  "slug": "rastamozhka-avto-iz-yaponii-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: Растаможка авто из Японии: обновлённый чек-лист на 2026",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-07-19T03:35:51+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: Растаможка авто из Японии: обновлённый чек-лист на 2026",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Чеклист / printable board: Проверьте японский экспортный фильтр до депозита",
+      "h2_anchor": "Проверьте японский экспортный фильтр до депозита",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Сравнительная таблица / UI-мокап: Разложите растаможку на блоки платежей &#8220;на пальцах&#8221;",
+      "h2_anchor": "Разложите растаможку на блоки платежей “на пальцах”",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема workflow / шаги: Как не попасть на &#8220;дорогой&#8221; утильсбор по мощности",
+      "h2_anchor": "Как не попасть на “дорогой” утильсбор по мощности",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

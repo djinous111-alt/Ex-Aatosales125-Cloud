@@ -1,0 +1,43 @@
+{
+  "topic_id": "AS07",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Инвойс красивый — VIN другой",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: Документы на авто из Китая: как отличить подделку до оплаты",
+      "scene_hint": "WEATHER: warm office daylight; OUTFIT: smart casual charcoal shirt, glasses, NO cap; hero selfie with magnifier over China docs pack + red stamp ПОДДЕЛКА crossed; fake RU VIN compare UI; sticky «до оплаты»; tape; meme cutout",
+      "meme_caption_ru": "Сверь до оплаты",
+      "cover_hook": "Инвойс красивый — VIN другой"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разделите пакет: что нужно до оплаты, а что после ввоза",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица SEO vs GEO: критерии, цели, человек vs AI — «Разделите пакет: что нужно до оплаты, а что после ввоза»",
+      "alt": "Сравнительная таблица / UI-мокап: Разделите пакет: что нужно до оплаты, а что после ввоза"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сверьте VIN: объявление, инвойс, контракт и шильдик",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Скрин SEO-инструмента — «Сверьте VIN: объявление, инвойс, контракт и шильдик»",
+      "alt": "Скриншот инструмента автоподбора: Сверьте VIN: объявление, инвойс, контракт и шильдик"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте инвойс: цена, модель и кто получает деньги",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист перед публикацией — «Проверьте инвойс: цена, модель и кто получает деньги»",
+      "alt": "Чеклист / printable board: Проверьте инвойс: цена, модель и кто получает деньги"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Документы на авто из Китая: как отличить подделку до оплаты",
+      "datePublished": "2026-07-19",
+      "author": {
+        "@type": "Organization",
+        "name": "Редакция Авто-Сейлс"
+      },
+      "image": "cover/cover.png",
+      "mainEntityOfPage": "[REDACTED]/dokumenty-na-avto-iz-kitaya/"
+    }
+  ]
+}

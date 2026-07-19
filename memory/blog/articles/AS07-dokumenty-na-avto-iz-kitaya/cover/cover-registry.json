@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS07",
+  "slug": "dokumenty-na-avto-iz-kitaya",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: Документы на авто из Китая: как отличить подделку до оплаты",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-07-19T03:35:26+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: Документы на авто из Китая: как отличить подделку до оплаты",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Сравнительная таблица / UI-мокап: Разделите пакет: что нужно до оплаты, а что после ввоза",
+      "h2_anchor": "Разделите пакет: что нужно до оплаты, а что после ввоза",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Скриншот инструмента автоподбора: Сверьте VIN: объявление, инвойс, контракт и шильдик",
+      "h2_anchor": "Сверьте VIN: объявление, инвойс, контракт и шильдик",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист / printable board: Проверьте инвойс: цена, модель и кто получает деньги",
+      "h2_anchor": "Проверьте инвойс: цена, модель и кто получает деньги",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

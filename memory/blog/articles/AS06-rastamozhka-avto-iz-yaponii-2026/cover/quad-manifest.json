@@ -1,0 +1,43 @@
+{
+  "topic_id": "AS06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Аукцион ок, а утиль — сюрприз",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: Растаможка авто из Японии: обновлённый чек-лист на 2026",
+      "scene_hint": "WEATHER: bright summer office Vladivostok; OUTFIT: light navy shirt + thin blazer, glasses, NO cap; hero selfie with Japan auction sheet + util checklist; fake RU payment blocks UI; sticky «Япония 2026»; tape; meme cutout",
+      "meme_caption_ru": "Чеклист до депозита",
+      "cover_hook": "Аукцион ок, а утиль — сюрприз"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Проверьте японский экспортный фильтр до депозита",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист перед публикацией — «Проверьте японский экспортный фильтр до депозита»",
+      "alt": "Чеклист / printable board: Проверьте японский экспортный фильтр до депозита"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Разложите растаможку на блоки платежей “на пальцах”",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица SEO vs GEO: критерии, цели, человек vs AI — «Разложите растаможку на блоки платежей &#8220;на пальцах&#8221;»",
+      "alt": "Сравнительная таблица / UI-мокап: Разложите растаможку на блоки платежей &#8220;на пальцах&#8221;"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Как не попасть на “дорогой” утильсбор по мощности",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «Как не попасть на &#8220;дорогой&#8221; утильсбор по мощности»",
+      "alt": "Схема workflow / шаги: Как не попасть на &#8220;дорогой&#8221; утильсбор по мощности"
+    }
+  }
+}

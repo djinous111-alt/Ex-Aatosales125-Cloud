@@ -31,3 +31,16 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-07-19 — AS05 svh-vladivostok-2026
+
+- **verdict:** PASS
+- **post_id:** 3523
+- **permalink:** [REDACTED]/2026/07/19/svh-vladivostok-2026/
+- **featured_image:** 3524
+- **inline_images:** 3525 (`svh-vladivostok-chto-takoe-prostymi-slovami.png`), 3526 (`svh-vladivostok-dve-shkaly-srokov.png`), 3527 (`svh-vladivostok-cheklist-do-depozita.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH transport (paramiko); HTTP trigger OK; SSH_ROOT ENOENT → fallback `.`
+- **REST verify:** id=3523 AND slug=`svh-vladivostok-2026` → type=post status=publish featured_media=3524; media slug collision=0
+- **result:** `memory/blog/articles/AS05-svh-vladivostok-2026/wp-publish-result.json`

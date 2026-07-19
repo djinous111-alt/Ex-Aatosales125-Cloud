@@ -7,7 +7,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (REST: post 3523 publish; featured 3524)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)

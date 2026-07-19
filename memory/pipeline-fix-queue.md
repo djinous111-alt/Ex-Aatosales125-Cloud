@@ -48,7 +48,7 @@ files_changed:
 checks_run:
 - `python3 -c "import paramiko"`
 - doctor SUMMARY errors=0
-commit: pending-parent-commit
+commit: 757c991
 
 ## INC-20260719-1732-publish-ledger-row-outside-table
 status: fixed
@@ -93,7 +93,7 @@ files_changed:
 checks_run:
 - ledger upsert unit test (row before blockquote)
 - py_compile
-commit: pending-parent-commit
+commit: 757c991
 
 ## INC-20260719-1732-publish-ssh-path-vs-root
 status: fixed
@@ -136,7 +136,7 @@ files_changed:
 checks_run:
 - py_compile wp_publish
 - rg SSH_PATH in load_env
-commit: pending-parent-commit
+commit: 757c991
 
 ## INC-20260719-1732-publish-precommit-hook-invalid-var
 status: fixed
@@ -178,7 +178,7 @@ files_changed:
 checks_run:
 - patch applied + idempotent re-run
 - grep EXCALIBUR_SKIP_NON_IDENTIFIER in pre-commit.cursor
-commit: pending-parent-commit
+commit: 757c991
 
 ## INC-20260719-1727-indexer-precommit-hook-invalid-var
 status: fixed
@@ -223,7 +223,7 @@ files_changed:
 checks_run:
 - patch idempotent
 - rg --blog-path absent from indexer skill CLI
-commit: pending-parent-commit
+commit: 757c991
 
 ## INC-20260719-1725-cover-kie-api-500-retry
 status: fixed
@@ -267,7 +267,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - py_compile kie script
-commit: pending-parent-commit
+commit: 757c991
 
 ## INC-20260719-1715-geo-qa-typed-task-unavailable
 status: fixed
@@ -315,7 +315,7 @@ files_changed:
 - `.cursor/skills/director-excalibur-blog/SKILL.md`
 checks_run:
 - rg generalPurpose in AGENTS.md and director docs
-commit: pending-parent-commit
+commit: 757c991
 
 ## INC-20260719-1710-writer-utility-pain-markers-empty
 status: fixed
@@ -365,7 +365,7 @@ files_changed:
 checks_run:
 - empty_markers_fallback PASS on AS05
 - utility AS05 PASS
-commit: pending-parent-commit
+commit: 757c991
 
 ## INC-20260719-1701-director-today-as-regex
 status: fixed
@@ -409,7 +409,7 @@ files_changed:
 checks_run:
 - today EXCALIBUR_SUGGESTED_TOPIC_ID=AS01
 - TOPIC_SELECTION=ready
-commit: pending-parent-commit
+commit: 757c991
 
 ## INC-20260719-1701-director-doctor-llms-flag
 status: fixed
@@ -446,7 +446,7 @@ files_changed:
 checks_run:
 - doctor OK llms generator supports --blog-dir
 - errors=0
-commit: pending-parent-commit
+commit: 757c991
 
 ## INC-20260719-1701-director-as05-utility-h1
 status: fixed
@@ -489,7 +489,7 @@ files_changed:
 - `shared/editorial-utility-only.md`
 checks_run:
 - utility gate AS01/AS03/AS05 PASS
-commit: pending-parent-commit
+commit: 757c991
 
 ## INC-20260719-1705-research-notes-gate-tech-markers-ru
 status: fixed
@@ -535,7 +535,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - tech_marker_regression PASS
-commit: pending-parent-commit
+commit: 757c991
 
 ## INC-20260719-1705-research-wordstat-empty-phrase
 status: fixed
@@ -577,7 +577,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg cluster-first / укороти in research skill
-commit: pending-parent-commit
+commit: 757c991
 
 ## INC-20260719-1706-research-precommit-hook-invalid-var
 status: fixed
@@ -618,7 +618,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - patch applied on hooksPath pre-commit.cursor
-commit: pending-parent-commit
+commit: 757c991
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

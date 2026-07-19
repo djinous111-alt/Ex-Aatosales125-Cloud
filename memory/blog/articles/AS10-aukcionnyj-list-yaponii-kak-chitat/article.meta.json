@@ -29,12 +29,18 @@
     "description_aeo": "Аукционный лист Японии читают до депозита: общая оценка, салон A–E, схема W/X/XX/S/C, перевод примечаний и сверка с фото."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
-    "date": null,
-    "html_linter": null,
-    "slop_score": null,
-    "cannibalization": null
+    "score": 74,
+    "verdict": "FAIL",
+    "date": "2026-07-20",
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "fact_check": "PASS",
+    "link_verify": "FAIL",
+    "utility_gate": "BLOCK",
+    "human_voice": "BLOCK",
+    "research_notes_gate": "PASS",
+    "core_eeat": "17/20"
   },
   "cover_family": "brand_collage"
 }

@@ -1,0 +1,24 @@
+{
+  "article": "memory/blog/articles/AS10-aukcionnyj-list-yaponii-kak-chitat/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 2,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 0,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "иск Запросить пояснение у посредника Свежий нюанс 2026: одна и та же оценка \"весит\" по-разному. У TAA/CA",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "20 минут",
+      "kind": "metric_or_duration",
+      "context": "пеха для новичка – не \"выучить японский\", а за 15–20 минут закрыть чек-лист и сказать вслух причину решения.",
+      "verified": true,
+      "reason": "Numerical value '20' matched in fact-bank context"
+    }
+  ]
+}

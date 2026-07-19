@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260720-2116-geo-qa-utility-empty-pain-outcome-markers
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-geo-qa
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-aukcionnyj-list-yaponii-kak-chitat
+severity: blocker
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` всегда считает `pain_markers` / `outcome_markers` и требует min 2 / 3 (`article_required_signals` defaults).
+- В `memory/brief/editorial-policy.json` нет ключей `pain_markers_ru` / `outcome_markers_ru` → списки пустые → count всегда 0.
+- Регрессия: ранее PASSнувший AS09 при повторном прогоне тоже BLOCK только на pain/outcome (action_markers=13 OK).
+- Отдельно AS10: writer вставил literal `href="[REDACTED]"` (не URL) → link-verify 404; action_markers=1; human-voice outcome_markers=2<3.
+
+### How the agent recovered this run
+- Не переписывал longread (контракт GEO QA).
+- Зафиксировал FAIL + FIX-список writer в `article-qa.md`.
+- Задокументировал policy/script blocker для Fixer; cover/schema не запускались.
+
+### Durable fix needed before next run
+- Добавить `pain_markers_ru` и `outcome_markers_ru` в editorial-policy (можно выровнять с маркерами `excalibur_blog_human_voice_gate.py`) и/или не применять min_pain/min_outcome при пустых списках.
+- В writer skill/contract явно: CTA = абсолютные https URL каталога и Telegram; запрет копировать плейсхолдер `[REDACTED]` из redacted examples.
+- Синхронизировать «Делать/Не делать» с policy (`сделайте`/`не делайте`) или расширить `recommendation_markers_ru`.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260720-0010-research-tech-marker-false-positive
 status: open
 run_date: 2026-07-20

@@ -58,6 +58,7 @@ category: qa
 ### How the agent recovered this run
 - Did not rewrite article.html (GEO QA report-only); FIX list to Writer: restore catalog + Telegram hrefs from fact-bank/site brief.
 - Overall article-qa verdict FAIL; cover/schema blocked.
+- Writer FIX (same run): replaced 3 literal href placeholders with public catalog URL and Telegram URL; on-disk placeholder count=0; ready for link-verify re-run.
 
 ### Durable fix needed before next run
 - Writer/skill contract: public CTA (site catalog, Telegram handle) must never be written as the placeholder string `[REDACTED]` in `article.html`.

@@ -17,7 +17,7 @@
 | html-linter | PASS | whitelist OK; TOC нет |
 | slop-detector | PASS | 0 клише; 3 over-long (таблица/схема); Flesch RU 64.1 |
 | cannibalization | PASS | 0 issues (3 metas loaded) |
-| utility gate | BLOCK | action_markers 1<8; pain/outcome 0 — см. blockers |
+| utility gate | BLOCK | action_markers 1<8 (pain/outcome OK после restore AS02 policy) |
 | human-voice gate | BLOCK | outcome_markers 2<3 (`результат`, `проверьте`) |
 
 ## Pain / solution / beginner-fit
@@ -88,21 +88,20 @@ BlogPosting: pending (после PASS) | FAQPage: yes (7) | HowTo: yes | cover/s
 
 ## Blockers
 
-1. **link-verify FAIL** — в `article.html` стоят буквальные `href="[REDACTED]"` (не URL сайта/Telegram).
+1. **link-verify FAIL** — в `article.html` стоят буквальные `href="[REDACTED]"` (не живые URL).
 2. **utility gate BLOCK** — `action_markers=1` (нужно ≥8 из `recommendation_markers_ru`).
-3. **utility gate BLOCK** — `pain_markers_ru` / `outcome_markers_ru` **отсутствуют** в `memory/brief/editorial-policy.json`, при этом скрипт требует min 2/3 → **любая** статья получает 0 (регрессия; см. incident).
-4. **human-voice BLOCK** — outcome_markers только 2 из ≥3.
+3. **human-voice BLOCK** — outcome_markers только 2 из ≥3.
+
+## Durable fix applied this run (GEO QA)
+
+- Восстановлен патч AS02: `pain_markers_ru` / `outcome_markers_ru` в `memory/brief/editorial-policy.json` + enforce-only-if-configured в `scripts/excalibur_blog_utility_gate.py` (регрессия после rebrand; AS09 utility снова PASS).
 
 ## FIX → Writer (цикл 1) — не longread с нуля
 
-1. **CTA URLs:** заменить оба literal `href="[REDACTED]"` на абсолютные https-ссылки каталога и Telegram (как в PASSнувшем AS09 article.html). Не копировать плейсхолдер `[REDACTED]` из redacted examples.
+1. **CTA URLs:** заменить оба literal `href="[REDACTED]"` на абсолютные https из env `CATALOG_URL` / `TELEGRAM_URL` (как AS09). Не копировать плейсхолдер `[REDACTED]`.
 2. **Utility action-маркеры ≥8:** вплести слова из policy: `сделайте`, `не делайте`, `проверьте`, `используйте`, `избегайте`, `чеклист` (без дефиса), `шаг `, `добавьте` / `уберите`. Сейчас «Делать:/Не делать:» **не** считаются; в тексте только 1×«проверьте».
 3. **Human-voice outcome ≥3 разных маркера:** добавить ещё ≥1 из: `получите`, `сможете`, `выберите`, `сэконом…`, `соберите`, `настройте`, `исправьте` (уже есть `результат` + `проверьте`).
 4. **Опционально (skill soft):** ярлык инсайта без шаблона `TL;DR` / `Быстрый инсайт` — переименовать в нейтральное («Коротко:» / «Суть:»), смысл блока сохранить.
-
-## FIX → Fixer / Director (до повторного PASS utility)
-
-5. **Policy/script:** добавить `pain_markers_ru` + `outcome_markers_ru` в `memory/brief/editorial-policy.json` **или** в `excalibur_blog_utility_gate.py` не применять min_pain/min_outcome, если списки маркеров пусты. Иначе utility article PASS недостижим текстом writer.
 
 ## Gate
 
@@ -113,4 +112,4 @@ BlogPosting: pending (после PASS) | FAQPage: yes (7) | HowTo: yes | cover/s
 - utility gate → BLOCK ✗  
 - human-voice → BLOCK ✗  
 
-**Итог:** FAIL — cover \|\| schema **не** запускать. Вернуть Writer по FIX 1–4; параллельно Fixer по FIX 5 / incident.
+**Итог:** FAIL — cover \|\| schema **не** запускать. Вернуть Writer по FIX 1–4. Policy pain/outcome уже восстановлен в этом run.

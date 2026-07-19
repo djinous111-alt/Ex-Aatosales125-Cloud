@@ -7,7 +7,7 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 ## INC-20260720-2116-geo-qa-utility-empty-pain-outcome-markers
-status: open
+status: fixed
 run_date: 2026-07-20
 role: excalibur-blog-geo-qa
 topic_id: AS10
@@ -16,33 +16,30 @@ severity: blocker
 category: script
 
 ### What went wrong
-- `excalibur_blog_utility_gate.py` всегда считает `pain_markers` / `outcome_markers` и требует min 2 / 3 (`article_required_signals` defaults).
-- В `memory/brief/editorial-policy.json` нет ключей `pain_markers_ru` / `outcome_markers_ru` → списки пустые → count всегда 0.
-- Регрессия: ранее PASSнувший AS09 при повторном прогоне тоже BLOCK только на pain/outcome (action_markers=13 OK).
-- Отдельно AS10: writer вставил literal `href="[REDACTED]"` (не URL) → link-verify 404; action_markers=1; human-voice outcome_markers=2<3.
+- Utility gate требовал min pain/outcome при пустых списках маркеров в policy.
+- После rebrand снова пропали `pain_markers_ru` / `outcome_markers_ru` (регрессия AS02 `427e3bd`).
+- AS10 отдельно: literal `href="[REDACTED]"`, action_markers=1, human-voice outcome=2.
 
 ### How the agent recovered this run
-- Не переписывал longread (контракт GEO QA).
-- Зафиксировал FAIL + FIX-список writer в `article-qa.md`.
-- Задокументировал policy/script blocker для Fixer; cover/schema не запускались.
+- Восстановил AS02 patch: markers в `editorial-policy.json` + enforce-only-if-configured в `excalibur_blog_utility_gate.py`.
+- Longread не переписывал; article-qa FAIL + FIX writer (CTA / action / outcome).
+- cover/schema не запускались.
 
 ### Durable fix needed before next run
-- Добавить `pain_markers_ru` и `outcome_markers_ru` в editorial-policy (можно выровнять с маркерами `excalibur_blog_human_voice_gate.py`) и/или не применять min_pain/min_outcome при пустых списках.
-- В writer skill/contract явно: CTA = абсолютные https URL каталога и Telegram; запрет копировать плейсхолдер `[REDACTED]` из redacted examples.
-- Синхронизировать «Делать/Не делать» с policy (`сделайте`/`не делайте`) или расширить `recommendation_markers_ru`.
+- Держать markers + script guard в main; regression test на пустой policy.
+- Writer: CTA из `CATALOG_URL`/`TELEGRAM_URL`; запрет literal `[REDACTED]` в href.
 
 ### Suggested files to inspect/change
 - `memory/brief/editorial-policy.json`
 - `scripts/excalibur_blog_utility_gate.py`
 - `.cursor/skills/writer-excalibur-blog/SKILL.md`
-- `shared/excalibur-article-writing-contract.md`
 - `shared/agent-pipeline-pitfalls.md`
 
 ### Secrets
 - none recorded
 
 ### Fixer resolution
-- pending
+- fixed by geo-qa (restored AS02 policy+script); article text FAIL remains for writer FIX
 
 ## INC-20260720-0010-research-tech-marker-false-positive
 status: open

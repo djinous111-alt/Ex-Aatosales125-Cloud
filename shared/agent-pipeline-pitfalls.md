@@ -34,6 +34,9 @@
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
+- Utility gate: в `memory/brief/editorial-policy.json` обязаны быть `pain_markers_ru` / `outcome_markers_ru`; скрипт не должен BLOCK при пустых списках (регрессия после rebrand — см. AS02/AS10).
+- Writer CTA: абсолютные https из `CATALOG_URL`/`TELEGRAM_URL`; запрет literal `href="[REDACTED]"`.
+- Utility action-маркеры: «сделайте/не делайте», не «Делать/Не делать»; `чеклист` без дефиса.
 
 ## Cover
 

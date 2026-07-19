@@ -14,14 +14,12 @@
         "blockquotes": 3,
         "ul_lists": 2,
         "action_markers": 1,
-        "pain_markers": 0,
-        "outcome_markers": 0,
+        "pain_markers": 3,
+        "outcome_markers": 3,
         "water_hits": []
       },
       "errors": [
-        "мало action-маркеров в тексте: 1 < 8",
-        "слабо раскрыта боль читателя: pain_markers=0 < 2",
-        "слабо раскрыта польза/результат: outcome_markers=0 < 3"
+        "мало action-маркеров в тексте: 1 < 8"
       ],
       "warnings": []
     }

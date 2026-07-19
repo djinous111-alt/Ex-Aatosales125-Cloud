@@ -1,0 +1,31 @@
+{
+  "article": "memory/blog/articles/AS05-svh-vladivostok-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 3,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 2,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "узки судна. Ниже – как работает СВХ Владивосток в 2026, какие вопросы задать до оплаты и как уложиться в",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "4 месяцев",
+      "kind": "metric_or_duration",
+      "context": "онтролем, а не бесплатная парковка. Закон даёт до 4 месяцев хранения, но коммерческая льгота на авто-складах",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "101",
+      "kind": "large_number",
+      "context": "да Здесь главный сюрприз 2026 для новичка. По ст. 101 ТК ЕАЭС товары могут лежать на временном хранении",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

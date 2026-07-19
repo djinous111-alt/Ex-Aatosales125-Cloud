@@ -1,0 +1,60 @@
+{
+  "topic_id": "AS05",
+  "slug": "svh-vladivostok-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/svh-vladivostok-2026-cover.png",
+  "alt": "Герой Авто-Сейлс у ночного СВХ Владивостока: крючок про льготные сутки и перестой",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-07-19T17:25:08+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/svh-vladivostok-2026-cover.png",
+      "alt": "Герой Авто-Сейлс у ночного СВХ Владивостока: крючок про льготные сутки и перестой",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9",
+      "file_canonical": "cover/cover.png"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/svh-vladivostok-chto-takoe-prostymi-slovami.png",
+      "alt": "Таблица: СВХ vs обычная парковка vs таможенный склад — чем отличается",
+      "h2_anchor": "Разберите, что такое СВХ простыми словами",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9",
+      "file_canonical": "cover/inline-01.png"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/svh-vladivostok-dve-shkaly-srokov.png",
+      "alt": "Схема двух шкал сроков СВХ: закон 4 месяца vs льгота склада 5–10 суток",
+      "h2_anchor": "Сравните две шкалы сроков: закон и льгота склада",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9",
+      "file_canonical": "cover/inline-02.png"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/svh-vladivostok-cheklist-do-depozita.png",
+      "alt": "Чеклист пяти вопросов до депозита: льгота, ПРР, перестой, кто платит, слот",
+      "h2_anchor": "Соберите чеклист вопросов до депозита",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9",
+      "file_canonical": "cover/inline-03.png"
+    }
+  ],
+  "seo_filenames": {
+    "cover": "cover/svh-vladivostok-2026-cover.png",
+    "inline_1": "cover/svh-vladivostok-chto-takoe-prostymi-slovami.png",
+    "inline_2": "cover/svh-vladivostok-dve-shkaly-srokov.png",
+    "inline_3": "cover/svh-vladivostok-cheklist-do-depozita.png"
+  }
+}

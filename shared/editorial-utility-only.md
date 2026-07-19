@@ -22,7 +22,7 @@
 Перед research:
 
 ```bash
-python scripts/excalibur_blog_utility_gate.py --topic-id B01
+python3 scripts/excalibur_blog_utility_gate.py --topic-id B01
 ```
 
 **Blocker `UTILITY TOPIC BLOCKER`** — тему не пускаем в пайплайн.
@@ -31,8 +31,10 @@ python scripts/excalibur_blog_utility_gate.py --topic-id B01
 
 - `search_intent`: `how_to` | `checklist` | `comparison` | `troubleshooting` | `workflow` | `parent_guide`
 - `article_mode`: **B** (инструкция/гайд)
-- `h1` / `primary_query`: глагол действия («как…», «чек-лист…», «сравнение…»)
+- `h1` / `primary_query`: глагол действия («как…», «чек-лист…», «сравнение…») — **обязателен до append** в `blog-topics.md` (Scout checklist)
 - beginner angle: в карточке или outline должен быть понятный первый результат для новичка
+
+Перед append новой AS*/B* карточки прогони utility gate на `--topic-id`; без маркера в h1/primary_query research_start не стартует.
 
 ## Gate 2 — research
 

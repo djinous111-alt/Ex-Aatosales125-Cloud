@@ -32,6 +32,10 @@ DEFAULT_MAX_WAIT_SECONDS = 900
 class KieApiError(RuntimeError):
     """Raised for API or response-shape failures."""
 
+    def __init__(self, message: str, *, fail_code: Any = None) -> None:
+        super().__init__(message)
+        self.fail_code = fail_code
+
 
 def project_root() -> Path:
     env_root = os.environ.get("EXCALIBUR_PROJECT_ROOT", "").strip()
@@ -197,7 +201,10 @@ def poll_until_result(
         if state == "fail":
             fail_code = data.get("failCode")
             fail_msg = data.get("failMsg")
-            raise KieApiError(f"Kie task failed: failCode={fail_code} failMsg={fail_msg}")
+            raise KieApiError(
+                f"Kie task failed: failCode={fail_code} failMsg={fail_msg}",
+                fail_code=fail_code,
+            )
 
         elapsed = time.monotonic() - started
         if elapsed >= max_wait:
@@ -269,6 +276,7 @@ def main() -> int:
 
         task_id = args.task_id.strip()
         create_response: dict[str, Any] | None = None
+        retries_used = 0
         if not task_id:
             task_id, create_response = create_task(
                 create_url=args.create_url,
@@ -294,14 +302,56 @@ def main() -> int:
             print(f"OK task_record={task_record_path}")
             return 0
 
-        task_data = poll_until_result(
-            record_url=args.record_url,
-            api_key=api_key,
-            task_id=task_id,
-            poll_interval=max(1, args.poll_interval),
-            max_wait=max(1, args.max_wait),
-        )
+        try:
+            task_data = poll_until_result(
+                record_url=args.record_url,
+                api_key=api_key,
+                task_id=task_id,
+                poll_interval=max(1, args.poll_interval),
+                max_wait=max(1, args.max_wait),
+            )
+        except KieApiError as poll_exc:
+            # Transient upstream 500: retry ONE new create+poll in the same batch
+            # before the agent falls back to MCP. Do not retry when --task-id was set.
+            code = str(getattr(poll_exc, "fail_code", "") or "")
+            if args.task_id.strip() or code not in {"500", "Internal Error"}:
+                raise
+            print(
+                f"WARN Kie failCode={code} on task_id={task_id}; retrying once with a new createTask",
+                file=sys.stderr,
+            )
+            retries_used = 1
+            task_id, create_response = create_task(
+                create_url=args.create_url,
+                api_key=api_key,
+                model=args.model,
+                image_input=image_input,
+                callback_url=args.callback_url,
+            )
+            save_json(
+                task_record_path,
+                {
+                    "task_id": task_id,
+                    "source": "kie-api",
+                    "model": args.model,
+                    "state": "created",
+                    "retry_of_fail_code": code,
+                    "retries_used": retries_used,
+                    "create_response": create_response,
+                    "created_at_epoch": int(time.time()),
+                },
+            )
+            print(f"Kie retry task created: task_id={task_id}")
+            task_data = poll_until_result(
+                record_url=args.record_url,
+                api_key=api_key,
+                task_id=task_id,
+                poll_interval=max(1, args.poll_interval),
+                max_wait=max(1, args.max_wait),
+            )
         record = result_record(task_data, task_id)
+        if retries_used:
+            record["retries_used"] = retries_used
         save_json(result_path, record)
         save_json(
             task_record_path,
@@ -310,6 +360,8 @@ def main() -> int:
                 "source": "kie-api",
                 "model": task_data.get("model") or args.model,
                 "state": task_data.get("state"),
+                "failCode": task_data.get("failCode"),
+                "retries_used": retries_used,
                 "result_path": str(result_path.relative_to(root) if result_path.is_relative_to(root) else result_path),
                 "updated_at_epoch": int(time.time()),
             },

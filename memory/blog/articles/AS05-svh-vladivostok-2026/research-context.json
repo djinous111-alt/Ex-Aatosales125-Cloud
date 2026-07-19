@@ -1,0 +1,95 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-19",
+    "today_ru": "19.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-20",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-19 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS05",
+    "priority": "P0",
+    "slug": "svh-vladivostok-2026",
+    "h1": "СВХ Владивосток в 2026: как пройти транзит авто из трёх стран без переплат",
+    "primary_query": "свх владивосток",
+    "secondary_queries": [
+      "свх авто владивосток стоимость транзита",
+      "склад временного хранения авто",
+      "как работает свх владивосток"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS05",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "свх владивосток 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "свх владивосток июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "свх владивосток новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com свх владивосток 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "свх владивосток official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "свх владивосток forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "свх авто владивосток стоимость транзита 2026",
+      "purpose": "вторичный запрос: свх авто владивосток стоимость транзита"
+    },
+    {
+      "id": "secondary_2",
+      "query": "склад временного хранения авто 2026",
+      "purpose": "вторичный запрос: склад временного хранения авто"
+    },
+    {
+      "id": "secondary_3",
+      "query": "как работает свх владивосток 2026",
+      "purpose": "вторичный запрос: как работает свх владивосток"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "СВХ Владивосток в 2026: как пройти транзит авто из трёх стран без переплат 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS05-svh-vladivostok-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

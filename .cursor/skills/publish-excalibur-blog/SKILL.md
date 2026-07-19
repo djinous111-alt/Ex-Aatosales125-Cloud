@@ -20,10 +20,19 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | SSH: `SSH_HOST`, `SSH_USER`, `SSH_PASS`/`SSH_PASSWORD`, `SSH_ROOT` (или alias `SSH_PATH`), `PUBLIC_SITE_URL` |
+| Python dep | `paramiko` (install: Dockerfile / cloud-agent-install; иначе `pip3 install --break-system-packages paramiko`) |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
+
+Перед publish:
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+`load_env` мапит `SSH_PATH` → `SSH_ROOT`, если `SSH_ROOT` пуст. Предпочтительно задать `SSH_ROOT=.` в Cloud Secrets, если panel path даёт ENOENT.
 
 ## Алгоритм
 
@@ -77,7 +86,7 @@ python scripts/excalibur_blog_wp_publish.py \
 |------|----------|
 | `wp-publish-result.json` | создаёт скрипт (verdict pass/fail) |
 | `memory/blog/wp-publish-log.md` | допиши секцию с post_id, permalink, inline ids |
-| `shared/published-articles.md` | строка: date, topic_id, slug, url, status=published |
+| `shared/published-articles.md` | строка **внутри** markdown table: date, topic_id, slug, url, status=published (не после blockquote/prose) |
 | `promotion-checklist.md` | Live URL = permalink |
 | handoff | блок `=== EXCALIBUR BLOG PUBLISH ===` + permalink в `PIPELINE DONE` |
 

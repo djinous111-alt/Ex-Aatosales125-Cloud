@@ -32,6 +32,42 @@ TECH_MARKERS = (
     "нейросет",
 )
 
+# Short tokens that falsely match inside ordinary Russian/English words
+# (e.g. "ai" in "pain"/"reader_pain", "ии" in "компании").
+_TECH_WORD_BOUNDARY = {
+    "ai": re.compile(r"(?<![a-z0-9_])ai(?![a-z0-9_])", re.I),
+    "ии": re.compile(r"(?<![а-яёa-z0-9_])ии(?![а-яёa-z0-9_])", re.I),
+    "api": re.compile(r"(?<![a-z0-9_])api(?![a-z0-9_])", re.I),
+    "rag": re.compile(r"(?<![a-z0-9_])rag(?![a-z0-9_])", re.I),
+    "mcp": re.compile(r"(?<![a-z0-9_])mcp(?![a-z0-9_])", re.I),
+    "make": re.compile(r"(?<![a-z0-9_])make(?![a-z0-9_])", re.I),
+    "n8n": re.compile(r"(?<![a-z0-9_])n8n(?![a-z0-9_])", re.I),
+}
+
+
+def _tech_marker_hit(marker: str, blob: str) -> bool:
+    pattern = _TECH_WORD_BOUNDARY.get(marker.lower())
+    if pattern is not None:
+        return bool(pattern.search(blob))
+    return marker.lower() in blob
+
+
+def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech niches that require GitHub evidence.
+
+    Match markers with word boundaries so Russian prose does not false-positive
+    ("ии" in «компании», "ai" in «pain» / reader_pain). Classification uses the
+    topic card only — research notes often cite github.com even for non-tech
+    niches after a previous false-positive workaround.
+    """
+    del notes  # kept in signature for call-site compatibility
+    topic = context.get("topic") or {}
+    card_blob = " ".join(
+        str(topic.get(key) or "")
+        for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
+    ).lower()
+    return any(_tech_marker_hit(marker, card_blob) for marker in TECH_MARKERS)
+
 
 REQUIRED_FIELDS = (
     "research_date",
@@ -71,16 +107,6 @@ def count_action_items(text: str) -> int:
 
 def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
-
-
-def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
-    topic = context.get("topic") or {}
-    blob = " ".join(
-        str(topic.get(key) or "")
-        for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
-    ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:

@@ -185,8 +185,25 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     if marker_count < min_rec:
         errors.append(f"мало action-маркеров в тексте: {marker_count} < {min_rec}")
 
-    pain_markers = policy.get("pain_markers_ru") or []
-    outcome_markers = policy.get("outcome_markers_ru") or []
+    # Fallback mirrors human_voice_gate defaults when policy lists are missing/empty
+    # (empty lists previously made every article fail pain/outcome checks).
+    default_pain = [
+        "боль", "проблем", "ошиб", "ломает", "не работает", "теряет",
+        "дорого", "долго", "рутин", "хаос", "застр", "сложно",
+    ]
+    default_outcome = [
+        "результат", "получите", "сможете", "сэконом", "проверьте",
+        "запустите", "соберите", "настройте", "исправьте", "выберите",
+    ]
+
+    def _markers_or_default(raw: Any, defaults: list[str]) -> list[str]:
+        if not isinstance(raw, list):
+            return list(defaults)
+        cleaned = [str(x).strip() for x in raw if str(x).strip()]
+        return cleaned or list(defaults)
+
+    pain_markers = _markers_or_default(policy.get("pain_markers_ru"), default_pain)
+    outcome_markers = _markers_or_default(policy.get("outcome_markers_ru"), default_outcome)
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 

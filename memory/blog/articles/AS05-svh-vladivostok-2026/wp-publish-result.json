@@ -1,0 +1,15 @@
+{
+  "slug": "svh-vladivostok-2026",
+  "topic_id": "AS05",
+  "permalink": "[REDACTED]/2026/07/19/svh-vladivostok-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/AS05-svh-vladivostok-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1539780,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3523 slug=svh-vladivostok-2026\nOK featured_image=3524\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3525 src=cover/svh-vladivostok-chto-takoe-prostymi-slovami.png url=[REDACTED]/wp-content/uploads/2026/07/svh-vladivostok-2026-svh-vladivostok-chto-takoe-prostymi-slovami.png\nOK inline_image_upload=3526 src=cover/svh-vladivostok-dve-shkaly-srokov.png url=[REDACTED]/wp-content/uploads/2026/07/svh-vladivostok-2026-svh-vladivostok-dve-shkaly-srokov.png\nOK inline_image_upload=3527 src=cover/svh-vladivostok-cheklist-do-depozita.png url=[REDACTED]/wp-content/uploads/2026/07/svh-vladivostok-2026-svh-vladivostok-cheklist-do-depozita.png\npermalink=[REDACTED]/2026/07/19/svh-vladivostok-2026/\n",
+  "verdict": "pass"
+}

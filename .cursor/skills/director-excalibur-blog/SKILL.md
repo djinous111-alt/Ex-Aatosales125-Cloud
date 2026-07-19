@@ -52,7 +52,9 @@ Task(generalPurpose):
 
 ## Cloud Task fallback
 
-См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
+Typed Task `excalibur-blog-*` в Cloud/Automation часто **недоступен** — это ожидаемый режим.
+
+См. `AGENTS.md`. Кратко: **всегда** готовь `Task(generalPurpose)` per role + `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md` + короткий контракт (вход, маркер, запреты). Один Task = одна роль; cover||schema = два Task.
 
 ## Preflight (shell, директор)
 

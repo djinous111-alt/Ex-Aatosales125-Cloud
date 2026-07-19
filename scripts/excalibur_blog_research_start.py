@@ -260,31 +260,21 @@ def reserve_topic_in_ledger(root: Path, topic: dict[str, Any], ctx: dict[str, An
     """Mark a topic as in_progress as soon as Step 0 starts.
 
     This prevents a later Cloud run from selecting the same P0 topic again
-    before the article reaches publish.
+    before the article reaches publish. Rows are written only inside the first
+    markdown table of shared/published-articles.md (never after prose/blockquote).
     """
-    ledger_path = root / "shared" / "published-articles.md"
-    ledger_path.parent.mkdir(parents=True, exist_ok=True)
-    if not ledger_path.is_file():
-        ledger_path.write_text(
-            "# Excalibur BLOG — журнал опубликованных статей\n\n"
-            "| date | topic_id | slug | url | status |\n"
-            "|------|----------|------|-----|--------|\n",
-            encoding="utf-8",
-        )
+    from excalibur_blog_ledger_utils import ledger_topic_inside_table, upsert_ledger_row
 
+    ledger_path = root / "shared" / "published-articles.md"
     topic_id = str(topic.get("topic_id") or "").upper()
     slug = str(topic.get("slug") or topic_id.lower())
-    text = ledger_path.read_text(encoding="utf-8")
-    row_pattern = re.compile(rf"^\|\s*[^|]+\|\s*{re.escape(topic_id)}\s*\|", flags=re.M)
-    if row_pattern.search(text):
+    if ledger_topic_inside_table(ledger_path, topic_id):
         return False
 
     url = repo_relative(out_dir, root)
-    row = f"| {ctx['today_iso']} | {topic_id} | {slug} | {url} | in_progress |\n"
-    if not text.endswith("\n"):
-        text += "\n"
-    ledger_path.write_text(text + row, encoding="utf-8")
-    return True
+    row = f"| {ctx['today_iso']} | {topic_id} | {slug} | {url} | in_progress |"
+    action = upsert_ledger_row(ledger_path, row, topic_id)
+    return action in {"inserted", "created", "replaced"}
 
 
 def run_research_start(

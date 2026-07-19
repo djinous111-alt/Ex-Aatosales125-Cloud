@@ -43,9 +43,15 @@ SSH_HOST=<host>
 SSH_USER=<user>
 SSH_PASS=<password>
 SSH_ROOT=.
+# If Dashboard only has SSH_PATH, publish load_env aliases it to SSH_ROOT.
+# SSH_PATH=.
 SSH_PORT=22
 EXCALIBUR_BLOG_ALLOW_PUBLISH=yes
 ```
+
+Нужен Python-пакет `paramiko` для SSH publish (уже в `.cursor/Dockerfile` и `cloud-agent-install.sh`).
+
+Перед commit в Cloud: `bash scripts/excalibur_blog_patch_cursor_precommit.sh` — иначе secrets scrub может abort с `invalid variable name` на невалидных именах секретов.
 
 Дополнительно:
 

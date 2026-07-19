@@ -1,7 +1,7 @@
 # Promotion checklist — AS01 rastamozhka-avto-iz-korei-2026
 
-Дата публикации: 2026-07-19 (pending WP publish)  
-Live URL: [REDACTED]/blog/rastamozhka-avto-iz-korei-2026/ (ожидаемый permalink; уточнить после publish)
+Дата публикации: 2026-07-19  
+Live URL: [REDACTED]/2026/07/19/rastamozhka-avto-iz-korei-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Ориентир полного пути 30–45 дней (при заминках до ~60)
 • Документы и проверка лота — до депозита, не после
 
-Читать: [REDACTED]/blog/rastamozhka-avto-iz-korei-2026/
+Читать: [REDACTED]/2026/07/19/rastamozhka-avto-iz-korei-2026/
 ```
 
 ## Перелинковка

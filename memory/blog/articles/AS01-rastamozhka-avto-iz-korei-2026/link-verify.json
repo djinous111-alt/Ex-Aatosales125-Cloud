@@ -1,8 +1,8 @@
 {
   "source": "memory/blog/articles/AS01-rastamozhka-avto-iz-korei-2026/article.html",
-  "total_links": 2,
-  "failed_count": 1,
-  "verdict": "fail",
+  "total_links": 3,
+  "failed_count": 0,
+  "verdict": "pass",
   "links": [
     {
       "url": "[REDACTED]/2026/07/17/trust-encar-carhistory-proverka-do-depozita/",
@@ -15,14 +15,22 @@
       "checked_url": "[REDACTED]/2026/07/17/trust-encar-carhistory-proverka-do-depozita/"
     },
     {
-      "url": "[REDACTED]/[REDACTED]",
-      "status": 404,
-      "ok": false,
+      "url": "[REDACTED]",
+      "status": 200,
+      "ok": true,
       "method": "HEAD",
-      "error": "HTTP Error 404: Not Found",
-      "kind": "internal_relative",
-      "skipped": false,
-      "checked_url": "[REDACTED]/[REDACTED]"
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "[REDACTED]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
     }
   ]
 }

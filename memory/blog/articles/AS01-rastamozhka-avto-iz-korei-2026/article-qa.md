@@ -4,8 +4,9 @@
 **slug:** rastamozhka-avto-iz-korei-2026  
 **article_dir:** memory/blog/articles/AS01-rastamozhka-avto-iz-korei-2026  
 **date:** 2026-07-19  
-**verdict:** FAIL  
-**score:** 74
+**verdict:** PASS  
+**score:** 89  
+**qa_cycle:** re-run after FIX (CTA hrefs + utility markers/policy)
 
 ## Scripts
 
@@ -13,10 +14,10 @@
 |--------|---------|-------|
 | research-notes-gate | PASS | WARN technical_topic false-positive (api/github) |
 | utility gate (topic) | PASS | AS01 how_to / mode B |
-| utility gate (article) | BLOCK | pain_markers=0&lt;2, outcome_markers=0&lt;3 — **script/policy bug**: `editorial-policy.json` не содержит `pain_markers_ru`/`outcome_markers_ru`, а CLI default min=2/3 → всегда BLOCK (AS09 тоже) |
+| utility gate (article) | PASS | pain_markers=3, outcome_markers=5, action_markers=8 |
 | human-voice-gate | PASS | WARN: 2× exactly-5-step lists; pain/outcome/story overlap OK |
 | fact-check | PASS | 6 stats; 2 verified / 4 unverified (сроки в research-notes, не в fact-bank) |
-| link-verify | FAIL | 2 unique href; 1 OK (Trust Encar relative); 1 FAIL — literal `href="[REDACTED]"` (×3 CTA) → 404 |
+| link-verify | PASS | 3 unique href; 0 failed — Trust Encar relative 200; catalog `[REDACTED]` 200; Telegram `t.me/avtosales125` 200 |
 | html-linter | PASS | whitelist OK; TOC нет |
 | slop-detector | PASS | 0 клише; 4 over-long (таблица/схема); Flesch RU 61.0 |
 | cannibalization | PASS | 0 issues |
@@ -25,16 +26,16 @@
 
 | Блок | Балл | Комментарий |
 |------|------|-------------|
-| SEO structure | 16/20 | Primary в title/H1; H2 action; CTA сломаны `[REDACTED]` |
+| SEO structure | 18/20 | Primary в title/H1; H2 action; CTA catalog+Telegram рабочие |
 | GEO / citability | 22/25 | TL;DR, схема, таблица сроков, FAQ×6, чеклисты |
-| CORE-EEAT lite | 17/20 | см. ниже |
+| CORE-EEAT lite | 18/20 | см. ниже; E03 ✓ после FIX CTA |
 | Human voice | 14/15 | gate PASS; живой кейс Антона |
 | Fact safety | 12/15 | сроки ориентиры; без статичных пошлин ✓; 4 unverified vs fact-bank |
-| Contract HTML | 6/10 | whitelist PASS; CTA href = literal `[REDACTED]` (blocker) |
-| Utility gates | 0/10 | article utility BLOCK (policy/script); human-voice PASS |
-| **Итого** | **74/100** | &lt;80 → FAIL |
+| Contract HTML | 10/10 | whitelist PASS; CTA без literal `[REDACTED]` |
+| Utility gates | 10/10 | article + topic PASS; human-voice PASS |
+| **Итого** | **89/100** | ≥80 → PASS |
 
-## CORE-EEAT lite: 17/20
+## CORE-EEAT lite: 18/20
 
 | ID | Result | Comment |
 |----|--------|---------|
@@ -52,7 +53,7 @@
 | R04 | ✓ | FAQ отвечает в 1-м предложении |
 | E01 | ✓ | Угол «растаможка ≠ одна пошлина» |
 | E02 | ✓ | «Делать / Не делать» в секциях |
-| E03 | ✗ | CTA catalog×2 + Telegram×1, но href=`[REDACTED]` |
+| E03 | ✓ | CTA catalog×2 + Telegram×1, рабочие URL |
 | Exp01 | ✓ | Mode B, без fake first-person hero |
 | Exp02 | ✓ | Тон research / Авто-Сейлс |
 | Exp03 | ✓ | Slop hits = 0 |
@@ -80,9 +81,11 @@
 
 ## Link verify
 
-- total unique: 2, failed: 1
+- total unique: 3, failed: 0
 - Trust Encar relative: OK (200)
-- CTA `href="[REDACTED]"` (catalog×2 + Telegram×1, unique string): FAIL 404
+- catalog `[REDACTED]`: OK (200)
+- Telegram `t.me/avtosales125`: OK (200)
+- literal `href="[REDACTED]"`: нет
 - see `link-verify.json`
 
 ## AI-slop scan
@@ -94,31 +97,25 @@
 ## Schema ready
 
 BlogPosting: pending | FAQPage: yes (6) | HowTo: yes | Review: no  
-Cover/schema: **не запускать** до QA PASS.
+Cover/schema: **разрешены** директору (GEO QA PASS).
 
 ## Blockers
 
-1. **link-verify FAIL** — в `article.html` три CTA с буквальным `href="[REDACTED]"` (не URL). Writer обязан восстановить реальные URL каталога и Telegram из fact-bank / site brief.
-2. **utility gate (article) BLOCK** — `pain_markers=0`, `outcome_markers=0` из‑за отсутствия списков маркеров в `memory/brief/editorial-policy.json` при default min 2/3 в `excalibur_blog_utility_gate.py`. Контент уже проходит human-voice pain/outcome; чинить policy/script (Fixer), не «набивать» статью вслепую.
+- нет
 
-## FIX list → Writer (цикл 1)
+## FIX cycle (закрыт)
 
-1. Заменить все literal `href="[REDACTED]"` на рабочие CTA: каталог сайта + Telegram `@avtosales125` (URL из fact-bank / env `TELEGRAM_URL`). Не оставлять плейсхолдер `[REDACTED]` в HTML.
-2. После правки CTA — перезапуск GEO QA (link-verify + utility после фикса policy, если Fixer успеет).
-
-## FIX → Fixer / Director (не Writer)
-
-1. `excalibur_blog_utility_gate.py`: не применять `min_pain_markers`/`min_outcome_markers`, если `pain_markers_ru`/`outcome_markers_ru` пусты; **или** добавить списки в `memory/brief/editorial-policy.json` (можно выровнять с human-voice PAIN/OUTCOME_MARKERS).
-2. Pitfall: Writer/commit не должен подставлять literal `[REDACTED]` в `article.html` CTA.
+1. Writer: CTA hrefs → `[REDACTED]` + `[REDACTED]` (нет literal `[REDACTED]`).
+2. Fixer: `editorial-policy.json` pain/outcome markers + utility script skip empty mins.
 
 ## Gate
 
-- score ≥ 80 → **74** ✗  
-- CORE-EEAT ≥ 16/20 → **17/20** ✓  
-- link-verify pass → ✗  
+- score ≥ 80 → **89** ✓  
+- CORE-EEAT ≥ 16/20 → **18/20** ✓  
+- link-verify pass → ✓  
 - research-notes-gate PASS → ✓  
-- utility gate PASS → ✗ (article BLOCK)  
+- utility gate PASS → ✓  
 - human-voice PASS → ✓  
 - beginner-fit PASS → ✓  
 
-**Итог:** FAIL — cover \|\| schema **запрещены**. Вернуть Writer (CTA) + Fixer (utility policy/script).
+**Итог:** PASS — cover \|\| schema можно запускать.

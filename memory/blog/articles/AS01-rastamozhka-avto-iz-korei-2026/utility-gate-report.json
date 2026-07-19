@@ -1,11 +1,11 @@
 {
   "policy_id": "utility_only_v1",
-  "overall": "BLOCK",
+  "overall": "PASS",
   "reports": [
     {
       "gate": "article",
       "article_dir": "memory/blog/articles/AS01-rastamozhka-avto-iz-korei-2026",
-      "status": "BLOCK",
+      "status": "PASS",
       "metrics": {
         "numbered_list_items": 12,
         "h2_sections": 6,
@@ -14,14 +14,11 @@
         "blockquotes": 3,
         "ul_lists": 1,
         "action_markers": 8,
-        "pain_markers": 0,
-        "outcome_markers": 0,
+        "pain_markers": 3,
+        "outcome_markers": 5,
         "water_hits": []
       },
-      "errors": [
-        "слабо раскрыта боль читателя: pain_markers=0 < 2",
-        "слабо раскрыта польза/результат: outcome_markers=0 < 3"
-      ],
+      "errors": [],
       "warnings": []
     }
   ]

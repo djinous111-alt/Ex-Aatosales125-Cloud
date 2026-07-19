@@ -510,6 +510,92 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20260719-2144-publish-cta-literal-redacted
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-publish
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-aukcionnyj-list-yaponii-kak-chitat
+severity: medium
+category: publish
+
+### What went wrong
+- At publish preflight, catalog CTA `href` in `article.html` was still the literal token `[REDACTED]/` (Telegram CTA already live). Director note said CTAs were restored, but catalog remained a redaction artifact from secret-scan hygiene.
+
+### How the agent recovered this run
+- Replaced literal catalog href with `CATALOG_URL` from Cloud env (kept pragma allowlist comment). Re-ran `excalibur_blog_link_verify.py` → PASS 2/2.
+
+### Durable fix needed before next run
+- Writer/Director secret-scan redaction must not leave literal `[REDACTED]` inside working `href` attributes; restore from `CATALOG_URL`/`TELEGRAM_URL` before QA/publish, or add a publish preflight assert that rejects literal redaction tokens in `href`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py` (optional fail on `[REDACTED]` href)
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260719-2144-publish-paramiko-missing
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-publish
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-aukcionnyj-list-yaponii-kak-chitat
+severity: high
+category: env
+
+### What went wrong
+- First publish attempt failed immediately: `ModuleNotFoundError: No module named 'paramiko'` despite `requirements.txt` listing paramiko. Cloud env install step did not have the package available system-wide (PEP 668).
+
+### How the agent recovered this run
+- Installed with `pip3 install --break-system-packages paramiko` and retried publish successfully.
+
+### Durable fix needed before next run
+- Ensure Cloud `environment.json` / install hook installs `requirements.txt` (paramiko) into the runtime Python used by publish scripts; document fallback install in publish skill if install is incomplete.
+
+### Suggested files to inspect/change
+- `.cursor/environment.json`
+- `requirements.txt`
+- `CURSOR-CLOUD-RUNBOOK.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260719-2144-publish-ssh-root-unset
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-publish
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-aukcionnyj-list-yaponii-kak-chitat
+severity: medium
+category: env
+
+### What went wrong
+- `--env-check` reported `ssh.root: unset`. Cloud Secrets had `SSH_PATH` but not `SSH_ROOT`. Publish script only reads `SSH_ROOT` (not `SSH_PATH`). Prior fixed incident already recommends `SSH_ROOT=.`.
+
+### How the agent recovered this run
+- Exported `SSH_ROOT=.` for the publish process; SSH upload OK to `./excalibur-blog-publish-once.php`.
+
+### Durable fix needed before next run
+- Set Cursor Secret `SSH_ROOT=.` (or map legacy `SSH_PATH` → `SSH_ROOT` in `load_env`). Keep `SSH_PATH` only as deprecated alias.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`load_env` alias)
+- Cursor Dashboard Cloud Secrets (`SSH_ROOT` only)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

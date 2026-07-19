@@ -31,3 +31,16 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-07-20 — AS10 aukcionnyj-list-yaponii-kak-chitat
+
+- **verdict:** PASS
+- **post_id:** 3529
+- **permalink:** [REDACTED]/2026/07/20/aukcionnyj-list-yaponii-kak-chitat/
+- **featured_image:** 3530
+- **inline_images:** 3531 (`inline-01.png`), 3532 (`inline-02.png`), 3533 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH upload (`SSH_ROOT=.`) + HTTP trigger OK (no WebFetch fallback)
+- **note:** preflight restored catalog CTA from `CATALOG_URL` (literal `[REDACTED]/` left after secret-scan); installed `paramiko` via pip; env-check allow=yes
+- **result:** `memory/blog/articles/AS10-aukcionnyj-list-yaponii-kak-chitat/wp-publish-result.json`

@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260719-1710-writer-utility-pain-markers-empty
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-writer
+topic_id: AS05
+article_dir: memory/blog/articles/AS05-svh-vladivostok-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требовал `min_pain_markers`/`min_outcome_markers`, но в `memory/brief/editorial-policy.json` не было `pain_markers_ru` / `outcome_markers_ru`.
+- Пустые списки давали `pain_markers=0` / `outcome_markers=0` → UTILITY GATE BLOCK на любой статье, даже при живом тексте боли/результата.
+- Human voice gate уже имел дефолтные маркеры; utility gate с ними не синхронизирован.
+
+### How the agent recovered this run
+- Добавлены `pain_markers_ru` и `outcome_markers_ru` в editorial-policy (зеркало human_voice_gate).
+- В utility gate добавлен fallback на те же дефолты, если списки в policy пустые/отсутствуют.
+- Статья AS05 перепроверена: utility PASS, human-voice PASS.
+
+### Durable fix needed before next run
+- Fixer: подтвердить синхронизацию маркеров policy ↔ human_voice_gate; добавить regression test «пустой policy list не валит все статьи».
+- Зафиксировать в pitfalls: utility pain/outcome markers must be non-empty or fall back to HV defaults.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_utility_gate.py`
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260719-1701-director-today-as-regex
 status: open
 run_date: 2026-07-19

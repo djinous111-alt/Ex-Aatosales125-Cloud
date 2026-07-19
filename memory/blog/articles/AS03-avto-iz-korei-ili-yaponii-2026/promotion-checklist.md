@@ -1,7 +1,7 @@
 # Promotion checklist — AS03 avto-iz-korei-ili-yaponii-2026
 
 Дата публикации: 2026-07-19  
-Live URL: [после publish]
+Live URL: [REDACTED]/2026/07/19/avto-iz-korei-ili-yaponii-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Две сопоставимые сметы под ключ, не цена лота
 • Чеклист из 9 шагов до депозита
 
-Читать: [URL после publish]
+Читать: [REDACTED]/2026/07/19/avto-iz-korei-ili-yaponii-2026/
 ```
 
 ## Перелинковка

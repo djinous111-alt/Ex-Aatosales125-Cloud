@@ -23,10 +23,12 @@ category: docs
 ### How the agent recovered this run
 - Ran `excalibur_blog_llms_generator.py --help`, then generated with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (без `--blog-path`).
 - Interlinker `--apply` и promotion checklist выполнены штатно.
+- Commit blocked by secret-scan on literal `PUBLIC_SITE_URL` in `llms.txt` / `llms-full.txt` / checklist → committed copies redacted to `[REDACTED]`; live files regenerated locally for Publish (unstaged).
 
 ### Durable fix needed before next run
 - Убрать `--blog-path` из shell-примеров Indexer; оставить только актуальный CLI.
 - Добавить pitfalls-строку: llms generator = `--blog-dir`, не `--blog-path`.
+- Документировать: перед `git commit` Indexer redact `PUBLIC_SITE_URL` → `[REDACTED]` в llms/checklist; Publish регенерирует llms с живым `--site-base` перед upload.
 
 ### Suggested files to inspect/change
 - `.cursor/agents/excalibur-blog-indexer.md`

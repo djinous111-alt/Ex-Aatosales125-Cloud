@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260720-2134-cover-mcp-32001-kie-fallback
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-cover
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-aukcionnyj-list-yaponii-kak-chitat
+severity: medium
+category: cover
+
+### What went wrong
+- Sync MCP `gpt-image-2` (MCP-KV) вернул HTTP `-32001 Request timed out` на 2K i2i quad canvas.
+- В MCP/Cloud логах не нашлось готового URL/task_id для recovery после client timeout.
+- Blind second sync MCP create рисковал бы дублем job.
+
+### How the agent recovered this run
+- Один MCP sync attempt выполнен (как в task).
+- Recovery через preferred flow: `scripts/excalibur_blog_kie_gpt_image2_api.py` с тем же `quad-mcp-batch.json` payload (`KIE_API_KEY`).
+- Kie task success → URL → `excalibur_blog_quad_apply.py --inject-html` PASS.
+
+### Durable fix needed before next run
+- Cover skill/runbook: при наличии `KIE_API_KEY` стартовать сразу Kie async (`excalibur_blog_kie_gpt_image2_api.py`), sync MCP — только fallback.
+- Или async MCP create/status, если появится в MCP-KV (без client 32001).
+- Не считать первый `-32001` blocker; не делать apply без URL.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `shared/blog-cover-quad-canvas-contract.md`
+- `scripts/excalibur_blog_cover_quad_prompt.py` (batch timeout_policy already prefers Kie)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260720-2132-schema-secret-scan-jsonld-urls
 status: open
 run_date: 2026-07-20

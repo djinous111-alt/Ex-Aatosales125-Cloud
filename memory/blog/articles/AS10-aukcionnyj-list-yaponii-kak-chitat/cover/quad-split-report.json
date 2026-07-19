@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS10-aukcionnyj-list-yaponii-kak-chitat/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1028,
+      581
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 581,
+        "end": 598
+      },
+      "v_gutter_px": {
+        "start": 1028,
+        "end": 1039
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1028,
+          "bottom": 581
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1028,
+          "bottom": 581
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс в очках со смартфоном и распечаткой аукционного листа Японии, японский седан у ролкера, плашка «читаем лист», угол avto-sales125.ru",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1039,
+          "top": 6,
+          "right": 2048,
+          "bottom": 574
+        },
+        "raw_box_px": {
+          "left": 1039,
+          "top": 0,
+          "right": 2048,
+          "bottom": 581
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Скрин правила: сначала читают аукционный лист Японии, потом депозит, не наоборот",
+        "h2_anchor": "Зафиксируйте правило: лист читают до депозита, а не после ставки"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 21,
+          "top": 598,
+          "right": 1006,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 598,
+          "right": 1028,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица полей шапки аукционного листа: дата, аукцион, лот, пробег, кузов",
+        "h2_anchor": "Сверьте шапку листа: дата, аукцион, лот, пробег, кузов"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1051,
+          "top": 598,
+          "right": 2036,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1039,
+          "top": 598,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема оценок 4 / 4.5 / 5 и букв салона на японском аукционном листе",
+        "h2_anchor": "Разберите оценки 4 / 4.5 / 5 и букву салона простыми словами"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте правило: лист читают до депозита, а не после ставки",
+    "injected inline_2 after H2 — Сверьте шапку листа: дата, аукцион, лот, пробег, кузов",
+    "injected inline_3 after H2 — Разберите оценки 4 / 4.5 / 5 и букву салона простыми словами"
+  ]
+}

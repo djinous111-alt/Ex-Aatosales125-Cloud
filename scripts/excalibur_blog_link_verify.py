@@ -43,6 +43,27 @@ def extract_links(html: str) -> list[str]:
     return out
 
 
+PLACEHOLDER_HREFS = frozenset(
+    {
+        "[REDACTED]",
+        "REDACTED",
+        "{{CATALOG_URL}}",
+        "{{TELEGRAM_URL}}",
+        "{{PUBLIC_SITE_URL}}",
+    }
+)
+
+
+def is_placeholder_href(href: str) -> bool:
+    cleaned = href.strip()
+    if cleaned in PLACEHOLDER_HREFS:
+        return True
+    # Literal redaction leftovers that must never ship in article.html CTA.
+    if re.fullmatch(r"\[REDACTED\]|/REDACTED/?", cleaned, flags=re.IGNORECASE):
+        return True
+    return False
+
+
 def check_url(url: str, timeout: float, user_agent: str) -> dict[str, Any]:
     ctx = ssl.create_default_context()
     req = urllib.request.Request(
@@ -142,6 +163,22 @@ def verify_article(
     user_agent = "ExcaliburBlogLinkVerify/1.0"
     results: list[dict[str, Any]] = []
     for href in links:
+        if is_placeholder_href(href):
+            results.append(
+                {
+                    "url": href,
+                    "kind": "placeholder",
+                    "status": None,
+                    "ok": False,
+                    "skipped": False,
+                    "method": None,
+                    "error": (
+                        "literal placeholder href (e.g. [REDACTED]) — use real CTA URLs "
+                        "from conversion-map / site-brief / env, never redact marketing links in article.html"
+                    ),
+                }
+            )
+            continue
         kind = classify_link(href, site_base)
         if skip_external and kind == "external":
             results.append(

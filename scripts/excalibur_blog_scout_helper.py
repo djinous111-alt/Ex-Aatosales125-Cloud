@@ -34,7 +34,8 @@ def load_active_article_topics(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        # Авто-Сейлс pool uses ASxx; Excalibur/generic pool uses Bxx.
+        match = re.match(r"((?:AS|B)\d+)-", path.name, flags=re.IGNORECASE)
         if match:
             active.add(match.group(1).upper())
     return active
@@ -46,7 +47,11 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
     if not topics_path.is_file():
         return topics
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in re.finditer(
+        r"##\s+((?:AS|B)\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)|\Z)",
+        text,
+        re.DOTALL | re.IGNORECASE,
+    ):
         topic_id = match.group(1).upper()
         block = match.group(2)
         
@@ -130,20 +135,37 @@ def main() -> int:
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
-        max_num = 0
+        max_b = 0
+        max_as = 0
         for t in existing:
-            m = re.match(r"B(\d+)", t["topic_id"])
-            if m:
-                max_num = max(max_num, int(m.group(1)))
-        
-        next_id = f"B{max_num + 1:02d}"
-        print(f"Next available topic ID: {next_id}")
+            m_b = re.match(r"B(\d+)$", t["topic_id"], flags=re.IGNORECASE)
+            if m_b:
+                max_b = max(max_b, int(m_b.group(1)))
+            m_as = re.match(r"AS(\d+)$", t["topic_id"], flags=re.IGNORECASE)
+            if m_as:
+                max_as = max(max_as, int(m_as.group(1)))
+
+        next_b = f"B{max_b + 1:02d}"
+        next_as = f"AS{max_as + 1:02d}"
+        unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
+        unwritten_as_p0 = [
+            t["topic_id"]
+            for t in existing
+            if t["topic_id"].upper().startswith("AS")
+            and t["topic_id"] not in reserved
+            and (t.get("priority") or "").upper() == "P0"
+        ]
+        print(f"Next available topic ID (B-series): {next_b}")
+        print(f"Next available topic ID (AS-series): {next_as}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")
         print(f"Active article dirs: {sorted(active)}")
-        
-        unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
         print(f"Unwritten topic IDs in pool: {unwritten}")
+        if unwritten_as_p0:
+            print(
+                "WARN: unpublished AS P0 topics remain — do not Scout new topics; "
+                f"use existing: {unwritten_as_p0}"
+            )
         return 0
         
     if args.check_query:

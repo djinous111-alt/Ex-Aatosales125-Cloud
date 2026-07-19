@@ -90,11 +90,14 @@ inject <figure> after H2 in article.html
 ### Шаг 1 — reference URL
 
 ```bash
-python scripts/excalibur_blog_hero_reference_url.py
+python3 scripts/excalibur_blog_hero_reference_url.py
 ```
+
 
 Проверить `memory/cover/blog-hero.json` → `reference_url_hosted`.  
 Fallback env: `BLOG_HERO_REFERENCE_URL`.
+
+**Host upload fallback:** если `excalibur_blog_hero_reference_url.py --force` падает (catbox 412 / 0x0 503), **не блокируй** cover: скрипт reuse'ит существующий `reference_url_hosted` (часто URL face PNG на сайте). Новый temporary host не обязателен, пока URL отдаёт face reference для i2i `input_urls`.
 
 ### Шаг 2 — manifest
 

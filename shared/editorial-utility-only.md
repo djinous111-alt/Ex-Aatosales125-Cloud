@@ -34,6 +34,8 @@ python scripts/excalibur_blog_utility_gate.py --topic-id B01
 - `h1` / `primary_query`: глагол действия («как…», «чек-лист…», «сравнение…»)
 - beginner angle: в карточке или outline должен быть понятный первый результат для новичка
 
+Pain/outcome в article gate: списки `pain_markers_ru` / `outcome_markers_ru` в `editorial-policy.json`. Если списки пусты — utility gate **не** применяет default mins (иначе always-BLOCK); human-voice gate всё равно проверяет боль/результат отдельно.
+
 ## Gate 2 — research
 
 Research-агент **отклоняет** угол без практики. В `research-notes.md`:

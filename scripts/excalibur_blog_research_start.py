@@ -369,6 +369,8 @@ def run_research_start(
         "errors": errors,
         "unique_urls": _unique_urls(serp_runs),
     }
+    # Cursor secret-scan flags PUBLIC_SITE_URL etc. when they appear in SERP hit URLs.
+    payload_serp = redact_secret_collisions(payload_serp)
 
     context_path = out_dir / "research-context.json"
     serp_path = out_dir / "research-serp.json"
@@ -402,6 +404,52 @@ def _unique_urls(serp_runs: list[dict[str, Any]]) -> list[dict[str, str]]:
                 seen.add(url)
                 out.append({"url": url, "title": row.get("title") or "", "from_query": run.get("query") or ""})
     return out
+
+
+def _secret_redact_patterns() -> list[str]:
+    """Values that Cursor secret-scan treats as secrets when present in committed JSON."""
+    import os
+
+    patterns: list[str] = []
+    for key in (
+        "PUBLIC_SITE_URL",
+        "WP_SITE_URL",
+        "WP_HOME",
+        "CATALOG_URL",
+        "TELEGRAM_URL",
+        "MAX_URL",
+    ):
+        val = (os.environ.get(key) or "").strip().rstrip("/")
+        if val and len(val) >= 8:
+            patterns.append(val)
+            # Also redact host-only form if env is a full URL.
+            try:
+                host = urllib.parse.urlparse(val if "://" in val else f"https://{val}").netloc
+                if host and host not in patterns:
+                    patterns.append(host)
+            except Exception:  # noqa: BLE001
+                pass
+    # Longest first so full URLs redact before bare hosts.
+    patterns.sort(key=len, reverse=True)
+    return patterns
+
+
+def redact_secret_collisions(payload: Any, patterns: list[str] | None = None) -> Any:
+    """Replace env site/CTA URL values with [REDACTED] before writing commit-bound SERP dumps."""
+    pats = patterns if patterns is not None else _secret_redact_patterns()
+    if not pats:
+        return payload
+    if isinstance(payload, str):
+        out = payload
+        for pat in pats:
+            if pat and pat in out:
+                out = out.replace(pat, "[REDACTED]")
+        return out
+    if isinstance(payload, list):
+        return [redact_secret_collisions(x, pats) for x in payload]
+    if isinstance(payload, dict):
+        return {k: redact_secret_collisions(v, pats) for k, v in payload.items()}
+    return payload
 
 
 def main() -> int:

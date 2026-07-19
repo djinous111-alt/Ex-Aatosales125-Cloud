@@ -6,9 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_none for run 2026-07-19 after fixer_
 
 ## INC-20260719-0931-indexer-llms-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-indexer
 topic_id: AS01
@@ -42,10 +43,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Doctor check now expects `--blog-dir` (matches llms generator CLI).
+- Indexer skills (repo + `.cursor`) drop stale `--blog-path`; document `--help` on drift.
+- Pitfalls: llms CLI `--blog-dir`, not `--blog-path`.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → OK llms generator supports --blog-dir
+- `python3 scripts/excalibur_blog_llms_generator.py --help` shows --blog-dir only
+- `rg` no doctor check for --blog-path
+commit: 3240492
 
 ## INC-20260719-0926-cover-hero-host-upload
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-cover
 topic_id: AS01
@@ -74,11 +90,24 @@ category: tooling
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- `hero_reference_url.py --force`: if catbox/0x0 fail, reuse existing https `reference_url_hosted` instead of hard blocker.
+- Cover skill documents site face URL fallback for i2i.
+files_changed:
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
+- `rg` Host upload fallback in cover skills
+commit: 3240492
 
 
 ## INC-20260719-0922-schema-secret-scan-urls
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-schema
 topic_id: AS01
@@ -109,11 +138,22 @@ category: tooling
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Schema skill documents live→commit-redacted→publish-live hygiene and optional allowlist.
+- Pitfalls: secret-scan vs schema/CTA commit policy.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` Commit hygiene in schema skills
+commit: 3240492
 
 
 ## INC-20260719-0915-geo-qa-utility-pain-markers-empty
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-geo-qa
 topic_id: AS01
@@ -144,11 +184,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Confirmed durable fix already present: utility_gate skips pain/outcome mins when marker lists empty; editorial-policy has pain/outcome markers + mins.
+- Documented skip-empty behavior in editorial-utility-only + pitfalls.
+files_changed:
+- `scripts/excalibur_blog_utility_gate.py` (verified)
+- `memory/brief/editorial-policy.json` (verified markers)
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- utility gate AS01 PASS (pain=3 outcome=5)
+- utility gate AS09 PASS
+- empty-marker policy smoke: PASS with no pain/outcome errors
+commit: 3240492
 
 
 ## INC-20260719-0915-geo-qa-cta-literal-redacted
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-geo-qa
 topic_id: AS01
@@ -182,11 +236,25 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Writer skill + writing contract forbid literal href `[REDACTED]`; CTA from conversion-map/env.
+- `link_verify` fails placeholder hrefs as kind=placeholder.
+- Pitfalls: tool-output redaction ≠ on-disk HTML placeholders.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- link-verify on href=[REDACTED] → verdict fail / kind placeholder
+commit: 3240492
 
 
 ## INC-20260719-0910-research-secret-scan-serp
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-research
 topic_id: AS01
@@ -217,11 +285,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- `research_start.py` redacts PUBLIC_SITE_URL / related env URL hosts from research-serp.json before write.
+- Research skill + pitfalls document SERP commit hygiene.
+files_changed:
+- `scripts/excalibur_blog_research_start.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_research_start.py`
+- unit: redact_secret_collisions replaces PUBLIC_SITE_URL host with [REDACTED]
+commit: 3240492
 
 
 ## INC-20260719-1203-director-as-topic-regex
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-director
 topic_id: AS01
@@ -254,7 +335,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- today.py + scout_helper.py topic/dir regex `(?:AS|B)\d+`; scout warns on unpublished AS P0.
+- Pitfalls: AS pool Авто-Сейлс; no Scout while unpublished AS P0 remain.
+- AGENTS/pitfalls: typed geo-qa Task missing → generalPurpose fallback.
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `AGENTS.md`
+checks_run:
+- today without EXCALIBUR_TOPIC_ID → AS02
+- scout --suggest-next lists AS pool + WARN unpublished AS P0
+- py_compile today/scout_helper
+commit: 3240492
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -503,4 +599,5 @@ commit: pending-parent-commit
 
 ## Fixed incidents
 
-Handled above; commit is pending Director review.
+Handled above (incl. 2026-07-19 AS01 run); commit is pending Director review.
+Also removed stale duplicate `memory/pipeline-incident-queue.md` (canonical = `memory/pipeline-fix-queue.md`).

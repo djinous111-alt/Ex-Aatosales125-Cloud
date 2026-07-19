@@ -141,6 +141,22 @@ def main() -> int:
             last_error = exc
             print(f"WARN upload via {provider} failed: {exc}", file=sys.stderr)
 
+    # Force-refresh failed: keep a prior site/hosted URL if it still looks usable.
+    if existing.startswith("https://"):
+        hero["reference_url_hosted"] = existing
+        hero["reference_url_source"] = hero.get("reference_url_source") or "reuse_existing_after_upload_fail"
+        hero["reference_url_updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+        hero["reference_url_reuse_note"] = (
+            f"catbox/0x0 upload failed under --force; reused existing URL ({type(last_error).__name__ if last_error else 'unknown'})"
+        )
+        save_json(hero_path, hero)
+        print(
+            f"WARN reuse existing reference_url_hosted after upload failure: {existing}",
+            file=sys.stderr,
+        )
+        print(f"OK reference_url_hosted={existing}")
+        return 0
+
     print(f"❌ HERO BLOCKER: could not host reference: {last_error}", file=sys.stderr)
     return 1
 

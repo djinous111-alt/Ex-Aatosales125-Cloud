@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Растаможка ≠ просто пошлина",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у порта Владивостока с корейским седаном и плашкой про этапы растаможки",
+      "meme_caption_ru": "СВХ уже тикает",
+      "scene_hint": "Vladivostok port morning fog/overcast: ro-ro ship at berth, modern Korean sedan (Kia/Hyundai left-hand drive) on quay; Avto-Sales hero EXACT face+glasses from reference, outfit = waterproof navy rain jacket over casual shirt (NOT reference t-shirt), NO cap NO hood; action selfie pointing at Cyrillic plaque «Растаможка ≠ просто пошлина» with yellow highlight on «пошлина»; fake UI layers: Encar lot card stub + СВХ checklist sticky + torn paper timeline Encar→море→СВХ→таможня→СБКТС→ЭПТС; scotch tape, one shocked-face meme cutout; corner footer avto-sales125.ru; NO Wordstat/Metrika; friendly non-toxic stickers only"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Нарисуйте путь: Encar → Владивосток → учёт",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Clean 16:9 workflow diagram UI (NO hero face): horizontal/vertical nodes Encar → экспорт/BL → море Пусан → СВХ Владивосток → таможня → СБКТС → ЭПТС → ОСАГО → ГИБДД; Russian labels; light tape corner + sticky «порядок важен»; port/shipping subtle icons only",
+      "alt": "Схема пути Encar → Владивосток → учёт: от выбора лота до ГИБДД"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сверьте сроки по этапам и типичные задержки",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Readable comparison table UI (NO hero): columns Этап | Ориентир срока | Где сбой; rows море 2–4 нед, таможня 5–12 р.д., СБКТС 3–7, ЭПТС 1–3, полный путь 30–45 дней; red sticky «простой СВХ»; NO prices/duty calculator",
+      "alt": "Таблица сроков растаможки по этапам и типичных задержек во Владивостоке"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Соберите документы до прихода судна",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board mock UI (NO hero): passport/ИНН, инвойс/ДКП, экспортный сертификат, BL, перевод, брокер Владивосток, счёт под платежи; checkmarks; mini sticky «до разгрузки»; torn paper + tape human layer",
+      "alt": "Чеклист документов для растаможки до прихода судна во Владивосток"
+    }
+  }
+}

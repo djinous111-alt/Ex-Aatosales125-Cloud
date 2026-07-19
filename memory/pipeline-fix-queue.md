@@ -6,6 +6,75 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+
+## INC-20260719-0926-cover-hero-host-upload
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-cover
+topic_id: AS01
+article_dir: memory/blog/articles/AS01-rastamozhka-avto-iz-korei-2026
+severity: low
+category: tooling
+
+### What went wrong
+- `excalibur_blog_hero_reference_url.py --force` failed: catbox HTTP 412, 0x0 HTTP 503.
+- Could not refresh hosted face PNG for i2i; existing `reference_url_hosted` on avtosales125.ru was reused.
+
+### How the agent recovered this run
+- Kept prior `reference_url_hosted` (blueprint face URL on site).
+- Generated ONE quad via `excalibur_blog_kie_gpt_image2_api.py` (KIE_API_KEY) with `input_urls`; split+inject PASS.
+
+### Durable fix needed before next run
+- Add fallback host (e.g. temporary WP media upload / imgbb / Cloudflare R2) when catbox/0x0 unavailable.
+- Document in cover skill that existing site URL is acceptable if force-upload fails and URL still serves face reference.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20260719-0922-schema-secret-scan-urls
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-schema
+topic_id: AS01
+article_dir: memory/blog/articles/AS01-rastamozhka-avto-iz-korei-2026
+severity: medium
+category: tooling
+
+### What went wrong
+- First `git commit` of `schema.jsonld` blocked by Cursor secret-scan: `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` appear in BlogPosting/author/publisher/`sameAs` (required for live JSON-LD).
+- Schema skill does not document commit hygiene vs publish-ready URLs (AS04 used redacted commit; AS08/AS09 still have live hosts in git history).
+
+### How the agent recovered this run
+- Rebuilt schema with live URLs from env + authors-registry.
+- Committed redacted `schema.jsonld` (`[REDACTED]` placeholders, AS04 pattern).
+- Restored live `schema.jsonld` in working tree for Publish (not re-committed).
+
+### Durable fix needed before next run
+- Document in schema skill: build live schema → commit redacted copy → keep live file for publish; or teach publish to rehydrate `[REDACTED]` from env before WP meta upload.
+- Optional: `pragma: allowlist secret` path if JSON-safe allowlisting is supported.
+
+### Suggested files to inspect/change
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260719-0915-geo-qa-utility-pain-markers-empty
 status: open
 run_date: 2026-07-19

@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260720-0002-director-as-regex-ledger
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_today.py` and `excalibur_blog_scout_helper.py` matched only `B\d+` topic IDs, so AVTO SALES pool `AS01+` was invisible → false `needs_scout` / wrong next ID `B01`.
+- `excalibur_blog_doctor.py` required llms CLI flag `--blog-path`, while generator exposes `--blog-dir` → doctor SUMMARY errors=1.
+- `shared/published-articles.md` was reset at rebrand and only listed AS08/AS09 while live WP already had AS01–AS07 published → risk of republishing.
+
+### How the agent recovered this run
+- Patched today/scout_helper to `(?:AS|B)\d+` and AS-series next-id suggestion (`AS10`).
+- Doctor check updated to `--blog-dir`.
+- Synced ledger AS01–AS09 from live WP REST posts before Scout.
+
+### Durable fix needed before next run
+- Keep AS|B topic regex in today/scout_helper/tests; add regression test.
+- Align doctor with actual llms CLI (`--blog-dir`).
+- Add ledger↔WP sync helper or document Director duty to sync before suggesting topic_id.
+- Update scout agent/skill niche text from AI/automation to Авто-Сейлс (site-brief), or Scout will invent off-niche B-topics.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/published-articles.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

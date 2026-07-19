@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-20",
+    "today_ru": "20.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-21",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-20 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS10",
+    "priority": "P0",
+    "slug": "aukcionnyj-list-yaponii-kak-chitat",
+    "h1": "Аукционный лист из Японии: как читать поля и не ошибиться до депозита",
+    "primary_query": "как читать аукционный лист японии",
+    "secondary_queries": [
+      "аукционный лист япония",
+      "расшифровка аукционного листа из японии",
+      "оценка в аукционном листе японии",
+      "обозначения на аукционном листе японии"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS10",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "как читать аукционный лист японии 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "как читать аукционный лист японии июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "как читать аукционный лист японии новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com как читать аукционный лист японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "как читать аукционный лист японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "как читать аукционный лист японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "аукционный лист япония 2026",
+      "purpose": "вторичный запрос: аукционный лист япония"
+    },
+    {
+      "id": "secondary_2",
+      "query": "расшифровка аукционного листа из японии 2026",
+      "purpose": "вторичный запрос: расшифровка аукционного листа из японии"
+    },
+    {
+      "id": "secondary_3",
+      "query": "оценка в аукционном листе японии 2026",
+      "purpose": "вторичный запрос: оценка в аукционном листе японии"
+    },
+    {
+      "id": "secondary_4",
+      "query": "обозначения на аукционном листе японии 2026",
+      "purpose": "вторичный запрос: обозначения на аукционном листе японии"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Аукционный лист из Японии: как читать поля и не ошибиться до депозита 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS10-aukcionnyj-list-yaponii-kak-chitat",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

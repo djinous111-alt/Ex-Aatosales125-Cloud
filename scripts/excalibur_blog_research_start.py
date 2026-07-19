@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 import time
@@ -82,7 +83,7 @@ def parse_topic_card(topics_path: Path, topic_id: str) -> dict[str, Any]:
         raise FileNotFoundError(f"topics file not found: {topics_path}")
 
     text = topics_path.read_text(encoding="utf-8")
-    pattern = rf"##\s+{re.escape(topic_id)}\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+[A-Z]\d+|\Z)"
+    pattern = rf"##\s+{re.escape(topic_id)}\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)"
     match = re.search(pattern, text, re.DOTALL | re.IGNORECASE)
     if not match:
         raise ValueError(f"topic_id {topic_id!r} not found in {topics_path}")
@@ -374,6 +375,8 @@ def run_research_start(
     serp_path = out_dir / "research-serp.json"
 
     if not dry_run:
+        # Redact Cloud Secret URLs so committed research-serp.json passes secret-scan.
+        payload_serp = _redact_secrets_in_obj(payload_serp)
         context_path.write_text(json.dumps(payload_context, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         serp_path.write_text(json.dumps(payload_serp, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         save_utility = out_dir / "utility-gate-topic.json"
@@ -402,6 +405,55 @@ def _unique_urls(serp_runs: list[dict[str, Any]]) -> list[dict[str, str]]:
                 seen.add(url)
                 out.append({"url": url, "title": row.get("title") or "", "from_query": run.get("query") or ""})
     return out
+
+
+_SECRET_URL_ENV_KEYS = (
+    "PUBLIC_SITE_URL",
+    "WP_SITE_URL",
+    "WP_HOME",
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
+)
+
+
+def _secret_url_replacements() -> list[tuple[str, str]]:
+    """Longest-first replacements so committed research-serp.json stays secret-scan clean."""
+    pairs: list[tuple[str, str]] = []
+    for key in _SECRET_URL_ENV_KEYS:
+        value = (os.environ.get(key) or "").strip()
+        if not value:
+            continue
+        token = f"[REDACTED_{key}]"
+        variants = {value, value.rstrip("/"), value.rstrip("/") + "/"}
+        for variant in sorted(variants, key=len, reverse=True):
+            if variant:
+                pairs.append((variant, token))
+    # Dedupe needles keeping first (longest) wins via sort above + seen
+    seen: set[str] = set()
+    out: list[tuple[str, str]] = []
+    for needle, token in pairs:
+        if needle in seen:
+            continue
+        seen.add(needle)
+        out.append((needle, token))
+    return out
+
+
+def _redact_secrets_in_obj(obj: Any, replacements: list[tuple[str, str]] | None = None) -> Any:
+    replacements = replacements if replacements is not None else _secret_url_replacements()
+    if not replacements:
+        return obj
+    if isinstance(obj, str):
+        text = obj
+        for needle, token in replacements:
+            text = text.replace(needle, token)
+        return text
+    if isinstance(obj, list):
+        return [_redact_secrets_in_obj(item, replacements) for item in obj]
+    if isinstance(obj, dict):
+        return {k: _redact_secrets_in_obj(v, replacements) for k, v in obj.items()}
+    return obj
 
 
 def main() -> int:

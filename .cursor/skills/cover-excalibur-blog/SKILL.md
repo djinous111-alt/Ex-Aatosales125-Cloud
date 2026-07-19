@@ -17,14 +17,16 @@ quad-manifest.json (agent fills hooks + scene_hint)
        ↓
 quad-mcp-batch.json (1 job, input_urls)
        ↓
-ONE MCP gpt-image-2 i2i → canvas-quad.png 2048×1152
+PREFERRED: Kie async (если есть KIE_API_KEY)
+  scripts/excalibur_blog_kie_gpt_image2_api.py
+FALLBACK: sync MCP gpt-image-2 (один attempt; -32001 ≠ final blocker)
        ↓
 split → cover.png + inline-01..03.png (1200×675)
        ↓
 inject <figure> after H2 in article.html
 ```
 
-**Запрещено:** 4 отдельных MCP на cover + inline.
+**Запрещено:** 4 отдельных image jobs на cover + inline; blind retry sync MCP после `-32001` без URL/task_id.
 
 ---
 
@@ -122,23 +124,29 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image job (Kie first)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+Если в env есть `KIE_API_KEY` — **сразу** Kie async (не жди MCP timeout):
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+Sync MCP `gpt-image-2` (`CallMcpTool` → MCP-KV) — только fallback, когда Kie недоступен. Один sync attempt. HTTP `-32001` = client timeout, **не** final blocker: ищи URL/task_id в логах; иначе переходи на Kie с тем же `quad-mcp-batch.json`. Не делай второй sync create вслепую.
+
+Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K, один canvas.
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --url "<result url>" \
   --inject-html
 ```
 
-Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
+Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html. Без реального URL — не apply.
 
 ### Шаг 6 — fragment
 

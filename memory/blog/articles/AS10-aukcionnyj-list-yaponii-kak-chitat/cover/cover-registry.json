@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS10",
+  "slug": "aukcionnyj-list-yaponii-kak-chitat",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс в очках со смартфоном и распечаткой аукционного листа Японии, японский седан у ролкера, плашка «читаем лист», угол avto-sales125.ru",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-07-19T21:34:39+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс в очках со смартфоном и распечаткой аукционного листа Японии, японский седан у ролкера, плашка «читаем лист», угол avto-sales125.ru",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Скрин правила: сначала читают аукционный лист Японии, потом депозит, не наоборот",
+      "h2_anchor": "Зафиксируйте правило: лист читают до депозита, а не после ставки",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица полей шапки аукционного листа: дата, аукцион, лот, пробег, кузов",
+      "h2_anchor": "Сверьте шапку листа: дата, аукцион, лот, пробег, кузов",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема оценок 4 / 4.5 / 5 и букв салона на японском аукционном листе",
+      "h2_anchor": "Разберите оценки 4 / 4.5 / 5 и букву салона простыми словами",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

@@ -88,7 +88,7 @@ files_changed:
 - `.cursor/skills/director-excalibur-blog/SKILL.md`
 checks_run:
 - `rg` for generalPurpose + excalibur-blog-geo-qa in AGENTS/pitfalls/director
-commit: a747cbf
+commit: ce4ac0e
 
 ## INC-20260719-1318-writer-precommit-invalid-secret-name
 status: fixed
@@ -138,7 +138,7 @@ files_changed:
 checks_run:
 - live hook run exit 0 with invalid name present
 - `bash scripts/excalibur_blog_patch_cursor_precommit.sh` (already hardened)
-commit: a747cbf
+commit: ce4ac0e
 
 ## INC-20260719-1315-writer-cta-env-not-redacted
 status: fixed
@@ -184,7 +184,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` for CATALOG_URL / [REDACTED] CTA guidance
-commit: a747cbf
+commit: ce4ac0e
 
 ## INC-20260719-1310-research-notes-gate-false-tech
 status: fixed
@@ -234,7 +234,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
 - AS03 research-notes-gate PASS with `technical_topic: false`
 - unit asserts for Японии/reader_pain vs n8n
-commit: a747cbf
+commit: ce4ac0e
 
 ## INC-20260719-1304-director-as-regex-today
 status: fixed
@@ -318,7 +318,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` utility-маркер / primary_query in scout + editorial-utility-only
-commit: a747cbf
+commit: ce4ac0e
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch

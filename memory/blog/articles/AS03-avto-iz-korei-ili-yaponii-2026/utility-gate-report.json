@@ -1,11 +1,11 @@
 {
   "policy_id": "utility_only_v1",
-  "overall": "BLOCK",
+  "overall": "PASS",
   "reports": [
     {
       "gate": "article",
       "article_dir": "memory/blog/articles/AS03-avto-iz-korei-ili-yaponii-2026",
-      "status": "BLOCK",
+      "status": "PASS",
       "metrics": {
         "numbered_list_items": 12,
         "h2_sections": 7,
@@ -13,16 +13,12 @@
         "tables": 1,
         "blockquotes": 4,
         "ul_lists": 0,
-        "action_markers": 6,
-        "pain_markers": 0,
-        "outcome_markers": 0,
+        "action_markers": 31,
+        "pain_markers": 5,
+        "outcome_markers": 8,
         "water_hits": []
       },
-      "errors": [
-        "мало action-маркеров в тексте: 6 < 8",
-        "слабо раскрыта боль читателя: pain_markers=0 < 2",
-        "слабо раскрыта польза/результат: outcome_markers=0 < 3"
-      ],
+      "errors": [],
       "warnings": []
     }
   ]

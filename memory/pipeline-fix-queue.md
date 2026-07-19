@@ -24,12 +24,14 @@ category: script
 - Rewrote source_table date cells as `accessed_at: 2026-07-20`.
 - Added 3 github.com URLs as negative evidence (Yahoo/Buyee scrapers ≠ USS sheet) to clear GitHub quota.
 - Documented false-positive in github_evidence section.
+- Redacted `PUBLIC_SITE_URL` leaks from `research-serp.json` before commit (secret scanner blocked first commit).
 
 ### Durable fix needed before next run
 - Match TECH_MARKERS on word boundaries / token lists, exclude required field names (`reader_pain`, etc.).
 - Do not treat Cyrillic double-и inside country names as AI marker; niche-aware skip for auto topics.
 - Count `accessed_at` from source_table date column OR accept `YYYY-MM-DD` cells under accessed_at header.
 - Allow explicit `github_evidence: n/a` with reason for non-technical topics without forcing 3 URLs.
+- `excalibur_blog_research_start.py` / SERP collector must not embed `PUBLIC_SITE_URL` into committed `research-serp.json`.
 
 ### Suggested files to inspect/change
 - `scripts/excalibur_blog_research_notes_gate.py`

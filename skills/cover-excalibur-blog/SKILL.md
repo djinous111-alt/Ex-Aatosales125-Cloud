@@ -122,12 +122,24 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image job (preferred Kie API → MCP fallback)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+**Preferred (Cloud Secrets `KIE_API_KEY`):**
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --max-wait 900
+```
+
+- ONE gpt-image-2 image-to-image на весь quad 2×2.
+- На transient `failCode=500` / Internal Error скрипт **сам ретраит один** create+poll в том же batch (не запускай второй ручной job параллельно).
+- `max_wait` держи ≥900s.
+- Результат: `cover/quad-mcp-result.json` (+ `cover/kie-image-task.json` с task_id / failCode / retries_used).
+
+**Fallback:** `CallMcpTool` → `user-mcp-kv` / `gpt-image-2` с аргументами = `jobs[0].mcp_args` из batch.
+
+Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K. **Запрещено** 4 отдельных image call на cover+inline.
 
 ### Шаг 5 — apply
 

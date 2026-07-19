@@ -195,8 +195,15 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
         "результат", "получите", "сможете", "сэконом", "проверьте",
         "запустите", "соберите", "настройте", "исправьте", "выберите",
     ]
-    pain_markers = policy.get("pain_markers_ru") or default_pain
-    outcome_markers = policy.get("outcome_markers_ru") or default_outcome
+
+    def _markers_or_default(raw: Any, defaults: list[str]) -> list[str]:
+        if not isinstance(raw, list):
+            return list(defaults)
+        cleaned = [str(x).strip() for x in raw if str(x).strip()]
+        return cleaned or list(defaults)
+
+    pain_markers = _markers_or_default(policy.get("pain_markers_ru"), default_pain)
+    outcome_markers = _markers_or_default(policy.get("outcome_markers_ru"), default_outcome)
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 

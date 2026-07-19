@@ -4,10 +4,10 @@ Durable incident memory for repeated pipeline problems.
 
 Contract: `shared/pipeline-incident-fix-contract.md`
 
-## Open incidents
+## Incidents (AS05 run 2026-07-19 — fixer closed)
 
 ## INC-20260719-1732-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-publish
 topic_id: AS05
@@ -33,10 +33,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Added paramiko to `.cursor/Dockerfile` and `.cursor/cloud-agent-install.sh`.
+- Documented dependency in publish skill, pitfalls, CURSOR-CLOUD-RUNBOOK.
+files_changed:
+- `.cursor/Dockerfile`
+- `.cursor/cloud-agent-install.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+checks_run:
+- `python3 -c "import paramiko"`
+- doctor SUMMARY errors=0
+commit: pending-parent-commit
 
 ## INC-20260719-1732-publish-ledger-row-outside-table
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-publish
 topic_id: AS05
@@ -64,10 +79,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Added `scripts/excalibur_blog_ledger_utils.py` table-aware upsert.
+- `research_start.reserve_topic_in_ledger` and `upsert_publish_ledger` insert/replace only inside first markdown table.
+- Ledger template note: rows inside table; prose after table.
+files_changed:
+- `scripts/excalibur_blog_ledger_utils.py`
+- `scripts/excalibur_blog_research_start.py`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/published-articles.md`
+checks_run:
+- ledger upsert unit test (row before blockquote)
+- py_compile
+commit: pending-parent-commit
 
 ## INC-20260719-1732-publish-ssh-path-vs-root
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-publish
 topic_id: AS05
@@ -94,10 +123,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- `load_env` aliases `SSH_PATH` → `SSH_ROOT` when SSH_ROOT empty.
+- Documented in publish skill / pitfalls / runbook; prefer explicit SSH_ROOT=`.` in Dashboard.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+checks_run:
+- py_compile wp_publish
+- rg SSH_PATH in load_env
+commit: pending-parent-commit
 
 ## INC-20260719-1732-publish-precommit-hook-invalid-var
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-publish
 topic_id: AS05
@@ -122,10 +164,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Added `scripts/excalibur_blog_patch_cursor_precommit.sh` to skip non-identifier SECRET_NAME.
+- Hook patched on this VM; install script runs patch idempotently.
+- Dashboard: still prefer valid bash identifier secret names (human cleanup if any remain).
+files_changed:
+- `scripts/excalibur_blog_patch_cursor_precommit.sh`
+- `.cursor/cloud-agent-install.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+checks_run:
+- patch applied + idempotent re-run
+- grep EXCALIBUR_SKIP_NON_IDENTIFIER in pre-commit.cursor
+commit: pending-parent-commit
 
 ## INC-20260719-1727-indexer-precommit-hook-invalid-var
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-indexer
 topic_id: AS05
@@ -154,10 +210,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Same precommit harden as INC-1706/1732; indexer skill documents patch + safe --no-verify fallback.
+- Removed stale `--blog-path` from indexer llms command.
+files_changed:
+- `scripts/excalibur_blog_patch_cursor_precommit.sh`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- patch idempotent
+- rg --blog-path absent from indexer skill CLI
+commit: pending-parent-commit
 
 ## INC-20260719-1725-cover-kie-api-500-retry
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-cover
 topic_id: AS05
@@ -186,11 +255,22 @@ category: tool
 - none recorded (KIE_API_KEY used from env only)
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- `excalibur_blog_kie_gpt_image2_api.py` auto-retries once on failCode=500.
+- Cover skill documents preferred Kie path + retry + MCP fallback; pitfalls updated.
+files_changed:
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- py_compile kie script
+commit: pending-parent-commit
 
 ## INC-20260719-1715-geo-qa-typed-task-unavailable
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-geo-qa
 topic_id: AS05
@@ -221,10 +301,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Documented typed Task unavailable as expected Automation mode.
+- AGENTS.md / pitfalls / director agent+skill: always prepare generalPurpose per role.
+files_changed:
+- `AGENTS.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `agents/excalibur-blog-director.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+checks_run:
+- rg generalPurpose in AGENTS.md and director docs
+commit: pending-parent-commit
 
 ## INC-20260719-1710-writer-utility-pain-markers-empty
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-writer
 topic_id: AS05
@@ -258,10 +352,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Confirmed pain/outcome markers in editorial-policy; hardened utility_gate empty-list fallback.
+- Regression: empty policy lists still PASS with same marker counts as defaults.
+- Pitfalls note added.
+files_changed:
+- `scripts/excalibur_blog_utility_gate.py`
+- `memory/brief/editorial-policy.json`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- empty_markers_fallback PASS on AS05
+- utility AS05 PASS
+commit: pending-parent-commit
 
 ## INC-20260719-1701-director-today-as-regex
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-director
 topic_id: AS05
@@ -290,10 +397,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- today.py + scout_helper use `(?:AS|B)\d+` for cards and article dirs.
+- today suggests next unpublished P0 AS topic (AS01 after AS05 published).
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- today EXCALIBUR_SUGGESTED_TOPIC_ID=AS01
+- TOPIC_SELECTION=ready
+commit: pending-parent-commit
 
 ## INC-20260719-1701-director-doctor-llms-flag
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-director
 topic_id: AS05
@@ -318,10 +437,19 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- doctor checks `--blog-dir` instead of `--blog-path`.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- doctor OK llms generator supports --blog-dir
+- errors=0
+commit: pending-parent-commit
 
 ## INC-20260719-1701-director-as05-utility-h1
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-director
 topic_id: AS05
@@ -349,10 +477,22 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- AS01/AS03 h1+primary_query updated with utility markers; AS05 already had markers.
+- Scout skill + editorial-utility-only: gate before append.
+files_changed:
+- `memory/topics/blog-topics.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+checks_run:
+- utility gate AS01/AS03/AS05 PASS
+commit: pending-parent-commit
 
 ## INC-20260719-1705-research-notes-gate-tech-markers-ru
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-research
 topic_id: AS05
@@ -383,10 +523,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Word-boundary tech markers; classification uses topic card only (no ai-in-pain / ии-in-компании).
+- Research skill: GitHub≥3 only for tech cards.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- tech_marker_regression PASS
+commit: pending-parent-commit
 
 ## INC-20260719-1705-research-wordstat-empty-phrase
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-research
 topic_id: AS05
@@ -414,10 +566,21 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Research skill: empty/totalCount-only Wordstat → shorten query (cluster-first) and retry; do not block.
+- Pitfalls + Scout cluster-first reinforced.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg cluster-first / укороти in research skill
+commit: pending-parent-commit
 
 ## INC-20260719-1706-research-precommit-hook-invalid-var
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-research
 topic_id: AS05
@@ -444,7 +607,18 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Repo durable harden: patch_cursor_precommit.sh + install hook; skip non-identifier SECRET_NAME.
+- Optional human: rename Dashboard secrets to valid identifiers.
+files_changed:
+- `scripts/excalibur_blog_patch_cursor_precommit.sh`
+- `.cursor/cloud-agent-install.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- patch applied on hooksPath pre-commit.cursor
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -636,7 +810,6 @@ files_changed:
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
 commit: pending-parent-commit
-
 
 ## INC-20260616-2042-publish-ssh-root-dot
 status: fixed

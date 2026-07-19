@@ -31,6 +31,7 @@ PUBLISH_ENV_KEYS = {
     "SSH_PASS",
     "SSH_PASSWORD",
     "SSH_ROOT",
+    "SSH_PATH",  # Dashboard alias → mapped to SSH_ROOT in load_env
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
 }
 
@@ -55,6 +56,11 @@ def load_env(root: Path) -> dict[str, str]:
             env[key] = value
     if not env.get("SSH_PASS") and env.get("SSH_PASSWORD"):
         env["SSH_PASS"] = env["SSH_PASSWORD"]
+    # Cloud Secrets sometimes use SSH_PATH; publish code reads SSH_ROOT.
+    if not (env.get("SSH_ROOT") or "").strip():
+        alias = (env.get("SSH_PATH") or os.environ.get("SSH_PATH") or "").strip()
+        if alias:
+            env["SSH_ROOT"] = alias
     return env
 
 
@@ -514,34 +520,15 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
 def upsert_publish_ledger(root: Path, payload: dict[str, Any], permalink: str) -> None:
     if not permalink:
         return
-    ledger_path = root / "shared" / "published-articles.md"
-    ledger_path.parent.mkdir(parents=True, exist_ok=True)
-    if not ledger_path.is_file():
-        ledger_path.write_text(
-            "# Excalibur BLOG — журнал опубликованных статей\n\n"
-            "| date | topic_id | slug | url | status |\n"
-            "|------|----------|------|-----|--------|\n",
-            encoding="utf-8",
-        )
-
     from datetime import date
 
+    from excalibur_blog_ledger_utils import upsert_ledger_row
+
+    ledger_path = root / "shared" / "published-articles.md"
     topic_id = str(payload.get("topic_id") or "").upper()
     slug = str(payload.get("slug") or "")
     row = f"| {date.today().isoformat()} | {topic_id} | {slug} | {permalink} | published |"
-    lines = ledger_path.read_text(encoding="utf-8").splitlines()
-    replaced = False
-    for index, line in enumerate(lines):
-        if not line.startswith("|"):
-            continue
-        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
-        if len(cells) >= 2 and cells[1].upper() == topic_id:
-            lines[index] = row
-            replaced = True
-            break
-    if not replaced:
-        lines.append(row)
-    ledger_path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+    upsert_ledger_row(ledger_path, row, topic_id)
 
 
 def main() -> int:

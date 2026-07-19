@@ -1,5 +1,8 @@
 # Published articles ledger — Авто-Сейлс
 
+> Строки topic_id пишутся **только внутри** markdown-таблицы ниже.
+> Prose/blockquote — **после** таблицы. `research_start` / publish upsert не должны append после blockquote.
+
 | date | topic_id | slug | url | status |
 | --- | --- | --- | --- | --- |
 | 2026-07-17 | AS08 | samye-komfortnye-avto-myagkaya-podveska-2026 | [REDACTED]/2026/07/17/samye-komfortnye-avto-myagkaya-podveska-2026/ | published |

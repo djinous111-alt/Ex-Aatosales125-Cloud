@@ -75,9 +75,15 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 
 Допиши (append) карточку в конец `memory/topics/blog-topics.md`.
 
+**Перед append (обязательно):**
+- В `h1` **или** `primary_query` должен быть utility-маркер из editorial-policy (`как `, `чек-лист`, `сравнен`, `инструкция`, …). Иначе `research_start` / utility topic gate → `UTILITY TOPIC BLOCKER`.
+- Проверка: `python3 scripts/excalibur_blog_utility_gate.py --topic-id <ID>` → PASS.
+- Topic ID: `AS##` (Авто-Сейлс) или `B##`; helper понимает оба префикса.
+
 ---
 
 ## Блокеры скаута
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
 * Выдумывание цифр спроса без вызова Wordstat API.
+* Карточка без utility-маркера в h1/primary_query.

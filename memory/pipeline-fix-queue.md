@@ -58,7 +58,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → OK llms generator supports --blog-dir
 - `python3 scripts/excalibur_blog_llms_generator.py --help` shows --blog-dir only
 - `rg` no doctor check for --blog-path
-commit: 3240492
+commit: 8fad580
 
 ## INC-20260719-0926-cover-hero-host-upload
 status: fixed
@@ -103,7 +103,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
 - `rg` Host upload fallback in cover skills
-commit: 3240492
+commit: 8fad580
 
 
 ## INC-20260719-0922-schema-secret-scan-urls
@@ -149,7 +149,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` Commit hygiene in schema skills
-commit: 3240492
+commit: 8fad580
 
 
 ## INC-20260719-0915-geo-qa-utility-pain-markers-empty
@@ -198,7 +198,7 @@ checks_run:
 - utility gate AS01 PASS (pain=3 outcome=5)
 - utility gate AS09 PASS
 - empty-marker policy smoke: PASS with no pain/outcome errors
-commit: 3240492
+commit: 8fad580
 
 
 ## INC-20260719-0915-geo-qa-cta-literal-redacted
@@ -250,7 +250,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - link-verify on href=[REDACTED] → verdict fail / kind placeholder
-commit: 3240492
+commit: 8fad580
 
 
 ## INC-20260719-0910-research-secret-scan-serp
@@ -298,7 +298,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_start.py`
 - unit: redact_secret_collisions replaces PUBLIC_SITE_URL host with [REDACTED]
-commit: 3240492
+commit: 8fad580
 
 
 ## INC-20260719-1203-director-as-topic-regex
@@ -350,7 +350,7 @@ checks_run:
 - today without EXCALIBUR_TOPIC_ID → AS02
 - scout --suggest-next lists AS pool + WARN unpublished AS P0
 - py_compile today/scout_helper
-commit: 3240492
+commit: 8fad580
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

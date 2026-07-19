@@ -113,6 +113,7 @@ PAIN_MARKERS = (
     "хаос",
     "застр",
     "сложно",
+    "страх",
 )
 
 OUTCOME_MARKERS = (

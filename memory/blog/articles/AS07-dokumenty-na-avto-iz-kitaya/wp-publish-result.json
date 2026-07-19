@@ -1,0 +1,47 @@
+{
+  "slug": "dokumenty-na-avto-iz-kitaya",
+  "topic_id": "AS07",
+  "post_id": 3470,
+  "permalink": "[REDACTED]/2026/07/19/dokumenty-na-avto-iz-kitaya/",
+  "publish_method": "ssh",
+  "featured_image": 3471,
+  "inline_images": [3472, 3473, 3474],
+  "schema_meta": true,
+  "skip_theme_faq_meta": true,
+  "cover_evidence": {
+    "path": "memory/blog/articles/AS07-dokumenty-na-avto-iz-kitaya/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 876809,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3470 slug=dokumenty-na-avto-iz-kitaya\nOK featured_image=3471\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3472 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/07/dokumenty-na-avto-iz-kitaya-inline-01.png\nOK inline_image_upload=3473 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/07/dokumenty-na-avto-iz-kitaya-inline-02.png\nOK inline_image_upload=3474 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/07/dokumenty-na-avto-iz-kitaya-inline-03.png\npermalink=[REDACTED]/2026/07/19/dokumenty-na-avto-iz-kitaya/\n",
+  "verdict": "pass",
+  "republish": true,
+  "previous_false_pass_post_id": 3194,
+  "slug_freed_from_attachment": 3194,
+  "rest_verify": {
+    "by_id": {
+      "http_status": 200,
+      "id": 3470,
+      "status": "publish",
+      "type": "post",
+      "slug": "dokumenty-na-avto-iz-kitaya"
+    },
+    "by_slug": {
+      "http_status": 200,
+      "count": 1,
+      "id": 3470,
+      "status": "publish"
+    },
+    "permalink": {
+      "http_status": 200,
+      "content_type": "text/html",
+      "is_png": false,
+      "is_html": true,
+      "title_in_body": true
+    },
+    "verdict": "PASS"
+  },
+  "note": "Republish after INC-20260718-2148: freed slug from attachment 3194, created real post 3470; REST+HTML verified before ledger PASS"
+}

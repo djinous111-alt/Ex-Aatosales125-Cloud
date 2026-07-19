@@ -33,7 +33,7 @@
 | 0   | **Директор** | — (shell)                 | дата, SERP, **utility gate темы**, article_dir, reserve topic                              | research-context.json, research-serp.json, published-articles.md status=in_progress                       | обновить таблицу статуса                          |
 | ①   | **Research** | `excalibur-blog-research` | deep research на текущую дату, pain_solution_map, Wordstat, GitHub/docs/community evidence | research-notes.md, research-notes-gate.json                                                               | handoff `=== RESEARCH ===`                        |
 | ②   | **Writer**   | `excalibur-blog-writer`   | human longread 8.5–9.5k: боль → решение → результат, FAQ HTML, meta_ab                     | article.html, article.meta.json                                                                           | handoff `=== WRITER ===`                          |
-| ③   | **GEO QA**   | `excalibur-blog-geo-qa`   | QA-скрипты + research gate + utility gate + human voice gate, score ≥80                    | *-report.json, research-notes-gate.json, utility-gate-report.json, human-voice-report.json, article-qa.md | handoff `=== GEO QA ===`                          |
+| ③   | **GEO QA**   | `excalibur-blog-geo-qa` **или** `generalPurpose` | QA-скрипты + research gate + utility gate + human voice gate, score ≥80                    | *-report.json, research-notes-gate.json, utility-gate-report.json, human-voice-report.json, article-qa.md | handoff `=== GEO QA ===`                          |
 | ④a  | **Cover**    | `excalibur-blog-cover`    | ONE Kie API quad 2×2 i2i + design code + split → cover + 3 inline                          | canvas-quad.png, cover.png, inline-01..03, registry                                                       | fragment cover.md                                 |
 | ④b  | **Schema**   | `excalibur-blog-schema`   | BlogPosting + FAQPage JSON-LD                                                              | schema.jsonld                                                                                             | fragment schema.md                                |
 | ⑤   | **Indexer**  | `excalibur-blog-indexer`  | interlink --apply, llms.txt                                                                | article.html (links), llms*.txt, promotion-checklist                                                      | handoff `=== INDEXER ===`                         |
@@ -61,6 +61,19 @@
 **④a Cover || ④b Schema** — после ③ QA PASS.
 
 Нельзя параллелить: ①→②→③, ⑤ после ④, ⑥ после ⑤.
+
+### Cloud Task enum gap (GEO QA)
+
+Если `Task(excalibur-blog-geo-qa)` rejected (нет в `subagent_types`):
+
+```text
+Task(generalPurpose):
+  agent: .cursor/agents/excalibur-blog-geo-qa.md
+  skill: .cursor/skills/excalibur-geo-qa/SKILL.md
+  marker: === EXCALIBUR BLOG GEO QA ===
+```
+
+Не пропускай шаг ③ и не выполняй GEO QA в parent/Director.
 
 ## Промпты для Директора (копировать в Task)
 

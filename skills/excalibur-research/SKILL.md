@@ -39,13 +39,16 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 
 1. **Анализ спроса через Wordstat API:**
   Каждый прогон исследования **обязан** задействовать инструмент `wordstat_get_top_requests` сервера `user-mcp-kv` для анализа спроса:
-  - Вызови `wordstat_get_top_requests` для `primary_query` и ключевых `secondary_queries`.
+  - **Cluster-first:** сначала широкий parent-запрос кластера, затем узкий how-to / `primary_query`.
+  - Если ответ содержит только `totalCount` без списка top phrases — это **low-result signal**, не fatal. Расширь формулировку, повтори на parent-кластере; **не выдумывай** показы и LSI.
+  - Вызови `wordstat_get_top_requests` для `primary_query` и ключевых `secondary_queries` (после успешного broad cluster).
   - Если вызов вернул `401 Unauthorized` (токен устарел):
     - Запиши в `research-notes.md` предупреждение: `⚠️ WORDSTAT AUTH WARNING: Токен Wordstat устарел. Обновите токен через: https://oauth.yandex.ru/authorize?response_type=token&client_id=c654b948515a4a07a4c89648a0831d40`
     - Сделай экспертную оценку семантики, но явно укажи, что точные объемы спроса не получены из-за авторизации.
   - Если вызов успешен:
     - Сформируй в `research-notes.md` таблицу спроса: Фраза | Показы в месяц.
     - Выдели сопутствующие LSI-запросы из топа выдачи Вордстата для использования копирайтером.
+  - **Ссылки:** не цитируй hostname, который не резолвится (DNS NXDOMAIN). Canonical ЭПТС/СЭП: `https://elpts.ru` (не `portal.elpts.ru`).
 2. **Замена уличных поисковиков (DuckDuckGo) на WebSearch Курсора:**
   Мы **отказываемся** от ненадежных сторонних утилит и парсеров DuckDuckGo («уток»).
   - Агент имеет полноценный доступ в интернет через нативный инструмент `**WebSearch`** (или `WebFetch` для чтения конкретных страниц).

@@ -1,0 +1,18 @@
+{
+  "tool": "z-image",
+  "mode": "text-to-image-fallback",
+  "fallback_reason": "gpt-image-2 MCP HTTP -32001 timeout; no URL/task_id in MCP logs; KIE_API_KEY missing",
+  "task_id": "9a66dec5c7357d1d1d9f6d738763160e",
+  "result_url": "https://file.aiquickdraw.com/s/1784410090_2bd4450dddbe4e9d9e433ba1f660647f.png",
+  "url": "https://file.aiquickdraw.com/s/1784410090_2bd4450dddbe4e9d9e433ba1f660647f.png",
+  "aspect_ratio": "16:9",
+  "canvas_resized_to": [
+    2048,
+    1152
+  ],
+  "original_size": [
+    1344,
+    768
+  ],
+  "note": "AS06-documented fallback: ONE z-image 16:9 → Pillow 2048×1152 → split+inject"
+}

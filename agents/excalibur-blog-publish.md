@@ -33,12 +33,13 @@ is_background: false
 1. **Preflight:** link-verify с `--site-base` из `PUBLIC_SITE_URL`.
 2. **Dry-run:** `excalibur_blog_wp_publish.py --dry-run`.
 3. **Publish:** `excalibur_blog_wp_publish.py` без dry-run.
-4. **Fallback:** при timeout HTTP-триггера — WebFetch URL из `FALLBACK_TRIGGER_URL` → `memory/webfetch-response.txt`.
-5. **Ledger:** обновить `shared/published-articles.md`.
-6. **Logs:** дописать `memory/blog/wp-publish-log.md`.
-7. **Promotion:** Live URL в `promotion-checklist.md`.
-8. **Handoff:** блок `=== EXCALIBUR BLOG PUBLISH ===` + permalink в `=== EXCALIBUR BLOG (PIPELINE DONE) ===`.
-9. **Post-publish (опционально):** interlinker `--apply` для inbound-ссылок.
+4. **REST verify:** скрипт сам проверяет `GET /wp-json/wp/v2/posts/<id>` до ledger; при fail — не PASS. Агент дополнительно не объявляет PASS при REST 404 / image permalink.
+5. **Fallback:** при timeout HTTP-триггера — WebFetch URL из `FALLBACK_TRIGGER_URL` → `memory/webfetch-response.txt`.
+6. **Ledger:** только после `wp-publish-result.json` verdict=pass (REST ok).
+7. **Logs:** дописать `memory/blog/wp-publish-log.md`.
+8. **Promotion:** Live URL в `promotion-checklist.md`.
+9. **Handoff:** блок `=== EXCALIBUR BLOG PUBLISH ===` + permalink в `=== EXCALIBUR BLOG (PIPELINE DONE) ===`.
+10. **Post-publish (опционально):** interlinker `--apply` для inbound-ссылок.
 
 ## Preconditions
 
@@ -59,7 +60,8 @@ OK inline_image_upload=...
 permalink=https://avtosales125.ru/...
 ```
 
-`wp-publish-result.json` → `"verdict": "pass"`.
+`wp-publish-result.json` → `"verdict": "pass"` **и** `"rest_verify": {"ok": true}`.
+Не reuse stale attachment `post_id`; slug owned by media → ERR / rename orphan.
 
 ## Не твоя зона
 

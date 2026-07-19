@@ -118,16 +118,18 @@ def classify_link(href: str, site_base: str | None) -> str:
 
 
 def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
-    """Treat flaky social profile timeouts as warnings, not publish blockers."""
+    """Treat flaky social / *.gov.ru network failures as warnings, not blockers."""
     parsed = urlparse(href)
     host = parsed.netloc.lower()
     soft_hosts = {"t.me", "telegram.me", "wa.me", "vk.com"}
-    if host not in soft_hosts:
+    is_gov_ru = host == "gov.ru" or host.endswith(".gov.ru")
+    if host not in soft_hosts and not is_gov_ru:
         return False
     if result.get("status") is not None:
         return False
     error = str(result.get("error") or "").lower()
-    return any(token in error for token in ("timed out", "timeout", "ssl", "network"))
+    tokens = ("timed out", "timeout", "ssl", "network", "reset", "connection")
+    return any(token in error for token in tokens)
 
 
 def verify_article(
@@ -180,7 +182,11 @@ def verify_article(
             r["checked_url"] = check_target
         if kind == "external" and is_soft_external_failure(href, r):
             r["ok"] = True
-            r["warning"] = "soft external social timeout; verify manually if needed"
+            host = urlparse(href).netloc.lower()
+            if host == "gov.ru" or host.endswith(".gov.ru"):
+                r["warning"] = "soft external *.gov.ru TLS/network failure; verify manually if needed"
+            else:
+                r["warning"] = "soft external social timeout; verify manually if needed"
         results.append(r)
 
     failed = [r for r in results if not r.get("ok")]

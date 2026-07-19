@@ -6,6 +6,77 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260719-0910-research-secret-scan-serp
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-research
+topic_id: AS01
+article_dir: memory/blog/articles/AS01-rastamozhka-avto-iz-korei-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secrets scanner crashed when `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a non-bash-identifier name (looks like a URL), via `${!SECRET_NAME}`.
+- After filtering invalid names, commit was blocked because `research-serp.json` from `research_start` contained the value of `PUBLIC_SITE_URL` in a SERP hit URL.
+
+### How the agent recovered this run
+- Filtered secret names to valid Python/bash identifiers before re-running the hook.
+- Replaced the site URL value in `research-serp.json` with `[REDACTED]` and committed only AS01 research artifacts.
+- Left director-touched ledger/topics/fix-queue unstaged for the director.
+
+### Durable fix needed before next run
+- `excalibur_blog_research_start.py` (or SERP writer) must redact `PUBLIC_SITE_URL` / site host from `research-serp.json` before write.
+- Pre-commit / Cloud secrets injection: skip non-identifier names in `CLOUD_AGENT_INJECTED_SECRET_NAMES` instead of crashing.
+- Pitfalls note: do not commit raw SERP dumps that embed the public site host as a "secret" collision.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_start.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `/root/.cursor/agent-hooks/` pre-commit secrets scanner (env injection)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20260719-1203-director-as-topic-regex
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-director
+topic_id: AS01
+article_dir: memory/blog/articles/AS01-rastamozhka-avto-iz-korei-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_today.py` и `excalibur_blog_scout_helper.py` матчат только `B\d+`, поэтому пул AS01–AS09 в `blog-topics.md` невидим → ложный `needs_scout`.
+- AS08/AS09 article dirs тоже не считаются active (`(B\d+)-` only).
+- AS01/AS03/AS05 не на WP, но utility gate блокировал AS01 из‑за h1 без маркера «как/чек-лист».
+
+### How the agent recovered this run
+- Выставлен `EXCALIBUR_TOPIC_ID=AS01`.
+- В карточке AS01 h1 добавлен маркер «Как проходит…».
+- `utility_gate` PASS → `research_start` зарезервировал AS01 in_progress.
+
+### Durable fix needed before next run
+- Regex topic IDs: `(?:AS|B)\d+` в today.py, scout_helper.py (парсинг pool + active dirs + next B/AS id).
+- Документировать в pitfalls: AS-пул Авто-Сейлс; не запускать Scout, пока есть unpublished AS P0.
+- Опционально: utility gate / editorial — допускать how_to intent без слова «как» в h1, если search_intent=how_to|checklist|comparison.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/topics/blog-topics.md` (AS03/AS05 h1 markers)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

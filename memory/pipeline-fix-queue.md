@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260719-1715-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-geo-qa
+topic_id: AS05
+article_dir: memory/blog/articles/AS05-svh-vladivostok-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud/Automation не принимает typed Task `excalibur-blog-geo-qa` (и родственные `excalibur-blog-*` types).
+- Роль GEO QA пришлось запускать через fallback `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Выполнен полный GEO QA контракт в generalPurpose: все QA-скрипты, `human-voice-report.json` PASS, `article-qa.md` overall PASS.
+- Single-agent pipeline не использовался: роль = одна Task/subagent scope (GEO QA only).
+
+### Durable fix needed before next run
+- Зарегистрировать typed Task types `excalibur-blog-*` в Cloud/Automation Task catalog **или**
+- Зафиксировать в runbook/automation prompt постоянный fallback: `Task(generalPurpose)` per role с путями agent+skill (уже в AGENTS.md / pitfalls — проверить, что automation template всегда передаёт fallback явно).
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `CLOUD-AUTOMATION.md`
+- Cursor Automation / Cloud Task type config (вне репо)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260719-1710-writer-utility-pain-markers-empty
 status: open
 run_date: 2026-07-19

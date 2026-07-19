@@ -28,12 +28,15 @@
     "description_aeo": "СВХ Владивосток – склад временного хранения до выпуска. Закон даёт до 4 месяцев, льгота склада обычно 5–10 суток с выгрузки судна."
   },
   "geo_qa": {
-    "score": 0,
-    "verdict": "PENDING",
+    "score": 87,
+    "verdict": "PASS",
     "date": "2026-07-19",
-    "html_linter": "PENDING",
-    "slop_score": "PENDING",
-    "cannibalization": "PENDING"
+    "html_linter": "PASS",
+    "slop_score": "WARNING",
+    "cannibalization": "PASS",
+    "utility_gate": "PASS",
+    "human_voice": "PASS",
+    "core_eeat": "19/20"
   },
   "cover_family": "brand_collage"
 }

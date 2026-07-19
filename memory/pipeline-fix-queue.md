@@ -7,7 +7,7 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 ## INC-20260719-1320-geo-qa-utility-defaults-missing
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-geo-qa
 topic_id: AS03
@@ -40,7 +40,11 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Director applied DEFAULT pain/outcome markers + resolve_marker_lists from 0ebb811 into utility_gate.py and editorial-policy.json; article utility PASS.
+commit: pending-parent-commit
 
 ## INC-20260719-1321-geo-qa-typed-task-fallback
 status: open
@@ -178,7 +182,7 @@ category: script
 - pending
 
 ## INC-20260719-1304-director-as-regex-today
-status: open
+status: fixed
 run_date: 2026-07-19
 role: excalibur-blog-director
 topic_id: AS03
@@ -211,7 +215,11 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Director restored AS|B regex in today.py/scout_helper from 0ebb811; doctor llms --blog-dir check patched; doctor errors=0.
+commit: pending-parent-commit
 
 ## INC-20260719-1304-director-as03-utility-markers
 status: open

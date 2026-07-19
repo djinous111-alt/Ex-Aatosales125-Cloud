@@ -24,6 +24,7 @@ category: docs
 ### How the agent recovered this run
 - Ran `python3 scripts/excalibur_blog_llms_generator.py --help` and used current flags only: `--blog-dir`, `--site-base`, `--out-dir`, `--site-name`.
 - Generated `memory/blog/llms.txt` and `memory/blog/llms-full.txt` successfully (3 articles incl. AS01).
+- First commit blocked by secret-scan (`PUBLIC_SITE_URL` in llms/checklist); redacted site base to `[REDACTED]` in committed artifacts, then recommitted.
 
 ### Durable fix needed before next run
 - Remove `--blog-path` from doctor check OR restore the flag in llms generator if still required.

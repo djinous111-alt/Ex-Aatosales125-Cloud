@@ -29,8 +29,8 @@
     "description_aeo": "Аукционный лист Японии читают до депозита: общая оценка, салон A–E, схема W/X/XX/S/C, перевод примечаний и сверка с фото."
   },
   "geo_qa": {
-    "score": 74,
-    "verdict": "FAIL",
+    "score": 88,
+    "verdict": "PASS",
     "date": "2026-07-20",
     "html_linter": "PASS",
     "slop_score": "PASS",
@@ -40,9 +40,9 @@
     "utility_gate": "PASS",
     "human_voice": "PASS",
     "research_notes_gate": "PASS",
-    "core_eeat": "17/20",
+    "core_eeat": "19/20",
     "writer_fix": "2026-07-20-cta-markers",
-    "note": "local recheck after writer FIX; full GEO QA score pending re-run"
+    "note": "re-QA after Writer FIX: all gates PASS"
   },
   "cover_family": "brand_collage"
 }

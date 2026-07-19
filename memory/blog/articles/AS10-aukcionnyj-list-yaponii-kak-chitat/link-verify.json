@@ -5,14 +5,13 @@
   "verdict": "pass",
   "links": [
     {
-      "url": "[REDACTED]",
+      "url": "[REDACTED]/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "external",
-      "skipped": false,
-      "url_redacted_for_commit": true
+      "skipped": false
     },
     {
       "url": "[REDACTED]",
@@ -21,8 +20,7 @@
       "method": "HEAD",
       "error": null,
       "kind": "external",
-      "skipped": false,
-      "url_redacted_for_commit": true
+      "skipped": false
     }
   ]
 }

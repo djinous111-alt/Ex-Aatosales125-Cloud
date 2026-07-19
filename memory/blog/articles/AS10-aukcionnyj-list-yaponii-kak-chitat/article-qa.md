@@ -4,45 +4,46 @@
 **slug:** aukcionnyj-list-yaponii-kak-chitat  
 **article_dir:** memory/blog/articles/AS10-aukcionnyj-list-yaponii-kak-chitat  
 **date:** 2026-07-20  
-**verdict:** FAIL  
-**score:** 74
+**verdict:** PASS  
+**score:** 88  
+**cycle:** re-QA after Writer FIX
 
 ## Scripts
 
 | Script | Verdict | Notes |
 |--------|---------|-------|
-| research-notes-gate | PASS | warning: false `technical_topic` (см. INC-0010) |
+| research-notes-gate | PASS | warning: false `technical_topic` (INC-0010) |
 | fact-check | PASS | 2/2 verified (2026; 20 минут) |
-| link-verify | FAIL | 1/1 failed: literal `href="[REDACTED]"` → 404 as internal_relative |
-| html-linter | PASS | whitelist OK; TOC нет |
-| slop-detector | PASS | 0 клише; 3 over-long (таблица/схема); Flesch RU 64.1 |
+| link-verify | PASS | 2/2 OK (catalog + Telegram, HTTP 200) |
+| html-linter | PASS | whitelist OK; TOC нет; инсайт «Коротко:» |
+| slop-detector | PASS | 0 клише; 3 over-long (таблица/схема); Flesch RU 63.1 |
 | cannibalization | PASS | 0 issues (3 metas loaded) |
-| utility gate | BLOCK | action_markers 1<8 (pain/outcome OK после restore AS02 policy) |
-| human-voice gate | BLOCK | outcome_markers 2<3 (`результат`, `проверьте`) |
+| utility gate | PASS | action_markers 27 (≥8); pain 3; outcome 7 |
+| human-voice gate | PASS | outcome: результат, получите, сможете, проверьте, выберите |
 
 ## Pain / solution / beginner-fit
 
 | Вопрос | Ответ |
 |--------|--------|
 | Боль новичка | Шифр листа (4/4.5/R/A1/W…) → страх депозита «на красивую оценку» и скрытый ремонт |
-| Где решение | H2: правило до депозита → шапка → оценки/салон → схема/примечания → фото → чек-лист → первый результат |
-| Первый результат | За 15–20 мин закрыть чек-лист и сказать «беру / не беру / уточнение» с причиной |
+| Где решение | H2: правило до депозита → шапка → оценки/салон → схема/примечания → фото → чеклист → первый результат |
+| Первый результат | За 15–20 мин закрыть чеклист и сказать «беру / не беру / уточнение» с причиной |
 | Термины «на пальцах» | 4/4.5/5, R/RA, салон A–E, A/U/W/X/XX/S/C — таблица + ul-легенда |
-| beginner-fit | PASS (не профи-тон; есть безопасный первый шаг без команды) |
+| beginner-fit | PASS (не профи-тон; безопасный первый шаг без команды) |
 
 ## Scores
 
 | Блок | Балл | Комментарий |
 |------|------|-------------|
-| SEO structure | 15/20 | Primary в title/H1; H2 action; CTA-ссылки битые |
-| GEO / citability | 22/25 | Инсайт, схема, таблица, FAQ×7, чеклист 12 |
-| CORE-EEAT lite | 17/20 | см. таблицу ниже |
-| Human voice | 10/15 | concrete/pain OK; outcome <3 маркеров |
+| SEO structure | 17/20 | Primary в title/H1; H2 action; CTA живые; нет 2–3 blog internal |
+| GEO / citability | 22/25 | Коротко-инсайт, схема, таблица, FAQ×7, чеклист 12 |
+| CORE-EEAT lite | 14/15 | 19/20 — см. таблицу ниже |
+| Human voice | 15/15 | human-voice PASS; concrete/pain/outcome OK |
 | Fact safety | 13/15 | fact-check PASS; источники в Fact Box |
-| Contract HTML | 7/10 | linter PASS; literal `[REDACTED]` href; ярлык TL;DR |
-| **Итого** | **74/100** | |
+| Contract HTML | 10/10 | linter PASS; живые CTA; ярлык без TL;DR |
+| **Итого** | **88/100** | |
 
-## CORE-EEAT lite: 17/20
+## CORE-EEAT lite: 19/20
 
 | ID | Result | Comment |
 |----|--------|---------|
@@ -54,62 +55,61 @@
 | O02 | ✓ | Логичный outline до FAQ |
 | O03 | ✓ | FAQ 7 |
 | O04 | ✓ | ol 5 + ul чеклист + table; mode B |
-| R01 | ✓ | Инсайт + порядок + FAQ |
+| R01 | ✓ | Инсайт «Коротко» + порядок + FAQ |
 | R02 | ✓ | Нюанс TAA vs USS 2026; источники в Fact Box |
 | R03 | ✓ | Нет выдуманных цен лотов |
 | R04 | ✓ | FAQ отвечает в 1-м предложении |
 | E01 | ✓ | Угол «до депозита» |
-| E02 | ✓ | «Делать / Не делать» (но utility считает только «сделайте/не делайте») |
-| E03 | ✗ | CTA href = literal `[REDACTED]` (не живые URL) |
+| E02 | ✓ | «Сделайте / Не делайте» (≥8 utility markers) |
+| E03 | ✓ | CTA: каталог + Telegram (живые https, link-verify PASS) |
 | Exp01 | ✓ | Mode B, reader_story Андрей |
 | Exp02 | ✓ | Тон Авто-Сейлс / research |
 | Exp03 | ✓ | Slop hits = 0 |
 | Ept01 | ✓ | Лимиты R/RA, XX≠рама, расхождение шкал |
-| Ept02 | ✗ | Нет 2–3 internal blog links (только каталог+TG, и те битые) |
+| Ept02 | ✗ | Нет 2–3 internal blog links (только каталог + Telegram) |
 
 **Target:** ≥16/20 ✓ · veto (R03 / Exp01 / slop≥2): нет  
-**Gate blockers:** score≥80 ✗ · link-verify ✗ · utility ✗ · human-voice ✗
+**Gate blockers:** нет
 
 ## Link verify
 
-- total: 1 unique broken pattern (оба CTA = literal `[REDACTED]`)
-- failed: 1 (HTTP 404, kind=internal_relative)
+- total: 2, failed: 0
 - see `link-verify.json`
 
 ## AI-slop scan
 
 - cliches: 0
-- over-long: 3
-- Flesch RU: 64.1
+- over-long: 3 (артефакт таблицы/схемы)
+- Flesch RU: 63.1
 
 ## Schema ready
 
-BlogPosting: pending (после PASS) | FAQPage: yes (7) | HowTo: yes | cover/schema: **не запускать** до PASS
+BlogPosting: yes | FAQPage: yes (7) | HowTo: yes (чеклисты) | Review: no | cover/schema: можно запускать
 
 ## Blockers
 
-1. **link-verify FAIL** — в `article.html` стоят буквальные `href="[REDACTED]"` (не живые URL).
-2. **utility gate BLOCK** — `action_markers=1` (нужно ≥8 из `recommendation_markers_ru`).
-3. **human-voice BLOCK** — outcome_markers только 2 из ≥3.
+- нет
 
-## Durable fix applied this run (GEO QA)
+## FIX cycle closed (Writer → re-QA)
 
-- Восстановлен патч AS02: `pain_markers_ru` / `outcome_markers_ru` в `memory/brief/editorial-policy.json` + enforce-only-if-configured в `scripts/excalibur_blog_utility_gate.py` (регрессия после rebrand; AS09 utility снова PASS).
+1. CTA literal `[REDACTED]` → живые CATALOG_URL / TELEGRAM_URL → link-verify PASS  
+2. Utility action-маркеры ≥8 → 27 → PASS  
+3. Human-voice outcome ≥3 → 5 маркеров → PASS  
+4. Инсайт-ярлык → «Коротко:» (без TL;DR)
 
-## FIX → Writer (цикл 1) — не longread с нуля
+## FIX (non-blocking / optional)
 
-1. **CTA URLs:** заменить оба literal `href="[REDACTED]"` на абсолютные https из env `CATALOG_URL` / `TELEGRAM_URL` (как AS09). Не копировать плейсхолдер `[REDACTED]`.
-2. **Utility action-маркеры ≥8:** вплести слова из policy: `сделайте`, `не делайте`, `проверьте`, `используйте`, `избегайте`, `чеклист` (без дефиса), `шаг `, `добавьте` / `уберите`. Сейчас «Делать:/Не делать:» **не** считаются; в тексте только 1×«проверьте».
-3. **Human-voice outcome ≥3 разных маркера:** добавить ещё ≥1 из: `получите`, `сможете`, `выберите`, `сэконом…`, `соберите`, `настройте`, `исправьте` (уже есть `результат` + `проверьте`).
-4. **Опционально (skill soft):** ярлык инсайта без шаблона `TL;DR` / `Быстрый инсайт` — переименовать в нейтральное («Коротко:» / «Суть:»), смысл блока сохранить.
+1. **Ept02:** после URL других постов AS* на сайте — 2–3 internal links с `anchor_variants`.  
+2. **slop over-long:** артефакт таблицы; правки не критичны.
 
 ## Gate
 
-- score ≥ 80 → **74** ✗  
-- CORE-EEAT ≥ 16/20 → **17/20** ✓  
-- link-verify → FAIL ✗  
+- score ≥ 80 → **88** ✓  
+- CORE-EEAT ≥ 16/20 → **19/20** ✓  
+- link-verify → PASS ✓  
 - research-notes-gate → PASS ✓  
-- utility gate → BLOCK ✗  
-- human-voice → BLOCK ✗  
+- utility gate → PASS ✓  
+- human-voice → PASS ✓  
+- beginner-fit → PASS ✓  
 
-**Итог:** FAIL — cover \|\| schema **не** запускать. Вернуть Writer по FIX 1–4. Policy pain/outcome уже восстановлен в этом run.
+**Итог:** PASS — можно cover \|\| schema.

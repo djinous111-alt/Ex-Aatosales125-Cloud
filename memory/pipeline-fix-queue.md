@@ -6,6 +6,162 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260719-1701-director-today-as-regex
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-director
+topic_id: AS05
+article_dir: memory/blog/articles/AS05-svh-vladivostok-2026
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_today.py` и `scripts/excalibur_blog_scout_helper.py` матчат только `B\d+` в topic cards и article dirs.
+- При наличии unpublished P0 `AS05` today вернул `EXCALIBUR_TOPIC_SELECTION=needs_scout` и пустой `EXCALIBUR_SUGGESTED_TOPIC_ID`.
+- Ранее claimed fix «AS|B regex» не присутствует в текущем коде ветки.
+
+### How the agent recovered this run
+- Директор вручную выбрал unpublished P0 AS05 (нет в ledger/WP как отдельный пост) и продолжил без Scout.
+
+### Durable fix needed before next run
+- Заменить regex на `(?:AS|B)\d+` в `next_p0_topic`, `active_article_topic_ids` и scout_helper аналогах.
+- Добавить regression test / doctor check на AS-prefixed topics.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260719-1701-director-doctor-llms-flag
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-director
+topic_id: AS05
+article_dir: memory/blog/articles/AS05-svh-vladivostok-2026
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` проверяет `llms generator supports --blog-path`.
+- Актуальный CLI `excalibur_blog_llms_generator.py` принимает только `--blog-dir` → doctor SUMMARY errors=1.
+
+### How the agent recovered this run
+- Продолжили пайплайн; indexer будет использовать `--blog-dir` (как в pitfalls/memory).
+
+### Durable fix needed before next run
+- В doctor заменить проверку `--blog-path` → `--blog-dir`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260719-1701-director-as05-utility-h1
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-director
+topic_id: AS05
+article_dir: memory/blog/articles/AS05-svh-vladivostok-2026
+severity: low
+category: docs
+
+### What went wrong
+- Карточка AS05: h1/primary_query без utility-маркера → `UTILITY TOPIC BLOCKER` на research_start.
+- AS01/AS03 в пуле также BLOCK по тому же правилу (не стартовали).
+
+### How the agent recovered this run
+- Обновили h1 AS05: «как пройти транзит…»; secondary добавили «как работает свх владивосток»; utility gate PASS.
+
+### Durable fix needed before next run
+- Scout/editorial checklist: перед append карточки обязателен маркер в h1 или primary_query.
+- Прогнать utility_gate по всем AS* карточкам и починить AS01/AS03 заголовки.
+
+### Suggested files to inspect/change
+- `memory/topics/blog-topics.md`
+- `shared/editorial-utility-only.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260719-1705-research-notes-gate-tech-markers-ru
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-research
+topic_id: AS05
+article_dir: memory/blog/articles/AS05-svh-vladivostok-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` → `is_technical_topic()` ищет TECH_MARKERS как подстроки без границ слова.
+- В русских notes ложные срабатывания: `ии` внутри «компании»/«операции», `ai` внутри `reader_pain` / «pain».
+- Логистическая тема AS05 (СВХ) помечалась `technical_topic: true` и требовала `github_urls >= 3`.
+
+### How the agent recovered this run
+- Добавлены 3 смежных GitHub URL (MicrosoftDocs customs RU, tkssoft ТН ВЭД docs, gist парсер ТН ВЭД) в `github_evidence`.
+- Gate PASS с warning про official docs URL.
+
+### Durable fix needed before next run
+- Заменить substring-match на word-boundary / токены; исключить ложные `ai`/`ии` в кириллице.
+- Не требовать GitHub для non-tech ниш (автологистика, растаможка) либо принимать `community_evidence` как эквивалент.
+- Добавить regression: fixture research-notes с `reader_pain` + «компании» без github → не technical.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260719-1705-research-wordstat-empty-phrase
+status: open
+run_date: 2026-07-19
+role: excalibur-blog-research
+topic_id: AS05
+article_dir: memory/blog/articles/AS05-svh-vladivostok-2026
+severity: low
+category: api
+
+### What went wrong
+- `wordstat_get_top_requests` для длинных secondary (`свх авто владивосток стоимость транзита`, `как работает свх владивосток`) вернул пустой/`{"totalCount":"1"}` без списка фраз.
+- Skill/контракт не описывают retry на укороченных cluster-first формулировках.
+
+### How the agent recovered this run
+- Повтор с короткими фразами (`свх авто владивосток`, `сколько стоит свх во владивостоке`, `свх что это`) — данные получены и записаны в wordstat-таблицу; пустые фразы явно помечены как незафиксированные.
+
+### Durable fix needed before next run
+- В research skill: при пустом Wordstat ответе автоматически ретраить укороченный query; не блокировать research.
+- Опционально: нормализовать пустой ответ MCP в явную ошибку/warning в notes template.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

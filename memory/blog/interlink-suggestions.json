@@ -1,6 +1,14 @@
 {
-  "site_base": "https://avtosales125.ru",
-  "total_articles": 2,
-  "opportunities_found": 0,
-  "suggestions": []
+  "site_base": "[REDACTED]",
+  "total_articles": 3,
+  "opportunities_found": 1,
+  "suggestions": [
+    {
+      "source": "AS03-avto-iz-korei-ili-yaponii-2026",
+      "target": "AS09-trust-encar-carhistory-proverka-do-depozita",
+      "keyword": "trust encar",
+      "context": "циона. До депозита нужны история/осмотр (связка с гайдом по Trust Encar и Carhistory). Япония: читайте аукционный лист с менеджером",
+      "link_replacement": "<a href=\"/blog/trust-encar-carhistory-proverka-do-depozita/\">Trust Encar</a>"
+    }
+  ]
 }

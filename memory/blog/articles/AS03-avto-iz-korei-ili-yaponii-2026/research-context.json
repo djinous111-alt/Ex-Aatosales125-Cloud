@@ -1,0 +1,95 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-19",
+    "today_ru": "19.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-20",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-19 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS03",
+    "priority": "P0",
+    "slug": "avto-iz-korei-ili-yaponii-2026",
+    "h1": "Авто из Кореи или Японии: как сравнить и что выгоднее под полную пошлину в 2026",
+    "primary_query": "как выбрать авто из кореи или японии",
+    "secondary_queries": [
+      "авто из кореи или японии что выгоднее",
+      "сравнение авто азия",
+      "что выгоднее корея япония"
+    ],
+    "search_intent": "comparison",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS03",
+    "status": "PASS",
+    "search_intent": "comparison",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "как выбрать авто из кореи или японии 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "как выбрать авто из кореи или японии июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "как выбрать авто из кореи или японии новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com как выбрать авто из кореи или японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "как выбрать авто из кореи или японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "как выбрать авто из кореи или японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "авто из кореи или японии что выгоднее 2026",
+      "purpose": "вторичный запрос: авто из кореи или японии что выгоднее"
+    },
+    {
+      "id": "secondary_2",
+      "query": "сравнение авто азия 2026",
+      "purpose": "вторичный запрос: сравнение авто азия"
+    },
+    {
+      "id": "secondary_3",
+      "query": "что выгоднее корея япония 2026",
+      "purpose": "вторичный запрос: что выгоднее корея япония"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Авто из Кореи или Японии: как сравнить и что выгоднее под полную пошлину в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS03-avto-iz-korei-ili-yaponii-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

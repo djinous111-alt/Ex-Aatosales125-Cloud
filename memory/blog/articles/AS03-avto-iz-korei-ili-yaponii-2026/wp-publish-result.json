@@ -1,0 +1,15 @@
+{
+  "slug": "avto-iz-korei-ili-yaponii-2026",
+  "topic_id": "AS03",
+  "permalink": "https://[REDACTED]/2026/07/19/avto-iz-korei-ili-yaponii-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/AS03-avto-iz-korei-ili-yaponii-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1327961,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3517 slug=avto-iz-korei-ili-yaponii-2026\nOK featured_image=3518\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3519 src=cover/inline-01.png url=https://[REDACTED]/wp-content/uploads/2026/07/avto-iz-korei-ili-yaponii-2026-inline-01.png\nOK inline_image_upload=3520 src=cover/inline-02.png url=https://[REDACTED]/wp-content/uploads/2026/07/avto-iz-korei-ili-yaponii-2026-inline-02.png\nOK inline_image_upload=3521 src=cover/inline-03.png url=https://[REDACTED]/wp-content/uploads/2026/07/avto-iz-korei-ili-yaponii-2026-inline-03.png\npermalink=https://[REDACTED]/2026/07/19/avto-iz-korei-ili-yaponii-2026/\n",
+  "verdict": "pass"
+}

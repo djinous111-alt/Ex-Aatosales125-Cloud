@@ -1,0 +1,36 @@
+{
+  "source": "memory/blog/articles/AS03-avto-iz-korei-ili-yaponii-2026/article.html",
+  "total_links": 3,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "https://avto-sales125.ru",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://[REDACTED]/blog/trust-encar-carhistory-proverka-do-depozita/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "https://[REDACTED]/blog/trust-encar-carhistory-proverka-do-depozita/"
+    },
+    {
+      "url": "https://telegram.me/avtosales125",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

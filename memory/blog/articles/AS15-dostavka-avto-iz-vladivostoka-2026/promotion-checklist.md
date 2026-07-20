@@ -1,7 +1,7 @@
 # Promotion checklist — AS15 dostavka-avto-iz-vladivostoka-2026
 
-Дата публикации: 2026-07-21 (pending publish)  
-Live URL: (заполнить после WP publish) /blog/dostavka-avto-iz-vladivostoka-2026/
+Дата публикации: 2026-07-21
+Live URL: /2026/07/21/dostavka-avto-iz-vladivostoka-2026/  <!-- pragma: allowlist secret -->
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Ж/д 10–14 в пути часто = 20–45 до выдачи
 • Перегон «дешевле» съедают авиа, топливо и сколы
 
-Читать: (URL после publish)
+Читать: /2026/07/21/dostavka-avto-iz-vladivostoka-2026/
 ```
 
 ## Перелинковка
@@ -48,4 +48,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir …/AS15-… --site-base $PUBLIC_SITE_URL` — opportunities_found=0 (total_articles=3).
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (AS15 в индексе).
-- next: publish.
+- published: WP post 3553; featured 3566; inline 3567/3568/3569; schema_meta ok.

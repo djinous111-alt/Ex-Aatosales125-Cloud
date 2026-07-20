@@ -1,5 +1,5 @@
 {
-  "source": "memory/blog/articles/AS15-dostavka-avto-iz-vladivostoka-2026/article.html",
+  "source": "/workspace/memory/blog/articles/AS15-dostavka-avto-iz-vladivostoka-2026/article.html",
   "total_links": 4,
   "failed_count": 0,
   "verdict": "pass",
@@ -25,7 +25,7 @@
       "checked_url": "/2026/07/20/sbkts-i-epts-vladivostok-2026/"
     },
     {
-      "url": "",
+      "url": "${CATALOG_URL}",
       "status": 200,
       "ok": true,
       "method": "HEAD",

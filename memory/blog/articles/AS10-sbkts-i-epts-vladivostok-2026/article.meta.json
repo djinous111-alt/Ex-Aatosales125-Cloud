@@ -12,7 +12,7 @@
     "сбктс владивосток",
     "эптс получить"
   ],
-  "char_count": 9487,
+  "char_count": 9479,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -29,5 +29,5 @@
     "description_aeo": "После выпуска таможней во Владивостоке нужны СБКТС аккредитованной лаборатории и ЭПТС со статусом действующий; для физлица УВЭОС часто не обязательна до 31.12.2027."
   },
   "cover_family": "brand_collage",
-  "cta_urls_note": "href placeholders [REDACTED]; reinject CATALOG_URL, TELEGRAM_URL, PUBLIC_SITE_URL at publish"
+  "cta_urls_note": "QA reinjected CATALOG_URL, TELEGRAM_URL, PUBLIC_SITE_URL from env for link-verify; redact before commit if secret-scan blocks"
 }

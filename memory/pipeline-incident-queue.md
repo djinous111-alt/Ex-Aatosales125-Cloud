@@ -56,11 +56,13 @@ category: script
 - `excalibur_blog_research_notes_gate.py` при относительном `-o` пишет файл как `article_dir / -o`.
 - Вызов с `-o memory/blog/articles/AS10-.../research-notes-gate.json` создал вложенный путь `article_dir/memory/blog/articles/.../research-notes-gate.json` вместо файла в корне article_dir.
 - Дополнительно: маркер `github` в `github_evidence` включает `is_technical_topic=True` для не-tech ниши (Авто-Сейлс), из-за чего gate требует ≥3 github URL даже для регуляторной темы.
+- `research-serp.json` из research_start содержал абсолютный URL публичного сайта (= env PUBLIC_SITE_URL); commit hook заблокировал коммит.
 
 ### How the agent recovered this run
 - Повторный запуск с `-o research-notes-gate.json` (файл в корне article_dir).
 - Удалил ошибочное вложенное дерево `article_dir/memory/`.
 - Добавил 3 github URL в notes (слабый сигнал ниши) + help.elpts.ru для official docs.
+- Заменил значения PUBLIC_SITE_URL в `research-serp.json` на `[REDACTED]` перед коммитом.
 
 ### Durable fix needed before next run
 - Документировать в research skill: `-o research-notes-gate.json`, не полный repo-relative path.

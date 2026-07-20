@@ -68,3 +68,6 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+## Technical topic gate
+
+- `is_technical_topic` uses word-boundary markers; topic_id prefix `AS*` is non-tech by default (customs how-to). Do not pad fake GitHub URLs for AS* false positives.

@@ -77,6 +77,20 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
 
     cover = slot("cover")
     i1, i2, i3 = slot("inline_1"), slot("inline_2"), slot("inline_3")
+    scene_hint = compact(cover.get("scene_hint", ""), 320)
+    outfit_rule = compact(
+        hero.get("outfit_rule")
+        or "Match outfit to scene weather and article topic; smart casual for customs/docs; NO hoodie unless scene_hint explicitly asks; NO cap, NO hood.",
+        220,
+    )
+    # Prefer scene_hint outfit; never hardcode white hoodie (conflicts with blog-hero NO hood).
+    outfit_line = (
+        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. "
+        f"Outfit: follow scene_hint and blog-hero outfit_rule ({outfit_rule}). "
+        "NO cap, NO hood, NO hoodie unless scene_hint explicitly requests a hoodie. "
+        "Vary pose, gesture, angle, expression, props and composition every cover. "
+        "No headphones/headset/earbuds. Do not copy reference clothing."
+    )
 
     lines = [
         "Russian human-made Excalibur BLOG hook collage on PURE WHITE #FFFFFF. Zine/trash-design: torn paper, scotch tape, pink notes, marker arrows, fake RU UI screenshots, meme cutouts. DESIGN.md-inspired bold readable Cyrillic; rotate hot accents (hot pink/purple/blue/orange); keep stickers/memes/collage; no price badges. Not corporate, not stock.",
@@ -86,9 +100,9 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         "",
         "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
         "",
-        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
+        outfit_line,
         "",
-        f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
+        f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {scene_hint}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
         "",
         f"Top-right inline: {inline_panel_prompt(i1, types_catalog)} Same Excalibur collage layer, useful UI/diagram, small meme cutout.",
         f"Bottom-left inline: {inline_panel_prompt(i2, types_catalog)} Same Excalibur collage layer, useful UI/diagram, small meme cutout.",

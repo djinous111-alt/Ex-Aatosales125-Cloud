@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS11",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Калькулятор врёт до депозита?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у стола с документами и планшетом, порт Владивостока, плашка про пошлину 2026",
+      "scene_hint": "WEATHER: cool Vladivostok port office light, grey harbor window with modern Korean sedan on ro-ro far; OUTFIT: smart casual navy shirt + light charcoal blazer (customs/docs look, NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie at desk with passport-data checklist scrap + tablet customs estimate mock WITHOUT any ruble duty totals; torn paper hook plaque Cyrillic «Калькулятор врёт до депозита?» yellow highlighter on «врёт»; sticky note «пошлина ≠ утиль»; shocked meme cutout + cat reaction sticker (different formats, NO toxic insults); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; NEVER print concrete duty sums",
+      "meme_caption_ru": "Пошлина ≠ утиль"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разведите пошлину, утильсбор и услуги брокера",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI 3 columns: Пошлина (ЕТС) | Утильсбор | Услуги брокера; rows «кто считает / от чего зависит / где в смете»; yellow highlight row «не путать строки»; pink sticky «три строки»; tape corner; NO hero face; NO duty totals; NO Wordstat/Metrika; no toxic sticker text",
+      "alt": "Таблица: пошлина ЕТС vs утильсбор vs услуги брокера — три разные строки сметы"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Соберите паспорт данных авто до любого калькулятора",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 5 steps with arrows: год выпуска → см³ → электро/гибрид → инвойс/курс → ветка ЕТС; sticky «паспорт данных»; mini fake checklist inset; NO hero face; NO concrete duty sums; NO Wordstat/Metrika",
+      "alt": "Схема: паспорт данных авто до калькулятора — год, объём, тип, инвойс, ветка ЕТС"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Как возраст авто меняет логику ставки (без готовых сумм)",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU checklist board age branches: до 3 лет | 3–5 лет | 5+ лет; note «для 3+ ставка от см³, не от цены аукциона»; sticky «без готовых сумм»; scotch tape; NO hero face; NO ruble totals; NO Wordstat/Metrika",
+      "alt": "Чеклист веток возраста: до 3 / 3–5 / 5+ лет — логика ставки без готовых сумм"
+    }
+  }
+}

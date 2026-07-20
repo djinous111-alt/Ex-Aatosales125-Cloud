@@ -57,6 +57,7 @@ def merged_publish_env(root: Path) -> dict[str, str]:
         "SSH_PASS",
         "SSH_PASSWORD",
         "SSH_ROOT",
+        "SSH_PATH",
         "EXCALIBUR_BLOG_ALLOW_PUBLISH",
     }
     env = read_env_file(root / "memory/site.env.local")
@@ -66,6 +67,10 @@ def merged_publish_env(root: Path) -> dict[str, str]:
             env[key] = value
     if not env.get("SSH_PASS") and env.get("SSH_PASSWORD"):
         env["SSH_PASS"] = env["SSH_PASSWORD"]
+    if not (env.get("SSH_ROOT") or "").strip() and (env.get("SSH_PATH") or "").strip():
+        env["SSH_ROOT"] = env["SSH_PATH"].strip()
+    if not (env.get("SSH_ROOT") or "").strip():
+        env["SSH_ROOT"] = "."
     return env
 
 
@@ -113,6 +118,7 @@ def main() -> int:
 
     check(module_available("PIL"), "Pillow available", errors, warnings)
     check(module_available("numpy"), "numpy available", errors, warnings)
+    check(module_available("paramiko"), "paramiko available (SSH publish)", errors, warnings, warn=not args.publish)
 
     interlinker = root / "scripts/excalibur_blog_interlinker.py"
     help_proc = subprocess.run(
@@ -132,7 +138,14 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check(
+        "--blog-path" not in llms_help.stdout,
+        "llms generator does not use deprecated --blog-path",
+        errors,
+        warnings,
+        warn=True,
+    )
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

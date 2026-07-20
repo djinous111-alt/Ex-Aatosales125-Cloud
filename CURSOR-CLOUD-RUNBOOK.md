@@ -47,8 +47,12 @@ SSH_PORT=22
 EXCALIBUR_BLOG_ALLOW_PUBLISH=yes
 ```
 
-Дополнительно:
+`SSH_ROOT=.` — предпочтительный publish root (login cwd). Legacy alias `SSH_PATH` читается как `SSH_ROOT`, если `SSH_ROOT` пуст; publish-скрипт также default'ит на `.`.
+Для SSH publish нужен Python-пакет **paramiko** (ставится в `.cursor/cloud-agent-install.sh`).
 
+Имена Cloud Secrets должны быть валидными bash identifiers (`FOO_BAR`), иначе pre-commit secrets scanner может упасть с `invalid variable name`.
+
+Дополнительно:
 ```text
 EXCALIBUR_TOPIC_ID=<optional fixed topic id>
 ```

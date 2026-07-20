@@ -113,9 +113,10 @@ python scripts/excalibur_blog_quad_manifest.py \
 - `alt` — осмысленные, не «seo картинка»
 
 ### Шаг 3 — prompt + batch
+Outfit: `build_prompt()` берёт одежду из `scene_hint` + `blog-hero.json` `outfit_rule` (NO cap/NO hood; **без** hardcoded white hoodie).
 
 ```bash
-python scripts/excalibur_blog_cover_quad_prompt.py \
+python3 scripts/excalibur_blog_cover_quad_prompt.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --write-batch
 ```

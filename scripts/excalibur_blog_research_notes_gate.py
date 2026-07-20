@@ -14,23 +14,30 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
-    "ai",
-    "ии",
-    "agent",
-    "агент",
-    "mcp",
-    "api",
-    "cursor",
-    "make",
-    "n8n",
-    "github",
-    "docker",
-    "rag",
-    "workflow",
-    "автоматизац",
-    "нейросет",
+# Word-boundary / token markers only. Avoid naive substrings:
+# - "ии" falsely hits «Японии»/«Китая»; "ai" falsely hits field name reader_pain.
+# Prefer whole tokens (Latin) or stemmed RU prefixes that are tech-specific.
+TECH_MARKER_PATTERNS = (
+    re.compile(r"\bai\b", re.I),
+    re.compile(r"(?<![а-яё])ии(?![а-яё])", re.I),  # standalone «ИИ», not inside words
+    re.compile(r"\bagents?\b", re.I),
+    re.compile(r"(?<![а-яё])агент(?:ы|ов|а|у|ом|е)?(?![а-яё])", re.I),
+    re.compile(r"\bmcp\b", re.I),
+    re.compile(r"\bapis?\b", re.I),
+    re.compile(r"\bcursor\b", re.I),
+    re.compile(r"\bmake\.com\b", re.I),
+    re.compile(r"\bn8n\b", re.I),
+    re.compile(r"\bgithub\b", re.I),
+    re.compile(r"\bdocker\b", re.I),
+    re.compile(r"\brag\b", re.I),
+    re.compile(r"\bworkflows?\b", re.I),
+    re.compile(r"автоматизац", re.I),
+    re.compile(r"нейросет", re.I),
+    re.compile(r"llm(?:s)?\b", re.I),
 )
+
+# Авто-Сейлс customs/how-to niche is non-tech by default even if notes mention API/docs.
+NON_TECH_TOPIC_PREFIXES = ("AS",)
 
 
 REQUIRED_FIELDS = (
@@ -73,14 +80,41 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
-def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+def _topic_id_from_context(context: dict[str, Any], notes: str) -> str:
     topic = context.get("topic") or {}
-    blob = " ".join(
+    for key in ("topic_id", "id"):
+        value = str(topic.get(key) or "").strip().upper()
+        if value:
+            return value
+    # research-context may nest topic_id at top level
+    top = str(context.get("topic_id") or "").strip().upper()
+    if top:
+        return top
+    match = re.search(r"\btopic_id\s*:\s*((?:AS|B)\d+)", notes, flags=re.I)
+    return match.group(1).upper() if match else ""
+
+
+def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    topic_id = _topic_id_from_context(context, notes)
+    if any(topic_id.startswith(prefix) for prefix in NON_TECH_TOPIC_PREFIXES):
+        return False
+
+    topic = context.get("topic") or {}
+    # Only topic-facing fields — never join JSON key names like reader_pain (contains "ai").
+    parts = [
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
-    ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    ]
+    # Strip markdown field labels from notes sample so labels like reader_pain cannot match.
+    notes_sample = re.sub(
+        r"\b(reader_pain|reader_outcome|success_criteria|voice_angle|reader_story|"
+        r"surprising_fact|pain_solution_map|github_evidence|action_outline)\b\s*:",
+        ":",
+        notes[:2000],
+        flags=re.I,
+    )
+    blob = " ".join(parts) + " " + notes_sample
+    return any(pattern.search(blob) for pattern in TECH_MARKER_PATTERNS)
 
 
 def field_present(text_lower: str, field: str) -> bool:

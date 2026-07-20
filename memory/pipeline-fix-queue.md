@@ -552,3 +552,39 @@ category: publish
 
 ### Fixer resolution
 - pending
+
+## INC-20260721-2140-cover-mcp-timeout-kie-recovery
+status: open
+run_date: 2026-07-21
+role: excalibur-blog-cover
+topic_id: AS15
+article_dir: memory/blog/articles/AS15-dostavka-avto-iz-vladivostoka-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` (MCP-KV) returned `-32001 Request timed out` on ONE 2K i2i quad canvas.
+- No async start/status MCP tools available; MCP client logs did not expose a late URL/task_id to the agent.
+- Prompt builder still injects hardcoded `Outfit lock: thick heavyweight white hoodie` which conflicts with blog-hero outfit_rule and AS15 port scene.
+
+### How the agent recovered this run
+- Did not blind-retry sync MCP create.
+- Used preferred batch flow `scripts/excalibur_blog_kie_gpt_image2_api.py` (createTask → recordInfo poll) with existing `quad-mcp-batch.json`; got URL and ran `excalibur_blog_quad_apply.py --inject-html`.
+- Manually patched AS15 batch/prompt to replace white-hoodie lock with dark waterproof bomber for Vladivostok port.
+
+### Durable fix needed before next run
+- Prefer Kie async API (or async MCP create/status) as default cover path in agent skill/docs so Cloud does not depend on long sync MCP.
+- Remove hardcoded white-hoodie outfit lock from `excalibur_blog_cover_quad_prompt.py`; use blog-hero outfit_rule / scene weather.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/mcp-image-async-contract.md`
+- `shared/pipeline-task-map.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

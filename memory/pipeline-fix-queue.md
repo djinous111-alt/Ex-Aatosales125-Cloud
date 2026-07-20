@@ -380,3 +380,37 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20260720-0918-geo-qa-utility-pain-markers-missing
+status: fixed
+run_date: 2026-07-20
+role: excalibur-blog-geo-qa
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-tamozhennaya-poshlina-na-avto-2026-kak-rasschitat
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требовал `min_pain_markers` / `min_outcome_markers`, но `memory/brief/editorial-policy.json` после rebrand не содержал `pain_markers_ru` / `outcome_markers_ru`.
+- Пустые списки → `pain_markers=0` / `outcome_markers=0` для любой статьи (ложный UTILITY ARTICLE BLOCKER), в т.ч. уже опубликованных AS08/AS09 при регрессии.
+- Defaults `DEFAULT_PAIN_MARKERS_RU` / `resolve_marker_lists` из AS07 fixer commit были потеряны в ветке rebrand.
+
+### How the agent recovered this run
+- Восстановил `pain_markers_ru` / `outcome_markers_ru` + `min_pain_markers`/`min_outcome_markers` в `editorial-policy.json`.
+- Вернул `DEFAULT_*` + `resolve_marker_lists()` в `scripts/excalibur_blog_utility_gate.py`.
+- Точечный FIX статьи: concrete markers + инсайт без `TL;DR`/`Быстрый инсайт`.
+- Повтор всех QA-гейтов → PASS; `article-qa.md` verdict PASS.
+
+### Durable fix needed before next run
+- Уже применено в этом run (policy + script defaults). Fixer: регрессионный тест, что пустой/отсутствующий policy list не даёт вечный BLOCK.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md` (краткий урок: sync pain/outcome markers)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- fixed by geo-qa in-run (2026-07-20): restored policy markers + script defaults; AS11 utility PASS (pain 4, outcome 6). Optional: add regression test + pitfalls note.

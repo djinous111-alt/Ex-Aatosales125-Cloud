@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/AS11-tamozhennaya-poshlina-na-avto-2026-kak-rasschitat/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 2,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "тается по курсу ЦБ на день принятия декларации. В 2026 калькуляторов полно, а гайдов \"не утонуть в евро з",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "и валюту инвойса / договора – пригодится для \"до 3 лет\" и для сборов. Сверьте VIN, объём и цену в инвойс",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 лет",
+      "kind": "metric_or_duration",
+      "context": "меньше минимума в евро/см³. Цена инвойса важна. 3–5 лет – только от объёма (евро/см³ по диапазонам). Стар",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "11 месяцев",
+      "kind": "metric_or_duration",
+      "context": "ня – не гарантия завтра. Возраст на дату. \"2 года 11 месяцев\" и \"уже 3+\" – разные ветки. Считайте на дату офор",
+      "verified": true,
+      "reason": "Numerical value '11' matched in fact-bank context"
+    }
+  ]
+}

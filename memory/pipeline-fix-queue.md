@@ -7,7 +7,7 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 ## INC-20260721-2142-indexer-llms-secret-scan-block
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-indexer
 topic_id: AS15
@@ -42,11 +42,13 @@ related: INC-20260721-2137-schema-jsonld-secret-scan-block ; INC-20260717-redact
 - none recorded
 
 ### Fixer resolution
-- pending
-
-
-## INC-20260721-2137-schema-jsonld-secret-scan-block
-status: open
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- llms/interlinker write relative URLs; indexer skill documents secret-scan hygiene
+- verified doctor errors=0; AS15 published post_id=3553
+commit: 60d7ad9## INC-20260721-2137-schema-jsonld-secret-scan-block
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-schema
 topic_id: AS15
@@ -79,11 +81,13 @@ related: INC-20260721-0025-writer-telegram-cta-secret-scan-block
 - none recorded (URL values not copied into this queue)
 
 ### Fixer resolution
-- pending
-
-
-## INC-20260721-0025-writer-telegram-cta-secret-scan-block
-status: open
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- schema skill + publish strip pragma-keys; relative/allowlist docs
+- verified doctor errors=0; AS15 published post_id=3553
+commit: 60d7ad9## INC-20260721-0025-writer-telegram-cta-secret-scan-block
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-writer
 topic_id: AS15
@@ -114,11 +118,13 @@ related: INC-20260721-0024-geo-qa-cta-redacted-href
 - none recorded (URL value not copied into this queue)
 
 ### Fixer resolution
-- pending
-
-
-## INC-20260721-0023-geo-qa-utility-pain-outcome-empty-markers
-status: open
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- writer skill: CTA from env + HTML pragma allowlist
+- verified doctor errors=0; AS15 published post_id=3553
+commit: 60d7ad9## INC-20260721-0023-geo-qa-utility-pain-outcome-empty-markers
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-geo-qa
 topic_id: AS15
@@ -148,11 +154,13 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
-
-## INC-20260721-0024-geo-qa-cta-redacted-href
-status: open
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- editorial-policy pain/outcome markers; utility_gate skips empty lists
+- verified doctor errors=0; AS15 published post_id=3553
+commit: 60d7ad9## INC-20260721-0024-geo-qa-cta-redacted-href
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-geo-qa
 topic_id: AS15
@@ -182,11 +190,13 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
-
-
-## INC-20260721-2115-research-serp-public-site-url
-status: open
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- conversion-map env refs; link_verify hard-fails [REDACTED]; cta_urls.py
+- verified doctor errors=0; AS15 published post_id=3553
+commit: 60d7ad9## INC-20260721-2115-research-serp-public-site-url
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-research
 topic_id: AS15
@@ -214,11 +224,13 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
-
-## INC-20260721-2109-research-notes-gate-tech-false-positive
-status: open
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- research_start redacts PUBLIC_SITE_URL in SERP artifacts
+- verified doctor errors=0; AS15 published post_id=3553
+commit: 60d7ad9## INC-20260721-2109-research-notes-gate-tech-false-positive
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-research
 topic_id: AS15
@@ -250,9 +262,12 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
-## INC-20260616-2015-geo-qa-html-cli-mismatch
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- research_notes_gate niche-aware technical_topic for auto import
+- verified doctor errors=0; AS15 published post_id=3553
+commit: 60d7ad9## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16
 role: excalibur-blog-geo-qa
@@ -502,7 +517,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20260721-0005-director-as-regex-regression
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-director
 topic_id: n/a
@@ -531,10 +546,13 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
-## INC-20260721-0005-director-doctor-llms-flag
-status: open
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- today/scout_helper/doctor parse AS|B; scout niche Авто-Сейлс
+- verified doctor errors=0; AS15 published post_id=3553
+commit: 60d7ad9## INC-20260721-0005-director-doctor-llms-flag
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-director
 topic_id: n/a
@@ -560,10 +578,13 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
-## INC-20260721-0005-director-ledger-wp-desync
-status: open
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- doctor checks --blog-dir; pitfalls updated
+- verified doctor errors=0; AS15 published post_id=3553
+commit: 60d7ad9## INC-20260721-0005-director-ledger-wp-desync
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-director
 topic_id: n/a
@@ -590,10 +611,13 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
-
-## INC-20260721-2140-cover-mcp-timeout-kie-recovery
-status: open
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- ledger backfill + research_start WP-aware reserve; relative ledger URLs
+- verified doctor errors=0; AS15 published post_id=3553
+commit: 60d7ad9## INC-20260721-2140-cover-mcp-timeout-kie-recovery
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-cover
 topic_id: AS15
@@ -625,5 +649,9 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- cover skill prefers Kie async; outfit_rule without white-hoodie lock
+- verified doctor errors=0; AS15 published post_id=3553
+commit: 60d7ad9

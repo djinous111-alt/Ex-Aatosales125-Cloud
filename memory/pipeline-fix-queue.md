@@ -316,3 +316,32 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20260720-0906-scout-precommit-secret-names
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-scout
+topic_id: AS11
+article_dir: n/a
+severity: low
+category: env
+
+### What went wrong
+- Pre-commit secrets scanner (`pre-commit.cursor`) aborted with `invalid variable name` when iterating `CLOUD_AGENT_INJECTED_SECRET_NAMES` (bash `${!SECRET_NAME}`), blocking `git commit`.
+
+### How the agent recovered this run
+- Manually scanned staged diff for common secret patterns (none found beyond the word "Secrets" in incident template).
+- Retried commit with empty `CLOUD_AGENT_INJECTED_SECRET_NAMES` for this one commit, then pushed.
+
+### Durable fix needed before next run
+- Ensure injected secret *names* are valid bash identifiers before the scanner loop, or harden the hook to skip non-identifier names instead of failing the commit.
+
+### Suggested files to inspect/change
+- Cloud Agent pre-commit secrets scanner hook
+- Cursor Dashboard secret name conventions
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

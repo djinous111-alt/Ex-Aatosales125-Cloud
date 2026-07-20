@@ -16,10 +16,12 @@ python3 scripts/excalibur_blog_interlinker.py --apply \
 
 python3 scripts/excalibur_blog_llms_generator.py \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru \
-  --blog-path / \
-  --out-dir memory/blog
+  --site-base [REDACTED] \
+  --out-dir memory/blog \
+  --site-name "Авто-Сейлс"
 ```
+
+CLI принимает `--blog-dir`, не `--blog-path`. Если doctor/skill расходятся — ориентируйся на `python3 scripts/excalibur_blog_llms_generator.py --help`.
 
 ## Выход
 

@@ -232,8 +232,10 @@ Excalibur BLOG следует этому контракту для каждой 
 
 ### Блок 4: Мягкий CTA бренда (внутри одной секции блока 3)
 
-2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-tracking-map.md` / `offers-map.md`.  
+2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `memory/brief/conversion-map.md` / `offers-map.md` / site-brief / env.  
 Не больше **3** упоминаний основного офера/CTA на статью (включая баннер и «что дальше»).
+
+**Запрет placeholder CTA:** никогда не пиши в `article.html` `href="[REDACTED]"`. Secret-scan redaction в логах/tool output ≠ on-disk HTML. `link-verify` падает на литерале `[REDACTED]`.
 
 ### Блок 5: Inline-баннер (опционально)
 

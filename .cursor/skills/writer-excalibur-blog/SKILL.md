@@ -29,6 +29,7 @@
     - **ЗАПРЕЩЕНО:** интерактивное оглавление — `<ol>` или `<ul>` с `<a href="#...">` на заголовки H2/H3 сразу после TL;DR. После blockquote TL;DR идёт контекстный `<p>`, затем первый `<h2>`.
     - Атрибут `id` у `<h2>` — только если нужен для внешней перелинковки; не создавай оглавление в теле статьи.
     - В конце статьи (перед FAQ) вставляй блок верификации (**Fact Check Box**) через `<blockquote>` от редакции Авто-Сейлс. **Не** упоминай Wordstat и Метрику в тексте статьи.
+13. **CTA href (критично):** публичные CTA (каталог сайта, Telegram, MAX) бери из `memory/brief/conversion-map.md`, `site-brief.md`, fact-bank или env (`CATALOG_URL`, `TELEGRAM_URL`, `PUBLIC_SITE_URL`). **Запрещено** писать в `article.html` литерал `href="[REDACTED]"` / `href="REDACTED"`. Secret-scan может маскировать URL в *выводе инструментов* — это не повод подставлять placeholder в HTML. В on-disk `article.html` нужны живые публичные URL; при commit конфликте с secret-scan используй `<!-- pragma: allowlist secret -->` у строки CTA или коммить redacted копию отдельно от publish-ready файла.
 
 ## Выход
 

@@ -1,0 +1,89 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-19",
+    "today_ru": "19.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-20",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-19 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS01",
+    "priority": "P0",
+    "slug": "rastamozhka-avto-iz-korei-2026",
+    "h1": "Как проходит растаможка авто из Кореи: реальные сроки и этапы через Владивосток в 2026",
+    "primary_query": "растаможка авто из кореи",
+    "secondary_queries": [
+      "растаможка корея владивосток",
+      "авто из кореи под заказ"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "растаможка авто из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "растаможка авто из кореи июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "растаможка авто из кореи новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com растаможка авто из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "растаможка авто из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "растаможка авто из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "растаможка корея владивосток 2026",
+      "purpose": "вторичный запрос: растаможка корея владивосток"
+    },
+    {
+      "id": "secondary_2",
+      "query": "авто из кореи под заказ 2026",
+      "purpose": "вторичный запрос: авто из кореи под заказ"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как проходит растаможка авто из Кореи: реальные сроки и этапы через Владивосток в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS01-rastamozhka-avto-iz-korei-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

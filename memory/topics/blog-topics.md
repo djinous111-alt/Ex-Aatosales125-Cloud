@@ -19,7 +19,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 - **priority:** P0
 - **slug:** rastamozhka-avto-iz-korei-2026
-- **h1:** Растаможка авто из Кореи: реальные сроки и этапы через Владивосток в 2026
+- **h1:** Как проходит растаможка авто из Кореи: реальные сроки и этапы через Владивосток в 2026
 - **primary_query:** растаможка авто из кореи
 - **secondary_queries:** растаможка корея владивосток, авто из кореи под заказ
 - **search_intent:** how_to

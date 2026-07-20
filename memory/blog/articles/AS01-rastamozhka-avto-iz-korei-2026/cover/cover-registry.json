@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS01",
+  "slug": "rastamozhka-avto-iz-korei-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у порта Владивостока с корейским седаном и плашкой про этапы растаможки",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-07-19T09:26:52+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у порта Владивостока с корейским седаном и плашкой про этапы растаможки",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Схема пути Encar → Владивосток → учёт: от выбора лота до ГИБДД",
+      "h2_anchor": "Нарисуйте путь: Encar → Владивосток → учёт",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица сроков растаможки по этапам и типичных задержек во Владивостоке",
+      "h2_anchor": "Сверьте сроки по этапам и типичные задержки",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист документов для растаможки до прихода судна во Владивосток",
+      "h2_anchor": "Соберите документы до прихода судна",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

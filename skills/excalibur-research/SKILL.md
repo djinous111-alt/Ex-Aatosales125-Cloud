@@ -62,6 +62,15 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
 
+
+## Commit hygiene (secret-scan / research-serp)
+
+`excalibur_blog_research_start.py` redacts `PUBLIC_SITE_URL` / site host (and related env URL values) from `research-serp.json` before write.
+
+- Do **not** re-inject live site host into committed SERP dumps.
+- Secret-scan collision: public marketing host in Cloud Secrets ≠ reason to put literal `[REDACTED]` into `article.html` CTA.
+- If pre-commit secrets hook crashes on `CLOUD_AGENT_INJECTED_SECRET_NAMES`, skip non-identifier names; do not paste secret values into notes.
+
 ## Blockers
 
 - `❌ RESEARCH BLOCKER` — тема не найдена и не создана из запроса пользователя

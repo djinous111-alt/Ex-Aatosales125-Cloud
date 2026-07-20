@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS01-rastamozhka-avto-iz-korei-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1024,
+      572
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 572,
+        "end": 607
+      },
+      "v_gutter_px": {
+        "start": 1024,
+        "end": 1068
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 3,
+          "top": 0,
+          "right": 1020,
+          "bottom": 572
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1024,
+          "bottom": 572
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у порта Владивостока с корейским седаном и плашкой про этапы растаможки",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1068,
+          "top": 10,
+          "right": 2048,
+          "bottom": 561
+        },
+        "raw_box_px": {
+          "left": 1068,
+          "top": 0,
+          "right": 2048,
+          "bottom": 572
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема пути Encar → Владивосток → учёт: от выбора лота до ГИБДД",
+        "h2_anchor": "Нарисуйте путь: Encar → Владивосток → учёт"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 27,
+          "top": 607,
+          "right": 996,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 607,
+          "right": 1024,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сроков растаможки по этапам и типичных задержек во Владивостоке",
+        "h2_anchor": "Сверьте сроки по этапам и типичные задержки"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1073,
+          "top": 607,
+          "right": 2042,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1068,
+          "top": 607,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист документов для растаможки до прихода судна во Владивосток",
+        "h2_anchor": "Соберите документы до прихода судна"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Нарисуйте путь: Encar → Владивосток → учёт",
+    "injected inline_2 after H2 — Сверьте сроки по этапам и типичные задержки",
+    "injected inline_3 after H2 — Соберите документы до прихода судна"
+  ]
+}

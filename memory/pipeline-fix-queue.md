@@ -6,6 +6,352 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_none for run 2026-07-19 after fixer_
+
+## INC-20260719-0931-indexer-llms-blog-path-stale
+status: fixed
+run_date: 2026-07-19
+role: excalibur-blog-indexer
+topic_id: AS01
+article_dir: memory/blog/articles/AS01-rastamozhka-avto-iz-korei-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_doctor.py` FAIL: expects `llms generator supports --blog-path`, but `excalibur_blog_llms_generator.py --help` has no `--blog-path`.
+- Indexer skill shell still shows `--blog-path /` (stale contract vs actual CLI).
+- Step 0 already noted doctor FAIL as non-blocker; Indexer would fail if blindly copied skill args.
+
+### How the agent recovered this run
+- Ran `python3 scripts/excalibur_blog_llms_generator.py --help` and used current flags only: `--blog-dir`, `--site-base`, `--out-dir`, `--site-name`.
+- Generated `memory/blog/llms.txt` and `memory/blog/llms-full.txt` successfully (3 articles incl. AS01).
+- First commit blocked by secret-scan (`PUBLIC_SITE_URL` in llms/checklist); redacted site base to `[REDACTED]` in committed artifacts, then recommitted.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from doctor check OR restore the flag in llms generator if still required.
+- Sync indexer skill examples (repo + `.cursor/skills`) with actual CLI.
+- Mention in pitfalls: always prefer `--help` over skill snippet when doctor flags llms args drift.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Doctor check now expects `--blog-dir` (matches llms generator CLI).
+- Indexer skills (repo + `.cursor`) drop stale `--blog-path`; document `--help` on drift.
+- Pitfalls: llms CLI `--blog-dir`, not `--blog-path`.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → OK llms generator supports --blog-dir
+- `python3 scripts/excalibur_blog_llms_generator.py --help` shows --blog-dir only
+- `rg` no doctor check for --blog-path
+commit: 8fad580
+
+## INC-20260719-0926-cover-hero-host-upload
+status: fixed
+run_date: 2026-07-19
+role: excalibur-blog-cover
+topic_id: AS01
+article_dir: memory/blog/articles/AS01-rastamozhka-avto-iz-korei-2026
+severity: low
+category: tooling
+
+### What went wrong
+- `excalibur_blog_hero_reference_url.py --force` failed: catbox HTTP 412, 0x0 HTTP 503.
+- Could not refresh hosted face PNG for i2i; existing `reference_url_hosted` on avtosales125.ru was reused.
+
+### How the agent recovered this run
+- Kept prior `reference_url_hosted` (blueprint face URL on site).
+- Generated ONE quad via `excalibur_blog_kie_gpt_image2_api.py` (KIE_API_KEY) with `input_urls`; split+inject PASS.
+
+### Durable fix needed before next run
+- Add fallback host (e.g. temporary WP media upload / imgbb / Cloudflare R2) when catbox/0x0 unavailable.
+- Document in cover skill that existing site URL is acceptable if force-upload fails and URL still serves face reference.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- `hero_reference_url.py --force`: if catbox/0x0 fail, reuse existing https `reference_url_hosted` instead of hard blocker.
+- Cover skill documents site face URL fallback for i2i.
+files_changed:
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
+- `rg` Host upload fallback in cover skills
+commit: 8fad580
+
+
+## INC-20260719-0922-schema-secret-scan-urls
+status: fixed
+run_date: 2026-07-19
+role: excalibur-blog-schema
+topic_id: AS01
+article_dir: memory/blog/articles/AS01-rastamozhka-avto-iz-korei-2026
+severity: medium
+category: tooling
+
+### What went wrong
+- First `git commit` of `schema.jsonld` blocked by Cursor secret-scan: `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` appear in BlogPosting/author/publisher/`sameAs` (required for live JSON-LD).
+- Schema skill does not document commit hygiene vs publish-ready URLs (AS04 used redacted commit; AS08/AS09 still have live hosts in git history).
+
+### How the agent recovered this run
+- Rebuilt schema with live URLs from env + authors-registry.
+- Committed redacted `schema.jsonld` (`[REDACTED]` placeholders, AS04 pattern).
+- Restored live `schema.jsonld` in working tree for Publish (not re-committed).
+
+### Durable fix needed before next run
+- Document in schema skill: build live schema → commit redacted copy → keep live file for publish; or teach publish to rehydrate `[REDACTED]` from env before WP meta upload.
+- Optional: `pragma: allowlist secret` path if JSON-safe allowlisting is supported.
+
+### Suggested files to inspect/change
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Schema skill documents live→commit-redacted→publish-live hygiene and optional allowlist.
+- Pitfalls: secret-scan vs schema/CTA commit policy.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` Commit hygiene in schema skills
+commit: 8fad580
+
+
+## INC-20260719-0915-geo-qa-utility-pain-markers-empty
+status: fixed
+run_date: 2026-07-19
+role: excalibur-blog-geo-qa
+topic_id: AS01
+article_dir: memory/blog/articles/AS01-rastamozhka-avto-iz-korei-2026
+severity: blocker
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always BLOCKs articles: `pain_markers=0 < 2` and `outcome_markers=0 < 3`.
+- `memory/brief/editorial-policy.json` has no `pain_markers_ru` / `outcome_markers_ru` and no `min_pain_markers` / `min_outcome_markers`, but the script defaults mins to 2/3 against empty lists.
+- Same BLOCK reproduces on previously published AS09 when re-run.
+
+### How the agent recovered this run
+- Confirmed human-voice gate PASS (its own PAIN/OUTCOME_MARKERS find hits in AS01).
+- Did not invent article filler; recorded FAIL in `article-qa.md` and returned FIX to Fixer/Director for policy/script.
+
+### Durable fix needed before next run
+- Either skip pain/outcome checks when marker lists are empty, or populate `pain_markers_ru` / `outcome_markers_ru` (+ mins) in `editorial-policy.json` aligned with human-voice markers.
+- Add regression: AS09 (or fixture) must PASS utility article gate after fix.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_utility_gate.py`
+- `memory/brief/editorial-policy.json`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Confirmed durable fix already present: utility_gate skips pain/outcome mins when marker lists empty; editorial-policy has pain/outcome markers + mins.
+- Documented skip-empty behavior in editorial-utility-only + pitfalls.
+files_changed:
+- `scripts/excalibur_blog_utility_gate.py` (verified)
+- `memory/brief/editorial-policy.json` (verified markers)
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- utility gate AS01 PASS (pain=3 outcome=5)
+- utility gate AS09 PASS
+- empty-marker policy smoke: PASS with no pain/outcome errors
+commit: 8fad580
+
+
+## INC-20260719-0915-geo-qa-cta-literal-redacted
+status: fixed
+run_date: 2026-07-19
+role: excalibur-blog-geo-qa
+topic_id: AS01
+article_dir: memory/blog/articles/AS01-rastamozhka-avto-iz-korei-2026
+severity: high
+category: qa
+
+### What went wrong
+- AS01 `article.html` contains three CTA anchors with literal `href="[REDACTED]"` (on-disk bytes, len=10), not real catalog/Telegram URLs.
+- `link-verify` FAIL: unique `[REDACTED]` treated as relative path → HTTP 404 against site base.
+- Likely Writer over-redacted after secret-scan lessons instead of writing public CTA URLs.
+
+### How the agent recovered this run
+- Did not rewrite article.html (GEO QA report-only); FIX list to Writer: restore catalog + Telegram hrefs from fact-bank/site brief.
+- Overall article-qa verdict FAIL; cover/schema blocked.
+- Writer FIX (same run): replaced 3 literal href placeholders with public catalog URL and Telegram URL; on-disk placeholder count=0; ready for link-verify re-run.
+
+### Durable fix needed before next run
+- Writer/skill contract: public CTA (site catalog, Telegram handle) must never be written as the placeholder string `[REDACTED]` in `article.html`.
+- Pitfalls: redact secrets in SERP/env dumps, not marketing CTA URLs.
+- Optional linter/gate: fail if `href="[REDACTED]"` or `href` equals placeholder.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_link_verify.py` (optional placeholder detect)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- Writer skill + writing contract forbid literal href `[REDACTED]`; CTA from conversion-map/env.
+- `link_verify` fails placeholder hrefs as kind=placeholder.
+- Pitfalls: tool-output redaction ≠ on-disk HTML placeholders.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- link-verify on href=[REDACTED] → verdict fail / kind placeholder
+commit: 8fad580
+
+
+## INC-20260719-0910-research-secret-scan-serp
+status: fixed
+run_date: 2026-07-19
+role: excalibur-blog-research
+topic_id: AS01
+article_dir: memory/blog/articles/AS01-rastamozhka-avto-iz-korei-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secrets scanner crashed when `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a non-bash-identifier name (looks like a URL), via `${!SECRET_NAME}`.
+- After filtering invalid names, commit was blocked because `research-serp.json` from `research_start` contained the value of `PUBLIC_SITE_URL` in a SERP hit URL.
+
+### How the agent recovered this run
+- Filtered secret names to valid Python/bash identifiers before re-running the hook.
+- Replaced the site URL value in `research-serp.json` with `[REDACTED]` and committed only AS01 research artifacts.
+- Left director-touched ledger/topics/fix-queue unstaged for the director.
+
+### Durable fix needed before next run
+- `excalibur_blog_research_start.py` (or SERP writer) must redact `PUBLIC_SITE_URL` / site host from `research-serp.json` before write.
+- Pre-commit / Cloud secrets injection: skip non-identifier names in `CLOUD_AGENT_INJECTED_SECRET_NAMES` instead of crashing.
+- Pitfalls note: do not commit raw SERP dumps that embed the public site host as a "secret" collision.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_start.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `/root/.cursor/agent-hooks/` pre-commit secrets scanner (env injection)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- `research_start.py` redacts PUBLIC_SITE_URL / related env URL hosts from research-serp.json before write.
+- Research skill + pitfalls document SERP commit hygiene.
+files_changed:
+- `scripts/excalibur_blog_research_start.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_research_start.py`
+- unit: redact_secret_collisions replaces PUBLIC_SITE_URL host with [REDACTED]
+commit: 8fad580
+
+
+## INC-20260719-1203-director-as-topic-regex
+status: fixed
+run_date: 2026-07-19
+role: excalibur-blog-director
+topic_id: AS01
+article_dir: memory/blog/articles/AS01-rastamozhka-avto-iz-korei-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_today.py` и `excalibur_blog_scout_helper.py` матчат только `B\d+`, поэтому пул AS01–AS09 в `blog-topics.md` невидим → ложный `needs_scout`.
+- AS08/AS09 article dirs тоже не считаются active (`(B\d+)-` only).
+- AS01/AS03/AS05 не на WP, но utility gate блокировал AS01 из‑за h1 без маркера «как/чек-лист».
+
+### How the agent recovered this run
+- Выставлен `EXCALIBUR_TOPIC_ID=AS01`.
+- В карточке AS01 h1 добавлен маркер «Как проходит…».
+- `utility_gate` PASS → `research_start` зарезервировал AS01 in_progress.
+
+### Durable fix needed before next run
+- Regex topic IDs: `(?:AS|B)\d+` в today.py, scout_helper.py (парсинг pool + active dirs + next B/AS id).
+- Документировать в pitfalls: AS-пул Авто-Сейлс; не запускать Scout, пока есть unpublished AS P0.
+- Опционально: utility gate / editorial — допускать how_to intent без слова «как» в h1, если search_intent=how_to|checklist|comparison.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/topics/blog-topics.md` (AS03/AS05 h1 markers)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-19
+fix_summary:
+- today.py + scout_helper.py topic/dir regex `(?:AS|B)\d+`; scout warns on unpublished AS P0.
+- Pitfalls: AS pool Авто-Сейлс; no Scout while unpublished AS P0 remain.
+- AGENTS/pitfalls: typed geo-qa Task missing → generalPurpose fallback.
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `AGENTS.md`
+checks_run:
+- today without EXCALIBUR_TOPIC_ID → AS02
+- scout --suggest-next lists AS pool + WARN unpublished AS P0
+- py_compile today/scout_helper
+commit: 8fad580
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16
@@ -253,4 +599,5 @@ commit: pending-parent-commit
 
 ## Fixed incidents
 
-Handled above; commit is pending Director review.
+Handled above (incl. 2026-07-19 AS01 run); commit is pending Director review.
+Also removed stale duplicate `memory/pipeline-incident-queue.md` (canonical = `memory/pipeline-fix-queue.md`).

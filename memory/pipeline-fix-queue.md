@@ -254,3 +254,94 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20260721-0005-director-as-regex-regression
+status: open
+run_date: 2026-07-21
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: blocker
+category: script
+
+### What went wrong
+- After rebrand, `excalibur_blog_today.py` and `excalibur_blog_scout_helper.py` only matched `B\d+` topic IDs while pool uses `AS*`.
+- Result: `EXCALIBUR_TOPIC_SELECTION=needs_scout`, scout helper reported 0 topics and next ID `B01`.
+
+### How the agent recovered this run
+- Restored `(?:AS|B)\d+` parsing in today + scout_helper; next ID uses max AS/B across pool+ledger.
+
+### Durable fix needed before next run
+- Keep AS|B dual prefix in today/scout_helper; sync `.cursor/agents` scout niche to Авто-Сейлс (site-brief), not Cursor/n8n leftover.
+- Add regression test or doctor check that blog-topics AS* cards are parseable.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260721-0005-director-doctor-llms-flag
+status: open
+run_date: 2026-07-21
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` required `--blog-path` while `excalibur_blog_llms_generator.py` exposes `--blog-dir` → doctor errors=1.
+
+### How the agent recovered this run
+- Doctor check updated to `--blog-dir`; doctor now errors=0.
+
+### Durable fix needed before next run
+- Confirm doctor/llms CLI contract stays aligned; document in pitfalls.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260721-0005-director-ledger-wp-desync
+status: open
+run_date: 2026-07-21
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: high
+category: publish
+
+### What went wrong
+- `shared/published-articles.md` only had AS08/AS09 while live WP already had AS01–AS11-class posts → risk of republish/cannibalization.
+
+### How the agent recovered this run
+- Backfilled ledger from live WP recent posts + known pool slugs before scout.
+
+### Durable fix needed before next run
+- Add ledger sync helper from WP REST or publish step that never drops historical rows on rebrand.
+- Document that needs_scout must consult WP recent posts, not only local ledger.
+
+### Suggested files to inspect/change
+- `shared/published-articles.md`
+- `scripts/excalibur_blog_today.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

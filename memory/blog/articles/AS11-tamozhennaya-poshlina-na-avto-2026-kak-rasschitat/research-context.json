@@ -1,0 +1,107 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-20",
+    "today_ru": "20.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-21",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-20 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS11",
+    "priority": "P0",
+    "slug": "tamozhennaya-poshlina-na-avto-2026-kak-rasschitat",
+    "h1": "Как рассчитать таможенную пошлину на авто из Японии, Кореи и Китая в 2026",
+    "primary_query": "таможенная пошлина на авто",
+    "secondary_queries": [
+      "таможенная пошлина на авто 2026",
+      "расчет таможенной пошлины на авто",
+      "рассчитать таможенную пошлину на авто",
+      "таможенная пошлина на авто из японии",
+      "таможенная пошлина на авто из китая"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS11",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "таможенная пошлина на авто 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "таможенная пошлина на авто июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "таможенная пошлина на авто новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com таможенная пошлина на авто 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "таможенная пошлина на авто official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "таможенная пошлина на авто forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "таможенная пошлина на авто 2026 2026",
+      "purpose": "вторичный запрос: таможенная пошлина на авто 2026"
+    },
+    {
+      "id": "secondary_2",
+      "query": "расчет таможенной пошлины на авто 2026",
+      "purpose": "вторичный запрос: расчет таможенной пошлины на авто"
+    },
+    {
+      "id": "secondary_3",
+      "query": "рассчитать таможенную пошлину на авто 2026",
+      "purpose": "вторичный запрос: рассчитать таможенную пошлину на авто"
+    },
+    {
+      "id": "secondary_4",
+      "query": "таможенная пошлина на авто из японии 2026",
+      "purpose": "вторичный запрос: таможенная пошлина на авто из японии"
+    },
+    {
+      "id": "secondary_5",
+      "query": "таможенная пошлина на авто из китая 2026",
+      "purpose": "вторичный запрос: таможенная пошлина на авто из китая"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как рассчитать таможенную пошлину на авто из Японии, Кореи и Китая в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS11-tamozhennaya-poshlina-na-avto-2026-kak-rasschitat",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

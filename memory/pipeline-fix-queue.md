@@ -345,3 +345,38 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20260720-0911-research-tech-marker-false-positive
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-research
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-tamozhennaya-poshlina-na-avto-2026-kak-rasschitat
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` → `is_technical_topic()` uses naive substring markers.
+- Marker `ии` срабатывает на кириллических словах «Японии», «Китая» в h1/slug AS-тем про авто из Азии.
+- Marker `ai` срабатывает на обязательном поле `reader_pain` (подстрока внутри `pain`).
+- В итоге бытовая тема AS11 помечается `technical_topic=true` и требует `github_urls >= 3`, хотя это how-to про таможенную пошлину для новичка.
+
+### How the agent recovered this run
+- Добавил 3+ релевантных GitHub URL (tks-api, AutoCalculator, api.tks.ru / docs) в `github_evidence`, чтобы удовлетворить ложное technical-требование.
+- Повторно прогнал gate → PASS (остался warning про official docs URL pattern).
+
+### Durable fix needed before next run
+- Заменить substring-маркеры на word-boundary / токены (`\bai\b`, не `ии` внутри «японии»).
+- Исключить имена обязательных полей (`reader_pain`) и кириллические топонимы из TECH_MARKERS.
+- Либо явно whitelist-ить non-tech ниши (авто/таможня/утиль) по `topic_id` prefix `AS` / site-brief niche.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py` (`TECH_MARKERS`, `is_technical_topic`)
+- `shared/agent-pipeline-pitfalls.md` (краткий урок)
+- `.cursor/skills/excalibur-research/SKILL.md` (если нужен note про false positive)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

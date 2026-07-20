@@ -1,7 +1,7 @@
 # Promotion checklist — AS11 privezti-elektromobil-iz-kitaya-2026
 
 Дата публикации: 2026-07-20  
-Live URL: [REDACTED]/blog/privezti-elektromobil-iz-kitaya-2026/
+Live URL: https://avtosales125.ru/2026/07/20/privezti-elektromobil-iz-kitaya-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Путь Китай → Владивосток → СБКТС → ЭПТС
 • Нет сметы «до номеров» — нет предоплаты
 
-Читать: [REDACTED]/blog/privezti-elektromobil-iz-kitaya-2026/
+Читать: https://avtosales125.ru/2026/07/20/privezti-elektromobil-iz-kitaya-2026/
 ```
 
 ## Перелинковка
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir … --site-base [REDACTED]` — 0 links applied (нет пересечения якорей с AS08/AS09).
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (3 статьи; site-base `[REDACTED]`).
-- Publish: pending (Indexer не публикует).
+- Publish: PASS post_id=3547; featured=3548; inline=3549,3550,3551; schema_meta=1.

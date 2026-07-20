@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260720-1735-publish-paramiko-missing
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-publish
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-privezti-elektromobil-iz-kitaya-2026
+severity: high
+category: env
+
+### What went wrong
+- `excalibur_blog_wp_publish.py` failed on first live run: `ModuleNotFoundError: No module named 'paramiko'`.
+- `paramiko` is listed in `requirements.txt`, but Cloud runtime did not have it installed (PEP 668 blocked plain `pip3 install`).
+
+### How the agent recovered this run
+- Installed `python3-paramiko` via apt (`2.12.0`) and retried publish → PASS (SSH + HTTP trigger).
+
+### Durable fix needed before next run
+- Ensure Cloud/agent bootstrap installs `paramiko` from `requirements.txt` (or `python3-paramiko` via apt) before publish step.
+- `excalibur_blog_wp_publish.py --env-check` should warn if `paramiko` import fails (not only SSH env vars).
+- Document in publish skill / pitfalls: missing paramiko → apt/pip before retry, not silent FAIL.
+
+### Suggested files to inspect/change
+- `requirements.txt`
+- `.cursor/environment.json`
+- `scripts/cloud-agent-install.sh` (or equivalent install hook)
+- `scripts/excalibur_blog_wp_publish.py` (`--env-check`)
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260720-1732-cover-mcp-sync-timeout-kie-api
 status: open
 run_date: 2026-07-20

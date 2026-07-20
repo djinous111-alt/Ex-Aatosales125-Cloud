@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS11",
+  "slug": "privezti-elektromobil-iz-kitaya-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у порта Владивостока рядом с китайским EV, плашка «до депозита»",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-07-20T17:31:40+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у порта Владивостока рядом с китайским EV, плашка «до депозита»",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сравнения EV из Китая, гибрида и ДВС по зарядке, зиме и сервису",
+      "h2_anchor": "Решите, нужен ли вам EV из Китая или спокойнее гибрид и ДВС",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Чеклист до депозита: модель, батарея, мощность, документы, Владивосток",
+      "h2_anchor": "Проверьте модель, батарею и документы до депозита",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема пути: Китай → ролкер → Владивосток → СБКТС → ЭПТС и учёт",
+      "h2_anchor": "Пройдите путь Китай → Владивосток → учёт без сюрпризов",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

@@ -6,6 +6,71 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260720-1732-cover-mcp-sync-timeout-kie-api
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-cover
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-privezti-elektromobil-iz-kitaya-2026
+severity: high
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` returned `-32001 Request timed out` (i2i 2K and even 1K / short prompt).
+- Earlier attempt with `http://avtosales125.ru/...` hero URL failed fast: `image fetch failed` (Kie cannot reliably fetch that host; HTTP→HTTPS redirect).
+- `excalibur_blog_hero_reference_url.py --force` failed: catbox 412, 0x0 503.
+
+### How the agent recovered this run
+- Rehosted local `blog-hero-reference.png` to litterbox (`https://litter.catbox.moe/...`).
+- Used preferred path `scripts/excalibur_blog_kie_gpt_image2_api.py` (createTask → poll recordInfo) → ONE quad success → `quad_apply --inject-html`.
+
+### Durable fix needed before next run
+- Cover runbook / Cloud skill: default to Kie API script; MCP sync only as legacy.
+- Hero host script: prefer HTTPS; add litterbox fallback when catbox/0x0 fail; validate Kie can fetch URL.
+- Document that `-32001` is not terminal if Kie API path is available.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260720-1732-cover-outfit-lock-white-hoodie
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-cover
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-privezti-elektromobil-iz-kitaya-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` hardcodes `Outfit lock: thick heavyweight white hoodie`, conflicting with `blog-hero.json` outfit_rule and agent instruction (outfit from scene weather/topic; NOT white hoodie lock).
+
+### How the agent recovered this run
+- Patched generated `quad-mcp-prompt.txt` + `quad-mcp-batch.json` before Kie create: rain jacket + charcoal sweater for Vladivostok port; explicit NOT white hoodie.
+
+### Durable fix needed before next run
+- Replace hardcoded outfit lock with blog-hero `outfit_rule` / scene_hint weather-topic wording in the prompt builder.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/blog-hero.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260720-1720-geo-qa-utility-pain-markers-empty
 status: fixed
 run_date: 2026-07-20

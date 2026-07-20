@@ -414,3 +414,40 @@ category: script
 
 ### Fixer resolution
 - fixed by geo-qa in-run (2026-07-20): restored policy markers + script defaults; AS11 utility PASS (pain 4, outcome 6). Optional: add regression test + pitfalls note.
+
+## INC-20260720-0923-schema-missing-schema-write-helper
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-schema
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-tamozhennaya-poshlina-na-avto-2026-kak-rasschitat
+severity: medium
+category: script
+
+### What went wrong
+- Automation memory / fixer notes claim a durable `schema_write` helper for Cloud Secret URLs with unicode-escape, but no script or skill section exists in the repo (`scripts/`, `skills/schema-excalibur-blog`, `.cursor/skills/schema-excalibur-blog`).
+- Schema agent had to re-implement decode+write inline; risk of drift across runs.
+- Agent prompt still mentioned old queue path `pipeline-incident-queue.md`; canonical file is `memory/pipeline-fix-queue.md`.
+
+### How the agent recovered this run
+- Inline schema_write helper in a one-shot Python write: decode `PUBLIC_SITE_URL` via `unicode_escape` when `\u` present, then emit `schema.jsonld` + fragment.
+- This run: URL had no unicode-escape; real https base used; BlogPosting+FAQPage+HowTo PASS.
+
+### Durable fix needed before next run
+- Add `scripts/excalibur_blog_schema_write.py` (or document helper in skill) that: loads article.meta + FAQ from HTML + authors-registry; decodes Cloud Secret site URL; writes `schema.jsonld`.
+- Point `skills/schema-excalibur-blog/SKILL.md` and `.cursor/skills/schema-excalibur-blog/SKILL.md` at the helper.
+- Align `.cursor/agents/excalibur-blog-schema.md` incident path with `memory/pipeline-fix-queue.md`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_schema_write.py` (new)
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

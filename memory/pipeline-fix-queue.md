@@ -6,6 +6,86 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260720-1703-doctor-llms-blog-path
+status: open
+run_date: 2026-07-20
+role: director
+topic_id: pending
+article_dir: pending
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` checks for `--blog-path` in llms generator help, but `excalibur_blog_llms_generator.py` exposes `--blog-dir` / `--out-dir` / `--redact-site-base`.
+- Doctor SUMMARY errors=1 blocks clean preflight even when publish env is OK.
+
+### How the agent recovered this run
+- Continued pipeline after documenting FAIL; did not change doctor mid-run before scout.
+
+### Durable fix needed before next run
+- Align doctor check with actual CLI (`--blog-dir`) or restore `--blog-path` alias on the generator.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+
+### Secrets
+- none recorded
+
+## INC-20260720-1703-as-topic-id-regex
+status: open
+run_date: 2026-07-20
+role: director
+topic_id: pending
+article_dir: pending
+severity: high
+category: contract
+
+### What went wrong
+- `excalibur_blog_today.py` and `excalibur_blog_scout_helper.py` only match `B\\d+` topic cards; Auto-Sales pool uses `AS\\d+`.
+- Result: `EXCALIBUR_TOPIC_SELECTION=needs_scout`, scout_helper reports 0 topics / next B01, while AS01–AS09 exist in blog-topics.md.
+- Prior run memory claimed `(?:AS|B)` fix, but current scripts regressed.
+
+### How the agent recovered this run
+- Forced scout for fresh AS11-class topic; will pass explicit `--topic-id` to research_start.
+
+### Durable fix needed before next run
+- Restore `(?:AS|B)\\d+` parsing in today.py, scout_helper.py (and active article dir regex).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+
+### Secrets
+- none recorded
+
+## INC-20260720-1703-ledger-gap-as01-as10
+status: open
+run_date: 2026-07-20
+role: director
+topic_id: pending
+article_dir: pending
+severity: medium
+category: publish
+
+### What went wrong
+- `shared/published-articles.md` only lists AS08/AS09, but live WP recent posts include slugs for AS01–AS07 and AS10 (СБКТС/ЭПТС).
+- Risk: tomorrow/today may re-select cannibalizing topics if AS regex is restored without ledger backfill.
+
+### How the agent recovered this run
+- Will avoid AS01–AS10 topics; scout for new AS11+; publish step must append ledger correctly.
+
+### Durable fix needed before next run
+- Backfill ledger rows for live WP AS01–AS07 and AS10 from site posts (status=published), keep REDACTED URLs.
+
+### Suggested files to inspect/change
+- `shared/published-articles.md`
+- optionally `scripts/excalibur_blog_today.py` WP slug dedupe
+
+### Secrets
+- none recorded
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

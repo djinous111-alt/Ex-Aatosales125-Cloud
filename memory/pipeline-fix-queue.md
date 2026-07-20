@@ -27,7 +27,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` → paramiko_installed=true
 - bash `.cursor/cloud-agent-install.sh` → paramiko ok
-commit: pending-parent-commit
+commit: 4263446
 
 ### What went wrong
 - `excalibur_blog_wp_publish.py` failed on first live run: `ModuleNotFoundError: No module named 'paramiko'`.
@@ -74,7 +74,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py scripts/excalibur_blog_cover_quad_prompt.py`
 - `python3 scripts/excalibur_blog_hero_reference_url.py --help` (litterbox in choices)
-commit: pending-parent-commit
+commit: 4263446
 
 ### What went wrong
 - Sync MCP `gpt-image-2` returned `-32001 Request timed out` (i2i 2K and even 1K / short prompt).
@@ -117,7 +117,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - `rg` confirms only negative white-hoodie wording remains
-commit: pending-parent-commit
+commit: 4263446
 
 ### What went wrong
 - `scripts/excalibur_blog_cover_quad_prompt.py` hardcodes `Outfit lock: thick heavyweight white hoodie`, conflicting with `blog-hero.json` outfit_rule and agent instruction (outfit from scene weather/topic; NOT white hoodie lock).
@@ -160,7 +160,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir …AS11…` → PASS
 - `python3 scripts/excalibur_blog_human_voice_gate.py --article-dir …AS11…` → PASS
 - sanity: AS09 utility gate PASS with same policy
-commit: pending-parent-commit
+commit: 4263446
 
 ### What went wrong
 - Utility gate required `min_pain_markers=2` / `min_outcome_markers=3` but `editorial-policy.json` had empty/missing `pain_markers_ru` / `outcome_markers_ru` → pain_count=0 / outcome_count=0 for every article (AS08/AS09/AS11).
@@ -190,7 +190,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - policy JSON has pain_markers_ru/outcome_markers_ru
-commit: pending-parent-commit
+commit: 4263446
 
 ## INC-20260720-1720-geo-qa-cta-urls-script-missing
 status: fixed
@@ -208,7 +208,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cta_urls.py`
 - `python3 scripts/excalibur_blog_cta_urls.py --help`
-commit: pending-parent-commit
+commit: 4263446
 
 ### What went wrong
 - Writer left CTA `href="[REDACTED]"` placeholders; memory/runbook expects `scripts/excalibur_blog_cta_urls.py` for reinject before link-verify / publish.
@@ -247,7 +247,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir …AS11…` → PASS pain_solution_rows=5
-commit: pending-parent-commit
+commit: 4263446
 
 ### What went wrong
 - First `excalibur_blog_research_notes_gate.py` run BLOCKED: `pain_solution_map too thin: rows=1 < 3`.
@@ -285,7 +285,7 @@ files_changed:
 checks_run:
 - bash `.cursor/cloud-agent-install.sh` → patched pre-commit sanitize
 - bash `scripts/excalibur_sanitize_injected_secret_names.sh` (empty OK)
-commit: pending-parent-commit
+commit: 4263446
 
 ### What went wrong
 - `git commit` failed in Cloud pre-commit secrets scanner: bash `${!SECRET_NAME}` with an entry from `CLOUD_AGENT_INJECTED_SECRET_NAMES` that is not a valid shell identifier.
@@ -323,7 +323,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
 - `python3 scripts/excalibur_blog_llms_generator.py --help`
-commit: pending-parent-commit
+commit: 4263446
 
 ### What went wrong
 - `excalibur_blog_doctor.py` checks for `--blog-path` in llms generator help, but `excalibur_blog_llms_generator.py` exposes `--blog-dir` / `--out-dir` / `--site-base` (default `[REDACTED]`).
@@ -363,7 +363,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → Next AS12, pool=10
 - `python3 scripts/excalibur_blog_today.py` parses AS ledger rows
-commit: pending-parent-commit
+commit: 4263446
 
 ### What went wrong
 - `excalibur_blog_today.py` and `excalibur_blog_scout_helper.py` only match `B\\d+` topic cards; Auto-Sales pool uses `AS\\d+`.
@@ -393,7 +393,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_today.py` shows AS01–AS11 in published list
 - scout helper: unwritten topic IDs empty; next AS12
-commit: pending-parent-commit
+commit: 4263446
 
 ### What went wrong
 - `shared/published-articles.md` only lists AS08/AS09, but live WP recent posts include slugs for AS01–AS07 and AS10 (СБКТС/ЭПТС).
@@ -463,7 +463,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: 4263446
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -514,7 +514,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: 4263446
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -555,7 +555,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: 4263446
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -602,7 +602,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: 4263446
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -656,7 +656,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: 4263446
 
 ## Fixed incidents
 

@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS11-tamozhennaya-poshlina-na-avto-2026-kak-rasschitat/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1027,
+      580
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 580,
+        "end": 600
+      },
+      "v_gutter_px": {
+        "start": 1027,
+        "end": 1035
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1027,
+          "bottom": 580
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1027,
+          "bottom": 580
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у стола с документами и планшетом, порт Владивостока, плашка про пошлину 2026",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1035,
+          "top": 5,
+          "right": 2048,
+          "bottom": 575
+        },
+        "raw_box_px": {
+          "left": 1035,
+          "top": 0,
+          "right": 2048,
+          "bottom": 580
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: пошлина ЕТС vs утильсбор vs услуги брокера — три разные строки сметы",
+        "h2_anchor": "Разведите пошлину, утильсбор и услуги брокера"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 23,
+          "top": 600,
+          "right": 1004,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 600,
+          "right": 1027,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: паспорт данных авто до калькулятора — год, объём, тип, инвойс, ветка ЕТС",
+        "h2_anchor": "Соберите паспорт данных авто до любого калькулятора"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1051,
+          "top": 600,
+          "right": 2032,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1035,
+          "top": 600,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист веток возраста: до 3 / 3–5 / 5+ лет — логика ставки без готовых сумм",
+        "h2_anchor": "Как возраст авто меняет логику ставки (без готовых сумм)"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разведите пошлину, утильсбор и услуги брокера",
+    "injected inline_2 after H2 — Соберите паспорт данных авто до любого калькулятора",
+    "injected inline_3 after H2 — Как возраст авто меняет логику ставки (без готовых сумм)"
+  ]
+}

@@ -451,3 +451,35 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20260720-0927-cover-prompt-hoodie-lock
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-cover
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-tamozhennaya-poshlina-na-avto-2026-kak-rasschitat
+severity: medium
+category: prompt
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` hardcodes `Outfit lock: thick heavyweight white hoodie` in `build_prompt()`.
+- Conflicts with blog-hero / design-code rules: NO hood/cap + outfit must match weather/topic (customs/docs = smart casual).
+- Cover scene_hint correctly asked for navy shirt + charcoal blazer; global hoodie lock fought the scene.
+
+### How the agent recovered this run
+- After `--write-batch`, manually replaced hoodie lock with smart-casual / NO hoodie line in `quad-mcp-prompt.txt` and mirrored into `quad-mcp-batch.json` mcp_args/api_args.
+- Generated ONE Kie gpt-image-2 i2i canvas; split+inject PASS; visual QA: blazer outfit, no toxic sticker text.
+
+### Durable fix needed before next run
+- Remove hardcoded hoodie outfit from `build_prompt()`; prefer outfit from `slots.cover.scene_hint` / blog-hero `outfit_rule` (weather+topic), keep NO cap/NO hood.
+- Optionally add unit/smoke assert that prompt does not contain `hoodie` unless scene_hint explicitly requests it.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/blog-hero.json` (outfit_rule already correct)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

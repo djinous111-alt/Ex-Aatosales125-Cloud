@@ -216,18 +216,27 @@ severity: low
 category: script
 
 ### What went wrong
-- `excalibur_blog_doctor.py` checks for `--blog-path` in llms generator help, but `excalibur_blog_llms_generator.py` exposes `--blog-dir` / `--out-dir` / `--redact-site-base`.
+- `excalibur_blog_doctor.py` checks for `--blog-path` in llms generator help, but `excalibur_blog_llms_generator.py` exposes `--blog-dir` / `--out-dir` / `--site-base` (default `[REDACTED]`).
+- Earlier note wrongly claimed `--redact-site-base`; that flag does **not** exist on the generator.
 - Doctor SUMMARY errors=1 blocks clean preflight even when publish env is OK.
+- Indexer agent contracts still document `--blog-path /` (stale).
 
 ### How the agent recovered this run
 - Continued pipeline after documenting FAIL; did not change doctor mid-run before scout.
+- Indexer AS11 (2026-07-20): used `--blog-dir` / `--out-dir` / `--site-base [REDACTED]`; ignored stale `--blog-path` and nonexistent `--redact-site-base`.
 
 ### Durable fix needed before next run
-- Align doctor check with actual CLI (`--blog-dir`) or restore `--blog-path` alias on the generator.
+- Align doctor check with actual CLI (`--blog-dir`, optionally `--out-dir` / `--site-base`) — remove `--blog-path` expectation.
+- Sync indexer agent/skill examples: drop `--blog-path`; document `--site-base` (commit-safe `[REDACTED]` or `${PUBLIC_SITE_URL}` for live).
+- Do not invent `--redact-site-base` unless implemented as an alias.
 
 ### Suggested files to inspect/change
 - `scripts/excalibur_blog_doctor.py`
 - `scripts/excalibur_blog_llms_generator.py`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
 
 ### Secrets
 - none recorded

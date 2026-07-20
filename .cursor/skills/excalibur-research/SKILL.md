@@ -68,3 +68,8 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+## Research-notes gate notes
+
+- `excalibur_blog_research_notes_gate.py` marks `technical_topic` only from topic-card fields with word-boundary short markers (`ai`, `ии`, …). Non-tech logistics topics must not invent GitHub URLs to pass the gate.
+- `research_start` redacts `PUBLIC_SITE_URL` origins in `research-serp.json` automatically.
+

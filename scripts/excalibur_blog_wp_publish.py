@@ -168,6 +168,29 @@ def normalize_cover_png(cover_path: Path, registry_path: Path, root: Path) -> di
     return evidence
 
 
+def strip_schema_secret_scan_pragmas(schema_raw: str) -> str:
+    """Remove __excalibur_pragma_* keys used only for Cursor secret-scan allowlist."""
+    if not schema_raw or "__excalibur_pragma_" not in schema_raw:
+        return schema_raw
+    try:
+        data = json.loads(schema_raw)
+    except json.JSONDecodeError:
+        return schema_raw
+
+    def scrub(node):
+        if isinstance(node, dict):
+            return {
+                k: scrub(v)
+                for k, v in node.items()
+                if not (isinstance(k, str) and k.startswith("__excalibur_pragma_"))
+            }
+        if isinstance(node, list):
+            return [scrub(v) for v in node]
+        return node
+
+    return json.dumps(scrub(data), ensure_ascii=False, indent=2)
+
+
 def load_article(article_dir: Path) -> dict:
     meta_path = article_dir / "article.meta.json"
     html_path = article_dir / "article.html"
@@ -186,7 +209,9 @@ def load_article(article_dir: Path) -> dict:
         cover_b64 = base64.b64encode(cover_path.read_bytes()).decode("ascii")
     schema_raw = ""
     if schema_path.is_file():
-        schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        schema_raw = strip_schema_secret_scan_pragmas(
+            schema_path.read_text(encoding="utf-8").strip()
+        )
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
@@ -468,6 +493,9 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
 
 
 def trigger_bootstrap_http(url: str, root: Path) -> str:
+    import subprocess
+    import time
+
     try:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
@@ -476,21 +504,54 @@ def trigger_bootstrap_http(url: str, root: Path) -> str:
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
-        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
+        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Trying curl fallback...")
+        try:
+            curl = subprocess.run(
+                [
+                    "curl",
+                    "-fsS",
+                    "-L",
+                    "--max-time",
+                    "300",
+                    "-A",
+                    "ExcaliburBlogPublish/1.0",
+                    url,
+                ],
+                cwd=root,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            if curl.returncode == 0 and curl.stdout.strip():
+                print("curl fallback succeeded")
+                return curl.stdout
+            print(
+                f"curl fallback failed (code={curl.returncode}). "
+                "Entering Cloud WebFetch Fallback mode..."
+            )
+        except FileNotFoundError:
+            print("curl not available. Entering Cloud WebFetch Fallback mode...")
+
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
         print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
+        print(
+            "NOTE: WebFetch must complete before this wait ends; do not race parallel "
+            "WebFetch with a second publish call."
+        )
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
-        import time
 
-        for _ in range(120):
+        for _ in range(180):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError(
+            "Cloud WebFetch Fallback timed out after 180 seconds. "
+            "Retry once with curl --max-time 300 on FALLBACK_TRIGGER_URL, or trigger manually."
+        )
 
 
 def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:

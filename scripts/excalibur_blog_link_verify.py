@@ -142,6 +142,20 @@ def verify_article(
     user_agent = "ExcaliburBlogLinkVerify/1.0"
     results: list[dict[str, Any]] = []
     for href in links:
+        # Literal brief placeholders must never ship in article.html
+        if "[REDACTED]" in href or href.strip() in {"REDACTED", "[redacted]"}:
+            results.append(
+                {
+                    "url": href,
+                    "kind": "placeholder",
+                    "status": None,
+                    "ok": False,
+                    "skipped": False,
+                    "method": None,
+                    "error": "literal [REDACTED] href — resolve CATALOG_URL/TELEGRAM_URL from env via cta_urls.py",
+                }
+            )
+            continue
         kind = classify_link(href, site_base)
         if skip_external and kind == "external":
             results.append(

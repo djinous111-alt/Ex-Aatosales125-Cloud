@@ -22,3 +22,13 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+## Secret-scan (schema.jsonld)
+
+JSON-LD обязан содержать абсолютные URL (`PUBLIC_SITE_URL`, sameAs). Cursor secret-scan может блокировать commit.
+
+Допустимый workaround (валидный JSON): на каждой secret-bearing строке добавь неизвестный ключ
+`"__excalibur_pragma_N": "pragma: allowlist secret"` (Google игнорирует unknown properties).
+**Не** вставляй `// pragma` — сломает JSON.
+
+`excalibur_blog_wp_publish.py` strips `__excalibur_pragma_*` перед записью WP meta.

@@ -115,24 +115,33 @@ python scripts/excalibur_blog_quad_manifest.py \
 ### Шаг 3 — prompt + batch
 
 ```bash
-python scripts/excalibur_blog_cover_quad_prompt.py \
+python3 scripts/excalibur_blog_cover_quad_prompt.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --write-batch
 ```
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image job (prefer Kie async)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+**Preferred (Cloud-stable):** после batch сразу Kie async API — не завись от длинного sync MCP:
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+Требует `KIE_API_KEY`. Контракт: `shared/mcp-image-async-contract.md`.
+
+**Optional sync MCP:** `CallMcpTool` → `user-mcp-kv` / `gpt-image-2` с `jobs[0].mcp_args`.
+Если ответ `-32001 Request timed out` — **не** blind-retry sync create; переходи на Kie API выше.
+
+Outfit в prompt берётся из `blog-hero.outfit_rule` / scene weather (не hardcoded white hoodie).
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --url "<MCP result url>" \
   --inject-html

@@ -141,6 +141,12 @@ def main() -> None:
         + json.dumps(published[-10:], ensure_ascii=False)
     )
 
+    print(
+        "EXCALIBUR_LEDGER_WP_NOTE="
+        "consult EXCALIBUR_RECENT_WP_POSTS before scout; never drop historical ledger rows on rebrand"
+    )
+
+
     site_url = os.environ.get("PUBLIC_SITE_URL") or os.environ.get("WP_SITE_URL") or DEFAULT_SITE_URL
     if site_url:
         posts, error = fetch_recent_wp_posts(site_url)

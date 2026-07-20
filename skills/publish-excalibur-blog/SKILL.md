@@ -61,15 +61,15 @@ python scripts/excalibur_blog_wp_publish.py \
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
 - пишет post meta `_excalibur_blog_schema_jsonld`.
 
-### 4. Cloud WebFetch Fallback
+### 4. HTTP timeout → curl → WebFetch Fallback
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Порядок в `excalibur_blog_wp_publish.py`:
 
-1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+1. `urllib` timeout 120s;
+2. `curl -fsS -L --max-time 300` на тот же bootstrap URL;
+3. если curl тоже упал — печатает `=== FALLBACK_TRIGGER_URL ===`; Cloud-агент делает **один** WebFetch и пишет ответ в `memory/webfetch-response.txt` (wait до 180s).
 
-**Не останавливайся** на первом timeout — используй fallback.
+**Не** запускай второй publish / параллельный WebFetch race. **Не останавливайся** на первом timeout.
 
 ### 5. Post-publish артефакты
 
@@ -77,14 +77,14 @@ python scripts/excalibur_blog_wp_publish.py \
 |------|----------|
 | `wp-publish-result.json` | создаёт скрипт (verdict pass/fail) |
 | `memory/blog/wp-publish-log.md` | допиши секцию с post_id, permalink, inline ids |
-| `shared/published-articles.md` | строка: date, topic_id, slug, url, status=published |
+| `shared/published-articles.md` | upsert строки topic_id → published; **никогда не удаляй** исторические AS*/B* ряды при ребренде |
 | `promotion-checklist.md` | Live URL = permalink |
 | handoff | блок `=== EXCALIBUR BLOG PUBLISH ===` + permalink в `PIPELINE DONE` |
 
 ### 6. Post-publish (рекомендуется)
 
 ```bash
-python scripts/excalibur_blog_interlinker.py --apply \
+python3 scripts/excalibur_blog_interlinker.py --apply \
   --blog-dir memory/blog/articles \
   --site-base https://avtosales125.ru
 ```
@@ -119,3 +119,8 @@ blockers:
 - Генерировать cover/schema с нуля
 - Пропускать dry-run
 - Завершать пайплайн без записи в `published-articles.md` при успешном publish
+
+
+## Schema secret-scan
+
+`schema.jsonld` may contain `__excalibur_pragma_N` keys for Cursor allowlist; publish strips them before WP meta.

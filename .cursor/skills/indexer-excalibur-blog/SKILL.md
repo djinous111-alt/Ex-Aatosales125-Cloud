@@ -10,16 +10,22 @@ description: Excalibur BLOG Indexer — interlink между статьями + 
 ## Shell
 
 ```bash
+# Default --site-base empty → relative /blog/<slug>/ (secret-scan safe for git).
+# Do NOT pass live $PUBLIC_SITE_URL into committed llms/interlink artifacts.
 python3 scripts/excalibur_blog_interlinker.py --apply \
-  --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --site-base https://avtosales125.ru
+  --article-dir memory/blog/articles/<topic_id>-<slug>
 
 python3 scripts/excalibur_blog_llms_generator.py \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru \
-  --blog-path / \
   --out-dir memory/blog
 ```
+
+CLI: `--blog-dir` (не `--blog-path`). Absolute site URLs — только при upload на сервер, не в git.
+
+## Secret-scan
+
+Если когда-либо нужны абсолютные URL в committed файле: HTML `<!-- pragma: allowlist secret -->` на строке;
+в JSON — `"site_base": "${PUBLIC_SITE_URL}"` или `__excalibur_pragma_N` keys (как schema). Предпочтительнее относительные пути.
 
 ## Выход
 

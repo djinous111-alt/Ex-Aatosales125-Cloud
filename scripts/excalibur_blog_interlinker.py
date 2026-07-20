@@ -48,17 +48,29 @@ def load_all_articles(blog_dir: Path) -> list[dict[str, Any]]:
     return articles
 
 
+def normalize_site_base(site_base: str | None) -> str:
+    raw = (site_base or "").strip()
+    if not raw or raw in {"[REDACTED]", "REDACTED", "${PUBLIC_SITE_URL}"}:
+        return ""
+    return raw.rstrip("/")
+
+
+def article_public_url(site_base: str, slug: str) -> str:
+    base = normalize_site_base(site_base)
+    if base:
+        return f"{base}/blog/{slug}/"
+    return f"/blog/{slug}/"
+
+
 def find_linking_opportunities(articles: list[dict[str, Any]], site_base: str) -> list[dict[str, Any]]:
     suggestions = []
-    # Normalize site base URL
-    site_base = site_base.rstrip("/")
 
     for target in articles:
         target_slug = target["slug"]
         if not target_slug:
             continue
 
-        target_url = f"{site_base}/blog/{target_slug}/"
+        target_url = article_public_url(site_base, target_slug)
         # Prioritize natural anchor variants for diversification, then primary, then secondary queries
         raw_keywords = target.get("anchor_variants", []) + [target["primary_query"]] + target["secondary_queries"]
         # Remove duplicates while preserving order
@@ -199,7 +211,12 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Excalibur BLOG Hub-and-Spoke Interlinker")
     ap.add_argument("--blog-dir", type=Path, default=None, help="Path to articles/ directory")
     ap.add_argument("--article-dir", type=Path, default=None, help="Limit suggestions to one article as source or target")
-    ap.add_argument("--site-base", type=str, default="https://avtosales125.ru", help="Base site URL")
+    ap.add_argument(
+        "--site-base",
+        type=str,
+        default="",
+        help="Site origin for absolute URLs. Default empty → relative /blog/<slug>/ (secret-scan safe).",
+    )
     ap.add_argument("--apply", action="store_true", help="Directly edit html files to apply links")
     ap.add_argument("--output", type=Path, default=None, help="Output path for JSON suggestions report")
     args = ap.parse_args()
@@ -224,7 +241,8 @@ def main() -> int:
     print(f"Found {len(suggestions)} internal linking opportunities.")
 
     report = {
-        "site_base": args.site_base,
+        # Prefer placeholder over live PUBLIC_SITE_URL for committed reports.
+        "site_base": normalize_site_base(args.site_base) or "${PUBLIC_SITE_URL}",
         "total_articles": len(articles),
         "opportunities_found": len(suggestions),
         "suggestions": [

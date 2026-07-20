@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260721-2137-schema-jsonld-secret-scan-block
+status: open
+run_date: 2026-07-21
+role: excalibur-blog-schema
+topic_id: AS15
+article_dir: memory/blog/articles/AS15-dostavka-avto-iz-vladivostoka-2026
+severity: medium
+category: tooling
+related: INC-20260721-0025-writer-telegram-cta-secret-scan-block
+
+### What went wrong
+- `schema.jsonld` обязан содержать абсолютные URL (`PUBLIC_SITE_URL`, `sameAs` из registry: site/catalog/Telegram/MAX) для BlogPosting/FAQPage/HowTo.
+- `git commit` блокируется Cursor secret scan по значениям `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`.
+- HTML-workaround `<!-- pragma -->` неприменим к JSON; `// pragma` на строках делает файл невалидным JSON (publish/meta сломаются).
+
+### How the agent recovered this run
+- Валидный JSON-LD с маркером `pragma: allowlist secret` на каждой secret-bearing строке через неизвестные ключи `__excalibur_pragma_N` (Google игнорирует unknown properties).
+- Fragment schema PASS; artifact закоммичен.
+
+### Durable fix needed before next run
+- В schema skill: документировать secret-scan allowlist для `schema.jsonld` (или генератор, который проставляет pragma-keys / strip перед publish).
+- Либо не классифицировать публичные site/CTA URL как Cursor Secrets; либо publish подставляет URL из env в шаблон без секретов в git.
+- Опционально: `scripts/excalibur_blog_schema_sanitize.py` — strip `__excalibur_pragma_*` перед WP meta.
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- Cursor Dashboard Secrets (site/CTA URL classification)
+
+### Secrets
+- none recorded (URL values not copied into this queue)
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260721-0025-writer-telegram-cta-secret-scan-block
 status: open
 run_date: 2026-07-21

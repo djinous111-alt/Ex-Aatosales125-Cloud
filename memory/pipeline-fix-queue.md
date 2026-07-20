@@ -256,7 +256,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20260720-0903-scout-as-id-helper
-status: open
+status: fixed
 run_date: 2026-07-20
 role: excalibur-blog-scout
 topic_id: AS11
@@ -285,10 +285,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- Shared module `scripts/excalibur_topic_ids.py` with regex `(?:AS|B)\d+`.
+- `scout_helper` / `today.py` parse AS* cards and article dirs; `--suggest-next` → AS12 for Авто-Сейлс.
+- `--check-query` also compares against `published-live-avtosales125.json` slug dump.
+files_changed:
+- `scripts/excalibur_topic_ids.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → AS12
+- topic regex unit asserts
+commit: pending-parent-commit
 
 ## INC-20260720-0904-scout-wp-mcp-wrong-site
-status: open
+status: fixed
 run_date: 2026-07-20
 role: excalibur-blog-scout
 topic_id: AS11
@@ -315,10 +331,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- Scout skill documents mandatory fallback when WP MCP returns another site: blog-topics + live dump + today.py recent posts.
+- Helper `--check-query` reads `memory/blog/published-live-avtosales125.json`.
+- Binding MCP WordPress credentials to Авто-Сейлс remains a Dashboard/MCP config task (no secret values in repo).
+files_changed:
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- scout skill rg for live-dump / wrong-site guidance
+commit: pending-parent-commit
 
 ## INC-20260720-0906-scout-precommit-secret-names
-status: open
+status: needs-human
 run_date: 2026-07-20
 role: excalibur-blog-scout
 topic_id: AS11
@@ -344,10 +373,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+fixed_at: 2026-07-20
+reason:
+- Cursor `pre-commit.cursor` secrets scanner is outside this repo; cannot harden the hosted hook from git.
+- Documented workaround + naming rule (bash identifiers only) in scout skill, pitfalls, CURSOR-CLOUD-RUNBOOK.
+needed_decision_or_secret:
+- Rename any Cloud Secret names that are not valid bash identifiers (`[A-Za-z_][A-Za-z0-9_]*`) in Cursor Dashboard.
+- Until then: manual staged-diff scan + temporary empty `CLOUD_AGENT_INJECTED_SECRET_NAMES` for one commit (documented).
+files_changed:
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+checks_run:
+- docs rg for invalid variable name / bash identifier guidance
+commit: pending-parent-commit
 
 ## INC-20260720-0911-research-tech-marker-false-positive
-status: open
+status: fixed
 run_date: 2026-07-20
 role: excalibur-blog-research
 topic_id: AS11
@@ -379,7 +423,20 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- Replaced substring TECH_MARKERS with word-boundary patterns; strip research field labels; `AS*` prefix treated as non-tech niche.
+- AS11 research-notes gate now reports `technical_topic=false`.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit assert AS11 false-positive / B09 true-positive
+- `research_notes_gate.py` on AS11 → PASS technical=false
+commit: pending-parent-commit
 
 ## INC-20260720-0918-geo-qa-utility-pain-markers-missing
 status: fixed
@@ -416,7 +473,7 @@ category: script
 - fixed by geo-qa in-run (2026-07-20): restored policy markers + script defaults; AS11 utility PASS (pain 4, outcome 6). Optional: add regression test + pitfalls note.
 
 ## INC-20260720-0923-schema-missing-schema-write-helper
-status: open
+status: fixed
 run_date: 2026-07-20
 role: excalibur-blog-schema
 topic_id: AS11
@@ -449,10 +506,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- Restored durable `scripts/excalibur_blog_schema_write.py` (unicode_escape site URL, FAQ/HowTo, authors-registry).
+- Schema skill/agent point to helper; incident path aligned to `memory/pipeline-fix-queue.md`.
+files_changed:
+- `scripts/excalibur_blog_schema_write.py`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+checks_run:
+- `py_compile` schema_write
+- `--dry-run` on AS11 → faq_count=7 howto_steps=6
+commit: pending-parent-commit
 
 ## INC-20260720-0927-cover-prompt-hoodie-lock
-status: open
+status: fixed
 run_date: 2026-07-20
 role: excalibur-blog-cover
 topic_id: AS11
@@ -482,10 +553,22 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- Removed hardcoded white hoodie outfit lock from `build_prompt()`; outfit follows scene_hint + blog-hero outfit_rule with NO cap/NO hood.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- build_prompt AS11: no `Outfit lock: thick heavyweight white hoodie`
+- rg stale hoodie lock → none
+commit: pending-parent-commit
 
 ## INC-20260720-0935-publish-ssh-root-unset
-status: open
+status: fixed
 run_date: 2026-07-20
 role: excalibur-blog-publish
 topic_id: AS11
@@ -518,4 +601,21 @@ category: env
 - none recorded (do not commit values)
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- `load_env` maps legacy `SSH_PATH` → `SSH_ROOT` and defaults `SSH_ROOT=.` when unset.
+- `cloud-agent-install.sh` installs `paramiko` (+ numpy); doctor checks paramiko and warns only when missing without `--publish`.
+- Publish skill/runbook/pitfalls document SSH defaults.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/cloud-agent-install.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- SSH_PATH map / default `.` unit
+- `doctor.py` → errors=0 (paramiko OK, --blog-dir OK)
+commit: pending-parent-commit

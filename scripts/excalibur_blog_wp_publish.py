@@ -31,6 +31,7 @@ PUBLISH_ENV_KEYS = {
     "SSH_PASS",
     "SSH_PASSWORD",
     "SSH_ROOT",
+    "SSH_PATH",  # legacy alias → SSH_ROOT
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
 }
 
@@ -55,6 +56,12 @@ def load_env(root: Path) -> dict[str, str]:
             env[key] = value
     if not env.get("SSH_PASS") and env.get("SSH_PASSWORD"):
         env["SSH_PASS"] = env["SSH_PASSWORD"]
+    # Legacy Cloud Secret name: SSH_PATH meant remote publish root.
+    if not (env.get("SSH_ROOT") or "").strip() and (env.get("SSH_PATH") or "").strip():
+        env["SSH_ROOT"] = env["SSH_PATH"].strip()
+    # Prefer login cwd when root unset (common Cloud SSH accounts).
+    if not (env.get("SSH_ROOT") or "").strip():
+        env["SSH_ROOT"] = "."
     return env
 
 
@@ -380,12 +387,15 @@ def _ssh_creds(env: dict[str, str]) -> tuple[str, int, str, str]:
 
 
 def configured_ssh_root(env: dict[str, str]) -> str:
-    return (env.get("SSH_ROOT") or "").strip()
+    root = (env.get("SSH_ROOT") or "").strip()
+    if not root and (env.get("SSH_PATH") or "").strip():
+        root = env["SSH_PATH"].strip()
+    return root or "."
 
 
 def ssh_remote_path(env: dict[str, str], remote: str, root_override: str | None = None) -> str:
     root = configured_ssh_root(env) if root_override is None else root_override.strip()
-    if not root:
+    if not root or root in {".", "./"}:
         return remote
     return root.rstrip("/") + "/" + remote
 
@@ -403,7 +413,7 @@ def ssh_root_candidates(env: dict[str, str]) -> list[str]:
     root = configured_ssh_root(env)
     if root and root not in {".", "./"}:
         return [root, "."]
-    return [root]
+    return [root or "."]
 
 
 def is_missing_remote_path_error(exc: OSError) -> bool:

@@ -23,8 +23,10 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 ## Твои задачи
 
 1. Прочитать article.html, article.meta.json, research-notes, authors-registry.
-2. Собрать `schema.jsonld`: BlogPosting + FAQPage (+ HowTo если нужно).
-3. datePublished из research-context (today).
+2. Собрать `schema.jsonld` через durable helper:
+   `python3 scripts/excalibur_blog_schema_write.py --article-dir <article_dir>`
+   (декод PUBLIC_SITE_URL / unicode_escape, FAQ, author registry, HowTo для mode B).
+3. datePublished из research-context (today) — helper берёт сам.
 4. Fragment `.cursor/excalibur-blog-fragments/schema.md`:
 
 ```text
@@ -33,6 +35,7 @@ topic_id:
 verdict: PASS | BLOCKER
 ```
 
+Incident memory: только `memory/pipeline-fix-queue.md`.
 ## Не твоя зона
 
 - cover MCP, правка longread, publish.

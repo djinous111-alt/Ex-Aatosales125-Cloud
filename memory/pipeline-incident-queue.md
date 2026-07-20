@@ -34,7 +34,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_doctor.py`
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0 (paramiko OK)
-commit: 565a873b036576be425f34dffe44ff6d72f01397
+commit: 58846fed40661af307e001f1cfea0af31a465af4
 
 ### What went wrong
 - `scripts/excalibur_blog_wp_publish.py` failed on first publish attempt: `ModuleNotFoundError: No module named 'paramiko'`.
@@ -66,7 +66,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → OK blog-dir/out-dir
 - `python3 scripts/excalibur_blog_llms_generator.py --help` → blog-dir + redact-site-base
-commit: 565a873b036576be425f34dffe44ff6d72f01397
+commit: 58846fed40661af307e001f1cfea0af31a465af4
 
 ### Fixer resolution
 - CLI/docs aligned; no `--blog-path`.
@@ -93,7 +93,7 @@ files_changed:
 checks_run:
 - `rg 'Outfit lock: thick heavyweight white hoodie' scripts` → absent
 - py_compile cover/quad scripts
-commit: 565a873b036576be425f34dffe44ff6d72f01397
+commit: 58846fed40661af307e001f1cfea0af31a465af4
 
 ### Fixer resolution
 - Hardcode removed.
@@ -119,7 +119,7 @@ files_changed:
 - `.cursor/skills/schema-excalibur-blog/SKILL.md`
 checks_run:
 - `python3 scripts/excalibur_blog_schema_write.py --article-dir ...AS10... --dry-run` → graph with FAQ+HowTo, `[REDACTED]/` paths
-commit: 565a873b036576be425f34dffe44ff6d72f01397
+commit: 58846fed40661af307e001f1cfea0af31a465af4
 
 ### Fixer resolution
 - Helper restored; publish reinject wired.
@@ -144,7 +144,7 @@ files_changed:
 checks_run:
 - utility gate AS10 → PASS
 - markers resolve fallback smoke
-commit: 565a873b036576be425f34dffe44ff6d72f01397
+commit: 58846fed40661af307e001f1cfea0af31a465af4
 
 ### Fixer resolution
 - Shared markers + policy lists durable.
@@ -170,7 +170,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_cta_urls.py --help`
 - link_verify soft-fail hosts include gov.ru (rg)
-commit: 565a873b036576be425f34dffe44ff6d72f01397
+commit: 58846fed40661af307e001f1cfea0af31a465af4
 
 ### Fixer resolution
 - CTA contract + gov soft-fail docs.
@@ -197,7 +197,7 @@ files_changed:
 checks_run:
 - `scout_helper --suggest-next` → AS11, pool=10
 - `today.py` → EXCALIBUR_SUGGESTED_TOPIC_ID=AS01 (next unused P0)
-commit: 565a873b036576be425f34dffe44ff6d72f01397
+commit: 58846fed40661af307e001f1cfea0af31a465af4
 
 ### Fixer resolution
 - AS* topic IDs recognized.
@@ -222,7 +222,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - research gate AS10 → PASS, technical_topic=False
-commit: 565a873b036576be425f34dffe44ff6d72f01397
+commit: 58846fed40661af307e001f1cfea0af31a465af4
 
 ### Fixer resolution
 - Output path + AS github false-positive fixed.
@@ -247,7 +247,7 @@ files_changed:
 checks_run:
 - docs contain excalibur_blog_cta_urls.py
 - wp_publish load_article reinject present (rg)
-commit: 565a873b036576be425f34dffe44ff6d72f01397
+commit: 58846fed40661af307e001f1cfea0af31a465af4
 
 ### Fixer resolution
 - Writer/publish CTA secret-scan contract durable.

@@ -46,3 +46,36 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+
+
+## Topic IDs / Scout niche
+
+- После ребренда pool использует `AS*`; `today.py` / `scout_helper.py` обязаны парсить `(?:AS|B)\d+`. Doctor проверяет dual-prefix + `--suggest-next`.
+- Scout ниша = **Авто-Сейлс** (авто из Азии, растаможка, СВХ, доставка), не Cursor/n8n leftover.
+- `needs_scout` / выбор темы: смотри `EXCALIBUR_RECENT_WP_POSTS` из today.py и полный `shared/published-articles.md`; не опирайся только на короткий локальный ledger.
+
+## Research gates
+
+- `research_notes_gate` определяет technical topic только по полям карточки темы (word-boundary для `ai`/`ии`/…); не сканирует `reader_pain` body на substring.
+- `research_start` автоматически редактирует origin `PUBLIC_SITE_URL` в `research-serp.json` → `https://example.invalid` перед записью (secret-scan).
+
+## CTA / secret-scan
+
+- Writer: CTA URL из env через `excalibur_blog_cta_urls.py`; запрещено копировать `[REDACTED]` в href.
+- Telegram CTA строка в HTML: `<!-- pragma: allowlist secret -->`.
+- `schema.jsonld`: неизвестные ключи `__excalibur_pragma_N` = allowlist; publish strips их перед WP meta.
+- Indexer/llms: default `--site-base` пустой → относительные `/blog/<slug>/`; не передавай live `PUBLIC_SITE_URL` в git-артефакты. CLI: `--blog-dir`, не `--blog-path`.
+
+## Cover
+
+- Prefer Kie async `scripts/excalibur_blog_kie_gpt_image2_api.py` (createTask→recordInfo) над долгим sync MCP `gpt-image-2`.
+- После MCP `-32001` timeout — **не** blind-retry sync create; переходи на Kie API / async status.
+- Outfit: `blog-hero.outfit_rule` / weather сцены, не hardcoded white hoodie.
+
+## Utility gate
+
+- `pain_markers_ru` / `outcome_markers_ru` должны быть в `editorial-policy.json`; если списки пустые — utility_gate **пропускает** pain/outcome check (не BLOCK).
+
+## Publish HTTP
+
+- Bootstrap trigger: urllib 120s → curl `--max-time 300` → WebFetch file wait. Не запускай второй publish параллельно с WebFetch (race).

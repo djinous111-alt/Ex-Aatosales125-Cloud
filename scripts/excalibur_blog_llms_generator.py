@@ -61,8 +61,26 @@ def load_articles(blog_dir: Path) -> list[dict[str, Any]]:
     return articles
 
 
+def normalize_site_base(site_base: str | None) -> str:
+    """Return host base for absolute URLs, or empty for relative /blog/... paths.
+
+    Default empty/relative avoids Cursor secret-scan blocks on PUBLIC_SITE_URL
+    in committed llms.txt. Absolute URLs are for publish upload only.
+    """
+    raw = (site_base or "").strip()
+    if not raw or raw in {"[REDACTED]", "REDACTED", "${PUBLIC_SITE_URL}"}:
+        return ""
+    return raw.rstrip("/")
+
+
+def article_public_url(site_base: str, slug: str) -> str:
+    base = normalize_site_base(site_base)
+    if base:
+        return f"{base}/blog/{slug}/"
+    return f"/blog/{slug}/"
+
+
 def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]], site_base: str) -> str:
-    site_base = site_base.rstrip("/")
     lines = [
         f"# {site_name}",
         f"> {site_desc}",
@@ -71,14 +89,13 @@ def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]
         ""
     ]
     for a in articles:
-        url = f"{site_base}/blog/{a['slug']}/"
+        url = article_public_url(site_base, a["slug"])
         lines.append(f"- [{a['title']}]({url}): {a['description']}")
 
     return "\n".join(lines) + "\n"
 
 
 def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_base: str) -> str:
-    site_base = site_base.rstrip("/")
     lines = [
         f"# {site_name} - Full LLM Knowledge Base",
         "This file contains full plain-text articles optimized for AI reasoning and semantic search.",
@@ -88,7 +105,7 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
     ]
 
     for a in articles:
-        url = f"{site_base}/blog/{a['slug']}/"
+        url = article_public_url(site_base, a["slug"])
         lines.extend([
             f"## {a['title']}",
             f"- **URL**: {url}",
@@ -108,7 +125,12 @@ def main() -> int:
     ap.add_argument("--blog-dir", type=Path, default=None)
     ap.add_argument("--site-name", type=str, default="Авто-Сейлс")
     ap.add_argument("--site-desc", type=str, default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.")
-    ap.add_argument("--site-base", type=str, default="https://avtosales125.ru")
+    ap.add_argument(
+        "--site-base",
+        type=str,
+        default="",
+        help="Site origin for absolute URLs. Default empty → relative /blog/<slug>/ (secret-scan safe).",
+    )
     ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for llms.txt/llms-full.txt")
     args = ap.parse_args()
 
@@ -127,6 +149,7 @@ def main() -> int:
     llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, args.site_base)
     llms_full_txt = build_llms_full_txt(args.site_name, articles, args.site_base)
 
+    out_dir.mkdir(parents=True, exist_ok=True)
     llms_path = out_dir / "llms.txt"
     llms_full_path = out_dir / "llms-full.txt"
 

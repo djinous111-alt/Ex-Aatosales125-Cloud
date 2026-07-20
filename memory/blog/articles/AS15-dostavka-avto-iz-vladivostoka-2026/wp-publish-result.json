@@ -1,0 +1,27 @@
+{
+  "slug": "dostavka-avto-iz-vladivostoka-2026",
+  "topic_id": "AS15",
+  "post_id": 3553,
+  "permalink": "/2026/07/21/dostavka-avto-iz-vladivostoka-2026/",
+  "permalink_relative": "/2026/07/21/dostavka-avto-iz-vladivostoka-2026/",
+  "featured_image": 3566,
+  "inline_images": [
+    {
+      "id": 3567,
+      "src": "cover/inline-01.png"
+    },
+    {
+      "id": 3568,
+      "src": "cover/inline-02.png"
+    },
+    {
+      "id": 3569,
+      "src": "cover/inline-03.png"
+    }
+  ],
+  "schema_meta": 1,
+  "publish_method": "ssh+curl_fallback",
+  "cover_evidence": {},
+  "raw_output": "OK post=3553 slug=dostavka-avto-iz-vladivostoka-2026\nOK featured_image=3566\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3567 src=cover/inline-01.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/07/dostavka-avto-iz-vladivostoka-2026-inline-01-2.png\nOK inline_image_upload=3568 src=cover/inline-02.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/07/dostavka-avto-iz-vladivostoka-2026-inline-02-2.png\nOK inline_image_upload=3569 src=cover/inline-03.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/07/dostavka-avto-iz-vladivostoka-2026-inline-03-2.png\npermalink=${PUBLIC_SITE_URL}/2026/07/21/dostavka-avto-iz-vladivostoka-2026/\n",
+  "verdict": "pass"
+}

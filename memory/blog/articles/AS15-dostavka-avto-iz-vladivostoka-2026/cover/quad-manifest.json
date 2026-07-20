@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS15",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Машина во Владивостоке — автовоз, ж/д или гнать?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у автовоза и жд-сетки во Владивостоке с плашкой выбора ж/д · автовоз · перегон",
+      "scene_hint": "Владивосток порт/логистика, пасмурный дальневосточный день: на фоне автовоз с современными авто и ж/д-сетка (вагон-сетка для машин); герой Авто-Сейлс — EXACT face+glasses from reference, outfit = тёмная непромокаемая куртка / bomber под порт и ветер (НЕ white hoodie, НЕ tank top с reference), рука указывает на плашку «ж/д · автовоз · перегон»; fake UI: карточка маршрута Влд→Москва + стикер «общий срок ≠ дни в пути»; torn paper + scotch + sticky note «не лотерея»; meme facepalm cutout; угол avto-sales125.ru; без Wordstat/Метрики/Telegram",
+      "meme_caption_ru": "Не лотерея — маршрут"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте город, класс кузова и дедлайн до выбора способа",
+      "visual_type": "checklist_board",
+      "scene_hint": "UI-чеклист до выбора способа: город выдачи, класс кузова (седан/кроссовер/EV), дедлайн, габариты — стикер «сначала это», без лица героя",
+      "alt": "Чеклист: город, класс кузова и дедлайн до выбора доставки из Владивостока"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните ж/д, автовоз и перегон по сроку, риску и документам",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Сравнительная таблица ж/д vs автовоз vs перегон: колонки срок от сдачи, защита кузова, документы, кому подходит — tape corner, без героя",
+      "alt": "Таблица сравнения ж/д, автовоза и перегона по сроку, риску и документам"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Посчитайте общий срок: очередь, путь и выгрузка",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема общего срока: очередь на погрузку → дни в пути → выгрузка/выдача; стрелки и цифры-ориентиры; sticky «не только путь»; без лица героя",
+      "alt": "Схема общего срока доставки: очередь, путь и выгрузка"
+    }
+  }
+}

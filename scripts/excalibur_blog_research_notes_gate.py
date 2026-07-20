@@ -14,19 +14,23 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short markers must use word boundaries — raw "ai"/"ии" false-positive inside
+# reader_pain / Russian morphology (станции, компании, …).
+TECH_MARKERS_WORD = (
     "ai",
     "ии",
-    "agent",
-    "агент",
     "mcp",
     "api",
-    "cursor",
-    "make",
+    "rag",
     "n8n",
+)
+TECH_MARKERS_SUBSTRING = (
+    "agent",
+    "агент",
+    "cursor",
+    "make.com",
     "github",
     "docker",
-    "rag",
     "workflow",
     "автоматизац",
     "нейросет",
@@ -73,14 +77,30 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _tech_marker_hit(blob: str, marker: str, *, word_boundary: bool) -> bool:
+    if word_boundary:
+        return bool(re.search(rf"(?<!\w){re.escape(marker)}(?!\w)", blob, flags=re.I))
+    return marker.lower() in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech topics from topic-card signals only (not full notes body).
+
+    Scanning notes[:2000] caused false positives: required field name
+    ``reader_pain`` contains substring ``ai``; Russian words contain ``ии``.
+    Non-tech niches (auto logistics) must not be forced into github_urls>=3.
+    """
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    if not blob.strip():
+        # No topic card — do not infer technical from notes field labels.
+        return False
+    if any(_tech_marker_hit(blob, m, word_boundary=True) for m in TECH_MARKERS_WORD):
+        return True
+    return any(_tech_marker_hit(blob, m, word_boundary=False) for m in TECH_MARKERS_SUBSTRING)
 
 
 def field_present(text_lower: str, field: str) -> bool:

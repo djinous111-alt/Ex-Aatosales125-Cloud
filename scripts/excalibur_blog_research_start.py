@@ -256,6 +256,54 @@ def article_dir(root: Path, topic: dict[str, Any]) -> Path:
     return root / "memory" / "blog" / "articles" / f"{topic['topic_id']}-{slug}"
 
 
+def _site_origins_to_redact() -> list[str]:
+    """Public blog origins that Cursor secret-scan treats as secrets when committed."""
+    import os
+
+    origins: list[str] = []
+    for key in ("PUBLIC_SITE_URL", "WP_SITE_URL", "WP_HOME"):
+        raw = (os.environ.get(key) or "").strip().rstrip("/")
+        if raw.startswith("http://") or raw.startswith("https://"):
+            origins.append(raw)
+            # Also redact without scheme host forms appearing in snippets.
+            parsed = urllib.parse.urlparse(raw)
+            if parsed.netloc:
+                origins.append(parsed.netloc)
+    # Dedupe preserving order
+    seen: set[str] = set()
+    out: list[str] = []
+    for o in origins:
+        if o and o not in seen:
+            seen.add(o)
+            out.append(o)
+    return out
+
+
+def redact_public_site_urls(payload: Any, *, placeholder: str = "https://example.invalid") -> Any:
+    """Replace live site origin strings so research-serp.json can be committed."""
+    origins = _site_origins_to_redact()
+    if not origins:
+        return payload
+
+    def scrub(value: Any) -> Any:
+        if isinstance(value, dict):
+            return {k: scrub(v) for k, v in value.items()}
+        if isinstance(value, list):
+            return [scrub(v) for v in value]
+        if isinstance(value, str):
+            text = value
+            for origin in origins:
+                if origin in text:
+                    if origin.startswith("http"):
+                        text = text.replace(origin, placeholder)
+                    else:
+                        text = text.replace(origin, "example.invalid")
+            return text
+        return value
+
+    return scrub(payload)
+
+
 def reserve_topic_in_ledger(root: Path, topic: dict[str, Any], ctx: dict[str, Any], out_dir: Path) -> bool:
     """Mark a topic as in_progress as soon as Step 0 starts.
 
@@ -369,6 +417,8 @@ def run_research_start(
         "errors": errors,
         "unique_urls": _unique_urls(serp_runs),
     }
+    # Secret-scan hygiene: never commit live PUBLIC_SITE_URL / WP origin in SERP dumps.
+    payload_serp = redact_public_site_urls(payload_serp)
 
     context_path = out_dir / "research-context.json"
     serp_path = out_dir / "research-serp.json"

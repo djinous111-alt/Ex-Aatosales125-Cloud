@@ -1,0 +1,201 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "${PUBLIC_SITE_URL}/dostavka-avto-iz-vladivostoka-2026/#blogposting",
+      "__excalibur_pragma_1": "pragma: allowlist secret",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "${PUBLIC_SITE_URL}/dostavka-avto-iz-vladivostoka-2026/",
+        "__excalibur_pragma_2": "pragma: allowlist secret"
+      },
+      "headline": "Как выбрать доставку авто из Владивостока: ж/д, автовоз или перегон в 2026",
+      "description": "Доставка авто из Владивостока 2026: сравнение ж/д, автовоза и перегона, общий срок vs дни в пути, чек-лист логисту до оплаты.",
+      "datePublished": "2026-07-21",
+      "dateModified": "2026-07-21",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "${PUBLIC_SITE_URL}/#author-avtosales-editorial",
+        "__excalibur_pragma_3": "pragma: allowlist secret",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "${PUBLIC_SITE_URL}/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "__excalibur_pragma_4": "pragma: allowlist secret",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "${PUBLIC_SITE_URL}/",
+          "__excalibur_pragma_5": "pragma: allowlist secret"
+        },
+        "sameAs": [
+          "${PUBLIC_SITE_URL}/",
+          "${CATALOG_URL}/",
+          "${TELEGRAM_URL}",
+          "[REDACTED]",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ],
+        "__excalibur_pragma_6": "pragma: allowlist secret"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "${PUBLIC_SITE_URL}/#organization",
+        "__excalibur_pragma_7": "pragma: allowlist secret",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "${PUBLIC_SITE_URL}/",
+        "__excalibur_pragma_8": "pragma: allowlist secret",
+        "sameAs": [
+          "${CATALOG_URL}/",
+          "${TELEGRAM_URL}"
+        ],
+        "__excalibur_pragma_9": "pragma: allowlist secret"
+      },
+      "keywords": [
+        "доставка авто из владивостока",
+        "автовоз из владивостока",
+        "перегон авто из владивостока",
+        "доставка авто из владивостока в москву",
+        "сколько едет автовоз из владивостока"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "${PUBLIC_SITE_URL}/dostavka-avto-iz-vladivostoka-2026/#faq",
+      "__excalibur_pragma_10": "pragma: allowlist secret",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сколько примерно едет автовоз из Владивостока в Москву?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Смотрите общий срок у конкретной ТК. В открытых источниках июля 2026 путь часто около 17–22 дней, экспресс у части компаний от ~14; плюс очередь в сезон. Спросите \"от приёма до выдачи\", а не только \"дней в пути\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что быстрее: ж/д или автовоз?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Автовоз чаще предсказуемее по календарю для новичка. У ж/д транзит 10–14 дней, но общий срок с ожиданием нередко 20–45 дней до Москвы. Сравнивайте КП с одинаковой формулировкой срока."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли гнать авто самому после растаможки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, если выпуск и ЭПТС в порядке, машина на ходу, есть напарник и сезон комфортный. Сложите авиа, топливо, жильё и риск кузова. Для EV, кей-кара и зимы перегон обычно плохая идея."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему цены на доставку из Владивостока так расходятся?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В прайс попадают класс кузова, тип перевозки, эвакуатор/хранение, станция выдачи и сезон. \"От 150\" и \"220\" могут быть про разные условия. Берите три КП и сравнивайте состав услуги."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что обязательно согласовать с логистом до оплаты?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Договор, страховку и лимит, акт с фото при погрузке, трекинг, адрес выдачи, доплаты за неход/габариты и порядок претензий. Нет ответов – не переводите предоплату."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужны ли ЭПТС и закрытие СВХ до отправки по России?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Без нормального выпуска с СВХ и электронного ПТС машину сложно легально поставить в оборот по РФ. Сначала документы, потом автовоз, ж/д или перегон."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "${PUBLIC_SITE_URL}/dostavka-avto-iz-vladivostoka-2026/#howto",
+      "__excalibur_pragma_11": "pragma: allowlist secret",
+      "name": "Как выбрать доставку авто из Владивостока: ж/д, автовоз или перегон",
+      "description": "Пошаговый выбор доставки после СВХ во Владивостоке: фиксация города и дедлайна, сравнение ж/д/автовоз/перегон, общий срок, чек-лист логисту и фиксация одного способа.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Три КП: автовоз, ж/д, перегон"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Чек-лист вопросов логисту до оплаты"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "ЭПТС и выпуск с СВХ"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Город выдачи, класс кузова и дедлайн"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Зафиксировать город, класс кузова и дедлайн",
+          "text": "Запишите город получения, тип кузова и дату, когда машина реально нужна. Убедитесь, что авто выпущено с СВХ и есть ЭПТС / нужный пакет документов.",
+          "url": "${PUBLIC_SITE_URL}/dostavka-avto-iz-vladivostoka-2026/#зафиксируйте-город-класс-кузова-и-дедлайн-до-выбора-способа",
+          "__excalibur_pragma_12": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Сравнить ж/д, автовоз и перегон",
+          "text": "Соберите три предложения: автовоз, ж/д (сетка или контейнер) и опционально перегон. Сравнивайте общий срок от сдачи до выдачи и что входит в цену, а не одну красивую цифру.",
+          "url": "${PUBLIC_SITE_URL}/dostavka-avto-iz-vladivostoka-2026/#сравните-ж-д-автовоз-и-перегон-по-сроку-риску-и-документам",
+          "__excalibur_pragma_13": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Посчитать общий срок: очередь, путь и выгрузка",
+          "text": "Сложите ожидание погрузки, путь и выгрузку. Не путайте транзит 10–14 дней с датой ключей; фиксируйте коридор дней и правила при срыве.",
+          "url": "${PUBLIC_SITE_URL}/dostavka-avto-iz-vladivostoka-2026/#посчитайте-общий-срок-очередь-путь-и-выгрузка",
+          "__excalibur_pragma_14": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Решить, нужен ли перегон своим ходом",
+          "text": "Сложите авиа, топливо, жильё и риск кузова. Отсеките перегон при зиме, отсутствии напарника, EV/кей-каре или нежном кузове.",
+          "url": "${PUBLIC_SITE_URL}/dostavka-avto-iz-vladivostoka-2026/#решите-честно-нужен-ли-вам-перегон-своим-ходом",
+          "__excalibur_pragma_15": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Пройти чек-лист логисту до оплаты",
+          "text": "До оплаты уточните договор, страховку и лимит, акт с фото при погрузке, трекинг, адрес выдачи, доплаты и порядок претензий. Нет ответов — не переводите предоплату.",
+          "url": "${PUBLIC_SITE_URL}/dostavka-avto-iz-vladivostoka-2026/#пройдите-чек-лист-логисту-до-оплаты",
+          "__excalibur_pragma_16": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Зафиксировать один способ и критерий готовности",
+          "text": "Выпишите выбранный способ одной строкой с городом и коридором дней, приложите скрины КП и ответы по чек-листу, согласуйте дату сдачи и контакты при выдаче.",
+          "url": "${PUBLIC_SITE_URL}/dostavka-avto-iz-vladivostoka-2026/#зафиксируйте-результат-один-способ-и-понятный-критерий-готовности",
+          "__excalibur_pragma_17": "pragma: allowlist secret"
+        }
+      ]
+    }
+  ]
+}

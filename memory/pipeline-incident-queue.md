@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260720-1327-cover-white-hoodie-hardcode
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-cover
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-sbkts-i-epts-vladivostok-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` hardcodes `Outfit lock: thick heavyweight white hoodie` in the global prompt block.
+- This conflicts with `blog-hero.json` outfit_rule (одежда под погоду/тему) and agent `scene_hint` (для AS10: navy shirt + charcoal field jacket).
+- Auto-manifest defaults also inject SEO/Wordstat/white hoodie scene stubs unrelated to auto-import topics.
+
+### How the agent recovered this run
+- Rewrote `cover/quad-manifest.json` with AS10 hooks/scenes (customs/docs Vladivostok; no white hoodie).
+- After `--write-batch`, patched `quad-mcp-prompt.txt` + `quad-mcp-batch.json` to replace the Outfit lock with scene_hint outfit instruction before Kie createTask.
+- Kie i2i succeeded; cover shows utility jacket + button-down (not white hoodie).
+
+### Durable fix needed before next run
+- Remove white-hoodie Outfit lock from `excalibur_blog_cover_quad_prompt.py`; defer outfit to cover `scene_hint` + blog-hero outfit_rule.
+- Fix default cover stubs in `excalibur_blog_quad_manifest.py` so they do not seed Wordstat/SEO/white hoodie for Avto-Sales topics.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `memory/cover/blog-hero.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260720-1324-schema-secret-scan-and-missing-helper
 status: open
 run_date: 2026-07-20

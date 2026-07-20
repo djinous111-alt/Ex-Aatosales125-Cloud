@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS10-sbkts-i-epts-vladivostok-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1027,
+      580
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 580,
+        "end": 607
+      },
+      "v_gutter_px": {
+        "start": 1027,
+        "end": 1048
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1027,
+          "bottom": 580
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1027,
+          "bottom": 580
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у порта Владивостока с чеклистом СБКТС/ЭПТС: крючок про лишнюю кнопку ЭРА и фейк-лабораторию",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1048,
+          "top": 9,
+          "right": 2048,
+          "bottom": 571
+        },
+        "raw_box_px": {
+          "left": 1048,
+          "top": 0,
+          "right": 2048,
+          "bottom": 580
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: СБКТС vs ОТТС vs ЭПТС — зачем нужны после таможни",
+        "h2_anchor": "Разложите буквы: зачем СБКТС и ЭПТС после таможни"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 29,
+          "top": 607,
+          "right": 998,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 607,
+          "right": 1027,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема порядка: таможня → лаборатория → СБКТС → ЭПТС → ГИБДД",
+        "h2_anchor": "Пройдите порядок: таможня → лаборатория → СБКТС → ЭПТС → ГИБДД"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1063,
+          "top": 607,
+          "right": 2032,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1048,
+          "top": 607,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист документов до визита в лабораторию СБКТС во Владивостоке",
+        "h2_anchor": "Соберите документы до визита в лабораторию во Владивостоке"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разложите буквы: зачем СБКТС и ЭПТС после таможни",
+    "injected inline_2 after H2 — Пройдите порядок: таможня → лаборатория → СБКТС → ЭПТС → ГИБДД",
+    "injected inline_3 after H2 — Соберите документы до визита в лабораторию во Владивостоке"
+  ]
+}

@@ -22,7 +22,7 @@ This keeps waiting in the shell process instead of a single MCP request.
 ## Cover command
 
 ```bash
-python scripts/excalibur_blog_kie_gpt_image2_api.py \
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
@@ -38,7 +38,7 @@ The script writes:
 Then run:
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --inject-html
 ```
@@ -76,3 +76,15 @@ Terminal states:
 - One API task per article cover run, not four separate images.
 - `input_urls` is required; text-only generation is a cover blocker.
 - Do not retry createTask blindly after a network ambiguity if a `taskId` is known; poll the known task.
+
+## MCP sync timeout
+
+Cursor sync MCP `gpt-image-2` may return `-32001 Request timed out` while Kie still works.
+That is **not** a terminal cover blocker when `excalibur_blog_kie_gpt_image2_api.py` is available.
+Do not blindly retry sync MCP create.
+
+## Hero reference URL
+
+- Prefer HTTPS media URLs Kie can fetch.
+- `excalibur_blog_hero_reference_url.py --force` tries catbox → 0x0 → litterbox.
+- Avoid plain `http://` site hosts that redirect; Kie image fetch often fails on them.

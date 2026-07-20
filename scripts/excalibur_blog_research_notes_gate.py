@@ -93,6 +93,52 @@ def field_present(text_lower: str, field: str) -> bool:
     return bool(re.search(rf"\b{field_pattern}\b\s*:", text_lower, flags=re.I))
 
 
+def count_pain_solution_map_rows(text: str) -> int:
+    """Count markdown table *data* rows under ## pain_solution_map (not header/separator).
+
+    Keyword prefixes (боль:/pain/решение:/результат:) are recommended for Writer clarity,
+    but the gate must not require them in every cell — otherwise a normal table counts as 1.
+    """
+    match = re.search(
+        r"^##\s*\d*\.?\s*pain[_\s-]*solution[_\s-]*map\b.*?(?=^##\s|\Z)",
+        text,
+        flags=re.I | re.M | re.S,
+    )
+    if not match:
+        # Legacy fallback: keyword-bearing pipe rows anywhere in the notes.
+        return len(
+            re.findall(
+                r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*",
+                text.lower(),
+                flags=re.M,
+            )
+        )
+
+    data_rows = 0
+    seen_header = False
+    for line in match.group(0).splitlines():
+        stripped = line.strip()
+        if not stripped.startswith("|"):
+            continue
+        if re.match(r"^\|[\s\-:|]+\|$", stripped) or re.match(r"^\|[\s\-:|]+$", stripped):
+            continue
+        cells = [c.strip() for c in stripped.strip("|").split("|")]
+        if not any(cells):
+            continue
+        joined = " ".join(cells).lower()
+        if not seen_header:
+            seen_header = True
+            # Skip typical header row: Pain | Solution | Proof | Result
+            if re.search(r"\b(pain|боль|solution|решение|proof|reader_result|результат)\b", joined) and not re.search(
+                r"\b(боль:|решение:|результат:)\b", joined
+            ):
+                # Heuristic: header cells are short labels without narrative content.
+                if max((len(c) for c in cells), default=0) <= 40:
+                    continue
+        data_rows += 1
+    return data_rows
+
+
 def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     root = project_root()
     notes_path = article_dir / "research-notes.md"
@@ -132,7 +178,7 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     ]
     accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    pain_map_rows = count_pain_solution_map_rows(text)
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:

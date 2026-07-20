@@ -20,6 +20,10 @@ python scripts/excalibur_blog_fact_checker.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/fact-check-report.json
 
+python3 scripts/excalibur_blog_cta_urls.py \
+  --article-dir memory/blog/articles/<dir> \
+  --mode reinject
+
 python scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/link-verify.json \

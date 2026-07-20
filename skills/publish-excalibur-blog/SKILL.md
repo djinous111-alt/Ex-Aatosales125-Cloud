@@ -25,6 +25,21 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
 
+## Env / deps
+
+Перед live publish:
+
+```bash
+python3 scripts/excalibur_blog_cta_urls.py --article-dir memory/blog/articles/<topic_id>-<slug> --mode reinject
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+`--env-check` обязан показать `paramiko_installed: true`. Если `paramiko` отсутствует:
+`python3 -m pip install --break-system-packages paramiko` или `sudo apt-get install -y python3-paramiko`, затем retry.
+После commit артефактов — `--mode redact` (не коммитить live CTA URL).
+
+
+
 ## Алгоритм
 
 ### 1. Preflight publish

@@ -17,12 +17,22 @@ quad-manifest.json (agent fills hooks + scene_hint)
        ↓
 quad-mcp-batch.json (1 job, input_urls)
        ↓
-ONE MCP gpt-image-2 i2i → canvas-quad.png 2048×1152
+ONE Kie gpt-image-2 i2i (preferred API script) → canvas-quad.png 2048×1152
        ↓
 split → cover.png + inline-01..03.png (1200×675)
        ↓
 inject <figure> after H2 in article.html
 ```
+
+
+## Preferred image flow (Cloud)
+
+1. `python3 scripts/excalibur_blog_hero_reference_url.py` — HTTPS only; auto fallback `catbox → 0x0 → litterbox`. Не кормить Kie `http://` host с редиректом.
+2. `python3 scripts/excalibur_blog_cover_quad_prompt.py --article-dir … --write-batch` — outfit из `blog-hero.json` `outfit_rule` + scene weather/topic; **не** white-hoodie lock.
+3. **Default:** `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir …` (createTask → poll). Sync MCP `gpt-image-2` — legacy; `-32001` timeout **не** terminal, если Kie API доступен.
+4. `python3 scripts/excalibur_blog_quad_apply.py --article-dir … --inject-html`
+
+См. `shared/kie-gpt-image-api-contract.md`.
 
 **Запрещено:** 4 отдельных MCP на cover + inline.
 
@@ -122,12 +132,14 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image (Kie API preferred)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+Sync MCP `gpt-image-2` — только legacy fallback. При `-32001 Request timed out` **не** крутить sync retry: используй Kie API script / async poll. Аргументы batch = `jobs[0].mcp_args`.
 
 ### Шаг 5 — apply
 
@@ -163,8 +175,8 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 
 ## QA перед ✅
 
-- [ ] 1 MCP, не 4
-- [ ] input_urls в MCP
+- [ ] 1 Kie/MCP image job, не 4
+- [ ] input_urls (HTTPS) в batch/API
 - [ ] cover.png + 3 inline существуют
 - [ ] alt в registry для всех 4
 - [ ] inline привязаны к H2 (`h2_anchor`)

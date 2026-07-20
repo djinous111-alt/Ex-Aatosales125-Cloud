@@ -6,14 +6,28 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_none — all 2026-07-20 AS11 incidents fixed below._
+
+## Recently fixed (2026-07-20 AS11)
+
 ## INC-20260720-1735-publish-paramiko-missing
-status: open
-run_date: 2026-07-20
-role: excalibur-blog-publish
-topic_id: AS11
-article_dir: memory/blog/articles/AS11-privezti-elektromobil-iz-kitaya-2026
-severity: high
-category: env
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- Cloud install now installs `paramiko` from requirements.txt with apt `python3-paramiko` fallback.
+- `excalibur_blog_wp_publish.py --env-check` reports `paramiko_installed` + install hint.
+- Publish skill + pitfalls document the recovery path.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check` → paramiko_installed=true
+- bash `.cursor/cloud-agent-install.sh` → paramiko ok
+commit: pending-parent-commit
 
 ### What went wrong
 - `excalibur_blog_wp_publish.py` failed on first live run: `ModuleNotFoundError: No module named 'paramiko'`.
@@ -39,16 +53,28 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+- see status/fix_summary above
 
 ## INC-20260720-1732-cover-mcp-sync-timeout-kie-api
-status: open
-run_date: 2026-07-20
-role: excalibur-blog-cover
-topic_id: AS11
-article_dir: memory/blog/articles/AS11-privezti-elektromobil-iz-kitaya-2026
-severity: high
-category: api
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- Cover skill/agent default to Kie API script; MCP sync documented as legacy; `-32001` not terminal when API available.
+- Hero host script: HTTPS prefer + litterbox fallback after catbox/0x0; optional fetch check.
+- Prompt builder allowlists litterbox/catbox/0x0 + preferred HTTPS host; kie contract updated.
+files_changed:
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py scripts/excalibur_blog_cover_quad_prompt.py`
+- `python3 scripts/excalibur_blog_hero_reference_url.py --help` (litterbox in choices)
+commit: pending-parent-commit
 
 ### What went wrong
 - Sync MCP `gpt-image-2` returned `-32001 Request timed out` (i2i 2K and even 1K / short prompt).
@@ -75,16 +101,23 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+- see status/fix_summary above
 
 ## INC-20260720-1732-cover-outfit-lock-white-hoodie
-status: open
-run_date: 2026-07-20
-role: excalibur-blog-cover
-topic_id: AS11
-article_dir: memory/blog/articles/AS11-privezti-elektromobil-iz-kitaya-2026
-severity: medium
-category: prompt
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- Replaced hardcoded white-hoodie Outfit lock with `blog-hero.json` outfit_rule + cover scene_hint / topic_outfit_hint.
+- Explicit negative: never force thick heavyweight white hoodie.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+- `rg` confirms only negative white-hoodie wording remains
+commit: pending-parent-commit
 
 ### What went wrong
 - `scripts/excalibur_blog_cover_quad_prompt.py` hardcodes `Outfit lock: thick heavyweight white hoodie`, conflicting with `blog-hero.json` outfit_rule and agent instruction (outfit from scene weather/topic; NOT white hoodie lock).
@@ -104,7 +137,7 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+- see status/fix_summary above
 
 ## INC-20260720-1720-geo-qa-utility-pain-markers-empty
 status: fixed
@@ -149,16 +182,33 @@ commit: pending-parent-commit
 - none recorded
 
 ### Fixer resolution
-- pending (verify + pitfalls sync)
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- Verified policy marker lists + utility_gate fallback remain; pitfalls document empty-marker silent BLOCK risk.
+files_changed:
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- policy JSON has pain_markers_ru/outcome_markers_ru
+commit: pending-parent-commit
 
 ## INC-20260720-1720-geo-qa-cta-urls-script-missing
-status: open
-run_date: 2026-07-20
-role: excalibur-blog-geo-qa
-topic_id: AS11
-article_dir: memory/blog/articles/AS11-privezti-elektromobil-iz-kitaya-2026
-severity: medium
-category: script
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- Added `scripts/excalibur_blog_cta_urls.py` (reinject/redact from CATALOG_URL/TELEGRAM_URL env).
+- Wired into GEO QA and Publish skills; documented in pitfalls.
+files_changed:
+- `scripts/excalibur_blog_cta_urls.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cta_urls.py`
+- `python3 scripts/excalibur_blog_cta_urls.py --help`
+commit: pending-parent-commit
 
 ### What went wrong
 - Writer left CTA `href="[REDACTED]"` placeholders; memory/runbook expects `scripts/excalibur_blog_cta_urls.py` for reinject before link-verify / publish.
@@ -180,16 +230,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+- see status/fix_summary above
 
 ## INC-20260720-1715-research-pain-map-row-regex
-status: open
-run_date: 2026-07-20
-role: excalibur-blog-research
-topic_id: AS11
-article_dir: memory/blog/articles/AS11-privezti-elektromobil-iz-kitaya-2026
-severity: low
-category: script
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- Gate now counts markdown table data-rows under `## pain_solution_map` (header/separator excluded).
+- Research agent/skill document ≥3 data-rows; keyword prefixes recommended but not required.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `agents/excalibur-blog-research.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir …AS11…` → PASS pain_solution_rows=5
+commit: pending-parent-commit
 
 ### What went wrong
 - First `excalibur_blog_research_notes_gate.py` run BLOCKED: `pain_solution_map too thin: rows=1 < 3`.
@@ -210,16 +268,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+- see status/fix_summary above
 
 ## INC-20260720-1710-scout-precommit-invalid-secret-name
-status: open
-run_date: 2026-07-20
-role: excalibur-blog-scout
-topic_id: AS11
-article_dir: n/a
-severity: medium
-category: env
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- Added `scripts/excalibur_sanitize_injected_secret_names.sh` and install-time sanitize + patch of Cursor `pre-commit.cursor` to skip non-identifier names.
+- Scout skill documents eval-before-commit recovery.
+files_changed:
+- `scripts/excalibur_sanitize_injected_secret_names.sh`
+- `.cursor/cloud-agent-install.sh`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- bash `.cursor/cloud-agent-install.sh` → patched pre-commit sanitize
+- bash `scripts/excalibur_sanitize_injected_secret_names.sh` (empty OK)
+commit: pending-parent-commit
 
 ### What went wrong
 - `git commit` failed in Cloud pre-commit secrets scanner: bash `${!SECRET_NAME}` with an entry from `CLOUD_AGENT_INJECTED_SECRET_NAMES` that is not a valid shell identifier.
@@ -239,16 +305,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+- see status/fix_summary above
 
 ## INC-20260720-1703-doctor-llms-blog-path
-status: open
-run_date: 2026-07-20
-role: director
-topic_id: pending
-article_dir: pending
-severity: low
-category: script
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- Doctor checks `--blog-dir` / `--out-dir` / `--site-base` (removed `--blog-path` expectation).
+- Indexer agent/skill examples aligned; no invented `--redact-site-base`.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
+- `python3 scripts/excalibur_blog_llms_generator.py --help`
+commit: pending-parent-commit
 
 ### What went wrong
 - `excalibur_blog_doctor.py` checks for `--blog-path` in llms generator help, but `excalibur_blog_llms_generator.py` exposes `--blog-dir` / `--out-dir` / `--site-base` (default `[REDACTED]`).
@@ -277,13 +352,18 @@ category: script
 - none recorded
 
 ## INC-20260720-1703-as-topic-id-regex
-status: open
-run_date: 2026-07-20
-role: director
-topic_id: pending
-article_dir: pending
-severity: high
-category: contract
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- Restored `(?:AS|B)\d+` parsing in today.py and scout_helper.py (dirs, topic cards, next-id AS* preference).
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → Next AS12, pool=10
+- `python3 scripts/excalibur_blog_today.py` parses AS ledger rows
+commit: pending-parent-commit
 
 ### What went wrong
 - `excalibur_blog_today.py` and `excalibur_blog_scout_helper.py` only match `B\\d+` topic cards; Auto-Sales pool uses `AS\\d+`.
@@ -304,13 +384,16 @@ category: contract
 - none recorded
 
 ## INC-20260720-1703-ledger-gap-as01-as10
-status: open
-run_date: 2026-07-20
-role: director
-topic_id: pending
-article_dir: pending
-severity: medium
-category: publish
+status: fixed
+fixed_at: 2026-07-20
+fix_summary:
+- Backfilled AS01–AS07 + AS10 into `shared/published-articles.md` from live WP slugs with `[REDACTED]` URLs.
+files_changed:
+- `shared/published-articles.md`
+checks_run:
+- `python3 scripts/excalibur_blog_today.py` shows AS01–AS11 in published list
+- scout helper: unwritten topic IDs empty; next AS12
+commit: pending-parent-commit
 
 ### What went wrong
 - `shared/published-articles.md` only lists AS08/AS09, but live WP recent posts include slugs for AS01–AS07 and AS10 (СБКТС/ЭПТС).

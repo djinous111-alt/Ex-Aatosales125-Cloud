@@ -184,9 +184,10 @@ summary: ...
 
 | Скрипт                                 | Назначение                          |
 | -------------------------------------- | ----------------------------------- |
-| `excalibur_blog_hero_reference_url.py` | catbox/0x0 → `reference_url_hosted` |
+| `excalibur_blog_hero_reference_url.py` | HTTPS host: catbox → 0x0 → litterbox → `reference_url_hosted` |
 | `excalibur_blog_quad_manifest.py`      | `cover/quad-manifest.json`          |
-| `excalibur_blog_cover_quad_prompt.py`  | prompt + `--write-batch`            |
+| `excalibur_blog_cover_quad_prompt.py`  | prompt + `--write-batch` (outfit_rule, no white-hoodie lock) |
+| `excalibur_blog_kie_gpt_image2_api.py` | **preferred** createTask→poll (MCP sync legacy) |
 | `excalibur_blog_quad_apply.py`         | download URL → split → inject       |
 | `excalibur_blog_cover_quad_split.py`   | split only (вызывается из apply)    |
 

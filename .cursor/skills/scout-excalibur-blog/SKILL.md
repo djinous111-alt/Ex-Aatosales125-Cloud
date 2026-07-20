@@ -30,9 +30,9 @@ Append new Topic Card to blog-topics.md
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Запомни следующий `topic_id` (например, `AS12` / legacy `B02`) и список невыполненных тем.
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
@@ -47,7 +47,7 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
 Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
 
@@ -81,3 +81,15 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
 * Выдумывание цифр спроса без вызова Wordstat API.
+
+### Commit hygiene (Cloud)
+
+Topic cards may include env-derived strings. Before `git commit`:
+
+```bash
+eval "$(bash scripts/excalibur_sanitize_injected_secret_names.sh | tail -1)"
+```
+
+Invalid names in `CLOUD_AGENT_INJECTED_SECRET_NAMES` break Cursor `pre-commit.cursor` (`${!SECRET_NAME}`).
+`topic_id` pool is `AS*` (Auto-Sales) or legacy `B*`; helper `--suggest-next` returns the next `AS##` when AS cards exist.
+

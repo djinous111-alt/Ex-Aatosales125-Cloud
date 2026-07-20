@@ -30,18 +30,18 @@
     "description_aeo": "После СВХ во Владивостоке сравнивают автовоз, ж/д и перегон по сроку от сдачи до выдачи, риску кузова и договору. Перегон – не всегда экономия."
   },
   "geo_qa": {
-    "score": 71,
-    "verdict": "FAIL",
+    "score": 90,
+    "verdict": "PASS",
     "date": "2026-07-21",
     "html_linter": "PASS",
     "slop_score": "PASS",
     "cannibalization": "PASS",
     "fact_check": "PASS",
-    "link_verify": "FAIL",
-    "utility_gate": "BLOCK",
+    "link_verify": "PASS",
+    "utility_gate": "PASS",
     "human_voice": "PASS",
     "research_notes_gate": "PASS",
-    "core_eeat": "17/20"
+    "core_eeat": "18/20"
   },
   "cover_family": "brand_collage"
 }

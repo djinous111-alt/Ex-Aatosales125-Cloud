@@ -45,7 +45,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - py_compile wp_publish; rg curl fallback
-commit: b00e660
+commit: 60d7ad9
 
 ## INC-20260721-2142-indexer-llms-secret-scan-block
 status: fixed
@@ -97,7 +97,7 @@ files_changed:
 checks_run:
 - llms generator relative URLs dry-run
 - doctor errors=0
-commit: b00e660
+commit: 60d7ad9
 
 ## INC-20260721-2137-schema-jsonld-secret-scan-block
 status: fixed
@@ -146,7 +146,7 @@ files_changed:
 - `.cursor/skills/publish-excalibur-blog/SKILL.md`
 checks_run:
 - unit strip_schema_secret_scan_pragmas
-commit: b00e660
+commit: 60d7ad9
 
 ## INC-20260721-0025-writer-telegram-cta-secret-scan-block
 status: fixed
@@ -191,7 +191,7 @@ files_changed:
 - `shared/excalibur-article-writing-contract.md`
 checks_run:
 - rg CTA/pragma guidance present
-commit: b00e660
+commit: 60d7ad9
 
 ## INC-20260721-0023-geo-qa-utility-pain-outcome-empty-markers
 status: fixed
@@ -233,7 +233,7 @@ files_changed:
 - `scripts/excalibur_blog_utility_gate.py`
 checks_run:
 - utility_gate AS15 PASS (pain=19, outcome=9)
-commit: b00e660
+commit: 60d7ad9
 
 ## INC-20260721-0024-geo-qa-cta-redacted-href
 status: fixed
@@ -277,7 +277,7 @@ files_changed:
 - `scripts/excalibur_blog_link_verify.py`
 checks_run:
 - link_verify `[REDACTED]` → fail
-commit: b00e660
+commit: 60d7ad9
 
 ## INC-20260721-2115-research-serp-public-site-url
 status: fixed
@@ -318,7 +318,7 @@ files_changed:
 - `.cursor/skills/excalibur-research/SKILL.md`
 checks_run:
 - unit redact_public_site_urls
-commit: b00e660
+commit: 60d7ad9
 
 ## INC-20260721-2109-research-notes-gate-tech-false-positive
 status: fixed
@@ -363,7 +363,7 @@ files_changed:
 - `.cursor/skills/excalibur-research/SKILL.md`
 checks_run:
 - research_notes_gate AS15 PASS technical_topic=false
-commit: b00e660
+commit: 60d7ad9
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -415,7 +415,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: b00e660
+commit: 60d7ad9
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -466,7 +466,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: b00e660
+commit: 60d7ad9
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -507,7 +507,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: b00e660
+commit: 60d7ad9
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -554,7 +554,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: b00e660
+commit: 60d7ad9
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -608,7 +608,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: b00e660
+commit: 60d7ad9
 
 ## Fixed incidents
 
@@ -656,7 +656,7 @@ files_changed:
 - `.cursor/skills/scout-excalibur-blog/SKILL.md`
 checks_run:
 - doctor AS*|suggest-next OK; scout Next=AS16
-commit: b00e660
+commit: 60d7ad9
 
 ## INC-20260721-0005-director-doctor-llms-flag
 status: fixed
@@ -695,7 +695,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor errors=0
-commit: b00e660
+commit: 60d7ad9
 
 ## INC-20260721-0005-director-ledger-wp-desync
 status: fixed
@@ -737,7 +737,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - today.py prints EXCALIBUR_LEDGER_WP_NOTE
-commit: b00e660
+commit: 60d7ad9
 
 ## INC-20260721-2140-cover-mcp-timeout-kie-recovery
 status: fixed
@@ -783,5 +783,5 @@ files_changed:
 - `shared/mcp-image-async-contract.md`
 checks_run:
 - old white-hoodie lock absent; py_compile cover prompt
-commit: b00e660
+commit: 60d7ad9
 

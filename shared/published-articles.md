@@ -19,3 +19,4 @@
 
 > Ledger восстановлен 2026-07-21 по live WP + pool AS01–AS09.
 > URL колонка: site-relative paths (без PUBLIC_SITE_URL) для git secret hygiene.
+| 2026-07-21 | AS15 | dostavka-avto-iz-vladivostoka-2026 | memory/blog/articles/AS15-dostavka-avto-iz-vladivostoka-2026 | in_progress |

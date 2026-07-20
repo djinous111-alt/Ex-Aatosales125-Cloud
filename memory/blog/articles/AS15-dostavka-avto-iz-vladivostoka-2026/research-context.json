@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-21",
+    "today_ru": "21.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-22",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-21 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS15",
+    "priority": "P0",
+    "slug": "dostavka-avto-iz-vladivostoka-2026",
+    "h1": "Как выбрать доставку авто из Владивостока: ж/д, автовоз или перегон в 2026",
+    "primary_query": "доставка авто из владивостока",
+    "secondary_queries": [
+      "автовоз из владивостока",
+      "перегон авто из владивостока",
+      "доставка авто жд из владивостока",
+      "доставка авто из владивостока в москву"
+    ],
+    "search_intent": "comparison",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS15",
+    "status": "PASS",
+    "search_intent": "comparison",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "доставка авто из владивостока 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "доставка авто из владивостока июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "доставка авто из владивостока новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com доставка авто из владивостока 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "доставка авто из владивостока official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "доставка авто из владивостока forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "автовоз из владивостока 2026",
+      "purpose": "вторичный запрос: автовоз из владивостока"
+    },
+    {
+      "id": "secondary_2",
+      "query": "перегон авто из владивостока 2026",
+      "purpose": "вторичный запрос: перегон авто из владивостока"
+    },
+    {
+      "id": "secondary_3",
+      "query": "доставка авто жд из владивостока 2026",
+      "purpose": "вторичный запрос: доставка авто жд из владивостока"
+    },
+    {
+      "id": "secondary_4",
+      "query": "доставка авто из владивостока в москву 2026",
+      "purpose": "вторичный запрос: доставка авто из владивостока в москву"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать доставку авто из Владивостока: ж/д, автовоз или перегон в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS15-dostavka-avto-iz-vladivostoka-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

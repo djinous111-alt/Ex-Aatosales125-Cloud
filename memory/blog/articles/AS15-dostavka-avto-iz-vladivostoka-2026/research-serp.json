@@ -1,0 +1,651 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-21",
+    "today_ru": "21.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-22",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-21 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS15",
+    "priority": "P0",
+    "slug": "dostavka-avto-iz-vladivostoka-2026",
+    "h1": "Как выбрать доставку авто из Владивостока: ж/д, автовоз или перегон в 2026",
+    "primary_query": "доставка авто из владивостока",
+    "secondary_queries": [
+      "автовоз из владивостока",
+      "перегон авто из владивостока",
+      "доставка авто жд из владивостока",
+      "доставка авто из владивостока в москву"
+    ],
+    "search_intent": "comparison",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "доставка авто из владивостока 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Лучшие компании по доставке автомобилей из Владивостока на 2026 год",
+          "url": "https://vyborok.com/rejting-luchshih-kompanij-po-dostavke-avtomobilej-iz-vladivostoka/",
+          "snippet": ""
+        },
+        {
+          "title": "8 лучших компаний по доставке автомобилей из Владивостока - рейтинг 2026",
+          "url": "https://markakachestva.ru/best-brands/8918-luchshie-kompanii-po-dostavke-avtomobilej-iz-vladivostoka-rejting.html",
+          "snippet": "Рассмотрим лучшие компании, учитывая отзывы клиентов, стоимость, скорость доставки и дополнительные услуги."
+        },
+        {
+          "title": "Доставка авто из Владивостока по России в 2026: автовоз или ж/д, сроки ...",
+          "url": "https://asiapk.ru/blog/dostavka-avto-iz-vladivostoka-po-rossii-2026",
+          "snippet": "Рейтинг лучших транспортных компаний по доставке автомобиля из Владивостока. Самые надежные автовозы и логистические фирмы с хорошей репутацией по отзывам получивших услугу ..."
+        },
+        {
+          "title": "Доставка авто из Владивостока автовозом - перевозка машин в Москву и по ...",
+          "url": "https://www.vezetvsem.ru/perevozka-avtomobilej/iz-vladivostoka",
+          "snippet": "Сравниваем автовоз, железную дорогу и контейнер для доставки авто из Владивостока. Ориентировочные сроки, из чего складывается цена, как выбрать перевозчика и защитить машину в дороге."
+        },
+        {
+          "title": "Перевозка автомобилей из Владивостока | Доставка во все регионы РФ | ТК ...",
+          "url": "https://vostok-line-dv.ru/",
+          "snippet": "Доставка авто из Владивостока: заказ автовоза, перегон, перевозка по железной дороге. С помощью «Везёт Всем» вы сможете перевезти автомобиль из Владивостока любым способом."
+        },
+        {
+          "title": "Тарифы на перевозку авто из Владивостока",
+          "url": "https://www.pacifictrans.ru/pricing/tarify-na-perevozku-avto",
+          "snippet": "Планируя заказать услугу доставки автомобиля из Японии, выбирайте транспортную компанию «Восток Лайн ДВ». Выгодное географическое расположение позволяет нам перевезти машину заказчика непосредственно от точки ее приобретения в любой регион России одним рейсом, без посредников и промежуточных перегрузок."
+        }
+      ],
+      "searched_at": "2026-07-21"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "доставка авто из владивостока июль 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тарифы на перевозку авто из Владивостока",
+          "url": "https://www.pacifictrans.ru/pricing/tarify-na-perevozku-avto",
+          "snippet": ""
+        },
+        {
+          "title": "Доставка авто из Владивостока по России в 2026: автовоз или ж/д, сроки ...",
+          "url": "https://asiapk.ru/blog/dostavka-avto-iz-vladivostoka-po-rossii-2026",
+          "snippet": "Доставка автомобилей и спецтехники по России. Железнодорожная перевозка автомобилей, контейнерная перевозка, перевозка техники, Гродеково, Суйфеньхе."
+        },
+        {
+          "title": "Довезем авто - Доставим ваш автомобиль из Владивостока по всей России",
+          "url": "https://dovezemavto.ru/",
+          "snippet": "Сравниваем автовоз, железную дорогу и контейнер для доставки авто из Владивостока. Ориентировочные сроки, из чего складывается цена, как выбрать перевозчика и защитить машину в дороге."
+        },
+        {
+          "title": "Доставка авто из Владивостока автовозом в 80+ городов — сроки и цены ...",
+          "url": "https://onlyjpcars.ru/services/delivery",
+          "snippet": "Доставим ваш автомобиль из Владивостока по всей России, без предоплаты от 7 дней в открытом и закрытом автовозе"
+        },
+        {
+          "title": "8 лучших компаний по доставке автомобилей из Владивостока",
+          "url": "https://markakachestva.ru/best-brands/8918-luchshie-kompanii-po-dostavke-avtomobilej-iz-vladivostoka-rejting.html",
+          "snippet": "Автовоз из Владивостока в Новосибирск, Красноярск, Екатеринбург, Москву и 80+ городов. Сроки от 2 до 23 дней, цена от 15 000 ₽. Проверенные перевозчики, страхование груза."
+        },
+        {
+          "title": "Доставка авто из Владивостока автовозом - перевозка машин в Москву и по ...",
+          "url": "https://www.vezetvsem.ru/perevozka-avtomobilej/iz-vladivostoka",
+          "snippet": "Рейтинг лучших транспортных компаний по доставке автомобиля из Владивостока. Самые надежные автовозы и логистические фирмы с хорошей репутацией по отзывам получивших услугу ..."
+        }
+      ],
+      "searched_at": "2026-07-21"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "доставка авто из владивостока новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Логистика Владивостока: почему доставка быстрее и надежнее в 2026 году",
+          "url": "https://example.invalid/2026/04/21/logistika-vladivostoka-pochemu-dostavka-bystree-i-nadezhnee-v-2026-godu/",
+          "snippet": ""
+        },
+        {
+          "title": "Доставка авто из Владивостока по России в 2026: автовоз или ж/д, сроки ...",
+          "url": "https://asiapk.ru/blog/dostavka-avto-iz-vladivostoka-po-rossii-2026",
+          "snippet": "Логистика Владивостока в 2026 году — это высокоскоростная мультимодальная система перевалки грузов и автомобилей, которая благодаря запуску ТЛЦ «Артём» и цифровизации таможни позволяет доставлять машины в центральную Россию за 15-20 дней без долгих простоев в портах."
+        },
+        {
+          "title": "Сколько едет и стоит автовоз из Владивостока в 2026 году: цены, сроки ...",
+          "url": "https://www.stolica2000.ru/news/1750-skolko-edet-i-stoit-avtovoz-iz-vladivostoka-v-2026-godu-tseny-sroki-dostavki-po-rossii-i-sovety-po-vyboru-perevozchika",
+          "snippet": "Сравниваем автовоз, железную дорогу и контейнер для доставки авто из Владивостока. Ориентировочные сроки, из чего складывается цена, как выбрать перевозчика и защитить машину в дороге."
+        },
+        {
+          "title": "Отправка машины из Владивостока: цена и нюансы логистики в апреле",
+          "url": "https://example.invalid/2026/04/19/otpravka-mashiny-iz-vladivostoka-czena-i-nyuansy-logistiki-v-aprele/",
+          "snippet": "Доставка авто автовозом из Владивостока в 2026 году: сроки (Москва 18-20 дней, другие города до 25 дней), цены от 140 000 руб."
+        },
+        {
+          "title": "Лучшие компании по доставке автомобилей из Владивостока на 2026 год",
+          "url": "https://vyborok.com/rejting-luchshih-kompanij-po-dostavke-avtomobilej-iz-vladivostoka/",
+          "snippet": "Отправка машины из Владивостока — это процесс физической транспортировки приобретенного транспортного средства на автовозе или по железной дороге, который в апреле 2026 года ..."
+        },
+        {
+          "title": "Тарифы на перевозку авто из Владивостока",
+          "url": "https://www.pacifictrans.ru/pricing/tarify-na-perevozku-avto",
+          "snippet": "Представляем рейтинг лучших компаний по доставке автомобилей из Владивостока. Он был составлен на основе анализа ключевых показателей, отзывов клиентов и экспертных оценок."
+        }
+      ],
+      "searched_at": "2026-07-21"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com доставка авто из владивостока 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "leaf/images/logo-wordmark.svg at main · RivoLink/leaf · GitHub",
+          "url": "https://github.com/RivoLink/leaf/blob/main/images/logo-wordmark.svg",
+          "snippet": ""
+        },
+        {
+          "title": "claude-code-hooks-mastery/images/hooked.png at main · disler/claude ...",
+          "url": "https://github.com/disler/claude-code-hooks-mastery/blob/main/images/hooked.png",
+          "snippet": "Terminal Markdown previewer — GUI-like experience. - RivoLink/leaf"
+        },
+        {
+          "title": "aizavod-platform/data/certifier/parallel_import.txt at master ... - GitHub",
+          "url": "https://github.com/MASTER116/aizavod-platform/blob/master/data/certifier/parallel_import.txt",
+          "snippet": "Contribute to disler/claude-code-hooks-mastery development by creating an account on GitHub."
+        },
+        {
+          "title": "SlimCluster/icon.svg at master · zarusz/SlimCluster · GitHub",
+          "url": "https://github.com/zarusz/SlimCluster/blob/master/icon.svg",
+          "snippet": "Шаг 1: Покупка автомобиля за рубежом - Популярные страны: ОАЭ, Южная Корея, Китай, Япония, Грузия, Армения - Оформление экспортных документов в стране покупки Шаг 2: Доставка в Россию"
+        },
+        {
+          "title": "Valetudo/assets/logo/valetudo_logo_with_name.svg at master - GitHub",
+          "url": "https://github.com/Hypfer/Valetudo/blob/master/assets/logo/valetudo_logo_with_name.svg",
+          "snippet": "Consensus (Raft) and Memberlist (SWIM) implementation for .NET micro-services - SlimCluster/icon.svg at master · zarusz/SlimCluster"
+        },
+        {
+          "title": "authgate/excalidraw/architecture.svg at main - GitHub",
+          "url": "https://github.com/gatesuite/authgate/blob/main/excalidraw/architecture.svg",
+          "snippet": "Cloud replacement for vacuum robots enabling local-only operation - Hypfer/Valetudo"
+        }
+      ],
+      "searched_at": "2026-07-21"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "доставка авто из владивостока official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как пригнать авто из Владивостока самому: способы перевоза машины",
+          "url": "https://top-autoimport.ru/blog/peregon-mashiny-iz-vladivostoka",
+          "snippet": ""
+        },
+        {
+          "title": "Перевозка автомобилей из Владивостока | Доставка во все регионы РФ | ТК ...",
+          "url": "https://vostok-line-dv.ru/",
+          "snippet": "Как самостоятельно пригнать авто из Владивостока: выбор маршрута, оформление документов, затраты на дорогу и полезные советы для комфортной поездки."
+        },
+        {
+          "title": "8 лучших компаний по доставке автомобилей из Владивостока",
+          "url": "https://markakachestva.ru/best-brands/8918-luchshie-kompanii-po-dostavke-avtomobilej-iz-vladivostoka-rejting.html",
+          "snippet": "Доставка автовозом машин В компании «Восток Лайн ДВ» вы можете заказать прямую доставку автомобиля из Владивостока в Москву и другие регионы России."
+        },
+        {
+          "title": "Перевозка авто из Владивостока: как контролировать доставку",
+          "url": "https://example.invalid/2026/03/13/perevozka-avto-iz-vladivostoka-kak-kontrolirovat-dostavku/",
+          "snippet": "Рейтинг лучших транспортных компаний по доставке автомобиля из Владивостока. Самые надежные автовозы и логистические фирмы с хорошей репутацией по отзывам получивших услугу ..."
+        },
+        {
+          "title": "Доставка авто из Владивостока автовозом - перевозка машин в Москву и по ...",
+          "url": "https://www.vezetvsem.ru/perevozka-avtomobilej/iz-vladivostoka",
+          "snippet": "Перевозка авто из Владивостока — это комплексный логистический процесс доставки транспортного средства (ЖД или автовозом) в центральную часть России, который требует жесткого ..."
+        },
+        {
+          "title": "Тарифы на перевозку авто из Владивостока",
+          "url": "https://www.pacifictrans.ru/pricing/tarify-na-perevozku-avto",
+          "snippet": "Доставка авто из Владивостока: заказ автовоза, перегон, перевозка по железной дороге. С помощью «Везёт Всем» вы сможете перевезти автомобиль из Владивостока любым способом."
+        }
+      ],
+      "searched_at": "2026-07-21"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "доставка авто из владивостока forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как пригнать авто из Владивостока самому в 2026: секреты перегона своим ...",
+          "url": "https://toprigon.com/blog/peregon-avto-iz-vladivostoka-svoim-hodom",
+          "snippet": ""
+        },
+        {
+          "title": "Автовоз из Владивостока в 2026-м ... - Дзен",
+          "url": "https://dzen.ru/a/aa5Tyh-WRwI0lHFa",
+          "snippet": "И сегодня честно расскажу, как пригнать машину из Владивостока в мае 2026-го — и какой способ съест меньше денег и нервов. Разберу две главные стратегии без прикрас: перегон своим ходом и доставка автовозом или по железной дороге. Сравню по времени, цене и надёжности."
+        },
+        {
+          "title": "Доставка авто из Владивостока в Санкт-Петербург",
+          "url": "https://www.drive2.ru/l/724086956958423189/",
+          "snippet": "Автовоз из Владивостока в 2026-м: Обзвонил 10 компаний и узнал реальные цены до Красноярска и Краснодара. Решил я тут узнать, сколько сейчас стоит привезти машину автовозом до Красноярска и Краснодара за одно (чаще всего я перегоняю машины именно в эти точки)."
+        },
+        {
+          "title": "Доставка автомобилей из Владивостока, как это происходит и сколько стоит",
+          "url": "https://myobshiyforum.ru/showthread.php?tid=1167",
+          "snippet": "Сегодня расскажу, как машина добиралась из Владивостока в Санкт-Петербург (сроки и цены). Как писал ранее, сразу после покупки начал мониторить рынок автовозов из Владивостока в СПб."
+        },
+        {
+          "title": "8 лучших компаний по доставке автомобилей из Владивостока",
+          "url": "https://markakachestva.ru/best-brands/8918-luchshie-kompanii-po-dostavke-avtomobilej-iz-vladivostoka-rejting.html",
+          "snippet": "Сегодня мы поговорим о доставке автомобилей из Владивостока. Этот город - ворота в Россию для японских и корейских автомобилей, и многие россияне рассматривают возможность приобретения ..."
+        },
+        {
+          "title": "Доставка авто из Владивостока по России в 2026: автовоз или ж/д, сроки ...",
+          "url": "https://asiapk.ru/blog/dostavka-avto-iz-vladivostoka-po-rossii-2026",
+          "snippet": "Рейтинг лучших транспортных компаний по доставке автомобиля из Владивостока. Самые надежные автовозы и логистические фирмы с хорошей репутацией по отзывам получивших услугу ..."
+        }
+      ],
+      "searched_at": "2026-07-21"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "автовоз из владивостока 2026",
+      "purpose": "вторичный запрос: автовоз из владивостока",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Сколько едет и стоит автовоз из Владивостока в 2026 году: цены, сроки ...",
+          "url": "https://www.stolica2000.ru/news/1750-skolko-edet-i-stoit-avtovoz-iz-vladivostoka-v-2026-godu-tseny-sroki-dostavki-po-rossii-i-sovety-po-vyboru-perevozchika",
+          "snippet": ""
+        },
+        {
+          "title": "Доставка авто из Владивостока по России в 2026: автовоз или ж/д, сроки ...",
+          "url": "https://asiapk.ru/blog/dostavka-avto-iz-vladivostoka-po-rossii-2026",
+          "snippet": "Когда речь идет о доставке автомобиля из Владивостока в другие города России, важно понимать, что сроки могут варьироваться в зависимости от множества факторов."
+        },
+        {
+          "title": "Автовоз из Владивостока",
+          "url": "https://avtovoz.net/vladivostok/",
+          "snippet": "Сравниваем автовоз, железную дорогу и контейнер для доставки авто из Владивостока. Ориентировочные сроки, из чего складывается цена, как выбрать перевозчика и защитить машину в дороге."
+        },
+        {
+          "title": "Автовоз из Владивостока в 2026-м ... - Дзен",
+          "url": "https://dzen.ru/a/aa5Tyh-WRwI0lHFa",
+          "snippet": "Для предварительного расчета перевозки авто с помощью автовоза по направлении из г. Владивосток необходимо заполнить форму, выбрав категорию транспортного средства, марку и модель авто, дату отправления, а также номер телефона для связи. Наш менеджер позвонит вам, чтобы ответить на все вопросы."
+        },
+        {
+          "title": "Тарифы на перевозку авто из Владивостока",
+          "url": "https://www.pacifictrans.ru/pricing/tarify-na-perevozku-avto",
+          "snippet": "Автовоз из Владивостока в 2026-м: Обзвонил 10 компаний и узнал реальные цены до Красноярска и Краснодара. Решил я тут узнать, сколько сейчас стоит привезти машину автовозом до Красноярска и Краснодара за одно (чаще всего я перегоняю машины именно в эти точки)."
+        },
+        {
+          "title": "Калькулятор автовоза по России - Перевозка автомобилей цена ...",
+          "url": "https://lmove.ru/avtovozy-kalkulyator",
+          "snippet": "Доставка автомобилей и спецтехники по России. Железнодорожная перевозка автомобилей, контейнерная перевозка, перевозка техники, Гродеково, Суйфеньхе."
+        }
+      ],
+      "searched_at": "2026-07-21"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "перегон авто из владивостока 2026",
+      "purpose": "вторичный запрос: перегон авто из владивостока",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Перегон Авто Из Владивостока. Лето 2026. — Drive2",
+          "url": "https://www.drive2.ru/b/738663457485761003/",
+          "snippet": ""
+        },
+        {
+          "title": "Обновленные секреты маршрута 2026. Перегон авто из Владивостока",
+          "url": "https://vk.com/video-226904023_456239527",
+          "snippet": "Перегон авто из Владивостока. Лето 2026. — DRIVE2 Личные блоги Touring003 Я езжу на Toyota Auris Pegas (до этого — Daihatsu Move Просто Мувик, Toyota Corolla Touring Luna и Hyundai ix35 CRDI 184) Андрей, 35 лет, Томск, Томская область ..."
+        },
+        {
+          "title": "Как пригнать авто из Владивостока самому в 2026: секреты перегона своим ...",
+          "url": "https://toprigon.com/blog/peregon-avto-iz-vladivostoka-svoim-hodom",
+          "snippet": "Подготовка к перегону авто из Владивостока. Автомобильный магазин в Японии. Что продают и за сколько? Почему на границе скопилось столько машин? Какие сейчас реально цены? И что пока еще можно привезти? В Китае новые цены на автомобили. Актуальная информация. Кто на самом деле жмёт кнопку на автомобильных аукционах в Японии. Как это работает?!"
+        },
+        {
+          "title": "Обновленные секреты маршрута 2026. Перегон авто из Владивостока — Видео ...",
+          "url": "https://yandex.ru/video/preview/15932094809904097844",
+          "snippet": "Как пригнать авто из Владивостока своим ходом в 2026 году — подробный гид с реальными расходами, нужными документами и секретами опытных перегонщиков."
+        },
+        {
+          "title": "ПУТЕШЕСТВИЕ / ПЕРЕГОН АВТО ИЗ ВЛАДИВОСТОКА 2026",
+          "url": "https://rutube.ru/video/117a8c9001c0219ff3a1b39f1ea023eb/",
+          "snippet": "Перегон авто из Владивостока — Видео от Саныч Авто. Источник видео: VK Видео · Смотрите онлайн «Обновленные секреты маршрута 2026."
+        },
+        {
+          "title": "ПУТЕШЕСТВИЕ / ПЕРЕГОН АВТО ИЗ ВЛАДИВОСТОКА 2026",
+          "url": "https://vk.com/video-228719095_456239040",
+          "snippet": "Отправляемся в автоперегон / путешествие Владивосток-Красноярск. Отметим все точки на пути следования: заправки, кафе, гостиницы. А также посетим интересные места во Владивостоке. Приятного просмотра."
+        }
+      ],
+      "searched_at": "2026-07-21"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "доставка авто жд из владивостока 2026",
+      "purpose": "вторичный запрос: доставка авто жд из владивостока",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тарифы на перевозку авто из Владивостока",
+          "url": "https://www.pacifictrans.ru/pricing/tarify-na-perevozku-avto",
+          "snippet": ""
+        },
+        {
+          "title": "Доставка авто из Владивостока по России в 2026: автовоз или ж/д, сроки ...",
+          "url": "https://asiapk.ru/blog/dostavka-avto-iz-vladivostoka-po-rossii-2026",
+          "snippet": "Доставка автомобилей и спецтехники по России. Железнодорожная перевозка автомобилей, контейнерная перевозка, перевозка техники, Гродеково, Суйфеньхе."
+        },
+        {
+          "title": "Тарифы на перевозку автомобилей по жд железной дороге, автовозах ...",
+          "url": "https://vladivostok.titantransauto.ru/vse-tarify",
+          "snippet": "Сравниваем автовоз, железную дорогу и контейнер для доставки авто из Владивостока. Ориентировочные сроки, из чего складывается цена, как выбрать перевозчика и защитить машину в дороге."
+        },
+        {
+          "title": "8 лучших компаний по доставке автомобилей из Владивостока",
+          "url": "https://markakachestva.ru/best-brands/8918-luchshie-kompanii-po-dostavke-avtomobilej-iz-vladivostoka-rejting.html",
+          "snippet": "Точная стоимость доставки груза из Владивостока рассчитывает логист нашей компании «ТитанТрансАвто» в зависимости от маршрута и других условий заказа."
+        },
+        {
+          "title": "ГС25. Отправка автомобилей. Актуальные цены и сроки",
+          "url": "https://gs25.ru/prajslist/",
+          "snippet": "Рейтинг лучших транспортных компаний по доставке автомобиля из Владивостока. Самые надежные автовозы и логистические фирмы с хорошей репутацией по отзывам получивших услугу пользователей."
+        },
+        {
+          "title": "Тарифы на перевозку автомобилей из Владивостока по России | Priority Auto",
+          "url": "https://priority-auto.ru/info/dostavka/",
+          "snippet": "Ориентировочный общий срок доставки из Владивостока в Москву на 16.02.2026г. составляет от 20 до 45 дней."
+        }
+      ],
+      "searched_at": "2026-07-21"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "доставка авто из владивостока в москву 2026",
+      "purpose": "вторичный запрос: доставка авто из владивостока в москву",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Доставка авто из Владивостока по России в 2026: автовоз или ж/д, сроки ...",
+          "url": "https://asiapk.ru/blog/dostavka-avto-iz-vladivostoka-po-rossii-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Доставка авто из Владивостока автовозом - перевозка машин в Москву и по ...",
+          "url": "https://www.vezetvsem.ru/perevozka-avtomobilej/iz-vladivostoka",
+          "snippet": "Сравниваем автовоз, железную дорогу и контейнер для доставки авто из Владивостока. Ориентировочные сроки, из чего складывается цена, как выбрать перевозчика и защитить машину в дороге."
+        },
+        {
+          "title": "ЖД перевозка авто из Владивостока в Москву - Цена доставки автомобиля ...",
+          "url": "https://movingwaldo.ru/zhd-perevozka-avto-iz-vladivostoka-v-moskvu",
+          "snippet": "Доставка автовозом автомобиля из Владивостока в Москву и по России. Отправка машины. Сравните цены на перевозку авто транспортной компанией, выберите выгодную услугу и экономьте до 72%!"
+        },
+        {
+          "title": "Доставка авто из Владивостока в Москву, на Сахалин, Камчатку, Магадан",
+          "url": "https://avto-vladivostok.gs25.ru/",
+          "snippet": "Укажите маршрут, выберите тип автомобиля (новый или с пробегом), и узнайте точную стоимость доставки автомобиля. Для быстрого просмотра тарифов, пролистайте страницу вниз"
+        },
+        {
+          "title": "Тарифы на перевозку авто из Владивостока",
+          "url": "https://www.pacifictrans.ru/pricing/tarify-na-perevozku-avto",
+          "snippet": "Доставка, перевозка и отправка авто, автомобилей и машин из Владивостока в Москву, Санкт-Петербург, Краснодар, на Сахалин, Камчатку и в Магадан — в контейнере, морем и по железной дороге."
+        },
+        {
+          "title": "Отправка автомобилей из Владивостока в Москву по ЖД | \"Транс Агент\", г ...",
+          "url": "https://vladotpravka.ru/msk",
+          "snippet": "Доставка автомобилей и спецтехники по России. Железнодорожная перевозка автомобилей, контейнерная перевозка, перевозка техники, Гродеково, Суйфеньхе."
+        }
+      ],
+      "searched_at": "2026-07-21"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать доставку авто из Владивостока: ж/д, автовоз или перегон в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Доставка авто из Владивостока по России в 2026: автовоз или ж/д, сроки ...",
+          "url": "https://asiapk.ru/blog/dostavka-avto-iz-vladivostoka-po-rossii-2026",
+          "snippet": ""
+        },
+        {
+          "title": "8 лучших компаний по доставке автомобилей из Владивостока",
+          "url": "https://markakachestva.ru/best-brands/8918-luchshie-kompanii-po-dostavke-avtomobilej-iz-vladivostoka-rejting.html",
+          "snippet": "Сравниваем автовоз, железную дорогу и контейнер для доставки авто из Владивостока. Ориентировочные сроки, из чего складывается цена, как выбрать перевозчика и защитить машину в дороге."
+        },
+        {
+          "title": "Как самостоятельно перегнать машину из Владивостока в 2026 году",
+          "url": "https://top-autoimport.ru/blog/peregon-mashiny-iz-vladivostoka",
+          "snippet": "Рейтинг лучших транспортных компаний по доставке автомобиля из Владивостока. Самые надежные автовозы и логистические фирмы с хорошей репутацией по отзывам получивших услугу ..."
+        },
+        {
+          "title": "Тарифы на перевозку авто из Владивостока",
+          "url": "https://priority-auto.ru/info/dostavka/",
+          "snippet": "Как самостоятельно пригнать авто из Владивостока: выбор маршрута, оформление документов, затраты на дорогу и полезные советы для комфортной поездки."
+        },
+        {
+          "title": "Как пригнать авто из Владивостока: полный гид по доставке (ЖД, автовоз ...",
+          "url": "https://avtovoz.clever-logistics.ru/articles/kak-prignat-avto-iz-vladivostoka",
+          "snippet": "Узнайте актуальные тарифы на перевозку автомобилей из Владивостока по России. Доставка авто железнодорожным транспортом, автовозами или перегоном. Подбор лучших транспортных компаний с оптимальными условиями и ценами."
+        },
+        {
+          "title": "Как пригнать авто из Владивостока самому в 2026: секреты перегона своим ...",
+          "url": "https://toprigon.com/blog/peregon-avto-iz-vladivostoka-svoim-hodom",
+          "snippet": "Как пригнать автомобиль из Владивостока? Инструкция: доставка своим ходом, ЖД и автовозом. Как выгоднее доставить машину."
+        }
+      ],
+      "searched_at": "2026-07-21"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://vyborok.com/rejting-luchshih-kompanij-po-dostavke-avtomobilej-iz-vladivostoka/",
+      "title": "Лучшие компании по доставке автомобилей из Владивостока на 2026 год",
+      "from_query": "доставка авто из владивостока 2026"
+    },
+    {
+      "url": "https://markakachestva.ru/best-brands/8918-luchshie-kompanii-po-dostavke-avtomobilej-iz-vladivostoka-rejting.html",
+      "title": "8 лучших компаний по доставке автомобилей из Владивостока - рейтинг 2026",
+      "from_query": "доставка авто из владивостока 2026"
+    },
+    {
+      "url": "https://asiapk.ru/blog/dostavka-avto-iz-vladivostoka-po-rossii-2026",
+      "title": "Доставка авто из Владивостока по России в 2026: автовоз или ж/д, сроки ...",
+      "from_query": "доставка авто из владивостока 2026"
+    },
+    {
+      "url": "https://www.vezetvsem.ru/perevozka-avtomobilej/iz-vladivostoka",
+      "title": "Доставка авто из Владивостока автовозом - перевозка машин в Москву и по ...",
+      "from_query": "доставка авто из владивостока 2026"
+    },
+    {
+      "url": "https://vostok-line-dv.ru/",
+      "title": "Перевозка автомобилей из Владивостока | Доставка во все регионы РФ | ТК ...",
+      "from_query": "доставка авто из владивостока 2026"
+    },
+    {
+      "url": "https://www.pacifictrans.ru/pricing/tarify-na-perevozku-avto",
+      "title": "Тарифы на перевозку авто из Владивостока",
+      "from_query": "доставка авто из владивостока 2026"
+    },
+    {
+      "url": "https://dovezemavto.ru/",
+      "title": "Довезем авто - Доставим ваш автомобиль из Владивостока по всей России",
+      "from_query": "доставка авто из владивостока июль 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/services/delivery",
+      "title": "Доставка авто из Владивостока автовозом в 80+ городов — сроки и цены ...",
+      "from_query": "доставка авто из владивостока июль 2026"
+    },
+    {
+      "url": "https://example.invalid/2026/04/21/logistika-vladivostoka-pochemu-dostavka-bystree-i-nadezhnee-v-2026-godu/",
+      "title": "Логистика Владивостока: почему доставка быстрее и надежнее в 2026 году",
+      "from_query": "доставка авто из владивостока новости 2026"
+    },
+    {
+      "url": "https://www.stolica2000.ru/news/1750-skolko-edet-i-stoit-avtovoz-iz-vladivostoka-v-2026-godu-tseny-sroki-dostavki-po-rossii-i-sovety-po-vyboru-perevozchika",
+      "title": "Сколько едет и стоит автовоз из Владивостока в 2026 году: цены, сроки ...",
+      "from_query": "доставка авто из владивостока новости 2026"
+    },
+    {
+      "url": "https://example.invalid/2026/04/19/otpravka-mashiny-iz-vladivostoka-czena-i-nyuansy-logistiki-v-aprele/",
+      "title": "Отправка машины из Владивостока: цена и нюансы логистики в апреле",
+      "from_query": "доставка авто из владивостока новости 2026"
+    },
+    {
+      "url": "https://github.com/RivoLink/leaf/blob/main/images/logo-wordmark.svg",
+      "title": "leaf/images/logo-wordmark.svg at main · RivoLink/leaf · GitHub",
+      "from_query": "site:github.com доставка авто из владивостока 2026"
+    },
+    {
+      "url": "https://github.com/disler/claude-code-hooks-mastery/blob/main/images/hooked.png",
+      "title": "claude-code-hooks-mastery/images/hooked.png at main · disler/claude ...",
+      "from_query": "site:github.com доставка авто из владивостока 2026"
+    },
+    {
+      "url": "https://github.com/MASTER116/aizavod-platform/blob/master/data/certifier/parallel_import.txt",
+      "title": "aizavod-platform/data/certifier/parallel_import.txt at master ... - GitHub",
+      "from_query": "site:github.com доставка авто из владивостока 2026"
+    },
+    {
+      "url": "https://github.com/zarusz/SlimCluster/blob/master/icon.svg",
+      "title": "SlimCluster/icon.svg at master · zarusz/SlimCluster · GitHub",
+      "from_query": "site:github.com доставка авто из владивостока 2026"
+    },
+    {
+      "url": "https://github.com/Hypfer/Valetudo/blob/master/assets/logo/valetudo_logo_with_name.svg",
+      "title": "Valetudo/assets/logo/valetudo_logo_with_name.svg at master - GitHub",
+      "from_query": "site:github.com доставка авто из владивостока 2026"
+    },
+    {
+      "url": "https://github.com/gatesuite/authgate/blob/main/excalidraw/architecture.svg",
+      "title": "authgate/excalidraw/architecture.svg at main - GitHub",
+      "from_query": "site:github.com доставка авто из владивостока 2026"
+    },
+    {
+      "url": "https://top-autoimport.ru/blog/peregon-mashiny-iz-vladivostoka",
+      "title": "Как пригнать авто из Владивостока самому: способы перевоза машины",
+      "from_query": "доставка авто из владивостока official docs documentation 2026"
+    },
+    {
+      "url": "https://example.invalid/2026/03/13/perevozka-avto-iz-vladivostoka-kak-kontrolirovat-dostavku/",
+      "title": "Перевозка авто из Владивостока: как контролировать доставку",
+      "from_query": "доставка авто из владивостока official docs documentation 2026"
+    },
+    {
+      "url": "https://toprigon.com/blog/peregon-avto-iz-vladivostoka-svoim-hodom",
+      "title": "Как пригнать авто из Владивостока самому в 2026: секреты перегона своим ...",
+      "from_query": "доставка авто из владивостока forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/aa5Tyh-WRwI0lHFa",
+      "title": "Автовоз из Владивостока в 2026-м ... - Дзен",
+      "from_query": "доставка авто из владивостока forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/l/724086956958423189/",
+      "title": "Доставка авто из Владивостока в Санкт-Петербург",
+      "from_query": "доставка авто из владивостока forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://myobshiyforum.ru/showthread.php?tid=1167",
+      "title": "Доставка автомобилей из Владивостока, как это происходит и сколько стоит",
+      "from_query": "доставка авто из владивостока forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://avtovoz.net/vladivostok/",
+      "title": "Автовоз из Владивостока",
+      "from_query": "автовоз из владивостока 2026"
+    },
+    {
+      "url": "https://lmove.ru/avtovozy-kalkulyator",
+      "title": "Калькулятор автовоза по России - Перевозка автомобилей цена ...",
+      "from_query": "автовоз из владивостока 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/b/738663457485761003/",
+      "title": "Перегон Авто Из Владивостока. Лето 2026. — Drive2",
+      "from_query": "перегон авто из владивостока 2026"
+    },
+    {
+      "url": "https://vk.com/video-226904023_456239527",
+      "title": "Обновленные секреты маршрута 2026. Перегон авто из Владивостока",
+      "from_query": "перегон авто из владивостока 2026"
+    },
+    {
+      "url": "https://yandex.ru/video/preview/15932094809904097844",
+      "title": "Обновленные секреты маршрута 2026. Перегон авто из Владивостока — Видео ...",
+      "from_query": "перегон авто из владивостока 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/117a8c9001c0219ff3a1b39f1ea023eb/",
+      "title": "ПУТЕШЕСТВИЕ / ПЕРЕГОН АВТО ИЗ ВЛАДИВОСТОКА 2026",
+      "from_query": "перегон авто из владивостока 2026"
+    },
+    {
+      "url": "https://vk.com/video-228719095_456239040",
+      "title": "ПУТЕШЕСТВИЕ / ПЕРЕГОН АВТО ИЗ ВЛАДИВОСТОКА 2026",
+      "from_query": "перегон авто из владивостока 2026"
+    },
+    {
+      "url": "https://vladivostok.titantransauto.ru/vse-tarify",
+      "title": "Тарифы на перевозку автомобилей по жд железной дороге, автовозах ...",
+      "from_query": "доставка авто жд из владивостока 2026"
+    },
+    {
+      "url": "https://gs25.ru/prajslist/",
+      "title": "ГС25. Отправка автомобилей. Актуальные цены и сроки",
+      "from_query": "доставка авто жд из владивостока 2026"
+    },
+    {
+      "url": "https://priority-auto.ru/info/dostavka/",
+      "title": "Тарифы на перевозку автомобилей из Владивостока по России | Priority Auto",
+      "from_query": "доставка авто жд из владивостока 2026"
+    },
+    {
+      "url": "https://movingwaldo.ru/zhd-perevozka-avto-iz-vladivostoka-v-moskvu",
+      "title": "ЖД перевозка авто из Владивостока в Москву - Цена доставки автомобиля ...",
+      "from_query": "доставка авто из владивостока в москву 2026"
+    },
+    {
+      "url": "https://avto-vladivostok.gs25.ru/",
+      "title": "Доставка авто из Владивостока в Москву, на Сахалин, Камчатку, Магадан",
+      "from_query": "доставка авто из владивостока в москву 2026"
+    },
+    {
+      "url": "https://vladotpravka.ru/msk",
+      "title": "Отправка автомобилей из Владивостока в Москву по ЖД | \"Транс Агент\", г ...",
+      "from_query": "доставка авто из владивостока в москву 2026"
+    },
+    {
+      "url": "https://avtovoz.clever-logistics.ru/articles/kak-prignat-avto-iz-vladivostoka",
+      "title": "Как пригнать авто из Владивостока: полный гид по доставке (ЖД, автовоз ...",
+      "from_query": "Как выбрать доставку авто из Владивостока: ж/д, автовоз или перегон в 2026 2026"
+    }
+  ]
+}

@@ -61,6 +61,7 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
+8. В `## pain_solution_map` нужна markdown-таблица с **≥3 data-rows** (header + separator не считаются). Префиксы `боль:` / `решение:` / `результат:` в ячейках желательны для Writer, но `research_notes_gate.py` считает любые data-rows секции.
 
 ## Blockers
 

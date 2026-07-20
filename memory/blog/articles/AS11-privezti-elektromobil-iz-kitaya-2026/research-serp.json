@@ -1,0 +1,596 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-20",
+    "today_ru": "20.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-21",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-20 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS11",
+    "priority": "P0",
+    "slug": "privezti-elektromobil-iz-kitaya-2026",
+    "h1": "Как привезти электромобиль из Китая в 2026: чек-лист до депозита",
+    "primary_query": "привезти электромобиль из китая",
+    "secondary_queries": [
+      "электромобиль из китая купить",
+      "растаможка электромобиля из китая",
+      "сколько стоит привезти электромобиль из китая"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "привезти электромобиль из китая 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "ТОП-5 электромобилей, которые выгодно привезти из Китая в Июле 2026 ...",
+          "url": "https://dtf.ru/racing/5189426-elektromobili-iz-kitaya-vygodnye-varyanty-dlya-pokupki",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка электромобиля из Китая 2026: цена, калькулятор",
+          "url": "https://ezzhev.ru/kitajskie-avto/skolko-stoit-rastamozhka-elektromobilya-iz-kitaya-2026/",
+          "snippet": "В итоге напрямую из Китая можно привезти упакованный кроссовер на 30-40% дешевле, чем покупать что-то похожее в автосалоне дома."
+        },
+        {
+          "title": "Стоит ли везти электромобиль в 2026: льгота на пошлину vs утильсбор",
+          "url": "https://onlyjpcars.ru/blog/stoit-li-vezti-elektromobil-2026",
+          "snippet": "Узнайте, сколько стоит растаможка электромобиля из Китая в 2026 году. Полный разбор пошлин, налогов, утильсбора. Рассчитайте стоимость на нашем калькуляторе!"
+        },
+        {
+          "title": "Импорт авто из Китая 2026: бум гибридов и электромобилей",
+          "url": "https://ezzhev.ru/news/import-avto-iz-kitaya-gibridy-elektromobili-2026/",
+          "snippet": "Главный вывод: электромобиль из Китая в 2026 году — это не «дёшево на таможне». Льготы на пошлину в России нет с 2022 года, а мощные модели вдобавок ловят высокий утильсбор по мощности."
+        },
+        {
+          "title": "Электромобили из Китая в 2026: BYD, Zeekr, Li Auto — цены, утильсбор ...",
+          "url": "https://autoprofiasia.ru/article.php?slug=elektromobili-iz-kitaya-2026-byd-zeekr",
+          "snippet": "Импорт авто из Китая в РФ вырос на 93,4% в 2026 году. Узнайте, почему гибриды и электромобили захватывают рынок и как безопасно привезти машину под ключ."
+        },
+        {
+          "title": "Сколько стоит растаможить электромобиль из Китая в 2026 году",
+          "url": "https://kdltrade.ru/ru/blog/rastamozhka-elektromobilya-iz-kitaya",
+          "snippet": "Мы проведём для вас полный расчёт, организуем покупку, доставку и растаможку, чтобы вы получили свой новый китайский электромобиль с гарантией и полным пакетом документов."
+        }
+      ],
+      "searched_at": "2026-07-20"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "привезти электромобиль из китая июль 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "ТОП-5 электромобилей, которые выгодно привезти из Китая в Июле 2026 ...",
+          "url": "https://dtf.ru/racing/5189426-elektromobili-iz-kitaya-vygodnye-varyanty-dlya-pokupki",
+          "snippet": ""
+        },
+        {
+          "title": "Электромобили из Китая в Россию 2026: BYD, Zeekr, Li Auto",
+          "url": "https://rusholdlogistic.ru/blog/elektromobili-iz-kitaya-2026",
+          "snippet": "В итоге напрямую из Китая можно привезти упакованный кроссовер на 30-40% дешевле, чем покупать что-то похожее в автосалоне дома."
+        },
+        {
+          "title": "Растаможка электромобиля из Китая 2026: цена, калькулятор",
+          "url": "https://ezzhev.ru/kitajskie-avto/skolko-stoit-rastamozhka-elektromobilya-iz-kitaya-2026/",
+          "snippet": "Гайд по импорту электромобилей из Китая: BYD, Zeekr, Li Auto, Xpeng. Цены в 2026, льготный НДС 15%, нулевая пошлина, символический утилсбор, сертификация, сроки 25-35 дней."
+        },
+        {
+          "title": "Электромобили из Китая в 2026: BYD, Zeekr, Li Auto — цены, утильсбор ...",
+          "url": "https://autoprofiasia.ru/article.php?slug=elektromobili-iz-kitaya-2026-byd-zeekr",
+          "snippet": "Узнайте, сколько стоит растаможка электромобиля из Китая в 2026 году. Полный разбор пошлин, налогов, утильсбора. Рассчитайте стоимость на нашем калькуляторе!"
+        },
+        {
+          "title": "ТОП электромобилей из Китая 2026 - proride.io",
+          "url": "https://proride.io/guide/elektromobili-iz-kitaya-2026/",
+          "snippet": "Мы проведём для вас полный расчёт, организуем покупку, доставку и растаможку, чтобы вы получили свой новый китайский электромобиль с гарантией и полным пакетом документов."
+        },
+        {
+          "title": "Электромобиль из Китая 2026: BYD, Zeekr, Geely — что выбрать",
+          "url": "https://carto-auto.ru/blog/chinese-ev-2026/",
+          "snippet": "ТОП-8 электромобилей из Китая для импорта в Россию в 2026 году. BYD Seal, Zeekr 001, Li Auto L7, Xiaomi SU7. Цены под ключ, утильсбор, зарядка, стоимость владения."
+        }
+      ],
+      "searched_at": "2026-07-20"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "привезти электромобиль из китая новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Импорт авто из Китая 2026: бум гибридов и электромобилей",
+          "url": "https://ezzhev.ru/news/import-avto-iz-kitaya-gibridy-elektromobili-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "ТОП-5 электромобилей, которые выгодно привезти из Китая в Июле 2026 ...",
+          "url": "https://dtf.ru/racing/5189426-elektromobili-iz-kitaya-vygodnye-varyanty-dlya-pokupki",
+          "snippet": "Импорт авто из Китая в РФ вырос на 93,4% в 2026 году. Узнайте, почему гибриды и электромобили захватывают рынок и как безопасно привезти машину под ключ."
+        },
+        {
+          "title": "Электромобиль из Китая: стоит ли покупать и как привезти в 2026 году",
+          "url": "https://jckauto.ru/blog/elektromobil-iz-kitaya-stoit-li-pokupat-kak-privezti",
+          "snippet": "В итоге напрямую из Китая можно привезти упакованный кроссовер на 30-40% дешевле, чем покупать что-то похожее в автосалоне дома."
+        },
+        {
+          "title": "Растаможка автомобиля из Китая в 2026 году. Правила, платежи и ...",
+          "url": "https://autohubexport.ru/article/rastamozhka-avto-iz-kitaya-v-2026/",
+          "snippet": "И главное — как его легально привезти и не разориться на пошлинах? Разбираемся по порядку: с реальными цифрами, отзывами владельцев и без маркетинговых обещаний."
+        },
+        {
+          "title": "Электромобиль из Китая 2026: BYD, Zeekr, Geely — что выбрать",
+          "url": "https://carto-auto.ru/blog/chinese-ev-2026/",
+          "snippet": "Сколько реально стоит привезти и растаможить автомобиль из Китая в России в 2026 году. Расчет пошлин, утильсбора, НДС. Пошаговый алгоритм оформления для физических лиц без переплат."
+        },
+        {
+          "title": "Электромобили из Китая в 2026: BYD, Zeekr, Li Auto — цены, утильсбор ...",
+          "url": "https://autoprofiasia.ru/article.php?slug=elektromobili-iz-kitaya-2026-byd-zeekr",
+          "snippet": "Китайские электромобили в 2026 году обходят европейские по цене и часто по технологиям. Сравниваем BYD Han, Zeekr 001, Geely Galaxy E8 и другие."
+        }
+      ],
+      "searched_at": "2026-07-20"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com привезти электромобиль из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "finamp/GitHub_Banner.png at main · finamp-app/finamp · GitHub",
+          "url": "https://github.com/finamp-app/finamp/blob/main/GitHub_Banner.png",
+          "snippet": ""
+        },
+        {
+          "title": "android_tsan_sample/screenshots/logcat.png at main · bytedance/android ...",
+          "url": "https://github.com/bytedance/android_tsan_sample/blob/main/screenshots/logcat.png",
+          "snippet": "An open source Jellyfin music player. Contribute to finamp-app/finamp development by creating an account on GitHub."
+        },
+        {
+          "title": "EdgeClaw/assets/EdgeClaw-logo.png at main · wsnbbnbb/EdgeClaw",
+          "url": "https://github.com/wsnbbnbb/EdgeClaw/blob/main/assets/EdgeClaw-logo.png",
+          "snippet": "Contribute to bytedance/android_tsan_sample development by creating an account on GitHub."
+        },
+        {
+          "title": "xfce-dotfiles/.icons/Papirus/24x24/emblems/emblem-web.svg at master ...",
+          "url": "https://github.com/fjord79/xfce-dotfiles/blob/master/.icons/Papirus/24x24/emblems/emblem-web.svg",
+          "snippet": "EdgeClaw: Edge-Cloud Collaborative Personal AI Assistant based on OpenClaw - wsnbbnbb/EdgeClaw"
+        },
+        {
+          "title": "DANCE/figs/framework.png at main · Hansong-Zhang/DANCE · GitHub",
+          "url": "https://github.com/Hansong-Zhang/DANCE/blob/main/figs/framework.png",
+          "snippet": "Contribute to fjord79/xfce-dotfiles development by creating an account on GitHub."
+        },
+        {
+          "title": "FlagTree/.github/assets/hcu_bf16_mm_1a.png at main · flagos-ai/FlagTree",
+          "url": "https://github.com/flagos-ai/FlagTree/blob/main/.github/assets/hcu_bf16_mm_1a.png",
+          "snippet": "IJCAI 2024, DANCE: Dual-View Distribution Alignment for Dataset Condensation - DANCE/figs/framework.png at main · Hansong-Zhang/DANCE"
+        }
+      ],
+      "searched_at": "2026-07-20"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "привезти электромобиль из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Документы для ввоза авто из Китая 2026: полный список",
+          "url": "https://ezzhev.ru/how-buy-car/dokumenty-dlya-vvoza-avto-iz-kitaya/",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка автомобиля из Китая в 2026 году. Правила, платежи и ...",
+          "url": "https://autohubexport.ru/article/rastamozhka-avto-iz-kitaya-v-2026/",
+          "snippet": "Комплект документации для импорта автомобиля из Китая представляет собой совокупность юридических, таможенных и технических бумаг, которые требуются для законного приобретения, перевозки и постановки на учёт транспортного средства в России."
+        },
+        {
+          "title": "Растаможка авто из Китая в России 2026: правила, документы, пошлины и ...",
+          "url": "https://ruforma.info/rastamozhka-avto-iz-kitaya-v-rossii-2026-pravila-dokumenty-poshliny-i-sovety.html",
+          "snippet": "Сколько реально стоит привезти и растаможить автомобиль из Китая в России в 2026 году. Расчет пошлин, утильсбора, НДС. Пошаговый алгоритм оформления для физических лиц без переплат."
+        },
+        {
+          "title": "Импорт электромобилей из Китая в 2025: новые правила для частных ...",
+          "url": "https://companies.rbc.ru/news/9d2xeDILqQ/import-elektromobilej-iz-kitaya-v-2025-novyie-pravila-dlya-chastnyih-klientov/",
+          "snippet": "Растаможка авто из Китая: пошаговые правила, документы, расчёт пошлин и утильсбора, сроки и частые ошибки. Практичные советы для ввоза и регистрации."
+        },
+        {
+          "title": "Документы для импорта из Китая в 2026: полный пакет",
+          "url": "https://velvet-path.com/ru/blog/dokumenty-nuzhny-dlya-importa-iz-kitaya-v-rossiyu-v-2026-godu",
+          "snippet": "С сентября 2025 года изменились правила ввоза электромобилей из Китая для частных лиц. Разбираем льготные пошлины и упрощенную растаможку BYD и Zeekr"
+        },
+        {
+          "title": "Как привезти электромобиль из Китая пошаговая инструкция",
+          "url": "https://commercial-citroen.ru/kuzov/42/kak-privezti-elektromobil-iz-kitaya",
+          "snippet": "Полный пакет документов для импорта из Китая: таможня, банк, подтверждение требований, приемка и контроль расхождений."
+        }
+      ],
+      "searched_at": "2026-07-20"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "привезти электромобиль из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как пригнать электромобиль из Китая самостоятельно",
+          "url": "https://abw.by/news/autotravel/2026/03/28/kak-ya-kupil-elektrichku-v-kitae-i-sam-zhe-ee-prignal",
+          "snippet": ""
+        },
+        {
+          "title": "Как ввезти новый китайский электрокар в Россию за 35-45 дней без «серых ...",
+          "url": "https://rustranschina.ru/kak-vvezti-novyj-kitajskij-elektrokar-v-rossiyu-za-35-45-dnej-bez-seryh-shem-i-nervov-polnyj-razbor-2026-goda/",
+          "snippet": "Недавно мы опубликовали материал от нашего читателя Павла Божанова, горячего поклонника электромобилей, где он высказал свое мнение о том, как «зеленый» транспорт всё активнее завоевывает мировой авторынок. Как и ожидалось, в комментариях случился просто шквал сообщений от противников «электричек»."
+        },
+        {
+          "title": "Доставка автомобилей из Китая в Россию — Chery, Haval, BYD гайд",
+          "url": "https://import-panda.ru/blog/dostavka-avtomobilej-iz-kitaya/",
+          "snippet": "В 2026 году привезти китайский электрокар в Россию — это уже не приключение, а отлаженный бизнес-процесс. Главное — выбрать партнёра, у которого за плечами не 2-3 машины, а тысячи."
+        },
+        {
+          "title": "Электромобиль из Китая: стоит ли покупать и как привезти в 2026 году",
+          "url": "https://jckauto.ru/blog/elektromobil-iz-kitaya-stoit-li-pokupat-kak-privezti",
+          "snippet": "Как доставить автомобиль из Китая в Россию в 2026 году: маршруты, стоимость, растаможка, ЭПТС. Полный гайд по импорту Chery, Haval, BYD и других марок."
+        },
+        {
+          "title": "Импорт электромобилей из Китая в 2025: новые правила для частных ...",
+          "url": "https://companies.rbc.ru/news/9d2xeDILqQ/import-elektromobilej-iz-kitaya-v-2025-novyie-pravila-dlya-chastnyih-klientov/",
+          "snippet": "И главное — как его легально привезти и не разориться на пошлинах? Разбираемся по порядку: с реальными цифрами, отзывами владельцев и без маркетинговых обещаний."
+        },
+        {
+          "title": "Растаможка автомобиля из Китая в 2026 году. Правила, платежи и ...",
+          "url": "https://autohubexport.ru/article/rastamozhka-avto-iz-kitaya-v-2026/",
+          "snippet": "Сентябрь 2025 года принес значительные изменения для частных покупателей, планирующих импорт электромобилей из Китая."
+        }
+      ],
+      "searched_at": "2026-07-20"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "электромобиль из китая купить 2026",
+      "purpose": "вторичный запрос: электромобиль из китая купить",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Электромобиль из Китая 2026: BYD, Zeekr, Geely — что выбрать",
+          "url": "https://carto-auto.ru/blog/chinese-ev-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Электромобили из Китая в 2026: какие выбрать и сколько стоят под ключ",
+          "url": "https://www.asiapk.ru/blog/elektromobili-iz-kitaya-2026",
+          "snippet": "Китайские электромобили в 2026 году обходят европейские по цене и часто по технологиям. Сравниваем BYD Han, Zeekr 001, Geely Galaxy E8 и другие."
+        },
+        {
+          "title": "Какой китайский электромобиль выбрать в 2026 году: гид",
+          "url": "https://ezzhev.ru/chinese-cars/kakoy-kitayskiy-elektromobil-vybrat-v-2026-godu/",
+          "snippet": "Гид по электромобилям из Китая в 2026: популярные марки (BYD, Zeekr, Li Auto, NIO), на что смотреть при выборе, запас хода, запчасти и стоимость под ключ с доставкой и растаможкой."
+        },
+        {
+          "title": "Электромобили из Китая в России 2026: полный гид по моделям, ценам и ...",
+          "url": "https://avto-zhurnal.ru/article/elektromobili-iz-kitaya-2026/",
+          "snippet": "Ищете, какой китайский электромобиль выбрать в 2026 году? Обзор популярных моделей, цен, условий доставки и растаможки машин из Китая в РФ под ключ."
+        },
+        {
+          "title": "Электромобили из Китая в 2026: BYD, Zeekr, Li Auto — цены, утильсбор ...",
+          "url": "https://autoprofiasia.ru/article.php?slug=elektromobili-iz-kitaya-2026-byd-zeekr",
+          "snippet": "Все китайские электромобили доступные в России в 2026 году: Voyah, Zeekr, Avatr, BYD, Nio, XPeng. Цены, реальный запас хода, инфраструктура зарядки."
+        },
+        {
+          "title": "ТОП электромобилей из Китая 2026 - proride.io",
+          "url": "https://proride.io/guide/elektromobili-iz-kitaya-2026/",
+          "snippet": "Актуальный обзор рынка китайских электромобилей для РФ в 2026: новые модели BYD, Zeekr, Li Auto, расчёт утильсбора и таможенных платежей. Экспертная оценка от AutoProfi Asia."
+        }
+      ],
+      "searched_at": "2026-07-20"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "растаможка электромобиля из китая 2026",
+      "purpose": "вторичный запрос: растаможка электромобиля из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Растаможка электромобиля из Китая 2026: цена, калькулятор",
+          "url": "https://ezzhev.ru/kitajskie-avto/skolko-stoit-rastamozhka-elektromobilya-iz-kitaya-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка электромобиля в 2026 году: как растаможить электромобиль в ...",
+          "url": "https://auto.mail.ru/article/98273-rastamozhka-ehlektromobilya/",
+          "snippet": "Узнайте, сколько стоит растаможка электромобиля из Китая в 2026 году. Полный разбор пошлин, налогов, утильсбора. Рассчитайте стоимость на нашем калькуляторе!"
+        },
+        {
+          "title": "Сколько стоит растаможить электромобиль из Китая в 2026 году",
+          "url": "https://kdltrade.ru/ru/blog/rastamozhka-elektromobilya-iz-kitaya",
+          "snippet": "В этой статье расскажем, какие сложности может вызвать процедура, сколько стоит растаможка электромобиля в 2026 году."
+        },
+        {
+          "title": "Растаможка автомобиля из Китая в 2026 году. Правила, платежи и ...",
+          "url": "https://autohubexport.ru/article/rastamozhka-avto-iz-kitaya-v-2026/",
+          "snippet": "Полный расчёт растаможки электромобиля из КНР: пошлина, утильсбор, акциз, СБКТС. Примеры для BYD, Zeekr, NIO. Калькулятор стоимости."
+        },
+        {
+          "title": "Растаможка авто из Китая в 2026: калькулятор и примеры расчётов",
+          "url": "https://autohubexport.ru/article/rastamozhka-avto-iz-kitaya-v-2026-kalkulator-i-primeri/",
+          "snippet": "Сколько реально стоит привезти и растаможить автомобиль из Китая в России в 2026 году. Расчет пошлин, утильсбора, НДС. Пошаговый алгоритм оформления для физических лиц без переплат."
+        },
+        {
+          "title": "Сколько стоит растаможка электромобиля из Китая в 2026 году",
+          "url": "https://ezzhev.ru/how-buy-car/skolko-stoit-rastamozhka-elektromobilya-iz-kitaya/",
+          "snippet": "Разбираем, какие платежи входят в растаможку автомобиля из Китая, от чего зависит итоговая сумма, почему важны возраст, объём двигателя и мощность, а также какие ошибки могут привести ..."
+        }
+      ],
+      "searched_at": "2026-07-20"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "сколько стоит привезти электромобиль из китая 2026",
+      "purpose": "вторичный запрос: сколько стоит привезти электромобиль из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Растаможка электромобиля из Китая 2026: цена, калькулятор",
+          "url": "https://ezzhev.ru/kitajskie-avto/skolko-stoit-rastamozhka-elektromobilya-iz-kitaya-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Сколько стоит растаможка электромобиля из Китая в 2026 году",
+          "url": "https://ezzhev.ru/how-buy-car/skolko-stoit-rastamozhka-elektromobilya-iz-kitaya/",
+          "snippet": "Узнайте, сколько стоит растаможка электромобиля из Китая в 2026 году. Полный разбор пошлин, налогов, утильсбора. Рассчитайте стоимость на нашем калькуляторе!"
+        },
+        {
+          "title": "Сколько стоит растаможить электромобиль из Китая в 2026 году",
+          "url": "https://kdltrade.ru/ru/blog/rastamozhka-elektromobilya-iz-kitaya",
+          "snippet": "Вкратце: На 2026 год базовая пошлина при ввозе электромобилей составляет 15% (в рамках квот ЕАЭС могут действовать льготы до 0%)."
+        },
+        {
+          "title": "Растаможка электромобиля в 2026 году: как растаможить электромобиль в ...",
+          "url": "https://auto.mail.ru/article/98273-rastamozhka-ehlektromobilya/",
+          "snippet": "Цены в КНР на 30--50% ниже, чем у официальных дилеров в России, и это привлекает тысячи покупателей. Однако между ценником в китайском автосалоне и итоговой стоимостью автомобиля в вашем гараже лежит процедура растаможки — и в 2026 году она имеет свои особенности."
+        },
+        {
+          "title": "Сколько стоит растаможить электромобиль из Китая в России: расчет 2026 ...",
+          "url": "https://vk.com/wall-237661237_252",
+          "snippet": "В этой статье расскажем, какие сложности может вызвать процедура, сколько стоит растаможка электромобиля в 2026 году."
+        },
+        {
+          "title": "Растаможка автомобиля из Китая в 2026 году. Правила, платежи и ...",
+          "url": "https://autohubexport.ru/article/rastamozhka-avto-iz-kitaya-v-2026/",
+          "snippet": "FAQ В: Сколько стоит привезти компактный электромобиль? О: Бюджетная модель с полным таможенным оформлением обойдется примерно в 2-2.5 млн рублей. В: Как рассчитывается акциз?"
+        }
+      ],
+      "searched_at": "2026-07-20"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как привезти электромобиль из Китая в 2026: чек-лист до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Растаможка электромобиля в 2026 году: как растаможить электромобиль в ...",
+          "url": "https://auto.mail.ru/article/98273-rastamozhka-ehlektromobilya/",
+          "snippet": ""
+        },
+        {
+          "title": "Как привезти электромобиль из китая в россию | Аккумуляторы для ...",
+          "url": "https://battka.ru/zhurnal/kak-privezti-elektromobil-iz-kitaya-v-rossiyu/",
+          "snippet": "В этой статье расскажем, какие сложности может вызвать процедура, сколько стоит растаможка электромобиля в 2026 году."
+        },
+        {
+          "title": "Растаможка автомобиля из Китая в 2026 году. Правила, платежи и ...",
+          "url": "https://autohubexport.ru/article/rastamozhka-avto-iz-kitaya-v-2026/",
+          "snippet": "Как русифицировать китайский электромобиль? Есть два пути: официальная прошивка у дилера (если модель поддерживается) или установка кастомного ПО в специализированных сервисах."
+        },
+        {
+          "title": "Как ввести китайский электромобиль в россию | Аккумуляторы для ...",
+          "url": "https://battka.ru/zhurnal/kak-vvesti-kitayskiy-elektromobil-v-rossiyu/",
+          "snippet": "Для оформления потребуется стандартный набор: договор купли-продажи, технический паспорт автомобиля, паспорт владельца, СНИЛС и ИНН. Также нужно подготовить подтверждение оплаты утилизационного сбора и, при необходимости, внести депозит на таможенный счет."
+        },
+        {
+          "title": "Импорт электромобилей из Китая в 2025: новые правила для частных ...",
+          "url": "https://companies.rbc.ru/news/9d2xeDILqQ/import-elektromobilej-iz-kitaya-v-2025-novyie-pravila-dlya-chastnyih-klientov/",
+          "snippet": "Коротко по теме: Ввезти китайский электромобиль можно через страны ЕАЭС (чаще всего Кыргызстан) для получения льготного СБКТС, либо напрямую в РФ с уплатой полной пошлины."
+        },
+        {
+          "title": "Электромобиль из Китая: стоит ли покупать и как привезти в 2026 году",
+          "url": "https://jckauto.ru/blog/elektromobil-iz-kitaya-stoit-li-pokupat-kak-privezti",
+          "snippet": "Сентябрь 2025 года принес значительные изменения для частных покупателей, планирующих импорт электромобилей из Китая."
+        }
+      ],
+      "searched_at": "2026-07-20"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://dtf.ru/racing/5189426-elektromobili-iz-kitaya-vygodnye-varyanty-dlya-pokupki",
+      "title": "ТОП-5 электромобилей, которые выгодно привезти из Китая в Июле 2026 ...",
+      "from_query": "привезти электромобиль из китая 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/kitajskie-avto/skolko-stoit-rastamozhka-elektromobilya-iz-kitaya-2026/",
+      "title": "Растаможка электромобиля из Китая 2026: цена, калькулятор",
+      "from_query": "привезти электромобиль из китая 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/stoit-li-vezti-elektromobil-2026",
+      "title": "Стоит ли везти электромобиль в 2026: льгота на пошлину vs утильсбор",
+      "from_query": "привезти электромобиль из китая 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/news/import-avto-iz-kitaya-gibridy-elektromobili-2026/",
+      "title": "Импорт авто из Китая 2026: бум гибридов и электромобилей",
+      "from_query": "привезти электромобиль из китая 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/article.php?slug=elektromobili-iz-kitaya-2026-byd-zeekr",
+      "title": "Электромобили из Китая в 2026: BYD, Zeekr, Li Auto — цены, утильсбор ...",
+      "from_query": "привезти электромобиль из китая 2026"
+    },
+    {
+      "url": "https://kdltrade.ru/ru/blog/rastamozhka-elektromobilya-iz-kitaya",
+      "title": "Сколько стоит растаможить электромобиль из Китая в 2026 году",
+      "from_query": "привезти электромобиль из китая 2026"
+    },
+    {
+      "url": "https://rusholdlogistic.ru/blog/elektromobili-iz-kitaya-2026",
+      "title": "Электромобили из Китая в Россию 2026: BYD, Zeekr, Li Auto",
+      "from_query": "привезти электромобиль из китая июль 2026"
+    },
+    {
+      "url": "https://proride.io/guide/elektromobili-iz-kitaya-2026/",
+      "title": "ТОП электромобилей из Китая 2026 - proride.io",
+      "from_query": "привезти электромобиль из китая июль 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/chinese-ev-2026/",
+      "title": "Электромобиль из Китая 2026: BYD, Zeekr, Geely — что выбрать",
+      "from_query": "привезти электромобиль из китая июль 2026"
+    },
+    {
+      "url": "https://jckauto.ru/blog/elektromobil-iz-kitaya-stoit-li-pokupat-kak-privezti",
+      "title": "Электромобиль из Китая: стоит ли покупать и как привезти в 2026 году",
+      "from_query": "привезти электромобиль из китая новости 2026"
+    },
+    {
+      "url": "https://autohubexport.ru/article/rastamozhka-avto-iz-kitaya-v-2026/",
+      "title": "Растаможка автомобиля из Китая в 2026 году. Правила, платежи и ...",
+      "from_query": "привезти электромобиль из китая новости 2026"
+    },
+    {
+      "url": "https://github.com/finamp-app/finamp/blob/main/GitHub_Banner.png",
+      "title": "finamp/GitHub_Banner.png at main · finamp-app/finamp · GitHub",
+      "from_query": "site:github.com привезти электромобиль из китая 2026"
+    },
+    {
+      "url": "https://github.com/bytedance/android_tsan_sample/blob/main/screenshots/logcat.png",
+      "title": "android_tsan_sample/screenshots/logcat.png at main · bytedance/android ...",
+      "from_query": "site:github.com привезти электромобиль из китая 2026"
+    },
+    {
+      "url": "https://github.com/wsnbbnbb/EdgeClaw/blob/main/assets/EdgeClaw-logo.png",
+      "title": "EdgeClaw/assets/EdgeClaw-logo.png at main · wsnbbnbb/EdgeClaw",
+      "from_query": "site:github.com привезти электромобиль из китая 2026"
+    },
+    {
+      "url": "https://github.com/fjord79/xfce-dotfiles/blob/master/.icons/Papirus/24x24/emblems/emblem-web.svg",
+      "title": "xfce-dotfiles/.icons/Papirus/24x24/emblems/emblem-web.svg at master ...",
+      "from_query": "site:github.com привезти электромобиль из китая 2026"
+    },
+    {
+      "url": "https://github.com/Hansong-Zhang/DANCE/blob/main/figs/framework.png",
+      "title": "DANCE/figs/framework.png at main · Hansong-Zhang/DANCE · GitHub",
+      "from_query": "site:github.com привезти электромобиль из китая 2026"
+    },
+    {
+      "url": "https://github.com/flagos-ai/FlagTree/blob/main/.github/assets/hcu_bf16_mm_1a.png",
+      "title": "FlagTree/.github/assets/hcu_bf16_mm_1a.png at main · flagos-ai/FlagTree",
+      "from_query": "site:github.com привезти электромобиль из китая 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/how-buy-car/dokumenty-dlya-vvoza-avto-iz-kitaya/",
+      "title": "Документы для ввоза авто из Китая 2026: полный список",
+      "from_query": "привезти электромобиль из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://ruforma.info/rastamozhka-avto-iz-kitaya-v-rossii-2026-pravila-dokumenty-poshliny-i-sovety.html",
+      "title": "Растаможка авто из Китая в России 2026: правила, документы, пошлины и ...",
+      "from_query": "привезти электромобиль из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://companies.rbc.ru/news/9d2xeDILqQ/import-elektromobilej-iz-kitaya-v-2025-novyie-pravila-dlya-chastnyih-klientov/",
+      "title": "Импорт электромобилей из Китая в 2025: новые правила для частных ...",
+      "from_query": "привезти электромобиль из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://velvet-path.com/ru/blog/dokumenty-nuzhny-dlya-importa-iz-kitaya-v-rossiyu-v-2026-godu",
+      "title": "Документы для импорта из Китая в 2026: полный пакет",
+      "from_query": "привезти электромобиль из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://commercial-citroen.ru/kuzov/42/kak-privezti-elektromobil-iz-kitaya",
+      "title": "Как привезти электромобиль из Китая пошаговая инструкция",
+      "from_query": "привезти электромобиль из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://abw.by/news/autotravel/2026/03/28/kak-ya-kupil-elektrichku-v-kitae-i-sam-zhe-ee-prignal",
+      "title": "Как пригнать электромобиль из Китая самостоятельно",
+      "from_query": "привезти электромобиль из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://rustranschina.ru/kak-vvezti-novyj-kitajskij-elektrokar-v-rossiyu-za-35-45-dnej-bez-seryh-shem-i-nervov-polnyj-razbor-2026-goda/",
+      "title": "Как ввезти новый китайский электрокар в Россию за 35-45 дней без «серых ...",
+      "from_query": "привезти электромобиль из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://import-panda.ru/blog/dostavka-avtomobilej-iz-kitaya/",
+      "title": "Доставка автомобилей из Китая в Россию — Chery, Haval, BYD гайд",
+      "from_query": "привезти электромобиль из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.asiapk.ru/blog/elektromobili-iz-kitaya-2026",
+      "title": "Электромобили из Китая в 2026: какие выбрать и сколько стоят под ключ",
+      "from_query": "электромобиль из китая купить 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/chinese-cars/kakoy-kitayskiy-elektromobil-vybrat-v-2026-godu/",
+      "title": "Какой китайский электромобиль выбрать в 2026 году: гид",
+      "from_query": "электромобиль из китая купить 2026"
+    },
+    {
+      "url": "https://avto-zhurnal.ru/article/elektromobili-iz-kitaya-2026/",
+      "title": "Электромобили из Китая в России 2026: полный гид по моделям, ценам и ...",
+      "from_query": "электромобиль из китая купить 2026"
+    },
+    {
+      "url": "https://auto.mail.ru/article/98273-rastamozhka-ehlektromobilya/",
+      "title": "Растаможка электромобиля в 2026 году: как растаможить электромобиль в ...",
+      "from_query": "растаможка электромобиля из китая 2026"
+    },
+    {
+      "url": "https://autohubexport.ru/article/rastamozhka-avto-iz-kitaya-v-2026-kalkulator-i-primeri/",
+      "title": "Растаможка авто из Китая в 2026: калькулятор и примеры расчётов",
+      "from_query": "растаможка электромобиля из китая 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/how-buy-car/skolko-stoit-rastamozhka-elektromobilya-iz-kitaya/",
+      "title": "Сколько стоит растаможка электромобиля из Китая в 2026 году",
+      "from_query": "растаможка электромобиля из китая 2026"
+    },
+    {
+      "url": "https://vk.com/wall-237661237_252",
+      "title": "Сколько стоит растаможить электромобиль из Китая в России: расчет 2026 ...",
+      "from_query": "сколько стоит привезти электромобиль из китая 2026"
+    },
+    {
+      "url": "https://battka.ru/zhurnal/kak-privezti-elektromobil-iz-kitaya-v-rossiyu/",
+      "title": "Как привезти электромобиль из китая в россию | Аккумуляторы для ...",
+      "from_query": "Как привезти электромобиль из Китая в 2026: чек-лист до депозита 2026"
+    },
+    {
+      "url": "https://battka.ru/zhurnal/kak-vvesti-kitayskiy-elektromobil-v-rossiyu/",
+      "title": "Как ввести китайский электромобиль в россию | Аккумуляторы для ...",
+      "from_query": "Как привезти электромобиль из Китая в 2026: чек-лист до депозита 2026"
+    }
+  ]
+}

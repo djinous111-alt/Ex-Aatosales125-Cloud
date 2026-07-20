@@ -1,0 +1,24 @@
+{
+  "slug": "privezti-elektromobil-iz-kitaya-2026",
+  "topic_id": "AS11",
+  "permalink": "https://avtosales125.ru/2026/07/20/privezti-elektromobil-iz-kitaya-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/AS11-privezti-elektromobil-iz-kitaya-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1249218,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3547 slug=privezti-elektromobil-iz-kitaya-2026\nOK featured_image=3548\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3549 src=cover/inline-01.png url=https://avtosales125.ru/wp-content/uploads/2026/07/privezti-elektromobil-iz-kitaya-2026-inline-01.png\nOK inline_image_upload=3550 src=cover/inline-02.png url=https://avtosales125.ru/wp-content/uploads/2026/07/privezti-elektromobil-iz-kitaya-2026-inline-02.png\nOK inline_image_upload=3551 src=cover/inline-03.png url=https://avtosales125.ru/wp-content/uploads/2026/07/privezti-elektromobil-iz-kitaya-2026-inline-03.png\npermalink=https://avtosales125.ru/2026/07/20/privezti-elektromobil-iz-kitaya-2026/\n",
+  "verdict": "pass",
+  "post_id": 3547,
+  "featured_image_id": 3548,
+  "inline_image_ids": {
+    "inline-01.png": 3549,
+    "inline-02.png": 3550,
+    "inline-03.png": 3551
+  },
+  "schema_meta": 1,
+  "skip_theme_faq_meta": 1
+}

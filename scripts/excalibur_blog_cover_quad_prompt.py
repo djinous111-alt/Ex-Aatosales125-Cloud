@@ -11,7 +11,14 @@ from pathlib import Path
 
 
 MAX_MCP_PROMPT_CHARS = 3500
-REQUIRED_REFERENCE_HOST = "avtosales125.ru"
+PREFERRED_REFERENCE_HOST = "avtosales125.ru"
+ALLOWED_REFERENCE_HOST_FRAGMENTS = (
+    "avtosales125.ru",
+    "litter.catbox.moe",
+    "files.catbox.moe",
+    "catbox.moe",
+    "0x0.st",
+)
 MCP_RESOLUTION = "2K"
 KIE_IMAGE_MODEL = "gpt-image-2-image-to-image"
 
@@ -48,13 +55,47 @@ def inline_panel_prompt(slot: dict, types_catalog: dict) -> str:
 
 
 def validate_reference_url(ref_url: str) -> bool:
-    if REQUIRED_REFERENCE_HOST in ref_url:
+    url = (ref_url or "").strip()
+    if not url.startswith("https://"):
+        print(
+            "❌ COVER HERO BLOCKER: reference_url_hosted must be HTTPS "
+            "(Kie cannot reliably fetch http:// hosts with redirects).",
+            file=sys.stderr,
+        )
+        return False
+    lower = url.lower()
+    if any(host in lower for host in ALLOWED_REFERENCE_HOST_FRAGMENTS):
         return True
     print(
-        f"❌ COVER HERO BLOCKER: reference_url_hosted must use stable {REQUIRED_REFERENCE_HOST} WordPress media URL, got: {ref_url}",
+        "❌ COVER HERO BLOCKER: reference_url_hosted host not allowlisted for Kie fetch. "
+        f"Prefer HTTPS {PREFERRED_REFERENCE_HOST} media, or litterbox/catbox/0x0 fallback. Got: {url}",
         file=sys.stderr,
     )
     return False
+
+
+def outfit_prompt_line(hero: dict, cover_slot: dict) -> str:
+    """Outfit follows blog-hero outfit_rule + cover scene weather/topic — never a white-hoodie lock."""
+    outfit_rule = compact(hero.get("outfit_rule") or "", 260)
+    scene = compact(cover_slot.get("scene_hint") or "", 180)
+    topic_hint = compact(hero.get("topic_outfit_hint") or "", 160)
+    rule = outfit_rule or (
+        "Change outfit to match scene WEATHER and ARTICLE TOPIC "
+        "(rain jacket in rain/port, winter coat in snow, light shirt in heat, smart casual for docs)."
+    )
+    extras = []
+    if scene:
+        extras.append(f"cover scene_hint: {scene}")
+    if topic_hint:
+        extras.append(f"topic_outfit_hint: {topic_hint}")
+    extra = (" " + " ".join(extras)) if extras else ""
+    return (
+        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. "
+        f"OUTFIT from scene weather+topic (blog-hero outfit_rule): {rule}.{extra} "
+        "Vary pose, gesture, angle, expression, props and composition every cover. "
+        "No headphones/headset/earbuds. Do not copy reference clothing. "
+        "NOT a locked white hoodie; never force thick heavyweight white hoodie."
+    )
 
 
 def validate_prompt_budget(prompt: str) -> bool:
@@ -86,7 +127,7 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         "",
         "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
         "",
-        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
+        outfit_prompt_line(hero, cover),
         "",
         f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
         "",
@@ -201,7 +242,8 @@ def main() -> int:
             "validation": {
                 "prompt_chars": len(prompt),
                 "max_prompt_chars": MAX_MCP_PROMPT_CHARS,
-                "required_reference_host": REQUIRED_REFERENCE_HOST,
+                "preferred_reference_host": PREFERRED_REFERENCE_HOST,
+                "allowed_reference_hosts": list(ALLOWED_REFERENCE_HOST_FRAGMENTS),
                 "resolution": MCP_RESOLUTION,
             },
         }

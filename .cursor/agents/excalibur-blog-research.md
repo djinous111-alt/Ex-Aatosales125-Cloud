@@ -68,6 +68,9 @@ surprising_fact: неожиданный факт или конфликт мне�
 
 ## pain_solution_map
 | pain | solution | proof/source | reader_result |
+| ... | ... | ... | ... |
+
+Каждая **data**-строка таблицы (не header) считается gate'ом. Рекомендуются префиксы `боль:` / `решение:` / `результат:` в ячейках, но gate считает любые data-rows под `## pain_solution_map` (≥3).
 
 ## action_outline
 1. ...

@@ -1,0 +1,95 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-20",
+    "today_ru": "20.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-21",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-20 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS11",
+    "priority": "P0",
+    "slug": "privezti-elektromobil-iz-kitaya-2026",
+    "h1": "Как привезти электромобиль из Китая в 2026: чек-лист до депозита",
+    "primary_query": "привезти электромобиль из китая",
+    "secondary_queries": [
+      "электромобиль из китая купить",
+      "растаможка электромобиля из китая",
+      "сколько стоит привезти электромобиль из китая"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS11",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "привезти электромобиль из китая 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "привезти электромобиль из китая июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "привезти электромобиль из китая новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com привезти электромобиль из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "привезти электромобиль из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "привезти электромобиль из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "электромобиль из китая купить 2026",
+      "purpose": "вторичный запрос: электромобиль из китая купить"
+    },
+    {
+      "id": "secondary_2",
+      "query": "растаможка электромобиля из китая 2026",
+      "purpose": "вторичный запрос: растаможка электромобиля из китая"
+    },
+    {
+      "id": "secondary_3",
+      "query": "сколько стоит привезти электромобиль из китая 2026",
+      "purpose": "вторичный запрос: сколько стоит привезти электромобиль из китая"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как привезти электромобиль из Китая в 2026: чек-лист до депозита 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS11-privezti-elektromobil-iz-kitaya-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

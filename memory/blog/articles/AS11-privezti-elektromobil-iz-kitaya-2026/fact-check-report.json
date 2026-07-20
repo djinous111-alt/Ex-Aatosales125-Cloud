@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/AS11-privezti-elektromobil-iz-kitaya-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026 года",
+      "kind": "date_or_year",
+      "context": "выдача Ориентир по доставке из обзоров логистики 2026 года: часто 2–5 недель, иногда дольше с растаможкой. О",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "180 дней",
+      "kind": "metric_or_duration",
+      "context": "ор, логистика, лаборатория и иногда правило около 180 дней учёта в КНР. Мы в Авто-Сейлс разбираем тему как \"",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 недель",
+      "kind": "metric_or_duration",
+      "context": "доставке из обзоров логистики 2026 года: часто 2–5 недель, иногда дольше с растаможкой. Отдельно бывает пра",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "ор, логистика, лаборатория и иногда правило около 180 дней учёта в КНР. Мы в Авто-Сейлс разбираем тему к",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "large_number",
+      "context": "выдача Ориентир по доставке из обзоров логистики 2026 года: часто 2–5 недель, иногда дольше с растаможко",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "870380",
+      "kind": "large_number",
+      "context": "в открытых обзорах часто связывают с кодом ТН ВЭД 870380 и ставкой-ориентиром 15% – это рамка структуры, не",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

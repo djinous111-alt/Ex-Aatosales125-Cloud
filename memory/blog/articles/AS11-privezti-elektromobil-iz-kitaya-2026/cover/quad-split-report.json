@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS11-privezti-elektromobil-iz-kitaya-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1016,
+      571
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 571,
+        "end": 607
+      },
+      "v_gutter_px": {
+        "start": 1016,
+        "end": 1042
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1016,
+          "bottom": 571
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1016,
+          "bottom": 571
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у порта Владивостока рядом с китайским EV, плашка «до депозита»",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1042,
+          "top": 2,
+          "right": 2048,
+          "bottom": 568
+        },
+        "raw_box_px": {
+          "left": 1042,
+          "top": 0,
+          "right": 2048,
+          "bottom": 571
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения EV из Китая, гибрида и ДВС по зарядке, зиме и сервису",
+        "h2_anchor": "Решите, нужен ли вам EV из Китая или спокойнее гибрид и ДВС"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 23,
+          "top": 607,
+          "right": 992,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 607,
+          "right": 1016,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист до депозита: модель, батарея, мощность, документы, Владивосток",
+        "h2_anchor": "Проверьте модель, батарею и документы до депозита"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1060,
+          "top": 607,
+          "right": 2029,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1042,
+          "top": 607,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема пути: Китай → ролкер → Владивосток → СБКТС → ЭПТС и учёт",
+        "h2_anchor": "Пройдите путь Китай → Владивосток → учёт без сюрпризов"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Решите, нужен ли вам EV из Китая или спокойнее гибрид и ДВС",
+    "injected inline_2 after H2 — Проверьте модель, батарею и документы до депозита",
+    "injected inline_3 after H2 — Пройдите путь Китай → Владивосток → учёт без сюрпризов"
+  ]
+}

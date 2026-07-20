@@ -43,6 +43,41 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20260720-1312-research-gate-output-path
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-research
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-sbkts-i-epts-vladivostok-2026
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` при относительном `-o` пишет файл как `article_dir / -o`.
+- Вызов с `-o memory/blog/articles/AS10-.../research-notes-gate.json` создал вложенный путь `article_dir/memory/blog/articles/.../research-notes-gate.json` вместо файла в корне article_dir.
+- Дополнительно: маркер `github` в `github_evidence` включает `is_technical_topic=True` для не-tech ниши (Авто-Сейлс), из-за чего gate требует ≥3 github URL даже для регуляторной темы.
+
+### How the agent recovered this run
+- Повторный запуск с `-o research-notes-gate.json` (файл в корне article_dir).
+- Удалил ошибочное вложенное дерево `article_dir/memory/`.
+- Добавил 3 github URL в notes (слабый сигнал ниши) + help.elpts.ru для official docs.
+
+### Durable fix needed before next run
+- Документировать в research skill: `-o research-notes-gate.json`, не полный repo-relative path.
+- Либо нормализовать `-o`: если path уже содержит article_dir / абсолютный — писать as-is.
+- Исключить ложное `technical_topic` из одного слова `github` в секции evidence; для AS/авто-тем не требовать GitHub.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 (Previous queue content was not readable in this workspace snapshot; prior fixed incidents may live only in git history on other branches.)

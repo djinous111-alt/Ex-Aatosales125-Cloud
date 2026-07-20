@@ -1,0 +1,631 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-20",
+    "today_ru": "20.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-21",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-20 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS10",
+    "priority": "P0",
+    "slug": "sbkts-i-epts-vladivostok-2026",
+    "h1": "СБКТС и ЭПТС во Владивостоке: как оформить на авто из Азии в 2026",
+    "primary_query": "сбктс эптс",
+    "secondary_queries": [
+      "оформление сбктс",
+      "как получить эптс",
+      "сбктс владивосток",
+      "эптс получить"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "сбктс эптс 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как оформить СБКТС и ЭПТС в 2026 году: пошаговая инструкция, стоимость ...",
+          "url": "https://www.tdkpk.ru/pr/news/epts-i-sbkts-polnyy-gid-po-dokumentam-dlya-vvezyennogo-avtomobilya/",
+          "snippet": ""
+        },
+        {
+          "title": "СБКТС и ЭПТС 2026 — что это, как получить, сколько стоит",
+          "url": "https://globamart.ru/guides/sbkts-i-epts",
+          "snippet": "Рассказываем, что это за документы, в каких случаях они обязательны, сколько стоят и как оформить их быстрее. Цены и сроки на 2026 год."
+        },
+        {
+          "title": "Оформление СБКТС и ЭПТС в 2026 году: что нужно знать владельцам ...",
+          "url": "https://sertauto.ru/news/oformlenie-sbkts-i-epts-v-2026-godu-cto-nuzno-znat-vladelcam-avtomobilei-motociklov-i-pricepov",
+          "snippet": "СБКТС и ЭПТС: разбор для физлица 2026. Свидетельство о безопасности конструкции и электронный ПТС — два ключевых документа после выпуска авто таможней. Без них регистрация в ГИБДД невозможна."
+        },
+        {
+          "title": "СБКТС 2026: что это, где получить, сколько стоит свидетельство о ...",
+          "url": "https://carto-auto.ru/blog/sbkts-2026-chto-eto-tsena/",
+          "snippet": "В 2026 году оформление ЭПТС обязательно: после получения СБКТС; при первичной регистрации ввезённого ТС; при постановке на учёт автомобилей, мотоциклов и прицепов без бумажного ПТС."
+        },
+        {
+          "title": "СБКТС и ЭПТС: что это и в каком порядке оформлять",
+          "url": "https://carto-auto.ru/blog/epts-sbkts/",
+          "snippet": "СБКТС — главный технический документ при параллельном импорте авто в Россию в 2026 году. Без него машину невозможно поставить на учёт в ГИБДД, оформить ЭПТС и легально эксплуатировать."
+        },
+        {
+          "title": "Растаможка авто 2026: ЭПТС, СБКТС, ЭРА-ГЛОНАСС — полный гайд и цены",
+          "url": "https://autoprofiasia.ru/article.php?slug=rastamojka-avto-2026-epts-sbkts-era-glonass",
+          "snippet": "ЭПТС — Электронный Паспорт Транспортного Средства. Это запись о вашей машине в государственной базе данных. Без ЭПТС нельзя поставить на учёт. СБКТС (или ОТТС/ЗОЕТС). Договор купли-продажи или инвойс на машину. Таможенная декларация о ввозе. Подтверждение оплаты утилизационного сбора."
+        }
+      ],
+      "searched_at": "2026-07-20"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "сбктс эптс июль 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "СБКТС и ЭПТС 2026 — что это, как получить, сколько стоит",
+          "url": "https://globamart.ru/guides/sbkts-i-epts",
+          "snippet": ""
+        },
+        {
+          "title": "Как оформить СБКТС и ЭПТС в 2026 году: пошаговая инструкция, стоимость ...",
+          "url": "https://www.tdkpk.ru/pr/news/epts-i-sbkts-polnyy-gid-po-dokumentam-dlya-vvezyennogo-avtomobilya/",
+          "snippet": "СБКТС и ЭПТС: разбор для физлица 2026. Свидетельство о безопасности конструкции и электронный ПТС — два ключевых документа после выпуска авто таможней. Без них регистрация в ГИБДД невозможна."
+        },
+        {
+          "title": "Оформление СБКТС и ЭПТС в 2026 году: что нужно знать владельцам ...",
+          "url": "https://sertauto.ru/news/oformlenie-sbkts-i-epts-v-2026-godu-cto-nuzno-znat-vladelcam-avtomobilei-motociklov-i-pricepov",
+          "snippet": "Рассказываем, что это за документы, в каких случаях они обязательны, сколько стоят и как оформить их быстрее. Цены и сроки на 2026 год."
+        },
+        {
+          "title": "Растаможка авто 2026: ЭПТС, СБКТС, ЭРА-ГЛОНАСС — полный гайд и цены",
+          "url": "https://autoprofiasia.ru/article.php?slug=rastamojka-avto-2026-epts-sbkts-era-glonass",
+          "snippet": "В 2026 году в России продолжают действовать обновлённые правила оформления СБКТС (свидетельства о безопасности конструкции транспортного средства) и электронного паспорта транспортного ..."
+        },
+        {
+          "title": "СБКТС — что это и зачем нужен при ввозе авто в 2026",
+          "url": "https://f1rstmotors.ru/2026/07/02/chto-takoe-sbkts/",
+          "snippet": "Полное руководство по растаможке авто в 2026 году: новые правила оформления ЭПТС, СБКТС, установки ЭРА-ГЛОНАСС. Актуальные пошлины и расчёты для Владивостока."
+        },
+        {
+          "title": "Оформление СБКТС и ЭПТС - Единый Федеральный Центр Сертификации ...",
+          "url": "https://efcsp.ru/uslugi/oformlenie-sbkts-i-epts",
+          "snippet": "Что такое СБКТС, зачем он нужен для постановки авто на учёт и как его получить. Простое объяснение для покупателей авто из США."
+        }
+      ],
+      "searched_at": "2026-07-20"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "сбктс эптс новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как оформить СБКТС и ЭПТС в 2026 году: пошаговая инструкция, стоимость ...",
+          "url": "https://www.tdkpk.ru/pr/news/epts-i-sbkts-polnyy-gid-po-dokumentam-dlya-vvezyennogo-avtomobilya/",
+          "snippet": ""
+        },
+        {
+          "title": "СБКТС и ЭПТС 2026 — что это, как получить, сколько стоит",
+          "url": "https://globamart.ru/guides/sbkts-i-epts",
+          "snippet": "Рассказываем, что это за документы, в каких случаях они обязательны, сколько стоят и как оформить их быстрее. Цены и сроки на 2026 год."
+        },
+        {
+          "title": "Оформление СБКТС и ЭПТС в 2026 году: что нужно знать владельцам ...",
+          "url": "https://sertauto.ru/news/oformlenie-sbkts-i-epts-v-2026-godu-cto-nuzno-znat-vladelcam-avtomobilei-motociklov-i-pricepov",
+          "snippet": "СБКТС и ЭПТС: разбор для физлица 2026. Свидетельство о безопасности конструкции и электронный ПТС — два ключевых документа после выпуска авто таможней. Без них регистрация в ГИБДД невозможна."
+        },
+        {
+          "title": "Растаможка авто 2026: ЭПТС, СБКТС, ЭРА-ГЛОНАСС — полный гайд и цены",
+          "url": "https://autoprofiasia.ru/article.php?slug=rastamojka-avto-2026-epts-sbkts-era-glonass",
+          "snippet": "В 2026 году в России продолжают действовать обновлённые правила оформления СБКТС (свидетельства о безопасности конструкции транспортного средства) и электронного паспорта транспортного ..."
+        },
+        {
+          "title": "ЭПТС и СБКТС в 2026: актуальные требования к оформлению | CarexChina",
+          "url": "https://carexkorea.ru/epts-i-sbkts-v-2026/",
+          "snippet": "Полное руководство по растаможке авто в 2026 году: новые правила оформления ЭПТС, СБКТС, установки ЭРА-ГЛОНАСС. Актуальные пошлины и расчёты для Владивостока."
+        },
+        {
+          "title": "ЭПТС 2026: всё про электронный паспорт ТС — что это, как оформить ...",
+          "url": "https://carto-auto.ru/blog/epts-2026-elektronnyy-pts/",
+          "snippet": "Разбираем, какие требования актуальны в 2026 для ЭПТС и СБКТС, как получить документы, куда обращаться за помощью и что будет, если допустить ошибку"
+        }
+      ],
+      "searched_at": "2026-07-20"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com сбктс эптс 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - a1eksjob158-blip/EPTS",
+          "url": "https://github.com/a1eksjob158-blip/EPTS",
+          "snippet": ""
+        },
+        {
+          "title": "AboutMe/README.md at main · MerxJs/AboutMe · GitHub",
+          "url": "https://github.com/MerxJs/AboutMe/blob/main/README.md",
+          "snippet": "<title>Оформление ЭПТС и СБКТС за 1 день</title> <style> /* Общие стили */ body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; background-color: #f4f7f6; } header { background: #fff; padding: 20px 5%; display: flex; justify-content: space-between; align-items: center;"
+        },
+        {
+          "title": "aizavod-platform/data/certifier/procedures_certification.txt ... - GitHub",
+          "url": "https://github.com/MASTER116/aizavod-platform/blob/master/data/certifier/procedures_certification.txt",
+          "snippet": "Contribute to MerxJs/AboutMe development by creating an account on GitHub."
+        },
+        {
+          "title": "GitHub - massgravel/Microsoft-Activation-Scripts: Open-source Windows ...",
+          "url": "https://github.com/massgravel/Microsoft-Activation-Scripts",
+          "snippet": "108 lines (82 loc) · 6.25 KB master aizavod-platform / data / certifier / procedures_certification.txt Code Blame 108 lines (82 loc) · 6.25 KB Raw 1 2 3 4 5 6 7 8 9 ..."
+        },
+        {
+          "title": "my-calculator/index.html at main · mensikovstepan1977-creator ... - GitHub",
+          "url": "https://github.com/mensikovstepan1977-creator/my-calculator/blob/main/index.html",
+          "snippet": "Open-source Windows and Office activator featuring HWID, Ohook, TSforge, and Online KMS activation methods, along with advanced troubleshooting. How to Activate Windows / Office / Extended Security Updates (ESU)? Click the Start Menu, type PowerShell, and open it. Copy and paste the code below and press Enter. Script not launching?"
+        },
+        {
+          "title": "GitHub · Change is constant. GitHub keeps you ahead. · GitHub",
+          "url": "https://github.com/",
+          "snippet": "Калькулятор для рассчета привоза авто. Contribute to mensikovstepan1977-creator/my-calculator development by creating an account on ..."
+        }
+      ],
+      "searched_at": "2026-07-20"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "сбктс эптс official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как оформить СБКТС и ЭПТС в 2026 году: пошаговая инструкция, стоимость ...",
+          "url": "https://www.tdkpk.ru/pr/news/epts-i-sbkts-polnyy-gid-po-dokumentam-dlya-vvezyennogo-avtomobilya/",
+          "snippet": ""
+        },
+        {
+          "title": "СБКТС и ЭПТС 2026 — что это, как получить, сколько стоит",
+          "url": "https://globamart.ru/guides/sbkts-i-epts",
+          "snippet": "Рассказываем, что это за документы, в каких случаях они обязательны, сколько стоят и как оформить их быстрее. Цены и сроки на 2026 год."
+        },
+        {
+          "title": "Оформление СБКТС и ЭПТС в 2026 году: что нужно знать владельцам ...",
+          "url": "https://sertauto.ru/news/oformlenie-sbkts-i-epts-v-2026-godu-cto-nuzno-znat-vladelcam-avtomobilei-motociklov-i-pricepov",
+          "snippet": "СБКТС и ЭПТС: разбор для физлица 2026. Свидетельство о безопасности конструкции и электронный ПТС — два ключевых документа после выпуска авто таможней. Без них регистрация в ГИБДД невозможна."
+        },
+        {
+          "title": "ЭПТС и СБКТС в 2026: актуальные требования к оформлению | CarexChina",
+          "url": "https://carexkorea.ru/epts-i-sbkts-v-2026/",
+          "snippet": "В 2026 году оформление ЭПТС обязательно: после получения СБКТС; при первичной регистрации ввезённого ТС; при постановке на учёт автомобилей, мотоциклов и прицепов без бумажного ПТС."
+        },
+        {
+          "title": "Оформление СБКТС на автомобиль в 2026 году",
+          "url": "https://pereoborudovanie-ts.ru/poleznaya-informaciya/tpost/c2ggytgfb1-oformlenie-sbkts-na-avtomobil-v-2026-god",
+          "snippet": "Разбираем, какие требования актуальны в 2026 для ЭПТС и СБКТС, как получить документы, куда обращаться за помощью и что будет, если допустить ошибку"
+        },
+        {
+          "title": "СБКТС и ЭПТС: полный гид по документам на авто из Азии",
+          "url": "https://priority-auto.ru/blog/sbkts-i-epts-polnyy-gid-po-dokumentam-na-avto-iz-azii/?lang=ru",
+          "snippet": "Разбираем, как оформить СБКТС на автомобиль: какие документы нужны, куда обращаться и как пройти процедуру без ошибок. Актуальные требования в 2026 году."
+        }
+      ],
+      "searched_at": "2026-07-20"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "сбктс эптс forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "СБКТС - Форум электронных паспортов ПТС - ЭПТС",
+          "url": "https://elpts-forum.ru/t/sbkts",
+          "snippet": ""
+        },
+        {
+          "title": "СБКТС и ЭПТС: полный гид по документам на авто из Азии",
+          "url": "https://priority-auto.ru/blog/sbkts-i-epts-polnyy-gid-po-dokumentam-na-avto-iz-azii/?lang=ru",
+          "snippet": "ЭПТС ПОРТАЛ СЭП СБКТС УТИЛЬ. СБОР."
+        },
+        {
+          "title": "Как оформить СБКТС и ЭПТС в 2026 году: пошаговая инструкция, стоимость ...",
+          "url": "https://www.tdkpk.ru/pr/news/epts-i-sbkts-polnyy-gid-po-dokumentam-dlya-vvezyennogo-avtomobilya/",
+          "snippet": "Пошаговый процесс оформления, реальные сроки и стоимость в 2026 году. Рассказываем, как избежать типичных проблем при получении документов на импортный автомобиль."
+        },
+        {
+          "title": "СБКТС и ЭПТС 2026 — что это, как получить, сколько стоит",
+          "url": "https://globamart.ru/guides/sbkts-i-epts",
+          "snippet": "Рассказываем, что это за документы, в каких случаях они обязательны, сколько стоят и как оформить их быстрее. Цены и сроки на 2026 год."
+        },
+        {
+          "title": "ЭПТС и СБКТС в 2026: актуальные требования к оформлению | CarexChina",
+          "url": "https://carexkorea.ru/epts-i-sbkts-v-2026/",
+          "snippet": "СБКТС и ЭПТС: разбор для физлица 2026. Свидетельство о безопасности конструкции и электронный ПТС — два ключевых документа после выпуска авто таможней. Без них регистрация в ГИБДД невозможна. Разберём что, где, сколько и за сколько. СБКТС — 14-35 тыс. ₽ (5-10 дней, Владивосток быстрее и дешевле)."
+        },
+        {
+          "title": "Оформление Сбктс И Эптс — Drive2",
+          "url": "https://www.drive2.ru/b/731040268492477417/",
+          "snippet": "Наша команда знает все актуальные требования 2026 года. Не нужно изучать техрегламенты и искать аккредитованные лаборатории — за вас это сделают профессионалы."
+        }
+      ],
+      "searched_at": "2026-07-20"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "оформление сбктс 2026",
+      "purpose": "вторичный запрос: оформление сбктс",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Оформление СБКТС на автомобиль в 2026 году",
+          "url": "https://pereoborudovanie-ts.ru/poleznaya-informaciya/tpost/c2ggytgfb1-oformlenie-sbkts-na-avtomobil-v-2026-god",
+          "snippet": ""
+        },
+        {
+          "title": "Как оформить СБКТС и ЭПТС в 2026 году: пошаговая инструкция, стоимость ...",
+          "url": "https://www.tdkpk.ru/pr/news/epts-i-sbkts-polnyy-gid-po-dokumentam-dlya-vvezyennogo-avtomobilya/",
+          "snippet": "Разбираем, как оформить СБКТС на автомобиль: какие документы нужны, куда обращаться и как пройти процедуру без ошибок. Актуальные требования в 2026 году."
+        },
+        {
+          "title": "СБКТС 2026: что это, где получить, сколько стоит свидетельство о ...",
+          "url": "https://carto-auto.ru/blog/sbkts-2026-chto-eto-tsena/",
+          "snippet": "Рассказываем, что это за документы, в каких случаях они обязательны, сколько стоят и как оформить их быстрее. Цены и сроки на 2026 год."
+        },
+        {
+          "title": "Оформление СБКТС и ЭПТС в 2026 году: что нужно знать владельцам ...",
+          "url": "https://sertauto.ru/news/oformlenie-sbkts-i-epts-v-2026-godu-cto-nuzno-znat-vladelcam-avtomobilei-motociklov-i-pricepov",
+          "snippet": "Все модели актуальны для импорта в 2026 году. Цена «под ключ» включает доставку, растаможку, утильсбор и оформление ЭПТС."
+        },
+        {
+          "title": "Сбктс На Авто 2026: Что Это, Цена И Как Получить | Azway",
+          "url": "https://azway.ru/blog/sbkts-na-avto-chto-eto-i-kak-poluchit",
+          "snippet": "В 2026 году в России продолжают действовать обновлённые правила оформления СБКТС (свидетельства о безопасности конструкции транспортного средства) и электронного паспорта транспортного ..."
+        },
+        {
+          "title": "СБКТС и ЭПТС 2026 — что это, как получить, сколько стоит",
+          "url": "https://globamart.ru/guides/sbkts-i-epts",
+          "snippet": "Полное руководство по СБКТС: что это за документ, кому нужен, как получить, сколько стоит в 2026 году. Пошаговая процедура, список лабораторий, связь с ЭПТС и ЭРА-ГЛОНАСС."
+        }
+      ],
+      "searched_at": "2026-07-20"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "как получить эптс 2026",
+      "purpose": "вторичный запрос: как получить эптс",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "ЭПТС 2026: всё про электронный паспорт ТС — что это, как оформить ...",
+          "url": "https://carto-auto.ru/blog/epts-2026-elektronnyy-pts/",
+          "snippet": ""
+        },
+        {
+          "title": "ЭПТС 2026: как быстро оформить, заменить и восстановить электронный ПТС",
+          "url": "https://avtoyurist-gibdd.ru/vsyo-o-poluchenii-i-zamene-pts-v-2026-godu-novye-gosposhliny-elektronnyj-pts-i-poshagovaya-instrukcziya.html",
+          "snippet": "Если вы впервые столкнулись с параллельным импортом или покупаете автомобиль с пробегом, разбираемся: что такое ЭПТС, кто его оформляет в 2026 году, сколько это стоит, как менять собственника ..."
+        },
+        {
+          "title": "Электронный ПТС (ЭПТС): как оформить, получить выписку в 2026 году",
+          "url": "https://dvbr.ru/stati/post/elektronnyj-pts-epts-kak-oformit-poluchit-vypisku-v-2026-godu",
+          "snippet": "Платите нужные госпошлины, собирайте бумаги и подайте заявку онлайн, чтобы за пару кликов получить, заменить или восстановить ЭПТС в 2026 году."
+        },
+        {
+          "title": "Как оформить СБКТС и ЭПТС в 2026 году: пошаговая инструкция, стоимость ...",
+          "url": "https://www.tdkpk.ru/pr/news/epts-i-sbkts-polnyy-gid-po-dokumentam-dlya-vvezyennogo-avtomobilya/",
+          "snippet": "Что такое ЭПТС, как его оформить при ввозе авто, получить выписку и сменить владельца. Пошаговая инструкция с ценами и сроками. Подробно и понятно."
+        },
+        {
+          "title": "Электронный ПТС (ЭПТС) в 2026: что это, где посмотреть, как получить",
+          "url": "https://t-j.ru/guide/elpts/",
+          "snippet": "Рассказываем, что это за документы, в каких случаях они обязательны, сколько стоят и как оформить их быстрее. Цены и сроки на 2026 год."
+        },
+        {
+          "title": "ЭПТС: что это такое, зачем нужен, как оформить, где посмотреть, отличие ...",
+          "url": "https://auto.mail.ru/article/118355-ehpts/",
+          "snippet": "Что такое электронный ПТС на автомобиль и зачем он нужен. Какие данные указывают в ЭПТС. Где и как оформить ЭПТС. Как внести изменения в ЭПТС. Как посмотреть электронный ПТС."
+        }
+      ],
+      "searched_at": "2026-07-20"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "сбктс владивосток 2026",
+      "purpose": "вторичный запрос: сбктс владивосток",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Испытательная лаборатория ООО \"Союз-Тест\" - оформление СБКТС и ЭПТС во ...",
+          "url": "http://s-testlab.ru/",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка авто во Владивостоке в 2026: цена, сроки, документы",
+          "url": "https://asiapk.ru/blog/rastamozhka-avto-vladivostok-2026",
+          "snippet": "ООО \"Союз-Тест\" предлагает услуги испытательной лаборатории во Владивостоке. Мы выполним комплекс работ по проверке соответствия транспортных средств требованиям технических регламентов."
+        },
+        {
+          "title": "СБКТС и ЭПТС 2026 — что это, как получить, сколько стоит",
+          "url": "https://globamart.ru/guides/sbkts-i-epts",
+          "snippet": "Полный разбор стоимости растаможки автомобиля во Владивостоке в 2026: пошлина, утильсбор, ЭПТС, СБКТС, ЭРА-ГЛОНАСС. Как выбрать таможенного брокера и какие документы нужны."
+        },
+        {
+          "title": "Получить СБКТС на автомобиль - свидетельство о безопасности конструкции ...",
+          "url": "https://vladivostok.lab-td.ru/docs/sbkts/",
+          "snippet": "СБКТС и ЭПТС: разбор для физлица 2026. Свидетельство о безопасности конструкции и электронный ПТС — два ключевых документа после выпуска авто таможней. Без них регистрация в ГИБДД невозможна. Разберём что, где, сколько и за сколько. СБКТС — 14-35 тыс. ₽ (5-10 дней, Владивосток быстрее и дешевле)."
+        },
+        {
+          "title": "СБКТС и ЭПТС во Владивостоке: цены и как поставить авто на учет",
+          "url": "[REDACTED]/2026/04/25/sbkts-i-epts-vo-vladivostoke-czeny-i-kak-postavit-avto-na-uchet/",
+          "snippet": "Мы оцениваем предоставленные документы и фото автомобиля, уточняем особенности ввоза и определяем, какой способ оформления подойдёт лучше всего. Это помогает сразу понять, возможна ли выдача СБКТС и выбрать оптимальный маршрут прохождения процедуры."
+        },
+        {
+          "title": "Растаможка авто 2026: ЭПТС, СБКТС, ЭРА-ГЛОНАСС — полный гайд и цены",
+          "url": "https://autoprofiasia.ru/article.php?slug=rastamojka-avto-2026-epts-sbkts-era-glonass",
+          "snippet": "Мы знаем, сколько стоит сбктс на автомобиль во владивостоке без накруток, контролируем статус списания пошлин и выдаем вам машину, полностью готовую к получению номеров."
+        }
+      ],
+      "searched_at": "2026-07-20"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "эптс получить 2026",
+      "purpose": "вторичный запрос: эптс получить",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "ЭПТС 2026: всё про электронный паспорт ТС — что это, как оформить ...",
+          "url": "https://carto-auto.ru/blog/epts-2026-elektronnyy-pts/",
+          "snippet": ""
+        },
+        {
+          "title": "ЭПТС 2026: как быстро оформить, заменить и восстановить электронный ПТС",
+          "url": "https://avtoyurist-gibdd.ru/vsyo-o-poluchenii-i-zamene-pts-v-2026-godu-novye-gosposhliny-elektronnyj-pts-i-poshagovaya-instrukcziya.html",
+          "snippet": "Если вы впервые столкнулись с параллельным импортом или покупаете автомобиль с пробегом, разбираемся: что такое ЭПТС, кто его оформляет в 2026 году, сколько это стоит, как менять собственника ..."
+        },
+        {
+          "title": "ЭПТС — официальный онлайн-сервис электронного ПТС",
+          "url": "https://элптс.рф/",
+          "snippet": "Платите нужные госпошлины, собирайте бумаги и подайте заявку онлайн, чтобы за пару кликов получить, заменить или восстановить ЭПТС в 2026 году."
+        },
+        {
+          "title": "Электронный ПТС - Информационный портал ЭПТС",
+          "url": "https://elpts-info.ru/",
+          "snippet": "Предоставляем услуги ЭПТС для частных лиц, бизнеса и ведомств. Предоставляем выписку из ЭПТС, производим смену собственника или замену бумажного ПТС. Принимаем заявку, готовим документы, сопровождаем до записи в СЭП. Если онлайн-сценарий не подошёл — приходите в офис. Поможем подготовить документы, проверим VIN и оформим заявку лично."
+        },
+        {
+          "title": "Как оформить СБКТС и ЭПТС в 2026 году: пошаговая инструкция, стоимость ...",
+          "url": "https://www.tdkpk.ru/pr/news/epts-i-sbkts-polnyy-gid-po-dokumentam-dlya-vvezyennogo-avtomobilya/",
+          "snippet": "Портал ЭПТС Как получить Электронный ПТС Электронный ПТС (ЭПТС) С ноября 2020 года вся информация об автомобили будет храниться в Электронном виде на портале elpts"
+        },
+        {
+          "title": "Электронный ПТС (ЭПТС): как оформить, получить выписку в 2026 году",
+          "url": "https://dvbr.ru/stati/post/elektronnyj-pts-epts-kak-oformit-poluchit-vypisku-v-2026-godu",
+          "snippet": "Рассказываем, что это за документы, в каких случаях они обязательны, сколько стоят и как оформить их быстрее. Цены и сроки на 2026 год."
+        }
+      ],
+      "searched_at": "2026-07-20"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "СБКТС и ЭПТС во Владивостоке: как оформить на авто из Азии в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Оформление СБКТС и ЭПТС на автомобиль под ключ в Владивостоке и ...",
+          "url": "https://ncl24.ru/vladivostok/sertifikaciya/svidetelstvo-o-bezopasnosti-konstrukcii-ts/",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка авто 2026: ЭПТС, СБКТС, ЭРА-ГЛОНАСС — полный гайд и цены",
+          "url": "https://autoprofiasia.ru/article.php?slug=rastamojka-avto-2026-epts-sbkts-era-glonass",
+          "snippet": "Помощь в получении СБКТС, ЭПТС, ГЛОНАСС на любые ввозимые транспортные средства в Владивостоке и Приморском крае."
+        },
+        {
+          "title": "СБКТС и ЭПТС 2026 — что это, как получить, сколько стоит",
+          "url": "https://globamart.ru/guides/sbkts-i-epts",
+          "snippet": "Полное руководство по растаможке авто в 2026 году: новые правила оформления ЭПТС, СБКТС, установки ЭРА-ГЛОНАСС. Актуальные пошлины и расчёты для Владивостока."
+        },
+        {
+          "title": "ЭПТС и СБКТС во Владивостоке",
+          "url": "http://vdklogistic.ru/epts-i-sbkts",
+          "snippet": "СБКТС и ЭПТС: разбор для физлица 2026. Свидетельство о безопасности конструкции и электронный ПТС — два ключевых документа после выпуска авто таможней. Без них регистрация в ГИБДД невозможна."
+        },
+        {
+          "title": "Испытательная лаборатория ООО \"Союз-Тест\" - оформление СБКТС и ЭПТС во ...",
+          "url": "http://s-testlab.ru/",
+          "snippet": "Он содержит информацию о технических характеристиках, авариях, наложенных ограничениях, страховке, собственниках на протяжении всего срока эксплуатации автомобиля."
+        },
+        {
+          "title": "Как оформить СБКТС и ЭПТС в 2026 году: пошаговая инструкция, стоимость ...",
+          "url": "https://www.tdkpk.ru/pr/news/epts-i-sbkts-polnyy-gid-po-dokumentam-dlya-vvezyennogo-avtomobilya/",
+          "snippet": "ООО \"Союз-Тест\" предлагает услуги испытательной лаборатории во Владивостоке. Мы выполним комплекс работ по проверке соответствия транспортных средств требованиям технических регламентов."
+        }
+      ],
+      "searched_at": "2026-07-20"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.tdkpk.ru/pr/news/epts-i-sbkts-polnyy-gid-po-dokumentam-dlya-vvezyennogo-avtomobilya/",
+      "title": "Как оформить СБКТС и ЭПТС в 2026 году: пошаговая инструкция, стоимость ...",
+      "from_query": "сбктс эптс 2026"
+    },
+    {
+      "url": "https://globamart.ru/guides/sbkts-i-epts",
+      "title": "СБКТС и ЭПТС 2026 — что это, как получить, сколько стоит",
+      "from_query": "сбктс эптс 2026"
+    },
+    {
+      "url": "https://sertauto.ru/news/oformlenie-sbkts-i-epts-v-2026-godu-cto-nuzno-znat-vladelcam-avtomobilei-motociklov-i-pricepov",
+      "title": "Оформление СБКТС и ЭПТС в 2026 году: что нужно знать владельцам ...",
+      "from_query": "сбктс эптс 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/sbkts-2026-chto-eto-tsena/",
+      "title": "СБКТС 2026: что это, где получить, сколько стоит свидетельство о ...",
+      "from_query": "сбктс эптс 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/epts-sbkts/",
+      "title": "СБКТС и ЭПТС: что это и в каком порядке оформлять",
+      "from_query": "сбктс эптс 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/article.php?slug=rastamojka-avto-2026-epts-sbkts-era-glonass",
+      "title": "Растаможка авто 2026: ЭПТС, СБКТС, ЭРА-ГЛОНАСС — полный гайд и цены",
+      "from_query": "сбктс эптс 2026"
+    },
+    {
+      "url": "https://f1rstmotors.ru/2026/07/02/chto-takoe-sbkts/",
+      "title": "СБКТС — что это и зачем нужен при ввозе авто в 2026",
+      "from_query": "сбктс эптс июль 2026"
+    },
+    {
+      "url": "https://efcsp.ru/uslugi/oformlenie-sbkts-i-epts",
+      "title": "Оформление СБКТС и ЭПТС - Единый Федеральный Центр Сертификации ...",
+      "from_query": "сбктс эптс июль 2026"
+    },
+    {
+      "url": "https://carexkorea.ru/epts-i-sbkts-v-2026/",
+      "title": "ЭПТС и СБКТС в 2026: актуальные требования к оформлению | CarexChina",
+      "from_query": "сбктс эптс новости 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/epts-2026-elektronnyy-pts/",
+      "title": "ЭПТС 2026: всё про электронный паспорт ТС — что это, как оформить ...",
+      "from_query": "сбктс эптс новости 2026"
+    },
+    {
+      "url": "https://github.com/a1eksjob158-blip/EPTS",
+      "title": "GitHub - a1eksjob158-blip/EPTS",
+      "from_query": "site:github.com сбктс эптс 2026"
+    },
+    {
+      "url": "https://github.com/MerxJs/AboutMe/blob/main/README.md",
+      "title": "AboutMe/README.md at main · MerxJs/AboutMe · GitHub",
+      "from_query": "site:github.com сбктс эптс 2026"
+    },
+    {
+      "url": "https://github.com/MASTER116/aizavod-platform/blob/master/data/certifier/procedures_certification.txt",
+      "title": "aizavod-platform/data/certifier/procedures_certification.txt ... - GitHub",
+      "from_query": "site:github.com сбктс эптс 2026"
+    },
+    {
+      "url": "https://github.com/massgravel/Microsoft-Activation-Scripts",
+      "title": "GitHub - massgravel/Microsoft-Activation-Scripts: Open-source Windows ...",
+      "from_query": "site:github.com сбктс эптс 2026"
+    },
+    {
+      "url": "https://github.com/mensikovstepan1977-creator/my-calculator/blob/main/index.html",
+      "title": "my-calculator/index.html at main · mensikovstepan1977-creator ... - GitHub",
+      "from_query": "site:github.com сбктс эптс 2026"
+    },
+    {
+      "url": "https://github.com/",
+      "title": "GitHub · Change is constant. GitHub keeps you ahead. · GitHub",
+      "from_query": "site:github.com сбктс эптс 2026"
+    },
+    {
+      "url": "https://pereoborudovanie-ts.ru/poleznaya-informaciya/tpost/c2ggytgfb1-oformlenie-sbkts-na-avtomobil-v-2026-god",
+      "title": "Оформление СБКТС на автомобиль в 2026 году",
+      "from_query": "сбктс эптс official docs documentation 2026"
+    },
+    {
+      "url": "https://priority-auto.ru/blog/sbkts-i-epts-polnyy-gid-po-dokumentam-na-avto-iz-azii/?lang=ru",
+      "title": "СБКТС и ЭПТС: полный гид по документам на авто из Азии",
+      "from_query": "сбктс эптс official docs documentation 2026"
+    },
+    {
+      "url": "https://elpts-forum.ru/t/sbkts",
+      "title": "СБКТС - Форум электронных паспортов ПТС - ЭПТС",
+      "from_query": "сбктс эптс forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/b/731040268492477417/",
+      "title": "Оформление Сбктс И Эптс — Drive2",
+      "from_query": "сбктс эптс forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/sbkts-na-avto-chto-eto-i-kak-poluchit",
+      "title": "Сбктс На Авто 2026: Что Это, Цена И Как Получить | Azway",
+      "from_query": "оформление сбктс 2026"
+    },
+    {
+      "url": "https://avtoyurist-gibdd.ru/vsyo-o-poluchenii-i-zamene-pts-v-2026-godu-novye-gosposhliny-elektronnyj-pts-i-poshagovaya-instrukcziya.html",
+      "title": "ЭПТС 2026: как быстро оформить, заменить и восстановить электронный ПТС",
+      "from_query": "как получить эптс 2026"
+    },
+    {
+      "url": "https://dvbr.ru/stati/post/elektronnyj-pts-epts-kak-oformit-poluchit-vypisku-v-2026-godu",
+      "title": "Электронный ПТС (ЭПТС): как оформить, получить выписку в 2026 году",
+      "from_query": "как получить эптс 2026"
+    },
+    {
+      "url": "https://t-j.ru/guide/elpts/",
+      "title": "Электронный ПТС (ЭПТС) в 2026: что это, где посмотреть, как получить",
+      "from_query": "как получить эптс 2026"
+    },
+    {
+      "url": "https://auto.mail.ru/article/118355-ehpts/",
+      "title": "ЭПТС: что это такое, зачем нужен, как оформить, где посмотреть, отличие ...",
+      "from_query": "как получить эптс 2026"
+    },
+    {
+      "url": "http://s-testlab.ru/",
+      "title": "Испытательная лаборатория ООО \"Союз-Тест\" - оформление СБКТС и ЭПТС во ...",
+      "from_query": "сбктс владивосток 2026"
+    },
+    {
+      "url": "https://asiapk.ru/blog/rastamozhka-avto-vladivostok-2026",
+      "title": "Растаможка авто во Владивостоке в 2026: цена, сроки, документы",
+      "from_query": "сбктс владивосток 2026"
+    },
+    {
+      "url": "https://vladivostok.lab-td.ru/docs/sbkts/",
+      "title": "Получить СБКТС на автомобиль - свидетельство о безопасности конструкции ...",
+      "from_query": "сбктс владивосток 2026"
+    },
+    {
+      "url": "[REDACTED]/2026/04/25/sbkts-i-epts-vo-vladivostoke-czeny-i-kak-postavit-avto-na-uchet/",
+      "title": "СБКТС и ЭПТС во Владивостоке: цены и как поставить авто на учет",
+      "from_query": "сбктс владивосток 2026"
+    },
+    {
+      "url": "https://элптс.рф/",
+      "title": "ЭПТС — официальный онлайн-сервис электронного ПТС",
+      "from_query": "эптс получить 2026"
+    },
+    {
+      "url": "https://elpts-info.ru/",
+      "title": "Электронный ПТС - Информационный портал ЭПТС",
+      "from_query": "эптс получить 2026"
+    },
+    {
+      "url": "https://ncl24.ru/vladivostok/sertifikaciya/svidetelstvo-o-bezopasnosti-konstrukcii-ts/",
+      "title": "Оформление СБКТС и ЭПТС на автомобиль под ключ в Владивостоке и ...",
+      "from_query": "СБКТС и ЭПТС во Владивостоке: как оформить на авто из Азии в 2026 2026"
+    },
+    {
+      "url": "http://vdklogistic.ru/epts-i-sbkts",
+      "title": "ЭПТС и СБКТС во Владивостоке",
+      "from_query": "СБКТС и ЭПТС во Владивостоке: как оформить на авто из Азии в 2026 2026"
+    }
+  ]
+}

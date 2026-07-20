@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/AS10-sbkts-i-epts-vladivostok-2026",
+  "notes": "memory/blog/articles/AS10-sbkts-i-epts-vladivostok-2026/research-notes.md",
+  "context": "memory/blog/articles/AS10-sbkts-i-epts-vladivostok-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-07-20",
+    "prefer_sources_after": "2026-04-21",
+    "source_urls": 51,
+    "source_domains": 17,
+    "source_table_rows": 47,
+    "accessed_at": 19,
+    "github_urls": 3,
+    "official_doc_urls": 1,
+    "action_outline_items": 9,
+    "pain_solution_rows": 7,
+    "technical_topic": true
+  }
+}

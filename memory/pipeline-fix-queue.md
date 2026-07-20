@@ -483,3 +483,39 @@ category: prompt
 
 ### Fixer resolution
 - pending
+
+## INC-20260720-0935-publish-ssh-root-unset
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-publish
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-tamozhennaya-poshlina-na-avto-2026-kak-rasschitat
+severity: low
+category: env
+
+### What went wrong
+- Cloud env had `SSH_HOST`/`SSH_USER`/`SSH_PASSWORD`/`SSH_PATH` and `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`, but `SSH_ROOT` was unset.
+- `paramiko` was missing from the Cloud Python env (`ModuleNotFoundError`); install needed before SSH publish.
+- `memory/site.env.local` absent (secrets only via env vars) — OK for Cloud, but `SSH_PATH` is not mapped to `SSH_ROOT` by `excalibur_blog_wp_publish.py`.
+
+### How the agent recovered this run
+- Exported session `SSH_ROOT=.` (preferred per publish contract / automation memory).
+- Installed `paramiko` via `pip3 install --break-system-packages paramiko`.
+- Dry-run + real publish succeeded: post=3535, featured=3536, inline=3537–3539, schema_meta=1; live HEAD 200.
+
+### Durable fix needed before next run
+- Set Cloud Secret `SSH_ROOT=.` (stop relying on empty root / session export).
+- Ensure Cloud image / `environment.json` preinstalls `paramiko` (or document apt/pip in doctor/setup).
+- Optionally map legacy `SSH_PATH` → `SSH_ROOT` in `load_env()` of `excalibur_blog_wp_publish.py` when `SSH_ROOT` empty.
+
+### Suggested files to inspect/change
+- Cursor Dashboard Secrets (`SSH_ROOT`)
+- `.cursor/environment.json` / setup install
+- `scripts/excalibur_blog_wp_publish.py` (`load_env` SSH_PATH fallback)
+- `scripts/excalibur_blog_doctor.py`
+
+### Secrets
+- none recorded (do not commit values)
+
+### Fixer resolution
+- pending

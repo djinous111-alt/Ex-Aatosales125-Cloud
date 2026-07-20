@@ -1,0 +1,15 @@
+{
+  "slug": "tamozhennaya-poshlina-na-avto-2026-kak-rasschitat",
+  "topic_id": "AS11",
+  "permalink": "https://avtosales125.ru/2026/07/20/tamozhennaya-poshlina-na-avto-2026-kak-rasschitat/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/AS11-tamozhennaya-poshlina-na-avto-2026-kak-rasschitat/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1441565,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3535 slug=tamozhennaya-poshlina-na-avto-2026-kak-rasschitat\nOK featured_image=3536\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3537 src=cover/inline-01.png url=https://avtosales125.ru/wp-content/uploads/2026/07/tamozhennaya-poshlina-na-avto-2026-kak-rasschitat-inline-01.png\nOK inline_image_upload=3538 src=cover/inline-02.png url=https://avtosales125.ru/wp-content/uploads/2026/07/tamozhennaya-poshlina-na-avto-2026-kak-rasschitat-inline-02.png\nOK inline_image_upload=3539 src=cover/inline-03.png url=https://avtosales125.ru/wp-content/uploads/2026/07/tamozhennaya-poshlina-na-avto-2026-kak-rasschitat-inline-03.png\npermalink=https://avtosales125.ru/2026/07/20/tamozhennaya-poshlina-na-avto-2026-kak-rasschitat/\n",
+  "verdict": "pass"
+}

@@ -6,4 +6,4 @@
 | 2026-07-17 | AS09 | trust-encar-carhistory-proverka-do-depozita | https://avtosales125.ru/2026/07/17/trust-encar-carhistory-proverka-do-depozita/ | published |
 
 > Ledger сброшен при перенастройке под AVTO SALES (2026-07-17).
-| 2026-07-20 | AS11 | tamozhennaya-poshlina-na-avto-2026-kak-rasschitat | memory/blog/articles/AS11-tamozhennaya-poshlina-na-avto-2026-kak-rasschitat | in_progress |
+| 2026-07-20 | AS11 | tamozhennaya-poshlina-na-avto-2026-kak-rasschitat | https://avtosales125.ru/2026/07/20/tamozhennaya-poshlina-na-avto-2026-kak-rasschitat/ | published |

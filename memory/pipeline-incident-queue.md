@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260720-1324-schema-secret-scan-and-missing-helper
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-schema
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-sbkts-i-epts-vladivostok-2026
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_schema_write.py` отсутствует, хотя automation memory / skill fallback его ожидают.
+- Commit of live `schema.jsonld` blocked by secret-scan (`PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` in BlogPosting/author sameAs).
+- Publish currently uploads `schema.jsonld` as-is without CTA/site URL reinject (unlike HTML path after writer redact).
+
+### How the agent recovered this run
+- Assembled `schema.jsonld` manually (BlogPosting + FAQPage + HowTo for mode B) from article/meta/registry/research-context.
+- Redacted secret URL bases to `[REDACTED]` / `[REDACTED]/…path` for commit hygiene (parity with writer INC-1315).
+- Documented in schema fragment that publish must reinject env URLs before WP meta write.
+
+### Durable fix needed before next run
+- Add `scripts/excalibur_blog_schema_write.py` that builds JSON-LD and applies commit-safe redaction.
+- Extend publish to reinject `PUBLIC_SITE_URL` / CTA secrets into `schema.jsonld` (and HTML) before upload.
+- Document redaction/reinject contract in schema + publish skills.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_schema_write.py` (new)
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260720-1320-geoqa-utility-pain-markers-missing
 status: open
 run_date: 2026-07-20

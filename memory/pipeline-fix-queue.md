@@ -6,6 +6,82 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260720-1720-geo-qa-utility-pain-markers-empty
+status: fixed
+run_date: 2026-07-20
+role: excalibur-blog-geo-qa
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-privezti-elektromobil-iz-kitaya-2026
+severity: high
+category: script
+fixed_at: 2026-07-20
+fix_summary:
+- Restored `pain_markers_ru` / `outcome_markers_ru` (+ min_* thresholds) in `memory/brief/editorial-policy.json`.
+- Added fallback defaults in `scripts/excalibur_blog_utility_gate.py` when policy lists are empty (otherwise every article BLOCK).
+- Minimal lead edit for human-voice pain markers; insight label `Коротко:` instead of `TL;DR / Быстрый инсайт`.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `memory/blog/articles/AS11-privezti-elektromobil-iz-kitaya-2026/article.html`
+checks_run:
+- `python3 scripts/excalibur_blog_utility_gate.py --article-dir …AS11…` → PASS
+- `python3 scripts/excalibur_blog_human_voice_gate.py --article-dir …AS11…` → PASS
+- sanity: AS09 utility gate PASS with same policy
+commit: pending-parent-commit
+
+### What went wrong
+- Utility gate required `min_pain_markers=2` / `min_outcome_markers=3` but `editorial-policy.json` had empty/missing `pain_markers_ru` / `outcome_markers_ru` → pain_count=0 / outcome_count=0 for every article (AS08/AS09/AS11).
+- Regression of AS05 INC-20260719-1710-writer-utility-pain-markers-empty.
+- Human-voice also needed ≥2 pain markers; lead had only `ошиб`.
+
+### How the agent recovered this run
+- Restored policy marker lists + script fallback; minimal lead wording for pain/outcome; re-ran gates → PASS.
+
+### Durable fix needed before next run
+- Keep policy lists + script fallback; document in pitfalls that empty marker lists must not silently BLOCK; sync Cloud skill note if needed.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (verify + pitfalls sync)
+
+## INC-20260720-1720-geo-qa-cta-urls-script-missing
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-geo-qa
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-privezti-elektromobil-iz-kitaya-2026
+severity: medium
+category: script
+
+### What went wrong
+- Writer left CTA `href="[REDACTED]"` placeholders; memory/runbook expects `scripts/excalibur_blog_cta_urls.py` for reinject before link-verify / publish.
+- Script absent on current branch and `origin/main` → link-verify would fail without workaround.
+
+### How the agent recovered this run
+- Context-aware reinject from env `CATALOG_URL` / `TELEGRAM_URL` into `article.html`; link-verify PASS (2 unique URLs).
+
+### Durable fix needed before next run
+- Add `scripts/excalibur_blog_cta_urls.py` (reinject + optional re-redact) and call it from GEO QA / publish skills; document in pitfalls.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cta_urls.py` (create)
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260720-1715-research-pain-map-row-regex
 status: open
 run_date: 2026-07-20

@@ -11,7 +11,7 @@
     "растаможка электромобиля из китая",
     "сколько стоит привезти электромобиль из китая"
   ],
-  "char_count": 9352,
+  "char_count": 9133,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -28,12 +28,14 @@
     "description_aeo": "Привезти электромобиль из Китая можно физлицу через Владивосток: до депозита нужны смета до номеров и 30-минутная мощность для утильсбора."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 87,
+    "verdict": "PASS",
     "date": "2026-07-20",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility_gate": "PASS"
   },
   "cover_family": "brand_collage"
 }

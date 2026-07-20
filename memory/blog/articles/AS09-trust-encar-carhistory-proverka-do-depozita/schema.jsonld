@@ -3,10 +3,10 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "@id": "https://avtosales125.ru/trust-encar-carhistory-proverka-do-depozita/#blogposting",
+      "@id": "${SITE_OR_CTA}/trust-encar-carhistory-proverka-do-depozita/#blogposting",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://avtosales125.ru/trust-encar-carhistory-proverka-do-depozita/"
+        "@id": "${SITE_OR_CTA}/trust-encar-carhistory-proverka-do-depozita/"
       },
       "headline": "Trust Encar и Carhistory: как проверить корейское авто до депозита",
       "description": "Trust Encar vs Carhistory: чеклист проверки корейского авто до депозита. Performance Check, VIN-отчёт, flood и осмотр. Подбор – в каталоге Авто-Сейлс.",
@@ -16,21 +16,21 @@
       "image": "cover/cover.png",
       "author": {
         "@type": "Person",
-        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "@id": "${SITE_OR_CTA}/#author-avtosales-editorial",
         "name": "Редакция Авто-Сейлс",
         "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
         "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
-        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "image": "${SITE_OR_CTA}/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
         "worksFor": {
           "@type": "Organization",
           "name": "Авто-Сейлс",
           "alternateName": "AVTO SALES",
-          "url": "https://avtosales125.ru/"
+          "url": "${SITE_OR_CTA}/"
         },
         "sameAs": [
-          "https://avtosales125.ru/",
-          "https://avto-sales125.ru/",
-          "https://t.me/avtosales125",
+          "${SITE_OR_CTA}/",
+          "${SITE_OR_CTA}/",
+          "${SITE_OR_CTA}",
           "https://max.ru/id2508140890_biz",
           "https://www.instagram.com/avtosales_rf",
           "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
@@ -38,13 +38,13 @@
       },
       "publisher": {
         "@type": "Organization",
-        "@id": "https://avtosales125.ru/#organization",
+        "@id": "${SITE_OR_CTA}/#organization",
         "name": "Авто-Сейлс",
         "alternateName": "AVTO SALES",
-        "url": "https://avtosales125.ru/",
+        "url": "${SITE_OR_CTA}/",
         "sameAs": [
-          "https://avto-sales125.ru/",
-          "https://t.me/avtosales125"
+          "${SITE_OR_CTA}/",
+          "${SITE_OR_CTA}"
         ]
       },
       "keywords": [
@@ -56,7 +56,7 @@
     },
     {
       "@type": "FAQPage",
-      "@id": "https://avtosales125.ru/trust-encar-carhistory-proverka-do-depozita/#faq",
+      "@id": "${SITE_OR_CTA}/trust-encar-carhistory-proverka-do-depozita/#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -118,7 +118,7 @@
     },
     {
       "@type": "HowTo",
-      "@id": "https://avtosales125.ru/trust-encar-carhistory-proverka-do-depozita/#howto",
+      "@id": "${SITE_OR_CTA}/trust-encar-carhistory-proverka-do-depozita/#howto",
       "name": "Как проверить корейское авто через Trust Encar и Carhistory до депозита",
       "description": "Пошаговая проверка лота с Encar до перевода депозита: VIN, Performance Check, Insurance History, Carhistory, flood и живой осмотр.",
       "totalTime": "PT45M",
@@ -152,56 +152,56 @@
           "position": 1,
           "name": "Зафиксировать лот и запросить полный VIN",
           "text": "Сохраните ссылку Encar, модель/год, заявленный пробег и цену. Нет полного VIN – нет разговора о депозите.",
-          "url": "https://avtosales125.ru/trust-encar-carhistory-proverka-do-depozita/#зафиксируйте-правило-проверка-до-депозита-а-не-после-оплаты"
+          "url": "${SITE_OR_CTA}/trust-encar-carhistory-proverka-do-depozita/#зафиксируйте-правило-проверка-до-депозита-а-не-после-оплаты"
         },
         {
           "@type": "HowToStep",
           "position": 2,
           "name": "Открыть Performance Check на схеме кузова",
           "text": "Ищите пометки X/W на лонжеронах, стойках и панелях каркаса. Силовые повреждения – отказ или жёсткий дисконт только после осмотра.",
-          "url": "https://avtosales125.ru/trust-encar-carhistory-proverka-do-depozita/#проверьте-карточку-encar-performance-check-и-insurance-history"
+          "url": "${SITE_OR_CTA}/trust-encar-carhistory-proverka-do-depozita/#проверьте-карточку-encar-performance-check-и-insurance-history"
         },
         {
           "@type": "HowToStep",
           "position": 3,
           "name": "Сверить Insurance History с пробегом",
           "text": "Сверьте даты и выплаты на Encar с заявленным пробегом и числом владельцев. Расхождения – повод поставить лот на паузу.",
-          "url": "https://avtosales125.ru/trust-encar-carhistory-proverka-do-depozita/#проверьте-карточку-encar-performance-check-и-insurance-history"
+          "url": "${SITE_OR_CTA}/trust-encar-carhistory-proverka-do-depozita/#проверьте-карточку-encar-performance-check-и-insurance-history"
         },
         {
           "@type": "HowToStep",
           "position": 4,
           "name": "Пробить VIN в Carhistory и flood",
           "text": "Снимите платный отчёт Carhistory и бесплатный flood-check. Помните: ДТП без страховки может отсутствовать в базе.",
-          "url": "https://avtosales125.ru/trust-encar-carhistory-proverka-do-depozita/#пробейте-vin-в-carhistory-и-оцените-критичные-поля"
+          "url": "${SITE_OR_CTA}/trust-encar-carhistory-proverka-do-depozita/#пробейте-vin-в-carhistory-и-оцените-критичные-поля"
         },
         {
           "@type": "HowToStep",
           "position": 5,
           "name": "Оценить красные флаги отчёта",
           "text": "Крупные выплаты, total loss, кража, коммерческое использование и скачки пробега – стоп-сигналы до любого перевода.",
-          "url": "https://avtosales125.ru/trust-encar-carhistory-proverka-do-depozita/#отсейте-красные-флаги-пробег-дтп-владельцы"
+          "url": "${SITE_OR_CTA}/trust-encar-carhistory-proverka-do-depozita/#отсейте-красные-флаги-пробег-дтп-владельцы"
         },
         {
           "@type": "HowToStep",
           "position": 6,
           "name": "Заказать живой осмотр в Корее",
           "text": "Запросите фото/видео с датой, толщиномер и проверку следов перекраса и ДВС – до любого депозита.",
-          "url": "https://avtosales125.ru/trust-encar-carhistory-proverka-do-depozita/#сверьте-отчёты-с-фото-и-закажите-живой-осмотр"
+          "url": "${SITE_OR_CTA}/trust-encar-carhistory-proverka-do-depozita/#сверьте-отчёты-с-фото-и-закажите-живой-осмотр"
         },
         {
           "@type": "HowToStep",
           "position": 7,
           "name": "Свести пакет и только потом обсуждать депозит",
           "text": "Соберите VIN + Carhistory + Performance Check + осмотр. Только после полного пакета обсуждайте бронь, депозит и логистику через Владивосток.",
-          "url": "https://avtosales125.ru/trust-encar-carhistory-proverka-do-depozita/#пройдите-чеклист-перед-переводом-депозита"
+          "url": "${SITE_OR_CTA}/trust-encar-carhistory-proverka-do-depozita/#пройдите-чеклист-перед-переводом-депозита"
         },
         {
           "@type": "HowToStep",
           "position": 8,
           "name": "Передать проверку подборщику при отсутствии доступа",
           "text": "Если нет доступа к корейским базам – уйдите в каталог avto-sales125.ru или Telegram @avtosales125 за проверкой до оплаты, без форм на странице статьи.",
-          "url": "https://avtosales125.ru/trust-encar-carhistory-proverka-do-depozita/#что-дальше"
+          "url": "${SITE_OR_CTA}/trust-encar-carhistory-proverka-do-depozita/#что-дальше"
         }
       ]
     }

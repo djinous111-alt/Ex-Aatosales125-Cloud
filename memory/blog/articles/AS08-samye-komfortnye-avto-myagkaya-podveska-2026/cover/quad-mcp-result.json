@@ -4,7 +4,7 @@
   "task_id": "494a1ca69ac43cef8b760ba5a8d8b50b",
   "result_url": "https://tempfile.aiquickdraw.com/p/494a1ca69ac43cef8b760ba5a8d8b50b_1_1784267776_5079.png",
   "input_urls": [
-    "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png"
+    "${SITE_OR_CTA}/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png"
   ],
   "aspect_ratio": "16:9",
   "resolution": "2K",

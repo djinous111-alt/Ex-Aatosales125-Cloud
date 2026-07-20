@@ -31,7 +31,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
   4. Где считают пошлину и утильсбор (каталог)
   5. Чеклист перед оплатой депозита
 - **faq_hints:** сколько roughly этапов растаможки из Кореи; чем Корея отличается от Японии по срокам
-- **internal_links:** https://avto-sales125.ru/
+- **internal_links:** ${SITE_OR_CTA}/
 - **cta:** каталог + Telegram @avtosales125
 - **cover_scene_hint:** порт Владивостока, ролкер, современный корейский седан, герой Авто-Сейлс с плашкой
 - **metrika_signal:** Japan-аналог лидер Дзена — пробел по Корее
@@ -53,7 +53,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
   3. Связка с Trust Encar / Carhistory
   4. Когда лучше отдать проверку подборщику
 - **faq_hints:** что такое trust encar; можно ли верить пробегу в encar
-- **internal_links:** https://avto-sales125.ru/
+- **internal_links:** ${SITE_OR_CTA}/
 - **cover_scene_hint:** смартфон с экраном Encar, герой в очках, ирония «кот в мешке»
 
 ---
@@ -73,7 +73,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
   3. Логистика через Владивосток
   4. Как сравнить два варианта без «магических» цен
 - **faq_hints:** левый руль из Кореи; когда японский аукцион лучше Encar
-- **internal_links:** https://avto-sales125.ru/
+- **internal_links:** ${SITE_OR_CTA}/
 - **cover_scene_hint:** два современных авто (Корея/Япония), герой между ними, плашка «что выгоднее»
 
 ---
@@ -93,7 +93,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
   3. Какие ошибки делают в расчётах
   4. Куда идти за актуальным расчётом (каталог)
 - **faq_hints:** считается ли утильсбор одинаково для трёх стран; где проверить цифру
-- **internal_links:** https://avto-sales125.ru/
+- **internal_links:** ${SITE_OR_CTA}/
 - **cover_scene_hint:** документы, калькулятор как метафора (без конкретных сумм на картинке), герой
 
 ---
@@ -113,7 +113,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
   3. Типичные переплаты и как их избежать
   4. Связка СВХ → выдача / доставка по РФ
 - **faq_hints:** сколько roughly держат авто на СВХ; можно ли забрать раньше
-- **internal_links:** https://avto-sales125.ru/
+- **internal_links:** ${SITE_OR_CTA}/
 - **cover_scene_hint:** ночной терминал, сетка, современный авто под плёнкой, золотой мост в тумане
 - **metrika_signal:** высокий PV в Дзене по СВХ
 
@@ -129,7 +129,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **search_intent:** checklist
 - **article_mode:** B
 - **metrika_signal:** лидер Дзена ~938 PV
-- **internal_links:** https://avto-sales125.ru/
+- **internal_links:** ${SITE_OR_CTA}/
 - **cover_scene_hint:** японский спорткар/седан на ролкере, Владивосток, герой selfie
 
 ---
@@ -143,7 +143,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **secondary_queries:** растаможка авто китай, проверка документов китай авто
 - **search_intent:** troubleshooting
 - **article_mode:** B
-- **internal_links:** https://avto-sales125.ru/
+- **internal_links:** ${SITE_OR_CTA}/
 - **cover_scene_hint:** красные фонари + современный китайский EV, документы, герой с лупой-иронией
 
 ---
@@ -158,7 +158,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **search_intent:** how_to
 - **article_mode:** B
 - **status_note:** published 2026-07-17
-- **internal_links:** https://avto-sales125.ru/
+- **internal_links:** ${SITE_OR_CTA}/
 - **metrika_signal:** Дзен #2 — 433 PV
 
 ---
@@ -180,7 +180,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
   5. Красные флаги: пробег, ДТП, смена владельцев
   6. Чеклист перед переводом депозита
 - **faq_hints:** чем trust encar отличается от carhistory; можно ли верить пробегу без отчёта; что делать если отчёты расходятся
-- **internal_links:** https://avto-sales125.ru/
+- **internal_links:** ${SITE_OR_CTA}/
 - **cta:** каталог + Telegram @avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0

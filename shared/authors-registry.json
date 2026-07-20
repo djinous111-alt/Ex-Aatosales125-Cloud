@@ -21,11 +21,11 @@
         "vin_check",
         "logistics_russia"
       ],
-      "avatar_url": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+      "avatar_url": "${SITE_OR_CTA}/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
       "sameAs": [
-        "https://avtosales125.ru/",
-        "https://avto-sales125.ru/",
-        "https://t.me/avtosales125",
+        "${SITE_OR_CTA}/",
+        "${SITE_OR_CTA}/",
+        "${SITE_OR_CTA}",
         "https://max.ru/id2508140890_biz",
         "https://www.instagram.com/avtosales_rf",
         "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"

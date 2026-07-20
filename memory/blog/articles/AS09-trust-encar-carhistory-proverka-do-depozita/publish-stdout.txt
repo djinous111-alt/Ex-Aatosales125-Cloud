@@ -2,7 +2,7 @@ OK post=3364 slug=trust-encar-carhistory-proverka-do-depozita
 OK featured_image=3386
 OK schema_meta=1
 OK skip_theme_faq_meta=1
-OK inline_image_upload=3387 src=cover/inline-01.png url=https://avtosales125.ru/wp-content/uploads/2026/07/trust-encar-carhistory-proverka-do-depozita-inline-01-3.png
-OK inline_image_upload=3388 src=cover/inline-02.png url=https://avtosales125.ru/wp-content/uploads/2026/07/trust-encar-carhistory-proverka-do-depozita-inline-02-3.png
-OK inline_image_upload=3389 src=cover/inline-03.png url=https://avtosales125.ru/wp-content/uploads/2026/07/trust-encar-carhistory-proverka-do-depozita-inline-03-3.png
-permalink=https://avtosales125.ru/2026/07/17/trust-encar-carhistory-proverka-do-depozita/
+OK inline_image_upload=3387 src=cover/inline-01.png url=${SITE_OR_CTA}/wp-content/uploads/2026/07/trust-encar-carhistory-proverka-do-depozita-inline-01-3.png
+OK inline_image_upload=3388 src=cover/inline-02.png url=${SITE_OR_CTA}/wp-content/uploads/2026/07/trust-encar-carhistory-proverka-do-depozita-inline-02-3.png
+OK inline_image_upload=3389 src=cover/inline-03.png url=${SITE_OR_CTA}/wp-content/uploads/2026/07/trust-encar-carhistory-proverka-do-depozita-inline-03-3.png
+permalink=${SITE_OR_CTA}/2026/07/17/trust-encar-carhistory-proverka-do-depozita/

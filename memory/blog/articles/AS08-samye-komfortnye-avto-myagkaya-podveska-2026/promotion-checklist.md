@@ -1,7 +1,7 @@
 # Promotion checklist — AS08 samye-komfortnye-avto-myagkaya-podveska-2026
 
 Дата публикации: 2026-07-17  
-Live URL: https://avtosales125.ru/2026/07/17/samye-komfortnye-avto-myagkaya-podveska-2026/
+Live URL: ${SITE_OR_CTA}/2026/07/17/samye-komfortnye-avto-myagkaya-podveska-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • На ямах важнее задняя многорычажка и профиль шин, чем спорт-пакет
 • Shortlist 2–3 модели и проверка ходовой — до оплаты
 
-Читать: https://avtosales125.ru/2026/07/17/samye-komfortnye-avto-myagkaya-podveska-2026/
+Читать: ${SITE_OR_CTA}/2026/07/17/samye-komfortnye-avto-myagkaya-podveska-2026/
 ```
 
 ## Перелинковка

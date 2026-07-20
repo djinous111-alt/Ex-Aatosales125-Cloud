@@ -6,9 +6,9 @@ Excalibur BLOG читает этот файл для метаданных сай
 
 - **site_name:** Авто-Сейлс
 - **brand:** AVTO SALES / Avto-Sales
-- **site_url:** https://avtosales125.ru
+- **site_url:** ${SITE_OR_CTA}
 - **blog_path:** /
-- **catalog_url:** https://avto-sales125.ru/
+- **catalog_url:** ${SITE_OR_CTA}/
 - **language:** ru
 - **geo:** Владивосток, Дальний Восток, РФ
 - **niche:** автомобили под заказ из Японии, Кореи и Китая; растаможка, СВХ Владивосток, доставка по России
@@ -17,7 +17,7 @@ Excalibur BLOG читает этот файл для метаданных сай
 
 - **название:** Авто-Сейлс (Avto-Sales)
 - **адрес:** г. Владивосток, Днепровская 40а, строение 4
-- **Telegram:** [@avtosales125](https://t.me/avtosales125) — основная точка контакта и подробностей по заказу
+- **Telegram:** [@avtosales125](${SITE_OR_CTA}) — основная точка контакта и подробностей по заказу
 - **MAX:** https://max.ru/id2508140890_biz
 - **Instagram:** https://www.instagram.com/avtosales_rf
 - **отзывы 2GIS:** https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417/131.924668%2C43.140033/tab/reviews

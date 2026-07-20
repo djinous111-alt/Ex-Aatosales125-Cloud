@@ -6,6 +6,35 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260720-1710-scout-precommit-invalid-secret-name
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-scout
+topic_id: AS11
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in Cloud pre-commit secrets scanner: bash `${!SECRET_NAME}` with an entry from `CLOUD_AGENT_INJECTED_SECRET_NAMES` that is not a valid shell identifier.
+- Blocked commit of AS11 topic card until names were sanitized.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid `[A-Za-z_][A-Za-z0-9_]*` identifiers, then re-ran commit/push.
+
+### Durable fix needed before next run
+- Sanitize secret-name injection before hooks run, or make pre-commit skip non-identifier names instead of aborting.
+
+### Suggested files to inspect/change
+- Cloud agent hook `pre-commit.cursor` (secrets scanner loop)
+- Dashboard / env injection of `CLOUD_AGENT_INJECTED_SECRET_NAMES`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260720-1703-doctor-llms-blog-path
 status: open
 run_date: 2026-07-20

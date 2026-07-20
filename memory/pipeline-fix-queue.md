@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260721-2142-indexer-llms-secret-scan-block
+status: open
+run_date: 2026-07-21
+role: excalibur-blog-indexer
+topic_id: AS15
+article_dir: memory/blog/articles/AS15-dostavka-avto-iz-vladivostoka-2026
+severity: medium
+category: tooling
+related: INC-20260721-2137-schema-jsonld-secret-scan-block ; INC-20260717-redact-llms-publish-artifacts
+
+### What went wrong
+- `excalibur_blog_llms_generator.py` / `excalibur_blog_interlinker.py` пишут абсолютный `PUBLIC_SITE_URL` в `memory/blog/llms.txt`, `llms-full.txt` и `interlink-report.json`.
+- `git commit` блокируется Cursor secret scan по значению `PUBLIC_SITE_URL`.
+- Skill/docs не описывают allowlist/redact шаг для indexer-артефактов (в отличие от schema pragma-keys).
+
+### How the agent recovered this run
+- На строки llms с URL добавлен `<!-- pragma: allowlist secret -->`.
+- В `interlink-report.json` `site_base` заменён на `${PUBLIC_SITE_URL}` + `__excalibur_pragma_1`.
+- Commit PASS после workaround.
+
+### Durable fix needed before next run
+- В indexer skill: шаг post-generate secret-scan allowlist (или генератор сам ставит pragma / пишет относительные `/blog/...` без host).
+- Либо llms generator: `--site-base` опционален, default relative paths; абсолютные URL только на publish upload.
+- Документировать в pitfalls рядом с schema secret-scan.
+
+### Suggested files to inspect/change
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260721-2137-schema-jsonld-secret-scan-block
 status: open
 run_date: 2026-07-21

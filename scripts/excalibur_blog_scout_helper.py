@@ -26,6 +26,14 @@ def load_published_topics(root: Path) -> set[str]:
     return published
 
 
+# Topic IDs: Avto-Sales AS## and legacy B##. Card titles may use —, –, or -.
+TOPIC_ID_RE = r"(?:AS|B)\d+"
+TOPIC_HEADING_RE = re.compile(
+    rf"##\s+({TOPIC_ID_RE})\s+[—–-][^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)",
+    re.DOTALL | re.IGNORECASE,
+)
+
+
 def load_active_article_topics(root: Path) -> set[str]:
     articles_dir = root / "memory" / "blog" / "articles"
     if not articles_dir.is_dir():
@@ -34,7 +42,7 @@ def load_active_article_topics(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = re.match(rf"({TOPIC_ID_RE})-", path.name, flags=re.IGNORECASE)
         if match:
             active.add(match.group(1).upper())
     return active
@@ -46,7 +54,7 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
     if not topics_path.is_file():
         return topics
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in TOPIC_HEADING_RE.finditer(text):
         topic_id = match.group(1).upper()
         block = match.group(2)
         
@@ -130,13 +138,24 @@ def main() -> int:
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
-        max_num = 0
+        # Prefer continuing the dominant prefix in the pool (AS* for Avto-Sales).
+        prefix_counts: dict[str, int] = {"AS": 0, "B": 0}
+        prefix_max: dict[str, int] = {"AS": 0, "B": 0}
         for t in existing:
-            m = re.match(r"B(\d+)", t["topic_id"])
-            if m:
-                max_num = max(max_num, int(m.group(1)))
-        
-        next_id = f"B{max_num + 1:02d}"
+            m = re.match(r"(AS|B)(\d+)", t["topic_id"], flags=re.IGNORECASE)
+            if not m:
+                continue
+            prefix = m.group(1).upper()
+            num = int(m.group(2))
+            prefix_counts[prefix] = prefix_counts.get(prefix, 0) + 1
+            prefix_max[prefix] = max(prefix_max.get(prefix, 0), num)
+        if prefix_counts.get("AS", 0) >= prefix_counts.get("B", 0) and prefix_counts.get("AS", 0) > 0:
+            prefix = "AS"
+        elif prefix_counts.get("B", 0) > 0:
+            prefix = "B"
+        else:
+            prefix = "AS"
+        next_id = f"{prefix}{prefix_max.get(prefix, 0) + 1:02d}"
         print(f"Next available topic ID: {next_id}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")

@@ -12,6 +12,7 @@ from typing import Any
 
 
 from excalibur_repo_paths import repo_relative
+from excalibur_blog_voice_markers import resolve_marker_lists
 
 
 def project_root() -> Path:
@@ -28,7 +29,7 @@ def save_json(path: Path, data: dict[str, Any]) -> None:
 
 def parse_topic_card(topics_path: Path, topic_id: str) -> dict[str, str]:
     text = topics_path.read_text(encoding="utf-8")
-    pattern = rf"##\s+{re.escape(topic_id)}\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+[A-Z]\d+|\Z)"
+    pattern = rf"##\s+{re.escape(topic_id)}\s+[—–-][^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)"
     match = re.search(pattern, text, re.DOTALL | re.IGNORECASE)
     if not match:
         raise ValueError(f"topic card not found: {topic_id}")
@@ -187,34 +188,7 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
 
     # Fallback mirrors human_voice_gate defaults when policy lists are empty/missing
     # (INC-20260719-1710 / regression AS10: empty lists → false BLOCK).
-    default_pain = (
-        "боль",
-        "проблем",
-        "ошиб",
-        "ломает",
-        "не работает",
-        "теряет",
-        "дорого",
-        "долго",
-        "рутин",
-        "хаос",
-        "застр",
-        "сложно",
-    )
-    default_outcome = (
-        "результат",
-        "получите",
-        "сможете",
-        "сэконом",
-        "проверьте",
-        "запустите",
-        "соберите",
-        "настройте",
-        "исправьте",
-        "выберите",
-    )
-    pain_markers = policy.get("pain_markers_ru") or list(default_pain)
-    outcome_markers = policy.get("outcome_markers_ru") or list(default_outcome)
+    pain_markers, outcome_markers = resolve_marker_lists(policy)
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 

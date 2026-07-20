@@ -11,6 +11,10 @@ from pathlib import Path
 from typing import Any
 
 from excalibur_repo_paths import repo_relative
+from excalibur_blog_voice_markers import (
+    DEFAULT_OUTCOME_MARKERS_RU,
+    DEFAULT_PAIN_MARKERS_RU,
+)
 
 
 LEGACY_BANNED_FACT_CHECK_NAMES = (
@@ -100,33 +104,9 @@ CONCRETE_MARKERS = (
     "из практики",
 )
 
-PAIN_MARKERS = (
-    "боль",
-    "проблем",
-    "ошиб",
-    "ломает",
-    "не работает",
-    "теряет",
-    "дорого",
-    "долго",
-    "рутин",
-    "хаос",
-    "застр",
-    "сложно",
-)
+PAIN_MARKERS = DEFAULT_PAIN_MARKERS_RU
 
-OUTCOME_MARKERS = (
-    "результат",
-    "получите",
-    "сможете",
-    "сэконом",
-    "проверьте",
-    "запустите",
-    "соберите",
-    "настройте",
-    "исправьте",
-    "выберите",
-)
+OUTCOME_MARKERS = DEFAULT_OUTCOME_MARKERS_RU
 
 AI_OPENERS = (
     "в современном мире",

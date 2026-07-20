@@ -199,3 +199,8 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 ## Эталон (B01)
 
 `memory/blog/articles/B01-primer-seo-stati/cover/` — reference implementation после design code v1.
+
+## Outfit (не white hoodie)
+
+Не хардкодь white hoodie. Одежда героя = `scene_hint` + `memory/cover/blog-hero.json` → `outfit_rule` (погода + тема).
+`excalibur_blog_cover_quad_prompt.py` больше не содержит Outfit lock white hoodie.

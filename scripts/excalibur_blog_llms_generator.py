@@ -110,6 +110,11 @@ def main() -> int:
     ap.add_argument("--site-desc", type=str, default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.")
     ap.add_argument("--site-base", type=str, default="https://avtosales125.ru")
     ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for llms.txt/llms-full.txt")
+    ap.add_argument(
+        "--redact-site-base",
+        action="store_true",
+        help="Force site_base=[REDACTED] in outputs (commit-safe; publish reinjects before deploy)",
+    )
     args = ap.parse_args()
 
     root = project_root()
@@ -121,11 +126,12 @@ def main() -> int:
     if not out_dir.is_absolute():
         out_dir = root / out_dir
 
+    site_base = "[REDACTED]" if args.redact_site_base else args.site_base
     articles = load_articles(blog_dir)
     print(f"Loaded {len(articles)} articles to index for LLMs.")
 
-    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, args.site_base)
-    llms_full_txt = build_llms_full_txt(args.site_name, articles, args.site_base)
+    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, site_base)
+    llms_full_txt = build_llms_full_txt(args.site_name, articles, site_base)
 
     llms_path = out_dir / "llms.txt"
     llms_full_path = out_dir / "llms-full.txt"

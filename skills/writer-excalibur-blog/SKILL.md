@@ -44,3 +44,17 @@ memory/blog/articles/<topic_id>-<slug>/article.meta.json
 - объём вне диапазона после 1 правки
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`
+
+## CTA / site URLs и secret-scan
+
+В `article.html` **не коммить** live значения `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`.
+Пиши плейсхолдеры:
+- typed: `href="[REDACTED:CATALOG_URL]"`, `href="[REDACTED:TELEGRAM_URL]"`;
+- plain `[REDACTED]` / `[REDACTED]/path` = site base.
+
+Хелперы:
+```bash
+python3 scripts/excalibur_blog_cta_urls.py --redact --write article.html
+python3 scripts/excalibur_blog_cta_urls.py --reinject --write article.html  # QA link-verify / publish
+```
+Publish (`wp_publish.load_article`) reinject автоматически перед upload.

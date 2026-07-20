@@ -68,3 +68,17 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+## Research notes gate (обязательно)
+
+После `research-notes.md`:
+
+```bash
+python3 scripts/excalibur_blog_research_notes_gate.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  -o research-notes-gate.json
+```
+
+`-o` с **одним** именем файла пишется в корень `article_dir`.
+Не передавай полный repo-relative путь вроде `-o memory/blog/articles/.../research-notes-gate.json` —
+это создаст вложенный каталог. Для AS/авто-тем GitHub evidence не требуется (technical_topic=false).
+В `research-serp.json` перед commit заменяй live `PUBLIC_SITE_URL` на `[REDACTED]`.

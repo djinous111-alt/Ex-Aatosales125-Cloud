@@ -46,3 +46,29 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- `excalibur_blog_llms_generator.py` принимает `--blog-dir` + `--out-dir`, **не** `--blog-path`.
+- Для commit: `--redact-site-base` или `--site-base [REDACTED]`; publish reinject перед upload llms.
+
+## Scout / topic IDs
+
+- Тема ID: `(?:AS|B)\d+`. Helper `--suggest-next` и `today.py` обязаны видеть AS*-пул Авто-Сейлс.
+- Тире в заголовке карточки: `—` / `–` / `-`.
+
+## CTA / secret-scan
+
+- В git: `[REDACTED]` / `[REDACTED:CATALOG_URL]`, не live PUBLIC_SITE/CATALOG/TELEGRAM.
+- Reinject: `scripts/excalibur_blog_cta_urls.py` (QA link-verify и publish).
+- `*.gov.ru` hyperlink может soft-fail (connection reset); допустим plaintext без href.
+
+## Cover
+
+- Не хардкодить white hoodie: outfit из `scene_hint` + blog-hero `outfit_rule`.
+
+## Research gate
+
+- `-o research-notes-gate.json` (имя файла), не полный `memory/blog/articles/...` путь.
+- AS* темы не требуют GitHub evidence.
+
+## Publish deps
+
+- SSH publish нужен `paramiko` (`requirements.txt` + cloud-agent-install). Doctor `--publish` FAIL без него.

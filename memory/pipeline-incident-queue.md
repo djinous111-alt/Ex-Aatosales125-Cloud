@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+
+## INC-20260720-1337-publish-paramiko-missing
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-publish
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-sbkts-i-epts-vladivostok-2026
+severity: medium
+category: env
+
+### What went wrong
+- `scripts/excalibur_blog_wp_publish.py` failed on first publish attempt: `ModuleNotFoundError: No module named 'paramiko'`.
+- Cloud image / environment.json does not preinstall paramiko; apt has no `python3-paramiko`.
+
+### How the agent recovered this run
+- Installed with `pip3 install --break-system-packages paramiko` (paramiko 5.0.0).
+- Re-ran publish via SSH; success: post=3541, featured=3542, inline=3543/3544/3545, schema_meta=1.
+
+### Durable fix needed before next run
+- Add `paramiko` to Cloud environment install (`.cursor/environment.json` / install script / requirements).
+- Prefer venv or documented `pip install paramiko` in doctor `--publish` preflight.
+- Doctor should fail early with clear hint if paramiko missing when publish allowed.
+
+### Suggested files to inspect/change
+- `.cursor/environment.json`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/requirements*.txt` or install docs
+- `CLOUD-AUTOMATION.md` / `CURSOR-CLOUD-RUNBOOK.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260720-1329-indexer-llms-blog-path-stale
 status: open
 run_date: 2026-07-20

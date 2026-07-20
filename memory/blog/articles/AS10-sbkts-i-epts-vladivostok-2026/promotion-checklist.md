@@ -1,7 +1,7 @@
 # Promotion checklist — AS10 sbkts-i-epts-vladivostok-2026
 
 Дата публикации: 2026-07-20  
-Live URL: [REDACTED]/blog/sbkts-i-epts-vladivostok-2026/
+Live URL: [REDACTED]/2026/07/20/sbkts-i-epts-vladivostok-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Для физлица отсрочка УВЭОС (ЭРА) часто до 31.12.2027
 • Без СБКТС на единичный ввоз ЭПТС не оформить
 
-Читать: [REDACTED]/blog/sbkts-i-epts-vladivostok-2026/
+Читать: [REDACTED]/2026/07/20/sbkts-i-epts-vladivostok-2026/
 ```
 
 ## Перелинковка

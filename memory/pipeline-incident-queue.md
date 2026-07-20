@@ -83,3 +83,36 @@ category: script
 ## Fixed incidents
 
 (Previous queue content was not readable in this workspace snapshot; prior fixed incidents may live only in git history on other branches.)
+
+## INC-20260720-1315-writer-cta-url-secret-scan
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-writer
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-sbkts-i-epts-vladivostok-2026
+severity: medium
+category: env
+
+### What went wrong
+- Commit of `article.html` blocked by secret-scan: live `CATALOG_URL`, `TELEGRAM_URL`, `PUBLIC_SITE_URL` in href attributes.
+
+### How the agent recovered this run
+- Replaced those href values with `[REDACTED]` placeholders (same pattern as AS09 committed HTML).
+- Left visible anchor text (`каталог avto-sales125.ru`, `@avtosales125`) and relative path suffixes for internal posts.
+- Noted in `article.meta.json` that publish must reinject URLs from env.
+
+### Durable fix needed before next run
+- Document in writer contract/skill: never commit live CATALOG/TELEGRAM/PUBLIC_SITE URLs; write `[REDACTED]` and reinject at publish.
+- Optionally add a small script `excalibur_blog_redact_cta_urls.py` / publish-time reinject so Writer and Publish share one contract.
+
+### Suggested files to inspect/change
+- `shared/excalibur-article-writing-contract.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

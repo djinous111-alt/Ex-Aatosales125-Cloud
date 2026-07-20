@@ -254,3 +254,65 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20260720-0903-scout-as-id-helper
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-scout
+topic_id: AS11
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py --suggest-next` предлагает `B01` и считает pool=0, потому что regex/парсер тем смотрит только серию `B\d+`, а у Авто-Сейлс topic_id = `AS01`…`ASxx`.
+- Из-за этого `today.py` / preflight помечают `EXCALIBUR_TOPIC_SELECTION=needs_scout` и не видят AS-пул.
+
+### How the agent recovered this run
+- Проигнорировал suggested `B01`; вручную взял следующий свободный `AS11` по контракту оркестратора.
+- Каннибализацию проверил вручную по `memory/topics/blog-topics.md` (AS01–AS09) и `memory/blog/published-live-avtosales125.json` + список свежих WP slug из handoff; helper `--check-query` всё равно запустил (вернул clean, но AS не видит).
+
+### Durable fix needed before next run
+- Расширить парсер topic_id в scout helper (и при необходимости today.py) на префикс `AS\d+` (или конфигурируемый prefix из site-brief).
+- `--check-query` должен сравнивать primary_query/slug с AS-карточками и live WP slug dump, не только с B-серией.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260720-0904-scout-wp-mcp-wrong-site
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-scout
+topic_id: AS11
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `wordpress_get_posts` на MCP-KV вернул посты другого сайта (не Авто-Сейлс): slug вроде `sbkts-chto-eto-kak-oformit`, `kak-poluchit-epts-importnyj-avtomobil` – нельзя использовать как live-каннибализацию AVTO SALES.
+
+### How the agent recovered this run
+- Для анти-каннибализации использовал `memory/blog/published-live-avtosales125.json` + явный список покрытых тем из handoff (аукционный лист, СВХ, утильсбор, Encar/Trust, растаможка KR/JP, документы CN, сроки, антикор, ЭПТС/СБКТС).
+- Wordstat parent/narrow вызывал штатно; узкие фразы с одним `totalCount` трактовал как low-detail signal по skill.
+
+### Durable fix needed before next run
+- Привязать MCP WordPress credentials/site URL к Авто-Сейлс в Cloud Secrets / mcp config, либо задокументировать обязательный fallback на `published-live-avtosales125.json` в scout skill.
+
+### Suggested files to inspect/change
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- Cursor Dashboard Cloud Secrets / MCP WordPress env (без записи значений)
+- `memory/blog/published-live-avtosales125.json` refresh job
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

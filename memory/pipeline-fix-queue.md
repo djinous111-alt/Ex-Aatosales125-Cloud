@@ -6,6 +6,36 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260720-1715-research-pain-map-row-regex
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-research
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-privezti-elektromobil-iz-kitaya-2026
+severity: low
+category: script
+
+### What went wrong
+- First `excalibur_blog_research_notes_gate.py` run BLOCKED: `pain_solution_map too thin: rows=1 < 3`.
+- Gate counts only markdown table rows that contain keywords боль|pain|решение|solution|result|результат; a normal header+data table without those words in each data cell counts as 1 (header only).
+
+### How the agent recovered this run
+- Rewrote `pain_solution_map` rows with explicit `боль:` / `решение:` / `результат:` prefixes; gate PASS.
+
+### Durable fix needed before next run
+- Document in research skill/agent that each pain_solution_map data row must include those keywords, OR relax gate to count any table row under `## pain_solution_map` (minus header separator).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py` (pain_map_rows regex)
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `.cursor/agents/excalibur-blog-research.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260720-1710-scout-precommit-invalid-secret-name
 status: open
 run_date: 2026-07-20

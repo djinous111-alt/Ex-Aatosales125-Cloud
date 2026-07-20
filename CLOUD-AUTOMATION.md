@@ -45,7 +45,7 @@ today + research_start → research → writer → geo-qa → cover||schema → 
 
 - `.cursor/Dockerfile`
 - `.cursor/environment.json` (**без** поля `snapshot`)
-- `.cursor/cloud-agent-install.sh`
+- `.cursor/cloud-agent-install.sh` (pip: `requirements.txt`, включая `paramiko` для SSH publish)
 
 **Не нажимайте** «Set up agent» / «Среда установки» (~20 мин). Этот мастер часто падает с «Не удалось запустить среду установки» и **игнорирует Dockerfile**.
 

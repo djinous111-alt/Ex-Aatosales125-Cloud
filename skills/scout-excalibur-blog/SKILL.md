@@ -32,7 +32,7 @@ Append new Topic Card to blog-topics.md
   ```bash
   python scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Запомни следующий `topic_id` (например, `AS11` или `B02`) и список невыполненных тем.
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
@@ -81,3 +81,9 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
 * Выдумывание цифр спроса без вызова Wordstat API.
+
+## Topic ID prefixes
+
+Helper и `today.py` понимают оба префикса: `AS##` (Авто-Сейлс) и legacy `B##`.
+Заголовки карточек: `## AS10 — …` / `–` / `-`.
+`--suggest-next` продолжает доминирующий префикс пула (для Avto-Sales → следующий `AS##`).

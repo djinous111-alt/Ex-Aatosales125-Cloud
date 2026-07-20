@@ -52,6 +52,13 @@ def parse_published_slugs(root: Path) -> list[dict[str, str]]:
     return rows
 
 
+TOPIC_ID_RE = r"(?:AS|B)\d+"
+TOPIC_HEADING_RE = re.compile(
+    rf"##\s+({TOPIC_ID_RE})\s+[—–-][^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)",
+    re.DOTALL | re.IGNORECASE,
+)
+
+
 def active_article_topic_ids(root: Path) -> set[str]:
     articles_dir = root / "memory" / "blog" / "articles"
     if not articles_dir.is_dir():
@@ -60,7 +67,7 @@ def active_article_topic_ids(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = re.match(rf"({TOPIC_ID_RE})-", path.name, flags=re.IGNORECASE)
         if match:
             active.add(match.group(1).upper())
     return active
@@ -78,7 +85,7 @@ def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
     }
     used.update(active_article_topic_ids(root))
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in TOPIC_HEADING_RE.finditer(text):
         topic_id = match.group(1).upper()
         block = match.group(2)
         if "priority:** P0" not in block and "**priority:** P0" not in block:

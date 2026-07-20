@@ -24,7 +24,6 @@ TECH_MARKERS = (
     "cursor",
     "make",
     "n8n",
-    "github",
     "docker",
     "rag",
     "workflow",
@@ -74,12 +73,24 @@ def has_wordstat(text_lower: str) -> bool:
 
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech niches that need GitHub evidence.
+
+    Do not scan full research notes: the github_evidence heading alone used to
+    force technical_topic=True for Avto-Sales / regulatory articles.
+    AS* topics are commerce/auto-import and never require GitHub.
+    """
     topic = context.get("topic") or {}
+    topic_id = str(
+        topic.get("topic_id")
+        or context.get("topic_id")
+        or ""
+    ).upper()
+    if topic_id.startswith("AS"):
+        return False
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
     return any(marker in blob for marker in TECH_MARKERS)
 
 
@@ -205,7 +216,13 @@ def main() -> int:
     report = validate_research_notes(article_dir)
 
     if args.output:
-        output = args.output if args.output.is_absolute() else article_dir / args.output
+        # Bare filename → article_dir; repo-relative / absolute → as-is (no nesting).
+        if args.output.is_absolute():
+            output = args.output
+        elif len(args.output.parts) == 1:
+            output = article_dir / args.output
+        else:
+            output = root / args.output
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

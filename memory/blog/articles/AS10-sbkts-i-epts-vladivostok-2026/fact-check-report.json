@@ -1,0 +1,59 @@
+{
+  "article": "memory/blog/articles/AS10-sbkts-i-epts-vladivostok-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 7,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 5,
+  "facts": [
+    {
+      "fact": "2027",
+      "kind": "date_or_year",
+      "context": "тсрочка по УВЭОС (ЭРА-ГЛОНАСС) действует до 31.12.2027 – перед оплатой кнопки сверьте статус с лаборатор",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2011",
+      "kind": "date_or_year",
+      "context": "подтверждает соответствие техрегламенту ТР ТС 018/2011. ЭПТС – электронный паспорт транспортного средств",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2020",
+      "kind": "date_or_year",
+      "context": "средства, цифровая замена бумажного ПТС (с 01.11.2020 на ввозимые и новые ТС оформляют именно его). ОТТС",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "й загрузке встречаются оценки 2–5 дней, в обзорах 2026 – и 5–10. Ориентир, не гарантия \"за сутки\". Делат",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2 недель",
+      "kind": "metric_or_duration",
+      "context": "й цикл после выпуска часто занимает от примерно 1–2 недель \"без косяков\" до плюс ожидания активации ЭПТС по",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 дней",
+      "kind": "metric_or_duration",
+      "context": "ивостоке при низкой загрузке встречаются оценки 2–5 дней, в обзорах 2026 – и 5–10. Ориентир, не гарантия \"",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "14 дней",
+      "kind": "metric_or_duration",
+      "context": "б утильсборе от ФТС в СЭП: в гайдах типично около 14 дней, иногда до примерно 31. Проверяйте VIN на portal.",
+      "verified": true,
+      "reason": "Numerical value '14' matched in fact-bank context"
+    }
+  ]
+}

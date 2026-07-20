@@ -55,3 +55,17 @@ python scripts/excalibur_blog_human_voice_gate.py \
 **Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.
 
 Schema и cover — **не** твоя зона (отдельные субагенты после PASS).
+
+## CTA reinject перед link-verify
+
+Если в HTML есть `[REDACTED]`, перед `excalibur_blog_link_verify.py`:
+```bash
+python3 scripts/excalibur_blog_cta_urls.py --reinject --write memory/blog/articles/<dir>/article.html
+```
+После PASS снова `--redact` для commit hygiene.
+
+## Flaky gov.ru ссылки
+
+Реестры `*.gov.ru` (например pub.fsa.gov.ru) часто дают Connection reset из cloud egress.
+`link_verify.py` soft-fail на connection-reset/timeout для `*.gov.ru`.
+Допустимо оставить домен **plaintext без href**, если hyperlink стабильно падает.

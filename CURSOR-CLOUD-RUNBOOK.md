@@ -25,6 +25,8 @@
 
 `install` должен быть идемпотентным: его можно запускать много раз, и он не должен писать секреты или runtime-артефакты в Git.
 
+Publish SSH transport depends on `paramiko` (listed in `requirements.txt`). Cloud install script (`.cursor/cloud-agent-install.sh`) installs from `requirements.txt`. Verify with `python3 scripts/excalibur_blog_doctor.py --publish`.
+
 ## Cursor Secrets
 
 Минимум для dry-run:

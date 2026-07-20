@@ -187,6 +187,18 @@ def load_article(article_dir: Path) -> dict:
     schema_raw = ""
     if schema_path.is_file():
         schema_raw = schema_path.read_text(encoding="utf-8").strip()
+
+    # Reinject commit-safe [REDACTED] / typed CTA placeholders from env before WP upload.
+    try:
+        from excalibur_blog_cta_urls import load_cta_env, reinject_text
+
+        cta_env = load_cta_env(project_root())
+        content = reinject_text(content, cta_env)
+        if schema_raw:
+            schema_raw = reinject_text(schema_raw, cta_env)
+    except Exception as exc:  # noqa: BLE001
+        print(f"WARN: CTA reinject skipped: {type(exc).__name__}: {exc}", file=sys.stderr)
+
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))

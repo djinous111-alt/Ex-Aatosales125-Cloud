@@ -6,6 +6,46 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260720-1329-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-07-20
+role: excalibur-blog-indexer
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-sbkts-i-epts-vladivostok-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `scripts/excalibur_blog_doctor.py` FAIL: expects `llms generator supports --blog-path`.
+- Actual CLI (`excalibur_blog_llms_generator.py --help`) has only `--blog-dir`, `--site-name`, `--site-desc`, `--site-base`, `--out-dir` — no `--blog-path`.
+- Stale examples still pass `--blog-path /` in indexer agent/skill docs, which would crash the generator.
+
+### How the agent recovered this run
+- Ran `--help` first, then generated with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
+- Outputs: `memory/blog/llms.txt`, `memory/blog/llms-full.txt` (AS10 included).
+- Commit blocked by secret-scan on live `PUBLIC_SITE_URL` in llms files → replaced host with `[REDACTED]` for commit; publish must reinject before uploading llms to site.
+
+### Durable fix needed before next run
+- Align doctor check with real CLI (drop `--blog-path` assertion or restore the flag if still needed).
+- Remove `--blog-path /` from indexer agent/skill shell examples; keep `--blog-dir` + `--out-dir`.
+- Add commit-safe redaction (or `--redact-site-base`) to `excalibur_blog_llms_generator.py`; publish reinjects before deploy of llms.txt.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260720-1327-cover-white-hoodie-hardcode
 status: open
 run_date: 2026-07-20

@@ -254,3 +254,37 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20260721-1702-director-scout-helper-as-prefix
+status: open
+run_date: 2026-07-21
+role: excalibur-blog-director
+topic_id: AS18
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py` parses only `B\d+` topic cards (`load_existing_topics`, `load_active_article_topics`, `--suggest-next`), so for Авто-Сейлс pool (`AS01`…`AS09` + WP through AS17) it reports `Total topics in pool: 0` and `Next available topic ID: B01`.
+- `excalibur_blog_today.py` therefore returns `EXCALIBUR_TOPIC_SELECTION=needs_scout` / empty suggested id even though niche continues as AS*.
+- Automation memory already recorded fix for `(?:AS|B)\d+`, but the regression is back in the working tree.
+
+### How the agent recovered this run
+- Director forced Scout to use next id **AS18** from `EXCALIBUR_RECENT_WP_POSTS` (latest AS17 `prohodnye-avto-2026-kak-opredelit`) and site-brief niche Авто-Сейлс, ignoring broken B01 suggestion.
+- Scout (2026-07-21) confirmed: `--suggest-next` → B01 / pool 0; `--check-query` returned false-clean because AS* cards are invisible. Worked around with forced AS18 + manual Jaccard vs RECENT_WP_POSTS and AS01–AS09; appended AS18 card to `memory/topics/blog-topics.md`.
+
+### Durable fix needed before next run
+- Restore `(?:AS|B)\d+` (or configurable prefix) in scout_helper for topic parse, active dirs, and next-id calculation; prefer max across AS and B series matching site prefix from brief/ledger.
+- Align today.py topic discovery with the same regex so published AS* and pool AS* are visible.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

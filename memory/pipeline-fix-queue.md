@@ -299,7 +299,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → AS19, pool=10
 - `python3 scripts/excalibur_blog_today.py` → SUGGESTED_TOPIC_ID=AS01, selection=ready
-commit: pending-parent-commit
+commit: efa13c7
 
 ## INC-20260721-1715-research-notes-gate-tech-false-positive
 status: fixed
@@ -346,7 +346,7 @@ files_changed:
 checks_run:
 - unit: AS18 context → technical_topic=False; MCP/Cursor topic → True
 - `research_notes_gate` AS18 → PASS, technical_topic=False
-commit: pending-parent-commit
+commit: efa13c7
 
 ## INC-20260721-1718-writer-cta-secret-scan-block
 status: fixed
@@ -390,7 +390,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` pragma guidance present in writer skill and conversion-map
-commit: pending-parent-commit
+commit: efa13c7
 
 ## INC-20260721-1720-director-geo-qa-typed-task-missing
 status: fixed
@@ -437,7 +437,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - frontmatter head of `.cursor/agents/excalibur-blog-geo-qa.md` is valid YAML block
-commit: pending-parent-commit
+commit: efa13c7
 
 
 ## INC-20260721-1722-geo-qa-utility-empty-pain-markers
@@ -489,7 +489,7 @@ files_changed:
 checks_run:
 - `utility_gate --article-dir AS18` → PASS
 - JSON parse editorial-policy.json
-commit: pending-parent-commit
+commit: efa13c7
 
 ## INC-20260721-1731-indexer-llms-blog-path-stale
 status: fixed
@@ -545,7 +545,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0 (llms --blog-dir/--out-dir OK)
 - `rg` no instructional `--blog-path /` in indexer agent/skill commands
-commit: pending-parent-commit
+commit: efa13c7
 
 ## INC-20260721-1742-publish-http-timeout-retry
 status: fixed
@@ -599,4 +599,4 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `py_compile` wp_publish.py; assert HTTP_TRIGGER_TIMEOUT_SEC=300
-commit: pending-parent-commit
+commit: efa13c7

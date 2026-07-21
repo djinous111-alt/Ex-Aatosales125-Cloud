@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260721-0930-geo-qa-utility-markers-regression
+status: open
+run_date: 2026-07-21
+role: excalibur-blog-geo-qa
+topic_id: AS16
+article_dir: memory/blog/articles/AS16-utilsbor-do-160-ls-2026-kak-proverit
+severity: high
+category: script
+
+### What went wrong
+- На старте GEO QA AS16 `editorial-policy.json` снова без `pain_markers_ru` / `outcome_markers_ru`, а `utility_gate.py` снова требовал min pain/outcome без skip на пустых списках.
+- Ранее закрытый INC-20260721-0023 (fixed в 60d7ad9 / dd42165) регресснул в рабочей ветке → utility gate BLOCK на любой статье независимо от текста.
+- Параллельно article.html использовал «Делать/Не делать» вместо маркеров policy «сделайте/не делайте» → action_markers=2 < 8; human-voice outcome_markers=2 < 3; инсайт с ярлыком TL;DR / Быстрый инсайт.
+
+### How the agent recovered this run
+- Восстановил pain/outcome списки в `memory/brief/editorial-policy.json` и skip-empty в `scripts/excalibur_blog_utility_gate.py`.
+- Минимальный FIX HTML: Сделайте/Не делайте, outcome-фразы, ярлык инсайта, Fact Check «Редакция Авто-Сейлс», CTA reinject + pragma.
+- Дописал pitfalls QA про markers/insight.
+- Все QA-скрипты PASS; article-qa verdict PASS score 88.
+
+### Durable fix needed before next run
+- Fixer: проверить, почему durable commit с markers не удерживается в ветке (rebase/template sync), добавить regression test на наличие keys в editorial-policy.
+- Writer skill: явно требовать recommendation_markers_ru («сделайте», «проверьте»), не синоним «Делать».
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260721-0920-writer-cta-secret-scan
 status: open
 run_date: 2026-07-21

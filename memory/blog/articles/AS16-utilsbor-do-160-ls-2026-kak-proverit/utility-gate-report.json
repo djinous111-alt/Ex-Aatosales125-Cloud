@@ -1,0 +1,25 @@
+{
+  "policy_id": "utility_only_v1",
+  "overall": "PASS",
+  "reports": [
+    {
+      "gate": "article",
+      "article_dir": "memory/blog/articles/AS16-utilsbor-do-160-ls-2026-kak-proverit",
+      "status": "PASS",
+      "metrics": {
+        "numbered_list_items": 18,
+        "h2_sections": 7,
+        "faq_h3": 7,
+        "tables": 1,
+        "blockquotes": 3,
+        "ul_lists": 1,
+        "action_markers": 15,
+        "pain_markers": 15,
+        "outcome_markers": 6,
+        "water_hits": []
+      },
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

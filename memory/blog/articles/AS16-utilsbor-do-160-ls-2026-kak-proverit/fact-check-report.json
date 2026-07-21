@@ -1,0 +1,80 @@
+{
+  "article": "memory/blog/articles/AS16-utilsbor-do-160-ls-2026-kak-proverit/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 10,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 9,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "получить по комплектации. Общий разбор ставок на 2026 – отдельная тема; здесь задача уже: не переплатит",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "сумм при соблюдении условий – порядка 3 400 ₽ (до 3 лет) и 5 200 ₽ (старше 3 лет). Выше порога коммерческ",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "На Encar нашли \"проходной\" седан: в карточке 159–160 л.с., в голове уже льготный утильсбор \"как у всех\"",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "118",
+      "kind": "large_number",
+      "context": "Encar округляет; \"ровно 160 л.с.\" может оказаться 118 кВт. Депозит – только после сверки шильдика/техпас",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 400",
+      "kind": "large_number",
+      "context": "ры льготных сумм при соблюдении условий – порядка 3 400 ₽ (до 3 лет) и 5 200 ₽ (старше 3 лет). Выше порог",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 200",
+      "kind": "large_number",
+      "context": "соблюдении условий – порядка 3 400 ₽ (до 3 лет) и 5 200 ₽ (старше 3 лет). Выше порога коммерческий сценар",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "159",
+      "kind": "large_number",
+      "context": "умента. Не делайте: вносить депозит только из-за \"159 л.с.\" или \"до 160\" в объявлении. Схема до депозита",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "162",
+      "kind": "large_number",
+      "context": "ит Коммерческий сценарий или другой лот Encar 158–162 л.с., кВт нет Красный флаг округления Запросить ши",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "и Китая). Достоверность: пороги сверены с ПП РФ № 1713 / № 1291 (117,68 и 117,69 кВт), разборами Drom и",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1291",
+      "kind": "large_number",
+      "context": "Достоверность: пороги сверены с ПП РФ № 1713 / № 1291 (117,68 и 117,69 кВт), разборами Drom и кейсом Dr",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

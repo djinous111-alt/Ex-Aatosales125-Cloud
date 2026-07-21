@@ -1,0 +1,27 @@
+{
+  "source": "memory/blog/articles/AS16-utilsbor-do-160-ls-2026-kak-proverit/article.html",
+  "total_links": 2,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "[catalog-cta]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "[telegram-cta]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ],
+  "note": "CTA URLs redacted in report for secret-scan; live verify used env CATALOG_URL/TELEGRAM_URL"
+}

@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260721-0932-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-07-21
+role: excalibur-blog-indexer
+topic_id: AS16
+article_dir: memory/blog/articles/AS16-utilsbor-do-160-ls-2026-kak-proverit
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer agent/skill shell still document `excalibur_blog_llms_generator.py ... --blog-path /`.
+- Generator CLI accepts only `--blog-dir` (no `--blog-path`); blind copy-paste fails argparse.
+- Doctor already expects `--blog-dir` (see INC-20260721-0903), but agent/skill examples were not fully cleaned.
+
+### How the agent recovered this run
+- Ran llms generator with `--blog-dir memory/blog/articles` and omitted `--blog-path`.
+- Used `--site-base ""` for relative `/blog/<slug>/` URLs (secret hygiene).
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent + skill shell blocks (plugin and `.cursor/` copies).
+- Prefer documenting relative `--site-base ""` (or omit absolute PUBLIC_SITE_URL) for llms/interlink artifacts to avoid secret-scan noise.
+- Optional: pitfalls note — llms flag is `--blog-dir`, not `--blog-path`.
+
+### Suggested files to inspect/change
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260721-0915-research-notes-gate-false-tech
 status: open
 run_date: 2026-07-21

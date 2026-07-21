@@ -14,19 +14,22 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short tokens: whole-word only (bare "ai"/"ии" substring matched Russian endings like «…ии»).
+TECH_MARKERS_WORD = (
     "ai",
     "ии",
-    "agent",
-    "агент",
     "mcp",
     "api",
-    "cursor",
-    "make",
+    "rag",
     "n8n",
+)
+# Longer stems: substring OK inside topic slug/h1/query only (not full notes body).
+TECH_MARKERS_SUBSTR = (
+    "agent",
+    "агент",
+    "cursor",
     "github",
     "docker",
-    "rag",
     "workflow",
     "автоматизац",
     "нейросет",
@@ -73,14 +76,28 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _word_marker_hit(blob: str, marker: str) -> bool:
+    # Latin/Cyrillic-aware boundaries: avoid matching «регистрации» via «ии».
+    return bool(
+        re.search(
+            rf"(?<![0-9a-zа-яё_]){re.escape(marker)}(?![0-9a-zа-яё_])",
+            blob,
+            flags=re.IGNORECASE,
+        )
+    )
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect engineering topics from topic card fields only — not from notes prose."""
+    del notes  # kept for call-site compatibility; scanning notes caused RU false positives
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    if any(_word_marker_hit(blob, marker) for marker in TECH_MARKERS_WORD):
+        return True
+    return any(marker in blob for marker in TECH_MARKERS_SUBSTR)
 
 
 def field_present(text_lower: str, field: str) -> bool:

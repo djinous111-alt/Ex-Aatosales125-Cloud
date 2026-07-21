@@ -37,6 +37,19 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## CTA и secret-scan (commit)
+
+CTA href из `CATALOG_URL` / `TELEGRAM_URL` (Cloud Secrets) часто совпадают с secret-scan и блокируют `git commit` article.html.
+На каждой строке с живым CTA-href добавь HTML-комментарий `<!-- pragma: allowlist secret -->` (публичные маркетинговые URL, не credentials).
+Не подставляй буквальный текст `$CATALOG_URL` в href — в статье нужны живые ссылки из conversion-map/env.
+`schema.jsonld` нельзя «разбавлять» `//` комментариями.
+
+## Recommendation markers (utility gate)
+
+В теле используй токены из `memory/brief/editorial-policy.json` → `recommendation_markers_ru`, минимум 8:
+`сделайте`, `не делайте`, `проверьте`, `чеклист` (без дефиса для маркера), `избегайте`, `шаг `, и т.п.
+«Делать/Не делать» без императива **не** считаются маркерами gate.
+
 ## Blockers
 
 - нет research-notes.md

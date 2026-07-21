@@ -62,6 +62,18 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
 
+## Research notes gate (обязательно)
+
+После `research-notes.md`:
+
+```bash
+python3 scripts/excalibur_blog_research_notes_gate.py --article-dir <article_dir> -o research-notes-gate.json
+```
+
+- `accessed_at` должен быть **key-value** в тексте: `accessed_at: YYYY-MM-DD` (≥5 раз). Заголовок колонки таблицы `accessed_at |` **не** считается.
+- Строки `pain_solution_map` должны содержать ключевые слова pain/solution/result или боль/решение/результат.
+- `technical_topic` (и требование github_urls≥3) срабатывает только по полям темы (h1/primary_query/slug/…), не по всей прозе notes. Короткие маркеры `ai`/`ии` — whole-word. Авто/ГИБДД-темы без engineering маркеров в карточке **не** technical.
+
 ## Blockers
 
 - `❌ RESEARCH BLOCKER` — тема не найдена и не создана из запроса пользователя

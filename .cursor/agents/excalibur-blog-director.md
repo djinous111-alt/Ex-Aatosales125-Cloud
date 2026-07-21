@@ -1,10 +1,11 @@
 ---
-
-## name: excalibur-blog-director
-description: |
-  [Д] Директор Excalibur BLOG — оркестратор Task(subagents), handoff, параллель cover||schema. Cloud: .cursor/agents. НЕ Task(excalibur-blog-director).
+name: excalibur-blog-director
+description: >
+  [Д] Директор Excalibur BLOG — оркестратор Task(subagents), handoff, параллель cover||schema.
+  Cloud: .cursor/agents. НЕ Task(excalibur-blog-director).
 model: inherit
 is_background: false
+---
 
 **Язык:** русский.
 
@@ -39,6 +40,8 @@ Cover и Schema **не пишут** напрямую в handoff — только
 ## Cloud Task fallback
 
 Если Cloud не принимает `excalibur-blog-`* как Task types → **отдельный `Task(generalPurpose)` на каждую роль** с `.cursor/agents/<role>.md` + skill path.
+
+Особый случай: если `Task(excalibur-blog-geo-qa)` отсутствует в enum Cloud — сразу `Task(generalPurpose)` с `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md` (не блокируй пайплайн). Frontmatter агента должен быть валидным YAML (`name:` / закрывающий `---`).
 
 Если недоступен даже `generalPurpose`:
 

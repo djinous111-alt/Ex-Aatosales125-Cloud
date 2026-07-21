@@ -41,6 +41,9 @@
 | ⑦   | **Fixer**    | `excalibur-blog-fixer`    | open incidents → durable repo fixes                                                        | memory/pipeline-fix-queue.md, agents/skills/shared/scripts changes                                        | handoff/summary `=== FIXER ===`                   |
 
 
+**Cloud enum fallback:** если typed `Task(excalibur-blog-geo-qa)` недоступен — `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`. То же для любой роли из `AGENTS.md`.
+
+
 ## Кто чем НЕ занимается
 
 

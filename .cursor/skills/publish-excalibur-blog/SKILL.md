@@ -33,7 +33,7 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 python scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
-  --site-base https://avtosales125.ru
+  --site-base ${PUBLIC_SITE_URL}
 ```
 
 Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
@@ -41,7 +41,7 @@ Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
@@ -51,7 +51,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
@@ -71,6 +71,15 @@ python scripts/excalibur_blog_wp_publish.py \
 
 **Не останавливайся** на первом timeout — используй fallback.
 
+### HTTP trigger timeout и background run
+
+- Локальный HTTP-триггер bootstrap ждёт до **300s** (большие cover+inline payload).
+- Если всё же timeout → WebFetch fallback: скрипт ждёт `memory/webfetch-response.txt`.
+- **Запускай publish в background** (`block_until_ms=0` / tmux), иначе foreground shell блокирует агента и он не успеет записать webfetch-response во время wait loop.
+- Нужен пакет `paramiko` (в `requirements.txt` + Cloud install/Dockerfile). Если `ModuleNotFoundError: paramiko` → `pip3 install --break-system-packages paramiko`.
+- `SSH_ROOT=.` часто корректен, когда login cwd = WP root; unset root тоже может работать относительно SFTP cwd.
+
+
 ### 5. Post-publish артефакты
 
 | Файл | Действие |
@@ -84,9 +93,9 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 6. Post-publish (рекомендуется)
 
 ```bash
-python scripts/excalibur_blog_interlinker.py --apply \
+python3 scripts/excalibur_blog_interlinker.py --apply \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru
+  --site-base ${PUBLIC_SITE_URL}
 ```
 
 Inbound-ссылки из старых статей на новую.

@@ -28,6 +28,7 @@ shell today + research_start
 - короткий контракт: входные файлы, маркер результата, запреты;
 - один Task = одна роль;
 - параллель `cover || schema` — **два отдельных Task** в одном сообщении.
+- Известный кейс: `excalibur-blog-geo-qa` может отсутствовать в enum → сразу generalPurpose с geo-qa agent/skill (не останавливай пайплайн). Agent frontmatter: валидный YAML `name:` + закрывающий `---`.
 
 Если недоступен даже `generalPurpose` Task:
 

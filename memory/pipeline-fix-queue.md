@@ -256,7 +256,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20260721-1702-director-scout-helper-as-prefix
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-director
 topic_id: AS18
@@ -286,10 +286,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- Shared `(?:AS|B)\d+` parsing in `scripts/excalibur_topic_ids.py`; scout_helper + today.py use it for cards, article dirs, and next-id (prefer AS series for Авто-Сейлс).
+- `--suggest-next` now returns AS19 (not B01); today suggests next unused P0 AS* from pool.
+files_changed:
+- `scripts/excalibur_topic_ids.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → AS19, pool=10
+- `python3 scripts/excalibur_blog_today.py` → SUGGESTED_TOPIC_ID=AS01, selection=ready
+commit: pending-parent-commit
 
 ## INC-20260721-1715-research-notes-gate-tech-false-positive
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-research
 topic_id: AS18
@@ -320,10 +333,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- `is_technical_topic()` scans topic card fields only (not notes prose); short markers `ai`/`ии` are whole-word; removed generic `make`.
+- Research skill documents `accessed_at:` key-value and pain_solution_map keyword rules.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: AS18 context → technical_topic=False; MCP/Cursor topic → True
+- `research_notes_gate` AS18 → PASS, technical_topic=False
+commit: pending-parent-commit
 
 ## INC-20260721-1718-writer-cta-secret-scan-block
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-writer
 topic_id: AS18
@@ -353,10 +379,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- Writer skill + conversion-map + pitfalls document `<!-- pragma: allowlist secret -->` on CTA lines when CATALOG_URL/TELEGRAM_URL are Cloud Secrets.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `memory/brief/conversion-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` pragma guidance present in writer skill and conversion-map
+commit: pending-parent-commit
 
 ## INC-20260721-1720-director-geo-qa-typed-task-missing
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-director
 topic_id: AS18
@@ -383,11 +420,28 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- Fixed broken agent YAML frontmatter (`## name:` without closing `---`) on `excalibur-blog-geo-qa` (and director) in agents/ and .cursor/agents/.
+- Documented generalPurpose fallback for missing geo-qa enum in director skill, AGENTS.md, pipeline-task-map, pitfalls.
+files_changed:
+- `agents/excalibur-blog-geo-qa.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `agents/excalibur-blog-director.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `AGENTS.md`
+- `shared/pipeline-task-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- frontmatter head of `.cursor/agents/excalibur-blog-geo-qa.md` is valid YAML block
+commit: pending-parent-commit
 
 
 ## INC-20260721-1722-geo-qa-utility-empty-pain-markers
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-geo-qa
 topic_id: AS18
@@ -420,10 +474,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- Confirmed utility_gate skips pain/outcome checks when policy lists are empty.
+- Added canonical `pain_markers_ru` / `outcome_markers_ru` to editorial-policy (aligned with human-voice gate).
+- Writer skill documents recommendation tokens (`сделайте`, `не делайте`, `чеклист`, …).
+files_changed:
+- `scripts/excalibur_blog_utility_gate.py` (verified skip-empty)
+- `memory/brief/editorial-policy.json`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `utility_gate --article-dir AS18` → PASS
+- JSON parse editorial-policy.json
+commit: pending-parent-commit
 
 ## INC-20260721-1731-indexer-llms-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-indexer
 topic_id: AS18
@@ -461,10 +530,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- Doctor checks `--blog-dir`/`--out-dir` instead of stale `--blog-path`.
+- Indexer agent/skill examples use `--blog-dir` + `--out-dir` only; documented secret-scan pragma for llms/promotion.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 (llms --blog-dir/--out-dir OK)
+- `rg` no instructional `--blog-path /` in indexer agent/skill commands
+commit: pending-parent-commit
 
 ## INC-20260721-1742-publish-http-timeout-retry
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-publish
 topic_id: AS18
@@ -500,4 +584,19 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- HTTP trigger timeout raised to 300s; WebFetch wait 180s; console note to background publish for fallback.
+- paramiko added to `.cursor/Dockerfile` and `cloud-agent-install.sh` (already in requirements.txt).
+- Publish skill documents background run, SSH_ROOT=., paramiko.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/Dockerfile`
+- `.cursor/cloud-agent-install.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `py_compile` wp_publish.py; assert HTTP_TRIGGER_TIMEOUT_SEC=300
+commit: pending-parent-commit

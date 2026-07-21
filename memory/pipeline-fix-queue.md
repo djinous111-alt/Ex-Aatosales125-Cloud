@@ -56,7 +56,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` (PASS)
 - `rg` for stale `--blog-path` CLI examples
-commit: 78afc62
+commit: 3bdca90
 
 
 ## INC-20260721-1321-cover-kie-sensitive-422
@@ -104,7 +104,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse `memory/cover/cover-design-code.json`
-commit: 78afc62
+commit: 3bdca90
 
 
 ## INC-20260721-1616-geo-qa-typed-task-unavailable-generalpurpose-fallback
@@ -149,7 +149,7 @@ files_changed:
 - `skills/director-excalibur-blog/SKILL.md`
 checks_run:
 - `rg` for geo-qa/generalPurpose fallback wording
-commit: 78afc62
+commit: 3bdca90
 
 
 ## INC-20260721-1616-geo-qa-utility-pain-outcome-markers-missing
@@ -200,7 +200,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_utility_gate.py --self-test`
-commit: 78afc62
+commit: 3bdca90
 
 
 ## INC-20260721-1320-writer-cta-secret-scan-pragma
@@ -249,7 +249,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` for pragma/allowlist CTA guidance
-commit: 78afc62
+commit: 3bdca90
 
 
 ## INC-20260721-1310-research-tech-markers-false-positive
@@ -299,7 +299,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_research_notes_gate.py --self-test`
 - gate on AS17 → PASS, technical_topic=false
-commit: 78afc62
+commit: 3bdca90
 
 
 ## INC-20260721-1602-director-as-topic-id-regex-regress
@@ -351,7 +351,7 @@ files_changed:
 checks_run:
 - `EXCALIBUR_WP_MAX_TOPIC_NUM=16 python3 scripts/excalibur_blog_scout_helper.py --suggest-next`
 - `python3 scripts/excalibur_blog_doctor.py` (PASS)
-commit: 78afc62
+commit: 3bdca90
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -658,6 +658,6 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_doctor.py` (paramiko OK)
 - import paramiko
-commit: 78afc62
+commit: 3bdca90
 residual_note: confirm Cloud Secret `SSH_ROOT=.` (or real WP root) in Dashboard — cannot set secrets from repo.
 

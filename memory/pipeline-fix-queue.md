@@ -57,7 +57,7 @@ files_changed:
 checks_run:
 - `python3 -c "import paramiko"`
 - `python3 scripts/excalibur_blog_doctor.py` (paramiko OK)
-commit: pending-parent-commit
+commit: ac670d2
 
 
 ## INC-20260722-2126-indexer-doctor-llms-blog-path
@@ -109,7 +109,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` (llms --blog-dir OK)
 - `rg blog-path` in durable sources → none
-commit: pending-parent-commit
+commit: ac670d2
 
 
 ## INC-20260722-2125-cover-mcp-timeout-kie-fallback
@@ -162,7 +162,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 -m py_compile` hero_reference_url + cover_quad_prompt
-commit: pending-parent-commit
+commit: ac670d2
 
 
 ## INC-20260722-2120-schema-precommit-secret-redact
@@ -209,7 +209,7 @@ files_changed:
 - `.cursor/skills/schema-excalibur-blog/SKILL.md`
 checks_run:
 - `rg` for REDACTED invalid variable guidance in durable docs
-commit: pending-parent-commit
+commit: ac670d2
 
 
 ## INC-20260722-2115-geo-qa-typed-task-missing
@@ -260,7 +260,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` for Практический default / generalPurpose geo-qa guidance
-commit: pending-parent-commit
+commit: ac670d2
 
 
 ## INC-20260722-2116-geo-qa-utility-pain-outcome-policy
@@ -310,7 +310,7 @@ files_changed:
 checks_run:
 - utility gate PASS AS19 + AS09
 - policy markers present smoke
-commit: pending-parent-commit
+commit: ac670d2
 
 
 ## INC-20260722-2110-writer-precommit-secret-redact
@@ -355,7 +355,7 @@ files_changed:
 - `.cursor/skills/writer-excalibur-blog/SKILL.md`
 checks_run:
 - `rg` for REDACTED invalid variable guidance
-commit: pending-parent-commit
+commit: ac670d2
 
 
 ## INC-20260722-2105-research-tech-marker-ai-in-pain
@@ -404,7 +404,7 @@ files_changed:
 checks_run:
 - tech marker smoke (растаможка + reader_pain → not technical; mcp/ai topic → technical)
 - `python3 -m py_compile` research_notes_gate
-commit: pending-parent-commit
+commit: ac670d2
 
 ## INC-20260722-0003-scout-as-series-id-regex
 status: fixed
@@ -460,7 +460,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → AS20
 - `python3 scripts/excalibur_blog_today.py` → SUGGESTED AS01 (next unused P0), selection=ready
-commit: pending-parent-commit
+commit: ac670d2
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

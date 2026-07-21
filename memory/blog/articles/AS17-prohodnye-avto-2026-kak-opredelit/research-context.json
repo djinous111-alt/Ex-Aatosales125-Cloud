@@ -1,0 +1,95 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-21",
+    "today_ru": "21.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-22",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-21 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS17",
+    "priority": "P0",
+    "slug": "prohodnye-avto-2026-kak-opredelit",
+    "h1": "Проходные авто в 2026: как определить год и страну до заказа",
+    "primary_query": "какие авто проходные",
+    "secondary_queries": [
+      "проходные авто в 2026",
+      "проходной год для авто",
+      "проходные авто из японии"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS17",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "какие авто проходные 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "какие авто проходные июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "какие авто проходные новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com какие авто проходные 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "какие авто проходные official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "какие авто проходные forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "проходные авто в 2026 2026",
+      "purpose": "вторичный запрос: проходные авто в 2026"
+    },
+    {
+      "id": "secondary_2",
+      "query": "проходной год для авто 2026",
+      "purpose": "вторичный запрос: проходной год для авто"
+    },
+    {
+      "id": "secondary_3",
+      "query": "проходные авто из японии 2026",
+      "purpose": "вторичный запрос: проходные авто из японии"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Проходные авто в 2026: как определить год и страну до заказа 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS17-prohodnye-avto-2026-kak-opredelit",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

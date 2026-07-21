@@ -1,0 +1,80 @@
+{
+  "article": "memory/blog/articles/AS18-postanovka-na-uchet-avto-iz-yaponii-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 10,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 8,
+  "facts": [
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "утильсбора и статуса ЭПТС \"действующий\". С 01.03.2025 ОСАГО не входит в пакет именно для регистрационног",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2000",
+      "kind": "date_or_year",
+      "context": "гражданам за нарушение правил регистрации – 1500–2000 ₽ (ст. 19.22 ч. 1 КоАП). Госпошлины с 01.09.2025",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ите ОСАГО для учёта и для езды Сюрприз, который в 2026 всё ещё ломает гайды: с 01.03.2025 ОСАГО не входит",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "10 дней",
+      "kind": "metric_or_duration",
+      "context": "ного действия, но для езды полис всё равно нужен. 10 дней считают с приобретения прав / акта выдачи. Цель –",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "4 лет",
+      "kind": "metric_or_duration",
+      "context": "екларации даже при готовом ЭПТС. Если авто старше 4 лет, обычно нужна диагностическая карта – это про ТО",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "22 ч",
+      "kind": "metric_or_duration",
+      "context": "арушение правил регистрации – 1500–2000 ₽ (ст. 19.22 ч. 1 КоАП). Госпошлины с 01.09.2025 (НК РФ ст. 333.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1764",
+      "kind": "large_number",
+      "context": "читайте 10 дней и госпошлину без мифов По ПП РФ № 1764 заявление подают за 10 дней со дня приобретения пр",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1500",
+      "kind": "large_number",
+      "context": "Штраф гражданам за нарушение правил регистрации – 1500–2000 ₽ (ст. 19.22 ч. 1 КоАП). Госпошлины с 01.09.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3000",
+      "kind": "large_number",
+      "context": "пошлины с 01.09.2025 (НК РФ ст. 333.33): номера – 3000 ₽; СТС бумага – 1500 ₽; СТС пластик нового поколе",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4500",
+      "kind": "large_number",
+      "context": "С бумага – 1500 ₽; СТС пластик нового поколения – 4500 ₽. Старые \"500/2000\" из прошлых гайдов не использ",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

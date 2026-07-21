@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS17",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Месяц выпуска важнее года в объявлении",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс с календарём и карточкой лота: месяц выпуска важнее года в объявлении",
+      "scene_hint": "REFERENCE FACE + glasses; OUTFIT thick white hoodie as locked; summer Vladivostok port soft bg modern cars; holding phone with fake catalog/auction card year 2021 and sticky note месяц выпуска; torn paper calendar Jul 2021 to Jul 2023; checklist chip 3-5 лет and до 160 л.с.; friendly surprised meme sticker; yellow highlight on месяц; corner avto-sales125.ru; safe friendly collage no insults",
+      "meme_caption_ru": "Считайте месяц выпуска"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разберите, что значит \"проходное\" авто в 2026",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Comparison table UI only, no person: column A возраст 3-5 лет, column B мощность до 160 л.с.; green yellow status chips; tape corner sticky; Cyrillic labels; auto import blog",
+      "alt": "Таблица двух слоёв проходности: возраст 3–5 лет и мощность до 160 л.с."
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как посчитать возраст: месяц выпуска, а не год в объявлении",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Auction sheet mock UI no person: production month vs registration year highlighted; marker arrow месяц важнее года; sticky плюс 1-3 мес доставка; Cyrillic; no analytics tools",
+      "alt": "Мокап ауклиста: месяц выпуска против года регистрации в объявлении"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сравните Японию, Корею и Китай: одно правило возраста, разные ловушки",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Three-country workflow cards JP KR CN: same age window 3-5, different checks (ауклист дата / Encar мощность / комплектация); arrows to вердикт зелёный or пауза; tape and mini catalog inset; no person",
+      "alt": "Схема проверок Япония–Корея–Китай при одном возрастном окне"
+    }
+  }
+}

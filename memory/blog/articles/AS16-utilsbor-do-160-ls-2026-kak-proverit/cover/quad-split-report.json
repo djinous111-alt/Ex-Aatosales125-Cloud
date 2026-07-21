@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS16-utilsbor-do-160-ls-2026-kak-proverit/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1016,
+      572
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 572,
+        "end": 597
+      },
+      "v_gutter_px": {
+        "start": 1016,
+        "end": 1028
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1016,
+          "bottom": 572
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1016,
+          "bottom": 572
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой у открытого капота с шильдиком мощности и смартфоном Encar, плашка «до 160 л.с.?», порт Владивостока",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1028,
+          "top": 0,
+          "right": 2048,
+          "bottom": 572
+        },
+        "raw_box_px": {
+          "left": 1028,
+          "top": 0,
+          "right": 2048,
+          "bottom": 572
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения: Encar л.с. против кВт и порога утильсбора до депозита",
+        "h2_anchor": "Остановите депозит: почему порог \"до 160\" ломает смету"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 14,
+          "top": 597,
+          "right": 1001,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 597,
+          "right": 1016,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Скрин Encar, шильдик мощности в кВт и фрагмент техпаспорта для сверки",
+        "h2_anchor": "Найдите мощность в кВт: Encar, шильдик и техпаспорт"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1044,
+          "top": 597,
+          "right": 2031,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1028,
+          "top": 597,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема порога утильсбора: до 117,68 кВт включительно против от 117,69 кВт",
+        "h2_anchor": "Сравните с границей: до 117,68 кВт vs от 117,69"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Остановите депозит: почему порог \"до 160\" ломает смету",
+    "injected inline_2 after H2 — Найдите мощность в кВт: Encar, шильдик и техпаспорт",
+    "injected inline_3 after H2 — Сравните с границей: до 117,68 кВт vs от 117,69"
+  ]
+}

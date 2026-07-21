@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS16",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Encar 159 л.с. — а утильсбор уже «свыше»?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой у открытого капота с шильдиком мощности и смартфоном Encar, плашка «до 160 л.с.?», порт Владивостока",
+      "scene_hint": "REFERENCE FACE + glasses only. Weather: cool cloudy Vladivostok port day. Outfit: dark waterproof field jacket over charcoal henley, no cap/hood, no headset. Pose: action selfie at open hood of modern Korean sedan; left hand near engine bay power badge/шильдик кВт; right hand holds smartphone with fake Encar card showing л.с./кВт. Background: Vladivostok port, crane silhouette, Golden Bridge haze. Design code: torn paper + scotch tape; big Cyrillic plaque «до 160 л.с.?» (neutral, NO toxic labels like «лохотрон/кидала»); yellow highlighter on «160»; sticky note «сверь кВт»; mini fake catalog card; shocked cat meme cutout; corner footer avto-sales125.ru. NO Wordstat/Metrika/SEO UI.",
+      "meme_caption_ru": "до 160 л.с.?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Остановите депозит: почему порог \"до 160\" ломает смету",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean UI comparison table 16:9 WITHOUT hero face: columns «Encar л.с.» vs «таможня кВт» vs «утильсбор»; rows 159 / 160 / 161; red warning row when ≥117,69 кВт; sticky note «стоп депозит»; tape corner. Topic: why «до 160» breaks budget before purchase.",
+      "alt": "Таблица сравнения: Encar л.с. против кВт и порога утильсбора до депозита"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Найдите мощность в кВт: Encar, шильдик и техпаспорт",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Tool screenshot collage WITHOUT hero: phone Encar listing with power field, close-up of engine bay power plate in кВт, passport/техпаспорт snippet; arrows linking sources; sticky «что важнее объявления». No face.",
+      "alt": "Скрин Encar, шильдик мощности в кВт и фрагмент техпаспорта для сверки"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сравните с границей: до 117,68 кВт vs от 117,69",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram WITHOUT hero: step arrows 1) взять кВт 2) сравнить с 117,68 3) ≤117,68 льгота / ≥117,69 выше; big threshold dial 117,68 | 117,69; green/red zones; mini sticky «1 кВт = другая смета».",
+      "alt": "Схема порога утильсбора: до 117,68 кВт включительно против от 117,69 кВт"
+    }
+  }
+}

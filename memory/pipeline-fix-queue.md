@@ -6,6 +6,80 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260722-2126-indexer-doctor-llms-blog-path
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-indexer
+topic_id: AS19
+article_dir: memory/blog/articles/AS19-rastamozhka-avto-iz-kitaya-2026
+severity: low
+category: docs
+
+### What went wrong
+- `excalibur_blog_doctor.py` FAIL: checks that llms generator help contains `--blog-path`, but `excalibur_blog_llms_generator.py` only accepts `--blog-dir` (argparse: unrecognized arguments `--blog-path /`).
+- Indexer agent/skill shell examples still pass `--blog-path /`, so the first generator run fails and needs a retry without that flag.
+- Preflight already noted the mismatch; no durable incident existed before this run.
+
+### How the agent recovered this run
+- Re-ran `python3 scripts/excalibur_blog_llms_generator.py` with `--blog-dir memory/blog/articles --site-base … --out-dir memory/blog` (without `--blog-path`); AS19 appeared in `memory/blog/llms.txt` and `llms-full.txt`.
+
+### Durable fix needed before next run
+- Update doctor check to expect `--blog-dir` (or accept either flag).
+- Align indexer agent/skill examples: drop `--blog-path /` from the llms generator command.
+- Optionally refresh pitfalls note so preflight does not treat this as a surprise FAIL.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20260722-2125-cover-mcp-timeout-kie-fallback
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-cover
+topic_id: AS19
+article_dir: memory/blog/articles/AS19-rastamozhka-avto-iz-kitaya-2026
+severity: medium
+category: api
+
+### What went wrong
+- MCP `gpt-image-2` attempt 1: Kie image fetch failed on `http://` WordPress media URL (redirect/hotlink).
+- catbox force reupload: HTTP 412; 0x0: HTTP 503.
+- MCP attempt 2 with `https://` reference: client `-32001 Request timed out`; no task_id/URL in tool response; no async status MCP tool.
+- Sync MCP i2i 2K is not client-timeout-safe for Cloud.
+
+### How the agent recovered this run
+- Switched `reference_url_hosted` to HTTPS on avtosales125.ru WordPress media.
+- After MCP timeout without recoverable URL, used preferred batch flow `scripts/excalibur_blog_kie_gpt_image2_api.py` (createTask + recordInfo poll) with `KIE_API_KEY`.
+
+### Durable fix needed before next run
+- Cover Cloud runbook: prefer Kie async HTTP script over sync MCP for 2K i2i; keep MCP only as optional probe.
+- `excalibur_blog_hero_reference_url.py`: store/prefer HTTPS WordPress media URL (HTTP 301 breaks Kie fetch).
+- Optional: expose async create/status MCP tools so timeout can resume by task_id.
+
+### Suggested files to inspect/change
+- `shared/blog-cover-quad-canvas-contract.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py` (timeout_policy / preferred_image_flow already hints Kie)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260722-2120-schema-precommit-secret-redact
 status: open
 run_date: 2026-07-22

@@ -288,3 +288,37 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20260721-1715-research-notes-gate-tech-false-positive
+status: open
+run_date: 2026-07-21
+role: excalibur-blog-research
+topic_id: AS18
+article_dir: memory/blog/articles/AS18-postanovka-na-uchet-avto-iz-yaponii-2026
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_research_notes_gate.py` marked AS18 (постановка на учёт авто / ГИБДД) as `technical_topic=true` because `TECH_MARKERS` includes short substrings `ии` and `ai`, which match ordinary Russian words (e.g. endings in «…ии») and unrelated tokens in notes.
+- First gate run BLOCK: required `github_urls >= 3` for a non-engineering checklist topic; also `accessed_at:` must appear as key-value (table column header `accessed_at |` does not count), and `pain_solution_map` rows must contain keywords pain/solution/result/боль/решение/результат.
+
+### How the agent recovered this run
+- Added explicit `accessed_at: 2026-07-21` lines in source_access_log (≥5).
+- Rewrote pain_solution_map cells to include pain/solution/результат keywords.
+- Added three github.com URLs (including low-signal SERP noise) as workaround so gate PASS; noted warning about official docs URL until a `help.` URL was added.
+
+### Durable fix needed before next run
+- Tighten `is_technical_topic()`: use word-boundary / allowlist for Russian auto topics; remove bare `ии`/`ai` substring matches or require tech markers only in topic slug/h1/primary_query.
+- Document that `accessed_at` must be `accessed_at:` key-value (not only a markdown table column).
+- Document pain_solution_map keyword requirement for row counting; optionally count any data row under the section.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

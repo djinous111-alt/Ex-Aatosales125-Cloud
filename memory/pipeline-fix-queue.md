@@ -506,3 +506,41 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20260721-1633-publish-paramiko-missing-and-http-disconnect
+status: open
+run_date: 2026-07-21
+role: excalibur-blog-publish
+topic_id: AS17
+article_dir: memory/blog/articles/AS17-prohodnye-avto-2026-kak-opredelit
+severity: medium
+category: env
+
+### What went wrong
+- `scripts/excalibur_blog_wp_publish.py` требует `paramiko`, но в Cloud runtime модуль отсутствовал (`ModuleNotFoundError`).
+- Первый HTTP trigger bootstrap после SSH upload получил `RemoteDisconnected` (urllib timeout/proxy close на длинном PHP ~6.4MB); WebFetch fallback ждал 120s без ответа агента → RuntimeError; bootstrap удалён в `finally`.
+- `SSH_ROOT` в env unset (dot-fallback path не активируется при пустом root).
+
+### How the agent recovered this run
+- `pip3 install --break-system-packages paramiko` (requirements.txt lists paramiko, но venv/system не был подготовлен).
+- Повторный publish: SSH upload OK + urllib trigger ~137s → PASS post=3577, featured=3584, inline=3585–3587, schema_meta=1.
+- Ledger URL принудительно site-relative `/2026/07/21/prohodnye-avto-2026-kak-opredelit/`.
+
+### Durable fix needed before next run
+- Гарантировать `paramiko` в Cloud environment/setup (`requirements.txt` + environment install).
+- В `trigger_bootstrap_http`: после urllib fail сразу пробовать `curl --max-time 300` до WebFetch wait; увеличить urllib timeout для тяжёлых payload / или chunked publish.
+- Документировать: при FALLBACK агент обязан сразу писать `memory/webfetch-response.txt` (не ждать конца 120s).
+- Задать `SSH_ROOT=.` (или фактический WP root) в Cloud Secrets.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `requirements.txt`
+- `.cursor/environment.json`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

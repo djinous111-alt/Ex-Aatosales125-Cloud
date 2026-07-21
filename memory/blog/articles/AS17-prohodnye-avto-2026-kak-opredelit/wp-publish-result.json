@@ -1,0 +1,15 @@
+{
+  "slug": "prohodnye-avto-2026-kak-opredelit",
+  "topic_id": "AS17",
+  "permalink": "/2026/07/21/prohodnye-avto-2026-kak-opredelit/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/AS17-prohodnye-avto-2026-kak-opredelit/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1173102,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3577 slug=prohodnye-avto-2026-kak-opredelit\nOK featured_image=3584\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3585 src=cover/inline-01.png url=/wp-content/uploads/2026/07/prohodnye-avto-2026-kak-opredelit-inline-01-1.png\nOK inline_image_upload=3586 src=cover/inline-02.png url=/wp-content/uploads/2026/07/prohodnye-avto-2026-kak-opredelit-inline-02-1.png\nOK inline_image_upload=3587 src=cover/inline-03.png url=/wp-content/uploads/2026/07/prohodnye-avto-2026-kak-opredelit-inline-03-1.png\npermalink=/2026/07/21/prohodnye-avto-2026-kak-opredelit/\n",
+  "verdict": "pass"
+}

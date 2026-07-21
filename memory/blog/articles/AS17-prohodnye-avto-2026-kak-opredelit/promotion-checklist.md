@@ -1,7 +1,7 @@
 # Promotion checklist — AS17 prohodnye-avto-2026-kak-opredelit
 
 Дата публикации: 2026-07-21  
-Live URL: [REDACTED]/blog/prohodnye-avto-2026-kak-opredelit/ (ожидаемый; publish pending)
+Live URL: /2026/07/21/prohodnye-avto-2026-kak-opredelit/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Считайте дату производства и запас на доставку до декларации
 • До депозита: месяц выпуска, страна, мощность комплектации
 
-Читать: [REDACTED]/blog/prohodnye-avto-2026-kak-opredelit/
+Читать: /2026/07/21/prohodnye-avto-2026-kak-opredelit/
 ```
 
 ## Перелинковка
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir ...` — 0 links (OK при малом корпусе).
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (`--blog-dir memory/blog/articles`, без `--blog-path`; git-safe relative `/blog/<slug>/`).
-- Publish: pending (шаг ⑥); на deploy пересобрать llms с абсолютным site-base.
+- Publish: PASS post_id=3577; Live URL /2026/07/21/prohodnye-avto-2026-kak-opredelit/; на deploy пересобрать llms с абсолютным site-base.

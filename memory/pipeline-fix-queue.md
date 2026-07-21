@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260721-1326-indexer-llms-blog-path-stale-docs
+status: open
+run_date: 2026-07-21
+role: excalibur-blog-indexer
+topic_id: AS17
+article_dir: memory/blog/articles/AS17-prohodnye-avto-2026-kak-opredelit
+severity: low
+category: docs
+
+### What went wrong
+- Skill/agent shell example для llms generator всё ещё показывает флаг `--blog-path /`, тогда как `scripts/excalibur_blog_llms_generator.py` принимает только `--blog-dir` (и `--out-dir`, `--site-base`).
+- Doctor preflight помечает `FAIL llms generator supports --blog-path` — рассинхрон проверки и реального CLI.
+- Commit с `--site-base $PUBLIC_SITE_URL` блокируется secret-scan: значение секрета встречается как префикс абсолютных URL в `llms.txt` / `llms-full.txt`.
+
+### How the agent recovered this run
+- Запустил generator с `--blog-dir memory/blog/articles --out-dir memory/blog` (без `--blog-path`); PASS.
+- Для git-safe артефактов пересобрал llms с пустым `--site-base` (относительные `/blog/<slug>/`); в `interlink-suggestions.json` обнулил `site_base`.
+
+### Durable fix needed before next run
+- Убрать `--blog-path` из shell-примеров indexer skill/agent; оставить только `--blog-dir`.
+- Выровнять doctor-check: либо убрать ожидание `--blog-path`, либо документировать, что FAIL ожидаем до фикса.
+- В indexer skill зафиксировать: для commit в repo — relative/`--site-base ""`; абсолютный PUBLIC_SITE_URL — только на publish/deploy, не в git.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260721-1321-cover-kie-sensitive-422
 status: open
 run_date: 2026-07-21

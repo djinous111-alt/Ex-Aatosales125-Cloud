@@ -14,7 +14,9 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Whole-word tokens only — substring match falsely flags reader_pain ("ai" in "pain")
+# and common Russian endings ("ии" in "объявлении").
+TECH_WORD_MARKERS = (
     "ai",
     "ии",
     "agent",
@@ -28,6 +30,10 @@ TECH_MARKERS = (
     "docker",
     "rag",
     "workflow",
+)
+
+# Intentional prefixes (customs/auto topics must not match these alone).
+TECH_PREFIX_MARKERS = (
     "автоматизац",
     "нейросет",
 )
@@ -73,14 +79,33 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _has_tech_word(blob: str, token: str) -> bool:
+    """Unicode-safe whole-token match (letters/digits/_ count as word chars)."""
+    return bool(
+        re.search(
+            rf"(?<![\w]){re.escape(token)}(?![\w])",
+            blob,
+            flags=re.UNICODE | re.IGNORECASE,
+        )
+    )
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech niches that need GitHub evidence.
+
+    Uses topic-card fields + notes[:2000]. Does not treat utility field names
+    like reader_pain or ordinary Russian morphology as tech signals.
+    Customs/auto topics without tech tokens stay non-technical (no github_urls>=3).
+    """
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
     blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    if any(_has_tech_word(blob, marker) for marker in TECH_WORD_MARKERS):
+        return True
+    return any(marker in blob for marker in TECH_PREFIX_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:

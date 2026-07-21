@@ -120,3 +120,9 @@ blockers:
 - Генерировать cover/schema с нуля
 - Пропускать dry-run
 - Завершать пайплайн без записи в `published-articles.md` при успешном publish
+
+## Runtime deps / ledger hygiene
+
+- Нужен `paramiko` в runtime python3 (ставит `.cursor/cloud-agent-install.sh` из `requirements.txt`). Preflight: `python3 scripts/excalibur_blog_wp_publish.py --env-check`.
+- Bootstrap HTTP: urllib 120s → curl `--max-time 300` → WebFetch 180s (не регрессировать на urllib-only).
+- Ledger URL в `shared/published-articles.md` — только site-relative (`/YYYY/MM/DD/slug/`); скрипт нормализует через `site_relative_permalink()`.

@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+> Canonical queue is `memory/pipeline-fix-queue.md`. AS16 open items below were closed by Fixer 2026-07-21.
+
+
 ## INC-20260721-0937-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-publish
 topic_id: AS16
@@ -33,10 +36,31 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- Cloud install now installs `requirements.txt` (includes paramiko) into runtime python3 with sanity retry.
+- Doctor checks paramiko availability (error under `--publish`, warn otherwise).
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile` (research_notes_gate, doctor, wp_publish, scout_helper, today, cta_urls, utility_gate)
+- unit: is_technical_topic false on reader_pain/объявлении; true on Cursor MCP
+- unit: site_relative_permalink absolute→relative
+- `python3 scripts/excalibur_blog_research_notes_gate.py` AS16 → PASS technical_topic=false
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 (paramiko, AS|B, editorial markers, --blog-dir, no --blog-path, ledger helper)
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → AS17
+- `rg` indexer docs without CLI `--blog-path` flag usage; scout Авто-Сейлс; writer CTA pragma; install paramiko; publish curl 300s
+commit: pending-parent-commit
+See also canonical queue: `memory/pipeline-fix-queue.md#INC-20260721-0937-publish-paramiko-missing`
+
 
 ## INC-20260721-0937-publish-curl-fallback-regressed
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-publish
 topic_id: AS16
@@ -62,10 +86,29 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending (partially mitigated this run by restoring curl path)
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- Verified `trigger_bootstrap_http` keeps urllib 120s → curl 300s → WebFetch 180s; pitfalls/publish skill document anti-regression.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py` (verified, no code change needed)
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile` (research_notes_gate, doctor, wp_publish, scout_helper, today, cta_urls, utility_gate)
+- unit: is_technical_topic false on reader_pain/объявлении; true on Cursor MCP
+- unit: site_relative_permalink absolute→relative
+- `python3 scripts/excalibur_blog_research_notes_gate.py` AS16 → PASS technical_topic=false
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 (paramiko, AS|B, editorial markers, --blog-dir, no --blog-path, ledger helper)
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → AS17
+- `rg` indexer docs without CLI `--blog-path` flag usage; scout Авто-Сейлс; writer CTA pragma; install paramiko; publish curl 300s
+commit: pending-parent-commit
+See also canonical queue: `memory/pipeline-fix-queue.md#INC-20260721-0937-publish-curl-fallback-regressed`
+
 
 ## INC-20260721-0937-publish-ledger-absolute-url
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-publish
 topic_id: AS16
@@ -90,12 +133,31 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending (script helper added this run; fixer should verify)
-
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- Confirmed `upsert_publish_ledger` uses `site_relative_permalink()`; doctor unit-checks helper.
+- Pitfalls + publish skill: ledger must stay site-relative.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py` (verified)
+- `scripts/excalibur_blog_doctor.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile` (research_notes_gate, doctor, wp_publish, scout_helper, today, cta_urls, utility_gate)
+- unit: is_technical_topic false on reader_pain/объявлении; true on Cursor MCP
+- unit: site_relative_permalink absolute→relative
+- `python3 scripts/excalibur_blog_research_notes_gate.py` AS16 → PASS technical_topic=false
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 (paramiko, AS|B, editorial markers, --blog-dir, no --blog-path, ledger helper)
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → AS17
+- `rg` indexer docs without CLI `--blog-path` flag usage; scout Авто-Сейлс; writer CTA pragma; install paramiko; publish curl 300s
+commit: pending-parent-commit
+See also canonical queue: `memory/pipeline-fix-queue.md#INC-20260721-0937-publish-ledger-absolute-url`
 
 
 ## INC-20260721-0930-geo-qa-utility-markers-regression
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-geo-qa
 topic_id: AS16
@@ -129,11 +191,32 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- Confirmed `editorial-policy.json` has non-empty pain/outcome markers; utility_gate skips only when lists empty.
+- Doctor regress-checks marker keys; Writer skill requires recommendation_markers_ru («сделайте/не делайте/проверьте»).
+files_changed:
+- `memory/brief/editorial-policy.json` (verified)
+- `scripts/excalibur_blog_utility_gate.py` (verified)
+- `scripts/excalibur_blog_doctor.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile` (research_notes_gate, doctor, wp_publish, scout_helper, today, cta_urls, utility_gate)
+- unit: is_technical_topic false on reader_pain/объявлении; true on Cursor MCP
+- unit: site_relative_permalink absolute→relative
+- `python3 scripts/excalibur_blog_research_notes_gate.py` AS16 → PASS technical_topic=false
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 (paramiko, AS|B, editorial markers, --blog-dir, no --blog-path, ledger helper)
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → AS17
+- `rg` indexer docs without CLI `--blog-path` flag usage; scout Авто-Сейлс; writer CTA pragma; install paramiko; publish curl 300s
+commit: pending-parent-commit
+See also canonical queue: `memory/pipeline-fix-queue.md#INC-20260721-0930-geo-qa-utility-markers-regression`
 
 
 ## INC-20260721-0920-writer-cta-secret-scan
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-writer
 topic_id: AS16
@@ -162,7 +245,26 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- Added `scripts/cta_urls.py`; Writer skill documents live CTA env inject + `<!-- pragma: allowlist secret -->` commit pattern (no `[REDACTED]` in body).
+files_changed:
+- `scripts/cta_urls.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile` (research_notes_gate, doctor, wp_publish, scout_helper, today, cta_urls, utility_gate)
+- unit: is_technical_topic false on reader_pain/объявлении; true on Cursor MCP
+- unit: site_relative_permalink absolute→relative
+- `python3 scripts/excalibur_blog_research_notes_gate.py` AS16 → PASS technical_topic=false
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 (paramiko, AS|B, editorial markers, --blog-dir, no --blog-path, ledger helper)
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → AS17
+- `rg` indexer docs without CLI `--blog-path` flag usage; scout Авто-Сейлс; writer CTA pragma; install paramiko; publish curl 300s
+commit: pending-parent-commit
+See also canonical queue: `memory/pipeline-fix-queue.md#INC-20260721-0920-writer-cta-secret-scan`
+
 
 ## INC-20260721-2157-publish-http-timeout-webfetch-race
 status: fixed

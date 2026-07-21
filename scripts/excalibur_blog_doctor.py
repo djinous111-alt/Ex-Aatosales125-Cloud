@@ -113,6 +113,39 @@ def main() -> int:
 
     check(module_available("PIL"), "Pillow available", errors, warnings)
     check(module_available("numpy"), "numpy available", errors, warnings)
+    check(
+        module_available("paramiko"),
+        "paramiko available (publish SSH)",
+        errors,
+        warnings,
+        warn=not args.publish,
+    )
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    if policy_path.is_file():
+        import json
+
+        policy = json.loads(policy_path.read_text(encoding="utf-8"))
+        pain = policy.get("pain_markers_ru") or []
+        outcome = policy.get("outcome_markers_ru") or []
+        check(isinstance(pain, list) and len(pain) > 0, "editorial-policy pain_markers_ru non-empty", errors, warnings)
+        check(
+            isinstance(outcome, list) and len(outcome) > 0,
+            "editorial-policy outcome_markers_ru non-empty",
+            errors,
+            warnings,
+        )
+    else:
+        check(False, "memory/brief/editorial-policy.json exists", errors, warnings)
+
+    scout_helper = (root / "scripts/excalibur_blog_scout_helper.py").read_text(encoding="utf-8")
+    today_src = (root / "scripts/excalibur_blog_today.py").read_text(encoding="utf-8")
+    check(
+        r"(?:AS|B)\d+" in scout_helper and r"(?:AS|B)\d+" in today_src,
+        "scout_helper/today parse AS|B topic ids",
+        errors,
+        warnings,
+    )
 
     interlinker = root / "scripts/excalibur_blog_interlinker.py"
     help_proc = subprocess.run(
@@ -133,6 +166,27 @@ def main() -> int:
         check=False,
     )
     check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check(
+        "--blog-path" not in llms_help.stdout,
+        "llms generator has no stale --blog-path flag",
+        errors,
+        warnings,
+    )
+
+    # Ledger URL hygiene: absolute permalinks must normalize to site-relative paths.
+    sys.path.insert(0, str(root / "scripts"))
+    try:
+        from excalibur_blog_wp_publish import site_relative_permalink  # type: ignore
+
+        sample = site_relative_permalink("https://example.invalid/2026/07/21/demo-slug/")
+        check(
+            sample == "/2026/07/21/demo-slug/",
+            "publish ledger site_relative_permalink()",
+            errors,
+            warnings,
+        )
+    except Exception as exc:  # noqa: BLE001
+        check(False, f"publish ledger site_relative_permalink() import ({type(exc).__name__})", errors, warnings)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

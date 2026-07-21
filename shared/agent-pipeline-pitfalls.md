@@ -34,7 +34,9 @@
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
-
+- Utility article gate требует `pain_markers_ru` / `outcome_markers_ru` в `memory/brief/editorial-policy.json`; без списков counts=0 и gate BLOCK на любой статье.
+- Human voice gate обязателен (`human-voice-report.json` PASS) до cover/schema.
+- Cloud typed Task `excalibur-blog-*` может отсутствовать в enum → fallback `Task(generalPurpose)` + agent/skill paths.
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.

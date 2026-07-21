@@ -12,7 +12,7 @@
     "сколько стоит растаможка авто из китая",
     "растаможка авто из китая самому"
   ],
-  "char_count": 9292,
+  "char_count": 9407,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -29,8 +29,8 @@
     "description_aeo": "Растаможка авто из Китая – путь СВХ → декларация → платежи → выпуск → СБКТС → ЭПТС. Через Владивосток; актуальные суммы – по расчёту, не из статьи."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 87,
+    "verdict": "PASS",
     "date": "2026-07-22"
   },
   "cover_family": "brand_collage"

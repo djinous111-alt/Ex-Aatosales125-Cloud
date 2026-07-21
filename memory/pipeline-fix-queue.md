@@ -6,6 +6,78 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260722-2115-geo-qa-typed-task-missing
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-geo-qa
+topic_id: AS19
+article_dir: memory/blog/articles/AS19-rastamozhka-avto-iz-kitaya-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Cloud API / Task enum does not accept typed Task `excalibur-blog-geo-qa`.
+- Director had to run GEO QA via `Task(generalPurpose)` fallback with `.cursor/agents/excalibur-blog-geo-qa.md` + skill path.
+
+### How the agent recovered this run
+- Executed GEO QA as generalPurpose role with full script suite; article-qa PASS (score 87).
+- Did not attempt single-agent cover/schema/publish.
+
+### Durable fix needed before next run
+- Add `excalibur-blog-geo-qa` (and sibling `excalibur-blog-*` roles) to Cloud Task types enum, **or**
+- Update `AGENTS.md` / `CLOUD-AUTOMATION.md` / director skill so fallback `Task(generalPurpose)` is the documented default until typed Tasks exist.
+- Keep one-role-per-Task rule explicit in Cloud runbooks.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- Cursor Cloud Task type / automation config (outside repo if needed)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20260722-2116-geo-qa-utility-pain-outcome-policy
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-geo-qa
+topic_id: AS19
+article_dir: memory/blog/articles/AS19-rastamozhka-avto-iz-kitaya-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` defaults `min_pain_markers=2` and `min_outcome_markers=3`, but `memory/brief/editorial-policy.json` had no `pain_markers_ru` / `outcome_markers_ru`.
+- Empty marker lists → counts always 0 → utility gate BLOCK on every article (repro: previously PASS AS09 also BLOCK).
+
+### How the agent recovered this run
+- Added `pain_markers_ru` / `outcome_markers_ru` (aligned with human-voice markers) and explicit mins to `editorial-policy.json`.
+- Limited article marker fixes for action/outcome language; re-ran gates → utility + human voice PASS.
+- Logged incident for Fixer (script should skip mins when lists missing, or ship markers in policy by default).
+
+### Durable fix needed before next run
+- Keep policy lists in sync with `excalibur_blog_human_voice_gate.py` markers, **or** change utility gate to skip pain/outcome checks when lists absent.
+- Add regression test: published AS08/AS09 must PASS utility article gate with current policy.
+- Document marker lists in `shared/editorial-utility-only.md`.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260722-2110-writer-precommit-secret-redact
 status: open
 run_date: 2026-07-22

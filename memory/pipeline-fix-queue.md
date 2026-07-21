@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260721-1321-cover-kie-sensitive-422
+status: open
+run_date: 2026-07-21
+role: excalibur-blog-cover
+topic_id: AS17
+article_dir: memory/blog/articles/AS17-prohodnye-avto-2026-kak-opredelit
+severity: medium
+category: api
+
+### What went wrong
+- Kie gpt-image-2-image-to-image вернул failCode=422 failMsg=The input or output was flagged as sensitive на первом createTask (task_id создан, state=fail).
+- Вероятный триггер: агрессивные hook-слова в scene («ловушка», «ставка/стоп», crossed-out year) в cover/quad-manifest.json.
+
+### How the agent recovered this run
+- Смягчил cover_hook/meme_caption/scene_hint (без «ловушка»/«ставка»), пересобрал batch.
+- Второй createTask: failCode=500 Internal Error → пауза 20с + третий createTask → success; apply+inject PASS.
+
+### Durable fix needed before next run
+- В cover prompt/manifest guidance зафиксировать safe RU lexicon для Kie: избегать gambling-like «ставка», сильных «ловушка» на картинке; предпочитать нейтральные «проверьте / месяц выпуска / вердикт зелёный».
+- Опционально: preflight lint на banned image-text tokens перед createTask.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/cover-design-code.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260721-1616-geo-qa-typed-task-unavailable-generalpurpose-fallback
 status: open
 run_date: 2026-07-21

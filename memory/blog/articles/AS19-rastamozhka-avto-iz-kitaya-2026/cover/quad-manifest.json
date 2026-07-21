@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS19",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Выпуск с таможни — ещё не ЭПТС?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у китайского кроссовера на СВХ Владивостока, плашка про растаможку Китая",
+      "scene_hint": "Vladivostok port morning fog, temporary customs warehouse (СВХ) yard with modern Chinese crossover SUV in background; blog host from reference FACE+glasses only, outfit: navy waterproof rain jacket over dark hoodie layer (cool Pacific port weather, NOT reference t-shirt), no cap no hood up; action selfie pointing at Cyrillic plaque «растаможка Китая»; fake UI layers: torn-paper customs checklist (декларация / платежи / выпуск), sticky note «таможня ≠ ЭПТС», phone mock of Avto-Sales catalog car card; scotch tape, highlighter on «ЭПТС»; shocked meme reaction cutout; corner brand avto-sales125.ru; NO toxic labels, NO Wordstat/Metrika",
+      "meme_caption_ru": "таможня ≠ ЭПТС"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разложите путь: таможня не равна ЭПТС",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean comparison table UI (no hero face): columns «Таможня / выпуск» vs «СБКТС + ЭПТС» with check/cross icons, sticky note «два разных этапа», tape corner; Cyrillic only; Vladivostok customs path context",
+      "alt": "Таблица: таможня и выпуск отдельно от СБКТС и ЭПТС"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Соберите документы до отправки из Китая",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram UI (no hero): China → docs pack → Vladivostok СВХ → декларация; document icons (инвойс, ПТС/ЭПТС prep, сертификаты); small sticky «до депозита»; readable Cyrillic labels",
+      "alt": "Схема документов до отправки авто из Китая"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Пройдите этапы на СВХ и таможне Владивостока",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable checklist board UI (no hero): СВХ приём → осмотр → декларация → платежи → выпуск; checkboxes and port/warehouse icons; mini tape + sticker «контрольные точки»; Cyrillic only",
+      "alt": "Чеклист этапов на СВХ и таможне Владивостока"
+    }
+  }
+}

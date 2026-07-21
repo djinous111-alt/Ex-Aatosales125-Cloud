@@ -1,7 +1,7 @@
 # Promotion checklist — AS19 rastamozhka-avto-iz-kitaya-2026
 
-Дата публикации: 2026-07-22 (pending WP publish)  
-Live URL: [REDACTED]/blog/rastamozhka-avto-iz-kitaya-2026/
+Дата публикации: 2026-07-22  
+Live URL: [REDACTED]/2026/07/22/rastamozhka-avto-iz-kitaya-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Дальше отдельно СБКТС и ЭПТС — без них учёта нет
 • Средний выпуск пассажирской декларации ~2–3 дня с подачи; суммы — по расчёту, не из статьи
 
-Читать: [REDACTED]/blog/rastamozhka-avto-iz-kitaya-2026/
+Читать: [REDACTED]/2026/07/22/rastamozhka-avto-iz-kitaya-2026/
 ```
 
 ## Перелинковка

@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS19-rastamozhka-avto-iz-kitaya-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1026,
+      578
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 578,
+        "end": 596
+      },
+      "v_gutter_px": {
+        "start": 1026,
+        "end": 1055
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1026,
+          "bottom": 578
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1026,
+          "bottom": 578
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у китайского кроссовера на СВХ Владивостока, плашка про растаможку Китая",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1055,
+          "top": 9,
+          "right": 2048,
+          "bottom": 568
+        },
+        "raw_box_px": {
+          "left": 1055,
+          "top": 0,
+          "right": 2048,
+          "bottom": 578
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: таможня и выпуск отдельно от СБКТС и ЭПТС",
+        "h2_anchor": "Разложите путь: таможня не равна ЭПТС"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 19,
+          "top": 596,
+          "right": 1007,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 596,
+          "right": 1026,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема документов до отправки авто из Китая",
+        "h2_anchor": "Соберите документы до отправки из Китая"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1055,
+          "top": 596,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1055,
+          "top": 596,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист этапов на СВХ и таможне Владивостока",
+        "h2_anchor": "Пройдите этапы на СВХ и таможне Владивостока"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разложите путь: таможня не равна ЭПТС",
+    "injected inline_2 after H2 — Соберите документы до отправки из Китая",
+    "injected inline_3 after H2 — Пройдите этапы на СВХ и таможне Владивостока"
+  ]
+}

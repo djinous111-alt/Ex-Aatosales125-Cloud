@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260722-2128-publish-paramiko-missing
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-publish
+topic_id: AS19
+article_dir: memory/blog/articles/AS19-rastamozhka-avto-iz-kitaya-2026
+severity: medium
+category: env
+
+### What went wrong
+- First `excalibur_blog_wp_publish.py` run failed with `ModuleNotFoundError: No module named 'paramiko'`.
+- `paramiko` is listed in `requirements.txt`, but `.cursor/cloud-agent-install.sh` installs only `requests pillow python-dotenv` (not paramiko).
+- `pip install paramiko` blocked by PEP 668 externally-managed-environment.
+
+### How the agent recovered this run
+- Installed OS package `python3-paramiko` via apt.
+- Retried publish successfully over SSH (post=3601, featured=3602, inline=3603–3605, schema_meta=1).
+- Also patched `.cursor/cloud-agent-install.sh` to include `paramiko` in the pip install list for future Cloud runs (fixer should verify/close).
+
+### Durable fix needed before next run
+- Add `paramiko` to `.cursor/cloud-agent-install.sh` pip install list (or `apt-get install -y python3-paramiko`).
+- Optionally note in pitfalls that Cloud image may miss paramiko until install script is updated.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `shared/agent-pipeline-pitfalls.md`
+- `Dockerfile` (if base image should include paramiko)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260722-2126-indexer-doctor-llms-blog-path
 status: open
 run_date: 2026-07-22

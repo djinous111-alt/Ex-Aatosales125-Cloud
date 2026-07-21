@@ -1,0 +1,122 @@
+{
+  "article": "memory/blog/articles/AS17-prohodnye-avto-2026-kak-opredelit/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 16,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 13,
+  "facts": [
+    {
+      "fact": "2021",
+      "kind": "date_or_year",
+      "context": "Увидел в Telegram \"Toyota 2021, супер цена, проходная\" – и уже тянется рука к де",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2020",
+      "kind": "date_or_year",
+      "context": "первой регистрации, а реальный выпуск – сентябрь 2020. Пока машина идёт во Владивосток, ей исполняется",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "стране и мощности. Коротко по сути: \"Проходное\" в 2026 – это сразу два слоя. Первый: возраст больше 3, н",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "ии – не на день покупки на аукционе. Плюс с 01.12.2025 в утильсбор сильнее входит мощность. Поэтому \"дешё",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026 года",
+      "kind": "date_or_year",
+      "context": "Это про пошлину и возрастную корзину. Вот сюрприз 2026 года: в той же выдаче \"проходные\" часто значит ещё и л",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "2022",
+      "kind": "date_or_year",
+      "context": "за 5 лет. Типичная ошибка: смотреть только \"2021/2022\" в заголовке. На практике в японском аукционном л",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "ное окно по возрасту примерно с июля 2021 по июль 2023 – и оно сдвигается помесячно. Но это ещё не готов",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 лет",
+      "kind": "metric_or_duration",
+      "context": ". Пока машина идёт во Владивосток, ей исполняется 5 лет, и \"выгодный\" лот становится непроходным по пошли",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "ставки для физлица зависят от возраста машины: до 3 лет, от 3 до 5 лет и старше 5 лет. Окно \"более 3, но",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "11 месяцев",
+      "kind": "metric_or_duration",
+      "context": "с. Не делайте: ставить депозит по слогану \"4 года 11 месяцев\" без календаря доставки. Сравните Японию, Корею и",
+      "verified": true,
+      "reason": "Numerical value '11' matched in fact-bank context"
+    },
+    {
+      "fact": "3 мес",
+      "kind": "metric_or_duration",
+      "context": "и ≠ выпуск Дата производства по кузову, запас 1,5–3 мес., руль/ограничения экспорта Корея То же возрастно",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 месяцев",
+      "kind": "metric_or_duration",
+      "context": "на грани\" и лучше отложить? Если после вычета 1,5–3 месяцев логистики машине почти 5 лет – это жёлтый/красный",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "ля физлица). Второй: льготный утильсбор обычно до 160 л.с. при личном пользовании. Непроходной ≠ запрет",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "161",
+      "kind": "large_number",
+      "context": "ции. В Корее через Encar ловушка часто в лошадях: 161 л.с. вместо 150 может сломать экономику льготного",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "150",
+      "kind": "large_number",
+      "context": "ез Encar ловушка часто в лошадях: 161 л.с. вместо 150 может сломать экономику льготного утиля. Страна Чт",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "рамка Решения Совета ЕЭК № 107), обзорами ПП РФ № 1713 (ГАРАНТ, ConsultantPlus), практикой рынков JP/KR/",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

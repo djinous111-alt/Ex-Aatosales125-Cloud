@@ -11,7 +11,7 @@
     "проходной год для авто",
     "проходные авто из японии"
   ],
-  "char_count": 9452,
+  "char_count": 9522,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -28,12 +28,15 @@
     "description_aeo": "Проходное авто в 2026 – возраст более 3 и не более 5 лет на декларацию плюс льготный утиль обычно до 160 л.с. Считают дату производства, не год в рекламе."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
-    "date": null,
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "score": 87,
+    "verdict": "PASS",
+    "date": "2026-07-21",
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "utility_gate": "PASS",
+    "human_voice": "PASS",
+    "core_eeat": "19/20"
   },
   "cover_family": "brand_collage"
 }

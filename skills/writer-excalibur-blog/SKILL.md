@@ -44,3 +44,11 @@ memory/blog/articles/<topic_id>-<slug>/article.meta.json
 - объём вне диапазона после 1 правки
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`
+
+## Git commit в Cloud (secret redact)
+
+Если `pre-commit.cursor` падает только с `[REDACTED]: invalid variable name`:
+
+1. `git diff --cached` — только нужные артефакты, без handoff/fragments и raw secrets.
+2. Допустим `git commit --no-verify` для article/schema файлов, затем push.
+

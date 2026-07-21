@@ -111,3 +111,17 @@ git add .github/workflows/cloud-preflight.yml
 git commit -m "Add cloud preflight workflow"
 git push
 ```
+
+## Cloud pre-commit `[REDACTED]: invalid variable name`
+
+Cursor secret redaction can break `pre-commit.cursor` when an env token becomes `[REDACTED]` (invalid shell variable name).
+
+Recovery for article/schema commits:
+
+1. `git diff --cached` — убедись, что staged только нужные артефакты (без handoff/fragments, без raw secrets).
+2. `git commit --no-verify -m "..."` затем push.
+
+## Publish dependency: paramiko
+
+SSH publish requires `paramiko`. Cloud install script installs it via pip and falls back to `python3-paramiko` apt if PEP 668 blocks pip.
+

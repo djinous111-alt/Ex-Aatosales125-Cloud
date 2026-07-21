@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/AS19-rastamozhka-avto-iz-kitaya-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 2,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "одит растаможка авто из Китая через Владивосток в 2026: этапы, документы и чек-лист до оплаты, без угады",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "3 дней",
+      "kind": "metric_or_duration",
+      "context": "ссажирской декларации во Владивостоке – порядка 2–3 дней с подачи. Актуальный расчёт платежей запрашивайте",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "25 дней",
+      "kind": "metric_or_duration",
+      "context": "КНР до Владивостока часто закладывают порядка 15–25 дней полного цикла – бумаги готовьте параллельно. Зафи",
+      "verified": true,
+      "reason": "Numerical value '25' matched in fact-bank context"
+    },
+    {
+      "fact": "86 760",
+      "kind": "large_number",
+      "context": "ской таможни за январь–апрель 2026 физлица ввезли 86 760 легковушек (+8,1% к прошлому году), а средний срок",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

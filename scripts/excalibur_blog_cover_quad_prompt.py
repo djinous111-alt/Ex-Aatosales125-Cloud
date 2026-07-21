@@ -127,6 +127,8 @@ def main() -> int:
     design_code = load_json(design_code_path) if design_code_path.is_file() else {}
 
     ref_url = (hero.get("reference_url_hosted") or "").strip()
+    if ref_url.startswith("http://"):
+        ref_url = "https://" + ref_url[len("http://") :]
     if not ref_url:
         print(
             "❌ COVER HERO BLOCKER: reference_url_hosted missing. Run excalibur_blog_hero_reference_url.py",

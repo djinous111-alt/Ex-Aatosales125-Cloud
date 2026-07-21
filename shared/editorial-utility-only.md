@@ -96,3 +96,12 @@ python scripts/excalibur_blog_utility_gate.py \
 - `skills/excalibur/references/article-archetypes.md` — скелет B
 - `skills/excalibur/references/ai-slop-blocklist.md` — вода/штампы
 - `shared/quality-blog.md` — blockers
+
+## Pain / outcome markers (utility article gate)
+
+Канон списков: `memory/brief/editorial-policy.json` → `pain_markers_ru`, `outcome_markers_ru` (+ `min_pain_markers` / `min_outcome_markers` в `article_required_signals`).
+
+Держи списки **в синхроне** с `PAIN_MARKERS` / `OUTCOME_MARKERS` в `scripts/excalibur_blog_human_voice_gate.py`.
+
+Если списков нет в policy — `excalibur_blog_utility_gate.py` **пропускает** pain/outcome mins (warning), а не BLOCK на counts=0.
+

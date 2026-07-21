@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-22",
+    "today_ru": "22.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-23",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-22 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS19",
+    "priority": "P0",
+    "slug": "rastamozhka-avto-iz-kitaya-2026",
+    "h1": "Как проходит растаможка авто из Китая: этапы и сроки через Владивосток в 2026",
+    "primary_query": "растаможка авто из китая",
+    "secondary_queries": [
+      "растаможка авто из китая 2026",
+      "растаможка авто из китая в россию",
+      "сколько стоит растаможка авто из китая",
+      "растаможка авто из китая самому"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS19",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "растаможка авто из китая 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "растаможка авто из китая июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "растаможка авто из китая новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com растаможка авто из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "растаможка авто из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "растаможка авто из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "растаможка авто из китая 2026 2026",
+      "purpose": "вторичный запрос: растаможка авто из китая 2026"
+    },
+    {
+      "id": "secondary_2",
+      "query": "растаможка авто из китая в россию 2026",
+      "purpose": "вторичный запрос: растаможка авто из китая в россию"
+    },
+    {
+      "id": "secondary_3",
+      "query": "сколько стоит растаможка авто из китая 2026",
+      "purpose": "вторичный запрос: сколько стоит растаможка авто из китая"
+    },
+    {
+      "id": "secondary_4",
+      "query": "растаможка авто из китая самому 2026",
+      "purpose": "вторичный запрос: растаможка авто из китая самому"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как проходит растаможка авто из Китая: этапы и сроки через Владивосток в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS19-rastamozhka-avto-iz-kitaya-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

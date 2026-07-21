@@ -1,0 +1,56 @@
+{
+  "source": "memory/blog/articles/AS19-rastamozhka-avto-iz-kitaya-2026/article.html",
+  "total_links": 5,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "[REDACTED]/blog/dokumenty-na-avto-iz-kitaya/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "[REDACTED]/blog/dokumenty-na-avto-iz-kitaya/"
+    },
+    {
+      "url": "[REDACTED]/blog/svh-vladivostok-2026/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "[REDACTED]/blog/svh-vladivostok-2026/"
+    },
+    {
+      "url": "[REDACTED]/blog/rastamozhka-avto-iz-korei-2026/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "[REDACTED]/blog/rastamozhka-avto-iz-korei-2026/"
+    },
+    {
+      "url": "https://avto-sales125.ru/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://t.me/avtosales125",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

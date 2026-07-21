@@ -63,13 +63,23 @@ python scripts/excalibur_blog_wp_publish.py \
 
 ### 4. Cloud WebFetch Fallback
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Порядок HTTP-триггера bootstrap в `excalibur_blog_wp_publish.py`:
+
+1. **urllib** (timeout по умолчанию 300с, env `EXCALIBUR_PUBLISH_HTTP_TIMEOUT`)
+2. при fail → сразу **curl** `--max-time 300` (env `EXCALIBUR_PUBLISH_CURL_TIMEOUT`)
+3. при fail → WebFetch fallback
+
+Если локальный HTTP/curl упал (timeout / RemoteDisconnected / WinError 10060):
 
 1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
+2. Cloud-агент **сразу** открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt` (не ждать конца 120s loop).
 3. Скрипт продолжает и читает ответ из файла.
 
-**Не останавливайся** на первом timeout — используй fallback.
+**Не останавливайся** на первом timeout — используй curl, затем fallback.
+
+**Deps:** `paramiko` обязателен (см. `requirements.txt`, `.cursor/cloud-agent-install.sh`, Dockerfile). Если `ModuleNotFoundError: paramiko` — `pip3 install --break-system-packages paramiko`, затем зафиксируй install в env (не оставляй разовую установку без durable fix).
+
+**SSH_ROOT:** в Cloud Secrets задай `SSH_ROOT=.` (или фактический WP root); пустой root не активирует dot-fallback так же надёжно.
 
 ### 5. Post-publish артефакты
 

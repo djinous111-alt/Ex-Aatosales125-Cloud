@@ -468,29 +468,68 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
 
 
 def trigger_bootstrap_http(url: str, root: Path) -> str:
+    """Trigger publish bootstrap: urllib → curl → WebFetch file wait."""
+    import subprocess
+    import time
+
+    # Heavy PHP payloads (~6MB+) often trip urllib RemoteDisconnected / short proxies.
+    urllib_timeout = int(os.environ.get("EXCALIBUR_PUBLISH_HTTP_TIMEOUT", "300"))
     try:
-        print(f"Triggering HTTP publish on {url}...")
+        print(f"Triggering HTTP publish on {url} (urllib timeout={urllib_timeout}s)...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=urllib_timeout,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
-    except Exception as e:
-        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
-        print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
-        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
-        fallback_file = root / "memory" / "webfetch-response.txt"
-        fallback_file.unlink(missing_ok=True)
-        import time
+    except Exception as urllib_exc:  # noqa: BLE001
+        print(f"urllib trigger failed ({type(urllib_exc).__name__}: {urllib_exc}). Trying curl...")
 
-        for _ in range(120):
-            if fallback_file.is_file():
-                out = fallback_file.read_text(encoding="utf-8")
-                fallback_file.unlink()
-                print("Cloud response detected successfully!")
-                return out
-            time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+    curl_timeout = int(os.environ.get("EXCALIBUR_PUBLISH_CURL_TIMEOUT", "300"))
+    try:
+        proc = subprocess.run(
+            [
+                "curl",
+                "-fsS",
+                "-L",
+                "--max-time",
+                str(curl_timeout),
+                "-A",
+                "ExcaliburBlogPublish/1.0",
+                url,
+            ],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if proc.returncode == 0 and proc.stdout.strip():
+            print("curl trigger succeeded.")
+            return proc.stdout
+        print(
+            f"curl trigger failed (code={proc.returncode}, stderr={proc.stderr[:300]!r}). "
+            "Entering Cloud WebFetch Fallback mode..."
+        )
+    except FileNotFoundError:
+        print("curl not found. Entering Cloud WebFetch Fallback mode...")
+
+    print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
+    print(
+        "FALLBACK: Cloud-agent MUST immediately WebFetch the URL above and write the response "
+        "to memory/webfetch-response.txt (do not wait for this 120s loop to finish)."
+    )
+    fallback_file = root / "memory" / "webfetch-response.txt"
+    fallback_file.unlink(missing_ok=True)
+
+    for _ in range(120):
+        if fallback_file.is_file():
+            out = fallback_file.read_text(encoding="utf-8")
+            fallback_file.unlink()
+            print("Cloud response detected successfully!")
+            return out
+        time.sleep(1)
+    raise RuntimeError(
+        "Cloud WebFetch Fallback timed out after 120 seconds. "
+        "Write memory/webfetch-response.txt immediately after WebFetch."
+    )
 
 
 def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:

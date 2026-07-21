@@ -14,23 +14,28 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short markers must match as whole tokens (not substrings of "reader_pain", "объявлении", etc.).
+TECH_MARKERS_WORD = (
     "ai",
     "ии",
-    "agent",
-    "агент",
     "mcp",
     "api",
-    "cursor",
-    "make",
+    "rag",
     "n8n",
+)
+TECH_MARKERS_SUBSTR = (
+    "agent",
+    "агент",
+    "cursor",
+    "make.com",
     "github",
     "docker",
-    "rag",
     "workflow",
     "автоматизац",
     "нейросет",
 )
+# Cyrillic + Latin word characters for token boundaries.
+_TECH_BOUNDARY = r"0-9a-zA-Zа-яА-ЯёЁ_"
 
 
 REQUIRED_FIELDS = (
@@ -73,14 +78,46 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _tech_marker_hit(blob: str, marker: str) -> bool:
+    """True if marker appears as a whole token (short) or substring (long/prefix)."""
+    if marker in TECH_MARKERS_WORD or len(marker) <= 3:
+        pattern = rf"(?<![{_TECH_BOUNDARY}]){re.escape(marker)}(?![{_TECH_BOUNDARY}])"
+        return bool(re.search(pattern, blob, flags=re.IGNORECASE))
+    return marker.lower() in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech niche from topic metadata + notes, without false positives from reader_pain etc."""
     topic = context.get("topic") or {}
+    # Prefer topic fields; strip obligatory human-voice fields that often contain "pain"/"ai" substrings.
+    notes_for_tech = re.sub(
+        r"(?is)^\s*##\s*\d*\.?\s*(?:reader_pain|pain_solution_map|reader_story|reader_outcome)\b.*?(?=^\s*##\s|\Z)",
+        " ",
+        notes,
+        flags=re.M,
+    )
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    blob += " " + notes_for_tech[:2000].lower()
+    markers = TECH_MARKERS_WORD + TECH_MARKERS_SUBSTR
+    return any(_tech_marker_hit(blob, marker) for marker in markers)
+
+
+def count_accessed_at(text: str) -> int:
+    """Count source access dates: explicit `accessed_at:` or ISO dates in URL table rows."""
+    text_lower = text.lower()
+    explicit = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    # Markdown source rows: | title | https://... | 2026-07-21 | or | accessed_at: 2026-07-21 |
+    iso_in_url_rows = len(
+        re.findall(
+            r"^\s*\|[^\n]*https?://[^\n]*\b(20\d{2}-\d{2}-\d{2})\b",
+            text,
+            flags=re.M | re.I,
+        )
+    )
+    return max(explicit, iso_in_url_rows)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,7 +167,7 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
     pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
     action_items = count_action_items(text)
@@ -196,9 +233,41 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Validate research-notes.md freshness and depth")
-    ap.add_argument("--article-dir", type=Path, required=True)
+    ap.add_argument("--article-dir", type=Path, required=False)
     ap.add_argument("-o", "--output", type=Path, default=None)
+    ap.add_argument("--self-test", action="store_true", help="Smoke-test tech markers + accessed_at counting")
     args = ap.parse_args()
+
+    if args.self_test:
+        auto_ctx = {"topic": {"h1": "Проходные авто 2026", "primary_query": "какие авто проходные", "slug": "prohodnye"}}
+        notes_fp = (
+            "## reader_pain\nБоль в объявлении: год не равен месяцу выпуска.\n"
+            "## pain_solution_map\n| боль | решение |\n"
+        )
+        if is_technical_topic(auto_ctx, notes_fp):
+            print("FAIL: auto how-to must not be technical_topic (ai-in-pain false positive)", file=sys.stderr)
+            return 1
+        tech_ctx = {"topic": {"h1": "Как настроить MCP и RAG агента", "primary_query": "mcp api rag", "slug": "mcp-rag"}}
+        if not is_technical_topic(tech_ctx, "## notes\nCursor agent workflow\n"):
+            print("FAIL: MCP/RAG topic must be technical_topic", file=sys.stderr)
+            return 1
+        table = (
+            "| source | url | accessed_at |\n"
+            "|---|---|---|\n"
+            "| A | https://example.com/a | 2026-07-21 |\n"
+            "| B | https://example.com/b | 2026-07-21 |\n"
+            "| C | https://example.com/c | 2026-07-21 |\n"
+            "| D | https://example.com/d | 2026-07-21 |\n"
+            "| E | https://example.com/e | 2026-07-21 |\n"
+        )
+        if count_accessed_at(table) < 5:
+            print(f"FAIL: table ISO dates should count as accessed_at, got {count_accessed_at(table)}", file=sys.stderr)
+            return 1
+        print("OK research_notes_gate self-test")
+        return 0
+
+    if args.article_dir is None:
+        ap.error("--article-dir is required unless --self-test")
 
     root = project_root()
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir

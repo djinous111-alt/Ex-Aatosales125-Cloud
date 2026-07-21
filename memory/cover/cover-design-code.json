@@ -10,7 +10,8 @@
     "Handwritten стрелка/стикер «жиза» / «но…» для интриги",
     "Не выглядеть как корпоративный баннер или stock photo",
     "Угол обложки: мелкий текст каталога avto-sales125.ru (НЕ Telegram / НЕ @avtosales125)",
-    "ЗАПРЕТ на кадре и в тексте на картинке: Wordstat, Вордстат, Metrika, Метрика, analytics dashboard SEO"
+    "ЗАПРЕТ на кадре и в тексте на картинке: Wordstat, Вордстат, Metrika, Метрика, analytics dashboard SEO",
+    "Kie-sensitive: не писать на картинке «ставка», «ловушка», gambling-like формулировки; мягкий словарь: «проверьте», «месяц выпуска», «вердикт»"
   ],
   "visual_motifs": [
     "torn paper strips with red/black edges",
@@ -42,5 +43,5 @@
     "cat/dog meme reaction",
     "before/after split sticker"
   ],
-  "global_negative": "vertical carousel 9:16, instagram story layout, corporate stock banner, English text, watermark, same meme repeated 4 times, polished ad look, Wordstat, Vordstat, Metrika, Metrica, Yandex Metrika UI, SEO analytics dashboard, keyword research tool screenshot"
+  "global_negative": "vertical carousel 9:16, instagram story layout, corporate stock banner, English text, watermark, same meme repeated 4 times, polished ad look, Wordstat, Vordstat, Metrika, Metrica, Yandex Metrika UI, SEO analytics dashboard, keyword research tool screenshot, ставка, ловушка, gambling betting stake, crossed-out year trap sticker"
 }

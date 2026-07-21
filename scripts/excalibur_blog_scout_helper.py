@@ -5,13 +5,36 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from pathlib import Path
 from typing import Any
 
+# Canonical topic id pattern for Avto-Sales (AS) and legacy (B) niches.
+TOPIC_ID_RE = re.compile(r"(?:AS|B)\d+", re.IGNORECASE)
+TOPIC_ID_NUM_RE = re.compile(r"(?:AS|B)(\d+)", re.IGNORECASE)
+
+
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
+
+
+def wp_topic_num_floor() -> int:
+    """Highest topic number known from live WP / Director floor env.
+
+    Ledger `shared/published-articles.md` may lag WordPress (e.g. only AS08–AS09
+    while live site already has AS10–AS16). Director should export
+    EXCALIBUR_RECENT_WP_POSTS from today.py and/or set EXCALIBUR_WP_MAX_TOPIC_NUM.
+    """
+    floor = 0
+    raw_floor = os.environ.get("EXCALIBUR_WP_MAX_TOPIC_NUM", "").strip()
+    if raw_floor.isdigit():
+        floor = max(floor, int(raw_floor))
+    posts_blob = os.environ.get("EXCALIBUR_RECENT_WP_POSTS", "") or ""
+    for match in TOPIC_ID_NUM_RE.finditer(posts_blob):
+        floor = max(floor, int(match.group(1)))
+    return floor
 
 def load_published_topics(root: Path) -> set[str]:
     ledger_path = root / "shared/published-articles.md"
@@ -47,7 +70,7 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
         return topics
     text = topics_path.read_text(encoding="utf-8")
     for match in re.finditer(
-        r"##\s+((?:AS|B)\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)",
+        r"##\s+((?:AS|B)\d+)\s+[—\-][^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)",
         text,
         re.DOTALL | re.IGNORECASE,
     ):
@@ -139,15 +162,23 @@ def main() -> int:
             tid.startswith("AS") for tid in reserved
         ) else "B"
         for tid in list(reserved) + [t["topic_id"] for t in existing]:
-            m = re.match(r"(?:AS|B)(\d+)", tid, flags=re.IGNORECASE)
+            m = TOPIC_ID_NUM_RE.match(tid)
             if m:
                 max_num = max(max_num, int(m.group(1)))
+        wp_floor = wp_topic_num_floor()
+        if wp_floor > max_num:
+            print(
+                f"NOTE: WP/env topic floor={wp_floor} > ledger/dirs max={max_num}; "
+                "using WP-aware next ID (sync shared/published-articles.md after publish)."
+            )
+            max_num = wp_floor
 
         next_id = f"{prefix}{max_num + 1:02d}"
         print(f"Next available topic ID: {next_id}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")
         print(f"Active article dirs: {sorted(active)}")
+        print(f"WP topic floor (env): {wp_floor}")
 
         unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
         print(f"Unwritten topic IDs in pool: {unwritten}")

@@ -14,6 +14,15 @@ MAX_MCP_PROMPT_CHARS = 3500
 REQUIRED_REFERENCE_HOST = "avtosales125.ru"
 MCP_RESOLUTION = "2K"
 KIE_IMAGE_MODEL = "gpt-image-2-image-to-image"
+# Visible RU text that often triggers Kie failCode=422 sensitive.
+KIE_SENSITIVE_RU_TOKENS = (
+    "ставка",
+    "ставки",
+    "ловушка",
+    "ловушки",
+    "казино",
+    "ставки на",
+)
 
 
 def project_root() -> Path:
@@ -69,6 +78,40 @@ def validate_prompt_budget(prompt: str) -> bool:
     return False
 
 
+def find_kie_sensitive_tokens(*texts: object) -> list[str]:
+    blob = " ".join(str(t or "") for t in texts).lower()
+    hits: list[str] = []
+    for token in KIE_SENSITIVE_RU_TOKENS:
+        if token in blob:
+            hits.append(token)
+    return hits
+
+
+def validate_kie_soft_lexicon(manifest: dict) -> bool:
+    """Warn/block gambling-like RU hooks before createTask (Kie 422 sensitive)."""
+    slots = manifest.get("slots") or {}
+    cover = slots.get("cover") or {}
+    hits = find_kie_sensitive_tokens(
+        manifest.get("cover_hook"),
+        cover.get("meme_caption_ru"),
+        cover.get("scene_hint"),
+        *(
+            (slots.get(key) or {}).get("scene_hint")
+            for key in ("inline_1", "inline_2", "inline_3")
+        ),
+    )
+    if not hits:
+        return True
+    print(
+        "❌ COVER KIE LEXICON BLOCKER: soft-lexicon tokens in cover/quad-manifest.json: "
+        + ", ".join(sorted(set(hits)))
+        + ". Replace with neutral RU («проверьте», «месяц выпуска», «вердикт»). "
+        "If Kie still returns failCode=422/500 after soften, pause ~20s and retry once (idempotent).",
+        file=sys.stderr,
+    )
+    return False
+
+
 def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, design_code: dict) -> str:
     slots = manifest.get("slots") or {}
 
@@ -85,6 +128,7 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         "ALL panels keep a clean pure white #FFFFFF base; scraps/cards may cast light shadows but no beige, gray, gradient, grunge, paper-tint, or colored full-panel background.",
         "",
         "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
+        "Kie safety lexicon (cover/inline visible text): avoid gambling-like «ставка», strong «ловушка», crossed-out year as a trap; prefer neutral «проверьте», «месяц выпуска», «вердикт зелёный», «стоп-лот».",
         "",
         "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
         "",
@@ -134,6 +178,8 @@ def main() -> int:
         )
         return 1
     if not validate_reference_url(ref_url):
+        return 1
+    if not validate_kie_soft_lexicon(manifest):
         return 1
 
     prompt = build_prompt(manifest, style, hero, types_catalog, design_code)

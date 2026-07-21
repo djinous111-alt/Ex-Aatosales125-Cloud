@@ -113,6 +113,7 @@ def main() -> int:
 
     check(module_available("PIL"), "Pillow available", errors, warnings)
     check(module_available("numpy"), "numpy available", errors, warnings)
+    check(module_available("paramiko"), "paramiko available", errors, warnings, warn=not args.publish)
 
     interlinker = root / "scripts/excalibur_blog_interlinker.py"
     help_proc = subprocess.run(
@@ -132,7 +133,25 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check(
+        "--blog-path" not in llms_help.stdout,
+        "llms generator does not use stale --blog-path",
+        errors,
+        warnings,
+    )
+
+    scout_src = (root / "scripts/excalibur_blog_scout_helper.py").read_text(encoding="utf-8")
+    today_src = (root / "scripts/excalibur_blog_today.py").read_text(encoding="utf-8")
+    as_b_token = r"(?:AS|B)\d+"
+    check(as_b_token in scout_src, "scout_helper topic regex includes AS|B", errors, warnings)
+    check(as_b_token in today_src, "today.py topic regex includes AS|B", errors, warnings)
+    check(
+        "EXCALIBUR_WP_MAX_TOPIC_NUM" in scout_src or "wp_topic_num_floor" in scout_src,
+        "scout_helper has WP-aware next-ID floor",
+        errors,
+        warnings,
+    )
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

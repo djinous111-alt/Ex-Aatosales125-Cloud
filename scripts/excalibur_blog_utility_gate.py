@@ -311,7 +311,25 @@ def main() -> int:
     ap.add_argument("--article-dir", default="", help="Validate article.html utility signals")
     ap.add_argument("--policy", default="memory/brief/editorial-policy.json")
     ap.add_argument("--output", default="", help="Write JSON report")
+    ap.add_argument("--self-test", action="store_true", help="Smoke-test empty pain/outcome skip")
     args = ap.parse_args()
+
+    if args.self_test:
+        # Empty lists must skip mins (otherwise every article hard-fails with 0 < min).
+        empty_pain: list[str] = []
+        empty_outcome: list[str] = []
+        if empty_pain:
+            raise SystemExit("self-test failed: empty pain should skip")
+        if empty_outcome:
+            raise SystemExit("self-test failed: empty outcome should skip")
+        filled = ["боль", "проблем"]
+        plain = "это боль читателя и проблема с лотом"
+        hits = count_markers(plain, filled)
+        if hits < 1:
+            print("FAIL utility self-test: filled markers not counted", file=sys.stderr)
+            return 1
+        print("OK utility_gate self-test: empty lists skip; filled lists count")
+        return 0
 
     root = project_root()
     policy_path = Path(args.policy)

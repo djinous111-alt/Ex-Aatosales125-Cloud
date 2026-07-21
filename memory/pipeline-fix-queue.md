@@ -7,7 +7,7 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 ## INC-20260721-1326-indexer-llms-blog-path-stale-docs
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-indexer
 topic_id: AS17
@@ -41,11 +41,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- Indexer skill/agent examples use `--blog-dir` only; git-safe `--site-base ""`.
+- Doctor checks `--blog-dir` and asserts stale `--blog-path` is absent from CLI help.
+files_changed:
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` (PASS)
+- `rg` for stale `--blog-path` CLI examples
+commit: 78afc62
 
 
 ## INC-20260721-1321-cover-kie-sensitive-422
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-cover
 topic_id: AS17
@@ -75,11 +90,25 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- Cover prompt builder blocks Kie-sensitive RU tokens (ставка/ловушка/…) before createTask.
+- Soft lexicon + retry guidance in cover skill and `cover-design-code.json` negatives.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/cover-design-code.json`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+- JSON parse `memory/cover/cover-design-code.json`
+commit: 78afc62
 
 
 ## INC-20260721-1616-geo-qa-typed-task-unavailable-generalpurpose-fallback
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-geo-qa
 topic_id: AS17
@@ -108,11 +137,23 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- Documented typed Task unavailable → `Task(generalPurpose)` as canonical fallback (including geo-qa) in AGENTS, pitfalls, CLOUD-AUTOMATION, director skill; no new incident per run.
+files_changed:
+- `AGENTS.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `CLOUD-AUTOMATION.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `skills/director-excalibur-blog/SKILL.md`
+checks_run:
+- `rg` for geo-qa/generalPurpose fallback wording
+commit: 78afc62
 
 
 ## INC-20260721-1616-geo-qa-utility-pain-outcome-markers-missing
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-geo-qa
 topic_id: AS17
@@ -146,11 +187,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- Policy keeps `pain_markers_ru` / `outcome_markers_ru`; utility_gate skips mins when lists empty; `--self-test` covers skip/count.
+- Writer skill: «Не делайте» aligned with recommendation markers.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_utility_gate.py --self-test`
+commit: 78afc62
 
 
 ## INC-20260721-1320-writer-cta-secret-scan-pragma
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-writer
 topic_id: AS17
@@ -184,10 +238,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- Writer skill + writing contract: live CTA from env + `<!-- pragma: allowlist secret -->`; no `[REDACTED]` in body.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` for pragma/allowlist CTA guidance
+commit: 78afc62
+
 
 ## INC-20260721-1310-research-tech-markers-false-positive
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-research
 topic_id: AS17
@@ -220,10 +286,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- TECH_MARKERS use whole-word matching for short tokens; strip reader_pain/pain_solution_map from tech scan.
+- `accessed_at` accepts ISO dates in source-table URL rows; AS17 now `technical_topic=false`.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/excalibur-research/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --self-test`
+- gate on AS17 → PASS, technical_topic=false
+commit: 78afc62
+
 
 ## INC-20260721-1602-director-as-topic-id-regex-regress
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-director
 topic_id: n/a
@@ -256,7 +336,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- Locked `(?:AS|B)\d+` in scout_helper/today + doctor checks.
+- WP-aware next ID via `EXCALIBUR_WP_MAX_TOPIC_NUM` / `EXCALIBUR_RECENT_WP_POSTS`; scout skill documents ledger sync.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `EXCALIBUR_WP_MAX_TOPIC_NUM=16 python3 scripts/excalibur_blog_scout_helper.py --suggest-next`
+- `python3 scripts/excalibur_blog_doctor.py` (PASS)
+commit: 78afc62
+
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -508,7 +604,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20260721-1633-publish-paramiko-missing-and-http-disconnect
-status: open
+status: fixed
 run_date: 2026-07-21
 role: excalibur-blog-publish
 topic_id: AS17
@@ -543,4 +639,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-21
+fix_summary:
+- Cloud install/Dockerfile/`requirements.txt` install `paramiko` (+numpy); doctor checks module.
+- `trigger_bootstrap_http`: urllib → curl → WebFetch; agent must write webfetch-response.txt immediately.
+- Publish skill documents SSH_ROOT=. guidance (confirm in Cloud Secrets).
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `requirements.txt`
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/Dockerfile`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `python3 scripts/excalibur_blog_doctor.py` (paramiko OK)
+- import paramiko
+commit: 78afc62
+residual_note: confirm Cloud Secret `SSH_ROOT=.` (or real WP root) in Dashboard — cannot set secrets from repo.
+

@@ -28,11 +28,12 @@ Append new Topic Card to blog-topics.md
 
 ### Шаг 1 — Анализ прошлого и получение ID
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
+* Topic IDs: `(?:AS|B)\d+` (ниша Авто-Сейлс = `AS…`). Если ledger отстаёт от live WP, задай `EXCALIBUR_WP_MAX_TOPIC_NUM` (например `16`) и/или экспортируй `EXCALIBUR_RECENT_WP_POSTS` из `today.py` перед helper.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Запомни следующий `topic_id` (например, `AS18`) и список невыполненных тем. Не предлагай ID ниже уже живых WP-постов.
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:

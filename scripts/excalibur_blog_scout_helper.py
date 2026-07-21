@@ -34,7 +34,7 @@ def load_active_article_topics(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = re.match(r"((?:AS|B)\d+)-", path.name, flags=re.IGNORECASE)
         if match:
             active.add(match.group(1).upper())
     return active
@@ -46,7 +46,11 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
     if not topics_path.is_file():
         return topics
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in re.finditer(
+        r"##\s+((?:AS|B)\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)",
+        text,
+        re.DOTALL | re.IGNORECASE,
+    ):
         topic_id = match.group(1).upper()
         block = match.group(2)
         
@@ -131,17 +135,20 @@ def main() -> int:
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
         max_num = 0
-        for t in existing:
-            m = re.match(r"B(\d+)", t["topic_id"])
+        prefix = "AS" if any(t["topic_id"].startswith("AS") for t in existing) or any(
+            tid.startswith("AS") for tid in reserved
+        ) else "B"
+        for tid in list(reserved) + [t["topic_id"] for t in existing]:
+            m = re.match(r"(?:AS|B)(\d+)", tid, flags=re.IGNORECASE)
             if m:
                 max_num = max(max_num, int(m.group(1)))
-        
-        next_id = f"B{max_num + 1:02d}"
+
+        next_id = f"{prefix}{max_num + 1:02d}"
         print(f"Next available topic ID: {next_id}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")
         print(f"Active article dirs: {sorted(active)}")
-        
+
         unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
         print(f"Unwritten topic IDs in pool: {unwritten}")
         return 0

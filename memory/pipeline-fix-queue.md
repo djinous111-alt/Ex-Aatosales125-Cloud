@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260721-1602-director-as-topic-id-regex-regress
+status: open
+run_date: 2026-07-21
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py` и `scripts/excalibur_blog_today.py` снова матчили только `B\\d+`, поэтому пул `AS01–AS09` в `blog-topics.md` считался пустым, `today.py` всегда отдавал `needs_scout`, helper предлагал `B01`.
+- Ранее durable-fix `(?:AS|B)\\d+` регрессировал; ниша Авто-Сейлс не могла стартовать без ручного обхода.
+- Локальный ledger `shared/published-articles.md` содержит только AS08–AS09, тогда как live WP уже имеет статьи до AS16 — helper без WP-контекста предложил бы AS10 и рискнул бы дублем.
+
+### How the agent recovered this run
+- Восстановил regex `(?:AS|B)\\d+` в `scout_helper.py` и `today.py` до запуска Scout.
+- Директор явно передаёт Scout: следующий ID = AS17, дедуп по `EXCALIBUR_RECENT_WP_POSTS`, ниша только Авто-Сейлс.
+
+### Durable fix needed before next run
+- Закрепить `(?:AS|B)\\d+` тестом/doctor-check.
+- Учитывать live WP / полный ledger при `--suggest-next`, чтобы next ID не откатывался к уже опубликованным AS10–AS16.
+- Синхронизировать `shared/published-articles.md` с опубликованными AS-темами или документировать WP as source of truth для next ID.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/published-articles.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

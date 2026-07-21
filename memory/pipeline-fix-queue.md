@@ -462,3 +462,42 @@ category: docs
 
 ### Fixer resolution
 - pending
+
+## INC-20260721-1742-publish-http-timeout-retry
+status: open
+run_date: 2026-07-21
+role: excalibur-blog-publish
+topic_id: AS18
+article_dir: memory/blog/articles/AS18-postanovka-na-uchet-avto-iz-yaponii-2026
+severity: medium
+category: publish
+
+### What went wrong
+- First `excalibur_blog_wp_publish.py` run: SSH upload OK (`SSH_ROOT=.`), then local HTTP trigger hit `TimeoutError` (urllib 120s) on bootstrap PHP with large inline/cover payload (~7.4MB PHP).
+- Script entered Cloud WebFetch Fallback and waited 120s for `memory/webfetch-response.txt`, but the foreground shell blocked the agent from writing the fallback file in time → RuntimeError.
+- `paramiko` was missing from the Cloud image until `pip3 install --break-system-packages paramiko`.
+- `SSH_ROOT` unset in env-check; working value is `.` (login cwd = WP root).
+
+### How the agent recovered this run
+- Installed paramiko; set `SSH_ROOT=.` for the run.
+- Re-ran publish in background; HTTP trigger completed within ~120s on retry (EXIT 0).
+- Live HEAD 200; ledger updated to site-relative URL; handoff PUBLISH + PIPELINE DONE written.
+
+### Durable fix needed before next run
+- Raise HTTP trigger timeout (or prefer curl `--max-time 300`) for large bootstrap payloads before WebFetch fallback.
+- Document publish run pattern: background the script immediately so WebFetch can write `memory/webfetch-response.txt` during the 120s wait.
+- Ensure Cloud environment preinstalls `paramiko` (requirements.txt already lists it).
+- Keep Cloud Secret `SSH_ROOT=.` (or document unset ≡ relative to SFTP cwd).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/environment.json` / install-user deps
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

@@ -1,11 +1,11 @@
 {
-  "source": "memory/blog/articles/AS18-postanovka-na-uchet-avto-iz-yaponii-2026/article.html",
+  "source": "/workspace/memory/blog/articles/AS18-postanovka-na-uchet-avto-iz-yaponii-2026/article.html",
   "total_links": 2,
   "failed_count": 0,
   "verdict": "pass",
   "links": [
     {
-      "url": "https://[REDACTED]/",
+      "url": "[REDACTED_CATALOG]",
       "status": 200,
       "ok": true,
       "method": "HEAD",
@@ -14,7 +14,7 @@
       "skipped": false
     },
     {
-      "url": "https://t.me/[REDACTED]",
+      "url": "[REDACTED_TELEGRAM]",
       "status": 200,
       "ok": true,
       "method": "HEAD",

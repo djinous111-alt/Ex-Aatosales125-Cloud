@@ -18,6 +18,9 @@
 
 ## Publish
 
+- Publish runtime needs `paramiko` installed (`requirements.txt`); if missing, `pip3 install --break-system-packages paramiko` (or project venv).
+- Large SSH bootstrap (~7MB): `trigger_bootstrap_http` must be urllib 120s → curl `--max-time 300` → WebFetch wait; do not race writers on `memory/webfetch-response.txt`.
+- `shared/published-articles.md` URLs must stay site-relative (`/YYYY/MM/DD/slug/`); publish script normalizes absolute permalinks.
 - `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` только в Cloud Secrets, не в git.
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
 - Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.

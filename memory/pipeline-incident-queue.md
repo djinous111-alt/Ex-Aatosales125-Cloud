@@ -6,6 +6,94 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260721-0937-publish-paramiko-missing
+status: open
+run_date: 2026-07-21
+role: excalibur-blog-publish
+topic_id: AS16
+article_dir: memory/blog/articles/AS16-utilsbor-do-160-ls-2026-kak-proverit
+severity: medium
+category: env
+
+### What went wrong
+- `excalibur_blog_wp_publish.py` failed immediately: `ModuleNotFoundError: No module named 'paramiko'` despite `paramiko` in `requirements.txt` and install-user status 0.
+
+### How the agent recovered this run
+- Installed with `pip3 install --break-system-packages paramiko` and re-ran publish successfully.
+
+### Durable fix needed before next run
+- Ensure Cloud/environment install always installs `requirements.txt` into the runtime Python used by publish (venv or documented `--break-system-packages`), or bake paramiko into the snapshot.
+
+### Suggested files to inspect/change
+- `requirements.txt`
+- `.cursor/environment.json`
+- install/setup scripts for Cloud Agent
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260721-0937-publish-curl-fallback-regressed
+status: open
+run_date: 2026-07-21
+role: excalibur-blog-publish
+topic_id: AS16
+article_dir: memory/blog/articles/AS16-utilsbor-do-160-ls-2026-kak-proverit
+severity: medium
+category: script
+
+### What went wrong
+- INC-20260721-2157 claimed `trigger_bootstrap_http` was fixed to urllib→curl 300s→WebFetch, but AS16 branch still had urllib-only + 120s WebFetch wait (no curl).
+
+### How the agent recovered this run
+- Restored curl `--max-time 300` path and 180s WebFetch wait in `scripts/excalibur_blog_wp_publish.py` before publish; this run succeeded via urllib (~119s) without needing curl.
+
+### Durable fix needed before next run
+- Keep curl fallback in script; add a small unit/regression check or pitfalls note that large ~7MB bootstraps need curl 300s; verify fixer commits are not lost on rebase.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (partially mitigated this run by restoring curl path)
+
+## INC-20260721-0937-publish-ledger-absolute-url
+status: open
+run_date: 2026-07-21
+role: excalibur-blog-publish
+topic_id: AS16
+article_dir: memory/blog/articles/AS16-utilsbor-do-160-ls-2026-kak-proverit
+severity: low
+category: script
+
+### What went wrong
+- `upsert_publish_ledger` wrote absolute `PUBLIC_SITE_URL` permalink into `shared/published-articles.md`, breaking site-relative secret hygiene used by AS01–AS15 rows.
+
+### How the agent recovered this run
+- Normalized AS16 ledger row to `/2026/07/21/utilsbor-do-160-ls-2026-kak-proverit/`; added `site_relative_permalink()` in publish script.
+
+### Durable fix needed before next run
+- Confirm ledger upsert always stores path-only URLs; optional redact scan on ledger before commit.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`upsert_publish_ledger`)
+- `shared/published-articles.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (script helper added this run; fixer should verify)
+
+
+
 ## INC-20260721-0930-geo-qa-utility-markers-regression
 status: open
 run_date: 2026-07-21

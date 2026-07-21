@@ -17,6 +17,6 @@
 | 2026-07-20 | AS13 | sbkts-i-epts-vladivostok-2026 | /2026/07/20/sbkts-i-epts-vladivostok-2026/ | published |
 | 2026-07-20 | AS14 | privezti-elektromobil-iz-kitaya-2026 | /2026/07/20/privezti-elektromobil-iz-kitaya-2026/ | published |
 | 2026-07-21 | AS15 | dostavka-avto-iz-vladivostoka-2026 | /2026/07/21/dostavka-avto-iz-vladivostoka-2026/ | published |
+| 2026-07-21 | AS16 | utilsbor-do-160-ls-2026-kak-proverit | /2026/07/21/utilsbor-do-160-ls-2026-kak-proverit/ | published |
 
-> Ledger синхронизирован с WP + blog-topics (2026-07-21). URL — site-relative для secret hygiene.
-| 2026-07-21 | AS16 | utilsbor-do-160-ls-2026-kak-proverit | memory/blog/articles/AS16-utilsbor-do-160-ls-2026-kak-proverit | in_progress |
+> Ledger: URL — site-relative для secret hygiene.

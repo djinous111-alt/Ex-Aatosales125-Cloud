@@ -1,7 +1,7 @@
 # Promotion checklist — AS16 utilsbor-do-160-ls-2026-kak-proverit
 
-Дата публикации: 2026-07-21 (pending publish)  
-Live URL: /blog/utilsbor-do-160-ls-2026-kak-proverit/
+Дата публикации: 2026-07-21  
+Live URL: /2026/07/21/utilsbor-do-160-ls-2026-kak-proverit/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Encar пишет 159–160 л.с., а таможня смотрит кВт
 • От 117,69 кВт — другая ставка; «ровно 160» часто маркетинг
 • Депозит — только после шильдика/техпаспорта и расчёта по лоту
 
-Читать: /blog/utilsbor-do-160-ls-2026-kak-proverit/
+Читать: /2026/07/21/utilsbor-do-160-ls-2026-kak-proverit/
 ```
 
 ## Перелинковка
@@ -48,4 +48,4 @@ Encar пишет 159–160 л.с., а таможня смотрит кВт
 
 - Indexer: interlinker `--apply --article-dir … --site-base ""` (relative `/blog/…/` for secret hygiene) — 0 opportunities / 0 applied.
 - llms.txt / llms-full.txt: `memory/blog/` via `--blog-dir memory/blog/articles` (без `--blog-path`); site-base `""` → relative paths; 3 articles indexed including AS16.
-- Publish: pending (Indexer does not publish).
+- Publish: PASS — WP post 3571; featured 3572; inline 3573/3574/3575; schema_meta=1; live HEAD 200.

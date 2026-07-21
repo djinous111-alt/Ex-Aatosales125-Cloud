@@ -65,9 +65,10 @@ python scripts/excalibur_blog_wp_publish.py \
 
 Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
 
-1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+1. Скрипт сам пробует `curl --max-time 300` (AS15: urllib 120s часто мало для ~7MB PHP).
+2. Если curl тоже fail — печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
+3. Cloud-агент открывает URL через WebFetch **или** `curl --max-time 300` и пишет ответ в `memory/webfetch-response.txt` (не параллелить с другим writer — race).
+4. Скрипт продолжает и читает ответ из файла.
 
 **Не останавливайся** на первом timeout — используй fallback.
 

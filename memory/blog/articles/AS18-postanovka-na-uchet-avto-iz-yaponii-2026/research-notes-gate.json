@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/AS18-postanovka-na-uchet-avto-iz-yaponii-2026",
+  "notes": "memory/blog/articles/AS18-postanovka-na-uchet-avto-iz-yaponii-2026/research-notes.md",
+  "context": "memory/blog/articles/AS18-postanovka-na-uchet-avto-iz-yaponii-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-07-21",
+    "prefer_sources_after": "2026-04-22",
+    "source_urls": 36,
+    "source_domains": 14,
+    "source_table_rows": 32,
+    "accessed_at": 9,
+    "github_urls": 3,
+    "official_doc_urls": 1,
+    "action_outline_items": 8,
+    "pain_solution_rows": 6,
+    "technical_topic": true
+  }
+}

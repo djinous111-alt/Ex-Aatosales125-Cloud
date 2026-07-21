@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS18",
+  "slug": "postanovka-na-uchet-avto-iz-yaponii-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс с папкой документов у японского седана, плашка про учёт, Владивосток",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-07-21T17:29:35+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс с папкой документов у японского седана, плашка про учёт, Владивосток",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Чеклист готовности: ЭПТС, СБКТС, таможенка и VIN до визита в ГИБДД",
+      "h2_anchor": "Проверьте готовность: когда можно ехать в ГИБДД",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица пакета документов: паспорт, ЭПТС, СБКТС, полис, заявление до записи в МРЭО",
+      "h2_anchor": "Соберите пакет документов до записи в МРЭО",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема: 10 дней и госпошлина после растаможки до визита в МРЭО",
+      "h2_anchor": "Посчитайте 10 дней и госпошлину без мифов",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

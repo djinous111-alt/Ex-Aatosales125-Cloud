@@ -467,30 +467,45 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
+# Large bootstrap PHP (cover + inline) often needs >120s; prefer long local HTTP before WebFetch.
+HTTP_TRIGGER_TIMEOUT_SEC = 300
+WEBFETCH_FALLBACK_WAIT_SEC = 180
+
+
 def trigger_bootstrap_http(url: str, root: Path) -> str:
     try:
-        print(f"Triggering HTTP publish on {url}...")
+        print(
+            f"Triggering HTTP publish on {url} "
+            f"(timeout={HTTP_TRIGGER_TIMEOUT_SEC}s)..."
+        )
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=HTTP_TRIGGER_TIMEOUT_SEC,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
         print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
-        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
+        print(
+            "Waiting for cloud-agent to write response to memory/webfetch-response.txt...\n"
+            "NOTE: run publish in background (block_until_ms=0 / tmux) so the agent can "
+            "WebFetch the URL while this wait loop runs."
+        )
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        for _ in range(WEBFETCH_FALLBACK_WAIT_SEC):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {WEBFETCH_FALLBACK_WAIT_SEC} seconds. "
+            "Please trigger manually."
+        )
 
 
 def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:

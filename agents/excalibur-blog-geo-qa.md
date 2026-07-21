@@ -1,10 +1,10 @@
 ---
-
-## name: excalibur-blog-geo-qa
+name: excalibur-blog-geo-qa
 description: "③ GEO QA: 5 скриптов, article-qa PASS. Субагент Task. Не cover/schema."
 model: inherit
 readonly: false
 is_background: false
+---
 
 **Язык:** русский. **Шаг пайплайна:** ③
 

@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260722-0003-scout-as-series-id-regex
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-scout
+topic_id: AS19
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py --suggest-next` returned Next ID=`B01` and Total topics in pool=`0`, although `memory/topics/blog-topics.md` already has AS01–AS09+ and live WP series is AS* through AS18.
+- The helper regexes only match `B\d+` for topic headings, article dirs, and next-ID suggestion (`##\s+(B\d+)`, `(B\d+)-`, `B(\d+)`), so the AVTO SALES `AS*` series is invisible to Scout automation.
+- `--check-query` also ignores AS-cards, so cannibalization guard against the real pool is incomplete without a manual cross-check vs RECENT_WP_POSTS / blog-topics.
+
+### How the agent recovered this run
+- Forced next topic_id to **AS19** per Director/preflight (not B01).
+- Manually audited live slugs from `excalibur_blog_today.py` RECENT_WP_POSTS and `blog-topics.md` before appending the AS19 card.
+- Still ran `--check-query` as a weak signal, then verified slug/theme against live WP list.
+
+### Durable fix needed before next run
+- Generalize Scout helper ID parsing to site series prefixes (at least `AS\d+` and `B\d+`, ideally configurable via site-brief / env).
+- Make `--suggest-next` compute max numeric suffix across matched prefixes and return the correct next ID for the active series.
+- Extend `--check-query` to load AS* (and other) cards from `blog-topics.md` and optionally compare against RECENT_WP_POSTS / ledger slugs.
+- Align `excalibur_blog_today.py` topic selection with the same multi-prefix rules so `EXCALIBUR_TOPIC_SELECTION` does not stuck on `needs_scout` with empty SUGGESTED_TOPIC_ID when AS-pool exists.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

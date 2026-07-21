@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS18",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "ЭПТС есть — в МРЭО рано?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс с папкой документов у японского седана, плашка про учёт, Владивосток",
+      "scene_hint": "WEATHER: cool overcast Vladivostok daylight near registration window / parking; OUTFIT: smart casual navy blazer over light blue shirt (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie holding document folder + car keys beside modern Japanese sedan; fake UI scrap: documents checklist (ЭПТС / СБКТС / паспорт) taped with scotch; torn paper hook plaque Cyrillic «ЭПТС есть — в МРЭО рано?» with yellow highlighter on «рано»; sticky note «на учёт»; shocked meme cutout + cat reaction sticker (different formats); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); soft lexicon only — no harsh/toxic words on image; NEVER Wordstat NEVER Metrika NEVER SEO analytics",
+      "meme_caption_ru": "Сначала пакет"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Проверьте готовность: когда можно ехать в ГИБДД",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable checklist board before visit: 1) ЭПТС активен 2) СБКТС 3) таможенка 4) VIN совпал 5) запись/окно — green checkmarks; sticky «после СВХ»; scotch tape; NO hero face; soft lexicon; NO Wordstat/Metrika",
+      "alt": "Чеклист готовности: ЭПТС, СБКТС, таможенка и VIN до визита в ГИБДД"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Соберите пакет документов до записи в МРЭО",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns Документ | Зачем | Статус; rows паспорт, ЭПТС, СБКТС, полис, заявление; yellow highlight row «пакет полный»; tape corner mini folder icon; NO hero face; soft lexicon; NO Wordstat/Metrika",
+      "alt": "Таблица пакета документов: паспорт, ЭПТС, СБКТС, полис, заявление до записи в МРЭО"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Посчитайте 10 дней и госпошлину без мифов",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 4 steps: растаможка → пакет → 10 дней отсчёт → визит МРЭО; calendar icon + fee pills without scary wording; sticky «считай спокойно»; NO hero face; soft lexicon; NO Wordstat/Metrika",
+      "alt": "Схема: 10 дней и госпошлина после растаможки до визита в МРЭО"
+    }
+  }
+}

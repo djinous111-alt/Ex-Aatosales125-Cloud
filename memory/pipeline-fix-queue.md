@@ -421,3 +421,44 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20260721-1731-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-07-21
+role: excalibur-blog-indexer
+topic_id: AS18
+article_dir: memory/blog/articles/AS18-postanovka-na-uchet-avto-iz-yaponii-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer agent/skill still document `excalibur_blog_llms_generator.py ... --blog-path /`.
+- Actual CLI help has `--blog-dir` / `--out-dir` only — no `--blog-path` flag.
+- `excalibur_blog_doctor.py` still asserts `"--blog-path" in llms_help.stdout`, so doctor FAIL while generator is correct.
+- Blind copy of agent shell would fail with argparse unrecognized arguments.
+
+### How the agent recovered this run
+- Ran `python3 scripts/excalibur_blog_llms_generator.py --help` and used `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
+- Interlinker `--apply` completed with 0 opportunities (thin local memory; expected).
+- Wrote `promotion-checklist.md` and INDEXER handoff block.
+- `git commit` blocked by secret-scan on PUBLIC_SITE_URL in llms/promotion; added `<!-- pragma: allowlist secret -->` on those lines; redacted `site_base` in interlink-suggestions.json. Left `schema.jsonld` unstaged (raw JSON-LD must stay valid for WP meta).
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent/skill shell examples; keep `--blog-dir` + `--out-dir`.
+- Update doctor to check `--blog-dir` (and optionally `--out-dir`), not `--blog-path`.
+- Add pitfalls note: llms generator uses `--blog-dir` for local articles; never pass `--blog-path`.
+- Document indexer/publish secret-scan: public site URLs in llms.txt and promotion-checklist need `<!-- pragma: allowlist secret -->`; schema.jsonld cannot use // comments because publish stores raw file in WP meta.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

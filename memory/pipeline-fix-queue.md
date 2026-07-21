@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260721-0903-director-as-id-regression
+status: open
+run_date: 2026-07-21
+role: excalibur-blog-director
+topic_id: AS16
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_scout_helper.py` and `excalibur_blog_today.py` again matched only `B\\d+`, so Авто-Сейлс темы `AS##` в `blog-topics.md` не парсились → `needs_scout` и ложный next ID `B01`.
+- Doctor проверял llms CLI на `--blog-path`, хотя генератор принимает `--blog-dir` → `SUMMARY errors=1`.
+- `shared/published-articles.md` содержал только AS08/AS09 при живых WP-постах AS01–AS15 → риск повторного выбора уже опубликованных тем.
+
+### How the agent recovered this run
+- Восстановил regex `(?:AS|B)\\d+` в scout_helper + today; suggest-next учитывает max AS/B из pool+ledger.
+- Doctor check: `--blog-dir`.
+- Синхронизировал ledger AS01–AS15 (site-relative URLs) с WP + topic map перед Scout AS16.
+
+### Durable fix needed before next run
+- Fixer: подтвердить, что AS|B regex и doctor `--blog-dir` остались в scripts; при необходимости добавить regression-тест / pitfalls note про ledger sync с `EXCALIBUR_RECENT_WP_POSTS`.
+- Убедиться, что scout contracts явно ниша Авто-Сейлс (не legacy AI/Cursor), чтобы следующий Scout не ушёл в чужой вертикаль.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

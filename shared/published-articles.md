@@ -19,3 +19,4 @@
 | 2026-07-21 | AS15 | dostavka-avto-iz-vladivostoka-2026 | /2026/07/21/dostavka-avto-iz-vladivostoka-2026/ | published |
 
 > Ledger синхронизирован с WP + blog-topics (2026-07-21). URL — site-relative для secret hygiene.
+| 2026-07-21 | AS16 | utilsbor-do-160-ls-2026-kak-proverit | memory/blog/articles/AS16-utilsbor-do-160-ls-2026-kak-proverit | in_progress |

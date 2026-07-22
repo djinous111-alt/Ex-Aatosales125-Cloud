@@ -61,6 +61,10 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
+8. **Контракт research-notes-gate (обязательно):**
+   - В `source_table` дата в ячейке — `accessed_at: YYYY-MM-DD` (или ISO-дата в колонке `accessed_at`).
+   - В каждой data-row `pain_solution_map` желательны слова pain/боль/solution/решение/result/результат (gate считает строки секции; keyword-only fallback всё ещё есть).
+   - `search_intent: workflow` **не** делает тему technical; GitHub ≥3 обязателен только для tech-маркеров (mcp/api/cursor/github/docker/rag/агент…), не для авто-импорта/чеклистов.
 
 ## Blockers
 

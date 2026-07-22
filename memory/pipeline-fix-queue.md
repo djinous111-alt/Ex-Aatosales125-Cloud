@@ -6,8 +6,147 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260723-2122-bash-unsafe-secret-names
+status: needs-human
+run_date: 2026-07-23
+role: excalibur-blog-fixer
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `CLOUD_AGENT_ALL_SECRET_NAMES` содержит URL-shaped токен (не bash identifier: `://`, `/`, `.`, `-`).
+- Platform pre-commit, который разворачивает имена секретов в shell, падает с `invalid variable name`.
+
+### How the agent recovered this run
+- Перед commit: sanitize `CLOUD_AGENT_INJECTED_SECRET_NAMES` через `scripts/excalibur_blog_check_secret_names.py --print-sanitized-injected`.
+- В docs добавлен durable note + advisory checker (не закрывает Dashboard rename).
+
+### Durable fix needed before next run
+- В Cursor Dashboard → Cloud Secrets: **удалить или переименовать** секрет, чьё *имя* выглядит как URL (не значение URL в нормальном `*_URL` ключе).
+- Имена только `[A-Za-z_][A-Za-z0-9_]*`. Значения URL — в секретах вроде `PUBLIC_SITE_URL` / `CATALOG_URL`, не в имени ключа.
+
+### Suggested files to inspect/change
+- Cursor Dashboard Cloud Secrets (human)
+- `scripts/excalibur_blog_check_secret_names.py` (advisory already in repo)
+- `CURSOR-CLOUD-RUNBOOK.md`
+
+### Secrets
+- none recorded (URL-shaped name redacted in logs)
+
+### Fixer resolution
+status: needs-human
+reason:
+- Durable rename/delete of the bad Cloud Secret name must be done in Cursor Dashboard by a human; repo only has advisory check + sanitize recipe.
+needed_decision_or_secret:
+- Open Cursor Dashboard → Secrets for this environment → find the secret whose **name** is URL-shaped (not a normal `FOO_URL` key) → delete it or rename to a bash-safe identifier → re-run `python3 scripts/excalibur_blog_check_secret_names.py` until WARN clears.
+
+## Fixed / closed this run
+
+## INC-20260723-2120-utility-gate-empty-pain-outcome
+status: fixed
+run_date: 2026-07-23
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-pod-zakaz-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требует `min_pain_markers` default 2 и `min_outcome_markers` default 3.
+- В `memory/brief/editorial-policy.json` нет ключей `pain_markers_ru` / `outcome_markers_ru` (пустые списки) → counts всегда 0 → article utility gate **всегда BLOCK**, даже при сильном pain/outcome в тексте.
+- Дополнительно `recommendation_markers_ru` не знает `чек-лист` / `делать:` / `не делать:` — статья с естественными «Делать/Не делать» и «чек-лист» набирает только 5/8 (`проверьте`+`ориентир`).
+
+### How the agent recovered this run
+- GEO QA не правил `article.html` (контракт: FIX-лист Writer). Зафиксировал FAIL + FIX; эскалация на Fixer для policy/script до повторного PASS.
+
+### Durable fix needed before next run
+- Добавить в `editorial-policy.json` осмысленные `pain_markers_ru` и `outcome_markers_ru` (и при желании `min_pain_markers` / `min_outcome_markers` в `article_required_signals`).
+- В `excalibur_blog_utility_gate.py`: если список маркеров пуст — не применять default min (считать min=0) либо fail-fast с явной ошибкой конфигурации.
+- Расширить `recommendation_markers_ru`: `чек-лист`, `делать:`, `не делать:` (и/или документация Writer: exact literals).
+- Проверить, что предыдущий Fixer-fix «utility DEFAULT markers» действительно попал в ветку (сейчас на диске списки отсутствуют).
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-23
+fix_summary:
+- Restored `pain_markers_ru` / `outcome_markers_ru` + mins in `editorial-policy.json` (regression after rebrand).
+- Expanded `recommendation_markers_ru` with `делать:`, `не делать:`, `чек-лист`.
+- `utility_gate.py` again has built-in DEFAULT lists + warning when policy lists are empty.
+- Writer/editorial docs document exact recommendation literals.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
+- JSON parse `memory/brief/editorial-policy.json`
+- `utility_gate --article-dir B01` → PASS (pain=6, outcome=5, action=27)
+commit: e672a64d9da513f34ee7b98b8ab2c7f5e3e9723f
+
+## INC-20260723-2121-cloud-typed-geo-qa-missing
+status: fixed
+run_date: 2026-07-23
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-pod-zakaz-2026
+severity: medium
+category: tool
+
+### What went wrong
+- Cloud API не принимает typed Task `excalibur-blog-geo-qa` → роль запущена через fallback `Task(generalPurpose)` + пути `.cursor/agents/excalibur-blog-geo-qa.md` и `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Выполнен полный GEO QA контракт в generalPurpose Task; cover/schema/publish не запускались.
+
+### Durable fix needed before next run
+- Зафиксировать в `AGENTS.md` / `CLOUD-AUTOMATION.md` / `.cursor/rules/excalibur-blog-orchestrator.mdc` durable fallback: при отсутствии typed enum — один `Task(generalPurpose)` на роль с agent+skill paths (уже частично есть; проверить, что GEO QA явно в списке и Director всегда использует fallback без попытки typed-only).
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- `.cursor/rules/excalibur-blog-orchestrator.mdc`
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-23
+fix_summary:
+- Documented immediate generalPurpose fallback when typed `excalibur-blog-geo-qa` (and other roles) are missing; no typed-only retry loop.
+- Explicit GEO QA agent+skill paths in AGENTS.md / director / CLOUD-AUTOMATION / orchestrator rules / pitfalls.
+files_changed:
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- `rules/excalibur-blog-orchestrator.mdc`
+- `.cursor/rules/excalibur-blog-orchestrator.mdc`
+- `agents/excalibur-blog-director.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` for geo-qa generalPurpose fallback in AGENTS.md / CLOUD-AUTOMATION.md / orchestrator
+commit: e672a64d9da513f34ee7b98b8ab2c7f5e3e9723f
+
 ## INC-20260723-2106-research-notes-gate-format-quirks
-status: open
+status: fixed
 run_date: 2026-07-23
 role: excalibur-blog-research
 topic_id: B01
@@ -38,7 +177,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-23
+fix_summary:
+- Removed `workflow` from TECH_MARKERS; `search_intent` no longer scanned for tech.
+- Short TECH_MARKERS are whole-word; `count_accessed_at` accepts ISO dates in accessed_at column; `count_pain_solution_map_rows` counts section table rows.
+- Research agent/skill + editorial docs document gate contract; `--self-test` covers workflow false-positive.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `agents/excalibur-blog-research.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+- `python3 scripts/excalibur_blog_research_notes_gate.py --self-test` → PASS
+- research-notes-gate B01 → PASS (`technical_topic=false`)
+commit: e672a64d9da513f34ee7b98b8ab2c7f5e3e9723f
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

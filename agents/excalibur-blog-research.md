@@ -59,15 +59,18 @@ surprising_fact: неожиданный факт или конфликт мне�
 
 ## source_table
 | source | url | accessed_at | why_it_matters |
+| Example | https://example.com | accessed_at: YYYY-MM-DD | почему важно |
 
 ## wordstat
 | phrase | impressions |
 
 ## github_evidence
 | repo/issue/doc | url | signal |
+(для non-tech тем достаточно docs/community URL; `search_intent: workflow` ≠ technical)
 
 ## pain_solution_map
 | pain | solution | proof/source | reader_result |
+| конкретная боль | что сделать | URL/факт | понятный результат |
 
 ## action_outline
 1. ...

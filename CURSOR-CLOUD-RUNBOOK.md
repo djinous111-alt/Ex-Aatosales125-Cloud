@@ -55,6 +55,14 @@ EXCALIBUR_TOPIC_ID=<optional fixed topic id>
 
 Запрещено добавлять в repo реальные `.env`, `memory/site.env.local`, MCP tokens, SSH credentials, Cursor API keys.
 
+**Имена секретов (bash-safe):** только `[A-Za-z_][A-Za-z0-9_]*`. Имена с пробелами, `/` или URL-shaped токенами ломают Cloud pre-commit (`invalid variable name`). Проверка (без значений): `python3 scripts/excalibur_blog_check_secret_names.py`. Перед commit sanitize:
+
+```bash
+export CLOUD_AGENT_INJECTED_SECRET_NAMES="$(python3 scripts/excalibur_blog_check_secret_names.py --print-sanitized-injected)"
+```
+
+Durable: в Cursor Dashboard → Secrets удалить/переименовать URL-as-name (часто попадает в `CLOUD_AGENT_ALL_SECRET_NAMES`).
+
 ## GitHub setup
 
 1. Создать приватный GitHub repo.

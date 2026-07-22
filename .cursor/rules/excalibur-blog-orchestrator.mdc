@@ -12,6 +12,7 @@ alwaysApply: false
 - Task agents: `.cursor/agents/excalibur-blog-*`
 - Preflight: `scripts/excalibur_blog_today.py`, `excalibur_blog_research_start.py`
 - См. `AGENTS.md`, `CLOUD-AUTOMATION.md`
+- Typed Task missing (в т.ч. `excalibur-blog-geo-qa`) → сразу `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path; один Task = одна роль.
 
 ## Главный и субагенты
 

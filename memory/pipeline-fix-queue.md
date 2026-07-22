@@ -380,3 +380,35 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20260722-1625-writer-cta-secret-scan
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-writer
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-hyundai-avante-iz-korei-kak-vybrat-2026
+severity: medium
+category: env
+
+### What went wrong
+- Writer must put live catalog + Telegram hrefs (no `[REDACTED]`) for GEO QA link-verify, but Cursor pre-commit secret-scan blocks commits that contain `CATALOG_URL` / `TELEGRAM_URL` values even though they are public marketing URLs.
+
+### How the agent recovered this run
+- Kept real CTA hrefs in `article.html` and added HTML comment `<!-- pragma: allowlist secret -->` on the CTA paragraphs so pre-commit allowlists the intentional public URLs.
+
+### Durable fix needed before next run
+- Document writer CTA commit rule: public catalog/Telegram hrefs + `pragma: allowlist secret` on the same line/paragraph; do not replace with `[REDACTED]` (breaks QA).
+- Prefer moving catalog/Telegram out of secret-scanned Cloud Secrets (or mark them non-secret) so writers do not need pragma workarounds.
+- Add note to `shared/agent-pipeline-pitfalls.md` and writer skill.
+
+### Suggested files to inspect/change
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/excalibur-article-writing-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

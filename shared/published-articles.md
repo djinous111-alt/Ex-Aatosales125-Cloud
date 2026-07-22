@@ -7,3 +7,4 @@
 
 > Ledger сброшен при перенастройке под AVTO SALES (2026-07-17).
 | 2026-07-22 | AS19 | rastamozhka-avto-iz-kitaya-2026 | [REDACTED]/2026/07/22/rastamozhka-avto-iz-kitaya-2026/ | published |
+| 2026-07-22 | AS20 | levyj-rul-iz-korei-2026-kak-kupit | memory/blog/articles/AS20-levyj-rul-iz-korei-2026-kak-kupit | in_progress |

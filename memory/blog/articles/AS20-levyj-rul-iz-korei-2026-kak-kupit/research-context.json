@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-22",
+    "today_ru": "22.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-23",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-22 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS20",
+    "priority": "P0",
+    "slug": "levyj-rul-iz-korei-2026-kak-kupit",
+    "h1": "Как купить авто с левым рулем из Кореи в 2026: чек-лист до депозита",
+    "primary_query": "левый руль из кореи",
+    "secondary_queries": [
+      "купить авто с левым рулем",
+      "авто с кореи левый руль",
+      "левый руль из кореи купить",
+      "авто с левым рулем владивосток"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS20",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "левый руль из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "левый руль из кореи июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "левый руль из кореи новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com левый руль из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "левый руль из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "левый руль из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "купить авто с левым рулем 2026",
+      "purpose": "вторичный запрос: купить авто с левым рулем"
+    },
+    {
+      "id": "secondary_2",
+      "query": "авто с кореи левый руль 2026",
+      "purpose": "вторичный запрос: авто с кореи левый руль"
+    },
+    {
+      "id": "secondary_3",
+      "query": "левый руль из кореи купить 2026",
+      "purpose": "вторичный запрос: левый руль из кореи купить"
+    },
+    {
+      "id": "secondary_4",
+      "query": "авто с левым рулем владивосток 2026",
+      "purpose": "вторичный запрос: авто с левым рулем владивосток"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как купить авто с левым рулем из Кореи в 2026: чек-лист до депозита 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS20-levyj-rul-iz-korei-2026-kak-kupit",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

@@ -184,3 +184,28 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram @avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## AS10 — Hyundai Avante из Кореи
+
+- **priority:** P0
+- **slug:** hyundai-avante-iz-korei-kak-vybrat-2026
+- **h1:** Как выбрать Hyundai Avante из Кореи в 2026: комплектации, мощность и чек-лист до депозита
+- **primary_query:** хендай аванте из кореи
+- **secondary_queries:** купить хендай аванте, hyundai avante из кореи, хендай аванте комплектации, hyundai elantra из кореи
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Кому подходит Avante (Elantra) из Кореи и какой результат ждать после заказа
+  2. Какие моторы и комплектации смотреть: льготная полка до 160 л.с. vs турбо, которое лучше не брать
+  3. Как читать карточку Encar: пробег, комплектация, красные флаги до депозита
+  4. Что сверить с Trust Encar / Carhistory перед оплатой
+  5. Путь "Encar → Владивосток → учёт": этапы без лишней паники
+  6. Чек-лист из 12 пунктов перед переводом депозита
+- **faq_hints:** чем Avante отличается от Elantra в карточке Encar; можно ли везти 1.6 Turbo; какие поля мощности проверить до оплаты; LPe на газу - стоит ли брать новичку
+- **internal_links:** /trust-encar-carhistory-proverka-do-depozita/, /encar-na-russkom-kak-chitat/, /rastamozhka-avto-iz-korei-2026/, /utilsbor-do-160-ls-2026-kak-proverit/
+- **cta:** каталог + Telegram @avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у современного седана Hyundai Avante, порт Владивостока или Encar на смартфоне, плашка "до депозита", угол avto-sales125.ru
+- **metrika_signal:** zen-topics #67 Avante; live WP без dedicated slug; parent Wordstat "хендай аванте" ~29k, narrow "хендай аванте из кореи" 482
+- **wp_gap_note:** K5/Tucson/Palisade/оценки аукциона/Корея vs Китай уже на live WP - не дублировать

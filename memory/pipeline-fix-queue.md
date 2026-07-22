@@ -6,6 +6,47 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260722-0928-cover-kie-credits-exhausted
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-cover
+topic_id: AS20
+article_dir: memory/blog/articles/AS20-levyj-rul-iz-korei-2026-kak-kupit
+severity: blocker
+category: api
+
+### What went wrong
+- Preferred Kie async `excalibur_blog_kie_gpt_image2_api.py` failed: createTask `code=402` Credits insufficient (balance ≈ 0.02).
+- Sync MCP `gpt-image-2` (2 attempts) failed with API error `'NoneType' object has no attribute 'get'` — same Kie-backed path, no image URL/task_id returned.
+- Fallback MCP `flux2-pro-image-to-image` also returned the same NoneType error (no URL).
+- Catbox rehost of hero reference: HTTP 412; 0x0: HTTP 503. Existing `reference_url_hosted` (wordpress https) remains valid — not a HERO blocker.
+- Budget exhausted (~2 attempts); cannot apply/split without a generated canvas URL.
+
+### How the agent recovered this run
+- Manifest + batch prepared (topic-specific hooks for левый руль / чек-лист до депозита).
+- No apply/split/inject (correct: no canvas URL).
+- Cover fragment marked ❌ COVER IMAGE CREDITS BLOCKER; pipeline waits for Kie top-up or alternate billed image path.
+
+### Durable fix needed before next run
+- Top up Kie.ai credits used by MCP-KV `gpt-image-2` / Kie createTask (Cloud secret `KIE_API_KEY` account).
+- Optional: preflight credit check in cover scripts (`credit < threshold` → early blocker with clear message before MCP).
+- Document MCP NoneType as likely credit/upstream null response, not a reason to spam retries.
+- Keep catbox/0x0 as optional rehost; wordpress https reference is acceptable when hosts fail.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_kie_gpt_image2_api.py` (preflight credit)
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/blog-cover-quad-canvas-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Cloud Secrets / Kie billing for `KIE_API_KEY`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260722-0926-schema-precommit-secret-redact
 status: open
 run_date: 2026-07-22

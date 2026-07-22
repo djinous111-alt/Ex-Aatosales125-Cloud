@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS20",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Красивая Encar — и сразу депозит? Стой.",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у корейского седана с левым рулём, плашка про депозит до чек-листа, порт Владивостока",
+      "scene_hint": "Action selfie у современного корейского седана с левым рулём на фоне порта Владивостока, лёгкий морской туман. Герой: EXACT face+glasses from reference; outfit = dark smart-casual jacket over light shirt (customs/docs vibe, NOT reference t-shirt), NO cap NO hood. Жест: ладонь «стоп» к телефону с карточкой Encar. Fake UI: телефонный скрин красивой карточки Encar + рваная бумага чек-листа «до депозита» со скотчем + жёлтый стикер «12 пунктов». Мем: shocked face cutout. Плашка кириллицей с highlight на «депозит». Угол: avto-sales125.ru. Без Wordstat/Метрики/Telegram.",
+      "meme_caption_ru": "Сначала чек-лист"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Выберите Корею осознанно: зачем левый руль, а не Япония",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Чистая UI-таблица сравнения Корея vs Япония: колонки «левый руль», «переоборудование», «срок», «риски»; галочки/кресты; мини sticky note «осознанный выбор»; без лица героя, без SEO-дашбордов",
+      "alt": "Сравнительная таблица Корея и Япония: левый руль, переоборудование, сроки и риски"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как открыть карточку Encar: руль, VIN и комплектация",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake screenshot карточки Encar на ноутбуке: поле Steering=Left, VIN выделен маркером, блок комплектации; стрелка-маркер «проверь руль»; скотч на углу; без лица героя",
+      "alt": "Мокап карточки Encar с полями руль, VIN и комплектация до депозита"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Прочитайте Performance Check: кресты на каркасе – стоп",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема Performance Check: схема кузова с крестами X/W на каркасе красным «СТОП»; шаги «открой отчёт → найди каркас → X/W = отказ»; стикер «стоп»; без лица героя",
+      "alt": "Схема Performance Check: кресты X и W на каркасе как стоп-сигнал"
+    }
+  }
+}

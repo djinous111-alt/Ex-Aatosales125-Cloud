@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260722-1628-geo-qa-utility-pain-outcome-markers-missing
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-geo-qa
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-hyundai-avante-iz-korei-kak-vybrat-2026
+severity: high
+category: qa
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always enforced `min_pain_markers` (default 2) and `min_outcome_markers` (default 3) via `pain_markers_ru` / `outcome_markers_ru`.
+- `memory/brief/editorial-policy.json` had neither marker lists nor min keys → counts always 0 → every article utility gate BLOCK (false-positive).
+- AS10 article already had human-voice pain/outcome language; human-voice gate PASS; utility gate alone blocked cover/schema.
+
+### How the agent recovered this run
+- Added `pain_markers_ru` / `outcome_markers_ru` (aligned with `excalibur_blog_human_voice_gate.py`) plus `min_pain_markers` / `min_outcome_markers` to editorial-policy.json.
+- Hardened utility gate: enforce pain/outcome mins only when the corresponding marker list is non-empty.
+- Re-ran utility gate → PASS for AS10.
+
+### Durable fix needed before next run
+- Keep policy lists in sync with human-voice PAIN/OUTCOME markers (or share one source).
+- Add smoke test: article with empty policy lists must not false-BLOCK; article missing pain/outcome language must BLOCK when lists are present.
+- Note in pitfalls / writer skill that utility gate now counts pain/outcome markers.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/editorial-utility-only.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260722-1615-research-tech-marker-false-positive
 status: open
 run_date: 2026-07-22

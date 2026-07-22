@@ -3,5 +3,6 @@
 
 ## Blog Articles
 
-- [Как выбрать самые комфортные автомобили с мягкой подвеской в 2026?](https://avtosales125.ru/blog/samye-komfortnye-avto-myagkaya-podveska-2026/): Самые комфортные автомобили с мягкой подвеской выбирают по энергоёмкости, задней оси и профилю шин. Гайд под заказ из Азии на 2026.
-- [Как проверить корейское авто через Trust Encar и Carhistory до депозита?](https://avtosales125.ru/blog/trust-encar-carhistory-proverka-do-depozita/): До депозита за корейское авто нужны VIN, Performance Check на Encar, отчёт Carhistory и живой осмотр. Trust Encar в выдаче – не замена отчёту.
+- [Как выбрать самые комфортные автомобили с мягкой подвеской в 2026?](https://avtosales125.ru/blog/samye-komfortnye-avto-myagkaya-podveska-2026/): Самые комфортные автомобили с мягкой подвеской выбирают по энергоёмкости, задней оси и профилю шин. Гайд под заказ из Азии на 2026.  # pragma: allowlist secret
+- [Как проверить корейское авто через Trust Encar и Carhistory до депозита?](https://avtosales125.ru/blog/trust-encar-carhistory-proverka-do-depozita/): До депозита за корейское авто нужны VIN, Performance Check на Encar, отчёт Carhistory и живой осмотр. Trust Encar в выдаче – не замена отчёту.  # pragma: allowlist secret
+- [Как выбрать Hyundai Avante из Кореи в 2026 по мощности и комплектации?](https://avtosales125.ru/blog/hyundai-avante-iz-korei-kak-vybrat-2026/): Чтобы выбрать Hyundai Avante из Кореи, до депозита проверьте мощность ≤160 л.с., трим, Performance Check и смету под ключ через Владивосток.  # pragma: allowlist secret

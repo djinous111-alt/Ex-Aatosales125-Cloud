@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS20",
+  "slug": "levyj-rul-iz-korei-2026-kak-kupit",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у корейского седана с левым рулём, плашка про депозит до чек-листа, порт Владивостока",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-07-22T09:34:03+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у корейского седана с левым рулём, плашка про депозит до чек-листа, порт Владивостока",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Сравнительная таблица Корея и Япония: левый руль, переоборудование, сроки и риски",
+      "h2_anchor": "Выберите Корею осознанно: зачем левый руль, а не Япония",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Мокап карточки Encar с полями руль, VIN и комплектация до депозита",
+      "h2_anchor": "Как открыть карточку Encar: руль, VIN и комплектация",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема Performance Check: кресты X и W на каркасе как стоп-сигнал",
+      "h2_anchor": "Прочитайте Performance Check: кресты на каркасе – стоп",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

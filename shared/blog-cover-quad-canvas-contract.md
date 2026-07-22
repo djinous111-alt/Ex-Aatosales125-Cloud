@@ -1,10 +1,17 @@
-# Excalibur BLOG — Quad Canvas (1 MCP → 4 панели)
+# Excalibur BLOG — Quad Canvas (1 image job → 4 панели)
 
 Cover-агент работает **после** `article.html` + GEO QA PASS.
 
 ## Главное правило
 
-**Один** вызов MCP `gpt-image-2` → один холст `2048×1152` (2×2, каждая панель 16:9) → split в `cover.png` + `inline-01..03.png`.
+**Один** image job → один холст `2048×1152` (2×2, каждая панель 16:9) → split в `cover.png` + `inline-01..03.png`.
+
+### Preferred image flow (Cloud)
+
+1. **Prefer** async Kie HTTP: `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir <dir>` (`KIE_API_KEY`) — createTask + recordInfo poll, timeout-safe.
+2. Sync MCP `gpt-image-2` — **optional probe only**; Cloud client often hits `-32001 Request timed out` on 2K i2i with no recoverable task_id.
+3. `reference_url_hosted` must be **https://** (http:// WP media breaks Kie fetch via redirect/hotlink). Run `excalibur_blog_hero_reference_url.py` (normalizes http→https).
+
 
 | Панель | Роль | Герой |
 |--------|------|-------|
@@ -25,8 +32,9 @@ python scripts/excalibur_blog_quad_manifest.py \
 python scripts/excalibur_blog_cover_quad_prompt.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> --write-batch
 
-# 4. ONE CallMcpTool gpt-image-2 по cover/quad-mcp-batch.json
-#    input_urls: [reference_url_hosted] — обязательно
+# 4. Prefer Kie async script (see preferred_image_flow in batch JSON).
+#    Optional: ONE CallMcpTool gpt-image-2 probe — do not retry sync on -32001.
+#    input_urls: [https reference_url_hosted] — обязательно
 
 # 5. Скачать canvas + split
 python scripts/excalibur_blog_quad_apply.py \
@@ -75,7 +83,8 @@ Inline panels: полезный UI + лёгкий human layer (стикер, tap
 
 ## Blockers
 
-- `❌ COVER HERO BLOCKER` — нет `reference_url_hosted` или MCP без `input_urls`
-- **4 отдельных MCP** на cover+inline — запрещено
+- `❌ COVER HERO BLOCKER` — нет `reference_url_hosted` (https) или job без `input_urls`
+- **4 отдельных image jobs** на cover+inline — запрещено
+- Sync MCP timeout без URL/task_id → сразу Kie async script, не второй sync MCP
 - inline-панель с meme/host вместо UI/схемы
 - обложка без крючка / без `meme_caption_ru`

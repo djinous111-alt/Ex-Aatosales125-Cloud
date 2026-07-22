@@ -91,6 +91,14 @@ def resolve_reference_path(root: Path, hero: dict) -> Path:
     return path
 
 
+def prefer_https_url(url: str) -> str:
+    """Kie/MCP image fetch often fails on http:// WP media (301/hotlink). Prefer https://."""
+    url = (url or "").strip()
+    if url.startswith("http://"):
+        return "https://" + url[len("http://") :]
+    return url
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--hero-json", default="memory/cover/blog-hero.json")
@@ -112,12 +120,19 @@ def main() -> int:
         print(f"❌ HERO BLOCKER: reference image not found: {ref_path}", file=sys.stderr)
         return 1
 
-    existing = (hero.get("reference_url_hosted") or "").strip()
+    existing = prefer_https_url(hero.get("reference_url_hosted") or "")
     if existing and not args.force:
-        print(f"OK reference_url_hosted={existing}")
+        if existing != (hero.get("reference_url_hosted") or "").strip():
+            hero["reference_url_hosted"] = existing
+            hero["reference_url_https_normalized"] = True
+            hero["reference_url_updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+            save_json(hero_path, hero)
+            print(f"OK reference_url_hosted={existing} (normalized http→https)")
+        else:
+            print(f"OK reference_url_hosted={existing}")
         return 0
 
-    env_url = os.environ.get("BLOG_HERO_REFERENCE_URL", "").strip()
+    env_url = prefer_https_url(os.environ.get("BLOG_HERO_REFERENCE_URL", "").strip())
     if env_url:
         hero["reference_url_hosted"] = env_url
         hero["reference_url_source"] = "env:BLOG_HERO_REFERENCE_URL"

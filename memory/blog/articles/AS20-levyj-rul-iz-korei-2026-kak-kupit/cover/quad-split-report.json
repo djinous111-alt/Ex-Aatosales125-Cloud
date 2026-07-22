@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS20-levyj-rul-iz-korei-2026-kak-kupit/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1000,
+      571
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 571,
+        "end": 597
+      },
+      "v_gutter_px": {
+        "start": 1000,
+        "end": 1030
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 4,
+          "right": 1000,
+          "bottom": 566
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1000,
+          "bottom": 571
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у корейского седана с левым рулём, плашка про депозит до чек-листа, порт Владивостока",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1030,
+          "top": 0,
+          "right": 2048,
+          "bottom": 571
+        },
+        "raw_box_px": {
+          "left": 1030,
+          "top": 0,
+          "right": 2048,
+          "bottom": 571
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Сравнительная таблица Корея и Япония: левый руль, переоборудование, сроки и риски",
+        "h2_anchor": "Выберите Корею осознанно: зачем левый руль, а не Япония"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 6,
+          "top": 597,
+          "right": 993,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 597,
+          "right": 1000,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап карточки Encar с полями руль, VIN и комплектация до депозита",
+        "h2_anchor": "Как открыть карточку Encar: руль, VIN и комплектация"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1045,
+          "top": 597,
+          "right": 2032,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1030,
+          "top": 597,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема Performance Check: кресты X и W на каркасе как стоп-сигнал",
+        "h2_anchor": "Прочитайте Performance Check: кресты на каркасе – стоп"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Выберите Корею осознанно: зачем левый руль, а не Япония",
+    "injected inline_2 after H2 — Как открыть карточку Encar: руль, VIN и комплектация",
+    "injected inline_3 after H2 — Прочитайте Performance Check: кресты на каркасе – стоп"
+  ]
+}

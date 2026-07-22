@@ -31,3 +31,16 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-07-22 — AS20 levyj-rul-iz-korei-2026-kak-kupit
+
+- **verdict:** PASS
+- **post_id:** 3607
+- **permalink:** https://avtosales125.ru/2026/07/22/levyj-rul-iz-korei-2026-kak-kupit/
+- **featured_image:** 3608
+- **inline_images:** 3609 (`inline-01.png`), 3610 (`inline-02.png`), 3611 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH upload + HTTP trigger (OK, no fallback needed)
+- **result:** `memory/blog/articles/AS20-levyj-rul-iz-korei-2026-kak-kupit/wp-publish-result.json`
+

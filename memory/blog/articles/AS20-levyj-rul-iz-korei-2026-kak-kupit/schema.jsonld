@@ -1,0 +1,209 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "[from env PUBLIC_SITE_URL]/levyj-rul-iz-korei-2026-kak-kupit/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "[from env PUBLIC_SITE_URL]/levyj-rul-iz-korei-2026-kak-kupit/"
+      },
+      "headline": "Как купить авто с левым рулем из Кореи в 2026: чек-лист до депозита",
+      "description": "Левый руль из Кореи: чек-лист до депозита. Encar, Performance Check, Carhistory, договор с юрлицом и путь через Владивосток без готовых сумм пошлин.",
+      "datePublished": "2026-07-22",
+      "dateModified": "2026-07-22",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "[from env PUBLIC_SITE_URL]/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "[from env PUBLIC_SITE_URL]/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "[from env PUBLIC_SITE_URL]/"
+        },
+        "sameAs": [
+          "[from env PUBLIC_SITE_URL]/",
+          "[from env TELEGRAM_URL]",
+          "[from env MAX_URL]",
+          "[from env CATALOG_URL]",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "[from env PUBLIC_SITE_URL]/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "[from env PUBLIC_SITE_URL]/",
+        "sameAs": [
+          "[from env TELEGRAM_URL]",
+          "[from env CATALOG_URL]"
+        ]
+      },
+      "keywords": [
+        "левый руль из кореи",
+        "купить авто с левым рулем",
+        "авто с кореи левый руль",
+        "авто с левым рулем владивосток"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "[from env PUBLIC_SITE_URL]/levyj-rul-iz-korei-2026-kak-kupit/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем левый руль из Кореи отличается от японского правого?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В Корее руль слева, как в РФ – проще привычка и перепродажа. В Японии шире выбор правого руля. Выбирайте Корею, если приоритет – левый руль \"из коробки\", а не максимальный ассортимент японских лотов."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли взять Toyota или Honda с левым рулем через Корею?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, такие лоты бывают, но ассортимент уже и часто дороже, чем в Японии. До депозита тот же чек-лист: VIN, схема кузова, Carhistory, договор с юрлицом."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что смотреть в Encar до оплаты?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Фото руля слева, полный VIN, дату производства, мощность, Performance Check (X/W на каркасе) и страховой блок. Затем Carhistory по VIN. Нет VIN или давят \"оплата сейчас, отчёты потом\" – отказ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где считать пошлину и утильсбор без готовых сумм в статье?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "По конкретному лоту и мощности у команды, которая ведёт заказ. Статичные цифры в блогах устаревают. Не планируйте бюджет по скрину из чужого чата."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли платить депозит на карту \"корейца\" или физлица?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нельзя. Только договор с юрлицом, VIN в договоре и понятные этапы оплаты. Перевод \"за бронь\" без пакета отчётов – типичная схема потери денег."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужно ли лично ехать во Владивосток?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Обычно нет: выкуп в Корее, море, СВХ и оформление во Владивостоке, затем выдача или доставка по РФ. Личный визит – по желанию, не обязательное условие заказа под ключ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем этот чек-лист отличается от глубокой проверки Trust Encar / Carhistory?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Здесь – решение \"платить / не платить\" по левому рулю: руль, лот, посредник, Владивосток, 12 пунктов до депозита. Глубокая расшифровка полей отчётов – в отдельном гайде про Trust Encar и Carhistory."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "[from env PUBLIC_SITE_URL]/levyj-rul-iz-korei-2026-kak-kupit/#howto",
+      "name": "Как купить авто с левым рулем из Кореи: чек-лист до депозита",
+      "description": "Пошаговая покупка левого руля из Кореи до перевода депозита: Encar, VIN, Performance Check, Carhistory, договор с юрлицом и путь через Владивосток.",
+      "totalTime": "PT1H",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Карточка Encar: фото руля, VIN, Performance Check"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Отчёт Carhistory по VIN"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Договор с юрлицом и расчёт под ключ в каталоге"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Ссылка на лот Encar и полный VIN"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Пакет до депозита: схема кузова, Carhistory, осмотр, договор с фиксацией VIN"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Зафиксировать задачу: нужен левый руль из Кореи",
+          "text": "Выберите Корею осознанно ради левого руля и ликвидности, а не \"потому что все так делают\". Сравните с японским правым рулём по привычке вождения и перепродаже.",
+          "url": "[from env PUBLIC_SITE_URL]/levyj-rul-iz-korei-2026-kak-kupit/#выберите-корею-осознанно-зачем-левый-руль-а-не-япония"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Открыть карточку Encar: руль, VIN и комплектация",
+          "text": "Проверьте фото салона (руль слева), полный VIN до оплаты, год/месяц производства, мощность и комплектацию. Нет фото руля или VIN \"после депозита\" – стоп.",
+          "url": "[from env PUBLIC_SITE_URL]/levyj-rul-iz-korei-2026-kak-kupit/#как-открыть-карточку-encar-руль-vin-и-комплектация"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Прочитать Performance Check: кресты на каркасе",
+          "text": "Откройте схему кузова. Пометки X/W на лонжеронах, стойках, крыше или каркасе – отказ от лота до разговора о деньгах.",
+          "url": "[from env PUBLIC_SITE_URL]/levyj-rul-iz-korei-2026-kak-kupit/#прочитайте-performance-check-кресты-на-каркасе-стоп"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Сверить Carhistory: аренда, выплаты и пробег",
+          "text": "По VIN проверьте Rent/Lease, крупные выплаты, частую смену владельцев и пробег. Износ салона не должен спорить с цифрой пробега.",
+          "url": "[from env PUBLIC_SITE_URL]/levyj-rul-iz-korei-2026-kak-kupit/#сверьте-carhistory-аренда-выплаты-и-странный-пробег"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Ответить на давление депозита договором с юрлицом",
+          "text": "Пакет до перевода: VIN + Performance Check + Carhistory + осмотр. Подпишите договор с юрлицом с фиксацией VIN и этапов оплаты. Не платите на карту физлица.",
+          "url": "[from env PUBLIC_SITE_URL]/levyj-rul-iz-korei-2026-kak-kupit/#ответьте-на-давление-кинь-сегодня-договор-до-перевода"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Понять путь через Владивосток",
+          "text": "Схема: выкуп в Корее → море → СВХ и оформление во Владивостоке → выдача или доставка по РФ. Пошлину и утильсбор считайте по своему лоту, не по чужим скринам.",
+          "url": "[from env PUBLIC_SITE_URL]/levyj-rul-iz-korei-2026-kak-kupit/#пройдите-путь-через-владивосток-без-страха-терминов"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Пройти чек-лист из 12 пунктов: платить или нет",
+          "text": "Депозит только если зелёные пункты 2–11: руль, VIN, схема без X/W на каркасе, Carhistory без Rent, осмотр, расчёт, договор и проверенные реквизиты. Красный пункт – следующий лот.",
+          "url": "[from env PUBLIC_SITE_URL]/levyj-rul-iz-korei-2026-kak-kupit/#соберите-чеклист-из-12-пунктов-платить-или-нет"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Только затем обсуждать депозит и доставку",
+          "text": "Выберите 1–2 лота, пройдите проверки, сверьте договор и реквизиты. Подбор и расчёт – в каталоге Авто-Сейлс; детали по VIN – в Telegram.",
+          "url": "[from env PUBLIC_SITE_URL]/levyj-rul-iz-korei-2026-kak-kupit/#что-дальше"
+        }
+      ]
+    }
+  ]
+}

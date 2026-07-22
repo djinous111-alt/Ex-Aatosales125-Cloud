@@ -6,43 +6,52 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
-## INC-20260723-2140-indexer-llms-doctor-blog-path
-status: open
+## INC-20260722-2138-cover-kie-402-emergency-generateimage
+status: needs-human
 run_date: 2026-07-23
-role: excalibur-blog-indexer
+role: excalibur-blog-cover
 topic_id: B01
 article_dir: memory/blog/articles/B01-avto-iz-korei-pod-zakaz-2026
-severity: medium
-category: script
+severity: high
+category: api
 
 ### What went wrong
-- `excalibur_blog_doctor.py` требует `--blog-path` в help llms generator (`llms generator supports --blog-path`) → doctor FAIL / false-positive.
-- Реальный CLI `excalibur_blog_llms_generator.py` принимает только `--blog-dir` (нет `--blog-path`); передача `--blog-path /` даёт argparse error.
-- Agent/skill контракты всё ещё показывают `--blog-path /` рядом с `--blog-dir`.
+- Kie API returned 402 Credits insufficient; MCP sync failed; emergency GenerateImage used; canvas was 1536×1024 not 2048×1152.
 
 ### How the agent recovered this run
-- Запустил llms generator с `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` **без** `--blog-path`.
-- Результат: `memory/blog/llms.txt`, `memory/blog/llms-full.txt` (3 articles).
+- ONE GenerateImage i2i → resize → split+inject; non-toxic stickers.
 
 ### Durable fix needed before next run
-- В doctor: проверять `--blog-dir` (и при необходимости `--out-dir`), не `--blog-path`.
-- Убрать `--blog-path /` из indexer agent/skill shell examples; оставить `--blog-dir` + `--blog-path /` только если флаг реально добавят в argparse (сейчас не нужен — URL path хардкодится как `/blog/{slug}/`).
-- Добавить note в `shared/agent-pipeline-pitfalls.md` (Indexer): doctor `--blog-path` = false-positive; используй `--blog-dir`.
+- (partial done in repo) Document Kie→MCP→GenerateImage + 402 handling; auto-normalize in split.
+- (human) Top up Kie credits so preferred async path works without emergency.
 
 ### Suggested files to inspect/change
-- `scripts/excalibur_blog_doctor.py`
-- `scripts/excalibur_blog_llms_generator.py`
-- `skills/indexer-excalibur-blog/SKILL.md`
-- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
-- `agents/excalibur-blog-indexer.md`
-- `.cursor/agents/excalibur-blog-indexer.md`
-- `shared/agent-pipeline-pitfalls.md`
+- Kie dashboard credits (human)
+- `skills/cover-excalibur-blog/SKILL.md`
+- `shared/kie-gpt-image-api-contract.md`
 
 ### Secrets
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+reason:
+- Kie account still needs credit top-up (HTTP 402); cannot fix balance via git.
+- Repo durable path is done: emergency GenerateImage documented; `cover_quad_split.py` auto-normalizes to 2048×1152; `--canvas-local` clarified as nonexistent (use split `--canvas`).
+needed_decision_or_secret:
+- Top up Kie credits for `KIE_API_KEY` account; confirm next cover run succeeds on Kie async without 402.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/blog-cover-quad-canvas-contract.md`
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_split.py`
+- normalize smoke 1536×1024 → 2048×1152 + split PASS
 
 ## INC-20260723-2122-bash-unsafe-secret-names
 status: needs-human
@@ -77,10 +86,106 @@ category: env
 status: needs-human
 reason:
 - Durable rename/delete of the bad Cloud Secret name must be done in Cursor Dashboard by a human; repo only has advisory check + sanitize recipe.
+reconfirmed_at: 2026-07-22
+note: advisory script still WARNs; Dashboard rename still required.
 needed_decision_or_secret:
 - Open Cursor Dashboard → Secrets for this environment → find the secret whose **name** is URL-shaped (not a normal `FOO_URL` key) → delete it or rename to a bash-safe identifier → re-run `python3 scripts/excalibur_blog_check_secret_names.py` until WARN clears.
 
 ## Fixed / closed this run
+
+## INC-20260723-2140-indexer-llms-doctor-blog-path
+status: fixed
+run_date: 2026-07-23
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-pod-zakaz-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` требовал `--blog-path` в help llms generator → false-positive FAIL.
+- Реальный CLI принимает только `--blog-dir`; agent/skill examples ещё показывали `--blog-path /`.
+
+### How the agent recovered this run
+- Запустил llms generator с `--blog-dir` без `--blog-path`.
+
+### Durable fix needed before next run
+- (done) doctor `--blog-dir`/`--out-dir`; sync indexer agent/skill; pitfalls note.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-22
+fix_summary:
+- Doctor checks `--blog-dir` and `--out-dir` (not `--blog-path`).
+- Indexer agent/skill examples use `--blog-dir` + `--out-dir` only; note about secret-scan redact on llms/promotion.
+- Pitfalls Indexer section updated.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_doctor.py`
+- `python3 scripts/excalibur_blog_doctor.py` → OK llms `--blog-dir`/`--out-dir`
+- `rg` no erroneous `--blog-path /` shell examples in durable indexer sources
+commit: 7168a9d
+
+## INC-20260722-2146-publish-paramiko-missing-from-cloud-install
+status: fixed
+run_date: 2026-07-22
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-pod-zakaz-2026
+severity: high
+category: env
+
+### What went wrong
+- `ModuleNotFoundError: paramiko` on first SSH publish; install.sh/Dockerfile omitted paramiko despite `requirements.txt`.
+
+### How the agent recovered this run
+- Manual `pip3 install paramiko`; publish PASS (WP 3625).
+
+### Durable fix needed before next run
+- (done) install path + Dockerfile + doctor import check.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/Dockerfile`
+- `scripts/excalibur_blog_doctor.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-22
+fix_summary:
+- `cloud-agent-install.sh` installs from `requirements.txt` and ensures `paramiko`.
+- Dockerfile pins numpy + paramiko with other deps.
+- Doctor checks `import paramiko` (warn default; error with `--publish`).
+- Pitfalls + CURSOR-CLOUD-RUNBOOK note.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/Dockerfile`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_doctor.py`
+- `python3 scripts/excalibur_blog_doctor.py` → OK paramiko
+- `import paramiko` OK in env
+commit: 7168a9d
+
 
 ## INC-20260723-2120-utility-gate-empty-pain-outcome
 status: fixed
@@ -483,38 +588,4 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
-
-## INC-20260722-2146-publish-paramiko-missing-from-cloud-install
-status: open
-run_date: 2026-07-22
-role: excalibur-blog-publish
-topic_id: B01
-article_dir: memory/blog/articles/B01-avto-iz-korei-pod-zakaz-2026
-severity: high
-category: env
-
-### What went wrong
-- `scripts/excalibur_blog_wp_publish.py` failed on first real publish with `ModuleNotFoundError: No module named 'paramiko'`.
-- `paramiko` is listed in `requirements.txt`, but `.cursor/cloud-agent-install.sh` only installs `requests pillow python-dotenv`.
-- Cloud agent environment therefore cannot SSH-publish until paramiko is installed manually.
-
-### How the agent recovered this run
-- Installed paramiko with `pip3 install --break-system-packages paramiko` (v5.0.0).
-- Re-ran publish: SSH upload OK, HTTP trigger OK, post=3625, featured=3626, inline 3627–3629, schema_meta=1.
-
-### Durable fix needed before next run
-- Add `paramiko` (and ideally install from `requirements.txt`) to `.cursor/cloud-agent-install.sh` so SSH publish transport works out of the box.
-- Optionally align doctor/preflight to check `import paramiko` before publish step.
-
-### Suggested files to inspect/change
-- `.cursor/cloud-agent-install.sh`
-- `requirements.txt`
-- `scripts/excalibur_blog_doctor.py`
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
 

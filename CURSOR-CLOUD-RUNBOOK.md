@@ -63,6 +63,10 @@ export CLOUD_AGENT_INJECTED_SECRET_NAMES="$(python3 scripts/excalibur_blog_check
 
 Durable: в Cursor Dashboard → Secrets удалить/переименовать URL-as-name (часто попадает в `CLOUD_AGENT_ALL_SECRET_NAMES`).
 
+**Secret-scan vs artifact URLs:** значения вроде `PUBLIC_SITE_URL` часто помечены как secrets. Перед commit в `schema.jsonld`, `llms.txt`, `llms-full.txt`, `promotion-checklist.md`, `wp-publish-result.json` redact live URL → `${PUBLIC_SITE_URL}` / `[REDACTED]`. Не коммить `schema.jsonld.local`, handoff, fragments.
+
+**Cloud install deps:** `.cursor/cloud-agent-install.sh` и Dockerfile ставят пакеты из `requirements.txt` включая **paramiko** (SSH publish). Без paramiko publish падает на первом SSH.
+
 ## GitHub setup
 
 1. Создать приватный GitHub repo.

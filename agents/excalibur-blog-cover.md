@@ -46,12 +46,15 @@ Cover-агент генерирует **один** quad-холст 2×2 (MCP `gp
 
 ## Жёсткие правила
 
-1. **ONE MCP** — один холст 2×2. **Запрещено** 4 отдельных вызова.
-2. MCP **обязан** иметь `input_urls: [reference_url_hosted]` (Image to Image).
-3. **Cover (top-left):** reference **лицо**; **одежда/поза** — на усмотрение агента в `scene_hint`.
-4. **Design code:** `memory/cover/cover-design-code.json` — fake скрины, стикеры, скотч, мемы, «сделал человек», **16:9**.
-5. **Inline 1–3:** полезность по `visual_type` — **без** лица героя.
-6. Не трогать `schema.jsonld`, не переписывать текст статьи.
+1. **ONE canvas** — один холст 2×2. **Запрещено** 4 отдельных image-job.
+2. Generation order: **Kie async → MCP sync → emergency GenerateImage** (см. skill).
+3. Kie/MCP **обязан** иметь `input_urls: [reference_url_hosted]` (Image to Image). Emergency GenerateImage — local face reference.
+4. **Kie 402 Credits insufficient:** не retry-loop; emergency GenerateImage для текущего run; top-up credits = needs-human.
+5. **Cover (top-left):** reference **лицо**; **одежда/поза** — на усмотрение агента в `scene_hint`.
+6. **Design code:** `memory/cover/cover-design-code.json` — fake скрины, стикеры, скотч, мемы, «сделал человек», **16:9**.
+7. **Inline 1–3:** полезность по `visual_type` — **без** лица героя.
+8. Не трогать `schema.jsonld`, не переписывать текст статьи.
+9. Локальный canvas: `excalibur_blog_cover_quad_split.py --canvas cover/canvas-quad.png` (флага `--canvas-local` в apply нет; split сам нормализует размер к 2048×1152).
 
 ---
 
@@ -172,9 +175,10 @@ summary: ...
 | ------------------ | --------------------------------------------------- |
 | COVER HERO BLOCKER | нет `reference_url_hosted` или MCP без `input_urls` |
 | QUAD SPLIT BLOCKER | нет canvas / не 2×2 16:9 / нет alt в manifest       |
-| COVER BLOCKER      | 4 отдельных MCP                                     |
+| COVER BLOCKER      | 4 отдельных MCP/image-job                           |
 | COVER BLOCKER      | inline с героем вместо UI/схемы                     |
 | COVER BLOCKER      | cover без hook / meme_caption_ru                    |
+| KIE 402 / needs-human | Credits insufficient — top-up Kie; emergency GenerateImage только на текущий run |
 
 
 ---

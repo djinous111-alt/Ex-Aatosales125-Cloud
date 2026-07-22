@@ -24,11 +24,14 @@
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
 - Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
 - SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
+- Cloud install (`.cursor/cloud-agent-install.sh` / Dockerfile) обязан ставить `paramiko` (и остальное из `requirements.txt`); без paramiko SSH publish падает `ModuleNotFoundError`.
+- Doctor с `--publish` требует `import paramiko`.
 
-## Secrets / pre-commit
+## Secrets / commit artifacts
 
 - Имена Cloud Secrets — только bash-safe: `[A-Za-z_][A-Za-z0-9_]*` (без пробелов, `/`, URL-shaped имён).
 - Pre-commit `invalid variable name` = platform hook разворачивает невалидное имя секрета. Перед commit: sanitize `CLOUD_AGENT_INJECTED_SECRET_NAMES` / проверь `python3 scripts/excalibur_blog_check_secret_names.py`. Durable: переименуй/удали URL-as-name в Cursor Dashboard Secrets.
+- `PUBLIC_SITE_URL` (и похожие) часто в secret-scan: **не коммить** live URL в `schema.jsonld`, `llms.txt`, `llms-full.txt`, `promotion-checklist.md`, `wp-publish-result.json`. Перед commit redact → `${PUBLIC_SITE_URL}` / `${ENV}` / `[REDACTED]`. Runtime resolve из env. Не коммить `schema.jsonld.local` / handoff / fragments.
 
 ## Writer / Fact Check Box
 
@@ -46,6 +49,8 @@
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- Generation order: Kie async → MCP sync → emergency Cursor `GenerateImage` i2i. Kie **402 Credits insufficient** → не retry createTask; emergency GenerateImage → `canvas-quad.png` → `cover_quad_split.py --canvas` (auto-normalize 2048×1152). Top-up Kie = needs-human.
+- `--canvas-local` в `quad_apply.py` не существует; локальный файл режь через split `--canvas`.
 
 ## Scout
 
@@ -54,3 +59,4 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator CLI: только `--blog-dir` (+ `--out-dir`, `--site-base`). Флага `--blog-path` нет; doctor проверяет `--blog-dir`.

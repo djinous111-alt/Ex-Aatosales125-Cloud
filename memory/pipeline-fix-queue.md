@@ -95,7 +95,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
 - JSON parse `memory/brief/editorial-policy.json`
 - `utility_gate --article-dir B01` → PASS (pain=6, outcome=5, action=27)
-commit: e672a64d9da513f34ee7b98b8ab2c7f5e3e9723f
+commit: 3d871ab
 
 ## INC-20260723-2121-cloud-typed-geo-qa-missing
 status: fixed
@@ -143,7 +143,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` for geo-qa generalPurpose fallback in AGENTS.md / CLOUD-AUTOMATION.md / orchestrator
-commit: e672a64d9da513f34ee7b98b8ab2c7f5e3e9723f
+commit: 3d871ab
 
 ## INC-20260723-2106-research-notes-gate-format-quirks
 status: fixed
@@ -195,7 +195,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
 - `python3 scripts/excalibur_blog_research_notes_gate.py --self-test` → PASS
 - research-notes-gate B01 → PASS (`technical_topic=false`)
-commit: e672a64d9da513f34ee7b98b8ab2c7f5e3e9723f
+commit: 3d871ab
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

@@ -22,9 +22,21 @@ This keeps waiting in the shell process instead of a single MCP request.
 ## Cover command
 
 ```bash
-python scripts/excalibur_blog_kie_gpt_image2_api.py \
-  --article-dir memory/blog/articles/<topic_id>-<slug>
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --min-credits 2.0
 ```
+
+Credits preflight only:
+
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --credits-only --min-credits 2.0
+```
+
+Calls `GET /api/v1/chat/credit` and writes `cover/kie-credits-preflight.json`.  
+If balance < min (default 2.0 for 2K i2i) → blocker before createTask. Human must top up `KIE_API_KEY` wallet; cover may use emergency GenerateImage→2048×1152→split fallback.
 
 The script reads:
 
@@ -32,13 +44,14 @@ The script reads:
 
 The script writes:
 
+- `cover/kie-credits-preflight.json` -> balance / min / ok
 - `cover/kie-image-task.json` -> `task_id` and non-secret status
 - `cover/quad-mcp-result.json` -> generated URL, compatible with `quad_apply`
 
 Then run:
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --inject-html
 ```

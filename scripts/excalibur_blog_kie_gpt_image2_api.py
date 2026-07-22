@@ -23,10 +23,12 @@ from typing import Any
 
 DEFAULT_CREATE_URL = "https://api.kie.ai/api/v1/jobs/createTask"
 DEFAULT_RECORD_URL = "https://api.kie.ai/api/v1/jobs/recordInfo"
+DEFAULT_CREDIT_URL = "https://api.kie.ai/api/v1/chat/credit"
 DEFAULT_MODEL = "gpt-image-2-image-to-image"
 DEFAULT_API_KEY_ENV = "KIE_API_KEY"
 DEFAULT_POLL_INTERVAL_SECONDS = 15
 DEFAULT_MAX_WAIT_SECONDS = 900
+DEFAULT_MIN_CREDITS_2K_I2I = 2.0
 
 
 class KieApiError(RuntimeError):
@@ -93,6 +95,66 @@ def require_success(response: dict[str, Any], action: str) -> None:
         return
     msg = response.get("msg") or "unknown error"
     raise KieApiError(f"Kie API {action} failed: code={response.get('code')} msg={msg}")
+
+
+def parse_credit_balance(response: dict[str, Any]) -> float:
+    """Extract numeric credit balance from Kie /chat/credit payload variants."""
+    data = response.get("data")
+    candidates: list[Any] = []
+    if isinstance(data, (int, float, str)):
+        candidates.append(data)
+    elif isinstance(data, dict):
+        for key in ("credit", "credits", "balance", "remainCredit", "remain_credit", "amount"):
+            if key in data:
+                candidates.append(data[key])
+        nested = data.get("data")
+        if isinstance(nested, dict):
+            for key in ("credit", "credits", "balance"):
+                if key in nested:
+                    candidates.append(nested[key])
+    for key in ("credit", "credits", "balance"):
+        if key in response:
+            candidates.append(response[key])
+    for raw in candidates:
+        try:
+            return float(raw)
+        except (TypeError, ValueError):
+            continue
+    raise KieApiError(f"Kie credit response missing numeric balance: {response!r}")
+
+
+def fetch_credit_balance(credit_url: str, api_key: str) -> float:
+    response = http_json("GET", credit_url, api_key)
+    # Some Kie endpoints return HTTP 200 with business code; tolerate missing code.
+    if "code" in response and response.get("code") not in (200, None, "200"):
+        require_success(response, "credit")
+    return parse_credit_balance(response)
+
+
+def ensure_min_credits(
+    *,
+    api_key: str,
+    credit_url: str,
+    min_credits: float,
+    article_dir: Path | None = None,
+) -> dict[str, Any]:
+    balance = fetch_credit_balance(credit_url, api_key)
+    record = {
+        "credit_url": credit_url,
+        "balance": balance,
+        "min_credits": min_credits,
+        "ok": balance >= min_credits,
+        "checked_at_epoch": int(time.time()),
+    }
+    if article_dir is not None:
+        save_json(article_dir / "cover" / "kie-credits-preflight.json", record)
+    if not record["ok"]:
+        raise KieApiError(
+            f"Kie credits insufficient: balance={balance} < min_credits={min_credits}. "
+            "Top up KIE_API_KEY wallet or use emergency GenerateImage fallback "
+            "(2048×1152 → cover_quad_split)."
+        )
+    return record
 
 
 def batch_mcp_args(batch_path: Path) -> dict[str, Any]:
@@ -232,12 +294,24 @@ def main() -> int:
     ap.add_argument("--api-key-env", default=DEFAULT_API_KEY_ENV)
     ap.add_argument("--create-url", default=DEFAULT_CREATE_URL)
     ap.add_argument("--record-url", default=DEFAULT_RECORD_URL)
+    ap.add_argument("--credit-url", default=DEFAULT_CREDIT_URL)
     ap.add_argument("--model", default=DEFAULT_MODEL)
     ap.add_argument("--callback-url", default=os.environ.get("KIE_CALLBACK_URL", "").strip())
     ap.add_argument("--poll-interval", type=int, default=DEFAULT_POLL_INTERVAL_SECONDS)
     ap.add_argument("--max-wait", type=int, default=DEFAULT_MAX_WAIT_SECONDS)
     ap.add_argument("--task-id", default="", help="Poll an existing Kie task instead of creating a new one")
     ap.add_argument("--create-only", action="store_true", help="Create task, write task record, and exit")
+    ap.add_argument(
+        "--min-credits",
+        type=float,
+        default=DEFAULT_MIN_CREDITS_2K_I2I,
+        help="Preflight minimum Kie wallet balance before createTask (0 skips check)",
+    )
+    ap.add_argument(
+        "--credits-only",
+        action="store_true",
+        help="Only run credit preflight and write cover/kie-credits-preflight.json",
+    )
     ap.add_argument("--dry-run", action="store_true", help="Validate batch and print sanitized create payload")
     args = ap.parse_args()
 
@@ -245,6 +319,9 @@ def main() -> int:
     batch_path = resolve_path(root, args.article_dir, args.batch)
     result_path = resolve_path(root, args.article_dir, args.result)
     task_record_path = resolve_path(root, args.article_dir, args.task_record)
+    article_dir = Path(args.article_dir)
+    if not article_dir.is_absolute():
+        article_dir = root / article_dir
 
     try:
         image_input = batch_mcp_args(batch_path)
@@ -266,6 +343,20 @@ def main() -> int:
                 file=sys.stderr,
             )
             return 1
+
+        if args.min_credits > 0 or args.credits_only:
+            preflight = ensure_min_credits(
+                api_key=api_key,
+                credit_url=args.credit_url,
+                min_credits=args.min_credits if args.min_credits > 0 else DEFAULT_MIN_CREDITS_2K_I2I,
+                article_dir=article_dir,
+            )
+            print(
+                f"Kie credits preflight: balance={preflight['balance']} "
+                f"min={preflight['min_credits']} ok={preflight['ok']}"
+            )
+            if args.credits_only:
+                return 0
 
         task_id = args.task_id.strip()
         create_response: dict[str, Any] | None = None

@@ -20,12 +20,16 @@ python scripts/excalibur_blog_fact_checker.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/fact-check-report.json
 
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/link-verify.json \
-  --site-base https://YOUR_SITE
+  --site-base "$PUBLIC_SITE_URL"
+```
 
-python scripts/excalibur_blog_html_linter.py \
+`link_verify` редактирует значения Cloud Secret URL (`PUBLIC_SITE_URL`/`CATALOG_URL`/`TELEGRAM_URL`) в отчёте → `[REDACTED]` (commit-safe).
+
+```bash
+python3 scripts/excalibur_blog_html_linter.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/html-linter-report.json
 ```
@@ -33,11 +37,11 @@ python scripts/excalibur_blog_html_linter.py \
 HTML linter **блокирует оглавление в теле** (`<ol>/<ul>` с 3+ ссылками `href="#..."`) и любые теги вне whitelist, включая `<pre>`/`<code>`. При fail — Writer удаляет TOC (после инсайт-блока сразу `<p>`) или заменяет код/шаблон на whitelist-safe HTML (`<blockquote><p>...<br>...</p></blockquote>`, таблицу или список). Инсайт-блок не должен начинаться с шаблонного ярлыка `TL;DR` или фразы `Быстрый инсайт`. `research_notes_gate.py -o research-notes-gate.json` пишет файл внутри `--article-dir`; не передавай туда repo-relative путь с повтором `memory/blog/articles/...`.
 
 ```bash
-python scripts/excalibur_blog_slop_detector.py \
+python3 scripts/excalibur_blog_slop_detector.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/slop-detector-report.json
 
-python scripts/excalibur_blog_cannibalization_guard.py \
+python3 scripts/excalibur_blog_cannibalization_guard.py \
   --blog-dir memory/blog/articles \
   -o memory/blog/articles/<dir>/cannibalization-report.json
 

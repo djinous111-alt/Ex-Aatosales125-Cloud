@@ -22,7 +22,7 @@
 Перед research:
 
 ```bash
-python scripts/excalibur_blog_utility_gate.py --topic-id B01
+python3 scripts/excalibur_blog_utility_gate.py --topic-id AS10
 ```
 
 **Blocker `UTILITY TOPIC BLOCKER`** — тему не пускаем в пайплайн.
@@ -73,13 +73,19 @@ python scripts/excalibur_blog_research_notes_gate.py \
 ## Gate 4 — GEO QA
 
 ```bash
-python scripts/excalibur_blog_utility_gate.py \
+python3 scripts/excalibur_blog_utility_gate.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
 **Blocker `UTILITY ARTICLE BLOCKER`** — writer правит (FIX), QA не PASS.
 
+Utility gate считает `pain_markers_ru` / `outcome_markers_ru` из `editorial-policy.json`
+(при пустых списках — fallback на markers из `excalibur_blog_human_voice_gate.py`).
+Пустые списки без fallback больше не дают false-BLOCK по `min_pain`/`min_outcome`.
+
 Плюс slop-detector (вода/штампы).
+`excalibur_blog_link_verify.py` при записи отчёта редактирует значения
+`PUBLIC_SITE_URL`/`CATALOG_URL`/`TELEGRAM_URL` из env в `[REDACTED]`, чтобы commit не ломался secret-scan.
 
 ## Как провернуть без воды (чеклист редактора)
 

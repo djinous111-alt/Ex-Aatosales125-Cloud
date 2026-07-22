@@ -30,6 +30,12 @@
     - Атрибут `id` у `<h2>` — только если нужен для внешней перелинковки; не создавай оглавление в теле статьи.
     - В конце статьи (перед FAQ) вставляй блок верификации (**Fact Check Box**) через `<blockquote>` от редакции Авто-Сейлс. **Не** упоминай Wordstat и Метрику в тексте статьи.
 
+## CTA и pre-commit secret-scan
+
+- В `article.html` оставляй **живые** catalog/Telegram href из conversion-map (не `[REDACTED]` — иначе GEO QA link-verify ломается).
+- На CTA-абзацах с этими URL добавляй HTML-комментарий `<!-- pragma: allowlist secret -->` в том же параграфе/строке, чтобы Cloud pre-commit не блокировал commit.
+- Utility gate считает `pain_markers_ru` / `outcome_markers_ru` из `editorial-policy.json` (и fallback human-voice markers): lead/H2 должны содержать маркеры боли и результата.
+
 ## Выход
 
 ```text

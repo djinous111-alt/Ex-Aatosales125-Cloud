@@ -73,9 +73,18 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
 
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
     root_label = ssh_root_label(env)
+    paramiko_ok = True
+    try:
+        import paramiko  # noqa: F401
+    except ImportError:
+        paramiko_ok = False
+    missing = list(validate_publish_env(env))
+    if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes" and not paramiko_ok:
+        missing.append("paramiko")
     return {
         "allow_publish": env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes",
         "public_site_url_configured": bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")),
+        "paramiko_available": paramiko_ok,
         "ssh": {
             "host_configured": bool(env.get("SSH_HOST")),
             "user_configured": bool(env.get("SSH_USER")),
@@ -83,7 +92,7 @@ def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
             "root": root_label,
             "dot_fallback_enabled": root_label == "configured-non-dot",
         },
-        "missing": validate_publish_env(env),
+        "missing": missing,
     }
 
 

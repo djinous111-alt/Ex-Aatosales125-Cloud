@@ -187,10 +187,21 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
 
     pain_markers = policy.get("pain_markers_ru") or []
     outcome_markers = policy.get("outcome_markers_ru") or []
+    # Keep utility markers aligned with human-voice gate when policy lists are empty.
+    if not pain_markers or not outcome_markers:
+        try:
+            from excalibur_blog_human_voice_gate import OUTCOME_MARKERS, PAIN_MARKERS
+
+            if not pain_markers:
+                pain_markers = list(PAIN_MARKERS)
+            if not outcome_markers:
+                outcome_markers = list(OUTCOME_MARKERS)
+        except Exception:  # noqa: BLE001
+            pass
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 
-    # Enforce only when marker lists are configured; empty lists + default mins
+    # Enforce only when marker lists are non-empty; empty lists + default mins
     # otherwise make every article BLOCK (false-positive utility gate).
     min_pain = int(req.get("min_pain_markers") or 2)
     if pain_markers and pain_count < min_pain:

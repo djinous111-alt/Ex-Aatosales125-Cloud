@@ -96,7 +96,13 @@ def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
+    notes_blob = notes[:2000].lower()
+    # Required research headings must not trip tech markers
+    # (esp. substring "github" inside "github_evidence: n/a" on every article).
+    for field in REQUIRED_FIELDS:
+        label = field.split(":")[0].strip().lower()
+        notes_blob = re.sub(rf"{re.escape(label)}\s*:", " ", notes_blob)
+    blob += " " + notes_blob
     if any(_tech_marker_in_blob(blob, m, whole_word=True) for m in TECH_MARKERS_WORD):
         return True
     return any(_tech_marker_in_blob(blob, m, whole_word=False) for m in TECH_MARKERS_SUBSTR)

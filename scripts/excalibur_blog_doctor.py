@@ -133,8 +133,19 @@ def main() -> int:
         check=False,
     )
     check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check("--blog-path" not in llms_help.stdout, "llms generator has no stale --blog-path", errors, warnings)
 
     env = merged_publish_env(root)
+    allow_publish = env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes"
+    # Paramiko is required for SSH publish; fail early when publish is enabled,
+    # otherwise warn so research/cover runs are not blocked.
+    check(
+        module_available("paramiko"),
+        "paramiko available (SSH publish)",
+        errors,
+        warnings,
+        warn=not (args.publish or allow_publish),
+    )
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))
     check(has_public, "PUBLIC_SITE_URL/WP_SITE_URL configured", errors, warnings, warn=not args.publish)
     check(bool(env.get("SSH_HOST")), "SSH host configured", errors, warnings, warn=not args.publish)
@@ -147,7 +158,7 @@ def main() -> int:
         warn=not args.publish,
     )
     check(
-        env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes",
+        allow_publish,
         "EXCALIBUR_BLOG_ALLOW_PUBLISH=yes",
         errors,
         warnings,

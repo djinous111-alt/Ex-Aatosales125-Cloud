@@ -6,8 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_needs-human (AS10):_
+- `INC-20260722-1332-cover-kie-credits-insufficient` — human top-up of Kie credits
+- `INC-20260722-1606-director-precommit-secret-name` — rename non-bash-identifier Cloud Secret names
+
+## Incidents
+
 ## INC-20260722-1341-publish-paramiko-missing
-status: open
+status: fixed
+fixed_at: 2026-07-22
+fix_summary:
+- `.cursor/cloud-agent-install.sh` and `.cursor/Dockerfile` install `paramiko` (+ numpy).
+- `requirements.txt` lists paramiko/numpy/requests/python-dotenv.
+- Doctor WARN/FAIL if paramiko missing when allow_publish or `--publish`.
+- `wp_publish.py --env-check` reports `paramiko_available` and lists missing paramiko.
+- Pitfalls + publish skill document the dependency.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/Dockerfile`
+- `requirements.txt`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile` doctor/wp_publish
+- `python3 scripts/excalibur_blog_doctor.py` (errors=0)
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check` (paramiko_available=true)
+commit: pending-parent-commit
+
+### Original report
 run_date: 2026-07-22
 role: excalibur-blog-publish
 topic_id: AS10
@@ -41,12 +70,31 @@ category: env
 ### Secrets
 - none recorded
 
-### Fixer resolution
-- pending
 
 
 ## INC-20260722-1332-cover-kie-credits-insufficient
-status: open
+status: needs-human
+fixed_at: 2026-07-22
+reason:
+- Durable code/docs added (`--min-credits` / `--credits-only`, emergency GenerateImage path in cover skill + kie contract + pitfalls).
+- Live Kie wallet still needs a human top-up before the next cover run can use Kie/MCP without fallback.
+needed_decision_or_secret:
+- Top up credits on the `KIE_API_KEY` wallet (balance was negative; min ~2.0 for 2K i2i).
+fix_summary:
+- Added `--min-credits` (default 2.0) and `--credits-only` to `excalibur_blog_kie_gpt_image2_api.py`; writes `cover/kie-credits-preflight.json`.
+- Documented emergency GenerateImage → 2048×1152 → split fallback in cover skills + kie contract.
+files_changed:
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --help` shows --min-credits/--credits-only
+- smoke `parse_credit_balance`
+commit: pending-parent-commit
+
+### Original report
 run_date: 2026-07-22
 role: excalibur-blog-cover
 topic_id: AS10
@@ -82,12 +130,32 @@ category: api
 ### Secrets
 - none recorded
 
-### Fixer resolution
-- pending
 
 
 ## INC-20260722-1628-geo-qa-utility-pain-outcome-markers-missing
-status: open
+status: fixed
+fixed_at: 2026-07-22
+fix_summary:
+- Kept `pain_markers_ru`/`outcome_markers_ru` + mins in `editorial-policy.json`.
+- Utility gate enforces mins only when marker lists non-empty; empty policy falls back to human-voice PAIN/OUTCOME markers.
+- `link_verify.py` redacts Cloud Secret URL values in written reports.
+- Documented in editorial-utility-only, geo-qa skills, pitfalls, writer skill.
+files_changed:
+- `memory/brief/editorial-policy.json` (already present; verified)
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/editorial-utility-only.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_utility_gate.py --article-dir AS10…` PASS
+- smoke marker counting
+commit: pending-parent-commit
+
+### Original report
 run_date: 2026-07-22
 role: excalibur-blog-geo-qa
 topic_id: AS10
@@ -122,11 +190,27 @@ category: qa
 ### Secrets
 - none recorded
 
-### Fixer resolution
-- pending
 
 ## INC-20260722-1615-research-tech-marker-false-positive
-status: open
+status: fixed
+fixed_at: 2026-07-22
+fix_summary:
+- Whole-word matching for short TECH markers retained.
+- Strip required research field labels (esp. `github_evidence:`) before tech scan so every article is not marked technical.
+- Smoke test: Hyundai/комплектации + github_evidence label → not technical; MCP/API → technical.
+- Research skill documents accessed_at / pain_map tokens / AS|B topic ids.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `scripts/excalibur_blog_as10_incident_smoke.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- smoke tech markers PASS
+- research_notes_gate AS10 PASS (technical_topic=false)
+commit: pending-parent-commit
+
+### Original report
 run_date: 2026-07-22
 role: excalibur-blog-research
 topic_id: AS10
@@ -158,11 +242,27 @@ category: script
 ### Secrets
 - none recorded
 
-### Fixer resolution
-- pending
 
 ## INC-20260722-1606-director-precommit-secret-name
-status: open
+status: needs-human
+fixed_at: 2026-07-22
+reason:
+- Patch script kept and now invoked from `.cursor/cloud-agent-install.sh`.
+- Remaining: rename any URL-shaped Cloud Secret *names* in Dashboard to bash-safe identifiers.
+needed_decision_or_secret:
+- In Cursor Cloud Secrets, rename non-identifier secret names to `^[A-Za-z_][A-Za-z0-9_]*$` (e.g. avoid URL-as-name). Prefer named keys like `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`.
+fix_summary:
+- `scripts/excalibur_blog_patch_precommit_secret_scan.sh` remains canonical; install calls it each Cloud boot.
+- Pitfalls document bash-safe secret name rule.
+files_changed:
+- `scripts/excalibur_blog_patch_precommit_secret_scan.sh` (verified)
+- `.cursor/cloud-agent-install.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- script present; install snippet includes patch call
+commit: pending-parent-commit
+
+### Original report
 run_date: 2026-07-22
 role: excalibur-blog-director
 topic_id: n/a
@@ -187,12 +287,28 @@ category: env
 ### Secrets
 - none recorded
 
-### Fixer resolution
-- pending
 
 
 ## INC-20260722-1605-director-as-topic-id-prefix
-status: open
+status: fixed
+fixed_at: 2026-07-22
+fix_summary:
+- Verified `scripts/excalibur_topic_ids.py` + today/scout_helper AS|B wiring.
+- Incident contract topic_id allows ASxx|Bxx; research/editorial docs use AS examples; pitfalls updated.
+files_changed:
+- `scripts/excalibur_topic_ids.py` (verified)
+- `scripts/excalibur_blog_today.py` (verified)
+- `scripts/excalibur_blog_scout_helper.py` (verified)
+- `shared/pipeline-incident-fix-contract.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/excalibur-research/SKILL.md`
+checks_run:
+- smoke topic_ids AS|B
+- `python3 scripts/excalibur_blog_today.py` emits EXCALIBUR_SUGGESTED_TOPIC_ID=AS*
+commit: pending-parent-commit
+
+### Original report
 run_date: 2026-07-22
 role: excalibur-blog-director
 topic_id: n/a
@@ -219,11 +335,26 @@ category: script
 ### Secrets
 - none recorded
 
-### Fixer resolution
-- pending
 
 ## INC-20260722-1605-director-doctor-blog-path
-status: open
+status: fixed
+fixed_at: 2026-07-22
+fix_summary:
+- Doctor checks `--blog-dir` and asserts stale `--blog-path` absent.
+- Removed `--blog-path` from indexer agents/skills; documented pragma + CLI.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor OK llms --blog-dir / no --blog-path
+- rg confirms docs say no --blog-path as CLI flag
+commit: pending-parent-commit
+
+### Original report
 run_date: 2026-07-22
 role: excalibur-blog-director
 topic_id: n/a
@@ -247,8 +378,6 @@ category: script
 ### Secrets
 - none recorded
 
-### Fixer resolution
-- pending
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -497,7 +626,23 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20260722-1336-indexer-public-site-url-secret-scan
-status: open
+status: fixed
+fixed_at: 2026-07-22
+fix_summary:
+- llms generator appends `# pragma: allowlist secret` on URL lines when site_base is http(s).
+- Promotion checklist template Live URL includes HTML pragma.
+- Indexer skills document commit/secret-scan rule.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/excalibur/references/promotion-checklist-template.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- build_llms_txt emits pragma for http site_base
+commit: pending-parent-commit
+
+### Original report
 run_date: 2026-07-22
 role: excalibur-blog-indexer
 topic_id: AS10
@@ -528,15 +673,24 @@ category: env
 ### Secrets
 - none recorded
 
-### Fixer resolution
-- pending
 
-## Fixed incidents
-
-Handled above; commit is pending Director review.
 
 ## INC-20260722-1625-writer-cta-secret-scan
-status: open
+status: fixed
+fixed_at: 2026-07-22
+fix_summary:
+- Writer skills + article writing contract: live CTA hrefs + `<!-- pragma: allowlist secret -->`; never `[REDACTED]` in article.html.
+- Pitfalls CTA section added. Optional Cloud Secret rename of marketing URLs remains human preference (see precommit incident).
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg for CTA pragma guidance in writer skills/contract
+commit: pending-parent-commit
+
+### Original report
 run_date: 2026-07-22
 role: excalibur-blog-writer
 topic_id: AS10
@@ -564,5 +718,3 @@ category: env
 ### Secrets
 - none recorded
 
-### Fixer resolution
-- pending

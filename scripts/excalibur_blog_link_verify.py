@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import ssl
 import sys
@@ -130,6 +131,32 @@ def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
     return any(token in error for token in ("timed out", "timeout", "ssl", "network"))
 
 
+def redact_secret_urls(text: str, secret_values: list[str]) -> str:
+    """Replace known Cloud Secret URL values with [REDACTED] for commit-safe reports."""
+    redacted = text
+    for value in sorted({v for v in secret_values if v and len(v) >= 8}, key=len, reverse=True):
+        redacted = redacted.replace(value, "[REDACTED]")
+    return redacted
+
+
+def collect_url_secret_values() -> list[str]:
+    keys = (
+        "PUBLIC_SITE_URL",
+        "WP_HOME",
+        "WP_SITE_URL",
+        "CATALOG_URL",
+        "TELEGRAM_URL",
+        "SITE_URL",
+    )
+    values: list[str] = []
+    for key in keys:
+        raw = os.environ.get(key, "").strip()
+        if raw:
+            values.append(raw.rstrip("/"))
+            values.append(raw)
+    return values
+
+
 def verify_article(
     html_path: Path,
     *,
@@ -212,11 +239,17 @@ def main() -> int:
         timeout=args.timeout,
         skip_external=args.skip_external,
     )
-    text = json.dumps(report, ensure_ascii=False, indent=2)
+    # Redact Cloud Secret URL values so GEO QA can commit link-verify.json.
+    text = redact_secret_urls(
+        json.dumps(report, ensure_ascii=False, indent=2),
+        collect_url_secret_values(),
+    )
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(text + "\n", encoding="utf-8")
     print(text)
+    # Re-parse for verdict after redaction (structure unchanged).
+    report = json.loads(text)
     return 0 if report["verdict"] == "pass" else 1
 
 

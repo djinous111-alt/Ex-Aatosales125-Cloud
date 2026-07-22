@@ -138,7 +138,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_doctor.py`
 - `python3 scripts/excalibur_blog_doctor.py` → OK llms `--blog-dir`/`--out-dir`
 - `rg` no erroneous `--blog-path /` shell examples in durable indexer sources
-commit: 7168a9d
+commit: 11cf60d
 
 ## INC-20260722-2146-publish-paramiko-missing-from-cloud-install
 status: fixed
@@ -184,7 +184,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_doctor.py`
 - `python3 scripts/excalibur_blog_doctor.py` → OK paramiko
 - `import paramiko` OK in env
-commit: 7168a9d
+commit: 11cf60d
 
 
 ## INC-20260723-2120-utility-gate-empty-pain-outcome

@@ -354,3 +354,34 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20260722-0920-writer-precommit-secret-redact
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-writer
+topic_id: AS20
+article_dir: memory/blog/articles/AS20-levyj-rul-iz-korei-2026-kak-kupit
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` of safe article artifacts failed: Cloud pre-commit secrets scanner expands redacted env into bash and errors with `invalid variable name`.
+- Same root cause as INC-20260722-0910-scout-precommit-secret-redact (recurrence on writer step).
+
+### How the agent recovered this run
+- Verified staged files were only `article.html` and `article.meta.json`, then `git commit --no-verify` and push.
+
+### Durable fix needed before next run
+- Fix Cloud pre-commit secret-redact hook so empty/redacted secret names do not break bash.
+- Keep documented `--no-verify` path for article/schema commits when only this error appears (already in pitfalls/writer skill).
+
+### Suggested files to inspect/change
+- Cloud Agent pre-commit secrets scanner (environment hook)
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

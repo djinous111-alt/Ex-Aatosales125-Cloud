@@ -3,10 +3,10 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "@id": "https://avtosales125.ru/kia-k5-iz-korei-kak-vybrat-2026/#blogposting",
+      "@id": "[REDACTED]/kia-k5-iz-korei-kak-vybrat-2026/#blogposting",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://avtosales125.ru/kia-k5-iz-korei-kak-vybrat-2026/"
+        "@id": "[REDACTED]/kia-k5-iz-korei-kak-vybrat-2026/"
       },
       "headline": "Kia K5 из Кореи: как выбрать комплектацию и не ошибиться с мощностью в 2026",
       "description": "Как выбрать киа к5 из кореи в 2026: мотор до 160 л.с., Prestige/Noblesse/Signature, LPG vs бензин, чек-лист Encar до депозита. Расчёт – в каталоге Авто-Сейлс.",
@@ -16,19 +16,19 @@
       "image": "cover/cover.png",
       "author": {
         "@type": "Person",
-        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "@id": "[REDACTED]/#author-avtosales-editorial",
         "name": "Редакция Авто-Сейлс",
         "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
         "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
-        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "image": "[REDACTED]/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
         "worksFor": {
           "@type": "Organization",
           "name": "Авто-Сейлс",
           "alternateName": "AVTO SALES",
-          "url": "https://avtosales125.ru/"
+          "url": "[REDACTED]/"
         },
         "sameAs": [
-          "https://avtosales125.ru/",
+          "[REDACTED]/",
           "https://avto-sales125.ru/",
           "https://t.me/avtosales125",
           "https://max.ru/id2508140890_biz",
@@ -38,10 +38,10 @@
       },
       "publisher": {
         "@type": "Organization",
-        "@id": "https://avtosales125.ru/#organization",
+        "@id": "[REDACTED]/#organization",
         "name": "Авто-Сейлс",
         "alternateName": "AVTO SALES",
-        "url": "https://avtosales125.ru/",
+        "url": "[REDACTED]/",
         "sameAs": [
           "https://t.me/avtosales125",
           "https://avto-sales125.ru/"
@@ -56,7 +56,7 @@
     },
     {
       "@type": "FAQPage",
-      "@id": "https://avtosales125.ru/kia-k5-iz-korei-kak-vybrat-2026/#faq",
+      "@id": "[REDACTED]/kia-k5-iz-korei-kak-vybrat-2026/#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -118,7 +118,7 @@
     },
     {
       "@type": "HowTo",
-      "@id": "https://avtosales125.ru/kia-k5-iz-korei-kak-vybrat-2026/#howto",
+      "@id": "[REDACTED]/kia-k5-iz-korei-kak-vybrat-2026/#howto",
       "name": "Как выбрать Kia K5 из Кореи по комплектации и мощности до 160 л.с.",
       "description": "Пошаговый выбор K5 с Encar до депозита: мотор ≤160 л.с., тримы Prestige/Noblesse/Signature, LPG vs бензин, чек-лист и черновая смета.",
       "totalTime": "PT40M",
@@ -156,56 +156,56 @@
           "position": 1,
           "name": "Зафиксировать цель: льгота или динамика",
           "text": "До фильтров на Encar ответьте честно: нужен спокойный седан с понятной сметой или турбо любой ценой. Сделайте в заметках фразу: «K5, мотор до 160 л.с., бензин 2.0 или заводской LPG».",
-          "url": "https://avtosales125.ru/kia-k5-iz-korei-kak-vybrat-2026/#зафиксируйте-цель-k5-под-льготный-утиль-или-хочу-динамику"
+          "url": "[REDACTED]/kia-k5-iz-korei-kak-vybrat-2026/#зафиксируйте-цель-k5-под-льготный-утиль-или-хочу-динамику"
         },
         {
           "@type": "HowToStep",
           "position": 2,
           "name": "Отсеять мотор до 160 л.с.",
           "text": "Оставьте 2.0 бензин до 160 л.с. и/или заводской LPG около 146 л.с.; гибрид — только после сверки мощности в документах. 1.6 T-GDi 180 л.с. сразу в стоп-лист для льготного сценария.",
-          "url": "https://avtosales125.ru/kia-k5-iz-korei-kak-vybrat-2026/#отсейте-мотор-что-реально-проходит-по-мощности-в-2026"
+          "url": "[REDACTED]/kia-k5-iz-korei-kak-vybrat-2026/#отсейте-мотор-что-реально-проходит-по-мощности-в-2026"
         },
         {
           "@type": "HowToStep",
           "position": 3,
           "name": "Сравнить комплектации Prestige / Noblesse / Signature",
           "text": "Выберите 1–2 трима как уровень опций, а не ярлык мощности. Не путайте GT-Line/обвес с проходным мотором; в каждом лоте читайте строку двигателя.",
-          "url": "https://avtosales125.ru/kia-k5-iz-korei-kak-vybrat-2026/#сравните-комплектации-prestige-noblesse-signature-и-ловушка-gt-line"
+          "url": "[REDACTED]/kia-k5-iz-korei-kak-vybrat-2026/#сравните-комплектации-prestige-noblesse-signature-и-ловушка-gt-line"
         },
         {
           "@type": "HowToStep",
           "position": 4,
           "name": "Выбрать топливо: бензин 2.0 или заводской LPG",
           "text": "Берите LPI, если готовы к адаптеру ВЗУ и сервису газа; для привычного бензина без возни с ВЗУ — 2.0 до 160 л.с. Турбо 180 в этот выбор не входит при льготной смете.",
-          "url": "https://avtosales125.ru/kia-k5-iz-korei-kak-vybrat-2026/#выберите-топливо-бензин-20-или-kia-k5-на-газу-с-завода"
+          "url": "[REDACTED]/kia-k5-iz-korei-kak-vybrat-2026/#выберите-топливо-бензин-20-или-kia-k5-на-газу-с-завода"
         },
         {
           "@type": "HowToStep",
           "position": 5,
           "name": "Прочитать карточку Encar до депозита",
           "text": "Сохраните лот, сверьте л.с., Performance Check (X/W на силовых), признаки Rent/Lease, запросите Carhistory по VIN. Нет полного VIN — нет разговора о депозите.",
-          "url": "https://avtosales125.ru/kia-k5-iz-korei-kak-vybrat-2026/#прочитайте-карточку-encar-чеклист-до-депозита"
+          "url": "[REDACTED]/kia-k5-iz-korei-kak-vybrat-2026/#прочитайте-карточку-encar-чеклист-до-депозита"
         },
         {
           "@type": "HowToStep",
           "position": 6,
           "name": "Собрать черновую смету под ключ",
           "text": "Считайте по строкам: инвойс Encar → доставка → таможня и утиль → Владивосток/СВХ → учёт и логистика по РФ. Не складывайте смету на глаз по витринному «от … ₽».",
-          "url": "https://avtosales125.ru/kia-k5-iz-korei-kak-vybrat-2026/#соберите-черновую-смету-под-ключ-без-угадывания-по-объявлению"
+          "url": "[REDACTED]/kia-k5-iz-korei-kak-vybrat-2026/#соберите-черновую-смету-под-ключ-без-угадывания-по-объявлению"
         },
         {
           "@type": "HowToStep",
           "position": 7,
           "name": "Пройти чек-лист перед бронью",
           "text": "В заметках должны быть: топливо и мощность ≤160, турбо 180 отсеян, 1–2 комплектации с пониманием «имя ≠ мотор», чеклист Encar+Carhistory заполнен. Только после этого обсуждайте депозит.",
-          "url": "https://avtosales125.ru/kia-k5-iz-korei-kak-vybrat-2026/#чек-лист-перед-бронью-как-понять-что-вы-готовы"
+          "url": "[REDACTED]/kia-k5-iz-korei-kak-vybrat-2026/#чек-лист-перед-бронью-как-понять-что-вы-готовы"
         },
         {
           "@type": "HowToStep",
           "position": 8,
           "name": "Отправить бриф на расчёт",
           "text": "Запишите бриф, вычеркните турбо 180, соберите VIN+схему+Carhistory по кандидату и отправьте ссылку на расчёт в каталог Авто-Сейлс — без оплаты вслепую.",
-          "url": "https://avtosales125.ru/kia-k5-iz-korei-kak-vybrat-2026/#что-сделать-сегодня"
+          "url": "[REDACTED]/kia-k5-iz-korei-kak-vybrat-2026/#что-сделать-сегодня"
         }
       ]
     }

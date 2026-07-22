@@ -1,7 +1,7 @@
 # Promotion checklist — B01 kia-k5-iz-korei-kak-vybrat-2026
 
-Дата публикации: 2026-07-22 (pending publish)  
-Live URL: https://avtosales125.ru/blog/kia-k5-iz-korei-kak-vybrat-2026/
+Дата публикации: 2026-07-22  
+Live URL: [REDACTED]/2026/07/22/kia-k5-iz-korei-kak-vybrat-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Signature на фото ≠ мотор до 160
 • Для льготного утиля сначала фильтр: мотор ≤160 л.с.
 • Турбо 1.6 на 180 — стоп; до депозита VIN + Carhistory + смета
 
-Читать: https://avtosales125.ru/blog/kia-k5-iz-korei-kak-vybrat-2026/
+Читать: [REDACTED]/2026/07/22/kia-k5-iz-korei-kak-vybrat-2026/
 ```
 
 ## Перелинковка
@@ -47,4 +47,4 @@ Signature на фото ≠ мотор до 160
 
 - Indexer: interlinker `--apply --article-dir memory/blog/articles/B01-kia-k5-iz-korei-kak-vybrat-2026` — opportunities_found=0.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (B01 включён в индекс, 3 articles).
-- Publish: pending после Indexer.
+- Publish: PASS post_id=3619; Live URL set.

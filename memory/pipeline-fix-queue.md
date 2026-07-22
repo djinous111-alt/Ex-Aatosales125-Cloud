@@ -431,3 +431,38 @@ category: api
 ### Fixer resolution
 - pending
 
+
+## INC-20260722-1740-publish-paramiko-missing-install
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-k5-iz-korei-kak-vybrat-2026
+severity: medium
+category: env
+
+### What went wrong
+- `import paramiko` failed (`ModuleNotFoundError`) before SSH publish; `requirements.txt` lists `paramiko`, but `.cursor/Dockerfile` and `.cursor/cloud-agent-install.sh` pip lines install only requests/pillow/python-dotenv (no paramiko).
+- Cloud Secret `SSH_ROOT` was unset this run (length 0); prior durable note says login cwd needs `SSH_ROOT=.`.
+
+### How the agent recovered this run
+- Installed paramiko via `pip3 install --break-system-packages paramiko` (apt python3-paramiko unavailable / externally-managed env).
+- Exported `SSH_ROOT=.` for the publish session; SSH upload OK; HTTP trigger OK without WebFetch fallback.
+- Publish PASS: post=3619, featured=3620, inline=3621,3622,3623, schema_meta=1.
+
+### Durable fix needed before next run
+- Add `paramiko` to `.cursor/Dockerfile` and `.cursor/cloud-agent-install.sh` pip install lists (keep aligned with `requirements.txt`).
+- Ensure Cloud Secret `SSH_ROOT=.` is set (or default unset root to `.` in publish script candidates).
+
+### Suggested files to inspect/change
+- `.cursor/Dockerfile`
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `scripts/excalibur_blog_wp_publish.py`
+- Cursor Dashboard Cloud Secrets (`SSH_ROOT` only)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

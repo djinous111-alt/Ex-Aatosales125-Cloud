@@ -392,3 +392,42 @@ category: qa
 
 ### Fixer resolution
 - pending
+
+## INC-20260722-1735-cover-kie-credits-generateimage-fallback
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-k5-iz-korei-kak-vybrat-2026
+severity: high
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` (MCP-KV) failed with wrapper error: `NoneType object has no attribute get` (no image URL returned).
+- Preferred direct Kie path `scripts/excalibur_blog_kie_gpt_image2_api.py` returned HTTP/API 402: Credits insufficient.
+- Same Kie credit gap already noted after AS10; cover cannot rely on gpt-image-2 until top-up.
+
+### How the agent recovered this run
+- Emergency Cursor `GenerateImage` fallback with reference `memory/cover/assets/blog-hero-reference.png` + quad prompt from `cover/quad-mcp-batch.json`.
+- Resized/cropped emergency canvas from 1536x1024 to canonical 2048x1152 16:9, then `excalibur_blog_cover_quad_split.py --inject-html`.
+- Wrote `cover/quad-mcp-result.json` with source=`emergency_GenerateImage_fallback`; split PASS; 3 inline figures injected.
+
+### Durable fix needed before next run
+- Top up Kie credits for `KIE_API_KEY` (needs-human / billing).
+- Document emergency GenerateImage fallback in `skills/cover-excalibur-blog/SKILL.md` + `shared/pipeline-task-map.md` (prompt → local canvas → resize 2048x1152 → split; note GenerateImage may not emit exact 16:9).
+- Harden MCP-KV `gpt-image-2` wrapper against None response (surface credits/402 clearly instead of NoneType).
+- Optional: `quad_apply` accept `--canvas-local` for non-URL emergency path.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/pipeline-task-map.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `scripts/excalibur_blog_quad_apply.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

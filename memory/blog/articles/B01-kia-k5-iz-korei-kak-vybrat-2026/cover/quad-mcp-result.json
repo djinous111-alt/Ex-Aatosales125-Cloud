@@ -1,0 +1,9 @@
+{
+  "url": "file://memory/blog/articles/B01-kia-k5-iz-korei-kak-vybrat-2026/cover/canvas-quad.png",
+  "source": "emergency_GenerateImage_fallback",
+  "reason": "Kie credits insufficient (402); MCP gpt-image-2 NoneType error",
+  "mcp_attempted": true,
+  "kie_api_attempted": true,
+  "aspect_ratio": "16:9",
+  "pipeline": "quad_canvas_1x_mcp_emergency_generateimage"
+}

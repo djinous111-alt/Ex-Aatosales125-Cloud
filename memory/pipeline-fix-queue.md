@@ -286,3 +286,38 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20260722-1715-research-notes-gate-tech-false-positive
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-k5-iz-korei-kak-vybrat-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marked auto-import topic as `technical_topic` because TECH_MARKERS used substring match: `ai` inside `reader_pain`, `ии` inside Russian words like `комплектации` / `России`.
+- Gate then required 3 GitHub URLs for a non-code niche (Encar/K5), blocking research PASS.
+- Additionally, `accessed_at` was counted only with `accessed_at:` colon form (table column headers did not count), and `pain_solution_map` row regex required the words pain/solution/result on every data row.
+
+### How the agent recovered this run
+- Patched `is_technical_topic` to use word-boundary match for markers with length <= 3.
+- Added explicit `accessed_at:` stamps and prefixed pain/solution/result labels in `pain_solution_map` rows.
+- Re-ran research-notes gate to PASS.
+
+### Durable fix needed before next run
+- Keep word-boundary (or length-aware) matching for short TECH_MARKERS; add regression test with a Russian auto topic containing `reader_pain` and `комплектации` that must NOT require GitHub.
+- Optionally document that `github_evidence` may be docs/community for non-tech niches without forcing github.com URLs.
+- Consider counting `accessed_at` cells in markdown tables, not only `accessed_at:` key lines.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md` (github_evidence for non-tech)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

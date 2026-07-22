@@ -1,0 +1,107 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-22",
+    "today_ru": "22.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-23",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-22 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "kia-k5-iz-korei-kak-vybrat-2026",
+    "h1": "Kia K5 из Кореи: как выбрать комплектацию и не ошибиться с мощностью в 2026",
+    "primary_query": "киа к5 из кореи",
+    "secondary_queries": [
+      "купить киа к5 из кореи",
+      "киа к5 из кореи отзывы",
+      "киа к5 привезти из кореи",
+      "сколько стоит киа к5 из кореи",
+      "киа к5 на газу из кореи"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "киа к5 из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "киа к5 из кореи июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "киа к5 из кореи новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com киа к5 из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "киа к5 из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "киа к5 из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "купить киа к5 из кореи 2026",
+      "purpose": "вторичный запрос: купить киа к5 из кореи"
+    },
+    {
+      "id": "secondary_2",
+      "query": "киа к5 из кореи отзывы 2026",
+      "purpose": "вторичный запрос: киа к5 из кореи отзывы"
+    },
+    {
+      "id": "secondary_3",
+      "query": "киа к5 привезти из кореи 2026",
+      "purpose": "вторичный запрос: киа к5 привезти из кореи"
+    },
+    {
+      "id": "secondary_4",
+      "query": "сколько стоит киа к5 из кореи 2026",
+      "purpose": "вторичный запрос: сколько стоит киа к5 из кореи"
+    },
+    {
+      "id": "secondary_5",
+      "query": "киа к5 на газу из кореи 2026",
+      "purpose": "вторичный запрос: киа к5 на газу из кореи"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Kia K5 из Кореи: как выбрать комплектацию и не ошибиться с мощностью в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-kia-k5-iz-korei-kak-vybrat-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

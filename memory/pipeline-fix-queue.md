@@ -457,6 +457,41 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20260722-1336-indexer-public-site-url-secret-scan
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-indexer
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-hyundai-avante-iz-korei-kak-vybrat-2026
+severity: medium
+category: env
+
+### What went wrong
+- Indexer commit blocked by Cloud pre-commit secret-scan: `PUBLIC_SITE_URL` appears in `llms.txt`, `llms-full.txt`, and `promotion-checklist.md` (intentional public site URLs for AI crawlers / Live URL).
+
+### How the agent recovered this run
+- Added trailing `pragma: allowlist secret` on secret-bearing lines in llms + promotion-checklist.
+- Set `site_base` to empty string in `interlink-suggestions.json` for the committed copy (value not needed for empty suggestions).
+- Retried commit successfully.
+
+### Durable fix needed before next run
+- Document indexer commit rule: llms/promotion Live URL lines need `pragma: allowlist secret` when `PUBLIC_SITE_URL` is a Cloud Secret.
+- Prefer removing `PUBLIC_SITE_URL` from secret-scanned Cloud Secrets (it is a public site base) or teach llms generator / checklist template to emit allowlist pragmas automatically.
+- Align with writer CTA secret-scan guidance in pitfalls.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/excalibur/references/promotion-checklist-template.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

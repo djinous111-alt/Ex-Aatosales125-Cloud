@@ -308,7 +308,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_check_secret_names.py`
 - `python3 scripts/excalibur_blog_check_secret_names.py --json` (WARN: unsafe name present in env)
-commit: pending-parent-commit
+commit: 3f8fd7e
 
 ## INC-20260722-1715-research-notes-gate-tech-false-positive
 status: fixed
@@ -358,7 +358,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
 - `python3 scripts/excalibur_blog_research_notes_gate.py --self-test`
-commit: pending-parent-commit
+commit: 3f8fd7e
 
 ## INC-20260722-1718-geo-qa-utility-pain-outcome-policy-gap
 status: fixed
@@ -408,7 +408,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
 - `python3 -m json.tool memory/brief/editorial-policy.json`
 - unit assert DEFAULT_PAIN/OUTCOME markers present
-commit: pending-parent-commit
+commit: 3f8fd7e
 
 ## INC-20260722-1718-geo-qa-writer-redacted-cta-href
 status: fixed
@@ -457,7 +457,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
 - temp article with href placeholder → verdict fail / kind=placeholder
-commit: pending-parent-commit
+commit: 3f8fd7e
 
 ## INC-20260722-1735-cover-kie-credits-generateimage-fallback
 status: needs-human
@@ -520,7 +520,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_kie_gpt_image2_api.py scripts/excalibur_blog_quad_apply.py`
 - require_success(402) raises credits message
 - `quad_apply --help` shows `--canvas-local`
-commit: pending-parent-commit
+commit: 3f8fd7e
 
 ## INC-20260722-1740-publish-paramiko-missing-install
 status: fixed
@@ -574,5 +574,5 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - ssh_root_candidates({}) == ['.']
 - `rg paramiko` on Dockerfile/install/requirements
-commit: pending-parent-commit
+commit: 3f8fd7e
 

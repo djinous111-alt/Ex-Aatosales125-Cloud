@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260723-2140-indexer-llms-doctor-blog-path
+status: open
+run_date: 2026-07-23
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-pod-zakaz-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` требует `--blog-path` в help llms generator (`llms generator supports --blog-path`) → doctor FAIL / false-positive.
+- Реальный CLI `excalibur_blog_llms_generator.py` принимает только `--blog-dir` (нет `--blog-path`); передача `--blog-path /` даёт argparse error.
+- Agent/skill контракты всё ещё показывают `--blog-path /` рядом с `--blog-dir`.
+
+### How the agent recovered this run
+- Запустил llms generator с `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` **без** `--blog-path`.
+- Результат: `memory/blog/llms.txt`, `memory/blog/llms-full.txt` (3 articles).
+
+### Durable fix needed before next run
+- В doctor: проверять `--blog-dir` (и при необходимости `--out-dir`), не `--blog-path`.
+- Убрать `--blog-path /` из indexer agent/skill shell examples; оставить `--blog-dir` + `--blog-path /` только если флаг реально добавят в argparse (сейчас не нужен — URL path хардкодится как `/blog/{slug}/`).
+- Добавить note в `shared/agent-pipeline-pitfalls.md` (Indexer): doctor `--blog-path` = false-positive; используй `--blog-dir`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260723-2122-bash-unsafe-secret-names
 status: needs-human
 run_date: 2026-07-23
@@ -445,3 +483,38 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20260722-2146-publish-paramiko-missing-from-cloud-install
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-pod-zakaz-2026
+severity: high
+category: env
+
+### What went wrong
+- `scripts/excalibur_blog_wp_publish.py` failed on first real publish with `ModuleNotFoundError: No module named 'paramiko'`.
+- `paramiko` is listed in `requirements.txt`, but `.cursor/cloud-agent-install.sh` only installs `requests pillow python-dotenv`.
+- Cloud agent environment therefore cannot SSH-publish until paramiko is installed manually.
+
+### How the agent recovered this run
+- Installed paramiko with `pip3 install --break-system-packages paramiko` (v5.0.0).
+- Re-ran publish: SSH upload OK, HTTP trigger OK, post=3625, featured=3626, inline 3627–3629, schema_meta=1.
+
+### Durable fix needed before next run
+- Add `paramiko` (and ideally install from `requirements.txt`) to `.cursor/cloud-agent-install.sh` so SSH publish transport works out of the box.
+- Optionally align doctor/preflight to check `import paramiko` before publish step.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

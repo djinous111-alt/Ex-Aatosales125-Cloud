@@ -34,7 +34,7 @@ checks_run:
 - `python3 -m py_compile` doctor/wp_publish
 - `python3 scripts/excalibur_blog_doctor.py` (errors=0)
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (paramiko_available=true)
-commit: pending-parent-commit
+commit: a4403e8
 
 ### Original report
 run_date: 2026-07-22
@@ -92,7 +92,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --help` shows --min-credits/--credits-only
 - smoke `parse_credit_balance`
-commit: pending-parent-commit
+commit: a4403e8
 
 ### Original report
 run_date: 2026-07-22
@@ -153,7 +153,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir AS10…` PASS
 - smoke marker counting
-commit: pending-parent-commit
+commit: a4403e8
 
 ### Original report
 run_date: 2026-07-22
@@ -208,7 +208,7 @@ files_changed:
 checks_run:
 - smoke tech markers PASS
 - research_notes_gate AS10 PASS (technical_topic=false)
-commit: pending-parent-commit
+commit: a4403e8
 
 ### Original report
 run_date: 2026-07-22
@@ -260,7 +260,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - script present; install snippet includes patch call
-commit: pending-parent-commit
+commit: a4403e8
 
 ### Original report
 run_date: 2026-07-22
@@ -306,7 +306,7 @@ files_changed:
 checks_run:
 - smoke topic_ids AS|B
 - `python3 scripts/excalibur_blog_today.py` emits EXCALIBUR_SUGGESTED_TOPIC_ID=AS*
-commit: pending-parent-commit
+commit: a4403e8
 
 ### Original report
 run_date: 2026-07-22
@@ -352,7 +352,7 @@ files_changed:
 checks_run:
 - doctor OK llms --blog-dir / no --blog-path
 - rg confirms docs say no --blog-path as CLI flag
-commit: pending-parent-commit
+commit: a4403e8
 
 ### Original report
 run_date: 2026-07-22
@@ -640,7 +640,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - build_llms_txt emits pragma for http site_base
-commit: pending-parent-commit
+commit: a4403e8
 
 ### Original report
 run_date: 2026-07-22
@@ -688,7 +688,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg for CTA pragma guidance in writer skills/contract
-commit: pending-parent-commit
+commit: a4403e8
 
 ### Original report
 run_date: 2026-07-22

@@ -17,14 +17,16 @@ quad-manifest.json (agent fills hooks + scene_hint)
        ↓
 quad-mcp-batch.json (1 job, input_urls)
        ↓
-ONE MCP gpt-image-2 i2i → canvas-quad.png 2048×1152
+ONE canvas: Kie async → MCP gpt-image-2 → emergency GenerateImage
+       ↓
+canvas-quad.png 2048×1152 (split auto-normalizes non-2K)
        ↓
 split → cover.png + inline-01..03.png (1200×675)
        ↓
 inject <figure> after H2 in article.html
 ```
 
-**Запрещено:** 4 отдельных MCP на cover + inline.
+**Запрещено:** 4 отдельных image-job на cover + inline.
 
 ---
 
@@ -122,23 +124,49 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — генерация ONE canvas (fallback chain)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+Порядок (один холст, не 4 вызова):
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+1. **Kie async (Cloud preferred):** `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir …`  
+   см. `shared/kie-gpt-image-api-contract.md`
+2. **MCP sync:** `CallMcpTool` → `gpt-image-2` с `jobs[0].mcp_args` (aspect 16:9, 2K, `input_urls`)
+3. **Emergency Cursor `GenerateImage` i2i:** только если Kie и MCP недоступны
 
-### Шаг 5 — apply
+**Kie HTTP 402 / Credits insufficient:**
+- Не крутить createTask в retry-loop.
+- Записать incident в `memory/pipeline-fix-queue.md`.
+- Если нужен publish в этом run — emergency GenerateImage (ниже).
+- Durable: top-up Kie credits в кабинете = **needs-human** (баланс не чинится кодом).
+
+**Emergency GenerateImage (после 402 / MCP fail):**
+
+```text
+1. ONE GenerateImage i2i с reference = memory/cover/assets/blog-hero-reference.png
+   (или актуальный local face PNG); aspect предпочтительно 16:9.
+2. Сохранить результат как cover/canvas-quad.png (ONE canvas rule).
+3. Split (auto-normalize → 2048×1152 если GenerateImage отдал 1536×1024 и т.п.):
+   python3 scripts/excalibur_blog_cover_quad_split.py \
+     --article-dir memory/blog/articles/<topic_id>-<slug> \
+     --canvas cover/canvas-quad.png \
+     --inject-html
+4. Флага --canvas-local в quad_apply.py нет — для локального файла вызывай split напрямую.
+5. В fragment: pipeline: quad_canvas_1x_emergency_GenerateImage
+```
+
+Ожидание Kie/MCP: Image to Image, 1 входное фото, aspect 16:9, 2K (2048×1152).
+
+### Шаг 5 — apply (URL path)
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --url "<MCP/Kie result url>" \
   --inject-html
 ```
 
-Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
+Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.  
+`quad_apply` скачивает URL → `canvas-quad.png` → вызывает split (с auto-normalize).
 
 ### Шаг 6 — fragment
 
@@ -177,10 +205,11 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 ## Blockers → verdict ❌
 
 - нет reference_url_hosted
-- MCP text-only (без input_urls)
+- MCP/Kie text-only (без input_urls)
 - 4 отдельные генерации
 - QUAD SPLIT fail
 - inline = meme с ведущим вместо UI
+- Kie **402 Credits insufficient** без emergency GenerateImage и без human top-up → COVER BLOCKER / needs-human
 
 ---
 

@@ -12,14 +12,16 @@ description: Excalibur BLOG Indexer — interlink между статьями + 
 ```bash
 python3 scripts/excalibur_blog_interlinker.py --apply \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --site-base https://avtosales125.ru
+  --site-base "${PUBLIC_SITE_URL}"
 
 python3 scripts/excalibur_blog_llms_generator.py \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru \
-  --blog-path / \
+  --site-base "${PUBLIC_SITE_URL}" \
   --out-dir memory/blog
 ```
+
+Нет флага `--blog-path` (doctor раньше ложно требовал его). URL path статей: `/blog/{slug}/`.
+Перед commit в `llms.txt` / `promotion-checklist.md` замени live site URL на `${PUBLIC_SITE_URL}` или `[REDACTED]` — иначе secret-scan блокирует commit.
 
 ## Выход
 

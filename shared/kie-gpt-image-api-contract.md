@@ -70,9 +70,15 @@ Terminal states:
 - `success`: parse `data.resultJson` and use `resultUrls[0]`
 - `fail`: stop with `KIE API BLOCKER`
 - timeout without URL: stop with `KIE API BLOCKER`
+- **HTTP 402 / Credits insufficient:** do **not** retry createTask. Write incident.
+  Emergency for current article: Cursor `GenerateImage` i2i → `cover/canvas-quad.png` →
+  `excalibur_blog_cover_quad_split.py --canvas … --inject-html` (auto-normalizes to 2048×1152).
+  Durable fix: human top-up of Kie credits (`needs-human`). See cover skill fallback chain.
 
 ## Guardrails
 
 - One API task per article cover run, not four separate images.
 - `input_urls` is required; text-only generation is a cover blocker.
 - Do not retry createTask blindly after a network ambiguity if a `taskId` is known; poll the known task.
+- Preferred Cloud order: **Kie async → MCP sync → emergency GenerateImage**.
+- `--canvas-local` is **not** implemented on `quad_apply.py`; local emergency files use split `--canvas` directly.

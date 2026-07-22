@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260722-0926-schema-precommit-secret-redact
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-schema
+topic_id: AS20
+article_dir: memory/blog/articles/AS20-levyj-rul-iz-korei-2026-kak-kupit
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` of safe `schema.jsonld` failed: Cloud pre-commit secrets scanner expands redacted env into bash and errors with `invalid variable name`.
+- Same root cause as INC-20260722-0910-scout-precommit-secret-redact and INC-20260722-0920-writer-precommit-secret-redact (recurrence on schema step).
+
+### How the agent recovered this run
+- Verified staged file was only `schema.jsonld` (no handoff/fragments/secrets), then `git commit --no-verify` per schema skill and push.
+
+### Durable fix needed before next run
+- Fix Cloud pre-commit secret-redact hook so empty/redacted secret names do not break bash.
+- Keep documented `--no-verify` path for article/schema commits when only this error appears (already in schema skill).
+
+### Suggested files to inspect/change
+- Cloud Agent pre-commit secrets scanner (environment hook)
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260722-0925-geo-qa-utility-human-voice-markers
 status: open
 run_date: 2026-07-22

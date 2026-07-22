@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260722-1341-publish-paramiko-missing
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-publish
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-hyundai-avante-iz-korei-kak-vybrat-2026
+severity: blocker
+category: env
+
+### What went wrong
+- First `excalibur_blog_wp_publish.py` call failed with `ModuleNotFoundError: No module named 'paramiko'`.
+- `paramiko` is listed in `requirements.txt`, but cloud runtime / system Python did not have it installed (PEP 668 externally-managed env).
+- `pip3 install paramiko` without override failed with externally-managed-environment.
+
+### How the agent recovered this run
+- Installed via `pip3 install --break-system-packages paramiko` (got 5.0.0).
+- Re-ran publish: SSH upload OK, HTTP trigger OK, verdict pass (post=3613).
+
+### Durable fix needed before next run
+- Ensure `.cursor/cloud-agent-install.sh` / Dockerfile installs `paramiko` (or `python3-paramiko`) before publish.
+- Add doctor/env-check guard: fail early if `import paramiko` fails when `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`.
+- Document in pitfalls: publish transport requires paramiko; apt or install script must provision it.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `Dockerfile`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_wp_publish.py` (`--env-check`)
+- `shared/agent-pipeline-pitfalls.md`
+- `requirements.txt`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260722-1332-cover-kie-credits-insufficient
 status: open
 run_date: 2026-07-22

@@ -1,0 +1,130 @@
+{
+  "gate": "human-voice",
+  "status": "BLOCK",
+  "article_dir": "memory/blog/articles/B01-kia-k5-iz-korei-kak-vybrat-2026",
+  "errors": [
+    "reader pain is weak or invisible: article must name the problem it solves"
+  ],
+  "warnings": [
+    "multiple exactly-5-step lists detected; vary list size when editorially possible"
+  ],
+  "metrics": {
+    "h2_count": 8,
+    "repeated_h2_openers": [],
+    "textbook_h2_count": 0,
+    "paragraph_count": 26,
+    "paragraph_avg_words": 28.8,
+    "paragraph_variance_ratio": 0.44,
+    "concrete_markers": [
+      "например",
+      "на практике",
+      "типичная ошибка",
+      "в реальном проекте"
+    ],
+    "pain_markers": [
+      "ошиб"
+    ],
+    "outcome_markers": [
+      "результат",
+      "проверьте",
+      "соберите",
+      "выберите"
+    ],
+    "ai_opening_hits": [],
+    "reader_story_overlap": [
+      "signature",
+      "t-gdi",
+      "гуглит",
+      "двигателя",
+      "карточке",
+      "кинул",
+      "кореи",
+      "красивую",
+      "лошадиные",
+      "панорамой",
+      "почти",
+      "предоплату",
+      "смотреть",
+      "строке",
+      "утиль",
+      "человек"
+    ],
+    "reader_pain_overlap": [
+      "encar",
+      "gt-line",
+      "noblesse",
+      "prestige",
+      "signature",
+      "брать",
+      "заводской",
+      "льготного",
+      "может",
+      "российскими",
+      "смотрит",
+      "турбо",
+      "человек"
+    ],
+    "reader_outcome_overlap": [
+      "carhistory",
+      "encar",
+      "авто-сейлс",
+      "бензин",
+      "выбора",
+      "депозита",
+      "комплектации",
+      "мотор",
+      "сметы",
+      "строк",
+      "флаги"
+    ],
+    "success_criteria_overlap": [
+      "encar",
+      "бронью",
+      "заметках",
+      "заполнен",
+      "запрос",
+      "мощность",
+      "объявлению",
+      "отсеян",
+      "паспорту",
+      "перед",
+      "примерно",
+      "расчёт",
+      "топлива",
+      "турбо",
+      "уходит",
+      "чек-лист"
+    ],
+    "voice_angle_overlap": [
+      "encar",
+      "владивостоке",
+      "депозита",
+      "красота",
+      "менеджер",
+      "мощность",
+      "обвеса",
+      "потом",
+      "разбор",
+      "сначала",
+      "спокойный",
+      "телефон"
+    ],
+    "surprising_fact_overlap": [
+      "korea",
+      "noblesse",
+      "prestige",
+      "signature",
+      "бывает",
+      "гарантирует",
+      "каталог",
+      "комплектации",
+      "мощность",
+      "официальный",
+      "публикация",
+      "трима",
+      "турбо"
+    ],
+    "exactly_five_lists": 3,
+    "fact_check_template_blocks": 0
+  }
+}

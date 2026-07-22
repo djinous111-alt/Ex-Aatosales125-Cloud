@@ -323,3 +323,72 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20260722-1718-geo-qa-utility-pain-outcome-policy-gap
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-k5-iz-korei-kak-vybrat-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требует `pain_markers_ru` / `outcome_markers_ru` и min counts (default 2/3), но `memory/brief/editorial-policy.json` не содержал этих списков.
+- Пустые списки → pain_count=0 / outcome_count=0 на любой статье (регрессия AS09: бывший PASS → BLOCK).
+
+### How the agent recovered this run
+- Дописал в `memory/brief/editorial-policy.json` `pain_markers_ru`, `outcome_markers_ru` и `min_pain_markers` / `min_outcome_markers` (выровнено с human-voice gate).
+- Перезапустил utility gate: AS09 снова PASS; B01 остался BLOCK только по action_markers 6<8.
+
+### Durable fix needed before next run
+- Зафиксировать markers в policy + pitfalls; опционально: если списки пусты — skip pain/outcome checks вместо hard BLOCK.
+- Синхронизировать writer skill: явные примеры маркеров боли/результата/action для utility+HV gates.
+- Regression: AS09 utility PASS с непустым policy.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260722-1718-geo-qa-writer-redacted-cta-href
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-k5-iz-korei-kak-vybrat-2026
+severity: high
+category: qa
+
+### What went wrong
+- В `article.html` три CTA `href` записаны литералом `[REDACTED]` (len=10), а не URL.
+- `link-verify` трактует это как relative → 404 fail (в отличие от AS09, где на диске реальные https URL).
+
+### How the agent recovered this run
+- Longread не переписывался (зона writer FIX).
+- В `article-qa.md` зафиксирован FIX: подставить каталог + Telegram URL из conversion-map / эталон AS09.
+- Verdict FAIL; cover/schema не стартовали.
+
+### Durable fix needed before next run
+- Writer contract: запретить литерал `[REDACTED]` в href; копировать CTA из conversion-map как https URL.
+- Pitfalls: secret-scan redaction в *отображении* ≠ писать `[REDACTED]` в файл.
+- Опционально: preflight script, который падает если `href="[REDACTED]"`.
+
+### Suggested files to inspect/change
+- `shared/excalibur-article-writing-contract.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_link_verify.py` (detect literal placeholder)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

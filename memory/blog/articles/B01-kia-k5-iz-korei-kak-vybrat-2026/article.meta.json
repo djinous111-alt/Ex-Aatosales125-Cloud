@@ -30,12 +30,17 @@
     "description_aeo": "Kia K5 из Кореи выбирают по мощности до 160 л.с. (2.0 или LPG ~146), а не по имени комплектации. Турбо 1.6 на 180 л.с. – стоп для льготной сметы."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 74,
+    "verdict": "FAIL",
     "date": "2026-07-22",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "fact_check": "PASS",
+    "link_verify": "FAIL",
+    "utility_gate": "BLOCK",
+    "human_voice": "BLOCK",
+    "research_notes_gate": "PASS"
   },
   "cover_family": "brand_collage"
 }

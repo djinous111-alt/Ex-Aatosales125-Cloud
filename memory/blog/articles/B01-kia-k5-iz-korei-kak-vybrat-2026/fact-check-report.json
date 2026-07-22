@@ -1,0 +1,59 @@
+{
+  "article": "memory/blog/articles/B01-kia-k5-iz-korei-kak-vybrat-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 7,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 6,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "Отсейте мотор: что реально проходит по мощности в 2026 Ориентир по официальному каталогу Kia Korea (публи",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "пробег – под бюджет; молодые DL3 (рестайл с конца 2023) часто в фокусе, но год льготу не даёт. Сначала л",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "45 дней",
+      "kind": "metric_or_duration",
+      "context": "СВХ → Учёт и логистика по РФ Сроки часто около 30–45 дней – ориентир рынка, не гарантия. Точный расчёт и по",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "с панорамой\" – а в строке двигателя 1.6 T-GDi на 180 л.с. Друг пугал \"коммерческим утилем\", а вы гуглит",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "ет: Prestige, Noblesse и Signature бывают на 2.0 (160 л.с.), на LPG (146 л.с.) и на турбо 1.6 (180 л.с.)",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "146",
+      "kind": "large_number",
+      "context": "sse и Signature бывают на 2.0 (160 л.с.), на LPG (146 л.с.) и на турбо 1.6 (180 л.с.). Для льготного ути",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "152",
+      "kind": "large_number",
+      "context": "ди экономии топлива Гибрид 2.0 HEV ориентир около 152 л.с. + электромотор Только после сверки мощности в",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

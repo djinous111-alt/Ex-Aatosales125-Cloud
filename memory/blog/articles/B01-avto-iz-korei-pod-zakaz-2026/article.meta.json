@@ -29,8 +29,8 @@
     "description_aeo": "Авто из Кореи под заказ – путь Encar → проверка → море → Владивосток → СВХ → СБКТС/ЭПТС. До депозита нужны фильтры 2,0 л / 160 л.с., VIN и история."
   },
   "geo_qa": {
-    "score": 76,
-    "verdict": "FAIL",
+    "score": 92,
+    "verdict": "PASS",
     "date": "2026-07-23"
   },
   "cover_family": "brand_collage"

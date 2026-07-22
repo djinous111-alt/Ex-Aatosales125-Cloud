@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/B01-avto-iz-korei-pod-zakaz-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": ". Ниже – маршрут авто из Кореи под заказ: фильтры 2026, проверка до депозита и этапы до выдачи. После га",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2024",
+      "kind": "date_or_year",
+      "context": "экспортного контроля (ориентир до 2,0 л; с 24.02.2024 контроль усилен, в 2026 проверки жёстче); мощность",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2027",
+      "kind": "date_or_year",
+      "context": "ц в источниках 2026 часто под мораторием до 31.12.2027 – не требуйте установку \"сразу\" без оговорки. Мар",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 дней",
+      "kind": "metric_or_duration",
+      "context": "тус по этапам схемы. Не делайте: верьте \"ровно за 10 дней под ключ\" без запаса на СВХ и бумаги. Пройдите че",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "на ДВС от ~2,0 л и льготный утильсбор физлица до 160 л.с. Депозит – только после VIN, истории и письмен",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

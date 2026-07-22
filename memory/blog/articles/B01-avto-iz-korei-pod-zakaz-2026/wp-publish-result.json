@@ -1,0 +1,15 @@
+{
+  "slug": "avto-iz-korei-pod-zakaz-2026",
+  "topic_id": "B01",
+  "permalink": "${PUBLIC_SITE_URL}/2026/07/23/avto-iz-korei-pod-zakaz-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-avto-iz-korei-pod-zakaz-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1343981,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3625 slug=avto-iz-korei-pod-zakaz-2026\nOK featured_image=3626\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3627 src=cover/inline-01.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/07/avto-iz-korei-pod-zakaz-2026-inline-01.png\nOK inline_image_upload=3628 src=cover/inline-02.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/07/avto-iz-korei-pod-zakaz-2026-inline-02.png\nOK inline_image_upload=3629 src=cover/inline-03.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/07/avto-iz-korei-pod-zakaz-2026-inline-03.png\npermalink=${PUBLIC_SITE_URL}/2026/07/23/avto-iz-korei-pod-zakaz-2026/\n",
+  "verdict": "pass"
+}

@@ -2,7 +2,7 @@
   "slug": "samye-komfortnye-avto-myagkaya-podveska-2026",
   "topic_id": "AS08",
   "post_id": 3342,
-  "permalink": "https://avtosales125.ru/2026/07/17/samye-komfortnye-avto-myagkaya-podveska-2026/",
+  "permalink": "${PUBLIC_SITE_URL}/2026/07/17/samye-komfortnye-avto-myagkaya-podveska-2026/",
   "featured_image": 3349,
   "inline_images": [
     3351,
@@ -10,7 +10,7 @@
     3358
   ],
   "schema_meta": 1,
-  "raw_output": "OK post=3342 slug=samye-komfortnye-avto-myagkaya-podveska-2026\nOK featured_image=3349\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3351 src=cover/inline-01.png url=https://avtosales125.ru/wp-content/uploads/2026/07/samye-komfortnye-avto-myagkaya-podveska-2026-inline-01-1.png\nOK inline_image_upload=3355 src=cover/inline-02.png url=https://avtosales125.ru/wp-content/uploads/2026/07/samye-komfortnye-avto-myagkaya-podveska-2026-inline-02-1.png\nOK inline_image_upload=3358 src=cover/inline-03.png url=https://avtosales125.ru/wp-content/uploads/2026/07/samye-komfortnye-avto-myagkaya-podveska-2026-inline-03-2.png\npermalink=https://avtosales125.ru/2026/07/17/samye-komfortnye-avto-myagkaya-podveska-2026/",
+  "raw_output": "OK post=3342 slug=samye-komfortnye-avto-myagkaya-podveska-2026\nOK featured_image=3349\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3351 src=cover/inline-01.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/07/samye-komfortnye-avto-myagkaya-podveska-2026-inline-01-1.png\nOK inline_image_upload=3355 src=cover/inline-02.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/07/samye-komfortnye-avto-myagkaya-podveska-2026-inline-02-1.png\nOK inline_image_upload=3358 src=cover/inline-03.png url=${PUBLIC_SITE_URL}/wp-content/uploads/2026/07/samye-komfortnye-avto-myagkaya-podveska-2026-inline-03-2.png\npermalink=${PUBLIC_SITE_URL}/2026/07/17/samye-komfortnye-avto-myagkaya-podveska-2026/",
   "verdict": "pass",
   "publish_method": "curl_fallback_after_local_http_timeout"
 }

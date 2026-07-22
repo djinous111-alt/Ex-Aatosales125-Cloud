@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Цена Encar ≠ под ключ",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у смартфона с Encar и силуэтом ролкера во Владивостоке, плашка от Encar до выдачи",
+      "scene_hint": "WEATHER: cool foggy Vladivostok port evening, grey-blue mist; OUTFIT: navy windbreaker over charcoal knit (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie holding smartphone with fake Encar lot card (KRW price circled, red marker «≠ под ключ»); background soft silhouette of a car carrier / ro-ro ship at Vladivostok quay; torn-paper timeline plaque Cyrillic «От Encar до выдачи» with yellow highlighter on «до выдачи»; sticky notes «2,0 л» and «≤160 л.с.»; shocked meme cutout + cat reaction sticker (different formats, non-toxic — NO insults, NO «лох/лохов»); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics",
+      "meme_caption_ru": "Сначала фильтры"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте бюджет и фильтры 2026 до открытия Encar",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake RU phone UI: budget notepad «под ключ в свой город» + Encar filter panel with chips «до 2,0 л» and «≤160 л.с.»; red sticky «не открывай Encar без цифры»; scotch tape corner; NO hero face; NO Wordstat/Metrika; non-toxic stickers only",
+      "alt": "Мокап: бюджет под ключ и фильтры 2,0 л / 160 л.с. до открытия Encar"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как подобрать 2–3 лота на Encar без спешки",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table of 3 Encar candidate lots: columns год | пробег | объём | л.с. | VIN?; yellow highlight on incomplete VIN row; mini sticky «2–3 ссылки»; tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица сравнения 2–3 лотов Encar: год, пробег, объём, мощность, VIN"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте историю до депозита: красные флаги",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable RU checklist board before deposit: VIN → Performance Record → Insurance History → Carhistory → живой осмотр/видео; red stamp «до депозита»; pink sticky «после оплаты — поздно»; NO hero face; NO Wordstat/Metrika; non-toxic wording only",
+      "alt": "Чеклист до депозита: VIN, Performance Record, Insurance History, Carhistory"
+    }
+  }
+}

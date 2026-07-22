@@ -1,0 +1,16 @@
+{
+  "url": "local://cover/canvas-quad.png",
+  "generation_method": "emergency_GenerateImage_i2i_after_kie_402",
+  "fallback_chain": [
+    "kie_api_402",
+    "mcp_gpt-image-2_error",
+    "GenerateImage_reference_local",
+    "resize_1536x1024_to_2048x1152",
+    "quad_split_inject"
+  ],
+  "kie_error": "402 Credits insufficient",
+  "mcp_error": "NoneType object has no attribute get",
+  "reference_local": "memory/cover/assets/blog-hero-reference.png",
+  "reference_url_hosted": "http://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+  "note": "Preferred Kie API blocked by 402; sync MCP failed; emergency Cursor GenerateImage with local face reference; canvas resized to canonical 2048x1152 then split+inject"
+}

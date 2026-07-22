@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "avto-iz-korei-pod-zakaz-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у смартфона с Encar и силуэтом ролкера во Владивостоке, плашка от Encar до выдачи",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-07-22T21:38:05+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у смартфона с Encar и силуэтом ролкера во Владивостоке, плашка от Encar до выдачи",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Мокап: бюджет под ключ и фильтры 2,0 л / 160 л.с. до открытия Encar",
+      "h2_anchor": "Зафиксируйте бюджет и фильтры 2026 до открытия Encar",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица сравнения 2–3 лотов Encar: год, пробег, объём, мощность, VIN",
+      "h2_anchor": "Как подобрать 2–3 лота на Encar без спешки",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист до депозита: VIN, Performance Record, Insurance History, Carhistory",
+      "h2_anchor": "Проверьте историю до депозита: красные флаги",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

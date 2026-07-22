@@ -55,6 +55,8 @@ EXCALIBUR_TOPIC_ID=<optional fixed topic id>
 
 Запрещено добавлять в repo реальные `.env`, `memory/site.env.local`, MCP tokens, SSH credentials, Cursor API keys.
 
+**Имена секретов (bash-safe):** только `[A-Za-z_][A-Za-z0-9_]*`. Имена с пробелами, `/` или URL-shaped токенами ломают Cloud pre-commit (`invalid variable name`). Проверка имён (без значений): `python3 scripts/excalibur_blog_check_secret_names.py`.
+
 ## GitHub setup
 
 1. Создать приватный GitHub repo.
@@ -96,6 +98,8 @@ python3 scripts/excalibur_blog_wp_publish.py --env-check
 
 Если `--publish` падает из-за секретов, это нормально для dry-run окружения и блокер для боевой публикации.
 Если SSH upload пишет warning про fallback на `.`, обновите Cursor Secret `SSH_ROOT` на `.` или уберите несуществующий panel/root path. Секретные значения не записывать в repo.
+Unset `SSH_ROOT` теперь тоже резолвится в `.` внутри publish-скрипта; всё равно зафиксируйте `SSH_ROOT=.` в Dashboard.
+Образ Cloud должен ставить `paramiko` (`.cursor/Dockerfile` / `cloud-agent-install.sh`).
 
 ## Optional GitHub Actions preflight
 

@@ -79,10 +79,14 @@ agent worker start --pool --pool-name excalibur-blog --idle-release-timeout 600
 | Variable | Зачем |
 |----------|-------|
 | `PUBLIC_SITE_URL` | link verify, recent WP posts |
-| `FTP_*` | `excalibur_blog_wp_publish.py` |
+| `SSH_HOST` / `SSH_USER` / `SSH_PASS` / `SSH_PORT` | SSH publish transport |
+| `SSH_ROOT` | publish root; для login cwd ставь `.` |
 | `EXCALIBUR_BLOG_ALLOW_PUBLISH` | `yes` только когда готовы публиковать |
 | `EXCALIBUR_TOPIC_ID` | опционально фиксировать тему (иначе today.py предложит P0) |
 | `EXCALIBUR_PROJECT_ROOT` | корень репо на worker |
+| `KIE_API_KEY` | preferred cover gpt-image-2 path |
+
+**Имена секретов** — только bash identifiers (`[A-Za-z_][A-Za-z0-9_]*`). Иначе Cloud pre-commit падает с `invalid variable name`.
 
 Не коммитить: `memory/site.env.local`, реальные ключи MCP.
 

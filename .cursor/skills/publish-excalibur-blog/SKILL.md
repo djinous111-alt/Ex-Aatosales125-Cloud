@@ -30,18 +30,24 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 ### 1. Preflight publish
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+python3 scripts/excalibur_blog_check_secret_names.py
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
-  --site-base https://avtosales125.ru
+  --site-base "$PUBLIC_SITE_URL"
 ```
 
-Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
+Deps: Cloud image must include `paramiko` (`.cursor/Dockerfile` + `cloud-agent-install.sh`). If `import paramiko` fails — install once and open an INC.
+
+`SSH_ROOT`: set Cloud Secret to `SSH_ROOT=.` (login cwd). If unset, publish script now defaults candidates to `.`.
+
+Gate: `link-verify.json` → pass. Literal placeholder href (e.g. REDACTED token) is a hard fail. Otherwise FIX (writer/QA) or BLOCKER.
 
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
@@ -51,7 +57,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 

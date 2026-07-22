@@ -75,6 +75,12 @@ def http_json(method: str, url: str, api_key: str, payload: dict[str, Any] | Non
             body = response.read().decode("utf-8")
     except urllib.error.HTTPError as exc:
         body = exc.read().decode("utf-8", errors="replace")
+        if exc.code == 402 or _looks_like_credits_error(body):
+            raise KieApiError(
+                f"Kie API credits insufficient (HTTP {exc.code}). "
+                "Top up KIE_API_KEY billing, or use emergency GenerateImage fallback "
+                f"(cover skill). Body: {body[:300]}"
+            ) from exc
         raise KieApiError(f"Kie API HTTP {exc.code}: {body}") from exc
     except urllib.error.URLError as exc:
         raise KieApiError(f"Kie API network error: {exc.reason}") from exc
@@ -88,11 +94,31 @@ def http_json(method: str, url: str, api_key: str, payload: dict[str, Any] | Non
     return parsed
 
 
+def _looks_like_credits_error(text: str) -> bool:
+    lowered = (text or "").lower()
+    return any(
+        token in lowered
+        for token in (
+            "credits insufficient",
+            "insufficient credit",
+            "insufficient credits",
+            "not enough credit",
+            "credit balance",
+        )
+    )
+
+
 def require_success(response: dict[str, Any], action: str) -> None:
     if response.get("code") == 200:
         return
     msg = response.get("msg") or "unknown error"
-    raise KieApiError(f"Kie API {action} failed: code={response.get('code')} msg={msg}")
+    code = response.get("code")
+    if code == 402 or _looks_like_credits_error(str(msg)):
+        raise KieApiError(
+            f"Kie API credits insufficient ({action}): code={code} msg={msg}. "
+            "Top up KIE_API_KEY billing, or use emergency GenerateImage fallback (cover skill)."
+        )
+    raise KieApiError(f"Kie API {action} failed: code={code} msg={msg}")
 
 
 def batch_mcp_args(batch_path: Path) -> dict[str, Any]:

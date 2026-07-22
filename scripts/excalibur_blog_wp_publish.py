@@ -400,10 +400,15 @@ def ssh_root_label(env: dict[str, str]) -> str:
 
 
 def ssh_root_candidates(env: dict[str, str]) -> list[str]:
+    """Ordered SSH upload roots.
+
+    Unset/empty ``SSH_ROOT`` defaults to login cwd ``.`` (Cloud Secret should be
+    ``SSH_ROOT=.``). Non-dot configured roots still fall back to ``.`` on ENOENT.
+    """
     root = configured_ssh_root(env)
-    if root and root not in {".", "./"}:
-        return [root, "."]
-    return [root]
+    if not root or root in {".", "./"}:
+        return ["."]
+    return [root, "."]
 
 
 def is_missing_remote_path_error(exc: OSError) -> bool:

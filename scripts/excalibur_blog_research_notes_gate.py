@@ -95,6 +95,77 @@ def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     return False
 
 
+def count_accessed_at(text: str) -> int:
+    """Count source access stamps: ``accessed_at:`` keys and ISO dates in tables
+    whose header includes an ``accessed_at`` column.
+    """
+    text_lower = text.lower()
+    key_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    if not re.search(r"\|[^\n]*\baccessed_at\b[^\n]*\|", text_lower):
+        return key_count
+    date_in_table_rows = len(
+        re.findall(r"^\s*\|[^\n]*\b20\d{2}-\d{2}-\d{2}\b", text, flags=re.M)
+    )
+    return max(key_count, date_in_table_rows)
+
+
+def count_pain_solution_map_rows(text: str) -> int:
+    """Count data rows under ## pain_solution_map.
+
+    Prefer section table rows over requiring the words pain/solution/result on
+    every row (agents may use Russian column labels only in the header).
+    """
+    match = re.search(
+        r"##\s*\d*\.?\s*pain[_\s-]*solution[_\s-]*map\b([\s\S]*?)(?=\n##\s|\Z)",
+        text,
+        flags=re.I,
+    )
+    section = match.group(1) if match else ""
+    if section:
+        rows = 0
+        for line in section.splitlines():
+            if not re.match(r"^\s*\|", line):
+                continue
+            if re.match(r"^\s*\|[\s:\-|]+\|\s*$", line):
+                continue
+            cells = [c.strip().lower() for c in line.strip().strip("|").split("|")]
+            nonempty = [c for c in cells if c]
+            if not nonempty:
+                continue
+            label_hits = sum(
+                1
+                for c in nonempty
+                if any(
+                    tok in c
+                    for tok in (
+                        "pain",
+                        "боль",
+                        "solution",
+                        "решение",
+                        "result",
+                        "результат",
+                        "outcome",
+                    )
+                )
+            )
+            # Header row: mostly label cells, no concrete content digits/URLs.
+            if label_hits >= max(2, len(nonempty) - 1) and not re.search(
+                r"\d|http", line, flags=re.I
+            ):
+                continue
+            rows += 1
+        if rows:
+            return rows
+    # Fallback: legacy keyword-in-row heuristic across the whole notes file.
+    return len(
+        re.findall(
+            r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*",
+            text.lower(),
+            flags=re.M,
+        )
+    )
+
+
 def field_present(text_lower: str, field: str) -> bool:
     if field == "utility_verdict: PASS":
         return bool(re.search(r"utility[_\s-]*verdict\s*:\s*pass", text_lower, flags=re.I))
@@ -142,9 +213,9 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    pain_map_rows = count_pain_solution_map_rows(text)
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:
@@ -206,11 +277,74 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     }
 
 
+def run_self_tests() -> int:
+    """Regression: auto-import Russian notes must not be classified as technical."""
+    auto_notes = (
+        "reader_pain: ошибка выбора комплектации Kia K5 из России\n"
+        "покупатель смотрит комплектации и мощность на Encar\n"
+    )
+    auto_ctx = {
+        "topic": {
+            "h1": "Kia K5 из Кореи: как выбрать комплектацию",
+            "primary_query": "киа к5 из кореи",
+            "slug": "kia-k5-iz-korei-kak-vybrat-2026",
+            "search_intent": "how_to",
+        }
+    }
+    if is_technical_topic(auto_ctx, auto_notes):
+        print("SELF-TEST FAIL: auto topic falsely marked technical_topic", file=sys.stderr)
+        return 1
+
+    tech_notes = "настройка mcp agent api и github workflow для cursor\n"
+    tech_ctx = {
+        "topic": {
+            "h1": "Как подключить MCP к Cursor",
+            "primary_query": "mcp cursor api",
+            "slug": "mcp-cursor-api",
+            "search_intent": "how_to",
+        }
+    }
+    if not is_technical_topic(tech_ctx, tech_notes):
+        print("SELF-TEST FAIL: tech topic not detected", file=sys.stderr)
+        return 1
+
+    table = (
+        "| source | url | accessed_at |\n"
+        "| --- | --- | --- |\n"
+        "| Kia | https://example.com/a | 2026-07-22 |\n"
+        "| Drom | https://example.com/b | 2026-07-22 |\n"
+    )
+    if count_accessed_at(table) < 2:
+        print("SELF-TEST FAIL: accessed_at table dates not counted", file=sys.stderr)
+        return 1
+
+    pain_section = (
+        "## pain_solution_map\n"
+        "| боль | решение | результат |\n"
+        "| --- | --- | --- |\n"
+        "| выбрал 180 л.с. | отсейте мотор ≤160 | проходите по утилю |\n"
+        "| не знает trim | сравните Prestige/Noblesse | ясный чек-лист |\n"
+        "| LPG путаница | сверьте паспорт | без сюрприза на таможне |\n"
+    )
+    if count_pain_solution_map_rows(pain_section) < 3:
+        print("SELF-TEST FAIL: pain_solution_map rows undercounted", file=sys.stderr)
+        return 1
+
+    print("Research Notes Gate self-test: PASS")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Validate research-notes.md freshness and depth")
-    ap.add_argument("--article-dir", type=Path, required=True)
+    ap.add_argument("--article-dir", type=Path, default=None)
     ap.add_argument("-o", "--output", type=Path, default=None)
+    ap.add_argument("--self-test", action="store_true", help="Run marker/regression self-tests")
     args = ap.parse_args()
+
+    if args.self_test:
+        return run_self_tests()
+    if args.article_dir is None:
+        ap.error("--article-dir is required unless --self-test")
 
     root = project_root()
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir

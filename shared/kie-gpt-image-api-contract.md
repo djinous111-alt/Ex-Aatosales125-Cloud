@@ -76,3 +76,5 @@ Terminal states:
 - One API task per article cover run, not four separate images.
 - `input_urls` is required; text-only generation is a cover blocker.
 - Do not retry createTask blindly after a network ambiguity if a `taskId` is known; poll the known task.
+- **Credits / HTTP 402:** treat as preferred-path blocker. Do not spam createTask. Top up `KIE_API_KEY` billing, or use the emergency Cursor `GenerateImage` fallback documented in `skills/cover-excalibur-blog/SKILL.md`, then `excalibur_blog_quad_apply.py --canvas-local`.
+- MCP sync wrapper may return `NoneType...get` when no image URL is present — same recovery as 402 (Kie API, then GenerateImage emergency).

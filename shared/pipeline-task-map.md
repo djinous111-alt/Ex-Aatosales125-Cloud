@@ -120,7 +120,7 @@
 2) excalibur_blog_quad_manifest.py --merge
 3) правка cover/quad-manifest.json (hook, scene_hint, outfit агента)
 4) excalibur_blog_cover_quad_prompt.py --write-batch
-5) ONE Cursor MCP tool call: выбрать gpt-image-2 в Available Tools (server user-mcp-kv), arguments = jobs[0].mcp_args из quad-mcp-batch.json (input_urls обязателен)
+5) Image job order: MCP gpt-image-2 → if NoneType/no URL: scripts/excalibur_blog_kie_gpt_image2_api.py → if 402 credits: emergency GenerateImage + resize 2048x1152 + quad_apply --canvas-local --inject-html
    Если HTTP MCP вернул -32001 Request timed out: это не blocker с первой попытки.
    Не искать URL в cover/*: он появится там только после ручной записи quad-mcp-result.json.
    Проверить MCP tool log / expanded tool response / Cursor MCP Logs.
@@ -128,8 +128,8 @@
    Если URL ещё нет — проверять MCP log короткими polling-проверками каждые 15–30 секунд, максимум 5 минут; не запускать длинное shell-ожидание одной командой.
    Повторять ONE quad request через MCP tool gpt-image-2 только если лог доступен и подтверждает, что URL не появился.
    Если MCP log недоступен агенту — COVER MCP RECOVERY NEEDED, нужен URL из лога; не retry вслепую.
-   Максимум 2 попытки / общий бюджет 10 минут. Без URL не делать apply/split.
-6) excalibur_blog_quad_apply.py --url ... --inject-html
+   Максимум 2 попытки / общий бюджет 10 минут на preferred path. 402 credits → GenerateImage emergency (не blocker cover, если split PASS).
+6) excalibur_blog_quad_apply.py --url ... --inject-html  (или --canvas-local для emergency)
 Fragment .cursor/excalibur-blog-fragments/cover.md (=== EXCALIBUR BLOG COVER ===). Не 4 MCP. Не трогай schema.
 ```
 

@@ -6,6 +6,8 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+> Current run 2026-07-22: remaining human follow-ups are INC-1705 (bash-safe Cloud Secret names) and INC-1735 (Kie credit top-up). Other 2026-07-22 incidents are `fixed` below.
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16
@@ -256,7 +258,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20260722-1705-scout-pre-commit-secret-names
-status: open
+status: needs-human
 run_date: 2026-07-22
 role: excalibur-blog-scout
 topic_id: B01
@@ -287,10 +289,29 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+fixed_at: 2026-07-22
+reason:
+- Cursor Dashboard still has at least one Cloud Secret whose *name* is not a bash-safe identifier; platform pre-commit expands it and fails with `invalid variable name`.
+needed_decision_or_secret:
+- Rename all Cloud Secret names to `[A-Za-z_][A-Za-z0-9_]*` (no spaces/slashes/URL-shaped names). Values can stay; only names matter.
+fix_summary:
+- Documented bash-safe secret naming + `--no-verify` recovery after staged-diff check in pitfalls, CURSOR-CLOUD-RUNBOOK, CLOUD-AUTOMATION.
+- Added advisory `scripts/excalibur_blog_check_secret_names.py` (names only, never values).
+files_changed:
+- `scripts/excalibur_blog_check_secret_names.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `CLOUD-AUTOMATION.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_check_secret_names.py`
+- `python3 scripts/excalibur_blog_check_secret_names.py --json` (WARN: unsafe name present in env)
+commit: pending-parent-commit
 
 ## INC-20260722-1715-research-notes-gate-tech-false-positive
-status: open
+status: fixed
 run_date: 2026-07-22
 role: excalibur-blog-research
 topic_id: B01
@@ -322,10 +343,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-22
+fix_summary:
+- Kept length-aware whole-word TECH_MARKERS; added `--self-test` regression (auto topic with reader_pain/комплектации must not be technical).
+- `accessed_at` now counts ISO dates in source tables with an accessed_at column, not only `accessed_at:` keys.
+- `pain_solution_map` counts section table data rows without requiring pain/solution/result on every row.
+- Research skill documents non-tech github_evidence = docs/community.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+- `python3 scripts/excalibur_blog_research_notes_gate.py --self-test`
+commit: pending-parent-commit
 
 ## INC-20260722-1718-geo-qa-utility-pain-outcome-policy-gap
-status: open
+status: fixed
 run_date: 2026-07-22
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -356,10 +392,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-22
+fix_summary:
+- Confirmed `memory/brief/editorial-policy.json` has pain/outcome marker lists + min counts.
+- `utility_gate.py` falls back to built-in DEFAULT_* markers (with warning) if policy lists are empty — no more false BLOCK.
+- Writer skill documents pain/outcome/action marker examples for utility+HV gates.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
+- `python3 -m json.tool memory/brief/editorial-policy.json`
+- unit assert DEFAULT_PAIN/OUTCOME markers present
+commit: pending-parent-commit
 
 ## INC-20260722-1718-geo-qa-writer-redacted-cta-href
-status: open
+status: fixed
 run_date: 2026-07-22
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -391,10 +443,24 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-22
+fix_summary:
+- Writing contract + writer skill forbid literal `[REDACTED]` / placeholder tokens in href; CTA must be real https from conversion-map.
+- `link_verify.py` hard-fails placeholder href kind before HTTP checks.
+files_changed:
+- `shared/excalibur-article-writing-contract.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
+- temp article with href placeholder → verdict fail / kind=placeholder
+commit: pending-parent-commit
 
 ## INC-20260722-1735-cover-kie-credits-generateimage-fallback
-status: open
+status: needs-human
 run_date: 2026-07-22
 role: excalibur-blog-cover
 topic_id: B01
@@ -429,11 +495,35 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: needs-human
+fixed_at: 2026-07-22
+reason:
+- Preferred Kie gpt-image-2 path still needs account credit top-up (`KIE_API_KEY` billing). Repo now documents emergency GenerateImage recovery so cover can finish without Kie.
+needed_decision_or_secret:
+- Top up Kie credits for the Cloud `KIE_API_KEY` account (Dashboard/billing). Until then cover uses GenerateImage emergency path.
+fix_summary:
+- Cover skill + pipeline-task-map + kie contract: MCP → Kie → GenerateImage emergency + resize 2048x1152.
+- `quad_apply.py` accepts `--canvas-local` for non-URL emergency canvases.
+- Kie API script surfaces HTTP/API 402 credits clearly (no silent retry spam).
+- Cover agent-md synced.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/pipeline-task-map.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `scripts/excalibur_blog_quad_apply.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_kie_gpt_image2_api.py scripts/excalibur_blog_quad_apply.py`
+- require_success(402) raises credits message
+- `quad_apply --help` shows `--canvas-local`
+commit: pending-parent-commit
 
 ## INC-20260722-1740-publish-paramiko-missing-install
-status: open
+status: fixed
 run_date: 2026-07-22
 role: excalibur-blog-publish
 topic_id: B01
@@ -465,4 +555,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-22
+fix_summary:
+- Added `paramiko` to `.cursor/Dockerfile` and `.cursor/cloud-agent-install.sh` (aligned with requirements.txt).
+- Unset/empty `SSH_ROOT` now defaults upload candidates to `.` (still recommend Cloud Secret `SSH_ROOT=.`).
+- Publish skill documents env-check + paramiko + SSH_ROOT defaults.
+files_changed:
+- `.cursor/Dockerfile`
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `CLOUD-AUTOMATION.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- ssh_root_candidates({}) == ['.']
+- `rg paramiko` on Dockerfile/install/requirements
+commit: pending-parent-commit
+

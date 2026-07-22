@@ -56,9 +56,11 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 
 1. **Сначала** `excalibur_blog_research_start.py` (шаг 0) — для валидации даты/года и utility-gate темы.
 2. Web research 15–25 мин: используй инструмент `**WebSearch`** Курсора для глубинного анализа ТОП-5 конкурентов в реальном времени. GitHub/docs/community нужны для фактов, но итоговый угол обязан быть beginner-first: что новичку нажать, подключить, проверить и как не сломать процесс. Приоритетный источник фактов — `fact-bank.md`.
+   - **Tech niches** (MCP/API/agent/Cursor/GitHub/Docker…): `research-notes` gate требует ≥3 `github.com` URL.
+   - **Non-tech niches** (автоимпорт, Encar, бытовые how-to): не форсируй github.com. В `## github_evidence` достаточно docs/community/forum/официальных источников отрасли. Gate детектит tech только по **целым словам** коротких маркеров (`ai`/`ии`/`api`) — ложных срабатываний на `reader_pain` / `комплектации` быть не должно.
 3. Микро-исследование Wordstat через `user-mcp-kv` -> `wordstat_get_top_requests` (см. выше).
 4. Извлеки минимум 10–15 проверенных фактов (цифр/утверждений) с точными URL источников из твоего интернет-поиска.
-5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.
+5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать. В source table колонка `accessed_at` с ISO-датами (или строки `accessed_at: YYYY-MM-DD`) — gate считает оба формата.
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
 

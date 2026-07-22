@@ -51,7 +51,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_kie_gpt_image2_api.py`
 - `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --help` (shows --min-credits / --credit-url)
-commit: pending-parent-commit
+commit: f3a7a29
 
 ## Fixed incidents (AS20)
 
@@ -80,7 +80,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` (errors=0; llms supports --blog-dir)
 - `python3 scripts/excalibur_blog_llms_generator.py --help` (no --blog-path)
 - `rg` leftover `--blog-path` only in pitfalls/queue as anti-pattern notes
-commit: pending-parent-commit
+commit: f3a7a29
 
 ## INC-20260722-0926-schema-precommit-secret-redact
 status: fixed
@@ -107,7 +107,7 @@ files_changed:
 checks_run:
 - patched hook smoke with staged file → exit 0
 - identifier-guard unit smoke (skip URL / [REDACTED])
-commit: pending-parent-commit
+commit: f3a7a29
 
 ## INC-20260722-0925-geo-qa-utility-human-voice-markers
 status: fixed
@@ -131,7 +131,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` for recommendation marker guidance in writer skill/contract
-commit: pending-parent-commit
+commit: f3a7a29
 
 ## INC-20260722-0920-writer-precommit-secret-redact
 status: fixed
@@ -155,7 +155,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - patched hook smoke exit 0
-commit: pending-parent-commit
+commit: f3a7a29
 
 ## INC-20260722-0915-research-notes-gate-accessed-pain-markers
 status: fixed
@@ -182,7 +182,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
 - AS20 research-notes-gate PASS
-commit: pending-parent-commit
+commit: f3a7a29
 
 ## INC-20260722-0910-scout-precommit-secret-redact
 status: fixed
@@ -209,7 +209,7 @@ files_changed:
 checks_run:
 - `bash scripts/excalibur_blog_patch_precommit_secret_scan.sh`
 - staged-file hook smoke exit 0
-commit: pending-parent-commit
+commit: f3a7a29
 
 ## INC-20260722-0902-director-main-missing-as19-fixes
 status: fixed
@@ -236,7 +236,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → AS21
 - `test -f scripts/excalibur_topic_ids.py`
 - `git show main:scripts/excalibur_topic_ids.py` → missing on main (merge still required)
-commit: pending-parent-commit
+commit: f3a7a29
 
 ## Fixed incidents (earlier)
 
@@ -290,7 +290,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: f3a7a29
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -341,7 +341,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: f3a7a29
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -382,7 +382,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: f3a7a29
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -429,7 +429,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: f3a7a29
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -483,7 +483,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: f3a7a29
 
 ## Fixed incidents
 

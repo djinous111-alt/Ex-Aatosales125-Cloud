@@ -26,7 +26,7 @@ fi
 mkdir -p .cursor/excalibur-blog-fragments
 touch .cursor/excalibur-blog-handoff.md
 
-# Cloud pre-commit.cursor can die on URL-shaped secret *names* in
+# Cloud pre-commit/commit-msg *.cursor can die on URL-shaped secret *names* in
 # CLOUD_AGENT_INJECTED_SECRET_NAMES → "[REDACTED]: invalid variable name".
 if [[ -f scripts/excalibur_blog_patch_precommit_secret_scan.sh ]]; then
   bash scripts/excalibur_blog_patch_precommit_secret_scan.sh || true

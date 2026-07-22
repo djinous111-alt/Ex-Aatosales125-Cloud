@@ -31,7 +31,7 @@ GUARD = (
 
 
 def is_hooks_dir(path: Path) -> bool:
-    return path.is_dir() and (path / "pre-commit.cursor").is_file()
+    return path.is_dir() and any(path.glob("*.cursor"))
 
 
 def candidate_dirs() -> list[Path]:
@@ -72,7 +72,6 @@ def patch_file(hook: Path) -> None:
         print(f"[excalibur-precommit] already patched: {hook}")
         return
     if NEEDLE not in text:
-        print(f"[excalibur-precommit] WARN: for-loop not found in {hook}", flush=True)
         return
     if 'RAW_SECRET_VALUE="${!SECRET_NAME}"' not in text:
         print(f"[excalibur-precommit] WARN: indirect expansion missing in {hook}", flush=True)
@@ -83,8 +82,15 @@ def patch_file(hook: Path) -> None:
 
 dirs = candidate_dirs()
 if not dirs:
-    print("[excalibur-precommit] no pre-commit.cursor found (ok outside Cloud)")
+    print("[excalibur-precommit] no *.cursor secret-scan hooks found (ok outside Cloud)")
 else:
+    patched_any = False
     for hooks_dir in dirs:
-        patch_file(hooks_dir / "pre-commit.cursor")
+        for hook in sorted(hooks_dir.glob("*.cursor")):
+            before = hook.read_text(encoding="utf-8")
+            if NEEDLE in before and 'RAW_SECRET_VALUE="${!SECRET_NAME}"' in before:
+                patch_file(hook)
+                patched_any = True
+    if not patched_any:
+        print("[excalibur-precommit] no matching secret-scan loops found")
 PY

@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260722-1615-research-tech-marker-false-positive
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-research
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-hyundai-avante-iz-korei-kak-vybrat-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marked auto topics as `technical_topic` via substring match: marker `ai` inside `hyundai`, marker `ии` inside Russian endings like `комплектации`.
+- Gate then required ≥3 GitHub URLs for a non-tech auto-import article → BLOCK despite valid `github_evidence: n/a`.
+- Separately, `pain_solution_map` row counter only matched rows containing literal pain|solution|боль|… tokens (header alone was not enough); `accessed_at` must appear as literal `accessed_at:` (≥5), not only as a table column date.
+
+### How the agent recovered this run
+- Patched gate: short markers use Cyrillic/ASCII-aware whole-word edges; longer markers stay substring.
+- Rewrote AS10 `source_table` cells as `accessed_at: 2026-07-22` and prefixed pain_map cells with `pain`/`solution`/`reader_result`.
+- Re-ran gate → PASS (`technical_topic: false`).
+
+### Durable fix needed before next run
+- Keep whole-word matching for short TECH markers; add a unit/smoke test that `topic_id`/`h1` containing `Hyundai` + `комплектации` is NOT technical.
+- Document in research skill: source rows need literal `accessed_at: YYYY-MM-DD`; pain_map data rows must include pain/solution/result tokens for the gate regex.
+- Sync `agents/` / `.cursor/skills` if they still imply any non-tech topic can skip GitHub without mentioning the false-positive risk.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260722-1606-director-precommit-secret-name
 status: open
 run_date: 2026-07-22

@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260722-0935-indexer-llms-blog-path-stale-prompt
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-indexer
+topic_id: AS20
+article_dir: memory/blog/articles/AS20-levyj-rul-iz-korei-2026-kak-kupit
+severity: low
+category: docs
+
+### What went wrong
+- First `excalibur_blog_llms_generator.py` call failed: `unrecognized arguments: --blog-path /`.
+- Stale Task/subagent system prompt still listed `--blog-path /`, while on-disk `.cursor/agents/excalibur-blog-indexer.md` and `skills/indexer-excalibur-blog/SKILL.md` already use `--blog-dir` / `--out-dir` only (no `--blog-path`).
+- Related prior note: doctor historically checked wrong `--blog-path` flag (see INC-20260722-0902).
+
+### How the agent recovered this run
+- Re-ran generator without `--blog-path`; wrote `memory/blog/llms.txt` and `memory/blog/llms-full.txt` successfully (3 articles, AS20 included).
+
+### Durable fix needed before next run
+- Ensure Cloud Task / custom agent injected prompt matches on-disk indexer agent+skill (drop `--blog-path` everywhere).
+- Grep repo + agent definitions for leftover `--blog-path` on llms generator; keep doctor asserting the real CLI flags.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- Cursor Task prompt / agent definition cache for `excalibur-blog-indexer`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260722-0928-cover-kie-credits-exhausted
 status: open
 run_date: 2026-07-22

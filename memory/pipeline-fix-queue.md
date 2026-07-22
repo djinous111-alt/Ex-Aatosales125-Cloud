@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260722-0902-director-main-missing-as19-fixes
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: blocker
+category: docs
+
+### What went wrong
+- Cron automation branch started from `main` without AS19 durable fixes (`excalibur_topic_ids.py`, AS*|B* parsing in today/scout, doctor `--blog-dir`).
+- Doctor failed (`llms generator supports --blog-path`); today/scout only saw `B*` → `needs_scout` / wrong next id `B01` despite live AS series through AS19.
+
+### How the agent recovered this run
+- Restored durable files from commit `ac670d2` (AS19 fixer) onto this branch; appended AS19 topic card + ledger row; doctor errors=0; scout next `AS20`.
+
+### Durable fix needed before next run
+- Merge AS19 fixer commit(s) into `main` so next cron does not re-pay restore cost.
+- Keep `scripts/excalibur_topic_ids.py` and AS*|B* parsing in today/scout/research_start.
+- Doctor must check `--blog-dir` (not `--blog-path`) for llms generator.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_topic_ids.py`
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/published-articles.md` (sync with live WP)
+- PR merge to `main`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

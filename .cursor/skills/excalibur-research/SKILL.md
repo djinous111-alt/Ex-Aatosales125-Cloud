@@ -68,3 +68,9 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+## Technical topic gate
+
+`excalibur_blog_research_notes_gate.py` помечает тему technical только по **token/word-boundary** маркерам (`\bai\b`, mcp, api, github, …).
+Substring `ai` внутри `reader_pain` / `pain_solution_map` **не** делает auto/customs тему technical и не требует github.com×3.
+Для не-tech ниш достаточно docs/community evidence.
+

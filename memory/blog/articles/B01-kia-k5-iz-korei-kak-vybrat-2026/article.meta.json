@@ -13,7 +13,7 @@
     "сколько стоит киа к5 из кореи",
     "киа к5 на газу из кореи"
   ],
-  "char_count": 8801,
+  "char_count": 8819,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -33,6 +33,7 @@
     "score": 74,
     "verdict": "FAIL",
     "date": "2026-07-22",
+    "note": "writer FIX cycle 1 applied; awaiting re-QA",
     "html_linter": "PASS",
     "slop_score": "PASS",
     "cannibalization": "PASS",

@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260722-0915-research-notes-gate-accessed-pain-markers
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-research
+topic_id: AS20
+article_dir: memory/blog/articles/AS20-levyj-rul-iz-korei-2026-kak-kupit
+severity: low
+category: docs
+
+### What went wrong
+- First `research-notes.md` followed the agent template (`accessed_at` as a table column date + plain pain/solution rows) and got BLOCK: `accessed_at=1 < 5` and `pain_solution_map rows=1 < 3`.
+- Gate counts only literal `accessed_at:` (with colon), and pain-map rows only if the line contains `pain|solution|result|боль|решение|результат` – bare table cells without those tokens do not count.
+- Agent template / skill example does not spell out these marker requirements, so notes had to be rewritten after validation.
+
+### How the agent recovered this run
+- Rewrote `source_table` cells to `accessed_at: 2026-07-22` and prefixed pain-map cells with `pain:` / `solution:` / `reader_result:`; gate PASS on retry.
+
+### Durable fix needed before next run
+- Document in research skill/agent that: (1) each source row should include the literal token `accessed_at: YYYY-MM-DD` (not only a date column); (2) each `pain_solution_map` data row must contain the gate keywords (`pain`/`solution`/`result` or RU equivalents).
+- Optionally soften the gate to count markdown table dates / header-aligned columns without forcing English prefixes.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/editorial-utility-only.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260722-0910-scout-precommit-secret-redact
 status: open
 run_date: 2026-07-22

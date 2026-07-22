@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/AS20-levyj-rul-iz-korei-2026-kak-kupit",
+  "notes": "memory/blog/articles/AS20-levyj-rul-iz-korei-2026-kak-kupit/research-notes.md",
+  "context": "memory/blog/articles/AS20-levyj-rul-iz-korei-2026-kak-kupit/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-07-22",
+    "prefer_sources_after": "2026-04-23",
+    "source_urls": 17,
+    "source_domains": 10,
+    "source_table_rows": 17,
+    "accessed_at": 16,
+    "github_urls": 0,
+    "official_doc_urls": 0,
+    "action_outline_items": 9,
+    "pain_solution_rows": 8,
+    "technical_topic": false
+  }
+}

@@ -23,6 +23,7 @@ category: api
 - Budget exhausted (~2 attempts); cannot apply/split without a generated canvas URL.
 
 ### How the agent recovered this run
+- Director fallback: Cursor GenerateImage → pad/crop to 2048x1152 → `cover_quad_split.py --inject-html` (non-canonical; Kie still needs top-up).
 - Manifest + batch prepared (topic-specific hooks for левый руль / чек-лист до депозита).
 - No apply/split/inject (correct: no canvas URL).
 - Cover fragment marked ❌ COVER IMAGE CREDITS BLOCKER; pipeline waits for Kie top-up or alternate billed image path.

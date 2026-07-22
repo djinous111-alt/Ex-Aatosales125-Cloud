@@ -1,0 +1,6 @@
+{
+  "status": "fallback_generateimage",
+  "note": "Kie/MCP gpt-image-2/flux/z-image failed (credits/NoneType). Director used Cursor GenerateImage workaround then split/inject.",
+  "local_canvas": "cover/canvas-quad.png",
+  "source": "/opt/cursor/artifacts/assets/as20-canvas-quad-fallback.png"
+}

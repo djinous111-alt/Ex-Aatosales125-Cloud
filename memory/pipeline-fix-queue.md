@@ -23,6 +23,7 @@ category: env
 ### How the agent recovered this run
 - Installed via `pip3 install --break-system-packages paramiko` (got 5.0.0).
 - Re-ran publish: SSH upload OK, HTTP trigger OK, verdict pass (post=3613).
+- Commit secret-scan blocked live `PUBLIC_SITE_URL`/`CATALOG_URL`/`TELEGRAM_URL` in ledger/result/log; redacted committed copies to `[REDACTED]` (+ pragma on md lines) before push.
 
 ### Durable fix needed before next run
 - Ensure `.cursor/cloud-agent-install.sh` / Dockerfile installs `paramiko` (or `python3-paramiko`) before publish.

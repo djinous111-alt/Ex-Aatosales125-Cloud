@@ -1,7 +1,7 @@
 # Promotion checklist — AS20 levyj-rul-iz-korei-2026-kak-kupit
 
-Дата публикации: 2026-07-22 (ожидается после publish)  
-Live URL: (после publish) [REDACTED]/blog/levyj-rul-iz-korei-2026-kak-kupit/
+Дата публикации: 2026-07-22  
+Live URL: https://avtosales125.ru/2026/07/22/levyj-rul-iz-korei-2026-kak-kupit/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir ... --site-base $PUBLIC_SITE_URL` — 1 link applied (AS20→AS09).
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (AS20 в индексе; 3 articles loaded).
-- Publish: pending (Директор → excalibur-blog-publish).
+- Publish: PASS — WP post_id=3607; featured=3608; inline=3609/3610/3611; schema_meta=ok.

@@ -24,11 +24,13 @@ category: qa
 - Added `pain_markers_ru` / `outcome_markers_ru` (aligned with `excalibur_blog_human_voice_gate.py`) plus `min_pain_markers` / `min_outcome_markers` to editorial-policy.json.
 - Hardened utility gate: enforce pain/outcome mins only when the corresponding marker list is non-empty.
 - Re-ran utility gate → PASS for AS10.
+- Sanitized `link-verify.json` URLs to `[REDACTED]` before commit (pre-commit secret-scan blocked live CATALOG_URL / PUBLIC_SITE_URL / TELEGRAM_URL in the report; verdict kept).
 
 ### Durable fix needed before next run
 - Keep policy lists in sync with human-voice PAIN/OUTCOME markers (or share one source).
 - Add smoke test: article with empty policy lists must not false-BLOCK; article missing pain/outcome language must BLOCK when lists are present.
 - Note in pitfalls / writer skill that utility gate now counts pain/outcome markers.
+- `excalibur_blog_link_verify.py` should write redacted URLs in the report by default (or post-process) so GEO QA commits are not blocked by public marketing URL secrets.
 
 ### Suggested files to inspect/change
 - `memory/brief/editorial-policy.json`

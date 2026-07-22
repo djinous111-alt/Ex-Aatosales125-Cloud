@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260723-2106-research-notes-gate-format-quirks
+status: open
+run_date: 2026-07-23
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-pod-zakaz-2026
+severity: medium
+category: script
+
+### What went wrong
+- Первый прогон `excalibur_blog_research_notes_gate.py` дал BLOCK: `accessed_at` в таблице источников как дата `2026-07-23` не считался — gate ищет литерал `accessed_at:` (`\baccessed_at\b\s*:`).
+- Строки `pain_solution_map` без слов pain/solution/result/боль/решение/результат не засчитывались (header + 1 случайное совпадение = 2 < 3).
+- `search_intent: workflow` попадает в TECH_MARKERS (`workflow`), тема авто-импорта помечается `technical_topic=true` и требует ≥3 GitHub URL + docs URL — лишний шум для не-IT статьи.
+
+### How the agent recovered this run
+- Переписал ячейки даты в `accessed_at: 2026-07-23`, префиксы pain/solution/результат в строках карты, добавил GitHub/docs evidence; gate PASS со второго прогона.
+
+### Durable fix needed before next run
+- Документировать в research skill/agent контракт gate: в source_table дата должна быть `accessed_at: YYYY-MM-DD`; в pain_solution_map — ключевые слова pain/solution/result (или RU-эквиваленты) в каждой data-row.
+- Убрать `workflow` из TECH_MARKERS или не сканировать `search_intent` на tech-маркеры (иначе любой workflow-гайд = «technical»).
+- Опционально: считать колонку `accessed_at` в markdown-таблице без требования двоеточия в ячейке.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `shared/editorial-utility-only.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

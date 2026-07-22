@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-avto-iz-korei-pod-zakaz-2026",
+  "notes": "memory/blog/articles/B01-avto-iz-korei-pod-zakaz-2026/research-notes.md",
+  "context": "memory/blog/articles/B01-avto-iz-korei-pod-zakaz-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-07-23",
+    "prefer_sources_after": "2026-04-24",
+    "source_urls": 18,
+    "source_domains": 13,
+    "source_table_rows": 18,
+    "accessed_at": 17,
+    "github_urls": 4,
+    "official_doc_urls": 2,
+    "action_outline_items": 9,
+    "pain_solution_rows": 7,
+    "technical_topic": true
+  }
+}

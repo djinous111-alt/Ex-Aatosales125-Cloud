@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS10",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "N-Line на фото — ещё не повод для депозита",
+  "mcp_note": "ONE gpt-image-2 / Kie i2i with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у Hyundai Avante со смартфоном Encar: плашка «до депозита», порт Владивостока",
+      "scene_hint": "WEATHER: bright coastal Vladivostok day near port with modern silver Hyundai Avante sedan; OUTFIT: neat navy smart-casual shirt under light charcoal bomber (NOT reference tank/t-shirt), NO cap NO hood, glasses on; EXACT face likeness from reference; action selfie holding phone with fake Encar listing card (horsepower ~204 red STOP sticker); torn paper Cyrillic hook plaque «N-Line на фото — ещё не повод для депозита» with yellow highlighter on «депозита»; sticky note «сначала л.с.»; shocked meme cutout + facepalm sticker (different formats); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics",
+      "meme_caption_ru": "Сначала л.с."
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Отсейте турбо и N: сначала мощность, потом красота",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI 16:9: columns Мотор | л.с. | до депозита; rows 1.6 MPI ~123 ОК / 1.6T ~204 СТОП / N ~280 СТОП / N Line — смотри мотор; yellow highlight on ≤160; pink sticky «порог»; scotch tape corner; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица моторов Avante: 1.6 MPI ок, турбо и N — стоп до депозита"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Разберите Smart, Modern и Inspiration без магии названий",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram: база Smart → середина Modern → топ Inspiration; side note N Line = обвес, мотор отдельно; arrows + sticky «не магия названий»; mini catalog card taped; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема комплектаций Smart → Modern → Inspiration и отдельно N Line как обвес"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сверьте Avante и Elantra: что реально ищут на Encar",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake Encar phone/desktop screenshot UI: search Avante = Elantra KR; badges CN7/FL common, CN8 show-only caution; Cyrillic labels «не путать рекламу шоу с лотом»; sticky «реально на Encar»; NO hero face; NO Wordstat/Metrika",
+      "alt": "Мокап Encar: Avante = Elantra, массово CN7, не путать с шоу CN8"
+    }
+  }
+}

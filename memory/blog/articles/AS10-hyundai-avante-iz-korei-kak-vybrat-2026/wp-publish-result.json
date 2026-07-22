@@ -1,0 +1,15 @@
+{
+  "slug": "hyundai-avante-iz-korei-kak-vybrat-2026",
+  "topic_id": "AS10",
+  "permalink": "[REDACTED]/2026/07/22/hyundai-avante-iz-korei-kak-vybrat-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/AS10-hyundai-avante-iz-korei-kak-vybrat-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1557886,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3613 slug=hyundai-avante-iz-korei-kak-vybrat-2026\nOK featured_image=3614\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3615 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/07/hyundai-avante-iz-korei-kak-vybrat-2026-inline-01.png\nOK inline_image_upload=3616 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/07/hyundai-avante-iz-korei-kak-vybrat-2026-inline-02.png\nOK inline_image_upload=3617 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/07/hyundai-avante-iz-korei-kak-vybrat-2026-inline-03.png\npermalink=[REDACTED]/2026/07/22/hyundai-avante-iz-korei-kak-vybrat-2026/\n",
+  "verdict": "pass"
+}

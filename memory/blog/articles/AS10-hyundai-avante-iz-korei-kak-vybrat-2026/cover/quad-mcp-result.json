@@ -1,0 +1,8 @@
+{
+  "url": "",
+  "source": "emergency-fallback-generateimage",
+  "method": "fallback",
+  "reason": "Kie credits insufficient (402); preflight credits=-0.11 < min=2.0",
+  "local_canvas": "cover/canvas-quad.png",
+  "updated_at_epoch": 1784727170
+}

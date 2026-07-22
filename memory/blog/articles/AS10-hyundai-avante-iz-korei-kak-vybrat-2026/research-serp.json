@@ -1,0 +1,701 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-22",
+    "today_ru": "22.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-23",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-22 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS10",
+    "priority": "P0",
+    "slug": "hyundai-avante-iz-korei-kak-vybrat-2026",
+    "h1": "Как выбрать Hyundai Avante из Кореи в 2026: комплектации, мощность и чек-лист до депозита",
+    "primary_query": "хендай аванте из кореи",
+    "secondary_queries": [
+      "купить хендай аванте",
+      "hyundai avante из кореи",
+      "хендай аванте комплектации",
+      "hyundai elantra из кореи"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "хендай аванте из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Avante из Южной Кореи: полный гид покупателя 2026 (поколения ...",
+          "url": "https://eimcar.ru/ru/news/hyundai-avante-pokupka-iz-korei-gid-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Каталог Автомобилей Hyundai Avante 2026 Года Из Кореи",
+          "url": "https://japanlife-auto.ru/avto-iz-korei/hyundai/avante/?year[0]=2026&year[1]=2026",
+          "snippet": "Разбираем поколения Hyundai Avante, двигатели 1.6 и 2.0 Turbo, комплектации и реальные цены при импорте из Южной Кореи в Россию."
+        },
+        {
+          "title": "Hyundai Avante 2026 года в Корее - Дром",
+          "url": "https://www.drom.ru/world/korea/hyundai/avante/1899793/",
+          "snippet": "Продажа авто HYUNDAI AVANTE 2026 года из Кореи под полную пошлину. Выгодные условия, работаем по договору. Рассчитаны реальные цены с доставкой в Россию и полной пошлиной."
+        },
+        {
+          "title": "Купить автомобиль Hyundai AVANTE 2026 года из Кореи с доставкой",
+          "url": "https://korex-auto.com/korea/hyundai/avante/?year_from=2026&year_to=2026",
+          "snippet": "Актуальные предложения Hyundai Avante под заказ из Кореи с ценами, фотографиями и характеристиками. Актуальная база объявлений и расчет стоимости Hyundai Avante с доставкой в Россию."
+        },
+        {
+          "title": "Купить Hyundai Avante из Кореи под ключ — от 1 416 000 ₽, 270 в наличии",
+          "url": "https://encarrus.ru/korea/hyundai/avante/",
+          "snippet": "Объявления по продаже автомобилей Hyundai AVANTE 2026 года в Корее, цена указана в рублях со всеми расходами по Корее, доставкой в Россию, пошлиной и всеми сборами."
+        },
+        {
+          "title": "Hyundai Avante из Кореи под заказ | цена, проверка, доставка",
+          "url": "https://car-lounge.ru/avto-iz-korei/hyundai/avante",
+          "snippet": "При подборе Hyundai Avante через Encarrus возможен заказ автомобилей из Кореи как новых, так и с пробегом. Каждый автомобиль проходит техническую проверку, а сделка сопровождается на всех этапах, включая оформление и доставку."
+        }
+      ],
+      "searched_at": "2026-07-22"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "хендай аванте из кореи июль 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Avante из Южной Кореи: полный гид покупателя 2026 (поколения ...",
+          "url": "https://eimcar.ru/ru/news/hyundai-avante-pokupka-iz-korei-gid-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Каталог Автомобилей Hyundai Avante 2026 Года Из Кореи",
+          "url": "https://japanlife-auto.ru/avto-iz-korei/hyundai/avante/?year[0]=2026&year[1]=2026",
+          "snippet": "Разбираем поколения Hyundai Avante, двигатели 1.6 и 2.0 Turbo, комплектации и реальные цены при импорте из Южной Кореи в Россию."
+        },
+        {
+          "title": "Купить Hyundai Avante из Кореи под ключ — от 1 416 000 ₽, 270 в наличии",
+          "url": "https://encarrus.ru/korea/hyundai/avante/",
+          "snippet": "Продажа авто HYUNDAI AVANTE 2026 года из Кореи под полную пошлину. Выгодные условия, работаем по договору. Рассчитаны реальные цены с доставкой в Россию и полной пошлиной."
+        },
+        {
+          "title": "Hyundai Avante из Кореи под заказ | цена, проверка, доставка",
+          "url": "https://car-lounge.ru/avto-iz-korei/hyundai/avante",
+          "snippet": "При подборе Hyundai Avante через Encarrus возможен заказ автомобилей из Кореи как новых, так и с пробегом. Каждый автомобиль проходит техническую проверку, а сделка сопровождается на всех этапах, включая оформление и доставку."
+        },
+        {
+          "title": "Hyundai The New Avante (CN7) 1.6 2026 — купить из Кореи | GetAvto",
+          "url": "https://getautokorea.ru/catalog/hyundai-cn7-2026-41866122",
+          "snippet": "На странице собраны актуальные предложения Hyundai Avante с корейского рынка. Сравниваем год выпуска, пробег, двигатель, комплектацию, состояние и итоговую стоимость доставки в Россию."
+        },
+        {
+          "title": "Hyundai Avante 2026 года в Корее - Дром",
+          "url": "https://www.drom.ru/world/korea/hyundai/avante/1899793/",
+          "snippet": "Hyundai The New Avante (CN7) 2026 года из Южной Кореи под ключ. Полный расчёт стоимости с доставкой и таможенным оформлением. Прозрачные цены, надёжная логистика."
+        }
+      ],
+      "searched_at": "2026-07-22"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "хендай аванте из кореи новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Avante из Южной Кореи: полный гид покупателя 2026 (поколения ...",
+          "url": "https://eimcar.ru/ru/news/hyundai-avante-pokupka-iz-korei-gid-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Сколько РЕАЛЬНО стоит Хендай Аванте из Кореи в 2026 году? Авто из Кореи ...",
+          "url": "https://www.youtube.com/watch?v=pNxOGDui5vo",
+          "snippet": "Разбираем поколения Hyundai Avante, двигатели 1.6 и 2.0 Turbo, комплектации и реальные цены при импорте из Южной Кореи в Россию."
+        },
+        {
+          "title": "2026 Hyundai Avante Unveiled at Busan Show: Design, Specs",
+          "url": "https://thekoreancarblog.com/hyundai-unveils-the-all-new-avante-at-2026-busan-mobility-show/",
+          "snippet": "Сегодня мы детально рассмотрим выкупленный для нашего клиента автомобиль — Hyundai Avante VII поколения в рестайлинге (2023 год). Я покажу все изменения по кузову, заглянем под капот (надежный..."
+        },
+        {
+          "title": "Hyundai Avante 2026: что известно о новом Elantra восьмого поколения",
+          "url": "https://zvelta.kz/blog/hyundai-elantra-avante-2026-eighth-generation",
+          "snippet": "Hyundai Motor Company officially unveiled the 8th-generation The All-New Avante for the first time globally at the 2026 Busan Mobility Show on June 26."
+        },
+        {
+          "title": "Новая Hyundai Elantra 8 поколения: в Корее открыты продажи. Разобрали ...",
+          "url": "https://www.drive2.ru/o/b/737142008270836074/",
+          "snippet": "Когда начнутся продажи Hyundai планирует раскрыть комплектации, официальные показатели экономичности и цены в третьем квартале 2026 года, после чего начнёт принимать заказы в Корее."
+        },
+        {
+          "title": "Новая Hyundai Elantra 2026: дизайн, характеристики, гибрид и цифровой салон",
+          "url": "https://butikavto.by/news/predstavlen_novyy_hyundai_avante_chto_izmenilos",
+          "snippet": "Мы возим машины из Кореи, поэтому Busan Mobility Show всегда смотрим внимательно. 26 июня там дебютировал новый Hyundai Avante (он же Elantra на международном рынке), внутренний код CN8. В Корее предзаказ открыт с 15 июня по программе Early Access, массовые продажи стартуют в третьем квартале 2026."
+        }
+      ],
+      "searched_at": "2026-07-22"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com хендай аванте из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "PointAD/assets/point_table.png at master · zqhang/PointAD",
+          "url": "https://github.com/zqhang/PointAD/blob/master/assets/point_table.png",
+          "snippet": ""
+        },
+        {
+          "title": "fastrest/.github/banner.png at main · hoaxnerd/fastrest",
+          "url": "https://github.com/hoaxnerd/fastrest/blob/main/.github/banner.png",
+          "snippet": "Official implementation of PointAD (NeurIPS 2024). Contribute to zqhang/PointAD development by creating an account on GitHub."
+        },
+        {
+          "title": "SymTime/configs/images/coverage.png at main · wwhenxuan/SymTime",
+          "url": "https://github.com/wwhenxuan/SymTime/blob/main/configs/images/coverage.png",
+          "snippet": "Modern REST Framework for FastAPI. Contribute to hoaxnerd/fastrest development by creating an account on GitHub."
+        },
+        {
+          "title": "RustySEO/assets/hero.png at main · mascanho/RustySEO · GitHub",
+          "url": "https://github.com/mascanho/RustySEO/blob/main/assets/hero.png",
+          "snippet": "The official PyTorch implementation of our NeurIPS'25 paper: Synthetic Series-Symbol Data Generation for Time Series Foundation Models. - SymTime/configs/images/coverage.png at main · wwhenxuan/SymTime."
+        },
+        {
+          "title": "alik-agarwala/images/backend/node-js.svg at main - GitHub",
+          "url": "https://github.com/Alik-Agarwala/alik-agarwala/blob/main/images/backend/node-js.svg",
+          "snippet": "SEO/GEO toolkit to analyse, crawl, parse and optimise websites & logs (Nginx & Apache) - RustySEO/assets/hero.png at main · mascanho/RustySEO"
+        },
+        {
+          "title": "ASTRiDE/astride/datasets/images/ASTRiDE.png at master · dwkim78/ASTRiDE ...",
+          "url": "https://github.com/dwkim78/ASTRiDE/blob/master/astride/datasets/images/ASTRiDE.png",
+          "snippet": "Contribute to Alik-Agarwala/alik-agarwala development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-07-22"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "хендай аванте из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Avante из Южной Кореи: полный гид покупателя 2026 (поколения ...",
+          "url": "https://eimcar.ru/ru/news/hyundai-avante-pokupka-iz-korei-gid-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Хендай Аванте технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/hyundai/avante/",
+          "snippet": "Разбираем поколения Hyundai Avante, двигатели 1.6 и 2.0 Turbo, комплектации и реальные цены при импорте из Южной Кореи в Россию. Hyundai Avante — одна из самых популярных моделей для импорта из Южной Кореи."
+        },
+        {
+          "title": "Hyundai Avante 2026, седан, 8 поколение, CN8 ... - Дром",
+          "url": "https://www.drom.ru/catalog/hyundai/avante/g_2026_24715/",
+          "snippet": "Подробно расписан модельный ряд Hyundai Avante: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хендай Аванте между собой."
+        },
+        {
+          "title": "2026 Hyundai Avante Unveiled at Busan Show: Design, Specs",
+          "url": "https://thekoreancarblog.com/hyundai-unveils-the-all-new-avante-at-2026-busan-mobility-show/",
+          "snippet": "Подробно расписаны модификации автомобилей Hyundai Avante 2026: все технические спецификации, полная комплектация салона, цвета, в которые окрашивался автомобиль, фотографии внешнего вида и салона. Есть возможность сравнивать разные авто между собой."
+        },
+        {
+          "title": "Сколько РЕАЛЬНО стоит Хендай Аванте из Кореи в 2026 году? Авто из Кореи ...",
+          "url": "https://www.youtube.com/watch?v=pNxOGDui5vo",
+          "snippet": "Hyundai Motor Company officially unveiled the 8th-generation The All-New Avante for the first time globally at the 2026 Busan Mobility Show on June 26."
+        },
+        {
+          "title": "Официальный сайт обновлений навигационного ПО Hyundai Motors",
+          "url": "https://update.hyundai.com/RU/RU/Main",
+          "snippet": "Сегодня мы детально рассмотрим выкупленный для нашего клиента автомобиль — Hyundai Avante VII поколения в рестайлинге (2023 год). Я покажу все изменения по кузову, заглянем под капот (надежный..."
+        }
+      ],
+      "searched_at": "2026-07-22"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "хендай аванте из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Опыт заказа машины из Южной Кореи — Hyundai Avante (7G) бензин, 1,6 л ...",
+          "url": "https://www.drive2.ru/l/723084477231801386/",
+          "snippet": ""
+        },
+        {
+          "title": "Бортжурнал Hyundai Avante - клуб, форум о Хендэ Авант на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/hyundai/avante/",
+          "snippet": "История покупки машины началась задолго до обращения взгляда на корейский рынок. После продажи дилерского Соляриса 2020 г.в. в сентябре 2025 г. радость от значительно выгодной продажи моментально сменилась шоком, что купить что-то новое и достойное за адекватную цену просто невозможно."
+        },
+        {
+          "title": "Hyundai Avante из Южной Кореи: полный гид покупателя 2026 (поколения ...",
+          "url": "https://eimcar.ru/ru/news/hyundai-avante-pokupka-iz-korei-gid-2026",
+          "snippet": "Бортжурнал Hyundai Avante: реальные истории, опыт эксплуатации и обслуживания. Читайте в Бортжурнале Авто.ру"
+        },
+        {
+          "title": "Хендай Аванте отзывы владельцев: все минусы и недостатки",
+          "url": "https://www.drom.ru/reviews/hyundai/avante/5kopeek/?year1=2024&year2=2026",
+          "snippet": "Разбираем поколения Hyundai Avante, двигатели 1.6 и 2.0 Turbo, комплектации и реальные цены при импорте из Южной Кореи в Россию."
+        },
+        {
+          "title": "Hyundai форум - клуб владельцев автомобилей Хендэ",
+          "url": "https://hyundaiforum.ru/index.php",
+          "snippet": "Поколение Сбросить все Еще 2 параметра Показать ВсеПлюсыМинусыПоломки 1 отзыв Сначала полезные Н Наталья Фадеева4 месяца назад 2026 год Комфорт Нечего Были 3 Добавить короткий отзыв о Hyundai Avante"
+        },
+        {
+          "title": "Отзывы владельцев Hyundai Avante с ФОТО - Дром",
+          "url": "https://www.drom.ru/reviews/hyundai/avante/",
+          "snippet": "Я хочу сделать автозагрузочную USB‑флешку, чтобы войти в WinCE6 на магнитоле GEN1 с LAN8900EHLM. жрет бензин 30 литров на 100 км. Какая причина может быть??? Продам AVANTE SPORT 2019г.в."
+        }
+      ],
+      "searched_at": "2026-07-22"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "купить хендай аванте 2026",
+      "purpose": "вторичный запрос: купить хендай аванте",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Купить Hyundai Avante 2026 года по цене от 2 130 000 рублей - много ...",
+          "url": "https://auto.ru/cars/hyundai/avante/2026-year/all/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить новую Хендай Аванте 2026. Продажа автомобилей Hyundai Avante ...",
+          "url": "https://auto.drom.ru/hyundai/avante/year-2026/new/",
+          "snippet": "Полный модельный ряд Hyundai Avante 2026 года по цене от 2 130 000 рублей - много Хендэ Авант, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        },
+        {
+          "title": "Купить Hyundai Avante 2026 в Москве по цене от 1700000 ₽ - новые авто в ...",
+          "url": "https://avantaauto.ru/cars/hyundai/avante/",
+          "snippet": "Объявления о продаже новой модели Hyundai Avante 2026 полный модельный ряд с фото от официального дилера в автосалоне. Купить новая Хендай Аванте 2026 года."
+        },
+        {
+          "title": "Купить Хендай Аванте CN7 2026 в России: продажа Hyundai Avante CN7 2026 ...",
+          "url": "https://auto.drom.ru/hyundai/avante/generation7/year-2026/",
+          "snippet": "Продажа новых автомобилей Хендай Аванте в Москве. Выгодный кредит 4,9%, рассрочка 0%, тест-драйв, акции и специальные цены на Hyundai Avante 2026 года в автосалоне Аванта."
+        },
+        {
+          "title": "Купить Hyundai Avante по цене от 90 000 рублей - более 245 Хендэ Авант ...",
+          "url": "https://auto.ru/cars/hyundai/avante/all/",
+          "snippet": "Объявления о продаже Хендай Аванте CN7 2026 б/у и новых в России - частные объявления. Узнать стоимость Hyundai Avante CN7 2026 года и купить с пробегом на Дроме"
+        },
+        {
+          "title": "Купить Hyundai Avante 2026 чёрного цвета в Москве - официальный дилер ...",
+          "url": "https://avantaauto.ru/cars/hyundai/avante/color/chyernyy/",
+          "snippet": "Полный модельный ряд Hyundai Avante по цене от 90 000 рублей - более 245 Хендэ Авант, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        }
+      ],
+      "searched_at": "2026-07-22"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "hyundai avante из кореи 2026",
+      "purpose": "вторичный запрос: hyundai avante из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Avante из Южной Кореи: полный гид покупателя 2026 (поколения ...",
+          "url": "https://eimcar.ru/ru/news/hyundai-avante-pokupka-iz-korei-gid-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Каталог Автомобилей Hyundai Avante 2026 Года Из Кореи",
+          "url": "https://japanlife-auto.ru/avto-iz-korei/hyundai/avante/?year[0]=2026&year[1]=2026",
+          "snippet": "Разбираем поколения Hyundai Avante, двигатели 1.6 и 2.0 Turbo, комплектации и реальные цены при импорте из Южной Кореи в Россию."
+        },
+        {
+          "title": "HYUNDAI AVANTE (ELANTRA) из Кореи в июне 2026 ... - Rutube",
+          "url": "https://rutube.ru/video/7d5396c9db6b89a1df9d60065bb4be7e/",
+          "snippet": "Продажа авто HYUNDAI AVANTE 2026 года из Кореи под полную пошлину. Выгодные условия, работаем по договору. Рассчитаны реальные цены с доставкой в Россию и полной пошлиной."
+        },
+        {
+          "title": "Hyundai Avante из Кореи — цены в 2026 году, подбор и доставка за 15 ...",
+          "url": "https://atp-auto.ru/avto-iz-korei/hyundai/avante/",
+          "snippet": "Смотрите видео онлайн «HYUNDAI AVANTE (ELANTRA) из Кореи в июне 2026: реальная цена под ключ в РФ + смета» на канале «Эдуард Тен│DREAMEX KOREA - Авто мечты из Кореи» в хорошем качестве и бесплатно ..."
+        },
+        {
+          "title": "Hyundai Avante (Elantra) из Кореи, купить с доставкой в Россию 2026 | AZWAY",
+          "url": "https://azway.ru/import/koreya/hyundai-avante",
+          "snippet": "Hyundai Avante из Кореи — реальные цены и доступные авто. Подбор под заказ с доставкой за 15 дней по всей России. Покажем варианты и рассчитаем стоимость."
+        },
+        {
+          "title": "Hyundai The New Avante (CN7) 1.6 2026 — купить из Кореи | GetAvto",
+          "url": "https://getautokorea.ru/catalog/hyundai-cn7-2026-41866122",
+          "snippet": "Купить Hyundai Avante (Elantra) из Кореи под ключ. 1.6L 4-цилиндровый / 1.6L турбо / 1.6L гибрид, 123-204 л.с.. Цена от 1.8 до 2.8 млн ₽ под ключ. Доставка по всей России, растаможка, СБКТС, ЭПТС."
+        }
+      ],
+      "searched_at": "2026-07-22"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "хендай аванте комплектации 2026",
+      "purpose": "вторичный запрос: хендай аванте комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хендай Аванте 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/hyundai/avante/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Хендай Аванте технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/hyundai/avante/",
+          "snippet": "Подробно расписан модельный ряд Hyundai Avante 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хендай Аванте 2026 между собой."
+        },
+        {
+          "title": "Комплектации Hyundai Avante (1.6 AMT, 157 л.с.) 8 поколение (2026 - н.в ...",
+          "url": "https://auto.ru/catalog/cars/hyundai/avante/25068580/25068594/equipment/",
+          "snippet": "Подробно расписан модельный ряд Hyundai Avante: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хендай Аванте между собой."
+        },
+        {
+          "title": "Комплектации и цены Hyundai Avante 2026 в Туле - официальный дилер Аванта",
+          "url": "https://tula.avantaauto.ru/cars/hyundai/avante/komplektacii/",
+          "snippet": "Комплектации Hyundai Avante Седан (1.6 AMT, 157 л.с.) 8 поколение (2026 - н.в.) на Авто.ру. Сравнение комплектаций. Список опций. Информация из официальных источников."
+        },
+        {
+          "title": "Hyundai Avante 8 поколение (2026 - н.в.) - технические характеристики ...",
+          "url": "https://auto.ru/catalog/cars/hyundai/avante/25068580/",
+          "snippet": "Обзор цен на новый автомобиль Hyundai Avante от официального дилера в Туле. Описание и сравнение всех комплектаций Хендай Аванте 2026 модельного года."
+        },
+        {
+          "title": "Hyundai Avante из Южной Кореи: полный гид покупателя 2026 (поколения ...",
+          "url": "https://eimcar.ru/ru/news/hyundai-avante-pokupka-iz-korei-gid-2026",
+          "snippet": "Кузова, комплектации, технические характеристики Hyundai Avante 8 поколение (2026 - н.в.) на сайте Авто.ру"
+        }
+      ],
+      "searched_at": "2026-07-22"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "hyundai elantra из кореи 2026",
+      "purpose": "вторичный запрос: hyundai elantra из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Elantra 2026 — купить автомобиль из Кореи | JCK AUTO",
+          "url": "https://jckauto.ru/catalog/cars/hyundai-elantra-2026-iz-korei-41033953",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Elantra 2026 из Кореи чем отличается от дилерских версий",
+          "url": "https://dzen.ru/a/aTU39JmXjixmZTED",
+          "snippet": "Описание Hyundai Elantra 2026 — это свежая модель из Кореи с нулевым пробегом. Под капотом атмосферный 1.6-литровый бензиновый мотор (около 123 л.с.) в паре с классическим 6-ступенчатым автоматом."
+        },
+        {
+          "title": "Hyundai Elantra из Кореи: доступный седан с льготным утильсбором",
+          "url": "https://onlyjpcars.ru/blog/hyundai-elantra-iz-korei",
+          "snippet": "Особенно когда речь о свежих моделях вроде Hyundai Elantra 2026. Корейские версии этого седана и официальные поставки — словно два разных автомобиля в одной оболочке. Цена отличается на 400-600 тысяч. Комплектация — как день и ночь. И вот парадокс: за меньшие деньги вы получаете больше."
+        },
+        {
+          "title": "Hyundai ELANTRA из Кореи с доставкой — Купить авто Hyundai ELANTRA в Корее",
+          "url": "https://korex-auto.com/korea/hyundai/elantra/",
+          "snippet": "Привоз Hyundai Elantra (Avante CN7) из Кореи под ключ в Сибирь. Цены 2026, выбор двигателя, утильсбор — базовый 1.6 MPI попадает под льготную ставку."
+        },
+        {
+          "title": "CarsKorea | Купить Hyundai из Южной Кореи с доставкой",
+          "url": "https://carskorea.shop/hyundai/",
+          "snippet": "Купить Hyundai ELANTRA из Кореи — полный расчет с доставкой в Россию, пошлиной и всеми сборами. Понятная схема покупки, отслеживание этапов покупки авто в личном кабинете, низкая комиссия!"
+        },
+        {
+          "title": "Купить Hyundai из Кореи — доставка и растаможка под ключ",
+          "url": "https://lhmex.ru/avtomobilej-korei/hyundai",
+          "snippet": "Купить Hyundai из Южной Кореи. ПТС и таможенное оформление."
+        }
+      ],
+      "searched_at": "2026-07-22"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Hyundai Avante из Кореи в 2026: комплектации, мощность и чек-лист до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Avante из Южной Кореи: полный гид покупателя 2026 (поколения ...",
+          "url": "https://eimcar.ru/ru/news/hyundai-avante-pokupka-iz-korei-gid-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Avante 2026, седан, 8 поколение, CN8 ... - Дром",
+          "url": "https://www.drom.ru/catalog/hyundai/avante/g_2026_24715/",
+          "snippet": "Разбираем поколения Hyundai Avante, двигатели 1.6 и 2.0 Turbo, комплектации и реальные цены при импорте из Южной Кореи в Россию."
+        },
+        {
+          "title": "Обзор Hyundai Avante из Кореи - цена, комплектации, техника",
+          "url": "https://rutube.ru/video/74d1d5d0abe97249e09713918edefacc/",
+          "snippet": "Подробно расписаны модификации автомобилей Hyundai Avante 2026: все технические спецификации, полная комплектация салона, цвета, в которые окрашивался автомобиль, фотографии внешнего вида и салона. Есть возможность сравнивать разные авто между собой."
+        },
+        {
+          "title": "Хендай Аванте 2026 технические характеристики. Hyundai Avante 2026 ...",
+          "url": "https://www.drom.ru/catalog/hyundai/avante/2026/",
+          "snippet": "В этом видео мы рассмотрим Hyundai Avante из Кореи. Сравним её с китайской Hyundai Elantra, поговорим про разницу в качестве сборки и комплектациях, поделюсь впечатлениями от эргономики обоих ..."
+        },
+        {
+          "title": "Hyundai Avante из Кореи: компактный седан нового поколения по цене б/у",
+          "url": "https://onlyjpcars.ru/blog/hyundai-avante-iz-korei",
+          "snippet": "Подробно расписан модельный ряд Hyundai Avante 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хендай Аванте 2026 между собой."
+        },
+        {
+          "title": "Hyundai Avante (Elantra) из Кореи, купить с доставкой в Россию 2026 | AZWAY",
+          "url": "https://azway.ru/import/koreya/hyundai-avante",
+          "snippet": "Разбираем, что такое Avante CN7, сколько стоит под ключ и почему это один из наиболее интересных вариантов компактного седана из Кореи в 2026 году. Дата актуальности: 22 мая 2026."
+        }
+      ],
+      "searched_at": "2026-07-22"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://eimcar.ru/ru/news/hyundai-avante-pokupka-iz-korei-gid-2026",
+      "title": "Hyundai Avante из Южной Кореи: полный гид покупателя 2026 (поколения ...",
+      "from_query": "хендай аванте из кореи 2026"
+    },
+    {
+      "url": "https://japanlife-auto.ru/avto-iz-korei/hyundai/avante/?year[0]=2026&year[1]=2026",
+      "title": "Каталог Автомобилей Hyundai Avante 2026 Года Из Кореи",
+      "from_query": "хендай аванте из кореи 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/korea/hyundai/avante/1899793/",
+      "title": "Hyundai Avante 2026 года в Корее - Дром",
+      "from_query": "хендай аванте из кореи 2026"
+    },
+    {
+      "url": "https://korex-auto.com/korea/hyundai/avante/?year_from=2026&year_to=2026",
+      "title": "Купить автомобиль Hyundai AVANTE 2026 года из Кореи с доставкой",
+      "from_query": "хендай аванте из кореи 2026"
+    },
+    {
+      "url": "https://encarrus.ru/korea/hyundai/avante/",
+      "title": "Купить Hyundai Avante из Кореи под ключ — от 1 416 000 ₽, 270 в наличии",
+      "from_query": "хендай аванте из кореи 2026"
+    },
+    {
+      "url": "https://car-lounge.ru/avto-iz-korei/hyundai/avante",
+      "title": "Hyundai Avante из Кореи под заказ | цена, проверка, доставка",
+      "from_query": "хендай аванте из кореи 2026"
+    },
+    {
+      "url": "https://getautokorea.ru/catalog/hyundai-cn7-2026-41866122",
+      "title": "Hyundai The New Avante (CN7) 1.6 2026 — купить из Кореи | GetAvto",
+      "from_query": "хендай аванте из кореи июль 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=pNxOGDui5vo",
+      "title": "Сколько РЕАЛЬНО стоит Хендай Аванте из Кореи в 2026 году? Авто из Кореи ...",
+      "from_query": "хендай аванте из кореи новости 2026"
+    },
+    {
+      "url": "https://thekoreancarblog.com/hyundai-unveils-the-all-new-avante-at-2026-busan-mobility-show/",
+      "title": "2026 Hyundai Avante Unveiled at Busan Show: Design, Specs",
+      "from_query": "хендай аванте из кореи новости 2026"
+    },
+    {
+      "url": "https://zvelta.kz/blog/hyundai-elantra-avante-2026-eighth-generation",
+      "title": "Hyundai Avante 2026: что известно о новом Elantra восьмого поколения",
+      "from_query": "хендай аванте из кореи новости 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/o/b/737142008270836074/",
+      "title": "Новая Hyundai Elantra 8 поколения: в Корее открыты продажи. Разобрали ...",
+      "from_query": "хендай аванте из кореи новости 2026"
+    },
+    {
+      "url": "https://butikavto.by/news/predstavlen_novyy_hyundai_avante_chto_izmenilos",
+      "title": "Новая Hyundai Elantra 2026: дизайн, характеристики, гибрид и цифровой салон",
+      "from_query": "хендай аванте из кореи новости 2026"
+    },
+    {
+      "url": "https://github.com/zqhang/PointAD/blob/master/assets/point_table.png",
+      "title": "PointAD/assets/point_table.png at master · zqhang/PointAD",
+      "from_query": "site:github.com хендай аванте из кореи 2026"
+    },
+    {
+      "url": "https://github.com/hoaxnerd/fastrest/blob/main/.github/banner.png",
+      "title": "fastrest/.github/banner.png at main · hoaxnerd/fastrest",
+      "from_query": "site:github.com хендай аванте из кореи 2026"
+    },
+    {
+      "url": "https://github.com/wwhenxuan/SymTime/blob/main/configs/images/coverage.png",
+      "title": "SymTime/configs/images/coverage.png at main · wwhenxuan/SymTime",
+      "from_query": "site:github.com хендай аванте из кореи 2026"
+    },
+    {
+      "url": "https://github.com/mascanho/RustySEO/blob/main/assets/hero.png",
+      "title": "RustySEO/assets/hero.png at main · mascanho/RustySEO · GitHub",
+      "from_query": "site:github.com хендай аванте из кореи 2026"
+    },
+    {
+      "url": "https://github.com/Alik-Agarwala/alik-agarwala/blob/main/images/backend/node-js.svg",
+      "title": "alik-agarwala/images/backend/node-js.svg at main - GitHub",
+      "from_query": "site:github.com хендай аванте из кореи 2026"
+    },
+    {
+      "url": "https://github.com/dwkim78/ASTRiDE/blob/master/astride/datasets/images/ASTRiDE.png",
+      "title": "ASTRiDE/astride/datasets/images/ASTRiDE.png at master · dwkim78/ASTRiDE ...",
+      "from_query": "site:github.com хендай аванте из кореи 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/hyundai/avante/",
+      "title": "Хендай Аванте технические характеристики, комплектации и цены",
+      "from_query": "хендай аванте из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/hyundai/avante/g_2026_24715/",
+      "title": "Hyundai Avante 2026, седан, 8 поколение, CN8 ... - Дром",
+      "from_query": "хендай аванте из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://update.hyundai.com/RU/RU/Main",
+      "title": "Официальный сайт обновлений навигационного ПО Hyundai Motors",
+      "from_query": "хендай аванте из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/l/723084477231801386/",
+      "title": "Опыт заказа машины из Южной Кореи — Hyundai Avante (7G) бензин, 1,6 л ...",
+      "from_query": "хендай аванте из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/hyundai/avante/",
+      "title": "Бортжурнал Hyundai Avante - клуб, форум о Хендэ Авант на Авто.ру",
+      "from_query": "хендай аванте из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/hyundai/avante/5kopeek/?year1=2024&year2=2026",
+      "title": "Хендай Аванте отзывы владельцев: все минусы и недостатки",
+      "from_query": "хендай аванте из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://hyundaiforum.ru/index.php",
+      "title": "Hyundai форум - клуб владельцев автомобилей Хендэ",
+      "from_query": "хендай аванте из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/hyundai/avante/",
+      "title": "Отзывы владельцев Hyundai Avante с ФОТО - Дром",
+      "from_query": "хендай аванте из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/hyundai/avante/2026-year/all/",
+      "title": "Купить Hyundai Avante 2026 года по цене от 2 130 000 рублей - много ...",
+      "from_query": "купить хендай аванте 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/hyundai/avante/year-2026/new/",
+      "title": "Купить новую Хендай Аванте 2026. Продажа автомобилей Hyundai Avante ...",
+      "from_query": "купить хендай аванте 2026"
+    },
+    {
+      "url": "https://avantaauto.ru/cars/hyundai/avante/",
+      "title": "Купить Hyundai Avante 2026 в Москве по цене от 1700000 ₽ - новые авто в ...",
+      "from_query": "купить хендай аванте 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/hyundai/avante/generation7/year-2026/",
+      "title": "Купить Хендай Аванте CN7 2026 в России: продажа Hyundai Avante CN7 2026 ...",
+      "from_query": "купить хендай аванте 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/hyundai/avante/all/",
+      "title": "Купить Hyundai Avante по цене от 90 000 рублей - более 245 Хендэ Авант ...",
+      "from_query": "купить хендай аванте 2026"
+    },
+    {
+      "url": "https://avantaauto.ru/cars/hyundai/avante/color/chyernyy/",
+      "title": "Купить Hyundai Avante 2026 чёрного цвета в Москве - официальный дилер ...",
+      "from_query": "купить хендай аванте 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/7d5396c9db6b89a1df9d60065bb4be7e/",
+      "title": "HYUNDAI AVANTE (ELANTRA) из Кореи в июне 2026 ... - Rutube",
+      "from_query": "hyundai avante из кореи 2026"
+    },
+    {
+      "url": "https://atp-auto.ru/avto-iz-korei/hyundai/avante/",
+      "title": "Hyundai Avante из Кореи — цены в 2026 году, подбор и доставка за 15 ...",
+      "from_query": "hyundai avante из кореи 2026"
+    },
+    {
+      "url": "https://azway.ru/import/koreya/hyundai-avante",
+      "title": "Hyundai Avante (Elantra) из Кореи, купить с доставкой в Россию 2026 | AZWAY",
+      "from_query": "hyundai avante из кореи 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/hyundai/avante/2026/",
+      "title": "Хендай Аванте 2026 технические характеристики, комплектации и цены",
+      "from_query": "хендай аванте комплектации 2026"
+    },
+    {
+      "url": "https://auto.ru/catalog/cars/hyundai/avante/25068580/25068594/equipment/",
+      "title": "Комплектации Hyundai Avante (1.6 AMT, 157 л.с.) 8 поколение (2026 - н.в ...",
+      "from_query": "хендай аванте комплектации 2026"
+    },
+    {
+      "url": "https://tula.avantaauto.ru/cars/hyundai/avante/komplektacii/",
+      "title": "Комплектации и цены Hyundai Avante 2026 в Туле - официальный дилер Аванта",
+      "from_query": "хендай аванте комплектации 2026"
+    },
+    {
+      "url": "https://auto.ru/catalog/cars/hyundai/avante/25068580/",
+      "title": "Hyundai Avante 8 поколение (2026 - н.в.) - технические характеристики ...",
+      "from_query": "хендай аванте комплектации 2026"
+    },
+    {
+      "url": "https://jckauto.ru/catalog/cars/hyundai-elantra-2026-iz-korei-41033953",
+      "title": "Hyundai Elantra 2026 — купить автомобиль из Кореи | JCK AUTO",
+      "from_query": "hyundai elantra из кореи 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/aTU39JmXjixmZTED",
+      "title": "Hyundai Elantra 2026 из Кореи чем отличается от дилерских версий",
+      "from_query": "hyundai elantra из кореи 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/hyundai-elantra-iz-korei",
+      "title": "Hyundai Elantra из Кореи: доступный седан с льготным утильсбором",
+      "from_query": "hyundai elantra из кореи 2026"
+    },
+    {
+      "url": "https://korex-auto.com/korea/hyundai/elantra/",
+      "title": "Hyundai ELANTRA из Кореи с доставкой — Купить авто Hyundai ELANTRA в Корее",
+      "from_query": "hyundai elantra из кореи 2026"
+    },
+    {
+      "url": "https://carskorea.shop/hyundai/",
+      "title": "CarsKorea | Купить Hyundai из Южной Кореи с доставкой",
+      "from_query": "hyundai elantra из кореи 2026"
+    },
+    {
+      "url": "https://lhmex.ru/avtomobilej-korei/hyundai",
+      "title": "Купить Hyundai из Кореи — доставка и растаможка под ключ",
+      "from_query": "hyundai elantra из кореи 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/74d1d5d0abe97249e09713918edefacc/",
+      "title": "Обзор Hyundai Avante из Кореи - цена, комплектации, техника",
+      "from_query": "Как выбрать Hyundai Avante из Кореи в 2026: комплектации, мощность и чек-лист до депозита 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/hyundai-avante-iz-korei",
+      "title": "Hyundai Avante из Кореи: компактный седан нового поколения по цене б/у",
+      "from_query": "Как выбрать Hyundai Avante из Кореи в 2026: комплектации, мощность и чек-лист до депозита 2026"
+    }
+  ]
+}

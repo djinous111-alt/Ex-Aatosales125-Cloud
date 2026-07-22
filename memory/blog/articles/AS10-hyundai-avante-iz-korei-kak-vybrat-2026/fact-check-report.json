@@ -1,0 +1,59 @@
+{
+  "article": "memory/blog/articles/AS10-hyundai-avante-iz-korei-kak-vybrat-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 7,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 6,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "околение CN7 и рестайлинг. А вот сюрприз: 26 июня 2026 на Busan Mobility Show Hyundai уже показал All-New",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "45 дней",
+      "kind": "metric_or_duration",
+      "context": "игроков плавают (в отзывах встречается порядка 20–45 дней до хаба) – обещать \"точные дни\" нельзя: порт, суд",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1000",
+      "kind": "large_number",
+      "context": "т Encar, видит чёрную Avante N-Line \"почти новая, 1000 км\" и уже готов кинуть депозит за \"спорт\". Типична",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "204",
+      "kind": "large_number",
+      "context": "ая ошибка: на фото блеск, а в карточке 1.6T около 204 л.с. или N около 280 – и льготный утильсбор улетае",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": ": Сначала смотрите документальную мощность: цель ≤160 л.с. (обычно 1.6 MPI ~123). Турбо ~204 и N ~280 от",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "280",
+      "kind": "large_number",
+      "context": "≤160 л.с. (обычно 1.6 MPI ~123). Турбо ~204 и N ~280 отсекайте до перевода. N Line часто про обвес, мот",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "123",
+      "kind": "large_number",
+      "context": "ия Ориентир л.с. Для новичка до депозита 1.6 MPI ~123 Ок: обычно в зоне ≤160 л.с. 1.6 Turbo ~204 Стоп, е",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

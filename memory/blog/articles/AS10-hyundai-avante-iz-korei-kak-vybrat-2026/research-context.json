@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-22",
+    "today_ru": "22.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-23",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-22 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS10",
+    "priority": "P0",
+    "slug": "hyundai-avante-iz-korei-kak-vybrat-2026",
+    "h1": "Как выбрать Hyundai Avante из Кореи в 2026: комплектации, мощность и чек-лист до депозита",
+    "primary_query": "хендай аванте из кореи",
+    "secondary_queries": [
+      "купить хендай аванте",
+      "hyundai avante из кореи",
+      "хендай аванте комплектации",
+      "hyundai elantra из кореи"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS10",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "хендай аванте из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "хендай аванте из кореи июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "хендай аванте из кореи новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com хендай аванте из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "хендай аванте из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "хендай аванте из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "купить хендай аванте 2026",
+      "purpose": "вторичный запрос: купить хендай аванте"
+    },
+    {
+      "id": "secondary_2",
+      "query": "hyundai avante из кореи 2026",
+      "purpose": "вторичный запрос: hyundai avante из кореи"
+    },
+    {
+      "id": "secondary_3",
+      "query": "хендай аванте комплектации 2026",
+      "purpose": "вторичный запрос: хендай аванте комплектации"
+    },
+    {
+      "id": "secondary_4",
+      "query": "hyundai elantra из кореи 2026",
+      "purpose": "вторичный запрос: hyundai elantra из кореи"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать Hyundai Avante из Кореи в 2026: комплектации, мощность и чек-лист до депозита 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS10-hyundai-avante-iz-korei-kak-vybrat-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

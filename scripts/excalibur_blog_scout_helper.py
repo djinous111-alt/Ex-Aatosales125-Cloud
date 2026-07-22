@@ -27,6 +27,8 @@ def load_published_topics(root: Path) -> set[str]:
 
 
 def load_active_article_topics(root: Path) -> set[str]:
+    from excalibur_topic_ids import ARTICLE_DIR_TOPIC_RE
+
     articles_dir = root / "memory" / "blog" / "articles"
     if not articles_dir.is_dir():
         return set()
@@ -34,19 +36,21 @@ def load_active_article_topics(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = ARTICLE_DIR_TOPIC_RE.match(path.name)
         if match:
             active.add(match.group(1).upper())
     return active
 
 
 def load_existing_topics(root: Path) -> list[dict[str, str]]:
+    from excalibur_topic_ids import TOPIC_BLOCK_RE
+
     topics_path = root / "memory/topics/blog-topics.md"
     topics = []
     if not topics_path.is_file():
         return topics
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in TOPIC_BLOCK_RE.finditer(text):
         topic_id = match.group(1).upper()
         block = match.group(2)
         
@@ -129,14 +133,10 @@ def main() -> int:
     existing = load_existing_topics(root)
     
     if args.suggest_next:
+        from excalibur_topic_ids import next_topic_id
+
         print("=== EXCALIBUR SCOUT HELPER ===")
-        max_num = 0
-        for t in existing:
-            m = re.match(r"B(\d+)", t["topic_id"])
-            if m:
-                max_num = max(max_num, int(m.group(1)))
-        
-        next_id = f"B{max_num + 1:02d}"
+        next_id = next_topic_id([t["topic_id"] for t in existing], preferred_prefix="AS")
         print(f"Next available topic ID: {next_id}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")

@@ -28,6 +28,10 @@
 - Fact Check Box **не копирует** пример из `shared/excalibur-article-writing-contract.md`. Автор — только из `shared/authors-registry.json` по `author_id` в `article.meta.json`.
 - Запрещены legacy-имена вне реестра (в т.ч. «Елена Ковалева»). Human voice gate блокирует несовпадение автора и generic-шаблон «все статистические показатели…».
 
+## Writer / GEO QA markers
+
+- Utility/human-voice: токены `сделайте` / `не делайте` / `чеклист` (не UI «Делать/Не делать», не «чек-лист»). Lead — pain markers. CTA `href` без литерала `[REDACTED]`.
+
 ## QA
 
 - Шаг cover||schema **только после** GEO QA PASS.
@@ -37,22 +41,26 @@
 - Utility article gate: держи `pain_markers_ru` / `outcome_markers_ru` в `memory/brief/editorial-policy.json` (синхрон с human_voice_gate). Если списков нет — script **пропускает** pain/outcome mins (warning), не BLOCK на 0.
 - Human voice gate обязателен (`human-voice-report.json` PASS) до cover/schema.
 - Cloud typed Task `excalibur-blog-*` может отсутствовать в enum → fallback `Task(generalPurpose)` + agent/skill paths.
+
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- Cloud: prefer Kie async (`excalibur_blog_kie_gpt_image2_api.py`) over sync MCP gpt-image-2 (часто `-32001`). `reference_url_hosted` только https://.
+- Kie credit preflight (`--min-credits` / `KIE_MIN_CREDITS`); `code=402` или MCP `NoneType...get` без URL → credits/upstream blocker, не spam-retry. Emergency: GenerateImage → 2048×1152 → quad split (non-canonical; всё равно нужен top-up Kie).
 
 ## Scout
 
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
 
-## Indexer
-
-- В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
-
 ## Scout / topic IDs
 
 - Серия сайта может быть `AS*`, не только `B*`. `scout_helper` / `today.py` читают prefixes через `excalibur_topic_ids.py` (default `AS,B`; override `EXCALIBUR_TOPIC_ID_PREFIXES` / `EXCALIBUR_TOPIC_SERIES`).
 - `--suggest-next` должен вернуть следующий ID активной серии (напр. AS20), а не ложный B01 при пустом B-pool.
+
+## Indexer / llms
+
+- В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator CLI: только `--blog-dir` / `--out-dir`. **Не** `--blog-path` (stale Task prompts игнорировать).
 
 ## Publish / deps
 
@@ -60,12 +68,11 @@
 
 ## Git / Cloud pre-commit
 
-- Если `git commit` падает только с `[REDACTED]: invalid variable name` (secret redaction в `pre-commit.cursor`), после `git diff --cached` sanity-check допустим `git commit --no-verify` для article/schema артефактов. Не коммитить handoff/fragments.
-
-## Cover
-
-- Cloud: prefer Kie async (`excalibur_blog_kie_gpt_image2_api.py`) over sync MCP gpt-image-2 (часто `-32001`). `reference_url_hosted` только https://.
+- Если `git commit` падает только с `[REDACTED]: invalid variable name` (secret redaction в `pre-commit.cursor`), после `git diff --cached` sanity-check допустим `git commit --no-verify` для article/schema/topic артефактов. Не коммитить handoff/fragments.
+- Root cause AS20: в `CLOUD_AGENT_INJECTED_SECRET_NAMES` может попасть URL-shaped «имя» → bash `${!name}` ломается. Патч: `scripts/excalibur_blog_patch_precommit_secret_scan.sh` (вызывается из cloud-agent-install). Имена Cloud Secrets — только валидные идентификаторы, не URL.
+- **Cron/main:** durable AS* topic-id fixes (`excalibur_topic_ids.py`, today/scout AS*|B*, doctor `--blog-dir`) должны быть **в `main`**. Cloud branch от устаревшего `main` снова платит restore. После fixer PR — merge to `main` до следующего cron.
 
 ## Research gate
 
 - `is_technical_topic` использует word-boundary маркеры; substring `ai` внутри `pain` не делает тему technical и не требует github.com×3.
+- `accessed_at` в source_table: пиши `accessed_at: YYYY-MM-DD` в ячейках (не только заголовок колонки). `pain_solution_map` rows: префиксы `pain:` / `solution:` / `reader_result:` или другие gate-keywords.

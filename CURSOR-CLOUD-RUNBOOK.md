@@ -114,9 +114,14 @@ git push
 
 ## Cloud pre-commit `[REDACTED]: invalid variable name`
 
-Cursor secret redaction can break `pre-commit.cursor` when an env token becomes `[REDACTED]` (invalid shell variable name).
+Cursor secret redaction / inject can put a **URL-shaped token** into `CLOUD_AGENT_INJECTED_SECRET_NAMES`. Stock `pre-commit.cursor` then does `RAW="${!SECRET_NAME}"` and bash dies with `invalid variable name` (agent sees `[REDACTED]: invalid variable name`).
 
-Recovery for article/schema commits:
+Durable mitigation in-repo:
+
+1. `bash scripts/excalibur_blog_patch_precommit_secret_scan.sh` (also from `.cursor/cloud-agent-install.sh`) — skips non-identifier names.
+2. Cloud Secrets: имена только `[A-Za-z_][A-Za-z0-9_]*` (не URL в поле name).
+
+Recovery if hook still broken this session:
 
 1. `git diff --cached` — убедись, что staged только нужные артефакты (без handoff/fragments, без raw secrets).
 2. `git commit --no-verify -m "..."` затем push.

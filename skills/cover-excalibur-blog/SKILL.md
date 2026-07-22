@@ -32,6 +32,20 @@ inject <figure> after H2 in article.html
 2. **Сразу** запускай `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir <dir>` при наличии `KIE_API_KEY` (createTask → poll). Не жди успеха sync MCP.
 3. Sync MCP `gpt-image-2` — только optional probe; при `-32001` без URL/task_id **не** ретрай sync — переходи на Kie.
 4. `reference_url_hosted` только **https://** (скрипт `hero_reference_url.py` нормализует http→https).
+5. Kie script делает **credit preflight** (`GET /api/v1/chat/credit`, floor `KIE_MIN_CREDITS` / `--min-credits`). При balance ниже порога или createTask `code=402` — сразу `❌ COVER IMAGE CREDITS BLOCKER`, **без** spam-retry sync MCP.
+6. MCP `gpt-image-2` / `flux2-pro-*` ответ `NoneType...get` без URL/task_id чаще всего = credits/upstream null, не «надо ещё раз нажать». Max ~2 попытки суммарно, затем blocker.
+7. Catbox/0x0 rehost опциональны; wordpress **https** `reference_url_hosted` допустим, если ephemeral hosts падают (412/503).
+
+### Emergency fallback (только при credits blocker)
+
+Если Kie/MCP не дают canvas URL и Директор явно разрешил продолжить визуальный путь:
+
+1. Cursor **GenerateImage** (одна сцена под cover panel / full canvas intent).
+2. Pad/crop → **2048×1152**.
+3. `python3 scripts/excalibur_blog_cover_quad_split.py ... --inject-html` (или актуальный split/apply из skill).
+4. В fragment явно: non-canonical fallback; **Kie top-up всё ещё нужен** до следующего cron.
+
+Не генерируй cover «на всякий случай» и не запускай второй image job после успеха.
 
 ---
 

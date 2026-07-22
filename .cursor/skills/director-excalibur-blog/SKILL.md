@@ -39,6 +39,7 @@ Task(generalPurpose):
 Исправь open incidents из memory/pipeline-fix-queue.md durable repo changes, запусти проверки, обнови очередь.
 ```
 
+- После durable fixer (особенно `excalibur_topic_ids.py` / AS*|B* / doctor `--blog-dir`): **PR должен быть смержен в `main`** до следующего cron — иначе новый Cloud run снова стартует со stale `main` и платит restore.
 Не начинать следующую тему, пока blocker-инциденты текущего run не `fixed` или `needs-human`.
 
 ## Fragments (cover || schema)

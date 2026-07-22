@@ -74,3 +74,18 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 Substring `ai` внутри `reader_pain` / `pain_solution_map` **не** делает auto/customs тему technical и не требует github.com×3.
 Для не-tech ниш достаточно docs/community evidence.
 
+## research-notes gate markers (обязательно)
+
+Перед Writer запусти:
+
+```bash
+python3 scripts/excalibur_blog_research_notes_gate.py --article-dir <article_dir> -o research-notes-gate.json
+```
+
+Gate считает:
+
+- **`accessed_at`:** минимум 5 вхождений вида `accessed_at: YYYY-MM-DD` (или `accessed_at` + ISO-дата) в теле notes — обычно в каждой строке `source_table`. Заголовок колонки `accessed_at` без дат **не** хватает.
+- **`pain_solution_map`:** минимум 3 data-rows. Надёжный формат ячеек: `pain: …` | `solution: …` | proof URL | `reader_result: …` (ключевые слова `pain`/`solution`/`result` или `боль`/`решение`/`результат`).
+
+Если gate BLOCK — исправь notes, не передавай Writer.
+

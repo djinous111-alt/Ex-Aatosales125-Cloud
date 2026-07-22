@@ -47,7 +47,7 @@ Cover-агент генерирует **один** quad-холст 2×2 (MCP `gp
 ## Жёсткие правила
 
 1. **ONE image job** — один холст 2×2. **Запрещено** 4 отдельных вызова.
-2. **Prefer Kie async** (`excalibur_blog_kie_gpt_image2_api.py` + `KIE_API_KEY`); sync MCP gpt-image-2 — optional probe only (Cloud часто `-32001`).
+2. **Prefer Kie async** (`excalibur_blog_kie_gpt_image2_api.py` + `KIE_API_KEY`); sync MCP gpt-image-2 — optional probe only (Cloud часто `-32001`). Credit preflight / `402` → `❌ COVER IMAGE CREDITS BLOCKER` (не spam-retry; MCP NoneType без URL ≈ credits). Emergency only: GenerateImage → 2048×1152 → quad split (non-canonical; Kie top-up всё ещё нужен).
 3. Job **обязан** иметь `input_urls: [https reference_url_hosted]` (http→https нормализует hero_reference_url).
 3. **Cover (top-left):** reference **лицо**; **одежда/поза** — на усмотрение агента в `scene_hint`.
 4. **Design code:** `memory/cover/cover-design-code.json` — fake скрины, стикеры, скотч, мемы, «сделал человек», **16:9**.

@@ -12,7 +12,7 @@
     "левый руль из кореи купить",
     "авто с левым рулем владивосток"
   ],
-  "char_count": 9414,
+  "char_count": 9986,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -29,12 +29,15 @@
     "description_aeo": "Левый руль из Кореи покупают после проверки VIN, Performance Check без X/W на каркасе, Carhistory без Rent и договора с юрлицом – депозит только после пакета."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 87,
+    "verdict": "PASS",
     "date": "2026-07-22",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "WARNING",
+    "cannibalization": "PASS",
+    "utility_gate": "PASS",
+    "human_voice": "PASS",
+    "research_notes_gate": "PASS"
   },
   "cover_family": "brand_collage"
 }

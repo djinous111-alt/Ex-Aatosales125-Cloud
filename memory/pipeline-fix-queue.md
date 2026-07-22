@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260722-0925-geo-qa-utility-human-voice-markers
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-geo-qa
+topic_id: AS20
+article_dir: memory/blog/articles/AS20-levyj-rul-iz-korei-2026-kak-kupit
+severity: medium
+category: qa
+
+### What went wrong
+- First GEO QA run: utility gate BLOCK (`action_markers=2 < 8`, `pain_markers=1 < 2`) and human-voice BLOCK (`reader pain is weak`).
+- Writer used UI labels «Делать/Не делать» and hyphen «чек-лист», which do not match policy tokens `сделайте` / `не делайте` / `чеклист`.
+- CTA `href` were literal `[REDACTED]` placeholders → link-verify treated them as internal relative and failed until restored to live catalog/Telegram URLs.
+- Typed Task `excalibur-blog-geo-qa` unavailable in this Cloud run; role executed via `generalPurpose` with agent/skill paths (known Cloud enum gap).
+
+### How the agent recovered this run
+- Minimal article.html FIX: pain words in lead, recommendation markers, checklist spelling, varied ol sizes, restored CTA hrefs; re-ran all gates → PASS (score 87).
+- Wrote `article-qa.md` and updated `article.meta.json` geo_qa.
+
+### Durable fix needed before next run
+- Writer skill/contract: map «Делать/Не делать» examples to exact `recommendation_markers_ru` tokens (`сделайте`, `не делайте`, `чеклист`, `шаг `, `проверьте`, …).
+- Writer must not leave literal `[REDACTED]` in `href` for publishable HTML; use real catalog/Telegram URLs (redact only in committed ledgers if secret-scan requires).
+- Keep Cloud fallback: geo-qa via `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` when typed Task missing.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/brief/editorial-policy.json` (marker lists already aligned with human_voice_gate)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260722-0915-research-notes-gate-accessed-pain-markers
 status: open
 run_date: 2026-07-22

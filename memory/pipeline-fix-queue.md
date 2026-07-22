@@ -6,6 +6,47 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260722-1332-cover-kie-credits-insufficient
+status: open
+run_date: 2026-07-22
+role: excalibur-blog-cover
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-hyundai-avante-iz-korei-kak-vybrat-2026
+severity: blocker
+category: api
+
+### What went wrong
+- Kie credits preflight via `GET /api/v1/chat/credit` returned balance `-0.11` (min needed ~2.0 for 2K i2i).
+- `excalibur_blog_kie_gpt_image2_api.py --create-only` failed with HTTP/business `402 Credits insufficient`.
+- Script currently has no `--min-credits` flag despite fixer notes; preflight done manually.
+- MCP `gpt-image-2` would hit the same Kie wallet (NoneType / credit fail pattern).
+
+### How the agent recovered this run
+- Skipped Kie/MCP after preflight FAIL + 402 createTask.
+- Emergency fallback: Cursor `GenerateImage` i2i with `reference_image_paths=[blog-hero-reference.png]`, aspect 16:9.
+- Resized output to `2048×1152` → `cover/canvas-quad.png` → `excalibur_blog_cover_quad_split.py --inject-html` PASS.
+- method recorded in `cover/quad-mcp-result.json` as `emergency-fallback-generateimage`.
+
+### Durable fix needed before next run
+- Human top-up of `KIE_API_KEY` wallet credits before next cover run.
+- Add `--min-credits` preflight to `scripts/excalibur_blog_kie_gpt_image2_api.py` (or companion script) calling `/api/v1/chat/credit`.
+- Document emergency GenerateImage→2048×1152→split path in cover skill when Kie 402 / credits FAIL.
+- Prefer merging fixer PR that claimed `--min-credits` if not yet on this branch.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260722-1628-geo-qa-utility-pain-outcome-markers-missing
 status: open
 run_date: 2026-07-22

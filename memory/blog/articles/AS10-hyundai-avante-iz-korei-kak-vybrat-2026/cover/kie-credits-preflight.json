@@ -1,0 +1,8 @@
+{
+  "endpoint": "https://api.kie.ai/api/v1/chat/credit",
+  "credits": -0.11,
+  "min_credits": 2.0,
+  "verdict": "FAIL",
+  "checked_at_epoch": 1784727073,
+  "note": "No --min-credits flag in current kie script; manual preflight via chat/credit"
+}

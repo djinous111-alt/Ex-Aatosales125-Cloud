@@ -14,20 +14,25 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Whole-token markers (Unicode word boundaries). Short tokens like "ai"/"ии"
+# must NOT match inside "pain" / "Японии" / country declensions.
+TECH_MARKERS_WORD = (
     "ai",
     "ии",
+    "rag",
+    "api",
+    "mcp",
+    "n8n",
     "agent",
     "агент",
-    "mcp",
-    "api",
     "cursor",
     "make",
-    "n8n",
     "github",
     "docker",
-    "rag",
     "workflow",
+)
+# Stem / prefix markers — substring OK on topic-card fields only.
+TECH_MARKERS_STEM = (
     "автоматизац",
     "нейросет",
 )
@@ -73,14 +78,27 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _token_hit(blob: str, marker: str) -> bool:
+    """True if marker appears as a whole token (not a substring of another word)."""
+    return bool(re.search(rf"(?<![\w]){re.escape(marker)}(?![\w])", blob, flags=re.IGNORECASE))
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect developer/automation topics that need GitHub + official docs.
+
+    Uses topic-card fields only (not research narrative). Scanning notes caused
+    false positives: "ai" inside "pain", "ии" inside "Японии" for auto-import
+    how-tos (Japan/Korea/China logistics) that must stay non-technical.
+    """
+    del notes  # narrative text is intentionally ignored
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    if any(_token_hit(blob, marker) for marker in TECH_MARKERS_WORD):
+        return True
+    return any(marker in blob for marker in TECH_MARKERS_STEM)
 
 
 def field_present(text_lower: str, field: str) -> bool:

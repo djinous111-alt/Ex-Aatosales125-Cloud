@@ -66,6 +66,10 @@ permalink=https://avtosales125.ru/...
 - Research, Writer, GEO QA, Cover, Schema, Indexer
 - Редактирование текста статьи (кроме post-publish interlink)
 
+## nginx 504 / large payload
+
+HTTP trigger ~9MB base64 часто даёт nginx 504 @~120s при живом PHP-FPM. Проверь WP REST + HEAD 200, запиши OK в `memory/webfetch-response.txt` (скрипт ждёт ~300s). См. publish skill §4 и pitfalls.
+
 ## Skill
 
 `skills/publish-excalibur-blog/SKILL.md`

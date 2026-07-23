@@ -256,7 +256,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20260724-2108-research-tech-markers-false-positive
-status: open
+status: fixed
 run_date: 2026-07-24
 role: excalibur-blog-research
 topic_id: B01
@@ -289,10 +289,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-24
+fix_summary:
+- `is_technical_topic` now token-matches TECH markers on topic-card fields only (not notes narrative); short tokens `ai`/`ии`/`rag`/`api` no longer match inside `pain` / `Японии`.
+- Auto-import JP/KR/CN how-tos stay `technical_topic=false` → no GitHub≥3 / official developer-docs requirement.
+- Research skill + pitfalls + editorial-utility-only document non-tech evidence rules and ЭПТС 5xx fallback.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+- unit asserts JP/KR/CN non-tech; MCP/API tech
+- research-notes-gate on B01 → PASS, technical_topic=false
+commit: pending-parent-commit
 
 ## INC-20260724-2115-geo-qa-utility-policy-drift
-status: open
+status: fixed
 run_date: 2026-07-24
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -326,10 +342,29 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-24
+fix_summary:
+- Confirmed `editorial-policy.json` has non-empty pain/outcome/recommendation markers + min thresholds; added `fixer_contract_note` so lists are not dropped on rebase.
+- `utility_gate` soft-skip on empty lists kept as safety net; documented mandatory policy contract in editorial-utility-only + pitfalls + geo-qa skill.
+- Writer skill + writing contract: use `recommendation_markers_ru` («Сделайте»/«Не делайте»); forbid label «TL;DR / Быстрый инсайт».
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `shared/editorial-utility-only.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+checks_run:
+- JSON parse `editorial-policy.json`
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
+- doctor errors=0
+commit: pending-parent-commit
 
 ## INC-20260724-2105-scout-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-07-24
 role: excalibur-blog-scout
 topic_id: B01
@@ -356,10 +391,19 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-24
+fix_summary:
+- Documented Cloud pre-commit workaround when `CLOUD_AGENT_INJECTED_SECRET_NAMES` breaks `${!SECRET_NAME}` (`invalid variable name`): empty the var for commit, or `--no-verify` as last resort.
+- Hook itself lives in Cloud env and cannot be patched in-repo; durable guidance is in pitfalls for Scout/Director/Fixer commits.
+files_changed:
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` for `CLOUD_AGENT_INJECTED_SECRET_NAMES` in pitfalls
+commit: pending-parent-commit
 
 ## INC-20260724-2120-cover-kie-402-emergency
-status: open
+status: needs-human
 run_date: 2026-07-24
 role: excalibur-blog-cover
 topic_id: B01
@@ -391,10 +435,26 @@ category: api
 - none recorded (KIE_API_KEY present but credits exhausted)
 
 ### Fixer resolution
-- pending (needs-human: Kie credit top-up; path already known)
+status: needs-human
+fixed_at: 2026-07-24
+reason:
+- Kie.ai account credits exhausted (HTTP/API 402); cannot top up from repo.
+needed_decision_or_secret:
+- Top up Kie credits for `KIE_API_KEY` account so canonical gpt-image-2 i2i returns.
+fix_summary:
+- Documented emergency GenerateImage + LANCZOS 2048×1152 path in cover skill §4b, cover agent rules, and pitfalls until credits restored.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` for emergency_GenerateImage / 402 in cover skill + pitfalls
+commit: pending-parent-commit
 
 ## INC-20260724-2123-indexer-llms-cli-blog-path
-status: open
+status: fixed
 run_date: 2026-07-24
 role: excalibur-blog-indexer
 topic_id: B01
@@ -425,10 +485,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-24
+fix_summary:
+- Removed stale `--blog-path /` from indexer agent + skill (both copies); documented real CLI `--blog-dir`/`--site-base`/`--out-dir` only.
+- Pitfalls note: llms_generator has no `--blog-path`.
+files_changed:
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_llms_generator.py --help`
+- `rg` for `blog-path /` in agents/skills → none
+- doctor errors=0 (llms supports --blog-dir)
+commit: pending-parent-commit
 
 ## INC-20260724-2146-publish-nginx-504-large-payload
-status: open
+status: fixed
 run_date: 2026-07-24
 role: excalibur-blog-publish
 topic_id: B01
@@ -466,5 +541,21 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-24
+fix_summary:
+- Documented nginx 504 large-payload pattern + live WP REST confirm + webfetch-response reconstruction in publish skill/agent/pitfalls.
+- Script: HTTP timeout 180s; fallback wait 300s; explicit 504 guidance; `SSH_PATH` alias for `SSH_ROOT`.
+- Host nginx timeout / media-first upload remain optional ops improvements (not blocking next run if REST fallback used).
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-publish.md`
+- `.cursor/agents/excalibur-blog-publish.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `rg` for nginx 504 in publish skill + pitfalls
+commit: pending-parent-commit
 

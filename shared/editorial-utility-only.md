@@ -17,6 +17,17 @@
 | Workflow (A→B→C) | Корпоративная вода, мотивация |
 | Автопостинг, авто-блог, лиды, трафик, сайт/лендинг через Cursor AI с чеклистом запуска | Абстрактное «будущее маркетинга с ИИ» без действий |
 
+
+## Policy contract (не дропать при rebase)
+
+Канон `memory/brief/editorial-policy.json` **обязан** содержать:
+
+- непустые `pain_markers_ru`, `outcome_markers_ru`, `recommendation_markers_ru`;
+- `article_required_signals.min_pain_markers` (≥2) и `min_outcome_markers` (≥3).
+
+Если списки пусты — это policy drift. `excalibur_blog_utility_gate.py` тогда soft-skip (warning), а не массовый BLOCK, но маркеры нужно восстановить до следующего run.
+Smoke после правок policy: `python3 scripts/excalibur_blog_utility_gate.py --article-dir <dir>`.
+
 ## Gate 1 — тема (`blog-topics.md`)
 
 Перед research:
@@ -41,7 +52,7 @@ Research-агент **отклоняет** угол без практики. В 
 - `utility_verdict: PASS`
 - `research_date` совпадает с `research-context.json` → `today_iso`
 - `source_table` с URL и `accessed_at`
-- `github_evidence` для технических тем
+- `github_evidence`: секция обязательна; **≥3 GitHub URL** только если research-notes-gate `technical_topic=true` (token-match по карточке темы). Автоимпорт JP/KR/CN и бытовые чек-листы — non-tech
 - `reader_pain`: конкретная боль/риск/затык читателя
 - `reader_outcome`: одно предложение — какой первый результат сможет сделать новичок
 - `success_criteria`: как новичок поймёт, что проблема решена
@@ -61,7 +72,7 @@ python scripts/excalibur_blog_research_notes_gate.py \
 
 Контракт: `shared/excalibur-article-writing-contract.md`
 
-- Каждый H2 = подзадача + **рекомендация** (делать / не делать)
+- Каждый H2 = подзадача + **рекомендация** («Сделайте»/«Не делайте» из `recommendation_markers_ru`; без ярлыка «TL;DR / Быстрый инсайт»)
 - Минимум **5** нумерованных шагов ИЛИ чеклист 10+ пунктов
 - Workflow-схема (`→`) или таблица (comparison)
 - FAQ — короткие **ответы-действия**, не пересказ

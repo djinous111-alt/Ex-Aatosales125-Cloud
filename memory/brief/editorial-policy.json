@@ -19,7 +19,9 @@
     "entertainment",
     "general"
   ],
-  "allowed_article_mode": ["B"],
+  "allowed_article_mode": [
+    "B"
+  ],
   "conditional_article_mode": {
     "comparison": "B",
     "note": "Режим A (новости/кейсы) — не публикуем в utility-only блоге"
@@ -124,5 +126,6 @@
     " vs ",
     "выбор ",
     "workflow"
-  ]
+  ],
+  "fixer_contract_note": "Do not drop pain_markers_ru / outcome_markers_ru / recommendation_markers_ru or min_pain_markers / min_outcome_markers on rebase/rebrand. Empty marker lists cause utility_gate soft-skip only; restore lists before next run. See shared/editorial-utility-only.md and INC-20260724-2115."
 }

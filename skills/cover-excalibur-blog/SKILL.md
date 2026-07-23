@@ -129,6 +129,18 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
 
+### Шаг 4b — Emergency fallback (Kie 402 / credits exhausted)
+
+Если Kie API / MCP `gpt-image-2` вернул **402 Credits insufficient** (или createTask отказ по балансу):
+
+1. **Один** вызов Cursor `GenerateImage` с `reference_image_paths=[memory/cover/assets/blog-hero-reference.png]`, aspect **16:9**, полный quad 2×2 prompt из `cover/quad-mcp-prompt.txt` (non-toxic stickers; без `лох`/`лохов`).
+2. Сырой PNG часто **1536×1024** → LANCZOS resize до **2048×1152** → сохранить как `cover/canvas-quad.png`.
+3. `python3 scripts/excalibur_blog_cover_quad_split.py --article-dir <dir> --inject-html` (или apply/split path из контракта).
+4. В `cover/quad-mcp-result.json` записать `method: emergency_GenerateImage`, `kie_status: 402_credits_insufficient`.
+5. Incident в `memory/pipeline-fix-queue.md` + `needs-human` на top-up Kie credits.
+
+Канон после пополнения кредитов — снова Шаг 4 (ONE Kie/MCP i2i). Не запускай 4 отдельных GenerateImage на панели.
+
 ### Шаг 5 — apply
 
 ```bash

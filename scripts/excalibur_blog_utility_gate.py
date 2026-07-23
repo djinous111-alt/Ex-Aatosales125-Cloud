@@ -190,13 +190,18 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 
+    # Empty marker lists mean policy drift: do not auto-BLOCK (see pipeline-fix-queue).
     min_pain = int(req.get("min_pain_markers") or 2)
-    if pain_count < min_pain:
+    if pain_markers and pain_count < min_pain:
         errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
+    elif not pain_markers:
+        warnings.append("policy.pain_markers_ru пуст — pain-check пропущен")
 
     min_outcome = int(req.get("min_outcome_markers") or 3)
-    if outcome_count < min_outcome:
+    if outcome_markers and outcome_count < min_outcome:
         errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
+    elif not outcome_markers:
+        warnings.append("policy.outcome_markers_ru пуст — outcome-check пропущен")
 
     if req.get("requires_workflow_or_table_or_checklist"):
         has_utility_block = bool(tables or blockquotes or ul_lists >= 2 or "→" in html)

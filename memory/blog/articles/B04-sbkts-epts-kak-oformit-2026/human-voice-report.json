@@ -1,0 +1,114 @@
+{
+  "gate": "human-voice",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B04-sbkts-epts-kak-oformit-2026",
+  "errors": [],
+  "warnings": [
+    "multiple exactly-5-step lists detected; vary list size when editorially possible"
+  ],
+  "metrics": {
+    "h2_count": 8,
+    "repeated_h2_openers": [],
+    "textbook_h2_count": 0,
+    "paragraph_count": 26,
+    "paragraph_avg_words": 36.2,
+    "paragraph_variance_ratio": 0.38,
+    "concrete_markers": [
+      "например",
+      "на практике",
+      "типичная ошибка"
+    ],
+    "pain_markers": [
+      "ошиб",
+      "ломает"
+    ],
+    "outcome_markers": [
+      "проверьте",
+      "соберите",
+      "выберите"
+    ],
+    "ai_opening_hits": [],
+    "reader_story_overlap": [
+      "аккредитации",
+      "владивостоке",
+      "выпустил",
+      "гибдд",
+      "машину",
+      "незавершённый",
+      "оформление",
+      "радуется",
+      "реестре",
+      "сбктс",
+      "утильсбора"
+    ],
+    "reader_pain_overlap": [
+      "гибдд",
+      "деньги",
+      "ехать",
+      "машина",
+      "нельзя",
+      "отказ",
+      "получить",
+      "сбктс",
+      "сертификат"
+    ],
+    "reader_outcome_overlap": [
+      "elpts",
+      "portal",
+      "аккредитованную",
+      "владивостоке",
+      "выпуска",
+      "гибдд",
+      "действующий",
+      "документов",
+      "лабораторию",
+      "осаго",
+      "пакет",
+      "сбктс",
+      "статуса",
+      "таможни"
+    ],
+    "success_criteria_overlap": [
+      "elpts",
+      "portal",
+      "готов",
+      "действующий",
+      "документами",
+      "находится",
+      "пакет",
+      "реестре",
+      "росстандарта",
+      "сбктс",
+      "совпадают",
+      "статусе"
+    ],
+    "voice_angle_overlap": [
+      "владивосток",
+      "таможни",
+      "цепочку",
+      "чек-лист"
+    ],
+    "surprising_fact_overlap": [
+      "актом",
+      "ввозе",
+      "гайды",
+      "действует",
+      "коммерческие",
+      "личном",
+      "лишний",
+      "новичка",
+      "обязательна",
+      "отсрочка",
+      "оформлена",
+      "принятым",
+      "продление",
+      "расход",
+      "сбктс",
+      "физлиц",
+      "часто",
+      "эра-глонасс"
+    ],
+    "exactly_five_lists": 3,
+    "fact_check_template_blocks": 0
+  }
+}

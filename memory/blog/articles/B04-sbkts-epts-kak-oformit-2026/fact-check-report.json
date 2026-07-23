@@ -1,0 +1,59 @@
+{
+  "article": "memory/blog/articles/B04-sbkts-epts-kak-oformit-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 7,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 5,
+  "facts": [
+    {
+      "fact": "2027",
+      "kind": "date_or_year",
+      "context": ". Для физлиц на личном ввозе ЭРА-ГЛОНАСС до 31.12.2027 обычно не обязательна – не платите \"на всякий случ",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2021 года",
+      "kind": "date_or_year",
+      "context": "раторию во Владивостоке и пройдите СБКТС СБКТС с ~2021 года электронный: бумага без реестра не спасёт. Открой",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2011",
+      "kind": "date_or_year",
+      "context": "l ) и найдите организацию с областью по ТР ТС 018/2011. Ориентир стоимости у гайдов – примерно 14–35 тыс",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026 года",
+      "kind": "date_or_year",
+      "context": "ите ЭРА-ГЛОНАСС и подготовьтесь к отказам Сюрприз 2026 года: коммерческие статьи требуют кнопку ЭРА-ГЛОНАСС в",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "не проверяют. Досрочная отмена моратория с 01.04.2026 на момент сверки источников не была оформлена прин",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "5 дней",
+      "kind": "metric_or_duration",
+      "context": "ть ГИБДД в день СБКТС. Во Владивостоке ориентир 2–5 дней при низкой загрузке, по рынку встречается 5–10. \"",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2021",
+      "kind": "large_number",
+      "context": "раторию во Владивостоке и пройдите СБКТС СБКТС с ~2021 года электронный: бумага без реестра не спасёт. От",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

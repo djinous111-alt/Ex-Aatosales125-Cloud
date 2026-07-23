@@ -24,6 +24,7 @@ category: qa
 ### How the agent recovered this run
 - GEO QA: FAIL → FIX list only (no HTML rewrite).
 - Writer FIX2 (2026-07-23): restored Telegram CTA href from env `TELEGRAM_URL` (len 25, canon `t.me` handle from site-brief / AS08–AS09 pattern); removed literal `[REDACTED]` from `article.html`.
+- Commit needed `<!-- pragma: allowlist secret -->` on the CTA line (secret-scan blocks raw `TELEGRAM_URL` value); `link-verify.json` left unstaged for the same reason (GEO QA regenerates).
 - Re-ran `excalibur_blog_link_verify.py` → PASS (2/2, failed_count=0). Utility gate still PASS (action=37, pain=6, outcome=9); FIX1 markers/char range preserved.
 - Pitfalls note added: never paste `[REDACTED]` into live `article.html` hrefs.
 

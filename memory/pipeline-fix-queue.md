@@ -291,3 +291,47 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20260723-1312-research-tech-markers-false-positive
+status: fixed
+run_date: 2026-07-23
+role: excalibur-blog-research
+topic_id: B03
+article_dir: memory/blog/articles/B03-avto-iz-kitaya-pod-zakaz-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marked auto-import (non-tech) research notes as `technical_topic=true` because TECH_MARKERS used raw substring match.
+- False positives: `ai` inside required field `reader_pain`; Cyrillic `ии` inside ordinary RU words (`версии`, `комплектации`, `магии`).
+- Gate then required `github_urls >= 3` for a China car-order how-to, blocking PASS.
+
+### How the agent recovered this run
+- Confirmed Wordstat + WebSearch research content was complete.
+- Patched `is_technical_topic` to match markers on token boundaries via `_tech_marker_hit`.
+- Re-ran research-notes gate → PASS without fake GitHub URLs.
+
+### Durable fix needed before next run
+- Keep boundary matching for short TECH_MARKERS (`ai`, `ии`, `api`, `make`, `rag`).
+- Document in pitfalls: auto/RU briefs must not be forced into GitHub evidence by substring false positives.
+- Optional unit smoke: notes containing `reader_pain` + Russian genitive forms should stay `technical_topic=false` unless real tech tokens present.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py` (patched this run)
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-23
+fix_summary:
+- Research agent applied token-boundary matching for TECH_MARKERS in `excalibur_blog_research_notes_gate.py`.
+- B03 research-notes gate PASS after patch; no fake GitHub links added.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir memory/blog/articles/B03-avto-iz-kitaya-pod-zakaz-2026 -o research-notes-gate.json` → PASS
+commit: pending-parent-commit

@@ -15,6 +15,7 @@
 
 - Перед пайплайном: `python3 scripts/excalibur_blog_today.py` и `python3 scripts/excalibur_blog_research_start.py --topic-id …`.
 - Если `EXCALIBUR_RUN_DATE` нет в выводе today.py — старая ветка/код, **блокер**.
+- `research_notes_gate` TECH_MARKERS должны матчиться по границам токена: substring `ai`/`ии` ложно помечает авто/RU briefs (`reader_pain`, `версии`) как technical и требует GitHub URL.
 
 ## Publish
 

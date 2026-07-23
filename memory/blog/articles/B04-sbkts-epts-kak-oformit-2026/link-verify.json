@@ -1,6 +1,6 @@
 {
   "source": "memory/blog/articles/B04-sbkts-epts-kak-oformit-2026/article.html",
-  "total_links": 4,
+  "total_links": 5,
   "failed_count": 0,
   "verdict": "pass",
   "links": [
@@ -36,13 +36,21 @@
     },
     {
       "url": "[REDACTED]",
-      "kind": "cta_placeholder",
-      "status": null,
+      "status": 200,
       "ok": true,
-      "skipped": true,
-      "method": null,
+      "method": "HEAD",
       "error": null,
-      "warning": "CTA href=[REDACTED] placeholder; publish substitutes CATALOG_URL/TELEGRAM_URL"
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "[REDACTED]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
     }
   ]
 }

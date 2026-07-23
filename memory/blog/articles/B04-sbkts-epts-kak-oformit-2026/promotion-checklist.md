@@ -1,7 +1,8 @@
 # Promotion checklist — B04 sbkts-epts-kak-oformit-2026
 
-Дата публикации: 2026-07-23 (planned)  
-Live URL: [REDACTED]/2026/07/23/sbkts-epts-kak-oformit-2026/
+Дата публикации: 2026-07-23  
+Live URL: [REDACTED]/2026/07/23/sbkts-epts-kak-oformit-2026/  
+WP post_id: 3666 | featured: 3667 | inline: 3668,3669,3670 | live_HEAD: 200
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

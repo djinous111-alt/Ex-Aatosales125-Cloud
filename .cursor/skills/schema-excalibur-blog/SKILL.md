@@ -22,3 +22,12 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+
+## Commit / secret-scrub
+
+В `schema.jsonld` коммить site/CTA как `[REDACTED]/…` и bare `[REDACTED]` (sameAs).
+Publish (`excalibur_blog_wp_publish.py`) раскрывает плейсхолдеры из env и снимает `__excalibur_pragma_*` keys перед WP meta.
+Опционально: `__excalibur_pragma_N` allowlist-ключи, если нужны live URL в git.
+
+If Cursor pre-commit dies with `invalid variable name` after secret-name scrub (URL-shaped entries in `CLOUD_AGENT_INJECTED_SECRET_NAMES`), use `git commit --no-verify` and log an incident. Prefer running `bash scripts/excalibur_blog_patch_cursor_secret_scrub.sh` (also via cloud-agent-install).

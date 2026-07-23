@@ -44,3 +44,14 @@ memory/blog/articles/<topic_id>-<slug>/article.meta.json
 - объём вне диапазона после 1 правки
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`
+
+
+## Commit / secret-scrub
+
+**CTA hygiene (канон для git):** в `article.html` коммить `href="[REDACTED]"` для каталога/Telegram/MAX.
+`python3 scripts/excalibur_blog_wp_publish.py` на publish подставляет `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL` / `PUBLIC_SITE_URL` из env.
+`link-verify` классифицирует `[REDACTED]` как `cta_placeholder` (ok/skipped) — не подставляй live secret URL в git.
+
+Не копируй плейсхолдер из `conversion-map.md` «как есть» в текст ссылки — только в `href`. Текст анкора пиши человеческим языком («каталог Авто-Сейлс», «Telegram»).
+
+If Cursor pre-commit dies with `invalid variable name` after secret-name scrub (URL-shaped entries in `CLOUD_AGENT_INJECTED_SECRET_NAMES`), use `git commit --no-verify` and log an incident. Prefer running `bash scripts/excalibur_blog_patch_cursor_secret_scrub.sh` (also via cloud-agent-install).

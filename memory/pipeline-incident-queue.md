@@ -6,298 +6,235 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
-> Restored 2026-07-23 cover-agent: live queue unlinked mid B04 cover||schema; historical body from git `af91992` + B04 open stubs from handoff/fragments.
+> B04 fixer 2026-07-23: all current-run open items resolved below (`fixed` / `needs-human`). Historical fixed bodies retained further down.
 
 
 ## INC-20260723-1736-indexer-doctor-llms-blog-path-regression
-status: open
+status: fixed
 run_date: 2026-07-23
 role: excalibur-blog-indexer
 topic_id: B04
-article_dir: memory/blog/articles/B04-sbkts-epts-kak-oformit-2026
 severity: medium
 category: script
 
-### What went wrong
-- `excalibur_blog_doctor.py` still asserts `--blog-path` in llms `--help` (`FAIL llms generator supports --blog-path`, errors=1).
-- Actual CLI of `excalibur_blog_llms_generator.py` only has `--blog-dir` / `--out-dir` (no `--blog-path`).
-- Indexer skill/agent examples still pass obsolete `--blog-path /` alongside `--blog-dir`.
-- Regression of previously fixed `INC-20260721-0005-director-doctor-llms-flag`.
-- First pass with `--site-base $PUBLIC_SITE_URL` wrote absolute host into `llms.txt` / `llms-full.txt` / promotion-checklist → pre-commit secret-scan blocked commit.
-
-### How the agent recovered this run
-- Ran llms generator with current flags: `--blog-dir` + `--out-dir` (no `--blog-path`) → OK.
-- Re-ran llms/interlinker and rewrote checklist with `--site-base '[REDACTED]'` so artifacts are secret-scan safe.
-- Did not change doctor/scripts in indexer role (deferred to fixer).
-
-### Durable fix needed before next run
-- Doctor: require `--blog-dir` (and optionally `--out-dir`); reject/absent `--blog-path`.
-- Align indexer skill/agent shell examples: drop `--blog-path`; document `--site-base '[REDACTED]'` for committed memory artifacts (expand real URL only at publish upload).
-- Re-verify `python3 scripts/excalibur_blog_doctor.py` → errors=0.
-
-### Suggested files to inspect/change
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-23
+fix_summary:
+- Doctor requires `--blog-dir` + `--out-dir` and asserts `--blog-path` absent.
+- Indexer agent/skill examples drop `--blog-path`; pitfalls document `[REDACTED]` site-base for committed llms.
+files_changed:
 - `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
 - `skills/indexer-excalibur-blog/SKILL.md`
 - `.cursor/skills/indexer-excalibur-blog/SKILL.md`
-- `.cursor/agents/excalibur-blog-indexer.md`
 - `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `rg` indexer examples without CLI `--blog-path` flag
+commit: d58b20f
 
 ## INC-20260723-1732-cover-kie-402-generateimage-fallback
-status: open
+status: needs-human
 run_date: 2026-07-23
 role: excalibur-blog-cover
 topic_id: B04
-article_dir: memory/blog/articles/B04-sbkts-epts-kak-oformit-2026
 severity: high
 category: tool
 
-### What went wrong
-- Preferred Kie flow `scripts/excalibur_blog_kie_gpt_image2_api.py` failed at createTask: `code=402 Credits insufficient`.
-- Sync MCP `gpt-image-2` (MCP-KV) failed twice with opaque `'NoneType' object has no attribute 'get'` (likely same Kie credit pool / broken error unwrap).
-- Cursor `GenerateImage` emergency fallback produced native 1536×1024 (3:2) instead of 2048×1152 16:9; split refused until LANCZOS resize.
-- Concurrent FS glitch: live `memory/pipeline-incident-queue.md` (~25KB with B04 GEO QA incidents) became unreadable/unlinked mid-run; restored from git history blob + re-appended B04 open IDs from handoff.
-
-### How the agent recovered this run
-- ONE collage via `GenerateImage` with `reference_image_paths=[memory/cover/assets/blog-hero-reference.png]`.
-- Resized canvas to 2048×1152 → `cover/canvas-quad.png`; `excalibur_blog_cover_quad_split.py --inject-html` → PASS (cover + inline-01..03).
-- Restored incident queue from largest git history version and re-recorded this incident + known B04 open stubs from handoff.
-
-### Durable fix needed before next run
-- Top up Kie credits; doctor preflight credit check if API exposes balance (see also needs-human INC for B03 credits).
-- Harden MCP-KV `gpt-image-2` error unwrap so 402 is explicit.
-- Document GenerateImage emergency path in cover skill (resize to 2048×1152 before split).
-- Harden queue file writes (atomic replace) to avoid mid-run unlink races between parallel cover||schema.
-
-### Suggested files to inspect/change
+### Fixer resolution
+status: needs-human
+fixed_at: 2026-07-23
+reason:
+- Kie.ai account still needs credit top-up; cannot be fixed in repo alone.
+fix_summary_partial:
+- Cover skill documents GenerateImage emergency + LANCZOS resize to 2048×1152 before split.
+- `excalibur_blog_kie_gpt_image2_api.py` surfaces 402/credits explicitly.
+- Pitfalls updated.
+needed_decision_or_secret:
+- Top up Kie.ai credits for `KIE_API_KEY` billing (same as B03 INC credits).
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
 - `.cursor/skills/cover-excalibur-blog/SKILL.md`
 - `scripts/excalibur_blog_kie_gpt_image2_api.py`
-- `scripts/excalibur_blog_doctor.py`
 - `shared/agent-pipeline-pitfalls.md`
-- `shared/pipeline-incident-memory-contract.md`
-
-### Secrets
-- none recorded (KIE_API_KEY present; balance insufficient; do not log key)
-
-### Fixer resolution
-- pending
+- `shared/kie-gpt-image-api-contract.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `rg` GenerateImage/402/LANCZOS guidance in cover skill
+commit: d58b20f
 
 ## INC-20260723-1730-schema-url-secret-scan
-status: open
+status: fixed
 run_date: 2026-07-23
 role: excalibur-blog-schema
 topic_id: B04
-article_dir: memory/blog/articles/B04-sbkts-epts-kak-oformit-2026
 severity: medium
 category: contract
-note: Stub restored after queue FS loss; schema fragment references this ID. Fixer should merge full body from schema agent notes if richer text exists.
-
-### What went wrong
-- Schema JSON-LD / sameAs / CTA URLs require `[REDACTED]` for secret-scan; publish must expand from env.
-
-### How the agent recovered this run
-- Schema PASS with redacted site/CTA/sameAs; fragment notes publish expansion.
-
-### Durable fix needed before next run
-- Align schema templates + secret-scan allowlist with publish URL expansion.
-
-### Suggested files to inspect/change
-- `.cursor/skills/schema-excalibur-blog/SKILL.md`
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-23
+fix_summary:
+- Schema skill: commit `[REDACTED]` / `[REDACTED]/…`; publish expands + strips pragma keys.
+- `excalibur_blog_wp_publish.py` expands redacted URLs and strips `__excalibur_pragma_*`.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit expand_redacted_urls / strip_schema_secret_scan_pragmas
+commit: d58b20f
 
 ## INC-20260723-1727-geo-qa-link-verify-gov-cta-placeholder
-status: open
+status: fixed
 run_date: 2026-07-23
 role: excalibur-blog-geo-qa
 topic_id: B04
-article_dir: memory/blog/articles/B04-sbkts-epts-kak-oformit-2026
 severity: medium
 category: qa
 
-### What went wrong
-- `link-verify` падал на официальных portal.elpts.ru / pub.fsa.gov.ru / help.elpts.ru (DNS / connection reset / 403 из Cloud egress).
-- Literal CTA `href="[REDACTED]"` (secret-scan hygiene) классифицировался как internal_relative и давал 404 против site-base.
-
-### How the agent recovered this run
-- Soft-fail для official/gov hosts при bot-wall/DNS/reset/403.
-- Kind `cta_placeholder` для `[REDACTED]` → ok/skipped (publish подставляет URL из env).
-- link-verify B04: PASS.
-
-### Durable fix needed before next run
-- Задокументировать soft official + CTA placeholder в geo-qa / publish skills и pitfalls.
-- Writer: коммитить CTA как `[REDACTED]`; не подставлять secret URL в git.
-
-### Suggested files to inspect/change
-- `scripts/excalibur_blog_link_verify.py`
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-23
+fix_summary:
+- Confirmed `link_verify` soft-fail for gov/official + `cta_placeholder` for `[REDACTED]`.
+- Documented in geo-qa / writer / publish skills and pitfalls.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py` (verified)
+- `skills/excalibur-geo-qa/SKILL.md`
 - `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
 - `.cursor/skills/writer-excalibur-blog/SKILL.md`
 - `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
+checks_run:
+- unit classify_link('[REDACTED]') → cta_placeholder
+commit: d58b20f
 
 ## INC-20260723-1726-geo-qa-utility-pain-outcome-policy-gap
-status: open
+status: fixed
 run_date: 2026-07-23
 role: excalibur-blog-geo-qa
 topic_id: B04
-article_dir: memory/blog/articles/B04-sbkts-epts-kak-oformit-2026
 severity: high
 category: script
 
-### What went wrong
-- `excalibur_blog_utility_gate.py` требовал `min_pain_markers` / `min_outcome_markers`, но в `memory/brief/editorial-policy.json` не было `pain_markers_ru` / `outcome_markers_ru`.
-- Пустые списки → всегда `pain_markers=0` / `outcome_markers=0` → ложный BLOCK даже на валидных статьях.
-
-### How the agent recovered this run
-- Добавлены `pain_markers_ru` / `outcome_markers_ru` (+ min_* в article_required_signals) в editorial-policy.
-- В скрипте: если список маркеров пуст — warning, не BLOCK.
-- Utility gate B04: PASS.
-
-### Durable fix needed before next run
-- Синхронизировать policy ↔ human_voice PAIN/OUTCOME markers в docs/skills.
-- Добавить regression-тест/doctor-check.
-
-### Suggested files to inspect/change
-- `memory/brief/editorial-policy.json`
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-23
+fix_summary:
+- `editorial-policy.json` keeps non-empty pain/outcome markers.
+- `utility_gate.py` falls back to built-in DEFAULT_* markers if policy empty.
+- Doctor regress-checks marker keys present.
+files_changed:
+- `memory/brief/editorial-policy.json` (verified)
 - `scripts/excalibur_blog_utility_gate.py`
 - `scripts/excalibur_blog_doctor.py`
+- `skills/excalibur-geo-qa/SKILL.md`
 - `.cursor/skills/excalibur-geo-qa/SKILL.md`
 - `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
+checks_run:
+- doctor editorial markers OK
+- utility_gate B04 PASS
+commit: d58b20f
 
 ## INC-20260723-1725-geo-qa-cloud-typed-task-missing
-status: open
+status: fixed
 run_date: 2026-07-23
 role: excalibur-blog-geo-qa
 topic_id: B04
-article_dir: memory/blog/articles/B04-sbkts-epts-kak-oformit-2026
 severity: medium
 category: cloud
-note: Stub restored after queue FS loss; body summarized from handoff/automation notes.
-
-### What went wrong
-- Typed Cloud Task `excalibur-blog-geo-qa` missing from enum → fallback `Task(generalPurpose)`.
-
-### How the agent recovered this run
-- Ran GEO QA via generalPurpose with agent/skill contract; article-qa PASS score 86.
-
-### Durable fix needed before next run
-- Register typed Task or document generalPurpose-only path in AGENTS/director skill.
-
-### Suggested files to inspect/change
-- `.cursor/agents/excalibur-blog-director.md`
-- `AGENTS.md`
-
-### Secrets
-- none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-23
+fix_summary:
+- AGENTS.md / director skill: typed Task missing → canonical `Task(generalPurpose)` per role (incl. geo-qa); do not retry enum.
+files_changed:
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- `agents/excalibur-blog-director.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/pipeline-task-map.md`
+checks_run:
+- `rg` generalPurpose + geo-qa fallback in AGENTS/director
+commit: d58b20f
 
 ## INC-20260723-1720-writer-cta-url-secret-scan
-status: open
+status: fixed
 run_date: 2026-07-23
 role: excalibur-blog-writer
 topic_id: B04
-article_dir: memory/blog/articles/B04-sbkts-epts-kak-oformit-2026
 severity: medium
 category: contract
-note: Stub restored after queue FS loss.
-
-### What went wrong
-- Writer CTA URLs conflict with secret-scan; need `[REDACTED]` placeholders expanded at publish.
-
-### How the agent recovered this run
-- Article committed with redacted CTA hrefs; publish must expand from env.
-
-### Durable fix needed before next run
-- Writer skill + secret-scan allowlist + publish expansion documented together.
-
-### Suggested files to inspect/change
-- `.cursor/skills/writer-excalibur-blog/SKILL.md`
-- `.cursor/skills/publish-excalibur-blog/SKILL.md`
-
-### Secrets
-- none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-23
+fix_summary:
+- Writer skill: commit `href="[REDACTED]"`; publish expands from env; link-verify treats as placeholder.
+- Publish skill documents expand + site-relative ledger.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+checks_run:
+- unit expand_redacted_urls for dual CTA hrefs
+commit: d58b20f
 
 ## INC-20260723-1710-research-notes-gate-false-technical
-status: open
+status: fixed
 run_date: 2026-07-23
 role: excalibur-blog-research
 topic_id: B04
-article_dir: memory/blog/articles/B04-sbkts-epts-kak-oformit-2026
 severity: medium
 category: script
-note: Stub restored after queue FS loss.
-
-### What went wrong
-- Research notes gate flagged false technical positives before PASS.
-
-### How the agent recovered this run
-- Gate brought to PASS for B04.
-
-### Durable fix needed before next run
-- Tighten technical-marker heuristics / allowlist for domain terms (СБКТС/ЭПТС).
-
-### Suggested files to inspect/change
-- `scripts/excalibur_blog_research_notes_gate.py`
-
-### Secrets
-- none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-23
+fix_summary:
+- `is_technical_topic` uses word-boundary markers + strips required field names from notes window.
+- B04 СБКТС/ЭПТС → `technical_topic=false`.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit B04 technical=false; Cursor MCP technical=true
+- research_notes_gate B04 PASS
+commit: d58b20f
 
 ## INC-20260723-1705-scout-suggest-next-skips-wp-bids
-status: open
+status: fixed
 run_date: 2026-07-23
 role: excalibur-blog-scout
 topic_id: B04
 severity: medium
 category: script
-note: Stub restored after queue FS loss.
-
-### What went wrong
-- Scout suggest-next skipped WP bid topics incorrectly (B04 selection path).
-
-### How the agent recovered this run
-- Topic B04 reserved and pipeline continued.
-
-### Durable fix needed before next run
-- Fix suggest-next WP bid skip logic (see related B03 fixer notes).
-
-### Suggested files to inspect/change
-- scout suggest-next scripts / skill
-
-### Secrets
-- none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-07-23
+fix_summary:
+- `scout_helper --suggest-next` high-water from topics + ledger + article dirs + live WP (+ optional `EXCALIBUR_B_ID_FLOOR`).
+- Scout skill documents WP_NOTE / ledger sync.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → B05 (high-water 4)
+commit: d58b20f
 
 > Canonical queue is `memory/pipeline-fix-queue.md`. AS16 open items below were closed by Fixer 2026-07-21.
 

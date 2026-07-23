@@ -54,6 +54,13 @@ Task(generalPurpose):
 
 См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
 
+Если Cloud отвергает typed name (часто `excalibur-blog-geo-qa` и другие `excalibur-blog-*`):
+
+1. Не ретраить тот же typed Task.
+2. Сразу `Task(generalPurpose)` с путями `.cursor/agents/<role>.md` и `.cursor/skills/<skill>/SKILL.md`.
+3. Один Task = одна роль; cover||schema = два parallel generalPurpose Task.
+4. Typed enum в Cursor runtime из репозитория добавить нельзя — docs/fallback = durable fix.
+
 ## Preflight (shell, директор)
 
 ```bash

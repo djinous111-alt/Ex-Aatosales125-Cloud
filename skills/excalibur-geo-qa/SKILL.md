@@ -20,10 +20,13 @@ python scripts/excalibur_blog_fact_checker.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/fact-check-report.json
 
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/link-verify.json \
   --site-base https://YOUR_SITE
+
+# CTA href="[REDACTED]" → kind=cta_placeholder (ok/skipped; publish expands from env).
+# Official/gov hosts (portal.elpts.ru, *.gov.ru, …): DNS/403/reset из Cloud egress → soft-fail warning, не BLOCK.
 
 python scripts/excalibur_blog_html_linter.py \
   memory/blog/articles/<dir>/article.html \
@@ -41,9 +44,12 @@ python scripts/excalibur_blog_cannibalization_guard.py \
   --blog-dir memory/blog/articles \
   -o memory/blog/articles/<dir>/cannibalization-report.json
 
-python scripts/excalibur_blog_utility_gate.py \
+python3 scripts/excalibur_blog_utility_gate.py \
   --article-dir memory/blog/articles/<dir> \
   --output utility-gate-report.json
+
+# utility gate: pain_markers_ru / outcome_markers_ru в editorial-policy.json;
+# если списки пусты — скрипт использует built-in defaults (не BLOCK на пустой policy).
 
 python scripts/excalibur_blog_human_voice_gate.py \
   --article-dir memory/blog/articles/<dir> \

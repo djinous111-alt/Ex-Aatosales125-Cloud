@@ -119,3 +119,13 @@ blockers:
 - Генерировать cover/schema с нуля
 - Пропускать dry-run
 - Завершать пайплайн без записи в `published-articles.md` при успешном publish
+
+## CTA / schema placeholders
+
+Перед upload скрипт `excalibur_blog_wp_publish.py` обязан:
+
+1. Раскрыть `href="[REDACTED]"` и `[REDACTED]/…` из env (`CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`, `PUBLIC_SITE_URL`).
+2. Снять `__excalibur_pragma_*` из schema JSON-LD.
+3. В ledger писать **site-relative** permalink (не абсолютный `PUBLIC_SITE_URL`).
+
+Writer/schema коммитят placeholders; live URL только в runtime publish payload.

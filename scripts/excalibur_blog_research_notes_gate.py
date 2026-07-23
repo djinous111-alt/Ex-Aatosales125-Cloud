@@ -73,14 +73,29 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _tech_marker_hit(blob: str, marker: str) -> bool:
+    """Match tech markers on token boundaries.
+
+    Substring checks falsely flag auto/RU briefs: ``ai`` inside ``pain``,
+    ``ии`` inside ``версии``/``комплектации``, ``make`` inside longer tokens.
+    """
+    pattern = rf"(?<![0-9a-zа-яё_]){re.escape(marker)}(?![0-9a-zа-яё_])"
+    return re.search(pattern, blob, flags=re.IGNORECASE) is not None
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
+    # Prefer topic-card fields; notes scan skips required field *names* that contain
+    # tech-looking substrings historically (reader_pain → ``ai``).
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    notes_window = notes[:2000].lower()
+    for field in REQUIRED_FIELDS:
+        notes_window = re.sub(rf"\b{re.escape(field.lower())}\b", " ", notes_window)
+    blob += " " + notes_window
+    return any(_tech_marker_hit(blob, marker) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:

@@ -21,10 +21,12 @@ category: docs
 
 ### How the agent recovered this run
 - Ran `excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` without `--blog-path`; PASS (3 articles indexed).
+- Commit blocked by secret-scan on `PUBLIC_SITE_URL` in `llms.txt` / `llms-full.txt` / `promotion-checklist.md`; added same-line `// pragma: allowlist secret`. Interlink report `site_base` rewritten to `${PUBLIC_SITE_URL}` placeholder.
 
 ### Durable fix needed before next run
 - Remove `--blog-path` from indexer agent + skill examples; keep `--blog-dir memory/blog/articles` as the article corpus flag and `--out-dir memory/blog` for outputs.
 - Optional: add pitfalls line that `--blog-path` is obsolete.
+- llms generator (or indexer runbook) should emit allowlist pragma on URL lines, or write placeholders expanded at publish; document in indexer skill.
 
 ### Suggested files to inspect/change
 - `.cursor/agents/excalibur-blog-indexer.md` / `agents/excalibur-blog-indexer.md`

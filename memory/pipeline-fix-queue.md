@@ -56,7 +56,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: 575b4ec1dd55ab6b56a5a470b60490cb8eb8c20f
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -107,7 +107,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: 575b4ec1dd55ab6b56a5a470b60490cb8eb8c20f
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -148,7 +148,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: 575b4ec1dd55ab6b56a5a470b60490cb8eb8c20f
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -195,7 +195,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: 575b4ec1dd55ab6b56a5a470b60490cb8eb8c20f
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -249,7 +249,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: 575b4ec1dd55ab6b56a5a470b60490cb8eb8c20f
 
 ## Fixed incidents
 
@@ -305,7 +305,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
 - unit asserts JP/KR/CN non-tech; MCP/API tech
 - research-notes-gate on B01 → PASS, technical_topic=false
-commit: pending-parent-commit
+commit: 575b4ec1dd55ab6b56a5a470b60490cb8eb8c20f
 
 ## INC-20260724-2115-geo-qa-utility-policy-drift
 status: fixed
@@ -361,7 +361,7 @@ checks_run:
 - JSON parse `editorial-policy.json`
 - `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
 - doctor errors=0
-commit: pending-parent-commit
+commit: 575b4ec1dd55ab6b56a5a470b60490cb8eb8c20f
 
 ## INC-20260724-2105-scout-precommit-secret-names
 status: fixed
@@ -400,7 +400,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` for `CLOUD_AGENT_INJECTED_SECRET_NAMES` in pitfalls
-commit: pending-parent-commit
+commit: 575b4ec1dd55ab6b56a5a470b60490cb8eb8c20f
 
 ## INC-20260724-2120-cover-kie-402-emergency
 status: needs-human
@@ -451,7 +451,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` for emergency_GenerateImage / 402 in cover skill + pitfalls
-commit: pending-parent-commit
+commit: 575b4ec1dd55ab6b56a5a470b60490cb8eb8c20f
 
 ## INC-20260724-2123-indexer-llms-cli-blog-path
 status: fixed
@@ -500,7 +500,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_llms_generator.py --help`
 - `rg` for `blog-path /` in agents/skills → none
 - doctor errors=0 (llms supports --blog-dir)
-commit: pending-parent-commit
+commit: 575b4ec1dd55ab6b56a5a470b60490cb8eb8c20f
 
 ## INC-20260724-2146-publish-nginx-504-large-payload
 status: fixed
@@ -557,5 +557,5 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `rg` for nginx 504 in publish skill + pitfalls
-commit: pending-parent-commit
+commit: 575b4ec1dd55ab6b56a5a470b60490cb8eb8c20f
 

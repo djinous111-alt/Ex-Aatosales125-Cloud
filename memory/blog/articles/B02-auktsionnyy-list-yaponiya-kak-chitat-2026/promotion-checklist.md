@@ -7,7 +7,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200; post_id=3631)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -45,6 +45,6 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 ## Notes
 
-- Indexer: interlinker `--apply` выполнен; opportunities_found=0.
+- Publish PASS: WP post 3631; featured 3655; inline 3656–3658; schema_meta ok; method SSH+php8.2 CLI.
+- Indexer + post-publish interlinker: opportunities_found=0 (AS08/AS09 — другие кластеры).
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (`--blog-dir`, без устаревшего `--blog-path`).
-- Cover/schema уже готовы; publish — следующий шаг.

@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260723-1030-publish-http-gateway-504-ssh-php-cli
+status: open
+run_date: 2026-07-23
+role: excalibur-blog-publish
+topic_id: B02
+article_dir: memory/blog/articles/B02-auktsionnyy-list-yaponiya-kak-chitat-2026
+severity: high
+category: publish
+
+### What went wrong
+- `excalibur_blog_wp_publish.py` HTTP trigger of `excalibur-blog-publish-once.php` timed out at 120s (expected for large cover+inline payload ~8.3MB).
+- Cloud/curl fallback also failed: nginx returned **504 Gateway Time-out** (~120s) before WP bootstrap finished media uploads.
+- Script fallback wait (120s for `memory/webfetch-response.txt`) races with long curl; HTTP path is not viable for this host+payload size.
+- Missing `paramiko` in Cloud env (`ModuleNotFoundError`) until `pip install --break-system-packages -r requirements.txt`.
+
+### How the agent recovered this run
+- Uploaded bootstrap via SSH (paramiko), executed with `/usr/local/bin/php8.2 -d memory_limit=512M -d max_execution_time=600`, captured stdout (`OK post=3631`, featured, 3 inline, schema_meta), deleted bootstrap, wrote `wp-publish-result.json` + ledger.
+- Live permalink HEAD 200.
+
+### Durable fix needed before next run
+- Add **SSH PHP CLI trigger** fallback in `excalibur_blog_wp_publish.py` when HTTP/WebFetch returns timeout/504 (prefer `/usr/local/bin/php8.2` then 8.1/8.3 on Beget-like hosts).
+- Extend HTTP trigger timeout and/or start fallback curl immediately after SSH upload (parallel), not only after local 120s fail.
+- Ensure Cloud `install` installs `paramiko` from `requirements.txt` (PEP 668: `--break-system-packages` or venv).
+- Document in publish skill: nginx 504 on large bootstrap → SSH CLI path.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/environment.json` / `requirements.txt` install path
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260723-1009-indexer-llms-blog-path-stale-flag
 status: open
 run_date: 2026-07-23

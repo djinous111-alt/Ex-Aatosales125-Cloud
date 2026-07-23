@@ -6,8 +6,67 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none for current run)_
+
+## INC-20260723-0925-geo-qa-utility-pain-outcome-policy-gap
+status: fixed
+run_date: 2026-07-23
+role: excalibur-blog-geo-qa
+topic_id: B02
+article_dir: memory/blog/articles/B02-auktsionnyy-list-yaponiya-kak-chitat-2026
+severity: blocker
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` article gate defaults `min_pain_markers=2` and `min_outcome_markers=3`, but `memory/brief/editorial-policy.json` has no `pain_markers_ru` / `outcome_markers_ru` lists and no mins in `article_required_signals`.
+- Empty marker lists → count always 0 → utility ALWAYS BLOCK on pain/outcome for every article (verified: AS09 also BLOCK now).
+- Separately B02 has real text gap: action_markers 5 < 8 (`Делать/Не делать` ≠ policy markers `не делайте` / `шаг ` / `избегайте`).
+
+### How the agent recovered this run
+- Did not rewrite article.html (GEO QA contract: text FAIL → writer FIX).
+- Wrote article-qa.md FAIL + FIX requirements; filed this incident for durable policy/script fix.
+
+### Durable fix needed before next run
+- Add `pain_markers_ru` and `outcome_markers_ru` (+ optional mins) to `editorial-policy.json`, OR skip pain/outcome checks when lists are empty.
+- Document writer contract: use exact `recommendation_markers_ru` phrases (`Не делайте`, `Шаг N`, `проверьте`, `избегайте`, not only `Делать/Не делать`).
+- Re-run utility gate on B02 after writer FIX-1.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-23
+fix_summary:
+- Added `pain_markers_ru` / `outcome_markers_ru` (+ mins) to `editorial-policy.json` aligned with human-voice gate markers.
+- Utility gate skips pain/outcome checks when lists are empty (warning only), so empty policy can never forever-BLOCK.
+- Writer/contract/pitfalls document exact `recommendation_markers_ru` phrases.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
+- JSON parse `editorial-policy.json`
+- `utility_gate --article-dir B02` → PASS (pain=6, outcome=9)
+- `utility_gate --article-dir AS09` → PASS
+- empty-list policy regression → pain/outcome skipped, no errors
+commit: 042b78d
+
+
 ## INC-20260723-0918-research-serp-public-site-url
-status: open
+status: fixed
 run_date: 2026-07-23
 role: excalibur-blog-research
 topic_id: B02
@@ -32,10 +91,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-23
+fix_summary:
+- `research_start` now redacts hosts from `PUBLIC_SITE_URL`/`WP_SITE_URL`/`WP_HOME` to `[REDACTED]` inside `research-serp.json` before write.
+files_changed:
+- `scripts/excalibur_blog_research_start.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_research_start.py`
+- unit redact with fake PUBLIC_SITE_URL → host scrubbed
+commit: 042b78d
+
 
 ## INC-20260723-0915-research-tech-marker-false-positive
-status: open
+status: fixed
 run_date: 2026-07-23
 role: excalibur-blog-research
 topic_id: B02
@@ -65,10 +137,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-23
+fix_summary:
+- TECH markers use token-boundary match for whole words; stems kept for RU prefixes; required field labels stripped from notes scan so `reader_pain` cannot false-positive `ai`.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+- regression: auction-sheet notes + reader_pain → technical_topic=False; mcp/ai topics → True
+commit: 042b78d
+
 
 ## INC-20260723-0905-scout-suggest-next-as-ids
-status: open
+status: fixed
 run_date: 2026-07-23
 role: excalibur-blog-scout
 topic_id: B02
@@ -101,7 +186,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-23
+fix_summary:
+- Scout helper parses AS*+B* cards; next B ID uses max(B from pool∪ledger∪article dirs)+1; --check-query includes AS pool + ledger slugs; today.py tracks AS* article dirs; scout skill/agent document WP recent cross-check.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → Total=10 (AS=9,B=1), Next=B03
+- `--check-query "trust encar"` → CRITICAL overlap AS09
+commit: 042b78d
+
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -153,7 +254,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: 042b78d
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -204,7 +305,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: 042b78d
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -245,7 +346,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: 042b78d
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -292,7 +393,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: 042b78d
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -346,7 +447,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: 042b78d
 
 ## Fixed incidents
 

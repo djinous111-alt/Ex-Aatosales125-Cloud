@@ -27,12 +27,14 @@ Append new Topic Card to blog-topics.md
 ## Подробный алгоритм действий
 
 ### Шаг 1 — Анализ прошлого и получение ID
-* Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
+* Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md` (**AS* и B***).
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Запомни следующий `topic_id` (серия **Bxx**) и список невыполненных тем.
+* **WP dedupe:** сверь Next ID и кандидатный slug с `EXCALIBUR_RECENT_WP_POSTS` из `python3 scripts/excalibur_blog_today.py`. Если на live WP уже есть статья с прошлым B01 / тем же смыслом slug — бери **B02+**, не создавай дубль B01.
+* `--check-query` учитывает AS*-пул и slug из ledger; всё равно дополнительно смотри WP recent.
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
@@ -47,7 +49,7 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
 Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
 

@@ -255,6 +255,42 @@ commit: pending-parent-commit
 
 Handled above; commit is pending Director review.
 
+## INC-20260724-2108-research-tech-markers-false-positive
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-yaponii-pod-zakaz-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` пометил бытовую тему "заказ авто из Японии" как `technical_topic=true`.
+- Причина: `TECH_MARKERS` ищутся как подстроки без границ слова: `ai` матчится внутри `reader_pain`, `ии` – внутри `Японии`.
+- Из-за ложного tech-флага gate требовал `github_urls >= 3`, хотя ядро темы – логистика/таможня, не GitHub-продукт.
+- Дополнительно: `elpts.ru` / `portal.elpts.ru` вернули HTTP 500 при WebFetch; использовали вторичные источники по ЭПТС.
+
+### How the agent recovered this run
+- Добавил 3 периферийных GitHub URL (Yahoo Auctions scrapers) с явной пометкой N/A для ядра и запретом Writer опираться на них.
+- Факты по ЭПТС/СБКТС взяты из AutoProfi Asia, AZWAY, VLB Broker, Дром.
+- Довёл `research-notes-gate.json` до PASS после правок `accessed_at` и `pain_solution_map`.
+
+### Durable fix needed before next run
+- В `is_technical_topic` использовать word-boundary / token match для `TECH_MARKERS` (особенно коротких `ai`, `ии`, `rag`, `api`), либо исключать совпадения внутри `reader_pain` / кириллических склонений страны.
+- Не требовать GitHub evidence для non-tech how_to (автоимпорт, бытовые чек-листы).
+- Опционально: документировать fallback, если официальный портал ЭПТС недоступен.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260724-2105-scout-precommit-secret-names
 status: open
 run_date: 2026-07-24

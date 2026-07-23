@@ -1,0 +1,24 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-avto-iz-yaponii-pod-zakaz-2026",
+  "notes": "memory/blog/articles/B01-avto-iz-yaponii-pod-zakaz-2026/research-notes.md",
+  "context": "memory/blog/articles/B01-avto-iz-yaponii-pod-zakaz-2026/research-context.json",
+  "errors": [],
+  "warnings": [
+    "technical topic has no obvious official docs/developer documentation URL"
+  ],
+  "metrics": {
+    "today_iso": "2026-07-24",
+    "prefer_sources_after": "2026-04-25",
+    "source_urls": 29,
+    "source_domains": 12,
+    "source_table_rows": 29,
+    "accessed_at": 15,
+    "github_urls": 3,
+    "official_doc_urls": 0,
+    "action_outline_items": 9,
+    "pain_solution_rows": 8,
+    "technical_topic": true
+  }
+}

@@ -6,6 +6,34 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260723-0918-research-serp-public-site-url
+status: open
+run_date: 2026-07-23
+role: excalibur-blog-research
+topic_id: B02
+article_dir: memory/blog/articles/B02-auktsionnyy-list-yaponiya-kak-chitat-2026
+severity: medium
+category: script
+
+### What went wrong
+- `research_start` wrote own-site URLs from SERP into `research-serp.json` using the live `PUBLIC_SITE_URL` host, so `git commit` was blocked by secret scan.
+
+### How the agent recovered this run
+- Replaced host with `[REDACTED]` in `research-serp.json` before commit.
+
+### Durable fix needed before next run
+- In `excalibur_blog_research_start.py` (SERP writer), redact `PUBLIC_SITE_URL` / site host to `[REDACTED]` or path-only placeholders when writing JSON under `memory/blog/articles/`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_start.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260723-0915-research-tech-marker-false-positive
 status: open
 run_date: 2026-07-23

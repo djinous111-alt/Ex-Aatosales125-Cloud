@@ -49,7 +49,7 @@ files_changed:
 checks_run:
 - `bash scripts/excalibur_blog_patch_cursor_secret_scrub.sh`
 - simulated URL-shaped secret name → hook exit 0 with skip log
-commit: bc18481
+commit: 169cff4
 
 ## INC-20260723-1333-indexer-doctor-llms-blog-path-mismatch
 status: fixed
@@ -101,7 +101,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `rg` no stale `--blog-path` in indexer canon
-commit: bc18481
+commit: 169cff4
 
 ## INC-20260723-1326-cover-kie-credits-402
 status: needs-human
@@ -151,7 +151,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - docs rg for Emergency / 402
-commit: bc18481
+commit: 169cff4
 
 ## INC-20260723-1325-geo-qa-typed-task-missing
 status: fixed
@@ -199,7 +199,7 @@ files_changed:
 - `.cursor/agents/excalibur-blog-director.md`
 checks_run:
 - `rg` geo-qa generalPurpose guidance present in AGENTS/director/pitfalls
-commit: bc18481
+commit: 169cff4
 
 ## INC-20260723-1325-geo-qa-utility-pain-outcome-policy-gap
 status: fixed
@@ -251,7 +251,7 @@ files_changed:
 checks_run:
 - utility gate B03 → PASS
 - utility gate B03 with emptied markers policy → PASS + DEFAULT warnings
-commit: bc18481
+commit: 169cff4
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -552,7 +552,7 @@ files_changed:
 checks_run:
 - `--suggest-next` → Next B04 (high-water 3 from B03)
 - with WP: WP_NOTE untracked slugs printed
-commit: bc18481
+commit: 169cff4
 
 ## INC-20260723-1312-research-tech-markers-false-positive
 status: fixed
@@ -640,7 +640,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - secret-scrub wrapper smoke with URL-shaped name → exit 0
-commit: bc18481
+commit: 169cff4
 
 ## INC-20260723-1327-schema-precommit-secret-scrub
 status: fixed
@@ -684,7 +684,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - secret-scrub wrapper smoke with URL-shaped name → exit 0
-commit: bc18481
+commit: 169cff4
 
 ## INC-20260723-1339-publish-paramiko-missing
 status: fixed
@@ -732,4 +732,4 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → OK paramiko available
 - `import paramiko` OK
-commit: bc18481
+commit: 169cff4

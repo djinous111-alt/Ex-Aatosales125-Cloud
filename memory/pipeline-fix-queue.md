@@ -61,7 +61,7 @@ checks_run:
 - `py_compile` wp_publish
 - unit timeout/504 detection + php_cli_candidates
 - `--dry-run` B02 OK (~8.3MB PHP)
-commit: 261e6b1
+commit: 70d1936
 
 ## INC-20260723-1009-indexer-llms-blog-path-stale-flag
 status: fixed
@@ -110,7 +110,7 @@ files_changed:
 checks_run:
 - no CLI `--blog-path /` in agents/skills
 - `llms_generator --help` → `--blog-dir` only
-commit: 261e6b1
+commit: 70d1936
 
 ## INC-20260723-1005-cover-kie-credits-402-generateimage-emergency
 status: needs-human
@@ -209,7 +209,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - B02 load_article schema has no `_excalibur_scan`
-commit: 261e6b1
+commit: 70d1936
 
 ## INC-20260723-0940-geo-qa-telegram-href-redacted-literal
 status: fixed
@@ -262,7 +262,7 @@ files_changed:
 checks_run:
 - unit detect_redacted_hrefs
 - linter B02 PASS
-commit: 261e6b1
+commit: 70d1936
 
 ## INC-20260723-0925-geo-qa-utility-pain-outcome-policy-gap
 status: fixed

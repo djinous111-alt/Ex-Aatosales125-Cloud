@@ -27,6 +27,7 @@
 
 - Fact Check Box **не копирует** пример из `shared/excalibur-article-writing-contract.md`. Автор — только из `shared/authors-registry.json` по `author_id` в `article.meta.json`.
 - Запрещены legacy-имена вне реестра (в т.ч. «Елена Ковалева»). Human voice gate блокирует несовпадение автора и generic-шаблон «все статистические показатели…».
+- **CTA href:** никогда не вставляй литерал `[REDACTED]` в `article.html`. Placeholder допустим в SERP/ledger/notes (secret-scan), но не в живых ссылках. Telegram CTA = env `TELEGRAM_URL` или канон `t.me` + handle из site-brief (`@avtosales125`, как AS08/AS09). При commit secret-scan: `<!-- pragma: allowlist secret -->` на строке CTA. Перед handoff: `'[REDACTED]' not in html` и `'t.me/' in html`.
 
 ## QA
 

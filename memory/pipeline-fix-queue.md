@@ -12,7 +12,7 @@ run_date: 2026-07-23
 role: excalibur-blog-geo-qa
 topic_id: B02
 article_dir: memory/blog/articles/B02-auktsionnyy-list-yaponiya-kak-chitat-2026
-severity: blocker
+severity: medium
 category: qa
 
 ### What went wrong
@@ -22,27 +22,28 @@ category: qa
 - Likely copy from secret-scan redacted transcript/view into HTML (same placeholder used intentionally in SERP/ledger, but must never appear as live `href` in article body).
 
 ### How the agent recovered this run
-- Did not rewrite `article.html` (GEO QA: FAIL → FIX list only).
-- article-qa.md FAIL score 86; FIX-2 = restore Telegram href to `https://t.me/<TELEGRAM_HANDLE>` (pattern AS08/AS09).
-- Filed this incident for durable writer/pitfalls guard.
+- GEO QA: FAIL → FIX list only (no HTML rewrite).
+- Writer FIX2 (2026-07-23): restored Telegram CTA href from env `TELEGRAM_URL` (len 25, canon `t.me` handle from site-brief / AS08–AS09 pattern); removed literal `[REDACTED]` from `article.html`.
+- Re-ran `excalibur_blog_link_verify.py` → PASS (2/2, failed_count=0). Utility gate still PASS (action=37, pain=6, outcome=9); FIX1 markers/char range preserved.
+- Pitfalls note added: never paste `[REDACTED]` into live `article.html` hrefs.
 
 ### Durable fix needed before next run
-- Writer skill/contract: never write literal `[REDACTED]` into `article.html` hrefs; restore real `t.me` CTA; document allowlist pragma for commits if secret-scan blocks.
-- Optional: QA precheck or html-linter rule flagging `href="[REDACTED]"` / href without scheme in body CTAs.
-- Pitfalls: secret-scan redaction placeholders are for ledger/SERP artifacts, not publishable HTML links.
+- Writer skill/contract one-liner: never write literal `[REDACTED]` into `article.html` hrefs; use `TELEGRAM_URL` or canon `t.me` CTA; allowlist pragma only if secret-scan blocks commits.
+- Optional: html-linter / link-verify precheck flagging `href="[REDACTED]"` or href without scheme in body CTAs.
+- Pitfalls: done (writer FIX2).
 
 ### Suggested files to inspect/change
-- `memory/blog/articles/B02-auktsionnyy-list-yaponiya-kak-chitat-2026/article.html` (writer FIX2)
-- `.cursor/skills/writer-excalibur-blog/SKILL.md`
-- `shared/excalibur-article-writing-contract.md`
-- `shared/agent-pipeline-pitfalls.md`
+- `memory/blog/articles/B02-auktsionnyy-list-yaponiya-kak-chitat-2026/article.html` (writer FIX2 done)
+- `shared/agent-pipeline-pitfalls.md` (done)
+- `.cursor/skills/writer-excalibur-blog/SKILL.md` (fixer: one-liner guard)
+- `shared/excalibur-article-writing-contract.md` (optional)
 - `scripts/excalibur_blog_html_linter.py` (optional guard)
 
 ### Secrets
 - none recorded
 
 ### Fixer resolution
-- pending
+- pending (artifact+pitfalls recovered by writer; skill/linter still optional)
 
 ## INC-20260723-0925-geo-qa-utility-pain-outcome-policy-gap
 status: fixed

@@ -62,7 +62,7 @@ checks_run:
 - `utility_gate --article-dir B02` → PASS (pain=6, outcome=9)
 - `utility_gate --article-dir AS09` → PASS
 - empty-list policy regression → pain/outcome skipped, no errors
-commit: 042b78d
+commit: 67996bd
 
 
 ## INC-20260723-0918-research-serp-public-site-url
@@ -103,7 +103,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_start.py`
 - unit redact with fake PUBLIC_SITE_URL → host scrubbed
-commit: 042b78d
+commit: 67996bd
 
 
 ## INC-20260723-0915-research-tech-marker-false-positive
@@ -149,7 +149,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
 - regression: auction-sheet notes + reader_pain → technical_topic=False; mcp/ai topics → True
-commit: 042b78d
+commit: 67996bd
 
 
 ## INC-20260723-0905-scout-suggest-next-as-ids
@@ -201,7 +201,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → Total=10 (AS=9,B=1), Next=B03
 - `--check-query "trust encar"` → CRITICAL overlap AS09
-commit: 042b78d
+commit: 67996bd
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -254,7 +254,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: 042b78d
+commit: 67996bd
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -305,7 +305,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: 042b78d
+commit: 67996bd
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -346,7 +346,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: 042b78d
+commit: 67996bd
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -393,7 +393,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: 042b78d
+commit: 67996bd
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -447,7 +447,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: 042b78d
+commit: 67996bd
 
 ## Fixed incidents
 

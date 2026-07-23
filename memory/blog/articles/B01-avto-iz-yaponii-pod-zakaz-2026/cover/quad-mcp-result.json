@@ -1,0 +1,20 @@
+{
+  "url": null,
+  "method": "emergency_GenerateImage",
+  "provider": "cursor_GenerateImage",
+  "kie_status": "402_credits_insufficient",
+  "raw_size": [
+    1536,
+    1024
+  ],
+  "resized_to": [
+    2048,
+    1152
+  ],
+  "resize": "LANCZOS",
+  "reference_image_paths": [
+    "memory/cover/assets/blog-hero-reference.png"
+  ],
+  "artifact": "/opt/cursor/artifacts/assets/B01-canvas-quad-emergency.png",
+  "note": "Kie createTask 402 → emergency i2i via GenerateImage + LANCZOS resize + quad split"
+}

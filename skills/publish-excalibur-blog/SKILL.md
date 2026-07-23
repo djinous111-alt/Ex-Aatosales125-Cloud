@@ -61,15 +61,17 @@ python scripts/excalibur_blog_wp_publish.py \
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
 - пишет post meta `_excalibur_blog_schema_jsonld`.
 
-### 4. Cloud WebFetch Fallback
+### 4. Cloud WebFetch Fallback / nginx 504
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060 / **nginx 504**):
 
-1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php` и ждёт `memory/webfetch-response.txt` до ~**300s**.
+2. При **504 Gateway Time-out** на large payload (~cover+3 inlines base64, ~9MB) PHP-FPM часто **уже завершил** post/media/meta. Сразу проверь live WP REST (search by slug) + `HEAD` permalink = 200.
+3. Если post жив: реконструируй OK-строки в `memory/webfetch-response.txt` (post_id, permalink, media ids, schema ok), чтобы waiting-скрипт завершил PASS и upsert ledger. Не жди, пока `finally` удалит bootstrap.
+4. Иначе: Cloud WebFetch/curl на FALLBACK URL и запиши ответ в тот же файл.
+5. `SSH_ROOT=.` (или alias `SSH_PATH`) если upload ловил ENOENT. Host CLI `php` 5.x не запускает WP bootstrap — только web SAPI. Нужен `paramiko` в runtime.
 
-**Не останавливайся** на первом timeout — используй fallback.
+**Не останавливайся** на первом timeout/504 — используй REST confirm + fallback.
 
 ### 5. Post-publish артефакты
 

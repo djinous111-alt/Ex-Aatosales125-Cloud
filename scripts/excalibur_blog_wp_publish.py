@@ -380,7 +380,8 @@ def _ssh_creds(env: dict[str, str]) -> tuple[str, int, str, str]:
 
 
 def configured_ssh_root(env: dict[str, str]) -> str:
-    return (env.get("SSH_ROOT") or "").strip()
+    # Cloud Secrets sometimes inject SSH_PATH instead of SSH_ROOT.
+    return (env.get("SSH_ROOT") or env.get("SSH_PATH") or "").strip()
 
 
 def ssh_remote_path(env: dict[str, str], remote: str, root_override: str | None = None) -> str:
@@ -468,29 +469,49 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
 
 
 def trigger_bootstrap_http(url: str, root: Path) -> str:
+    """HTTP-trigger the uploaded bootstrap PHP.
+
+    Large payloads (~cover+inlines base64) often hit nginx 504 at ~120s while
+    PHP-FPM still finishes the post. On timeout/504 enter WebFetch fallback and
+    wait longer so the agent can confirm via WP REST and write webfetch-response.
+    """
     try:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=180,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
+        http_code = getattr(e, "code", None)
+        is_gateway_timeout = http_code == 504 or "504" in str(e) or "Gateway Time" in str(e)
         print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
+        if is_gateway_timeout:
+            print(
+                "NOTE: nginx 504 on large publish payload often means PHP-FPM still "
+                "completed the post. Confirm via WP REST (slug/search) + live HEAD 200, "
+                "then write OK lines to memory/webfetch-response.txt before this wait ends."
+            )
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
         print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        # Large payload + REST confirmation needs more than 120s.
+        fallback_wait_seconds = 300
+        for _ in range(fallback_wait_seconds):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {fallback_wait_seconds} seconds. "
+            "If nginx returned 504, verify the post via WP REST / live HEAD and retry "
+            "with memory/webfetch-response.txt before bootstrap cleanup."
+        )
 
 
 def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:

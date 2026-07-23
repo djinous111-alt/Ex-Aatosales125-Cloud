@@ -52,6 +52,7 @@ Cover-агент генерирует **один** quad-холст 2×2 (MCP `gp
 4. **Design code:** `memory/cover/cover-design-code.json` — fake скрины, стикеры, скотч, мемы, «сделал человек», **16:9**.
 5. **Inline 1–3:** полезность по `visual_type` — **без** лица героя.
 6. Не трогать `schema.jsonld`, не переписывать текст статьи.
+7. Kie/MCP **402 credits** → emergency: ONE Cursor `GenerateImage` i2i + LANCZOS 2048×1152 → split/inject (skill § Шаг 4b). Top-up Kie = needs-human; не 4 отдельных GenerateImage.
 
 ---
 
@@ -76,6 +77,7 @@ python scripts/excalibur_blog_cover_quad_prompt.py --article-dir "$ARTICLE" --wr
 # 5. ONE CallMcpTool user-mcp-kv / gpt-image-2
 #    аргументы из cover/quad-mcp-batch.json → jobs[0].mcp_args
 #    aspect_ratio: 16:9, resolution: 2K, input_urls обязателен
+#    если 402 credits → GenerateImage emergency (см. skill 4b), не 4 вызова
 
 # 6. Скачать + split + inject
 python scripts/excalibur_blog_quad_apply.py \

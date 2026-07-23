@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/B01-avto-iz-yaponii-pod-zakaz-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "атаешься. Ниже – чек-лист заказа авто из Японии в 2026: от ставки до ключей и список вопросов менеджеру",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "иентиры для \"трёх\" и \"пяти\" лет часто связывают с 2023 и 2021, а возраст считают на дату подачи на таможн",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2021",
+      "kind": "date_or_year",
+      "context": "для \"трёх\" и \"пяти\" лет часто связывают с 2023 и 2021, а возраст считают на дату подачи на таможню. В л",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1900",
+      "kind": "date_or_year",
+      "context": "ила экспорт в РФ ряда категорий: часть ДВС больше 1900 см³, электромобили, гибриды plug-in, отдельные вэн",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "6 недель",
+      "kind": "metric_or_duration",
+      "context": "тир срока после оплаты по гайдам 2026: примерно 3–6 недель, но рейс и таможня двигают календарь. Порядок: та",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

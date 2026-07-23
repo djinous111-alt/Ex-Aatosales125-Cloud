@@ -50,6 +50,8 @@ python scripts/excalibur_blog_human_voice_gate.py \
   -o human-voice-report.json
 ```
 
+Перед utility gate убедись, что `memory/brief/editorial-policy.json` содержит непустые `pain_markers_ru` / `outcome_markers_ru` (иначе soft-skip warning = policy drift).
+
 **Pass:** score ≥ 80, CORE-EEAT ≥ 16/20, link-verify pass, **research notes gate PASS**, **utility gate PASS**, **human voice gate PASS**, **beginner-fit PASS**. В `article-qa.md` отдельно зафиксируй: какая боль новичка решена, где показано решение, какой первый результат получит читатель, какие сложные термины объяснены «на пальцах».
 
 **Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.

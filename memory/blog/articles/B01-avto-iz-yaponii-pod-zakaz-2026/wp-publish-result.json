@@ -1,0 +1,25 @@
+{
+  "slug": "avto-iz-yaponii-pod-zakaz-2026",
+  "topic_id": "B01",
+  "permalink": "https://avtosales125.ru/2026/07/24/avto-iz-yaponii-pod-zakaz-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-avto-iz-yaponii-pod-zakaz-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1415527,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3672 slug=avto-iz-yaponii-pod-zakaz-2026\nOK featured_image=3692\nOK schema_meta=1\nOK inline_image_upload=3693\nOK inline_image_upload=3696\nOK inline_image_upload=3698\npermalink=https://avtosales125.ru/2026/07/24/avto-iz-yaponii-pod-zakaz-2026/\n",
+  "verdict": "pass",
+  "post_id": 3672,
+  "featured_image": 3692,
+  "inline_images": [
+    3693,
+    3696,
+    3698
+  ],
+  "live_head": 200,
+  "schema_live": false,
+  "note": "nginx 504 on HTTP trigger; PHP completed server-side; fallback response reconstructed from live WP REST"
+}

@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-24",
+    "today_ru": "24.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-25",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-24 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "avto-iz-yaponii-pod-zakaz-2026",
+    "h1": "Как заказать авто из Японии в 2026: чек-лист от аукциона до выдачи",
+    "primary_query": "заказ авто из японии",
+    "secondary_queries": [
+      "авто под заказ из японии",
+      "авто из японии под заказ с аукциона",
+      "заказ авто из японии с растаможкой",
+      "привезти авто из японии"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "заказ авто из японии 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "заказ авто из японии июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "заказ авто из японии новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com заказ авто из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "заказ авто из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "заказ авто из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "авто под заказ из японии 2026",
+      "purpose": "вторичный запрос: авто под заказ из японии"
+    },
+    {
+      "id": "secondary_2",
+      "query": "авто из японии под заказ с аукциона 2026",
+      "purpose": "вторичный запрос: авто из японии под заказ с аукциона"
+    },
+    {
+      "id": "secondary_3",
+      "query": "заказ авто из японии с растаможкой 2026",
+      "purpose": "вторичный запрос: заказ авто из японии с растаможкой"
+    },
+    {
+      "id": "secondary_4",
+      "query": "привезти авто из японии 2026",
+      "purpose": "вторичный запрос: привезти авто из японии"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как заказать авто из Японии в 2026: чек-лист от аукциона до выдачи 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-avto-iz-yaponii-pod-zakaz-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

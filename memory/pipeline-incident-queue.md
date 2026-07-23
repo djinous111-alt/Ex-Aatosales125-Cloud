@@ -9,6 +9,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 > Restored 2026-07-23 cover-agent: live queue unlinked mid B04 cover||schema; historical body from git `af91992` + B04 open stubs from handoff/fragments.
 
 
+## INC-20260723-1736-indexer-doctor-llms-blog-path-regression
+status: open
+run_date: 2026-07-23
+role: excalibur-blog-indexer
+topic_id: B04
+article_dir: memory/blog/articles/B04-sbkts-epts-kak-oformit-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` still asserts `--blog-path` in llms `--help` (`FAIL llms generator supports --blog-path`, errors=1).
+- Actual CLI of `excalibur_blog_llms_generator.py` only has `--blog-dir` / `--out-dir` (no `--blog-path`).
+- Indexer skill/agent examples still pass obsolete `--blog-path /` alongside `--blog-dir`.
+- Regression of previously fixed `INC-20260721-0005-director-doctor-llms-flag`.
+- First pass with `--site-base $PUBLIC_SITE_URL` wrote absolute host into `llms.txt` / `llms-full.txt` / promotion-checklist → pre-commit secret-scan blocked commit.
+
+### How the agent recovered this run
+- Ran llms generator with current flags: `--blog-dir` + `--out-dir` (no `--blog-path`) → OK.
+- Re-ran llms/interlinker and rewrote checklist with `--site-base '[REDACTED]'` so artifacts are secret-scan safe.
+- Did not change doctor/scripts in indexer role (deferred to fixer).
+
+### Durable fix needed before next run
+- Doctor: require `--blog-dir` (and optionally `--out-dir`); reject/absent `--blog-path`.
+- Align indexer skill/agent shell examples: drop `--blog-path`; document `--site-base '[REDACTED]'` for committed memory artifacts (expand real URL only at publish upload).
+- Re-verify `python3 scripts/excalibur_blog_doctor.py` → errors=0.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260723-1732-cover-kie-402-generateimage-fallback
 status: open
 run_date: 2026-07-23

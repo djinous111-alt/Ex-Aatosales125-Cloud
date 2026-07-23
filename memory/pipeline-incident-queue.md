@@ -33,7 +33,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `rg` indexer examples without CLI `--blog-path` flag
-commit: d58b20f
+commit: 5a46bf4
 
 ## INC-20260723-1732-cover-kie-402-generateimage-fallback
 status: needs-human
@@ -63,7 +63,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_kie_gpt_image2_api.py`
 - `rg` GenerateImage/402/LANCZOS guidance in cover skill
-commit: d58b20f
+commit: 5a46bf4
 
 ## INC-20260723-1730-schema-url-secret-scan
 status: fixed
@@ -86,7 +86,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - unit expand_redacted_urls / strip_schema_secret_scan_pragmas
-commit: d58b20f
+commit: 5a46bf4
 
 ## INC-20260723-1727-geo-qa-link-verify-gov-cta-placeholder
 status: fixed
@@ -111,7 +111,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - unit classify_link('[REDACTED]') → cta_placeholder
-commit: d58b20f
+commit: 5a46bf4
 
 ## INC-20260723-1726-geo-qa-utility-pain-outcome-policy-gap
 status: fixed
@@ -138,7 +138,7 @@ files_changed:
 checks_run:
 - doctor editorial markers OK
 - utility_gate B04 PASS
-commit: d58b20f
+commit: 5a46bf4
 
 ## INC-20260723-1725-geo-qa-cloud-typed-task-missing
 status: fixed
@@ -163,7 +163,7 @@ files_changed:
 - `shared/pipeline-task-map.md`
 checks_run:
 - `rg` generalPurpose + geo-qa fallback in AGENTS/director
-commit: d58b20f
+commit: 5a46bf4
 
 ## INC-20260723-1720-writer-cta-url-secret-scan
 status: fixed
@@ -187,7 +187,7 @@ files_changed:
 - `scripts/excalibur_blog_wp_publish.py`
 checks_run:
 - unit expand_redacted_urls for dual CTA hrefs
-commit: d58b20f
+commit: 5a46bf4
 
 ## INC-20260723-1710-research-notes-gate-false-technical
 status: fixed
@@ -209,7 +209,7 @@ files_changed:
 checks_run:
 - unit B04 technical=false; Cursor MCP technical=true
 - research_notes_gate B04 PASS
-commit: d58b20f
+commit: 5a46bf4
 
 ## INC-20260723-1705-scout-suggest-next-skips-wp-bids
 status: fixed
@@ -234,7 +234,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → B05 (high-water 4)
-commit: d58b20f
+commit: 5a46bf4
 
 > Canonical queue is `memory/pipeline-fix-queue.md`. AS16 open items below were closed by Fixer 2026-07-21.
 

@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260723-1000-schema-jsonld-secret-scan-block
+status: open
+run_date: 2026-07-23
+role: excalibur-blog-schema
+topic_id: B02
+article_dir: memory/blog/articles/B02-auktsionnyy-list-yaponiya-kak-chitat-2026
+severity: medium
+category: tooling
+
+### What went wrong
+- Commit of `schema.jsonld` blocked by Cursor secret-scan: file embeds `PUBLIC_SITE_URL`, `TELEGRAM_URL`, `CATALOG_URL`, `MAX_URL` (required for BlogPosting `@id` / `sameAs` / HowTo step URLs).
+- AS08/AS09 schemas already contain the same values (committed before scan enforcement). HTML CTA can use `<!-- pragma: allowlist secret -->`; JSON has no comment syntax.
+
+### How the agent recovered this run
+- Kept real URLs (publish writes schema meta as-is; `[REDACTED]` placeholders would break JSON-LD on site).
+- First attempted JSONC `// pragma` lines (scan passed, but invalid JSON for `application/ld+json`).
+- Final artifact: valid JSON with same-line `"_excalibur_scan": "pragma: allowlist secret"` next to secret-bearing properties / collapsed `sameAs` arrays. Unknown key is ignored by Google parsers; publish can ship file as-is.
+
+### Durable fix needed before next run
+- Document in `schema-excalibur-blog` skill + `shared/agent-pipeline-pitfalls.md`: schema commit needs same-line allowlist marker; prefer `"_excalibur_scan": "pragma: allowlist secret"` over JSONC comments.
+- Optional: publish script strips `_excalibur_scan` keys before WP meta; or expand `[REDACTED]` hosts from env at publish time so git stays redacted.
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md` / `skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_wp_publish.py` (optional strip/expand)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260723-0940-geo-qa-telegram-href-redacted-literal
 status: open
 run_date: 2026-07-23

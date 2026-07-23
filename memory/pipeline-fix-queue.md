@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260723-0905-scout-suggest-next-as-ids
+status: open
+run_date: 2026-07-23
+role: excalibur-blog-scout
+topic_id: B02
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_scout_helper.py --suggest-next` parses only `## B\d+` cards in `blog-topics.md`, so AS01–AS09 are invisible and the helper reports Next ID = B01 / Total topics = 0.
+- Live WP already has prior B01 slug `avto-iz-korei-pod-zakaz-2026`; blindly following helper would recreate B01 and risk cannibalization.
+- `--check-query` also only compares against B* pool cards, not WP recent slugs or AS* primary queries.
+
+### How the agent recovered this run
+- Forced topic_id **B02** per Director/handoff contract (do not create B01).
+- Manually deduped against WP recent slug list and AS01–AS09 meanings before append.
+- Chose Japan auction-sheet how-to (gap vs WP/AS), Wordstat-validated, check-query clean for B* pool.
+
+### Durable fix needed before next run
+- Teach scout helper (and today.py) to count AS* and/or read WP/ledger reserved slugs when suggesting next ID.
+- Extend `--check-query` to include published ledger slugs + AS pool primary_query/slug, or a `--wp-slugs` / ledger input.
+- Document in scout skill: if helper says B01 but WP/handoff marks prior B01, start at B02+.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

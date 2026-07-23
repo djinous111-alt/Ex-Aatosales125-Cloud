@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B03-avto-iz-kitaya-pod-zakaz-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "невосточного таможенного управления за январь–май 2026 через таможни ДФО физлица ввезли около 152 тысяч л",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "3 дней",
+      "kind": "metric_or_duration",
+      "context": "м сроке выпуска пассажирской декларации порядка 2–3 дней с подачи – это только кусок цепочки, не весь срок",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "152",
+      "kind": "large_number",
+      "context": "ь–май 2026 через таможни ДФО физлица ввезли около 152 тысяч легковых авто, но доля Китая – лишь около 2,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "завязан на мощность: ориентир для ДВС – до около 160 л.с.; для электро и части последовательных гибридо",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

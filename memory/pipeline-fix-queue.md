@@ -393,3 +393,36 @@ category: api
 ### Fixer resolution
 - pending (needs-human: Kie credit top-up; path already known)
 
+## INC-20260724-2123-indexer-llms-cli-blog-path
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-yaponii-pod-zakaz-2026
+severity: low
+category: docs
+
+### What went wrong
+- Indexer skill/agent docs still instruct `excalibur_blog_llms_generator.py --blog-path /`, but the script CLI only accepts `--blog-dir`, `--site-base`, `--out-dir` (and optional site name/desc). Passing `--blog-path` would fail argparse.
+- Same stale flag remains in `agents/excalibur-blog-indexer.md`, `.cursor/agents/excalibur-blog-indexer.md`, and both skill copies.
+
+### How the agent recovered this run
+- Ran `python3 scripts/excalibur_blog_llms_generator.py --help`, then invoked with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
+- Interlinker and promotion checklist completed normally.
+
+### Durable fix needed before next run
+- Remove `--blog-path /` from all indexer agent/skill docs; document only real CLI flags.
+- Optionally add a one-line note to `shared/agent-pipeline-pitfalls.md`: llms_generator has no `--blog-path`.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

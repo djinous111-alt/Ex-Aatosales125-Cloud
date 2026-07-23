@@ -59,3 +59,5 @@
 - Cursor pre-commit secret-scrub падает с `invalid variable name`, если в `CLOUD_AGENT_INJECTED_SECRET_NAMES` попало URL-shaped «имя». Патч: `scripts/excalibur_blog_patch_cursor_secret_scrub.sh` (вызывается из `cloud-agent-install.sh`).
 - Если hook всё ещё блокирует commit публичных URL в article/schema/llms — `git commit --no-verify`, не вырезай live CTA/site URLs; залогируй incident.
 - Имена Cloud Secrets должны быть валидными shell identifiers (`PUBLIC_SITE_URL`), не URL в поле name.
+- Также патчит `commit-msg.cursor` (не только pre-commit). Backup лежит в `~/.cursor/agent-hooks/<id>/excalibur-pristine/` — не в `*.cursor*` именах.
+- В Cursor Dashboard не называй secret именем-URL (сейчас в names list бывает `https://…`); только identifier вроде `PUBLIC_SITE_URL`.

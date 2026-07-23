@@ -49,7 +49,7 @@ files_changed:
 checks_run:
 - `bash scripts/excalibur_blog_patch_cursor_secret_scrub.sh`
 - simulated URL-shaped secret name → hook exit 0 with skip log
-commit: 0214064
+commit: bc18481
 
 ## INC-20260723-1333-indexer-doctor-llms-blog-path-mismatch
 status: fixed
@@ -101,7 +101,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `rg` no stale `--blog-path` in indexer canon
-commit: 0214064
+commit: bc18481
 
 ## INC-20260723-1326-cover-kie-credits-402
 status: needs-human
@@ -151,7 +151,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - docs rg for Emergency / 402
-commit: 0214064
+commit: bc18481
 
 ## INC-20260723-1325-geo-qa-typed-task-missing
 status: fixed
@@ -199,7 +199,7 @@ files_changed:
 - `.cursor/agents/excalibur-blog-director.md`
 checks_run:
 - `rg` geo-qa generalPurpose guidance present in AGENTS/director/pitfalls
-commit: 0214064
+commit: bc18481
 
 ## INC-20260723-1325-geo-qa-utility-pain-outcome-policy-gap
 status: fixed
@@ -251,7 +251,7 @@ files_changed:
 checks_run:
 - utility gate B03 → PASS
 - utility gate B03 with emptied markers policy → PASS + DEFAULT warnings
-commit: 0214064
+commit: bc18481
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -303,7 +303,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: 1ad8069
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -354,7 +354,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: 1ad8069
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -395,7 +395,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: 1ad8069
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -442,7 +442,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: 1ad8069
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -496,7 +496,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: 1ad8069
 
 ## Fixed incidents
 
@@ -552,7 +552,7 @@ files_changed:
 checks_run:
 - `--suggest-next` → Next B04 (high-water 3 from B03)
 - with WP: WP_NOTE untracked slugs printed
-commit: 0214064
+commit: bc18481
 
 ## INC-20260723-1312-research-tech-markers-false-positive
 status: fixed
@@ -596,7 +596,7 @@ files_changed:
 - `scripts/excalibur_blog_research_notes_gate.py`
 checks_run:
 - `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir memory/blog/articles/B03-avto-iz-kitaya-pod-zakaz-2026 -o research-notes-gate.json` → PASS
-commit: 0214064
+commit: 1ad8069
 
 ## INC-20260723-1322-writer-precommit-secret-scrub
 status: fixed
@@ -640,7 +640,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - secret-scrub wrapper smoke with URL-shaped name → exit 0
-commit: 0214064
+commit: bc18481
 
 ## INC-20260723-1327-schema-precommit-secret-scrub
 status: fixed
@@ -684,7 +684,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - secret-scrub wrapper smoke with URL-shaped name → exit 0
-commit: 0214064
+commit: bc18481
 
 ## INC-20260723-1339-publish-paramiko-missing
 status: fixed
@@ -732,4 +732,4 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → OK paramiko available
 - `import paramiko` OK
-commit: 0214064
+commit: bc18481

@@ -466,6 +466,42 @@ category: qa
 ### Fixer resolution
 - pending
 
+## INC-20260723-1730-schema-url-secret-scan
+status: open
+run_date: 2026-07-23
+role: excalibur-blog-schema
+topic_id: B04
+article_dir: memory/blog/articles/B04-sbkts-epts-kak-oformit-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Schema собрал `schema.jsonld` с живыми `PUBLIC_SITE_URL` / `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL` в `@id`, `sameAs`, `image`.
+- `git commit` заблокирован Cursor secret scan (`CURSOR_SECRET_SCAN_BLOCKED`).
+- Publish читает `schema.jsonld` as-is в post meta и пока не разворачивает `[REDACTED]` (тот же gap, что INC-1720 для CTA HTML).
+
+### How the agent recovered this run
+- Переписал `schema.jsonld` с плейсхолдерами `[REDACTED]` для site/CTA/sameAs secrets; Instagram и 2GIS оставлены публичными.
+- Коммит schema прошёл; fragment schema PASS с `incident_report` на этот INC.
+
+### Durable fix needed before next run
+- В schema skill: коммитить site base и secret `sameAs` как `[REDACTED]/…` / `[REDACTED]`; не вшивать env URL в git.
+- В publish: перед upload schema meta подставлять `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` (и CTA в HTML) вместо `[REDACTED]`.
+- Pitfalls: secret-scan на schema.jsonld + article CTA.
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/excalibur-article-writing-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

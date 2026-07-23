@@ -1,21 +1,22 @@
-# Article QA — B02 (re-run after Writer FIX1 + Fixer policy)
+# Article QA — B02 (RE-RUN #2 after Writer FIX2)
 
 **topic_id:** B02  
 **slug:** auktsionnyy-list-yaponiya-kak-chitat-2026  
 **article_dir:** memory/blog/articles/B02-auktsionnyy-list-yaponiya-kak-chitat-2026  
 **date:** 2026-07-23  
-**verdict:** FAIL  
-**score:** 86
+**verdict:** PASS  
+**score:** 91  
+**cover_schema:** allowed
 
 ## Scripts
 
 | Script | Verdict | Notes |
 |--------|---------|-------|
-| research-notes-gate | PASS | technical_topic=false; warnings cleared |
+| research-notes-gate | PASS | technical_topic=false; warnings=[] |
 | fact-check | PASS | 1/1 verified (2026) |
-| link-verify | **FAIL** | 1/2 failed: Telegram CTA `href` is literal `[REDACTED]` (no scheme) → checked as internal vs site-base → HTTP 404 |
+| link-verify | PASS | 2/2 OK; Telegram CTA `https`+`t.me` restored (FIX2); catalog 200 |
 | html-linter | PASS | whitelist OK; TOC в теле нет |
-| slop-detector | PASS | 0 клише; 5 over-long (таблицы/схемы); Flesch RU 71.5 |
+| slop-detector | PASS | 0 клише; 5 over-long; Flesch RU 71.5 |
 | cannibalization | PASS | 0 issues (3 meta loaded) |
 | utility gate | PASS | action=37; pain=6; outcome=9 |
 | human-voice-gate | PASS | warning: два списка ровно по 5 шагов |
@@ -28,10 +29,10 @@
 | GEO / citability | 22/25 | Insight «Коротко до ставки», схема →, таблицы×2, FAQ×7, чек-лист |
 | CORE-EEAT lite | 14/15 | 19/20 |
 | Human voice | 15/15 | Gate PASS; ярлык TL;DR убран |
-| Fact safety | 10/15 | Fact-check PASS; **битый Telegram href** |
+| Fact safety | 15/15 | Fact-check PASS; link-verify PASS (FIX2) |
 | Contract HTML | 10/10 | Whitelist PASS, ~9205, FAQ, CTA, без форм/pre/code |
 | Utility / action | 10/10 | PASS после FIX1 + policy markers |
-| **Итого** | **86/100** | ≥80, но hard-gate link-verify ✗ |
+| **Итого** | **91/100** | ≥80; все hard gates PASS |
 
 ## CORE-EEAT lite: 19/20
 
@@ -51,7 +52,7 @@
 | R04 | ✓ | FAQ отвечает в 1-м предложении |
 | E01 | ✓ | Угол «до ставки, не после выкупа» |
 | E02 | ✓ | «Сделайте / Не делайте» + Шаг N / Избегайте |
-| E03 | ✓ | CTA: каталог×2 + Telegram (href сломан — см. FIX) |
+| E03 | ✓ | CTA: каталог×2 + Telegram (t.me, FIX2) |
 | Exp01 | ✓ | Mode B |
 | Exp02 | ✓ | Тон Авто-Сейлс |
 | Exp03 | ✓ | Slop hits = 0 |
@@ -71,11 +72,18 @@
 | Какой первый результат? | Пройти один лист и сказать менеджеру «ок» или «стоп» до ставки |
 | Термины «на пальцах»? | Grade, салон A–E, A/U/W/X/XX, R/RA, структурный vs съёмная панель |
 
+## Pain / solution check
+
+- **Lead:** называет боль — ставка вслепую / бланк как шифр.
+- **H2:** решения по `pain_solution_map` (оригинал → зоны → схема → R/RA → ориентир → чек-лист).
+- **До FAQ:** success_criteria — чек-лист «ок/стоп» до ставки.
+- Utility lexical: PASS.
+
 ## Link verify
 
-- total: 2 unique, failed: 1
+- total: 2 unique (3 href occurrences), failed: 0
 - `https://avto-sales125.ru` → 200 OK
-- Telegram CTA → literal `href="[REDACTED]"` on disk (len=10, no `t.me`) → FAIL
+- Telegram CTA → `https` scheme, `t.me` present, len=25, literal `[REDACTED]` absent → 200 OK
 - see `link-verify.json`
 
 ## AI-slop scan
@@ -86,35 +94,25 @@
 
 ## Schema ready
 
-BlogPosting: yes | FAQPage: yes (7) | HowTo: yes | Review: no | cover/schema: **blocked** (no QA PASS)
+BlogPosting: yes | FAQPage: yes (7) | HowTo: yes | Review: no | **cover_schema: allowed**
 
 ## Blockers
 
-1. **LINK-VERIFY FAIL** — в `article.html` у CTA Telegram вместо URL лежит литерал `[REDACTED]` (артефакт secret-scan / копипаст из redacted view при FIX1). Каталог OK.
+none
 
-## FIX cycle (QA) — вернуть writer (узкий FIX2)
-
-### FIX-2 (writer, 1 href) — восстановить Telegram CTA
-
-В финальном `<li>` «Что дальше» заменить:
-
-- `href="[REDACTED]"` → рабочий `https://t.me/<TELEGRAM_HANDLE>` (как в AS08/AS09; текст якоря `Telegram @avtosales125` уже верный).
-- При коммите: не подставлять placeholder `[REDACTED]` в HTML; при необходимости `<!-- pragma: allowlist secret -->` рядом с CTA (см. automation memory / pitfalls).
-
-Не трогать остальной текст: utility/human-voice/research уже PASS.
-
-### Optional (non-blocking)
+## Optional (non-blocking)
 
 - Ept02: 2–3 internal blog links после появления URL других постов.
 - Human-voice warning: варьировать длину списков (не два×ровно 5).
 
 ## Gate
 
-- score ≥ 80 → **86** ✓  
+- score ≥ 80 → **91** ✓  
 - CORE-EEAT ≥ 16/20 → **19/20** ✓  
-- link-verify pass → **FAIL** ✗  
+- link-verify pass → **PASS** ✓  
 - research-notes-gate PASS ✓  
 - human-voice PASS ✓  
 - utility gate PASS ✓  
+- beginner-fit PASS ✓  
 
-**Итог:** FAIL — cover||schema **не** запускать. Директор → writer FIX2 (только Telegram href) → GEO QA re-run.
+**Итог:** PASS — `cover_schema: allowed`. Директор → cover || schema.

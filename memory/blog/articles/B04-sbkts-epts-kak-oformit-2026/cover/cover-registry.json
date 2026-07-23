@@ -1,0 +1,51 @@
+{
+  "topic_id": "B04",
+  "slug": "sbkts-epts-kak-oformit-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_generateimage_fallback",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у документов и современного авто во Владивостоке: плашка СБКТС → ЭПТС",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-07-23T17:31:30+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у документов и современного авто во Владивостоке: плашка СБКТС → ЭПТС",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица: СБКТС vs ЭПТС vs ГИБДД — что обязательно до учёта",
+      "h2_anchor": "Разберите, зачем СБКТС и ЭПТС до ГИБДД",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема: после выпуска с таможни и СВХ — пакет, потом лаборатория",
+      "h2_anchor": "Начните только после выпуска с таможни и СВХ",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист документов для лаборатории СБКТС: паспорт, ДТ, фото VIN",
+      "h2_anchor": "Соберите документы для лаборатории: чек-лист",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ],
+  "generation_note": "Kie 402 emergency GenerateImage + resize to 2048x1152"
+}

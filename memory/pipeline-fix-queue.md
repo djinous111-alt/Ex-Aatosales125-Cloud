@@ -251,6 +251,39 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20260723-1705-scout-suggest-next-skips-wp-bids
+status: open
+run_date: 2026-07-23
+role: excalibur-blog-scout
+topic_id: B04
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_scout_helper.py --suggest-next` вернул `B01`, хотя предыдущие cloud runs уже заняли `B01`–`B03` (последний B03 = `avto-iz-kitaya-pod-zakaz-2026`).
+- Helper смотрит только `memory/topics/blog-topics.md` (B-пул был пуст: только AS* legacy) и локальные `memory/blog/articles/Bxx-*`; live WP / handoff / прошлые cloud runs не учитываются → риск коллизии topic_id.
+
+### How the agent recovered this run
+- Зафиксировал вывод `--suggest-next` (B01), но по контракту прогона / handoff взял **B04**.
+- Append одной P0 карточки `## B04` в `memory/topics/blog-topics.md`; utility gate PASS.
+
+### Durable fix needed before next run
+- Научить `excalibur_blog_scout_helper.py --suggest-next` учитывать занятые B-id из `shared/published-articles.md`, handoff `topic_id`, и/или явного списка WP recent slugs / env override (`EXCALIBUR_MIN_TOPIC_ID` / `EXCALIBUR_NEXT_TOPIC_ID`).
+- В scout skill / agent: если handoff или Director задаёт next id выше suggest-next – приоритет у handoff; не перезаписывать чужие B01–Bn.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

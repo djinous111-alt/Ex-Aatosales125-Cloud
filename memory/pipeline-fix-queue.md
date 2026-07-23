@@ -254,3 +254,40 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20260723-1305-scout-suggest-next-ignores-wp
+status: open
+run_date: 2026-07-23
+role: excalibur-blog-scout
+topic_id: B03
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_scout_helper.py --suggest-next` returned `B01` and `Total topics in pool: 0` because it only counts `B*` cards in `blog-topics.md` / local article dirs.
+- Pool currently has AS01–AS09 only; live WP already has multiple B*-era posts (incl. slug `auktsionnyy-list-yaponiya-kak-chitat-2026` as B02), while local `shared/published-articles.md` ledger is incomplete after AVTO SALES reset.
+- Blindly taking helper B01 would collide with prior WP/B-history.
+
+### How the agent recovered this run
+- Followed run brief: forced `topic_id=B03` after confirming no `B03` in `blog-topics.md`.
+- Deduped candidates against the provided live WP slug list before append.
+- Appended one P0 utility card `B03` / `avto-iz-kitaya-pod-zakaz-2026`.
+
+### Durable fix needed before next run
+- Teach scout helper (or today.py) to suggest next B* from max(local B* in topics+articles+ledger, optional WP slug/topic hints), not only from empty B* pool.
+- Document that when ledger is incomplete vs live WP, scout must not trust `--suggest-next` alone.
+- Optionally sync published WP slugs into `shared/published-articles.md` before scout.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `shared/published-articles.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

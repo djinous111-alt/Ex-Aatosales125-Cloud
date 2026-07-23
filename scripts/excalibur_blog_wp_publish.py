@@ -415,7 +415,13 @@ def is_missing_remote_path_error(exc: OSError) -> bool:
 
 
 def upload_bootstrap_ssh(env: dict[str, str], remote: str, data: bytes) -> str:
-    import paramiko
+    try:
+        import paramiko
+    except ImportError as exc:
+        raise SystemExit(
+            "paramiko is required for SSH publish. "
+            "Install: pip3 install paramiko  (Cloud: .cursor/cloud-agent-install.sh / requirements.txt)"
+        ) from exc
 
     host, port, user, password = _ssh_creds(env)
     transport = paramiko.Transport((host, port))
@@ -451,7 +457,13 @@ def upload_bootstrap_ssh(env: dict[str, str], remote: str, data: bytes) -> str:
 
 
 def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | None = None) -> None:
-    import paramiko
+    try:
+        import paramiko
+    except ImportError as exc:
+        raise SystemExit(
+            "paramiko is required for SSH publish. "
+            "Install: pip3 install paramiko  (Cloud: .cursor/cloud-agent-install.sh / requirements.txt)"
+        ) from exc
 
     host, port, user, password = _ssh_creds(env)
     remote_path = remote_path or ssh_remote_path(env, remote)

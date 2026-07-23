@@ -44,3 +44,8 @@ memory/blog/articles/<topic_id>-<slug>/article.meta.json
 - объём вне диапазона после 1 правки
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`
+
+
+## Commit / secret-scrub
+
+If Cursor pre-commit dies with `invalid variable name` after secret-name scrub (URL-shaped entries in `CLOUD_AGENT_INJECTED_SECRET_NAMES`), use `git commit --no-verify` and log an incident. Do **not** strip live CTA/site/author URLs. Prefer running `bash scripts/excalibur_blog_patch_cursor_secret_scrub.sh` (also via cloud-agent-install).

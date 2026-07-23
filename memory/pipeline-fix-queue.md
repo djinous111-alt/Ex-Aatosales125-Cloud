@@ -291,6 +291,43 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20260724-2115-geo-qa-utility-policy-drift
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-yaponii-pod-zakaz-2026
+severity: high
+category: script
+
+### What went wrong
+- На ветке B01 в `memory/brief/editorial-policy.json` не было `pain_markers_ru` / `outcome_markers_ru` и `min_pain_markers` / `min_outcome_markers`, хотя `excalibur_blog_utility_gate.py` уже считал pain/outcome и при пустых списках всегда ставил BLOCK (0 < 2 / 0 < 3).
+- Из-за дрейфа policy относительно фикса B04 любой article utility gate падал до правок текста.
+- Writer также отдал «Делать/Не делать» и «TL;DR / Быстрый инсайт» вместо recommendation-маркеров policy и без шаблонного ярлыка инсайта.
+
+### How the agent recovered this run
+- Восстановил marker lists + min thresholds в `editorial-policy.json` по канону B04.
+- Вернул soft-skip в `utility_gate.py`, если marker list пуст (warning, не BLOCK).
+- Минимальные правки `article.html`: «Сделайте/Не делайте», «Шаг N», outcome-фразы, убран ярлык TL;DR; обновлён `char_count`.
+- Повтор всех QA-гейтов → PASS; score 87.
+
+### Durable fix needed before next run
+- Зафиксировать pain/outcome markers в policy как обязательный контракт; не допускать silent drop при rebase/rebrand.
+- Writer skill: явно требовать маркеры из `recommendation_markers_ru` / pain / outcome и запрет ярлыка «TL;DR / Быстрый инсайт».
+- Smoke: `utility_gate` на эталонной статье после любых правок policy.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260724-2105-scout-precommit-secret-names
 status: open
 run_date: 2026-07-24

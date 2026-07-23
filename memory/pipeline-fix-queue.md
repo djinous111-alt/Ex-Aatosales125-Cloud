@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260723-1333-indexer-doctor-llms-blog-path-mismatch
+status: open
+run_date: 2026-07-23
+role: excalibur-blog-indexer
+topic_id: B03
+article_dir: memory/blog/articles/B03-avto-iz-kitaya-pod-zakaz-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` fails preflight with `llms generator supports --blog-path` because it checks `--blog-path` in `excalibur_blog_llms_generator.py --help`.
+- Actual generator CLI only exposes `--blog-dir` (plus `--site-base`, `--out-dir`, site name/desc). No `--blog-path` flag.
+- Indexer agent/skill still document `--blog-path /` in the example command, which would break a literal copy-paste run.
+
+### How the agent recovered this run
+- Ran `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
+- Generated `memory/blog/llms.txt` and `memory/blog/llms-full.txt` successfully (3 articles indexed).
+
+### Durable fix needed before next run
+- Align doctor check with real CLI: assert `--blog-dir` (not `--blog-path`) in llms generator help.
+- Update indexer agent + skill shell examples to drop `--blog-path /`.
+- Optionally add `--blog-path` as a deprecated alias in the generator if docs still need the WP blog path concept; otherwise remove from all contracts.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260723-1326-cover-kie-credits-402
 status: open
 run_date: 2026-07-23

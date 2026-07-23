@@ -18,6 +18,7 @@
 
 ## Publish
 
+- Крупный bootstrap (cover+inline): nginx **504** на HTTP → `excalibur_blog_wp_publish.py` fallback **SSH PHP CLI** (`/usr/local/bin/php8.2`). Нужен paramiko (`requirements.txt` / cloud-agent-install).
 - `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` только в Cloud Secrets, не в git.
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
 - Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
@@ -31,6 +32,7 @@
 
 ## QA
 
+- `schema.jsonld` secret-scan: same-line `"_excalibur_scan": "pragma: allowlist secret"` (не JSONC `//`). Publish strips `_excalibur_scan` before WP meta.
 - Шаг cover||schema **только после** GEO QA PASS.
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
@@ -40,6 +42,7 @@
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- Kie `402 Credits insufficient` → human top-up `KIE_API_KEY`. Emergency: **один** Cursor GenerateImage (quad canvas), затем `quad_apply --canvas …` (auto-normalize 2048×1152). Никогда 4 GenerateImage.
 
 ## Scout
 
@@ -55,3 +58,5 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator: только `--blog-dir` + `--out-dir`; устаревший `--blog-path` **не существует** (argparse error).
+- URL в `llms.txt` / checklist: same-line `// pragma: allowlist secret` при secret-scan.

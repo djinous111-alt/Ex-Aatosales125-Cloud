@@ -239,6 +239,8 @@ Excalibur BLOG следует этому контракту для каждой 
 2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-tracking-map.md` / `offers-map.md`.  
 Не больше **3** упоминаний основного офера/CTA на статью (включая баннер и «что дальше»).
 
+**CTA href:** никогда не вставляй литерал `[REDACTED]` в живой `href` `article.html` (secret-scan placeholder только для SERP/ledger). Telegram = `TELEGRAM_URL` / канон `t.me/<handle>` из site-brief; каталог из conversion-map. При commit: `<!-- pragma: allowlist secret -->` на строке CTA.
+
 ### Блок 5: Inline-баннер (опционально)
 
 **Только если** в `conversion-tracking-map.md` есть `excalibur_inline_banner: yes` и `banner_image_url` + `banner_link_url`.

@@ -29,6 +29,7 @@
     - **ЗАПРЕЩЕНО:** интерактивное оглавление — `<ol>` или `<ul>` с `<a href="#...">` на заголовки H2/H3 сразу после TL;DR. После blockquote TL;DR идёт контекстный `<p>`, затем первый `<h2>`.
     - Атрибут `id` у `<h2>` — только если нужен для внешней перелинковки; не создавай оглавление в теле статьи.
     - В конце статьи (перед FAQ) вставляй блок верификации (**Fact Check Box**) через `<blockquote>` от редакции Авто-Сейлс. **Не** упоминай Wordstat и Метрику в тексте статьи.
+13. **CTA href:** никогда не пиши литерал `[REDACTED]` в `href` `article.html`. Telegram = env `TELEGRAM_URL` или канон `t.me/<handle>` из site-brief; каталог = `CATALOG_URL` / site-brief. При secret-scan на commit: `<!-- pragma: allowlist secret -->` на строке CTA. HTML-linter падает на `href="[REDACTED]"`.
 
 ## Выход
 

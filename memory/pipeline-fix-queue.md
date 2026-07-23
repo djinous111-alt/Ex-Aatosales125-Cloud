@@ -6,8 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_none (`status: open`). Current-run leftovers: see needs-human INC-20260723-1005 (Kie credits)._
+
 ## INC-20260723-1030-publish-http-gateway-504-ssh-php-cli
-status: open
+status: fixed
 run_date: 2026-07-23
 role: excalibur-blog-publish
 topic_id: B02
@@ -42,10 +44,27 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-23
+fix_summary:
+- HTTP trigger timeout 180s; on timeout/504 → SSH PHP CLI (`/usr/local/bin/php8.2`→8.3/8.1; override `EXCALIBUR_PHP_BIN`).
+- Cloud install installs `requirements.txt` (paramiko) with `--break-system-packages`.
+- Doctor/publish skill/pitfalls document nginx 504 → SSH CLI.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `py_compile` wp_publish
+- unit timeout/504 detection + php_cli_candidates
+- `--dry-run` B02 OK (~8.3MB PHP)
+commit: 261e6b1
 
 ## INC-20260723-1009-indexer-llms-blog-path-stale-flag
-status: open
+status: fixed
 run_date: 2026-07-23
 role: excalibur-blog-indexer
 topic_id: B02
@@ -75,11 +94,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-07-23
+fix_summary:
+- Removed obsolete `--blog-path` from indexer agent/skill CLI; `--blog-dir` + `--out-dir` only.
+- llms generator emits same-line `// pragma: allowlist secret` on URL lines.
+- Pitfalls note `--blog-path` does not exist.
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_llms_generator.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- no CLI `--blog-path /` in agents/skills
+- `llms_generator --help` → `--blog-dir` only
+commit: 261e6b1
 
 ## INC-20260723-1005-cover-kie-credits-402-generateimage-emergency
-status: open
+status: needs-human
 run_date: 2026-07-23
 role: excalibur-blog-cover
 topic_id: B02
@@ -113,11 +147,27 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: needs-human
+reason:
+- Kie createTask 402 Credits insufficient cannot be fixed in-repo; billing/credits top-up is human-only.
+- Emergency GenerateImage path is documented and coded, but funded `KIE_API_KEY` still required for normal cover runs.
+needed_decision_or_secret:
+- Top up Kie balance or rotate funded `KIE_API_KEY` in Cloud Secrets before next cover-heavy run.
+partial_durable_fix:
+- Cover skill emergency: ONE GenerateImage quad → `quad_apply --canvas` (auto-normalize 2048×1152).
+- Doctor WARN/note for KIE_API_KEY / 402.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_quad_apply.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `quad_apply --help` `--canvas` + normalize
+- unit normalize 1536×1024→2048×1152
 
 ## INC-20260723-1000-schema-jsonld-secret-scan-block
-status: open
+status: fixed
 run_date: 2026-07-23
 role: excalibur-blog-schema
 topic_id: B02
@@ -147,11 +197,22 @@ category: tooling
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-07-23
+fix_summary:
+- Schema skill: same-line `"_excalibur_scan": "pragma: allowlist secret"` (no JSONC `//`).
+- Publish strips `_excalibur_scan` before WP meta.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- B02 load_article schema has no `_excalibur_scan`
+commit: 261e6b1
 
 ## INC-20260723-0940-geo-qa-telegram-href-redacted-literal
-status: open
+status: fixed
 run_date: 2026-07-23
 role: excalibur-blog-geo-qa
 topic_id: B02
@@ -188,7 +249,20 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending (artifact+pitfalls recovered by writer; skill/linter still optional)
+status: fixed
+fixed_at: 2026-07-23
+fix_summary:
+- Writer skill + writing contract forbid literal `[REDACTED]` in article.html hrefs.
+- HTML linter fails on `href="[REDACTED]"`.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_html_linter.py`
+checks_run:
+- unit detect_redacted_hrefs
+- linter B02 PASS
+commit: 261e6b1
 
 ## INC-20260723-0925-geo-qa-utility-pain-outcome-policy-gap
 status: fixed

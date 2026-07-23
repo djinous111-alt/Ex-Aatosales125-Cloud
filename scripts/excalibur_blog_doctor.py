@@ -113,6 +113,27 @@ def main() -> int:
 
     check(module_available("PIL"), "Pillow available", errors, warnings)
     check(module_available("numpy"), "numpy available", errors, warnings)
+    check(
+        module_available("paramiko"),
+        "paramiko available (SSH publish / PHP CLI fallback)",
+        errors,
+        warnings,
+        warn=not args.publish,
+    )
+
+    kie_key = (os.environ.get("KIE_API_KEY") or "").strip()
+    check(
+        bool(kie_key),
+        "KIE_API_KEY configured (cover MCP/API; empty balance → 402 needs human top-up)",
+        errors,
+        warnings,
+        warn=True,
+    )
+    if kie_key:
+        print(
+            "NOTE Kie credits: doctor cannot read balance; if createTask returns 402, "
+            "top up Kie or use GenerateImage emergency (ONE quad → normalize 2048x1152)."
+        )
 
     interlinker = root / "scripts/excalibur_blog_interlinker.py"
     help_proc = subprocess.run(

@@ -63,13 +63,14 @@ python scripts/excalibur_blog_wp_publish.py \
 
 ### 4. Cloud WebFetch Fallback
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060 / **nginx 504**):
 
-1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+1. Скрипт сначала пробует HTTP (timeout ~180s). На **timeout/504** сразу переходит к **SSH PHP CLI** (не ждёт 120s WebFetch впустую на больших cover+inline ~8MB).
+2. SSH CLI: `php8.2|8.3|8.1 -d memory_limit=512M -d max_execution_time=600 <bootstrap>` на Beget-like hosts (`/usr/local/bin/php8.2` first). Override: env `EXCALIBUR_PHP_BIN` / `SSH_PHP_BIN`.
+3. Если HTTP упал по другой причине — короткий WebFetch wait (`memory/webfetch-response.txt`), затем снова SSH PHP CLI.
+4. Нужен **paramiko** (`pip install -r requirements.txt`, Cloud install: `--break-system-packages`).
 
-**Не останавливайся** на первом timeout — используй fallback.
+**Не останавливайся** на первом 504 — скрипт сам уходит в SSH PHP CLI. Ручной curl на bootstrap URL при nginx 504 бесполезен.
 
 ### 5. Post-publish артефакты
 

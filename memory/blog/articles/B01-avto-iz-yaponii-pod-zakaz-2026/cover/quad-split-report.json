@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-avto-iz-yaponii-pod-zakaz-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1020,
+      562
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 562,
+        "end": 598
+      },
+      "v_gutter_px": {
+        "start": 1020,
+        "end": 1050
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 10,
+          "top": 0,
+          "right": 1009,
+          "bottom": 562
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1020,
+          "bottom": 562
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у смартфона с японским аукционом и портом Владивостока, плашка от аукциона до выдачи",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1050,
+          "top": 0,
+          "right": 2048,
+          "bottom": 562
+        },
+        "raw_box_px": {
+          "left": 1050,
+          "top": 0,
+          "right": 2048,
+          "bottom": 562
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица этапов: от ставки на аукционе до ключей во Владивостоке",
+        "h2_anchor": "Разберите маршрут: от ставки до ключей во Владивостоке"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 17,
+          "top": 598,
+          "right": 1002,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 598,
+          "right": 1020,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема бюджета до номеров и сметы под ключ до депозита",
+        "h2_anchor": "Соберите бюджет \"до номеров\" и смету под ключ до депозита"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1056,
+          "top": 598,
+          "right": 2041,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1050,
+          "top": 598,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист проверки лота: месяц выпуска и экспортный фильтр до ставки",
+        "h2_anchor": "Проверьте лот до ставки: месяц выпуска и экспортный фильтр"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разберите маршрут: от ставки до ключей во Владивостоке",
+    "injected inline_2 after H2 — Соберите бюджет \"до номеров\" и смету под ключ до депозита",
+    "injected inline_3 after H2 — Проверьте лот до ставки: месяц выпуска и экспортный фильтр"
+  ]
+}

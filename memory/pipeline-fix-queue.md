@@ -357,3 +357,39 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20260724-2120-cover-kie-402-emergency
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-yaponii-pod-zakaz-2026
+severity: medium
+category: api
+
+### What went wrong
+- Preferred Kie API `scripts/excalibur_blog_kie_gpt_image2_api.py` failed at createTask with HTTP/API code **402**: Credits insufficient (balance not enough to run gpt-image-2 i2i).
+- Sync MCP `gpt-image-2` would hit the same credit wall; cannot complete canonical ONE-MCP Kie path.
+
+### How the agent recovered this run
+- Emergency fallback: Cursor `GenerateImage` with `reference_image_paths=[memory/cover/assets/blog-hero-reference.png]`, aspect 16:9, full quad 2×2 prompt from `cover/quad-mcp-prompt.txt` (non-toxic stickers; no лох/лохов).
+- Raw output **1536×1024** → LANCZOS resize to **2048×1152** → `cover/canvas-quad.png`.
+- `excalibur_blog_cover_quad_split.py --inject-html` → cover.png + inline-01..03 + figures in article.html.
+- Recorded method in `cover/quad-mcp-result.json` (`emergency_GenerateImage`).
+
+### Durable fix needed before next run
+- Top up Kie.ai credits (`KIE_API_KEY` account) so cover returns to canonical gpt-image-2 i2i.
+- Keep emergency GenerateImage + LANCZOS path documented in cover skill / pitfalls until credits stable (already noted in automation memory).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- Kie dashboard billing
+
+### Secrets
+- none recorded (KIE_API_KEY present but credits exhausted)
+
+### Fixer resolution
+- pending (needs-human: Kie credit top-up; path already known)
+

@@ -61,7 +61,8 @@ python scripts/excalibur_blog_research_notes_gate.py \
 
 Контракт: `shared/excalibur-article-writing-contract.md`
 
-- Каждый H2 = подзадача + **рекомендация** (делать / не делать)
+- Каждый H2 = подзадача + **рекомендация** с маркерами utility gate: `сделайте` / `не делайте` / `избегайте` / `проверьте` (не только «Делать/Не делать»)
+- Lead должен содержать боль (`pain_markers_ru`), до FAQ — результат (`outcome_markers_ru`); канон списков — `memory/brief/editorial-policy.json`
 - Минимум **5** нумерованных шагов ИЛИ чеклист 10+ пунктов
 - Workflow-схема (`→`) или таблица (comparison)
 - FAQ — короткие **ответы-действия**, не пересказ

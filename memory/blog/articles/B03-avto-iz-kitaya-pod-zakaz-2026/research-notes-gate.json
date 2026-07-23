@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B03-avto-iz-kitaya-pod-zakaz-2026",
+  "notes": "memory/blog/articles/B03-avto-iz-kitaya-pod-zakaz-2026/research-notes.md",
+  "context": "memory/blog/articles/B03-avto-iz-kitaya-pod-zakaz-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-07-23",
+    "prefer_sources_after": "2026-04-24",
+    "source_urls": 44,
+    "source_domains": 15,
+    "source_table_rows": 39,
+    "accessed_at": 36,
+    "github_urls": 0,
+    "official_doc_urls": 0,
+    "action_outline_items": 9,
+    "pain_solution_rows": 9,
+    "technical_topic": false
+  }
+}

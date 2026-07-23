@@ -1,0 +1,95 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-23",
+    "today_ru": "23.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-24",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-23 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B03",
+    "priority": "P0",
+    "slug": "avto-iz-kitaya-pod-zakaz-2026",
+    "h1": "Как заказать авто из Китая под заказ в 2026: пошаговый путь для новичка",
+    "primary_query": "авто из китая под заказ",
+    "secondary_queries": [
+      "заказ авто из китая",
+      "авто из китая под ключ",
+      "как заказать авто из китая"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B03",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "авто из китая под заказ 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "авто из китая под заказ июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "авто из китая под заказ новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com авто из китая под заказ 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "авто из китая под заказ official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "авто из китая под заказ forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "заказ авто из китая 2026",
+      "purpose": "вторичный запрос: заказ авто из китая"
+    },
+    {
+      "id": "secondary_2",
+      "query": "авто из китая под ключ 2026",
+      "purpose": "вторичный запрос: авто из китая под ключ"
+    },
+    {
+      "id": "secondary_3",
+      "query": "как заказать авто из китая 2026",
+      "purpose": "вторичный запрос: как заказать авто из китая"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как заказать авто из Китая под заказ в 2026: пошаговый путь для новичка 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B03-avto-iz-kitaya-pod-zakaz-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

@@ -174,6 +174,23 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 
 ---
 
+## Emergency fallback (Kie 402 / credits)
+
+If Kie `createTask` / MCP gpt-image-2 returns **402 Credits insufficient** (or equivalent billing error):
+
+1. Do **not** halt as hard COVER BLOCKER without trying emergency path.
+2. Use Cursor `GenerateImage` once: aspect **16:9**, one quad 2×2 canvas, blog-hero reference when the tool supports references.
+3. Save as `cover/canvas-quad.png`, then:
+   ```bash
+   python3 scripts/excalibur_blog_cover_quad_split.py --article-dir "$ARTICLE" --inject-html
+   ```
+4. In fragment set `method=emergency` and log incident `memory/pipeline-fix-queue.md` (Kie top-up = needs-human).
+5. Still require split PASS, alts, and no toxic sticker text.
+
+Human action: top up Kie.ai credits / verify `KIE_API_KEY` billing before the next cover run.
+
+---
+
 ## Blockers → verdict ❌
 
 - нет reference_url_hosted

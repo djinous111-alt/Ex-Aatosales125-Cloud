@@ -1,0 +1,7 @@
+{
+  "url": "emergency://GenerateImage/B03-canvas-quad-v2.png",
+  "method": "emergency",
+  "provider": "cursor-GenerateImage",
+  "reason": "kie_402_credits_insufficient",
+  "source_file": "cover/canvas-quad.png"
+}

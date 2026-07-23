@@ -1,0 +1,27 @@
+{
+  "source": "memory/blog/articles/B02-auktsionnyy-list-yaponiya-kak-chitat-2026/article.html",
+  "total_links": 2,
+  "failed_count": 1,
+  "verdict": "fail",
+  "links": [
+    {
+      "url": "https://avto-sales125.ru",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "[REDACTED]/[REDACTED]",
+      "status": 404,
+      "ok": false,
+      "method": "HEAD",
+      "error": "HTTP Error 404: Not Found",
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "[REDACTED]/[REDACTED]"
+    }
+  ]
+}

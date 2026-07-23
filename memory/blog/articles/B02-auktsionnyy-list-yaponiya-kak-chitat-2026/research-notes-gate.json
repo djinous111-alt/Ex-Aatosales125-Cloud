@@ -5,9 +5,7 @@
   "notes": "memory/blog/articles/B02-auktsionnyy-list-yaponiya-kak-chitat-2026/research-notes.md",
   "context": "memory/blog/articles/B02-auktsionnyy-list-yaponiya-kak-chitat-2026/research-context.json",
   "errors": [],
-  "warnings": [
-    "technical topic has no obvious official docs/developer documentation URL"
-  ],
+  "warnings": [],
   "metrics": {
     "today_iso": "2026-07-23",
     "prefer_sources_after": "2026-04-24",
@@ -19,6 +17,6 @@
     "official_doc_urls": 0,
     "action_outline_items": 8,
     "pain_solution_rows": 3,
-    "technical_topic": true
+    "technical_topic": false
   }
 }

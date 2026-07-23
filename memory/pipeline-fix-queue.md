@@ -6,7 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
-_(none for current run)_
+## INC-20260723-0940-geo-qa-telegram-href-redacted-literal
+status: open
+run_date: 2026-07-23
+role: excalibur-blog-geo-qa
+topic_id: B02
+article_dir: memory/blog/articles/B02-auktsionnyy-list-yaponiya-kak-chitat-2026
+severity: blocker
+category: qa
+
+### What went wrong
+- After Writer FIX1 + Fixer policy fix, GEO QA re-run: utility/human-voice/research PASS, but `link-verify` FAIL.
+- Telegram CTA in `article.html` has literal `href="[REDACTED]"` on disk (10 ASCII chars, no scheme, zero `t.me` bytes). Classified as `internal_relative`, joined with `PUBLIC_SITE_URL` → HTTP 404.
+- Catalog `https://avto-sales125.ru` verifies 200. Pre-FIX1 GEO QA had link-verify PASS — FIX1 commit introduced the placeholder.
+- Likely copy from secret-scan redacted transcript/view into HTML (same placeholder used intentionally in SERP/ledger, but must never appear as live `href` in article body).
+
+### How the agent recovered this run
+- Did not rewrite `article.html` (GEO QA: FAIL → FIX list only).
+- article-qa.md FAIL score 86; FIX-2 = restore Telegram href to `https://t.me/<TELEGRAM_HANDLE>` (pattern AS08/AS09).
+- Filed this incident for durable writer/pitfalls guard.
+
+### Durable fix needed before next run
+- Writer skill/contract: never write literal `[REDACTED]` into `article.html` hrefs; restore real `t.me` CTA; document allowlist pragma for commits if secret-scan blocks.
+- Optional: QA precheck or html-linter rule flagging `href="[REDACTED]"` / href without scheme in body CTAs.
+- Pitfalls: secret-scan redaction placeholders are for ledger/SERP artifacts, not publishable HTML links.
+
+### Suggested files to inspect/change
+- `memory/blog/articles/B02-auktsionnyy-list-yaponiya-kak-chitat-2026/article.html` (writer FIX2)
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_html_linter.py` (optional guard)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
 
 ## INC-20260723-0925-geo-qa-utility-pain-outcome-policy-gap
 status: fixed

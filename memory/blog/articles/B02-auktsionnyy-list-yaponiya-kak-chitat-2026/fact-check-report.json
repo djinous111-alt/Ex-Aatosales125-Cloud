@@ -1,0 +1,17 @@
+{
+  "article": "memory/blog/articles/B02-auktsionnyy-list-yaponiya-kak-chitat-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 1,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 0,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "под перепродажу любой ценой, удобный ориентир на 2026 такой: Оценка Что обычно значит Для личного авто S",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    }
+  ]
+}

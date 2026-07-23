@@ -20,6 +20,8 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 
 `--dry-run` — только дата и запросы без HTTP.
 
+`research-serp.json` пишет URL с host из `PUBLIC_SITE_URL`/`WP_SITE_URL` как `https://[REDACTED]/…` (защита от secret-scan при commit).
+
 Перед **каждой** статьей затем пиши `research-notes.md`. Без него нельзя утверждать цены, даты, версии, статистику.
 
 ## Вход

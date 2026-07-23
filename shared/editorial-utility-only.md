@@ -79,6 +79,10 @@ python scripts/excalibur_blog_utility_gate.py \
 
 **Blocker `UTILITY ARTICLE BLOCKER`** — writer правит (FIX), QA не PASS.
 
+Проверяет: нумерованные шаги, actionable H2, FAQ, `recommendation_markers_ru`,
+`pain_markers_ru` / `outcome_markers_ru` (если списки в policy непустые), workflow/table/checklist, water phrases.
+Пустые pain/outcome списки в policy → check пропускается (не BLOCK).
+
 Плюс slop-detector (вода/штампы).
 
 ## Как провернуть без воды (чеклист редактора)

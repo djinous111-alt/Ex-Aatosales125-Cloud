@@ -1,7 +1,7 @@
 # Promotion checklist — B01 avto-iz-yaponii-pod-zakaz-2026
 
 Дата публикации: 2026-07-24  
-Live URL: https://avtosales125.ru/avto-iz-yaponii-pod-zakaz-2026/
+Live URL: https://avtosales125.ru/2026/07/24/avto-iz-yaponii-pod-zakaz-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Месяц выпуска и экспортный фильтр до ставки
 • СВХ → растаможка → СБКТС → ЭПТС → выдача во Владивостоке
 
-Читать: https://avtosales125.ru/avto-iz-yaponii-pod-zakaz-2026/
+Читать: https://avtosales125.ru/2026/07/24/avto-iz-yaponii-pod-zakaz-2026/
 ```
 
 ## Перелинковка
@@ -48,4 +48,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer 2026-07-24: interlink apply = 2 (AS08, AS09 → B01)
 - llms: `memory/blog/llms.txt`, `memory/blog/llms-full.txt` (3 articles indexed)
-- Publish ещё не выполнен — чекбоксы post-publish остаются открытыми
+- Publish PASS 2026-07-24; post_id=3672; live HEAD 200; schema meta ok (theme may still echo Yoast BlogPosting only)

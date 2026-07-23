@@ -31,3 +31,17 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-07-24 — B01 avto-iz-yaponii-pod-zakaz-2026
+
+- **verdict:** PASS
+- **post_id:** 3672
+- **permalink:** https://avtosales125.ru/2026/07/24/avto-iz-yaponii-pod-zakaz-2026/
+- **featured_image:** 3692
+- **inline_images:** 3693 (`inline-01`), 3696 (`inline-02`), 3698 (`inline-03`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld` len=13002; FAQPage+HowTo+BlogPosting; skip_theme_faq=1)
+- **live_HEAD:** 200
+- **method:** SSH upload (SSH_ROOT fallback to `.`) + HTTP trigger → nginx **504** @ ~120s; PHP completed server-side; Cloud WebFetch/curl fallback reconstructed from live WP REST after confirm
+- **note:** payload ~9.1MB (base64 cover+inlines); CLI `php` on host is 5.6 (cannot run WP); web PHP-FPM OK. Duplicate media from retries (cover-1..4) — live uses cover-4 / inline-*-3/4.
+- **result:** `memory/blog/articles/B01-avto-iz-yaponii-pod-zakaz-2026/wp-publish-result.json`
+

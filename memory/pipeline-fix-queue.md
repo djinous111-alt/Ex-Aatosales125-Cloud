@@ -426,3 +426,45 @@ category: docs
 
 ### Fixer resolution
 - pending
+
+## INC-20260724-2146-publish-nginx-504-large-payload
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-yaponii-pod-zakaz-2026
+severity: high
+category: publish
+
+### What went wrong
+- Publish PHP payload ~9.1MB (base64 cover + 3 inlines). HTTP trigger hits nginx `504 Gateway Time-out` at ~120s while PHP-FPM continues and completes the post.
+- Script `trigger_bootstrap_http` treats 504 as failure, enters WebFetch fallback (120s wait). If agent is slow to write `memory/webfetch-response.txt`, fallback times out; `finally` deletes bootstrap → subsequent curl gets 404.
+- Configured `SSH_PATH`/`SSH_ROOT` returned ENOENT on upload; fallback to `.` worked (login cwd = WP root).
+- Host CLI `php` is 5.6.40 — cannot `php excalibur-blog-publish-once.php` via SSH exec (WP compat.php needs PHP 7+); only web SAPI works.
+- `paramiko` missing from default env until `pip install --break-system-packages`.
+
+### How the agent recovered this run
+- Confirmed live post via WP REST + HEAD 200 after 504 (post_id 3672, featured+inlines uploaded, schema meta written).
+- Wrote reconstructed OK lines to `memory/webfetch-response.txt` so waiting publish script could finish PASS and upsert ledger.
+- Verified `_excalibur_blog_schema_jsonld` via tiny one-shot PHP meta check (FAQPage+HowTo+BlogPosting; skip_theme_faq=1).
+
+### Durable fix needed before next run
+- Increase nginx/fastcgi read timeout OR change publish to multi-step: SFTP media first, then small PHP post upsert (no 9MB base64 in one request).
+- Extend WebFetch fallback wait beyond 120s and/or start parallel long-poll curl immediately on `SSH upload OK` (document in skill).
+- Map Cloud Secret `SSH_PATH` → `SSH_ROOT` (or set `SSH_ROOT=.` in secrets after ENOENT fallback warning).
+- Ensure `paramiko` in cloud install/requirements is actually installed in runtime image.
+- Optional: SSH-exec using the same PHP binary as FPM (not CLI 5.6), if path known.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (timeouts, media-first upload, SSH_PATH alias, fallback wait)
+- `skills/publish-excalibur-blog/SKILL.md` / `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- Cloud Secrets: `SSH_ROOT=.`
+- host nginx `fastcgi_read_timeout` / `proxy_read_timeout`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

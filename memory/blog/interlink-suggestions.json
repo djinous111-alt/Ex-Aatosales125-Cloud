@@ -1,21 +1,6 @@
 {
   "site_base": "https://avtosales125.ru",
   "total_articles": 3,
-  "opportunities_found": 2,
-  "suggestions": [
-    {
-      "source": "AS08-samye-komfortnye-avto-myagkaya-podveska-2026",
-      "target": "B01-avto-iz-yaponii-pod-zakaz-2026",
-      "keyword": "авто под заказ из японии",
-      "context": "<b>Материал проверен:</b> редакция Авто-Сейлс (эксперты по авто под заказ из Японии, Кореи и Китая).<br>   <b>Достоверность данных:</b> фразы с",
-      "link_replacement": "<a href=\"/blog/avto-iz-yaponii-pod-zakaz-2026/\">авто под заказ из Японии</a>"
-    },
-    {
-      "source": "AS09-trust-encar-carhistory-proverka-do-depozita",
-      "target": "B01-avto-iz-yaponii-pod-zakaz-2026",
-      "keyword": "авто под заказ из японии",
-      "context": "<b>Материал проверен:</b> редакция Авто-Сейлс (эксперты по авто под заказ из Японии, Кореи и Китая).<br>   <b>Достоверность:</b> факты сверены",
-      "link_replacement": "<a href=\"/blog/avto-iz-yaponii-pod-zakaz-2026/\">авто под заказ из Японии</a>"
-    }
-  ]
+  "opportunities_found": 0,
+  "suggestions": []
 }

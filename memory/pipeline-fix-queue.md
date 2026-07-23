@@ -284,6 +284,46 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20260723-1710-research-notes-gate-false-technical
+status: open
+run_date: 2026-07-23
+role: excalibur-blog-research
+topic_id: B04
+article_dir: memory/blog/articles/B04-sbkts-epts-kak-oformit-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` пометил non-tech тему СБКТС/ЭПТС как `technical_topic: true` из‑за substring-маркеров: `ai` внутри `reader_pain`, `ии` внутри «Азии»/«аккредитации».
+- Из‑за этого gate требовал `github_urls >= 3` и ругнул first-pass notes (BLOCK), хотя тема — бытовой чек-лист импорта авто.
+- Дополнительно: счётчик `pain_solution_map` матчит только строки с литералами `pain|solution|result|боль|решение|результат` — обычные русские ячейки таблицы без этих слов считаются «thin» (rows=1 = только header).
+- `accessed_at` считается только по паттерну `accessed_at:`, а не по колонке даты в markdown-таблице.
+- Параллельно `research-serp.json` имел несколько `Connection reset by peer` (пустые SERP); research обошёл через Cursor WebSearch/WebFetch (ожидаемо по skill, но скрипт research_start всё ещё шумит).
+
+### How the agent recovered this run
+- Добавил ≥3 github.com URL + docs.cntd.ru / help.elpts.ru как workaround под ложный technical.
+- В pain-строках префиксы `pain:` / `solution:` / `reader_result:`; в source_table ячейки `accessed_at: 2026-07-23`.
+- Deep research через WebSearch/WebFetch; Wordstat MCP-KV OK.
+- Gate повторно: PASS.
+
+### Durable fix needed before next run
+- В `is_technical_topic`: word-boundary / token match вместо raw substring; исключить ложные срабатывания на `pain`, `Азии`, склонениях.
+- Для non-tech ниш (авто/импорт) не требовать GitHub; community evidence достаточно.
+- Считать `accessed_at` также в колонках source_table; pain_map rows — любые data-rows таблицы под `## pain_solution_map`, не только keyword-containing.
+- Устойчивее HTTP для `research_start` SERP (retry/backoff) или явно помечать empty SERP как WARN без BLOCK research.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `scripts/excalibur_blog_research_start.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

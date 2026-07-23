@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-23",
+    "today_ru": "23.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-24",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-23 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B04",
+    "priority": "P0",
+    "slug": "sbkts-epts-kak-oformit-2026",
+    "h1": "Как оформить СБКТС и ЭПТС на авто из Азии в 2026: чек-лист после растаможки",
+    "primary_query": "как оформить эптс",
+    "secondary_queries": [
+      "сбктс эптс",
+      "сбктс и эптс оформление",
+      "эптс получить",
+      "сбктс владивосток"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B04",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "как оформить эптс 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "как оформить эптс июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "как оформить эптс новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com как оформить эптс 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "как оформить эптс official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "как оформить эптс forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "сбктс эптс 2026",
+      "purpose": "вторичный запрос: сбктс эптс"
+    },
+    {
+      "id": "secondary_2",
+      "query": "сбктс и эптс оформление 2026",
+      "purpose": "вторичный запрос: сбктс и эптс оформление"
+    },
+    {
+      "id": "secondary_3",
+      "query": "эптс получить 2026",
+      "purpose": "вторичный запрос: эптс получить"
+    },
+    {
+      "id": "secondary_4",
+      "query": "сбктс владивосток 2026",
+      "purpose": "вторичный запрос: сбктс владивосток"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как оформить СБКТС и ЭПТС на авто из Азии в 2026: чек-лист после растаможки 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B04-sbkts-epts-kak-oformit-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

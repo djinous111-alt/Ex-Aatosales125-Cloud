@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B04-sbkts-epts-kak-oformit-2026",
+  "notes": "memory/blog/articles/B04-sbkts-epts-kak-oformit-2026/research-notes.md",
+  "context": "memory/blog/articles/B04-sbkts-epts-kak-oformit-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-07-23",
+    "prefer_sources_after": "2026-04-24",
+    "source_urls": 52,
+    "source_domains": 19,
+    "source_table_rows": 43,
+    "accessed_at": 18,
+    "github_urls": 3,
+    "official_doc_urls": 4,
+    "action_outline_items": 9,
+    "pain_solution_rows": 7,
+    "technical_topic": true
+  }
+}

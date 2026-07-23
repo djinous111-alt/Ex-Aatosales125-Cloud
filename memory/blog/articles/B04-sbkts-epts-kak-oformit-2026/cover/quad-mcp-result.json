@@ -1,0 +1,28 @@
+{
+  "tool": "GenerateImage",
+  "mode": "emergency_fallback_after_kie_402",
+  "mcp_attempts": 2,
+  "kie_api": {
+    "status": "402",
+    "msg": "Credits insufficient"
+  },
+  "result_url": null,
+  "local_canvas": "cover/canvas-quad.png",
+  "native_generateimage": "cover/canvas-quad-generateimage-native.png",
+  "native_size_px": [
+    1536,
+    1024
+  ],
+  "resized_to_px": [
+    2048,
+    1152
+  ],
+  "input_urls_attempted": [
+    "[REDACTED]/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png"
+  ],
+  "reference_local": "memory/cover/assets/blog-hero-reference.png",
+  "aspect_ratio": "16:9",
+  "split_status": "PASS",
+  "inject_html": "ok",
+  "note": "Kie 402 + MCP gpt-image-2 fail → GenerateImage via reference_image_paths; resize 1536x1024→2048x1152; split+inject PASS."
+}

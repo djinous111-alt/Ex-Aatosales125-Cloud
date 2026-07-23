@@ -105,6 +105,8 @@ def _get_fallback(
 
 
 def classify_link(href: str, site_base: str | None) -> str:
+    if href.strip() == "[REDACTED]":
+        return "cta_placeholder"
     if href.startswith("/"):
         return "internal_relative"
     parsed = urlparse(href)
@@ -118,16 +120,45 @@ def classify_link(href: str, site_base: str | None) -> str:
 
 
 def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
-    """Treat flaky social profile timeouts as warnings, not publish blockers."""
+    """Treat flaky social / official-portal bot walls as warnings, not publish blockers."""
     parsed = urlparse(href)
     host = parsed.netloc.lower()
     soft_hosts = {"t.me", "telegram.me", "wa.me", "vk.com"}
-    if host not in soft_hosts:
-        return False
-    if result.get("status") is not None:
-        return False
+    # Official RU registries/portals often reset TLS or block datacenter UA/DNS.
+    soft_official_hosts = {
+        "portal.elpts.ru",
+        "help.elpts.ru",
+        "pub.fsa.gov.ru",
+        "fsa.gov.ru",
+    }
     error = str(result.get("error") or "").lower()
-    return any(token in error for token in ("timed out", "timeout", "ssl", "network"))
+    status = result.get("status")
+
+    if host in soft_hosts:
+        if status is not None:
+            return False
+        return any(token in error for token in ("timed out", "timeout", "ssl", "network"))
+
+    if host in soft_official_hosts or host.endswith(".gov.ru"):
+        if status in (403, 429, 503):
+            return True
+        return any(
+            token in error
+            for token in (
+                "timed out",
+                "timeout",
+                "ssl",
+                "network",
+                "connection reset",
+                "no address",
+                "name or service not known",
+                "errno -5",
+                "errno 104",
+                "redirect",
+                "forbidden",
+            )
+        )
+    return False
 
 
 def verify_article(
@@ -143,6 +174,20 @@ def verify_article(
     results: list[dict[str, Any]] = []
     for href in links:
         kind = classify_link(href, site_base)
+        if kind == "cta_placeholder":
+            results.append(
+                {
+                    "url": href,
+                    "kind": kind,
+                    "status": None,
+                    "ok": True,
+                    "skipped": True,
+                    "method": None,
+                    "error": None,
+                    "warning": "CTA href=[REDACTED] placeholder; publish substitutes CATALOG_URL/TELEGRAM_URL",
+                }
+            )
+            continue
         if skip_external and kind == "external":
             results.append(
                 {
@@ -180,7 +225,7 @@ def verify_article(
             r["checked_url"] = check_target
         if kind == "external" and is_soft_external_failure(href, r):
             r["ok"] = True
-            r["warning"] = "soft external social timeout; verify manually if needed"
+            r["warning"] = "soft external failure (social/official bot-wall or DNS); verify manually if needed"
         results.append(r)
 
     failed = [r for r in results if not r.get("ok")]

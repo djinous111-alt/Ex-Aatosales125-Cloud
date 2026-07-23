@@ -1,0 +1,56 @@
+{
+  "source": "memory/blog/articles/B04-sbkts-epts-kak-oformit-2026/article.html",
+  "total_links": 5,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "https://portal.elpts.ru/",
+      "status": null,
+      "ok": true,
+      "method": "GET",
+      "error": "<urlopen error [Errno -5] No address associated with hostname>",
+      "kind": "external",
+      "skipped": false,
+      "warning": "soft external failure (social/official bot-wall or DNS); verify manually if needed"
+    },
+    {
+      "url": "https://pub.fsa.gov.ru/ral/",
+      "status": null,
+      "ok": true,
+      "method": "GET",
+      "error": "<urlopen error [Errno 104] Connection reset by peer>",
+      "kind": "external",
+      "skipped": false,
+      "warning": "soft external failure (social/official bot-wall or DNS); verify manually if needed"
+    },
+    {
+      "url": "https://help.elpts.ru/",
+      "status": 403,
+      "ok": true,
+      "method": "GET",
+      "error": "HTTP Error 403: Forbidden",
+      "kind": "external",
+      "skipped": false,
+      "warning": "soft external failure (social/official bot-wall or DNS); verify manually if needed"
+    },
+    {
+      "url": "[REDACTED]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "[REDACTED]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

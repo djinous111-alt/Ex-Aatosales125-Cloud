@@ -1,0 +1,375 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-23",
+    "today_ru": "23.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-24",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-23 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B04",
+    "priority": "P0",
+    "slug": "sbkts-epts-kak-oformit-2026",
+    "h1": "Как оформить СБКТС и ЭПТС на авто из Азии в 2026: чек-лист после растаможки",
+    "primary_query": "как оформить эптс",
+    "secondary_queries": [
+      "сбктс эптс",
+      "сбктс и эптс оформление",
+      "эптс получить",
+      "сбктс владивосток"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как оформить эптс 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-07-23"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как оформить эптс июль 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 0,
+      "results": [],
+      "error": "search failed for 'как оформить эптс июль 2026': <urlopen error [Errno 104] Connection reset by peer>",
+      "searched_at": "2026-07-23"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как оформить эптс новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 0,
+      "results": [],
+      "error": "search failed for 'как оформить эптс новости 2026': <urlopen error [Errno 104] Connection reset by peer>",
+      "searched_at": "2026-07-23"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как оформить эптс 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - a1eksjob158-blip/EPTS",
+          "url": "https://github.com/a1eksjob158-blip/EPTS",
+          "snippet": ""
+        },
+        {
+          "title": "GitHub - vspochernin/epts-mr-examples: Примеры моих MR-ов с проекта ...",
+          "url": "https://github.com/vspochernin/epts-mr-examples",
+          "snippet": "<title>Оформление ЭПТС и СБКТС за 1 день</title> <style> /* Общие стили */ body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; background-color: #f4f7f6; } header { background: #fff; padding: 20px 5%; display: flex; justify-content: space-between; align-items: center;"
+        },
+        {
+          "title": "Как настроить прокси в Telegram - полное руководство · GitHub",
+          "url": "https://gist.github.com/Artemleadl/3bec4a994e62b8cdaafd314c773d2b3d",
+          "snippet": "Примеры моих MR-ов с проекта \"ЕПТС\" (Электронные паспорта транспортных средств)."
+        },
+        {
+          "title": "Как получить и использовать мосты для сервиса tor в Linux",
+          "url": "https://gist.github.com/s3rgeym/48405a282d61fd6bf74aed578f483111",
+          "snippet": "Как настроить прокси в Telegram в 2026 году: Полное руководство по обходу блокировок Telegram заблокирован в вашей стране или провайдер ограничивает доступ к мессенджеру?"
+        },
+        {
+          "title": "Подача заявки на GitHub Education для учащихся",
+          "url": "https://docs.github.com/ru/education/about-github-education/github-education-for-students/apply-to-github-education-as-a-student",
+          "snippet": "Тут речь идет не про Tor Browser, а про пакет tor, предоставляющий одноименный сервис, который в свою очередь позволяет подключаться к сети Tor, используя в качестве прокси SOCKS localhost:9050. В России с 2022 начали блокировать Tor. Где-то с лета невозможно подключиться к Tor без использования мостов (bridges). Устанавливаем зависимости:"
+        },
+        {
+          "title": "my-calculator/index.html at main · mensikovstepan1977-creator ... - GitHub",
+          "url": "https://github.com/mensikovstepan1977-creator/my-calculator/blob/main/index.html",
+          "snippet": "После одобрения вашей заявки перейдите на GitHub Education портал , чтобы воспользоваться преимуществами GitHub Education , такими как бесплатный доступ к профессиональным инструментам разработчиков."
+        }
+      ],
+      "searched_at": "2026-07-23"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как оформить эптс official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 0,
+      "results": [],
+      "error": "search failed for 'как оформить эптс official docs documentation 2026': <urlopen error [Errno 104] Connection reset by peer>",
+      "searched_at": "2026-07-23"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как оформить эптс forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Форум электронных паспортов ПТС - ЭПТС",
+          "url": "https://elpts-forum.ru/",
+          "snippet": ""
+        },
+        {
+          "title": "ЭПТС - Форум электронных паспортов ПТС - ЭПТС",
+          "url": "https://elpts-forum.ru/t/epts",
+          "snippet": "Вопросы и ответы связанные с электронными паспортами транспортных средств. Темы и обсуждения портала СЭП."
+        },
+        {
+          "title": "ЭПТС 2026: всё про электронный паспорт ТС — что это, как оформить ...",
+          "url": "https://carto-auto.ru/blog/epts-2026-elektronnyy-pts/",
+          "snippet": "Статус ЭПТС НЕЗАВЕРШЕННЫЙ! Как долго оформляется ЭПТС? ЭПТС ВЫПИСКА ТЕХ. ПОДДЕРЖКА Незавершенный. ЭПТС ТЕХ. ПОДДЕРЖКА Личный кабинет. ЭПТС ВЫПИСКА ТЕХ. ПОДДЕРЖКА Незавершенный. ЭПТС ВЫПИСКА Незавершенный УТИЛЬ. СБОР. ЭПТС ПОРТАЛ СЭП ТЕХ. ПОДДЕРЖКА Незавершенный. ЭПТС ВЫПИСКА ПОРТАЛ СЭП ТЕХ. ПОДДЕРЖКА УТИЛЬ. СБОР. ЭПТС Незавершенный УТИЛЬ. СБОР."
+        },
+        {
+          "title": "ЭПТС 2026: как быстро оформить, заменить и восстановить электронный ПТС",
+          "url": "https://avtoyurist-gibdd.ru/vsyo-o-poluchenii-i-zamene-pts-v-2026-godu-novye-gosposhliny-elektronnyj-pts-i-poshagovaya-instrukcziya.html",
+          "snippet": "Если вы впервые столкнулись с параллельным импортом или покупаете автомобиль с пробегом, разбираемся: что такое ЭПТС, кто его оформляет в 2026 году, сколько это стоит, как менять собственника, что делать при утрате и в чём принципиальная разница с бумажным ПТС."
+        },
+        {
+          "title": "Как оформить СБКТС и ЭПТС в 2026 году: пошаговая инструкция, стоимость ...",
+          "url": "https://www.tdkpk.ru/pr/news/epts-i-sbkts-polnyy-gid-po-dokumentam-dlya-vvezyennogo-avtomobilya/",
+          "snippet": "Платите нужные госпошлины, собирайте бумаги и подайте заявку онлайн, чтобы за пару кликов получить, заменить или восстановить ЭПТС в 2026 году."
+        },
+        {
+          "title": "ЭПТС в 2026: полный разбор — плюсы, подводные камни и как не потерять ...",
+          "url": "https://harant.ru/blog/grazhdanskoe-pravo/epts-v-2026-polnyj-razbor-elektronnogo-pasporta-plyusy-minusy-i-podvodnye-kamni/",
+          "snippet": "Рассказываем, что это за документы, в каких случаях они обязательны, сколько стоят и как оформить их быстрее. Цены и сроки на 2026 год."
+        }
+      ],
+      "searched_at": "2026-07-23"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "сбктс эптс 2026",
+      "purpose": "вторичный запрос: сбктс эптс",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-07-23"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "сбктс и эптс оформление 2026",
+      "purpose": "вторичный запрос: сбктс и эптс оформление",
+      "result_count": 0,
+      "results": [],
+      "error": "search failed for 'сбктс и эптс оформление 2026': <urlopen error [Errno 104] Connection reset by peer>",
+      "searched_at": "2026-07-23"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "эптс получить 2026",
+      "purpose": "вторичный запрос: эптс получить",
+      "result_count": 0,
+      "results": [],
+      "error": "search failed for 'эптс получить 2026': <urlopen error [Errno 104] Connection reset by peer>",
+      "searched_at": "2026-07-23"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "сбктс владивосток 2026",
+      "purpose": "вторичный запрос: сбктс владивосток",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Растаможка авто во Владивостоке в 2026: цена, сроки, документы",
+          "url": "https://asiapk.ru/blog/rastamozhka-avto-vladivostok-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Получить СБКТС на автомобиль - свидетельство о безопасности конструкции ...",
+          "url": "https://vladivostok.lab-td.ru/docs/sbkts/",
+          "snippet": "Полный разбор стоимости растаможки автомобиля во Владивостоке в 2026: пошлина, утильсбор, ЭПТС, СБКТС, ЭРА-ГЛОНАСС. Как выбрать таможенного брокера и какие документы нужны."
+        },
+        {
+          "title": "СБКТС и ЭПТС 2026 — что это, как получить, сколько стоит",
+          "url": "https://globamart.ru/guides/sbkts-i-epts",
+          "snippet": "Мы оцениваем предоставленные документы и фото автомобиля, уточняем особенности ввоза и определяем, какой способ оформления подойдёт лучше всего. Это помогает сразу понять, возможна ли выдача СБКТС и выбрать оптимальный маршрут прохождения процедуры."
+        },
+        {
+          "title": "СБКТС и ЭПТС во Владивостоке: цены и как поставить авто на учет",
+          "url": "https://example.com/2026/04/25/sbkts-i-epts-vo-vladivostoke-czeny-i-kak-postavit-avto-na-uchet/",
+          "snippet": "СБКТС и ЭПТС: разбор для физлица 2026. Свидетельство о безопасности конструкции и электронный ПТС — два ключевых документа после выпуска авто таможней. Без них регистрация в ГИБДД невозможна. Разберём что, где, сколько и за сколько. СБКТС — 14-35 тыс. ₽ (5-10 дней, Владивосток быстрее и дешевле)."
+        },
+        {
+          "title": "Испытательная лаборатория ООО \"Союз-Тест\" - оформление СБКТС и ЭПТС во ...",
+          "url": "http://s-testlab.ru/",
+          "snippet": "Мы знаем, сколько стоит сбктс на автомобиль во владивостоке без накруток, контролируем статус списания пошлин и выдаем вам машину, полностью готовую к получению номеров."
+        },
+        {
+          "title": "СБКТС 2026: что это, где получить, сколько стоит свидетельство о ...",
+          "url": "https://carto-auto.ru/blog/sbkts-2026-chto-eto-tsena/",
+          "snippet": "ООО \"Союз-Тест\" предлагает услуги испытательной лаборатории во Владивостоке. Мы выполним комплекс работ по проверке соответствия транспортных средств требованиям технических регламентов."
+        }
+      ],
+      "searched_at": "2026-07-23"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как оформить СБКТС и ЭПТС на авто из Азии в 2026: чек-лист после растаможки 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как оформить СБКТС и ЭПТС в 2026 году: пошаговая инструкция, стоимость ...",
+          "url": "https://www.tdkpk.ru/pr/news/epts-i-sbkts-polnyy-gid-po-dokumentam-dlya-vvezyennogo-avtomobilya/",
+          "snippet": ""
+        },
+        {
+          "title": "Регистрация авто ввезенного из-за границы ️ Инструкция",
+          "url": "https://epts.online/poleznaya-informaciya/tpost/mm80asxvl1-registratsiya-avtomobilya-privezennogo-i",
+          "snippet": "Рассказываем, что это за документы, в каких случаях они обязательны, сколько стоят и как оформить их быстрее. Цены и сроки на 2026 год."
+        },
+        {
+          "title": "Оформление СБКТС и ЭПТС — Таможня Про",
+          "url": "https://customs-pro.ru/rastamozhka-avtomobilej/oformlenie-sbkts-i-epts/",
+          "snippet": "Планируете ввезти авто в Россию и поставить его на учет? После растаможки важно пройти регистрацию в ГИБДД, чтобы ваш иностранный автомобиль мог легально ездить по дорогам РФ."
+        },
+        {
+          "title": "Что такое СБКТС и ЭПТС: оформление импортного автомобиля в 2026 году",
+          "url": "https://jckauto.ru/blog/sbkts-epts-oformlenie-importnogo-avto",
+          "snippet": "Оформление СБКТС и ЭПТС — при ввозе автомобиля из-за рубежа на территорию Российской Федерации важно не только пройти процедуру растаможки, но и оформить два ключевых документа: СБКТС (Свидетельство безопасности конструкции транспортного средства) и ЭПТС (Электронный паспорт транспортного средства)."
+        },
+        {
+          "title": "Растаможка авто в 2026 для физлица: платежи, СБКТС и ЭПТС | MySakura",
+          "url": "https://auto.mysakura.ru/blog/rastamozhka-avto-2026-fizlitso-platezhi-sbkts-epts",
+          "snippet": "Полный гайд по оформлению импортного авто после таможни: СБКТС, электронный ПТС, ГЛОНАСС. Что нужно, сколько стоит, сколько времени занимает."
+        },
+        {
+          "title": "Как получить СБКТС на автомобиль — пошаговая инструкция",
+          "url": "https://pereoborudovanie-ts.ru/poleznaya-informaciya/tpost/c2ggytgfb1-oformlenie-sbkts-na-avtomobil-v-2026-god",
+          "snippet": "Пошагово вас выводят от таможни до постановки менеджеры при оформлении «под ключ»; отдельно почитать про доставку и сопровождение можно в услуге доставки."
+        }
+      ],
+      "searched_at": "2026-07-23"
+    }
+  ],
+  "errors": [
+    "search failed for 'как оформить эптс июль 2026': <urlopen error [Errno 104] Connection reset by peer>",
+    "search failed for 'как оформить эптс новости 2026': <urlopen error [Errno 104] Connection reset by peer>",
+    "search failed for 'как оформить эптс official docs documentation 2026': <urlopen error [Errno 104] Connection reset by peer>",
+    "search failed for 'сбктс и эптс оформление 2026': <urlopen error [Errno 104] Connection reset by peer>",
+    "search failed for 'эптс получить 2026': <urlopen error [Errno 104] Connection reset by peer>"
+  ],
+  "unique_urls": [
+    {
+      "url": "https://github.com/a1eksjob158-blip/EPTS",
+      "title": "GitHub - a1eksjob158-blip/EPTS",
+      "from_query": "site:github.com как оформить эптс 2026"
+    },
+    {
+      "url": "https://github.com/vspochernin/epts-mr-examples",
+      "title": "GitHub - vspochernin/epts-mr-examples: Примеры моих MR-ов с проекта ...",
+      "from_query": "site:github.com как оформить эптс 2026"
+    },
+    {
+      "url": "https://gist.github.com/Artemleadl/3bec4a994e62b8cdaafd314c773d2b3d",
+      "title": "Как настроить прокси в Telegram - полное руководство · GitHub",
+      "from_query": "site:github.com как оформить эптс 2026"
+    },
+    {
+      "url": "https://gist.github.com/s3rgeym/48405a282d61fd6bf74aed578f483111",
+      "title": "Как получить и использовать мосты для сервиса tor в Linux",
+      "from_query": "site:github.com как оформить эптс 2026"
+    },
+    {
+      "url": "https://docs.github.com/ru/education/about-github-education/github-education-for-students/apply-to-github-education-as-a-student",
+      "title": "Подача заявки на GitHub Education для учащихся",
+      "from_query": "site:github.com как оформить эптс 2026"
+    },
+    {
+      "url": "https://github.com/mensikovstepan1977-creator/my-calculator/blob/main/index.html",
+      "title": "my-calculator/index.html at main · mensikovstepan1977-creator ... - GitHub",
+      "from_query": "site:github.com как оформить эптс 2026"
+    },
+    {
+      "url": "https://elpts-forum.ru/",
+      "title": "Форум электронных паспортов ПТС - ЭПТС",
+      "from_query": "как оформить эптс forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://elpts-forum.ru/t/epts",
+      "title": "ЭПТС - Форум электронных паспортов ПТС - ЭПТС",
+      "from_query": "как оформить эптс forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/epts-2026-elektronnyy-pts/",
+      "title": "ЭПТС 2026: всё про электронный паспорт ТС — что это, как оформить ...",
+      "from_query": "как оформить эптс forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://avtoyurist-gibdd.ru/vsyo-o-poluchenii-i-zamene-pts-v-2026-godu-novye-gosposhliny-elektronnyj-pts-i-poshagovaya-instrukcziya.html",
+      "title": "ЭПТС 2026: как быстро оформить, заменить и восстановить электронный ПТС",
+      "from_query": "как оформить эптс forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.tdkpk.ru/pr/news/epts-i-sbkts-polnyy-gid-po-dokumentam-dlya-vvezyennogo-avtomobilya/",
+      "title": "Как оформить СБКТС и ЭПТС в 2026 году: пошаговая инструкция, стоимость ...",
+      "from_query": "как оформить эптс forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://harant.ru/blog/grazhdanskoe-pravo/epts-v-2026-polnyj-razbor-elektronnogo-pasporta-plyusy-minusy-i-podvodnye-kamni/",
+      "title": "ЭПТС в 2026: полный разбор — плюсы, подводные камни и как не потерять ...",
+      "from_query": "как оформить эптс forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asiapk.ru/blog/rastamozhka-avto-vladivostok-2026",
+      "title": "Растаможка авто во Владивостоке в 2026: цена, сроки, документы",
+      "from_query": "сбктс владивосток 2026"
+    },
+    {
+      "url": "https://vladivostok.lab-td.ru/docs/sbkts/",
+      "title": "Получить СБКТС на автомобиль - свидетельство о безопасности конструкции ...",
+      "from_query": "сбктс владивосток 2026"
+    },
+    {
+      "url": "https://globamart.ru/guides/sbkts-i-epts",
+      "title": "СБКТС и ЭПТС 2026 — что это, как получить, сколько стоит",
+      "from_query": "сбктс владивосток 2026"
+    },
+    {
+      "url": "https://example.com/2026/04/25/sbkts-i-epts-vo-vladivostoke-czeny-i-kak-postavit-avto-na-uchet/",
+      "title": "СБКТС и ЭПТС во Владивостоке: цены и как поставить авто на учет",
+      "from_query": "сбктс владивосток 2026"
+    },
+    {
+      "url": "http://s-testlab.ru/",
+      "title": "Испытательная лаборатория ООО \"Союз-Тест\" - оформление СБКТС и ЭПТС во ...",
+      "from_query": "сбктс владивосток 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/sbkts-2026-chto-eto-tsena/",
+      "title": "СБКТС 2026: что это, где получить, сколько стоит свидетельство о ...",
+      "from_query": "сбктс владивосток 2026"
+    },
+    {
+      "url": "https://epts.online/poleznaya-informaciya/tpost/mm80asxvl1-registratsiya-avtomobilya-privezennogo-i",
+      "title": "Регистрация авто ввезенного из-за границы ️ Инструкция",
+      "from_query": "Как оформить СБКТС и ЭПТС на авто из Азии в 2026: чек-лист после растаможки 2026"
+    },
+    {
+      "url": "https://customs-pro.ru/rastamozhka-avtomobilej/oformlenie-sbkts-i-epts/",
+      "title": "Оформление СБКТС и ЭПТС — Таможня Про",
+      "from_query": "Как оформить СБКТС и ЭПТС на авто из Азии в 2026: чек-лист после растаможки 2026"
+    },
+    {
+      "url": "https://jckauto.ru/blog/sbkts-epts-oformlenie-importnogo-avto",
+      "title": "Что такое СБКТС и ЭПТС: оформление импортного автомобиля в 2026 году",
+      "from_query": "Как оформить СБКТС и ЭПТС на авто из Азии в 2026: чек-лист после растаможки 2026"
+    },
+    {
+      "url": "https://auto.mysakura.ru/blog/rastamozhka-avto-2026-fizlitso-platezhi-sbkts-epts",
+      "title": "Растаможка авто в 2026 для физлица: платежи, СБКТС и ЭПТС | MySakura",
+      "from_query": "Как оформить СБКТС и ЭПТС на авто из Азии в 2026: чек-лист после растаможки 2026"
+    },
+    {
+      "url": "https://pereoborudovanie-ts.ru/poleznaya-informaciya/tpost/c2ggytgfb1-oformlenie-sbkts-na-avtomobil-v-2026-god",
+      "title": "Как получить СБКТС на автомобиль — пошаговая инструкция",
+      "from_query": "Как оформить СБКТС и ЭПТС на авто из Азии в 2026: чек-лист после растаможки 2026"
+    }
+  ]
+}

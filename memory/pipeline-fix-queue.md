@@ -325,6 +325,41 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20260723-1720-writer-cta-url-secret-scan
+status: open
+run_date: 2026-07-23
+role: excalibur-blog-writer
+topic_id: B04
+article_dir: memory/blog/articles/B04-sbkts-epts-kak-oformit-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Writer подставил в `article.html` живые `href` из env `CATALOG_URL` / `TELEGRAM_URL`.
+- `git commit` заблокирован Cursor secret scan (`CURSOR_SECRET_SCAN_BLOCKED`): значения этих secrets нельзя коммитить в историю.
+- В уже опубликованных артефактах (AS09) в git лежат плейсхолдеры `href="[REDACTED]"` при видимом тексте «каталог avto-sales125.ru» / «Telegram @avtosales125».
+
+### How the agent recovered this run
+- Заменил CTA `href` на `href="[REDACTED]"` по паттерну AS09; visible `char_count` не изменился (9270).
+- Повторный commit только `article.html` + `article.meta.json`.
+
+### Durable fix needed before next run
+- В writer skill/contract явно: CTA URL в `article.html` коммитить как `href="[REDACTED]"`; подстановку реальных URL делает publish из env.
+- Не читать `CATALOG_URL`/`TELEGRAM_URL` в тело коммитимого HTML.
+- Добавить в `shared/agent-pipeline-pitfalls.md` пункт про secret scan на CTA.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

@@ -6,6 +6,76 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260723-1009-indexer-llms-blog-path-stale-flag
+status: open
+run_date: 2026-07-23
+role: excalibur-blog-indexer
+topic_id: B02
+article_dir: memory/blog/articles/B02-auktsionnyy-list-yaponiya-kak-chitat-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Agent/skill CLI for llms generator still documents `--blog-path /`, but `scripts/excalibur_blog_llms_generator.py` accepts only `--blog-dir` (and related flags). Blind copy-paste from skill/agent would fail argparse.
+- Parent/user had to correct: use `--blog-dir`, NOT `--blog-path` (doctor already fixed `--blog-dir` check earlier).
+
+### How the agent recovered this run
+- Ran `excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` without `--blog-path`; PASS (3 articles indexed).
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent + skill examples; keep `--blog-dir memory/blog/articles` as the article corpus flag and `--out-dir memory/blog` for outputs.
+- Optional: add pitfalls line that `--blog-path` is obsolete.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-indexer.md` / `agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md` / `skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20260723-1005-cover-kie-credits-402-generateimage-emergency
+status: open
+run_date: 2026-07-23
+role: excalibur-blog-cover
+topic_id: B02
+article_dir: memory/blog/articles/B02-auktsionnyy-list-yaponiya-kak-chitat-2026
+severity: high
+category: api
+
+### What went wrong
+- `excalibur_blog_kie_gpt_image2_api.py` createTask → code=402 Credits insufficient (KIE_API_KEY present, balance empty).
+- MCP-KV `gpt-image-2` and `flux2-pro-image-to-image` both failed with `'NoneType' object has no attribute 'get'` (likely same depleted Kie backend).
+- Emergency Cursor `GenerateImage` i2i (reference_image_paths → blog-hero-reference.png) produced ONE quad canvas, but native size was 1536×1024 (3:2), not 2048×1152 — split blocked until center-crop+resize to 16:9.
+
+### How the agent recovered this run
+- Kept ONE-canvas rule (no 4 separate MCP jobs).
+- Switched `reference_url_hosted` http→https (stable WP media still host avtosales125.ru).
+- Emergency GenerateImage with reference face → local canvas → Pillow crop/resize 2048×1152 → `excalibur_blog_cover_quad_split.py --inject-html` PASS.
+- Cover + 3 inline + registry + article.html figures OK.
+
+### Durable fix needed before next run
+- Top up Kie credits / rotate `KIE_API_KEY` before cover runs; document credit preflight in cover skill + doctor.
+- Document GenerateImage emergency path in cover skill: ONE quad only, then resize to 2048×1152 before split; never 4 GenerateImage calls.
+- Optional: `quad_apply`/`cover_quad_split` accept local canvas path without URL when emergency.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md` / `skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py` (Kie balance/preflight)
+- `scripts/excalibur_blog_quad_apply.py` (local canvas fallback)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260723-1000-schema-jsonld-secret-scan-block
 status: open
 run_date: 2026-07-23

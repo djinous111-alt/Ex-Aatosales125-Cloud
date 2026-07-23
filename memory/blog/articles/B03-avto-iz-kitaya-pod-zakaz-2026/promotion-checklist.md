@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: `python3 scripts/excalibur_blog_interlinker.py --apply --article-dir memory/blog/articles/B03-avto-iz-kitaya-pod-zakaz-2026 --site-base $PUBLIC_SITE_URL` — opportunities_found=0.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` через `--blog-dir` (без устаревшего `--blog-path`; doctor check всё ещё ждёт `--blog-path`).
-- Cover+Schema готовы; next: publish.
+- Publish PASS: post_id=3660; Live URL set.

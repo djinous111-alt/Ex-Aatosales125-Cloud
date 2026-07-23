@@ -1,0 +1,50 @@
+{
+  "topic_id": "B03",
+  "slug": "avto-iz-kitaya-pod-zakaz-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у китайского кроссовера на фоне порта Владивостока, плашка под заказ 2026",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-07-23T13:31:18+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у китайского кроссовера на фоне порта Владивостока, плашка под заказ 2026",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Сравнение: покупка с витрины против авто из Китая под заказ",
+      "h2_anchor": "Разведите \"под заказ\" и покупку с витрины",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Чеклист выбора модели до депозита: мощность, возраст, топливо",
+      "h2_anchor": "Как выбрать модель до депозита: мощность, возраст, топливо",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Пошаговая схема: подбор, Владивосток, выдача авто из Китая",
+      "h2_anchor": "Пройдите путь пошагово: подбор → Владивосток → выдача",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

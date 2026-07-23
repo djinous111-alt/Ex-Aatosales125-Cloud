@@ -571,3 +571,37 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20260723-1339-publish-paramiko-missing
+status: open
+run_date: 2026-07-23
+role: excalibur-blog-publish
+topic_id: B03
+article_dir: memory/blog/articles/B03-avto-iz-kitaya-pod-zakaz-2026
+severity: medium
+category: env
+
+### What went wrong
+- `import paramiko` failed (`ModuleNotFoundError`) before SSH publish; Cloud image lacked paramiko despite publish script requiring it.
+- `SSH_ROOT` unset in env (dot_fallback_enabled false); upload still worked via login cwd filename-only path.
+
+### How the agent recovered this run
+- Installed paramiko via `pip3 install --break-system-packages paramiko`.
+- Publish succeeded: SSH upload + HTTP trigger (~158s), post=3660, verdict pass.
+- No HTTP 504 this run; CLI fallback not needed.
+
+### Durable fix needed before next run
+- Add `paramiko` to Cloud environment deps (environment.json / requirements / apt python3-paramiko).
+- Document `SSH_ROOT=.` when login cwd is WP root; keep pitfalls note.
+
+### Suggested files to inspect/change
+- `.cursor/environment.json`
+- `scripts/excalibur_blog_wp_publish.py` (optional soft-deps message)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

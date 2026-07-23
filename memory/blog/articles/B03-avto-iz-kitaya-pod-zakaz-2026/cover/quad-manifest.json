@@ -1,0 +1,42 @@
+{
+  "topic_id": "B03",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Красивая цена из чата ≠ под ключ",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у китайского кроссовера на фоне порта Владивостока, плашка под заказ 2026",
+      "scene_hint": "Герой Авто-Сейлс (reference face + glasses) у современного китайского кроссовера на фоне порта Владивостока, белое плотное худи, плашка «под заказ 2026», угол avto-sales125.ru; fake карточка каталога авто + стикер «стоп депозит»; без токсичных слов",
+      "meme_caption_ru": "под заказ 2026"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разведите \"под заказ\" и покупку с витрины",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица сравнения: витрина в РФ vs заказ из Китая под ключ — колонки «уже здесь» / «подбор+привоз+выдача Владивосток»; стикер «не путай»; без лица героя",
+      "alt": "Сравнение: покупка с витрины против авто из Китая под заказ"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как выбрать модель до депозита: мощность, возраст, топливо",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист фильтров до депозита: мощность ~160 л.с., возраст, топливо, комплектация списком, 2–3 кандидата с фото; маркер «до оплаты»; без лица героя",
+      "alt": "Чеклист выбора модели до депозита: мощность, возраст, топливо"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Пройдите путь пошагово: подбор → Владивосток → выдача",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема пути: фильтры → договор юрлицо → выкуп → логистика Владивосток → СБКТС/ЭПТС → выдача; стрелки и стикер «хаб ДВ»; без лица героя",
+      "alt": "Пошаговая схема: подбор, Владивосток, выдача авто из Китая"
+    }
+  }
+}

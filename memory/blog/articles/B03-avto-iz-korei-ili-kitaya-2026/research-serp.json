@@ -1,0 +1,661 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-24",
+    "today_ru": "24.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-25",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-24 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B03",
+    "priority": "P0",
+    "slug": "avto-iz-korei-ili-kitaya-2026",
+    "h1": "Авто из Кореи или Китая: как выбрать страну под один бюджет до депозита",
+    "primary_query": "авто из кореи или китая",
+    "secondary_queries": [
+      "авто из кореи и китая",
+      "авто под заказ из кореи и китая",
+      "авто из китая или кореи какие лучше",
+      "привезти авто из кореи или китая"
+    ],
+    "search_intent": "comparison",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "авто из кореи или китая 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Авто из Японии, Китая или Кореи: какой рынок выбрать в 2026 году",
+          "url": "https://priority-auto.ru/blog/yaponiya-koreya-ili-kitay-otkuda-vezti-avto-vygodnee/",
+          "snippet": ""
+        },
+        {
+          "title": "Авто из Японии, Кореи или Китая: что выбрать в 2026 году, чтобы не пожалеть",
+          "url": "https://www.levcar125.ru/blog/choose-cars-in-2026",
+          "snippet": "Сравниваем авто из Японии, Кореи и Китая по цене, качеству и срокам доставки. Разбираем плюсы и минусы каждого рынка. Помогаем выбрать оптимальный вариант."
+        },
+        {
+          "title": "Корея или Китай — какой авто брать в 2026 — авто из Кореи и Китая ...",
+          "url": "https://encarrus.ru/news/korea-vs-kitay-avto-2026/",
+          "snippet": "Рынок автомобилей изменился, прежние подходы к выбору не работают. Эта статья — руководство по выбору машины под конкретные задачи."
+        },
+        {
+          "title": "Япония, Корея или Китай: что выгоднее покупать в 2026 году",
+          "url": "https://autoprofiasia.ru/article.php?slug=yaponiya-koreya-ili-kitaj-chto-vygodnee-kupit-v-2026",
+          "snippet": "Два самых популярных источника авто для России в 2026 году. В Китае — новые машины с гарантией, в Корее — проверенные б/у с прозрачной историей. Это разные предложения для разных задач. Разбираем по честным критериям."
+        },
+        {
+          "title": "Автомобиль из Китая, Японии или Кореи в 2026 году: почему это всё ещё ...",
+          "url": "https://vc.ru/money/2868219-pokupka-avtomobilya-iz-kitaya-yaponii-ili-korei",
+          "snippet": "Сравнительный анализ авто из Японии, Кореи и Китая в 2026 году. Плюсы и минусы, цены, модели. Выгодные покупки с AutoProfi Asia."
+        },
+        {
+          "title": "Что выгоднее в 2026 году: автомобили из Японии, Кореи или Китая",
+          "url": "https://www.drive2.ru/o/b/726199943429106209/",
+          "snippet": "Тем не менее покупка автомобиля напрямую из Китая, Японии или Кореи по-прежнему остаётся реальной возможностью сэкономить — если знать как это работает сейчас."
+        }
+      ],
+      "searched_at": "2026-07-24"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "авто из кореи или китая июль 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Авто из Японии, Китая или Кореи: какой рынок выбрать в 2026 году",
+          "url": "https://priority-auto.ru/blog/yaponiya-koreya-ili-kitay-otkuda-vezti-avto-vygodnee/",
+          "snippet": ""
+        },
+        {
+          "title": "Авто из Японии, Кореи или Китая: что выбрать в 2026 году, чтобы не пожалеть",
+          "url": "https://www.levcar125.ru/blog/choose-cars-in-2026",
+          "snippet": "Сравниваем авто из Японии, Кореи и Китая по цене, качеству и срокам доставки. Разбираем плюсы и минусы каждого рынка. Помогаем выбрать оптимальный вариант."
+        },
+        {
+          "title": "Какие авто можно привезти из Кореи и Китая в 2026 году: модели и цены",
+          "url": "https://autopodbor.moscow/kakie-avto-mozhno-privezti-iz-korei-i-kitaya-v-2026-godu-diapazon-czen-i-formaty-pokupki/",
+          "snippet": "Рынок автомобилей изменился, прежние подходы к выбору не работают. Эта статья — руководство по выбору машины под конкретные задачи."
+        },
+        {
+          "title": "Корея или Китай — какой авто брать в 2026 — авто из Кореи и Китая ...",
+          "url": "https://encarrus.ru/news/korea-vs-kitay-avto-2026/",
+          "snippet": "Обзор автомобилей из Кореи и Китая с ценами под ключ от 1,47 до 13,9 млн рублей. Модели, комплектации, условия покупки и доставки в Москву. Бюджетный, средний и премиум сегмент."
+        },
+        {
+          "title": "Автомобиль из Китая, Японии или Кореи в 2026 году: почему это всё ещё ...",
+          "url": "https://vc.ru/money/2868219-pokupka-avtomobilya-iz-kitaya-yaponii-ili-korei",
+          "snippet": "Два самых популярных источника авто для России в 2026 году. В Китае — новые машины с гарантией, в Корее — проверенные б/у с прозрачной историей. Это разные предложения для разных задач. Разбираем по честным критериям."
+        },
+        {
+          "title": "Сравнение: привоз авто из Японии, Кореи или Китая — что выгоднее в 2026 ...",
+          "url": "https://onlyjpcars.ru/blog/yaponiya-koreya-kitay-chto-vygodnee-2026",
+          "snippet": "Тем не менее покупка автомобиля напрямую из Китая, Японии или Кореи по-прежнему остаётся реальной возможностью сэкономить — если знать как это работает сейчас."
+        }
+      ],
+      "searched_at": "2026-07-24"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "авто из кореи или китая новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Авто из Японии, Китая или Кореи: какой рынок выбрать в 2026 году",
+          "url": "https://priority-auto.ru/blog/yaponiya-koreya-ili-kitay-otkuda-vezti-avto-vygodnee/",
+          "snippet": ""
+        },
+        {
+          "title": "Корея или Китай — какой авто брать в 2026 — авто из Кореи и Китая ...",
+          "url": "https://encarrus.ru/news/korea-vs-kitay-avto-2026/",
+          "snippet": "Сравниваем авто из Японии, Кореи и Китая по цене, качеству и срокам доставки. Разбираем плюсы и минусы каждого рынка. Помогаем выбрать оптимальный вариант."
+        },
+        {
+          "title": "Автомобиль из Китая, Японии или Кореи в 2026 году: почему это всё ещё ...",
+          "url": "https://vc.ru/money/2868219-pokupka-avtomobilya-iz-kitaya-yaponii-ili-korei",
+          "snippet": "Два самых популярных источника авто для России в 2026 году. В Китае — новые машины с гарантией, в Корее — проверенные б/у с прозрачной историей. Это разные предложения для разных задач. Разбираем по честным критериям."
+        },
+        {
+          "title": "Авто из Японии, Кореи или Китая: что выбрать в 2026 году, чтобы не пожалеть",
+          "url": "https://www.levcar125.ru/blog/choose-cars-in-2026",
+          "snippet": "Тем не менее покупка автомобиля напрямую из Китая, Японии или Кореи по-прежнему остаётся реальной возможностью сэкономить — если знать как это работает сейчас."
+        },
+        {
+          "title": "Что выгоднее в 2026 году: автомобили из Японии, Кореи или Китая",
+          "url": "https://www.drive2.ru/o/b/726199943429106209/",
+          "snippet": "Рынок автомобилей изменился, прежние подходы к выбору не работают. Эта статья — руководство по выбору машины под конкретные задачи."
+        },
+        {
+          "title": "Что выгоднее в 2026 году: автомобили из Японии, Кореи или Китая",
+          "url": "https://dzen.ru/a/aY10Q2wd009Tchw_",
+          "snippet": "Авто под заказ из Японии, Кореи и Китая. Любой авто с выгодой до 30% от рынка РФ. В 2026 году рынок привоза автомобилей в Россию окончательно сформировался: направления понятны, риски просчитаны, а выгода напрямую зависит не от страны, а от целей покупателя."
+        }
+      ],
+      "searched_at": "2026-07-24"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com авто из кореи или китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "stanislavmareshkin/parallel-import-guide-2026 - GitHub",
+          "url": "https://github.com/stanislavmareshkin/parallel-import-guide-2026",
+          "snippet": ""
+        },
+        {
+          "title": "my-calculator/index.html at main · mensikovstepan1977-creator ... - GitHub",
+          "url": "https://github.com/mensikovstepan1977-creator/my-calculator/blob/main/index.html",
+          "snippet": "Экспертный гайд от ELP Cargo — логистической компании с 13-летним опытом международных перевозок. Параллельный импорт — это легальная схема ввоза товаров в обход официальных дистрибьюторов. С 2022 года в России этот механизм стал полностью законным для широкого спектра товаров."
+        },
+        {
+          "title": "GitHub - Ch1p1k/AutoParser: Простой парсер на Python с графическим ...",
+          "url": "https://github.com/Ch1p1k/AutoParser",
+          "snippet": "Калькулятор для рассчета привоза авто. Contribute to mensikovstepan1977-creator/my-calculator development by creating an account on GitHub."
+        },
+        {
+          "title": "agent0/assets/banner.png at main · tow3web3/agent0 · GitHub",
+          "url": "https://github.com/tow3web3/agent0/blob/main/assets/banner.png",
+          "snippet": "🚗 AutoParser — Парсер автомобильных площадок и аукционов Модульная система для автоматического сбора объявлений о продаже автомобилей и мототехники с международных площадок."
+        },
+        {
+          "title": "tx-ui/media/token.png at main · Incognito-Coder/tx-ui · GitHub",
+          "url": "https://github.com/Incognito-Coder/tx-ui/blob/main/media/token.png",
+          "snippet": "Contribute to tow3web3/agent0 development by creating an account on GitHub."
+        },
+        {
+          "title": "Releases · yt-dlp/yt-dlp - GitHub",
+          "url": "https://github.com/yt-dlp/yt-dlp/releases",
+          "snippet": "Advanced Xray Panel Support Multi Protocols, Based on MHSanaei/3x-ui Focusing on Stability - tx-ui/media/token.png at main · Incognito-Coder/tx-ui"
+        }
+      ],
+      "searched_at": "2026-07-24"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "авто из кореи или китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как изменились правила импорта авто из Китая и Кореи в 2026 году ...",
+          "url": "https://zakazautovplus.ru/2026/04/29/kak-izmenilis-pravila-importa-avto-iz-kitaya-i-korei-v-2026-godu-polnyj-gid-po-novym-pravilam-utilsboru-i-tamozhne-eaes/",
+          "snippet": ""
+        },
+        {
+          "title": "\"Накрылась схема?\". Что известно о запрете на экспорт новых автомобилей ...",
+          "url": "https://dzen.ru/a/aTw6sVyJ4kRfWJ5C",
+          "snippet": "Мировая автомобильная логистика в 2026 году вошла в фазу «новой реальности». Если раньше покупка машины из Южной Кореи или Китая казалась простым квестом с понятной экономией, то сегодня правила игры изменились."
+        },
+        {
+          "title": "Импорт автомобилей 2026: Китай, Япония, Корея, ОАЭ",
+          "url": "https://rusholdlogistic.ru/blog/import-avtomobiley-2026",
+          "snippet": "До настоящего момента существовала схема, когда новые автомобили ставились в Китае на местный учет, а затем сразу же с него снимались, чтобы перепродать автомобиль в третьи страны без согласия производителей. Нововведение касается только автомобилей, зарегистрированных в Китае менее чем за 180 дней до экспорта."
+        },
+        {
+          "title": "Растаможка авто из Китая 2026: цены, документы, инструкция",
+          "url": "https://cargo-hunter.ru/rastamozhka-avto-iz-kitaya-v-rossiyu-v-2026-godu-polnyj-gajd-po-stoimosti-i-proczedure/",
+          "snippet": "Полный гид по импорту автомобилей в РФ в 2026: Китай (новые авто), Япония (аукционы), Корея (подержанные), ОАЭ. Утилсбор, ЭПТС, СБКТС, схема…"
+        },
+        {
+          "title": "С 1 января меняются правила экспорта авто из Китая",
+          "url": "https://auto.ru/logbook/s-1-ianvaria-meniaiutsia-pravila-eksporta-avto-iz-kitaia_3e522eca-7a48-40c7-8bc0-a5fc4fef021d/",
+          "snippet": "Полный гайд по растаможке автомобилей из Китая в 2026. Актуальные ставки пошлин и утильсбора, пошаговая инструкция, расчеты. Новые правила с 1 апреля."
+        },
+        {
+          "title": "Official Document System - Search",
+          "url": "https://documents.un.org/",
+          "snippet": "Согласно документу, с 1 января 2026 года вступает в силу норма, согласно которой новые автомобили должны будут находиться в реестрах транспортных средств КНР не менее 180 дней перед тем ..."
+        }
+      ],
+      "searched_at": "2026-07-24"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "авто из кореи или китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Корея или Китай — какой авто брать в 2026 — авто из Кореи и Китая ...",
+          "url": "https://encarrus.ru/news/korea-vs-kitay-avto-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Стоит ли заказывать авто из Китая или Кореи в 2026 году? Реальная ...",
+          "url": "https://dzen.ru/a/afsifjFnET4IONo8",
+          "snippet": "Два самых популярных источника авто для России в 2026 году. В Китае — новые машины с гарантией, в Корее — проверенные б/у с прозрачной историей. Это разные предложения для разных задач. Разбираем по честным критериям."
+        },
+        {
+          "title": "Корея или Китай: откуда везти авто в 2026 году — честное сравнение без ...",
+          "url": "https://dzen.ru/a/agRda-MjeFT3sa3Y",
+          "snippet": "В 2026 году российский рынок автомобилей с пробегом продолжает меняться: цены на популярные модели остаются высокими, а выбор на локальных площадках зачастую ограничен."
+        },
+        {
+          "title": "Стоит ли покупать авто из Китая в 2026 году? Наш опыт, цена и реальное ...",
+          "url": "https://rutube.ru/video/490f55a36b8d17a337f3d7df219487be/",
+          "snippet": "Корейские и европейские марки Kia и Hyundai официально ушли с российского рынка, но активно продаются в виде параллельного импорта и заказов через нас. Две разные стратегии — два разных результата. Разбираем по пунктам. Когда Корея выгоднее."
+        },
+        {
+          "title": "Авто из Японии, Китая или Кореи: какой рынок выбрать в 2026 году",
+          "url": "https://priority-auto.ru/blog/yaponiya-koreya-ili-kitay-otkuda-vezti-avto-vygodnee/",
+          "snippet": "В этом видео мы честно рассказываем о нашей покупке напрямую из Поднебесной. Мы занимаемся привозом автомобилей из Кореи, Японии и Китая."
+        },
+        {
+          "title": "Заказать авто из Кореи или Китая? 2026 | ВКонтакте",
+          "url": "https://vk.com/@intelmotors-zakazat-avto-iz-korei-ili-kitaya",
+          "snippet": "Сравниваем авто из Японии, Кореи и Китая по цене, качеству и срокам доставки. Разбираем плюсы и минусы каждого рынка. Помогаем выбрать оптимальный вариант."
+        }
+      ],
+      "searched_at": "2026-07-24"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "авто из кореи и китая 2026",
+      "purpose": "вторичный запрос: авто из кореи и китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Параллельный импорт авто 2026: почему выгоднее везти из Кореи и Китая",
+          "url": "https://www.km.ru/avto/922958-parallelnyi-import-avto-2026-pochemu-vygodnee-vezti-iz-korei-i-kitaya",
+          "snippet": ""
+        },
+        {
+          "title": "Какие авто можно привезти из Кореи и Китая в 2026 году: модели и цены",
+          "url": "https://autopodbor.moscow/kakie-avto-mozhno-privezti-iz-korei-i-kitaya-v-2026-godu-diapazon-czen-i-formaty-pokupki/",
+          "snippet": "Разбираем на цифрах, почему пригон авто из Кореи и Китая в 2026 дешевле дилера на 800 тысяч-1,5 млн. Сроки, схемы, риски и как не нарваться на мошенников."
+        },
+        {
+          "title": "Топ-5 выгодных автомобилей из Китая и Кореи в 2026 году",
+          "url": "https://auto.ru/logbook/top-5-vygodnykh-avtomobiley-iz-kitaia-i-korei-v-2026-godu_d58e403b-10b3-462e-9107-d59c9ceb559c/",
+          "snippet": "Обзор автомобилей из Кореи и Китая с ценами под ключ от 1,47 до 13,9 млн рублей. Модели, комплектации, условия покупки и доставки в Москву. Бюджетный, средний и премиум сегмент."
+        },
+        {
+          "title": "Корея или Китай — какой авто брать в 2026 — авто из Кореи и Китая ...",
+          "url": "https://encarrus.ru/news/korea-vs-kitay-avto-2026/",
+          "snippet": "Китай и Южная Корея уверенно удерживают позиции главных поставщиков доступных, хорошо оснащённых и ликвидных машин. Мы отобрали пять моделей, которые в 2026 году выглядят особенно привлекательно по соотношению цены, оснащения и надежности."
+        },
+        {
+          "title": "Автомобиль из Китая, Японии или Кореи в 2026 году: почему это всё ещё ...",
+          "url": "https://vc.ru/money/2868219-pokupka-avtomobilya-iz-kitaya-yaponii-ili-korei",
+          "snippet": "Два самых популярных источника авто для России в 2026 году. В Китае — новые машины с гарантией, в Корее — проверенные б/у с прозрачной историей. Это разные предложения для разных задач. Разбираем по честным критериям."
+        },
+        {
+          "title": "Подборка авто до 160л.с из Китая и Кореи 2025-2026",
+          "url": "https://encarrus.ru/news/podborka-avto-do-160l-s-iz-kitaya-i-korei/",
+          "snippet": "Тем не менее покупка автомобиля напрямую из Китая, Японии или Кореи по-прежнему остаётся реальной возможностью сэкономить — если знать как это работает сейчас."
+        }
+      ],
+      "searched_at": "2026-07-24"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "авто под заказ из кореи и китая 2026",
+      "purpose": "вторичный запрос: авто под заказ из кореи и китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Автомобили на заказ с аукционов Китая, Японии и Кореи | Авто под заказ ...",
+          "url": "https://levcar125.ru/",
+          "snippet": ""
+        },
+        {
+          "title": "Limcars - Подбор И Доставка Авто Из Кореи И Китая",
+          "url": "https://limcars.ru/",
+          "snippet": "Мы предлагаем полный сервис по покупке автомобиля с аукционов Японии, Кореи и других стран."
+        },
+        {
+          "title": "Подбор и доставка авто из Китая, Кореи и Японии в Россию | Asia Express ...",
+          "url": "https://asiaexpressauto.ru/",
+          "snippet": "Подбор и доставка авто из Кореи и Китая под ключ: каталог, расчет, проверка, доставка и оформление."
+        },
+        {
+          "title": "АзияПодКапотом — авто из Кореи, Японии и Китая под заказ",
+          "url": "https://asiapk.ru/",
+          "snippet": "Подберём и привезём автомобиль из Китая (КНР), Кореи или Японии в Россию под ключ: проверка, торги/покупка, доставка, таможня и оформление. Прозрачный расчёт стоимости. Оставьте заявку онлайн."
+        },
+        {
+          "title": "Автозаказ.ру - Авто из Японии, Кореи и Китая",
+          "url": "https://autozakaz.ru/",
+          "snippet": "АзияПодКапотом — заказ автомобилей из Азии под ключ с 2015 года. Доставка в Россию, растаможка, ПТС/ЭПТС, фото с площадки. Каталог и калькулятор онлайн."
+        },
+        {
+          "title": "Авто из Японии, Китая и Кореи под заказ, автомобили в наличии | Japan Life",
+          "url": "https://jplife.ru/",
+          "snippet": "Покупка и доставка авто из Японии, Кореи и Китая. Подбор и доставка автомобилей под заказ до вашего города."
+        }
+      ],
+      "searched_at": "2026-07-24"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "авто из китая или кореи какие лучше 2026",
+      "purpose": "вторичный запрос: авто из китая или кореи какие лучше",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Корея или Китай — какой авто брать в 2026 — авто из Кореи и Китая ...",
+          "url": "https://encarrus.ru/news/korea-vs-kitay-avto-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Авто из Японии, Китая или Кореи: какой рынок выбрать в 2026 году",
+          "url": "https://priority-auto.ru/blog/yaponiya-koreya-ili-kitay-otkuda-vezti-avto-vygodnee/",
+          "snippet": "Два самых популярных источника авто для России в 2026 году. В Китае — новые машины с гарантией, в Корее — проверенные б/у с прозрачной историей. Это разные предложения для разных задач. Разбираем по честным критериям."
+        },
+        {
+          "title": "Корея или Китай: что брать в 2026? - Авто.ру",
+          "url": "https://auto.ru/logbook/koreia-ili-kitay-chto-brat-v-2026_3b03682f-ecc2-41fc-9947-572661a7140f/",
+          "snippet": "Сравниваем авто из Японии, Кореи и Китая по цене, качеству и срокам доставки. Разбираем плюсы и минусы каждого рынка. Помогаем выбрать оптимальный вариант."
+        },
+        {
+          "title": "Автомобиль из Китая, Японии или Кореи в 2026 году: почему это всё ещё ...",
+          "url": "https://vc.ru/money/2868219-pokupka-avtomobilya-iz-kitaya-yaponii-ili-korei",
+          "snippet": "Рынок в 2026 году живет по своим правилам: цены ползут вверх, но дилеры играют скидками. Главная дилемма покупателя: проверенная годами Корея или новый технологичный Китай? Разбираемся спокойно и по факту. 🇰🇷 Корейцы: надежно и предсказуемо. Корейский автопром стабилен: машины есть, запчасти — тоже. Что смотреть? · Kia Rio и Hyundai Solaris."
+        },
+        {
+          "title": "Авто из Японии, Кореи или Китая: что выбрать в 2026 году, чтобы не пожалеть",
+          "url": "https://www.levcar125.ru/blog/choose-cars-in-2026",
+          "snippet": "Тем не менее покупка автомобиля напрямую из Китая, Японии или Кореи по-прежнему остаётся реальной возможностью сэкономить — если знать как это работает сейчас."
+        },
+        {
+          "title": "Китайский или корейский автомобиль - что лучше купить",
+          "url": "https://solaraclub.ru/kitayskie-avto/sravnenie-kitajskih-i-korejskih-avto-chto-vybrat-v-2026-godu/",
+          "snippet": "Авто из Японии, Кореи или Китая: детальный разбор, что выбрать в 2026 году, чтобы не пожалеть Рынок автомобилей изменился, прежние подходы к выбору не работают."
+        }
+      ],
+      "searched_at": "2026-07-24"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "привезти авто из кореи или китая 2026",
+      "purpose": "вторичный запрос: привезти авто из кореи или китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Какие авто можно привезти из Кореи и Китая в 2026 году: модели и цены",
+          "url": "https://autopodbor.moscow/kakie-avto-mozhno-privezti-iz-korei-i-kitaya-v-2026-godu-diapazon-czen-i-formaty-pokupki/",
+          "snippet": ""
+        },
+        {
+          "title": "Параллельный импорт авто 2026: почему выгоднее везти из Кореи и Китая",
+          "url": "https://www.km.ru/avto/922958-parallelnyi-import-avto-2026-pochemu-vygodnee-vezti-iz-korei-i-kitaya",
+          "snippet": "Какие авто можно привезти из Кореи и Китая в 2026 году: диапазон цен и форматы покупки"
+        },
+        {
+          "title": "Авто из Японии, Китая или Кореи: какой рынок выбрать в 2026 году",
+          "url": "https://priority-auto.ru/blog/yaponiya-koreya-ili-kitay-otkuda-vezti-avto-vygodnee/",
+          "snippet": "Разбираем на цифрах, почему пригон авто из Кореи и Китая в 2026 дешевле дилера на 800 тысяч-1,5 млн. Сроки, схемы, риски и как не нарваться на мошенников."
+        },
+        {
+          "title": "Корея или Китай: откуда везти авто в 2026 году — честное сравнение без ...",
+          "url": "https://dzen.ru/a/agRda-MjeFT3sa3Y",
+          "snippet": "Сравниваем авто из Японии, Кореи и Китая по цене, качеству и срокам доставки. Разбираем плюсы и минусы каждого рынка. Помогаем выбрать оптимальный вариант."
+        },
+        {
+          "title": "Как привезти авто из Китая или Кореи — инструкция 2026",
+          "url": "https://timofeichina.ru/blog/how-to-import",
+          "snippet": "Корейские и европейские марки Kia и Hyundai официально ушли с российского рынка, но активно продаются в виде параллельного импорта и заказов через нас. Две разные стратегии — два разных результата. Разбираем по пунктам. Когда Корея выгоднее."
+        },
+        {
+          "title": "Корея или Китай — какой авто брать в 2026 — авто из Кореи и Китая ...",
+          "url": "https://encarrus.ru/news/korea-vs-kitay-avto-2026/",
+          "snippet": "Пошаговый гайд по импорту автомобиля: выбор модели, проверка, договор, выкуп, логистика, растаможка, СБКТС, ЭПТС и выдача."
+        }
+      ],
+      "searched_at": "2026-07-24"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Авто из Кореи или Китая: как выбрать страну под один бюджет до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Корея или Китай — какой авто брать в 2026 — авто из Кореи и Китая ...",
+          "url": "https://encarrus.ru/news/korea-vs-kitay-avto-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Авто из Японии, Китая или Кореи: какой рынок выбрать в 2026 году",
+          "url": "https://priority-auto.ru/blog/yaponiya-koreya-ili-kitay-otkuda-vezti-avto-vygodnee/",
+          "snippet": "Два самых популярных источника авто для России в 2026 году. В Китае — новые машины с гарантией, в Корее — проверенные б/у с прозрачной историей. Это разные предложения для разных задач. Разбираем по честным критериям."
+        },
+        {
+          "title": "Сравнение: привоз авто из Японии, Кореи или Китая — что выгоднее в 2026 ...",
+          "url": "https://onlyjpcars.ru/blog/yaponiya-koreya-kitay-chto-vygodnee-2026",
+          "snippet": "Сравниваем авто из Японии, Кореи и Китая по цене, качеству и срокам доставки. Разбираем плюсы и минусы каждого рынка. Помогаем выбрать оптимальный вариант."
+        },
+        {
+          "title": "Китайские или корейские автомобили в России: что выгоднее",
+          "url": "https://getcar.ru/blog/kitayskie-ili-koreyskie-avtomobili-v-rossii/",
+          "snippet": "Япония, Корея или Китай — откуда выгоднее везти авто в 2026? Сравниваем бюджеты, расположение руля, утильсбор и выбор моделей."
+        },
+        {
+          "title": "Япония, Корея или Китай. Откуда выгоднее привезти авто в Россию в 2026 ...",
+          "url": "https://autohubexport.ru/article/yaponia-korea-kitai-otkuda-vigodnee0privezti-avto-v-2026/",
+          "snippet": "Но что выгоднее для российского водителя: машины из Китая или Южной Кореи? В этой статье мы подробно разберём плюсы и минусы каждого варианта, чтобы помочь вам сделать осознанный выбор."
+        },
+        {
+          "title": "Авто из Японии, Кореи или Китая: что выбрать в 2026 году, чтобы не пожалеть",
+          "url": "https://www.levcar125.ru/blog/choose-cars-in-2026",
+          "snippet": "Сравниваем Японию, Корею и Китай для заказа автомобиля под ключ: из чего складывается цена, реальные сроки доставки, выбор моделей, прозрачность истории и нюансы таможни."
+        }
+      ],
+      "searched_at": "2026-07-24"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://priority-auto.ru/blog/yaponiya-koreya-ili-kitay-otkuda-vezti-avto-vygodnee/",
+      "title": "Авто из Японии, Китая или Кореи: какой рынок выбрать в 2026 году",
+      "from_query": "авто из кореи или китая 2026"
+    },
+    {
+      "url": "https://www.levcar125.ru/blog/choose-cars-in-2026",
+      "title": "Авто из Японии, Кореи или Китая: что выбрать в 2026 году, чтобы не пожалеть",
+      "from_query": "авто из кореи или китая 2026"
+    },
+    {
+      "url": "https://encarrus.ru/news/korea-vs-kitay-avto-2026/",
+      "title": "Корея или Китай — какой авто брать в 2026 — авто из Кореи и Китая ...",
+      "from_query": "авто из кореи или китая 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/article.php?slug=yaponiya-koreya-ili-kitaj-chto-vygodnee-kupit-v-2026",
+      "title": "Япония, Корея или Китай: что выгоднее покупать в 2026 году",
+      "from_query": "авто из кореи или китая 2026"
+    },
+    {
+      "url": "https://vc.ru/money/2868219-pokupka-avtomobilya-iz-kitaya-yaponii-ili-korei",
+      "title": "Автомобиль из Китая, Японии или Кореи в 2026 году: почему это всё ещё ...",
+      "from_query": "авто из кореи или китая 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/o/b/726199943429106209/",
+      "title": "Что выгоднее в 2026 году: автомобили из Японии, Кореи или Китая",
+      "from_query": "авто из кореи или китая 2026"
+    },
+    {
+      "url": "https://autopodbor.moscow/kakie-avto-mozhno-privezti-iz-korei-i-kitaya-v-2026-godu-diapazon-czen-i-formaty-pokupki/",
+      "title": "Какие авто можно привезти из Кореи и Китая в 2026 году: модели и цены",
+      "from_query": "авто из кореи или китая июль 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/yaponiya-koreya-kitay-chto-vygodnee-2026",
+      "title": "Сравнение: привоз авто из Японии, Кореи или Китая — что выгоднее в 2026 ...",
+      "from_query": "авто из кореи или китая июль 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/aY10Q2wd009Tchw_",
+      "title": "Что выгоднее в 2026 году: автомобили из Японии, Кореи или Китая",
+      "from_query": "авто из кореи или китая новости 2026"
+    },
+    {
+      "url": "https://github.com/stanislavmareshkin/parallel-import-guide-2026",
+      "title": "stanislavmareshkin/parallel-import-guide-2026 - GitHub",
+      "from_query": "site:github.com авто из кореи или китая 2026"
+    },
+    {
+      "url": "https://github.com/mensikovstepan1977-creator/my-calculator/blob/main/index.html",
+      "title": "my-calculator/index.html at main · mensikovstepan1977-creator ... - GitHub",
+      "from_query": "site:github.com авто из кореи или китая 2026"
+    },
+    {
+      "url": "https://github.com/Ch1p1k/AutoParser",
+      "title": "GitHub - Ch1p1k/AutoParser: Простой парсер на Python с графическим ...",
+      "from_query": "site:github.com авто из кореи или китая 2026"
+    },
+    {
+      "url": "https://github.com/tow3web3/agent0/blob/main/assets/banner.png",
+      "title": "agent0/assets/banner.png at main · tow3web3/agent0 · GitHub",
+      "from_query": "site:github.com авто из кореи или китая 2026"
+    },
+    {
+      "url": "https://github.com/Incognito-Coder/tx-ui/blob/main/media/token.png",
+      "title": "tx-ui/media/token.png at main · Incognito-Coder/tx-ui · GitHub",
+      "from_query": "site:github.com авто из кореи или китая 2026"
+    },
+    {
+      "url": "https://github.com/yt-dlp/yt-dlp/releases",
+      "title": "Releases · yt-dlp/yt-dlp - GitHub",
+      "from_query": "site:github.com авто из кореи или китая 2026"
+    },
+    {
+      "url": "https://zakazautovplus.ru/2026/04/29/kak-izmenilis-pravila-importa-avto-iz-kitaya-i-korei-v-2026-godu-polnyj-gid-po-novym-pravilam-utilsboru-i-tamozhne-eaes/",
+      "title": "Как изменились правила импорта авто из Китая и Кореи в 2026 году ...",
+      "from_query": "авто из кореи или китая official docs documentation 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/aTw6sVyJ4kRfWJ5C",
+      "title": "\"Накрылась схема?\". Что известно о запрете на экспорт новых автомобилей ...",
+      "from_query": "авто из кореи или китая official docs documentation 2026"
+    },
+    {
+      "url": "https://rusholdlogistic.ru/blog/import-avtomobiley-2026",
+      "title": "Импорт автомобилей 2026: Китай, Япония, Корея, ОАЭ",
+      "from_query": "авто из кореи или китая official docs documentation 2026"
+    },
+    {
+      "url": "https://cargo-hunter.ru/rastamozhka-avto-iz-kitaya-v-rossiyu-v-2026-godu-polnyj-gajd-po-stoimosti-i-proczedure/",
+      "title": "Растаможка авто из Китая 2026: цены, документы, инструкция",
+      "from_query": "авто из кореи или китая official docs documentation 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/s-1-ianvaria-meniaiutsia-pravila-eksporta-avto-iz-kitaia_3e522eca-7a48-40c7-8bc0-a5fc4fef021d/",
+      "title": "С 1 января меняются правила экспорта авто из Китая",
+      "from_query": "авто из кореи или китая official docs documentation 2026"
+    },
+    {
+      "url": "https://documents.un.org/",
+      "title": "Official Document System - Search",
+      "from_query": "авто из кореи или китая official docs documentation 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/afsifjFnET4IONo8",
+      "title": "Стоит ли заказывать авто из Китая или Кореи в 2026 году? Реальная ...",
+      "from_query": "авто из кореи или китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/agRda-MjeFT3sa3Y",
+      "title": "Корея или Китай: откуда везти авто в 2026 году — честное сравнение без ...",
+      "from_query": "авто из кореи или китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/490f55a36b8d17a337f3d7df219487be/",
+      "title": "Стоит ли покупать авто из Китая в 2026 году? Наш опыт, цена и реальное ...",
+      "from_query": "авто из кореи или китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://vk.com/@intelmotors-zakazat-avto-iz-korei-ili-kitaya",
+      "title": "Заказать авто из Кореи или Китая? 2026 | ВКонтакте",
+      "from_query": "авто из кореи или китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.km.ru/avto/922958-parallelnyi-import-avto-2026-pochemu-vygodnee-vezti-iz-korei-i-kitaya",
+      "title": "Параллельный импорт авто 2026: почему выгоднее везти из Кореи и Китая",
+      "from_query": "авто из кореи и китая 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/top-5-vygodnykh-avtomobiley-iz-kitaia-i-korei-v-2026-godu_d58e403b-10b3-462e-9107-d59c9ceb559c/",
+      "title": "Топ-5 выгодных автомобилей из Китая и Кореи в 2026 году",
+      "from_query": "авто из кореи и китая 2026"
+    },
+    {
+      "url": "https://encarrus.ru/news/podborka-avto-do-160l-s-iz-kitaya-i-korei/",
+      "title": "Подборка авто до 160л.с из Китая и Кореи 2025-2026",
+      "from_query": "авто из кореи и китая 2026"
+    },
+    {
+      "url": "https://levcar125.ru/",
+      "title": "Автомобили на заказ с аукционов Китая, Японии и Кореи | Авто под заказ ...",
+      "from_query": "авто под заказ из кореи и китая 2026"
+    },
+    {
+      "url": "https://limcars.ru/",
+      "title": "Limcars - Подбор И Доставка Авто Из Кореи И Китая",
+      "from_query": "авто под заказ из кореи и китая 2026"
+    },
+    {
+      "url": "https://asiaexpressauto.ru/",
+      "title": "Подбор и доставка авто из Китая, Кореи и Японии в Россию | Asia Express ...",
+      "from_query": "авто под заказ из кореи и китая 2026"
+    },
+    {
+      "url": "https://asiapk.ru/",
+      "title": "АзияПодКапотом — авто из Кореи, Японии и Китая под заказ",
+      "from_query": "авто под заказ из кореи и китая 2026"
+    },
+    {
+      "url": "https://autozakaz.ru/",
+      "title": "Автозаказ.ру - Авто из Японии, Кореи и Китая",
+      "from_query": "авто под заказ из кореи и китая 2026"
+    },
+    {
+      "url": "https://jplife.ru/",
+      "title": "Авто из Японии, Китая и Кореи под заказ, автомобили в наличии | Japan Life",
+      "from_query": "авто под заказ из кореи и китая 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/koreia-ili-kitay-chto-brat-v-2026_3b03682f-ecc2-41fc-9947-572661a7140f/",
+      "title": "Корея или Китай: что брать в 2026? - Авто.ру",
+      "from_query": "авто из китая или кореи какие лучше 2026"
+    },
+    {
+      "url": "https://solaraclub.ru/kitayskie-avto/sravnenie-kitajskih-i-korejskih-avto-chto-vybrat-v-2026-godu/",
+      "title": "Китайский или корейский автомобиль - что лучше купить",
+      "from_query": "авто из китая или кореи какие лучше 2026"
+    },
+    {
+      "url": "https://timofeichina.ru/blog/how-to-import",
+      "title": "Как привезти авто из Китая или Кореи — инструкция 2026",
+      "from_query": "привезти авто из кореи или китая 2026"
+    },
+    {
+      "url": "https://getcar.ru/blog/kitayskie-ili-koreyskie-avtomobili-v-rossii/",
+      "title": "Китайские или корейские автомобили в России: что выгоднее",
+      "from_query": "Авто из Кореи или Китая: как выбрать страну под один бюджет до депозита 2026"
+    },
+    {
+      "url": "https://autohubexport.ru/article/yaponia-korea-kitai-otkuda-vigodnee0privezti-avto-v-2026/",
+      "title": "Япония, Корея или Китай. Откуда выгоднее привезти авто в Россию в 2026 ...",
+      "from_query": "Авто из Кореи или Китая: как выбрать страну под один бюджет до депозита 2026"
+    }
+  ]
+}

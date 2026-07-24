@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260724-1313-research-notes-gate-format-quirks
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-research
+topic_id: B03
+article_dir: memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: script
+
+### What went wrong
+- Первый прогон `excalibur_blog_research_notes_gate.py` дал BLOCK: `accessed_at` считался только по литералу `accessed_at:` (дата в колонке таблицы без префикса = 1), и `pain_solution_map` требовал слова pain/solution/result/боль/решение/результат **в каждой data-row**, иначе rows=1.
+- После фикса notes gate PASS, но `technical_topic=true` из-за маркеров `github`/`mcp` в research notes авто-ниши → WARN про official docs URL (ложный tech-флаг для comparison авто).
+
+### How the agent recovered this run
+- Переписал source_table: в ячейках `accessed_at: 2026-07-24`.
+- В pain_solution_map добавил префиксы `pain:` / `solution:` / `result:` в строках.
+- Gate повторно: PASS; false technical WARN оставлен как non-blocking.
+
+### Durable fix needed before next run
+- Gate: считать `accessed_at` по колонке дат в `source_table` (YYYY-MM-DD), не только по `accessed_at:`.
+- Gate: считать строки pain_map по числу `|`-rows под `## pain_solution_map`, а не по keyword-heuristic.
+- Gate: не помечать auto/import topics как technical только из-за секции `github_evidence` / упоминания MCP Wordstat; tech-маркеры ограничить topic h1/slug/intent.
+- Документировать формат в skill research (пример PASS notes).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260724-1306-scout-next-id-ignores-live-wp
 status: open
 run_date: 2026-07-24

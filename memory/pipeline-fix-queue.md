@@ -28,7 +28,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` → allow_publish true
-commit: pending-parent-commit
+commit: dd53de9
 
 ### Original report
 run_date: 2026-07-24
@@ -88,7 +88,7 @@ files_changed:
 checks_run:
 - `rg '--blog-path' skills agents .cursor/skills .cursor/agents AGENTS.md` → none (only pitfalls "do not pass")
 - doctor llms `--blog-dir` check PASS
-commit: pending-parent-commit
+commit: dd53de9
 
 ### Original report
 run_date: 2026-07-24
@@ -144,7 +144,7 @@ files_changed:
 - `CURSOR-CLOUD-RUNBOOK.md`
 checks_run:
 - `rg` guidance for generalPurpose canon in AGENTS/pitfalls/director
-commit: pending-parent-commit
+commit: dd53de9
 
 ### Original report
 run_date: 2026-07-24
@@ -196,7 +196,7 @@ checks_run:
 - `python3 -m json.tool memory/brief/editorial-policy.json`
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir memory/blog/articles/B04-avtovoz-iz-vladivostoka-2026-kak-vybrat` → PASS
 - marker lists equal between policy and human_voice PAIN/OUTCOME constants
-commit: pending-parent-commit
+commit: dd53de9
 
 ### Original report
 run_date: 2026-07-24
@@ -253,7 +253,7 @@ files_changed:
 checks_run:
 - unit asserts: auto logistics + reader_pain not technical; `ai agent`/`rag` technical
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
-commit: pending-parent-commit
+commit: dd53de9
 
 ### Original report
 run_date: 2026-07-24
@@ -311,7 +311,7 @@ checks_run:
 - `--used-ids B01,B02,B03` raises used set; floor stays ≥ max B
 - `--check-query` overlaps B04 and AS09
 - `python3 -m py_compile scripts/excalibur_blog_scout_helper.py scripts/excalibur_blog_today.py`
-commit: pending-parent-commit
+commit: dd53de9
 
 ### Original report
 run_date: 2026-07-24
@@ -361,7 +361,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 warnings=0
 - `python3 scripts/excalibur_blog_llms_generator.py --help` contains `--blog-dir` only
-commit: pending-parent-commit
+commit: dd53de9
 
 ### Original report
 run_date: 2026-07-24
@@ -658,7 +658,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_kie_gpt_image2_api.py`
 - `rg` §4b / GenerateImage in cover skill
-commit: pending-parent-commit
+commit: dd53de9
 
 ### Original report
 run_date: 2026-07-24

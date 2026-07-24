@@ -52,7 +52,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_doctor.py`
 - `python3 -c "import paramiko"`
 - `rg` paramiko in Dockerfile/install/doctor
-commit: d8dca28
+commit: 2eb26cb
 
 
 ## INC-20260724-2135-indexer-llms-blog-path-stale
@@ -100,7 +100,7 @@ files_changed:
 checks_run:
 - `rg --blog-path` in indexer agent/skill paths → none left in shell examples
 - `python3 scripts/excalibur_blog_llms_generator.py --help` contains `--blog-dir`
-commit: d8dca28
+commit: 2eb26cb
 
 
 ## INC-20260724-2130-cover-kie-402-credits
@@ -152,7 +152,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` §4b / GenerateImage_emergency / LANCZOS in cover skill + kie contract
-commit: d8dca28
+commit: 2eb26cb
 
 
 ## INC-20260725-2120-geo-qa-utility-pain-outcome-policy-empty
@@ -254,7 +254,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
 - gate on B05 notes → PASS
 - smoke: bare ISO in accessed_at column counts ≥5
-commit: d8dca28
+commit: 2eb26cb
 
 
 ## INC-20260724-2110-scout-precommit-secret-names

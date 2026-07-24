@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260724-2135-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-indexer
+topic_id: B05
+article_dir: memory/blog/articles/B05-rastamozhka-elektromobilya-iz-kitaya-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer agent/skill shell examples still pass `--blog-path /` to `excalibur_blog_llms_generator.py`.
+- Real CLI rejects it: `unrecognized arguments: --blog-path /` (only `--blog-dir` exists).
+- Doctor/pitfalls already say `--blog-dir`, not `--blog-path`, but agent/skill examples were not updated.
+
+### How the agent recovered this run
+- Re-ran generator without `--blog-path`: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog`.
+
+### Durable fix needed before next run
+- Remove `--blog-path /` from indexer agent and skill shell examples; keep only `--blog-dir`.
+
+### Suggested files to inspect/change
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260724-2130-cover-kie-402-credits
 status: open
 run_date: 2026-07-25

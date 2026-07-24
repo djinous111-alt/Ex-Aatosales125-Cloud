@@ -6,6 +6,76 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260724-1721-geo-qa-typed-task-missing
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-geo-qa
+topic_id: B04
+article_dir: memory/blog/articles/B04-avtovoz-iz-vladivostoka-2026-kak-vybrat
+severity: medium
+category: env/docs
+
+### What went wrong
+- Cloud Task enum does not accept typed Task `excalibur-blog-geo-qa`.
+- Director had to launch GEO QA via `Task(generalPurpose)` fallback with `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Executed full GEO QA role under generalPurpose contract; produced article-qa PASS and handoff marker `=== EXCALIBUR BLOG GEO QA ===`.
+
+### Durable fix needed before next run
+- Register `excalibur-blog-geo-qa` (and sibling `excalibur-blog-*` roles) in Cloud Task type enum, or keep AGENTS.md / pitfalls fallback as the canonical path and make automation prompts default to generalPurpose without retrying typed names.
+- Document in `CURSOR-CLOUD-RUNBOOK.md` / `CLOUD-AUTOMATION.md` that typed blog Task names may be unavailable in this environment.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `CLOUD-AUTOMATION.md`
+- `.cursor/agents/excalibur-blog-director.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260724-1721-geo-qa-utility-pain-outcome-markers
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-geo-qa
+topic_id: B04
+article_dir: memory/blog/articles/B04-avtovoz-iz-vladivostoka-2026-kak-vybrat
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always enforced `min_pain_markers` (≥2) and `min_outcome_markers` (≥3), but `memory/brief/editorial-policy.json` had empty/missing `pain_markers_ru` and `outcome_markers_ru`.
+- With empty marker lists, counts stay 0 → utility gate BLOCK for every article (including previously PASS AS09).
+- Separately, human-voice gate BLOCK on B04 until article text included ≥3 outcome markers (`результат` / `получите` / `проверьте` / …).
+
+### How the agent recovered this run
+- Added `pain_markers_ru` / `outcome_markers_ru` (+ min thresholds) to `memory/brief/editorial-policy.json`, aligned with human-voice marker lists.
+- Patched utility gate to enforce pain/outcome only when marker lists are non-empty.
+- Minimal article FIX: insight label `Коротко`, outcome language in insight + final checklist; re-ran all QA scripts → PASS.
+
+### Durable fix needed before next run
+- Keep policy markers in sync with `excalibur_blog_human_voice_gate.py` (or share one source of truth).
+- Add regression/fixture: utility gate must PASS on a known good article sample when policy is complete.
+- Note in Writer skill: explicit outcome verbs (`получите`/`проверьте`/`результат`) required for human-voice PASS.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (partial durable fix already applied in this GEO QA run; fixer should verify sync + docs)
+
 ## INC-20260724-1710-research-webfetch-timeout-mcp-name
 status: open
 run_date: 2026-07-24

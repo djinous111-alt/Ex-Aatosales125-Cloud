@@ -1,0 +1,66 @@
+{
+  "article": "memory/blog/articles/B04-avtovoz-iz-vladivostoka-2026-kak-vybrat/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 8,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 5,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ез доказательств. Стоп: автовоз из Владивостока в 2026 выбирают не по цене в переписке, а по договору, ак",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "7 дней",
+      "kind": "metric_or_duration",
+      "context": "овора. До Москвы ориентир 18–22 дня в пути плюс 3–7 дней ожидания слота. До погрузки – свои фото/видео и а",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "18 дней",
+      "kind": "metric_or_duration",
+      "context": "–22 дня в пути + часто 3–7 дней слота ориентир 14–18 дней от отправки + слот станции Защита от погоды ниже",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "14 дней",
+      "kind": "metric_or_duration",
+      "context": "22 дня с погрузки; у части компаний редко звучит ~14 дней как экспресс. Плюс часто 3–7 дней ожидания слота.",
+      "verified": true,
+      "reason": "Numerical value '14' matched in fact-bank context"
+    },
+    {
+      "fact": "10 дней",
+      "kind": "metric_or_duration",
+      "context": "лучше окно срока, а не магическая дата \"ровно за 10 дней и вдвое дешевле рынка\". В пути держите связь в ок",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "22 дней",
+      "kind": "metric_or_duration",
+      "context": "тока в Москву? Ориентир после погрузки – около 18–22 дней; экспресс у части компаний от ~14. Плюс заложите",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "9100",
+      "kind": "large_number",
+      "context": "т автовоз из Владивостока в Москву? Маршрут около 9100 км. При пробеге порядка 400–500 км в сутки ориенти",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "500",
+      "kind": "large_number",
+      "context": "у? Маршрут около 9100 км. При пробеге порядка 400–500 км в сутки ориентир – примерно 18–22 дня с погрузк",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -29,6 +29,10 @@
     - **ЗАПРЕЩЕНО:** интерактивное оглавление — `<ol>` или `<ul>` с `<a href="#...">` на заголовки H2/H3 сразу после TL;DR. После blockquote TL;DR идёт контекстный `<p>`, затем первый `<h2>`.
     - Атрибут `id` у `<h2>` — только если нужен для внешней перелинковки; не создавай оглавление в теле статьи.
     - В конце статьи (перед FAQ) вставляй блок верификации (**Fact Check Box**) через `<blockquote>` от редакции Авто-Сейлс. **Не** упоминай Wordstat и Метрику в тексте статьи.
+13. **CTA href + Cloud secret scan:** строки `article.html` с живыми `href` из `CATALOG_URL` / `TELEGRAM_URL` (или тех же публичных marketing URL) **обязаны** содержать HTML-комментарий `<!-- pragma: allowlist secret -->` **в той же строке**, иначе pre-commit secret scanner блокирует commit. Пример:
+    ```html
+    <p><a href="https://example.catalog/...">Каталог авто</a><!-- pragma: allowlist secret --></p>
+    ```
 
 ## Выход
 

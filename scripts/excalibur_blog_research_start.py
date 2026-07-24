@@ -369,6 +369,8 @@ def run_research_start(
         "errors": errors,
         "unique_urls": _unique_urls(serp_runs),
     }
+    payload_serp = _redact_public_site_urls(payload_serp)
+    payload_context = _redact_public_site_urls(payload_context)
 
     context_path = out_dir / "research-context.json"
     serp_path = out_dir / "research-serp.json"
@@ -390,6 +392,34 @@ def run_research_start(
         "ledger_reserved": ledger_reserved,
         "dry_run": dry_run,
     }
+
+
+def _redact_public_site_urls(payload: Any) -> Any:
+    """Never persist absolute PUBLIC_SITE_URL / WP_SITE_URL into research artifacts."""
+    import os
+
+    secrets = [
+        (os.environ.get(key) or "").strip().rstrip("/")
+        for key in ("PUBLIC_SITE_URL", "WP_SITE_URL", "WP_HOME")
+    ]
+    secrets = [s for s in secrets if s and s.startswith("http")]
+    if not secrets:
+        return payload
+
+    def scrub(value: Any) -> Any:
+        if isinstance(value, dict):
+            return {k: scrub(v) for k, v in value.items()}
+        if isinstance(value, list):
+            return [scrub(v) for v in value]
+        if isinstance(value, str):
+            out = value
+            for secret in secrets:
+                if secret in out:
+                    out = out.replace(secret, "[PUBLIC_SITE_URL]")
+            return out
+        return value
+
+    return scrub(payload)
 
 
 def _unique_urls(serp_runs: list[dict[str, Any]]) -> list[dict[str, str]]:

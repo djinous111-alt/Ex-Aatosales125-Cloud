@@ -60,13 +60,20 @@ def active_article_topic_ids(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = re.match(r"((?:B|AS)\d+)-", path.name, flags=re.IGNORECASE)
         if match:
             active.add(match.group(1).upper())
     return active
 
 
+TOPIC_HEADING_RE = re.compile(
+    r"##\s+((?:B|AS)\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:B|AS)\d+\s+—|\Z)",
+    re.DOTALL | re.IGNORECASE,
+)
+
+
 def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
+    """Return first unused P0 topic from AS* or B* pool (AS cards are first-class)."""
     topics_path = root / "memory/topics/blog-topics.md"
     if not topics_path.is_file():
         return ""
@@ -77,20 +84,31 @@ def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
         if r["status"] in {"published", "in_progress", "draft_ready"}
     }
     used.update(active_article_topic_ids(root))
+    # Live WP slug overlap: if PUBLIC_SITE_URL set, reserve matching topic cards.
+    site_url = os.environ.get("PUBLIC_SITE_URL") or os.environ.get("WP_SITE_URL") or ""
+    live_slugs: set[str] = set()
+    if site_url:
+        posts, _error = fetch_recent_wp_posts(site_url)
+        live_slugs = {p["slug"].lower() for p in posts if p.get("slug")}
+
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in TOPIC_HEADING_RE.finditer(text):
         topic_id = match.group(1).upper()
         block = match.group(2)
         if "priority:** P0" not in block and "**priority:** P0" not in block:
             pri = re.search(r"-\s*\*\*priority:\*\*\s*(\S+)", block)
             if not pri or pri.group(1).upper() != "P0":
                 continue
+        slug_m = re.search(r"-\s*\*\*slug:\*\*\s*(\S+)", block)
+        slug = (slug_m.group(1).strip().lower() if slug_m else "")
+        if slug and slug in live_slugs:
+            used.add(topic_id)
         if topic_id not in used:
             return topic_id
     return ""
 
 
-def fetch_recent_wp_posts(site_url: str, limit: int = 12) -> tuple[list[dict[str, str]], str | None]:
+def fetch_recent_wp_posts(site_url: str, limit: int = 30) -> tuple[list[dict[str, str]], str | None]:
     endpoint = urljoin(
         site_url.rstrip("/") + "/",
         f"wp-json/wp/v2/posts?per_page={limit}&orderby=date&order=desc&_fields=date,link,slug,title",

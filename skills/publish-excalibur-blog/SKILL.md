@@ -61,15 +61,20 @@ python scripts/excalibur_blog_wp_publish.py \
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
 - пишет post meta `_excalibur_blog_schema_jsonld`.
 
-### 4. Cloud WebFetch Fallback
+### 4. Cloud WebFetch Fallback + REST recovery
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Если локальный HTTP-триггер bootstrap упал (timeout / RemoteDisconnected / 504):
 
-1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php` (**flush**, сразу видно при redirect stdout).
+2. Ждёт до **~300s** файл `memory/webfetch-response.txt` (Cloud WebFetch).
+3. Если fallback timed out — **REST recovery by slug**: `wp-json/wp/v2/posts?slug=…` + media → synthetic `OK post=` / `permalink=` (`publish_method=ssh+rest_recovery`).
+4. Bootstrap PHP не удаляется до OK/recovery (иначе curl получает 404).
 
-**Не останавливайся** на первом timeout — используй fallback.
+Запускай publish с `PYTHONUNBUFFERED=1`. Большой payload (~8–9MB base64) часто рвёт nginx, пока PHP-FPM ещё пишет пост — это ожидаемо, не hard-fail.
+
+**Не останавливайся** на первом timeout — используй fallback/REST.
+
+Preflight deps: `paramiko` обязателен (`pip install -r requirements.txt` / cloud-agent-install). Проверка: `python3 scripts/excalibur_blog_wp_publish.py --env-check` → `paramiko_available`.
 
 ### 5. Post-publish артефакты
 

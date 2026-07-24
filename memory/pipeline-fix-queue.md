@@ -256,7 +256,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20260724-0904-scout-helper-b-id-bias
-status: open
+status: fixed
 run_date: 2026-07-24
 role: excalibur-blog-scout
 topic_id: B02
@@ -286,10 +286,27 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-24
+fix_summary:
+- scout_helper/today parse B* and AS* topic cards; next B ID = max(B in topics+ledger+dirs)+1; skip reserved IDs.
+- Live WP slug overlap (PUBLIC_SITE_URL, per_page=30) reserves matching topic cards; B01 restored in published-articles ledger.
+- Scout skill documents AS→B migration: never restart at B01 if ledger/WP already used B-series.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/published-articles.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → B03
+- `python3 scripts/excalibur_blog_today.py` → needs_scout when AS P0 live-reserved
+- `python3 -m py_compile scripts/excalibur_blog_scout_helper.py scripts/excalibur_blog_today.py`
+commit: 0ce9ed2
 
 ## INC-20260724-0915-research-gate-ai-in-pain
-status: open
+status: fixed
 run_date: 2026-07-24
 role: excalibur-blog-research
 topic_id: B02
@@ -325,10 +342,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-24
+fix_summary:
+- tech markers use token/word-boundary match; is_technical_topic scans topic-card fields only (not notes body with reader_pain).
+- research_start redacts PUBLIC_SITE_URL/WP_SITE_URL to [PUBLIC_SITE_URL] in research artifacts.
+- Research skill documents accessed_at:/pain-map gate literals and non-tech GitHub rule.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `scripts/excalibur_blog_research_start.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `tech_marker_match('ai','…pain…') is False`; AI topic card → technical True
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py scripts/excalibur_blog_research_start.py`
+commit: 0ce9ed2
 
 ## INC-20260724-0925-writer-cta-secret-scan-pragma
-status: open
+status: fixed
 run_date: 2026-07-24
 role: excalibur-blog-writer
 topic_id: B02
@@ -357,10 +389,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-24
+fix_summary:
+- Documented CTA href allowlist pragma in writer skill, writing contract, and pitfalls.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` allowlist secret in writer skill + contract + pitfalls
+commit: 0ce9ed2
 
 ## INC-20260724-0937-geo-qa-typed-task-fallback
-status: open
+status: needs-human
 run_date: 2026-07-24
 role: excalibur-blog-geo-qa
 topic_id: B02
@@ -388,10 +431,28 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+fixed_at: 2026-07-24
+reason:
+- Durable docs updated: generalPurpose fallback is Cloud canon (AGENTS.md, pipeline-task-map, director skill/agent, CLOUD-AUTOMATION, pitfalls).
+- Cursor Cloud Task enum registration for typed `excalibur-blog-geo-qa` cannot be fixed in-repo.
+needed_decision_or_secret:
+- Register typed Task names `excalibur-blog-*` in Cursor Cloud enum (platform/needs-human), or keep using generalPurpose forever.
+files_changed:
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- `shared/pipeline-task-map.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-director.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` generalPurpose/geo-qa fallback wording in AGENTS.md + pipeline-task-map
+commit: 0ce9ed2
 
 ## INC-20260724-0938-geo-qa-utility-pain-markers-missing
-status: open
+status: fixed
 run_date: 2026-07-24
 role: excalibur-blog-geo-qa
 topic_id: B02
@@ -427,10 +488,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-24
+fix_summary:
+- Verified already in repo: editorial-policy.json has non-empty pain_markers_ru/outcome_markers_ru; utility_gate fail-fast on empty lists; pitfalls note present.
+- Smoke: utility gate PASS on B02 article.
+files_changed:
+- (verified, no further code change this fixer pass) `memory/brief/editorial-policy.json`
+- (verified) `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_utility_gate.py --article-dir memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026` → PASS
+- JSON keys pain_markers_ru/outcome_markers_ru present and non-empty
+commit: 0ce9ed2
 
 ## INC-20260724-0952-cover-kie-402-emergency-generateimage
-status: open
+status: needs-human
 run_date: 2026-07-24
 role: excalibur-blog-cover
 topic_id: B02
@@ -466,10 +539,25 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+fixed_at: 2026-07-24
+reason:
+- Durable emergency path §4b added to cover skill (both mirrors); MCP NoneType→402 note; outfit white-hoodie lock removed from prompt builder.
+- Kie credit balance cannot be topped up from repo.
+needed_decision_or_secret:
+- Top up Kie / gpt-image-2 credits (same as INC-2120) so canonical MCP i2i path works without GenerateImage emergency.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` Шаг 4b in cover skills
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+commit: 0ce9ed2
 
 ## INC-20260724-0955-indexer-llms-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-07-24
 role: excalibur-blog-indexer
 topic_id: B02
@@ -502,10 +590,24 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-24
+fix_summary:
+- Doctor asserts --blog-dir and --out-dir (not --blog-path).
+- Indexer agent/skill examples updated; pitfalls note added.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
+commit: 0ce9ed2
 
 ## INC-20260724-1004-publish-paramiko-missing-install
-status: open
+status: fixed
 run_date: 2026-07-24
 role: excalibur-blog-publish
 topic_id: B02
@@ -535,10 +637,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-24
+fix_summary:
+- cloud-agent-install.sh installs requirements.txt (includes paramiko) with fallback explicit packages.
+- Doctor checks import paramiko; --env-check reports paramiko_available.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → paramiko available OK
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check` → paramiko_available true
+commit: 0ce9ed2
 
 ## INC-20260724-1007-publish-http-disconnect-fallback-buffer
-status: open
+status: fixed
 run_date: 2026-07-24
 role: excalibur-blog-publish
 topic_id: B02
@@ -573,4 +688,18 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-24
+fix_summary:
+- Fallback wait ~300s with flush=True logging; REST recovery by slug after disconnect/timeout; bootstrap cleanup deferred until OK/recovery; publish_method ssh+rest_recovery.
+- Publish skill + wp-publish-contract + pitfalls document PYTHONUNBUFFERED=1 and large-payload pattern.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `rg` confirms no range(120); env-check notes mention 300s REST recovery
+commit: 0ce9ed2

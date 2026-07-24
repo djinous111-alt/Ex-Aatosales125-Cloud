@@ -22,7 +22,9 @@ python scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/B01-slug
 ```
 
-`--dry-run` — проверка payload без FTP.
+`--dry-run` — проверка payload без SSH.
+
+После HTTP disconnect/504 скрипт ждёт ~300s (unbuffered `FALLBACK_TRIGGER_URL`) и при необходимости восстанавливает результат через WP REST by slug. Запуск: `PYTHONUNBUFFERED=1`. Нужен пакет `paramiko`.
 
 ## Что делает publish
 

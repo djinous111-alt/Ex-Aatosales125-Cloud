@@ -129,6 +129,29 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
 
+Если MCP падает с opaque `'NoneType' object has no attribute 'get'` — сначала проверь Kie напрямую через `python3 scripts/excalibur_blog_kie_gpt_image2_api.py` (часто это **402 Credits insufficient**, а не баг MCP).
+
+### Шаг 4b — Emergency path (Kie 402 / credits insufficient)
+
+Если Kie/MCP вернул **402 Credits insufficient** (или MCP замаскировал 402 как NoneType `.get`):
+
+1. **Не** ретраи MCP/Kie (не трать биллинг на повтор).
+2. Один emergency `GenerateImage` с:
+   - `reference_image_paths=[memory/cover/assets/blog-hero-reference.png]`
+   - `aspect_ratio="16:9"`
+   - prompt из `cover/quad-mcp-batch.json` / scene_hint (outfit по погоде, не white-hoodie lock).
+3. Типичный выход GenerateImage: **1536×1024** → Pillow LANCZOS resize до **2048×1152** → сохранить как `cover/canvas-quad.png`.
+4. Дальше обычный split:
+
+```bash
+python3 scripts/excalibur_blog_cover_quad_split.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --inject-html
+```
+
+5. В fragment/cover handoff укажи `method: generateimage-emergency` и `incident_report` на Kie credits.
+6. Durable unblock следующего run: top-up Kie credits (needs-human) — emergency path только запасной.
+
 ### Шаг 5 — apply
 
 ```bash

@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260724-1730-indexer-llms-stale-blog-path
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-indexer
+topic_id: B04
+article_dir: memory/blog/articles/B04-avtovoz-iz-vladivostoka-2026-kak-vybrat
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer skill/agent still document `excalibur_blog_llms_generator.py ... --blog-path /`.
+- Actual CLI no longer accepts `--blog-path` (only `--blog-dir`, `--site-base`, `--out-dir`, …) → argparse error on first run.
+- Related doctor incident INC-20260724-1702 assumed skills already document `--blog-dir` only; Cloud skill copies still keep the stale flag.
+
+### How the agent recovered this run
+- Re-ran generator without `--blog-path`: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` → PASS; B04 present in `memory/blog/llms.txt` and `llms-full.txt`.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from all indexer contracts (plugin + Cloud copies).
+- Note in pitfalls: llms generator takes `--blog-dir` for articles; do not pass `--blog-path`.
+- Optionally align doctor/skill examples in one fixture so stale flags cannot drift again.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260724-1721-geo-qa-typed-task-missing
 status: open
 run_date: 2026-07-24

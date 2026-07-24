@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260724-1306-scout-next-id-ignores-live-wp
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-scout
+topic_id: B03
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_scout_helper.py --suggest-next` предложил `B01`, хотя на live WP уже есть статьи эпохи B01/B02 (и связанные Asia-import slugs в `EXCALIBUR_RECENT_WP_POSTS`).
+- Helper считает только `blog-topics.md` + локальные article dirs; не видит live WP и не учитывает директорский floor `B03+`.
+- `--check-query` тоже не сверяет slug/query с recent WP, только с pool/ledger → риск ложного "clean" при пересечении с уже опубликованным на сайте.
+
+### How the agent recovered this run
+- Вручную выбрал следующий свободный ID **B03** (в topics/ledger/dirs B03+ не было).
+- Сверил кандидат-slug с `EXCALIBUR_RECENT_WP_POSTS` и ledger до append.
+- Добавил P0 карточку `avto-iz-korei-ili-kitaya-2026` (comparison Корея vs Китай); utility gate PASS.
+
+### Durable fix needed before next run
+- `suggest-next` должен учитывать floor из today/handoff/live WP (минимум max(Bxx в WP recent, topics, articles)+1), а не начинать с B01 при пустом B*-pool.
+- Cannibalization check: опционально принимать список recent WP slugs/titles из `today.py` и флагать CRITICAL overlap.
+- Зафиксировать в pitfalls: при AVTO SALES / needs_scout не брать B01/B02 без сверки с live WP.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260724-1304-director-doctor-llms-blog-dir
 status: open
 run_date: 2026-07-24

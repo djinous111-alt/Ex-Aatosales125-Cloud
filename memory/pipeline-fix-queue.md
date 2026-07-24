@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260724-1304-director-doctor-llms-blog-dir
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` checked for `--blog-path` in `excalibur_blog_llms_generator.py --help`, but the generator CLI exposes `--blog-dir` only.
+- Preflight failed with `SUMMARY errors=1` (`FAIL llms generator supports --blog-path`) before Scout/pipeline could start.
+- Regression relative to prior fixer work that aligned docs/scripts on `--blog-dir`.
+
+### How the agent recovered this run
+- Updated doctor check to require `--blog-dir`.
+- Re-ran doctor: `SUMMARY errors=0 warnings=0`.
+
+### Durable fix needed before next run
+- Keep doctor CLI checks aligned with actual argparse flags of llms generator (`--blog-dir`).
+- Ensure scout helper / today.py also consider live WP + AS*/B* pool so `needs_scout` and next ID cannot restart B01 after WP use (related scout ID logic may still be stale on this branch).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

@@ -326,3 +326,35 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20260724-0925-writer-cta-secret-scan-pragma
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-writer
+topic_id: B02
+article_dir: memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026
+severity: low
+category: env
+
+### What went wrong
+- Pre-commit secret scanner blocks `git commit` when `article.html` contains live `CATALOG_URL` / `TELEGRAM_URL` href values from env (same public marketing URLs already present in published AS09/AS08 blobs).
+- Writer skill / article writing contract do not state the required allowlist marker for CTA lines.
+
+### How the agent recovered this run
+- Inserted `<!-- pragma: allowlist secret -->` on each HTML line that embeds catalog/Telegram hrefs (pattern known from prior AS18 writer runs).
+- Re-ran HTML linter PASS; char_count stays in 8500–9500.
+
+### Durable fix needed before next run
+- Document in writer skill and pitfalls: CTA hrefs from `CATALOG_URL`/`TELEGRAM_URL` require `<!-- pragma: allowlist secret -->` on the same line before commit in Cloud.
+- Optionally teach publish step to inject env URLs so repo stores placeholders only.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/excalibur-article-writing-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

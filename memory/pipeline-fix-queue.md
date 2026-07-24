@@ -6,6 +6,73 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260724-1324-geo-qa-typed-task-enum-missing
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-geo-qa
+topic_id: B03
+article_dir: memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud typed Task enum не принимает `excalibur-blog-geo-qa` (и другие `excalibur-blog-*`).
+- Директор вынужден запускать роль через `Task(generalPurpose)` + пути `.cursor/agents/` и `.cursor/skills/`.
+- Повторяется каждый Cloud run; ранее отмечалось как needs-human (typed Task registration), свежего open в очереди не было.
+
+### How the agent recovered this run
+- Выполнил GEO QA как generalPurpose fallback по контракту агента/skill.
+- Все gates + `article-qa.md` PASS без зависимости от typed enum.
+
+### Durable fix needed before next run
+- Зарегистрировать typed Task types `excalibur-blog-*` в Cloud/Cursor enum **или** канонизировать generalPurpose fallback как единственный путь в AGENTS.md / director skill / pitfalls (без ожидания typed enum).
+- Не блокировать пайплайн при отсутствии typed enum, если fallback уже задокументирован.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `CLOUD-AUTOMATION.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260724-1324-geo-qa-link-verify-head-502-fallback
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-geo-qa
+topic_id: B03
+article_dir: memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_link_verify.py` делал HEAD; при HTTP 502 сразу FAIL без GET-fallback.
+- `kolesa.kz` отдал HEAD 502 при живом GET 200 → ложный link-verify FAIL на валидной внешней ссылке из research.
+
+### How the agent recovered this run
+- Расширил GET-fallback на коды 502/503/504 (рядом с 405/501/403) в `scripts/excalibur_blog_link_verify.py`.
+- Повтор link-verify: PASS (kolesa через GET 200).
+
+### Durable fix needed before next run
+- Fixer: подтвердить патч на main; добавить regression note в pitfalls (CDN HEAD 5xx → GET).
+- Опционально: soft-warn для внешних news-доменов при одноразовом 5xx после GET тоже fail.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (script already patched this run; needs docs/confirm)
+
 ## INC-20260724-1320-writer-utility-pain-outcome-markers-missing
 status: open
 run_date: 2026-07-24

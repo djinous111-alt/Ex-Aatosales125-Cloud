@@ -29,12 +29,19 @@
     "description_aeo": "Авто из Кореи или Китая выбирают по сценарию: б/у с историей Encar vs более новое с правилом ~180 дней. Сначала бюджет и проверки, потом страна."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
-    "date": null,
-    "html_linter": null,
-    "slop_score": null,
-    "cannibalization": null
+    "score": 87,
+    "verdict": "PASS",
+    "date": "2026-07-24",
+    "html_linter": "PASS",
+    "slop_score": 0,
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility_gate": "PASS",
+    "research_notes_gate": "PASS",
+    "link_verify": "PASS",
+    "fact_check": "PASS",
+    "core_eeat": "18/20",
+    "beginner_fit": "PASS"
   },
   "cover_family": "brand_collage"
 }

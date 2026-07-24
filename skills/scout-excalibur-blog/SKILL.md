@@ -28,11 +28,15 @@ Append new Topic Card to blog-topics.md
 
 ### Шаг 1 — Анализ прошлого и получение ID
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
+* Сверь live WP через `python3 scripts/excalibur_blog_today.py` (`EXCALIBUR_RECENT_WP_POSTS`, `EXCALIBUR_BXX_FLOOR`, `EXCALIBUR_WP_MATCHED_TOPIC_IDS`).
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
+  # если ledger отстаёт от WP / памяти Director:
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next --used-ids B01,B02,B03
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Floor учитывает topics + ledger + article dirs + live WP slug match + `EXCALIBUR_USED_TOPIC_IDS`. **Не** доверяй suggest-next в одиночку, когда ledger пустой, а WP уже имеет свежие посты.
+  Запомни следующий `topic_id` (например, `B05`) и список невыполненных тем.
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
@@ -40,15 +44,16 @@ Append new Topic Card to blog-topics.md
 * Найди свежие, практические боли пользователей, по которым не хватает качественных гайдов.
 
 ### Шаг 3 — Валидация спроса (Yandex Wordstat)
-Для 2-3 отобранных вариантов тем вызови инструмент `wordstat_get_top_requests` сервера `user-mcp-kv`.
+Для 2-3 отобранных вариантов тем вызови инструмент `wordstat_get_top_requests` сервера `MCP-KV` (legacy alias: `user-mcp-kv`).
 * **Цель:** Найти ключевой запрос (primary query) с живым спросом в Яндексе и выписать 3–5 связанных поисковых вопросов для FAQ и secondary queries.
 * **Фильтр:** Если тема имеет микро-спрос (меньше 10 показов в месяц) и нет смежных тем — отложи её и возьми другую, более востребованную.
 
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
+Проверка идёт по карточкам **Bxx и ASxx** в `blog-topics.md` (не только Bxx).
 Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
 
 ### Шаг 5 — Сборка карточки темы (Utility-Only)

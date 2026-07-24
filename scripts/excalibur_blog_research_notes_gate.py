@@ -14,22 +14,29 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
-    "ai",
-    "ии",
+# Short tokens must use word-boundary matching: bare "ai" matches inside
+# "pain"/"reader_pain", bare "ии" matches inside «Азии»/«России».
+TECH_MARKERS_SUBSTRING = (
     "agent",
     "агент",
-    "mcp",
-    "api",
     "cursor",
-    "make",
     "n8n",
     "github",
     "docker",
-    "rag",
     "workflow",
     "автоматизац",
     "нейросет",
+    "искусственн",
+    "chatgpt",
+    "llm",
+)
+TECH_MARKERS_TOKEN = (
+    "ai",
+    "ии",
+    "mcp",
+    "api",
+    "rag",
+    "make",
 )
 
 
@@ -73,14 +80,35 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _token_marker_hit(blob: str, marker: str) -> bool:
+    """True when marker appears as its own token, not as a substring of another word."""
+    pattern = rf"(?<![0-9a-zа-яё_]){re.escape(marker)}(?![0-9a-zа-яё_])"
+    return bool(re.search(pattern, blob, flags=re.IGNORECASE))
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
+    # Prefer topic card fields; avoid false positives from research field names
+    # like reader_pain (contains "ai") in the notes body.
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    if any(marker in blob for marker in TECH_MARKERS_SUBSTRING):
+        return True
+    if any(_token_marker_hit(blob, marker) for marker in TECH_MARKERS_TOKEN):
+        return True
+    notes_head = notes[:2000].lower()
+    # Strip common research field labels that embed short Latin/Cyrillic tokens.
+    notes_head = re.sub(
+        r"\b(reader_pain|reader_outcome|success_criteria|pain_solution_map|voice_angle)\b",
+        " ",
+        notes_head,
+        flags=re.IGNORECASE,
+    )
+    if any(marker in notes_head for marker in TECH_MARKERS_SUBSTRING):
+        return True
+    return any(_token_marker_hit(notes_head, marker) for marker in TECH_MARKERS_TOKEN)
 
 
 def field_present(text_lower: str, field: str) -> bool:

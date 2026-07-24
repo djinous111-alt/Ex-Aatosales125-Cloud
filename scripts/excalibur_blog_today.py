@@ -60,13 +60,86 @@ def active_article_topic_ids(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = re.match(r"((?:B|AS)\d+)-", path.name, flags=re.IGNORECASE)
         if match:
             active.add(match.group(1).upper())
+            continue
+        meta_path = path / "article.meta.json"
+        if meta_path.is_file():
+            try:
+                meta = json.loads(meta_path.read_text(encoding="utf-8"))
+            except json.JSONDecodeError:
+                continue
+            topic_id = str(meta.get("topic_id") or "").strip().upper()
+            if re.match(r"^(?:B|AS)\d+$", topic_id, flags=re.IGNORECASE):
+                active.add(topic_id)
     return active
 
 
-def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
+def env_used_topic_ids() -> set[str]:
+    raw = os.environ.get("EXCALIBUR_USED_TOPIC_IDS", "").strip()
+    if not raw:
+        return set()
+    out: set[str] = set()
+    for part in re.split(r"[,;\s]+", raw):
+        token = part.strip().upper()
+        if re.match(r"^(?:B|AS)\d+$", token):
+            out.add(token)
+    return out
+
+
+def topic_slug_to_id(root: Path) -> dict[str, str]:
+    mapping: dict[str, str] = {}
+    for row in parse_published_slugs(root):
+        slug = (row.get("slug") or "").strip().lower()
+        topic_id = (row.get("topic_id") or "").strip().upper()
+        if slug and re.match(r"^(?:B|AS)\d+$", topic_id):
+            mapping[slug] = topic_id
+    topics_path = root / "memory/topics/blog-topics.md"
+    if topics_path.is_file():
+        text = topics_path.read_text(encoding="utf-8")
+        for match in re.finditer(
+            r"##\s+((?:B|AS)\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:B|AS)|\Z)",
+            text,
+            re.DOTALL | re.IGNORECASE,
+        ):
+            topic_id = match.group(1).upper()
+            block = match.group(2)
+            slug_m = re.search(r"(?:-|\*)\s*\*\*slug:\*\*\s*(\S+)", block, re.IGNORECASE)
+            if slug_m:
+                mapping[slug_m.group(1).strip().lower()] = topic_id
+    return mapping
+
+
+def match_wp_topic_ids(posts: list[dict[str, str]], slug_map: dict[str, str]) -> set[str]:
+    matched: set[str] = set()
+    for post in posts:
+        slug = (post.get("slug") or "").strip().lower()
+        if not slug:
+            continue
+        if slug in slug_map:
+            matched.add(slug_map[slug])
+            continue
+        m = re.match(r"((?:b|as)\d+)[-_]", slug, flags=re.IGNORECASE)
+        if m:
+            matched.add(m.group(1).upper())
+    return matched
+
+
+def max_b_floor(used: set[str], root: Path) -> int:
+    max_num = 0
+    for topic_id in used:
+        m = re.match(r"^B(\d+)$", topic_id, flags=re.IGNORECASE)
+        if m:
+            max_num = max(max_num, int(m.group(1)))
+    topics_path = root / "memory/topics/blog-topics.md"
+    if topics_path.is_file():
+        for m in re.finditer(r"##\s+B(\d+)\b", topics_path.read_text(encoding="utf-8"), re.IGNORECASE):
+            max_num = max(max_num, int(m.group(1)))
+    return max_num
+
+
+def next_p0_topic(root: Path, published: list[dict[str, str]], extra_used: set[str] | None = None) -> str:
     topics_path = root / "memory/topics/blog-topics.md"
     if not topics_path.is_file():
         return ""
@@ -77,8 +150,15 @@ def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
         if r["status"] in {"published", "in_progress", "draft_ready"}
     }
     used.update(active_article_topic_ids(root))
+    used.update(env_used_topic_ids())
+    if extra_used:
+        used.update(extra_used)
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in re.finditer(
+        r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:B|AS)|\Z)",
+        text,
+        re.DOTALL | re.IGNORECASE,
+    ):
         topic_id = match.group(1).upper()
         block = match.group(2)
         if "priority:** P0" not in block and "**priority:** P0" not in block:
@@ -90,7 +170,7 @@ def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
     return ""
 
 
-def fetch_recent_wp_posts(site_url: str, limit: int = 12) -> tuple[list[dict[str, str]], str | None]:
+def fetch_recent_wp_posts(site_url: str, limit: int = 30) -> tuple[list[dict[str, str]], str | None]:
     endpoint = urljoin(
         site_url.rstrip("/") + "/",
         f"wp-json/wp/v2/posts?per_page={limit}&orderby=date&order=desc&_fields=date,link,slug,title",
@@ -124,7 +204,28 @@ def main() -> None:
     root = project_root()
     now = datetime.now(TZ)
     published = parse_published_slugs(root)
-    topic_id = os.environ.get("EXCALIBUR_TOPIC_ID", "").strip().upper() or next_p0_topic(root, published)
+
+    site_url = os.environ.get("PUBLIC_SITE_URL") or os.environ.get("WP_SITE_URL") or DEFAULT_SITE_URL
+    wp_matched: set[str] = set()
+    posts: list[dict[str, str]] = []
+    wp_error: str | None = None
+    if site_url:
+        posts, wp_error = fetch_recent_wp_posts(site_url)
+        if not wp_error:
+            wp_matched = match_wp_topic_ids(posts, topic_slug_to_id(root))
+
+    topic_id = os.environ.get("EXCALIBUR_TOPIC_ID", "").strip().upper() or next_p0_topic(
+        root, published, extra_used=wp_matched
+    )
+    used_for_floor = {
+        r["topic_id"].upper()
+        for r in published
+        if r["status"] in {"published", "in_progress", "draft_ready"}
+    }
+    used_for_floor.update(active_article_topic_ids(root))
+    used_for_floor.update(env_used_topic_ids())
+    used_for_floor.update(wp_matched)
+    b_floor = max_b_floor(used_for_floor, root)
 
     print(f"EXCALIBUR_RUN_DATE={now:%Y-%m-%d}")
     print(f"EXCALIBUR_RUN_DATETIME={now:%Y-%m-%d %H:%M:%S %Z}")
@@ -132,16 +233,18 @@ def main() -> None:
     print(f"EXCALIBUR_FRESHNESS_WINDOW=prefer_sources_after_{(now.date().replace(day=1)).isoformat()}")
     print(f"EXCALIBUR_SUGGESTED_TOPIC_ID={topic_id}")
     print(f"EXCALIBUR_TOPIC_SELECTION={'ready' if topic_id else 'needs_scout'}")
+    print(f"EXCALIBUR_BXX_FLOOR={b_floor}")
+    print(f"EXCALIBUR_NEXT_B_IF_SCOUT=B{b_floor + 1:02d}")
     print(
         "EXCALIBUR_PUBLISHED_ARTICLES="
         + json.dumps(published[-10:], ensure_ascii=False)
     )
+    if wp_matched:
+        print("EXCALIBUR_WP_MATCHED_TOPIC_IDS=" + json.dumps(sorted(wp_matched), ensure_ascii=False))
 
-    site_url = os.environ.get("PUBLIC_SITE_URL") or os.environ.get("WP_SITE_URL") or DEFAULT_SITE_URL
     if site_url:
-        posts, error = fetch_recent_wp_posts(site_url)
-        if error:
-            print(f"EXCALIBUR_RECENT_WP_POSTS_ERROR={error}")
+        if wp_error:
+            print(f"EXCALIBUR_RECENT_WP_POSTS_ERROR={wp_error}")
         else:
             compact = [f"{p['date']}|{p['slug']}|{p['title']}" for p in posts]
             print("EXCALIBUR_RECENT_WP_POSTS=" + json.dumps(compact, ensure_ascii=False))

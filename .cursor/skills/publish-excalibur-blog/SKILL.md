@@ -61,15 +61,18 @@ python scripts/excalibur_blog_wp_publish.py \
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
 - пишет post meta `_excalibur_blog_schema_jsonld`.
 
-### 4. Cloud WebFetch Fallback
+### 4. Cloud WebFetch Fallback + HTTP 504 recovery
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060 / **504 Gateway Time-out**):
 
 1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
+2. Cloud-агент открывает URL через WebFetch (или один curl) и пишет ответ в `memory/webfetch-response.txt`.
 3. Скрипт продолжает и читает ответ из файла.
+4. **Не** запускай параллельные curl/WebFetch на тот же bootstrap — дублируются media filenames (`-1/-2/-3`).
+5. Nginx часто режет ~120s, а PHP-FPM на сервере всё ещё создаёт post. Если WebFetch тоже timeout: проверь live `wp-json/wp/v2/posts?slug=<slug>`. Скрипт сам делает SSH-success+HTTP-504 recovery через REST verify и пишет `publish_recovery=ssh_ok_http_504_verified`.
+6. HTTP timeout в скрипте: 300s; WebFetch wait: 180s.
 
-**Не останавливайся** на первом timeout — используй fallback.
+**Не останавливайся** на первом timeout — используй fallback, затем live verify, и только потом ручной single retry.
 
 ### 5. Post-publish артефакты
 

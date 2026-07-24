@@ -38,7 +38,7 @@ Cover и Schema **не пишут** напрямую в handoff — только
 
 ## Cloud Task fallback
 
-Если Cloud не принимает `excalibur-blog-`* как Task types → **отдельный `Task(generalPurpose)` на каждую роль** с `.cursor/agents/<role>.md` + skill path.
+**Канон:** typed `excalibur-blog-*` (в т.ч. `excalibur-blog-geo-qa`) часто нет в Cloud Task enum → сразу **отдельный `Task(generalPurpose)` на каждую роль** с `.cursor/agents/<role>.md` + skill path. Не ретрай typed name.
 
 Если недоступен даже `generalPurpose`:
 

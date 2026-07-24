@@ -31,10 +31,11 @@ python scripts/excalibur_blog_utility_gate.py --topic-id {ID}
 ## Твои задачи
 
 1. Прочитать `research-context.json` (после shell шага 0).
-2. Вызвать инструмент `wordstat_get_top_requests` на сервере `user-mcp-kv` для `primary_query` темы и смежных запросов.
+2. Вызвать инструмент `wordstat_get_top_requests` на сервере `MCP-KV` (legacy alias: `user-mcp-kv`) для `primary_query` темы и смежных запросов.
    - Собрать точный спрос (число показов в месяц) и сопутствующие LSI-ключи.
    - Если API вернул ошибку 401 (токен устарел) — зафиксировать предупреждение `⚠️ WORDSTAT AUTH WARNING` и ссылку на авторизацию (см. SKILL.md). Не выдумывать цифры спроса!
 3. Выполнить **глубокий поиск в реальном времени через WebSearch Курсора**: конкуренты, официальные docs/changelog, GitHub repos/issues/README, форумы/обсуждения, свежие статьи на дату `today_iso`.
+   - `WebFetch` timeout на competitor/docs URL — **не** research blocker: один retry, затем WebSearch page extract/snippets; URL всё равно в `source_table` с `accessed_at`.
 4. Дочитать SERP; сверить с `memory/brief/fact-bank.md`; каждая цифра или версия продукта должна иметь URL и `accessed_at`.
 5. **Угол только практический и beginner-first:** что сделает новичок после гайда (не новость, не «вообще про», не материал для профи). Ищи страхи старта: «не понимаю термин», «боюсь сломать таблицу/CRM», «не знаю, с чего начать», «кажется, что это только для программистов».
 6. Заполнить `research-notes.md` как structured brief: `research_date`, `accessed_at`, `source_table`, `wordstat`, `github_evidence`, `reader_pain`, `reader_outcome`, `success_criteria`, `voice_angle`, `reader_story`, `surprising_fact`, `pain_solution_map`, `action_outline`, `utility_verdict: PASS`. Все поля должны быть сформулированы для новичка/обычного человека, а не для архитектора или разработчика.

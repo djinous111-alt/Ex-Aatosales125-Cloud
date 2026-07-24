@@ -82,6 +82,7 @@ agent worker start --pool --pool-name excalibur-blog --idle-release-timeout 600
 | `FTP_*` | `excalibur_blog_wp_publish.py` |
 | `EXCALIBUR_BLOG_ALLOW_PUBLISH` | `yes` только когда готовы публиковать |
 | `EXCALIBUR_TOPIC_ID` | опционально фиксировать тему (иначе today.py предложит P0) |
+| `EXCALIBUR_USED_TOPIC_IDS` | доп. Bxx/ASxx floor для scout/today, если ledger отстаёт от WP |
 | `EXCALIBUR_PROJECT_ROOT` | корень репо на worker |
 
 Не коммитить: `memory/site.env.local`, реальные ключи MCP.
@@ -131,15 +132,15 @@ Windows Планировщик: `scripts/install_excalibur_windows_cron.ps1`
 2. Сбрось .cursor/excalibur-blog-handoff.md одной строкой "# Excalibur BLOG — новая сессия".
 3. Очисти .cursor/excalibur-blog-fragments/.
 4. python3 scripts/excalibur_blog_research_start.py --topic-id <из EXCALIBUR_SUGGESTED_TOPIC_ID или env>.
-5. Task(excalibur-blog-research) → research-notes.md.
-6. Task(excalibur-blog-writer) → article.html + meta.
-7. Task(excalibur-blog-geo-qa) → PASS + все QA JSON.
-8. ПАРАЛЛЕЛЬНО Task(excalibur-blog-cover) + Task(excalibur-blog-schema).
+5. Task(generalPurpose) role=research (.cursor/agents/excalibur-blog-research.md + skill) → research-notes.md.
+6. Task(generalPurpose) role=writer → article.html + meta.
+7. Task(generalPurpose) role=geo-qa → PASS + все QA JSON.
+8. ПАРАЛЛЕЛЬНО два Task(generalPurpose): cover + schema.
    Cover/schema пишут во fragments; перенеси в handoff.
-9. Task(excalibur-blog-indexer).
-10. Task(excalibur-blog-publish) — **автоматически** после Indexer (skip только publish:no). Skill: publish-excalibur-blog. Обнови shared/published-articles.md.
+9. Task(generalPurpose) role=indexer.
+10. Task(generalPurpose) role=publish — **автоматически** после Indexer (skip только publish:no). Skill: publish-excalibur-blog. Обнови shared/published-articles.md.
 
-Fallback: если Task types недоступны — generalPurpose per role (см. AGENTS.md).
+**Канон Task:** в этой Cloud-среде typed `excalibur-blog-*` часто нет в enum — сразу `generalPurpose` per role (см. AGENTS.md). Не ретрай typed names.
 
 Запрещено: single-agent pipeline, cover до QA PASS, секреты в handoff.
 

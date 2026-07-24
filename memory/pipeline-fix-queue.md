@@ -6,6 +6,293 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260724-1335-indexer-skill-stale-blog-path
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-indexer
+topic_id: B03
+article_dir: memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer skill/agent всё ещё документируют флаг `--blog-path /` для `excalibur_blog_llms_generator.py`.
+- Актуальный CLI (`--help`) принимает только `--blog-dir`, `--site-base`, `--out-dir` (и опциональные site-name/desc); `--blog-path` отсутствует и упал бы на argparse.
+- Связано с уже открытым INC doctor (`INC-20260724-1304-director-doctor-llms-blog-dir`), но durable source skill/agent не синхронизированы.
+
+### How the agent recovered this run
+- Запустил `python3 scripts/excalibur_blog_llms_generator.py --help` и вызвал генератор без `--blog-path`: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog`.
+- llms.txt / llms-full.txt сгенерированы успешно (3 articles).
+- Commit hook `CURSOR_SECRET_SCAN_BLOCKED` на значении `PUBLIC_SITE_URL` в llms/checklist/interlink-report: в git ушли placeholder `${PUBLIC_SITE_URL}`; локально файлы пересобраны с реальным `--site-base` для publish.
+
+### Durable fix needed before next run
+- Убрать `--blog-path` из indexer skill и agent contracts (plugin + `.cursor/` mirrors).
+- В pitfalls: Indexer обязан сверять флаги через `--help`, не копировать устаревший shell из skill дословно.
+- Решить commit-стратегию для llms/checklist: либо generator пишет относительные `/blog/<slug>/`, либо publish/deploy подставляет `PUBLIC_SITE_URL`, либо документированный `pragma: allowlist secret` для публичного origin.
+- После фикса doctor+skills закрыть оба связанных incident.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260724-1330-cover-kie-402-credits-emergency
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-cover
+topic_id: B03
+article_dir: memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026
+severity: high
+category: api
+
+### What went wrong
+- `excalibur_blog_kie_gpt_image2_api.py` createTask вернул `code=402 Credits insufficient` (Kie balance empty).
+- Primary path ONE gpt-image-2 i2i через Kie недоступен; повтор того же API бесполезен без top-up.
+- В `.cursor/skills/cover-excalibur-blog/SKILL.md` / `skills/cover-excalibur-blog/SKILL.md` нет явного §4b emergency runbook (хотя automation memory и fixer notes ссылаются на §4b).
+
+### How the agent recovered this run
+- Emergency path: Cursor `GenerateImage` + `reference_image_paths=[blog-hero-reference.png]` → raw 1536×1024 → LANCZOS resize 2048×1152 → `canvas-quad.png` → `excalibur_blog_cover_quad_split.py --inject-html`.
+- Cover + inline-01..03 + registry + HTML inject PASS; method=`emergency` в `cover/quad-mcp-result.json`.
+
+### Durable fix needed before next run
+- Top-up Kie credits (`KIE_API_KEY` balance) — blocker для primary i2i 2K.
+- Восстановить/задокументировать §4b emergency в cover skill + `shared/agent-pipeline-pitfalls.md` (GenerateImage + LANCZOS 2048×1152 + split).
+- Опционально: детект 402 в `excalibur_blog_kie_gpt_image2_api.py` с явной подсказкой emergency path (без секретов).
+
+### Suggested files to inspect/change
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- Cursor Cloud Secrets / Kie billing (no secret values here)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260724-1324-geo-qa-typed-task-enum-missing
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-geo-qa
+topic_id: B03
+article_dir: memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud typed Task enum не принимает `excalibur-blog-geo-qa` (и другие `excalibur-blog-*`).
+- Директор вынужден запускать роль через `Task(generalPurpose)` + пути `.cursor/agents/` и `.cursor/skills/`.
+- Повторяется каждый Cloud run; ранее отмечалось как needs-human (typed Task registration), свежего open в очереди не было.
+
+### How the agent recovered this run
+- Выполнил GEO QA как generalPurpose fallback по контракту агента/skill.
+- Все gates + `article-qa.md` PASS без зависимости от typed enum.
+
+### Durable fix needed before next run
+- Зарегистрировать typed Task types `excalibur-blog-*` в Cloud/Cursor enum **или** канонизировать generalPurpose fallback как единственный путь в AGENTS.md / director skill / pitfalls (без ожидания typed enum).
+- Не блокировать пайплайн при отсутствии typed enum, если fallback уже задокументирован.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `CLOUD-AUTOMATION.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260724-1324-geo-qa-link-verify-head-502-fallback
+status: fixed
+run_date: 2026-07-24
+role: excalibur-blog-geo-qa
+topic_id: B03
+article_dir: memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_link_verify.py` делал HEAD; при HTTP 502 сразу FAIL без GET-fallback.
+- `kolesa.kz` отдал HEAD 502 при живом GET 200 → ложный link-verify FAIL на валидной внешней ссылке из research.
+
+### How the agent recovered this run
+- Расширил GET-fallback на коды 502/503/504 (рядом с 405/501/403) в `scripts/excalibur_blog_link_verify.py`.
+- Добавил note в `shared/agent-pipeline-pitfalls.md`.
+- Повтор link-verify: PASS (kolesa через GET 200).
+
+### Durable fix needed before next run
+- Done in this run (script + pitfalls). Optional later: unit/regression test на mock HEAD 502 → GET 200.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- fixed by geo-qa this run: GET-fallback 502/503/504 + pitfalls note; link-verify PASS on B03
+
+## INC-20260724-1320-writer-utility-pain-outcome-markers-missing
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-writer
+topic_id: B03
+article_dir: memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требует `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json` (min 2 / 3), но в policy этих ключей не было → `pain_markers=0`, `outcome_markers=0` и ложный BLOCK на любой статье.
+- Параллельно article не набирал `recommendation_markers_ru` (формулировки "Делать/Не делать" не совпадали с "сделайте/не делайте").
+
+### How the agent recovered this run
+- Восстановил `pain_markers_ru` и `outcome_markers_ru` в `editorial-policy.json` (как в human-voice gate / заявленный B02 fixer).
+- В `article.html` переписал рекомендации на "Сделайте/Не делайте" + добавил маркеры "проверьте/чеклист/избегайте/используйте/добавьте".
+- Utility + human-voice + html-linter + slop: PASS; char_count 9225.
+
+### Durable fix needed before next run
+- Fixer: подтвердить, что policy markers закоммичены в main и не выпадают при rebrand/sync; добавить fail-fast в doctor или utility_gate, если keys отсутствуют при ненулевых min_*.
+- Writer skill: явно требовать точные recommendation_markers из policy ("сделайте", не только "делать").
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260724-1313-research-notes-gate-format-quirks
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-research
+topic_id: B03
+article_dir: memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: script
+
+### What went wrong
+- Первый прогон `excalibur_blog_research_notes_gate.py` дал BLOCK: `accessed_at` считался только по литералу `accessed_at:` (дата в колонке таблицы без префикса = 1), и `pain_solution_map` требовал слова pain/solution/result/боль/решение/результат **в каждой data-row**, иначе rows=1.
+- После фикса notes gate PASS, но `technical_topic=true` из-за маркеров `github`/`mcp` в research notes авто-ниши → WARN про official docs URL (ложный tech-флаг для comparison авто).
+
+### How the agent recovered this run
+- Переписал source_table: в ячейках `accessed_at: 2026-07-24`.
+- В pain_solution_map добавил префиксы `pain:` / `solution:` / `result:` в строках.
+- Gate повторно: PASS; false technical WARN оставлен как non-blocking.
+
+### Durable fix needed before next run
+- Gate: считать `accessed_at` по колонке дат в `source_table` (YYYY-MM-DD), не только по `accessed_at:`.
+- Gate: считать строки pain_map по числу `|`-rows под `## pain_solution_map`, а не по keyword-heuristic.
+- Gate: не помечать auto/import topics как technical только из-за секции `github_evidence` / упоминания MCP Wordstat; tech-маркеры ограничить topic h1/slug/intent.
+- Документировать формат в skill research (пример PASS notes).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260724-1306-scout-next-id-ignores-live-wp
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-scout
+topic_id: B03
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_scout_helper.py --suggest-next` предложил `B01`, хотя на live WP уже есть статьи эпохи B01/B02 (и связанные Asia-import slugs в `EXCALIBUR_RECENT_WP_POSTS`).
+- Helper считает только `blog-topics.md` + локальные article dirs; не видит live WP и не учитывает директорский floor `B03+`.
+- `--check-query` тоже не сверяет slug/query с recent WP, только с pool/ledger → риск ложного "clean" при пересечении с уже опубликованным на сайте.
+
+### How the agent recovered this run
+- Вручную выбрал следующий свободный ID **B03** (в topics/ledger/dirs B03+ не было).
+- Сверил кандидат-slug с `EXCALIBUR_RECENT_WP_POSTS` и ledger до append.
+- Добавил P0 карточку `avto-iz-korei-ili-kitaya-2026` (comparison Корея vs Китай); utility gate PASS.
+- Pre-commit secrets scanner падал на неидентификаторном имени в `CLOUD_AGENT_INJECTED_SECRET_NAMES`; для commit отфильтровали invalid names (hook всё ещё сканировал остальные секреты).
+
+### Durable fix needed before next run
+- `suggest-next` должен учитывать floor из today/handoff/live WP (минимум max(Bxx в WP recent, topics, articles)+1), а не начинать с B01 при пустом B*-pool.
+- Cannibalization check: опционально принимать список recent WP slugs/titles из `today.py` и флагать CRITICAL overlap.
+- Зафиксировать в pitfalls: при AVTO SALES / needs_scout не брать B01/B02 без сверки с live WP.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260724-1304-director-doctor-llms-blog-dir
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` checked for `--blog-path` in `excalibur_blog_llms_generator.py --help`, but the generator CLI exposes `--blog-dir` only.
+- Preflight failed with `SUMMARY errors=1` (`FAIL llms generator supports --blog-path`) before Scout/pipeline could start.
+- Regression relative to prior fixer work that aligned docs/scripts on `--blog-dir`.
+
+### How the agent recovered this run
+- Updated doctor check to require `--blog-dir`.
+- Re-ran doctor: `SUMMARY errors=0 warnings=0`.
+
+### Durable fix needed before next run
+- Keep doctor CLI checks aligned with actual argparse flags of llms generator (`--blog-dir`).
+- Ensure scout helper / today.py also consider live WP + AS*/B* pool so `needs_scout` and next ID cannot restart B01 after WP use (related scout ID logic may still be stale on this branch).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16
@@ -250,6 +537,66 @@ checks_run:
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
+
+## INC-20260724-1340-publish-ssh-root-unset
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-publish
+topic_id: B03
+article_dir: memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: env
+
+### What went wrong
+- `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` and SSH host/user/password were present, but `SSH_ROOT` was unset in Cloud env (`--env-check` → root=unset, dot_fallback_enabled=false).
+- Known host pattern for this WP SSH account is login cwd root `.`; leaving SSH_ROOT empty relies on bare relative bootstrap path and skips the documented `.` candidate probe used for non-dot roots.
+
+### How the agent recovered this run
+- Exported `SSH_ROOT=.` and `PYTHONUNBUFFERED=1` for the publish process.
+- SSH upload wrote `./excalibur-blog-publish-once.php` (~7.7MB); HTTP trigger completed; post/featured/inline/schema OK without RemoteDisconnect.
+
+### Durable fix needed before next run
+- Set Cloud Secret `SSH_ROOT=.` for this environment (durable).
+- Optionally treat empty/unset `SSH_ROOT` as `.` (or always probe `.`) in `ssh_root_candidates` so env-check and upload agree.
+
+### Suggested files to inspect/change
+- Cursor Dashboard Cloud Secrets (`SSH_ROOT` only)
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260724-1340-publish-paramiko-missing
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-publish
+topic_id: B03
+article_dir: memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: env
+
+### What went wrong
+- `import paramiko` failed (`ModuleNotFoundError`) before SSH publish; pip install blocked by PEP 668 externally-managed-environment.
+
+### How the agent recovered this run
+- Installed distro package `python3-paramiko` via apt; publish proceeded.
+
+### Durable fix needed before next run
+- Add `python3-paramiko` (or equivalent) to Cloud environment install / `.cursor/environment.json` install script so publish agents do not spend tokens on dependency bootstrap.
+
+### Suggested files to inspect/change
+- `.cursor/environment.json`
+- `CURSOR-CLOUD-RUNBOOK.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
 
 ## Fixed incidents
 

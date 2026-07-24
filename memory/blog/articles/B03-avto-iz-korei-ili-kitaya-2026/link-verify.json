@@ -1,0 +1,44 @@
+{
+  "source": "memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026/article.html",
+  "total_links": 4,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "https://avtosales125.ru/blog/trust-encar-carhistory-proverka-do-depozita/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_absolute",
+      "skipped": false
+    },
+    {
+      "url": "https://kolesa.kz/content/news/eksport-novyh-avto-iz-kitaya-uslozhnitsya-s-1-yanvarya-2026-goda/",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://avto-sales125.ru/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://t.me/avtosales125",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

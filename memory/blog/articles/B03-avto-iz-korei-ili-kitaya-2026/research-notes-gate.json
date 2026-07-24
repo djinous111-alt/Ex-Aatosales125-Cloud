@@ -1,0 +1,24 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026",
+  "notes": "memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026/research-notes.md",
+  "context": "memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026/research-context.json",
+  "errors": [],
+  "warnings": [
+    "technical topic has no obvious official docs/developer documentation URL"
+  ],
+  "metrics": {
+    "today_iso": "2026-07-24",
+    "prefer_sources_after": "2026-04-25",
+    "source_urls": 32,
+    "source_domains": 14,
+    "source_table_rows": 29,
+    "accessed_at": 15,
+    "github_urls": 4,
+    "official_doc_urls": 0,
+    "action_outline_items": 18,
+    "pain_solution_rows": 7,
+    "technical_topic": true
+  }
+}

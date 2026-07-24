@@ -1,0 +1,8 @@
+OK post=3553 slug=dostavka-avto-iz-vladivostoka-2026
+OK featured_image=3702
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=3703 src=cover/inline-01.png url=https://avtosales125.ru/wp-content/uploads/2026/07/dostavka-avto-iz-vladivostoka-2026-inline-01-3.png
+OK inline_image_upload=3704 src=cover/inline-02.png url=https://avtosales125.ru/wp-content/uploads/2026/07/dostavka-avto-iz-vladivostoka-2026-inline-02-3.png
+OK inline_image_upload=3705 src=cover/inline-03.png url=https://avtosales125.ru/wp-content/uploads/2026/07/dostavka-avto-iz-vladivostoka-2026-inline-03-3.png
+permalink=https://avtosales125.ru/2026/07/21/dostavka-avto-iz-vladivostoka-2026/

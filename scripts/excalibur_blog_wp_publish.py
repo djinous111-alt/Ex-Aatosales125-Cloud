@@ -8,9 +8,11 @@ import io
 import json
 import os
 import sys
+import urllib.parse
 import urllib.request
 from pathlib import Path
 from typing import Any
+from urllib.parse import urljoin
 
 from asset_download import download_url_bytes
 from excalibur_repo_paths import repo_relative
@@ -73,9 +75,17 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
 
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
     root_label = ssh_root_label(env)
+    paramiko_ok = False
+    try:
+        import paramiko  # noqa: F401
+
+        paramiko_ok = True
+    except ImportError:
+        paramiko_ok = False
     return {
         "allow_publish": env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes",
         "public_site_url_configured": bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")),
+        "paramiko_available": paramiko_ok,
         "ssh": {
             "host_configured": bool(env.get("SSH_HOST")),
             "user_configured": bool(env.get("SSH_USER")),
@@ -84,6 +94,11 @@ def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
             "dot_fallback_enabled": root_label == "configured-non-dot",
         },
         "missing": validate_publish_env(env),
+        "notes": [
+            "Large bootstrap (~8MB+) may cause nginx RemoteDisconnected/504 while PHP-FPM finishes; "
+            "script waits ~300s unbuffered and recovers via WP REST by slug.",
+            "Run with PYTHONUNBUFFERED=1 so FALLBACK_TRIGGER_URL appears immediately under redirects.",
+        ],
     }
 
 
@@ -467,47 +482,155 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+def _log(message: str = "", *, file=None) -> None:
+    """Always-flush prints so FALLBACK_TRIGGER_URL is visible under redirected stdout."""
+    print(message, file=file if file is not None else sys.stdout, flush=True)
+
+
+def trigger_bootstrap_http(url: str, root: Path, *, wait_seconds: int = 300) -> str:
     try:
-        print(f"Triggering HTTP publish on {url}...")
+        _log(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=180,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
-        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
-        print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
-        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
+        _log(
+            f"Local HTTP trigger failed ({type(e).__name__}: {e}). "
+            "Entering Cloud WebFetch Fallback mode..."
+        )
+        _log(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
+        _log(
+            f"Waiting up to {wait_seconds}s for cloud-agent to write memory/webfetch-response.txt "
+            "(or for PHP-FPM to finish after nginx disconnect)..."
+        )
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        for _ in range(wait_seconds):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
-                print("Cloud response detected successfully!")
+                _log("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {wait_seconds} seconds. "
+            "Prefer REST recovery by slug before treating as hard fail."
+        )
 
 
-def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
+def recover_publish_via_rest(public_base: str, slug: str) -> str | None:
+    """After nginx RemoteDisconnected/504, PHP-FPM may still have finished — recover via WP REST."""
+    base = public_base.rstrip("/") + "/"
+    posts_url = urljoin(
+        base,
+        f"wp-json/wp/v2/posts?slug={urllib.parse.quote(slug)}&_fields=id,link,slug,featured_media,modified_gmt,status",
+    )
+    try:
+        with urllib.request.urlopen(
+            urllib.request.Request(posts_url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
+            timeout=30,
+        ) as response:
+            posts = json.loads(response.read().decode("utf-8"))
+    except Exception as exc:  # noqa: BLE001
+        _log(f"REST recovery: posts lookup failed ({type(exc).__name__}: {exc})", file=sys.stderr)
+        return None
+
+    if not posts:
+        _log(f"REST recovery: no post found for slug={slug}", file=sys.stderr)
+        return None
+
+    post = posts[0]
+    post_id = post.get("id")
+    permalink = str(post.get("link") or "")
+    featured = post.get("featured_media") or 0
+    lines = [
+        f"OK post={post_id} slug={slug}",
+        f"permalink={permalink}",
+    ]
+    if featured:
+        lines.append(f"featured_media={featured}")
+
+    media_url = urljoin(
+        base,
+        f"wp-json/wp/v2/media?parent={post_id}&per_page=20&_fields=id,source_url,mime_type",
+    )
+    try:
+        with urllib.request.urlopen(
+            urllib.request.Request(media_url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
+            timeout=30,
+        ) as response:
+            media_items = json.loads(response.read().decode("utf-8"))
+        inline_ids = [
+            str(item.get("id"))
+            for item in media_items
+            if item.get("id") and item.get("id") != featured
+        ]
+        if inline_ids:
+            lines.append("inline_media=" + ",".join(inline_ids))
+    except Exception as exc:  # noqa: BLE001
+        _log(f"REST recovery: media lookup warning ({type(exc).__name__}: {exc})", file=sys.stderr)
+
+    lines.append("publish_method=ssh+rest_recovery")
+    out = "\n".join(lines) + "\n"
+    _log("REST recovery succeeded for slug=" + slug)
+    return out
+
+
+def publish_via_ssh(
+    env: dict[str, str],
+    php: str,
+    public_base: str,
+    *,
+    slug: str = "",
+    wait_seconds: int = 300,
+) -> str:
     remote = "excalibur-blog-publish-once.php"
     data = php.encode("utf-8")
     url = public_base.rstrip("/") + "/" + remote
     root = project_root()
 
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
+    out = ""
+    cleanup_ok = False
 
     try:
-        out = trigger_bootstrap_http(url, root)
-    finally:
         try:
-            delete_bootstrap_ssh(env, remote, uploaded_remote_path)
-        except Exception as cleanup_error:  # noqa: BLE001
-            print(f"WARN cleanup: could not delete bootstrap {remote}: {cleanup_error}", file=sys.stderr)
+            out = trigger_bootstrap_http(url, root, wait_seconds=wait_seconds)
+        except Exception as http_exc:  # noqa: BLE001
+            _log(f"HTTP/fallback path failed: {type(http_exc).__name__}: {http_exc}")
+            if slug:
+                recovered = recover_publish_via_rest(public_base, slug)
+                if recovered:
+                    out = recovered
+                else:
+                    raise
+            else:
+                raise
+        if "OK post=" not in out and slug:
+            recovered = recover_publish_via_rest(public_base, slug)
+            if recovered:
+                out = recovered
+        cleanup_ok = "OK post=" in out
+    finally:
+        # Delay cleanup until OK/recovery so parallel WebFetch/curl still finds the bootstrap.
+        if cleanup_ok or out:
+            try:
+                delete_bootstrap_ssh(env, remote, uploaded_remote_path)
+            except Exception as cleanup_error:  # noqa: BLE001
+                _log(
+                    f"WARN cleanup: could not delete bootstrap {remote}: {cleanup_error}",
+                    file=sys.stderr,
+                )
+        else:
+            _log(
+                "WARN cleanup deferred: bootstrap left in place after failed trigger "
+                f"({uploaded_remote_path}); delete manually if needed.",
+                file=sys.stderr,
+            )
     return out
 
 
@@ -588,19 +711,22 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ssh(env, php, public)
-    print(out)
+    out = publish_via_ssh(env, php, public, slug=str(payload.get("slug") or ""))
+    print(out, flush=True)
 
     result_path = article_dir / "wp-publish-result.json"
     permalink = ""
+    publish_method = "ssh"
     for line in out.splitlines():
         if line.startswith("permalink="):
             permalink = line.split("=", 1)[1].strip()
+        if line.startswith("publish_method="):
+            publish_method = line.split("=", 1)[1].strip()
     result = {
         "slug": payload["slug"],
         "topic_id": payload["topic_id"],
         "permalink": permalink,
-        "publish_method": "ssh",
+        "publish_method": publish_method,
         "cover_evidence": payload.get("cover_evidence", {}),
         "raw_output": out,
         "verdict": "pass" if "OK post=" in out else "fail",

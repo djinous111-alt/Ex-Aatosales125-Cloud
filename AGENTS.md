@@ -21,17 +21,20 @@ shell today + research_start
 
 ## Cloud Task fallback
 
-Если Cloud API не принимает `excalibur-blog-research`, `excalibur-blog-writer`, … как Task types:
+Если Cloud API не принимает `excalibur-blog-research`, `excalibur-blog-writer`, `excalibur-blog-geo-qa`, … как typed Task names:
 
-- **отдельный `Task(generalPurpose)` на каждую роль**;
+- **канон для Cloud:** отдельный `Task(generalPurpose)` на **каждую** роль (включая GEO QA);
 - передай путь `.cursor/agents/<role>.md` и `.cursor/skills/<skill>/SKILL.md`;
-- короткий контракт: входные файлы, маркер результата, запреты;
+- короткий контракт: входные файлы, маркер результата (`=== EXCALIBUR BLOG … ===`), запреты;
 - один Task = одна роль;
-- параллель `cover || schema` — **два отдельных Task** в одном сообщении.
+- параллель `cover || schema` — **два отдельных Task** в одном сообщении;
+- отсутствие имени в Cloud Task enum — **не** blocker роли: сразу generalPurpose, без ретраев typed name.
 
 Если недоступен даже `generalPurpose` Task:
 
 `❌ БЛОКЕР: Cloud Agent не может запускать отдельные Task/subagents даже через generalPurpose. Single-agent pipeline запрещён.`
+
+> Typed `excalibur-blog-*` Task enum регистрируется на стороне Cursor (needs-human / platform). В репозитории durable-фикc — явный generalPurpose fallback.
 
 ## Что считать ошибкой
 

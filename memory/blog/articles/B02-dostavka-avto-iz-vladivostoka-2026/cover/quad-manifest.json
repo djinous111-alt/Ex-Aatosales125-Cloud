@@ -1,0 +1,42 @@
+{
+  "topic_id": "B02",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Машина на СВХ — а способ ещё не выбран?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Порт Владивостока, автовоз и вагон-сетка с кроссовером, герой Авто-Сейлс, плашка ж/д или автовоз",
+      "scene_hint": "reference face + glasses ONLY; CHANGE outfit to rain-fog port weather: dark waterproof jacket over hoodie layer, no cap no hood; action selfie at Vladivostok port pier with car carrier truck AND rail grid wagon (вагон-сетка) with modern crossover; huge Cyrillic plaque «ж/д или автовоз»; yellow highlight on «автовоз»; fake catalog card avto-sales125.ru taped; pink sticky «СВХ горит»; shocked meme cutout; torn paper + scotch; corner brand avto-sales125.ru NOT Telegram; NO Wordstat NO Metrika",
+      "meme_caption_ru": "ж/д или автовоз?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Закройте СВХ до выбора перевозчика",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU checklist board: закрыть СВХ → акт осмотра → выбрать способ → только потом перевозчик; checkmarks; sticky «до оплаты»; mini customs docs inset; NO hero face",
+      "alt": "Чеклист: закрыть СВХ и акт до выбора перевозчика"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните автовоз, ж/д и перегон в одной таблице",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns автовоз / ж/д / перегон; rows срок, выдача, риск кузова, когда выбирать; tape corner; sticky «без выдуманных цен»; NO hero face",
+      "alt": "Таблица сравнения: автовоз, ж/д и перегон из Владивостока"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Выберите автовоз, если нужен маршрут \"до города\"",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram RU: СВХ → автовоз → город получателя; icons truck/city; note «дверь в дверь»; sticky «если нужен город»; NO hero face",
+      "alt": "Схема маршрута автовоза: СВХ → до города"
+    }
+  }
+}

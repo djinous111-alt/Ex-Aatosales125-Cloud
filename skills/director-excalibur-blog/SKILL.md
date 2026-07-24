@@ -213,10 +213,13 @@ Task(excalibur-blog-publish)
 
 Если typed Task `excalibur-blog-*` недоступны:
 
-1. Используй fallback из `AGENTS.md`: отдельный `Task(generalPurpose)` на каждую роль с `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`.
-2. Если недоступен даже `generalPurpose`, тогда:
+1. Используй fallback из `AGENTS.md` / `shared/pipeline-task-map.md`: отдельный `Task(generalPurpose)` на каждую роль с `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md` + маркер результата. Это **канон Cloud**, не разовый workaround (в т.ч. для `excalibur-blog-geo-qa`).
+2. Не трать шаги на повторный typed Task с тем же именем после первого отказа enum.
+3. Если недоступен даже `generalPurpose`, тогда:
 
 `❌ БЛОКЕР: среда не поддерживает Task/subagents. Single-agent pipeline запрещён.`
+
+Регистрация typed Task names в Cursor Cloud enum — needs-human / platform; репозиторий держит только durable fallback docs.
 
 ## Fragment финала
 

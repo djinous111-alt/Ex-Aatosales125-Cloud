@@ -1,20 +1,20 @@
 # Excalibur BLOG — карта задач и субагентов
 
-Директор **не** Task. Все роли ниже — `Task(<name>)`.
+Директор **не** Task. Все роли ниже — `Task(<name>)` **или** (канон Cloud fallback) `Task(generalPurpose)` с `.cursor/agents/<role>.md` + skill path, если typed name отсутствует в Cloud enum.
 
 ## Схема
 
 ```text
 [Д] Директор (чат)
   │
-  ├─ 🔍 Task(excalibur-blog-scout)       ← Генерация / подбор свежих тем
+  ├─ 🔍 Task(excalibur-blog-scout) | generalPurpose fallback
   │
   ├─ shell: excalibur_blog_today.py
   ├─ shell: excalibur_blog_research_start.py
   │
-  ├─ ① Task(excalibur-blog-research)
-  ├─ ② Task(excalibur-blog-writer)
-  ├─ ③ Task(excalibur-blog-geo-qa)
+  ├─ ① Task(excalibur-blog-research) | generalPurpose
+  ├─ ② Task(excalibur-blog-writer) | generalPurpose
+  ├─ ③ Task(excalibur-blog-geo-qa) | generalPurpose   ← часто нет в Cloud enum
   │
   ├─ ④a Task(excalibur-blog-cover)  ─┐ параллель
   ├─ ④b Task(excalibur-blog-schema) ─┘
@@ -23,6 +23,20 @@
   ├─ ⑥ Task(excalibur-blog-publish)   ← автоматически после Indexer (skip только publish:no)
   └─ ⑦ Task(excalibur-blog-fixer)     ← только если memory/pipeline-fix-queue.md содержит open incidents
 ```
+
+## Cloud generalPurpose fallback (канон)
+
+Если typed Task `excalibur-blog-*` не принимается API:
+
+```text
+Task(generalPurpose):
+- Прочитай .cursor/agents/<role>.md и .cursor/skills/<skill>/SKILL.md
+- Вход: <paths>
+- Верни маркер === EXCALIBUR BLOG <ROLE> ===
+- Запрещено: выполнять чужие роли / single-agent pipeline
+```
+
+Один Task = одна роль. Cover||schema = два Task. Отсутствие `excalibur-blog-geo-qa` в enum → сразу generalPurpose, без ретраев typed name.
 
 ## Таблица распределения
 

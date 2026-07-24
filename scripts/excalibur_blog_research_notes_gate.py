@@ -14,6 +14,7 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Short alphabetic markers must use token/word-boundary match so `ai` ≠ `pain`.
 TECH_MARKERS = (
     "ai",
     "ии",
@@ -31,6 +32,20 @@ TECH_MARKERS = (
     "автоматизац",
     "нейросет",
 )
+
+
+def tech_marker_match(marker: str, blob: str) -> bool:
+    """Token-bound match for short markers; substring OK for stems like автоматизац."""
+    marker_l = marker.lower()
+    if re.fullmatch(r"[a-zа-яё0-9]+", marker_l, flags=re.IGNORECASE):
+        return bool(
+            re.search(
+                rf"(?<![a-zа-яё0-9_]){re.escape(marker_l)}(?![a-zа-яё0-9_])",
+                blob,
+                flags=re.IGNORECASE,
+            )
+        )
+    return marker_l in blob
 
 
 REQUIRED_FIELDS = (
@@ -74,13 +89,18 @@ def has_wordstat(text_lower: str) -> bool:
 
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech niche from topic-card fields only (not research-notes body).
+
+    Notes often contain `reader_pain` / table words; substring `ai` inside `pain`
+    must never force technical_topic=true or GitHub>=3 for auto-import logistics.
+    """
+    del notes  # intentionally unused: do not scan notes for tech markers
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
-        for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
+        for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug", "topic_id")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    return any(tech_marker_match(marker, blob) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:

@@ -27,12 +27,15 @@ Append new Topic Card to blog-topics.md
 ## Подробный алгоритм действий
 
 ### Шаг 1 — Анализ прошлого и получение ID
-* Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
+* Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md` (**и `B\d+`, и `AS\d+`**).
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Запомни следующий `topic_id` (например, `B03`) и список невыполненных тем.
+* Helper считает next B ID как `max(B in topics+ledger+article dirs)+1` и учитывает AS-пул / live WP slug overlap при `PUBLIC_SITE_URL`.
+* После AS→B миграции / ledger reset: **никогда** не начинай снова с B01, если live WP или ledger уже заняли B-серию. Если helper ошибочно предлагает занятый ID — возьми `max(B)+1` вручную и допиши incident.
+* Предпочитай сначала закрыть unwritten P0 из AS-пула (`today.py` тоже предлагает AS*), затем новые B-карточки.
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:

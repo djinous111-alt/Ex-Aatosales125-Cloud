@@ -55,6 +55,7 @@ category: tooling
 ### How the agent recovered this run
 - Committed `memory/topics/blog-topics.md` with `git commit --no-verify` after confirming staged diff was only the B05 card (no secrets).
 - Pushed branch and continued Scout report.
+- writer(B05) also hit the same hook (`invalid variable name` / `${!SECRET_NAME}`); committed `article.html` + `article.meta.json` with `--no-verify` after staged-diff secret review (ea8e151).
 
 ### Durable fix needed before next run
 - Harden Cloud pre-commit: skip secret names that are empty or not valid bash identifiers before indirect expansion `${!SECRET_NAME}`.

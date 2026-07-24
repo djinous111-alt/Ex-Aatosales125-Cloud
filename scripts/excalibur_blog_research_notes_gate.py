@@ -93,6 +93,42 @@ def field_present(text_lower: str, field: str) -> bool:
     return bool(re.search(rf"\b{field_pattern}\b\s*:", text_lower, flags=re.I))
 
 
+def count_accessed_at(text: str) -> int:
+    """Count source access dates.
+
+    Accepts:
+    - explicit ``accessed_at: YYYY-MM-DD`` (preferred in cells and front matter);
+    - bare ISO dates in the ``accessed_at`` column of ``## source_table``.
+    """
+    text_lower = text.lower()
+    explicit = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+
+    table_dates = 0
+    section_match = re.search(
+        r"##\s*\d*\.?\s*source_table\b([\s\S]*?)(?=\n##\s|\Z)",
+        text,
+        flags=re.I,
+    )
+    if section_match:
+        lines = [ln.strip() for ln in section_match.group(1).splitlines() if ln.strip().startswith("|")]
+        if lines:
+            headers = [h.strip().lower() for h in lines[0].strip("|").split("|")]
+            try:
+                idx = headers.index("accessed_at")
+            except ValueError:
+                idx = -1
+            if idx >= 0:
+                for row in lines[1:]:
+                    # markdown separator row
+                    if re.match(r"^\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)+\|?\s*$", row):
+                        continue
+                    cells = [c.strip() for c in row.strip("|").split("|")]
+                    if idx < len(cells) and re.search(r"\d{4}-\d{2}-\d{2}", cells[idx]):
+                        table_dates += 1
+
+    return max(explicit, table_dates)
+
+
 def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     root = project_root()
     notes_path = article_dir / "research-notes.md"
@@ -130,7 +166,7 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
     pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
     action_items = count_action_items(text)

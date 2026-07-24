@@ -59,6 +59,7 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 3. Микро-исследование Wordstat через `user-mcp-kv` -> `wordstat_get_top_requests` (см. выше).
 4. Извлеки минимум 10–15 проверенных фактов (цифр/утверждений) с точными URL источников из твоего интернет-поиска.
 5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.
+5a. В `## source_table` колонка `accessed_at`: канон **`accessed_at: YYYY-MM-DD`** в каждой строке (не голая дата). Gate считает и префикс с двоеточием, и ISO в колонке `accessed_at`.
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
 

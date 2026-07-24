@@ -76,3 +76,4 @@ Terminal states:
 - One API task per article cover run, not four separate images.
 - `input_urls` is required; text-only generation is a cover blocker.
 - Do not retry createTask blindly after a network ambiguity if a `taskId` is known; poll the known task.
+- **402 Credits insufficient / billing fail:** do not retry-loop. Use emergency **§4b** in `skills/cover-excalibur-blog/SKILL.md`: ONE `GenerateImage` 16:9 + LANCZOS resize to **2048×1152** + `excalibur_blog_cover_quad_split.py --inject-html`. File an incident for Kie top-up; continue the pipeline.

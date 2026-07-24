@@ -122,19 +122,46 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE MCP / Kie API (канон)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
-
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
-
-### Шаг 5 — apply
+Предпочтительно:
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+Или `CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
+Аргументы = `jobs[0].mcp_args` из batch.
+
+Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K → canvas **2048×1152**.
+
+### Шаг 4b — emergency (Kie/MCP 402 Credits / billing fail)
+
+Если `createTask` / MCP вернул **402 Credits insufficient** (или аналог credit/billing fail):
+
+1. **Не** крутить createTask / не жечь кредиты в retry-loop.
+2. ONE `GenerateImage` 16:9 с blog-hero reference и тем же quad-промптом (один холст 2×2, не 4 картинки).
+3. Если выход ≠ 2048×1152 (часто 1536×1024): Pillow **LANCZOS** resize → **2048×1152**, сохранить как `cover/canvas-quad.png`.
+4. Split + inject:
+
+```bash
+python3 scripts/excalibur_blog_cover_quad_split.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --inject-html
+```
+
+5. В `cover/quad-mcp-result.json` / `kie-image-task.json` зафиксировать `generation_method: GenerateImage_emergency_4b` и причину (402).
+6. Дописать incident в `memory/pipeline-fix-queue.md` (top-up Kie) и продолжить пайплайн.
+
+**Guard на canvas:** без фейковых сумм пошлины / `%` / `₽` на панелях, если редакция запрещает статические тарифы.
+
+### Шаг 5 — apply (если есть URL с шага 4)
+
+```bash
+python3 scripts/excalibur_blog_quad_apply.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --url "<MCP/Kie result url>" \
   --inject-html
 ```
 

@@ -1,7 +1,7 @@
 # Promotion checklist — B05 rastamozhka-elektromobilya-iz-kitaya-2026
 
-Дата публикации: 2026-07-25 (pending WP publish)  
-Live URL: (после publish) /blog/rastamozhka-elektromobilya-iz-kitaya-2026/
+Дата публикации: 2026-07-25  
+Live URL: [REDACTED]/2026/07/25/rastamozhka-elektromobilya-iz-kitaya-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Путь: проверка → СВХ → платежи на своё имя → СБКТС → ЭПТС → ГИБДД
 • Суммы пошлин не из статьи — расчёт под модель в каталоге / @avtosales125
 
-Читать: (live URL после publish)
+Читать: [REDACTED]/2026/07/25/rastamozhka-elektromobilya-iz-kitaya-2026/
 ```
 
 ## Перелинковка

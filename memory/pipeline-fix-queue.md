@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260724-2140-publish-paramiko-missing
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-publish
+topic_id: B05
+article_dir: memory/blog/articles/B05-rastamozhka-elektromobilya-iz-kitaya-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud image lacked `paramiko`; `excalibur_blog_wp_publish.py` SSH transport could not import it until `pip3 install --break-system-packages paramiko`.
+- `SSH_ROOT` unset in env-check (`root: unset`); publish succeeded with `SSH_ROOT=.` (login cwd), matching known pattern.
+
+### How the agent recovered this run
+- Installed paramiko via pip with `--break-system-packages` (PEP 668).
+- Ran publish with `SSH_ROOT=.`; HTTP trigger completed in ~122s without fallback/504.
+- Redacted site base in committed publish artifacts per secret-scan policy.
+
+### Durable fix needed before next run
+- Bake `paramiko` into Dockerfile / `cloud-agent-install.sh` so publish agents do not reinstall each run.
+- Ensure Cloud Secret `SSH_ROOT=.` is set so env-check reports root without relying on agent override.
+
+### Suggested files to inspect/change
+- `Dockerfile` / `.cursor/environment.json` / `cloud-agent-install.sh`
+- Cursor Dashboard Cloud Secrets (`SSH_ROOT` only)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260724-2135-indexer-llms-blog-path-stale
 status: open
 run_date: 2026-07-25

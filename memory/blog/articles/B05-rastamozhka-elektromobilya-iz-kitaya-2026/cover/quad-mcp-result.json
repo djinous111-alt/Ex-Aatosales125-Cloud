@@ -1,0 +1,8 @@
+{
+  "url": null,
+  "generation_method": "GenerateImage_emergency_4b",
+  "reason": "Kie API createTask code=402 Credits insufficient",
+  "source_artifact": "B05-canvas-quad-gen-v2.png",
+  "resize": "LANCZOS 1536x1024 -> 2048x1152",
+  "reference": "memory/cover/assets/blog-hero-reference.png"
+}

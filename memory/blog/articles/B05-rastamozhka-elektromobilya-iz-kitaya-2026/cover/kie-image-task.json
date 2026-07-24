@@ -1,0 +1,6 @@
+{
+  "status": "fail",
+  "code": 402,
+  "msg": "Credits insufficient",
+  "fallback": "GenerateImage_emergency_4b"
+}

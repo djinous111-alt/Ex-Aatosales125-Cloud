@@ -1,0 +1,42 @@
+{
+  "topic_id": "B05",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Электро из Китая: сначала чек-лист",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у китайского электрокроссовера в порту Владивостока, плашка электро из Китая",
+      "scene_hint": "WEATHER: cool foggy Vladivostok port morning; OUTFIT: matte navy windbreaker over light grey hoodie layer (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie in front of modern Chinese electric crossover at Vladivostok port containers; Cyrillic plaque «электро из Китая» with yellow highlighter on «электро»; torn paper hook «Электро из Китая: сначала чек-лист»; fake phone UI customs checklist scrap + catalog car card taped with scotch; shocked meme cutout + facepalm sticker (different formats); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; no toxic labels",
+      "meme_caption_ru": "Сначала чек-лист"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Сравните: чем растаможка EV отличается от обычного авто из Китая",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI 16:9: columns EV из Китая | обычное авто; rows СБКТС/батарея/утиль/документы; yellow highlight EV battery row; sticky note «не путать»; scotch tape corner; NO hero face; NO Wordstat/Metrika; no toxic labels",
+      "alt": "Таблица: чем растаможка электромобиля из Китая отличается от обычного авто"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Разберите словарь: СВХ, СБКТС, ЭПТС без боли",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram left-to-right: СВХ → платежи → СБКТС → ЭПТС → ГИБДД; simple icons, marker arrows, mini sticky «словарь»; paper collage light human touch; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема этапов: СВХ, СБКТС, ЭПТС для электромобиля из Китая"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте до депозита: батарея, мощность, документы",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable checklist board before deposit: 1) батарея SOH 2) мощность кВт 3) документы на себя 4) схема поставки 5) расчёт под модель; red stamp «до депозита»; pink sticky «проверка»; tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Чеклист проверки до депозита: батарея, мощность, документы EV из Китая"
+    }
+  }
+}

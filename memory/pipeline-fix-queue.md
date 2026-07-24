@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260724-2130-cover-kie-402-credits
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-cover
+topic_id: B05
+article_dir: memory/blog/articles/B05-rastamozhka-elektromobilya-iz-kitaya-2026
+severity: high
+category: api
+
+### What went wrong
+- Canonical Kie path `excalibur_blog_kie_gpt_image2_api.py` failed createTask with code=402 Credits insufficient.
+- Cover skill / agents docs still treat MCP/Kie gpt-image-2 as sole path; emergency §4b GenerateImage+LANCZOS is known in automation memory but not fully mirrored into `.cursor/skills/cover-excalibur-blog/SKILL.md`.
+
+### How the agent recovered this run
+- ONE GenerateImage 16:9 with blog-hero reference → 1536×1024 → Pillow LANCZOS resize 2048×1152 → `excalibur_blog_cover_quad_split.py --inject-html`.
+- Regenerated once to remove fake duty/%/₽ amounts from comparison panel (editorial: no static fee figures).
+
+### Durable fix needed before next run
+- Top up Kie credits for canonical gpt-image-2 i2i.
+- Document §4b emergency path explicitly in cover skill + pitfalls (GenerateImage + LANCZOS 2048×1152 + split).
+- Optional: prompt/style guard «no ruble amounts / no duty percentages on canvas».
+
+### Suggested files to inspect/change
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/kie-gpt-image-api-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260725-2120-geo-qa-utility-pain-outcome-policy-empty
 status: fixed
 run_date: 2026-07-25

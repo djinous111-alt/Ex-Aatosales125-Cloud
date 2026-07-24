@@ -1,0 +1,94 @@
+{
+  "article": "memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 12,
+  "verified_facts_count": 4,
+  "unverified_facts_count": 8,
+  "facts": [
+    {
+      "fact": "2026 год",
+      "kind": "date_or_year",
+      "context": "апины без акта. Ниже – сравнение трёх способов на 2026 год: сроки-ориентиры, стоп-правила перед сдачей и чек",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "зному. Цифры – ориентиры открытых прайсов на июль 2026, не гарантия договора. Перед оплатой переспрашива",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "ее. Живой кейс Drive2 (Владивосток → СПб, декабрь 2025): 16 дней и около 212,5 тыс. ₽ с страховкой – оди",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "18 дней",
+      "kind": "metric_or_duration",
+      "context": "нтир) примерно 12–23 суток с очередью примерно 14–18 дней в пути + набор вагона часто 10–14 дней чистой езд",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "14 дней",
+      "kind": "metric_or_duration",
+      "context": "римерно 14–18 дней в пути + набор вагона часто 10–14 дней чистой езды Бюджет (ориентир, легковой) порядок ~",
+      "verified": true,
+      "reason": "Numerical value '14' matched in fact-bank context"
+    },
+    {
+      "fact": "23 дней",
+      "kind": "metric_or_duration",
+      "context": "ры матриц 2026: до Москвы легковой часто около 18–23 дней и порядка ~150 тыс. ₽; до СПб чуть дольше; до Нов",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "16 дней",
+      "kind": "metric_or_duration",
+      "context": "ой кейс Drive2 (Владивосток → СПб, декабрь 2025): 16 дней и около 212,5 тыс. ₽ с страховкой – один маршрут,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 дней",
+      "kind": "metric_or_duration",
+      "context": "айте остаток бесплатных суток (часто окно около 5–10 дней) и закрывайте осмотр плюс бронь в этом горизонте.",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "9000",
+      "kind": "large_number",
+      "context": "о Владивостоке разбираем логистику без геройства \"9000 км сам\" – с упором на кузов и план. Закройте СВХ д",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "150",
+      "kind": "large_number",
+      "context": "чистой езды Бюджет (ориентир, легковой) порядок ~150 тыс. ₽ до Москвы порядок ~175–225 тыс. ₽ по ж/д пр",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "225",
+      "kind": "large_number",
+      "context": "ковой) порядок ~150 тыс. ₽ до Москвы порядок ~175–225 тыс. ₽ по ж/д прайсам 2026 \"дешевле на бумаге\" + т",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "9300",
+      "kind": "large_number",
+      "context": "адивосток–Москва – примерно 14–18 дней в пути на ~9300 км. Но ж/д почти никогда не равно \"до двора\". Напр",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

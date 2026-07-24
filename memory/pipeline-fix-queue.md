@@ -358,3 +358,73 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20260724-0937-geo-qa-typed-task-fallback
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-geo-qa
+topic_id: B02
+article_dir: memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026
+severity: medium
+category: api
+
+### What went wrong
+- Cloud Task enum не принимает typed `excalibur-blog-geo-qa`; роль запущена через `Task(generalPurpose)` fallback с путями `.cursor/agents/excalibur-blog-geo-qa.md` и `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Выполнил полный GEO QA контракт как generalPurpose: все QA-скрипты, article-qa.md, handoff-блок `=== EXCALIBUR BLOG GEO QA ===`.
+
+### Durable fix needed before next run
+- Зарегистрировать typed Task `excalibur-blog-geo-qa` в Cloud enum **или** явно зафиксировать в director/CLOUD-AUTOMATION, что generalPurpose fallback — канон, без сюрприза на каждом шаге.
+- В director skill держать короткий prompt-шаблон generalPurpose для каждой роли (уже частично в AGENTS.md).
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+- `AGENTS.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260724-0938-geo-qa-utility-pain-markers-missing
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-geo-qa
+topic_id: B02
+article_dir: memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` считает `pain_markers` / `outcome_markers` по спискам из `memory/brief/editorial-policy.json`, но в policy не было ключей `pain_markers_ru` / `outcome_markers_ru`.
+- При пустых списках `count` всегда 0, а `min_pain_markers`/`min_outcome_markers` дефолтятся к 2/3 → **любая** статья получала `UTILITY ARTICLE BLOCKER` (подтверждено на AS08/AS09 до фикса).
+- Текст B02 при этом уже проходил human-voice pain/outcome (hardcoded маркеры в `excalibur_blog_human_voice_gate.py`).
+- Ранее в automation memory фигурировал INC-2115 (B01 fixer) про тот же класс бага — маркеры снова отсутствовали в policy на старте B02 GEO QA.
+
+### How the agent recovered this run
+- Добавил в `memory/brief/editorial-policy.json` списки `pain_markers_ru` / `outcome_markers_ru` (согласованы с human-voice + нишевые: страх/риск/простой/переплат/критерий успеха/чек-лист) и min в `article_required_signals`.
+- Усилил `excalibur_blog_utility_gate.py`: пустые списки маркеров → явная ошибка `policy incomplete`, а не false «слабая боль».
+- Дописал pitfalls про обязательные маркеры в policy.
+- Перезапустил utility gate → PASS (pain=23, outcome=8). `article.html` не менялся.
+
+### Durable fix needed before next run
+- В `excalibur_blog_utility_gate.py`: если списки маркеров пусты — не применять min-порог (или fail-fast с явной ошибкой «policy incomplete»), чтобы пустой policy не валил все статьи.
+- Синхронизировать маркеры utility ↔ human-voice (один source of truth) и кратко описать в pitfalls.
+- Регрессионный smoke: utility gate на AS09/B02 должен PASS на чистом policy; не допускать silent regression маркеров.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

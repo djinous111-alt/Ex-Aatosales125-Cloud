@@ -56,7 +56,7 @@ checks_run:
 - JSON parse + assert pain/outcome lists and mins
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir …/B05-…` → PASS
 - empty-list skip smoke (warnings, no pain/outcome BLOCK)
-commit: 4f81626
+commit: 5351322
 
 ## INC-20260725-2115-research-accessed-at-colon-format
 status: open
@@ -133,7 +133,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - pitfalls note present (`rg` pre-commit / SECRET_NAME)
-commit: 4f81626
+commit: 5351322
 
 ## INC-20260724-2104-director-doctor-blog-path
 status: fixed
@@ -176,7 +176,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_doctor.py`
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0; OK llms generator supports --blog-dir
 - `rg` confirms no `--blog-path` assert remains in doctor
-commit: 4f81626
+commit: 5351322
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

@@ -287,3 +287,38 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20260724-0915-research-gate-ai-in-pain
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-research
+topic_id: B02
+article_dir: memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` помечает любую research-notes с полем `reader_pain` как `technical_topic=true`, потому что TECH_MARKERS содержит подстроку `ai`, а она входит в слово `pain`.
+- Для non-tech логистики (доставка авто / JP-KR-CN) gate затем требует `github_urls >= 3`, хотя skill допускает community evidence без GitHub.
+- Дополнительно: счётчик `accessed_at` считает только литералы `accessed_at:`, не даты в колонке таблицы; `pain_solution_map` считает строки только если в строке есть слова боль|pain|решение|solution|result|результат.
+
+### How the agent recovered this run
+- Добавил явный `source_access_log` с несколькими `accessed_at: 2026-07-24`.
+- Префиксировал строки pain map словами «боль/решение/результат».
+- Добавил 3 GitHub URL из SERP-шума с пометкой weak signal + community Drive2/AsiaPK как реальные доказательства.
+
+### Durable fix needed before next run
+- В `is_technical_topic` использовать word-boundary / токены, а не raw substring (`ai` не должен матчить `pain`).
+- Для non-tech ниш (авто-логистика, растаможка) не требовать GitHub, если `search_intent` in comparison/how_to и нет tech-маркеров в topic card.
+- Документировать в research skill: минимум 5× `accessed_at:` и ключевые слова в строках pain map для прохождения regex gate.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

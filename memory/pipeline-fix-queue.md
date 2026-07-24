@@ -23,10 +23,12 @@ category: docs
 ### How the agent recovered this run
 - Запустил `python3 scripts/excalibur_blog_llms_generator.py --help` и вызвал генератор без `--blog-path`: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog`.
 - llms.txt / llms-full.txt сгенерированы успешно (3 articles).
+- Commit hook `CURSOR_SECRET_SCAN_BLOCKED` на значении `PUBLIC_SITE_URL` в llms/checklist/interlink-report: в git ушли placeholder `${PUBLIC_SITE_URL}`; локально файлы пересобраны с реальным `--site-base` для publish.
 
 ### Durable fix needed before next run
 - Убрать `--blog-path` из indexer skill и agent contracts (plugin + `.cursor/` mirrors).
 - В pitfalls: Indexer обязан сверять флаги через `--help`, не копировать устаревший shell из skill дословно.
+- Решить commit-стратегию для llms/checklist: либо generator пишет относительные `/blog/<slug>/`, либо publish/deploy подставляет `PUBLIC_SITE_URL`, либо документированный `pragma: allowlist secret` для публичного origin.
 - После фикса doctor+skills закрыть оба связанных incident.
 
 ### Suggested files to inspect/change
@@ -35,6 +37,8 @@ category: docs
 - `agents/excalibur-blog-indexer.md`
 - `.cursor/agents/excalibur-blog-indexer.md`
 - `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
 
 ### Secrets
 - none recorded

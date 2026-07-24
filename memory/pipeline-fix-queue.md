@@ -24,6 +24,7 @@ category: script
 - Вручную выбрал следующий свободный ID **B03** (в topics/ledger/dirs B03+ не было).
 - Сверил кандидат-slug с `EXCALIBUR_RECENT_WP_POSTS` и ledger до append.
 - Добавил P0 карточку `avto-iz-korei-ili-kitaya-2026` (comparison Корея vs Китай); utility gate PASS.
+- Pre-commit secrets scanner падал на неидентификаторном имени в `CLOUD_AGENT_INJECTED_SECRET_NAMES`; для commit отфильтровали invalid names (hook всё ещё сканировал остальные секреты).
 
 ### Durable fix needed before next run
 - `suggest-next` должен учитывать floor из today/handoff/live WP (минимум max(Bxx в WP recent, topics, articles)+1), а не начинать с B01 при пустом B*-pool.

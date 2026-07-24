@@ -25,7 +25,7 @@ checks_run:
 - `rg` no instructional `--blog-path /` in indexer agents/skills
 - `python3 scripts/excalibur_blog_llms_generator.py --help` (has `--blog-dir`, no `--blog-path`)
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
-commit: e85ccbd
+commit: 107d454
 
 run_date: 2026-07-24
 role: excalibur-blog-indexer
@@ -85,7 +85,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_kie_gpt_image2_api.py`
 - `rg` §4b / emergency in cover skills
-commit: e85ccbd
+commit: 107d454
 
 run_date: 2026-07-24
 role: excalibur-blog-cover
@@ -142,7 +142,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` generalPurpose canon in AGENTS.md / pitfalls / director skill
-commit: e85ccbd
+commit: 107d454
 
 run_date: 2026-07-24
 role: excalibur-blog-geo-qa
@@ -226,7 +226,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → OK pain/outcome markers
 - `python3 -m py_compile scripts/excalibur_blog_utility_gate.py scripts/excalibur_blog_doctor.py`
-commit: e85ccbd
+commit: 107d454
 
 run_date: 2026-07-24
 role: excalibur-blog-writer
@@ -277,7 +277,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
 - B03 research-notes-gate → PASS; technical_topic=False; accessed_at=15; pain_solution_rows=6
-commit: e85ccbd
+commit: 107d454
 
 run_date: 2026-07-24
 role: excalibur-blog-research
@@ -331,7 +331,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → Next B*=B04 (not B01)
 - `python3 scripts/excalibur_blog_today.py` → EXCALIBUR_NEXT_B_ID=B04 / MAX_B_SEEN=3
 - `python3 -m py_compile` scout_helper + today
-commit: e85ccbd
+commit: 107d454
 
 run_date: 2026-07-24
 role: excalibur-blog-scout
@@ -381,7 +381,7 @@ files_changed:
 - indexer skills/agents (see INC-1335)
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → OK llms generator supports --blog-dir; SUMMARY errors=0 warnings=0
-commit: e85ccbd
+commit: 107d454
 
 run_date: 2026-07-24
 role: excalibur-blog-director
@@ -466,7 +466,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: e85ccbd
+commit: 107d454
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -517,7 +517,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: e85ccbd
+commit: 107d454
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -558,7 +558,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: e85ccbd
+commit: 107d454
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -605,7 +605,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: e85ccbd
+commit: 107d454
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -659,7 +659,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: e85ccbd
+commit: 107d454
 
 ## INC-20260724-1340-publish-ssh-root-unset
 status: fixed
@@ -678,7 +678,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_doctor.py` → SSH_ROOT OK / SUMMARY errors=0
-commit: e85ccbd
+commit: 107d454
 
 run_date: 2026-07-24
 role: excalibur-blog-publish
@@ -727,7 +727,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → OK paramiko available
 - `python3 -c "import paramiko"`
-commit: e85ccbd
+commit: 107d454
 
 run_date: 2026-07-24
 role: excalibur-blog-publish

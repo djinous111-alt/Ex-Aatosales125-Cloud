@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B04-avtovoz-iz-vladivostoka-2026-kak-vybrat",
+  "notes": "memory/blog/articles/B04-avtovoz-iz-vladivostoka-2026-kak-vybrat/research-notes.md",
+  "context": "memory/blog/articles/B04-avtovoz-iz-vladivostoka-2026-kak-vybrat/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-07-24",
+    "prefer_sources_after": "2026-04-25",
+    "source_urls": 27,
+    "source_domains": 16,
+    "source_table_rows": 27,
+    "accessed_at": 7,
+    "github_urls": 4,
+    "official_doc_urls": 1,
+    "action_outline_items": 10,
+    "pain_solution_rows": 7,
+    "technical_topic": true
+  }
+}

@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260724-1704-scout-suggest-next-wp-floor
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-scout
+topic_id: B04
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_scout_helper.py --suggest-next` returned `B01` because it only floors on `blog-topics.md` Bxx cards + `shared/published-articles.md` ledger + local article dirs.
+- Live WP already had B01–B03 published the same day, but ledger still only lists AS08/AS09 → helper ignored WP and would have recycled B01.
+- `--check-query` also parses only `## Bxx` cards, so AS* primary_query overlap is invisible to the script.
+
+### How the agent recovered this run
+- Forced `topic_id=B04` per Director handoff / previous automation memory.
+- Manually excluded recent WP slugs and AS01–AS09 primary angles before appending the card.
+- Chose unique primary_query `автовоз из владивостока` (Wordstat parent 7280; check-query clean).
+
+### Durable fix needed before next run
+- Floor `--suggest-next` on max(Bxx in topics, ledger, article dirs, optional WP/env list of used IDs/slugs).
+- Teach `--check-query` to also scan AS* cards in `blog-topics.md` and recent WP slug list when provided.
+- Keep Scout/Director contract: never trust suggest-next alone when ledger lags WP.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260724-1702-director-doctor-blog-dir
 status: open
 run_date: 2026-07-24

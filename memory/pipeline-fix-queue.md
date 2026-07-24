@@ -42,7 +42,7 @@ category: env
 - pending
 
 ## INC-20260724-1324-geo-qa-link-verify-head-502-fallback
-status: open
+status: fixed
 run_date: 2026-07-24
 role: excalibur-blog-geo-qa
 topic_id: B03
@@ -56,11 +56,11 @@ category: script
 
 ### How the agent recovered this run
 - Расширил GET-fallback на коды 502/503/504 (рядом с 405/501/403) в `scripts/excalibur_blog_link_verify.py`.
+- Добавил note в `shared/agent-pipeline-pitfalls.md`.
 - Повтор link-verify: PASS (kolesa через GET 200).
 
 ### Durable fix needed before next run
-- Fixer: подтвердить патч на main; добавить regression note в pitfalls (CDN HEAD 5xx → GET).
-- Опционально: soft-warn для внешних news-доменов при одноразовом 5xx после GET тоже fail.
+- Done in this run (script + pitfalls). Optional later: unit/regression test на mock HEAD 502 → GET 200.
 
 ### Suggested files to inspect/change
 - `scripts/excalibur_blog_link_verify.py`
@@ -71,7 +71,7 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending (script already patched this run; needs docs/confirm)
+- fixed by geo-qa this run: GET-fallback 502/503/504 + pitfalls note; link-verify PASS on B03
 
 ## INC-20260724-1320-writer-utility-pain-outcome-markers-missing
 status: open

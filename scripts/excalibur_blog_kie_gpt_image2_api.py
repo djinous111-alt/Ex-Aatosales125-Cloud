@@ -88,11 +88,24 @@ def http_json(method: str, url: str, api_key: str, payload: dict[str, Any] | Non
     return parsed
 
 
-def require_success(response: dict[str, Any], action: str) -> None:
+def require_success(response: dict[str, Any] | None, action: str) -> None:
+    if response is None:
+        raise KieApiError(
+            f"Kie API {action} failed: empty/None response "
+            "(often MCP wrapper bug or 402 Credits insufficient — see cover skill §4b)"
+        )
+    if not isinstance(response, dict):
+        raise KieApiError(f"Kie API {action} failed: non-dict response type={type(response).__name__}")
     if response.get("code") == 200:
         return
+    code = response.get("code")
     msg = response.get("msg") or "unknown error"
-    raise KieApiError(f"Kie API {action} failed: code={response.get('code')} msg={msg}")
+    if code == 402 or "credit" in str(msg).lower() or "insufficient" in str(msg).lower():
+        raise KieApiError(
+            f"Kie API {action} failed: code={code} msg={msg} "
+            "(402 credits — use cover skill emergency GenerateImage §4b; top up Kie)"
+        )
+    raise KieApiError(f"Kie API {action} failed: code={code} msg={msg}")
 
 
 def batch_mcp_args(batch_path: Path) -> dict[str, Any]:

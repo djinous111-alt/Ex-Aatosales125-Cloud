@@ -8,6 +8,7 @@ import io
 import json
 import os
 import sys
+import urllib.parse
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -467,33 +468,85 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
+HTTP_TRIGGER_TIMEOUT_SEC = 300
+WEBFETCH_FALLBACK_WAIT_SEC = 180
+
+
+def _is_gateway_timeout(exc: BaseException) -> bool:
+    text = str(exc).lower()
+    if "504" in text or "gateway time" in text:
+        return True
+    code = getattr(exc, "code", None)
+    return code == 504
+
+
+def verify_live_post_by_slug(public_base: str, slug: str) -> dict[str, Any] | None:
+    """After SSH upload + HTTP 504, server PHP may still finish; confirm via WP REST."""
+    slug = (slug or "").strip()
+    if not public_base or not slug:
+        return None
+    endpoint = (
+        public_base.rstrip("/")
+        + "/wp-json/wp/v2/posts?slug="
+        + urllib.parse.quote(slug)
+        + "&per_page=1&_fields=id,link,slug,status"
+    )
+    try:
+        with urllib.request.urlopen(
+            urllib.request.Request(endpoint, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
+            timeout=30,
+        ) as response:
+            payload = json.loads(response.read().decode("utf-8"))
+    except Exception as exc:  # noqa: BLE001
+        print(f"WARN live verify failed for slug={slug}: {type(exc).__name__}: {exc}", file=sys.stderr)
+        return None
+    if not isinstance(payload, list) or not payload:
+        return None
+    post = payload[0]
+    return {
+        "id": post.get("id"),
+        "link": post.get("link") or "",
+        "slug": post.get("slug") or slug,
+        "status": post.get("status") or "",
+    }
+
+
 def trigger_bootstrap_http(url: str, root: Path) -> str:
     try:
-        print(f"Triggering HTTP publish on {url}...")
+        print(f"Triggering HTTP publish on {url} (timeout={HTTP_TRIGGER_TIMEOUT_SEC}s)...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=HTTP_TRIGGER_TIMEOUT_SEC,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
         print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
+        if _is_gateway_timeout(e):
+            print(
+                "NOTE: nginx/proxy often returns 504 around ~120s even when PHP-FPM keeps running. "
+                "Do NOT fire concurrent curls — that duplicates media sideloads. "
+                "Prefer single WebFetch/curl, then live REST verify by slug."
+            )
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
         print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        for _ in range(WEBFETCH_FALLBACK_WAIT_SEC):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {WEBFETCH_FALLBACK_WAIT_SEC} seconds. "
+            "If SSH upload already succeeded, verify live post via WP REST by slug before retrying."
+        )
 
 
-def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
+def publish_via_ssh(env: dict[str, str], php: str, public_base: str, slug: str = "") -> str:
     remote = "excalibur-blog-publish-once.php"
     data = php.encode("utf-8")
     url = public_base.rstrip("/") + "/" + remote
@@ -502,7 +555,27 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        try:
+            out = trigger_bootstrap_http(url, root)
+        except Exception as trigger_error:
+            # SSH bootstrap already ran; HTTP/WebFetch may 504 while PHP finishes.
+            live = verify_live_post_by_slug(public_base, slug)
+            live_status = str(live.get("status") or "").lower()
+            if live and live.get("link") and live_status in {"publish", "draft", "future", "private"}:
+                permalink = str(live["link"])
+                post_id = live.get("id") or "?"
+                print(
+                    "WARN HTTP/WebFetch timed out or 504, but live WP REST found the post. "
+                    "Treating publish as success (SSH-success + HTTP-504 recovery). "
+                    "Do not re-trigger bootstrap concurrently."
+                )
+                return (
+                    f"OK post={post_id}\n"
+                    f"permalink={permalink}\n"
+                    f"publish_recovery=ssh_ok_http_504_verified\n"
+                    f"recovery_note={type(trigger_error).__name__}\n"
+                )
+            raise
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)
@@ -588,7 +661,7 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ssh(env, php, public)
+    out = publish_via_ssh(env, php, public, slug=str(payload.get("slug") or ""))
     print(out)
 
     result_path = article_dir / "wp-publish-result.json"

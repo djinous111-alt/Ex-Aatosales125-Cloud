@@ -65,6 +65,16 @@ if ($schema) {
 }
 ```
 
+Тема может не эхоить FAQPage/HowTo из post meta в HTML head — проверяй `_excalibur_blog_schema_jsonld` one-shot meta probe, не только view-source theme JSON-LD.
+
+## HTTP 504 / SSH-success recovery
+
+1. Publish upload идёт по **SSH** (`paramiko`); HTTP только триггерит bootstrap PHP.
+2. Nginx/proxy часто отвечает **504 ~120s**, пока PHP-FPM ещё пишет post/media.
+3. **Запрещено** параллелить несколько curl/WebFetch на тот же bootstrap URL (дубли media `-1/-2/-3`).
+4. Порядок: один HTTP trigger (timeout 300s) → WebFetch/wait (180s) → live REST `posts?slug=` verify.
+5. Скрипт при 504+live post пишет `publish_recovery=ssh_ok_http_504_verified` и считает run успешным.
+
 ## Blockers
 
 - `❌ PUBLISH BLOCKER` — QA не PASS, link-verify fail, нет credentials

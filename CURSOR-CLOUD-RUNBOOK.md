@@ -25,6 +25,12 @@
 
 `install` должен быть идемпотентным: его можно запускать много раз, и он не должен писать секреты или runtime-артефакты в Git.
 
+Актуальный install в repo: `.cursor/cloud-agent-install.sh` (ставит `requests`, `pillow`, `python-dotenv`, **`paramiko`** через `pip --break-system-packages` из‑за PEP 668). Dockerfile (`.cursor/Dockerfile`) тоже включает `paramiko`.
+
+## Task types
+
+Typed Task names `excalibur-blog-research`, `excalibur-blog-geo-qa`, … **могут отсутствовать** в Cloud Task enum. Канон для этой среды: сразу `Task(generalPurpose)` на каждую роль с путями `.cursor/agents/<role>.md` и `.cursor/skills/<skill>/SKILL.md` (см. `AGENTS.md`). Не ретрай typed name.
+
 ## Cursor Secrets
 
 Минимум для dry-run:

@@ -124,10 +124,22 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 ### Шаг 4 — ONE MCP
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
+`CallMcpTool` → `MCP-KV` / `gpt-image-2` (legacy server id: `user-mcp-kv`)  
 Аргументы = `jobs[0].mcp_args` из batch.
 
 Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+
+### Шаг 4b — Emergency GenerateImage (только при Kie/MCP fail)
+
+Если MCP `gpt-image-2` падает с opaque error / Kie API возвращает **402 Credits insufficient**:
+
+1. **Не** запускай 4 отдельных генерации и **не** крути concurrent Kie jobs.
+2. Один emergency вызов Cursor `GenerateImage` (image-to-image): reference = `memory/cover/assets/blog-hero-reference.png`, prompt = текст из `cover/quad-mcp-prompt.txt` (или `jobs[0].mcp_args.prompt`), aspect **16:9**.
+3. Сохрани результат как `cover/canvas-quad.png` (если размер не 2048×1152 — LANCZOS resize до 2048×1152).
+4. Запиши `cover/quad-mcp-result.json` с `"mode": "emergency_generateimage_402"` и `"url": "emergency://GenerateImage"`.
+5. Дальше обычный split: `python3 scripts/excalibur_blog_cover_quad_split.py --article-dir ... --inject-html` **или** `excalibur_blog_quad_apply.py` если есть URL.
+6. В fragment укажи `pipeline: emergency_generateimage` и `incident_report` про Kie credits.
+7. Canonical path остаётся MCP/Kie: без top-up credits следующий run снова уйдёт в emergency.
 
 ### Шаг 5 — apply
 

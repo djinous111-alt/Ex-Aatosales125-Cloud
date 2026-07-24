@@ -27,7 +27,7 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - Карточка из `memory/topics/blog-topics.md`
 - `memory/brief/site-brief.md`, `fact-bank.md`
 - `shared/quality-blog.md`
-- MCP сервер `user-mcp-kv` со всеми инструментами `wordstat_*`
+- MCP сервер `MCP-KV` (legacy alias: `user-mcp-kv`) со всеми инструментами `wordstat_*`
 
 ## Выход
 
@@ -38,7 +38,7 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 ## Обязательное использование Yandex Wordstat MCP и WebSearch Курсора
 
 1. **Анализ спроса через Wordstat API:**
-  Каждый прогон исследования **обязан** задействовать инструмент `wordstat_get_top_requests` сервера `user-mcp-kv` для анализа спроса:
+  Каждый прогон исследования **обязан** задействовать инструмент `wordstat_get_top_requests` сервера `MCP-KV` (legacy alias: `user-mcp-kv`) для анализа спроса:
   - Вызови `wordstat_get_top_requests` для `primary_query` и ключевых `secondary_queries`.
   - Если вызов вернул `401 Unauthorized` (токен устарел):
     - Запиши в `research-notes.md` предупреждение: `⚠️ WORDSTAT AUTH WARNING: Токен Wordstat устарел. Обновите токен через: https://oauth.yandex.ru/authorize?response_type=token&client_id=c654b948515a4a07a4c89648a0831d40`
@@ -49,6 +49,7 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 2. **Замена уличных поисковиков (DuckDuckGo) на WebSearch Курсора:**
   Мы **отказываемся** от ненадежных сторонних утилит и парсеров DuckDuckGo («уток»).
   - Агент имеет полноценный доступ в интернет через нативный инструмент `**WebSearch`** (или `WebFetch` для чтения конкретных страниц).
+  - **WebFetch timeout:** если `WebFetch` падает по timeout на competitor/docs URL — **не блокируй research**. Retry один раз; если снова timeout — возьми full-page extract / snippets из `WebSearch` по тому же URL/запросу и зафиксируй источник в `source_table` с `accessed_at`. Не выдумывай цены/цифры.
   - Для анализа конкурентов в SERP **всегда используй инструмент `WebSearch`**. Ищи статьи, руководства, гайды по `primary_query` и ключевым словам в Яндексе и Google.
   - Игнорируй сырой `research-serp.json` из шага 0, если он пуст, неполный или нерелевантный. Твой собственный поиск через `WebSearch` — приоритетный источник свежих данных 2026 года.
 
@@ -56,7 +57,7 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 
 1. **Сначала** `excalibur_blog_research_start.py` (шаг 0) — для валидации даты/года и utility-gate темы.
 2. Web research 15–25 мин: используй инструмент `**WebSearch`** Курсора для глубинного анализа ТОП-5 конкурентов в реальном времени. GitHub/docs/community нужны для фактов, но итоговый угол обязан быть beginner-first: что новичку нажать, подключить, проверить и как не сломать процесс. Приоритетный источник фактов — `fact-bank.md`.
-3. Микро-исследование Wordstat через `user-mcp-kv` -> `wordstat_get_top_requests` (см. выше).
+3. Микро-исследование Wordstat через `MCP-KV` -> `wordstat_get_top_requests` (см. выше).
 4. Извлеки минимум 10–15 проверенных фактов (цифр/утверждений) с точными URL источников из твоего интернет-поиска.
 5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.
 6. Не копировать структуру конкурента 1:1.

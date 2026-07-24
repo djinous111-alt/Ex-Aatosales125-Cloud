@@ -73,14 +73,17 @@ python scripts/excalibur_blog_quad_manifest.py --article-dir "$ARTICLE" --merge
 # 4. Промпт + batch (1 job)
 python scripts/excalibur_blog_cover_quad_prompt.py --article-dir "$ARTICLE" --write-batch
 
-# 5. ONE CallMcpTool user-mcp-kv / gpt-image-2
+# 5. ONE CallMcpTool user-mcp-kv / gpt-image-2  ИЛИ  Kie API:
+#    python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir "$ARTICLE"
 #    аргументы из cover/quad-mcp-batch.json → jobs[0].mcp_args
 #    aspect_ratio: 16:9, resolution: 2K, input_urls обязателен
+#    При 402 Credits → emergency §4b: GenerateImage + LANCZOS 2048×1152 + cover_quad_split
+#    (см. skills/cover-excalibur-blog/SKILL.md §4b)
 
-# 6. Скачать + split + inject
-python scripts/excalibur_blog_quad_apply.py \
+# 6. Скачать + split + inject (если есть URL)
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir "$ARTICLE" \
-  --url "<url из MCP>" \
+  --url "<url из MCP/Kie>" \
   --inject-html
 ```
 

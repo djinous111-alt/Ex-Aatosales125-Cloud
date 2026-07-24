@@ -7,7 +7,7 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 ## INC-20260724-2140-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-07-25
 role: excalibur-blog-publish
 topic_id: B05
@@ -37,10 +37,26 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-24
+fix_summary:
+- Baked `paramiko` into `.cursor/Dockerfile` and `.cursor/cloud-agent-install.sh`.
+- Doctor now asserts `paramiko available (SSH publish)`.
+- Pitfalls: paramiko bake + prefer Cloud Secret `SSH_ROOT=.` (secret value remains env owner-side).
+files_changed:
+- `.cursor/Dockerfile`
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_doctor.py`
+- `python3 -c "import paramiko"`
+- `rg` paramiko in Dockerfile/install/doctor
+commit: d8dca28
+
 
 ## INC-20260724-2135-indexer-llms-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-07-25
 role: excalibur-blog-indexer
 topic_id: B05
@@ -69,11 +85,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-24
+fix_summary:
+- Removed `--blog-path /` from indexer agent + skill examples (plugin and Cloud copies).
+- Skill site-base examples normalized to `[REDACTED]`.
+- Pitfalls Indexer note: only `--blog-dir`.
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg --blog-path` in indexer agent/skill paths → none left in shell examples
+- `python3 scripts/excalibur_blog_llms_generator.py --help` contains `--blog-dir`
+commit: d8dca28
 
 
 ## INC-20260724-2130-cover-kie-402-credits
-status: open
+status: needs-human
 run_date: 2026-07-25
 role: excalibur-blog-cover
 topic_id: B05
@@ -104,7 +135,24 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+fixed_at: 2026-07-24
+reason:
+- Kie account credits cannot be topped up from the repo; human/env owner must restore billing.
+fix_summary:
+- Documented emergency §4b in cover skill (plugin + Cloud), cover agents, kie contract, and pitfalls (GenerateImage + LANCZOS 2048×1152 + split; no fee %/₽ guard).
+needed_decision_or_secret:
+- Top up Kie credits / restore `KIE_API_KEY` billing so canonical gpt-image-2 i2i works without §4b.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` §4b / GenerateImage_emergency / LANCZOS in cover skill + kie contract
+commit: d8dca28
 
 
 ## INC-20260725-2120-geo-qa-utility-pain-outcome-policy-empty
@@ -160,7 +208,7 @@ checks_run:
 commit: 5351322
 
 ## INC-20260725-2115-research-accessed-at-colon-format
-status: open
+status: fixed
 run_date: 2026-07-25
 role: excalibur-blog-research
 topic_id: B05
@@ -190,7 +238,24 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-24
+fix_summary:
+- Gate `count_accessed_at` now accepts ISO dates in the `accessed_at` source_table column as well as `accessed_at:` literals.
+- Research agent/skill examples require `accessed_at: YYYY-MM-DD` in table cells; pitfalls note added.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `agents/excalibur-blog-research.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+- gate on B05 notes → PASS
+- smoke: bare ISO in accessed_at column counts ≥5
+commit: d8dca28
+
 
 ## INC-20260724-2110-scout-precommit-secret-names
 status: needs-human
@@ -228,6 +293,7 @@ reason:
 - Durable root fix is env-side Cursor Cloud `pre-commit.cursor` (not in repo). Cannot patch `${!SECRET_NAME}` loop from application code.
 fix_summary:
 - Documented workaround in `shared/agent-pipeline-pitfalls.md`: after staged secret review, `--no-verify` allowed for this exact hook error only.
+- B05 fixer (post-publish) reconfirmed: still needs-human; no env hook change attempted.
 needed_decision_or_secret:
 - Cloud/env owner must harden pre-commit to skip empty/invalid names in `CLOUD_AGENT_INJECTED_SECRET_NAMES` before `${!SECRET_NAME}`.
 files_changed:

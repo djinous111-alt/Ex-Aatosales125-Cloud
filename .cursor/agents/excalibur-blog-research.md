@@ -59,6 +59,9 @@ surprising_fact: неожиданный факт или конфликт мне�
 
 ## source_table
 | source | url | accessed_at | why_it_matters |
+| Example Source | https://example.com/doc | accessed_at: YYYY-MM-DD | why it matters |
+
+В колонке `accessed_at` пиши **`accessed_at: YYYY-MM-DD`** (с двоеточием). Голая дата в ячейке тоже принимается gate, но префикс — канон.
 
 ## wordstat
 | phrase | impressions |

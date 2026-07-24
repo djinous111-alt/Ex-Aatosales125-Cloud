@@ -13,13 +13,12 @@
         "tables": 1,
         "blockquotes": 3,
         "ul_lists": 2,
-        "action_markers": 5,
+        "action_markers": 16,
         "pain_markers": 0,
         "outcome_markers": 0,
         "water_hits": []
       },
       "errors": [
-        "мало action-маркеров в тексте: 5 < 8",
         "слабо раскрыта боль читателя: pain_markers=0 < 2",
         "слабо раскрыта польза/результат: outcome_markers=0 < 3"
       ],

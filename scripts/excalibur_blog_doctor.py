@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import os
 import subprocess
 import sys
@@ -113,6 +114,36 @@ def main() -> int:
 
     check(module_available("PIL"), "Pillow available", errors, warnings)
     check(module_available("numpy"), "numpy available", errors, warnings)
+    check(module_available("paramiko"), "paramiko available", errors, warnings, warn=not args.publish)
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    if policy_path.is_file():
+        try:
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            check(False, "editorial-policy.json parses as JSON", errors, warnings)
+            policy = {}
+        req = policy.get("article_required_signals") or {}
+        min_pain = int(req.get("min_pain_markers") or 2)
+        min_outcome = int(req.get("min_outcome_markers") or 3)
+        pain = policy.get("pain_markers_ru")
+        outcome = policy.get("outcome_markers_ru")
+        if min_pain > 0:
+            check(
+                isinstance(pain, list) and len(pain) > 0,
+                "editorial-policy.json has non-empty pain_markers_ru",
+                errors,
+                warnings,
+            )
+        if min_outcome > 0:
+            check(
+                isinstance(outcome, list) and len(outcome) > 0,
+                "editorial-policy.json has non-empty outcome_markers_ru",
+                errors,
+                warnings,
+            )
+    else:
+        check(False, "editorial-policy.json exists", errors, warnings, warn=True)
 
     interlinker = root / "scripts/excalibur_blog_interlinker.py"
     help_proc = subprocess.run(
@@ -153,6 +184,16 @@ def main() -> int:
         warnings,
         warn=not args.publish,
     )
+    ssh_root = (env.get("SSH_ROOT") or "").strip()
+    check(
+        bool(ssh_root),
+        "SSH_ROOT configured (default '.' for login cwd)",
+        errors,
+        warnings,
+        warn=True,
+    )
+    if not ssh_root:
+        print("NOTE SSH_ROOT unset → publish treats root as '.' ; set Cloud Secret SSH_ROOT=.")
 
     print(f"SUMMARY errors={len(errors)} warnings={len(warnings)}")
     return 1 if errors else 0

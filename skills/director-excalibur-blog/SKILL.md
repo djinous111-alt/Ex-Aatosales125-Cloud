@@ -52,8 +52,8 @@ Task(generalPurpose):
 
 ## Cloud Task fallback
 
-См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
-
+См. `AGENTS.md`. **Канон:** `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
+Typed enum `excalibur-blog-*` в Cloud недоступен — не жди регистрации, сразу generalPurpose.
 ## Preflight (shell, директор)
 
 ```bash
@@ -211,9 +211,9 @@ Task(excalibur-blog-publish)
 
 ## Blockers
 
-Если typed Task `excalibur-blog-*` недоступны:
+Если typed Task `excalibur-blog-*` недоступны (это **норма** для текущей Cloud platform):
 
-1. Используй fallback из `AGENTS.md`: отдельный `Task(generalPurpose)` на каждую роль с `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`.
+1. Используй канон из `AGENTS.md`: отдельный `Task(generalPurpose)` на каждую роль с `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`.
 2. Если недоступен даже `generalPurpose`, тогда:
 
 `❌ БЛОКЕР: среда не поддерживает Task/subagents. Single-agent pipeline запрещён.`

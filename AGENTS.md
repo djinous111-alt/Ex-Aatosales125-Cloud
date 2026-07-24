@@ -21,13 +21,15 @@ shell today + research_start
 
 ## Cloud Task fallback
 
-Если Cloud API не принимает `excalibur-blog-research`, `excalibur-blog-writer`, … как Task types:
+**Канон для Cloud runs:** typed Task enum `excalibur-blog-*` в Cursor **недоступен** (platform limitation, needs-human вне repo). Оркестрация идёт через:
 
 - **отдельный `Task(generalPurpose)` на каждую роль**;
 - передай путь `.cursor/agents/<role>.md` и `.cursor/skills/<skill>/SKILL.md`;
 - короткий контракт: входные файлы, маркер результата, запреты;
 - один Task = одна роль;
 - параллель `cover || schema` — **два отдельных Task** в одном сообщении.
+
+Не блокируй пайплайн ожиданием регистрации typed enum.
 
 Если недоступен даже `generalPurpose` Task:
 

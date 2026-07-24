@@ -20,10 +20,20 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | Cloud Secrets / env: `SSH_*`, `PUBLIC_SITE_URL` (не legacy FTP) |
+| SSH root | `SSH_ROOT=.` (login cwd; unset → скрипт default `.`) |
+| Paramiko | `python3 -c "import paramiko"` (cloud install / `python3-paramiko`) |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
+
+### Env preflight
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+Ожидай `ssh.root` = `dot` или `default-dot`. Не импортируй publish-helpers ad-hoc без `scripts/` в `sys.path`.
 
 ## Алгоритм
 

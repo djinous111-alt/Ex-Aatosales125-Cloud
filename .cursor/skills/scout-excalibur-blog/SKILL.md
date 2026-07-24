@@ -28,11 +28,13 @@ Append new Topic Card to blog-topics.md
 
 ### Шаг 1 — Анализ прошлого и получение ID
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
+* Сверь `EXCALIBUR_RECENT_WP_POSTS` / `EXCALIBUR_NEXT_B_ID` / `EXCALIBUR_NEXT_AS_ID` из `python3 scripts/excalibur_blog_today.py`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Helper учитывает **ledger + article dirs + live WP + AS*/B* pool**. Не бери `B01`/`B02`, если live WP или AS*-история уже есть, а B*-floor неясен — задай `EXCALIBUR_TOPIC_ID_FLOOR=B0N` или выбери ID вручную после сверки WP.
+  Запомни следующий `topic_id` (например, `B04` / `AS10`) и список невыполненных тем.
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
@@ -47,9 +49,9 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
-Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
+Проверка включает pool/ledger **и live WP** slugs/titles. CRITICAL overlap → другая тема.Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
 
 ### Шаг 5 — Сборка карточки темы (Utility-Only)
 Сформируй карточку темы по шаблону:

@@ -185,16 +185,36 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     if marker_count < min_rec:
         errors.append(f"мало action-маркеров в тексте: {marker_count} < {min_rec}")
 
-    pain_markers = policy.get("pain_markers_ru") or []
-    outcome_markers = policy.get("outcome_markers_ru") or []
+    pain_markers = policy.get("pain_markers_ru")
+    outcome_markers = policy.get("outcome_markers_ru")
+    min_pain = int(req.get("min_pain_markers") or 2)
+    min_outcome = int(req.get("min_outcome_markers") or 3)
+
+    if min_pain > 0 and not isinstance(pain_markers, list):
+        errors.append(
+            "editorial-policy.json missing pain_markers_ru (required when min_pain_markers>0); "
+            "restore keys before utility gate"
+        )
+        pain_markers = []
+    if min_outcome > 0 and not isinstance(outcome_markers, list):
+        errors.append(
+            "editorial-policy.json missing outcome_markers_ru (required when min_outcome_markers>0); "
+            "restore keys before utility gate"
+        )
+        outcome_markers = []
+    if min_pain > 0 and isinstance(pain_markers, list) and len(pain_markers) == 0:
+        errors.append("editorial-policy.json pain_markers_ru is empty while min_pain_markers>0")
+    if min_outcome > 0 and isinstance(outcome_markers, list) and len(outcome_markers) == 0:
+        errors.append("editorial-policy.json outcome_markers_ru is empty while min_outcome_markers>0")
+
+    pain_markers = pain_markers or []
+    outcome_markers = outcome_markers or []
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 
-    min_pain = int(req.get("min_pain_markers") or 2)
     if pain_count < min_pain:
         errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
 
-    min_outcome = int(req.get("min_outcome_markers") or 3)
     if outcome_count < min_outcome:
         errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
 

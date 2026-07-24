@@ -74,13 +74,60 @@ def has_wordstat(text_lower: str) -> bool:
 
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Mark technical only from topic intent fields — not from github_evidence / Wordstat MCP mentions."""
+    del notes  # intentionally unused: evidence sections must not flip the tech flag
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
     return any(marker in blob for marker in TECH_MARKERS)
+
+
+def count_accessed_at(text: str) -> int:
+    """Count source access dates: explicit `accessed_at:` or ISO dates in source_table."""
+    text_lower = text.lower()
+    explicit = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    table_match = re.search(
+        r"##\s*\d*\.?\s*source_table\b([\s\S]*?)(?=\n##\s|\Z)",
+        text,
+        flags=re.I,
+    )
+    if table_match:
+        iso_in_section = len(re.findall(r"\b\d{4}-\d{2}-\d{2}\b", table_match.group(1)))
+        return max(explicit, iso_in_section)
+    iso_in_tables = len(re.findall(r"\|\s*[^\n|]*\d{4}-\d{2}-\d{2}[^\n|]*\|", text))
+    return max(explicit, iso_in_tables)
+
+
+def count_pain_solution_rows(text: str) -> int:
+    """Count data rows under ## pain_solution_map by pipe-table rows (not per-cell keywords)."""
+    match = re.search(
+        r"##\s*\d*\.?\s*pain_solution_map\b([\s\S]*?)(?=\n##\s|\Z)",
+        text,
+        flags=re.I,
+    )
+    section = match.group(1) if match else ""
+    if not section:
+        return 0
+    data_rows = 0
+    seen_header = False
+    for line in section.splitlines():
+        stripped = line.strip()
+        if not stripped.startswith("|"):
+            continue
+        cells = [c.strip() for c in stripped.strip("|").split("|")]
+        if not cells:
+            continue
+        if all(re.fullmatch(r":?-+:?", c or "") for c in cells):
+            continue
+        joined = " ".join(cells).lower()
+        if not seen_header and any(h in joined for h in ("pain", "боль", "solution", "решение")):
+            seen_header = True
+            continue
+        seen_header = True
+        data_rows += 1
+    return data_rows
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,9 +177,9 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    pain_map_rows = count_pain_solution_rows(text)
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:

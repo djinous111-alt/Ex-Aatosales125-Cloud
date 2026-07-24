@@ -62,6 +62,37 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
 
+## Формат notes для research-notes-gate (PASS)
+
+После notes обязательно:
+
+```bash
+python3 scripts/excalibur_blog_research_notes_gate.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  -o research-notes-gate.json
+```
+
+- `## source_table` — markdown-таблица с URL и датой доступа. В ячейке достаточно `2026-07-24` или `accessed_at: 2026-07-24` (gate считает ISO-даты в секции).
+- `## pain_solution_map` — markdown-таблица ≥3 **data-rows** (строки `|...|` под заголовком). Префиксы `pain:`/`solution:`/`result:` полезны для читателя, но gate считает строки таблицы, не keyword-heuristic по каждой клетке.
+- `technical_topic` определяется только по полям темы (h1/slug/intent), не по секции `github_evidence` и не из-за упоминания Wordstat MCP.
+
+Пример фрагмента:
+
+```markdown
+## source_table
+| source | url | accessed |
+|---|---|---|
+| Docs | https://example.com/a | 2026-07-24 |
+| News | https://example.com/b | accessed_at: 2026-07-24 |
+
+## pain_solution_map
+| pain | solution | result |
+|---|---|---|
+| Неясно, что выбрать | Сравни чеклист A/B | Понятный выбор за вечер |
+| Боится скрытых платежей | Считай TCO до депозита | Бюджет без сюрпризов |
+| Нет проверки истории | Trust/Carhistory до оплаты | Меньше риска брака |
+```
+
 ## Blockers
 
 - `❌ RESEARCH BLOCKER` — тема не найдена и не создана из запроса пользователя

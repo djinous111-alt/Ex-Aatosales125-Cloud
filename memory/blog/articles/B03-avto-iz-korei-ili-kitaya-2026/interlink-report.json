@@ -1,5 +1,5 @@
 {
-  "site_base": "${PUBLIC_SITE_URL}",
+  "site_base": "https://avtosales125.ru",
   "total_articles": 3,
   "opportunities_found": 0,
   "suggestions": []

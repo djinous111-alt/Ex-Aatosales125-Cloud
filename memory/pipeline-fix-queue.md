@@ -538,6 +538,66 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20260724-1340-publish-ssh-root-unset
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-publish
+topic_id: B03
+article_dir: memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: env
+
+### What went wrong
+- `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` and SSH host/user/password were present, but `SSH_ROOT` was unset in Cloud env (`--env-check` → root=unset, dot_fallback_enabled=false).
+- Known host pattern for this WP SSH account is login cwd root `.`; leaving SSH_ROOT empty relies on bare relative bootstrap path and skips the documented `.` candidate probe used for non-dot roots.
+
+### How the agent recovered this run
+- Exported `SSH_ROOT=.` and `PYTHONUNBUFFERED=1` for the publish process.
+- SSH upload wrote `./excalibur-blog-publish-once.php` (~7.7MB); HTTP trigger completed; post/featured/inline/schema OK without RemoteDisconnect.
+
+### Durable fix needed before next run
+- Set Cloud Secret `SSH_ROOT=.` for this environment (durable).
+- Optionally treat empty/unset `SSH_ROOT` as `.` (or always probe `.`) in `ssh_root_candidates` so env-check and upload agree.
+
+### Suggested files to inspect/change
+- Cursor Dashboard Cloud Secrets (`SSH_ROOT` only)
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260724-1340-publish-paramiko-missing
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-publish
+topic_id: B03
+article_dir: memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: env
+
+### What went wrong
+- `import paramiko` failed (`ModuleNotFoundError`) before SSH publish; pip install blocked by PEP 668 externally-managed-environment.
+
+### How the agent recovered this run
+- Installed distro package `python3-paramiko` via apt; publish proceeded.
+
+### Durable fix needed before next run
+- Add `python3-paramiko` (or equivalent) to Cloud environment install / `.cursor/environment.json` install script so publish agents do not spend tokens on dependency bootstrap.
+
+### Suggested files to inspect/change
+- `.cursor/environment.json`
+- `CURSOR-CLOUD-RUNBOOK.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

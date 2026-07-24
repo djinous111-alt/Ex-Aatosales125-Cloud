@@ -1,7 +1,7 @@
 # Promotion checklist — B03 avto-iz-korei-ili-kitaya-2026
 
 Дата публикации: 2026-07-24  
-Live URL: ${PUBLIC_SITE_URL}/blog/avto-iz-korei-ili-kitaya-2026/
+Live URL: https://avtosales125.ru/2026/07/24/avto-iz-korei-ili-kitaya-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Корея: Encar + Carhistory до аванса; Китай: дата регистрации и ~180 дней
 • Нет пакета проверок — нет депозита
 
-Читать: ${PUBLIC_SITE_URL}/blog/avto-iz-korei-ili-kitaya-2026/
+Читать: https://avtosales125.ru/2026/07/24/avto-iz-korei-ili-kitaya-2026/
 ```
 
 ## Перелинковка
@@ -48,4 +48,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir .../B03-avto-iz-korei-ili-kitaya-2026 --site-base $PUBLIC_SITE_URL` — opportunities_found=0.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` через `--blog-dir` + `--out-dir` (без устаревшего `--blog-path`).
-- Publish: pending (следующий шаг пайплайна).
+- Publish: PASS — WP post_id=3707; featured=3708; inline=3709–3711; schema_meta=ok; live HEAD 200.

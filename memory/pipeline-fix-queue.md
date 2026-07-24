@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260724-1320-writer-utility-pain-outcome-markers-missing
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-writer
+topic_id: B03
+article_dir: memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требует `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json` (min 2 / 3), но в policy этих ключей не было → `pain_markers=0`, `outcome_markers=0` и ложный BLOCK на любой статье.
+- Параллельно article не набирал `recommendation_markers_ru` (формулировки "Делать/Не делать" не совпадали с "сделайте/не делайте").
+
+### How the agent recovered this run
+- Восстановил `pain_markers_ru` и `outcome_markers_ru` в `editorial-policy.json` (как в human-voice gate / заявленный B02 fixer).
+- В `article.html` переписал рекомендации на "Сделайте/Не делайте" + добавил маркеры "проверьте/чеклист/избегайте/используйте/добавьте".
+- Utility + human-voice + html-linter + slop: PASS; char_count 9225.
+
+### Durable fix needed before next run
+- Fixer: подтвердить, что policy markers закоммичены в main и не выпадают при rebrand/sync; добавить fail-fast в doctor или utility_gate, если keys отсутствуют при ненулевых min_*.
+- Writer skill: явно требовать точные recommendation_markers из policy ("сделайте", не только "делать").
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260724-1313-research-notes-gate-format-quirks
 status: open
 run_date: 2026-07-24

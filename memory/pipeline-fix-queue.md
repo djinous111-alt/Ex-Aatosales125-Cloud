@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260725-2120-geo-qa-utility-pain-outcome-policy-empty
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-geo-qa
+topic_id: B05
+article_dir: memory/blog/articles/B05-rastamozhka-elektromobilya-iz-kitaya-2026
+severity: high
+category: qa
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always checks `pain_markers_ru` / `outcome_markers_ru` with defaults `min_pain_markers=2` and `min_outcome_markers=3`.
+- `memory/brief/editorial-policy.json` does not define those marker lists (empty → count always 0), so article utility gate BLOCK even when human-voice already PASS on pain/outcome language.
+- B05 also had a real content gap on `recommendation_markers_ru` (5 &lt; 8: Writer uses «Делать/Не делать» and «чек-лист», policy expects «сделайте/не делайте/чеклист/…»).
+
+### How the agent recovered this run
+- Did not rewrite `article.html` (GEO QA contract).
+- Returned FIX list for Writer on action markers; filed this incident for durable policy/script fix; overall article-qa verdict FIX (no cover/schema approval).
+
+### Durable fix needed before next run
+- Add `pain_markers_ru` and `outcome_markers_ru` to `memory/brief/editorial-policy.json` (align with human-voice gate markers) and set explicit `min_pain_markers` / `min_outcome_markers` under `article_required_signals`.
+- Optionally skip pain/outcome checks when marker lists are empty, or document Writer must use exact recommendation phrases (`не делайте`, `чеклист` without hyphen, etc.) in writer skill / pitfalls.
+- Sync `.cursor/skills/writer-excalibur-blog` examples: «Делать/Не делать» alone is not enough for utility gate.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260725-2115-research-accessed-at-colon-format
 status: open
 run_date: 2026-07-25

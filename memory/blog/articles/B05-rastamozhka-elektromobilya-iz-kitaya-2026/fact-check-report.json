@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B05-rastamozhka-elektromobilya-iz-kitaya-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "утная мощность мотора и сертификация. Льгота ЕАЭС 2026 на ввоз EV в Армению, Беларусь и Кыргызстан не для",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2022",
+      "kind": "date_or_year",
+      "context": "зидентам РФ ограничена. Старые \"льготные\" истории 2022–2025 тоже нельзя просто \"переписать\" на россиянин",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "там РФ ограничена. Старые \"льготные\" истории 2022–2025 тоже нельзя просто \"переписать\" на россиянина без",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "111",
+      "kind": "large_number",
+      "context": "асиво, но тарифная льгота по Решению Совета ЕЭК № 111 адресована физлицам AM/BY/KG и ограничивает переда",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

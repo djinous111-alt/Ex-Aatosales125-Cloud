@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260725-2115-research-accessed-at-colon-format
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-research
+topic_id: B05
+article_dir: memory/blog/articles/B05-rastamozhka-elektromobilya-iz-kitaya-2026
+severity: low
+category: docs
+
+### What went wrong
+- First `excalibur_blog_research_notes_gate.py` run BLOCKED with `too few source access dates: accessed_at=1 < 5`.
+- Notes already had a `source_table` column named `accessed_at` with ISO dates `2026-07-25`, but the gate counts only literal `accessed_at:` (with colon) via regex.
+- Agent template shows table column `accessed_at` without stating that each row must contain the substring `accessed_at: YYYY-MM-DD`.
+
+### How the agent recovered this run
+- Rewrote `source_table` date cells to `accessed_at: 2026-07-25` and re-ran gate → PASS.
+
+### Durable fix needed before next run
+- Update research agent/skill example so `source_table` rows use `accessed_at: YYYY-MM-DD` (not bare dates).
+- Optionally teach the gate to also count ISO dates in an `accessed_at` markdown column, or document the colon requirement in `shared/agent-pipeline-pitfalls.md`.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-research.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260724-2110-scout-precommit-secret-names
 status: open
 run_date: 2026-07-25

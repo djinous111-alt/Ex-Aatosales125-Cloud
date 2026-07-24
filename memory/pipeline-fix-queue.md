@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260724-1702-director-doctor-blog-dir
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` checked that llms generator help contains `--blog-path`, but `excalibur_blog_llms_generator.py` only exposes `--blog-dir`.
+- Preflight failed with `SUMMARY errors=1` and blocked a clean doctor PASS before the full pipeline.
+
+### How the agent recovered this run
+- Updated the doctor check to require `--blog-dir` in llms help output.
+- Re-ran doctor → `SUMMARY errors=0 warnings=0`.
+
+### Durable fix needed before next run
+- Keep doctor CLI checks aligned with actual argparse flags of `excalibur_blog_llms_generator.py`.
+- Add a short note in pitfalls: doctor checks `--blog-dir`, not `--blog-path`, for the llms generator.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/indexer-excalibur-blog/SKILL.md` (already documents `--blog-dir`)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

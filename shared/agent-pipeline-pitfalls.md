@@ -46,3 +46,4 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- `excalibur_blog_llms_generator.py` принимает `--blog-dir` (не `--blog-path`); doctor должен проверять `--blog-dir`.

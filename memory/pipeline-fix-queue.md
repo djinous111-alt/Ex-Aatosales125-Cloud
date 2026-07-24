@@ -303,7 +303,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → B03
 - `python3 scripts/excalibur_blog_today.py` → needs_scout when AS P0 live-reserved
 - `python3 -m py_compile scripts/excalibur_blog_scout_helper.py scripts/excalibur_blog_today.py`
-commit: 0ce9ed2
+commit: c234f27
 
 ## INC-20260724-0915-research-gate-ai-in-pain
 status: fixed
@@ -357,7 +357,7 @@ files_changed:
 checks_run:
 - `tech_marker_match('ai','…pain…') is False`; AI topic card → technical True
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py scripts/excalibur_blog_research_start.py`
-commit: 0ce9ed2
+commit: c234f27
 
 ## INC-20260724-0925-writer-cta-secret-scan-pragma
 status: fixed
@@ -400,7 +400,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` allowlist secret in writer skill + contract + pitfalls
-commit: 0ce9ed2
+commit: c234f27
 
 ## INC-20260724-0937-geo-qa-typed-task-fallback
 status: needs-human
@@ -449,7 +449,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` generalPurpose/geo-qa fallback wording in AGENTS.md + pipeline-task-map
-commit: 0ce9ed2
+commit: c234f27
 
 ## INC-20260724-0938-geo-qa-utility-pain-markers-missing
 status: fixed
@@ -500,7 +500,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026` → PASS
 - JSON keys pain_markers_ru/outcome_markers_ru present and non-empty
-commit: 0ce9ed2
+commit: c234f27
 
 ## INC-20260724-0952-cover-kie-402-emergency-generateimage
 status: needs-human
@@ -554,7 +554,7 @@ files_changed:
 checks_run:
 - `rg` Шаг 4b in cover skills
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
-commit: 0ce9ed2
+commit: c234f27
 
 ## INC-20260724-0955-indexer-llms-blog-path-stale
 status: fixed
@@ -604,7 +604,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
-commit: 0ce9ed2
+commit: c234f27
 
 ## INC-20260724-1004-publish-paramiko-missing-install
 status: fixed
@@ -650,7 +650,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → paramiko available OK
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` → paramiko_available true
-commit: 0ce9ed2
+commit: c234f27
 
 ## INC-20260724-1007-publish-http-disconnect-fallback-buffer
 status: fixed
@@ -702,4 +702,4 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `rg` confirms no range(120); env-check notes mention 300s REST recovery
-commit: 0ce9ed2
+commit: c234f27

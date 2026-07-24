@@ -1,0 +1,14 @@
+{
+  "url": "emergency://GenerateImage",
+  "mode": "emergency_generateimage_402",
+  "source": "b04-canvas-quad-emergency.png",
+  "orig_size": [
+    1536,
+    1024
+  ],
+  "canvas_size": [
+    2048,
+    1152
+  ],
+  "note": "Kie 402 + MCP error → Cursor GenerateImage i2i + LANCZOS resize"
+}

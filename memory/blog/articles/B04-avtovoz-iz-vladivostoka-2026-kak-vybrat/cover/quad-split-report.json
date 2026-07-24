@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B04-avtovoz-iz-vladivostoka-2026-kak-vybrat/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1028,
+      581
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 581,
+        "end": 596
+      },
+      "v_gutter_px": {
+        "start": 1028,
+        "end": 1052
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1028,
+          "bottom": 581
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1028,
+          "bottom": 581
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у автовоза с современным седаном, порт Владивостока, плашка автовоз 2026",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1052,
+          "top": 10,
+          "right": 2048,
+          "bottom": 570
+        },
+        "raw_box_px": {
+          "left": 1052,
+          "top": 0,
+          "right": 2048,
+          "bottom": 581
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист точки старта после СВХ: выдача, фото, слот автовоза, договор",
+        "h2_anchor": "Зафиксируйте точку старта после СВХ"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 20,
+          "top": 596,
+          "right": 1008,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 596,
+          "right": 1028,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения автовоза и ж/д: срок, риски, удобство выгрузки",
+        "h2_anchor": "Сравните автовоз и ж/д без магических цифр"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1056,
+          "top": 596,
+          "right": 2044,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1052,
+          "top": 596,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: три оффера автовоза и отсев красных флагов до погрузки",
+        "h2_anchor": "Соберите три оффера и отсейте красные флаги"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте точку старта после СВХ",
+    "injected inline_2 after H2 — Сравните автовоз и ж/д без магических цифр",
+    "injected inline_3 after H2 — Соберите три оффера и отсейте красные флаги"
+  ]
+}

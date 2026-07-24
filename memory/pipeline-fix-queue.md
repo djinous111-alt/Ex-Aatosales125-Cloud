@@ -427,6 +427,41 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20260724-1728-cover-kie-402-generateimage
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-cover
+topic_id: B04
+article_dir: memory/blog/articles/B04-avtovoz-iz-vladivostoka-2026-kak-vybrat
+severity: high
+category: api
+
+### What went wrong
+- MCP `gpt-image-2` failed with opaque error: `'NoneType' object has no attribute 'get'`.
+- Direct Kie API `excalibur_blog_kie_gpt_image2_api.py` returned **402 Credits insufficient** (same as prior B03 / needs-human credit top-up).
+
+### How the agent recovered this run
+- Emergency Cursor `GenerateImage` i2i with `blog-hero-reference.png` + quad prompt (16:9).
+- Output 1536×1024 → LANCZOS resize to 2048×1152 → `cover/canvas-quad.png`.
+- `excalibur_blog_cover_quad_split.py --inject-html` → cover + inline-01..03 + article.html figures. Split report PASS.
+
+### Durable fix needed before next run
+- Top up Kie.ai credits (blocking for canonical MCP/Kie gpt-image-2 path).
+- Document emergency §4b GenerateImage fallback in `.cursor/skills/cover-excalibur-blog/SKILL.md` and `agents/excalibur-blog-cover.md` (pipeline-notes already mention pattern).
+- Harden MCP-KV gpt-image-2 wrapper against None response (`'NoneType'…get`).
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- Cursor Dashboard / Kie billing
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

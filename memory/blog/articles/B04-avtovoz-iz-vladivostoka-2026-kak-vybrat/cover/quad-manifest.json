@@ -1,0 +1,42 @@
+{
+  "topic_id": "B04",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Автовоз «на слово» — риск без акта",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у автовоза с современным седаном, порт Владивостока, плашка автовоз 2026",
+      "scene_hint": "WEATHER: cool coastal Vladivostok daylight, soft wind by port/highway; OUTFIT: olive field jacket over charcoal knit sweater (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie beside open car-carrier truck with modern silver sedan/crossover loaded; Golden Bridge / Vladivostok port or coastal highway vibe behind; torn paper Cyrillic plaque «автовоз 2026» with yellow highlighter on «2026»; sticky note «договор+акт»; fake UI scrap: catalog delivery checklist taped with scotch; shocked meme cutout + facepalm sticker (different formats, NO toxic words like лох/лохов); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics",
+      "meme_caption_ru": "Без акта не грузим"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте точку старта после СВХ",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable checklist board after SVH release: 1) авто выдано 2) ключи/документы 3) фото кузова 4) слот автовоза 5) договор готов; stamp «после СВХ»; pink sticky «старт»; scotch tape; NO hero face; NO Wordstat/Metrika; no toxic stickers",
+      "alt": "Чеклист точки старта после СВХ: выдача, фото, слот автовоза, договор"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните автовоз и ж/д без магических цифр",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns Автовоз | Ж/Д сетка; rows срок, риски кузова, удобство выгрузки, когда выбрать; yellow highlight row «без магических цифр»; tape corner mini sticky «сравнивай офферы»; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица сравнения автовоза и ж/д: срок, риски, удобство выгрузки"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Соберите три оффера и отсейте красные флаги",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 5 steps: запрос → 3 оффера → сверка договора → красные флаги → выбор; red flags icons «предоплата на карту», «без акта», «срок «завтра»»; sticky «3 оффера»; NO hero face; NO Wordstat/Metrika; no insults",
+      "alt": "Схема: три оффера автовоза и отсев красных флагов до погрузки"
+    }
+  }
+}

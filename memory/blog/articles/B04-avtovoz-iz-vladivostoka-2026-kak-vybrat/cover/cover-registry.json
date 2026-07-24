@@ -1,0 +1,50 @@
+{
+  "topic_id": "B04",
+  "slug": "avtovoz-iz-vladivostoka-2026-kak-vybrat",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у автовоза с современным седаном, порт Владивостока, плашка автовоз 2026",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-07-24T17:27:42+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у автовоза с современным седаном, порт Владивостока, плашка автовоз 2026",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Чеклист точки старта после СВХ: выдача, фото, слот автовоза, договор",
+      "h2_anchor": "Зафиксируйте точку старта после СВХ",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица сравнения автовоза и ж/д: срок, риски, удобство выгрузки",
+      "h2_anchor": "Сравните автовоз и ж/д без магических цифр",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема: три оффера автовоза и отсев красных флагов до погрузки",
+      "h2_anchor": "Соберите три оффера и отсейте красные флаги",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

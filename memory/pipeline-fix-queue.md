@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260724-1330-cover-kie-402-credits-emergency
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-cover
+topic_id: B03
+article_dir: memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026
+severity: high
+category: api
+
+### What went wrong
+- `excalibur_blog_kie_gpt_image2_api.py` createTask вернул `code=402 Credits insufficient` (Kie balance empty).
+- Primary path ONE gpt-image-2 i2i через Kie недоступен; повтор того же API бесполезен без top-up.
+- В `.cursor/skills/cover-excalibur-blog/SKILL.md` / `skills/cover-excalibur-blog/SKILL.md` нет явного §4b emergency runbook (хотя automation memory и fixer notes ссылаются на §4b).
+
+### How the agent recovered this run
+- Emergency path: Cursor `GenerateImage` + `reference_image_paths=[blog-hero-reference.png]` → raw 1536×1024 → LANCZOS resize 2048×1152 → `canvas-quad.png` → `excalibur_blog_cover_quad_split.py --inject-html`.
+- Cover + inline-01..03 + registry + HTML inject PASS; method=`emergency` в `cover/quad-mcp-result.json`.
+
+### Durable fix needed before next run
+- Top-up Kie credits (`KIE_API_KEY` balance) — blocker для primary i2i 2K.
+- Восстановить/задокументировать §4b emergency в cover skill + `shared/agent-pipeline-pitfalls.md` (GenerateImage + LANCZOS 2048×1152 + split).
+- Опционально: детект 402 в `excalibur_blog_kie_gpt_image2_api.py` с явной подсказкой emergency path (без секретов).
+
+### Suggested files to inspect/change
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- Cursor Cloud Secrets / Kie billing (no secret values here)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260724-1324-geo-qa-typed-task-enum-missing
 status: open
 run_date: 2026-07-24

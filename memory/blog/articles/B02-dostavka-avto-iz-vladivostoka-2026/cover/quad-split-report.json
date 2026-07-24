@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1021,
+      573
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 573,
+        "end": 597
+      },
+      "v_gutter_px": {
+        "start": 1021,
+        "end": 1058
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1021,
+          "bottom": 573
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1021,
+          "bottom": 573
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Порт Владивостока, автовоз и вагон-сетка с кроссовером, герой Авто-Сейлс, плашка ж/д или автовоз",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1058,
+          "top": 8,
+          "right": 2048,
+          "bottom": 565
+        },
+        "raw_box_px": {
+          "left": 1058,
+          "top": 0,
+          "right": 2048,
+          "bottom": 573
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист: закрыть СВХ и акт до выбора перевозчика",
+        "h2_anchor": "Закройте СВХ до выбора перевозчика"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 17,
+          "top": 597,
+          "right": 1004,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 597,
+          "right": 1021,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения: автовоз, ж/д и перегон из Владивостока",
+        "h2_anchor": "Сравните автовоз, ж/д и перегон в одной таблице"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1058,
+          "top": 597,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1058,
+          "top": 597,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема маршрута автовоза: СВХ → до города",
+        "h2_anchor": "Выберите автовоз, если нужен маршрут \"до города\""
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Закройте СВХ до выбора перевозчика",
+    "injected inline_2 after H2 — Сравните автовоз, ж/д и перегон в одной таблице",
+    "injected inline_3 after H2 — Выберите автовоз, если нужен маршрут \"до города\""
+  ]
+}

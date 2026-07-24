@@ -428,3 +428,78 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20260724-0952-cover-kie-402-emergency-generateimage
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-cover
+topic_id: B02
+article_dir: memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026
+severity: high
+category: api
+
+### What went wrong
+- MCP `gpt-image-2` failed (opaque `'NoneType' object has no attribute 'get'`).
+- Direct Kie `createTask` confirmed root cause: `code=402 Credits insufficient`.
+- Known prior: INC-2120 (needs-human Kie top-up). Cover skill §4b emergency path is referenced in automation memory / fixer notes but **absent** from current `skills/cover-excalibur-blog/SKILL.md` and `.cursor/skills/cover-excalibur-blog/SKILL.md` (both ~201 lines, no §4b).
+
+### How the agent recovered this run
+- ONE emergency `GenerateImage` with `reference_image_paths=[memory/cover/assets/blog-hero-reference.png]`, aspect 16:9.
+- Source came out **1536×1024** → Pillow LANCZOS resize to **2048×1152** → `cover/canvas-quad.png`.
+- `excalibur_blog_cover_quad_split.py --inject-html` → PASS (cover + inline-01..03, 3 figures injected).
+- Did not retry Kie/MCP after 402 (no duplicate billed attempts).
+
+### Durable fix needed before next run
+- Top up Kie credits (INC-2120 still needs-human) so canonical MCP/Kie i2i 2K path works.
+- Actually add skill §4b to cover skill (both `skills/` and `.cursor/skills/`): Kie 402 → GenerateImage + LANCZOS 2048×1152 + split; document expected source size 1536×1024.
+- Add pitfalls note: MCP may mask 402 as NoneType `.get` — verify via `excalibur_blog_kie_gpt_image2_api.py`.
+- Prompt builder still injects conflicting «Outfit lock: white hoodie» vs scene_hint weather outfit — align defaults with blog-hero outfit_rule.
+
+### Suggested files to inspect/change
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/pipeline-fix-queue.md` (INC-2120)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260724-0955-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-indexer
+topic_id: B02
+article_dir: memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026
+severity: low
+category: docs
+
+### What went wrong
+- `excalibur_blog_doctor.py` still checks that `excalibur_blog_llms_generator.py --help` contains `--blog-path`, producing doctor `errors=1` on every preflight.
+- Actual CLI of `excalibur_blog_llms_generator.py` exposes `--blog-dir` and `--out-dir` only — no `--blog-path`.
+- Indexer agent/skill shell examples still pass `--blog-path /`, which would fail if followed literally (`unrecognized arguments`).
+
+### How the agent recovered this run
+- Ran llms generator with `--blog-dir memory/blog/articles --out-dir memory/blog` (без `--blog-path`) → wrote `memory/blog/llms.txt` and `memory/blog/llms-full.txt` including B02.
+- Interlinker `--apply --article-dir ...` completed with 0 opportunities (AS08/AS09 keyword mismatch) — не blocker.
+
+### Durable fix needed before next run
+- Update doctor check: assert `--blog-dir` and `--out-dir` (not `--blog-path`).
+- Sync shell examples in `skills/indexer-excalibur-blog/SKILL.md`, `.cursor/skills/indexer-excalibur-blog/SKILL.md`, `.cursor/agents/excalibur-blog-indexer.md`, `agents/excalibur-blog-indexer.md` if present.
+- Add one-liner to `shared/agent-pipeline-pitfalls.md`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

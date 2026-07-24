@@ -1,0 +1,13 @@
+{
+  "tool": "GenerateImage",
+  "mode": "emergency_fallback_after_kie_402",
+  "mcp_attempt": "gpt-image-2",
+  "mcp_error": "NoneType get / Kie createTask code=402 Credits insufficient",
+  "kie_code": 402,
+  "path": "emergency GenerateImage + LANCZOS 2048x1152",
+  "source_artifact": "/opt/cursor/artifacts/assets/B02-canvas-quad-emergency.png",
+  "canvas": "cover/canvas-quad.png",
+  "input_reference": "memory/cover/assets/blog-hero-reference.png",
+  "aspect_ratio": "16:9",
+  "note": "INC-2120 Kie credits; emergency path per cover skill §4b / automation memory"
+}

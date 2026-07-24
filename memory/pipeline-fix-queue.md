@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260724-1335-indexer-skill-stale-blog-path
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-indexer
+topic_id: B03
+article_dir: memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer skill/agent всё ещё документируют флаг `--blog-path /` для `excalibur_blog_llms_generator.py`.
+- Актуальный CLI (`--help`) принимает только `--blog-dir`, `--site-base`, `--out-dir` (и опциональные site-name/desc); `--blog-path` отсутствует и упал бы на argparse.
+- Связано с уже открытым INC doctor (`INC-20260724-1304-director-doctor-llms-blog-dir`), но durable source skill/agent не синхронизированы.
+
+### How the agent recovered this run
+- Запустил `python3 scripts/excalibur_blog_llms_generator.py --help` и вызвал генератор без `--blog-path`: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog`.
+- llms.txt / llms-full.txt сгенерированы успешно (3 articles).
+
+### Durable fix needed before next run
+- Убрать `--blog-path` из indexer skill и agent contracts (plugin + `.cursor/` mirrors).
+- В pitfalls: Indexer обязан сверять флаги через `--help`, не копировать устаревший shell из skill дословно.
+- После фикса doctor+skills закрыть оба связанных incident.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260724-1330-cover-kie-402-credits-emergency
 status: open
 run_date: 2026-07-24

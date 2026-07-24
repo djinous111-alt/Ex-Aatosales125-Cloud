@@ -254,3 +254,36 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20260724-0904-scout-helper-b-id-bias
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-scout
+topic_id: B02
+article_dir: n/a
+severity: low
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py --suggest-next` вернул `B01` и `Total topics in pool: 0`, хотя в `memory/topics/blog-topics.md` уже есть AS01–AS09, а live WP уже занял slug `avto-iz-yaponii-pod-zakaz-2026` как B01-эквивалент.
+- Helper учитывает только ID вида `B\d+`, поэтому today/scout preflight видит пустой P0 B-пул и предлагает коллизию с уже существующим B01.
+
+### How the agent recovered this run
+- По контракту директора принудительно взял следующий ID **B02**.
+- Карточку B02 добавил вручную; check-query и сверка с recent WP slugs выполнены отдельно.
+
+### Durable fix needed before next run
+- Научить `excalibur_blog_scout_helper.py` (и `excalibur_blog_today.py`) учитывать: (1) max среди `B\d+` и опционально AS-пул; (2) live/ledger/WP reserved slugs или явный skip-list, чтобы не предлагать занятый B01.
+- Документировать в scout skill: при AVTO SALES миграции следующий ID = max(B)+1, даже если helper говорит B01.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/published-articles.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

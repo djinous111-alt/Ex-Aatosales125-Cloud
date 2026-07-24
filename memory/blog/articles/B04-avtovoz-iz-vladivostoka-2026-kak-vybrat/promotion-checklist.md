@@ -1,7 +1,7 @@
 # Promotion checklist — B04 avtovoz-iz-vladivostoka-2026-kak-vybrat
 
-Дата публикации: 2026-07-24 (ожидаемая; publish pending)  
-Live URL: (после publish) `/2026/07/24/avtovoz-iz-vladivostoka-2026-kak-vybrat/` · llms index: `/blog/avtovoz-iz-vladivostoka-2026-kak-vybrat/`
+Дата публикации: 2026-07-24  
+Live URL: https://avtosales125.ru/2026/07/24/avtovoz-iz-vladivostoka-2026-kak-vybrat/ · llms index: `/blog/avtovoz-iz-vladivostoka-2026-kak-vybrat/`
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • До Москвы ориентир 18–22 дня + слот 3–7 дней
 • До погрузки: договор, акт и свои фото/видео
 
-Читать: (live URL после publish)
+Читать: https://avtosales125.ru/2026/07/24/avtovoz-iz-vladivostoka-2026-kak-vybrat/
 ```
 
 ## Перелинковка
@@ -48,4 +48,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 - Indexer: interlinker `--apply --article-dir …/B04-… --site-base $PUBLIC_SITE_URL` — 0 links applied (suggestions empty).
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (B04 в индексе; site-name «Авто-Сейлс»).
 - Schema ready: BlogPosting + FAQPage + HowTo; cover inject ok.
-- Publish: pending (Indexer не публикует).
+- Publish: PASS — post_id=3713, featured=3725, inline=3727/3730/3733, schema_meta=1, live HEAD 200.

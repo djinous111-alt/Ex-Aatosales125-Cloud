@@ -31,3 +31,19 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-07-24 — B04 avtovoz-iz-vladivostoka-2026-kak-vybrat
+
+- **verdict:** PASS
+- **post_id:** 3713
+- **permalink:** https://avtosales125.ru/2026/07/24/avtovoz-iz-vladivostoka-2026-kak-vybrat/
+- **featured_image:** 3725
+- **inline_images:** 3727 (`inline-01.png`), 3730 (`inline-02.png`), 3733 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`, FAQPage+HowTo in meta)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH upload bootstrap; local HTTP + WebFetch + curl hit nginx 504 @120s; server-side PHP finished; verified via WP REST + HTTP meta probe
+- **live_HEAD:** 200
+- **note:** `SSH_ROOT` unset → relative cwd path; installed `paramiko` via pip `--break-system-packages`; duplicate media `-1/-2/-3` from concurrent retries (content uses `-3`)
+- **result:** `memory/blog/articles/B04-avtovoz-iz-vladivostoka-2026-kak-vybrat/wp-publish-result.json`
+- **incident:** `memory/pipeline-fix-queue.md#INC-20260724-1740-publish-http-504-paramiko`
+

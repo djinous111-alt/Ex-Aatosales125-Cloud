@@ -6,6 +6,49 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260724-1740-publish-http-504-paramiko
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-publish
+topic_id: B04
+article_dir: memory/blog/articles/B04-avtovoz-iz-vladivostoka-2026-kak-vybrat
+severity: high
+category: publish
+
+### What went wrong
+- `paramiko` missing in Cloud runtime (`ModuleNotFoundError`); `pip install --user -r requirements.txt` blocked by PEP 668 externally-managed-environment.
+- After SSH bootstrap upload, HTTP trigger timed out at 120s; nginx returned **504 Gateway Time-out**; WebFetch fallback also timed out; curl `--max-time 300` still got 504 @ ~120s.
+- Publish script raised `Cloud WebFetch Fallback timed out after 120 seconds` and exited 1 even though server-side PHP completed the post.
+- Concurrent retries created duplicate media filenames (`-1/-2/-3`); content uses `-3`.
+- Host CLI `php` is 5.6 and cannot load current WP for meta checks (web PHP-FPM is newer).
+
+### How the agent recovered this run
+- Installed deps with `pip install --break-system-packages -r requirements.txt`.
+- Confirmed live permalink HEAD 200, REST post id 3713, featured 3725, inline 3727/3730/3733.
+- HTTP one-shot meta probe: `schema_meta=1`, FAQPage+HowTo present, `skip_theme_faq=1`.
+- Wrote `wp-publish-result.json` + ledger/log from verified state.
+
+### Durable fix needed before next run
+- Bake `paramiko` into Cloud image / `environment.json` install with PEP 668-safe path (venv or `--break-system-packages` documented).
+- Prefer SSH/`php-fpm`-compatible trigger that bypasses nginx 120s proxy timeout (e.g. `php8.x` CLI path, or long-running queue worker), or raise proxy read timeout for bootstrap URL.
+- Extend WebFetch wait / document curl+verify recovery when client times out but post is live.
+- Serialize publish trigger (no concurrent curls) to avoid duplicate media sideloads.
+- Document that theme JSON-LD may omit FAQPage/HowTo even when `_excalibur_blog_schema_jsonld` is set — theme must echo post meta.
+
+### Suggested files to inspect/change
+- `.cursor/environment.json`
+- `scripts/excalibur_blog_wp_publish.py` (timeout/fallback/verify-after-timeout)
+- `shared/excalibur-wp-publish-contract.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260724-1730-indexer-llms-stale-blog-path
 status: open
 run_date: 2026-07-24

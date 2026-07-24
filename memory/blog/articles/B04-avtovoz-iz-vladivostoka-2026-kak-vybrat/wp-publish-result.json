@@ -1,0 +1,18 @@
+{
+  "slug": "avtovoz-iz-vladivostoka-2026-kak-vybrat",
+  "topic_id": "B04",
+  "permalink": "https://avtosales125.ru/2026/07/24/avtovoz-iz-vladivostoka-2026-kak-vybrat/",
+  "publish_method": "ssh",
+  "post_id": 3713,
+  "featured_image": 3725,
+  "inline_images": [
+    3727,
+    3730,
+    3733
+  ],
+  "schema_meta": 1,
+  "cover_evidence": {},
+  "raw_output": "OK post=3713 slug=avtovoz-iz-vladivostoka-2026-kak-vybrat\nOK featured_image=3725\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3727 src=cover/inline-01.png url=https://avtosales125.ru/wp-content/uploads/2026/07/avtovoz-iz-vladivostoka-2026-kak-vybrat-inline-01-3.png\nOK inline_image_upload=3730 src=cover/inline-02.png url=https://avtosales125.ru/wp-content/uploads/2026/07/avtovoz-iz-vladivostoka-2026-kak-vybrat-inline-02-3.png\nOK inline_image_upload=3733 src=cover/inline-03.png url=https://avtosales125.ru/wp-content/uploads/2026/07/avtovoz-iz-vladivostoka-2026-kak-vybrat-inline-03-3.png\npermalink=https://avtosales125.ru/2026/07/24/avtovoz-iz-vladivostoka-2026-kak-vybrat/\n",
+  "verdict": "pass",
+  "notes": "Client HTTP/WebFetch timed out (nginx 504 @120s); server-side bootstrap completed. Verified via WP REST + HTTP meta probe. Duplicate media suffixes (-1/-2/-3) from concurrent retries; content uses -3."
+}

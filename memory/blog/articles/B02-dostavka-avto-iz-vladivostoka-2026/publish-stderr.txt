@@ -1,0 +1,46 @@
+Traceback (most recent call last):
+  File "/workspace/scripts/excalibur_blog_wp_publish.py", line 473, in trigger_bootstrap_http
+    with urllib.request.urlopen(
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 1392, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 1348, in do_open
+    r = h.getresponse()
+        ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 305, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scripts/excalibur_blog_wp_publish.py", line 615, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/excalibur_blog_wp_publish.py", line 591, in main
+    out = publish_via_ssh(env, php, public)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/excalibur_blog_wp_publish.py", line 505, in publish_via_ssh
+    out = trigger_bootstrap_http(url, root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/excalibur_blog_wp_publish.py", line 493, in trigger_bootstrap_http
+    raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+RuntimeError: Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.

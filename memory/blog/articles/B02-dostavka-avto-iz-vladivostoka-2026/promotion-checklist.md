@@ -1,14 +1,14 @@
 # Promotion checklist — B02 dostavka-avto-iz-vladivostoka-2026
 
 Дата публикации: 2026-07-24  
-Live URL: https://avtosales125.ru/2026/07/24/dostavka-avto-iz-vladivostoka-2026/  
+Live URL: https://avtosales125.ru/2026/07/21/dostavka-avto-iz-vladivostoka-2026/  
 (ожидаемый permalink до publish; llms index: https://avtosales125.ru/blog/dostavka-avto-iz-vladivostoka-2026/)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL (HEAD 200; featured+inline OK) — title, excerpt, featured image, FAQ
 - [ ] View source — JSON-LD BlogPosting + FAQPage + HowTo (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -30,7 +30,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Для свежей машины перегон «потому что так ищут» часто ловушка
 • Без акта, страховки груза и трекинга машину не отдавайте
 
-Читать: https://avtosales125.ru/2026/07/24/dostavka-avto-iz-vladivostoka-2026/
+Читать: https://avtosales125.ru/2026/07/21/dostavka-avto-iz-vladivostoka-2026/
 ```
 
 ## Перелинковка

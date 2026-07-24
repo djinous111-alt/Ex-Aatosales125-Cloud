@@ -503,3 +503,74 @@ category: docs
 
 ### Fixer resolution
 - pending
+
+## INC-20260724-1004-publish-paramiko-missing-install
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-publish
+topic_id: B02
+article_dir: memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026
+severity: high
+category: env
+
+### What went wrong
+- First `excalibur_blog_wp_publish.py` run failed immediately: `ModuleNotFoundError: No module named 'paramiko'`.
+- `.cursor/cloud-agent-install.sh` installs only `requests pillow python-dotenv`, not `requirements.txt` (`Pillow numpy paramiko`).
+- `memory/site.env.local` file absent in Cloud (secrets via env vars only) — not a blocker once deps present.
+
+### How the agent recovered this run
+- `pip3 install --break-system-packages -r requirements.txt` → paramiko 5.0.0; republished successfully via SSH.
+
+### Durable fix needed before next run
+- Update `.cursor/cloud-agent-install.sh` to `pip install -r requirements.txt` (or at least add `paramiko` / `numpy`).
+- Optionally assert `import paramiko` in `excalibur_blog_doctor.py` / `--env-check`.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_wp_publish.py` (`--env-check`)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260724-1007-publish-http-disconnect-fallback-buffer
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-publish
+topic_id: B02
+article_dir: memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026
+severity: high
+category: publish
+
+### What went wrong
+- SSH upload of ~8.8MB bootstrap OK (`SSH_ROOT=.`).
+- Local HTTP trigger failed: `RemoteDisconnected` (nginx/proxy closed while PHP-FPM still ran).
+- Script entered WebFetch fallback with **120s** wait; stdout was **fully buffered** when redirected to a file, so parallel recovery could not see `FALLBACK_TRIGGER_URL` until process exit — by then bootstrap was deleted (`finally` cleanup) and curl got **404**.
+- Automation memory / fixer notes say wait **~300s** + REST recovery, but `trigger_bootstrap_http` still uses `range(120)` and no built-in REST-by-slug recovery.
+
+### How the agent recovered this run
+- Confirmed PHP completed via WP REST: post **3553** `modified_gmt=2026-07-24T10:06:22`, featured **3702**, inline **3703–3705**, content markers present, live HEAD **200**.
+- Wrote `wp-publish-result.json` (`verdict=pass`, method `ssh+rest_recovery`) and updated ledger/log/handoff manually.
+
+### Durable fix needed before next run
+- Bump fallback wait to **300s**; flush prints (`flush=True` / `PYTHONUNBUFFERED`).
+- Do not delete bootstrap until OK response received (or delay cleanup).
+- Add built-in REST recovery by slug after HTTP disconnect/504 (parse post + media → synthetic OK lines).
+- Document in publish skill: large payload → expect disconnect; recover via REST; prefer unbuffered publish run.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/excalibur-wp-publish-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

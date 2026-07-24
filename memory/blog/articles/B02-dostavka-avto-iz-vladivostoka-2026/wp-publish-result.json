@@ -1,0 +1,17 @@
+{
+  "slug": "dostavka-avto-iz-vladivostoka-2026",
+  "topic_id": "B02",
+  "permalink": "https://avtosales125.ru/2026/07/21/dostavka-avto-iz-vladivostoka-2026/",
+  "publish_method": "ssh+rest_recovery",
+  "post_id": 3553,
+  "featured_image": 3702,
+  "inline_images": [
+    3703,
+    3704,
+    3705
+  ],
+  "cover_evidence": {},
+  "raw_output": "OK post=3553 slug=dostavka-avto-iz-vladivostoka-2026\nOK featured_image=3702\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3703 src=cover/inline-01.png url=https://avtosales125.ru/wp-content/uploads/2026/07/dostavka-avto-iz-vladivostoka-2026-inline-01-3.png\nOK inline_image_upload=3704 src=cover/inline-02.png url=https://avtosales125.ru/wp-content/uploads/2026/07/dostavka-avto-iz-vladivostoka-2026-inline-02-3.png\nOK inline_image_upload=3705 src=cover/inline-03.png url=https://avtosales125.ru/wp-content/uploads/2026/07/dostavka-avto-iz-vladivostoka-2026-inline-03-3.png\npermalink=https://avtosales125.ru/2026/07/21/dostavka-avto-iz-vladivostoka-2026/",
+  "verdict": "pass",
+  "notes": "Local HTTP RemoteDisconnected; fallback wait 120s timed out due to stdout buffering; PHP completed; recovered via WP REST (modified_gmt 2026-07-24T10:06:22)."
+}

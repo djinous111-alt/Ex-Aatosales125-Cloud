@@ -12,7 +12,7 @@
     "гибрид под льготный утильсбор",
     "льготный утильсбор мощность"
   ],
-  "char_count": 9400,
+  "char_count": 9395,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -38,7 +38,8 @@
     "link_verify": "fail",
     "human_voice": "PASS",
     "utility_gate": "PASS",
-    "blocker": "CTA href literal [REDACTED]; FIX → writer"
+    "blocker": "FIX cycle 1 applied: CTA hrefs restored + insight label; awaiting re-QA",
+    "writer_fix": "2026-07-25-cycle1"
   },
   "cover_family": "brand_collage"
 }

@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260726-2108-writer-as02-policy-cta-gap
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-writer
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: docs
+
+### What went wrong
+- `shared/public-cta.json` отсутствует; Writer брал CTA из env `CATALOG_URL` / `TELEGRAM_URL` (с `<!-- pragma: allowlist secret -->`), иначе conversion-map содержит placeholder.
+- `memory/brief/editorial-policy.json` не содержал `pain_markers_ru` / `outcome_markers_ru`, а `excalibur_blog_utility_gate.py` по умолчанию требует min 2/3 → любой article utility gate BLOCK (в т.ч. уже опубликованный AS09).
+- Recommendation markers в тексте должны быть императивом (`Сделайте` / `Не делайте`), формулировка `Делать:` / `Не делать:` utility gate не засчитывает.
+
+### How the agent recovered this run
+- CTA href подставлены из env; pragma allowlist на строках ссылок.
+- В `editorial-policy.json` добавлены `pain_markers_ru` / `outcome_markers_ru` (как в human-voice gate) и явные min в `article_required_signals`.
+- Статья переписана с маркерами действия; utility + human-voice + html linter PASS.
+
+### Durable fix needed before next run
+- Закоммитить/поддерживать `shared/public-cta.json` (или скрипт resolve CTA из env) без placeholder в production HTML.
+- Зафиксировать в writer skill: recommendation markers = императив из `recommendation_markers_ru`.
+- Fixer: подтвердить, что utility gate не падает при пустых marker lists (skip или fail-fast на policy).
+
+### Suggested files to inspect/change
+- `shared/public-cta.json` (создать)
+- `memory/brief/editorial-policy.json`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_utility_gate.py`
+
+### Secrets
+- none recorded
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

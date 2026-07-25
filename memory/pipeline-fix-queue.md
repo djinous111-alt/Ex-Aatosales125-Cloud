@@ -327,6 +327,41 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20260725-1320-writer-public-cta-missing
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-svh-vladivostok-kak-ne-pereplatit-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `shared/public-cta.json` отсутствует; `memory/brief/conversion-map.md` и site-brief хранят CTA как `[REDACTED]`.
+- Writer-контракт требует реальные href (не literal `[REDACTED]`), но канонический brief не даёт URL без env.
+
+### How the agent recovered this run
+- Подставил `CATALOG_URL` и `TELEGRAM_URL` из окружения Cloud Secrets при записи `article.html` (без печати секретов в stdout).
+- Проверил, что в HTML нет `[REDACTED]` и что host каталога/Telegram публичные (`avto-sales125.ru`, `t.me`).
+
+### Durable fix needed before next run
+- Добавить `shared/public-cta.json` (или `.example`) с публичными marketing URL каталога и Telegram для Writer.
+- В writer skill явно: если brief/conversion-map redacted → читать `CATALOG_URL`/`TELEGRAM_URL` из env; запрет писать literal `[REDACTED]` в href.
+- Не коммитить секреты; публичные CTA URL не считать secret-scan целями, либо держать только в env + example.
+
+### Suggested files to inspect/change
+- `shared/public-cta.json` (создать)
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `memory/brief/conversion-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

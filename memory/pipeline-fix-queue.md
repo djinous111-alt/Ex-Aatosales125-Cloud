@@ -49,7 +49,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_quad_apply.py`
 - `python3 scripts/excalibur_blog_quad_apply.py --help`
-commit: 7af9327
+commit: b948863
 
 ## INC-20260725-0930-indexer-public-site-url-secret-scan
 status: needs-human
@@ -92,7 +92,7 @@ files_changed:
 checks_run:
 - doctor errors=0
 - relative llms dry-run (no absolute http links)
-commit: 7af9327
+commit: b948863
 
 ## INC-20260725-0935-precommit-invalid-secret-name
 status: needs-human
@@ -148,7 +148,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `--suggest-next` → B07
-commit: 7af9327
+commit: b948863
 
 ## INC-20260725-0915-research-tech-markers-false-positive
 status: fixed
@@ -162,7 +162,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - technical_customs=False; technical_ai=True
-commit: 7af9327
+commit: b948863
 
 ## INC-20260725-0925-writer-missing-pain-outcome-markers
 status: fixed
@@ -175,7 +175,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - py_compile utility_gate; JSON parse policy
-commit: 7af9327
+commit: b948863
 
 ## INC-20260725-0945-geo-qa-typed-task-missing
 status: fixed
@@ -192,7 +192,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg generalPurpose / geo-qa fallback
-commit: 7af9327
+commit: b948863
 
 ## INC-20260725-0945-geo-qa-redacted-cta-hrefs
 status: fixed
@@ -210,7 +210,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - link_verify scrubbed_literal → fail
-commit: 7af9327
+commit: b948863
 
 ## INC-20260725-0923-schema-redacted-site-urls
 status: fixed
@@ -223,7 +223,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg Secret-scrub in schema skill
-commit: 7af9327
+commit: b948863
 
 ## INC-20260725-0932-publish-paramiko-missing
 status: fixed
@@ -239,7 +239,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor OK paramiko; errors=0
-commit: 7af9327
+commit: b948863
 
 
 ## Historical fixed incidents
@@ -294,7 +294,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: 7af9327-parent-commit
+commit: b948863-parent-commit
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -345,7 +345,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: 7af9327-parent-commit
+commit: b948863-parent-commit
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -386,7 +386,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: 7af9327-parent-commit
+commit: b948863-parent-commit
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -433,7 +433,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: 7af9327-parent-commit
+commit: b948863-parent-commit
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -487,7 +487,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: 7af9327-parent-commit
+commit: b948863-parent-commit
 
 ## Fixed incidents
 

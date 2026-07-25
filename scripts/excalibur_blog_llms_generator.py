@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -119,7 +120,21 @@ def main() -> int:
     args = ap.parse_args()
 
     root = project_root()
-    blog_dir = args.blog_path or args.blog_dir or root / "memory/blog/articles"
+    # --blog-path is an alias for --blog-dir (filesystem articles dir), NOT a WP URL path.
+    # Ignore URL-path-like values ("/", "/blog") so a mistaken "--blog-path /" cannot
+    # wipe llms.txt by scanning the filesystem root when --blog-dir is also set.
+    url_path_like = {"/", "/blog", "/blog/", Path("/"), Path("/blog")}
+    blog_path = args.blog_path
+    if blog_path is not None and (
+        str(blog_path) in {"/", "/blog", "/blog/"} or blog_path in url_path_like
+    ):
+        print(
+            "WARNING: ignoring --blog-path={!s} (URL path, not articles dir); "
+            "use --blog-dir memory/blog/articles".format(blog_path),
+            file=sys.stderr,
+        )
+        blog_path = None
+    blog_dir = blog_path or args.blog_dir or root / "memory/blog/articles"
     if not blog_dir.is_absolute():
         blog_dir = root / blog_dir
 

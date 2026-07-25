@@ -571,9 +571,31 @@ def main() -> int:
     payload = load_article(article_dir)
     php = build_php(payload)
 
+    cover_path = article_dir / "cover" / "cover.png"
+    cover_reg = article_dir / "cover" / "cover-registry.json"
+    cover_missing: list[str] = []
+    if not cover_path.is_file():
+        cover_missing.append("cover/cover.png")
+    if not cover_reg.is_file():
+        cover_missing.append("cover/cover-registry.json")
+
     if args.dry_run:
-        print(json.dumps({"dry_run": True, "slug": payload["slug"], "title": payload["title"]}, ensure_ascii=False, indent=2))
-        print("PHP bytes:", len(php.encode("utf-8")))
+        report = {
+            "dry_run": True,
+            "slug": payload["slug"],
+            "title": payload["title"],
+            "php_bytes": len(php.encode("utf-8")),
+            "cover_ok": not cover_missing,
+            "cover_missing": cover_missing,
+        }
+        print(json.dumps(report, ensure_ascii=False, indent=2))
+        if cover_missing:
+            print(
+                "BLOCKER: dry-run failed — missing featured assets: "
+                + ", ".join(cover_missing),
+                file=sys.stderr,
+            )
+            return 2
         return 0
 
     env = load_env(root)

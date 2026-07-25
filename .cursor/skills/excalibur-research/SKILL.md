@@ -40,10 +40,15 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 1. **Анализ спроса через Wordstat API:**
   Каждый прогон исследования **обязан** задействовать инструмент `wordstat_get_top_requests` сервера `user-mcp-kv` для анализа спроса:
   - Вызови `wordstat_get_top_requests` для `primary_query` и ключевых `secondary_queries`.
+  - **Cluster-first:** сначала широкий parent-запрос, потом узкий how-to. Узкий запрос чаще даёт усечённый ответ.
   - Если вызов вернул `401 Unauthorized` (токен устарел):
     - Запиши в `research-notes.md` предупреждение: `⚠️ WORDSTAT AUTH WARNING: Токен Wordstat устарел. Обновите токен через: https://oauth.yandex.ru/authorize?response_type=token&client_id=c654b948515a4a07a4c89648a0831d40`
     - Сделай экспертную оценку семантики, но явно укажи, что точные объемы спроса не получены из-за авторизации.
-  - Если вызов успешен:
+  - Если ответ усечён до `{"totalCount":"..."}` **без** списка фраз/impressions (не HTTP-ошибка):
+    - Это **не** fatal API failure. Запиши `⚠️ WORDSTAT PARTIAL: <phrase> → totalCount-only; phrase list missing`.
+    - Retry: без regions / с более широкой формулировкой / соседним кластером.
+    - Не выдумывай impressions. В таблицу спроса включай только успешные фразы с полным payload.
+  - Если вызов успешен (есть top phrases):
     - Сформируй в `research-notes.md` таблицу спроса: Фраза | Показы в месяц.
     - Выдели сопутствующие LSI-запросы из топа выдачи Вордстата для использования копирайтером.
 2. **Замена уличных поисковиков (DuckDuckGo) на WebSearch Курсора:**
@@ -51,6 +56,16 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
   - Агент имеет полноценный доступ в интернет через нативный инструмент `**WebSearch`** (или `WebFetch` для чтения конкретных страниц).
   - Для анализа конкурентов в SERP **всегда используй инструмент `WebSearch`**. Ищи статьи, руководства, гайды по `primary_query` и ключевым словам в Яндексе и Google.
   - Игнорируй сырой `research-serp.json` из шага 0, если он пуст, неполный или нерелевантный. Твой собственный поиск через `WebSearch` — приоритетный источник свежих данных 2026 года.
+
+## Gate после notes
+
+```bash
+python3 scripts/excalibur_blog_research_notes_gate.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  -o research-notes-gate.json
+```
+
+`-o` **относителен к `--article-dir`**: всегда `-o research-notes-gate.json`, не repo-relative путь (иначе nested duplicate под `article_dir/`).
 
 ## Правила
 

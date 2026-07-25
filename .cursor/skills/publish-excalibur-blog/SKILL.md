@@ -41,12 +41,12 @@ Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
 
-Проверь: slug, title, размер PHP payload без ошибок.
+Проверь: slug, title, размер PHP payload. Dry-run **fail-fast** (exit 2), если нет `cover/cover.png` или `cover/cover-registry.json` — не переходи к live publish; resume: cover → publish.
 
 ### 3. Publish
 

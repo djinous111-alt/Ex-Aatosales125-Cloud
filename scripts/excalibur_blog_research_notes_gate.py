@@ -74,12 +74,26 @@ def has_wordstat(text_lower: str) -> bool:
 
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech/AI niche topics that need official /docs evidence.
+
+    Do not treat the required heading `github_evidence` or bare github.com hosts
+    as tech signals — every research-notes file includes that section, which
+    falsely marked auto/Encar topics as technical_topic.
+    """
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
+    notes_sample = notes[:2000].lower()
+    notes_sample = re.sub(
+        r"^\s*##\s*\d*\.?\s*github[_\s-]*evidence\b.*$",
+        " ",
+        notes_sample,
+        flags=re.M,
+    )
+    notes_sample = re.sub(r"https?://(?:www\.)?github\.com\S*", " ", notes_sample)
+    blob += " " + notes_sample
     return any(marker in blob for marker in TECH_MARKERS)
 
 

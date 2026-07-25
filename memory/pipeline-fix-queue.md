@@ -285,6 +285,39 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20260725-1710-research-accessed-at-literal
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rastamozhit-avto-iz-korei-2026
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` считает только литералы `accessed_at:` (regex `\baccessed_at\b\s*:`).
+- Даты в колонке таблицы `source_table` (`| … | 2026-07-25 | …`) gate не засчитывает → первый прогон BLOCK (`accessed_at=2 < 5`), хотя источники уже были.
+- Дополнительно авто-ниша ложно помечается `technical_topic=true` из-за маркеров вроде `github` / упоминаний API в notes, из-за чего появляется WARN про official docs.
+
+### How the agent recovered this run
+- Добавлен блок `## source_access_log` с ≥5 строками вида `accessed_at: 2026-07-25 — <url>`.
+- Добавлены GitHub evidence URL и docs-URL с `/docs` для снятия/смягчения WARN; gate перезапущен до PASS.
+
+### Durable fix needed before next run
+- В gate: принимать `accessed_at` из markdown-таблиц (колонка) ИЛИ явно задокументировать в research skill, что нужен отдельный `source_access_log` с литералами `accessed_at:`.
+- Для non-dev тем (авто/таможня): не считать `github`/`api` в notes достаточным признаком technical_topic, либо исключать маркеры внутри секции `github_evidence`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

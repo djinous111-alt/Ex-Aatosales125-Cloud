@@ -88,11 +88,29 @@ def http_json(method: str, url: str, api_key: str, payload: dict[str, Any] | Non
     return parsed
 
 
+def format_kie_failure(action: str, response: dict[str, Any]) -> str:
+    """Map Kie API error codes to actionable blocker messages (no secrets)."""
+    code = response.get("code")
+    msg = str(response.get("msg") or "unknown error")
+    msg_l = msg.lower()
+    if code == 402 or "credit" in msg_l or "insufficient" in msg_l:
+        return (
+            f"Kie API {action} failed: code={code} msg={msg} "
+            "(CREDITS INSUFFICIENT — top up Kie.ai balance for KIE_API_KEY; "
+            "do not invent canvas/cover assets)"
+        )
+    if code in {401, 403} or "unauthorized" in msg_l or "forbidden" in msg_l:
+        return (
+            f"Kie API {action} failed: code={code} msg={msg} "
+            "(AUTH — check KIE_API_KEY in Cloud Secrets; do not print the key)"
+        )
+    return f"Kie API {action} failed: code={code} msg={msg}"
+
+
 def require_success(response: dict[str, Any], action: str) -> None:
     if response.get("code") == 200:
         return
-    msg = response.get("msg") or "unknown error"
-    raise KieApiError(f"Kie API {action} failed: code={response.get('code')} msg={msg}")
+    raise KieApiError(format_kie_failure(action, response))
 
 
 def batch_mcp_args(batch_path: Path) -> dict[str, Any]:

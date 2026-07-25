@@ -32,6 +32,13 @@ TECH_MARKERS = (
     "нейросет",
 )
 
+# Do not treat evidence-section scaffolding as proof the *topic* is technical.
+TECH_TOPIC_EXCLUDE_SECTIONS = (
+    "github_evidence",
+    "source_access_log",
+    "source_table",
+)
+
 
 REQUIRED_FIELDS = (
     "research_date",
@@ -73,14 +80,64 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _blob_has_tech_marker(blob: str) -> bool:
+    """Substring match for multi-char markers; word-boundary for short tokens like ai/api."""
+    for marker in TECH_MARKERS:
+        if len(marker) <= 3:
+            if re.search(rf"(?<![a-zа-яё0-9_]){re.escape(marker)}(?![a-zа-яё0-9_])", blob, flags=re.I):
+                return True
+        elif marker in blob:
+            return True
+    return False
+
+
+def strip_excluded_sections(notes: str) -> str:
+    """Remove evidence/log sections so their URLs/markers do not flip technical_topic."""
+    text = notes
+    for section in TECH_TOPIC_EXCLUDE_SECTIONS:
+        pattern = rf"(?is)^\s*##\s*\d*\.?\s*{re.escape(section)}\b.*?(?=^\s*##\s|\Z)"
+        text = re.sub(pattern, "\n", text, flags=re.M)
+    return text
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
+    # Prefer topic card fields; only skim notes outside evidence scaffolding.
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    notes_for_topic = strip_excluded_sections(notes)[:1500].lower()
+    blob += " " + notes_for_topic
+    return _blob_has_tech_marker(blob)
+
+
+def count_accessed_at(text: str) -> int:
+    """Count source access dates from literals and source-table date columns.
+
+    Accepts:
+    - `accessed_at: 2026-07-25` / `accessed_at:2026-07-25`
+    - markdown table rows that include both an http(s) URL and an ISO date cell
+    """
+    text_lower = text.lower()
+    literal = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    # Table rows with a URL and a YYYY-MM-DD cell (common source_table shape).
+    table_dates = 0
+    seen_dates: set[str] = set()
+    for line in text.splitlines():
+        if "http://" not in line.lower() and "https://" not in line.lower():
+            continue
+        if not line.strip().startswith("|"):
+            continue
+        for date in re.findall(r"\b(20\d{2}-\d{2}-\d{2})\b", line):
+            key = f"{date}|{line.strip()[:120]}"
+            if key in seen_dates:
+                continue
+            seen_dates.add(key)
+            table_dates += 1
+            break
+    # Prefer the stronger signal; do not double-count the same research pass.
+    return max(literal, table_dates)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -89,6 +146,11 @@ def field_present(text_lower: str, field: str) -> bool:
     if field in {"action_outline", "github_evidence", "pain_solution_map"}:
         field_pattern = re.escape(field).replace("_", r"[_\s-]")
         return bool(re.search(rf"^\s*##\s*\d*\.?\s*{field_pattern}\b", text_lower, flags=re.I | re.M))
+    if field == "accessed_at":
+        # Literal key OR enough dated source-table rows (see count_accessed_at).
+        if re.search(r"\baccessed_at\b\s*:", text_lower):
+            return True
+        return count_accessed_at(text_lower) >= 1
     field_pattern = re.escape(field).replace("_", r"[_\s-]")
     return bool(re.search(rf"\b{field_pattern}\b\s*:", text_lower, flags=re.I))
 
@@ -130,7 +192,7 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
     pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
     action_items = count_action_items(text)

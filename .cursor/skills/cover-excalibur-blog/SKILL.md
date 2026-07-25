@@ -122,23 +122,31 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image job (Kie async preferred)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+**Primary (Cloud):** async Kie API — avoids long sync MCP timeouts and surfaces real error codes (incl. 402 credits):
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+Reads `cover/quad-mcp-batch.json` → writes `cover/quad-mcp-result.json` + `cover/kie-image-task.json`.
+
+**Fallback:** sync MCP `CallMcpTool` → `user-mcp-kv` / `gpt-image-2` with `jobs[0].mcp_args` **only if** Kie async is unavailable *and* credits/auth are known-good. Cryptic MCP `NoneType.has no attribute get` often means upstream Kie 402/auth — confirm via Kie script before a third create.
+
+Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K. **Не выдумывать** canvas URL при ошибке.
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --url "<result url from kie/MCP>" \
   --inject-html
 ```
 
-Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
+Требует Pillow (+ numpy для split). Выход: cover, inline PNG, registry, inject в article.html.
 
 ### Шаг 6 — fragment
 
@@ -177,10 +185,12 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 ## Blockers → verdict ❌
 
 - нет reference_url_hosted
-- MCP text-only (без input_urls)
+- MCP/Kie text-only (без input_urls)
 - 4 отдельные генерации
 - QUAD SPLIT fail
 - inline = meme с ведущим вместо UI
+- `Kie API … code=402` / credits insufficient — **needs-human billing**: пополнить баланс Kie.ai для `KIE_API_KEY`; не ретраить createTask вслепую и не фабриковать cover.png
+- MCP `NoneType…get` без URL/task_id — сначала проверить Kie async script; не считать это успешной генерацией
 
 ---
 

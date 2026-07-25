@@ -186,3 +186,12 @@ Preflight link-verify → dry-run → publish → обнови shared/published-
 
 
 Cloud: те же имена в `.cursor/agents/`.
+## Typed Task vs generalPurpose
+
+Cloud Task type enum **вне** репозитория. Если `Task(excalibur-blog-geo-qa)` (или другой `excalibur-blog-*`) недоступен:
+
+```text
+Task(generalPurpose) + .cursor/agents/excalibur-blog-<role>.md + .cursor/skills/<skill>/SKILL.md
+```
+
+Один Task = одна роль. Нельзя схлопывать pipeline в single-agent.

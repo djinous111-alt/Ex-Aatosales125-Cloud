@@ -211,13 +211,18 @@ Task(excalibur-blog-publish)
 
 ## Blockers
 
-Если typed Task `excalibur-blog-*` недоступны:
+Если typed Task `excalibur-blog-*` недоступны (в т.ч. отдельно `excalibur-blog-geo-qa`):
 
 1. Используй fallback из `AGENTS.md`: отдельный `Task(generalPurpose)` на каждую роль с `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`.
-2. Если недоступен даже `generalPurpose`, тогда:
+2. Для GEO QA канонический fallback:
+   - agent: `.cursor/agents/excalibur-blog-geo-qa.md`
+   - skill: `.cursor/skills/excalibur-geo-qa/SKILL.md`
+   - тот же контракт gates/PASS; cover||schema только после PASS.
+3. Если недоступен даже `generalPurpose`, тогда:
 
 `❌ БЛОКЕР: среда не поддерживает Task/subagents. Single-agent pipeline запрещён.`
 
+Repo **не** контролирует Cloud Task type enum; не ожидай, что добавление файла в `.cursor/agents/` само по себе расширит typed Task list.
 ## Fragment финала
 
 ```text

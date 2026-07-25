@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-kak-rastamozhit-avto-iz-korei-2026",
+  "notes": "memory/blog/articles/B01-kak-rastamozhit-avto-iz-korei-2026/research-notes.md",
+  "context": "memory/blog/articles/B01-kak-rastamozhit-avto-iz-korei-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-07-25",
+    "prefer_sources_after": "2026-04-26",
+    "source_urls": 39,
+    "source_domains": 12,
+    "source_table_rows": 26,
+    "accessed_at": 10,
+    "github_urls": 6,
+    "official_doc_urls": 1,
+    "action_outline_items": 9,
+    "pain_solution_rows": 4,
+    "technical_topic": true
+  }
+}

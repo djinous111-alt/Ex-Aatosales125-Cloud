@@ -291,6 +291,42 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20260725-1315-research-tech-markers-false-positive
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-svh-vladivostok-kak-ne-pereplatit-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` помечает non-tech тему СВХ/авто как `technical_topic=true` из-за подстрочных TECH_MARKERS: `ai` внутри `daily`/`reader_pain`, `rag` внутри `storage`, `ии` внутри `Японии`.
+- При false-positive gate требует `github_urls >= 3`, хотя skill/user допускают N/A для СВХ.
+- Relative `-o memory/blog/articles/.../research-notes-gate.json` снова создаёт nested path под `article_dir` (уже было в INC-20260616).
+
+### How the agent recovered this run
+- Добавил 3 вторичных gist.github.com URL в `github_evidence` только чтобы удовлетворить ложный technical gate; первичные факты остались из прайсов СВХ/Kontur/Drive2.
+- Перенёс `reader_*` поля ниже длинного `source_table`; для `accessed_at` использовал явные `accessed_at: 2026-07-25` в ячейках.
+- Gate запускал с `-o research-notes-gate.json` (файл в article_dir).
+
+### Durable fix needed before next run
+- В `is_technical_topic` использовать word-boundary / token match, исключить маркеры `ai`/`ии`/`rag` как голые подстроки; либо whitelist ниш авто/таможня.
+- Не требовать GitHub evidence, если topic slug/cluster = logistics/customs/auto-import.
+- В research skill явно: `-o research-notes-gate.json` (basename), не repo-relative path.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

@@ -1,0 +1,531 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-25",
+    "today_ru": "25.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-26",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-25 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "svh-vladivostok-kak-ne-pereplatit-2026",
+    "h1": "СВХ Владивосток в 2026: как не переплатить за хранение авто на таможне",
+    "primary_query": "свх владивосток",
+    "secondary_queries": [
+      "сколько стоит свх во владивостоке",
+      "свх стоимость хранения владивосток",
+      "свх сколько бесплатно владивосток"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "свх владивосток 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "СВХ Владивосток в 2026: сравнение стоимости, скорости и скрытых ...",
+          "url": "https://whitechina.ru/tpost/svh-vladivostok-v-2026-sravnenie-stoimosti-skorosti-i-skrytyh-platezhej-dlya-imp",
+          "snippet": ""
+        },
+        {
+          "title": "СВХ Владивосток в 2026: сравнение стоимости, скорости и скрытых ...",
+          "url": "https://dzen.ru/a/ahk9Y5VH4FtoK8v-",
+          "snippet": "Экономия на СВХ во Владивостоке в 2026 году строится на жесткой дисциплине, предварительной подаче документов и выборе правильного типа терминала под специфику вашего груза."
+        },
+        {
+          "title": "Хранение на СВХ и разгрузка контейнера в порту в 2026: сроки, тарифы и ...",
+          "url": "https://whitechina.ru/tpost/hranenie-na-svh-i-razgruzka-kontejnera-v-portu-v-2026-sroki-tarify-i-terminalnay",
+          "snippet": "Экономия на СВХ во Владивостоке в 2026 году строится на жесткой дисциплине, предварительной подаче документов и выборе правильного типа терминала под специфику вашего груза."
+        },
+        {
+          "title": "Сколько стоит хранение авто в порту Владивостока? Как не переплатить?",
+          "url": "https://peregonpro.ru/poleznoe/svh-i-hranenie-v-portu-skolko-stoit-i-kak-ne-pereplatit-za-prostoj-avtomobilya-na-tamozhne/",
+          "snippet": "В 2026 году средняя стоимость свх на таможне во Владивостоке для стандартного 40-футового контейнера может варьироваться от 4 000 до 12 000 рублей в сутки после окончания льготного периода."
+        },
+        {
+          "title": "Продажа Honda Stepwgn, 2026 год во Владивостоке",
+          "url": "https://auto.drom.ru/vladivostok/honda/stepwgn/100332988.html",
+          "snippet": "В этой статье мы подробно разберем, что такое СВХ, сколько реально стоит хранение авто в порту Владивостока в 2026 году, какие существуют льготные периоды и, главное, как избежать ..."
+        },
+        {
+          "title": "Склады временного хранения во Владивостоке",
+          "url": "https://vlb-broker.ru/stati/svh/",
+          "snippet": "Продажа Honda Stepwgn, 2026 год во Владивостоке Добавить в избранное Пожаловаться на это объявление Продвинуть объявление"
+        }
+      ],
+      "searched_at": "2026-07-25"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "свх владивосток июль 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "СВХ Владивосток в 2026: сравнение стоимости, скорости и скрытых ...",
+          "url": "https://whitechina.ru/tpost/svh-vladivostok-v-2026-sravnenie-stoimosti-skorosti-i-skrytyh-platezhej-dlya-imp",
+          "snippet": ""
+        },
+        {
+          "title": "СВХ Владивосток в 2026: сравнение стоимости, скорости и скрытых ...",
+          "url": "https://dzen.ru/a/ahk9Y5VH4FtoK8v-",
+          "snippet": "Экономия на СВХ во Владивостоке в 2026 году строится на жесткой дисциплине, предварительной подаче документов и выборе правильного типа терминала под специфику вашего груза."
+        },
+        {
+          "title": "Склады временного хранения во Владивостоке",
+          "url": "https://vlb-broker.ru/stati/svh/",
+          "snippet": "Экономия на СВХ во Владивостоке в 2026 году строится на жесткой дисциплине, предварительной подаче документов и выборе правильного типа терминала под специфику вашего груза."
+        },
+        {
+          "title": "PDF 29 2026 ПРАЙС ЛИСТ СВХ/ПТ СВХ - cit-ekb.ru",
+          "url": "https://cit-ekb.ru/media/uploads/%D0%BF%D1%80%D0%B0%D0%B9%D1%81_01.07.2026_%D1%81%D0%B2%D1%85.pdf",
+          "snippet": "Для удобства поиска СВХ, с которого нужно забирать автомобиль после таможенного оформления, мы составили список основных СВХ Владивостока с координатами. Таможенный представитель VL-BROKER контролирует все этапы таможенного оформления и логистики, включая взаимодействие с экспортёром, перевозчиком и Федеральной таможенной службой."
+        },
+        {
+          "title": "Все СВХ Владивостока с адресами и графиком работы",
+          "url": "https://tokai-auto.ru/about-auction/svh.html",
+          "snippet": "Зона погрузки-выгрузки); технологическая площадка таможенной зоны терминала (Сток СВХ и прил. гающая к СВХ территория). Примыкание ж.д. путей Терминала - станция Кольцово Свердлов. кой ж.д. (код станции 794305). Таможенный контроль на Терминале - Октябрьский таможенн."
+        },
+        {
+          "title": "Сколько стоит хранение авто в порту Владивостока? Как не переплатить?",
+          "url": "https://peregonpro.ru/poleznoe/svh-i-hranenie-v-portu-skolko-stoit-i-kak-ne-pereplatit-za-prostoj-avtomobilya-na-tamozhne/",
+          "snippet": "Владивосток, Калинина, 30 44-й причал, 1. 690003, Приморский край, г. Владивосток, ул. Нижнепортовая, 1. 690003, Приморский край, г. Владивосток, ул. Приморская, 8. Касса 8 (994)004-60-45. WhatsApp: 8-914-069-04-03. Склад - круглосуточно (выдача груза, при наличии пропуска и отсутствии задолженности) 690077, Приморский край, г. Владивосток, ул."
+        }
+      ],
+      "searched_at": "2026-07-25"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "свх владивосток новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "СВХ Владивосток в 2026: сравнение стоимости, скорости и скрытых ...",
+          "url": "https://whitechina.ru/tpost/svh-vladivostok-v-2026-sravnenie-stoimosti-skorosti-i-skrytyh-platezhej-dlya-imp",
+          "snippet": ""
+        },
+        {
+          "title": "СВХ Владивосток в 2026: сравнение стоимости, скорости и скрытых ...",
+          "url": "https://dzen.ru/a/ahk9Y5VH4FtoK8v-",
+          "snippet": "В 2025-2026 годах порты Дальнего Востока загружены до предела, а склады временного хранения свх стали важнейшим фильтром."
+        },
+        {
+          "title": "Хранение на СВХ и разгрузка контейнера в порту в 2026: сроки, тарифы и ...",
+          "url": "https://whitechina.ru/tpost/hranenie-na-svh-i-razgruzka-kontejnera-v-portu-v-2026-sroki-tarify-i-terminalnay",
+          "snippet": "Экономия на СВХ во Владивостоке в 2026 году строится на жесткой дисциплине, предварительной подаче документов и выборе правильного типа терминала под специфику вашего груза."
+        },
+        {
+          "title": "СВХ при импорте авто 2026: как работает склад временного хранения, цены ...",
+          "url": "https://carto-auto.ru/blog/svh-import-auto-2026/",
+          "snippet": "В 2026 году на многих СВХ Москвы и Владивостока ручная разгрузка оценивается по объему или весу, и это всегда «подводный камень» для тех, кто хотел сэкономить на паллетировании в Китае."
+        },
+        {
+          "title": "Хранение на СВХ и разгрузка контейнера в порту в 2026: сроки, тарифы и ...",
+          "url": "https://dzen.ru/a/afhZoDUeazX5Z0uA",
+          "snippet": "В этом гайде разбираем, как работает СВХ во Владивостоке и Новороссийске в 2026 году, кто им владеет, сколько стоит хранение легкового авто, как машина туда попадает после порта, и как её оттуда забрать."
+        },
+        {
+          "title": "Сколько стоит хранение авто в порту Владивостока? Как не переплатить?",
+          "url": "https://peregonpro.ru/poleznoe/svh-i-hranenie-v-portu-skolko-stoit-i-kak-ne-pereplatit-za-prostoj-avtomobilya-na-tamozhne/",
+          "snippet": "В 2026 году на многих СВХ Москвы и Владивостока ручная разгрузка оценивается по объему или весу, и это всегда «подводный камень» для тех, кто хотел сэкономить на паллетировании в Китае."
+        }
+      ],
+      "searched_at": "2026-07-25"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com свх владивосток 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "dns-blocklists/adblock/popupads.txt at main · hagezi/dns ... - GitHub",
+          "url": "https://github.com/hagezi/dns-blocklists/blob/main/adblock/popupads.txt",
+          "snippet": ""
+        },
+        {
+          "title": "Releases · justagoodman/JMComic - GitHub",
+          "url": "https://github.com/justagoodman/JMComic/releases",
+          "snippet": "DNS-Blocklists: For a better internet - keep the internet clean! - hagezi/dns-blocklists"
+        },
+        {
+          "title": "VIT_FDP_2026/train.csv at main - GitHub",
+          "url": "https://github.com/ajanthadevi2012/VIT_FDP_2026/blob/main/train.csv",
+          "snippet": "A third party 18comic app build with ReactNative. Contribute to justagoodman/JMComic development by creating an account on GitHub."
+        },
+        {
+          "title": "vladivostok-guide/todo.html at main · mihailvasyliev2007-dev ... - GitHub",
+          "url": "https://github.com/mihailvasyliev2007-dev/vladivostok-guide/blob/main/todo.html",
+          "snippet": "Contribute to ajanthadevi2012/VIT_FDP_2026 development by creating an account on GitHub."
+        },
+        {
+          "title": "gist:350244496b825cd8b7cede2ce5ad6b87 · GitHub",
+          "url": "https://gist.github.com/LesnaNav/350244496b825cd8b7cede2ce5ad6b87",
+          "snippet": "Contribute to mihailvasyliev2007-dev/vladivostok-guide development by creating an account on GitHub."
+        },
+        {
+          "title": "my-calculator/index.html at main · mensikovstepan1977-creator ... - GitHub",
+          "url": "https://github.com/mensikovstepan1977-creator/my-calculator/blob/main/index.html",
+          "snippet": "This file contains hidden or bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters. Learn more about bidirectional Unicode characters Show hidden characters [22:07:11] [no_game_date] [dlc.cpp:218]: Invalid supported_version in file: mod/ugc_2243912940.mod line: 10 [22:07: ..."
+        }
+      ],
+      "searched_at": "2026-07-25"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "свх владивосток official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "СВХ Владивосток в 2026: сравнение стоимости, скорости и скрытых ...",
+          "url": "https://whitechina.ru/tpost/svh-vladivostok-v-2026-sravnenie-stoimosti-skorosti-i-skrytyh-platezhej-dlya-imp",
+          "snippet": ""
+        },
+        {
+          "title": "Документы - nsc-terminal.ru",
+          "url": "https://nsc-terminal.ru/documents/",
+          "snippet": "Наша задача сегодня - разобраться, сколько стоит свх во владивостоке на самом деле, где прячутся неочевидные коммерческие поборы и как забрать свой товар до того, как включится драконовский прогрессивный тариф."
+        },
+        {
+          "title": "СВХ Владивосток в 2026: сравнение стоимости, скорости и скрытых ...",
+          "url": "https://dzen.ru/a/ahk9Y5VH4FtoK8v-",
+          "snippet": "Заявление на выдачу разрешения на перемещение (приказ ФТС №45 от 17.01.2019г.) Образец доверенности по форме М2. Согласно ст.185.1 ГК РФ принимаются доверенности без печати, в случае, если они направлены через систему ЭДО. Типовая форма годовой доверенности."
+        },
+        {
+          "title": "Склады временного хранения во Владивостоке",
+          "url": "https://vlb-broker.ru/stati/svh/",
+          "snippet": "Экономия на СВХ во Владивостоке в 2026 году строится на жесткой дисциплине, предварительной подаче документов и выборе правильного типа терминала под специфику вашего груза."
+        },
+        {
+          "title": "СВХ при импорте авто 2026: как работает склад временного хранения, цены ...",
+          "url": "https://carto-auto.ru/blog/svh-import-auto-2026/",
+          "snippet": "Для удобства поиска СВХ, с которого нужно забирать автомобиль после таможенного оформления, мы составили список основных СВХ Владивостока с координатами. Таможенный представитель VL-BROKER контролирует все этапы таможенного оформления и логистики, включая взаимодействие с экспортёром, перевозчиком и Федеральной таможенной службой."
+        },
+        {
+          "title": "Хранение на СВХ и разгрузка контейнера в порту в 2026: сроки, тарифы и ...",
+          "url": "https://whitechina.ru/tpost/hranenie-na-svh-i-razgruzka-kontejnera-v-portu-v-2026-sroki-tarify-i-terminalnay",
+          "snippet": "В этом гайде разбираем, как работает СВХ во Владивостоке и Новороссийске в 2026 году, кто им владеет, сколько стоит хранение легкового авто, как машина туда попадает после порта, и как её оттуда забрать."
+        }
+      ],
+      "searched_at": "2026-07-25"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "свх владивосток forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "СВХ Владивосток в 2026: сравнение стоимости, скорости и скрытых ...",
+          "url": "https://whitechina.ru/tpost/svh-vladivostok-v-2026-sravnenie-stoimosti-skorosti-i-skrytyh-platezhej-dlya-imp",
+          "snippet": ""
+        },
+        {
+          "title": "СВХ Владивосток в 2026: сравнение стоимости, скорости и скрытых ...",
+          "url": "https://dzen.ru/a/ahk9Y5VH4FtoK8v-",
+          "snippet": "Наша задача сегодня - разобраться, сколько стоит свх во владивостоке на самом деле, где прячутся неочевидные коммерческие поборы и как забрать свой товар до того, как включится драконовский прогрессивный тариф."
+        },
+        {
+          "title": "СВХ при импорте авто 2026: как работает склад временного хранения, цены ...",
+          "url": "https://carto-auto.ru/blog/svh-import-auto-2026/",
+          "snippet": "Экономия на СВХ во Владивостоке в 2026 году строится на жесткой дисциплине, предварительной подаче документов и выборе правильного типа терминала под специфику вашего груза."
+        },
+        {
+          "title": "Склады временного хранения во Владивостоке",
+          "url": "https://vlb-broker.ru/stati/svh/",
+          "snippet": "В этом гайде разбираем, как работает СВХ во Владивостоке и Новороссийске в 2026 году, кто им владеет, сколько стоит хранение легкового авто, как машина туда попадает после порта, и как её оттуда забрать."
+        },
+        {
+          "title": "Хранение на СВХ и разгрузка контейнера в порту в 2026: сроки, тарифы и ...",
+          "url": "https://whitechina.ru/tpost/hranenie-na-svh-i-razgruzka-kontejnera-v-portu-v-2026-sroki-tarify-i-terminalnay",
+          "snippet": "Таможенный представитель VL-BROKER контролирует все этапы таможенного оформления и логистики, включая взаимодействие с экспортёром, перевозчиком и Федеральной таможенной службой."
+        },
+        {
+          "title": "Хранение на СВХ и разгрузка контейнера в порту в 2026: сроки, тарифы и ...",
+          "url": "https://dzen.ru/a/afhZoDUeazX5Z0uA",
+          "snippet": "В 2026 году грамотное использование СВХ позволяет предпринимателям легально оптимизировать логистические издержки и избежать ареста груза из-за ошибок в документах."
+        }
+      ],
+      "searched_at": "2026-07-25"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "сколько стоит свх во владивостоке 2026",
+      "purpose": "вторичный запрос: сколько стоит свх во владивостоке",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "СВХ Владивосток в 2026: сравнение стоимости, скорости и скрытых ...",
+          "url": "https://whitechina.ru/tpost/svh-vladivostok-v-2026-sravnenie-stoimosti-skorosti-i-skrytyh-platezhej-dlya-imp",
+          "snippet": ""
+        },
+        {
+          "title": "Сколько стоит хранение авто в порту Владивостока? Как не переплатить?",
+          "url": "https://peregonpro.ru/poleznoe/svh-i-hranenie-v-portu-skolko-stoit-i-kak-ne-pereplatit-za-prostoj-avtomobilya-na-tamozhne/",
+          "snippet": "Чтобы рассчитать реальную стоимость свх во владивостоке, необходимо учитывать базовые погрузочно-разгрузочные работы и шкалу пени за перестой. Базовые тарифы на услуги складов собраны в таблице ниже."
+        },
+        {
+          "title": "СВХ при импорте авто 2026: как работает склад временного хранения, цены ...",
+          "url": "https://carto-auto.ru/blog/svh-import-auto-2026/",
+          "snippet": "В этой статье мы подробно разберем, что такое СВХ, сколько реально стоит хранение авто в порту Владивостока в 2026 году, какие существуют льготные периоды и, главное, как избежать ..."
+        },
+        {
+          "title": "Хранение на СВХ и разгрузка контейнера в порту в 2026: сроки, тарифы и ...",
+          "url": "https://whitechina.ru/tpost/hranenie-na-svh-i-razgruzka-kontejnera-v-portu-v-2026-sroki-tarify-i-terminalnay",
+          "snippet": "В этом гайде разбираем, как работает СВХ во Владивостоке и Новороссийске в 2026 году, кто им владеет, сколько стоит хранение легкового авто, как машина туда попадает после порта, и как её оттуда забрать."
+        },
+        {
+          "title": "Склады временного хранения во Владивостоке",
+          "url": "https://vlb-broker.ru/stati/svh/",
+          "snippet": "В 2026 году средняя стоимость свх на таможне во Владивостоке для стандартного 40-футового контейнера может варьироваться от 4 000 до 12 000 рублей в сутки после окончания льготного периода."
+        },
+        {
+          "title": "Прайс-лист",
+          "url": "https://cargo-vvo.ru/price",
+          "snippet": "Контакты складов временного хранения (СВХ) во Владивостоке, удобный список с адресами, телефонами и расположением на карте."
+        }
+      ],
+      "searched_at": "2026-07-25"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "свх стоимость хранения владивосток 2026",
+      "purpose": "вторичный запрос: свх стоимость хранения владивосток",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "СВХ Владивосток в 2026: сравнение стоимости, скорости и скрытых ...",
+          "url": "https://whitechina.ru/tpost/svh-vladivostok-v-2026-sravnenie-stoimosti-skorosti-i-skrytyh-platezhej-dlya-imp",
+          "snippet": ""
+        },
+        {
+          "title": "СВХ Владивосток в 2026: сравнение стоимости, скорости и скрытых ...",
+          "url": "https://dzen.ru/a/ahk9Y5VH4FtoK8v-",
+          "snippet": "Чтобы рассчитать реальную стоимость свх во владивостоке, необходимо учитывать базовые погрузочно-разгрузочные работы и шкалу пени за перестой. Базовые тарифы на услуги складов собраны в таблице ниже."
+        },
+        {
+          "title": "Сколько стоит хранение авто в порту Владивостока? Как не переплатить?",
+          "url": "https://peregonpro.ru/poleznoe/svh-i-hranenie-v-portu-skolko-stoit-i-kak-ne-pereplatit-za-prostoj-avtomobilya-na-tamozhne/",
+          "snippet": "Сколько всего складов временного хранения действует во Владивостоке в 2026 году? Можно ли продлить бесплатный 7-дневный период хранения на СВХ? Что будет, если груз простоит на складе временного хранения больше месяца? Включается ли стоимость таможенного досмотра в базовый пакет ПРР складов?"
+        },
+        {
+          "title": "Хранение на СВХ и разгрузка контейнера в порту в 2026: сроки, тарифы и ...",
+          "url": "https://whitechina.ru/tpost/hranenie-na-svh-i-razgruzka-kontejnera-v-portu-v-2026-sroki-tarify-i-terminalnay",
+          "snippet": "В этой статье мы подробно разберем, что такое СВХ, сколько реально стоит хранение авто в порту Владивостока в 2026 году, какие существуют льготные периоды и, главное, как избежать переплат за ..."
+        },
+        {
+          "title": "СВХ при импорте авто 2026: как работает склад временного хранения, цены ...",
+          "url": "https://carto-auto.ru/blog/svh-import-auto-2026/",
+          "snippet": "В 2026 году средняя стоимость свх на таможне во Владивостоке для стандартного 40-футового контейнера может варьироваться от 4 000 до 12 000 рублей в сутки после окончания льготного периода."
+        },
+        {
+          "title": "PDF 29 2026 ПРАЙС ЛИСТ СВХ/ПТ СВХ - cit-ekb.ru",
+          "url": "https://cit-ekb.ru/media/uploads/%D0%BF%D1%80%D0%B0%D0%B9%D1%81_01.07.2026_%D1%81%D0%B2%D1%85.pdf",
+          "snippet": "В этом гайде разбираем, как работает СВХ во Владивостоке и Новороссийске в 2026 году, кто им владеет, сколько стоит хранение легкового авто, как машина туда попадает после порта, и как её оттуда забрать."
+        }
+      ],
+      "searched_at": "2026-07-25"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "свх сколько бесплатно владивосток 2026",
+      "purpose": "вторичный запрос: свх сколько бесплатно владивосток",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Сколько стоит хранение авто в порту Владивостока? Как не переплатить?",
+          "url": "https://peregonpro.ru/poleznoe/svh-i-hranenie-v-portu-skolko-stoit-i-kak-ne-pereplatit-za-prostoj-avtomobilya-na-tamozhne/",
+          "snippet": ""
+        },
+        {
+          "title": "СВХ Владивосток в 2026: сравнение стоимости, скорости и скрытых ...",
+          "url": "https://whitechina.ru/tpost/svh-vladivostok-v-2026-sravnenie-stoimosti-skorosti-i-skrytyh-platezhej-dlya-imp",
+          "snippet": "В этой статье мы подробно разберем, что такое СВХ, сколько реально стоит хранение авто в порту Владивостока в 2026 году, какие существуют льготные периоды и, главное, как избежать переплат за ..."
+        },
+        {
+          "title": "СВХ при импорте авто 2026: как работает склад временного хранения, цены ...",
+          "url": "https://carto-auto.ru/blog/svh-import-auto-2026/",
+          "snippet": "Чтобы рассчитать реальную стоимость свх во владивостоке, необходимо учитывать базовые погрузочно-разгрузочные работы и шкалу пени за перестой. Базовые тарифы на услуги складов собраны в таблице ниже."
+        },
+        {
+          "title": "СВХ Владивосток в 2026: сравнение стоимости, скорости и скрытых ...",
+          "url": "https://dzen.ru/a/ahk9Y5VH4FtoK8v-",
+          "snippet": "В этом гайде разбираем, как работает СВХ во Владивостоке и Новороссийске в 2026 году, кто им владеет, сколько стоит хранение легкового авто, как машина туда попадает после порта, и как её оттуда забрать."
+        },
+        {
+          "title": "Хранение на СВХ и разгрузка контейнера в порту в 2026: сроки, тарифы и ...",
+          "url": "https://whitechina.ru/tpost/hranenie-na-svh-i-razgruzka-kontejnera-v-portu-v-2026-sroki-tarify-i-terminalnay",
+          "snippet": "Экономия на СВХ во Владивостоке в 2026 году строится на жесткой дисциплине, предварительной подаче документов и выборе правильного типа терминала под специфику вашего груза."
+        },
+        {
+          "title": "Что такое СВХ при растаможке авто: цена хранения 2026",
+          "url": "https://importdare.ru/blog/chto-takoe-svh-pri-rastamozhke-avto",
+          "snippet": "В 2026 году средняя стоимость свх на таможне во Владивостоке для стандартного 40-футового контейнера может варьироваться от 4 000 до 12 000 рублей в сутки после окончания льготного периода."
+        }
+      ],
+      "searched_at": "2026-07-25"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "СВХ Владивосток в 2026: как не переплатить за хранение авто на таможне 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Сколько стоит хранение авто в порту Владивостока? Как не переплатить?",
+          "url": "https://peregonpro.ru/poleznoe/svh-i-hranenie-v-portu-skolko-stoit-i-kak-ne-pereplatit-za-prostoj-avtomobilya-na-tamozhne/",
+          "snippet": ""
+        },
+        {
+          "title": "СВХ Владивосток: стоимость транзита авто и как не переплатить",
+          "url": "https://avtosales125.ru/2026/03/06/svh-vladivostok-stoimost-tranzita-avto-i-kak-ne-pereplatit/",
+          "snippet": "В этой статье мы подробно разберем, что такое СВХ, сколько реально стоит хранение авто в порту Владивостока в 2026 году, какие существуют льготные периоды и, главное, как избежать ..."
+        },
+        {
+          "title": "СВХ Владивосток: стоимость транзита авто и как не переплатить",
+          "url": "https://dzen.ru/a/aasYVwWwsDlXe2eB",
+          "snippet": "СВХ Владивосток стоимость — это сумма расходов на терминальную обработку (ПРР) и хранение автомобиля в порту до момента его выпуска таможней."
+        },
+        {
+          "title": "СВХ при импорте авто 2026: как работает склад временного хранения, цены ...",
+          "url": "https://carto-auto.ru/blog/svh-import-auto-2026/",
+          "snippet": "Когда мы везем автомобиль клиенту, мы не просто покупаем его на аукционе. Мы контролируем срок таможенного транзита и следим, чтобы документы подавались в первые часы после выгрузки."
+        },
+        {
+          "title": "СВХ Владивосток в 2026: сравнение стоимости, скорости и скрытых ...",
+          "url": "https://dzen.ru/a/ahk9Y5VH4FtoK8v-",
+          "snippet": "В этом гайде разбираем, как работает СВХ во Владивостоке и Новороссийске в 2026 году, кто им владеет, сколько стоит хранение легкового авто, как машина туда попадает после порта, и как её оттуда забрать."
+        },
+        {
+          "title": "СВХ Владивосток в 2026: сравнение стоимости, скорости и скрытых ...",
+          "url": "https://whitechina.ru/tpost/svh-vladivostok-v-2026-sravnenie-stoimosti-skorosti-i-skrytyh-platezhej-dlya-imp",
+          "snippet": "Экономия на СВХ во Владивостоке в 2026 году строится на жесткой дисциплине, предварительной подаче документов и выборе правильного типа терминала под специфику вашего груза."
+        }
+      ],
+      "searched_at": "2026-07-25"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://whitechina.ru/tpost/svh-vladivostok-v-2026-sravnenie-stoimosti-skorosti-i-skrytyh-platezhej-dlya-imp",
+      "title": "СВХ Владивосток в 2026: сравнение стоимости, скорости и скрытых ...",
+      "from_query": "свх владивосток 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/ahk9Y5VH4FtoK8v-",
+      "title": "СВХ Владивосток в 2026: сравнение стоимости, скорости и скрытых ...",
+      "from_query": "свх владивосток 2026"
+    },
+    {
+      "url": "https://whitechina.ru/tpost/hranenie-na-svh-i-razgruzka-kontejnera-v-portu-v-2026-sroki-tarify-i-terminalnay",
+      "title": "Хранение на СВХ и разгрузка контейнера в порту в 2026: сроки, тарифы и ...",
+      "from_query": "свх владивосток 2026"
+    },
+    {
+      "url": "https://peregonpro.ru/poleznoe/svh-i-hranenie-v-portu-skolko-stoit-i-kak-ne-pereplatit-za-prostoj-avtomobilya-na-tamozhne/",
+      "title": "Сколько стоит хранение авто в порту Владивостока? Как не переплатить?",
+      "from_query": "свх владивосток 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/vladivostok/honda/stepwgn/100332988.html",
+      "title": "Продажа Honda Stepwgn, 2026 год во Владивостоке",
+      "from_query": "свх владивосток 2026"
+    },
+    {
+      "url": "https://vlb-broker.ru/stati/svh/",
+      "title": "Склады временного хранения во Владивостоке",
+      "from_query": "свх владивосток 2026"
+    },
+    {
+      "url": "https://cit-ekb.ru/media/uploads/%D0%BF%D1%80%D0%B0%D0%B9%D1%81_01.07.2026_%D1%81%D0%B2%D1%85.pdf",
+      "title": "PDF 29 2026 ПРАЙС ЛИСТ СВХ/ПТ СВХ - cit-ekb.ru",
+      "from_query": "свх владивосток июль 2026"
+    },
+    {
+      "url": "https://tokai-auto.ru/about-auction/svh.html",
+      "title": "Все СВХ Владивостока с адресами и графиком работы",
+      "from_query": "свх владивосток июль 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/svh-import-auto-2026/",
+      "title": "СВХ при импорте авто 2026: как работает склад временного хранения, цены ...",
+      "from_query": "свх владивосток новости 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/afhZoDUeazX5Z0uA",
+      "title": "Хранение на СВХ и разгрузка контейнера в порту в 2026: сроки, тарифы и ...",
+      "from_query": "свх владивосток новости 2026"
+    },
+    {
+      "url": "https://github.com/hagezi/dns-blocklists/blob/main/adblock/popupads.txt",
+      "title": "dns-blocklists/adblock/popupads.txt at main · hagezi/dns ... - GitHub",
+      "from_query": "site:github.com свх владивосток 2026"
+    },
+    {
+      "url": "https://github.com/justagoodman/JMComic/releases",
+      "title": "Releases · justagoodman/JMComic - GitHub",
+      "from_query": "site:github.com свх владивосток 2026"
+    },
+    {
+      "url": "https://github.com/ajanthadevi2012/VIT_FDP_2026/blob/main/train.csv",
+      "title": "VIT_FDP_2026/train.csv at main - GitHub",
+      "from_query": "site:github.com свх владивосток 2026"
+    },
+    {
+      "url": "https://github.com/mihailvasyliev2007-dev/vladivostok-guide/blob/main/todo.html",
+      "title": "vladivostok-guide/todo.html at main · mihailvasyliev2007-dev ... - GitHub",
+      "from_query": "site:github.com свх владивосток 2026"
+    },
+    {
+      "url": "https://gist.github.com/LesnaNav/350244496b825cd8b7cede2ce5ad6b87",
+      "title": "gist:350244496b825cd8b7cede2ce5ad6b87 · GitHub",
+      "from_query": "site:github.com свх владивосток 2026"
+    },
+    {
+      "url": "https://github.com/mensikovstepan1977-creator/my-calculator/blob/main/index.html",
+      "title": "my-calculator/index.html at main · mensikovstepan1977-creator ... - GitHub",
+      "from_query": "site:github.com свх владивосток 2026"
+    },
+    {
+      "url": "https://nsc-terminal.ru/documents/",
+      "title": "Документы - nsc-terminal.ru",
+      "from_query": "свх владивосток official docs documentation 2026"
+    },
+    {
+      "url": "https://cargo-vvo.ru/price",
+      "title": "Прайс-лист",
+      "from_query": "сколько стоит свх во владивостоке 2026"
+    },
+    {
+      "url": "https://importdare.ru/blog/chto-takoe-svh-pri-rastamozhke-avto",
+      "title": "Что такое СВХ при растаможке авто: цена хранения 2026",
+      "from_query": "свх сколько бесплатно владивосток 2026"
+    },
+    {
+      "url": "https://avtosales125.ru/2026/03/06/svh-vladivostok-stoimost-tranzita-avto-i-kak-ne-pereplatit/",
+      "title": "СВХ Владивосток: стоимость транзита авто и как не переплатить",
+      "from_query": "СВХ Владивосток в 2026: как не переплатить за хранение авто на таможне 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/aasYVwWwsDlXe2eB",
+      "title": "СВХ Владивосток: стоимость транзита авто и как не переплатить",
+      "from_query": "СВХ Владивосток в 2026: как не переплатить за хранение авто на таможне 2026"
+    }
+  ]
+}

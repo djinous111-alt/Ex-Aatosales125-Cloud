@@ -1,0 +1,80 @@
+{
+  "article": "memory/blog/articles/B01-svh-vladivostok-kak-ne-pereplatit-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 10,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 9,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "онкретного склада. Разберём, как не переплатить в 2026. Разберите роль СВХ в цепочке порт → растаможка →",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2000",
+      "kind": "date_or_year",
+      "context": "тница перестоя: примерно 700–1000 ₽/сутки → около 2000 ₽ → от 3000–5000+ ₽, у части складов на критическ",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4 месяцев",
+      "kind": "metric_or_duration",
+      "context": "од таможней, пока авто не выпустят. Закон даёт до 4 месяцев на временном хранении, но \"бесплатные\" 5–10 суток",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "101",
+      "kind": "large_number",
+      "context": ": путать законный срок и \"бесплатные\" дни. По ст. 101 ТК ЕАЭС товар может лежать на временном хранении д",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1000",
+      "kind": "large_number",
+      "context": "е льготы типичная лестница перестоя: примерно 700–1000 ₽/сутки → около 2000 ₽ → от 3000–5000+ ₽, у части",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3000",
+      "kind": "large_number",
+      "context": "оя: примерно 700–1000 ₽/сутки → около 2000 ₽ → от 3000–5000+ ₽, у части складов на критическом перестое",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5000",
+      "kind": "large_number",
+      "context": "римерно 700–1000 ₽/сутки → около 2000 ₽ → от 3000–5000+ ₽, у части складов на критическом перестое до 50",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "9500",
+      "kind": "large_number",
+      "context": ", у части складов на критическом перестое до 5000–9500 ₽/сутки. Это ориентиры рынка, не прайс Авто-Сейлс",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "25 000",
+      "kind": "large_number",
+      "context": "Авто-Сейлс. Отдельно от хранения идёт ПРР – часто 25 000–45 000 ₽. Хранение ≠ ПРР. Делать: спросить четыре",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "45 000",
+      "kind": "large_number",
+      "context": "йлс. Отдельно от хранения идёт ПРР – часто 25 000–45 000 ₽. Хранение ≠ ПРР. Делать: спросить четыре цифры:",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

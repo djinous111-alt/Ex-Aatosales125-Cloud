@@ -251,6 +251,43 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20260725-1305-scout-helper-as-ids-blind
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_scout_helper.py` парсит только заголовки `## B\\d+` в `blog-topics.md`, поэтому AS01–AS09 не входят в pool/check-query (suggest-next показал pool=0 при 9 AS-карточках).
+- Live WP-статьи из today.py (без ledger) тоже не проверяются helper'ом; scout обязан вручную исключать slug/query пересечения.
+- Параллельный batch `wordstat_get_top_requests` через CallMcpTool один раз вернул `server/toolName Required` на части вызовов; retry одиночным вызовом прошёл.
+
+### How the agent recovered this run
+- Вручную сверил кандидатов с WP slug-листом (utilsбор, растаможка EV, автовоз, Корея/Китай/Япония, СБКТС, аукционный лист, Kia/Hyundai/левый руль) и с AS08/AS09.
+- Выбрал угол СВХ Владивосток (не в WP list), Wordstat parent ~1509, узкий how-to по стоимости как low-detail signal.
+- Повторно вызвал Wordstat для `encar на русском` после сбоя batch.
+
+### Durable fix needed before next run
+- Расширить `load_existing_topics` / cannibalization check на `## AS\\d+` (и при наличии – live WP slug list / today.py recent posts).
+- Задокументировать в scout skill: при AVTO SALES нише не брать Cursor/n8n/Make; сверять WP recent posts даже если ledger пуст.
+- Для Wordstat предпочитать последовательные вызовы или retry при частичном fail batch.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+

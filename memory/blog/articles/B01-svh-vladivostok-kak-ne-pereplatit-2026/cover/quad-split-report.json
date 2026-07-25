@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-svh-vladivostok-kak-ne-pereplatit-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1013,
+      594
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 594,
+        "end": 611
+      },
+      "v_gutter_px": {
+        "start": 1013,
+        "end": 1058
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 12,
+          "right": 1013,
+          "bottom": 582
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1013,
+          "bottom": 594
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Ночной терминал Владивостока: герой Авто-Сейлс у авто на СВХ с плашкой про переплату за хранение",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1058,
+          "top": 18,
+          "right": 2048,
+          "bottom": 575
+        },
+        "raw_box_px": {
+          "left": 1058,
+          "top": 0,
+          "right": 2048,
+          "bottom": 594
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица ролей: порт, СВХ, растаможка и выдача авто",
+        "h2_anchor": "Разберите роль СВХ в цепочке порт → растаможка → выдача"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 25,
+          "top": 611,
+          "right": 987,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 611,
+          "right": 1013,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема счётчика СВХ: льгота и ступени тарифа перестоя",
+        "h2_anchor": "Как запускается счётчик хранения и когда кончается льгота"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1072,
+          "top": 611,
+          "right": 2034,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1058,
+          "top": 611,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист причин перестоя на СВХ: документы, ФТС, ДТ, вывоз",
+        "h2_anchor": "Срежьте типичные причины перестоя заранее"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разберите роль СВХ в цепочке порт → растаможка → выдача",
+    "injected inline_2 after H2 — Как запускается счётчик хранения и когда кончается льгота",
+    "injected inline_3 after H2 — Срежьте типичные причины перестоя заранее"
+  ]
+}

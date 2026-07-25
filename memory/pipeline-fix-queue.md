@@ -435,8 +435,87 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20260725-1350-cover-mcp-kie-402-local-fallback
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-svh-vladivostok-kak-ne-pereplatit-2026
+severity: high
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` (MCP-KV) returned internal error: `'NoneType' object has no attribute 'get'` (no image URL).
+- Preferred Kie createTask path (`excalibur_blog_kie_gpt_image2_api.py`) failed with `code=402 Credits insufficient`.
+- Force re-host of `blog-hero-reference.png` via catbox/0x0 failed (412/503); kept existing `reference_url_hosted` on avtosales125.ru (same PNG bytes as local).
+- `excalibur_blog_quad_apply.py` has no `--local-canvas` flag documented in agent prompt; had to use `cover_quad_split.py --canvas` after LANCZOS resize.
+- Prompt builder still hardcodes "Outfit lock: thick heavyweight white hoodie" which fights agent night-port outfit scene_hint.
+
+### How the agent recovered this run
+- Kept ONE-canvas rule: Cursor `GenerateImage` with `reference_image_paths=[blog-hero-reference.png]`, aspect 16:9.
+- Resized 1536×1024 → 2048×1152 LANCZOS → `cover/canvas-quad.png`.
+- Split+inject via `excalibur_blog_cover_quad_split.py --inject-html`; report PASS; 3 `<figure>` injected after H2.
+- Fragment written; method=`local`.
+
+### Durable fix needed before next run
+- Top up Kie credits / monitor 402 before cover step.
+- Harden MCP-KV `gpt-image-2` against None response; prefer async Kie API as default Cloud path.
+- Add `--local-canvas` to `excalibur_blog_quad_apply.py` (or document split `--canvas` fallback in skill).
+- Remove hardcoded white-hoodie outfit lock from `excalibur_blog_cover_quad_prompt.py`; use scene_hint/outfit from manifest + blog-hero outfit_rule.
+- Document GenerateImage local fallback in cover skill after 402.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_apply.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/pipeline-task-map.md` (§4a cover)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260725-1325-indexer-llms-cli-drift
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-svh-vladivostok-kak-ne-pereplatit-2026
+severity: low
+category: docs
+
+### What went wrong
+- Agent/skill контракт Indexer всё ещё передаёт `excalibur_blog_llms_generator.py --blog-path /`, но CLI флага `--blog-path` нет (только `--blog-dir`).
+- Automation memory советует `--url-mode relative` для git-safe URLs, но в скрипте флага `--url-mode` нет: URLs всегда `{site_base}/blog/{slug}/`.
+- Doctor допускает «`--blog-dir` in help or `--blog-path` in help», поэтому drift не ловится.
+
+### How the agent recovered this run
+- Запуск по актуальному `--help`: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (без `--blog-path` / `--url-mode`).
+- llms.txt / llms-full.txt сгенерированы (3 articles); absolute URLs как делает скрипт сейчас.
+
+### Durable fix needed before next run
+- Синхронизировать `.cursor/agents/excalibur-blog-indexer.md`, `agents/excalibur-blog-indexer.md`, `.cursor/skills/indexer-excalibur-blog/SKILL.md`, `skills/indexer-excalibur-blog/SKILL.md` с реальным CLI.
+- Либо добавить `--url-mode {absolute,relative}` в generator (relative → `/blog/{slug}/`), либо убрать совет из memory/docs.
+- Ужесточить doctor: требовать `--blog-dir` и fail, если skill упоминает несуществующий `--blog-path`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
 
 

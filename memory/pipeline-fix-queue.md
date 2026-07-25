@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260725-1400-publish-http-timeout-webfetch-race
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-svh-vladivostok-kak-ne-pereplatit-2026
+severity: medium
+category: publish
+
+### What went wrong
+- SSH bootstrap upload OK (~8.5MB PHP with cover+3 inline), but local HTTP trigger (`urllib` timeout=120s) timed out before reading the response.
+- Script entered Cloud WebFetch Fallback and waited 120s for `memory/webfetch-response.txt`, but the publish agent cannot WebFetch while blocked on the same foreground publish process — race makes fallback unreachable in this orchestration model.
+- Script exited with RuntimeError; meanwhile server-side PHP had already finished: post published, featured+inline media present, bootstrap file already removed.
+
+### How the agent recovered this run
+- Did **not** re-trigger bootstrap / concurrent curl/WebFetch (avoids duplicate media `-1/-2/-3`).
+- Verified via WP REST by slug: post_id=3748, featured=3749, inline=3750/3751/3752, status=publish.
+- Live permalink HEAD 200; wrote `wp-publish-result.json` with `publish_recovery=ssh_ok_http_timeout_verified_rest`; updated ledger + publish log + promotion checklist.
+
+### Durable fix needed before next run
+- Raise HTTP client timeout in `trigger_bootstrap_http` from 120s to **300s** (aligned with publish-patterns / large PHP payloads).
+- Make WebFetch fallback agent-friendly: print FALLBACK URL and exit with a distinct code/`needs_webfetch` result **without** blocking 120s, OR support `--resume-from-webfetch` / `--recover-from-rest --slug` so agent can complete without re-upload.
+- Document REST-by-slug recovery as first-class path when bootstrap is already deleted and post exists.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

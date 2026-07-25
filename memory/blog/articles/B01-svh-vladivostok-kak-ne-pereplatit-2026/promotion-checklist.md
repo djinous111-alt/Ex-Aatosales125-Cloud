@@ -1,13 +1,13 @@
 # Promotion checklist — B01 svh-vladivostok-kak-ne-pereplatit-2026
 
-Дата публикации: 2026-07-25 (pending WP publish)  
-Live URL: (pending publish permalink)
+Дата публикации: 2026-07-25  
+Live URL: https://avtosales125.ru/2026/07/25/svh-vladivostok-kak-ne-pereplatit-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200; featured+3 inline OK)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • До судна: название СВХ, аванс ФТС, пакет документов
 • День 1: дата старта льготы и ступени тарифа письменно
 
-Читать: (pending Live URL)
+Читать: https://avtosales125.ru/2026/07/25/svh-vladivostok-kak-ne-pereplatit-2026/
 ```
 
 ## Перелинковка

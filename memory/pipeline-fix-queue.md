@@ -299,7 +299,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_today.py` → SUGGESTED=AS01 (pool visible)
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → AS01–AS09 visible
 - `--check-query 'растаможка авто из кореи'` ловит AS01+B01
-commit: pending
+commit: 34419d2
 
 ## INC-20260725-1710-research-accessed-at-literal
 status: fixed
@@ -345,7 +345,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - research-notes-gate B01 → PASS; accessed_at=22; technical_topic=false
-commit: pending
+commit: 34419d2
 
 ## INC-20260725-1712-research-precommit-secret-names
 status: fixed
@@ -387,7 +387,7 @@ files_changed:
 - live hook `/root/.cursor/agent-hooks/*/pre-commit.cursor` (VM; not in git)
 checks_run:
 - `bash scripts/excalibur_blog_precommit_secret_name_guard.sh --self-test`
-commit: pending
+commit: 34419d2
 
 ## INC-20260725-1715-geo-qa-typed-task-fallback
 status: fixed
@@ -434,7 +434,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` на generalPurpose + geo-qa fallback в AGENTS/director/pitfalls
-commit: pending
+commit: 34419d2
 
 ## INC-20260725-1715-geo-qa-utility-pain-outcome-markers
 status: fixed
@@ -487,7 +487,7 @@ files_changed:
 checks_run:
 - utility gate B01 → PASS
 - JSON parse editorial-policy.json
-commit: pending
+commit: 34419d2
 
 ## INC-20260725-1720-schema-secret-scan-public-urls
 status: needs-human
@@ -539,7 +539,7 @@ files_changed:
 - `scripts/excalibur_blog_precommit_secret_name_guard.sh`
 checks_run:
 - precommit secret-name guard --self-test
-commit: pending
+commit: 34419d2
 
 ## INC-20260725-1725-cover-kie-credits-mcp-none
 status: needs-human
@@ -598,7 +598,7 @@ files_changed:
 checks_run:
 - format_kie_failure smoke for 402/401/500
 - doctor: Pillow+numpy OK
-commit: pending
+commit: 34419d2
 
 ## INC-20260725-1724-indexer-llms-blog-path-flag
 status: fixed
@@ -649,7 +649,7 @@ files_changed:
 checks_run:
 - `--help` contains `--blog-path`
 - doctor: llms generator supports --blog-path OK; errors=0
-commit: pending
+commit: 34419d2
 
 ## Fixed incidents
 

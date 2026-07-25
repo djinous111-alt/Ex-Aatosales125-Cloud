@@ -55,6 +55,13 @@ EXCALIBUR_TOPIC_ID=<optional fixed topic id>
 
 Запрещено добавлять в repo реальные `.env`, `memory/site.env.local`, MCP tokens, SSH credentials, Cursor API keys.
 
+### Secrets vs public env (schema / pre-commit)
+
+- В Cursor Secrets держи только настоящие секреты: `SSH_*`, `KIE_API_KEY`, токены, пароли, `EXCALIBUR_BLOG_ALLOW_PUBLISH`.
+- Публичные marketing URL (`PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`, Instagram/2GIS) лучше как обычные env vars: иначе secret-scan блокирует `schema.jsonld` / `authors-registry.json`.
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` — только валидные bash-идентификаторы. Live hook пропускает invalid names; reference: `scripts/excalibur_blog_precommit_secret_name_guard.sh`.
+- Cover: при `Kie code=402` пополни баланс Kie.ai для ключа в `KIE_API_KEY` (billing needs-human).
+
 ## GitHub setup
 
 1. Создать приватный GitHub repo.

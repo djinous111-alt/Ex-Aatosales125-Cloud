@@ -22,7 +22,7 @@ This keeps waiting in the shell process instead of a single MCP request.
 ## Cover command
 
 ```bash
-python scripts/excalibur_blog_kie_gpt_image2_api.py \
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
@@ -38,10 +38,20 @@ The script writes:
 Then run:
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --inject-html
 ```
+
+## Error mapping (no secrets in logs)
+
+| Signal | Meaning | Agent action |
+|--------|---------|--------------|
+| `code=402` / msg contains `credit` / `insufficient` | Kie balance empty for this API key | Stop. Report `KIE API BLOCKER (credits)`. Needs-human: top up Kie.ai for `KIE_API_KEY`. Do **not** invent canvas/cover. |
+| `code=401/403` | Bad/revoked key | Stop. Needs-human: rotate `KIE_API_KEY` in Cloud Secrets (never print value). |
+| MCP sync `NoneType…get` / no URL | Often upstream credit/auth wrapped poorly | Prefer this async script; do not blind-retry MCP create. |
+| `fail` state on poll | Task failed | Stop with `KIE API BLOCKER`; read `failCode`/`failMsg`. |
+| timeout without URL | Still running or stuck | Stop with `KIE API BLOCKER`; poll known `taskId` later — do not create a second job. |
 
 ## API shape
 

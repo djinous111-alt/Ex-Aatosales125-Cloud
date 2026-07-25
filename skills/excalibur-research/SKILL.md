@@ -62,6 +62,17 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
 
+## Source dates (`accessed_at`) — gate contract
+
+`scripts/excalibur_blog_research_notes_gate.py` засчитывает даты доступа так:
+
+1. **Предпочтительно:** литералы `accessed_at: YYYY-MM-DD` (≥5), например блок `## source_access_log`.
+2. **Допустимо:** строки markdown-таблицы источников (`source_table`), где в одной строке есть `https://…` и ячейка с ISO-датой `YYYY-MM-DD`.
+
+Нельзя оставлять плейсхолдеры вроде `accessed_at: <today>` / `TBD` — gate их не считает. Таблица URL без даты тоже не проходит порог.
+
+`technical_topic` определяется по карточке темы + notes **вне** секций `github_evidence` / `source_access_log` / `source_table`. Для non-dev тем (авто/таможня) не добавляй GitHub/docs только чтобы «заглушить» WARN.
+
 ## Blockers
 
 - `❌ RESEARCH BLOCKER` — тема не найдена и не создана из запроса пользователя

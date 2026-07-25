@@ -59,7 +59,7 @@ checks_run:
 - AS02 `--dry-run` → exit 2, cover_missing listed
 resume:
 - cover → publish
-commit: f9344e2
+commit: a1f62bf
 
 ## INC-20260726-2112-cover-kie-402-credits
 status: needs-human
@@ -110,7 +110,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - confirmed AS02 cover/ has quad-mcp-batch.json and no cover.png
-commit: f9344e2
+commit: a1f62bf
 
 ## INC-20260726-2108-writer-as02-policy-cta-gap
 status: fixed
@@ -166,7 +166,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
 - JSON parse editorial-policy + public-cta.example
 - `rg` pragma/CTA guidance in writer skills
-commit: f9344e2
+commit: a1f62bf
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -463,7 +463,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_today.py` → SUGGESTED_TOPIC_ID=AS01
 - `python3 scripts/excalibur_blog_llms_generator.py --help` has `--blog-path`
 - `import numpy` OK
-commit: f9344e2
+commit: a1f62bf
 
 ## INC-20260726-2105-research-wordstat-truncated-top
 status: fixed
@@ -513,7 +513,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
 - `rg` WORDSTAT PARTIAL in research skills
-commit: f9344e2
+commit: a1f62bf
 
 ## INC-20260726-2114-indexer-llms-blog-path-slash
 status: fixed
@@ -567,5 +567,5 @@ files_changed:
 checks_run:
 - `--blog-path /` with `--blog-dir memory/blog/articles` → WARNING + Loaded 3 articles
 - `rg` confirmed no command examples with `--blog-path /`
-commit: f9344e2
+commit: a1f62bf
 

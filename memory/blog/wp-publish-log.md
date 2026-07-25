@@ -31,3 +31,13 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-07-25 — B01 kak-rastamozhit-avto-iz-korei-2026
+
+- **verdict:** BLOCKER (publish not started)
+- **preflight link-verify:** pass (3/3)
+- **dry-run:** pass (slug/title/PHP payload OK)
+- **blockers:** missing `cover/cover.png`; missing `cover/cover-registry.json` (featured + alt required by publish contract)
+- **root_cause:** COVER Kie 402 / MCP recovery — `memory/pipeline-fix-queue.md#INC-20260725-1725-cover-kie-credits-mcp-none`
+- **ledger:** left `in_progress` (no permalink)
+- **result:** `memory/blog/articles/B01-kak-rastamozhit-avto-iz-korei-2026/wp-publish-result.json`

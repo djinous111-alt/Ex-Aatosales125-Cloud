@@ -1,0 +1,25 @@
+{
+  "slug": "kak-rastamozhit-avto-iz-korei-2026",
+  "topic_id": "B01",
+  "publish_date": "2026-07-25",
+  "verdict": "blocker",
+  "permalink": "",
+  "post_id": null,
+  "featured_image": null,
+  "inline_images": [],
+  "schema_meta": null,
+  "preflight": {
+    "link_verify": "pass",
+    "dry_run": "pass",
+    "allow_publish": "yes",
+    "qa": "PASS",
+    "schema": "present"
+  },
+  "blockers": [
+    "❌ PUBLISH BLOCKER: missing cover/cover.png (featured image required)",
+    "❌ PUBLISH BLOCKER: missing cover/cover-registry.json (cover alt + registry required)",
+    "root cause: COVER Kie 402 credits / MCP gpt-image-2 NoneType — see INC-20260725-1725"
+  ],
+  "publish_attempted": false,
+  "note": "Live publish not started: skill/contract require cover.png + cover-registry before WP post. Dry-run payload OK (slug/title/PHP size) but does not gate on featured cover."
+}

@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260725-0925-writer-missing-pain-outcome-markers
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-writer
+topic_id: B06
+article_dir: memory/blog/articles/B06-lgotnyy-utilsbor-fizlico-2026-kak-proverit
+severity: high
+category: docs
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требует `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json` (min 2 / 3).
+- В policy этих ключей не было → `pain_markers=0` и `outcome_markers=0` на любой статье, даже при живом тексте про боль/результат.
+- Writer self-check на B06 получил UTILITY GATE BLOCKER до появления meta; без маркеров GEO QA гарантированно падал бы на utility gate.
+
+### How the agent recovered this run
+- Добавил в `memory/brief/editorial-policy.json` `pain_markers_ru` и `outcome_markers_ru` (согласованы с hardcoded списками в `excalibur_blog_human_voice_gate.py` + нишевые `влететь` / `галоч`).
+- Повторно прогнал utility gate → PASS; human voice gate → PASS.
+- Статья B06 уже содержала pain/outcome лексику; правки policy, не переписывание lead.
+
+### Durable fix needed before next run
+- Fixer: подтвердить канон маркеров в policy (не дублировать только в human_voice_gate) и добавить в pitfalls: «utility gate читает pain/outcome из editorial-policy; пустой список = всегда BLOCK».
+- Опционально: если markers list пуст, gate должен WARN, а не считать 0 < min.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260725-0915-research-tech-markers-false-positive
 status: open
 run_date: 2026-07-25

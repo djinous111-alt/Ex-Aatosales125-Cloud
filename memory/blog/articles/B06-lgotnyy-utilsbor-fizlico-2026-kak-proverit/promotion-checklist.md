@@ -1,7 +1,7 @@
 # Promotion checklist — B06 lgotnyy-utilsbor-fizlico-2026-kak-proverit
 
 Дата публикации: 2026-07-25  
-Live URL: /blog/lgotnyy-utilsbor-fizlico-2026-kak-proverit/
+Live URL: [REDACTED]/2026/07/25/lgotnyy-utilsbor-fizlico-2026-kak-proverit/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Сверяйте мощность в кВт, гибрид/электро и лимит 1 авто/год
 • До депозита — 10 галочек, иначе риск коммерческого тарифа
 
-Читать: /blog/lgotnyy-utilsbor-fizlico-2026-kak-proverit/
+Читать: [REDACTED]/2026/07/25/lgotnyy-utilsbor-fizlico-2026-kak-proverit/
 ```
 
 ## Перелинковка
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir …/B06-… --site-base <PUBLIC_SITE_URL>` — links_applied=0.
 - llms.txt / llms-full.txt: relative `/blog/<slug>/` URLs (secret-scan safe; same-origin when hosted on site).
-- Publish: pending (после Indexer).
+- Publish: PASS — post_id=3742; featured=3743; inline=3744/3745/3746; schema_meta=ok; live HEAD 200.

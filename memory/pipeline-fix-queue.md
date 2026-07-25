@@ -551,3 +551,39 @@ category: env
 ### Fixer resolution
 - pending
 
+## INC-20260725-0932-publish-paramiko-missing
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-publish
+topic_id: B06
+article_dir: memory/blog/articles/B06-lgotnyy-utilsbor-fizlico-2026-kak-proverit
+severity: medium
+category: env
+
+### What went wrong
+- `import paramiko` failed in Cloud image before SSH publish (same class as B05/publish-patterns).
+- `.cursor/cloud-agent-install.sh` installs `requests pillow python-dotenv` but not `paramiko`.
+- `SSH_ROOT` was unset in env-check (`root: unset`); publish used `SSH_ROOT=.` per pitfalls.
+
+### How the agent recovered this run
+- Installed `paramiko` via `pip3 install --break-system-packages paramiko` (and deps).
+- Exported `SSH_ROOT=.` and `PYTHONUNBUFFERED=1`; dry-run OK; publish PASS in ~116s without HTTP fallback.
+- Live HEAD 200; ledger upserted by publish script to status=published.
+
+### Durable fix needed before next run
+- Add `paramiko` to `.cursor/cloud-agent-install.sh` (and bake into Dockerfile/image if used).
+- Keep Cloud Secret `SSH_ROOT=.` for this host (login cwd).
+- Optionally document paramiko in publish skill preflight deps.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

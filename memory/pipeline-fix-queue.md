@@ -251,6 +251,40 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20260725-1704-scout-as-ids-invisible-to-today
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_today.py` / `excalibur_blog_scout_helper.py` читают только `topic_id` вида `B\d+`.
+- Карточки `AS01`–`AS09` в `memory/topics/blog-topics.md` utility-ready, но для preflight «невидимы» → `needs_scout` даже при полном AS-пуле.
+- Scout вынужден дублировать угол (например AS01 → B01), иначе пайплайн не стартует.
+
+### How the agent recovered this run
+- Создал pipeline-видимую карточку `## B01` (растаможка авто из Кореи) с utility h1 «Как…», Wordstat parent ~3452 (регион 225), без overlap live WP slug.
+- `--check-query` и `utility_gate --topic-id B01` прогнаны в том же run.
+
+### Durable fix needed before next run
+- Расширить regex topic_id в `today.py` и `scout_helper.py` до `(?:B|AS)\d+` (или единый префикс), либо одноразово переименовать AS* → Bxx в пуле.
+- Чтобы `--check-query` ловил каннибализацию с AS-карточками, `load_existing_topics` должен парсить те же ID.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `memory/topics/blog-topics.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

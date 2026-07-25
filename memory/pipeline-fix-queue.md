@@ -26,7 +26,7 @@ category: docs
 - Статья переписана с маркерами действия; utility + human-voice + html linter PASS.
 
 ### Durable fix needed before next run
-- Закоммитить/поддерживать `shared/public-cta.json` (или скрипт resolve CTA из env) без placeholder в production HTML.
+- Не коммитить `shared/public-cta.json`, пока CATALOG/TELEGRAM/PUBLIC/MAX URL лежат в Cloud Secrets (secret scan блокирует). Writer: CTA только из env + `<!-- pragma: allowlist secret -->`. Долгосрочно: вынести публичные URL из Secrets (см. INC-1720) либо whitelist в precommit.
 - Зафиксировать в writer skill: recommendation markers = императив из `recommendation_markers_ru`.
 - Fixer: подтвердить, что utility gate не падает при пустых marker lists (skip или fail-fast на policy).
 

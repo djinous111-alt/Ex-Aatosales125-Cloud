@@ -404,11 +404,13 @@ category: docs
 ### How the agent recovered this run
 - Re-ran with only `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (omit `--blog-path /`).
 - Confirmed `Loaded 3 articles`; AS02 present in `llms.txt`.
+- Commit secret-scan blocked absolute `PUBLIC_SITE_URL` in llms/checklist → rewrote committed URLs to relative `/blog/...`.
 
 ### Durable fix needed before next run
 - Update indexer skill/agent examples: either drop `--blog-path /` or pass `--blog-path memory/blog/articles`.
 - Add pitfalls line: never pass `--blog-path /` to llms generator; it is a dir alias, not WP URL path.
 - Optional: ignore `--blog-path` values that are URL paths (`/`, `/blog`) when `--blog-dir` is set.
+- Document commit-safe llms output: relative `/blog/{slug}/` or pragma allowlist when `PUBLIC_SITE_URL` is a Cloud Secret (related needs-human public-URL secret issue).
 
 ### Suggested files to inspect/change
 - `skills/indexer-excalibur-blog/SKILL.md`

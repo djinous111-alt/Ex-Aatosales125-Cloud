@@ -47,5 +47,6 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply` — 1 link applied (AS02→AS09, keyword `trust encar`).
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (3 articles; site-name «Авто-Сейлс»).
+- Live/llms URLs в git — relative `/blog/...` (Cloud secret-scan блокирует абсолютный `PUBLIC_SITE_URL`).
 - Cover BLOCKER (Kie 402) — cover.png отсутствует; indexer не блокировался.
 - Publish ещё не выполнялся.

@@ -1,0 +1,80 @@
+{
+  "article": "memory/blog/articles/B06-lgotnyy-utilsbor-fizlico-2026-kak-proverit/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 10,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 7,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ату. TL;DR / Быстрый инсайт: Льготный утильсбор в 2026 для физлица – не статус \"я не юрлицо\", а связка: л",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "высокий, а в ленте полно калькуляторов. С декабря 2025 мощность вошла в формулу, с января 2026 коммерческ",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "12 месяцев",
+      "kind": "metric_or_duration",
+      "context": "елах порога, не больше одного подходящего авто за 12 месяцев и без перепродажи раньше года. Порог в кВт: для Д",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "ску до депозита. Шаг 3: отметьте возраст авто (до 3 лет / старше) – от него зависит режим, но сумму сами",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "12 мес",
+      "kind": "metric_or_duration",
+      "context": "и EV/гибрид → Лимит 1 авто/год → Отказ от продажи 12 мес. → Расчёт в каталоге → Депозит Как сверить гибрид",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "177",
+      "kind": "large_number",
+      "context": "Иван почти внёс депозит за Kia Sportage на 177 л.с.: \"я же физлицо, значит льготный утильсбор\". Н",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "а СВХ во Владивостоке показали порог для ДВС – до 160 л.с. включительно, а в документах это ещё и килова",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "161",
+      "kind": "large_number",
+      "context": "\"на глаз по л.с.\" Самый дорогой сюрприз – \"ровно 161 л.с.\" или комплектация, где в карточке одно, а в п",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "35962",
+      "kind": "large_number",
+      "context": "итать лучше по документам в киловаттах: 1 кВт ≈ 1,35962 л.с. В реальном проекте из Кореи или Японии выписы",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "и Китая). Достоверность: факты сверены с ПП РФ № 1713 (с 01.12.2025), обзорами ConsultantPlus / БУХ.1С",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

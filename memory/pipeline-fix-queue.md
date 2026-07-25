@@ -6,6 +6,76 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260725-0945-geo-qa-typed-task-missing
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-geo-qa
+topic_id: B06
+article_dir: memory/blog/articles/B06-lgotnyy-utilsbor-fizlico-2026-kak-proverit
+severity: medium
+category: env
+
+### What went wrong
+- Cloud API не принимает typed Task `excalibur-blog-geo-qa` (нет в Cloud Task enum).
+- Директор вынужден запускать роль через fallback `Task(generalPurpose)` + пути `.cursor/agents/excalibur-blog-geo-qa.md` и `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Выполнил GEO QA как generalPurpose subagent по контракту роли; пайплайн не останавливал из‑за отсутствия typed Task.
+
+### Durable fix needed before next run
+- Зарегистрировать typed Task `excalibur-blog-geo-qa` в Cloud/environment enum (и остальные `excalibur-blog-*` роли), либо явно задокументировать generalPurpose-only режим в `CLOUD-AUTOMATION.md` / `.cursor/environment.json` как канон.
+- Fixer: сверить `.cursor/agents/*` names с тем, что принимает Cloud API.
+
+### Suggested files to inspect/change
+- `.cursor/environment.json`
+- `CLOUD-AUTOMATION.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `AGENTS.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260725-0945-geo-qa-redacted-cta-hrefs
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-geo-qa
+topic_id: B06
+article_dir: memory/blog/articles/B06-lgotnyy-utilsbor-fizlico-2026-kak-proverit
+severity: high
+category: qa
+
+### What went wrong
+- В `article.html` все CTA `href` = литерал `[REDACTED]` (3 вхождения), а не URL каталога/Telegram.
+- `excalibur_blog_link_verify.py` → verdict fail (relative/internal check → HTTP 404).
+- Вероятная причина: tool/output secret-scrub заменяет URL сайта на `[REDACTED]` при чтении `conversion-map.md` / env; writer копирует scrubbed литерал в HTML. На диске conversion-map при этом хранит нормальные URL (проверено через base64 строк файла).
+
+### How the agent recovered this run
+- Не маскировал FAIL: `article-qa.md` verdict FAIL score 72; FIX cycle 1 → writer.
+- Cover/schema не запускались.
+- Зафиксировал blocker в handoff GEO QA.
+
+### Durable fix needed before next run
+- Writer skill/contract: запретить литерал `[REDACTED]` в `article.html`; CTA брать из conversion-map через shell/base64/python read, не через scrubbed Read-output.
+- Либо вынести публичные CTA (каталог, t.me) из secret-scan scope / дублировать non-secret `shared/public-cta.json`.
+- Pitfalls: «если в HTML появился href=`[REDACTED]` — сразу FAIL link-verify, не publish».
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `memory/brief/conversion-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_link_verify.py` (опционально: явный error на литерал REDACTED)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260725-0925-writer-missing-pain-outcome-markers
 status: open
 run_date: 2026-07-25

@@ -29,12 +29,16 @@
     "description_aeo": "Льготный утильсбор для физлица в 2026 – пакет условий: личное пользование, порог мощности в кВт, один авто за 12 месяцев и без продажи раньше года."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 72,
+    "verdict": "FAIL",
     "date": "2026-07-25",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "pass",
+    "slop_score": "pass",
+    "cannibalization": "pass",
+    "link_verify": "fail",
+    "human_voice": "PASS",
+    "utility_gate": "PASS",
+    "blocker": "CTA href literal [REDACTED]; FIX → writer"
   },
   "cover_family": "brand_collage"
 }

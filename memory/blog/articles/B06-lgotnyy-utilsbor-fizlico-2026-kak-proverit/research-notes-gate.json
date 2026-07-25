@@ -11,10 +11,10 @@
   "metrics": {
     "today_iso": "2026-07-25",
     "prefer_sources_after": "2026-04-26",
-    "source_urls": 18,
+    "source_urls": 20,
     "source_domains": 13,
-    "source_table_rows": 18,
-    "accessed_at": 26,
+    "source_table_rows": 20,
+    "accessed_at": 28,
     "github_urls": 4,
     "official_doc_urls": 0,
     "action_outline_items": 10,

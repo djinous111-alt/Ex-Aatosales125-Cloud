@@ -455,6 +455,47 @@ category: env
 ### Fixer resolution
 - pending
 
+## INC-20260725-1725-cover-kie-credits-mcp-none
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rastamozhit-avto-iz-korei-2026
+severity: blocker
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` (MCP-KV) failed twice with cryptic `NoneType has no attribute get` (no image URL, no task_id, MCP log unavailable to agent).
+- Preferred recovery `scripts/excalibur_blog_kie_gpt_image2_api.py` failed at createTask: code=402 Credits insufficient.
+- Catbox force re-host of blog-hero reference returned HTTP 412; 0x0 returned HTTP 503. Existing `avtosales125.ru` reference PNG remains fetchable (200).
+- Without generated canvas URL, apply/split/inject correctly skipped.
+
+### How the agent recovered this run
+- Completed steps 1–4: hero reference URL, quad-manifest (Korea/Vladivostok/RoRo theme), prompt+batch (1 job, input_urls present).
+- Attempted MCP gpt-image-2 twice (http then https reference); no URL recovered.
+- Attempted one Kie async createTask; stopped on 402 (no blind third MCP create).
+- Wrote cover fragment status fail; no fake canvas.
+
+### Durable fix needed before next run
+- Top up Kie.ai credits for `KIE_API_KEY` used by Cloud / MCP-KV gpt-image-2.
+- Harden MCP `gpt-image-2` error mapping: surface upstream Kie code/msg (e.g. 402) instead of `NoneType.get`.
+- Prefer documenting Cloud cover path as Kie async script first; sync MCP only as fallback when credits+async tools exist.
+- Optional: fix catbox/0x0 hero re-host or keep stable HTTPS hosted reference.
+
+### Suggested files to inspect/change
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/mcp-image-async-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- Cursor Cloud Secret `KIE_API_KEY` billing/credits
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

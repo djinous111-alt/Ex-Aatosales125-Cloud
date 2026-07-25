@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260725-0915-research-tech-markers-false-positive
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-research
+topic_id: B06
+article_dir: memory/blog/articles/B06-lgotnyy-utilsbor-fizlico-2026-kak-proverit
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` пометил авто-тему B06 (льготный утильсбор) как `technical_topic=true`.
+- Причина: substring-матч `TECH_MARKERS` по первым 2000 символам notes: маркер `ai` срабатывает внутри обязательного поля `reader_pain`, маркер `ии` – внутри слов вроде «Японии».
+- Из-за ложного technical gate требовал `github_urls >= 3`, хотя тема beginner checklist про таможню/льготу, не про AI/API.
+
+### How the agent recovered this run
+- Добавил три GitHub URL в `github_evidence` (tks-api + два нерелевантных auto-calculator как negative signal «не брать как прайс»).
+- Зафиксировал в notes, что канон – ПП 1713/1291 + каталог, не OSS-калькулятор.
+- Повторно прогнал research-notes gate до PASS.
+
+### Durable fix needed before next run
+- В `is_technical_topic()` использовать word-boundary / токены, а не сырой substring (`ai` не должен матчить `pain`; `ии` не должен матчить «Японии»).
+- Либо исключить обязательные ключи полей (`reader_pain`, `pain_solution_map`) из окна проверки.
+- Для не-tech ниш (авто/таможня) не требовать 3 GitHub URL, если topic slug/h1 не содержат tech-маркеров из карточки темы.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260725-0905-scout-topic-id-floor
 status: open
 run_date: 2026-07-25

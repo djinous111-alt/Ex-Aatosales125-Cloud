@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-25",
+    "today_ru": "25.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-26",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-25 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "lgotnyy-utilsbor-fizlico-2026-kak-proverit",
+    "h1": "Льготный утильсбор на авто в 2026: как проверить, что вам положена льгота",
+    "primary_query": "льготный утильсбор",
+    "secondary_queries": [
+      "льготный утильсбор 2026",
+      "какой льготный утильсбор",
+      "гибрид под льготный утильсбор",
+      "льготный утильсбор мощность"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B06",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "льготный утильсбор 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "льготный утильсбор июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "льготный утильсбор новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com льготный утильсбор 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "льготный утильсбор official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "льготный утильсбор forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "льготный утильсбор 2026 2026",
+      "purpose": "вторичный запрос: льготный утильсбор 2026"
+    },
+    {
+      "id": "secondary_2",
+      "query": "какой льготный утильсбор 2026",
+      "purpose": "вторичный запрос: какой льготный утильсбор"
+    },
+    {
+      "id": "secondary_3",
+      "query": "гибрид под льготный утильсбор 2026",
+      "purpose": "вторичный запрос: гибрид под льготный утильсбор"
+    },
+    {
+      "id": "secondary_4",
+      "query": "льготный утильсбор мощность 2026",
+      "purpose": "вторичный запрос: льготный утильсбор мощность"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Льготный утильсбор на авто в 2026: как проверить, что вам положена льгота 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B06-lgotnyy-utilsbor-fizlico-2026-kak-proverit",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

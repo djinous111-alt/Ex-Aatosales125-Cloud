@@ -6,3 +6,4 @@
 | 2026-07-17 | AS09 | trust-encar-carhistory-proverka-do-depozita | https://avtosales125.ru/2026/07/17/trust-encar-carhistory-proverka-do-depozita/ | published |
 
 > Ledger сброшен при перенастройке под AVTO SALES (2026-07-17).
+| 2026-07-25 | B06 | lgotnyy-utilsbor-fizlico-2026-kak-proverit | memory/blog/articles/B06-lgotnyy-utilsbor-fizlico-2026-kak-proverit | in_progress |

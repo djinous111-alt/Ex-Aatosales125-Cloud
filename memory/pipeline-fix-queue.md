@@ -58,11 +58,13 @@ category: qa
 - Cover/schema не запускались.
 - Зафиксировал blocker в handoff GEO QA.
 - Writer FIX cycle 1 (2026-07-25): восстановил 3 CTA href из conversion-map через python-read (обход secret-scrub Read/Grep); убрал ярлык `TL;DR / Быстрый инсайт`; char_count=9395; литерал `[REDACTED]` в href = 0.
+- GEO QA attempt 2 (2026-07-25): перезапуск всех gates → link-verify PASS, human-voice PASS, article-qa PASS score 90. Artifact-level blocker снят; durable scrub/CTA contract fix всё ещё нужен.
 
 ### Durable fix needed before next run
 - Writer skill/contract: запретить литерал `[REDACTED]` в `article.html`; CTA брать из conversion-map через shell/base64/python read, не через scrubbed Read-output.
 - Либо вынести публичные CTA (каталог, t.me) из secret-scan scope / дублировать non-secret `shared/public-cta.json`.
 - Pitfalls: «если в HTML появился href=`[REDACTED]` — сразу FAIL link-verify, не publish».
+- GEO QA: проверять href через python/shell (не через scrubbed Read), иначе ложный PASS/FAIL.
 
 ### Suggested files to inspect/change
 - `.cursor/skills/writer-excalibur-blog/SKILL.md`

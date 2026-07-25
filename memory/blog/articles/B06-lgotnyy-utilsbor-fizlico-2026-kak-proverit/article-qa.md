@@ -1,38 +1,39 @@
-# Article QA — B06
+# Article QA — B06 (attempt 2 / after Writer FIX cycle 1)
 
 **topic_id:** B06  
 **slug:** lgotnyy-utilsbor-fizlico-2026-kak-proverit  
 **article_dir:** memory/blog/articles/B06-lgotnyy-utilsbor-fizlico-2026-kak-proverit  
 **date:** 2026-07-25  
-**verdict:** FAIL  
-**score:** 72
+**attempt:** 2 (after FIX)  
+**verdict:** PASS  
+**score:** 90
 
 ## Scripts
 
 | Script | Verdict | Notes |
 |--------|---------|-------|
 | research-notes-gate | PASS | warning: false-positive technical (нет official docs URL) |
-| fact-check | PASS | 10 stats; 3 verified / 7 unverified (пороги 160/117,68 и даты в research-notes, не в fact-bank) |
-| link-verify | **FAIL** | 1 checked link → 404; все 3 CTA `href` в HTML = литерал `[REDACTED]` (не URL) |
+| fact-check | PASS | 10 stats; 3 verified / 7 unverified (пороги/даты в research-notes) |
+| link-verify | **PASS** | 2 unique external links; failed_count=0; HTTP 200 (каталог + Telegram); литерал `[REDACTED]` в href = 0 |
 | html-linter | PASS | 0 errors; TOC в теле нет; whitelist OK |
-| slop-detector | PASS | 0 клише; 5 over-long (таблица/схема + длинный insight); Flesch RU 71.1 |
+| slop-detector | PASS | 0 клише; 5 over-long (таблица/схема + длинный insight); Flesch RU 70.9 |
 | cannibalization | PASS | 0 issues (`--blog-dir memory/blog/articles`) |
 | utility gate | PASS | action 38 / pain 10 / outcome 21; lists+FAQ×7+tables×2 |
-| human-voice-gate | PASS | `human-voice-report.json` status PASS; story/pain/outcome overlap OK |
+| human-voice-gate | PASS | `human-voice-report.json` status PASS |
 
 ## Scores
 
 | Блок | Балл | Комментарий |
 |------|------|-------------|
-| SEO structure | 16/20 | Primary в title/H1; H2 по чеклисту; CTA сломаны литералом `[REDACTED]` |
-| GEO / citability | 20/25 | Insight, схема, таблицы, FAQ×7, чеклист 10; ярлык `TL;DR / Быстрый инсайт` нарушает контракт insight |
-| CORE-EEAT lite | 17/20 | 17/20 (см. таблицу); нет internal blog links |
-| Human voice | 14/15 | Gate PASS; лёгкий штраф за шаблонный ярлык insight |
-| Fact safety | 12/15 | Пороги/даты согласованы с research-notes; 7 unverified vs fact-bank |
-| Contract HTML | 3/10 | Whitelist OK, но CTA href = `[REDACTED]` → link-verify fail (блокер) |
-| **Итого** | **72/100** | |
+| SEO structure | 18/20 | Primary в title/H1; H2 по чеклисту; CTA рабочие |
+| GEO / citability | 22/25 | Insight «Главное до депозита» (без TL;DR); схема; таблицы; FAQ×7; чеклист 10 |
+| CORE-EEAT lite | 18/20 | 18/20; нет 2–3 internal blog links (мягкий минус) |
+| Human voice | 15/15 | Gate PASS; story/pain/outcome OK |
+| Fact safety | 12/15 | Пороги согласованы с research-notes; 7 unverified vs fact-bank |
+| Contract HTML | 9/10 | Whitelist OK; CTA href валидные https |
+| **Итого** | **90/100** | |
 
-## CORE-EEAT lite: 17/20
+## CORE-EEAT lite: 18/20
 
 | ID | Result | Comment |
 |----|--------|---------|
@@ -46,11 +47,11 @@
 | O04 | ✓ | ol + таблицы + blockquote-схема |
 | R01 | ✓ | Insight + схема до депозита + FAQ |
 | R02 | ✓ | ПП 1713 / 01.12.2025 / порог 117,68 кВт в Fact Check Box + research |
-| R03 | ✓ | Нет коммерческих сумм утиля; CTA в каталог на расчёт по VIN |
+| R03 | ✓ | Нет коммерческих сумм утиля; CTA в каталог на расчёт |
 | R04 | ✓ | Ответ FAQ с первого предложения |
 | E01 | ✓ | Угол «льгота ≠ статус физлица» + чеклист до депозита |
 | E02 | ✓ | «Делать / Не делайте» в секциях |
-| E03 | ✗ | CTA-ссылки битые (`href="[REDACTED]"`) — не рабочие каталог/Telegram |
+| E03 | ✓ | CTA каталог + Telegram рабочие (link-verify PASS) |
 | Exp01 | ✓ | Mode B, без fake first-person |
 | Exp02 | ✓ | Тон Авто-Сейлс / Владивосток |
 | Exp03 | ✓ | Slop hits = 0 |
@@ -58,7 +59,7 @@
 | Ept02 | ✗ | Нет 2–3 internal links на другие посты блога |
 
 **Target:** ≥16/20 ✓ · veto (R03 / Exp01 / slop≥2): нет  
-**Hard gate fail:** link-verify FAIL (обязательный Pass-критерий skill)
+**Hard gate:** link-verify PASS ✓ · human-voice PASS ✓
 
 ## Beginner-fit / utility story
 
@@ -71,41 +72,43 @@
 
 ## Link verify
 
-- total checked: 1, failed: 1 (verdict **fail**)
-- root cause: в `article.html` все 3 `href` = литерал `[REDACTED]` (не URL из conversion-map)
+- total unique checked: 2, failed: 0 (verdict **pass**)
+- CTA: 3 href в HTML (каталог×2 + Telegram×1); литерал `[REDACTED]` отсутствует
 - see `link-verify.json`
 
 ## AI-slop scan
 
 - cliches: 0
 - over-long: 5 (артефакт таблиц + длинный insight)
-- Flesch RU: 71.1
+- Flesch RU: 70.9
 
 ## Schema ready
 
-BlogPosting: yes (после FIX ссылок) | FAQPage: yes (7) | HowTo: yes (чеклисты) | Review: no | E-E-A-T SameAs Author: pending (cover/schema вне зоны QA)
+BlogPosting: yes | FAQPage: yes (7) | HowTo: yes (чеклисты) | Review: no | E-E-A-T SameAs Author: pending (cover/schema вне зоны QA)
 
 ## Blockers
 
-1. **link-verify FAIL:** заменить все `href="[REDACTED]"` на рабочие CTA из `memory/brief/conversion-map.md` (строки «Каталог авто» и «Telegram Авто-Сейлс»), как в AS08/AS09. Три вхождения в блоках расчёта / «Что дальше».
-2. **Insight label (контракт):** убрать шаблонный ярлык `TL;DR / Быстрый инсайт` из первого blockquote; оставить смысл инсайта без этих слов (skill HTML/writer).
+none
 
-## FIX cycle (QA → writer) — cycle 1
+## Soft notes (не блокер)
 
-1. **CRITICAL:** восстановить валидные абсолютные CTA URL (каталог ≤3, Telegram ≤2) из conversion-map / эталон AS08–AS09; не писать литерал `[REDACTED]` в HTML.
-2. **REQUIRED:** переименовать insight-блок без `TL;DR` и без фразы `Быстрый инсайт`.
-3. **OPTIONAL:** 2–3 internal blog links с `anchor_variants` после появления URL соседних постов; дописать пороги 160 л.с. / 117,68 кВт в fact-bank.
+1. OPTIONAL: 2–3 internal blog links с `anchor_variants` на соседние посты (AS08/AS09/B05).
+2. OPTIONAL: дописать пороги 160 л.с. / 117,68 кВт в fact-bank (снизит unverified).
 
-После FIX — повтор GEO QA (link-verify + human-voice + article-qa). **Не** стартовать cover||schema.
+## FIX history
+
+- **attempt 1:** FAIL score 72 — CTA `href="[REDACTED]"` + ярлык `TL;DR / Быстрый инсайт`
+- **Writer FIX cycle 1:** CTA восстановлены; insight → «Главное до депозита»
+- **attempt 2:** PASS score 90
 
 ## Gate
 
-- score ≥ 80 → **72** ✗  
-- CORE-EEAT ≥ 16/20 → **17/20** ✓  
-- link-verify pass → **FAIL** ✗  
+- score ≥ 80 → **90** ✓  
+- CORE-EEAT ≥ 16/20 → **18/20** ✓  
+- link-verify pass → **PASS** ✓  
 - research-notes-gate PASS ✓  
 - utility gate PASS ✓  
 - human voice gate PASS ✓  
-- beginner-fit PASS ✓ (смысл OK; CTA сломаны отдельно)
+- beginner-fit PASS ✓  
 
-**Итог:** FAIL — вернуть writer (FIX cycle 1). Cover/schema запрещены.
+**Итог:** PASS — директор может запускать cover \|\| schema.

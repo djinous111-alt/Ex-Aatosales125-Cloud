@@ -251,6 +251,40 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20260724-2029-director-as-topic-regex
+status: open
+run_date: 2026-07-24
+role: excalibur-blog-director
+topic_id: AS02
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_today.py` and `excalibur_blog_scout_helper.py` matched only `B\\d+` topic cards, so AS* pool looked empty and today returned `needs_scout`.
+- Doctor failed: missing numpy; llms generator lacked `--blog-path` alias required by doctor/indexer contract.
+
+### How the agent recovered this run
+- Extended topic regex to `(?:B|AS)\\d+` in today + scout helper.
+- Added `--blog-path` alias to llms generator.
+- Installed `python3-numpy` via apt for the Cloud VM.
+
+### Durable fix needed before next run
+- Keep AS|B topic ID support in today/scout helper.
+- Keep `--blog-path` alias; ensure Cloud image has numpy (apt or environment.json).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `.cursor/environment.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

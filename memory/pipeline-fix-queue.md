@@ -6,6 +6,46 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260725-0930-indexer-public-site-url-secret-scan
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-indexer
+topic_id: B06
+article_dir: memory/blog/articles/B06-lgotnyy-utilsbor-fizlico-2026-kak-proverit
+severity: medium
+category: env
+
+### What went wrong
+- `excalibur_blog_llms_generator.py --site-base ${PUBLIC_SITE_URL}` пишет абсолютные URL в `memory/blog/llms.txt` / `llms-full.txt`.
+- Pre-commit secret scan блокирует commit: `PUBLIC_SITE_URL` есть в Cloud Secrets, хотя это публичный base URL сайта.
+- Дополнительно: в `CLOUD_AGENT_INJECTED_SECRET_NAMES` есть невалидное имя (не bash identifier, starts with `htt`) → `${!SECRET_NAME}` падает с `invalid variable name` до фильтрации списка.
+- Устаревший skill всё ещё показывает `--blog-path /`; актуальный CLI llms generator принимает только `--blog-dir` (флага `--blog-path` нет).
+
+### How the agent recovered this run
+- Отфильтровал невалидные secret names перед commit.
+- Post-process: absolute site base → relative `/blog/<slug>/` в llms + path-only Live URL в promotion-checklist; `site_base` в `interlink-suggestions.json` → `${PUBLIC_SITE_URL}`.
+- Interlinker `--apply`: opportunities_found=0 / links_applied=0 (ожидаемо: AS08/AS09 без overlap с «льготный утильсбор»).
+
+### Durable fix needed before next run
+- llms generator: флаг `--url-mode relative|absolute` (default relative для git-safe) ИЛИ не сканировать `PUBLIC_SITE_URL` как credential.
+- Убрать/переименовать invalid secret name в Cloud Secrets (не-identifier / URL-as-name).
+- Синхронизировать skill/agent: убрать `--blog-path` из примеров llms generator.
+- Pitfalls: явная строка про secret-scan + relative URLs для indexer commit.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- Cloud Secrets: `CLOUD_AGENT_INJECTED_SECRET_NAMES` / invalid htt* name
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260725-0928-cover-kie-402-emergency
 status: open
 run_date: 2026-07-25

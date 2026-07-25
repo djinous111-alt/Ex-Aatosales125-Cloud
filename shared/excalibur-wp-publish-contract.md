@@ -49,6 +49,15 @@ if ($skip_theme_faq === '1') {
 
 Publish-скрипт выставляет meta `_excalibur_blog_skip_theme_faq` автоматически при каждой публикации.
 
+## Transport notes
+
+- Transport is **SSH + HTTP bootstrap** (paramiko required: `pip install paramiko`).
+- Prefer Cloud Secret `SSH_ROOT=.` when the SSH account cwd is the WordPress/web root.
+- HTTP trigger timeout is **300s**. On timeout the script exits with `needs_webfetch_or_rest_recovery` (no 120s in-process wait).
+- Recovery without re-upload:
+  - `python3 scripts/excalibur_blog_wp_publish.py --article-dir … --recover-from-rest`
+  - or WebFetch FALLBACK URL → `memory/webfetch-response.txt` → `--resume-from-webfetch`
+
 ## Артефакты после publish
 
 ```text

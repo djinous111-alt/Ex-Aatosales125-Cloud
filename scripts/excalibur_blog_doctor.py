@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 import importlib.util
 import os
 import subprocess
@@ -133,11 +134,40 @@ def main() -> int:
         check=False,
     )
     check(
-        "--blog-dir" in llms_help.stdout or "--blog-path" in llms_help.stdout,
-        "llms generator supports --blog-dir/--blog-path",
+        "--blog-dir" in llms_help.stdout,
+        "llms generator supports --blog-dir",
         errors,
         warnings,
     )
+    check(
+        "--blog-path" not in llms_help.stdout,
+        "llms generator must not advertise stale --blog-path",
+        errors,
+        warnings,
+    )
+    indexer_docs = [
+        root / "skills/indexer-excalibur-blog/SKILL.md",
+        root / ".cursor/skills/indexer-excalibur-blog/SKILL.md",
+        root / "agents/excalibur-blog-indexer.md",
+        root / ".cursor/agents/excalibur-blog-indexer.md",
+    ]
+    for doc in indexer_docs:
+        if not doc.is_file():
+            continue
+        doc_text = doc.read_text(encoding="utf-8")
+        stale_blog_path_arg = bool(re.search(r"--blog-path\s+\S+", doc_text))
+        check(
+            not stale_blog_path_arg,
+            f"indexer docs must not pass --blog-path ARG ({doc.relative_to(root)})",
+            errors,
+            warnings,
+        )
+        check(
+            "--blog-dir" in doc_text,
+            f"indexer docs mention --blog-dir ({doc.relative_to(root)})",
+            errors,
+            warnings,
+        )
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

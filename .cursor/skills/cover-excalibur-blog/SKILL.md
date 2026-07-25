@@ -122,19 +122,41 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — генерация изображения (Kie → fallback)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
-
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
-
-### Шаг 5 — apply
+**Preferred Cloud path:** async Kie API (не sync MCP):
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+Если Kie вернул **`code=402 Credits insufficient`** или sync MCP `gpt-image-2` упал:
+
+1. **Не** крути слепой retry createTask (дубль job / кредиты).
+2. Local fallback (ONE canvas rule): Cursor `GenerateImage` с `reference_image_paths=[memory/cover/assets/blog-hero-reference.png]`, aspect `16:9`.
+3. Доведи холст до 2048×1152 (LANCZOS при необходимости) → `cover/canvas-quad.png`.
+4. Apply без URL:
+
+```bash
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --local-canvas cover/canvas-quad.png \
+  --inject-html
+```
+
+Эквивалент: `excalibur_blog_cover_quad_split.py --canvas cover/canvas-quad.png --inject-html`.
+
+Outfit: из `scene_hint` / blog-hero `outfit_rule` (погода+тема). **Не** hardcode white hoodie.
+
+Kie credits top-up — операция человека (Dashboard), не repo-fix.
+
+### Шаг 5 — apply (если есть URL)
+
+```bash
+python3 scripts/excalibur_blog_quad_apply.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --url "<MCP/Kie result url>" \
   --inject-html
 ```
 

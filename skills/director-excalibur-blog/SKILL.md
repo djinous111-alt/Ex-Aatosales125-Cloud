@@ -175,7 +175,7 @@ Task(excalibur-blog-indexer)
 Ты excalibur-blog-publish. topic_id: {ID}. article_dir из handoff.
 Прочитай agents/excalibur-blog-publish.md + skills/publish-excalibur-blog/SKILL.md + shared/excalibur-wp-publish-contract.md.
 Preflight link-verify → dry-run → publish → ledger + handoff === EXCALIBUR BLOG PUBLISH ===.
-При HTTP timeout bootstrap — WebFetch fallback (см. skill).
+При HTTP timeout bootstrap — сначала `--recover-from-rest` (если пост уже есть), иначе WebFetch + `--resume-from-webfetch` (см. publish skill). Не второй bootstrap.
 ```
 
 ```text

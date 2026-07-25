@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+> 2026-07-25 fixer pass: B01 open incidents resolved below (`fixed` / `needs-human`).
+
+
 ## INC-20260725-1400-publish-http-timeout-webfetch-race
-status: open
+status: fixed
 run_date: 2026-07-25
 role: excalibur-blog-publish
 topic_id: B01
@@ -41,8 +44,23 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-07-25
+fix_summary:
+- HTTP trigger timeout raised to 300s; default path no longer blocks 120s waiting for webfetch.
+- On timeout: print FALLBACK URL + exit needs_webfetch_or_rest_recovery (code 3).
+- Added `--recover-from-rest` and `--resume-from-webfetch`; documented paramiko + SSH_ROOT=.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `python3 scripts/excalibur_blog_wp_publish.py --help`
+commit: 1e98d7d
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -94,7 +112,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: 1e98d7d
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -145,7 +163,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: 1e98d7d
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -186,7 +204,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: 1e98d7d
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -233,7 +251,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: 1e98d7d
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -287,10 +305,10 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: 1e98d7d
 
 ## INC-20260725-1305-scout-helper-as-ids-blind
-status: open
+status: fixed
 run_date: 2026-07-24
 role: excalibur-blog-scout
 topic_id: B01
@@ -327,10 +345,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-25
+fix_summary:
+- scout_helper parses AS and B topic headings; active dirs match AS*/B*; suggest-next shows both series + WP reconcile note.
+- Scout skill/agent rewritten for AVTO SALES niche (not Cursor/n8n); Wordstat sequential/cluster-first documented.
+- Residual platform: Cursor pre-commit.cursor invalid bash secret names — not in repo (ops workaround: empty CLOUD_AGENT_INJECTED_SECRET_NAMES).
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` (pool AS=9,B=1)
+commit: 1e98d7d
 
 ## INC-20260725-1315-research-tech-markers-false-positive
-status: open
+status: fixed
 run_date: 2026-07-25
 role: excalibur-blog-research
 topic_id: B01
@@ -363,10 +396,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-25
+fix_summary:
+- Tech markers use word-boundary/token match; non-tech niche whitelist (SVH/customs/Encar/...).
+- github_evidence N/A skips github URL quota; research skill documents basename -o.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- research gate B01 → PASS, technical_topic=false
+commit: 1e98d7d
 
 ## INC-20260725-1320-writer-public-cta-missing
-status: open
+status: fixed
 run_date: 2026-07-25
 role: excalibur-blog-writer
 topic_id: B01
@@ -398,10 +444,22 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-25
+fix_summary:
+- Added shared/public-cta.json + .example; writer skill: env/public-cta when brief redacted; forbid literal [REDACTED] href.
+files_changed:
+- `shared/public-cta.json`
+- `shared/public-cta.json.example`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m json.tool shared/public-cta.json`
+commit: 1e98d7d
 
 ## INC-20260725-1345-geo-qa-typed-task-missing
-status: open
+status: needs-human
 run_date: 2026-07-25
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -433,10 +491,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+fixed_at: 2026-07-25
+reason:
+- Cloud Task enum still missing excalibur-blog-geo-qa (and possibly other excalibur-blog-*); registration is Cursor Cloud Dashboard / platform, not repo.
+fix_summary_repo:
+- Documented durable generalPurpose fallback in agents, CLOUD-AUTOMATION.md, pitfalls.
+files_changed:
+- `agents/excalibur-blog-geo-qa.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `CLOUD-AUTOMATION.md`
+- `shared/agent-pipeline-pitfalls.md`
+needed_decision_or_secret:
+- Register excalibur-blog-* Task types in Cursor Cloud agent/Task enum, then prefer typed Task again.
+checks_run:
+- docs mention generalPurpose fallback
+commit: 1e98d7d
 
 ## INC-20260725-1346-geo-qa-utility-pain-outcome-policy
-status: open
+status: fixed
 run_date: 2026-07-25
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -471,10 +544,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-25
+fix_summary:
+- editorial-policy.json already has pain/outcome markers; documented in shared/editorial-utility-only.md.
+- utility_gate fail-open when marker lists empty; word-boundary for pain marker in utility + human-voice.
+- writer skill requires >=2 pain / >=3 outcome markers.
+files_changed:
+- `memory/brief/editorial-policy.json` (confirmed markers present)
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/editorial-utility-only.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- utility gate B01 → PASS
+commit: 1e98d7d
 
 ## INC-20260725-1350-cover-mcp-kie-402-local-fallback
-status: open
+status: needs-human
 run_date: 2026-07-25
 role: excalibur-blog-cover
 topic_id: B01
@@ -513,10 +602,28 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+fixed_at: 2026-07-25
+reason:
+- Kie API credits (402) require Dashboard top-up — cannot fix in repo.
+fix_summary_repo:
+- Removed hardcoded white-hoodie outfit lock; added --local-canvas to quad_apply.
+- Cover skill + kie contract document GenerateImage → LANCZOS → --local-canvas fallback after 402/MCP fail.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_apply.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+needed_decision_or_secret:
+- Top up Kie credits / monitor balance before cover step.
+checks_run:
+- quad_apply --help shows --local-canvas
+commit: 1e98d7d
 
 ## INC-20260725-1325-indexer-llms-cli-drift
-status: open
+status: fixed
 run_date: 2026-07-25
 role: excalibur-blog-indexer
 topic_id: B01
@@ -549,7 +656,23 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-25
+fix_summary:
+- Indexer agent/skill synced to --blog-dir (no --blog-path ARG); added --url-mode absolute|relative.
+- Doctor requires --blog-dir and fails on stale --blog-path <arg> in docs.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor SUMMARY errors=0
+- llms --help shows --blog-dir and --url-mode
+commit: 1e98d7d
 
 ## Fixed incidents
 

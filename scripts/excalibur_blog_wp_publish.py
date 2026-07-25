@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Publish one Excalibur blog article to WordPress (SSH bootstrap)."""
 from __future__ import annotations
 
@@ -8,6 +8,7 @@ import io
 import json
 import os
 import sys
+import urllib.parse
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -467,17 +468,64 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+class NeedsWebFetch(RuntimeError):
+    """HTTP trigger failed; agent must WebFetch or recover via WP REST — do not block in-process."""
+
+    def __init__(self, url: str, cause: BaseException):
+        self.url = url
+        self.cause = cause
+        super().__init__(
+            f"NEEDS_WEBFETCH_OR_REST_RECOVERY: local HTTP trigger failed "
+            f"({type(cause).__name__}: {cause}). "
+            f"Do NOT re-upload bootstrap. Prefer WP REST by slug if post already exists; "
+            f"else WebFetch FALLBACK_TRIGGER_URL then --resume-from-webfetch."
+        )
+
+
+def trigger_bootstrap_http(url: str, root: Path, *, wait_webfetch: bool = False) -> str:
+    """Trigger publish bootstrap over HTTP.
+
+    Default timeout is 300s (large PHP with cover+inline). On failure the default is
+    agent-friendly: print FALLBACK URL and raise NeedsWebFetch without blocking 120s
+    (Cloud agents cannot WebFetch while blocked on the same foreground process).
+    Pass wait_webfetch=True only for legacy local orchestration that can write
+    memory/webfetch-response.txt concurrently.
+    """
     try:
-        print(f"Triggering HTTP publish on {url}...")
+        print(f"Triggering HTTP publish on {url} (timeout=300s)...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=300,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
-        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
+        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}).")
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
+        print("=== PUBLISH_STATUS ===\nneeds_webfetch_or_rest_recovery\n====================")
+        if not wait_webfetch:
+            marker = root / "memory" / "publish-needs-webfetch.json"
+            marker.parent.mkdir(parents=True, exist_ok=True)
+            marker.write_text(
+                json.dumps(
+                    {
+                        "status": "needs_webfetch_or_rest_recovery",
+                        "fallback_trigger_url": url,
+                        "hint": (
+                            "If bootstrap already ran server-side, use "
+                            "`--recover-from-rest` (no second upload). "
+                            "Else WebFetch the FALLBACK URL, save body to "
+                            "memory/webfetch-response.txt, then "
+                            "`--resume-from-webfetch`."
+                        ),
+                    },
+                    ensure_ascii=False,
+                    indent=2,
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+            raise NeedsWebFetch(url, e) from e
+
         print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
@@ -493,22 +541,67 @@ def trigger_bootstrap_http(url: str, root: Path) -> str:
         raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
 
 
-def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
+def publish_via_ssh(
+    env: dict[str, str],
+    php: str,
+    public_base: str,
+    *,
+    wait_webfetch: bool = False,
+) -> str:
     remote = "excalibur-blog-publish-once.php"
     data = php.encode("utf-8")
     url = public_base.rstrip("/") + "/" + remote
     root = project_root()
 
+    # paramiko is required for SSH transport (SFTPClient). Install: pip install paramiko
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        out = trigger_bootstrap_http(url, root, wait_webfetch=wait_webfetch)
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)
         except Exception as cleanup_error:  # noqa: BLE001
             print(f"WARN cleanup: could not delete bootstrap {remote}: {cleanup_error}", file=sys.stderr)
     return out
+
+
+def fetch_wp_post_by_slug(public_base: str, slug: str) -> dict[str, Any] | None:
+    endpoint = (
+        public_base.rstrip("/")
+        + f"/wp-json/wp/v2/posts?slug={urllib.parse.quote(slug)}&_fields=id,link,slug,status,featured_media"
+    )
+    request = urllib.request.Request(endpoint, headers={"User-Agent": "ExcaliburBlogPublish/1.0"})
+    with urllib.request.urlopen(request, timeout=30) as response:
+        payload = json.loads(response.read().decode("utf-8"))
+    if isinstance(payload, list) and payload:
+        return payload[0]
+    return None
+
+
+def write_publish_result(
+    article_dir: Path,
+    payload: dict[str, Any],
+    *,
+    permalink: str,
+    raw_output: str,
+    publish_method: str,
+    extra: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    result = {
+        "slug": payload["slug"],
+        "topic_id": payload["topic_id"],
+        "permalink": permalink,
+        "publish_method": publish_method,
+        "cover_evidence": payload.get("cover_evidence", {}),
+        "raw_output": raw_output,
+        "verdict": "pass" if permalink or "OK post=" in raw_output else "fail",
+    }
+    if extra:
+        result.update(extra)
+    result_path = article_dir / "wp-publish-result.json"
+    result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return result
 
 
 def upsert_publish_ledger(root: Path, payload: dict[str, Any], permalink: str) -> None:
@@ -554,6 +647,22 @@ def main() -> int:
         help="Validate publish env/secrets without loading article payload or printing secret values",
     )
     ap.add_argument("--public-base", type=str, default=None, help="Override PUBLIC_SITE_URL")
+    ap.add_argument(
+        "--wait-webfetch",
+        action="store_true",
+        help="Legacy: block up to 120s waiting for memory/webfetch-response.txt (avoid in Cloud Task)",
+    )
+    ap.add_argument(
+        "--resume-from-webfetch",
+        action="store_true",
+        help="Read memory/webfetch-response.txt and finalize wp-publish-result.json (no re-upload)",
+    )
+    ap.add_argument(
+        "--recover-from-rest",
+        action="store_true",
+        help="Verify post already published via WP REST by slug; write result + ledger (no re-upload)",
+    )
+    ap.add_argument("--slug", type=str, default=None, help="Override slug for --recover-from-rest")
     args = ap.parse_args()
     root = project_root()
 
@@ -588,24 +697,88 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ssh(env, php, public)
+
+    if args.recover_from_rest:
+        slug = (args.slug or payload.get("slug") or "").strip()
+        if not slug:
+            print("BLOCKER: slug required for --recover-from-rest", file=sys.stderr)
+            return 2
+        try:
+            post = fetch_wp_post_by_slug(public, slug)
+        except Exception as exc:  # noqa: BLE001
+            print(f"BLOCKER: WP REST recovery failed: {type(exc).__name__}: {exc}", file=sys.stderr)
+            return 1
+        if not post:
+            print(f"BLOCKER: no WP post for slug={slug}", file=sys.stderr)
+            return 1
+        permalink = str(post.get("link") or "")
+        raw = (
+            f"OK post={post.get('id')} slug={post.get('slug')}\n"
+            f"permalink={permalink}\n"
+            f"featured_media={post.get('featured_media')}\n"
+            f"status={post.get('status')}\n"
+        )
+        print(raw)
+        result = write_publish_result(
+            article_dir,
+            payload,
+            permalink=permalink,
+            raw_output=raw,
+            publish_method="ssh_ok_http_timeout_verified_rest",
+            extra={
+                "publish_recovery": "ssh_ok_http_timeout_verified_rest",
+                "post_id": post.get("id"),
+                "featured_media": post.get("featured_media"),
+            },
+        )
+        if result["verdict"] == "pass":
+            upsert_publish_ledger(root, payload, permalink)
+        return 0 if result["verdict"] == "pass" else 1
+
+    if args.resume_from_webfetch:
+        fallback_file = root / "memory" / "webfetch-response.txt"
+        if not fallback_file.is_file():
+            print("BLOCKER: memory/webfetch-response.txt missing", file=sys.stderr)
+            return 1
+        out = fallback_file.read_text(encoding="utf-8")
+        fallback_file.unlink(missing_ok=True)
+        print(out)
+        permalink = ""
+        for line in out.splitlines():
+            if line.startswith("permalink="):
+                permalink = line.split("=", 1)[1].strip()
+        result = write_publish_result(
+            article_dir,
+            payload,
+            permalink=permalink,
+            raw_output=out,
+            publish_method="ssh_webfetch_resume",
+            extra={"publish_recovery": "resume_from_webfetch"},
+        )
+        if result["verdict"] == "pass":
+            upsert_publish_ledger(root, payload, permalink)
+        return 0 if result["verdict"] == "pass" else 1
+
+    try:
+        out = publish_via_ssh(env, php, public, wait_webfetch=args.wait_webfetch)
+    except NeedsWebFetch as needs:
+        # Bootstrap likely already deleted in finally; agent must REST-recover or WebFetch if file still live.
+        print(str(needs), file=sys.stderr)
+        return 3
+
     print(out)
 
-    result_path = article_dir / "wp-publish-result.json"
     permalink = ""
     for line in out.splitlines():
         if line.startswith("permalink="):
             permalink = line.split("=", 1)[1].strip()
-    result = {
-        "slug": payload["slug"],
-        "topic_id": payload["topic_id"],
-        "permalink": permalink,
-        "publish_method": "ssh",
-        "cover_evidence": payload.get("cover_evidence", {}),
-        "raw_output": out,
-        "verdict": "pass" if "OK post=" in out else "fail",
-    }
-    result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    result = write_publish_result(
+        article_dir,
+        payload,
+        permalink=permalink,
+        raw_output=out,
+        publish_method="ssh",
+    )
     if result["verdict"] == "pass":
         upsert_publish_ledger(root, payload, permalink)
     return 0 if result["verdict"] == "pass" else 1

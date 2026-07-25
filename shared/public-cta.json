@@ -1,0 +1,13 @@
+{
+  "catalog_url": "https://avto-sales125.ru",
+  "telegram_handle": "@avtosales125",
+  "telegram_url_env": "TELEGRAM_URL",
+  "catalog_url_env": "CATALOG_URL",
+  "max_cta_per_article": 3,
+  "notes": [
+    "Public marketing CTAs for Writer. Prefer env CATALOG_URL / TELEGRAM_URL when set.",
+    "Never write literal [REDACTED] into href attributes.",
+    "Catalog host avto-sales125.ru is public and safe to commit.",
+    "Telegram deep-link may be secret-scanned in some Cloud environments — use TELEGRAM_URL env if href is redacted in brief."
+  ]
+}

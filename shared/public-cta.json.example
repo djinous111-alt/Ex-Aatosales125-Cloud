@@ -1,0 +1,12 @@
+{
+  "catalog_url": "https://avto-sales125.ru",
+  "telegram_handle": "@avtosales125",
+  "telegram_url": "https://t.me/avtosales125",
+  "catalog_url_env": "CATALOG_URL",
+  "telegram_url_env": "TELEGRAM_URL",
+  "max_cta_per_article": 3,
+  "notes": [
+    "Example/public marketing CTAs. Copy values into shared/public-cta.json or set env.",
+    "Never write literal [REDACTED] into article href."
+  ]
+}

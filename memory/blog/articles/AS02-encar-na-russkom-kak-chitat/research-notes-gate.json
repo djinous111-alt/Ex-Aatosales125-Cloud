@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat",
+  "notes": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/research-notes.md",
+  "context": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-07-26",
+    "prefer_sources_after": "2026-04-27",
+    "source_urls": 41,
+    "source_domains": 14,
+    "source_table_rows": 35,
+    "accessed_at": 27,
+    "github_urls": 6,
+    "official_doc_urls": 1,
+    "action_outline_items": 7,
+    "pain_solution_rows": 6,
+    "technical_topic": true
+  }
+}

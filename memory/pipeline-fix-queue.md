@@ -285,6 +285,42 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20260726-2105-research-wordstat-truncated-top
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-research
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: api
+
+### What went wrong
+- `wordstat_get_top_requests` for secondary phrases `как читать encar` and `читать encar` returned truncated payload `{"totalCount":"3"}` without phrase list / impressions (not HTTP 401).
+- Same class of truncated Wordstat responses already seen on AS09 for some Encar-check phrases.
+- Separately: `excalibur_blog_research_notes_gate.py -o` with a repo-relative path nests output under `article_dir/`; must use `-o research-notes-gate.json` only.
+- Gate marks non-tech auto topics as `technical_topic` if notes contain `github` (section `github_evidence`), producing a docs warning unless a `/docs` URL is added.
+
+### How the agent recovered this run
+- Kept Wordstat numbers only for successful phrases (`encar на русском`, `проверка авто корея`, `encar`, `trust encar`, `carhistory`); documented partial warning without inventing impressions for broken secondary.
+- Re-ran research-notes gate with `-o research-notes-gate.json`; removed nested duplicate output dir; added `https://carapis.com/docs` for official docs signal.
+- Gate status PASS.
+
+### Durable fix needed before next run
+- Harden Wordstat MCP client/docs: on truncated `totalCount`-only responses, retry without regions / alternate phrasing and surface a stable `WORDSTAT PARTIAL` contract (not only 401 auth warning).
+- Document in research skill that `-o` for research-notes gate is relative to `--article-dir`.
+- Consider excluding the literal heading `github_evidence` / URL host `github.com` from `is_technical_topic()` false positives for auto niche topics.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- MCP Wordstat wrapper / server notes (if in repo)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -12,6 +13,16 @@ from typing import Any
 
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
+
+TOPIC_ID_RE = re.compile(r"\bB(\d+)\b", flags=re.IGNORECASE)
+
+
+def parse_b_num(topic_id: str) -> int | None:
+    match = re.fullmatch(r"B(\d+)", topic_id.strip().upper())
+    if not match:
+        return None
+    return int(match.group(1))
+
 
 def load_published_topics(root: Path) -> set[str]:
     ledger_path = root / "shared/published-articles.md"
@@ -34,10 +45,53 @@ def load_active_article_topics(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
+        # Accept Bxx-* and AS-era dirs that embed a B watermark in name only when B-prefixed.
         match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
         if match:
             active.add(match.group(1).upper())
     return active
+
+
+def load_floor_watermark(root: Path) -> int:
+    """Highest known B-number from floor config + optional env (live WP hint)."""
+    floor = 0
+    floor_path = root / "memory" / "scout-topic-id-floor.json"
+    if floor_path.is_file():
+        try:
+            data = json.loads(floor_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            data = {}
+        for key in ("watermark_b_num", "min_used_b_num", "floor_b_num"):
+            raw = data.get(key)
+            if isinstance(raw, int) and raw > floor:
+                floor = raw
+        recent = data.get("recent_wp_topic_ids") or data.get("topic_ids") or []
+        if isinstance(recent, list):
+            for item in recent:
+                num = parse_b_num(str(item))
+                if num is not None and num > floor:
+                    floor = num
+    env_floor = (os.environ.get("EXCALIBUR_TOPIC_ID_FLOOR") or "").strip()
+    if env_floor.isdigit():
+        floor = max(floor, int(env_floor))
+    elif parse_b_num(env_floor) is not None:
+        floor = max(floor, int(parse_b_num(env_floor) or 0))
+    recent_env = (os.environ.get("EXCALIBUR_RECENT_WP_TOPIC_IDS") or "").strip()
+    if recent_env:
+        for token in re.split(r"[\s,;]+", recent_env):
+            num = parse_b_num(token)
+            if num is not None and num > floor:
+                floor = num
+    return floor
+
+
+def max_b_num_from_ids(ids: set[str] | list[str]) -> int:
+    max_num = 0
+    for topic_id in ids:
+        num = parse_b_num(str(topic_id))
+        if num is not None:
+            max_num = max(max_num, num)
+    return max_num
 
 
 def load_existing_topics(root: Path) -> list[dict[str, str]]:
@@ -130,18 +184,24 @@ def main() -> int:
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
-        max_num = 0
-        for t in existing:
-            m = re.match(r"B(\d+)", t["topic_id"])
-            if m:
-                max_num = max(max_num, int(m.group(1)))
-        
+        pool_max = max_b_num_from_ids([t["topic_id"] for t in existing])
+        reserved_max = max_b_num_from_ids(reserved)
+        ledger_ids = set(published)
+        ledger_path = root / "shared/published-articles.md"
+        if ledger_path.is_file():
+            for match in TOPIC_ID_RE.finditer(ledger_path.read_text(encoding="utf-8")):
+                ledger_ids.add(f"B{int(match.group(1))}")
+        ledger_max = max_b_num_from_ids(ledger_ids)
+        floor_max = load_floor_watermark(root)
+        max_num = max(pool_max, reserved_max, ledger_max, floor_max)
+
         next_id = f"B{max_num + 1:02d}"
         print(f"Next available topic ID: {next_id}")
+        print(f"ID floor sources: pool={pool_max} articles={reserved_max} ledger={ledger_max} floor_cfg/env={floor_max}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")
         print(f"Active article dirs: {sorted(active)}")
-        
+
         unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
         print(f"Unwritten topic IDs in pool: {unwritten}")
         return 0

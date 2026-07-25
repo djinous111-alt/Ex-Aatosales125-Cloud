@@ -1,0 +1,6 @@
+{
+  "watermark_b_num": 6,
+  "comment": "Highest known B-series topic_id from live WP / prior runs when ledger was reset or pool is AS-only. Scout helper --suggest-next uses max(pool, article dirs, ledger, this floor, EXCALIBUR_TOPIC_ID_FLOOR / EXCALIBUR_RECENT_WP_TOPIC_IDS). Update after each published Bxx or when WP watermark advances.",
+  "recent_wp_topic_ids": ["B05", "B06"],
+  "updated": "2026-07-25"
+}

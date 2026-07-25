@@ -22,6 +22,8 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 
 Перед **каждой** статьей затем пиши `research-notes.md`. Без него нельзя утверждать цены, даты, версии, статистику.
 
+Gate `excalibur_blog_research_notes_gate.py` помечает `technical_topic` по **word-boundary** маркерам в h1/slug/query + notes (не substring: `ai`≠`pain`, `ии`≠«Японии»). Для авто/таможни без tech-маркеров **не** требуется 3 GitHub URL.
+
 ## Вход
 
 - Карточка из `memory/topics/blog-topics.md`

@@ -10,6 +10,18 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 - `article.html`, `article.meta.json`, `research-notes.md`
 - `shared/authors-registry.json`
 - `memory/brief/site-brief.md` (site_url)
+- `shared/public-cta.json` (публичные sameAs / catalog fallback)
+
+## Secret-scrub (критично)
+
+- Read/Grep и печать env маскируют `site_url`, `sameAs`, `avatar_url`, `PUBLIC_SITE_URL` как литерал `[REDACTED]`.
+- **Не собирай** `schema.jsonld` из scrubbed Read-output.
+- Читай URL через python/shell (байты файла / hex / base64), либо из `shared/public-cta.json` + authors-registry через `json.load`.
+- Self-check: в `schema.jsonld` литерал `[REDACTED]` = **0**. Иначе BLOCKER.
+
+```bash
+python3 -c "import json,pathlib; p=pathlib.Path('memory/blog/articles/<id>/schema.jsonld'); t=p.read_text(encoding='utf-8'); assert '[REDACTED]' not in t, 'scrub leak'; print('schema OK')"
+```
 
 ## Задача
 

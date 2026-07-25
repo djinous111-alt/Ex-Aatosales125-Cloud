@@ -1,0 +1,24 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B06-lgotnyy-utilsbor-fizlico-2026-kak-proverit",
+  "notes": "memory/blog/articles/B06-lgotnyy-utilsbor-fizlico-2026-kak-proverit/research-notes.md",
+  "context": "memory/blog/articles/B06-lgotnyy-utilsbor-fizlico-2026-kak-proverit/research-context.json",
+  "errors": [],
+  "warnings": [
+    "technical topic has no obvious official docs/developer documentation URL"
+  ],
+  "metrics": {
+    "today_iso": "2026-07-25",
+    "prefer_sources_after": "2026-04-26",
+    "source_urls": 20,
+    "source_domains": 13,
+    "source_table_rows": 20,
+    "accessed_at": 28,
+    "github_urls": 4,
+    "official_doc_urls": 0,
+    "action_outline_items": 10,
+    "pain_solution_rows": 3,
+    "technical_topic": true
+  }
+}

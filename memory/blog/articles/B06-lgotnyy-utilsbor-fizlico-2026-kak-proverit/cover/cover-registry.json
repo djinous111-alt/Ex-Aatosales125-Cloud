@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "lgotnyy-utilsbor-fizlico-2026-kak-proverit",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у документов и смартфона с чеклистом льготного утильсбора, кроссовер и порт Владивостока",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-07-25T09:27:40+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у документов и смартфона с чеклистом льготного утильсбора, кроссовер и порт Владивостока",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица: статус физлица vs пакет условий льготного утильсбора",
+      "h2_anchor": "Отделите \"я физлицо\" от реальной льготы",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Чеклист: сверка мощности в кВт до депозита, без оценки «на глаз»",
+      "h2_anchor": "Проверьте мощность в кВт, а не \"на глаз по л.с.\"",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема: как сверить гибрид и электромобиль под льготный утильсбор",
+      "h2_anchor": "Как сверить гибрид и электромобиль под льготный утильсбор",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

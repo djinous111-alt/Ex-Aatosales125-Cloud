@@ -1,0 +1,30 @@
+{
+  "comment": "Non-secret public CTA URLs for Writer/GEO QA. Prefer this file over scrubbed Read of conversion-map.md / site-brief.md. Never paste the literal [REDACTED] into article.html href.",
+  "updated": "2026-07-25",
+  "ctas": [
+    {
+      "id": "catalog",
+      "label_ru": "Каталог авто",
+      "url": "https://avto-sales125.ru/",
+      "max_mentions": 3
+    },
+    {
+      "id": "telegram",
+      "label_ru": "Telegram Авто-Сейлс",
+      "url": "https://t.me/avtosales125",
+      "max_mentions": 2
+    },
+    {
+      "id": "instagram",
+      "label_ru": "Instagram",
+      "url": "https://www.instagram.com/avtosales_rf",
+      "max_mentions": 1
+    },
+    {
+      "id": "reviews_2gis",
+      "label_ru": "Отзывы 2GIS",
+      "url": "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417/131.924668%2C43.140033/tab/reviews",
+      "max_mentions": 1
+    }
+  ]
+}

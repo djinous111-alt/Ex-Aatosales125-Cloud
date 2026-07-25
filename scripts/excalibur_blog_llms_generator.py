@@ -61,44 +61,67 @@ def load_articles(blog_dir: Path) -> list[dict[str, Any]]:
     return articles
 
 
-def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]], site_base: str) -> str:
-    site_base = site_base.rstrip("/")
+def article_url(slug: str, site_base: str, url_mode: str) -> str:
+    path = f"/blog/{slug}/"
+    if url_mode == "absolute":
+        base = (site_base or "").rstrip("/")
+        if not base or base == "[REDACTED]":
+            return path
+        return f"{base}{path}"
+    return path
+
+
+def build_llms_txt(
+    site_name: str,
+    site_desc: str,
+    articles: list[dict[str, Any]],
+    site_base: str,
+    *,
+    url_mode: str = "relative",
+) -> str:
     lines = [
         f"# {site_name}",
         f"> {site_desc}",
         "",
         "## Blog Articles",
-        ""
+        "",
     ]
     for a in articles:
-        url = f"{site_base}/blog/{a['slug']}/"
+        url = article_url(a["slug"], site_base, url_mode)
         lines.append(f"- [{a['title']}]({url}): {a['description']}")
 
     return "\n".join(lines) + "\n"
 
 
-def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_base: str) -> str:
-    site_base = site_base.rstrip("/")
+def build_llms_full_txt(
+    site_name: str,
+    articles: list[dict[str, Any]],
+    site_base: str,
+    *,
+    url_mode: str = "relative",
+) -> str:
     lines = [
         f"# {site_name} - Full LLM Knowledge Base",
         "This file contains full plain-text articles optimized for AI reasoning and semantic search.",
         "",
         "---",
-        ""
+        "",
     ]
 
     for a in articles:
-        url = f"{site_base}/blog/{a['slug']}/"
-        lines.extend([
-            f"## {a['title']}",
-            f"- **URL**: {url}",
-            f"- **Summary**: {a['description']}",
-            "",
-            a["plain_text"],
-            "",
-            "---",
-            ""
-        ])
+        url = article_url(a["slug"], site_base, url_mode)
+        lines.extend(
+            [
+                f"## {a['title']}",
+                f"- **URL**: {url}",
+                f"- **Summary**: {a['description']}",
+                "",
+                a["plain_text"],
+                "",
+                "---",
+                "",
+            ]
+        )
 
     return "\n".join(lines)
 
@@ -107,8 +130,26 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Generate AI-friendly llms.txt and llms-full.txt")
     ap.add_argument("--blog-dir", type=Path, default=None)
     ap.add_argument("--site-name", type=str, default="Авто-Сейлс")
-    ap.add_argument("--site-desc", type=str, default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.")
-    ap.add_argument("--site-base", type=str, default="https://avtosales125.ru")
+    ap.add_argument(
+        "--site-desc",
+        type=str,
+        default=(
+            "Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, "
+            "растаможка и доставка через Владивосток."
+        ),
+    )
+    ap.add_argument(
+        "--site-base",
+        type=str,
+        default="",
+        help="Public site origin for --url-mode absolute (omit for relative/git-safe)",
+    )
+    ap.add_argument(
+        "--url-mode",
+        choices=("relative", "absolute"),
+        default="relative",
+        help="relative (default, git-safe /blog/<slug>/) or absolute (needs --site-base; may trip secret-scan)",
+    )
     ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for llms.txt/llms-full.txt")
     args = ap.parse_args()
 
@@ -120,12 +161,18 @@ def main() -> int:
     out_dir = args.out_dir or root
     if not out_dir.is_absolute():
         out_dir = root / out_dir
+    out_dir.mkdir(parents=True, exist_ok=True)
 
     articles = load_articles(blog_dir)
     print(f"Loaded {len(articles)} articles to index for LLMs.")
+    print(f"url_mode={args.url_mode}")
 
-    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, args.site_base)
-    llms_full_txt = build_llms_full_txt(args.site_name, articles, args.site_base)
+    llms_txt = build_llms_txt(
+        args.site_name, args.site_desc, articles, args.site_base, url_mode=args.url_mode
+    )
+    llms_full_txt = build_llms_full_txt(
+        args.site_name, articles, args.site_base, url_mode=args.url_mode
+    )
 
     llms_path = out_dir / "llms.txt"
     llms_full_path = out_dir / "llms-full.txt"
@@ -134,7 +181,10 @@ def main() -> int:
     llms_full_path.write_text(llms_full_txt, encoding="utf-8")
 
     print(f"llms.txt generated at {llms_path.relative_to(root) if root in llms_path.parents else llms_path}")
-    print(f"llms-full.txt generated at {llms_full_path.relative_to(root) if root in llms_full_path.parents else llms_full_path}")
+    print(
+        f"llms-full.txt generated at "
+        f"{llms_full_path.relative_to(root) if root in llms_full_path.parents else llms_full_path}"
+    )
 
     return 0
 

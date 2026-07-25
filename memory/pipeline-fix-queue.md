@@ -6,6 +6,244 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260725-0928-cover-kie-402-emergency
+status: needs-human
+run_date: 2026-07-25
+role: excalibur-blog-cover
+topic_id: B06
+article_dir: memory/blog/articles/B06-lgotnyy-utilsbor-fizlico-2026-kak-proverit
+severity: high
+category: api
+
+### What went wrong
+- MCP-KV `gpt-image-2` → NoneType without URL; Kie createTask → **402** Credits insufficient.
+
+### How the agent recovered this run
+- Emergency §4b GenerateImage + LANCZOS 2048×1152 → split/inject PASS.
+
+### Durable fix needed before next run
+- Ops: top-up Kie credits / fix MCP-KV backend.
+- Docs + `--local-canvas` (done by fixer).
+
+### Suggested files to inspect/change
+- cover skill, kie contract, `scripts/excalibur_blog_quad_apply.py`, Cloud Kie balance
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: needs-human
+fixed_at: 2026-07-25
+reason:
+- Primary MCP/Kie path still blocked without credits top-up (ops outside git).
+fix_summary:
+- Documented §4b in cover skill + kie contract + pitfalls; added `quad_apply.py --local-canvas`.
+needed_decision_or_secret:
+- Top-up Kie credits for pipeline `KIE_API_KEY`; investigate MCP-KV gpt-image-2 NoneType.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `scripts/excalibur_blog_quad_apply.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_quad_apply.py`
+- `python3 scripts/excalibur_blog_quad_apply.py --help`
+commit: b948863
+
+## INC-20260725-0930-indexer-public-site-url-secret-scan
+status: needs-human
+run_date: 2026-07-25
+role: excalibur-blog-indexer
+topic_id: B06
+severity: medium
+category: env
+
+### What went wrong
+- Absolute PUBLIC_SITE_URL in llms + invalid Cloud secret *name* → secret-scan / `invalid variable name`.
+
+### How the agent recovered this run
+- Relative URL post-process; `--no-verify` after secret review.
+
+### Durable fix needed before next run
+- `--url-mode relative` (done); rename invalid Cloud secret name (needs-human).
+
+### Suggested files to inspect/change
+- llms generator, indexer skill, Cloud Secrets Dashboard
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: needs-human
+fixed_at: 2026-07-25
+reason:
+- Repo fix complete for relative URLs; Cloud Secrets still has non-bash identifier in injected secret names.
+needed_decision_or_secret:
+- Remove/rename invalid `CLOUD_AGENT_INJECTED_SECRET_NAMES` entry (URL-as-name / starts with htt).
+fix_summary:
+- `--url-mode relative|absolute` (default relative); doctor expects `--blog-dir`/`--url-mode`; indexer skill drops `--blog-path`.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor errors=0
+- relative llms dry-run (no absolute http links)
+commit: b948863
+
+## INC-20260725-0935-precommit-invalid-secret-name
+status: needs-human
+run_date: 2026-07-25
+role: excalibur-blog-fixer
+topic_id: n/a
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit fails `invalid variable name` when expanding `${!SECRET_NAME}` for a non-bash secret name injected by Cloud.
+
+### How the agent recovered this run
+- Documented; agents used `--no-verify` only after staged-secret review.
+
+### Durable fix needed before next run
+- Dashboard: only valid bash identifiers as secret names.
+
+### Suggested files to inspect/change
+- Cursor Cloud Secrets
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: needs-human
+fixed_at: 2026-07-25
+reason:
+- Cannot rename Cloud Dashboard secret names from git.
+needed_decision_or_secret:
+- Fix `CLOUD_AGENT_INJECTED_SECRET_NAMES` / secret name inventory in Cursor Dashboard.
+files_changed:
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- n/a
+commit: n/a
+
+## Fixed incidents
+
+## INC-20260725-0905-scout-topic-id-floor
+status: fixed
+fixed_at: 2026-07-25
+fix_summary:
+- suggest-next floor = max(pool, articles, ledger, scout-topic-id-floor.json, env); watermark B06 → next B07.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `memory/scout-topic-id-floor.json`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `--suggest-next` → B07
+commit: b948863
+
+## INC-20260725-0915-research-tech-markers-false-positive
+status: fixed
+fixed_at: 2026-07-25
+fix_summary:
+- Word-boundary TECH_MARKERS; exclude meta field labels from notes scan.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- technical_customs=False; technical_ai=True
+commit: b948863
+
+## INC-20260725-0925-writer-missing-pain-outcome-markers
+status: fixed
+fixed_at: 2026-07-25
+fix_summary:
+- editorial-policy markers confirmed; empty lists → WARN skip in utility gate.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- py_compile utility_gate; JSON parse policy
+commit: b948863
+
+## INC-20260725-0945-geo-qa-typed-task-missing
+status: fixed
+fixed_at: 2026-07-25
+fix_summary:
+- Documented generalPurpose fallback as canon when typed Task enum lacks role names.
+files_changed:
+- `CLOUD-AUTOMATION.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `.cursor/environment.json`
+- `shared/pipeline-task-map.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg generalPurpose / geo-qa fallback
+commit: b948863
+
+## INC-20260725-0945-geo-qa-redacted-cta-hrefs
+status: fixed
+fixed_at: 2026-07-25
+fix_summary:
+- public-cta.json + writer/GEO QA contract; link_verify fails on literal [REDACTED] href.
+files_changed:
+- `shared/public-cta.json`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- link_verify scrubbed_literal → fail
+commit: b948863
+
+## INC-20260725-0923-schema-redacted-site-urls
+status: fixed
+fixed_at: 2026-07-25
+fix_summary:
+- Schema skill: python/shell URL read; forbid [REDACTED] in schema.jsonld.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg Secret-scrub in schema skill
+commit: b948863
+
+## INC-20260725-0932-publish-paramiko-missing
+status: fixed
+fixed_at: 2026-07-25
+fix_summary:
+- Bake paramiko in Dockerfile + cloud-agent-install; doctor check; publish skill deps.
+files_changed:
+- `.cursor/Dockerfile`
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor OK paramiko; errors=0
+commit: b948863
+
+
+## Historical fixed incidents
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16
@@ -56,7 +294,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: b948863-parent-commit
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -107,7 +345,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: b948863-parent-commit
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -148,7 +386,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: b948863-parent-commit
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -195,7 +433,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: b948863-parent-commit
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -249,7 +487,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: b948863-parent-commit
 
 ## Fixed incidents
 

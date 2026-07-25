@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B06-lgotnyy-utilsbor-fizlico-2026-kak-proverit/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1028,
+      579
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 579,
+        "end": 600
+      },
+      "v_gutter_px": {
+        "start": 1028,
+        "end": 1052
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1028,
+          "bottom": 579
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1028,
+          "bottom": 579
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у документов и смартфона с чеклистом льготного утильсбора, кроссовер и порт Владивостока",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1052,
+          "top": 9,
+          "right": 2048,
+          "bottom": 569
+        },
+        "raw_box_px": {
+          "left": 1052,
+          "top": 0,
+          "right": 2048,
+          "bottom": 579
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: статус физлица vs пакет условий льготного утильсбора",
+        "h2_anchor": "Отделите \"я физлицо\" от реальной льготы"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 23,
+          "top": 600,
+          "right": 1004,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 600,
+          "right": 1028,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист: сверка мощности в кВт до депозита, без оценки «на глаз»",
+        "h2_anchor": "Проверьте мощность в кВт, а не \"на глаз по л.с.\""
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1059,
+          "top": 600,
+          "right": 2040,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1052,
+          "top": 600,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: как сверить гибрид и электромобиль под льготный утильсбор",
+        "h2_anchor": "Как сверить гибрид и электромобиль под льготный утильсбор"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Отделите \"я физлицо\" от реальной льготы",
+    "injected inline_2 after H2 — Проверьте мощность в кВт, а не \"на глаз по л.с.\"",
+    "injected inline_3 after H2 — Как сверить гибрид и электромобиль под льготный утильсбор"
+  ]
+}

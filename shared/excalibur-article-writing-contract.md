@@ -10,6 +10,7 @@ Excalibur BLOG следует этому контракту для каждой 
 - `memory/brief/site-brief.md` — бренд, сайт, тон, запреты
 - `memory/brief/fact-bank.md` — проверенные факты
 - `memory/brief/conversion-map.md` — CTA, лимиты упоминаний
+- `shared/public-cta.json` — публичные CTA URL без secret-scrub (канон для href)
 - `shared/excalibur-article-writing-contract.md` (этот файл)
 
 Перед текстом — research → `memory/blog/articles/<topic_id>-<slug>/research-notes.md`.
@@ -232,7 +233,8 @@ Excalibur BLOG следует этому контракту для каждой 
 
 ### Блок 4: Мягкий CTA бренда (внутри одной секции блока 3)
 
-2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-tracking-map.md` / `offers-map.md`.  
+2–3 предложения **только если** уместно по теме. Бери URL из `shared/public-cta.json` (предпочтительно) или `conversion-map.md` через python/shell — **не** из scrubbed Read/Grep (`[REDACTED]`).  
+**Запрещено:** `href="[REDACTED]"` / любой литерал `[REDACTED]` в HTML.  
 Не больше **3** упоминаний основного офера/CTA на статью (включая баннер и «что дальше»).
 
 ### Блок 5: Inline-баннер (опционально)

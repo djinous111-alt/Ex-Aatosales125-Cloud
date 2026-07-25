@@ -32,6 +32,20 @@ TECH_MARKERS = (
     "нейросет",
 )
 
+# Field labels that contain substrings like "pain"/"ai" and must not trigger tech detection.
+TECH_SCAN_EXCLUDE_FIELDS = (
+    "reader_pain",
+    "pain_solution_map",
+    "reader_outcome",
+    "success_criteria",
+    "voice_angle",
+    "reader_story",
+    "surprising_fact",
+    "github_evidence",
+    "action_outline",
+    "utility_verdict",
+)
+
 
 REQUIRED_FIELDS = (
     "research_date",
@@ -73,14 +87,31 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _tech_marker_pattern(marker: str) -> re.Pattern[str]:
+    """Word-boundary match; short Latin/Cyrillic tokens must not hit inside longer words."""
+    escaped = re.escape(marker.lower())
+    # Latin/Cyrillic letter or digit on either side blocks substring false positives
+    # (ai⊂pain, ии⊂японии, api⊂капитал).
+    return re.compile(rf"(?<![0-9a-zа-яё]){escaped}(?![0-9a-zа-яё])", flags=re.I)
+
+
+def notes_blob_for_tech_scan(notes: str, limit: int = 2000) -> str:
+    """First N chars of notes with mandatory meta field labels stripped."""
+    blob = notes[:limit]
+    for field in TECH_SCAN_EXCLUDE_FIELDS:
+        field_pattern = re.escape(field).replace("_", r"[_\s-]")
+        blob = re.sub(rf"\b{field_pattern}\b\s*:", ":", blob, flags=re.I)
+    return blob.lower()
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    blob += " " + notes_blob_for_tech_scan(notes)
+    return any(_tech_marker_pattern(marker).search(blob) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:

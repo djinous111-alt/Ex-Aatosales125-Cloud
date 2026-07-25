@@ -25,6 +25,12 @@
 
 `install` должен быть идемпотентным: его можно запускать много раз, и он не должен писать секреты или runtime-артефакты в Git.
 
+Актуальный install в этом repo: `bash .cursor/cloud-agent-install.sh` (ставит `requests pillow python-dotenv paramiko`). Dockerfile bake тех же deps.
+
+## Cloud Task types
+
+Имена субагентов живут в `.cursor/agents/excalibur-blog-*.md`. Если Cloud API **не** принимает typed Task (`excalibur-blog-geo-qa` и др.) — Директор использует `Task(generalPurpose)` per role (AGENTS.md). Восстановление typed enum — product/Cloud config, не git-only fix.
+
 ## Cursor Secrets
 
 Минимум для dry-run:

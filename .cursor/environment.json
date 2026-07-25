@@ -3,5 +3,6 @@
     "dockerfile": "Dockerfile",
     "context": ".."
   },
-  "install": "bash .cursor/cloud-agent-install.sh"
+  "install": "bash .cursor/cloud-agent-install.sh",
+  "notes": "Typed Task names live in .cursor/agents/excalibur-blog-*.md. If Cloud enum rejects a name (e.g. excalibur-blog-geo-qa), Director uses Task(generalPurpose) per role — see AGENTS.md / CLOUD-AUTOMATION.md. Install bakes paramiko for SSH publish."
 }

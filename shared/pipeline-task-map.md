@@ -1,6 +1,6 @@
 # Excalibur BLOG — карта задач и субагентов
 
-Директор **не** Task. Все роли ниже — `Task(<name>)`.
+Директор **не** Task. Все роли ниже — `Task(<name>)`. Если Cloud enum не знает имя (часто `excalibur-blog-geo-qa`) — `Task(generalPurpose)` + `.cursor/agents/<name>.md` + skill; см. AGENTS.md / pitfalls.
 
 ## Схема
 

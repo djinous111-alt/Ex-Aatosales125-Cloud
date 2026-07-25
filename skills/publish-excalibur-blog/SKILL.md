@@ -20,10 +20,19 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | Cloud Secrets / `memory/site.env.local`: `SSH_*`, `PUBLIC_SITE_URL` |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
+| Python deps | `paramiko` (SSH), `requests`, `pillow`, `python-dotenv` — bake в `.cursor/Dockerfile` + `.cursor/cloud-agent-install.sh` |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
+
+Preflight deps:
+
+```bash
+python3 -c "import paramiko, requests, PIL, dotenv; print('publish deps OK')"
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+# Если SSH_ROOT unset → export SSH_ROOT=.
+```
 
 ## Алгоритм
 

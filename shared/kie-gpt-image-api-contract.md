@@ -76,3 +76,22 @@ Terminal states:
 - One API task per article cover run, not four separate images.
 - `input_urls` is required; text-only generation is a cover blocker.
 - Do not retry createTask blindly after a network ambiguity if a `taskId` is known; poll the known task.
+
+## Emergency §4b (MCP fail / HTTP 402 Credits insufficient)
+
+When MCP-KV `gpt-image-2` returns no URL (e.g. NoneType) **and** Kie `createTask` returns **402 Credits insufficient**:
+
+1. Do **not** spam createTask or launch four separate image jobs.
+2. Use Cursor `GenerateImage` once (16:9) with `blog-hero-reference.png` + the quad batch prompt.
+3. Resize to 2048×1152 (Pillow LANCZOS) → `cover/canvas-quad.png`.
+4. Apply locally (no download URL):
+
+```bash
+python3 scripts/excalibur_blog_quad_apply.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --local-canvas memory/blog/articles/<topic_id>-<slug>/cover/canvas-quad.png \
+  --inject-html
+```
+
+5. Log `mcp_mode: emergency_GenerateImage` in the cover fragment and open/update an incident.
+6. Ops: top up Kie credits / fix MCP backend so the next run can use the primary path again.

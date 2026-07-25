@@ -25,6 +25,11 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--article-dir", required=True)
     ap.add_argument("--url", default="", help="MCP result URL (or read cover/quad-mcp-result.json)")
+    ap.add_argument(
+        "--local-canvas",
+        default="",
+        help="Emergency: path to existing canvas PNG (skip URL download; §4b GenerateImage path)",
+    )
     ap.add_argument("--inject-html", action="store_true")
     ap.add_argument("--output-size", default="1200x675")
     args = ap.parse_args()
@@ -36,22 +41,47 @@ def main() -> int:
     cover_dir = article_dir / "cover"
     cover_dir.mkdir(parents=True, exist_ok=True)
 
-    url = args.url.strip()
-    if not url:
-        result_path = cover_dir / "quad-mcp-result.json"
-        if result_path.is_file():
-            url = (json.loads(result_path.read_text(encoding="utf-8")).get("url") or "").strip()
-    if not url:
-        print("❌ QUAD APPLY BLOCKER: pass --url or cover/quad-mcp-result.json", file=sys.stderr)
-        return 1
-
     canvas_path = cover_dir / "canvas-quad.png"
-    data, _evidence = download_url_bytes(url)
-    canvas_path.write_bytes(data)
-    print(f"OK canvas={canvas_path}")
+    local_canvas = args.local_canvas.strip()
+    if local_canvas:
+        src = Path(local_canvas)
+        if not src.is_absolute():
+            src = root / src
+        if not src.is_file():
+            print(f"❌ QUAD APPLY BLOCKER: --local-canvas not found: {src}", file=sys.stderr)
+            return 1
+        data = src.read_bytes()
+        canvas_path.write_bytes(data)
+        print(f"OK canvas={canvas_path} (from --local-canvas)")
+        result_json = cover_dir / "quad-mcp-result.json"
+        result_json.write_text(
+            json.dumps(
+                {"url": "", "source": "local_canvas", "local_canvas": str(src).replace("\\", "/")},
+                ensure_ascii=False,
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+    else:
+        url = args.url.strip()
+        if not url:
+            result_path = cover_dir / "quad-mcp-result.json"
+            if result_path.is_file():
+                url = (json.loads(result_path.read_text(encoding="utf-8")).get("url") or "").strip()
+        if not url:
+            print(
+                "❌ QUAD APPLY BLOCKER: pass --url, cover/quad-mcp-result.json, or --local-canvas",
+                file=sys.stderr,
+            )
+            return 1
 
-    result_json = cover_dir / "quad-mcp-result.json"
-    result_json.write_text(json.dumps({"url": url}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        data, _evidence = download_url_bytes(url)
+        canvas_path.write_bytes(data)
+        print(f"OK canvas={canvas_path}")
+
+        result_json = cover_dir / "quad-mcp-result.json"
+        result_json.write_text(json.dumps({"url": url}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     cmd = [
         sys.executable,

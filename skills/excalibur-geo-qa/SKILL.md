@@ -5,6 +5,10 @@ description: Excalibur BLOG GEO QA — fact-check, link verify, linter, slop, ca
 
 # Excalibur BLOG — GEO QA
 
+## Cloud fallback
+
+Если typed Task `excalibur-blog-geo-qa` отсутствует в Cloud enum → `Task(generalPurpose)` + этот файл + skill. Не стопать пайплайн.
+
 ## Когда
 
 После `article.html` + `article.meta.json` от Writer. **До** cover/schema (их делает директор параллельно после PASS).
@@ -20,12 +24,16 @@ python scripts/excalibur_blog_fact_checker.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/fact-check-report.json
 
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/link-verify.json \
-  --site-base https://YOUR_SITE
+  --site-base "${PUBLIC_SITE_URL}"
+```
 
-python scripts/excalibur_blog_html_linter.py \
+`link_verify` **FAIL** на литерал `[REDACTED]` в `href` (secret-scrub leak). Проверяй HTML через python/shell, не через scrubbed Read. CTA: `shared/public-cta.json`.
+
+```bash
+python3 scripts/excalibur_blog_html_linter.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/html-linter-report.json
 ```

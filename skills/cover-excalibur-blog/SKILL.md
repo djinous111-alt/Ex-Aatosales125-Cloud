@@ -132,13 +132,34 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --url "<MCP result url>" \
   --inject-html
 ```
 
 Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
+
+### Шаг 4b — Emergency (MCP fail / Kie 402 Credits insufficient)
+
+Если MCP-KV `gpt-image-2` падает (NoneType / timeout без URL) **и** прямой Kie `createTask` → **402 Credits insufficient**:
+
+1. **Не** крутить createTask вслепую и **не** запускать 4 отдельных image jobs.
+2. Один холст 2×2 через Cursor `GenerateImage` (aspect 16:9), reference = `memory/cover/assets/blog-hero-reference.png` + prompt из `cover/quad-mcp-batch.json`.
+3. Resize до **2048×1152** (Pillow LANCZOS) → `cover/canvas-quad.png`.
+4. Apply без URL:
+
+```bash
+python3 scripts/excalibur_blog_quad_apply.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --local-canvas memory/blog/articles/<topic_id>-<slug>/cover/canvas-quad.png \
+  --inject-html
+```
+
+5. Запиши в fragment: `mcp_mode: emergency_GenerateImage` + incident в `memory/pipeline-fix-queue.md`.
+6. Primary path (MCP/Kie) остаётся каноном; 402 → ops top-up `KIE_API_KEY` credits (needs-human), §4b только чтобы не стопать пайплайн.
+
+См. `shared/kie-gpt-image-api-contract.md` § Emergency 4b.
 
 ### Шаг 6 — fragment
 

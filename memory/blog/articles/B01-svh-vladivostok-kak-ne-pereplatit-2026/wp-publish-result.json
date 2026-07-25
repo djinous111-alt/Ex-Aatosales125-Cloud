@@ -1,0 +1,20 @@
+{
+  "slug": "svh-vladivostok-kak-ne-pereplatit-2026",
+  "topic_id": "B01",
+  "permalink": "https://avtosales125.ru/2026/07/25/svh-vladivostok-kak-ne-pereplatit-2026/",
+  "post_id": 3748,
+  "featured_image": 3749,
+  "inline_images": [
+    3750,
+    3751,
+    3752
+  ],
+  "schema_meta": 1,
+  "publish_method": "ssh",
+  "publish_recovery": "ssh_ok_http_timeout_verified_rest",
+  "cover_evidence": {},
+  "raw_output": "OK post=3748 slug=svh-vladivostok-kak-ne-pereplatit-2026\nOK featured_image=3749\nOK schema_meta=1\nOK inline_image_upload=3750 src=cover/inline-01.png url=https://avtosales125.ru/wp-content/uploads/2026/07/svh-vladivostok-kak-ne-pereplatit-2026-inline-01.png\nOK inline_image_upload=3751 src=cover/inline-02.png url=https://avtosales125.ru/wp-content/uploads/2026/07/svh-vladivostok-kak-ne-pereplatit-2026-inline-02.png\nOK inline_image_upload=3752 src=cover/inline-03.png url=https://avtosales125.ru/wp-content/uploads/2026/07/svh-vladivostok-kak-ne-pereplatit-2026-inline-03.png\npermalink=https://avtosales125.ru/2026/07/25/svh-vladivostok-kak-ne-pereplatit-2026/\n",
+  "verdict": "pass",
+  "verified_at": "2026-07-25T13:32:53Z",
+  "live_head": 200
+}

@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS02",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Скрин «без ДТП» — ещё не проверка",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс в очках со смартфоном Encar, ирония «кот в мешке», плашка про скрин без ДТП",
+      "scene_hint": "reference face + glasses ONLY; CHANGE outfit to neat casual navy overshirt over light tee (Encar/auction desk vibe, indoor cool office light — NOT copy reference tank); action selfie holding smartphone with fake Korean Encar lot card on screen (year/mileage/owners blur); torn paper collage + scotch tape; sticky note «кот в мешке?» with arrow to phone; shocked cat meme cutout; yellow highlight on «без ДТП»; corner footer avto-sales125.ru; NO toxic insults, NO лох/лохов, NO Wordstat/Metrika/Telegram handle",
+      "meme_caption_ru": "Кот в мешке по скрину?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Откройте карточку Encar без корейского языка",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "NO hero face. Fake widescreen Encar lot header UI: model Tucson, year, mileage km, owners count, fuel — Cyrillic labels via translator overlay; sticky note «шапка лота»; scotch tape corner; readable utility screenshot",
+      "alt": "Мокап шапки карточки Encar: год, пробег, владельцы — чтение без корейского"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сверьте схему кузова: где X и W – стоп",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "NO hero face. Car body diagram Performance Check mock: silhouette with zones; red X/W marks on A-pillar and frame vs green cosmetic bumper; table columns «косметика» vs «каркас — стоп»; mini sticky «X/W на стойке»; utility UI",
+      "alt": "Схема кузова Encar: метки X/W на силовом каркасе как стоп-сигнал"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте пробег, комплектацию и фото – красные флаги",
+      "visual_type": "checklist_board",
+      "scene_hint": "NO hero face. Printable checklist board with checkboxes: одометр vs KHIS, 30+ фото, LPG/коммерция стоп, расхождение >3000 км; red flags stickers; torn paper edge; human DIY layer",
+      "alt": "Чеклист красных флагов Encar: пробег, фото, LPG и коммерческая история"
+    }
+  }
+}

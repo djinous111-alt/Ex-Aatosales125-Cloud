@@ -1,0 +1,12 @@
+{
+  "ok": false,
+  "provider": "kie.ai",
+  "model": "gpt-image-2-image-to-image",
+  "error": {
+    "code": 402,
+    "msg": "Credits insufficient : Your current balance isn’t enough to run this request. Please top up to continue."
+  },
+  "blocker": "KIE API 402 credits",
+  "canvas_url": null,
+  "task_id": null
+}

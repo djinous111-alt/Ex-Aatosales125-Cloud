@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "кой сопровождения заказов во Владивостоке на дату 2026-07-26; актуальный расчёт под ключ – в каталоге. Ч",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "15 минут",
+      "kind": "metric_or_duration",
+      "context": ": шапка → схема кузова → страховая история. За 10–15 минут сможете сказать \"лот ок\" или \"пропускаем\" до депо",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 лет",
+      "kind": "metric_or_duration",
+      "context": "событий. На практике подозрительны скачок вниз, \"5 лет / 30 тыс. км\" у бизнес-седана и расхождение одоме",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "90 дней",
+      "kind": "metric_or_duration",
+      "context": "ностика площадки; поддержка по каркасу в пределах 90 дней / 5000 км Страховую историю по VIN Плюс к листу,",
+      "verified": true,
+      "reason": "Numerical value '90' matched in fact-bank context"
+    },
+    {
+      "fact": "3000",
+      "kind": "large_number",
+      "context": "на и расхождение одометра с базой примерно больше 3000 км. Комплектацию сверьте с описанием и фото: желат",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5000",
+      "kind": "large_number",
+      "context": "ощадки; поддержка по каркасу в пределах 90 дней / 5000 км Страховую историю по VIN Плюс к листу, не вмест",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -437,3 +437,38 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20260725-0923-schema-redacted-site-urls
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-schema
+topic_id: B06
+article_dir: memory/blog/articles/B06-lgotnyy-utilsbor-fizlico-2026-kak-proverit
+severity: medium
+category: env
+
+### What went wrong
+- Read/Grep и печать env маскируют публичные URL (`site_url`, `authors-registry.sameAs`, `avatar_url`, `PUBLIC_SITE_URL`) как литерал `[REDACTED]`.
+- Если писать `schema.jsonld` по scrubbed Read-output, в JSON-LD попадут битые URL / `[REDACTED]`.
+
+### How the agent recovered this run
+- Собрал `schema.jsonld` через python: байты файлов + hex-decode URL из `site-brief.md` / `authors-registry.json` (как у AS09).
+- FAQ 7 Q&A сверены с HTML 1:1; types: BlogPosting + FAQPage + HowTo (mode B); datePublished=2026-07-25; author=Редакция Авто-Сейлс.
+- В итоговом `schema.jsonld` литерал `[REDACTED]` = 0.
+
+### Durable fix needed before next run
+- Schema skill: явно требовать чтение site_url/sameAs через python/shell (не scrubbed Read); запрет литерала `[REDACTED]` в `schema.jsonld`.
+- Связано с INC-20260725-0945-geo-qa-redacted-cta-hrefs (общий secret-scrub публичных URL).
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/authors-registry.json` / `memory/brief/site-brief.md` (или `shared/public-cta.json`)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

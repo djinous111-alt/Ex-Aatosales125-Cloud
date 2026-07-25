@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260726-2116-publish-missing-cover
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-publish
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: blocker
+category: publish
+
+### What went wrong
+- Publish step ⑥ ran with `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` and `publish: yes`, but required featured assets are missing: `cover/cover.png` and `cover/cover-registry.json`.
+- Root cause is upstream cover failure (Kie createTask 402 credits) — see INC-20260726-2112-cover-kie-402-credits.
+- Contract forbids inventing cover.png; featured image + alt registry are hard preconditions for WP publish.
+
+### How the agent recovered this run
+- Preflight: link-verify PASS (3/3), `--env-check` allow_publish=true / SSH host+user configured.
+- Dry-run `excalibur_blog_wp_publish.py --dry-run` OK (slug/title/PHP payload), but live publish was **not** started.
+- Returned explicit `❌ PUBLISH BLOCKER` (step completed, not skipped); ledger left `in_progress`.
+
+### Durable fix needed before next run
+- Top up Kie credits → re-run cover for AS02 → produce `cover/cover.png` + `cover-registry.json` + inject inline figures.
+- Then re-run publish only (link-verify → dry-run → publish → ledger `published`).
+- Optional: make `--dry-run` fail-fast when cover.png missing so director sees blocker earlier.
+
+### Suggested files to inspect/change
+- `memory/blog/articles/AS02-encar-na-russkom-kak-chitat/cover/`
+- `scripts/excalibur_blog_wp_publish.py` (preflight cover gate in dry-run)
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `memory/pipeline-fix-queue.md#INC-20260726-2112-cover-kie-402-credits`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260726-2112-cover-kie-402-credits
 status: open
 run_date: 2026-07-26

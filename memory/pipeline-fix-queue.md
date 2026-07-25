@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260726-2112-cover-kie-402-credits
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: api
+
+### What went wrong
+- Preferred cover flow `scripts/excalibur_blog_kie_gpt_image2_api.py` (createTask → recordInfo) failed at createTask with `code=402` / `Credits insufficient`.
+- Same Cloud `KIE_API_KEY` balance issue as prior B01 cover run; cannot produce `canvas-quad.png` / `cover.png` / inline panels.
+- Skill forbids GenerateImage workaround and inventing cover assets without a real MCP/Kie URL.
+
+### How the agent recovered this run
+- Director MCP retry `gpt-image-2`: error NoneType/.get — no URL; cover remains missing (no invented PNG).
+- Prepared AS02 cover artifacts only: `cover/quad-manifest.json` (Encar hooks, non-toxic stickers), `quad-mcp-prompt.txt`, `quad-mcp-batch.json` (1 job, `input_urls` set).
+- Did **not** invent `cover.png` / inline PNGs; did **not** inject fake figures into `article.html`.
+- Wrote fragment `.cursor/excalibur-blog-fragments/cover.md` with status ❌ and blocker `KIE API 402 credits`.
+
+### Durable fix needed before next run
+- Top up Kie.ai credits for Cloud Secret `KIE_API_KEY`.
+- Re-run cover only: `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir memory/blog/articles/AS02-encar-na-russkom-kak-chitat` then `excalibur_blog_quad_apply.py --inject-html` (batch already ready).
+- Optionally document preflight balance check before cover||schema parallel start.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `memory/blog/articles/AS02-encar-na-russkom-kak-chitat/cover/quad-mcp-batch.json`
+- Cursor Dashboard Secrets → `KIE_API_KEY` billing
+
+### Secrets
+- none recorded (do not log API key)
+
 ## INC-20260726-2108-writer-as02-policy-cta-gap
 status: open
 run_date: 2026-07-26
@@ -347,6 +381,42 @@ category: api
 - `.cursor/skills/excalibur-research/SKILL.md`
 - `scripts/excalibur_blog_research_notes_gate.py`
 - MCP Wordstat wrapper / server notes (if in repo)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260726-2114-indexer-llms-blog-path-slash
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-indexer
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer skill/agent still show `llms_generator --blog-path /` (URL path), but script treats `--blog-path` as alias for `--blog-dir`.
+- With both flags, `--blog-path /` wins → loads filesystem root → `Loaded 0 articles` and overwrites `memory/blog/llms.txt` / `llms-full.txt` with empty indexes.
+
+### How the agent recovered this run
+- Re-ran with only `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (omit `--blog-path /`).
+- Confirmed `Loaded 3 articles`; AS02 present in `llms.txt`.
+
+### Durable fix needed before next run
+- Update indexer skill/agent examples: either drop `--blog-path /` or pass `--blog-path memory/blog/articles`.
+- Add pitfalls line: never pass `--blog-path /` to llms generator; it is a dir alias, not WP URL path.
+- Optional: ignore `--blog-path` values that are URL paths (`/`, `/blog`) when `--blog-dir` is set.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_llms_generator.py`
 
 ### Secrets
 - none recorded

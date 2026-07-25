@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260725-0905-scout-topic-id-floor
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-scout
+topic_id: B06
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py --suggest-next` returned `B01` because it only looks at `## Bxx` cards in `memory/topics/blog-topics.md`.
+- On this site the pool had only `AS01..AS09`, while live WP already had articles in the B01–B05 era (latest: `rastamozhka-elektromobilya-iz-kitaya-2026`).
+- `shared/published-articles.md` was reset and does not list historical B01–B05, so ledger alone cannot recover the floor.
+- Without a manual override the next scout/research run would reuse B01 and risk slug/topic collision.
+
+### How the agent recovered this run
+- Treated suggest-next=B01 as a known ID floor bug.
+- Forced next topic_id to **B06** per Director/preflight note and live WP last = B05.
+- Manually verified slug/primary_query against recent WP posts and AS01–AS09 pool before append.
+- Appended new P0 card `## B06` (not an AS reactivation).
+
+### Durable fix needed before next run
+- Teach `excalibur_blog_scout_helper.py --suggest-next` to compute max ID from union of: blog-topics `Bxx`, article dirs `Bxx-*`, ledger topic_ids, and optional env/file of recent WP slugs/topic_ids (e.g. `EXCALIBUR_RECENT_WP_POSTS` / scout floor config).
+- Do not treat AS-only pools as “empty B floor = B01” when live WP or runtime hints show a higher B watermark.
+- Document the floor override rule in scout skill / agent contract for Авто-Сейлс.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

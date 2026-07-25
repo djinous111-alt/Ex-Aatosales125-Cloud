@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/B01-kak-rastamozhit-avto-iz-korei-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "нция на пошлину. Ниже – спокойный чек-лист этапов 2026: что сделать до судна, на складе и после выпуска.",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "описывают как уже заметную для контроля. С 01.12.2025 действует обновлённая методика утильсбора (ПП РФ №",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "30 дней",
+      "kind": "metric_or_duration",
+      "context": "основной морской хаб для Кореи: ориентир моря 14–30 дней, таможня часто 5–12 рабочих дней после прихода (п",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "ействует обновлённая методика утильсбора (ПП РФ № 1713 к правилам № 1291), с 01.01.2026 – индексация. В р",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1291",
+      "kind": "large_number",
+      "context": "ая методика утильсбора (ПП РФ № 1713 к правилам № 1291), с 01.01.2026 – индексация. В расчёте смотрят не",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

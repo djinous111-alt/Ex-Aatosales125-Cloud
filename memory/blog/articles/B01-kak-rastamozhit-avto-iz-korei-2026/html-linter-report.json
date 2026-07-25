@@ -1,0 +1,8 @@
+{
+  "file": "article.html",
+  "verdict": "fail",
+  "total_errors": 1,
+  "errors": [
+    "Forbidden duplicate FAQ sections in article.html: сверьте финальный чек-лист до faq; частые вопросы. Keep exactly one <h2>Частые вопросы</h2> block."
+  ]
+}

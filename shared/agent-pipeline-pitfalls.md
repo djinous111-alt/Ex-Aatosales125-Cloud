@@ -34,6 +34,10 @@
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
+- H2 не должен содержать подстроку `faq` / «частые вопрос» кроме единственного `<h2>Частые вопросы</h2>` (иначе html-linter = duplicate FAQ).
+- Insight-блок: не начинать с ярлыков `TL;DR` / `Быстрый инсайт`.
+- Utility gate: `pain_markers_ru` / `outcome_markers_ru` обязаны быть в `memory/brief/editorial-policy.json`; пустой список больше не должен давать ложный BLOCK (скрипт skip), но маркеры должны оставаться в policy.
+- Cloud typed Task `excalibur-blog-*` может отсутствовать в enum → `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill.
 
 ## Cover
 

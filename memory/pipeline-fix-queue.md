@@ -496,6 +496,42 @@ category: api
 ### Fixer resolution
 - pending
 
+## INC-20260725-1724-indexer-llms-blog-path-flag
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rastamozhit-avto-iz-korei-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` requires `--blog-path` in `excalibur_blog_llms_generator.py --help`.
+- Indexer skill/agent shell examples pass `--blog-path /`.
+- Actual generator CLI has no `--blog-path` (`unrecognized arguments: --blog-path /`); only `--blog-dir`, `--site-base`, `--out-dir`, `--site-name`, `--site-desc`.
+
+### How the agent recovered this run
+- Ran llms generator without `--blog-path`, with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog`.
+- Confirmed outputs: `memory/blog/llms.txt`, `memory/blog/llms-full.txt` (3 articles).
+
+### Durable fix needed before next run
+- Align three places: add `--blog-path` to generator (and use it), OR remove the flag from doctor check + skill/agent examples.
+- Prefer: implement `--blog-path` (default `/`) if doctor expects it for WP blog subdirectory; else drop doctor check and update skills.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

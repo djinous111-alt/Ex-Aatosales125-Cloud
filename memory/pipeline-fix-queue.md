@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260725-0928-cover-kie-402-emergency
+status: open
+run_date: 2026-07-25
+role: excalibur-blog-cover
+topic_id: B06
+article_dir: memory/blog/articles/B06-lgotnyy-utilsbor-fizlico-2026-kak-proverit
+severity: high
+category: api
+
+### What went wrong
+- MCP-KV `gpt-image-2` вернул ошибку API: `'NoneType' object has no attribute 'get'` (без URL).
+- Прямой Kie `createTask` (тот же `quad-mcp-batch.json`, 1 job i2i) → HTTP/code **402** Credits insufficient.
+- Канонический MCP/Kie i2i путь недоступен без пополнения баланса (см. также needs-human INC-2130).
+
+### How the agent recovered this run
+- Emergency §4b: Cursor `GenerateImage` (16:9, reference `blog-hero-reference.png` + quad prompt) → 1536×1024.
+- Pillow LANCZOS resize → `cover/canvas-quad.png` 2048×1152.
+- `excalibur_blog_cover_quad_split.py --inject-html` → PASS; 3 `<figure>` после первых H2.
+- Один холст 2×2 (не 4 отдельных генерации).
+
+### Durable fix needed before next run
+- Пополнить Kie credits / починить MCP-KV gpt-image-2 backend (NoneType).
+- Задокументировать §4b emergency в `.cursor/skills/cover-excalibur-blog/SKILL.md` + `shared/kie-gpt-image-api-contract.md` + pitfalls (INC-2130 уже отмечал это как needs-human).
+- Опционально: `quad_apply.py --local-canvas` чтобы не зависеть от URL при emergency.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_quad_apply.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260725-0945-geo-qa-typed-task-missing
 status: open
 run_date: 2026-07-25

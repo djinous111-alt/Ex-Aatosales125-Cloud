@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Льгота? Сначала чеклист",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у документов и смартфона с чеклистом льготного утильсбора, кроссовер и порт Владивостока",
+      "scene_hint": "WEATHER: cool overcast Vladivostok port daylight, light fog over water; OUTFIT: smart-casual charcoal field jacket over light blue button shirt (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie holding smartphone with fake RU checklist UI (галочки: физлицо / кВт / 1 авто / без продажи) + paper customs docs scraps taped with scotch; modern crossover sedan silhouette behind near Vladivostok port cranes/rolker hint; torn paper Cyrillic plaque «Льгота? Сначала чеклист» yellow highlighter on «чеклист»; pink sticky «до депозита»; shocked meme cutout + cat reaction sticker (different formats); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; FORBIDDEN on any sticker/text: токсичные слова лох/лохов/лох*, fake money amounts, ₽, %, currency figures",
+      "meme_caption_ru": "До депозита"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Отделите \"я физлицо\" от реальной льготы",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns «Я физлицо» | «Реальная льгота»; rows личное пользование / мощность в кВт / лимит 1 авто / запрет продажи 12 мес; red X vs green check; sticky «не путать»; scotch tape; NO hero face; NO Wordstat/Metrika; NO ₽/%/fake amounts",
+      "alt": "Таблица: статус физлица vs пакет условий льготного утильсбора"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Проверьте мощность в кВт, а не \"на глаз по л.с.\"",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable checklist board: 1) взять кВт из ПТС/паспорта 2) не переводить «на глаз» из л.с. 3) сверить порог мощности 4) зафиксировать до депозита; yellow highlight «кВт»; mini fake catalog card inset; NO hero face; NO Wordstat/Metrika; NO ₽/%/fake amounts",
+      "alt": "Чеклист: сверка мощности в кВт до депозита, без оценки «на глаз»"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Как сверить гибрид и электромобиль под льготный утильсбор",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 4 steps with arrows: тип привода → 30-мин мощность (гибрид/электро) → сверка с льготным пакетом → решение до оплаты; labels hybrid/EV icons as simple UI chips; sticky «отдельная проверка»; NO hero face; NO Wordstat/Metrika; NO ₽/%/fake amounts",
+      "alt": "Схема: как сверить гибрид и электромобиль под льготный утильсбор"
+    }
+  }
+}

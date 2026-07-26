@@ -1,0 +1,201 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/postanovka-na-uchet-avto-posle-epts-2026/#blogposting", // pragma: allowlist secret
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/postanovka-na-uchet-avto-posle-epts-2026/" // pragma: allowlist secret
+      },
+      "headline": "Как поставить авто на учёт после ЭПТС: чек-лист документов и шагов 2026",
+      "description": "Чек-лист документов для постановки авто на учет после ЭПТС: статус паспорта, ОСАГО, техосмотр, Госуслуги и осмотр. Для авто из Азии через Владивосток.",
+      "datePublished": "2026-07-26",
+      "dateModified": "2026-07-26",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial", // pragma: allowlist secret
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png", // pragma: allowlist secret
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru/" // pragma: allowlist secret
+        },
+        "sameAs": [
+          "https://avtosales125.ru/", // pragma: allowlist secret
+          "https://avto-sales125.ru/", // pragma: allowlist secret
+          "https://t.me/avtosales125", // pragma: allowlist secret
+          "https://max.ru/id2508140890_biz", // pragma: allowlist secret
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization", // pragma: allowlist secret
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru/", // pragma: allowlist secret
+        "sameAs": [
+          "https://avto-sales125.ru/", // pragma: allowlist secret
+          "https://t.me/avtosales125" // pragma: allowlist secret
+        ]
+      },
+      "keywords": [
+        "документы для постановки авто на учет",
+        "постановка авто на учет в гибдд 2026",
+        "постановка на учет авто госуслуги",
+        "постановка авто на учет техосмотр"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/postanovka-na-uchet-avto-posle-epts-2026/#faq", // pragma: allowlist secret
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Какие документы нужны для постановки на учёт после растаможки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Соберите паспорт, документ собственности (ДКП или инвойс с переводом), номер/выписку ЭПТС, подтверждение утильсбора, ОСАГО, при возрасте авто от 4 лет – диагностическую карту. Без статуса ЭПТС \"Действующий\" в МРЭО не езжайте."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли техосмотр до ОСАГО?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Для покупки ОСАГО диагностическая карта обычно не нужна. Если авто старше 4 лет и карты нет – пройдите техосмотр отдельно до визита в ГИБДД. Порядок: статус ЭПТС → ТО при необходимости → ОСАГО → Госуслуги."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли поставить авто на учёт не по прописке?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Через Госуслуги выберите удобное подразделение, не только \"по прописке\". Для выдачи во Владивостоке это нормальный сценарий."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если в ЭПТС ошибка или статус аннулирован?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не записывайтесь повторно вслепую. Проверьте elpts, возьмите письменную причину отказа, исправьте данные через лабораторию или импортёра. Часто повторная пошлина не нужна."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько сейчас госпошлины за СТС и номера?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ориентир после 01.09.2025: бумажное СТС 1500 ₽, новые номера 3000 ₽. Точную сумму смотрите на экране оплаты Госуслуг в день подачи."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли пройти постановку полностью онлайн без визита?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Для типичного ввоза физлица через Владивосток – нет: нужен осмотр на площадке. Онлайн закрываете заявление, слот и оплату; живьём – сверку VIN и выдачу СТС."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/postanovka-na-uchet-avto-posle-epts-2026/#howto", // pragma: allowlist secret
+      "name": "Как поставить авто на учёт после ЭПТС: чек-лист документов и шагов",
+      "description": "Пошаговая постановка на учёт после ЭПТС для авто из Азии через Владивосток: статус паспорта, папка документов, ОСАГО/ТО, Госуслуги и осмотр до СТС.",
+      "totalTime": "PT90M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Портал elpts — проверка статуса ЭПТС"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Госуслуги — заявление и запись в МРЭО"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Папка оригиналов документов и полис ОСАГО"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Номер ЭПТС / выписка и подтверждение утильсбора"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Паспорт, ДКП или инвойс с переводом, при необходимости ДК"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Проверить статус ЭПТС перед записью в ГИБДД",
+          "text": "Откройте elpts по номеру ЭПТС или VIN. Нужен статус «Действующий», без таможенных ограничений и с отметкой утильсбора. Если статус не готов — не бронируйте слот.",
+          "url": "https://avtosales125.ru/postanovka-na-uchet-avto-posle-epts-2026/#проверьте-можно-ли-уже-ехать-в-гибдд-после-эптс" // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Сверить VIN на кузове с ЭПТС и СБКТС",
+          "text": "Сверьте физический VIN на кузове с данными ЭПТС и СБКТС. При расхождении не записывайтесь — сначала правьте документы через лабораторию или импортёра.",
+          "url": "https://avtosales125.ru/postanovka-na-uchet-avto-posle-epts-2026/#проверьте-можно-ли-уже-ехать-в-гибдд-после-эптс" // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Собрать папку документов до записи в МРЭО",
+          "text": "Соберите паспорт РФ, ДКП или инвойс с переводом, номер/выписку ЭПТС, подтверждение утильсбора, при необходимости скан СБКТС и доверенность, если едет представитель.",
+          "url": "https://avtosales125.ru/postanovka-na-uchet-avto-posle-epts-2026/#соберите-папку-документов-до-записи-в-мрэо" // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Развести техосмотр и ОСАГО",
+          "text": "Если авто старше 4 лет и нет диагностической карты — пройдите техосмотр. Оформите ОСАГО на себя по VIN до выезда на осмотр. Порядок: статус ЭПТС → ТО при необходимости → ОСАГО → Госуслуги.",
+          "url": "https://avtosales125.ru/postanovka-na-uchet-avto-posle-epts-2026/#разведите-техосмотр-и-осаго-какой-порядок-в-2026" // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Подать заявление и оплатить пошлины через Госуслуги",
+          "text": "На Госуслугах откройте регистрацию ТС, заполните заявление, выберите подразделение и слот, оплатите госпошлины по тарифам на экране.",
+          "url": "https://avtosales125.ru/postanovka-na-uchet-avto-posle-epts-2026/#запишитесь-через-госуслуги-и-пройдите-осмотр" // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Пройти осмотр VIN и получить СТС с номерами",
+          "text": "В день визита подайте авто на осмотр, сдайте оригиналы и получите СТС и номера. При отказе зафиксируйте причину письменно и исправьте статус или документы до повторной записи.",
+          "url": "https://avtosales125.ru/postanovka-na-uchet-avto-posle-epts-2026/#запишитесь-через-госуслуги-и-пройдите-осмотр" // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Закрыть типичные отказы импорта до повторного визита",
+          "text": "Проверьте незавершённый или аннулированный ЭПТС, отметку утиля, перевод инвойса, ДК для авто 4+ лет и полис на осмотре. Чините причину отказа до нового слота.",
+          "url": "https://avtosales125.ru/postanovka-na-uchet-avto-posle-epts-2026/#закройте-типичные-отказы-после-ввоза-из-азии-до-визита" // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Пройти финальный чек-лист от ЭПТС до СТС",
+          "text": "Убедитесь: ЭПТС «Действующий», VIN совпал, папка собрана, ОСАГО оформлен, слот подтверждён, после выдачи сверили СТС и номера.",
+          "url": "https://avtosales125.ru/postanovka-na-uchet-avto-posle-epts-2026/#пройдите-финальный-чек-лист-от-эптс-до-стс" // pragma: allowlist secret
+        }
+      ]
+    }
+  ]
+}

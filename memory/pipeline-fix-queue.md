@@ -500,3 +500,40 @@ category: api
 
 ### Fixer resolution
 - pending
+
+## INC-20260726-1717-indexer-llms-blog-path-slash
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-indexer
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-peregon-avto-iz-vladivostoka-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer skill/agent document `--blog-dir memory/blog/articles` **and** `--blog-path /` in one command.
+- In `excalibur_blog_llms_generator.py`, `--blog-path` is an argparse **alias of `--blog-dir`** (not a URL prefix). Passing `--blog-path /` overwrites the articles dir → `Loaded 0 articles` and empty `llms.txt`.
+- Related prior fix `INC-20260724-1800-director-llms-blog-path-alias` added the alias but left misleading dual-flag docs.
+
+### How the agent recovered this run
+- Re-ran generator with only `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog`.
+- Result: Loaded 3 articles; `memory/blog/llms.txt` + `llms-full.txt` regenerated.
+
+### Durable fix needed before next run
+- Remove `--blog-path /` from indexer skill/agent examples; document: use **either** `--blog-dir` **or** `--blog-path` as path to `memory/blog/articles`.
+- Add pitfall note in `shared/agent-pipeline-pitfalls.md`.
+- Optional: doctor/cli help warning if blog_dir resolves to `/` or has 0 articles.
+
+### Suggested files to inspect/change
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_llms_generator.py` (optional guard)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

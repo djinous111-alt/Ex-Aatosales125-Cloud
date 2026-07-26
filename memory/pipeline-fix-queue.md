@@ -48,7 +48,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg missing-cover publish blocker guidance
-commit: pending-parent-commit
+commit: 22441a9
 
 
 ## INC-20260726-1318-schema-jsonld-secret-scan-pragma
@@ -99,7 +99,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_jsonc.py scripts/excalibur_blog_wp_publish.py`
 - jsonc_loads smoke
-commit: pending-parent-commit
+commit: 22441a9
 
 ## INC-20260726-1319-cover-kie-402-credits
 status: needs-human
@@ -149,7 +149,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - require_success(402) raises KIE CREDITS BLOCKER
-commit: pending-parent-commit
+commit: 22441a9
 
 ## INC-20260726-1330-geo-qa-utility-policy-markers-missing
 status: fixed
@@ -205,7 +205,7 @@ files_changed:
 checks_run:
 - editorial-policy.json parse + markers present
 - rg: old TL;DR insight example removed from writing contract
-commit: pending-parent-commit
+commit: 22441a9
 
 ## INC-20260726-1325-writer-cta-secret-scan-block
 status: fixed
@@ -248,7 +248,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg pragma guidance in writer/schema/indexer/pitfalls
-commit: pending-parent-commit
+commit: 22441a9
 
 ## INC-20260726-1315-research-wordstat-partial-payload
 status: fixed
@@ -292,7 +292,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg WORDSTAT PARTIAL / totalCount in research+scout skills
-commit: pending-parent-commit
+commit: 22441a9
 
 ## INC-20260726-1316-research-notes-gate-ii-false-positive
 status: fixed
@@ -336,7 +336,7 @@ files_changed:
 checks_run:
 - `python3 scripts/test_research_notes_gate_tech_markers.py` → PASS
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
-commit: pending-parent-commit
+commit: 22441a9
 
 ## INC-20260726-1306-scout-precommit-secret-names
 status: fixed
@@ -382,7 +382,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg bash identifier / REDACTED guidance in scout docs
-commit: pending-parent-commit
+commit: 22441a9
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -434,7 +434,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: 22441a9
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -485,7 +485,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: 22441a9
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -526,7 +526,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: 22441a9
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -573,7 +573,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: 22441a9
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -627,7 +627,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: 22441a9
 
 ## Fixed incidents
 
@@ -677,4 +677,4 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_llms_generator.py`
 - llms pragma smoke
-commit: pending-parent-commit
+commit: 22441a9

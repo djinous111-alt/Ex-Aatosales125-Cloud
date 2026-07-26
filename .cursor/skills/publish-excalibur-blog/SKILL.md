@@ -19,6 +19,8 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | QA PASS | `article-qa.md` → verdict PASS |
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
+
+Если `cover/cover.png` отсутствует (upstream Cover BLOCKER / Kie 402) → **`❌ PUBLISH BLOCKER`**. Не выдумывай и не подставляй чужие/placeholder PNG. Зафиксируй incident; ledger остаётся `in_progress` до реального cover + retry publish.
 | Schema | `schema.jsonld` |
 | Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |

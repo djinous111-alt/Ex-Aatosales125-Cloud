@@ -14,22 +14,26 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Short tokens (ai/ии/rag/api/mcp) must be whole-word / bounded checks —
+# bare substring "ии" false-positives on Russian words like "регистрации".
 TECH_MARKERS = (
-    "ai",
-    "ии",
     "agent",
     "агент",
-    "mcp",
-    "api",
     "cursor",
     "make",
     "n8n",
     "github",
     "docker",
-    "rag",
     "workflow",
     "автоматизац",
     "нейросет",
+)
+TECH_MARKERS_BOUNDED = (
+    "ai",
+    "ии",
+    "mcp",
+    "api",
+    "rag",
 )
 
 
@@ -80,7 +84,13 @@ def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
     blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    if any(marker in blob for marker in TECH_MARKERS):
+        return True
+    # Whole-token / non-letter boundaries so "регистрации" does not match "ии".
+    for marker in TECH_MARKERS_BOUNDED:
+        if re.search(rf"(?<![a-zа-яё0-9_]){re.escape(marker)}(?![a-zа-яё0-9_])", blob, flags=re.I):
+            return True
+    return False
 
 
 def field_present(text_lower: str, field: str) -> bool:

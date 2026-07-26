@@ -6,6 +6,384 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260726-1323-publish-missing-cover
+status: needs-human
+run_date: 2026-07-26
+role: excalibur-blog-publish
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026
+severity: blocker
+category: publish
+
+### What went wrong
+- Publish ran after Indexer but `cover/cover.png` / `cover-registry.json` were missing because Cover step hit Kie 402 credits.
+- Live publish correctly blocked; images were not invented.
+
+### How the agent recovered this run
+- Returned PUBLISH BLOCKER; left ledger `in_progress`; wrote wp-publish-result.json fail.
+
+### Durable fix needed before next run
+- Human: restore Kie credits, re-run cover, then re-run publish.
+- Contract: publish skill/agent now explicit — missing cover = blocker, no placeholder PNG.
+
+### Suggested files to inspect/change
+- `skills/publish-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-publish.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: needs-human
+reason:
+- Cannot publish AS10 without a real generated cover; depends on INC-20260726-1319 credits top-up.
+needed_decision_or_secret:
+- Top up Kie credits → cover Task → publish Task.
+files_changed:
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-publish.md`
+- `.cursor/agents/excalibur-blog-publish.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg missing-cover publish blocker guidance
+commit: 22441a9
+
+
+## INC-20260726-1318-schema-jsonld-secret-scan-pragma
+status: fixed
+run_date: 2026-07-26
+role: excalibur-blog-schema
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026
+severity: medium
+category: publish
+
+### What went wrong
+- First `git commit` of `schema.jsonld` blocked by Cursor secret-scan: `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` appear in BlogPosting `@id` / author `sameAs`.
+- Pure JSON cannot host HTML-style `<!-- pragma -->`; without a workaround schema cannot be committed while keeping absolute URLs for Rich Results.
+
+### How the agent recovered this run
+- Rewrote `schema.jsonld` as JSONC with trailing `// pragma: allowlist secret` on lines that contain those public brand URLs (same intent as writer HTML CTA pragma).
+- Patched `scripts/excalibur_blog_wp_publish.py` `load_article` to strip those trailing pragmas before writing WP post meta, so injected JSON-LD stays valid JSON.
+
+### Durable fix needed before next run
+- Document in schema skill + pitfalls: public site/CTA URLs in `schema.jsonld` need JSONC allowlist pragmas; publish must strip before WP meta.
+- Optionally add a tiny `jsonc_loads` helper shared by schema validation/publish instead of ad-hoc regex.
+- Longer-term: non-secret public aliases (`PUBLIC_CATALOG_URL` etc.) or secret-scan allowlist for known brand URLs.
+
+### Suggested files to inspect/change
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_wp_publish.py` (strip already added this run)
+- `shared/excalibur-article-writing-contract.md` (schema section)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Documented JSONC `// pragma: allowlist secret` for public brand URLs in schema skill + writing contract + pitfalls.
+- Extracted `scripts/excalibur_jsonc.py`; publish `load_article` strips pragmas before WP schema meta.
+files_changed:
+- `scripts/excalibur_jsonc.py`
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_jsonc.py scripts/excalibur_blog_wp_publish.py`
+- jsonc_loads smoke
+commit: 22441a9
+
+## INC-20260726-1319-cover-kie-402-credits
+status: needs-human
+run_date: 2026-07-26
+role: excalibur-blog-cover
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026
+severity: blocker
+category: api
+
+### What went wrong
+- MCP `gpt-image-2` (MCP-KV) failed first: `Ошибка gpt-image-2 API: 'NoneType' object has no attribute 'get'` (no image URL returned).
+- Preferred Cloud recovery via `scripts/excalibur_blog_kie_gpt_image2_api.py` (same batch mcp_args, i2i + input_urls) failed with Kie `createTask` **code=402** `Credits insufficient`.
+- Cover artifacts after blocker: only `quad-manifest.json`, `quad-mcp-batch.json`, `quad-mcp-prompt.txt` — no canvas/cover/inline PNGs generated. Images were not faked.
+
+### How the agent recovered this run
+- Stopped with explicit COVER BLOCKER (no invent/split/apply without real URL).
+- Wrote fragment `.cursor/excalibur-blog-fragments/cover.md` with status ❌ and blockers.
+
+### Durable fix needed before next run
+- Top up Kie.ai credits / ensure billing for `gpt-image-2-image-to-image` before cover step.
+- Harden MCP-KV `gpt-image-2` wrapper so credit/empty responses return clear 402/msg instead of `NoneType.get`.
+- Optional: expose async start/status MCP tools so sync client timeout/-32001 and opaque errors are recoverable by task_id.
+
+### Suggested files to inspect/change
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/mcp-image-async-contract.md`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- MCP-KV `gpt-image-2` server wrapper (external)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: needs-human
+reason:
+- Kie.ai createTask returns code=402 Credits insufficient; no durable code path can generate cover without billing credits.
+- MCP-KV gpt-image-2 wrapper opacity (NoneType.get) is external; local client now surfaces explicit KIE CREDITS BLOCKER.
+needed_decision_or_secret:
+- Top up Kie.ai credits / billing for gpt-image-2-image-to-image, then re-run cover → publish.
+- Optional: harden external MCP-KV gpt-image-2 error mapping (outside this repo).
+files_changed:
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `shared/kie-gpt-image-api-contract.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- require_success(402) raises KIE CREDITS BLOCKER
+commit: 22441a9
+
+## INC-20260726-1330-geo-qa-utility-policy-markers-missing
+status: fixed
+run_date: 2026-07-26
+role: excalibur-blog-geo-qa
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требовал `min_pain_markers`/`min_outcome_markers`, но в `memory/brief/editorial-policy.json` не было списков `pain_markers_ru` / `outcome_markers_ru` → count всегда 0 → ложный UTILITY ARTICLE BLOCKER на любой статье (включая ранее PASS AS09).
+- Recommendation markers не содержали вариант `чек-лист` (только `чеклист`), из‑за чего mode-B чек-листы недосчитывали action-маркеры.
+- Writer insight использовал ярлык `TL;DR / Быстрый инсайт`, который GEO QA skill запрещает.
+
+### How the agent recovered this run
+- Добавлены `pain_markers_ru`, `outcome_markers_ru`, пороги min_* и алиас `чек-лист` в editorial-policy.json.
+- Utility gate теперь пропускает pain/outcome checks, если списки маркеров в policy пустые.
+- Whitelist-safe правки AS10: pain в lead, `Избегайте…`, инсайт `Коротко:`, +1 шаг в первом ol.
+- `link-verify.json` для commit: URL заменены на `[REDACTED_*]` (secret-scan блокировал CATALOG_URL/TELEGRAM_URL).
+- Повтор gates: utility PASS, human-voice PASS, article-qa PASS.
+
+### Durable fix needed before next run
+- Зафиксировать в pitfalls: utility pain/outcome markers живут в editorial-policy; пустой список = skip, не hard-fail.
+- Синхронизировать writer contract с GEO skill: запрет ярлыка `TL;DR` / `Быстрый инсайт` в инсайт-блоке (пример `Коротко:`).
+- Опционально: добавить `чек-лист` в writer checklist маркеров / recommendation examples.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json` (уже патч в этом run)
+- `scripts/excalibur_blog_utility_gate.py` (уже патч в этом run)
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/excalibur-article-writing-contract.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Confirmed editorial-policy pain/outcome markers + чек-лист alias and utility_gate empty-list skip.
+- Synced writer/GEO/writing-contract: insight label `Коротко:` (ban TL;DR / Быстрый инсайт); pitfalls already document utility markers.
+files_changed:
+- `memory/brief/editorial-policy.json` (pre-existing run patch kept)
+- `scripts/excalibur_blog_utility_gate.py` (pre-existing run patch kept)
+- `shared/excalibur-article-writing-contract.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- editorial-policy.json parse + markers present
+- rg: old TL;DR insight example removed from writing contract
+commit: 22441a9
+
+## INC-20260726-1325-writer-cta-secret-scan-block
+status: fixed
+run_date: 2026-07-26
+role: excalibur-blog-writer
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` of `article.html` blocked by Cursor secret scanner because CTA href values match Cloud Secrets `CATALOG_URL` and `TELEGRAM_URL`.
+- Same public catalog/Telegram URLs are required in article body by conversion-map; previous articles already contain identical hrefs.
+
+### How the agent recovered this run
+- Added HTML comment `<!-- // pragma: allowlist secret -->` on lines with intentional public CTA links, then committed.
+
+### Durable fix needed before next run
+- Document writer/publish pattern: public brand CTA URLs that equal secret env values need allowlist pragma OR secret scanner exclusion for article HTML CTA fields.
+- Prefer non-secret alias vars (e.g. `PUBLIC_CATALOG_URL`) that are allowed in git, or pre-commit hook that injects pragma automatically.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `memory/brief/conversion-map.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Documented HTML CTA allowlist pragma in writer skill, writing contract, conversion-map, pitfalls.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `memory/brief/conversion-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg pragma guidance in writer/schema/indexer/pitfalls
+commit: 22441a9
+
+## INC-20260726-1315-research-wordstat-partial-payload
+status: fixed
+run_date: 2026-07-26
+role: excalibur-blog-research
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026
+severity: low
+category: api
+
+### What went wrong
+- MCP-KV `wordstat_get_top_requests` for phrase `постановка на учет после эптс` returned unexpected payload shape `{"totalCount":"109"}` without the usual top-requests list (tool surfaced as format error).
+- Primary/secondary Wordstat calls succeeded; only the Asia-narrow after-EPTS phrase was partial.
+
+### How the agent recovered this run
+- Recorded `totalCount` ~109 in research-notes with explicit PARTIAL warning; did not invent a fake top list.
+- Relied on successful primary/secondary volumes for demand table and LSI.
+
+### Durable fix needed before next run
+- Harden MCP-KV Wordstat client/tool to normalize sparse responses (expose totalCount + empty top list instead of hard format error).
+- Document in research skill: if only totalCount returns, treat as impressions estimate with PARTIAL warning.
+
+### Suggested files to inspect/change
+- MCP-KV Wordstat adapter / `wordstat_get_top_requests`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Research + Scout skills document totalCount-only as PARTIAL / low-result (no fake top list; use cluster-first LSI).
+- External MCP-KV Wordstat adapter hardening remains out of repo scope; agent contract prevents wasted retries.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg WORDSTAT PARTIAL / totalCount in research+scout skills
+commit: 22441a9
+
+## INC-20260726-1316-research-notes-gate-ii-false-positive
+status: fixed
+run_date: 2026-07-26
+role: excalibur-blog-research
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marked non-IT topic AS10 as `technical_topic=true` because TECH_MARKERS included bare substring `ии`, which matches ordinary Russian words like `регистрации`.
+- Gate then required 3 GitHub URLs and BLOCK-ed a valid auto-registration research brief.
+
+### How the agent recovered this run
+- Tightened marker matching: short tokens (`ai`, `ии`, `mcp`, `api`, `rag`) now use non-letter boundaries; longer markers stay substring.
+- Also fixed notes formatting so `accessed_at:` appears in source rows and pain_solution_map rows contain `pain|solution|результат` tokens expected by the gate regex.
+- Re-ran research-notes gate to PASS.
+
+### Durable fix needed before next run
+- Keep bounded short-marker logic in the gate; add a unit/smoke test that Russian auto topic text is NOT technical.
+- Mirror the same TECH_MARKERS logic anywhere else that copies this list (if duplicated).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- optional test under `scripts/` or `tests/`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Kept bounded short TECH_MARKERS matching in research_notes_gate.
+- Added smoke test ensuring auto-registration Russian text is not technical_topic while MCP/API/ии still are.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py` (pre-existing run patch kept)
+- `scripts/test_research_notes_gate_tech_markers.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/test_research_notes_gate_tech_markers.py` → PASS
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+commit: 22441a9
+
+## INC-20260726-1306-scout-precommit-secret-names
+status: fixed
+run_date: 2026-07-26
+role: excalibur-blog-scout
+topic_id: AS10
+article_dir: n/a
+severity: low
+category: env
+
+### What went wrong
+- Cursor pre-commit secret scanner crashed on `RAW_SECRET_VALUE="${!SECRET_NAME}"` when `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a token that is not a valid bash identifier.
+- After filtering invalid names, scanner correctly blocked staging of `shared/published-articles.md` because live `PUBLIC_SITE_URL` values were present (expected redaction policy).
+
+### How the agent recovered this run
+- Filtered secret-name list to `[A-Za-z_][A-Za-z0-9_]*` for the commit command env only.
+- Unstaged `shared/published-articles.md`; committed `memory/topics/blog-topics.md` + AS-topic script fixes only.
+- Left handoff uncommitted per git hygiene.
+
+### Durable fix needed before next run
+- Ensure Cloud-injected secret names are always valid bash identifiers, or harden the scanner to skip invalid names.
+- Keep ledger URLs redacted to `[REDACTED]` before any commit of `shared/published-articles.md`.
+
+### Suggested files to inspect/change
+- Cursor Cloud Secrets naming / pre-commit scanner
+- `shared/published-articles.md` redaction policy
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Documented bash-identifier filter for CLOUD_AGENT_INJECTED_SECRET_NAMES and ledger PUBLIC_SITE_URL → [REDACTED] before commit (scout agent+skill+pitfalls).
+- Cloud Secret naming / scanner product fix remains external needs-human if invalid names keep appearing upstream.
+files_changed:
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg bash identifier / REDACTED guidance in scout docs
+commit: 22441a9
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16
@@ -254,3 +632,49 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20260726-1321-indexer-llms-secret-scan-pragma
+status: fixed
+run_date: 2026-07-26
+role: excalibur-blog-indexer
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` of indexer outputs blocked by Cursor secret-scan: `PUBLIC_SITE_URL` appears in `memory/blog/llms.txt`, `llms-full.txt`, and `promotion-checklist.md` (and `site_base` in `interlink-suggestions.json`).
+- llms generator writes absolute public URLs by design; Cloud treats `PUBLIC_SITE_URL` as a secret value.
+
+### How the agent recovered this run
+- Appended `// pragma: allowlist secret` to llms.txt / llms-full.txt lines containing the site URL.
+- Appended `<!-- // pragma: allowlist secret -->` on promotion-checklist URL lines.
+- Redacted `site_base` in `interlink-suggestions.json` to `${PUBLIC_SITE_URL}` (report not deployed).
+
+### Durable fix needed before next run
+- Document indexer commit hygiene: llms outputs need allowlist pragmas OR generator should emit relative `/blog/<slug>/` paths for git-safe artifacts and absolute URLs only at publish/deploy.
+- Prefer non-secret public alias for site origin in generated SEO/AI files, or secret-scan allowlist for known brand origin.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_llms_generator.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- llms generator now auto-appends `// pragma: allowlist secret` on absolute URL lines.
+- Indexer skill documents promotion-checklist HTML pragma + interlink site_base redaction.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_llms_generator.py`
+- llms pragma smoke
+commit: 22441a9

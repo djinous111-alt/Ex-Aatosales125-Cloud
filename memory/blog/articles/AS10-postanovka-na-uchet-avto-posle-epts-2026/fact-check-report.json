@@ -1,0 +1,80 @@
+{
+  "article": "memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 10,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 8,
+  "facts": [
+    {
+      "fact": "2020",
+      "kind": "date_or_year",
+      "context": "ого средства. Бумажный ПТС на новый ввоз с ноября 2020 не выдают. Но номер ЭПТС ещё не равен готовности к",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "ванный\" – красный флаг: во Владивостоке в октябре 2025 уже был кейс массовых отказов из-за сбоя обмена да",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "бронируйте слот, сначала закройте хвост. Сюрприз 2026: часть гайдов пишет, что ОСАГО для заявления с 01",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "4 лет",
+      "kind": "metric_or_duration",
+      "context": "папка документов → техосмотр при возрасте авто от 4 лет → ОСАГО → запись через Госуслуги → осмотр VIN. Ср",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 дней",
+      "kind": "metric_or_duration",
+      "context": "ь через Госуслуги → осмотр VIN. Срок постановки – 10 дней; без \"живого\" статуса ЭПТС визит почти всегда сры",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "15 минут",
+      "kind": "metric_or_duration",
+      "context": ". Второй круг записи и злость на \"бумажки\". Лучше 15 минут проверки до слота. Избегайте записи \"вслепую\" в д",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 минут",
+      "kind": "metric_or_duration",
+      "context": "ть. Делать: решать \"ехать / не ехать\" по elpts за 5 минут. Не делать: записываться в ГИБДД в день, когда пр",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "30 дней",
+      "kind": "metric_or_duration",
+      "context": "ТС не берут, а результат осмотра может жить около 30 дней. Делать: ехать по талону с полным комплектом ориг",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1500",
+      "kind": "large_number",
+      "context": "адку Госпошлины Всегда Ориентир с 01.09.2025: СТС 1500 ₽, новые номера 3000 ₽ При подаче через Госуслуги",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3000",
+      "kind": "large_number",
+      "context": "а Ориентир с 01.09.2025: СТС 1500 ₽, новые номера 3000 ₽ При подаче через Госуслуги Скидку 30% через Гос",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

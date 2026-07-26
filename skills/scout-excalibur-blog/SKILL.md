@@ -41,8 +41,14 @@ Append new Topic Card to blog-topics.md
 
 ### Шаг 3 — Валидация спроса (Yandex Wordstat)
 Для 2-3 отобранных вариантов тем вызови инструмент `wordstat_get_top_requests` сервера `user-mcp-kv`.
+* **Cluster-first:** сначала широкий parent-кластер, затем узкий how-to.
 * **Цель:** Найти ключевой запрос (primary query) с живым спросом в Яндексе и выписать 3–5 связанных поисковых вопросов для FAQ и secondary queries.
+* **PARTIAL:** ответ только с `totalCount` (без top phrases) = low-result signal, не fatal. Зафиксируй totalCount, LSI бери из широкого кластера; не выдумывай топ.
 * **Фильтр:** Если тема имеет микро-спрос (меньше 10 показов в месяц) и нет смежных тем — отложи её и возьми другую, более востребованную.
+
+### Шаг 3b — Commit / secret-scan hygiene
+* Имена из `CLOUD_AGENT_INJECTED_SECRET_NAMES` перед bash indirect expansion фильтруй regex `[A-Za-z_][A-Za-z0-9_]*` (иначе pre-commit scanner падает на невалидных identifiers).
+* Перед commit `shared/published-articles.md` редактируй live `PUBLIC_SITE_URL` → `[REDACTED]` (секрет-backed origin нельзя коммитить as-is).
 
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:

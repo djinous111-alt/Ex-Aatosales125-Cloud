@@ -45,6 +45,8 @@ is_background: false
 - `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` в `memory/site.env.local`
 - QA PASS, cover, schema, indexer — уже выполнены директором
 
+Если нет `cover/cover.png` → `❌ PUBLISH BLOCKER` (не invent images; жди cover retry после Kie credits).
+
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** в handoff (шаг не skipped молча).
 
 ## Успех

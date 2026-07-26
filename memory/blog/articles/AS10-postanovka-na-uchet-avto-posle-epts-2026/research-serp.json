@@ -1,0 +1,525 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-26",
+    "today_ru": "26.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-27",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-26 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS10",
+    "priority": "P0",
+    "slug": "postanovka-na-uchet-avto-posle-epts-2026",
+    "h1": "Как поставить авто на учёт после ЭПТС: чек-лист документов и шагов 2026",
+    "primary_query": "документы для постановки авто на учет",
+    "secondary_queries": [
+      "постановка авто на учет в гибдд 2026",
+      "постановка на учет авто госуслуги",
+      "постановка авто на учет техосмотр"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "документы для постановки авто на учет 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Документы для постановки авто на учет в 2026 году: список в ГИБДД",
+          "url": "https://vikup59.ru/blog/dokumenty-dlya-postanovki-avto-na-uchet-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Постановка Авто На Учет В Гибдд В 2026 Году | Журнал Infull",
+          "url": "https://www.infullbroker.ru/articles/kak-postavit-mashinu-na-uchet-2026/",
+          "snippet": "Актуальный список документов для регистрации авто в 2026 году. Нужно ли ОСАГО и техосмотр? Пошаговая инструкция, сроки и штрафы для водителей в Перми и РФ."
+        },
+        {
+          "title": "Документы для постановки автомобиля на учет в ГИБДД 2026: полный список ...",
+          "url": "https://pravovoi.center/avtoyurist/uchet-v-gibdd/kak-postavit-mashinu-na-uchet/dokumenty-dlya-p",
+          "snippet": "Документы для постановки на учет авто в 2026 году нужно подготовить до записи в ГИБДД. Инспектор проверяет право собственности, личность владельца, данные транспортного средства и ..."
+        },
+        {
+          "title": "Как поставить автомобиль на учет в ГИБДД в 2026 году: порядок действий ...",
+          "url": "https://shtrafy-gibdd.ru/articles/kak-postavit-avtomobil-na-uchet",
+          "snippet": "Полный перечень документов для регистрации автомобиля в ГИБДД в 2026 году: для физических и юридических лиц, новых и б/у авто, с изменениями конструкции."
+        },
+        {
+          "title": "Постановка автомобиля на учет в ГИБДД 2026: документы, цены, сроки, как ...",
+          "url": "https://avtovek-ekb.ru/articles/kak-postavit-avtomobil-na-uchet/",
+          "snippet": "Ознакомьтесь с пошаговым руководством, как поставить машину на учет в ГИБДД в 2026 году, как зарегистрировать автомобиль в ГАИ."
+        },
+        {
+          "title": "Постановка авто на учёт 2026: доки онлайн и без очереди",
+          "url": "https://avtoadv-pravo.ru/postanovka-avtomobilya-na-uchet-v-2026-godu-poshagovoe-rukovodstvo.html",
+          "snippet": "Полный перечень документов для постановки на учет, оформление ОСАГО, подача заявления через Госуслуги, размер госпошлины и штрафы за просрочку."
+        }
+      ],
+      "searched_at": "2026-07-26"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "документы для постановки авто на учет июль 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Постановка Авто На Учет В Гибдд В 2026 Году | Журнал Infull",
+          "url": "https://www.infullbroker.ru/articles/kak-postavit-mashinu-na-uchet-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Документы для постановки авто на учет в 2026 году: список в ГИБДД",
+          "url": "https://vikup59.ru/blog/dokumenty-dlya-postanovki-avto-na-uchet-2026",
+          "snippet": "Документы для постановки на учет авто в 2026 году нужно подготовить до записи в ГИБДД. Инспектор проверяет право собственности, личность владельца, данные транспортного средства и ..."
+        },
+        {
+          "title": "Документы для постановки автомобиля на учет в ГИБДД 2026: полный список ...",
+          "url": "https://pravovoi.center/avtoyurist/uchet-v-gibdd/kak-postavit-mashinu-na-uchet/dokumenty-dlya-p",
+          "snippet": "Актуальный список документов для регистрации авто в 2026 году. Нужно ли ОСАГО и техосмотр? Пошаговая инструкция, сроки и штрафы для водителей в Перми и РФ."
+        },
+        {
+          "title": "Постановка авто на учёт 2026: доки онлайн и без очереди",
+          "url": "https://avtoadv-pravo.ru/postanovka-avtomobilya-na-uchet-v-2026-godu-poshagovoe-rukovodstvo.html",
+          "snippet": "Полный перечень документов для регистрации автомобиля в ГИБДД в 2026 году: для физических и юридических лиц, новых и б/у авто, с изменениями конструкции."
+        },
+        {
+          "title": "Постановка автомобиля на учет в ГИБДД 2026: документы, цены, сроки, как ...",
+          "url": "https://avtovek-ekb.ru/articles/kak-postavit-avtomobil-na-uchet/",
+          "snippet": "Ставим авто на учёт в 2026: свежие правила, список документов, запись по QR и контакты МРЭО в одном месте."
+        },
+        {
+          "title": "Документы для постановки авто на учет в 2026 году: полный список",
+          "url": "https://auto-praktis.vercel.app/articles/s/sp/spisok-dokumentov-dlya-postanovki-na-uchet-avto.html",
+          "snippet": "Полный перечень документов для постановки на учет, оформление ОСАГО, подача заявления через Госуслуги, размер госпошлины и штрафы за просрочку."
+        }
+      ],
+      "searched_at": "2026-07-26"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "документы для постановки авто на учет новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Постановка Авто На Учет В Гибдд В 2026 Году | Журнал Infull",
+          "url": "https://www.infullbroker.ru/articles/kak-postavit-mashinu-na-uchet-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Документы для постановки авто на учет в 2026 году: список в ГИБДД",
+          "url": "https://vikup59.ru/blog/dokumenty-dlya-postanovki-avto-na-uchet-2026",
+          "snippet": "Документы для постановки на учет авто в 2026 году нужно подготовить до записи в ГИБДД. Инспектор проверяет право собственности, личность владельца, данные транспортного средства и ..."
+        },
+        {
+          "title": "Постановка авто на учёт 2026: доки онлайн и без очереди",
+          "url": "https://avtoadv-pravo.ru/postanovka-avtomobilya-na-uchet-v-2026-godu-poshagovoe-rukovodstvo.html",
+          "snippet": "Актуальный список документов для регистрации авто в 2026 году. Нужно ли ОСАГО и техосмотр? Пошаговая инструкция, сроки и штрафы для водителей в Перми и РФ."
+        },
+        {
+          "title": "Документы для постановки автомобиля на учет в ГИБДД 2026: полный список ...",
+          "url": "https://pravovoi.center/avtoyurist/uchet-v-gibdd/kak-postavit-mashinu-na-uchet/dokumenty-dlya-p",
+          "snippet": "Ставим авто на учёт в 2026: свежие правила, список документов, запись по QR и контакты МРЭО в одном месте."
+        },
+        {
+          "title": "Постановка автомобиля на учет в ГИБДД 2026: документы, цены, сроки, как ...",
+          "url": "https://avtovek-ekb.ru/articles/kak-postavit-avtomobil-na-uchet/",
+          "snippet": "Полный перечень документов для регистрации автомобиля в ГИБДД в 2026 году: для физических и юридических лиц, новых и б/у авто, с изменениями конструкции."
+        },
+        {
+          "title": "Как поставить автомобиль на учет в ГИБДД в 2026 году: инструкция по ...",
+          "url": "https://lenta.ru/articles/2025/12/08/registratsiya-avtomobilya/",
+          "snippet": "Полный перечень документов для постановки на учет, оформление ОСАГО, подача заявления через Госуслуги, размер госпошлины и штрафы за просрочку."
+        }
+      ],
+      "searched_at": "2026-07-26"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com документы для постановки авто на учет 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "coursera-ddp-shiny/corpora/ru_50k.txt at master - GitHub",
+          "url": "https://github.com/spujadas/coursera-ddp-shiny/blob/master/corpora/ru_50k.txt",
+          "snippet": ""
+        },
+        {
+          "title": "OrcaSlicer/localization/i18n/ru/OrcaSlicer_ru.po at main - GitHub",
+          "url": "https://github.com/OrcaSlicer/OrcaSlicer/blob/main/localization/i18n/ru/OrcaSlicer_ru.po",
+          "snippet": "Coursera Developing Data Products Week 4 Peer-graded Assignment: Shiny - spujadas/coursera-ddp-shiny"
+        },
+        {
+          "title": "128k-tokens/o200k_base.txt at main · willhama/128k-tokens",
+          "url": "https://github.com/willhama/128k-tokens/blob/main/o200k_base.txt",
+          "snippet": "msgid \"Auto dynamic flow calibration is not supported for TPU filament.\" msgid \"Bambu TPU 85A is not supported for printing with 0.4 mm Standard or High Flow nozzles.\" msgid \"How to feed TPU filament.\" msgid \"How to feed TPU filament on X2D.\" msgid \"Please cold pull before printing TPU to avoid clogging."
+        },
+        {
+          "title": "dima-bzz/Accounting-technology: Учёт Техники - GitHub",
+          "url": "https://github.com/dima-bzz/Accounting-technology",
+          "snippet": "Visualization of different context lengths in text - willhama/128k-tokens"
+        },
+        {
+          "title": "Metrolist/assets/XMR.png at main · MetrolistGroup/Metrolist",
+          "url": "https://github.com/MetrolistGroup/Metrolist/blob/main/assets/XMR.png",
+          "snippet": "Учёт Техники Учёт Техники веб-система, созданная для учёта техники в организации, а так же является внутренним ресурсом компании (й)."
+        },
+        {
+          "title": "diplom/ДИПЛОМНАЯ_РАБОТА.md at main · iluhasam/diplom",
+          "url": "https://github.com/iluhasam/diplom/blob/main/%D0%94%D0%98%D0%9F%D0%9B%D0%9E%D0%9C%D0%9D%D0%90%D0%AF_%D0%A0%D0%90%D0%91%D0%9E%D0%A2%D0%90.md",
+          "snippet": "Contribute to MetrolistGroup/Metrolist development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-07-26"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "документы для постановки авто на учет official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Постановка Авто На Учет В Гибдд В 2026 Году | Журнал Infull",
+          "url": "https://www.infullbroker.ru/articles/kak-postavit-mashinu-na-uchet-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Документы для постановки авто на учет в 2026 году: полный список",
+          "url": "https://auto-praktis.vercel.app/articles/s/sp/spisok-dokumentov-dlya-postanovki-na-uchet-avto.html",
+          "snippet": "Документы для постановки на учет авто в 2026 году нужно подготовить до записи в ГИБДД. Инспектор проверяет право собственности, личность владельца, данные транспортного средства и ..."
+        },
+        {
+          "title": "Постановка на учет авто 2026: нужные документы, очередь, контакты",
+          "url": "https://avtoyurist-gibdd.ru/postanovka-avtomobilya-na-uchet-v-2026-g-dokumenty-poryadok-i-novye-normy.html",
+          "snippet": "Какие документы нужны для регистрации машины в ГИБДД? Пошаговый чек-лист, нюансы для новых и б/у авто, ошибки при оформлении."
+        },
+        {
+          "title": "Документы для постановки авто на учет в 2026 году: список в ГИБДД",
+          "url": "https://vikup59.ru/blog/dokumenty-dlya-postanovki-avto-na-uchet-2026",
+          "snippet": "Узнайте, какие документы нужны для постановки на учет авто в 2026 году, как записаться в онлайн‑очередь, где найти телефон горячей линии, e‑mail и адрес офиса."
+        },
+        {
+          "title": "Как поставить машину на учет в 2026: пошаговая инструкция",
+          "url": "https://auto-praktis.vercel.app/articles/k/ka/kak-postavit-mashinu-na-uchet-v-2025.html",
+          "snippet": "Актуальный список документов для регистрации авто в 2026 году. Нужно ли ОСАГО и техосмотр? Пошаговая инструкция, сроки и штрафы для водителей в Перми и РФ."
+        },
+        {
+          "title": "Постановка авто на учёт 2026: доки онлайн и без очереди",
+          "url": "https://avtoadv-pravo.ru/postanovka-avtomobilya-na-uchet-v-2026-godu-poshagovoe-rukovodstvo.html",
+          "snippet": "Актуальные правила регистрации авто в 2026 году. Новые госпошлины, электронные ПТС, порядок действий в ГИБДД и список необходимых документов."
+        }
+      ],
+      "searched_at": "2026-07-26"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "документы для постановки авто на учет forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Регистрация автомобиля в ГИБДД: пошаговая инструкция на 2026 год",
+          "url": "https://autoguruclub.ru/threads/registratsiya-avtomobilya-v-gibdd-poshagovaya-instruktsiya-na-2026-god.24042/",
+          "snippet": ""
+        },
+        {
+          "title": "Документы для постановки авто на учет в 2026 году: список в ГИБДД",
+          "url": "https://vikup59.ru/blog/dokumenty-dlya-postanovki-avto-na-uchet-2026",
+          "snippet": "В этом материале - подробная инструкция о том, как правильно поставить машину на учет, какие документы подготовить, сколько дней разрешено ездить без номеров и какие изменения ждут автомобилистов в 2026 году. Зачем нужно регистрировать автомобиль."
+        },
+        {
+          "title": "Документы в ГАИ для постановки на учет авто 2026: список",
+          "url": "https://auto-praktis.vercel.app/articles/d/do/dokumenty-v-gai-dlya-postanovki-na-uchet-avtomobilya.html",
+          "snippet": "Актуальный список документов для регистрации авто в 2026 году. Нужно ли ОСАГО и техосмотр? Пошаговая инструкция, сроки и штрафы для водителей в Перми и РФ."
+        },
+        {
+          "title": "Постановка Авто На Учет В Гибдд В 2026 Году | Журнал Infull",
+          "url": "https://www.infullbroker.ru/articles/kak-postavit-mashinu-na-uchet-2026/",
+          "snippet": "Полный список документов для регистрации авто в ГИБДД. Образцы заявлений, правила госпошлин, сроки и нюансы получения номеров в текущем году."
+        },
+        {
+          "title": "Как поставить машину на учет в 2026: пошаговая инструкция",
+          "url": "https://auto-praktis.vercel.app/articles/k/ka/kak-postavit-mashinu-na-uchet-v-2025.html",
+          "snippet": "Постановка авто на учет в ГИБДД в 2026 году проходит по понятному порядку: собственник подает заявление, оплачивает госпошлину, привозит автомобиль на осмотр и получает документы."
+        },
+        {
+          "title": "Регистрация авто 2026: документы, сроки, жизнь без очередей!",
+          "url": "https://avtoyurist-gibdd.ru/obnovlyonnye-pravila-registraczii-avtomobilya-v-rossii-s-1-marta-2026-goda.html",
+          "snippet": "Актуальные правила регистрации авто в 2026 году. Новые госпошлины, электронные ПТС, порядок действий в ГИБДД и список необходимых документов."
+        }
+      ],
+      "searched_at": "2026-07-26"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "постановка авто на учет в гибдд 2026 2026",
+      "purpose": "вторичный запрос: постановка авто на учет в гибдд 2026",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Постановка Авто На Учет В Гибдд В 2026 Году | Журнал Infull",
+          "url": "https://www.infullbroker.ru/articles/kak-postavit-mashinu-na-uchet-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Как поставить машину на учет в ГИБДД в 2026 году",
+          "url": "https://shtrafy-gibdd.ru/articles/kak-postavit-avtomobil-na-uchet",
+          "snippet": "Постановка авто на учет в ГИБДД в 2026 году проходит по понятному порядку: собственник подает заявление, оплачивает госпошлину, привозит автомобиль на осмотр и получает документы."
+        },
+        {
+          "title": "Регистрация автомобиля в ГИБДД 2026: документы и стоимость постановки ...",
+          "url": "https://life.ru/p/1874254",
+          "snippet": "Ознакомьтесь с пошаговым руководством, как поставить машину на учет в ГИБДД в 2026 году, как зарегистрировать автомобиль в ГАИ."
+        },
+        {
+          "title": "Как поставить авто на учёт в 2026: пошагово через Госуслуги",
+          "url": "https://ktohto.ru/article/kak-postavit-avto-na-uchet-v-2026",
+          "snippet": "Как зарегистрировать автомобиль в 2026 году: документы (паспорт, ПТС, договор), госпошлины и сроки. Способы постановки на учёт: через «Госуслуги» (скидка 30%), МФЦ, дилера или в ГИБДД."
+        },
+        {
+          "title": "Постановка автомобиля на учет в ГИБДД 2026: документы, цены, сроки, как ...",
+          "url": "https://avtovek-ekb.ru/articles/kak-postavit-avtomobil-na-uchet/",
+          "snippet": "Постановка авто на учёт через Госуслуги в 2026 году занимает от 1 до 7 дней при корректном наборе документов и записи на осмотр. Доступны онлайн-запись, скидка на пошлину при подаче через личный кабинет и выбор ГИБДД по региону."
+        },
+        {
+          "title": "Постановка авто на учет 2026: стоимость 2850 ₽, скидки и контакты ГИБДД",
+          "url": "https://avtoyurist-gibdd.ru/polnoe-rukovodstvo-kak-postavit-mashinu-na-uchet-v-2026-godu-czeny-dokumenty-zapis-v-gibdd-onlajn-oplata-kontakty-po-regionam.html",
+          "snippet": "Как поставить машину на учет в 2026 быстро и без ошибок. Полный перечень документов для постановки на учет, оформление ОСАГО, подача заявления через Госуслуги, размер госпошлины и штрафы за ..."
+        }
+      ],
+      "searched_at": "2026-07-26"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "постановка на учет авто госуслуги 2026",
+      "purpose": "вторичный запрос: постановка на учет авто госуслуги",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как поставить авто на учёт в 2026: пошагово через Госуслуги",
+          "url": "https://ktohto.ru/article/kak-postavit-avto-na-uchet-v-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Портал государственных услуг Российской Федерации",
+          "url": "https://www.gosuslugi.ru/10059",
+          "snippet": "Постановка авто на учёт через Госуслуги в 2026 году занимает от 1 до 7 дней при корректном наборе документов и записи на осмотр. Доступны онлайн-запись, скидка на пошлину при подаче через личный кабинет и выбор ГИБДД по региону."
+        },
+        {
+          "title": "Постановка Авто На Учет В Гибдд В 2026 Году | Журнал Infull",
+          "url": "https://www.infullbroker.ru/articles/kak-postavit-mashinu-na-uchet-2026/",
+          "snippet": "Вернуться Распечатать { {$root.throbber.header}} { {$root.throbber.subHeader}} Назад { {block.title}} Госуслуги в соцсетях"
+        },
+        {
+          "title": "Как поставить автомобиль на учет в ГИБДД в 2026 году: порядок действий ...",
+          "url": "https://shtrafy-gibdd.ru/articles/kak-postavit-avtomobil-na-uchet",
+          "snippet": "Постановка авто на учет в ГИБДД в 2026 году проходит по понятному порядку: собственник подает заявление, оплачивает госпошлину, привозит автомобиль на осмотр и получает документы."
+        },
+        {
+          "title": "Как поставить машину на учёт через Госуслуги пошагово: запись в ГИБДД ...",
+          "url": "https://auto.ru/mag/article/registraciya-avtomobilya-gosuslugi-instrukciya/",
+          "snippet": "Ознакомьтесь с пошаговым руководством, как поставить машину на учет в ГИБДД в 2026 году, как зарегистрировать автомобиль в ГАИ."
+        },
+        {
+          "title": "Постановка авто на учёт 2026: доки онлайн и без очереди",
+          "url": "https://avtoadv-pravo.ru/postanovka-avtomobilya-na-uchet-v-2026-godu-poshagovoe-rukovodstvo.html",
+          "snippet": "У такого способа немало плюсов, и сегодня мы расскажем, как поставить машину на учёт через Госуслуги, — с пошаговой инструкцией. О том, как поставить машину на учёт в ГИБДД, мы подробно рассказывали в отдельной статье. К сожалению, полностью удалённая регистрация машины сегодня невозможна."
+        }
+      ],
+      "searched_at": "2026-07-26"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "постановка авто на учет техосмотр 2026",
+      "purpose": "вторичный запрос: постановка авто на учет техосмотр",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как пройти техосмотр и поставить авто на учет в 2026 году | Экосмотр",
+          "url": "https://ekosmotr.ru/articles/kak-projti-tehosmotr-i-bez-problem-postavit-avto-na-uchet-v-2025-godu/",
+          "snippet": ""
+        },
+        {
+          "title": "Как поставить авто на учёт в 2026: пошагово через Госуслуги",
+          "url": "https://ktohto.ru/article/kak-postavit-avto-na-uchet-v-2026",
+          "snippet": "Нужен ли техосмотр для постановки на учет автомобиля в 2026 году, кому и когда нужна диагностическая карта: рассказываем, как без лишних проблем пройти техосмотр и зарегистрировать ..."
+        },
+        {
+          "title": "Постановка Авто На Учет В Гибдд В 2026 Году | Журнал Infull",
+          "url": "https://www.infullbroker.ru/articles/kak-postavit-mashinu-na-uchet-2026/",
+          "snippet": "Постановка авто на учёт через Госуслуги в 2026 году занимает от 1 до 7 дней при корректном наборе документов и записи на осмотр. Доступны онлайн-запись, скидка на пошлину при подаче через личный кабинет и выбор ГИБДД по региону."
+        },
+        {
+          "title": "Осмотр автомобиля при постановке на учет в ГИБДД в 2026 году: что ...",
+          "url": "https://pravovoi.center/avtoyurist/uchet-v-gibdd/kak-postavit-mashinu-na-uchet/osmotr-ts.html",
+          "snippet": "Постановка авто на учет в ГИБДД в 2026 году проходит по понятному порядку: собственник подает заявление, оплачивает госпошлину, привозит автомобиль на осмотр и получает документы."
+        },
+        {
+          "title": "Постановка авто на учёт 2026: доки онлайн и без очереди",
+          "url": "https://avtoadv-pravo.ru/postanovka-avtomobilya-na-uchet-v-2026-godu-poshagovoe-rukovodstvo.html",
+          "snippet": "Что проверяют сотрудники ГИБДД при осмотре автомобиля во время регистрации в 2026 году. Порядок проведения осмотра ТС, срок действия результатов и основания для назначения экспертизы."
+        },
+        {
+          "title": "Регистрация автомобиля в ГИБДД 2026: документы и стоимость постановки ...",
+          "url": "https://life.ru/p/1874254",
+          "snippet": "Ставим авто на учёт в 2026: свежие правила, список документов, запись по QR и контакты МРЭО в одном месте."
+        }
+      ],
+      "searched_at": "2026-07-26"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как поставить авто на учёт после ЭПТС: чек-лист документов и шагов 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-07-26"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://vikup59.ru/blog/dokumenty-dlya-postanovki-avto-na-uchet-2026",
+      "title": "Документы для постановки авто на учет в 2026 году: список в ГИБДД",
+      "from_query": "документы для постановки авто на учет 2026"
+    },
+    {
+      "url": "https://www.infullbroker.ru/articles/kak-postavit-mashinu-na-uchet-2026/",
+      "title": "Постановка Авто На Учет В Гибдд В 2026 Году | Журнал Infull",
+      "from_query": "документы для постановки авто на учет 2026"
+    },
+    {
+      "url": "https://pravovoi.center/avtoyurist/uchet-v-gibdd/kak-postavit-mashinu-na-uchet/dokumenty-dlya-p",
+      "title": "Документы для постановки автомобиля на учет в ГИБДД 2026: полный список ...",
+      "from_query": "документы для постановки авто на учет 2026"
+    },
+    {
+      "url": "https://shtrafy-gibdd.ru/articles/kak-postavit-avtomobil-na-uchet",
+      "title": "Как поставить автомобиль на учет в ГИБДД в 2026 году: порядок действий ...",
+      "from_query": "документы для постановки авто на учет 2026"
+    },
+    {
+      "url": "https://avtovek-ekb.ru/articles/kak-postavit-avtomobil-na-uchet/",
+      "title": "Постановка автомобиля на учет в ГИБДД 2026: документы, цены, сроки, как ...",
+      "from_query": "документы для постановки авто на учет 2026"
+    },
+    {
+      "url": "https://avtoadv-pravo.ru/postanovka-avtomobilya-na-uchet-v-2026-godu-poshagovoe-rukovodstvo.html",
+      "title": "Постановка авто на учёт 2026: доки онлайн и без очереди",
+      "from_query": "документы для постановки авто на учет 2026"
+    },
+    {
+      "url": "https://auto-praktis.vercel.app/articles/s/sp/spisok-dokumentov-dlya-postanovki-na-uchet-avto.html",
+      "title": "Документы для постановки авто на учет в 2026 году: полный список",
+      "from_query": "документы для постановки авто на учет июль 2026"
+    },
+    {
+      "url": "https://lenta.ru/articles/2025/12/08/registratsiya-avtomobilya/",
+      "title": "Как поставить автомобиль на учет в ГИБДД в 2026 году: инструкция по ...",
+      "from_query": "документы для постановки авто на учет новости 2026"
+    },
+    {
+      "url": "https://github.com/spujadas/coursera-ddp-shiny/blob/master/corpora/ru_50k.txt",
+      "title": "coursera-ddp-shiny/corpora/ru_50k.txt at master - GitHub",
+      "from_query": "site:github.com документы для постановки авто на учет 2026"
+    },
+    {
+      "url": "https://github.com/OrcaSlicer/OrcaSlicer/blob/main/localization/i18n/ru/OrcaSlicer_ru.po",
+      "title": "OrcaSlicer/localization/i18n/ru/OrcaSlicer_ru.po at main - GitHub",
+      "from_query": "site:github.com документы для постановки авто на учет 2026"
+    },
+    {
+      "url": "https://github.com/willhama/128k-tokens/blob/main/o200k_base.txt",
+      "title": "128k-tokens/o200k_base.txt at main · willhama/128k-tokens",
+      "from_query": "site:github.com документы для постановки авто на учет 2026"
+    },
+    {
+      "url": "https://github.com/dima-bzz/Accounting-technology",
+      "title": "dima-bzz/Accounting-technology: Учёт Техники - GitHub",
+      "from_query": "site:github.com документы для постановки авто на учет 2026"
+    },
+    {
+      "url": "https://github.com/MetrolistGroup/Metrolist/blob/main/assets/XMR.png",
+      "title": "Metrolist/assets/XMR.png at main · MetrolistGroup/Metrolist",
+      "from_query": "site:github.com документы для постановки авто на учет 2026"
+    },
+    {
+      "url": "https://github.com/iluhasam/diplom/blob/main/%D0%94%D0%98%D0%9F%D0%9B%D0%9E%D0%9C%D0%9D%D0%90%D0%AF_%D0%A0%D0%90%D0%91%D0%9E%D0%A2%D0%90.md",
+      "title": "diplom/ДИПЛОМНАЯ_РАБОТА.md at main · iluhasam/diplom",
+      "from_query": "site:github.com документы для постановки авто на учет 2026"
+    },
+    {
+      "url": "https://avtoyurist-gibdd.ru/postanovka-avtomobilya-na-uchet-v-2026-g-dokumenty-poryadok-i-novye-normy.html",
+      "title": "Постановка на учет авто 2026: нужные документы, очередь, контакты",
+      "from_query": "документы для постановки авто на учет official docs documentation 2026"
+    },
+    {
+      "url": "https://auto-praktis.vercel.app/articles/k/ka/kak-postavit-mashinu-na-uchet-v-2025.html",
+      "title": "Как поставить машину на учет в 2026: пошаговая инструкция",
+      "from_query": "документы для постановки авто на учет official docs documentation 2026"
+    },
+    {
+      "url": "https://autoguruclub.ru/threads/registratsiya-avtomobilya-v-gibdd-poshagovaya-instruktsiya-na-2026-god.24042/",
+      "title": "Регистрация автомобиля в ГИБДД: пошаговая инструкция на 2026 год",
+      "from_query": "документы для постановки авто на учет forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto-praktis.vercel.app/articles/d/do/dokumenty-v-gai-dlya-postanovki-na-uchet-avtomobilya.html",
+      "title": "Документы в ГАИ для постановки на учет авто 2026: список",
+      "from_query": "документы для постановки авто на учет forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://avtoyurist-gibdd.ru/obnovlyonnye-pravila-registraczii-avtomobilya-v-rossii-s-1-marta-2026-goda.html",
+      "title": "Регистрация авто 2026: документы, сроки, жизнь без очередей!",
+      "from_query": "документы для постановки авто на учет forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://life.ru/p/1874254",
+      "title": "Регистрация автомобиля в ГИБДД 2026: документы и стоимость постановки ...",
+      "from_query": "постановка авто на учет в гибдд 2026 2026"
+    },
+    {
+      "url": "https://ktohto.ru/article/kak-postavit-avto-na-uchet-v-2026",
+      "title": "Как поставить авто на учёт в 2026: пошагово через Госуслуги",
+      "from_query": "постановка авто на учет в гибдд 2026 2026"
+    },
+    {
+      "url": "https://avtoyurist-gibdd.ru/polnoe-rukovodstvo-kak-postavit-mashinu-na-uchet-v-2026-godu-czeny-dokumenty-zapis-v-gibdd-onlajn-oplata-kontakty-po-regionam.html",
+      "title": "Постановка авто на учет 2026: стоимость 2850 ₽, скидки и контакты ГИБДД",
+      "from_query": "постановка авто на учет в гибдд 2026 2026"
+    },
+    {
+      "url": "https://www.gosuslugi.ru/10059",
+      "title": "Портал государственных услуг Российской Федерации",
+      "from_query": "постановка на учет авто госуслуги 2026"
+    },
+    {
+      "url": "https://auto.ru/mag/article/registraciya-avtomobilya-gosuslugi-instrukciya/",
+      "title": "Как поставить машину на учёт через Госуслуги пошагово: запись в ГИБДД ...",
+      "from_query": "постановка на учет авто госуслуги 2026"
+    },
+    {
+      "url": "https://ekosmotr.ru/articles/kak-projti-tehosmotr-i-bez-problem-postavit-avto-na-uchet-v-2025-godu/",
+      "title": "Как пройти техосмотр и поставить авто на учет в 2026 году | Экосмотр",
+      "from_query": "постановка авто на учет техосмотр 2026"
+    },
+    {
+      "url": "https://pravovoi.center/avtoyurist/uchet-v-gibdd/kak-postavit-mashinu-na-uchet/osmotr-ts.html",
+      "title": "Осмотр автомобиля при постановке на учет в ГИБДД в 2026 году: что ...",
+      "from_query": "постановка авто на учет техосмотр 2026"
+    }
+  ]
+}

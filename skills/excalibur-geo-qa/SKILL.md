@@ -44,7 +44,11 @@ python scripts/excalibur_blog_cannibalization_guard.py \
 python scripts/excalibur_blog_utility_gate.py \
   --article-dir memory/blog/articles/<dir> \
   --output utility-gate-report.json
+```
 
+Utility gate читает `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json`. Пустой список = skip pain/outcome checks (не hard-fail с count=0). Recommendation markers должны включать оба варианта `чеклист` / `чек-лист`. Инсайт-блок: ярлык `Коротко:`, не `TL;DR` / `Быстрый инсайт`.
+
+```bash
 python scripts/excalibur_blog_human_voice_gate.py \
   --article-dir memory/blog/articles/<dir> \
   -o human-voice-report.json

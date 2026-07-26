@@ -6,7 +6,50 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+- `INC-20260726-0927-cover-kie-credits-insufficient`
 - `INC-20260726-0925-schema-jsonld-secret-scanner-pragma`
+
+## INC-20260726-0927-cover-kie-credits-insufficient
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-cover
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-proverit-nalog-na-roskosh-avto-2026
+severity: blocker
+category: api
+
+### What went wrong
+- Cover quad pipeline готов: `quad-manifest.json`, `quad-mcp-batch.json` (1 job, `input_urls` filled), prompt non-toxic.
+- `CallMcpTool` `gpt-image-2` (i2i, 16:9, 2K) → opaque error: `'NoneType' object has no attribute 'get'` (даже на минимальном smoke-test без `input_urls`).
+- Fallback `nano_banana_pro` (тот же Kie.ai) → явный **402 Credits insufficient**.
+- `flux2-pro-image-to-image` → тот же opaque `NoneType.get` (вероятно тот же пустой баланс/ответ).
+- Без живой генерации нельзя invent `cover.png` / inline; catbox `--force` upload лица: 412; 0x0: 503 — reuse existing `reference_url_hosted` (byte-identical to local PNG).
+
+### How the agent recovered this run
+- Не создавал fake PNG.
+- Зафиксировал ❌ в `.cursor/excalibur-blog-fragments/cover.md`.
+- Оставил артефакты manifest/batch/prompt для retry после top-up Kie.
+
+### Durable fix needed before next run
+- Пополнить баланс Kie.ai для MCP-KV (`gpt-image-2` / image tools).
+- Улучшить MCP wrapper `gpt-image-2`: пробрасывать HTTP/body code (402) вместо `'NoneType'.get`.
+- В cover skill / pitfalls: при opaque NoneType сначала проверить баланс через другой Kie tool; blocker = credits, не «битый prompt».
+- Опционально: `excalibur_blog_hero_reference_url.py` — litterbox fallback если catbox/0x0 down.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_hero_reference_url.py`
+- Cursor Dashboard Secrets / Kie.ai billing for MCP-KV
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+---
 
 ## INC-20260726-0925-schema-jsonld-secret-scanner-pragma
 status: open

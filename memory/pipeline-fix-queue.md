@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260726-1319-cover-kie-402-credits
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-cover
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026
+severity: blocker
+category: api
+
+### What went wrong
+- MCP `gpt-image-2` (MCP-KV) failed first: `Ошибка gpt-image-2 API: 'NoneType' object has no attribute 'get'` (no image URL returned).
+- Preferred Cloud recovery via `scripts/excalibur_blog_kie_gpt_image2_api.py` (same batch mcp_args, i2i + input_urls) failed with Kie `createTask` **code=402** `Credits insufficient`.
+- Cover artifacts after blocker: only `quad-manifest.json`, `quad-mcp-batch.json`, `quad-mcp-prompt.txt` — no canvas/cover/inline PNGs generated. Images were not faked.
+
+### How the agent recovered this run
+- Stopped with explicit COVER BLOCKER (no invent/split/apply without real URL).
+- Wrote fragment `.cursor/excalibur-blog-fragments/cover.md` with status ❌ and blockers.
+
+### Durable fix needed before next run
+- Top up Kie.ai credits / ensure billing for `gpt-image-2-image-to-image` before cover step.
+- Harden MCP-KV `gpt-image-2` wrapper so credit/empty responses return clear 402/msg instead of `NoneType.get`.
+- Optional: expose async start/status MCP tools so sync client timeout/-32001 and opaque errors are recoverable by task_id.
+
+### Suggested files to inspect/change
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/mcp-image-async-contract.md`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- MCP-KV `gpt-image-2` server wrapper (external)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260726-1330-geo-qa-utility-policy-markers-missing
 status: open
 run_date: 2026-07-26

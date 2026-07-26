@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS10",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "ЭПТС есть — в ГИБДД развернули?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у окна МРЭО с папкой документов и ключами, дневной свет, плашка после ЭПТС",
+      "scene_hint": "Герой у окна ГИБДД/МРЭО днём: светлое окно, очередь/стойка на фоне, держит папку с документами и ключи от авто. Одежда: smart casual — светлая рубашка и лёгкий тёмно-синий пиджак (офис/документы, дневной свет), НЕ майка с reference. Лицо и очки строго с reference. Плашка RU «после ЭПТС». Fake UI: чеклист документов (ЭПТС статус Действующий, ОСАГО, ДКП) на рваной бумаге со скотчем; маленький стикер «папка готова» без токсичного текста; угол avto-sales125.ru. Мем-реакция: лёгкий facepalm/удивление. Без Wordstat/Метрики/Telegram.",
+      "meme_caption_ru": "после ЭПТС — в МРЭО?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Проверьте, можно ли уже ехать в ГИБДД после ЭПТС",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист-доска «можно ли ехать в ГИБДД»: статус ЭПТС Действующий, утильсбор, СБКТС/ЭПБ, без лица героя; стикер «сверь статус» и скотч; читаемые галочки",
+      "alt": "Чеклист перед визитом в ГИБДД: статус ЭПТС, утильсбор и готовность документов"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Соберите папку документов до записи в МРЭО",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица-UI «нужно / часто забывают»: паспорт, ДКП, ЭПТС, ОСАГО, заявление — vs пустая папка; без героя; мини-стикер «собери до записи»",
+      "alt": "Таблица документов для постановки на учёт: обязательное и часто забытое"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Разведите техосмотр и ОСАГО: какой порядок в 2026",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема порядка 2026: техосмотр → диагностическая карта → ОСАГО → запись Госуслуги; стрелки и номера шагов; без лица героя; лёгкий tape-угол",
+      "alt": "Схема порядка 2026: техосмотр, ОСАГО и запись в Госуслуги до осмотра"
+    }
+  }
+}

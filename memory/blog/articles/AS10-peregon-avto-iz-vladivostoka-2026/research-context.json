@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-26",
+    "today_ru": "26.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-27",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-26 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS10",
+    "priority": "P0",
+    "slug": "peregon-avto-iz-vladivostoka-2026",
+    "h1": "Перегон авто из Владивостока в 2026: как выбрать и довезти машину без сюрпризов",
+    "primary_query": "перегон авто из владивостока",
+    "secondary_queries": [
+      "перегон авто из владивостока 2026",
+      "перегон авто из владивостока в москву",
+      "перегон авто из владивостока своим ходом",
+      "сколько стоит перегон авто из владивостока"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS10",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "перегон авто из владивостока 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "перегон авто из владивостока июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "перегон авто из владивостока новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com перегон авто из владивостока 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "перегон авто из владивостока official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "перегон авто из владивостока forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "перегон авто из владивостока 2026 2026",
+      "purpose": "вторичный запрос: перегон авто из владивостока 2026"
+    },
+    {
+      "id": "secondary_2",
+      "query": "перегон авто из владивостока в москву 2026",
+      "purpose": "вторичный запрос: перегон авто из владивостока в москву"
+    },
+    {
+      "id": "secondary_3",
+      "query": "перегон авто из владивостока своим ходом 2026",
+      "purpose": "вторичный запрос: перегон авто из владивостока своим ходом"
+    },
+    {
+      "id": "secondary_4",
+      "query": "сколько стоит перегон авто из владивостока 2026",
+      "purpose": "вторичный запрос: сколько стоит перегон авто из владивостока"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Перегон авто из Владивостока в 2026: как выбрать и довезти машину без сюрпризов 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS10-peregon-avto-iz-vladivostoka-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

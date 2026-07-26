@@ -31,3 +31,19 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-07-26 — AS10 peregon-avto-iz-vladivostoka-2026
+
+- **verdict:** FAIL (PUBLISH BLOCKER)
+- **post_id:** —
+- **permalink:** —
+- **featured_image:** —
+- **inline_images:** —
+- **schema_meta:** —
+- **link_verify:** pass (2/2)
+- **dry_run:** ok (PHP bytes 48668)
+- **live_publish_attempted:** no
+- **blockers:** missing `cover/cover.png` + `cover/cover-registry.json` (upstream COVER BLOCKER Kie 402)
+- **ledger:** `shared/published-articles.md` остаётся `in_progress` (не published)
+- **result:** `memory/blog/articles/AS10-peregon-avto-iz-vladivostoka-2026/wp-publish-result.json`
+- **incident:** `memory/pipeline-fix-queue.md#INC-20260726-1715-cover-kie-credits-402`

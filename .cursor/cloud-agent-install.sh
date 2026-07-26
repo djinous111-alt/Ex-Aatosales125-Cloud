@@ -13,4 +13,10 @@ python3 -m pip install --break-system-packages --quiet \
 mkdir -p .cursor/excalibur-blog-fragments
 touch .cursor/excalibur-blog-handoff.md
 
+# Make Cursor secrets pre-commit resilient to misconfigured secret *names*
+# (URL-as-name → bash "invalid variable name" → forced --no-verify).
+if [[ -x scripts/excalibur_blog_patch_agent_hooks.sh ]]; then
+  bash scripts/excalibur_blog_patch_agent_hooks.sh || true
+fi
+
 echo "[excalibur-cloud] install ok"

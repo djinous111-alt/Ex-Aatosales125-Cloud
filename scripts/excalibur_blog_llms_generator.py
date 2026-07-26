@@ -103,9 +103,41 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
     return "\n".join(lines)
 
 
+
+def resolve_articles_dir(root: Path, blog_dir_arg: Path | None) -> Path:
+    """Resolve articles root. --blog-path is an alias of --blog-dir (NOT a URL prefix)."""
+    blog_dir = blog_dir_arg or (root / "memory/blog/articles")
+    if not blog_dir.is_absolute():
+        blog_dir = root / blog_dir
+    resolved = blog_dir.resolve()
+    # Common agent mistake: --blog-path / (site brief blog_path) overwrote articles dir.
+    if resolved == Path("/") or str(blog_dir_arg or "") in {"/", "."}:
+        raise SystemExit(
+            "ERROR: --blog-dir/--blog-path must point to memory/blog/articles "
+            "(directory of article folders), not a URL path like '/'. "
+            "Use: --blog-dir memory/blog/articles. "
+            "Site base URL is --site-base, not --blog-path."
+        )
+    return resolved
+
+
 def main() -> int:
-    ap = argparse.ArgumentParser(description="Generate AI-friendly llms.txt and llms-full.txt")
-    ap.add_argument("--blog-dir", type=Path, default=None)
+    ap = argparse.ArgumentParser(
+        description="Generate AI-friendly llms.txt and llms-full.txt",
+        epilog=(
+            "Note: --blog-path is an alias of --blog-dir (articles filesystem path). "
+            "Do NOT pass '/' from site-brief blog_path; use --site-base for the public URL."
+        ),
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    ap.add_argument(
+        "--blog-dir",
+        "--blog-path",
+        type=Path,
+        default=None,
+        dest="blog_dir",
+        help="Path to memory/blog/articles (NOT a URL prefix; --blog-path is alias only)",
+    )
     ap.add_argument("--site-name", type=str, default="Авто-Сейлс")
     ap.add_argument("--site-desc", type=str, default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.")
     ap.add_argument("--site-base", type=str, default="https://avtosales125.ru")
@@ -113,9 +145,7 @@ def main() -> int:
     args = ap.parse_args()
 
     root = project_root()
-    blog_dir = args.blog_dir or root / "memory/blog/articles"
-    if not blog_dir.is_absolute():
-        blog_dir = root / blog_dir
+    blog_dir = resolve_articles_dir(root, args.blog_dir)
 
     out_dir = args.out_dir or root
     if not out_dir.is_absolute():
@@ -123,10 +153,19 @@ def main() -> int:
 
     articles = load_articles(blog_dir)
     print(f"Loaded {len(articles)} articles to index for LLMs.")
+    if args.blog_dir is not None and len(articles) == 0:
+        import sys
+        print(
+            f"ERROR: 0 articles under {blog_dir}. "
+            "Check that --blog-dir points to memory/blog/articles (not '/').",
+            file=sys.stderr,
+        )
+        return 1
 
     llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, args.site_base)
     llms_full_txt = build_llms_full_txt(args.site_name, articles, args.site_base)
 
+    out_dir.mkdir(parents=True, exist_ok=True)
     llms_path = out_dir / "llms.txt"
     llms_full_path = out_dir / "llms-full.txt"
 

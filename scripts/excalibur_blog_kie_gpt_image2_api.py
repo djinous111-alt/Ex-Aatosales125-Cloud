@@ -91,8 +91,14 @@ def http_json(method: str, url: str, api_key: str, payload: dict[str, Any] | Non
 def require_success(response: dict[str, Any], action: str) -> None:
     if response.get("code") == 200:
         return
+    code = response.get("code")
     msg = response.get("msg") or "unknown error"
-    raise KieApiError(f"Kie API {action} failed: code={response.get('code')} msg={msg}")
+    if code in (402, "402") or "credits insufficient" in str(msg).lower():
+        raise KieApiError(
+            f"Kie API CREDITS BLOCKER ({action}): code={code} msg={msg}. "
+            "Top up Kie.ai balance for KIE_API_KEY; do not invent cover.png / fake images."
+        )
+    raise KieApiError(f"Kie API {action} failed: code={code} msg={msg}")
 
 
 def batch_mcp_args(batch_path: Path) -> dict[str, Any]:

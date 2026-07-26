@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS10",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Ключи чужому без акта — и всё?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс на трассе Дальнего Востока с плашкой про перегон авто из Владивостока 2026 и чеклистом договора",
+      "scene_hint": "reference-лицо + очки; одежда агента: лёгкая ветровка-бомбер поверх тёмной футболки (лето/трасса ДВ, НЕ майка с reference), без кепки/капюшона; поза action selfie у современного седана на обочине федеральной трассы Владивосток→запад, пыль/солнце; fake UI: рваный скрин чеклиста «договор + акт + фото ключей» и мини-карточка маршрута топлива; жёлтый маркер на слове «акта»; стикер «жиза», facepalm-мем; угол мелкий avto-sales125.ru; hook-плашка кириллицей про перегон 2026",
+      "meme_caption_ru": "Гнать самому или отдать?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Сравните форматы: свой ход, перегонщик или когда лучше не гнать",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Чистая UI-таблица 3 колонки без лица героя: «свой ход / перегонщик / автовоз» — критерии риск, контроль, цена, когда нельзя гнать; скотч на углу, стикер «выбери формат»; фон трасса/логистика намёком",
+      "alt": "Сравнительная таблица: свой ход, перегонщик и автовоз для перегона из Владивостока"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Проверьте, подходит ли авто для своего хода",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист-доска без героя: шины, тормоза, охлаждение, запас топлива, запасные части, пробег/состояние после СВХ; розовая sticky note «до старта»; маркерные галочки",
+      "alt": "Чеклист готовности авто к перегону своим ходом из Владивостока"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Соберите документы и страховку до старта",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема-workflow без лица: ЭПТС → ОСАГО 5–20 дней → доверенность/договор → акт + фото → ключи; стрелки шагов, мини-иконки документов; tape corner + sticky «не забудь»",
+      "alt": "Схема документов и страховки до старта перегона авто из Владивостока"
+    }
+  }
+}

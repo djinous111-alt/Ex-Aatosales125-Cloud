@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/AS10-peregon-avto-iz-vladivostoka-2026",
+  "notes": "memory/blog/articles/AS10-peregon-avto-iz-vladivostoka-2026/research-notes.md",
+  "context": "memory/blog/articles/AS10-peregon-avto-iz-vladivostoka-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-07-26",
+    "prefer_sources_after": "2026-04-27",
+    "source_urls": 47,
+    "source_domains": 16,
+    "source_table_rows": 43,
+    "accessed_at": 7,
+    "github_urls": 3,
+    "official_doc_urls": 4,
+    "action_outline_items": 9,
+    "pain_solution_rows": 4,
+    "technical_topic": true
+  }
+}

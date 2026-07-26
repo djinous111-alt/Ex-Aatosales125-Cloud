@@ -5,7 +5,7 @@
 - `research-notes.md` с **utility_verdict: PASS**
 - `shared/excalibur-article-writing-contract.md`
 - `shared/editorial-utility-only.md`
-- `memory/brief/site-brief.md`, `conversion-map.md`
+- `memory/brief/site-brief.md`, `conversion-map.md` (CTA URL только отсюда / из env `CATALOG_URL`/`TELEGRAM_URL`/`PUBLIC_SITE_URL`)
 
 ## Задача
 
@@ -37,10 +37,16 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## CTA / ссылки
+
+- Бери `href` только из `memory/brief/conversion-map.md` / `offers-map.md` или Cloud env (`CATALOG_URL`, `TELEGRAM_URL`, `PUBLIC_SITE_URL`).
+- **ЗАПРЕЩЕНО** в `article.html`: литералы `href="[REDACTED]"`, `href="#"`-заглушки под CTA, выдуманные URL. Secret-scan redaction в git ≠ placeholder в теле статьи — link-verify тогда даёт 404.
+
 ## Blockers
 
 - нет research-notes.md
 - utility-only нарушен (вода, нет шагов)
 - объём вне диапазона после 1 правки
+- CTA/`href` с литералом `[REDACTED]`
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`

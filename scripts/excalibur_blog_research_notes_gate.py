@@ -14,19 +14,23 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short tokens must match as whole words — raw substring falsely flags
+# reader_pain / pain ("ai") and Cyrillic endings like фотофиксации ("ии").
+TECH_MARKERS_BOUNDARY = (
     "ai",
     "ии",
-    "agent",
-    "агент",
-    "mcp",
+    "rag",
     "api",
-    "cursor",
+    "mcp",
     "make",
     "n8n",
+)
+TECH_MARKERS_SUBSTRING = (
+    "agent",
+    "агент",
+    "cursor",
     "github",
     "docker",
-    "rag",
     "workflow",
     "автоматизац",
     "нейросет",
@@ -73,14 +77,34 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _tech_marker_hit(blob: str, marker: str, *, boundary: bool) -> bool:
+    if not marker:
+        return False
+    if not boundary:
+        return marker in blob
+    # Latin + Cyrillic aware token edges (avoid matching inside words).
+    pattern = rf"(?<![0-9a-zа-яё_]){re.escape(marker)}(?![0-9a-zа-яё_])"
+    return bool(re.search(pattern, blob, flags=re.IGNORECASE))
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
+    # Prefer topic metadata; only skim notes body (not field labels like reader_pain).
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Strip labeled field lines that contain short latin substrings (pain→ai).
+    notes_body = re.sub(
+        r"(?im)^\s*(?:[-*]\s*)?(?:\*\*)?(?:reader_pain|reader_outcome|pain_solution_map|"
+        r"success_criteria|voice_angle|reader_story|surprising_fact)\b.*$",
+        " ",
+        notes[:2500],
+    )
+    blob += " " + notes_body.lower()
+    if any(_tech_marker_hit(blob, m, boundary=True) for m in TECH_MARKERS_BOUNDARY):
+        return True
+    return any(_tech_marker_hit(blob, m, boundary=False) for m in TECH_MARKERS_SUBSTRING)
 
 
 def field_present(text_lower: str, field: str) -> bool:

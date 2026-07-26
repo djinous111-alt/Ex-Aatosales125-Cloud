@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260726-1306-scout-precommit-secret-names
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-scout
+topic_id: AS10
+article_dir: n/a
+severity: low
+category: env
+
+### What went wrong
+- Cursor pre-commit secret scanner crashed on `RAW_SECRET_VALUE="${!SECRET_NAME}"` when `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a token that is not a valid bash identifier.
+- After filtering invalid names, scanner correctly blocked staging of `shared/published-articles.md` because live `PUBLIC_SITE_URL` values were present (expected redaction policy).
+
+### How the agent recovered this run
+- Filtered secret-name list to `[A-Za-z_][A-Za-z0-9_]*` for the commit command env only.
+- Unstaged `shared/published-articles.md`; committed `memory/topics/blog-topics.md` + AS-topic script fixes only.
+- Left handoff uncommitted per git hygiene.
+
+### Durable fix needed before next run
+- Ensure Cloud-injected secret names are always valid bash identifiers, or harden the scanner to skip invalid names.
+- Keep ledger URLs redacted to `[REDACTED]` before any commit of `shared/published-articles.md`.
+
+### Suggested files to inspect/change
+- Cursor Cloud Secrets naming / pre-commit scanner
+- `shared/published-articles.md` redaction policy
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

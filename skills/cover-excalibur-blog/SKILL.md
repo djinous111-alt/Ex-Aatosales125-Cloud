@@ -181,6 +181,7 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 - 4 отдельные генерации
 - QUAD SPLIT fail
 - inline = meme с ведущим вместо UI
+- **Kie / gpt-image-2 `code=402` Credits insufficient** — COVER BLOCKER (env/billing). Не выдумывать `cover.png`. Fallback: `python3 scripts/excalibur_blog_kie_gpt_image2_api.py` даёт явный CREDITS BLOCKER; MCP `NoneType.get` часто маскирует тот же 402. Нужен top-up Kie баланса / проверка `KIE_API_KEY`.
 
 ---
 

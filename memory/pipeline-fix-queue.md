@@ -332,7 +332,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20260726-1705-scout-precommit-hook-redacted-var
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-scout
 topic_id: AS10
@@ -356,10 +356,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Root cause: CLOUD_AGENT_INJECTED_SECRET_NAMES includes a non-bash-identifier secret *name* (URL), so Cursor secrets scanner `${!SECRET_NAME}` dies with "invalid variable name".
+- Added `scripts/excalibur_blog_patch_agent_hooks.sh` to skip invalid names in `pre-commit.cursor` and `commit-msg.cursor`; wired into `.cursor/cloud-agent-install.sh`.
+- Documented in pitfalls; agents can commit without `--no-verify` after patch.
+- Human follow-up: remove URL-as-name from Cloud Secrets dashboard (optional cleanup).
+files_changed:
+- `scripts/excalibur_blog_patch_agent_hooks.sh`
+- `.cursor/cloud-agent-install.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `bash scripts/excalibur_blog_patch_agent_hooks.sh`
+- `git commit` smoke without `--no-verify` (pre-commit + commit-msg WARN skip len=25, exit 0)
+commit: pending-parent-commit
+
 
 ## INC-20260726-1705-research-tech-marker-false-positive
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-research
 topic_id: AS10
@@ -391,10 +406,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- `is_technical_topic` now uses word-boundary matching for short markers (`ai`, `ии`, `rag`, `api`, `mcp`, `make`, `n8n`) and strips labeled pain/outcome field lines before scan.
+- AS10 auto-logistics no longer false-positive technical; GitHub≥3 only for real tech topics.
+- Duplicate incident block closed with the same fix.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+- AS10 research-notes-gate PASS with `technical_topic=false`
+- unit: auto topic False / MCP+RAG topic True
+commit: pending-parent-commit
+
 
 ## INC-20260726-1705-research-tech-marker-false-positive
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-research
 topic_id: AS10
@@ -426,10 +457,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- `is_technical_topic` now uses word-boundary matching for short markers (`ai`, `ии`, `rag`, `api`, `mcp`, `make`, `n8n`) and strips labeled pain/outcome field lines before scan.
+- AS10 auto-logistics no longer false-positive technical; GitHub≥3 only for real tech topics.
+- Duplicate incident block closed with the same fix.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+- AS10 research-notes-gate PASS with `technical_topic=false`
+- unit: auto topic False / MCP+RAG topic True
+commit: pending-parent-commit
+
 
 ## INC-20260726-1710-geo-qa-utility-pain-markers-missing
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-geo-qa
 topic_id: AS10
@@ -463,10 +510,28 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Confirmed `excalibur_blog_utility_gate.py` already enforces pain/outcome only when marker lists are non-empty; `editorial-policy.json` has pain/outcome markers + mins.
+- Writer contract/skill forbid `href="[REDACTED]"` placeholders; CTA from conversion-map/env.
+- Human-voice `exactly_five_lists` now counts exact 5 `<li>` per `<ol>` (not ≥5).
+files_changed:
+- `scripts/excalibur_blog_utility_gate.py` (verified)
+- `memory/brief/editorial-policy.json` (verified markers present)
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- AS10 utility gate PASS
+- `python3 -m py_compile scripts/excalibur_blog_human_voice_gate.py scripts/excalibur_blog_utility_gate.py`
+commit: pending-parent-commit
+
 
 ## INC-20260726-1715-cover-kie-credits-402
-status: open
+status: needs-human
 run_date: 2026-07-26
 role: excalibur-blog-cover
 topic_id: AS10
@@ -499,10 +564,25 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+reason:
+- Kie API returns code=402 Credits insufficient; cannot invent cover.png / credits in code.
+- Durable messaging improved (CREDITS BLOCKER in kie script + cover skill + pitfalls), but billing top-up is human/env.
+needed_decision_or_secret:
+- Top up Kie.ai balance for the Cloud `KIE_API_KEY`, then re-run cover → publish for AS10.
+- Optional: remove/replace broken MCP gpt-image-2 opaque NoneType errors upstream (MCP-KV).
+files_changed:
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_kie_gpt_image2_api.py`
+commit: pending-parent-commit
+
 
 ## INC-20260726-1717-indexer-llms-blog-path-slash
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-indexer
 topic_id: AS10
@@ -536,4 +616,20 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Removed misleading `--blog-path /` from indexer agent/skill examples; documented alias vs URL.
+- `excalibur_blog_llms_generator.py` rejects `/` / `.` as blog_dir and errors on 0 articles when path was explicit; creates out_dir.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `--blog-path /` → exit 1 with clear ERROR
+- `--blog-dir memory/blog/articles` → Loaded 3 articles
+commit: pending-parent-commit
+

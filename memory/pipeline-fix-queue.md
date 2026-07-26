@@ -51,7 +51,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - docs contain secret-scan guidance
-commit: 5c4c2b6
+commit: 1aba2dc
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -341,7 +341,7 @@ checks_run:
 - py_compile today.py + scout_helper.py
 - scout_helper --suggest-next → AS11
 - today.py → TOPIC_SELECTION=ready
-commit: 5c4c2b6
+commit: 1aba2dc
 
 
 ## INC-20260726-2101-scout-wp-mcp-wrong-site
@@ -387,7 +387,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - scout_helper --check-live-slugs … → clean for AS10 slug
-commit: 5c4c2b6
+commit: 1aba2dc
 
 
 ## INC-20260726-2102-scout-precommit-secret-name
@@ -431,7 +431,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - bash -n patch + install scripts
-commit: 5c4c2b6
+commit: 1aba2dc
 
 
 ## Fixed incidents
@@ -487,7 +487,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - AS10 research gate PASS, technical_topic=False
-commit: 5c4c2b6
+commit: 1aba2dc
 
 
 ## INC-20260726-2112-geo-qa-utility-pain-defaults
@@ -531,7 +531,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - utility gate AS10 → PASS
-commit: 5c4c2b6
+commit: 1aba2dc
 
 
 ## INC-20260726-2112-geo-qa-writer-redacted-href
@@ -578,7 +578,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - synthetic REDACTED href → link-verify fail
-commit: 5c4c2b6
+commit: 1aba2dc
 
 
 ## INC-20260726-2116-cover-kie-credits
@@ -628,7 +628,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - none (billing blocker)
-commit: 5c4c2b6
+commit: 1aba2dc
 
 
 ## INC-20260726-2118-indexer-llms-stale-blog-path
@@ -682,7 +682,7 @@ files_changed:
 checks_run:
 - llms --help has --blog-dir, no --blog-path
 - doctor OK for llms flags
-commit: 5c4c2b6
+commit: 1aba2dc
 
 
 ## INC-20260726-2120-publish-cover-missing
@@ -734,5 +734,5 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - dry-run AS10 without cover → FileNotFoundError PUBLISH BLOCKER
-commit: 5c4c2b6
+commit: 1aba2dc
 

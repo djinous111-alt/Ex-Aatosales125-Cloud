@@ -6,8 +6,48 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+- `INC-20260726-0928-indexer-llms-blog-path-slash-stale-docs`
 - `INC-20260726-0927-cover-kie-credits-insufficient`
 - `INC-20260726-0925-schema-jsonld-secret-scanner-pragma`
+
+## INC-20260726-0928-indexer-llms-blog-path-slash-stale-docs
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-indexer
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-proverit-nalog-na-roskosh-avto-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer agent/skill still document `excalibur_blog_llms_generator.py ... --blog-path /`.
+- Script (post-Fixer) treats `/` or `.` as ERROR and requires `--blog-dir memory/blog/articles` (or `--blog-path` alias to that path).
+- Following skill/agent literally would fail llms generation; Director/user had to override with explicit «НИКОГДА `--blog-path /`».
+
+### How the agent recovered this run
+- Ran llms with `--blog-dir memory/blog/articles` only (no `--blog-path /`).
+- Generated `memory/blog/llms.txt` and `memory/blog/llms-full.txt` (3 articles incl. AS10).
+- Interlinker `--apply` for AS10: 0 opportunities (expected; no keyword overlap with AS08/AS09).
+
+### Durable fix needed before next run
+- Replace `--blog-path /` examples with `--blog-dir memory/blog/articles` in all indexer contracts (plugin + cloud mirrors).
+- Optionally drop `--blog-path` from the shell example entirely; keep alias only in script `--help`.
+- One line in `shared/agent-pipeline-pitfalls.md`: never pass `--blog-path /` to llms generator.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+---
 
 ## INC-20260726-0927-cover-kie-credits-insufficient
 status: open

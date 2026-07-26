@@ -7,7 +7,7 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 ## INC-20260726-2117-schema-secret-scan-urls
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-schema
 topic_id: AS10
@@ -38,7 +38,21 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Schema skill/agent + writing-contract: relative page ids and secret-scan-safe sameAs CTA variants.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- docs contain secret-scan guidance
+commit: 5c4c2b6
+
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -286,7 +300,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20260726-2101-scout-as-prefix-helper
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-scout
 topic_id: AS10
@@ -314,10 +328,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Broadened topic ID parsing to `(?:AS|B)\d+` in today.py and scout_helper.py (dirs, headings, suggest-next).
+- `--suggest-next` now prefers AS* and returns AS11 for the current pool (was wrongly B01).
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- py_compile today.py + scout_helper.py
+- scout_helper --suggest-next → AS11
+- today.py → TOPIC_SELECTION=ready
+commit: 5c4c2b6
+
 
 ## INC-20260726-2101-scout-wp-mcp-wrong-site
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-scout
 topic_id: AS10
@@ -345,10 +373,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Scout agent/skill: prefer PUBLIC_SITE_URL (today.py) + published-live-avtosales125.json; MCP wordpress_get_posts untrusted alone.
+- Added scout_helper `--check-live-slugs` / `--slug`.
+files_changed:
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- scout_helper --check-live-slugs … → clean for AS10 slug
+commit: 5c4c2b6
+
 
 ## INC-20260726-2102-scout-precommit-secret-name
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-scout
 topic_id: AS10
@@ -377,14 +420,26 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Kept patch script for non-identifier secret names; wired into cloud-agent-install.sh.
+- Documented identifier-only Dashboard secret names in pitfalls.
+files_changed:
+- `scripts/excalibur_blog_patch_agent_hooks.sh`
+- `.cursor/cloud-agent-install.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- bash -n patch + install scripts
+commit: 5c4c2b6
+
 
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
 
 ## INC-20260726-2108-research-notes-gate-regex
-status: open
+status: fixed
 run_date: 2026-07-27
 role: excalibur-blog-research
 topic_id: AS10
@@ -417,10 +472,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- accessed_at: literal tokens or ISO dates in URL table rows.
+- pain_solution_map: count section data-rows (keywords optional).
+- Softened technical_topic (strip github_evidence section; no bare Cyrillic ii false positive).
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `agents/excalibur-blog-research.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- AS10 research gate PASS, technical_topic=False
+commit: 5c4c2b6
+
 
 ## INC-20260726-2112-geo-qa-utility-pain-defaults
-status: open
+status: fixed
 run_date: 2026-07-27
 role: excalibur-blog-geo-qa
 topic_id: AS10
@@ -450,11 +521,21 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Confirmed conditional pain/outcome mins in utility_gate.py; documented in editorial-utility-only.md.
+files_changed:
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- utility gate AS10 → PASS
+commit: 5c4c2b6
 
 
 ## INC-20260726-2112-geo-qa-writer-redacted-href
-status: open
+status: fixed
 run_date: 2026-07-27
 role: excalibur-blog-geo-qa
 topic_id: AS10
@@ -485,11 +566,23 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Writer skill/contract forbid href REDACTED placeholders; link-verify hard-fails them.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- synthetic REDACTED href → link-verify fail
+commit: 5c4c2b6
 
 
 ## INC-20260726-2116-cover-kie-credits
-status: open
+status: needs-human
 run_date: 2026-07-26
 role: excalibur-blog-cover
 topic_id: AS10
@@ -524,10 +617,22 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+reason:
+- Kie.ai account for Cloud KIE_API_KEY returned 402 Credits insufficient; code cannot mint credits.
+- Documented COVER BLOCKER CREDITS (no fake PNG) in kie contract + pitfalls.
+needed_decision_or_secret:
+- Human top-up of Kie.ai credits, then re-run cover from existing batch without a second createTask while a result URL exists.
+files_changed:
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- none (billing blocker)
+commit: 5c4c2b6
+
 
 ## INC-20260726-2118-indexer-llms-stale-blog-path
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-indexer
 topic_id: AS10
@@ -562,10 +667,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Removed stale --blog-path from indexer docs; doctor asserts --blog-dir/--out-dir and rejects --blog-path.
+- Documented commit --site-base REDACTED for secret-scan.
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- llms --help has --blog-dir, no --blog-path
+- doctor OK for llms flags
+commit: 5c4c2b6
+
 
 ## INC-20260726-2120-publish-cover-missing
-status: open
+status: needs-human
 run_date: 2026-07-26
 role: excalibur-blog-publish
 topic_id: AS10
@@ -600,4 +721,18 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+reason:
+- Missing cover artifacts are a consequence of Kie 402 credits (`INC-20260726-2116-cover-kie-credits`); human top-up required.
+- Durable early fail added: publish `load_article` now raises PUBLISH BLOCKER when cover.png / cover-registry.json missing; publish skill documents the cascade.
+needed_decision_or_secret:
+- Same as INC-2116: top up Kie credits, re-run cover for AS10, then re-run publish.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- dry-run AS10 without cover → FileNotFoundError PUBLISH BLOCKER
+commit: 5c4c2b6
+

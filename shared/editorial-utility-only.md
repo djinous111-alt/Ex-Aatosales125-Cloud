@@ -81,6 +81,15 @@ python scripts/excalibur_blog_utility_gate.py \
 
 Плюс slop-detector (вода/штампы).
 
+### Pain / outcome markers
+
+`excalibur_blog_utility_gate.py` применяет `min_pain_markers` / `min_outcome_markers` **только если** в `editorial-policy.json` одновременно заданы:
+
+1. ключ `article_required_signals.min_pain_markers` (или `min_outcome_markers`), и
+2. непустой список `pain_markers_ru` / `outcome_markers_ru`.
+
+Если списки маркеров удалены при rebrand — gate **не** подставляет hard-default 2/3 (это давало ложный BLOCK). Action/recommendation markers по-прежнему обязательны.
+
 ## Как провернуть без воды (чеклист редактора)
 
 1. **Island test:** вырежь H2 — остаётся ли actionable кусок?

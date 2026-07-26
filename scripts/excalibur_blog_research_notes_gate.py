@@ -15,21 +15,28 @@ from excalibur_repo_paths import repo_relative
 
 
 TECH_MARKERS = (
-    "ai",
-    "ии",
     "agent",
     "агент",
     "mcp",
-    "api",
     "cursor",
-    "make",
     "n8n",
-    "github",
     "docker",
     "rag",
     "workflow",
     "автоматизац",
     "нейросет",
+    "llm",
+    "chatgpt",
+    "openai",
+)
+
+# Short tokens need word boundaries; bare "ai"/"api"/"ии" false-positive on auto niche copy.
+TECH_WORD_MARKERS = (
+    r"\bai\b",
+    r"\bapi\b",
+    r"\bgithub\b",
+    r"\bmake\.com\b",
+    r"\bmake\b",
 )
 
 
@@ -73,14 +80,29 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _strip_structural_sections(notes: str) -> str:
+    """Remove required template headings that must not trigger tech detection alone."""
+    cleaned = re.sub(
+        r"##\s*\d*\.?\s*github[_\s-]*evidence\b[\s\S]*?(?=\n##\s|\Z)",
+        "\n",
+        notes,
+        flags=re.I,
+    )
+    return cleaned
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Topic card first; notes body only after stripping template sections like ## github_evidence.
+    notes_probe = _strip_structural_sections(notes)[:1500].lower()
+    blob += " " + notes_probe
+    if any(marker in blob for marker in TECH_MARKERS):
+        return True
+    return any(re.search(pattern, blob, flags=re.I) for pattern in TECH_WORD_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -91,6 +113,68 @@ def field_present(text_lower: str, field: str) -> bool:
         return bool(re.search(rf"^\s*##\s*\d*\.?\s*{field_pattern}\b", text_lower, flags=re.I | re.M))
     field_pattern = re.escape(field).replace("_", r"[_\s-]")
     return bool(re.search(rf"\b{field_pattern}\b\s*:", text_lower, flags=re.I))
+
+
+def count_accessed_at(text: str) -> int:
+    """Count source access dates: literal `accessed_at:` or ISO dates in URL table rows."""
+    text_lower = text.lower()
+    literal = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    # Table rows with a URL and an ISO date in an accessed_at column (with or without the key).
+    iso_in_url_rows = len(
+        re.findall(r"^\s*\|[^\n]*https?://[^\n]*\d{4}-\d{2}-\d{2}", text, flags=re.M)
+    )
+    return max(literal, iso_in_url_rows)
+
+
+_PAIN_HEADER_CELLS = {
+    "pain",
+    "боль",
+    "solution",
+    "решение",
+    "proof",
+    "source",
+    "proof/source",
+    "reader_result",
+    "reader result",
+    "результат",
+    "result",
+}
+
+
+def count_pain_solution_rows(text: str) -> int:
+    """Count data rows under ## pain_solution_map; do not require per-cell keywords."""
+    match = re.search(
+        r"##\s*\d*\.?\s*pain[_\s-]*solution[_\s-]*map\b([\s\S]*?)(?=\n##\s|\Z)",
+        text,
+        flags=re.I,
+    )
+    if match:
+        section = match.group(1)
+        rows = 0
+        for line in section.splitlines():
+            stripped = line.strip()
+            if not stripped.startswith("|"):
+                continue
+            if re.match(r"^\|[\s|:/-]+\|$", re.sub(r"\s", "", stripped)) or re.match(
+                r"^\|?\s*[-:| ]+\s*$", stripped
+            ):
+                continue
+            cells = [c.strip().lower() for c in stripped.strip("|").split("|")]
+            nonempty = [c for c in cells if c]
+            if nonempty and all(c in _PAIN_HEADER_CELLS for c in nonempty):
+                continue
+            if nonempty:
+                rows += 1
+        if rows:
+            return rows
+    # Fallback for non-table maps that still use explicit labels.
+    return len(
+        re.findall(
+            r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*",
+            text.lower(),
+            flags=re.M,
+        )
+    )
 
 
 def validate_research_notes(article_dir: Path) -> dict[str, Any]:
@@ -130,9 +214,9 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    pain_map_rows = count_pain_solution_rows(text)
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:

@@ -76,3 +76,5 @@ Terminal states:
 - One API task per article cover run, not four separate images.
 - `input_urls` is required; text-only generation is a cover blocker.
 - Do not retry createTask blindly after a network ambiguity if a `taskId` is known; poll the known task.
+- HTTP/API **402 Credits insufficient** → terminal `COVER BLOCKER CREDITS`. Do **not** invent `cover.png` / inline PNGs. Needs human: top up Kie.ai balance for the Cloud `KIE_API_KEY` account, then re-run from existing batch (no second createTask while a result URL exists).
+- Optional preflight: if createTask returns 402 immediately, stop after one attempt (no retry storm).

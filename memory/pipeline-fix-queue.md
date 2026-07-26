@@ -6,8 +6,62 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_none_
+
+## INC-20260726-0918-geo-qa-utility-pain-markers-missing
+status: fixed
+run_date: 2026-07-26
+role: excalibur-blog-geo-qa
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-proverit-nalog-na-roskosh-avto-2026
+severity: blocker
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` считает `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json` и при отсутствии ключей использует `[]`, но всё равно применяет дефолты `min_pain_markers=2` и `min_outcome_markers=3`.
+- Итог: `pain_markers=0` / `outcome_markers=0` на любом article.html, включая ранее PASS AS09. AS10 GEO QA → utility BLOCK при живом pain/outcome в тексте и PASS human-voice-gate.
+
+### How the agent recovered this run
+- Не переписывал article.html (ложная текстовая ошибка).
+- Зафиксировал FAIL в `article-qa.md`, handoff GEO QA, incident для Fixer.
+
+### Durable fix needed before next run
+- Добавить в `editorial-policy.json` списки `pain_markers_ru` и `outcome_markers_ru` (выровнять с `PAIN_MARKERS` / `OUTCOME_MARKERS` в `excalibur_blog_human_voice_gate.py`) и явные `min_pain_markers` / `min_outcome_markers` в `article_required_signals`.
+- Либо в `utility_gate.py`: если списки маркеров пусты — skip check (не fail), чтобы пустая политика не блокировала пайплайн.
+- Добавить строку в `shared/agent-pipeline-pitfalls.md` про sync utility↔human-voice markers.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Added `pain_markers_ru` / `outcome_markers_ru` to editorial-policy (aligned with human_voice_gate) and `min_pain_markers=2` / `min_outcome_markers=3`.
+- utility_gate skips pain/outcome checks with warning when marker lists are empty (no more `0 < min` BLOCK).
+- Documented utility↔human-voice marker sync in pitfalls + GEO QA skills.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
+- `python3 -m json.tool memory/brief/editorial-policy.json`
+- `python3 scripts/excalibur_blog_utility_gate.py --article-dir memory/blog/articles/AS10-kak-proverit-nalog-na-roskosh-avto-2026` → PASS (pain=3, outcome=8)
+- empty-list regression: no pain/outcome errors, warnings present
+commit: ed0a2301397b7aa182abf0d68a30047e94afab50
+
 ## INC-20260726-0925-research-false-technical-github
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-research
 topic_id: AS10
@@ -36,10 +90,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- `is_technical_topic` now uses Unicode whole-token match for short markers and only scans topic-card fields (not notes body / `github_evidence` header / `reader_pain`).
+- AS10-like H1 with «Азии» → technical=false; Cursor/MCP topic → technical=true.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+- AS10 research_notes_gate → PASS, technical_topic=false
+- unit checks: Asia/pain false-positive False; MCP/Cursor True
+commit: ed0a2301397b7aa182abf0d68a30047e94afab50
 
 ## INC-20260726-0926-research-minpromtorg-fetch-500
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-research
 topic_id: AS10
@@ -64,10 +130,21 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Research skill rule #8: `.gov.ru` 5xx → retry/backoff then FNS/Garant/media mirrors; do not block research on single 500.
+- Pitfalls note for minpromtorg/gov.ru 5xx handling.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` for gov.ru 5xx guidance in research skills + pitfalls
+commit: ed0a2301397b7aa182abf0d68a30047e94afab50
 
 ## INC-20260726-0915-scout-wordstat-dns-retry
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-scout
 topic_id: AS10
@@ -97,10 +174,22 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Scout skill: Wordstat DNS/transport retry 2–3× with backoff; cluster-first + totalCount-only as non-fatal low-result.
+- Pitfalls line for Wordstat DNS retry.
+- MCP-KV client not in-repo → skill/docs durable fix only.
+files_changed:
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` for Wordstat DNS retry / totalCount guidance in scout skills
+commit: ed0a2301397b7aa182abf0d68a30047e94afab50
 
 ## INC-20260726-0902-director-as-topic-regex-regression
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-director
 topic_id: n/a
@@ -134,7 +223,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Verified AS|B already in today.py / scout_helper; `--blog-path` in llms_generator.
+- Doctor now asserts AS|B topic ID pattern when AS pool present.
+- Cloud Dockerfile + install.sh install numpy / python3-numpy.
+- Pitfalls note for AS|B / blog-path / numpy.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/Dockerfile`
+- `.cursor/cloud-agent-install.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `rg` AS|B in today.py / scout_helper; `--blog-path` in llms_generator
+commit: ed0a2301397b7aa182abf0d68a30047e94afab50
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

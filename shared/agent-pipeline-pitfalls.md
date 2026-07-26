@@ -34,6 +34,7 @@
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
+- `pain_markers_ru` / `outcome_markers_ru` в `memory/brief/editorial-policy.json` должны совпадать с `PAIN_MARKERS` / `OUTCOME_MARKERS` в `excalibur_blog_human_voice_gate.py`; пустые списки в utility_gate → skip+warn, не BLOCK `0 < min`.
 
 ## Cover
 
@@ -42,6 +43,18 @@
 ## Scout
 
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- Wordstat DNS/`Temporary failure in name resolution` → 2–3 retry с коротким backoff; первый сбой транспорта ≠ мёртвый API.
+
+## Research
+
+- `research_notes_gate` technical GitHub≥3: только token/word-boundary по карточке темы (h1/slug/query), не substring `ai`/`ии` и не скан тела notes (иначе ложные GitHub-требования на авто/налог how-to).
+- Официальные `.gov.ru` (в т.ч. minpromtorg) при HTTP 5xx: retry/backoff, затем зеркала ФНС/Гарант/РИА с той же цифрой; не блокируй research из‑за одного 500 на первичном URL.
+
+## Topic IDs / doctor
+
+- Topic ID pattern: `(?:AS|B)\\d+` (Авто-Сейлс `AS01…` и legacy `B01…`). `today.py` / `scout_helper` без AS → ложный `needs_scout`.
+- `llms_generator` обязан принимать `--blog-path` (alias `--blog-dir`); doctor это проверяет.
+- Cloud image: `python3-numpy` (или `numpy` в pip) нужен interlinker/doctor.
 
 ## Indexer
 

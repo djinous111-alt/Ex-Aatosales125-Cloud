@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import importlib.util
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -133,6 +134,24 @@ def main() -> int:
         check=False,
     )
     check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+
+    today_src = (root / "scripts/excalibur_blog_today.py").read_text(encoding="utf-8")
+    check(
+        "(?:AS|B)" in today_src or "(AS|B)" in today_src,
+        "today.py topic ID pattern includes AS|B",
+        errors,
+        warnings,
+    )
+    topics_sample = root / "memory/topics/blog-topics.md"
+    if topics_sample.is_file():
+        topics_text = topics_sample.read_text(encoding="utf-8")
+        has_as = bool(re.search(r"##\s+AS\d+\s+—", topics_text))
+        check(
+            (not has_as) or ("(?:AS|B)" in today_src or "(AS|B)" in today_src),
+            "AS pool topics require AS|B topic ID regex in today.py",
+            errors,
+            warnings,
+        )
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

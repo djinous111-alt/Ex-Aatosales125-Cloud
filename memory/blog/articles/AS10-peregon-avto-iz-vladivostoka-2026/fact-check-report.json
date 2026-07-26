@@ -1,0 +1,73 @@
+{
+  "article": "memory/blog/articles/AS10-peregon-avto-iz-vladivostoka-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 9,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 6,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ак выбрать формат перегона авто из Владивостока в 2026, собрать документы и передать ключи без сюрпризов",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "20 дней",
+      "kind": "metric_or_duration",
+      "context": "втовоз. До старта нужны ОСАГО (часто транзит на 5–20 дней), выписка ЭПТС, ТПО/ПТД и понятный маршрут. Ключи",
+      "verified": true,
+      "reason": "Numerical value '20' matched in fact-bank context"
+    },
+    {
+      "fact": "12 дней",
+      "kind": "metric_or_duration",
+      "context": "угой договор (отдельная тема) Срок до ЦФО Часто 8–12 дней Близко к своему ходу + ожидание водителя Обычно д",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "1450",
+      "kind": "large_number",
+      "context": "акта и фото состояния. В июле 2026 участок около 1450 км от Ерофея Павловича до Улан-Удэ ломает \"экономи",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "100",
+      "kind": "large_number",
+      "context": "ньше износа в пути Ориентир бюджета Вл–Москва ~82–100 тыс. ₽ (топливо+еда+ночёвки) От ~70 до от ~120+ ты",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "тыс. ₽ – смотрите состав цены В оценках часто от ~180 тыс. ₽ Когда не выбирать Зима без опыта ДВ, кей-ка",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "9000",
+      "kind": "large_number",
+      "context": "и авто для своего хода Не каждая машина готова к ~9000 км через Дальний Восток. Ориентир маршрута Владиво",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "9128",
+      "kind": "large_number",
+      "context": "овосибирск, Омск, Челябинск, Уфу и Казань – около 9128 км. \"Доеду за пять дней\" редко сходится: чаще 8–12",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "120",
+      "kind": "large_number",
+      "context": "х источниках плавают от примерно 70 тыс. ₽ до от ~120 тыс. ₽ – спрашивайте состав цены, а не одну цифру.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -427,3 +427,40 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20260726-1710-geo-qa-utility-pain-markers-missing
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-geo-qa
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-peregon-avto-iz-vladivostoka-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требовал `min_pain_markers=2` и `min_outcome_markers=3` по умолчанию, даже когда в `memory/brief/editorial-policy.json` не было `pain_markers_ru` / `outcome_markers_ru`.
+- При пустых списках маркеров `count` всегда 0 → любой `article.html` получал UTILITY GATE BLOCKER (ломает AS09 и новые статьи).
+- Параллельно Writer оставил в AS10 литералы `href="[REDACTED]"` вместо CTA URL → link-verify 404.
+
+### How the agent recovered this run
+- Добавлены `pain_markers_ru` / `outcome_markers_ru` и `min_pain_markers` / `min_outcome_markers` в editorial-policy (align с human-voice gate).
+- Utility gate теперь enforce pain/outcome только если списки маркеров не пусты.
+- В article.html восстановлены CTA (каталог + Telegram), убран ярлык TL;DR/Быстрый инсайт, усилен блок результата; re-run → utility/human-voice/link-verify PASS, article-qa PASS 88.
+
+### Durable fix needed before next run
+- Держать pain/outcome маркеры в policy синхронно с `excalibur_blog_human_voice_gate.py`.
+- Writer skill/contract: запретить литерал `[REDACTED]` в href; брать CTA из conversion-map.
+- Опционально: починить regex «exactly-5-step lists» (сейчас матчит ≥5 li).
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_human_voice_gate.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

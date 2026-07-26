@@ -1,0 +1,576 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-26",
+    "today_ru": "26.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-27",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-26 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS10",
+    "priority": "P0",
+    "slug": "kak-proverit-nalog-na-roskosh-avto-2026",
+    "h1": "Как проверить налог на роскошь на авто из Азии до заказа в 2026",
+    "primary_query": "налог на роскошь автомобили 2026",
+    "secondary_queries": [
+      "налог на роскошь авто 2026",
+      "перечень минпромторга налог на роскошь",
+      "список автомобилей налог на роскошь 2026"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "налог на роскошь автомобили 2026 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Налог на роскошь в 2026 году: за какие машины придется платить :: Autonews",
+          "url": "https://www.autonews.ru/news/6356b6ef9a794770a6ff28a1",
+          "snippet": ""
+        },
+        {
+          "title": "За какие машины в 2026 году придется заплатить налог на роскошь: список",
+          "url": "https://aeternamemoria.ru/avtomobili/za-kakie-mashiny-v-2026-gody-pridetsia-zaplatit-nalog-na-roskosh-spisok/",
+          "snippet": "Так, к середине 2026 года собственники автомобилей должны получить извещения о необходимости заплатить транспортный налог за 2025 год до конца 2026 года. За более дорогие модели традиционно придется заплатить больше в виде так называемого налога на роскошь."
+        },
+        {
+          "title": "Налог на роскошь: суть, за что такое, стоимость в России в 2026 году, в ...",
+          "url": "https://finance.mail.ru/article/nalog-na-roskosh-378/",
+          "snippet": "Минпромторг опубликовал новый перечень дорогих моделей, облагаемых налогом на роскошь. В нем оказалось 573 автомобиля. В Федеральной налоговой службе в ответ на запрос Autonews.ru разъяснили, когда и каким автомобилистам придется платить налог на роскошь."
+        },
+        {
+          "title": "Налог на роскошь 2026: список машин, за которые придётся платить ...",
+          "url": "https://abcars.ru/news/nalog-na-roskosh-2026-spisok-mashin-za-kotorye-pridyotsya-platit-vtridoroga-snova-vyros/",
+          "snippet": "Рассказываем, что такое налог на роскошь, когда и какую сумму придется платить. Приводим список автомобилей, попадающих под этот налог в России в 2026 году."
+        },
+        {
+          "title": "За какие авто платят налог на роскошь в 2026 — рассчитать",
+          "url": "https://poluchiosago.ru/post/za-kakie-avtomobili-nuzhno-platit-nalog-na-roskosh-godu-spisok-i-instruktsiya/",
+          "snippet": "Каждый год список таких машин пополняется, и 2026-й не стал исключением. 29 марта Минпромторг обнародовал очередной перечень моделей, чьи владельцы будут платить налог в трёхкратном размере. В нём — 573 позиции, и впервые в списке появились китайские премиальные бренды, а также некоторые «народные» модели, неожиданно перешагнувшие порог роскоши."
+        },
+        {
+          "title": "Налог на роскошь 2026: кому платить ×3",
+          "url": "https://finabank.ru/za-kakie-avtomobili-nuzhno-platit-nalog-na-roskosh-v-2026/",
+          "snippet": "«Налог на роскошь» — не отдельный налог, а повышающий коэффициент к транспортному налогу. Его платят владельцы легковых автомобилей, которые попали в перечень Минпромторга и подходят по возрасту. Порог входа — от 10 млн рублей, коэффициент — 3."
+        }
+      ],
+      "searched_at": "2026-07-26"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "налог на роскошь автомобили 2026 июль 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "За какие авто платят налог на роскошь в 2026 — рассчитать",
+          "url": "https://poluchiosago.ru/post/za-kakie-avtomobili-nuzhno-platit-nalog-na-roskosh-godu-spisok-i-instruktsiya/",
+          "snippet": ""
+        },
+        {
+          "title": "Налог на роскошь на автомобили в 2026 году — список авто и расчет",
+          "url": "https://carsplus.online/news/nalog-na-roskosh-avto",
+          "snippet": "Налог на роскошь в 2026 году платят владельцы автомобилей из перечня Минпромторга — не все машины дороже 10 млн рублей, а только те модели, которые прямо указаны в документе и подходят ..."
+        },
+        {
+          "title": "Налог на роскошь в 2026 году: за какие машины придется платить :: Autonews",
+          "url": "https://www.autonews.ru/news/6356b6ef9a794770a6ff28a1",
+          "snippet": "В статье разберем, что такое налог на роскошь на автомобили, какие машины попадают под его действие в 2026 году, как рассчитать сумму к уплате и можно ли законно снизить налоговую нагрузку."
+        },
+        {
+          "title": "Налог на роскошь: суть, за что такое, стоимость в России в 2026 году, в ...",
+          "url": "https://finance.mail.ru/article/nalog-na-roskosh-378/",
+          "snippet": "Минпромторг опубликовал новый перечень дорогих моделей, облагаемых налогом на роскошь. В нем оказалось 573 автомобиля. В Федеральной налоговой службе в ответ на запрос Autonews.ru разъяснили, когда и каким автомобилистам придется платить налог на роскошь."
+        },
+        {
+          "title": "За какие автомобили нужно платить налог на роскошь в 2026?",
+          "url": "https://finabank.ru/za-kakie-avtomobili-nuzhno-platit-nalog-na-roskosh-v-2026/",
+          "snippet": "Рассказываем, что такое налог на роскошь, когда и какую сумму придется платить. Приводим список автомобилей, попадающих под этот налог в России в 2026 году."
+        },
+        {
+          "title": "Налог На Роскошь В 2026 Году: За Какие Машины Придется Платить :: Rbc ...",
+          "url": "https://www.rbcautonews.ru/news/6356b6ef9a794770a6ff28a1",
+          "snippet": "Количество «роскошных» авто в перечне выросло на 18-26 моделей по сравнению с 2025 годом. Рассказываем, когда нужно платить налог на роскошь."
+        }
+      ],
+      "searched_at": "2026-07-26"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "налог на роскошь автомобили 2026 новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Налог на роскошь в 2026 году: за какие машины придется платить :: Autonews",
+          "url": "https://www.autonews.ru/news/6356b6ef9a794770a6ff28a1",
+          "snippet": ""
+        },
+        {
+          "title": "Налог на роскошь на автомобили в 2026 году — список авто и расчет",
+          "url": "https://carsplus.online/news/nalog-na-roskosh-avto",
+          "snippet": "Минпромторг опубликовал новый перечень дорогих моделей, облагаемых налогом на роскошь. В нем оказалось 573 автомобиля. В Федеральной налоговой службе в ответ на запрос Autonews.ru разъяснили, когда и каким автомобилистам придется платить налог на роскошь."
+        },
+        {
+          "title": "Налог на роскошь 2026: список машин, за которые придётся платить ...",
+          "url": "https://abcars.ru/news/nalog-na-roskosh-2026-spisok-mashin-za-kotorye-pridyotsya-platit-vtridoroga-snova-vyros/",
+          "snippet": "В статье разберем, что такое налог на роскошь на автомобили, какие машины попадают под его действие в 2026 году, как рассчитать сумму к уплате и можно ли законно снизить налоговую нагрузку."
+        },
+        {
+          "title": "«Налог на роскошь» в 2026 году: за какие автомобили придется платить ...",
+          "url": "https://5koleso.ru/articles/novosti/nalog-na-roskosh-v-2026-godu-za-kakie-avtomobili-pridetsya-platit-bolshe/",
+          "snippet": "Каждый год список таких машин пополняется, и 2026-й не стал исключением. 29 марта Минпромторг обнародовал очередной перечень моделей, чьи владельцы будут платить налог в трёхкратном размере."
+        },
+        {
+          "title": "За какие машины в 2026 году придется заплатить налог на роскошь: список",
+          "url": "https://aeternamemoria.ru/avtomobili/za-kakie-mashiny-v-2026-gody-pridetsia-zaplatit-nalog-na-roskosh-spisok/",
+          "snippet": "Минпромторг расширил список автомобилей, которые облагаются налогом на роскошь: стало больше «китайцев» и электромобилей. В списке облагаемых «налогом на роскошь» легковых автомобилей появились новые модели — перечень транспортных средств обновил Минпромторг РФ."
+        },
+        {
+          "title": "За какие автомобили нужно платить налог на роскошь в 2026?",
+          "url": "https://finabank.ru/za-kakie-avtomobili-nuzhno-platit-nalog-na-roskosh-v-2026/",
+          "snippet": "Минпромторг опубликовал новый перечень дорогих моделей, облагаемых налогом на роскошь. В нем оказалось 573 автомобиля. В Федеральной налоговой службе в ответ на запрос Autonews.ru разъяснили, когда и каким автомобилистам придется платить налог на роскошь."
+        }
+      ],
+      "searched_at": "2026-07-26"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com налог на роскошь автомобили 2026 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Chason/architecture.png at main · UbaidHunts/Chason · GitHub",
+          "url": "https://github.com/UbaidHunts/Chason/blob/main/architecture.png",
+          "snippet": ""
+        },
+        {
+          "title": "wogcity/gta5nrp_core/assets/Launcher/launcher_bg1.svg at main ... - GitHub",
+          "url": "https://github.com/Congluong-298/wogcity/blob/main/gta5nrp_core/assets/Launcher/launcher_bg1.svg",
+          "snippet": "Contribute to UbaidHunts/Chason development by creating an account on GitHub."
+        },
+        {
+          "title": "vnx-assets/vnx_logo_64.svg at main · crz76/vnx-assets · GitHub",
+          "url": "https://github.com/crz76/vnx-assets/blob/main/vnx_logo_64.svg",
+          "snippet": "Contribute to Congluong-298/wogcity development by creating an account on GitHub."
+        },
+        {
+          "title": "node-zwave-js/docs/_images/logo.svg at master - GitHub",
+          "url": "https://github.com/JeremyChen1213/node-zwave-js/blob/master/docs/_images/logo.svg",
+          "snippet": "Contribute to crz76/vnx-assets development by creating an account on GitHub."
+        },
+        {
+          "title": "coursera-ddp-shiny/corpora/ru_50k.txt at master - GitHub",
+          "url": "https://github.com/spujadas/coursera-ddp-shiny/blob/master/corpora/ru_50k.txt",
+          "snippet": "Z-Wave driver written entirely in JavaScript/TypeScript - node-zwave-js/docs/_images/logo.svg at master · JeremyChen1213/node-zwave-js"
+        },
+        {
+          "title": "valley-of-ai/apps/2026/03/06/word-weaver/thumbnail.svg at main ... - GitHub",
+          "url": "https://github.com/jeffholst/valley-of-ai/blob/main/apps/2026/03/06/word-weaver/thumbnail.svg",
+          "snippet": "Coursera Developing Data Products Week 4 Peer-graded Assignment: Shiny - spujadas/coursera-ddp-shiny"
+        }
+      ],
+      "searched_at": "2026-07-26"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "налог на роскошь автомобили 2026 official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Налог на роскошь \\ 2026-2025-2024 год \\ Акты, образцы, формы, договоры ...",
+          "url": "https://www.consultant.ru/law/podborki/nalog_na_roskosh/",
+          "snippet": ""
+        },
+        {
+          "title": "Обновлен перечень дорогостоящих автомобилей на 2026 год",
+          "url": "https://www.nalog.gov.ru/rn87/news/activities_fts/16616378/",
+          "snippet": "Подборка наиболее важных документов по запросу Налог на роскошь (нормативно-правовые акты, формы, статьи, консультации экспертов и многое другое)."
+        },
+        {
+          "title": "Транспортный налог на роскошь \\ 2026-2025-2024 год \\ Акты, образцы ...",
+          "url": "https://www.consultant.ru/law/podborki/transportnyj_nalog_na_roskosh/",
+          "snippet": "Актуализирован перечень легковых автомобилей средней стоимостью от 10 млн рублей, применяемый при исчислении транспортного налога за 2026 год. Перечень формируется Министерством промышленности и торговли Российской Федерации и размещается на его официальном сайте."
+        },
+        {
+          "title": "Минпромторг России",
+          "url": "https://minpromtorg.gov.ru/docs/27a64825-7a96-4137-bedf-c9f06f68a528",
+          "snippet": "Подборка наиболее важных документов по запросу Транспортный налог на роскошь (нормативно-правовые акты, формы, статьи, консультации экспертов и многое другое)."
+        },
+        {
+          "title": "Налог На Роскошь В 2026 Году: За Какие Машины Придется Платить :: Rbc ...",
+          "url": "https://www.rbcautonews.ru/news/6356b6ef9a794770a6ff28a1",
+          "snippet": "Минпромторг России Информационные системы ГИСП АИС ГУ ГИСИП НТБ"
+        },
+        {
+          "title": "Налог на роскошь в 2026 году: за какие машины придется платить :: Autonews",
+          "url": "https://www.autonews.ru/news/6356b6ef9a794770a6ff28a1",
+          "snippet": "Минпромторг опубликовал новый перечень дорогих моделей, облагаемых налогом на роскошь. В нем оказалось 573 автомобиля. В Федеральной налоговой службе в ответ на запрос Autonews.ru разъяснили, когда и каким автомобилистам придется платить налог на роскошь."
+        }
+      ],
+      "searched_at": "2026-07-26"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "налог на роскошь автомобили 2026 forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Налог на роскошь 2026: список автомобилей, ставки и как не переплатить",
+          "url": "https://www.pro-avto-forum.ru/viewtopic.php?t=655",
+          "snippet": ""
+        },
+        {
+          "title": "Налог на роскошь 2025-2026: список автомобилей, расчет и как избежать ...",
+          "url": "https://www.pro-avto-forum.ru/viewtopic.php?t=280",
+          "snippet": "Какие автомобили попали под налог на роскошь в 2026 году? Актуальный список Минпромторга, примеры моделей, расчет налога и советы, как избежать переплат. Налог"
+        },
+        {
+          "title": "Налог На Роскошь В 2026 Году: За Какие Машины Придется Платить :: Rbc ...",
+          "url": "https://www.rbcautonews.ru/news/6356b6ef9a794770a6ff28a1",
+          "snippet": "Что такое налог на роскошь и как он работает в 2025-2026 Начнем с базы — но без скуки. Налог на роскошь на автомобили — это повышающий коэффициент к стандартному транспортному налогу."
+        },
+        {
+          "title": "Налог на роскошь 2026: главный подвох для покупателей б/у китайских ...",
+          "url": "https://verticalauto.ru/articles/nalog-na-roskos-2026-spisok-minpromtorga-i-kak-rasscitat-platez",
+          "snippet": "В Федеральной налоговой службе в ответ на запрос Autonews.ru разъяснили, когда и каким автомобилистам придется платить налог на роскошь. Так, к середине 2026 года собственники автомобилей должны получить извещения о необходимости заплатить транспортный налог за 2025 год до конца 2026 года."
+        },
+        {
+          "title": "Налог на роскошь в 2026 году: за какие машины придется платить :: Autonews",
+          "url": "https://www.autonews.ru/news/6356b6ef9a794770a6ff28a1",
+          "snippet": "В мае 2026 года Минпромторг окончательно скорректировал перечень автомобилей стоимостью от 10 миллионов рублей, которые облагаются повышенным транспортным налогом — так называемым ..."
+        },
+        {
+          "title": "Как платить налог на роскошь за гибриды и электрокары: что в списке на ...",
+          "url": "https://www.avito.ru/auto-journal/kak-platit-nalog-na-roskosh-za-gibridy-i-elektrokary-chto-v-spiske-na-2026-god",
+          "snippet": "В Федеральной налоговой службе в ответ на запрос Autonews.ru разъяснили, когда и каким автомобилистам придется платить налог на роскошь. Так, к середине 2026 года собственники автомобилей должны получить извещения о необходимости заплатить транспортный налог за 2025 год до конца 2026 года."
+        }
+      ],
+      "searched_at": "2026-07-26"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "налог на роскошь авто 2026 2026",
+      "purpose": "вторичный запрос: налог на роскошь авто 2026",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Налог на роскошь в 2026 году: за какие машины придется платить :: Autonews",
+          "url": "https://www.autonews.ru/news/6356b6ef9a794770a6ff28a1",
+          "snippet": ""
+        },
+        {
+          "title": "Налог на роскошь 2026: кому платить ×3",
+          "url": "https://finabank.ru/za-kakie-avtomobili-nuzhno-platit-nalog-na-roskosh-v-2026/",
+          "snippet": "Так, к середине 2026 года собственники автомобилей должны получить извещения о необходимости заплатить транспортный налог за 2025 год до конца 2026 года. За более дорогие модели традиционно придется заплатить больше в виде так называемого налога на роскошь."
+        },
+        {
+          "title": "Налог На Роскошь В 2026 Году: За Какие Машины Придется Платить :: Rbc ...",
+          "url": "https://www.rbcautonews.ru/news/6356b6ef9a794770a6ff28a1",
+          "snippet": "Количество «роскошных» авто в перечне выросло на 18-26 моделей по сравнению с 2025 годом. Рассказываем, когда нужно платить налог на роскошь."
+        },
+        {
+          "title": "Налог на роскошь: суть, за что такое, стоимость в России в 2026 году, в ...",
+          "url": "https://finance.mail.ru/article/nalog-na-roskosh-378/",
+          "snippet": "Так, к середине 2026 года собственники автомобилей должны получить извещения о необходимости заплатить транспортный налог за 2025 год до конца 2026 года. За более дорогие модели традиционно придется заплатить больше в виде так называемого налога на роскошь."
+        },
+        {
+          "title": "За какие авто платят налог на роскошь в 2026 — рассчитать",
+          "url": "https://poluchiosago.ru/post/za-kakie-avtomobili-nuzhno-platit-nalog-na-roskosh-godu-spisok-i-instruktsiya/",
+          "snippet": "Рассказываем, что такое налог на роскошь, когда и какую сумму придется платить. Приводим список автомобилей, попадающих под этот налог в России в 2026 году."
+        },
+        {
+          "title": "За какие машины в 2026 году придется заплатить налог на роскошь: список",
+          "url": "https://aeternamemoria.ru/avtomobili/za-kakie-mashiny-v-2026-gody-pridetsia-zaplatit-nalog-na-roskosh-spisok/",
+          "snippet": "Налог на роскошь в 2026 году платят владельцы автомобилей из перечня Минпромторга — не все машины дороже 10 млн рублей, а только те модели, которые прямо указаны в документе и подходят ..."
+        }
+      ],
+      "searched_at": "2026-07-26"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "перечень минпромторга налог на роскошь 2026",
+      "purpose": "вторичный запрос: перечень минпромторга налог на роскошь",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Минпромторг расширил список облагаемых налогом на роскошь авто",
+          "url": "https://rg.ru/2026/03/29/minpromtorg-rasshiril-spisok-oblagaemyh-nalogom-na-roskosh-avto.html",
+          "snippet": ""
+        },
+        {
+          "title": "Минпромторг расширил список авто, облагаемых налогом на роскошь",
+          "url": "https://www.vedomosti.ru/economics/news/2026/03/29/1186355-minpromtorg-rasshiril-spisok",
+          "snippet": "Обновлен список автомобилей, которые облагаются налогом на роскошь. Он размещен на сайте Минпромторга."
+        },
+        {
+          "title": "Налог на роскошь 2026: полный список 573 авто Минпромторга",
+          "url": "https://urbase.ru/nalog-na-roskosh-v-2026-godu-minpromtorg-rasshiril-spisok-do-573-modelej-kitajskij-premium-teper-v-zakone/",
+          "snippet": "Власти расширили перечень автомобилей, облагаемых налогом на роскошь, следует из перечня на сайте Минпромторга. Теперь в реестре указаны 573 модели. Прежде в списке было 555 марок, а в 2024 г. - 517. Перечень составляют автомобили, стоимость которых превышает 10 млн руб."
+        },
+        {
+          "title": "Налог на роскошь 2026: что облагается, ставки и список Минпромторга",
+          "url": "https://skladkahub.pro/blog/nalog-na-roskosh-2026-chto-oblagaetsja-stavki",
+          "snippet": "В 2026 году владение «продвинутым» китайским электрокаром официально приравнено к обладанию Bentley. Минпромторг РФ обновил перечень легковых автомобилей средней стоимостью от 10 миллионов рублей, увеличив его до 573 позиций."
+        },
+        {
+          "title": "Минпромторг расширил список автомобилей с налогом на роскошь",
+          "url": "https://www.kommersant.ru/doc/8550448",
+          "snippet": "Список автомобилей Минпромторга на 2026 год расширен до 573 моделей (по состоянию на 29 марта 2026 года). «Налог на роскошь» — не отдельный налог, а повышенные ставки и коэффициенты внутри действующих налогов: транспортного, имущественного и НДФЛ."
+        },
+        {
+          "title": "Налог на роскошь 2026: список Минпромторга и как рассчитать платеж",
+          "url": "https://verticalauto.ru/articles/nalog-na-roskos-2026-spisok-minpromtorga-i-kak-rasscitat-platez",
+          "snippet": "Минпромторг РФ обновил перечень автомобилей, для которых применяются повышающие коэффициенты при расчете транспортного налога. В новый список вошли 573 модели против 555 годом ранее,..."
+        }
+      ],
+      "searched_at": "2026-07-26"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "список автомобилей налог на роскошь 2026 2026",
+      "purpose": "вторичный запрос: список автомобилей налог на роскошь 2026",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "За какие машины в 2026 году придется заплатить налог на роскошь: список",
+          "url": "https://www.autonews.ru/news/6356b6ef9a794770a6ff28a1",
+          "snippet": ""
+        },
+        {
+          "title": "Налог на роскошь 2026: список машин, за которые придётся платить ...",
+          "url": "https://abcars.ru/news/nalog-na-roskosh-2026-spisok-mashin-za-kotorye-pridyotsya-platit-vtridoroga-snova-vyros/",
+          "snippet": "Минпромторг опубликовал новый перечень дорогих моделей, облагаемых налогом на роскошь. В нем оказалось 573 автомобиля. В Федеральной налоговой службе в ответ на запрос Autonews.ru разъяснили, когда и каким автомобилистам придется платить налог на роскошь."
+        },
+        {
+          "title": "За какие машины в 2026 году придется заплатить налог на роскошь: список",
+          "url": "https://aeternamemoria.ru/avtomobili/za-kakie-mashiny-v-2026-gody-pridetsia-zaplatit-nalog-na-roskosh-spisok/",
+          "snippet": "Каждый год список таких машин пополняется, и 2026-й не стал исключением. 29 марта Минпромторг обнародовал очередной перечень моделей, чьи владельцы будут платить налог в трёхкратном размере."
+        },
+        {
+          "title": "Минпромторг расширил список облагаемых налогом на роскошь авто",
+          "url": "https://rg.ru/2026/03/29/minpromtorg-rasshiril-spisok-oblagaemyh-nalogom-na-roskosh-avto.html",
+          "snippet": "Минпромторг опубликовал новый перечень дорогих моделей, облагаемых налогом на роскошь. В нем оказалось 573 автомобиля. В Федеральной налоговой службе в ответ на запрос Autonews.ru разъяснили, когда и каким автомобилистам придется платить налог на роскошь."
+        },
+        {
+          "title": "Обновлен перечень дорогостоящих автомобилей на 2026 год",
+          "url": "https://www.nalog.gov.ru/rn87/news/activities_fts/16616378/",
+          "snippet": "Обновлен список автомобилей, которые облагаются налогом на роскошь. Он размещен на сайте Минпромторга."
+        },
+        {
+          "title": "За какие машины в 2026 году придется заплатить налог на роскошь: список",
+          "url": "https://www.rbcautonews.ru/news/6356b6ef9a794770a6ff28a1",
+          "snippet": "Актуализирован перечень легковых автомобилей средней стоимостью от 10 млн рублей, применяемый при исчислении транспортного налога за 2026 год. Перечень формируется Министерством промышленности и торговли Российской Федерации и размещается на его официальном сайте."
+        }
+      ],
+      "searched_at": "2026-07-26"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как проверить налог на роскошь на авто из Азии до заказа в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Налог на роскошь в 2026 году: за какие машины придется платить :: Autonews",
+          "url": "https://www.autonews.ru/news/6356b6ef9a794770a6ff28a1",
+          "snippet": ""
+        },
+        {
+          "title": "За какие авто платят налог на роскошь в 2026 — рассчитать",
+          "url": "https://poluchiosago.ru/post/za-kakie-avtomobili-nuzhno-platit-nalog-na-roskosh-godu-spisok-i-instruktsiya/",
+          "snippet": "Минпромторг опубликовал новый перечень дорогих моделей, облагаемых налогом на роскошь. В нем оказалось 573 автомобиля. В Федеральной налоговой службе в ответ на запрос Autonews.ru разъяснили, когда и каким автомобилистам придется платить налог на роскошь."
+        },
+        {
+          "title": "Налог на роскошь 2026: главный подвох для покупателей б/у китайских ...",
+          "url": "https://verticalauto.ru/articles/nalog-na-roskos-2026-spisok-minpromtorga-i-kak-rasscitat-platez",
+          "snippet": "Проверьте марку и год выпуска, затем рассчитайте налог по мощности, ставке региона и периоду владения. Срок уплаты за 2025 год — до 1 декабря 2026."
+        },
+        {
+          "title": "Налог на роскошь 2026: перечень автомобилей Минпромторга и коэффициент ...",
+          "url": "https://vnesenie-v-reestr.ru/news/izmeneniya-v-naloge-na-roskosh-spisok-avtomobiley-2025-goda-kto-platit-povyshennyy-transportnyy-nalog",
+          "snippet": "В этом материале — кто попал под налог, какой подвох ждёт покупателей вторичного рынка и как рассчитать сумму платежа, который придёт осенью."
+        },
+        {
+          "title": "Налог на роскошь - список автомобилей, с какой стоимости и сколько ...",
+          "url": "https://nalog-nalog.ru/transportnyj_nalog/nalog-na-roskosh-perechen-avtomobilej-nn/",
+          "snippet": "Актуальный разбор повышающего коэффициента 3 по транспортному налогу: перечень Минпромторга на 2026 год, критерии стоимости и порядок проверки автомобиля."
+        },
+        {
+          "title": "Налог На Роскошь В 2026 Году: За Какие Машины Придется Платить :: Rbc ...",
+          "url": "https://www.rbcautonews.ru/news/6356b6ef9a794770a6ff28a1",
+          "snippet": "Должны ли вы платить налог на роскошь? Чтобы определить, нужно ли вам платить налог на роскошь по автомобилю в 2026 году (транспортный налог с учетом коэффициента), воспользуйтесь схемой:"
+        }
+      ],
+      "searched_at": "2026-07-26"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.autonews.ru/news/6356b6ef9a794770a6ff28a1",
+      "title": "Налог на роскошь в 2026 году: за какие машины придется платить :: Autonews",
+      "from_query": "налог на роскошь автомобили 2026 2026"
+    },
+    {
+      "url": "https://aeternamemoria.ru/avtomobili/za-kakie-mashiny-v-2026-gody-pridetsia-zaplatit-nalog-na-roskosh-spisok/",
+      "title": "За какие машины в 2026 году придется заплатить налог на роскошь: список",
+      "from_query": "налог на роскошь автомобили 2026 2026"
+    },
+    {
+      "url": "https://finance.mail.ru/article/nalog-na-roskosh-378/",
+      "title": "Налог на роскошь: суть, за что такое, стоимость в России в 2026 году, в ...",
+      "from_query": "налог на роскошь автомобили 2026 2026"
+    },
+    {
+      "url": "https://abcars.ru/news/nalog-na-roskosh-2026-spisok-mashin-za-kotorye-pridyotsya-platit-vtridoroga-snova-vyros/",
+      "title": "Налог на роскошь 2026: список машин, за которые придётся платить ...",
+      "from_query": "налог на роскошь автомобили 2026 2026"
+    },
+    {
+      "url": "https://poluchiosago.ru/post/za-kakie-avtomobili-nuzhno-platit-nalog-na-roskosh-godu-spisok-i-instruktsiya/",
+      "title": "За какие авто платят налог на роскошь в 2026 — рассчитать",
+      "from_query": "налог на роскошь автомобили 2026 2026"
+    },
+    {
+      "url": "https://finabank.ru/za-kakie-avtomobili-nuzhno-platit-nalog-na-roskosh-v-2026/",
+      "title": "Налог на роскошь 2026: кому платить ×3",
+      "from_query": "налог на роскошь автомобили 2026 2026"
+    },
+    {
+      "url": "https://carsplus.online/news/nalog-na-roskosh-avto",
+      "title": "Налог на роскошь на автомобили в 2026 году — список авто и расчет",
+      "from_query": "налог на роскошь автомобили 2026 июль 2026"
+    },
+    {
+      "url": "https://www.rbcautonews.ru/news/6356b6ef9a794770a6ff28a1",
+      "title": "Налог На Роскошь В 2026 Году: За Какие Машины Придется Платить :: Rbc ...",
+      "from_query": "налог на роскошь автомобили 2026 июль 2026"
+    },
+    {
+      "url": "https://5koleso.ru/articles/novosti/nalog-na-roskosh-v-2026-godu-za-kakie-avtomobili-pridetsya-platit-bolshe/",
+      "title": "«Налог на роскошь» в 2026 году: за какие автомобили придется платить ...",
+      "from_query": "налог на роскошь автомобили 2026 новости 2026"
+    },
+    {
+      "url": "https://github.com/UbaidHunts/Chason/blob/main/architecture.png",
+      "title": "Chason/architecture.png at main · UbaidHunts/Chason · GitHub",
+      "from_query": "site:github.com налог на роскошь автомобили 2026 2026"
+    },
+    {
+      "url": "https://github.com/Congluong-298/wogcity/blob/main/gta5nrp_core/assets/Launcher/launcher_bg1.svg",
+      "title": "wogcity/gta5nrp_core/assets/Launcher/launcher_bg1.svg at main ... - GitHub",
+      "from_query": "site:github.com налог на роскошь автомобили 2026 2026"
+    },
+    {
+      "url": "https://github.com/crz76/vnx-assets/blob/main/vnx_logo_64.svg",
+      "title": "vnx-assets/vnx_logo_64.svg at main · crz76/vnx-assets · GitHub",
+      "from_query": "site:github.com налог на роскошь автомобили 2026 2026"
+    },
+    {
+      "url": "https://github.com/JeremyChen1213/node-zwave-js/blob/master/docs/_images/logo.svg",
+      "title": "node-zwave-js/docs/_images/logo.svg at master - GitHub",
+      "from_query": "site:github.com налог на роскошь автомобили 2026 2026"
+    },
+    {
+      "url": "https://github.com/spujadas/coursera-ddp-shiny/blob/master/corpora/ru_50k.txt",
+      "title": "coursera-ddp-shiny/corpora/ru_50k.txt at master - GitHub",
+      "from_query": "site:github.com налог на роскошь автомобили 2026 2026"
+    },
+    {
+      "url": "https://github.com/jeffholst/valley-of-ai/blob/main/apps/2026/03/06/word-weaver/thumbnail.svg",
+      "title": "valley-of-ai/apps/2026/03/06/word-weaver/thumbnail.svg at main ... - GitHub",
+      "from_query": "site:github.com налог на роскошь автомобили 2026 2026"
+    },
+    {
+      "url": "https://www.consultant.ru/law/podborki/nalog_na_roskosh/",
+      "title": "Налог на роскошь \\ 2026-2025-2024 год \\ Акты, образцы, формы, договоры ...",
+      "from_query": "налог на роскошь автомобили 2026 official docs documentation 2026"
+    },
+    {
+      "url": "https://www.nalog.gov.ru/rn87/news/activities_fts/16616378/",
+      "title": "Обновлен перечень дорогостоящих автомобилей на 2026 год",
+      "from_query": "налог на роскошь автомобили 2026 official docs documentation 2026"
+    },
+    {
+      "url": "https://www.consultant.ru/law/podborki/transportnyj_nalog_na_roskosh/",
+      "title": "Транспортный налог на роскошь \\ 2026-2025-2024 год \\ Акты, образцы ...",
+      "from_query": "налог на роскошь автомобили 2026 official docs documentation 2026"
+    },
+    {
+      "url": "https://minpromtorg.gov.ru/docs/27a64825-7a96-4137-bedf-c9f06f68a528",
+      "title": "Минпромторг России",
+      "from_query": "налог на роскошь автомобили 2026 official docs documentation 2026"
+    },
+    {
+      "url": "https://www.pro-avto-forum.ru/viewtopic.php?t=655",
+      "title": "Налог на роскошь 2026: список автомобилей, ставки и как не переплатить",
+      "from_query": "налог на роскошь автомобили 2026 forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.pro-avto-forum.ru/viewtopic.php?t=280",
+      "title": "Налог на роскошь 2025-2026: список автомобилей, расчет и как избежать ...",
+      "from_query": "налог на роскошь автомобили 2026 forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://verticalauto.ru/articles/nalog-na-roskos-2026-spisok-minpromtorga-i-kak-rasscitat-platez",
+      "title": "Налог на роскошь 2026: главный подвох для покупателей б/у китайских ...",
+      "from_query": "налог на роскошь автомобили 2026 forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.avito.ru/auto-journal/kak-platit-nalog-na-roskosh-za-gibridy-i-elektrokary-chto-v-spiske-na-2026-god",
+      "title": "Как платить налог на роскошь за гибриды и электрокары: что в списке на ...",
+      "from_query": "налог на роскошь автомобили 2026 forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://rg.ru/2026/03/29/minpromtorg-rasshiril-spisok-oblagaemyh-nalogom-na-roskosh-avto.html",
+      "title": "Минпромторг расширил список облагаемых налогом на роскошь авто",
+      "from_query": "перечень минпромторга налог на роскошь 2026"
+    },
+    {
+      "url": "https://www.vedomosti.ru/economics/news/2026/03/29/1186355-minpromtorg-rasshiril-spisok",
+      "title": "Минпромторг расширил список авто, облагаемых налогом на роскошь",
+      "from_query": "перечень минпромторга налог на роскошь 2026"
+    },
+    {
+      "url": "https://urbase.ru/nalog-na-roskosh-v-2026-godu-minpromtorg-rasshiril-spisok-do-573-modelej-kitajskij-premium-teper-v-zakone/",
+      "title": "Налог на роскошь 2026: полный список 573 авто Минпромторга",
+      "from_query": "перечень минпромторга налог на роскошь 2026"
+    },
+    {
+      "url": "https://skladkahub.pro/blog/nalog-na-roskosh-2026-chto-oblagaetsja-stavki",
+      "title": "Налог на роскошь 2026: что облагается, ставки и список Минпромторга",
+      "from_query": "перечень минпромторга налог на роскошь 2026"
+    },
+    {
+      "url": "https://www.kommersant.ru/doc/8550448",
+      "title": "Минпромторг расширил список автомобилей с налогом на роскошь",
+      "from_query": "перечень минпромторга налог на роскошь 2026"
+    },
+    {
+      "url": "https://vnesenie-v-reestr.ru/news/izmeneniya-v-naloge-na-roskosh-spisok-avtomobiley-2025-goda-kto-platit-povyshennyy-transportnyy-nalog",
+      "title": "Налог на роскошь 2026: перечень автомобилей Минпромторга и коэффициент ...",
+      "from_query": "Как проверить налог на роскошь на авто из Азии до заказа в 2026 2026"
+    },
+    {
+      "url": "https://nalog-nalog.ru/transportnyj_nalog/nalog-na-roskosh-perechen-avtomobilej-nn/",
+      "title": "Налог на роскошь - список автомобилей, с какой стоимости и сколько ...",
+      "from_query": "Как проверить налог на роскошь на авто из Азии до заказа в 2026 2026"
+    }
+  ]
+}

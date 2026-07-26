@@ -14,19 +14,23 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short tokens must be whole words; substring matches cause false positives
+# (ai⊂pain, ии⊂Азии, make⊂makeshift). Longer stems stay substring/prefix.
+TECH_TOKEN_MARKERS = (
     "ai",
     "ии",
+    "api",
+    "mcp",
+    "rag",
+    "n8n",
+    "make",
+)
+TECH_STEM_MARKERS = (
     "agent",
     "агент",
-    "mcp",
-    "api",
     "cursor",
-    "make",
-    "n8n",
     "github",
     "docker",
-    "rag",
     "workflow",
     "автоматизац",
     "нейросет",
@@ -73,14 +77,32 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _has_tech_token(blob: str, token: str) -> bool:
+    """Unicode-aware whole-token match (letters/digits on either side block the hit)."""
+    pattern = rf"(?<![0-9A-Za-zА-Яа-яЁё]){re.escape(token)}(?![0-9A-Za-zА-Яа-яЁё])"
+    return bool(re.search(pattern, blob, flags=re.IGNORECASE))
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech how-tos that need GitHub evidence.
+
+    Only topic-card fields are scanned. Notes body is ignored: required
+    ``## github_evidence`` headers and field names like ``reader_pain``
+    otherwise force every article into technical mode.
+    """
+    del notes  # intentional: do not scan research-notes body
     topic = context.get("topic") or {}
-    blob = " ".join(
-        str(topic.get(key) or "")
-        for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
-    ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    parts: list[str] = []
+    for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug"):
+        value = topic.get(key)
+        if isinstance(value, (list, tuple)):
+            parts.extend(str(item) for item in value)
+        elif value:
+            parts.append(str(value))
+    blob = " ".join(parts).lower()
+    if any(_has_tech_token(blob, token) for token in TECH_TOKEN_MARKERS):
+        return True
+    return any(stem in blob for stem in TECH_STEM_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:

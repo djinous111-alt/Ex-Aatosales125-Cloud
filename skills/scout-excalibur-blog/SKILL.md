@@ -41,8 +41,11 @@ Append new Topic Card to blog-topics.md
 
 ### Шаг 3 — Валидация спроса (Yandex Wordstat)
 Для 2-3 отобранных вариантов тем вызови инструмент `wordstat_get_top_requests` сервера `user-mcp-kv`.
+* **Cluster-first:** сначала широкий parent-запрос кластера, затем узкий how-to. Не начинай только с длинной узкой фразы.
 * **Цель:** Найти ключевой запрос (primary query) с живым спросом в Яндексе и выписать 3–5 связанных поисковых вопросов для FAQ и secondary queries.
 * **Фильтр:** Если тема имеет микро-спрос (меньше 10 показов в месяц) и нет смежных тем — отложи её и возьми другую, более востребованную.
+* **Retry:** при `Temporary failure in name resolution` / DNS / transport timeout к Yandex Search API — 2–3 попытки с коротким backoff (несколько секунд). Первый транспортный сбой ≠ мёртвый Wordstat.
+* **totalCount-only:** ответ вида `{ "totalCount": "N" }` без топа фраз = low-result signal, не fatal; расширь запрос и опирайся на широкий кластер для FAQ/secondary.
 
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:

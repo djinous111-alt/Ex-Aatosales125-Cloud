@@ -1,0 +1,131 @@
+{
+  "gate": "human-voice",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/AS10-kak-proverit-nalog-na-roskosh-avto-2026",
+  "errors": [],
+  "warnings": [
+    "Fact Check block uses a repeated template; vary wording while preserving facts",
+    "multiple exactly-5-step lists detected; vary list size when editorially possible"
+  ],
+  "metrics": {
+    "h2_count": 7,
+    "repeated_h2_openers": [],
+    "textbook_h2_count": 0,
+    "paragraph_count": 22,
+    "paragraph_avg_words": 33.9,
+    "paragraph_variance_ratio": 0.44,
+    "concrete_markers": [
+      "например",
+      "на практике",
+      "типичная ошибка",
+      "в реальном проекте"
+    ],
+    "pain_markers": [
+      "боль",
+      "ошиб",
+      "дорого"
+    ],
+    "outcome_markers": [
+      "результат",
+      "проверьте",
+      "соберите"
+    ],
+    "ai_opening_hits": [],
+    "reader_story_overlap": [
+      "genesis",
+      "lexus",
+      "zeekr",
+      "грозит",
+      "дилер",
+      "договоре",
+      "интересует",
+      "китая",
+      "кореи",
+      "коэффициентом",
+      "модель",
+      "налоговую",
+      "перечне",
+      "посредник",
+      "потому",
+      "премиум",
+      "приходит",
+      "регионов",
+      "роскошь",
+      "уведомление",
+      "японии"
+    ],
+    "reader_pain_overlap": [
+      "возраст",
+      "дорого",
+      "модели",
+      "налог",
+      "оплаты",
+      "перечень",
+      "растаможки",
+      "решает",
+      "роскошь",
+      "сделки",
+      "транспортный"
+    ],
+    "reader_outcome_overlap": [
+      "актуальный",
+      "версию",
+      "депозита",
+      "заказа",
+      "марку",
+      "минпромторга",
+      "модель",
+      "перечень",
+      "платить",
+      "потом",
+      "решит",
+      "сверит",
+      "списке",
+      "только"
+    ],
+    "success_criteria_overlap": [
+      "версия",
+      "депозита",
+      "заметка",
+      "комплектации",
+      "модель",
+      "налога",
+      "отказ",
+      "перечне",
+      "понятен",
+      "порядок",
+      "региона",
+      "скрин",
+      "ставка"
+    ],
+    "voice_angle_overlap": [
+      "депозита",
+      "дороже",
+      "минут",
+      "налог",
+      "сосед",
+      "только",
+      "юриста"
+    ],
+    "surprising_fact_overlap": [
+      "версия",
+      "карточки",
+      "коэффициент",
+      "марка",
+      "минпромторга",
+      "модель",
+      "налога",
+      "налогу",
+      "отдельного",
+      "позиции",
+      "позиций",
+      "роскошь",
+      "считают",
+      "транспортному",
+      "файла",
+      "цифру"
+    ],
+    "exactly_five_lists": 2,
+    "fact_check_template_blocks": 1
+  }
+}

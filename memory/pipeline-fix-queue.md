@@ -58,7 +58,7 @@ checks_run:
 - `python3 -m json.tool memory/brief/editorial-policy.json`
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir memory/blog/articles/AS10-kak-proverit-nalog-na-roskosh-avto-2026` → PASS (pain=3, outcome=8)
 - empty-list regression: no pain/outcome errors, warnings present
-commit: ed0a2301397b7aa182abf0d68a30047e94afab50
+commit: 128f8faf08cd5f1ecc2208afbd27ce0941ecece7
 
 ## INC-20260726-0925-research-false-technical-github
 status: fixed
@@ -102,7 +102,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
 - AS10 research_notes_gate → PASS, technical_topic=false
 - unit checks: Asia/pain false-positive False; MCP/Cursor True
-commit: ed0a2301397b7aa182abf0d68a30047e94afab50
+commit: 128f8faf08cd5f1ecc2208afbd27ce0941ecece7
 
 ## INC-20260726-0926-research-minpromtorg-fetch-500
 status: fixed
@@ -141,7 +141,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` for gov.ru 5xx guidance in research skills + pitfalls
-commit: ed0a2301397b7aa182abf0d68a30047e94afab50
+commit: 128f8faf08cd5f1ecc2208afbd27ce0941ecece7
 
 ## INC-20260726-0915-scout-wordstat-dns-retry
 status: fixed
@@ -186,7 +186,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` for Wordstat DNS retry / totalCount guidance in scout skills
-commit: ed0a2301397b7aa182abf0d68a30047e94afab50
+commit: 128f8faf08cd5f1ecc2208afbd27ce0941ecece7
 
 ## INC-20260726-0902-director-as-topic-regex-regression
 status: fixed
@@ -238,7 +238,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `rg` AS|B in today.py / scout_helper; `--blog-path` in llms_generator
-commit: ed0a2301397b7aa182abf0d68a30047e94afab50
+commit: 128f8faf08cd5f1ecc2208afbd27ce0941ecece7
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

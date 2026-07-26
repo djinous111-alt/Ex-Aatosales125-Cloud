@@ -34,7 +34,7 @@ def load_active_article_topics(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = re.match(r"((?:AS|B)\d+)-", path.name, flags=re.IGNORECASE)
         if match:
             active.add(match.group(1).upper())
     return active
@@ -46,7 +46,11 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
     if not topics_path.is_file():
         return topics
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in re.finditer(
+        r"##\s+((?:AS|B)\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)",
+        text,
+        re.DOTALL,
+    ):
         topic_id = match.group(1).upper()
         block = match.group(2)
         
@@ -130,13 +134,19 @@ def main() -> int:
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
-        max_num = 0
+        # Prefer the dominant prefix already used in the topic pool (AS for Авто-Сейлс).
+        prefixes = {"AS": 0, "B": 0}
         for t in existing:
-            m = re.match(r"B(\d+)", t["topic_id"])
+            m = re.match(r"(AS|B)(\d+)", t["topic_id"], flags=re.IGNORECASE)
             if m:
-                max_num = max(max_num, int(m.group(1)))
-        
-        next_id = f"B{max_num + 1:02d}"
+                prefixes[m.group(1).upper()] = max(
+                    prefixes[m.group(1).upper()], int(m.group(2))
+                )
+        if prefixes["AS"] > 0 or any(t["topic_id"].startswith("AS") for t in existing):
+            prefix = "AS"
+        else:
+            prefix = "B"
+        next_id = f"{prefix}{prefixes[prefix] + 1:02d}"
         print(f"Next available topic ID: {next_id}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")

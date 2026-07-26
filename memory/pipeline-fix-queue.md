@@ -6,6 +6,76 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260726-0915-scout-wordstat-dns-retry
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-scout
+topic_id: AS10
+article_dir: n/a
+severity: low
+category: api
+
+### What went wrong
+- `wordstat_get_top_requests` (MCP-KV) intermittently failed with `Temporary failure in name resolution` to Yandex Search API after a successful first call.
+- Some narrow how-to phrases returned only `{ "totalCount": "N" }` wrapped as unexpected format (treated as low-result signal per scout contract, not fatal).
+
+### How the agent recovered this run
+- Retried parent/narrow Wordstat calls after short wait; used successful wide parent (`налог на роскошь` 11073) and primary (`налог на роскошь автомобили 2026` 1321) for demand; narrow how-to totalCount-only used only as secondary FAQ signal.
+- Topic AS10 still passed pool check-query, WP slug/search dedupe, and utility gate.
+
+### Durable fix needed before next run
+- Add scout/runtime retry with backoff for Wordstat DNS/transport errors (2–3 attempts) instead of treating first failure as dead API.
+- Keep documenting totalCount-only / truncated responses as non-fatal low-result in scout skill and MCP error mapping (avoid scary "unexpected format" when only totalCount is present).
+
+### Suggested files to inspect/change
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- MCP-KV Wordstat client / error mapping (if in repo)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260726-0902-director-as-topic-regex-regression
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_today.py` and `excalibur_blog_scout_helper.py` only matched `B\\d+` topic IDs, so Авто-Сейлс pool `AS01..AS09` produced `EXCALIBUR_TOPIC_SELECTION=needs_scout` despite unwritten P0 topics.
+- `excalibur_blog_llms_generator.py` lacked `--blog-path` alias required by `excalibur_blog_doctor.py` / indexer contract (previous fix INC-2114 regressed on this branch).
+- Doctor also failed on missing `numpy` until `python3-numpy` was installed via apt.
+
+### How the agent recovered this run
+- Restored `(?:AS|B)\\d+` parsing in today.py and scout_helper.py; scout `--suggest-next` prefers AS prefix when pool uses AS.
+- Added `--blog-path` alias + reject `/` or `.` as blog path in llms generator.
+- Installed `python3-numpy` for doctor/interlinker.
+
+### Durable fix needed before next run
+- Keep AS|B topic ID support in selection helpers; add a regression test or doctor check that `AS08` is visible as a topic ID pattern.
+- Keep `--blog-path` as documented alias of `--blog-dir`.
+- Ensure Cloud image/bootstrap installs `python3-numpy` (or document apt dependency).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/environment.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

@@ -6,7 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
-_none_
+- `INC-20260726-0925-schema-jsonld-secret-scanner-pragma`
+
+## INC-20260726-0925-schema-jsonld-secret-scanner-pragma
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-schema
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-proverit-nalog-na-roskosh-avto-2026
+severity: medium
+category: env
+
+### What went wrong
+- Commit `schema.jsonld` blocked by Cursor secret scanner: values of `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` appear in BlogPosting/`sameAs` (required for E-E-A-T).
+- HTML articles already use `<!-- pragma: allowlist secret -->`; JSON-LD had no documented allowlist pattern, so Schema could not commit a valid artifact.
+
+### How the agent recovered this run
+- Added trailing `// pragma: allowlist secret` on secret URL lines in `schema.jsonld` (JSONC).
+- Taught `excalibur_blog_wp_publish.py` to strip these markers before WP meta so published JSON-LD stays valid.
+- Documented the pattern in `skills/schema-excalibur-blog/SKILL.md` and `.cursor/skills/schema-excalibur-blog/SKILL.md`.
+
+### Durable fix needed before next run
+- Keep publish strip + schema skill note; optionally add one line to `shared/agent-pipeline-pitfalls.md`.
+- Consider a tiny helper `scripts/excalibur_blog_schema_write.py` that injects pragmas when dumping from registry/env, so agents do not hand-edit JSONC.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+---
+
 
 ## INC-20260726-0918-geo-qa-utility-pain-markers-missing
 status: fixed

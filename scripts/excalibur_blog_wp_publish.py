@@ -169,6 +169,8 @@ def normalize_cover_png(cover_path: Path, registry_path: Path, root: Path) -> di
 
 
 def load_article(article_dir: Path) -> dict:
+    import re
+
     meta_path = article_dir / "article.meta.json"
     html_path = article_dir / "article.html"
     if not meta_path.is_file() or not html_path.is_file():
@@ -186,13 +188,18 @@ def load_article(article_dir: Path) -> dict:
         cover_b64 = base64.b64encode(cover_path.read_bytes()).decode("ascii")
     schema_raw = ""
     if schema_path.is_file():
-        schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        # Schema may use JSONC trailing `// pragma: allowlist secret` so git
+        # secret-scan allows PUBLIC_SITE_URL / CTA URLs; strip before WP meta.
+        schema_raw = re.sub(
+            r"[ \t]*// pragma: allowlist secret",
+            "",
+            schema_path.read_text(encoding="utf-8"),
+        ).strip()
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
         cover_alt = cover_alt or reg.get("cover_alt_text", "")
 
-    import re
     img_srcs = re.findall(r'<img\s+[^>]*src=["\']([^"\']+)["\']', content)
     inline_images = []
     for src in img_srcs:

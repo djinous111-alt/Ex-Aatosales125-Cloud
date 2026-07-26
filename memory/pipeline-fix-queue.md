@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260726-1318-schema-jsonld-secret-scan-pragma
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-schema
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026
+severity: medium
+category: publish
+
+### What went wrong
+- First `git commit` of `schema.jsonld` blocked by Cursor secret-scan: `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` appear in BlogPosting `@id` / author `sameAs`.
+- Pure JSON cannot host HTML-style `<!-- pragma -->`; without a workaround schema cannot be committed while keeping absolute URLs for Rich Results.
+
+### How the agent recovered this run
+- Rewrote `schema.jsonld` as JSONC with trailing `// pragma: allowlist secret` on lines that contain those public brand URLs (same intent as writer HTML CTA pragma).
+- Patched `scripts/excalibur_blog_wp_publish.py` `load_article` to strip those trailing pragmas before writing WP post meta, so injected JSON-LD stays valid JSON.
+
+### Durable fix needed before next run
+- Document in schema skill + pitfalls: public site/CTA URLs in `schema.jsonld` need JSONC allowlist pragmas; publish must strip before WP meta.
+- Optionally add a tiny `jsonc_loads` helper shared by schema validation/publish instead of ad-hoc regex.
+- Longer-term: non-secret public aliases (`PUBLIC_CATALOG_URL` etc.) or secret-scan allowlist for known brand URLs.
+
+### Suggested files to inspect/change
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_wp_publish.py` (strip already added this run)
+- `shared/excalibur-article-writing-contract.md` (schema section)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260726-1319-cover-kie-402-credits
 status: open
 run_date: 2026-07-26

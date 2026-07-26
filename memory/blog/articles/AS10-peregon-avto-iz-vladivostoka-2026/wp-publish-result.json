@@ -1,0 +1,26 @@
+{
+  "slug": "peregon-avto-iz-vladivostoka-2026",
+  "topic_id": "AS10",
+  "article_dir": "memory/blog/articles/AS10-peregon-avto-iz-vladivostoka-2026",
+  "publish_date": "2026-07-26",
+  "dry_run": {
+    "ok": true,
+    "slug": "peregon-avto-iz-vladivostoka-2026",
+    "title": "Перегон авто из Владивостока в 2026: свой ход или перегонщик",
+    "php_bytes": 48668
+  },
+  "link_verify": "pass",
+  "post_id": null,
+  "permalink": null,
+  "featured_image": null,
+  "inline_images": [],
+  "schema_meta": 0,
+  "live_publish_attempted": false,
+  "verdict": "fail",
+  "blockers": [
+    "missing cover/cover.png",
+    "missing cover/cover-registry.json",
+    "COVER BLOCKER upstream: Kie API 402 Credits insufficient (INC-20260726-1715-cover-kie-credits-402)"
+  ],
+  "raw_output": "PREFLIGHT link-verify=pass\nDRY-RUN ok slug=peregon-avto-iz-vladivostoka-2026 php_bytes=48668\nBLOCKER: no cover/cover.png and no cover-registry.json; live publish skipped per publish-excalibur-blog skill preconditions\n"
+}

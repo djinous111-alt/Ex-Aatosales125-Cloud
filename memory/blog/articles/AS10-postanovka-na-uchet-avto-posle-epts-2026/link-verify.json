@@ -5,7 +5,7 @@
   "verdict": "pass",
   "links": [
     {
-      "url": "[REDACTED_CATALOG_URL]",
+      "url": "[CATALOG_URL]",
       "status": 200,
       "ok": true,
       "method": "HEAD",
@@ -14,7 +14,7 @@
       "skipped": false
     },
     {
-      "url": "[REDACTED_TELEGRAM_URL]",
+      "url": "[TELEGRAM_URL]",
       "status": 200,
       "ok": true,
       "method": "HEAD",
@@ -22,5 +22,6 @@
       "kind": "external",
       "skipped": false
     }
-  ]
+  ],
+  "note": "URLs redacted for git secret-scan; runtime verify used env CTA URLs"
 }

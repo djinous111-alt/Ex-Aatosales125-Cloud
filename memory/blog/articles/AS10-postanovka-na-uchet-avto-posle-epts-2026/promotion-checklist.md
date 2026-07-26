@@ -1,6 +1,6 @@
 # Promotion checklist — AS10 postanovka-na-uchet-avto-posle-epts-2026
 
-Дата публикации: 2026-07-26  
+Дата публикации: 2026-07-26 (publish BLOCKER — cover missing; Live URL provisional/not live)  
 Live URL: https://avtosales125.ru/blog/postanovka-na-uchet-avto-posle-epts-2026/ <!-- // pragma: allowlist secret -->
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
@@ -49,3 +49,8 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (AS10 в индексе).
 - Cover BLOCKER известен (нет cover.png) — indexer выполнен без publish.
 - Publish: pending (indexer не публикует).
+
+## Publish status
+
+- ❌ PUBLISH BLOCKER: `cover/cover.png` missing (Kie 402). Live checklist deferred until re-publish after cover.
+

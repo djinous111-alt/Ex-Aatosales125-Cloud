@@ -39,6 +39,11 @@
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- Opaque MCP image error (`'NoneType' object has no attribute 'get'`) на `gpt-image-2` / flux: сначала проверь баланс через другой Kie tool (часто 402 Credits insufficient). Blocker = credits/top-up, не «битый prompt»; invent PNG запрещён.
+
+## Schema / secret scanner
+
+- В `schema.jsonld` URL из env/`sameAs` помечай хвостом `// pragma: allowlist secret` (JSONC). Publish (`excalibur_blog_wp_publish.py`) снимает маркеры перед WP meta. Без pragma Cursor secret scanner блокирует commit.
 
 ## Scout
 
@@ -59,3 +64,9 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- Никогда не передавай `excalibur_blog_llms_generator.py --blog-path /` (или `.`): скрипт вернёт ERROR. Канон: `--blog-dir memory/blog/articles` (+ `--out-dir memory/blog`).
+
+## Publish / cover gate
+
+- `excalibur_blog_wp_publish.py` (dry-run и live) требует `cover/cover.png` + `cover-registry.json` до load/SSH; без них → явный BLOCKER, не invent PNG.
+- В `load_article()` не делай локальный `import re` после `re.sub` (schema pragma strip) — будет `UnboundLocalError`; используй module-level `import re`.

@@ -41,17 +41,18 @@ Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
 
 Проверь: slug, title, размер PHP payload без ошибок.
+Скрипт **до** load/SSH требует `cover/cover.png` + `cover-registry.json`; иначе stderr `BLOCKER: missing required cover artifacts` (exit 1). Invent PNG запрещён — retry cover после top-up Kie.
 
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 

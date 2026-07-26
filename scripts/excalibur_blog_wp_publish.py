@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """Publish one Excalibur blog article to WordPress (SSH bootstrap)."""
 from __future__ import annotations
 
@@ -198,7 +198,8 @@ def load_article(article_dir: Path) -> dict:
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
         cover_alt = cover_alt or reg.get("cover_alt_text", "")
 
-    import re
+    # Use module-level `import re` only — a local `import re` here shadows it and
+    # causes UnboundLocalError on the earlier re.sub() for schema pragmas.
     img_srcs = re.findall(r'<img\s+[^>]*src=["\']([^"\']+)["\']', content)
     inline_images = []
     for src in img_srcs:
@@ -574,6 +575,24 @@ def main() -> int:
         return 2
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
+
+    # Fail-fast before load/SSH: publish requires local cover artifacts (do not invent PNG).
+    cover_png = article_dir / "cover" / "cover.png"
+    cover_reg = article_dir / "cover" / "cover-registry.json"
+    missing_cover = []
+    if not cover_png.is_file():
+        missing_cover.append("cover/cover.png")
+    if not cover_reg.is_file():
+        missing_cover.append("cover/cover-registry.json")
+    if missing_cover:
+        print(
+            "BLOCKER: missing required cover artifacts: "
+            + ", ".join(missing_cover)
+            + " (retry cover agent after image API credits; inventing PNG forbidden)",
+            file=sys.stderr,
+        )
+        return 1
+
     payload = load_article(article_dir)
     php = build_php(payload)
 

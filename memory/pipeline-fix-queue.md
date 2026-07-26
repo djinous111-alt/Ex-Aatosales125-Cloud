@@ -6,14 +6,15 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+- (none — AS10 run 2026-07-26 resolved to fixed / needs-human below)
+
+## Needs-human (waiting on external)
+
 - `INC-20260726-0931-publish-as10-missing-cover`
-- `INC-20260726-0930-publish-dry-run-re-unboundlocal`
-- `INC-20260726-0928-indexer-llms-blog-path-slash-stale-docs`
 - `INC-20260726-0927-cover-kie-credits-insufficient`
-- `INC-20260726-0925-schema-jsonld-secret-scanner-pragma`
 
 ## INC-20260726-0931-publish-as10-missing-cover
-status: open
+status: needs-human
 run_date: 2026-07-26
 role: excalibur-blog-publish
 topic_id: AS10
@@ -48,12 +49,28 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+fixed_at: 2026-07-26
+reason:
+- Cover artifacts still missing; inventing PNG forbidden. Upstream depends on Kie.ai credits (INC-0927).
+needed_decision_or_secret:
+- Top-up Kie.ai for MCP-KV image tools → re-run cover agent → then re-run publish.
+fix_summary:
+- Hardened `excalibur_blog_wp_publish.py` to fail-fast with clear BLOCKER when `cover/cover.png` or `cover-registry.json` missing (dry-run and live, before load/SSH).
+- Documented cover gate in publish skills + pitfalls.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- AS10 `--dry-run` → exit 1, stderr `BLOCKER: missing required cover artifacts` (no UnboundLocalError)
+commit: b99b77602d5807f458de6e22c514f3dd8d36e394
 
 ---
 
 ## INC-20260726-0930-publish-dry-run-re-unboundlocal
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-publish
 topic_id: AS10
@@ -83,12 +100,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Removed local `import re` inside `load_article()` that shadowed module-level `re` and caused UnboundLocalError on schema pragma `re.sub`.
+- Added pitfalls note; regression dry-run with pragma exits 0 when cover present.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- AS10 `load_article` + schema pragma strip → valid JSON, no UnboundLocalError
+- AS09 `--dry-run` exit 0; AS09 with temporary pragma in schema.jsonld → exit 0
+commit: b99b77602d5807f458de6e22c514f3dd8d36e394
 
 ---
 
 ## INC-20260726-0928-indexer-llms-blog-path-slash-stale-docs
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-indexer
 topic_id: AS10
@@ -122,12 +151,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Removed `--blog-path /` from indexer agent/skill shell examples (plugin + cloud mirrors).
+- Documented never-pass `/` or `.` in skills + `shared/agent-pipeline-pitfalls.md`.
+files_changed:
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg -F -- '--blog-path /'` — only warning text remains, no command examples using `/`
+commit: b99b77602d5807f458de6e22c514f3dd8d36e394
 
 ---
 
 ## INC-20260726-0927-cover-kie-credits-insufficient
-status: open
+status: needs-human
 run_date: 2026-07-26
 role: excalibur-blog-cover
 topic_id: AS10
@@ -164,12 +206,26 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+fixed_at: 2026-07-26
+reason:
+- Image generation blocked by Kie.ai billing (402 Credits insufficient / opaque NoneType wrapper). Cannot invent cover.png in-repo.
+needed_decision_or_secret:
+- Top-up Kie.ai credits for MCP-KV (`gpt-image-2` / nano_banana / flux). Optionally improve MCP wrapper to surface HTTP 402 (out of repo).
+fix_summary:
+- Cover skills + pitfalls: opaque NoneType → probe another Kie tool; treat 402 as credits blocker, not bad prompt; invent PNG forbidden.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` for NoneType / 402 Credits guidance in cover skills + pitfalls
+commit: b99b77602d5807f458de6e22c514f3dd8d36e394
 
 ---
 
 ## INC-20260726-0925-schema-jsonld-secret-scanner-pragma
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-schema
 topic_id: AS10
@@ -200,7 +256,20 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Confirmed publish strip of `// pragma: allowlist secret` still works after re-import fix; schema skills already document JSONC pattern.
+- Added pitfalls line for schema secret-scanner pragma.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py` (re-import fix enabling strip path)
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/schema-excalibur-blog/SKILL.md` (already documented; verified)
+- `.cursor/skills/schema-excalibur-blog/SKILL.md` (already documented; verified)
+checks_run:
+- AS10 schema strip → `json.loads` OK, no pragma left in payload
+- AS09 dry-run with injected pragma → exit 0
+commit: b99b77602d5807f458de6e22c514f3dd8d36e394
 
 ---
 

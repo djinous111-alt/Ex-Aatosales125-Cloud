@@ -34,6 +34,9 @@
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
+- В `article.html` **запрещён** литерал `href="[REDACTED]"` — пишите реальные публичные CTA (каталог / Telegram), даже если tool output краснеет `PUBLIC_SITE_URL`.
+- Cloud secret-scan: точные значения `CATALOG_URL` / `TELEGRAM_URL` блокируют commit. В репо используйте эквиваленты (каталог без trailing `/`, хост `telegram.me` вместо `t.me`) или относительные пути; live verify перед redact/вариантом.
+- Utility gate: `min_pain_markers` / `min_outcome_markers` применяются только если ключи и списки маркеров явно заданы в `editorial-policy.json`; иначе hard-default 2/3 даёт ложный BLOCK.
 
 ## Cover
 

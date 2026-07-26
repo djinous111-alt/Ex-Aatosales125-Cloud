@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Publish one Excalibur blog article to WordPress (SSH bootstrap)."""
 from __future__ import annotations
 
@@ -7,6 +7,7 @@ import base64
 import io
 import json
 import os
+import re
 import sys
 import urllib.request
 from pathlib import Path
@@ -186,7 +187,12 @@ def load_article(article_dir: Path) -> dict:
         cover_b64 = base64.b64encode(cover_path.read_bytes()).decode("ascii")
     schema_raw = ""
     if schema_path.is_file():
-        schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        # Strip Cursor secret-scanner allowlist markers so WP meta stays valid JSON-LD.
+        schema_raw = re.sub(
+            r"[ \t]*//[ \t]*pragma:[ \t]*allowlist secret[ \t]*",
+            "",
+            schema_path.read_text(encoding="utf-8"),
+        ).strip()
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))

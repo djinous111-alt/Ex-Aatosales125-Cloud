@@ -384,3 +384,71 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20260726-2112-geo-qa-utility-pain-defaults
+status: open
+run_date: 2026-07-27
+role: excalibur-blog-geo-qa
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026
+severity: medium
+category: script
+
+### What went wrong
+- After AVTO SALES rebrand, `memory/brief/editorial-policy.json` removed `pain_markers_ru`, `outcome_markers_ru`, and `min_pain_markers` / `min_outcome_markers`.
+- `excalibur_blog_utility_gate.py` still used `int(req.get("min_pain_markers") or 2)` / `or 3`, so empty marker lists always produced BLOCK (`pain_markers=0 < 2`, `outcome_markers=0 < 3`), including for previously PASS articles like AS08.
+
+### How the agent recovered this run
+- Patched utility gate to enforce pain/outcome mins only when both the min keys and marker lists are explicitly configured in policy.
+- Re-ran utility gate for AS10 → PASS (action_markers=9).
+
+### Durable fix needed before next run
+- Keep the conditional enforcement in `scripts/excalibur_blog_utility_gate.py` (and mirror under packaging if duplicated).
+- Optionally restore pain/outcome marker lists in editorial-policy.json if product wants them back as hard gates; document the choice in `shared/editorial-utility-only.md` / pitfalls.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_utility_gate.py`
+- `memory/brief/editorial-policy.json`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20260726-2112-geo-qa-writer-redacted-href
+status: open
+run_date: 2026-07-27
+role: excalibur-blog-geo-qa
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026
+severity: medium
+category: qa
+
+### What went wrong
+- Writer left literal `href="[REDACTED]"` placeholders in `article.html` (3 CTA links), so link-verify treated them as relative paths and failed with 404.
+- Likely confusion with secret-scanner / handoff redaction of `PUBLIC_SITE_URL` and catalog URLs in docs.
+
+### How the agent recovered this run
+- Replaced placeholders with the same working CTA URLs used in AS08/AS09 (site catalog + Telegram @avtosales125).
+- link-verify re-run: 2/2 PASS.
+
+### Durable fix needed before next run
+- Writer skill/contract: never write the token `[REDACTED]` into `article.html` hrefs; use real public catalog/Telegram URLs (or relative `/` paths), even when tool output redacts secrets.
+- Add a pre-QA or Writer self-check: fail if `href="[REDACTED]"` appears in article HTML.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- optional: small assert in `excalibur_blog_link_verify.py` or html_linter for literal REDACTED href
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

@@ -1,0 +1,80 @@
+{
+  "article": "memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 10,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 9,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "смотрите Tank 500; для тесной грязи – 300. С мая 2026 есть и сборка на \"Автоторе\", так что \"только из Ки",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "300",
+      "kind": "large_number",
+      "context": "Смотрите фото Tank 300 и думаете: \"ну почти кроссовер, только брутальнее\"",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "500",
+      "kind": "large_number",
+      "context": "Tank Семья + простор заднего ряда → смотреть Tank 500 рядом с 300 Сравните Tank 300 и Tank 500 по задача",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4760",
+      "kind": "large_number",
+      "context": ". Ориентиры на июль 2026 (не оферта): длина около 4760 мм у 300 и около 5078 мм у 500; база 2750 vs 2850",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5078",
+      "kind": "large_number",
+      "context": "26 (не оферта): длина около 4760 мм у 300 и около 5078 мм у 500; база 2750 vs 2850 мм; клиренс 224 мм у о",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2750",
+      "kind": "large_number",
+      "context": "а около 4760 мм у 300 и около 5078 мм у 500; база 2750 vs 2850 мм; клиренс 224 мм у обоих. Углы у 300 обы",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2850",
+      "kind": "large_number",
+      "context": "4760 мм у 300 и около 5078 мм у 500; база 2750 vs 2850 мм; клиренс 224 мм у обоих. Углы у 300 обычно лучш",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "224",
+      "kind": "large_number",
+      "context": "коло 5078 мм у 500; база 2750 vs 2850 мм; клиренс 224 мм у обоих. Углы у 300 обычно лучше (ориентир 33°/",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "220",
+      "kind": "large_number",
+      "context": "м Клиренс 224 мм 224 мм Мотор на витрине RU 2.0T ~220 л.с., АКП-8 гибрид ~299 л.с. (ориентир tank.ru) Си",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "299",
+      "kind": "large_number",
+      "context": "Мотор на витрине RU 2.0T ~220 л.с., АКП-8 гибрид ~299 л.с. (ориентир tank.ru) Сильная сторона тесная гря",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

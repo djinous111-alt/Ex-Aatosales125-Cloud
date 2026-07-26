@@ -254,3 +254,79 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20260724-1800-director-as-b-topic-regex
+status: fixed
+run_date: 2026-07-24
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_today.py` и `excalibur_blog_scout_helper.py` матчили только `B\\d+`, хотя пул тем Авто-Сейлс — `AS*`.
+- `today` возвращал `needs_scout` / пустой SUGGESTED_TOPIC_ID при наличии AS01–AS09 P0.
+- scout_helper: Total topics in pool = 0, next ID = B01.
+
+### How the agent recovered this run
+- Расширены regex на `(?:AS|B)\\d+` в today.py и scout_helper.py; next ID предпочитает AS-серию.
+
+### Durable fix needed before next run
+- Уже внесено в scripts; fixer может синхронизировать docs/agent prompts если упоминают только Bxx.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-24
+fix_summary:
+- AS|B topic ID support restored in today + scout_helper.
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+checks_run:
+- `python3 scripts/excalibur_blog_today.py`
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next`
+commit: pending-parent-commit
+
+## INC-20260724-1800-director-llms-blog-path-alias
+status: fixed
+run_date: 2026-07-24
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- Doctor требовал `--blog-path`, а llms generator имел только `--blog-dir`.
+
+### How the agent recovered this run
+- Добавлен argparse alias `--blog-path` → `blog_dir`.
+
+### Durable fix needed before next run
+- Уже внесено; indexer skill может документировать оба флага.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-24
+fix_summary:
+- `--blog-path` alias added.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py`
+commit: pending-parent-commit

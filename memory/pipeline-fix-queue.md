@@ -525,3 +525,41 @@ category: api
 
 ### Fixer resolution
 - pending
+
+## INC-20260726-2118-indexer-llms-stale-blog-path
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-indexer
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Agent/skill contracts still document `excalibur_blog_llms_generator.py --blog-path /`.
+- Current script help has only `--blog-dir`, `--site-base`, `--out-dir` (no `--blog-path`); calling the stale flag would fail.
+- `scripts/excalibur_blog_doctor.py` still asserts `"--blog-path" in llms_help.stdout`, so doctor can false-fail after the CLI change.
+- First generate with `--site-base $PUBLIC_SITE_URL` produced commit-blocked artifacts (Cursor secret-scan on exact `PUBLIC_SITE_URL` value in `llms.txt` / `llms-full.txt` / interlink report).
+
+### How the agent recovered this run
+- Ran generator with `--blog-dir memory/blog/articles --out-dir memory/blog` (no `--blog-path`), per director correction.
+- Re-generated committed copies with `--site-base [REDACTED]` after hyphen catalog host also matched secret `CATALOG_URL`; AS10 indexed; interlink opportunities=0.
+
+### Durable fix needed before next run
+- Remove `--blog-path /` from indexer agent/skill docs in both `agents/` / `skills/` and `.cursor/` mirrors.
+- Update doctor check to assert `--blog-dir` (and optionally `--out-dir`) instead of `--blog-path`.
+- Document in pitfalls/indexer skill: for repo commits use `--site-base [REDACTED]` (both `PUBLIC_SITE_URL` and `CATALOG_URL` are secret-scanned); publish rewrites live URLs.
+
+### Suggested files to inspect/change
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

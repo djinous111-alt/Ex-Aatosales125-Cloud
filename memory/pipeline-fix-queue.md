@@ -65,7 +65,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - AS10 `--dry-run` → exit 1, stderr `BLOCKER: missing required cover artifacts` (no UnboundLocalError)
-commit: b99b77602d5807f458de6e22c514f3dd8d36e394
+commit: 36fcc94518e6c6402118f1f974127b42572b58e9
 
 ---
 
@@ -112,7 +112,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - AS10 `load_article` + schema pragma strip → valid JSON, no UnboundLocalError
 - AS09 `--dry-run` exit 0; AS09 with temporary pragma in schema.jsonld → exit 0
-commit: b99b77602d5807f458de6e22c514f3dd8d36e394
+commit: 36fcc94518e6c6402118f1f974127b42572b58e9
 
 ---
 
@@ -164,7 +164,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg -F -- '--blog-path /'` — only warning text remains, no command examples using `/`
-commit: b99b77602d5807f458de6e22c514f3dd8d36e394
+commit: 36fcc94518e6c6402118f1f974127b42572b58e9
 
 ---
 
@@ -220,7 +220,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` for NoneType / 402 Credits guidance in cover skills + pitfalls
-commit: b99b77602d5807f458de6e22c514f3dd8d36e394
+commit: 36fcc94518e6c6402118f1f974127b42572b58e9
 
 ---
 
@@ -269,7 +269,7 @@ files_changed:
 checks_run:
 - AS10 schema strip → `json.loads` OK, no pragma left in payload
 - AS09 dry-run with injected pragma → exit 0
-commit: b99b77602d5807f458de6e22c514f3dd8d36e394
+commit: 36fcc94518e6c6402118f1f974127b42572b58e9
 
 ---
 

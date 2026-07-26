@@ -464,3 +464,39 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20260726-1715-cover-kie-credits-402
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-cover
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-peregon-avto-iz-vladivostoka-2026
+severity: blocker
+category: api
+
+### What went wrong
+- MCP `gpt-image-2` (MCP-KV) x2 вернул `'NoneType' object has no attribute 'get'` без URL изображения.
+- Прямой Kie `createTask` через `excalibur_blog_kie_gpt_image2_api.py` вернул `code=402 Credits insufficient`.
+- Без реального image URL нельзя делать apply/split; fake PNG запрещены контрактом.
+
+### How the agent recovered this run
+- Manifest/prompt/batch для AS10 подготовлены (hook перегон Владивосток 2026, outfit bomber/трасса).
+- Stopped after 402; не выдумывал cover.png / inline; cover inject skip.
+- Fragment cover.md = COVER BLOCKER (credits).
+
+### Durable fix needed before next run
+- Пополнить баланс Kie.ai / `KIE_API_KEY` credits до следующего cover-рана.
+- MCP wrapper `gpt-image-2`: пробрасывать HTTP/body 402 вместо opaque `NoneType.get`.
+- Preflight cover: проверка credits/balance до дорогой i2i 2K, если API отдаёт balance.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `scripts/excalibur_blog_doctor.py` (optional credits preflight)
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

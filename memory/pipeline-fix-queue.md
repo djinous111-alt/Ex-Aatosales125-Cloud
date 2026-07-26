@@ -251,6 +251,100 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20260726-2101-scout-as-prefix-helper
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-scout
+topic_id: AS10
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py --suggest-next` and `--check-query` pool parsing match only `B\d+` headings/dirs; AS* topics in `blog-topics.md` count as 0 and next ID is wrongly `B01`.
+- Same `B\d+` regex lives in `scripts/excalibur_blog_today.py` (`next_p0_topic`, `active_article_topic_ids`), so today selection returns `needs_scout` even when AS P0 cards exist.
+
+### How the agent recovered this run
+- Forced next ID = AS10 from ledger/pool (ends at AS09).
+- Ran `--check-query` anyway (returns clean because pool parse is empty) and manually compared primary/slug to AS01–AS09 plus `memory/blog/published-live-avtosales125.json`.
+
+### Durable fix needed before next run
+- Broaden topic ID regex to `(AS|B)\d+` (or configurable prefix from site brief) in scout helper and today.py for headings, article dirs, and suggest-next numbering.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260726-2101-scout-wp-mcp-wrong-site
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-scout
+topic_id: AS10
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- MCP-KV `wordpress_get_posts` returned a 6-post site (tamopro-style customs blog), not Авто-Сейлс live (~50–100 posts). Cannibalization against live WP would be false-clean if trusted alone.
+
+### How the agent recovered this run
+- Used durable snapshot `memory/blog/published-live-avtosales125.json` plus AS01–AS09 cards for slug/angle guard; skipped peregon/avtovoz and model duplicates already on live.
+
+### Durable fix needed before next run
+- Point WordPress MCP credentials/base URL at Авто-Сейлс, or document Scout must prefer `published-live-avtosales125.json` / SSH WP list when MCP host mismatches brand.
+- Optionally add scout helper flag `--check-live-slugs memory/blog/published-live-avtosales125.json`.
+
+### Suggested files to inspect/change
+- MCP WordPress env / Cursor Dashboard secrets (no values recorded)
+- `.cursor/agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260726-2102-scout-precommit-secret-name
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-scout
+topic_id: AS10
+article_dir: n/a
+severity: high
+category: env
+
+### What went wrong
+- `git commit` failed in pre-commit.cursor: `invalid variable name` when expanding `${!SECRET_NAME}` because `CLOUD_AGENT_INJECTED_SECRET_NAMES` includes a non-identifier (URL-as-name).
+- Durable patch script from prior fixer run was missing on this branch.
+
+### How the agent recovered this run
+- Patched runtime hooks to skip non-identifier secret names.
+- Added `scripts/excalibur_blog_patch_agent_hooks.sh` for reinstall after cloud setup.
+
+### Durable fix needed before next run
+- Keep hook patch script in repo; run after cloud install.
+- Clean up Dashboard secret name that is a URL (identifier-only names).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_patch_agent_hooks.sh`
+- Cursor Dashboard Secrets (names only; no values recorded)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

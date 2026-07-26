@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260726-1330-geo-qa-utility-policy-markers-missing
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-geo-qa
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требовал `min_pain_markers`/`min_outcome_markers`, но в `memory/brief/editorial-policy.json` не было списков `pain_markers_ru` / `outcome_markers_ru` → count всегда 0 → ложный UTILITY ARTICLE BLOCKER на любой статье (включая ранее PASS AS09).
+- Recommendation markers не содержали вариант `чек-лист` (только `чеклист`), из‑за чего mode-B чек-листы недосчитывали action-маркеры.
+- Writer insight использовал ярлык `TL;DR / Быстрый инсайт`, который GEO QA skill запрещает.
+
+### How the agent recovered this run
+- Добавлены `pain_markers_ru`, `outcome_markers_ru`, пороги min_* и алиас `чек-лист` в editorial-policy.json.
+- Utility gate теперь пропускает pain/outcome checks, если списки маркеров в policy пустые.
+- Whitelist-safe правки AS10: pain в lead, `Избегайте…`, инсайт `Коротко:`, +1 шаг в первом ol.
+- Повтор gates: utility PASS, human-voice PASS, article-qa PASS.
+
+### Durable fix needed before next run
+- Зафиксировать в pitfalls: utility pain/outcome markers живут в editorial-policy; пустой список = skip, не hard-fail.
+- Синхронизировать writer contract с GEO skill: запрет ярлыка `TL;DR` / `Быстрый инсайт` в инсайт-блоке (пример `Коротко:`).
+- Опционально: добавить `чек-лист` в writer checklist маркеров / recommendation examples.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json` (уже патч в этом run)
+- `scripts/excalibur_blog_utility_gate.py` (уже патч в этом run)
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/excalibur-article-writing-contract.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260726-1325-writer-cta-secret-scan-block
 status: open
 run_date: 2026-07-26

@@ -34,6 +34,9 @@
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
+- Utility gate: `pain_markers_ru` / `outcome_markers_ru` должны жить в `memory/brief/editorial-policy.json`. Пустой список = check skip; отсутствие ключей раньше давало ложный BLOCK (pain=0/outcome=0) на любой статье.
+- Recommendation markers: учитывай оба написания `чеклист` и `чек-лист`.
+- Инсайт-блок: не начинай с ярлыка `TL;DR` / `Быстрый инсайт` (GEO skill); допустимо `Коротко:` и т.п.
 
 ## Cover
 

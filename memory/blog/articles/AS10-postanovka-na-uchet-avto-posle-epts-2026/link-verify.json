@@ -1,0 +1,26 @@
+{
+  "source": "memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026/article.html",
+  "total_links": 2,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "[REDACTED_CATALOG_URL]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "[REDACTED_TELEGRAM_URL]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

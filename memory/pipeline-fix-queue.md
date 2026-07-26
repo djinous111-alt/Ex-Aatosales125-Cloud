@@ -6,6 +6,69 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260726-1315-research-wordstat-partial-payload
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-research
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026
+severity: low
+category: api
+
+### What went wrong
+- MCP-KV `wordstat_get_top_requests` for phrase `постановка на учет после эптс` returned unexpected payload shape `{"totalCount":"109"}` without the usual top-requests list (tool surfaced as format error).
+- Primary/secondary Wordstat calls succeeded; only the Asia-narrow after-EPTS phrase was partial.
+
+### How the agent recovered this run
+- Recorded `totalCount` ~109 in research-notes with explicit PARTIAL warning; did not invent a fake top list.
+- Relied on successful primary/secondary volumes for demand table and LSI.
+
+### Durable fix needed before next run
+- Harden MCP-KV Wordstat client/tool to normalize sparse responses (expose totalCount + empty top list instead of hard format error).
+- Document in research skill: if only totalCount returns, treat as impressions estimate with PARTIAL warning.
+
+### Suggested files to inspect/change
+- MCP-KV Wordstat adapter / `wordstat_get_top_requests`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260726-1316-research-notes-gate-ii-false-positive
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-research
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marked non-IT topic AS10 as `technical_topic=true` because TECH_MARKERS included bare substring `ии`, which matches ordinary Russian words like `регистрации`.
+- Gate then required 3 GitHub URLs and BLOCK-ed a valid auto-registration research brief.
+
+### How the agent recovered this run
+- Tightened marker matching: short tokens (`ai`, `ии`, `mcp`, `api`, `rag`) now use non-letter boundaries; longer markers stay substring.
+- Also fixed notes formatting so `accessed_at:` appears in source rows and pain_solution_map rows contain `pain|solution|результат` tokens expected by the gate regex.
+- Re-ran research-notes gate to PASS.
+
+### Durable fix needed before next run
+- Keep bounded short-marker logic in the gate; add a unit/smoke test that Russian auto topic text is NOT technical.
+- Mirror the same TECH_MARKERS logic anywhere else that copies this list (if duplicated).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- optional test under `scripts/` or `tests/`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260726-1306-scout-precommit-secret-names
 status: open
 run_date: 2026-07-26

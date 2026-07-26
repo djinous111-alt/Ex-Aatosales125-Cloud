@@ -1,0 +1,95 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-26",
+    "today_ru": "26.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-27",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-26 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS10",
+    "priority": "P0",
+    "slug": "postanovka-na-uchet-avto-posle-epts-2026",
+    "h1": "Как поставить авто на учёт после ЭПТС: чек-лист документов и шагов 2026",
+    "primary_query": "документы для постановки авто на учет",
+    "secondary_queries": [
+      "постановка авто на учет в гибдд 2026",
+      "постановка на учет авто госуслуги",
+      "постановка авто на учет техосмотр"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS10",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "документы для постановки авто на учет 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "документы для постановки авто на учет июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "документы для постановки авто на учет новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com документы для постановки авто на учет 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "документы для постановки авто на учет official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "документы для постановки авто на учет forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "постановка авто на учет в гибдд 2026 2026",
+      "purpose": "вторичный запрос: постановка авто на учет в гибдд 2026"
+    },
+    {
+      "id": "secondary_2",
+      "query": "постановка на учет авто госуслуги 2026",
+      "purpose": "вторичный запрос: постановка на учет авто госуслуги"
+    },
+    {
+      "id": "secondary_3",
+      "query": "постановка авто на учет техосмотр 2026",
+      "purpose": "вторичный запрос: постановка авто на учет техосмотр"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как поставить авто на учёт после ЭПТС: чек-лист документов и шагов 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

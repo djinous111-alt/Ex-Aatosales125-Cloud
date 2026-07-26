@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026",
+  "notes": "memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026/research-notes.md",
+  "context": "memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-07-26",
+    "prefer_sources_after": "2026-04-27",
+    "source_urls": 28,
+    "source_domains": 11,
+    "source_table_rows": 28,
+    "accessed_at": 14,
+    "github_urls": 0,
+    "official_doc_urls": 0,
+    "action_outline_items": 8,
+    "pain_solution_rows": 7,
+    "technical_topic": false
+  }
+}

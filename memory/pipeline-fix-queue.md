@@ -357,3 +357,73 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20260726-1705-research-tech-marker-false-positive
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-research
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-peregon-avto-iz-vladivostoka-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` пометил нетехническую тему перегона авто как `technical_topic=true`.
+- Причина: `TECH_MARKERS` содержит подстроку `ai` (совпадает с `reader_pain` / `pain`) и `ии` (совпадает с русскими окончаниями вроде `фотофиксации`).
+- Из-за ложного technical-флага gate требовал `github_urls >= 3` даже для utility how-to про логистику ДВ.
+
+### How the agent recovered this run
+- Добавлены явные строки `accessed_at: 2026-07-26` (было <5 из-за дат только в колонке таблицы без лейбла).
+- В `github_evidence` добавлены релевантные GitHub/gist URL про ОСАГО/ЭПТС как workaround; gate стал PASS.
+- Сохранён beginner-first угол перегона (свой ход / перегонщик), без ухода в dev-тему.
+
+### Durable fix needed before next run
+- В `is_technical_topic` использовать word-boundary / токены вместо raw substring (`ai`, `ии`, `rag`, `make`).
+- Либо исключить совпадения внутри обязательных полей (`reader_pain`) и кириллических окончаний.
+- Для non-tech ниш (автологистика) разрешить community/docs evidence без принудительных GitHub URL.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260726-1705-research-tech-marker-false-positive
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-research
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-peregon-avto-iz-vladivostoka-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` пометил нетехническую тему перегона авто как `technical_topic=true`.
+- Причина: `TECH_MARKERS` содержит подстроку `ai` (совпадает с `reader_pain` / `pain`) и `ии` (совпадает с русскими окончаниями вроде `фотофиксации`).
+- Из-за ложного technical-флага gate требовал `github_urls >= 3` даже для utility how-to про логистику ДВ.
+
+### How the agent recovered this run
+- Добавлены явные строки `accessed_at: 2026-07-26` (было <5 из-за дат только в колонке таблицы без лейбла).
+- В `github_evidence` добавлены релевантные GitHub/gist URL про ОСАГО/ЭПТС как workaround; gate стал PASS.
+- Сохранён beginner-first угол перегона (свой ход / перегонщик), без ухода в dev-тему.
+
+### Durable fix needed before next run
+- В `is_technical_topic` использовать word-boundary / токены вместо raw substring (`ai`, `ии`, `rag`, `make`).
+- Либо исключить совпадения внутри обязательных полей (`reader_pain`) и кириллических окончаний.
+- Для non-tech ниш (автологистика) разрешить community/docs evidence без принудительных GitHub URL.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

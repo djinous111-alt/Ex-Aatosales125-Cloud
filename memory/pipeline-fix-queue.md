@@ -434,7 +434,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: 22441a9
+commit: pending-parent-commit
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -485,7 +485,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: 22441a9
+commit: pending-parent-commit
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -526,7 +526,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: 22441a9
+commit: pending-parent-commit
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -573,7 +573,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: 22441a9
+commit: pending-parent-commit
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -627,7 +627,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: 22441a9
+commit: pending-parent-commit
 
 ## Fixed incidents
 

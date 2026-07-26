@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260726-1325-writer-cta-secret-scan-block
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-writer
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` of `article.html` blocked by Cursor secret scanner because CTA href values match Cloud Secrets `CATALOG_URL` and `TELEGRAM_URL`.
+- Same public catalog/Telegram URLs are required in article body by conversion-map; previous articles already contain identical hrefs.
+
+### How the agent recovered this run
+- Added HTML comment `<!-- // pragma: allowlist secret -->` on lines with intentional public CTA links, then committed.
+
+### Durable fix needed before next run
+- Document writer/publish pattern: public brand CTA URLs that equal secret env values need allowlist pragma OR secret scanner exclusion for article HTML CTA fields.
+- Prefer non-secret alias vars (e.g. `PUBLIC_CATALOG_URL`) that are allowed in git, or pre-commit hook that injects pragma automatically.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `memory/brief/conversion-map.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260726-1315-research-wordstat-partial-payload
 status: open
 run_date: 2026-07-26

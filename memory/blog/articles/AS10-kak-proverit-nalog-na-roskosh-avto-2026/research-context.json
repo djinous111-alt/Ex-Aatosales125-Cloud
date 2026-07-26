@@ -1,0 +1,95 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-26",
+    "today_ru": "26.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-27",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-26 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS10",
+    "priority": "P0",
+    "slug": "kak-proverit-nalog-na-roskosh-avto-2026",
+    "h1": "Как проверить налог на роскошь на авто из Азии до заказа в 2026",
+    "primary_query": "налог на роскошь автомобили 2026",
+    "secondary_queries": [
+      "налог на роскошь авто 2026",
+      "перечень минпромторга налог на роскошь",
+      "список автомобилей налог на роскошь 2026"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS10",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "налог на роскошь автомобили 2026 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "налог на роскошь автомобили 2026 июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "налог на роскошь автомобили 2026 новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com налог на роскошь автомобили 2026 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "налог на роскошь автомобили 2026 official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "налог на роскошь автомобили 2026 forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "налог на роскошь авто 2026 2026",
+      "purpose": "вторичный запрос: налог на роскошь авто 2026"
+    },
+    {
+      "id": "secondary_2",
+      "query": "перечень минпромторга налог на роскошь 2026",
+      "purpose": "вторичный запрос: перечень минпромторга налог на роскошь"
+    },
+    {
+      "id": "secondary_3",
+      "query": "список автомобилей налог на роскошь 2026 2026",
+      "purpose": "вторичный запрос: список автомобилей налог на роскошь 2026"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как проверить налог на роскошь на авто из Азии до заказа в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS10-kak-proverit-nalog-na-roskosh-avto-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

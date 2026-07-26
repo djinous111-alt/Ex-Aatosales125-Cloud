@@ -104,3 +104,4 @@
 | 2026-06-22 | WP | kak-prodat-mashinu-i-bystro-zakazat-novuyu-s-dostavkoj-na-dom | [REDACTED]/2026/06/22/kak-prodat-mashinu-i-bystro-zakazat-novuyu-s-dostavkoj-na-dom/ | published |
 
 > Ledger сброшен при перенастройке под AVTO SALES (2026-07-17).
+| 2026-07-26 | AS10 | kak-proverit-nalog-na-roskosh-avto-2026 | memory/blog/articles/AS10-kak-proverit-nalog-na-roskosh-avto-2026 | in_progress |

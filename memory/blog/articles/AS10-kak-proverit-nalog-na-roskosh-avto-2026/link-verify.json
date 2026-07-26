@@ -5,7 +5,7 @@
   "verdict": "pass",
   "links": [
     {
-      "url": "[REDACTED]",
+      "url": "[CATALOG_URL]",
       "status": 200,
       "ok": true,
       "method": "HEAD",
@@ -14,7 +14,7 @@
       "skipped": false
     },
     {
-      "url": "[REDACTED]",
+      "url": "[TELEGRAM_URL]",
       "status": 200,
       "ok": true,
       "method": "HEAD",

@@ -31,3 +31,19 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-07-26 — AS10 kak-proverit-nalog-na-roskosh-avto-2026
+
+- **verdict:** ❌ PUBLISH BLOCKER (step executed, not skipped)
+- **permalink:** (none)
+- **post_id:** (none)
+- **featured_image:** (none)
+- **inline_images:** (none)
+- **schema_meta:** not applied
+- **preflight:** link-verify PASS (3/3); env-check PASS (`allow_publish=yes`, SSH configured)
+- **dry-run:** FAIL — `UnboundLocalError: re` in `load_article` (INC-20260726-0930)
+- **live publish:** not attempted
+- **blocker:** missing `cover/cover.png` + `cover-registry.json` (Kie 402 / INC-20260726-0927); invent forbidden
+- **ledger:** AS10 remains `in_progress` in `shared/published-articles.md`
+- **result:** `memory/blog/articles/AS10-kak-proverit-nalog-na-roskosh-avto-2026/wp-publish-result.json`
+- **incidents:** INC-20260726-0931-publish-as10-missing-cover; INC-20260726-0930-publish-dry-run-re-unboundlocal

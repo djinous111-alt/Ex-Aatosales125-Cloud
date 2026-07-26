@@ -1,7 +1,7 @@
 # Promotion checklist — AS10 kak-proverit-nalog-na-roskosh-avto-2026
 
-Дата публикации: 2026-07-26 (planned; WP publish pending)  
-Live URL: [REDACTED]blog/kak-proverit-nalog-na-roskosh-avto-2026/
+Дата публикации: 2026-07-26 (blocked; WP publish not done)  
+Live URL: (none — ❌ PUBLISH BLOCKER: missing cover/cover.png)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

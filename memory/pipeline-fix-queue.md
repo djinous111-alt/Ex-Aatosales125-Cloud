@@ -6,9 +6,86 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+- `INC-20260726-0931-publish-as10-missing-cover`
+- `INC-20260726-0930-publish-dry-run-re-unboundlocal`
 - `INC-20260726-0928-indexer-llms-blog-path-slash-stale-docs`
 - `INC-20260726-0927-cover-kie-credits-insufficient`
 - `INC-20260726-0925-schema-jsonld-secret-scanner-pragma`
+
+## INC-20260726-0931-publish-as10-missing-cover
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-publish
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-proverit-nalog-na-roskosh-avto-2026
+severity: blocker
+category: publish
+
+### What went wrong
+- Publish step executed (`publish=yes`, `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`, SSH/env-check OK).
+- Preflight `link-verify` → PASS (3/3).
+- Required `cover/cover.png` and `cover-registry.json` are missing (upstream COVER BLOCKER / Kie 402 — see INC-20260726-0927).
+- Live WP publish not attempted; inventing cover/PNG forbidden by contract.
+
+### How the agent recovered this run
+- Returned explicit `❌ PUBLISH BLOCKER` (step done, not skipped).
+- Left ledger `shared/published-articles.md` AS10 as `in_progress` (not published).
+- Wrote `wp-publish-result.json` with `verdict: blocker`.
+- Did not invent cover or call live publish.
+
+### Durable fix needed before next run
+- Top-up Kie.ai / retry cover agent → produce real `cover/cover.png` + registry + inject-html.
+- Re-run publish only after cover artifacts exist.
+- Optionally harden `excalibur_blog_wp_publish.py` to fail fast with clear BLOCKER when cover.png missing (before SSH), so dry-run/live gate is explicit.
+
+### Suggested files to inspect/change
+- `cover/` artifacts under article_dir (cover agent)
+- `skills/publish-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py` (optional cover preflight gate)
+- `memory/pipeline-fix-queue.md#INC-20260726-0927-cover-kie-credits-insufficient`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+---
+
+## INC-20260726-0930-publish-dry-run-re-unboundlocal
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-publish
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-kak-proverit-nalog-na-roskosh-avto-2026
+severity: high
+category: script
+
+### What went wrong
+- `python3 scripts/excalibur_blog_wp_publish.py --article-dir … --dry-run` crashed:
+  `UnboundLocalError: cannot access local variable 're' where it is not associated with a value`
+- Cause: in `load_article()`, schema pragma-strip uses `re.sub(...)` before a redundant local `import re` later in the same function; Python treats `re` as local for the whole function (module-level `import re` is shadowed).
+
+### How the agent recovered this run
+- Did not patch script in publish role (durable fix → Fixer).
+- Primary publish outcome remains cover BLOCKER; dry-run failure recorded separately.
+- Env-check still PASS (`allow_publish: true`, SSH configured).
+
+### Durable fix needed before next run
+- Remove the inner `import re` inside `load_article()` (module already imports `re`), or move any local import to the top of the function before first use.
+- Add a tiny regression: dry-run on an article with `schema.jsonld` containing `// pragma: allowlist secret` must exit 0.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`load_article`)
+- optionally a unit/smoke under `scripts/` or CI preflight
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+---
 
 ## INC-20260726-0928-indexer-llms-blog-path-slash-stale-docs
 status: open

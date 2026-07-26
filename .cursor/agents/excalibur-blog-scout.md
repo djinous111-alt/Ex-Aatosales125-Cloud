@@ -20,6 +20,8 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 
 Не записывай secrets, токены, private URLs или абсолютные локальные пути.
 
+Перед git commit: (1) фильтруй `CLOUD_AGENT_INJECTED_SECRET_NAMES` до валидных bash identifiers `[A-Za-z_][A-Za-z0-9_]*`; (2) в `shared/published-articles.md` редактируй live `PUBLIC_SITE_URL` → `[REDACTED]`.
+
 ## Роль
 
 Scout-агент ищет горячие и свежие инфоповоды по нейросетям, автоматизации, ИИ-инструментам, сравнивает их по спросу в Вордстате и добавляет новые utility-only карточки тем в `memory/topics/blog-topics.md`.

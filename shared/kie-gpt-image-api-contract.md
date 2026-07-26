@@ -76,3 +76,5 @@ Terminal states:
 - One API task per article cover run, not four separate images.
 - `input_urls` is required; text-only generation is a cover blocker.
 - Do not retry createTask blindly after a network ambiguity if a `taskId` is known; poll the known task.
+- `code=402` / "Credits insufficient" → **KIE CREDITS BLOCKER** (needs-human billing). Do not invent cover/inline PNGs; stop and report. The Python client raises an explicit credits message for this case.
+- Opaque MCP `gpt-image-2` failures (`NoneType.get`, empty URL) → try Kie script once; if Kie also 402, same credits blocker.

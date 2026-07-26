@@ -46,6 +46,9 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
   - Если вызов успешен:
     - Сформируй в `research-notes.md` таблицу спроса: Фраза | Показы в месяц.
     - Выдели сопутствующие LSI-запросы из топа выдачи Вордстата для использования копирайтером.
+  - Если ответ содержит только `totalCount` (без списка top requests) — это **PARTIAL**, не fatal:
+    - Запиши `⚠️ WORDSTAT PARTIAL: ... totalCount=N` и оценку показов; **не** выдумывай фейковый top-list.
+    - Для LSI/FAQ опирайся на успешный широкий parent/secondary cluster (cluster-first), как Scout.
 2. **Замена уличных поисковиков (DuckDuckGo) на WebSearch Курсора:**
   Мы **отказываемся** от ненадежных сторонних утилит и парсеров DuckDuckGo («уток»).
   - Агент имеет полноценный доступ в интернет через нативный инструмент `**WebSearch`** (или `WebFetch` для чтения конкретных страниц).

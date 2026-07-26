@@ -9,3 +9,7 @@
 | Отзывы 2GIS | https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417/131.924668%2C43.140033/tab/reviews | 1 | доверие / E-E-A-T |
 | Instagram | https://www.instagram.com/avtosales_rf | 1 | опционально, если релевантно |
 | Адрес офиса | Владивосток, Днепровская 40а стр. 4 | 1 | в футере/блоке компании, не как CTA-кнопка |
+
+## Commit / secret-scan
+
+Live значения каталога/Telegram/MAX часто совпадают с Cloud Secrets (`CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`). В `article.html` на строках с этими публичными CTA добавляй `<!-- // pragma: allowlist secret -->`. В этой таблице map держи `[REDACTED]` для secret-backed URL; не коммить raw secret values сюда.

@@ -6,8 +6,53 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260726-1323-publish-missing-cover
+status: needs-human
+run_date: 2026-07-26
+role: excalibur-blog-publish
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-postanovka-na-uchet-avto-posle-epts-2026
+severity: blocker
+category: publish
+
+### What went wrong
+- Publish ran after Indexer but `cover/cover.png` / `cover-registry.json` were missing because Cover step hit Kie 402 credits.
+- Live publish correctly blocked; images were not invented.
+
+### How the agent recovered this run
+- Returned PUBLISH BLOCKER; left ledger `in_progress`; wrote wp-publish-result.json fail.
+
+### Durable fix needed before next run
+- Human: restore Kie credits, re-run cover, then re-run publish.
+- Contract: publish skill/agent now explicit — missing cover = blocker, no placeholder PNG.
+
+### Suggested files to inspect/change
+- `skills/publish-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-publish.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: needs-human
+reason:
+- Cannot publish AS10 without a real generated cover; depends on INC-20260726-1319 credits top-up.
+needed_decision_or_secret:
+- Top up Kie credits → cover Task → publish Task.
+files_changed:
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-publish.md`
+- `.cursor/agents/excalibur-blog-publish.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg missing-cover publish blocker guidance
+commit: pending-parent-commit
+
+
 ## INC-20260726-1318-schema-jsonld-secret-scan-pragma
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-schema
 topic_id: AS10
@@ -39,10 +84,25 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Documented JSONC `// pragma: allowlist secret` for public brand URLs in schema skill + writing contract + pitfalls.
+- Extracted `scripts/excalibur_jsonc.py`; publish `load_article` strips pragmas before WP schema meta.
+files_changed:
+- `scripts/excalibur_jsonc.py`
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_jsonc.py scripts/excalibur_blog_wp_publish.py`
+- jsonc_loads smoke
+commit: pending-parent-commit
 
 ## INC-20260726-1319-cover-kie-402-credits
-status: open
+status: needs-human
 run_date: 2026-07-26
 role: excalibur-blog-cover
 topic_id: AS10
@@ -74,10 +134,25 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+reason:
+- Kie.ai createTask returns code=402 Credits insufficient; no durable code path can generate cover without billing credits.
+- MCP-KV gpt-image-2 wrapper opacity (NoneType.get) is external; local client now surfaces explicit KIE CREDITS BLOCKER.
+needed_decision_or_secret:
+- Top up Kie.ai credits / billing for gpt-image-2-image-to-image, then re-run cover → publish.
+- Optional: harden external MCP-KV gpt-image-2 error mapping (outside this repo).
+files_changed:
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `shared/kie-gpt-image-api-contract.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- require_success(402) raises KIE CREDITS BLOCKER
+commit: pending-parent-commit
 
 ## INC-20260726-1330-geo-qa-utility-policy-markers-missing
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-geo-qa
 topic_id: AS10
@@ -113,10 +188,27 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Confirmed editorial-policy pain/outcome markers + чек-лист alias and utility_gate empty-list skip.
+- Synced writer/GEO/writing-contract: insight label `Коротко:` (ban TL;DR / Быстрый инсайт); pitfalls already document utility markers.
+files_changed:
+- `memory/brief/editorial-policy.json` (pre-existing run patch kept)
+- `scripts/excalibur_blog_utility_gate.py` (pre-existing run patch kept)
+- `shared/excalibur-article-writing-contract.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- editorial-policy.json parse + markers present
+- rg: old TL;DR insight example removed from writing contract
+commit: pending-parent-commit
 
 ## INC-20260726-1325-writer-cta-secret-scan-block
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-writer
 topic_id: AS10
@@ -144,10 +236,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Documented HTML CTA allowlist pragma in writer skill, writing contract, conversion-map, pitfalls.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `memory/brief/conversion-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg pragma guidance in writer/schema/indexer/pitfalls
+commit: pending-parent-commit
 
 ## INC-20260726-1315-research-wordstat-partial-payload
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-research
 topic_id: AS10
@@ -175,10 +279,23 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Research + Scout skills document totalCount-only as PARTIAL / low-result (no fake top list; use cluster-first LSI).
+- External MCP-KV Wordstat adapter hardening remains out of repo scope; agent contract prevents wasted retries.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg WORDSTAT PARTIAL / totalCount in research+scout skills
+commit: pending-parent-commit
 
 ## INC-20260726-1316-research-notes-gate-ii-false-positive
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-research
 topic_id: AS10
@@ -207,10 +324,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Kept bounded short TECH_MARKERS matching in research_notes_gate.
+- Added smoke test ensuring auto-registration Russian text is not technical_topic while MCP/API/ии still are.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py` (pre-existing run patch kept)
+- `scripts/test_research_notes_gate_tech_markers.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/test_research_notes_gate_tech_markers.py` → PASS
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+commit: pending-parent-commit
 
 ## INC-20260726-1306-scout-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-scout
 topic_id: AS10
@@ -240,7 +369,20 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Documented bash-identifier filter for CLOUD_AGENT_INJECTED_SECRET_NAMES and ledger PUBLIC_SITE_URL → [REDACTED] before commit (scout agent+skill+pitfalls).
+- Cloud Secret naming / scanner product fix remains external needs-human if invalid names keep appearing upstream.
+files_changed:
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg bash identifier / REDACTED guidance in scout docs
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -492,7 +634,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20260726-1321-indexer-llms-secret-scan-pragma
-status: open
+status: fixed
 run_date: 2026-07-26
 role: excalibur-blog-indexer
 topic_id: AS10
@@ -522,5 +664,17 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- llms generator now auto-appends `// pragma: allowlist secret` on absolute URL lines.
+- Indexer skill documents promotion-checklist HTML pragma + interlink site_base redaction.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_llms_generator.py`
+- llms pragma smoke
+commit: pending-parent-commit

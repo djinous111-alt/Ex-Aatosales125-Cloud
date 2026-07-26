@@ -26,3 +26,10 @@ python3 scripts/excalibur_blog_llms_generator.py \
 - обновлённый `article.html` (контекстные ссылки)
 - `memory/blog/llms.txt`, `memory/blog/llms-full.txt`
 - `promotion-checklist.md` из `skills/excalibur/references/promotion-checklist-template.md`
+
+## Secret-scan / commit hygiene
+
+- `excalibur_blog_llms_generator.py` автоматически добавляет `// pragma: allowlist secret` на строки с абсолютными `http(s)://` URL (когда `PUBLIC_SITE_URL` = Cloud Secret).
+- В `promotion-checklist.md` на строках с live/public URL добавляй HTML-комментарий `<!-- // pragma: allowlist secret -->`.
+- В `interlink-suggestions.json` (не деплоится) предпочитай redact `site_base` → `${PUBLIC_SITE_URL}` / `[REDACTED]`, а не live origin.
+- Не коммить live `PUBLIC_SITE_URL` в `shared/published-articles.md` без redaction/`[REDACTED]`.

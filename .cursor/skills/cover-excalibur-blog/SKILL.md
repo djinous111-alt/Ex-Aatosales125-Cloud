@@ -122,12 +122,16 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE MCP (или Kie API fallback)
 
 `CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
 Аргументы = `jobs[0].mcp_args` из batch.
 
 Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+
+Если MCP вернул opaque error / пустой URL → Cloud recovery через `scripts/excalibur_blog_kie_gpt_image2_api.py` (см. `shared/kie-gpt-image-api-contract.md`).
+
+**Kie `code=402` / Credits insufficient:** это **needs-human** billing blocker. СТОП с `❌ COVER BLOCKER`. Не invent/split/apply картинки без реального URL.
 
 ### Шаг 5 — apply
 
@@ -181,6 +185,7 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 - 4 отдельные генерации
 - QUAD SPLIT fail
 - inline = meme с ведущим вместо UI
+- Kie/MCP **402 credits** / empty image URL — needs-human top-up; не фабриковать PNG
 
 ---
 

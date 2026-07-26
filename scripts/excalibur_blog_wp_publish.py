@@ -190,11 +190,9 @@ def load_article(article_dir: Path) -> dict:
     if schema_path.is_file():
         # Schema may use JSONC trailing `// pragma: allowlist secret` so git
         # secret-scan allows PUBLIC_SITE_URL / CTA URLs; strip before WP meta.
-        schema_raw = re.sub(
-            r"[ \t]*// pragma: allowlist secret",
-            "",
-            schema_path.read_text(encoding="utf-8"),
-        ).strip()
+        from excalibur_jsonc import strip_allowlist_pragmas
+
+        schema_raw = strip_allowlist_pragmas(schema_path.read_text(encoding="utf-8"))
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))

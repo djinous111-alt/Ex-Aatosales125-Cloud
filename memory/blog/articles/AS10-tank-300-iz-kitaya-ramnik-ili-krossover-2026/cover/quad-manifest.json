@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS10",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Рамник или кроссовер — до депозита!",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у рамного Tank на грязи рядом с городским кроссовером, плашка рамник или кроссовер",
+      "scene_hint": "EXACT face+glasses from reference i2i; CHANGE outfit: olive field jacket + dirty boots (mud/snow scene), NOT reference tank top; selfie pose between muddy Chinese frame SUV (Tank-like boxy body) and clean city crossover; torn paper hook «РАМНИК или КРОССОВЕР»; yellow highlight on «РАМНИК»; fake catalog card sticker Tank 300; shocked meme cutout; pink sticky «до депозита»; scotch tape; corner brand avto-sales125.ru; NO Wordstat/Metrika; NO toxic stickers (лох etc)",
+      "meme_caption_ru": "До депозита реши"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Сначала решите: вам нужна рама или хватит кроссовера",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean 16:9 comparison table UI: columns Рамник | Кроссовер; rows город / дача / грязь / снег with check/cross icons; sticky note «сценарий езды»; light tape corner; NO hero face; NO toxic text",
+      "alt": "Таблица сравнения: рамник или кроссовер по сценариям город дача грязь снег"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните Tank 300 и Tank 500 по задачам семьи",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Side-by-side comparison card UI Tank 300 vs Tank 500: размер салона, гибрид, семья 2+2, буксировка; small sticky «до заявки»; NO hero; Cyrillic labels only",
+      "alt": "Сравнительная карточка Tank 300 и Tank 500 по задачам семьи"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Выберите тип полного привода до заявки",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board UI: типы полного привода (part-time / full-time / с понижайкой) с галочками «подходит / нет»; marker arrow to «до заявки»; mini catalog inset; NO hero face",
+      "alt": "Чеклист выбора типа полного привода до заявки на Tank 300"
+    }
+  }
+}

@@ -563,3 +563,41 @@ category: docs
 
 ### Fixer resolution
 - pending
+
+## INC-20260726-2120-publish-cover-missing
+status: open
+run_date: 2026-07-26
+role: excalibur-blog-publish
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026
+severity: blocker
+category: publish
+
+### What went wrong
+- Publish preflight OK (`--env-check` allow=yes; SSH configured; `link-verify.json` pass).
+- Required featured assets missing: no `cover/cover.png`, no `cover-registry.json`, no inline PNGs.
+- Root cause: cover step blocked by Kie createTask **402 Credits insufficient** (`INC-20260726-2116-cover-kie-credits`).
+- `shared/excalibur-wp-publish-contract.md` + publish skill list cover as mandatory prerequisite → publish without featured is forbidden.
+
+### How the agent recovered this run
+- Did **not** invent images and did **not** call live WP publish / dry-run publish of incomplete package.
+- Left ledger AS10 as `in_progress`.
+- Wrote explicit `❌ PUBLISH BLOCKER` in handoff.
+
+### Durable fix needed before next run
+- Restore Kie credits (human) and re-run cover → `cover.png` + registry + inline inject.
+- Then re-run publish agent for AS10.
+- Optional: doctor/preflight gate that fails publish early when cover artifacts absent (instead of discovering mid-pipeline).
+
+### Suggested files to inspect/change
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/pipeline-fix-queue.md#INC-20260726-2116-cover-kie-credits`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

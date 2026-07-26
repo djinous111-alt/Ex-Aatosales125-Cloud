@@ -24,6 +24,7 @@ category: script
 - Добавлены `pain_markers_ru`, `outcome_markers_ru`, пороги min_* и алиас `чек-лист` в editorial-policy.json.
 - Utility gate теперь пропускает pain/outcome checks, если списки маркеров в policy пустые.
 - Whitelist-safe правки AS10: pain в lead, `Избегайте…`, инсайт `Коротко:`, +1 шаг в первом ol.
+- `link-verify.json` для commit: URL заменены на `[REDACTED_*]` (secret-scan блокировал CATALOG_URL/TELEGRAM_URL).
 - Повтор gates: utility PASS, human-voice PASS, article-qa PASS.
 
 ### Durable fix needed before next run

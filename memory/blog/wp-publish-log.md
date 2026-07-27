@@ -31,3 +31,17 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-07-27 — AS10 tank-300-iz-kitaya-ramnik-ili-krossover-2026
+
+- **verdict:** ❌ PUBLISH BLOCKER (fail)
+- **post_id:** —
+- **permalink:** —
+- **featured_image:** missing (`cover/cover.png` + `cover-registry.json` absent)
+- **inline_images:** none (cover inject skipped upstream)
+- **schema_meta:** local `schema.jsonld` present; not pushed (publish not attempted)
+- **method:** preflight only — link-verify PASS; env-check PASS; dry-run PASS (PHP bytes 44292); live SSH publish **not** started
+- **blocker:** cover.png MISSING (upstream COVER BLOCKER CREDITS/MCP — Kie createTask 402 Credits insufficient); cover.png not invented
+- **ledger:** `shared/published-articles.md` status remains `in_progress`
+- **result:** `memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026/wp-publish-result.json`
+- **incident:** `memory/pipeline-fix-queue.md#INC-20260727-0942-publish-cover-missing-blocker`

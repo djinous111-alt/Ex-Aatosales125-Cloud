@@ -129,12 +129,26 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
 
+Если MCP вернул NoneType / нет URL → Cloud fallback (без второго MCP job):
+
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+### COVER BLOCKER CREDITS (явный путь)
+
+- Kie HTTP/business **402** / `Credits insufficient` → **`❌ COVER BLOCKER CREDITS`**.
+- **Не** invent `cover.png` / canvas. Batch (`cover/quad-mcp-batch.json`) уже готов — оставь как resume artifact.
+- Human: top-up Kie.ai credits для `gpt-image-2` i2i (`KIE_API_KEY`).
+- Resume после top-up: шаг 4 (MCP или kie API) → шаг 5 apply `--inject-html` → fragment. Не пересоздавай batch без нужды.
+
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --url "<MCP or Kie result url>" \
   --inject-html
 ```
 
@@ -181,6 +195,7 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 - 4 отдельные генерации
 - QUAD SPLIT fail
 - inline = meme с ведущим вместо UI
+- **`❌ COVER BLOCKER CREDITS`** — Kie 402 / credits insufficient (needs-human top-up; no invent cover)
 
 ---
 

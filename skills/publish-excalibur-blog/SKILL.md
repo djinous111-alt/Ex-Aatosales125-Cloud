@@ -25,6 +25,14 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
 
+Если нет `cover/cover.png` + `cover-registry.json` → **`❌ PUBLISH BLOCKER`** (скрипт hard-fail даже на `--dry-run`). **Не** invent cover. Cascade от Cover CREDITS/MCP.
+
+### Resume после Cover BLOCKER CREDITS
+
+1. Human: top-up Kie.ai credits.
+2. Cover: resume с существующего `cover/quad-mcp-batch.json` → apply `--inject-html`.
+3. Re-run publish (link-verify → dry-run → live). Ledger `in_progress` можно обновить на `published`.
+
 ## Алгоритм
 
 ### 1. Preflight publish
@@ -111,6 +119,7 @@ blockers:
 ## Blockers
 
 - `❌ PUBLISH BLOCKER` — QA не PASS, link-verify fail, нет cover/schema, credentials, allow flag
+- `❌ PUBLISH BLOCKER` — missing `cover/cover.png` (скрипт exit 1; featured_image обязателен)
 - `❌ PUBLISH FAIL` — скрипт вернул fail (смотри `raw_output` в wp-publish-result.json)
 
 ## Запрещено

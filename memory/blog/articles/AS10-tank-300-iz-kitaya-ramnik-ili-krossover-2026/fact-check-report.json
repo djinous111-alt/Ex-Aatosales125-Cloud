@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "део осмотра и фиксации комплектации в договоре. С 2026 картина ещё запутаннее: официальный канал в РФ ухо",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "300",
+      "kind": "large_number",
+      "context": "м без рамы и понижайки. Сосед с City-версией Tank 300 в пробках ругается на расход и свист ветра после 1",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "110",
+      "kind": "large_number",
+      "context": "в пробках ругается на расход и свист ветра после 110 км/ч. Боль одна: купить \"квадратный внедорожник\" п",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "218",
+      "kind": "large_number",
+      "context": "я сборка на Автоторе (SKD с мая 2026, мотор около 218 л.с. в локальных версиях) – это не весь китайский",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

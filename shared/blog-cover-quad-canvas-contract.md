@@ -76,6 +76,8 @@ Inline panels: полезный UI + лёгкий human layer (стикер, tap
 ## Blockers
 
 - `❌ COVER HERO BLOCKER` — нет `reference_url_hosted` или MCP без `input_urls`
+- `❌ COVER BLOCKER CREDITS` — Kie 402 / Credits insufficient: needs-human top-up; keep `quad-mcp-batch.json`; **не** invent `cover.png`
+- Fallback API: `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir …` (явный CREDITS error в stderr)
 - **4 отдельных MCP** на cover+inline — запрещено
 - inline-панель с meme/host вместо UI/схемы
 - обложка без крючка / без `meme_caption_ru`

@@ -75,6 +75,11 @@ def http_json(method: str, url: str, api_key: str, payload: dict[str, Any] | Non
             body = response.read().decode("utf-8")
     except urllib.error.HTTPError as exc:
         body = exc.read().decode("utf-8", errors="replace")
+        if exc.code == 402 or "credit" in body.lower():
+            raise KieApiError(
+                "CREDITS insufficient: ❌ COVER BLOCKER CREDITS — top up Kie.ai balance "
+                f"for gpt-image-2 i2i, then resume cover from quad-mcp-batch.json. HTTP {exc.code}: {body[:300]}"
+            ) from exc
         raise KieApiError(f"Kie API HTTP {exc.code}: {body}") from exc
     except urllib.error.URLError as exc:
         raise KieApiError(f"Kie API network error: {exc.reason}") from exc
@@ -91,8 +96,16 @@ def http_json(method: str, url: str, api_key: str, payload: dict[str, Any] | Non
 def require_success(response: dict[str, Any], action: str) -> None:
     if response.get("code") == 200:
         return
+    code = response.get("code")
     msg = response.get("msg") or "unknown error"
-    raise KieApiError(f"Kie API {action} failed: code={response.get('code')} msg={msg}")
+    msg_l = str(msg).lower()
+    if code == 402 or "credit" in msg_l:
+        raise KieApiError(
+            "CREDITS insufficient: ❌ COVER BLOCKER CREDITS — top up Kie.ai balance "
+            f"for gpt-image-2 i2i, then resume cover from existing quad-mcp-batch.json. "
+            f"code={code} msg={msg}"
+        )
+    raise KieApiError(f"Kie API {action} failed: code={code} msg={msg}")
 
 
 def batch_mcp_args(batch_path: Path) -> dict[str, Any]:

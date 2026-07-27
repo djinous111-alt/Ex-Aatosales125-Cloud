@@ -569,10 +569,33 @@ def main() -> int:
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
     payload = load_article(article_dir)
+
+    cover_path = article_dir / "cover" / "cover.png"
+    cover_reg = article_dir / "cover" / "cover-registry.json"
+    if not cover_path.is_file() or not cover_reg.is_file() or not payload.get("cover_b64"):
+        print(
+            "❌ PUBLISH BLOCKER: cover/cover.png + cover-registry.json required "
+            "(featured_image contract); do not invent cover.png. "
+            "Resume: finish Cover after Kie CREDITS top-up → re-run publish.",
+            file=sys.stderr,
+        )
+        return 1
+
     php = build_php(payload)
 
     if args.dry_run:
-        print(json.dumps({"dry_run": True, "slug": payload["slug"], "title": payload["title"]}, ensure_ascii=False, indent=2))
+        print(
+            json.dumps(
+                {
+                    "dry_run": True,
+                    "slug": payload["slug"],
+                    "title": payload["title"],
+                    "has_cover": True,
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 

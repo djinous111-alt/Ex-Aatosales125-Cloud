@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS10",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Квадратный кузов ≠ рама",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у рамника Tank-стиля и городского кроссовера, плашка рамник или кроссовер, Владивосток",
+      "scene_hint": "WEATHER: bright summer Vladivostok hills/сопки, dry asphalt lot near modern Chinese SUVs; OUTFIT: olive field jacket over light grey tee + jeans (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie standing BETWEEN brutal boxy body-on-frame Tank-style SUV (left) and sleek city crossover Jetour/Haval-style (right); torn paper hook plaque Cyrillic «Квадратный кузов ≠ рама» with yellow highlighter on «≠ рама»; sticky note «до депозита»; shocked meme cutout + cat reaction sticker (different formats); fake catalog card scrap taped with scotch showing two cars side-by-side; DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; NO toxic slang",
+      "meme_caption_ru": "Рамник или кроссовер?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Сравните рамник и кроссовер до депозита – не по морде",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI mock (NO hero face): columns Рамник Tank 300 | Кроссовер T2/Haval; rows рама vs несущий кузов, Part-time vs муфта, грязь vs город/дача, депозит-чек; header «не по морде»; tiny sticky «сценарий»; tape corner; readable Cyrillic only",
+      "alt": "Таблица сравнения рамник Tank 300 и кроссовер Jetour T2 / Haval до депозита"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Разберите, что даёт рама Tank 300 на ваших маршрутах",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram NO hero: 4 route cards connected by arrows — Город → Дача → Грязь → Снег; each card notes what body-on-frame gives (жесткость, понижайка, блокировки) vs when it is overkill; marker arrow «ваши маршруты»; subtle tape; no Wordstat",
+      "alt": "Схема маршрутов город–дача–грязь–снег: что даёт рама Tank 300"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Выберите кроссовер Jetour T2 или Haval, если город и дача важнее грязи",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU checklist board NO hero: when to pick Jetour T2 / Haval crossover — ☐ ежедневный город ☐ дача без колеи ☐ комфорт семьи ☐ муфта ок ☐ рама не нужна; green stamp «город+дача»; pink sticky «не за рамой ради морды»; printable board aesthetic",
+      "alt": "Чеклист выбора кроссовера Jetour T2 или Haval вместо рамника для города и дачи"
+    }
+  }
+}

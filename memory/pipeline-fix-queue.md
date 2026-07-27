@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260727-0915-research-tech-marker-false-positive
+status: open
+run_date: 2026-07-27
+role: excalibur-blog-research
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` пометил авто-тему AS10 как `technical_topic=true` из-за substring-маркеров: `ai` внутри `reader_pain` и `ии` внутри слова «сценарии».
+- Gate потребовал `github_urls >= 3` и предупредил об отсутствии `/docs` URL, хотя тема comparison про рамник/кроссовер, не software.
+
+### How the agent recovered this run
+- Добавил 3 слаборелевантных github.com URL из SERP (carsBase / import calculator) плюс docs/community evidence.
+- Довёл `accessed_at:` до >=5 явных штампов; gate status PASS.
+
+### Durable fix needed before next run
+- В `is_technical_topic` использовать word-boundary / токены, а не substring (`ai` не должен матчить `pain`; `ии` не должен матчить обычные русские окончания).
+- Для non-software ниш (авто из Азии) разрешить docs/community evidence без github.com, либо исключать auto-темы по topic_id prefix AS|cluster.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py` (`TECH_MARKERS`, `is_technical_topic`)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260727-0908-scout-precommit-redacted-secret-name
 status: open
 run_date: 2026-07-27

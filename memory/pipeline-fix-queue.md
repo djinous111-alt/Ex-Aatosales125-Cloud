@@ -6,6 +6,36 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260727-0908-scout-precommit-redacted-secret-name
+status: open
+run_date: 2026-07-27
+role: excalibur-blog-scout
+topic_id: AS10
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `pre-commit.cursor` crashed with `invalid variable name` because `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a literal redacted token that is not a valid bash identifier; indirect expansion `${!SECRET_NAME}` aborts the hook before scan completes.
+
+### How the agent recovered this run
+- Filtered secret names to `[A-Za-z_][A-Za-z0-9_]*` for the commit env only; did not use `--no-verify`.
+- Commit and push of AS10 topic card succeeded after filter.
+
+### Durable fix needed before next run
+- Harden `pre-commit.cursor` (or install wrapper) to skip non-identifier names instead of aborting.
+- Ensure secret-name injection/redaction never puts non-shell identifiers into `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+
+### Suggested files to inspect/change
+- `pre-commit.cursor` / cloud agent install hook path
+- `shared/agent-pipeline-pitfalls.md` (note: filter invalid names if hook dies)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260727-0903-director-as-prefix-scripts
 status: open
 run_date: 2026-07-27

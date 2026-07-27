@@ -22,10 +22,12 @@ category: docs
 
 ### How the agent recovered this run
 - Ran generator with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`); exit 0; AS10 present in `memory/blog/llms.txt`.
+- Commit hook: `CLOUD_AGENT_INJECTED_SECRET_NAMES` must be **comma**-separated (spaces → one invalid `${!name}`); exclude `PUBLIC_SITE_URL` from scan list so `llms.txt` public URLs can commit (site URL is marketing, not a credential).
 
 ### Durable fix needed before next run
 - Remove `--blog-path` from indexer skill/agent CLI examples in both `.cursor/` and `skills/` / `agents/` mirrors.
 - Align any remaining docs with argparse of `scripts/excalibur_blog_llms_generator.py`.
+- Document indexer commit hygiene: comma-join secret names; skip scanning `PUBLIC_SITE_URL` for llms artifacts (or generate commit-safe relative URLs).
 
 ### Suggested files to inspect/change
 - `.cursor/skills/indexer-excalibur-blog/SKILL.md`
@@ -33,6 +35,7 @@ category: docs
 - `skills/indexer-excalibur-blog/SKILL.md`
 - `agents/excalibur-blog-indexer.md`
 - `shared/agent-pipeline-pitfalls.md`
+- `pre-commit.cursor` / cloud install hook (comma split already; space-separated env still breaks)
 
 ### Secrets
 - none recorded

@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260727-0925-geo-qa-utility-pain-outcome-policy-missing
+status: open
+run_date: 2026-07-27
+role: excalibur-blog-geo-qa
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026
+severity: high
+category: qa
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требовал `min_pain_markers=2` / `min_outcome_markers=3` (defaults), но в `memory/brief/editorial-policy.json` после rebrand AVTO SALES отсутствовали `pain_markers_ru` / `outcome_markers_ru`.
+- Empty lists → count всегда 0 → любой article BLOCK (AS09 тоже падает на той же проверке).
+- Параллельно Writer использовал «Делать/Не делать» и «чек-лист» (с дефисом), которые не матчат `recommendation_markers_ru` (`сделайте`/`не делайте`/`чеклист`).
+
+### How the agent recovered this run
+- Восстановил markers + `min_pain_markers`/`min_outcome_markers` в editorial-policy (как в prior fixer INC-20260725-2120).
+- Вернул empty-list skip (warning, не BLOCK) в `scripts/excalibur_blog_utility_gate.py`.
+- Минимальный FIX `article.html`: Сделайте/Не делайте, чеклист, ориентир/избегайте/шаг; убран ярлык TL;DR; Fact Check author casing; список «что дальше» → 6 пунктов.
+- Re-run: utility PASS, human-voice PASS, article-qa PASS score 87.
+
+### Durable fix needed before next run
+- Зафиксировать markers в editorial-policy как канон; doctor/preflight assert `pain_markers_ru`/`outcome_markers_ru` non-empty.
+- Writer skill: явно запретить «Делать/Не делать» как единственные recommendation markers; требовать phrases из policy.
+- Не допускать wipe markers при rebrand/sync public template.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260727-0919-writer-telegram-url-secret-scan
 status: open
 run_date: 2026-07-27

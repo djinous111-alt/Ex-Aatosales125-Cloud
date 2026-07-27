@@ -14,7 +14,9 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short tokens must use word-boundaries (ai∉pain, ии∉сценарии).
+# Longer stems may match as prefixes (автоматизац*, нейросет*).
+TECH_WORD_MARKERS = (
     "ai",
     "ии",
     "agent",
@@ -22,15 +24,18 @@ TECH_MARKERS = (
     "mcp",
     "api",
     "cursor",
-    "make",
     "n8n",
     "github",
     "docker",
     "rag",
     "workflow",
+)
+TECH_PREFIX_MARKERS = (
     "автоматизац",
     "нейросет",
 )
+# Consumer auto niche (Авто-Сейлс AS##) is not software-tech by default.
+AS_TOPIC_ID_RE = re.compile(r"^AS\d+$", re.IGNORECASE)
 
 
 REQUIRED_FIELDS = (
@@ -73,14 +78,27 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _tech_marker_hit(blob: str) -> bool:
+    for marker in TECH_WORD_MARKERS:
+        if re.search(rf"(?<![\w]){re.escape(marker)}(?![\w])", blob, flags=re.IGNORECASE):
+            return True
+    return any(marker in blob for marker in TECH_PREFIX_MARKERS)
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
-    blob = " ".join(
+    topic_id = str(
+        context.get("topic_id") or topic.get("topic_id") or topic.get("id") or ""
+    ).strip().upper()
+    fields_blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # AS## auto articles: only title/query fields count (ignore notes body false positives).
+    if AS_TOPIC_ID_RE.match(topic_id):
+        return _tech_marker_hit(fields_blob)
+    blob = fields_blob + " " + notes[:2000].lower()
+    return _tech_marker_hit(blob)
 
 
 def field_present(text_lower: str, field: str) -> bool:

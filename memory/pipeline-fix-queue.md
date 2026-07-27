@@ -7,7 +7,7 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 ## INC-20260727-0942-publish-cover-missing-blocker
-status: open
+status: needs-human
 run_date: 2026-07-27
 role: excalibur-blog-publish
 topic_id: AS10
@@ -38,10 +38,29 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+fixed_at: 2026-07-27
+fix_summary:
+- Durable: `excalibur_blog_wp_publish.py` hard-fails when cover.png/registry missing (including `--dry-run`).
+- Publish skill/contract document resume: Kie top-up → Cover from existing batch → re-run publish; no invent cover.
+- Residual human: Cover CREDITS must complete before publish can PASS.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_wp_publish.py --article-dir …/AS10-… --dry-run` → exit 1 PUBLISH BLOCKER cover missing
+commit: pending-parent-commit
+reason:
+- Upstream cover.png still missing until Kie credits topped up (see INC-20260727-0929).
+needed_decision_or_secret:
+- Top up Kie.ai credits; resume Cover → Publish for AS10.
+
 
 ## INC-20260727-0932-indexer-llms-blog-path-stale-docs
-status: open
+status: fixed
 run_date: 2026-07-27
 role: excalibur-blog-indexer
 topic_id: AS10
@@ -75,10 +94,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-27
+fix_summary:
+- Removed stale `--blog-path` from indexer agent/skill (plugin + Cloud mirrors); CLI docs use `--blog-dir` + `--out-dir`.
+- Pitfalls note commit hygiene / no `--blog-path`; doctor asserts CLI has no `--blog-path`.
+files_changed:
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` no instructional `--blog-path /` in indexer contracts
+- doctor PASS (`llms generator has no stale --blog-path`)
+commit: pending-parent-commit
+
 
 ## INC-20260727-0929-cover-kie-credits-insufficient
-status: open
+status: needs-human
 run_date: 2026-07-27
 role: excalibur-blog-cover
 topic_id: AS10
@@ -111,11 +146,32 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+fixed_at: 2026-07-27
+fix_summary:
+- Durable CREDITS path: Kie API raises explicit `❌ COVER BLOCKER CREDITS` on HTTP/business 402.
+- Cover skill/agent/contract document top-up + resume from existing `quad-mcp-batch.json` without inventing cover.png.
+- Residual human: top up Kie.ai balance for gpt-image-2 i2i (`KIE_API_KEY`).
+files_changed:
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/blog-cover-quad-canvas-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `rg` COVER BLOCKER CREDITS in cover contracts
+commit: pending-parent-commit
+reason:
+- Credits balance is an external billing/env action; code cannot generate cover without image URL.
+needed_decision_or_secret:
+- Human top-up Kie.ai credits; then resume Cover step 4/5 for AS10.
 
 
 ## INC-20260727-0925-geo-qa-utility-pain-outcome-policy-missing
-status: open
+status: fixed
 run_date: 2026-07-27
 role: excalibur-blog-geo-qa
 topic_id: AS10
@@ -150,10 +206,27 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-27
+fix_summary:
+- Confirmed `pain_markers_ru`/`outcome_markers_ru` + mins restored in editorial-policy; utility_gate empty-list skip kept.
+- Doctor preflight now asserts non-empty pain/outcome markers and mins.
+- Writer skill forbids «Делать/Не делать» / «чек-лист» as sole recommendation markers; requires policy phrases.
+files_changed:
+- `memory/brief/editorial-policy.json` (verified non-empty markers)
+- `scripts/excalibur_blog_utility_gate.py` (empty-list skip retained)
+- `scripts/excalibur_blog_doctor.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` PASS (pain/outcome markers)
+- JSON parse editorial-policy.json
+commit: pending-parent-commit
+
 
 ## INC-20260727-0919-writer-telegram-url-secret-scan
-status: open
+status: fixed
 run_date: 2026-07-27
 role: excalibur-blog-writer
 topic_id: AS10
@@ -183,10 +256,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-27
+fix_summary:
+- Canon committed CTA: Telegram plaintext `@handle` without `TELEGRAM_URL`/`t.me` href; documented in writer skill, writing contract, conversion-map.
+- pre-commit skips marketing URL secret names (`TELEGRAM_URL`, `PUBLIC_SITE_URL`, …) so public CTA/llms are not false-blocked.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `memory/brief/conversion-map.md`
+- `scripts/pre-commit.cursor`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` Telegram plaintext CTA guidance in writer/contract
+commit: pending-parent-commit
+
 
 ## INC-20260727-0915-research-tech-marker-false-positive
-status: open
+status: fixed
 run_date: 2026-07-27
 role: excalibur-blog-research
 topic_id: AS10
@@ -214,10 +302,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-27
+fix_summary:
+- `is_technical_topic` uses word-boundary markers; removed noisy `make`; AS## topics ignore notes-body false positives.
+- AS10 research gate now reports `technical_topic=false`.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit asserts for pain/сценарии false positives
+- `research_notes_gate.py` on AS10 → PASS, technical_topic=False
+commit: pending-parent-commit
+
 
 ## INC-20260727-0908-scout-precommit-redacted-secret-name
-status: open
+status: fixed
 run_date: 2026-07-27
 role: excalibur-blog-scout
 topic_id: AS10
@@ -244,10 +344,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-27
+fix_summary:
+- Hardened `scripts/pre-commit.cursor`: trim names, skip non-identifiers, skip marketing URL secrets; cloud-agent-install copies hook into agent-hooks.
+files_changed:
+- `scripts/pre-commit.cursor`
+- `.cursor/cloud-agent-install.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- bash loop: REDACTED-TOKEN → skip_invalid; PUBLIC_SITE_URL → skip_marketing
+commit: pending-parent-commit
+
 
 ## INC-20260727-0903-director-as-prefix-scripts
-status: open
+status: fixed
 run_date: 2026-07-27
 role: excalibur-blog-director
 topic_id: n/a
@@ -278,7 +389,21 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-07-27
+fix_summary:
+- Verified `(?:AS|B)\d+` in today.py + scout_helper.py; doctor aligned to `--blog-dir` (and asserts no `--blog-path`).
+- Pitfalls document AS|B topic ID requirement and scout AS preference.
+files_changed:
+- `scripts/excalibur_blog_today.py` (verified)
+- `scripts/excalibur_blog_scout_helper.py` (verified)
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- assert AS|B regex present
+- doctor PASS
+commit: pending-parent-commit
+
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

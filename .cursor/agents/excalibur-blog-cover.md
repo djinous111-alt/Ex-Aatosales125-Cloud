@@ -172,9 +172,12 @@ summary: ...
 | ------------------ | --------------------------------------------------- |
 | COVER HERO BLOCKER | нет `reference_url_hosted` или MCP без `input_urls` |
 | QUAD SPLIT BLOCKER | нет canvas / не 2×2 16:9 / нет alt в manifest       |
+| COVER BLOCKER CREDITS | Kie 402 / credits insufficient — top-up + resume from batch; **не** invent cover.png |
 | COVER BLOCKER      | 4 отдельных MCP                                     |
 | COVER BLOCKER      | inline с героем вместо UI/схемы                     |
 | COVER BLOCKER      | cover без hook / meme_caption_ru                    |
+
+**Resume CREDITS:** после top-up Kie → MCP или `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir …` (batch уже есть) → `quad_apply.py --inject-html`.
 
 
 ---

@@ -68,6 +68,8 @@ if ($schema) {
 ## Blockers
 
 - `❌ PUBLISH BLOCKER` — QA не PASS, link-verify fail, нет credentials
+- `❌ PUBLISH BLOCKER` — нет `cover/cover.png` + `cover-registry.json` (hard-fail в `excalibur_blog_wp_publish.py`, включая `--dry-run`)
+- Cascade Cover CREDITS: top-up Kie → Cover resume → Publish; **не** invent cover.png
 - Production HTML не должен содержать MCP URLs — только WP media для featured image
 
 Skill: `skills/publish-excalibur-blog/SKILL.md` (alias: `skills/excalibur-wp-publish/SKILL.md`)

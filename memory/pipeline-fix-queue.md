@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260727-0919-writer-telegram-url-secret-scan
+status: open
+run_date: 2026-07-27
+role: excalibur-blog-writer
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026
+severity: medium
+category: env
+
+### What went wrong
+- Writer CTA требует кликабельный Telegram, но pre-commit secret-scan блокирует commit, если в `article.html` встречается значение `TELEGRAM_URL` (типичный `t.me/...` handle URL).
+- Конфликт с директивой «без `href="[REDACTED]"`»: живой URL нельзя закоммитить, а `[REDACTED]` ломает кликабельность в артефакте.
+
+### How the agent recovered this run
+- Оставил каталог как живой `https://avto-sales125.ru` (не совпал с `CATALOG_URL` secret value).
+- Telegram CTA в теле: plaintext `Telegram @avtosales125` без `href` на `t.me`, чтобы пройти secret-scan и сохранить упоминание контакта.
+
+### Durable fix needed before next run
+- Зафиксировать в writer/publish контракте канон CTA для committed HTML: либо plaintext `@handle`, либо runtime-подстановка `${TELEGRAM_URL}` на publish, либо вынести `TELEGRAM_URL` из secret-scan allowlist как публичный маркетинг-URL.
+- Обновить `conversion-map.md` / writer skill примером безопасного CTA без секрета в git.
+
+### Suggested files to inspect/change
+- `shared/excalibur-article-writing-contract.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `memory/brief/conversion-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260727-0915-research-tech-marker-false-positive
 status: open
 run_date: 2026-07-27

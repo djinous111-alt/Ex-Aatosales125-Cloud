@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260727-0942-publish-cover-missing-blocker
+status: open
+run_date: 2026-07-27
+role: excalibur-blog-publish
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026
+severity: blocker
+category: publish
+
+### What went wrong
+- Publish precondition hard-fail: `cover/cover.png` and `cover-registry.json` missing after Cover BLOCKER CREDITS/MCP (Kie 402).
+- Skill/contract require featured cover before WP publish; success stdout needs `OK featured_image=...`.
+- Live publish intentionally not started (no invented cover.png). Dry-run would build PHP without cover_b64, but that violates featured-image contract.
+
+### How the agent recovered this run
+- Ran link-verify → pass; env-check → allow_publish + SSH OK; dry-run → slug/title OK.
+- Returned explicit `❌ PUBLISH BLOCKER`; wrote `wp-publish-result.json` verdict=fail; ledger kept `in_progress` with blocker note; logged in `memory/blog/wp-publish-log.md`.
+- Did not invent cover assets; did not SSH-publish incomplete post.
+
+### Durable fix needed before next run
+- Top up Kie credits and finish Cover (existing `cover/quad-mcp-batch.json`) → `cover.png` + registry + inject-html.
+- Re-run publish after cover PASS; optionally make `excalibur_blog_wp_publish.py` hard-fail when cover missing (currently dry-run/load_article soft-skips cover_b64).
+
+### Suggested files to inspect/change
+- `memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026/cover/`
+- `scripts/excalibur_blog_wp_publish.py` (optional hard gate on cover)
+- `memory/pipeline-fix-queue.md#INC-20260727-0929-cover-kie-credits-insufficient`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260727-0932-indexer-llms-blog-path-stale-docs
 status: open
 run_date: 2026-07-27

@@ -1,7 +1,7 @@
 # Promotion checklist — AS10 tank-300-iz-kitaya-ramnik-ili-krossover-2026
 
-Дата публикации: 2026-07-27 (план; WP ещё не опубликован)  
-Live URL: [REDACTED]/blog/tank-300-iz-kitaya-ramnik-ili-krossover-2026/
+Дата публикации: 2026-07-27 (план; WP не опубликован — ❌ PUBLISH BLOCKER cover.png)  
+Live URL: — (ожидает cover + publish)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

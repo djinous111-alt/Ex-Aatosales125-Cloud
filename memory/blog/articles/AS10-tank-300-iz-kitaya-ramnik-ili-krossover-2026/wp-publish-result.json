@@ -1,0 +1,26 @@
+{
+  "slug": "tank-300-iz-kitaya-ramnik-ili-krossover-2026",
+  "topic_id": "AS10",
+  "permalink": "",
+  "publish_method": "none",
+  "cover_evidence": {
+    "path": "memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026/cover/cover.png",
+    "source": "missing",
+    "decode_verified": false
+  },
+  "raw_output": "❌ PUBLISH BLOCKER: cover/cover.png missing (upstream COVER BLOCKER CREDITS/MCP — Kie 402); cover-registry.json missing; featured_image required by publish contract; cover.png not invented",
+  "verdict": "fail",
+  "blocker": "cover_missing",
+  "preflight": {
+    "link_verify": "pass",
+    "env_check": "pass",
+    "dry_run": "pass",
+    "allow_publish": "yes",
+    "schema_jsonld": "present",
+    "article_qa": "PASS",
+    "cover_png": "missing",
+    "cover_registry": "missing"
+  },
+  "publish_attempted": false,
+  "run_date": "2026-07-27"
+}

@@ -26,6 +26,9 @@ def load_published_topics(root: Path) -> set[str]:
     return published
 
 
+TOPIC_ID_RE = r"(?:AS|B)\d+"
+
+
 def load_active_article_topics(root: Path) -> set[str]:
     articles_dir = root / "memory" / "blog" / "articles"
     if not articles_dir.is_dir():
@@ -34,7 +37,7 @@ def load_active_article_topics(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = re.match(rf"({TOPIC_ID_RE})-", path.name, flags=re.IGNORECASE)
         if match:
             active.add(match.group(1).upper())
     return active
@@ -46,10 +49,14 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
     if not topics_path.is_file():
         return topics
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in re.finditer(
+        rf"##\s+({TOPIC_ID_RE})\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)",
+        text,
+        re.DOTALL | re.IGNORECASE,
+    ):
         topic_id = match.group(1).upper()
         block = match.group(2)
-        
+
         def field(name: str) -> str:
             # Flexible matching for bullet points with different formats
             m = re.search(rf"(?:-|\*)\s*\*\*{re.escape(name)}:\*\*\s*(.+)", block, re.IGNORECASE)
@@ -57,7 +64,7 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
                 # Fallback for plain bold key matching without lists
                 m = re.search(rf"\*\*{re.escape(name)}:\*\*\s*(.+)", block, re.IGNORECASE)
             return m.group(1).strip() if m else ""
-            
+
         topics.append({
             "topic_id": topic_id,
             "primary_query": field("primary_query"),
@@ -130,18 +137,31 @@ def main() -> int:
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
-        max_num = 0
+        # Prefer AS* series for Авто-Сейлс; fall back to B* only if no AS topics exist.
+        as_nums = []
+        b_nums = []
         for t in existing:
-            m = re.match(r"B(\d+)", t["topic_id"])
-            if m:
-                max_num = max(max_num, int(m.group(1)))
-        
-        next_id = f"B{max_num + 1:02d}"
+            m = re.match(r"(AS|B)(\d+)", t["topic_id"], flags=re.IGNORECASE)
+            if not m:
+                continue
+            prefix, num = m.group(1).upper(), int(m.group(2))
+            if prefix == "AS":
+                as_nums.append(num)
+            else:
+                b_nums.append(num)
+
+        if as_nums:
+            next_id = f"AS{max(as_nums) + 1:02d}"
+        elif b_nums:
+            next_id = f"B{max(b_nums) + 1:02d}"
+        else:
+            next_id = "AS01"
+
         print(f"Next available topic ID: {next_id}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")
         print(f"Active article dirs: {sorted(active)}")
-        
+
         unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
         print(f"Unwritten topic IDs in pool: {unwritten}")
         return 0

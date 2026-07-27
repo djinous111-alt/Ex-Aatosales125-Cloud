@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260727-0903-director-as-prefix-scripts
+status: open
+run_date: 2026-07-27
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_today.py` and `excalibur_blog_scout_helper.py` matched only `B\\d+` topic IDs, so Авто-Сейлс pool `AS01`–`AS09` was invisible → false `needs_scout` and scout suggested `B01`.
+- `excalibur_blog_doctor.py` still required llms CLI `--blog-path` while generator only exposes `--blog-dir`.
+
+### How the agent recovered this run
+- Extended topic ID regex to `(?:AS|B)\\d+` in today + scout_helper; scout `--suggest-next` prefers AS series (next AS10).
+- Doctor check updated to `--blog-dir`.
+- Chose Scout AS10+ instead of AS01 because live WP already covers AS01–AS07 themes.
+
+### Durable fix needed before next run
+- Confirm AS|B support remains in today/scout_helper; keep doctor aligned with llms CLI.
+- Optionally sync ledger for live-published AS-like posts so today does not keep offering cannibalizing AS01–AS07.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

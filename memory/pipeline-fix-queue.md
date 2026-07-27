@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260727-0929-cover-kie-credits-insufficient
+status: open
+run_date: 2026-07-27
+role: excalibur-blog-cover
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026
+severity: blocker
+category: api
+
+### What went wrong
+- ONE MCP `gpt-image-2` i2i call failed with API error: `'NoneType' object has no attribute 'get'` (no image URL returned).
+- Preferred Cloud fallback `excalibur_blog_kie_gpt_image2_api.py` createTask returned HTTP/business code **402 Credits insufficient** — balance too low for gpt-image-2-image-to-image 2K.
+- Without image URL, cover split/apply is forbidden (no invented cover.png). Prior AS10 run also hit Kie 402.
+
+### How the agent recovered this run
+- Completed prep: hero reference URL, quad-manifest (hook «Квадратный кузов ≠ рама», non-toxic captions), quad-mcp-batch (1 job + input_urls).
+- Did not invent canvas/cover/inline PNGs; stopped with COVER BLOCKER CREDITS/MCP.
+- Wrote fragment `.cursor/excalibur-blog-fragments/cover.md` for Director.
+
+### Durable fix needed before next run
+- Top up Kie.ai credits for `gpt-image-2` / image-to-image (env `KIE_API_KEY`).
+- After top-up: re-run cover from step 5 (batch already ready) → apply `--inject-html`.
+- Optionally harden MCP wrapper so credits/402 surfaces as clear error instead of NoneType `.get`.
+
+### Suggested files to inspect/change
+- `memory/cover/blog-hero.json` (reference ok)
+- `memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026/cover/quad-mcp-batch.json`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `shared/blog-cover-quad-canvas-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260727-0925-geo-qa-utility-pain-outcome-policy-missing
 status: open
 run_date: 2026-07-27

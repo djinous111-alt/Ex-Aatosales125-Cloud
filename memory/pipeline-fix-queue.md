@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260727-0932-indexer-llms-blog-path-stale-docs
+status: open
+run_date: 2026-07-27
+role: excalibur-blog-indexer
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer agent/skill still document `excalibur_blog_llms_generator.py ... --blog-path /`, but CLI only accepts `--blog-dir` + `--out-dir` (no `--blog-path`).
+- User correction on AS10 run: use `--blog-dir` + `--out-dir`, NOT `--blog-path`.
+- Related prior note in INC-20260727-0903 fixed doctor only; skill/agent contracts remained stale.
+
+### How the agent recovered this run
+- Ran generator with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`); exit 0; AS10 present in `memory/blog/llms.txt`.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer skill/agent CLI examples in both `.cursor/` and `skills/` / `agents/` mirrors.
+- Align any remaining docs with argparse of `scripts/excalibur_blog_llms_generator.py`.
+
+### Suggested files to inspect/change
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260727-0929-cover-kie-credits-insufficient
 status: open
 run_date: 2026-07-27

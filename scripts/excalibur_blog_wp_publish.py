@@ -468,29 +468,64 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
 
 
 def trigger_bootstrap_http(url: str, root: Path) -> str:
+    """Trigger remote bootstrap: urllib 120s → curl 300s → WebFetch wait 180s.
+
+    Large SSH bootstraps (~7MB PHP with cover+inline) often exceed urllib's
+    practical timeout; curl --max-time 300 is the reliable next step (AS15).
+    Do not start WebFetch/curl writers in parallel with this wait — race on
+    memory/webfetch-response.txt.
+    """
+    import subprocess
+    import time
+
+    print(f"Triggering HTTP publish on {url}...")
     try:
-        print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
             timeout=120,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
-        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
-        print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
-        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
-        fallback_file = root / "memory" / "webfetch-response.txt"
-        fallback_file.unlink(missing_ok=True)
-        import time
+        print(f"Local HTTP urllib trigger failed ({type(e).__name__}: {e}). Trying curl --max-time 300...")
 
-        for _ in range(120):
-            if fallback_file.is_file():
-                out = fallback_file.read_text(encoding="utf-8")
-                fallback_file.unlink()
-                print("Cloud response detected successfully!")
-                return out
-            time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+    try:
+        completed = subprocess.run(
+            [
+                "curl",
+                "-sS",
+                "-L",
+                "--max-time",
+                "300",
+                "-A",
+                "ExcaliburBlogPublish/1.0",
+                url,
+            ],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if completed.returncode == 0 and completed.stdout.strip():
+            print("curl bootstrap trigger OK")
+            return completed.stdout
+        err = (completed.stderr or completed.stdout or "").strip()[:300]
+        print(f"curl bootstrap trigger failed (rc={completed.returncode}): {err}")
+    except Exception as curl_error:  # noqa: BLE001
+        print(f"curl bootstrap trigger error ({type(curl_error).__name__}: {curl_error})")
+
+    print("Entering Cloud WebFetch Fallback mode...")
+    print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
+    print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
+    fallback_file = root / "memory" / "webfetch-response.txt"
+    fallback_file.unlink(missing_ok=True)
+
+    for _ in range(180):
+        if fallback_file.is_file():
+            out = fallback_file.read_text(encoding="utf-8")
+            fallback_file.unlink()
+            print("Cloud response detected successfully!")
+            return out
+        time.sleep(1)
+    raise RuntimeError("Cloud WebFetch Fallback timed out after 180 seconds. Please trigger manually.")
 
 
 def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
@@ -511,6 +546,22 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     return out
 
 
+def site_relative_permalink(permalink: str) -> str:
+    """Store site-relative paths in ledger (secret hygiene)."""
+    value = (permalink or "").strip()
+    if not value:
+        return value
+    if "://" in value:
+        from urllib.parse import urlparse
+
+        parsed = urlparse(value)
+        path = parsed.path or "/"
+        if parsed.query:
+            path = f"{path}?{parsed.query}"
+        return path if path.startswith("/") else f"/{path}"
+    return value if value.startswith("/") else f"/{value}"
+
+
 def upsert_publish_ledger(root: Path, payload: dict[str, Any], permalink: str) -> None:
     if not permalink:
         return
@@ -528,7 +579,8 @@ def upsert_publish_ledger(root: Path, payload: dict[str, Any], permalink: str) -
 
     topic_id = str(payload.get("topic_id") or "").upper()
     slug = str(payload.get("slug") or "")
-    row = f"| {date.today().isoformat()} | {topic_id} | {slug} | {permalink} | published |"
+    relative = site_relative_permalink(permalink)
+    row = f"| {date.today().isoformat()} | {topic_id} | {slug} | {relative} | published |"
     lines = ledger_path.read_text(encoding="utf-8").splitlines()
     replaced = False
     for index, line in enumerate(lines):

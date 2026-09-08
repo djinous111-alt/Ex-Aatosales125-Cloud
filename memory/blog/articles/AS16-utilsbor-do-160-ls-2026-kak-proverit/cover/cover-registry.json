@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS16",
+  "slug": "utilsbor-do-160-ls-2026-kak-proverit",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой у открытого капота с шильдиком мощности и смартфоном Encar, плашка «до 160 л.с.?», порт Владивостока",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-07-21T09:30:12+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой у открытого капота с шильдиком мощности и смартфоном Encar, плашка «до 160 л.с.?», порт Владивостока",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сравнения: Encar л.с. против кВт и порога утильсбора до депозита",
+      "h2_anchor": "Остановите депозит: почему порог \"до 160\" ломает смету",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Скрин Encar, шильдик мощности в кВт и фрагмент техпаспорта для сверки",
+      "h2_anchor": "Найдите мощность в кВт: Encar, шильдик и техпаспорт",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема порога утильсбора: до 117,68 кВт включительно против от 117,69 кВт",
+      "h2_anchor": "Сравните с границей: до 117,68 кВт vs от 117,69",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

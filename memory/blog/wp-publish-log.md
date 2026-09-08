@@ -31,3 +31,17 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-07-21 — AS16 utilsbor-do-160-ls-2026-kak-proverit
+
+- **verdict:** PASS
+- **post_id:** 3571
+- **permalink:** /2026/07/21/utilsbor-do-160-ls-2026-kak-proverit/
+- **featured_image:** 3572
+- **inline_images:** 3573 (`inline-01.png`), 3574 (`inline-02.png`), 3575 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH bootstrap + urllib HTTP trigger (~119s OK; curl fallback restored in script for next large payloads)
+- **note:** installed `paramiko` via pip `--break-system-packages` (missing in runtime); ledger URL normalized to site-relative
+- **result:** `memory/blog/articles/AS16-utilsbor-do-160-ls-2026-kak-proverit/wp-publish-result.json`
+

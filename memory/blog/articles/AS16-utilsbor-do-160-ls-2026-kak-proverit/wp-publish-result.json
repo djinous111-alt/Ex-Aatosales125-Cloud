@@ -1,0 +1,33 @@
+{
+  "slug": "utilsbor-do-160-ls-2026-kak-proverit",
+  "topic_id": "AS16",
+  "permalink": "/2026/07/21/utilsbor-do-160-ls-2026-kak-proverit/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/AS16-utilsbor-do-160-ls-2026-kak-proverit/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1312535,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3571 slug=utilsbor-do-160-ls-2026-kak-proverit\nOK featured_image=3572\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3573 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/07/utilsbor-do-160-ls-2026-kak-proverit-inline-01.png\nOK inline_image_upload=3574 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/07/utilsbor-do-160-ls-2026-kak-proverit-inline-02.png\nOK inline_image_upload=3575 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/07/utilsbor-do-160-ls-2026-kak-proverit-inline-03.png\npermalink=[REDACTED]/2026/07/21/utilsbor-do-160-ls-2026-kak-proverit/\n",
+  "verdict": "pass",
+  "post_id": 3571,
+  "featured_image": 3572,
+  "inline_images": [
+    {
+      "id": 3573,
+      "src": "cover/inline-01.png"
+    },
+    {
+      "id": 3574,
+      "src": "cover/inline-02.png"
+    },
+    {
+      "id": 3575,
+      "src": "cover/inline-03.png"
+    }
+  ],
+  "schema_meta": 1,
+  "permalink_relative": "/2026/07/21/utilsbor-do-160-ls-2026-kak-proverit/"
+}

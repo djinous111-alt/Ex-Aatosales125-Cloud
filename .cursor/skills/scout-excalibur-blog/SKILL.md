@@ -6,14 +6,28 @@
 
 ---
 
+## Ниша (обязательно)
+
+Читай `memory/brief/site-brief.md` **до** поиска трендов.
+
+Текущий канон: **Авто-Сейлс** — авто под заказ из Японии/Кореи/Китая, растаможка, СВХ Владивосток, доставка, утильсбор/пошлины, проверка лотов (Encar, аукционы, VIN).
+
+Серия ID: **`AS##`**. Helper `excalibur_blog_scout_helper.py` / `excalibur_blog_today.py` парсят `(?:AS|B)\d+`; при живом AS-пуле `--suggest-next` должен вернуть следующий `AS##`, не `B01`.
+
+**Запрещено** скаутить legacy AI/Cursor/n8n/Make-темы, пока site-brief задаёт авто-вертикаль.
+
+Перед новым Scout сверь `shared/published-articles.md` с живыми WP-постами (site-relative `/YYYY/MM/DD/slug/`), чтобы не предложить уже опубликованный кластер.
+
+---
+
 ## Архитектура работы
 
 ```text
 published-articles.md + blog-topics.md (Audit)
               ↓
-excalibur_blog_scout_helper.py --suggest-next (Get next ID)
+excalibur_blog_scout_helper.py --suggest-next (Get next AS## ID)
               ↓
-WebSearch (Cursor native trend scouting for 2026)
+WebSearch (тренды Авто-Сейлс 2026)
               ↓
 wordstat_get_top_requests (Yandex Wordstat API demand verify)
               ↓
@@ -30,26 +44,26 @@ Append new Topic Card to blog-topics.md
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Запомни следующий `topic_id` (например, `AS17`) и список невыполненных тем.
 
-### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
-Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
-* Поисковые запросы: *«новые ИИ инструменты автоматизации 2026»*, *«how to automate business Claude Cursor»*, *«лучшие сценарии n8n Make автоматизация»*, *«как настроить ИИ-агента инструкция»*.
-* Найди свежие, практические боли пользователей, по которым не хватает качественных гайдов.
+### Шаг 2 — Поиск горячих трендов (WebSearch)
+Сделай 2-3 поисковых запроса через `WebSearch` по нише Авто-Сейлс:
+* Примеры: *«утильсбор 2026 как проверить мощность»*, *«encar проверка авто до покупки»*, *«растаможка авто Владивосток чек-лист»*, *«доставка авто из Владивостока 2026»*.
+* Найди практические боли покупателя до депозита/оплаты, по которым не хватает utility-гайдов.
 
 ### Шаг 3 — Валидация спроса (Yandex Wordstat)
-Для 2-3 отобранных вариантов тем вызови инструмент `wordstat_get_top_requests` сервера `user-mcp-kv`.
-* **Цель:** Найти ключевой запрос (primary query) с живым спросом в Яндексе и выписать 3–5 связанных поисковых вопросов для FAQ и secondary queries.
-* **Фильтр:** Если тема имеет микро-спрос (меньше 10 показов в месяц) и нет смежных тем — отложи её и возьми другую, более востребованную.
+Для 2-3 отобранных вариантов тем вызови `wordstat_get_top_requests` сервера `user-mcp-kv`.
+* **Cluster-first:** широкий parent (`утильсбор`, `encar`, `растаможка`) → узкий how-to.
+* Если узкий запрос возвращает только `totalCount` — это low-result signal, не fatal; бери хвост из широкого кластера.
+* Фильтр: микро-спрос без смежных тем — отложи.
 
 ### Шаг 4 — Тест на каннибализацию ключевых слов
-Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
-Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
+Если `OVERLAP DETECTED` — измени формулировку или выбери другую тему.
 
 ### Шаг 5 — Сборка карточки темы (Utility-Only)
 Сформируй карточку темы по шаблону:
@@ -73,7 +87,7 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 - **cover_scene_hint:** {Краткое ТЗ для картинки - обстановка, элементы DIY-коллажа}
 ```
 
-Допиши (append) карточку в конец `memory/topics/blog-topics.md`.
+Допиши (append) карточку в конец `memory/topics/blog-topics.md` с id `AS##`.
 
 ---
 
@@ -81,3 +95,4 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
 * Выдумывание цифр спроса без вызова Wordstat API.
+* Уход в чужую нишу (AI/Cursor/n8n), пока site-brief = Авто-Сейлс.

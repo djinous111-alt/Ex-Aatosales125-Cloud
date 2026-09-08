@@ -65,9 +65,10 @@ python scripts/excalibur_blog_wp_publish.py \
 
 Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
 
-1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+1. Скрипт сам пробует `curl --max-time 300` (AS15: urllib 120s часто мало для ~7MB PHP).
+2. Если curl тоже fail — печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
+3. Cloud-агент открывает URL через WebFetch **или** `curl --max-time 300` и пишет ответ в `memory/webfetch-response.txt` (не параллелить с другим writer — race).
+4. Скрипт продолжает и читает ответ из файла.
 
 **Не останавливайся** на первом timeout — используй fallback.
 
@@ -119,3 +120,9 @@ blockers:
 - Генерировать cover/schema с нуля
 - Пропускать dry-run
 - Завершать пайплайн без записи в `published-articles.md` при успешном publish
+
+## Runtime deps / ledger hygiene
+
+- Нужен `paramiko` в runtime python3 (ставит `.cursor/cloud-agent-install.sh` из `requirements.txt`). Preflight: `python3 scripts/excalibur_blog_wp_publish.py --env-check`.
+- Bootstrap HTTP: urllib 120s → curl `--max-time 300` → WebFetch 180s (не регрессировать на urllib-only).
+- Ledger URL в `shared/published-articles.md` — только site-relative (`/YYYY/MM/DD/slug/`); скрипт нормализует через `site_relative_permalink()`.

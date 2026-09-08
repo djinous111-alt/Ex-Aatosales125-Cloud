@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-21",
+    "today_ru": "21.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-22",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-21 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS16",
+    "priority": "P0",
+    "slug": "utilsbor-do-160-ls-2026-kak-proverit",
+    "h1": "Утильсбор до 160 л.с.: как проверить мощность до депозита и не переплатить в 2026",
+    "primary_query": "утильсбор до 160 лс",
+    "secondary_queries": [
+      "утильсбор на авто 160 лс",
+      "утильсбор свыше 160 лс",
+      "утильсбор до 160 лс сколько",
+      "коммерческий утильсбор до 160 лс"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS16",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "утильсбор до 160 лс 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "утильсбор до 160 лс июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "утильсбор до 160 лс новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com утильсбор до 160 лс 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "утильсбор до 160 лс official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "утильсбор до 160 лс forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "утильсбор на авто 160 лс 2026",
+      "purpose": "вторичный запрос: утильсбор на авто 160 лс"
+    },
+    {
+      "id": "secondary_2",
+      "query": "утильсбор свыше 160 лс 2026",
+      "purpose": "вторичный запрос: утильсбор свыше 160 лс"
+    },
+    {
+      "id": "secondary_3",
+      "query": "утильсбор до 160 лс сколько 2026",
+      "purpose": "вторичный запрос: утильсбор до 160 лс сколько"
+    },
+    {
+      "id": "secondary_4",
+      "query": "коммерческий утильсбор до 160 лс 2026",
+      "purpose": "вторичный запрос: коммерческий утильсбор до 160 лс"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Утильсбор до 160 л.с.: как проверить мощность до депозита и не переплатить в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS16-utilsbor-do-160-ls-2026-kak-proverit",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/AS16-utilsbor-do-160-ls-2026-kak-proverit",
+  "notes": "memory/blog/articles/AS16-utilsbor-do-160-ls-2026-kak-proverit/research-notes.md",
+  "context": "memory/blog/articles/AS16-utilsbor-do-160-ls-2026-kak-proverit/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-07-21",
+    "prefer_sources_after": "2026-04-22",
+    "source_urls": 35,
+    "source_domains": 10,
+    "source_table_rows": 26,
+    "accessed_at": 5,
+    "github_urls": 0,
+    "official_doc_urls": 0,
+    "action_outline_items": 17,
+    "pain_solution_rows": 7,
+    "technical_topic": false
+  }
+}

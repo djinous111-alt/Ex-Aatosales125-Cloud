@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-kia-k5-iz-korei-kak-vybrat-2026",
+  "notes": "memory/blog/articles/B01-kia-k5-iz-korei-kak-vybrat-2026/research-notes.md",
+  "context": "memory/blog/articles/B01-kia-k5-iz-korei-kak-vybrat-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-07-22",
+    "prefer_sources_after": "2026-04-23",
+    "source_urls": 33,
+    "source_domains": 14,
+    "source_table_rows": 33,
+    "accessed_at": 6,
+    "github_urls": 0,
+    "official_doc_urls": 0,
+    "action_outline_items": 9,
+    "pain_solution_rows": 6,
+    "technical_topic": false
+  }
+}

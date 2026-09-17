@@ -73,15 +73,21 @@ python scripts/excalibur_blog_quad_manifest.py --article-dir "$ARTICLE" --merge
 # 4. Промпт + batch (1 job)
 python scripts/excalibur_blog_cover_quad_prompt.py --article-dir "$ARTICLE" --write-batch
 
-# 5. ONE CallMcpTool user-mcp-kv / gpt-image-2
+# 5. Image job: MCP gpt-image-2 → Kie API → emergency GenerateImage
 #    аргументы из cover/quad-mcp-batch.json → jobs[0].mcp_args
 #    aspect_ratio: 16:9, resolution: 2K, input_urls обязателен
+#    402 credits / MCP NoneType → GenerateImage + resize 2048x1152 (см. skill)
 
-# 6. Скачать + split + inject
-python scripts/excalibur_blog_quad_apply.py \
+# 6. Скачать + split + inject (URL) или local canvas (emergency)
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir "$ARTICLE" \
-  --url "<url из MCP>" \
+  --url "<url из MCP/Kie>" \
   --inject-html
+# emergency:
+# python3 scripts/excalibur_blog_quad_apply.py \
+#   --article-dir "$ARTICLE" \
+#   --canvas-local cover/canvas-quad.png \
+#   --inject-html
 ```
 
 ---
@@ -187,7 +193,8 @@ summary: ...
 | `excalibur_blog_hero_reference_url.py` | catbox/0x0 → `reference_url_hosted` |
 | `excalibur_blog_quad_manifest.py`      | `cover/quad-manifest.json`          |
 | `excalibur_blog_cover_quad_prompt.py`  | prompt + `--write-batch`            |
-| `excalibur_blog_quad_apply.py`         | download URL → split → inject       |
+| `excalibur_blog_quad_apply.py`         | download URL **или** `--canvas-local` → split → inject |
+| `excalibur_blog_kie_gpt_image2_api.py` | preferred async Kie path (402 → emergency GenerateImage) |
 | `excalibur_blog_cover_quad_split.py`   | split only (вызывается из apply)    |
 
 

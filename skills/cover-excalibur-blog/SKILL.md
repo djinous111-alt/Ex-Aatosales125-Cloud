@@ -122,23 +122,49 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image job (MCP → Kie → emergency)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+Порядок (один холст 2×2, не 4 генерации):
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+1. **Preferred MCP:** `CallMcpTool` → `MCP-KV` / `gpt-image-2` с `jobs[0].mcp_args`.
+   - Если ответ без URL / wrapper error вроде `NoneType...get` — **не** крутить слепой retry; переходи к шагу 2.
+2. **Preferred API:** прямой Kie async:
+   ```bash
+   python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+     --article-dir memory/blog/articles/<topic_id>-<slug>
+   ```
+   - HTTP/API **402 / credits insufficient** → это billing blocker на preferred path; **не** создать второй Kie task.
+3. **Emergency fallback (Cursor `GenerateImage`):**
+   - prompt = текст из `cover/quad-mcp-prompt.txt` / batch;
+   - reference = `memory/cover/assets/blog-hero-reference.png` (+ `reference_image_paths` если tool поддерживает);
+   - сохранить результат как локальный canvas (часто не exact 16:9 / 2048×1152);
+   - привести к **2048×1152** (resize/crop), записать `cover/canvas-quad.png`;
+   - `cover/quad-mcp-result.json` с `source=emergency_GenerateImage_fallback`;
+   - apply через локальный canvas:
+     ```bash
+     python3 scripts/excalibur_blog_quad_apply.py \
+       --article-dir memory/blog/articles/<topic_id>-<slug> \
+       --canvas-local cover/canvas-quad.png \
+       --inject-html
+     ```
+   - После успешного split+inject cover ✅; в fragment укажи fallback и INC при необходимости.
+4. Incident: при 402/MCP NoneType допиши `memory/pipeline-fix-queue.md` (credits / fallback).
 
-### Шаг 5 — apply
+Ожидание preferred path: Image to Image, 1 входное фото, aspect 16:9, 2K.
+
+### Шаг 5 — apply (URL path)
+
+Если есть remote URL (MCP/Kie):
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --url "<MCP or Kie result url>" \
   --inject-html
 ```
 
 Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
+Emergency local path: `--canvas-local` (см. шаг 4).
 
 ### Шаг 6 — fragment
 

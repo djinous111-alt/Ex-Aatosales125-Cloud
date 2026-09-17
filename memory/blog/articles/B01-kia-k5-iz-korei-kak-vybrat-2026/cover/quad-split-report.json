@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-kia-k5-iz-korei-kak-vybrat-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1004,
+      558
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 558,
+        "end": 588
+      },
+      "v_gutter_px": {
+        "start": 1004,
+        "end": 1061
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 6,
+          "top": 0,
+          "right": 998,
+          "bottom": 558
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1004,
+          "bottom": 558
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у Kia K5 с плашкой до 160 л.с. и смартфоном Encar, порт Владивосток",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1061,
+          "top": 0,
+          "right": 2048,
+          "bottom": 558
+        },
+        "raw_box_px": {
+          "left": 1061,
+          "top": 0,
+          "right": 2048,
+          "bottom": 558
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: льготный утиль vs динамика — цель выбора Kia K5 до фильтров Encar",
+        "h2_anchor": "Зафиксируйте цель: K5 под льготный утиль или \"хочу динамику\""
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 0,
+          "top": 588,
+          "right": 1004,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 588,
+          "right": 1004,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема моторов K5 2026: проходные до 160 л.с. и стоп для турбо 180",
+        "h2_anchor": "Отсейте мотор: что реально проходит по мощности в 2026"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1061,
+          "top": 592,
+          "right": 2048,
+          "bottom": 1147
+        },
+        "raw_box_px": {
+          "left": 1061,
+          "top": 588,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист комплектаций Prestige Noblesse Signature: имя трима не гарантирует мощность",
+        "h2_anchor": "Сравните комплектации: Prestige, Noblesse, Signature и ловушка GT-Line"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте цель: K5 под льготный утиль или \"хочу динамику\"",
+    "injected inline_2 after H2 — Отсейте мотор: что реально проходит по мощности в 2026",
+    "injected inline_3 after H2 — Сравните комплектации: Prestige, Noblesse, Signature и ловушка GT-Line"
+  ]
+}

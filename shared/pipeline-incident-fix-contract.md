@@ -35,7 +35,7 @@ Append to `memory/pipeline-fix-queue.md`:
 status: open
 run_date: YYYY-MM-DD
 role: excalibur-blog-<role>
-topic_id: Bxx | n/a
+topic_id: ASxx | Bxx | n/a
 article_dir: memory/blog/articles/<topic_id>-<slug> | n/a
 severity: low | medium | high | blocker
 category: prompt | script | docs | env | api | handoff | qa | publish | other

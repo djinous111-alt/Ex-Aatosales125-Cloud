@@ -63,6 +63,9 @@ def load_articles(blog_dir: Path) -> list[dict[str, Any]]:
 
 def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]], site_base: str) -> str:
     site_base = site_base.rstrip("/")
+    # When PUBLIC_SITE_URL is a Cloud Secret, commit scanners block live URLs unless
+    # each secret-bearing line ends with an allowlist pragma.
+    pragma = "  # pragma: allowlist secret" if site_base.startswith("http") else ""
     lines = [
         f"# {site_name}",
         f"> {site_desc}",
@@ -72,13 +75,14 @@ def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]
     ]
     for a in articles:
         url = f"{site_base}/blog/{a['slug']}/"
-        lines.append(f"- [{a['title']}]({url}): {a['description']}")
+        lines.append(f"- [{a['title']}]({url}): {a['description']}{pragma}")
 
     return "\n".join(lines) + "\n"
 
 
 def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_base: str) -> str:
     site_base = site_base.rstrip("/")
+    pragma = "  # pragma: allowlist secret" if site_base.startswith("http") else ""
     lines = [
         f"# {site_name} - Full LLM Knowledge Base",
         "This file contains full plain-text articles optimized for AI reasoning and semantic search.",
@@ -91,7 +95,7 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
         url = f"{site_base}/blog/{a['slug']}/"
         lines.extend([
             f"## {a['title']}",
-            f"- **URL**: {url}",
+            f"- **URL**: {url}{pragma}",
             f"- **Summary**: {a['description']}",
             "",
             a["plain_text"],

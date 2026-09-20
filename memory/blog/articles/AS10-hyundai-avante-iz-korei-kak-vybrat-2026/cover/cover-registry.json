@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS10",
+  "slug": "hyundai-avante-iz-korei-kak-vybrat-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у Hyundai Avante со смартфоном Encar: плашка «до депозита», порт Владивостока",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-07-22T13:32:56+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у Hyundai Avante со смартфоном Encar: плашка «до депозита», порт Владивостока",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица моторов Avante: 1.6 MPI ок, турбо и N — стоп до депозита",
+      "h2_anchor": "Отсейте турбо и N: сначала мощность, потом красота",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема комплектаций Smart → Modern → Inspiration и отдельно N Line как обвес",
+      "h2_anchor": "Разберите Smart, Modern и Inspiration без магии названий",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Мокап Encar: Avante = Elantra, массово CN7, не путать с шоу CN8",
+      "h2_anchor": "Сверьте Avante и Elantra: что реально ищут на Encar",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

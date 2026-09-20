@@ -1,0 +1,202 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "[REDACTED]/hyundai-avante-iz-korei-kak-vybrat-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "[REDACTED]/hyundai-avante-iz-korei-kak-vybrat-2026/"
+      },
+      "headline": "Как выбрать Hyundai Avante из Кореи в 2026: комплектации, мощность и чек-лист до депозита",
+      "description": "Хендай Аванте из Кореи: комплектации Smart/Modern/Inspiration, мощность ≤160 л.с., чеклист до депозита и путь через Владивосток. Подбор – в каталоге Авто-Сейлс.",
+      "datePublished": "2026-07-22",
+      "dateModified": "2026-07-22",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "[REDACTED]/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "[REDACTED]/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "[REDACTED]/"
+        },
+        "sameAs": [
+          "[REDACTED]/",
+          "[REDACTED]",
+          "[REDACTED]",
+          "[REDACTED]",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "[REDACTED]/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "[REDACTED]/",
+        "sameAs": [
+          "[REDACTED]",
+          "[REDACTED]"
+        ]
+      },
+      "keywords": [
+        "хендай аванте из кореи",
+        "купить хендай аванте",
+        "hyundai avante из кореи",
+        "хендай аванте комплектации",
+        "hyundai elantra из кореи"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "[REDACTED]/hyundai-avante-iz-korei-kak-vybrat-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Avante отличается от Elantra в карточке Encar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Это одна линейка: в Корее модель зовут Avante, за рубежом чаще Elantra. На Encar ищите Avante и сверяйте поколение (сейчас массово CN7), а не маркетинговое имя из рекламы."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли везти Hyundai Avante 1.6 Turbo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Технически лот существует, но ~204 л.с. обычно выбивают из льготной зоны по мощности. Если цель – спокойный ввоз без сюрприза по утилю, сначала берите 1.6 MPI ~123 л.с. и считайте смету в каталоге."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие поля мощности проверить до оплаты?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сделайте скрин карточки лота с указанием л.с. и сравните с договором и будущим ЭПТС. Не делайте ставку только на подпись \"N Line\" – откройте именно цифру мощности."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Стоит ли новичку брать Avante на LPG (газ)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Для первого заказа чаще проще бензин 1.6. Газовые версии требуют отдельной проверки оборудования и сервиса у вас в городе. Если рассматриваете LPG – заложите осмотр и смету обслуживания до депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если в Performance Check стоит X?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "X на силовых элементах – стоп для депозита. Ищите другой лот или усиливайте осмотр только если осознанно берёте риск и понимаете ремонт. Чеклист важнее \"уникального цвета\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "С чего начать сегодня без команды \"своих\"?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Откройте 5–7 лотов Avante 1.6, выпишите мощность и трим, отсейте всё выше 160 л.с. Затем запросите пакет проверок и письменную смету \"под ключ\" в каталоге Авто-Сейлс – без форм на странице статьи."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "[REDACTED]/hyundai-avante-iz-korei-kak-vybrat-2026/#howto",
+      "name": "Как выбрать Hyundai Avante из Кореи до депозита",
+      "description": "Пошаговый выбор Avante на Encar: мощность ≤160 л.с., трим Smart/Modern/Inspiration, Performance Check, VIN/история, видеоосмотр и смета под ключ через Владивосток.",
+      "totalTime": "PT60M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Карточка Encar: мощность, трим, Performance Check, Insurance History"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "VIN-отчёт Carhistory (при сомнениях) и видеоосмотр"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Письменная смета «под ключ» до Владивостока"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Бюджет «под ключ» и город выдачи"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Shortlist 2–3 лотов Avante 1.6 с полным VIN"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Зафиксировать бюджет «под ключ» и город выдачи",
+          "text": "Не смотрите только цену лота в вона́х. Запишите бюджет до Владивостока и дальше по РФ и город выдачи.",
+          "url": "[REDACTED]/hyundai-avante-iz-korei-kak-vybrat-2026/#пройдите-путь-encar-→-владивосток-без-тайного-языка"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Отсеять турбо и N по мощности",
+          "text": "Выпишите л.с. из карточки лота. Цель ≤160 л.с. (обычно 1.6 MPI ~123). Турбо ~204 и N ~280 отсекайте до любой переписки про бронь.",
+          "url": "[REDACTED]/hyundai-avante-iz-korei-kak-vybrat-2026/#отсейте-турбо-и-n-сначала-мощность-потом-красота"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Разобрать трим Smart / Modern / Inspiration",
+          "text": "Выберите уровень оснащения под бюджет и опции. У N Line отдельно откройте мотор: обвес не равен турбо-паспорту.",
+          "url": "[REDACTED]/hyundai-avante-iz-korei-kak-vybrat-2026/#разберите-smart-modern-и-inspiration-без-магии-названий"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Сверить Avante и поколение на Encar",
+          "text": "Ищите Hyundai Avante CN7/рестайлинг + бензин 1.6. Не путайте доступный лот с рекламой All-New Avante 8-го поколения.",
+          "url": "[REDACTED]/hyundai-avante-iz-korei-kak-vybrat-2026/#сверьте-avante-и-elantra-что-реально-ищут-на-encar"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Прочитать Performance Check и историю",
+          "text": "Стоп на X на лонжеронах и стойках. Запросите VIN, Insurance History и при сомнении Carhistory. Депозит без пакета не вносите.",
+          "url": "[REDACTED]/hyundai-avante-iz-korei-kak-vybrat-2026/#прочитайте-performance-check-и-историю-до-оплаты"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Заказать видеоосмотр",
+          "text": "Запросите живой фото/видеоосмотр с датой: холодный запуск, ЛКП, салон. Без ролика депозит не обсуждайте.",
+          "url": "[REDACTED]/hyundai-avante-iz-korei-kak-vybrat-2026/#пройдите-путь-encar-→-владивосток-без-тайного-языка"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Получить смету «под ключ» и пройти чеклист",
+          "text": "Запросите письменную смету в каталоге Авто-Сейлс. Пройдите чеклист: мощность, трим, VIN, схема кузова, история, осмотр, договор — только потом депозит.",
+          "url": "[REDACTED]/hyundai-avante-iz-korei-kak-vybrat-2026/#пройдите-чеклист-перед-переводом-депозита"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Сверить документы после Владивостока",
+          "text": "Отследите море → таможня Владивосток → ЭПТС/СБКТС. Перед учётом убедитесь, что в документах та же мощность, что выбирали.",
+          "url": "[REDACTED]/hyundai-avante-iz-korei-kak-vybrat-2026/#что-дальше"
+        }
+      ]
+    }
+  ]
+}

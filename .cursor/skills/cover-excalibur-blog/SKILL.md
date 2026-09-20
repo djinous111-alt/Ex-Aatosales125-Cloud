@@ -122,19 +122,42 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 3.5 — Kie credits preflight
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --credits-only --min-credits 2.0
+```
+
+Пишет `cover/kie-credits-preflight.json`. При `balance < min` или HTTP/business `402 Credits insufficient` — **не** крутить createTask; см. emergency fallback ниже.
+
+### Шаг 4 — ONE image job (Kie API preferred)
+
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --min-credits 2.0
+```
+
+Либо `CallMcpTool` → `gpt-image-2` с `jobs[0].mcp_args` (тот же Kie wallet).
 
 Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+
+### Emergency fallback (Kie 402 / credits FAIL)
+
+1. Cursor `GenerateImage` i2i с `reference_image_paths=[memory/cover/assets/blog-hero-reference.png]`, aspect 16:9.
+2. Resize до **2048×1152** → `cover/canvas-quad.png`.
+3. `python3 scripts/excalibur_blog_cover_quad_split.py --article-dir ... --inject-html` (или `quad_apply` path).
+4. В `cover/quad-mcp-result.json` зафиксируй `method: emergency-fallback-generateimage`.
+5. Допиши incident: top-up Kie credits = needs-human.
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --url "<result url>" \
   --inject-html
 ```
 

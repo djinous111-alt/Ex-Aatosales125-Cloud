@@ -1,7 +1,7 @@
 # Promotion checklist — [topic_id] [slug]
 
 Дата публикации: YYYY-MM-DD  
-Live URL: https://...
+Live URL: https://...  <!-- pragma: allowlist secret -->
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

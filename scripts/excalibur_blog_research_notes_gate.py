@@ -14,19 +14,23 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short tokens must match as whole words — otherwise "ai" hits "hyundai",
+# "ии" hits Russian endings like "комплектации" / "мощности".
+TECH_MARKERS_WORD = (
     "ai",
     "ии",
-    "agent",
-    "агент",
     "mcp",
     "api",
-    "cursor",
+    "rag",
     "make",
     "n8n",
+)
+TECH_MARKERS_SUBSTR = (
+    "agent",
+    "агент",
+    "cursor",
     "github",
     "docker",
-    "rag",
     "workflow",
     "автоматизац",
     "нейросет",
@@ -73,14 +77,35 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _tech_marker_in_blob(blob: str, marker: str, *, whole_word: bool) -> bool:
+    if not whole_word:
+        return marker in blob
+    # ASCII + Cyrillic-aware "word" edges (Python \\b is ASCII-only).
+    return bool(
+        re.search(
+            rf"(?<![0-9a-zа-яё_]){re.escape(marker)}(?![0-9a-zа-яё_])",
+            blob,
+            flags=re.IGNORECASE,
+        )
+    )
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    notes_blob = notes[:2000].lower()
+    # Required research headings must not trip tech markers
+    # (esp. substring "github" inside "github_evidence: n/a" on every article).
+    for field in REQUIRED_FIELDS:
+        label = field.split(":")[0].strip().lower()
+        notes_blob = re.sub(rf"{re.escape(label)}\s*:", " ", notes_blob)
+    blob += " " + notes_blob
+    if any(_tech_marker_in_blob(blob, m, whole_word=True) for m in TECH_MARKERS_WORD):
+        return True
+    return any(_tech_marker_in_blob(blob, m, whole_word=False) for m in TECH_MARKERS_SUBSTR)
 
 
 def field_present(text_lower: str, field: str) -> bool:

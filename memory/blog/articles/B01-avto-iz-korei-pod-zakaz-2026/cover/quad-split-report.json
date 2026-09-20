@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-avto-iz-korei-pod-zakaz-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1029,
+      580
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 580,
+        "end": 599
+      },
+      "v_gutter_px": {
+        "start": 1029,
+        "end": 1062
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1029,
+          "bottom": 580
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1029,
+          "bottom": 580
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у смартфона с Encar и силуэтом ролкера во Владивостоке, плашка от Encar до выдачи",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1062,
+          "top": 12,
+          "right": 2048,
+          "bottom": 567
+        },
+        "raw_box_px": {
+          "left": 1062,
+          "top": 0,
+          "right": 2048,
+          "bottom": 580
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап: бюджет под ключ и фильтры 2,0 л / 160 л.с. до открытия Encar",
+        "h2_anchor": "Зафиксируйте бюджет и фильтры 2026 до открытия Encar"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 23,
+          "top": 599,
+          "right": 1006,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 599,
+          "right": 1029,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения 2–3 лотов Encar: год, пробег, объём, мощность, VIN",
+        "h2_anchor": "Как подобрать 2–3 лота на Encar без спешки"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1062,
+          "top": 599,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1062,
+          "top": 599,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист до депозита: VIN, Performance Record, Insurance History, Carhistory",
+        "h2_anchor": "Проверьте историю до депозита: красные флаги"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте бюджет и фильтры 2026 до открытия Encar",
+    "injected inline_2 after H2 — Как подобрать 2–3 лота на Encar без спешки",
+    "injected inline_3 after H2 — Проверьте историю до депозита: красные флаги"
+  ]
+}

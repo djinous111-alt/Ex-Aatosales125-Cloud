@@ -40,13 +40,13 @@ Research-агент **отклоняет** угол без практики. В 
 
 - `utility_verdict: PASS`
 - `research_date` совпадает с `research-context.json` → `today_iso`
-- `source_table` с URL и `accessed_at`
-- `github_evidence` для технических тем
+- `source_table` с URL и `accessed_at` — в ячейках даты пиши `accessed_at: YYYY-MM-DD` (gate также засчитывает ISO-даты в колонке `accessed_at`)
+- `github_evidence` только для **технических** тем (MCP/API/Cursor/GitHub…); `search_intent: workflow` сам по себе **не** делает тему technical
 - `reader_pain`: конкретная боль/риск/затык читателя
 - `reader_outcome`: одно предложение — какой первый результат сможет сделать новичок
 - `success_criteria`: как новичок поймёт, что проблема решена
 - `voice_angle`, `reader_story`, `surprising_fact`: материал для человеческого lead/H2
-- `pain_solution_map`: таблица pain → solution → proof/source → reader_result
+- `pain_solution_map`: таблица pain → solution → proof/source → reader_result (в data-row желательны слова pain/боль/solution/решение/result/результат — иначе gate считает строки по секции)
 - `action_outline`: 5–9 шагов или чеклист-пунктов
 
 Машинный gate:
@@ -61,12 +61,12 @@ python scripts/excalibur_blog_research_notes_gate.py \
 
 Контракт: `shared/excalibur-article-writing-contract.md`
 
-- Каждый H2 = подзадача + **рекомендация** (делать / не делать)
+- Каждый H2 = подзадача + **рекомендация** с литералами utility gate: `Делать:` / `Не делать:` (или «Сделайте» / «Не делайте») и/или `чек-лист`
 - Минимум **5** нумерованных шагов ИЛИ чеклист 10+ пунктов
 - Workflow-схема (`→`) или таблица (comparison)
 - FAQ — короткие **ответы-действия**, не пересказ
 - Lead/H2 используют `reader_story`, `voice_angle`, `surprising_fact`
-- Lead называет боль, H2 закрывают боли из `pain_solution_map`, до FAQ есть понятный критерий результата.
+- Lead называет боль (маркеры из `pain_markers_ru` в `editorial-policy.json`), H2 закрывают боли из `pain_solution_map`, до FAQ есть понятный критерий результата (`outcome_markers_ru`).
 - Beginner-fit: сложный термин объяснён сразу, нет тона «для профи», есть первый безопасный шаг без команды разработчиков.
 - Human voice gate PASS: нет шаблонных H2, есть живые примеры, разный ритм абзацев
 

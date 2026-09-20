@@ -119,3 +119,11 @@ blockers:
 - Генерировать cover/schema с нуля
 - Пропускать dry-run
 - Завершать пайплайн без записи в `published-articles.md` при успешном publish
+
+## Git / secret-scan
+
+Перед commit артефактов после publish: live `PUBLIC_SITE_URL` в `wp-publish-result.json`, `promotion-checklist.md`, `llms*.txt`, `schema.jsonld` замени на `${PUBLIC_SITE_URL}` / `[REDACTED]`. Иначе Cursor secret-scan блокирует commit. Не коммить `schema.jsonld.local`, handoff, fragments. Перед commit sanitize bash-unsafe secret names:
+
+```bash
+export CLOUD_AGENT_INJECTED_SECRET_NAMES="$(python3 scripts/excalibur_blog_check_secret_names.py --print-sanitized-injected)"
+```

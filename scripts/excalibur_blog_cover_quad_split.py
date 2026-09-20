@@ -134,6 +134,24 @@ def validate_canvas_grid(width: int, height: int) -> list[str]:
     return errors
 
 
+def normalize_canvas_to_recommended(canvas_path: Path) -> tuple[int, int]:
+    """LANCZOS-resize emergency/non-canonical canvases to 2048×1152 in place.
+
+    Cursor GenerateImage often returns 1536×1024 (3:2); Kie/MCP target is 2048×1152.
+    Returns the size before normalize.
+    """
+    from PIL import Image
+
+    with Image.open(canvas_path) as source:
+        source = source.convert("RGBA")
+        before = source.size
+        if before == RECOMMENDED_CANVAS:
+            return before
+        resized = source.resize(RECOMMENDED_CANVAS, Image.Resampling.LANCZOS)
+        resized.save(canvas_path, format="PNG", optimize=True)
+    return before
+
+
 def quadrant_box(width: int, height: int, name: str) -> tuple[int, int, int, int]:
     half_w = width // 2
     half_h = height // 2
@@ -423,6 +441,12 @@ def main() -> int:
         action="store_true",
         help=f"Create placeholder {RECOMMENDED_CANVAS[0]}x{RECOMMENDED_CANVAS[1]} quad canvas (4×16:9)",
     )
+    ap.add_argument(
+        "--no-normalize",
+        action="store_true",
+        help="Do not auto-resize non-canonical canvases before split "
+        f"(default: LANCZOS to {RECOMMENDED_CANVAS[0]}x{RECOMMENDED_CANVAS[1]})",
+    )
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
@@ -448,6 +472,15 @@ def main() -> int:
     if not canvas_path.is_file():
         print(f"❌ QUAD SPLIT BLOCKER: canvas not found: {canvas_path}", file=sys.stderr)
         return 1
+
+    do_normalize = not bool(args.no_normalize)
+    if do_normalize and not args.dry_run:
+        before = normalize_canvas_to_recommended(canvas_path)
+        if before != RECOMMENDED_CANVAS:
+            print(
+                f"WARN normalized canvas {before[0]}x{before[1]} → "
+                f"{RECOMMENDED_CANVAS[0]}x{RECOMMENDED_CANVAS[1]} (emergency GenerateImage / non-2K)"
+            )
 
     manifest_path = Path(args.manifest) if args.manifest else cover_dir / "quad-manifest.json"
     if not manifest_path.is_absolute():

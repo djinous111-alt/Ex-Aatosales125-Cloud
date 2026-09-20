@@ -1,0 +1,676 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-23",
+    "today_ru": "23.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-24",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-23 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "avto-iz-korei-pod-zakaz-2026",
+    "h1": "Авто из Кореи под заказ: как пройти путь от Encar до выдачи в 2026",
+    "primary_query": "авто из кореи под заказ",
+    "secondary_queries": [
+      "заказ авто из кореи",
+      "купить авто из кореи",
+      "пригнать авто из кореи",
+      "авто из кореи под ключ"
+    ],
+    "search_intent": "workflow",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "авто из кореи под заказ 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Лучшие 8 фирм по привозу авто из Кореи под заказ — обновлённый рейтинг 2026",
+          "url": "https://vc.ru/rating_top/3036429-luchshie-firmy-po-privozu-avto-iz-korei-pod-zakaz",
+          "snippet": ""
+        },
+        {
+          "title": "Авто из Кореи под заказ в 2026 году: ТОП-10 надежных и ликвидных ...",
+          "url": "https://avtoimport1.ru/blog/avto-iz-korei-pod-zakaz-v-2026-godu-top-10-nadezhnyh-i-likvidnyh-modeley-dlya-importa-v-rossiyu/",
+          "snippet": "Авто из Кореи в 2026 году покупают не только ради цены. Главный интерес — свежие Hyundai, Kia, Genesis и другие модели с понятной историей, хорошими комплектациями и состоянием лучше, чем у многих машин на российской вторичке."
+        },
+        {
+          "title": "Авто из Кореи под заказ — купить с доставкой по РФ | EncarRus",
+          "url": "https://encarrus.ru/korea/",
+          "snippet": "Мы отобрали модели, которые в 2026 году будут наиболее проходными с точки зрения логистики, таможенного оформления (с учетом прогнозируемых норм) и востребованными на российском рынке."
+        },
+        {
+          "title": "Авто из Кореи под заказ: ТОП-7 компаний с доставкой в Россию в 2026",
+          "url": "https://vc.ru/top-raiting/3001791-avto-iz-korei-pod-zakaz-kompanii-s-dostavkoy-v-rossiyu",
+          "snippet": "Авто из Кореи под заказ — это покупка автомобиля напрямую с корейских аукционов и площадки Encar с доставкой в Россию под ключ. Вы выбираете машину из каталога 95 000+ авто, мы выкупаем её в Корее, проходим экспорт ..."
+        },
+        {
+          "title": "CarsKorea — авто из Южной Кореи под заказ с Енкар (Encar)",
+          "url": "https://carskorea.shop/",
+          "snippet": "Компания возит автомобили из Кореи, Китая, Японии, США, ОАЭ и Европы по полному циклу: от подбора и диагностики до постановки на учёт."
+        },
+        {
+          "title": "Авто из Кореи под заказ: Цены, Растаможка, Доставка по РФ",
+          "url": "https://japantransit.ru/korea",
+          "snippet": "Мы — экспортер автомобилей из Южной Кореи. Лучшие авто с Енкар (Encar) под заказ. Поможем купить авто с доставкой в Россию. Encar доступен на русском языке."
+        }
+      ],
+      "searched_at": "2026-07-23"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "авто из кореи под заказ июль 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Авто из Кореи под заказ: ТОП-7 компаний с доставкой в Россию в 2026",
+          "url": "https://vc.ru/top-raiting/3001791-avto-iz-korei-pod-zakaz-kompanii-s-dostavkoy-v-rossiyu",
+          "snippet": ""
+        },
+        {
+          "title": "Лучшие 8 фирм по привозу авто из Кореи под заказ — обновлённый рейтинг 2026",
+          "url": "https://vc.ru/rating_top/3036429-luchshie-firmy-po-privozu-avto-iz-korei-pod-zakaz",
+          "snippet": "Компания возит автомобили из Кореи, Китая, Японии, США, ОАЭ и Европы по полному циклу: от подбора и диагностики до постановки на учёт."
+        },
+        {
+          "title": "Лучшие 8 компаний по доставке авто из Кореи — разобрался по срокам и ...",
+          "url": "https://dtf.ru/rating_top/5195309-kompanii-po-dostavke-avto-iz-korei",
+          "snippet": "Авто из Кореи в 2026 году покупают не только ради цены. Главный интерес — свежие Hyundai, Kia, Genesis и другие модели с понятной историей, хорошими комплектациями и состоянием лучше, чем у многих машин на российской вторичке."
+        },
+        {
+          "title": "Авто из Кореи под заказ: 8 лучших фирм с доставкой — разбор 2026",
+          "url": "https://dtf.ru/top-raiting/5155462-avto-iz-korei-pod-zakaz-luchshie-kompanii",
+          "snippet": "Лучшие 8 компаний по доставке авто из Кореи — разобрался по срокам и ценам Авто из Кореи берут ради понятных Kia, Hyundai и других моделей с нормальной историей."
+        },
+        {
+          "title": "Рейтинг фирм по привозу авто из Кореи в РФ — ТОП-22 компании 2026",
+          "url": "https://top-autoimport.ru/ratings/luchshie-kompanii-po-privozu-avto-iz-korei",
+          "snippet": "Авто из Кореи под заказ, рейтинг компаний, доставка без предоплаты, юридическая чистота, проверка автомобилей, гарантии и отзывы клиентов"
+        },
+        {
+          "title": "Авто из Кореи под заказ в 2026 году: ТОП-10 надежных и ликвидных ...",
+          "url": "https://avtoimport1.ru/blog/avto-iz-korei-pod-zakaz-v-2026-godu-top-10-nadezhnyh-i-likvidnyh-modeley-dlya-importa-v-rossiyu/",
+          "snippet": "Топ-22 проверенных компаний по доставке авто из Кореи в Россию с растаможкой. Рейтинг лучших фирм 2026: отзывы, цены, сроки. Надежные поставщики под ключ."
+        }
+      ],
+      "searched_at": "2026-07-23"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "авто из кореи под заказ новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Лучшие 8 фирм по привозу авто из Кореи под заказ — обновлённый рейтинг 2026",
+          "url": "https://vc.ru/rating_top/3036429-luchshie-firmy-po-privozu-avto-iz-korei-pod-zakaz",
+          "snippet": ""
+        },
+        {
+          "title": "Как купить авто из Кореи в 2026? | DSS Group",
+          "url": "https://dss-g.com/all-news/articles/kak-kupit-avto-iz-korei-i-privezti-v-rossiyu-v-2026-godu/",
+          "snippet": "Авто из Кореи в 2026 году покупают не только ради цены. Главный интерес — свежие Hyundai, Kia, Genesis и другие модели с понятной историей, хорошими комплектациями и состоянием лучше, чем у многих машин на российской вторичке."
+        },
+        {
+          "title": "Авто из Кореи под заказ в 2026 году: ТОП-10 надежных и ликвидных ...",
+          "url": "https://avtoimport1.ru/blog/avto-iz-korei-pod-zakaz-v-2026-godu-top-10-nadezhnyh-i-likvidnyh-modeley-dlya-importa-v-rossiyu/",
+          "snippet": "Южная Корея ввела запрет на экспорт авто с двигателем от 2,0 литров, а корейская таможня создала особое подразделение для расследования обходных схем и с марта 2026 года усилила ..."
+        },
+        {
+          "title": "Авто из Кореи под заказ: ТОП-7 компаний с доставкой в Россию в 2026",
+          "url": "https://vc.ru/top-raiting/3001791-avto-iz-korei-pod-zakaz-kompanii-s-dostavkoy-v-rossiyu",
+          "snippet": "Мы отобрали модели, которые в 2026 году будут наиболее проходными с точки зрения логистики, таможенного оформления (с учетом прогнозируемых норм) и востребованными на российском рынке."
+        },
+        {
+          "title": "Как привезти корейский автомобиль: пошлины, утильсбор, CarHistory и ...",
+          "url": "https://auto.rambler.ru/navigator/56795236-kak-privezti-koreyskiy-avtomobil-poshliny-utilsbor-carhistory-i-logistika/",
+          "snippet": "Этот материал для тех, кто планирует заказать авто из Кореи под заказ и хочет заранее понимать, с кем имеет смысл вести разговор, а к кому стоит присмотреться внимательнее."
+        },
+        {
+          "title": "Авто из Кореи в 2026: на чем реально сэкономить и какие модели в топе",
+          "url": "https://avtoimport1.ru/blog/avto-iz-korei-v-2026-na-chem-realno-sekonomit-i-kakie-modeli-v-tope/",
+          "snippet": "Полный гайд по заказу и ввозу авто из Южной Кореи в 2026 году. Расчет таможенных пошлин, проверка CarHistory на Encar, морская доставка и оформление ЭПТС. Ввоз автомобилей из Южной Кореи в 2026..."
+        }
+      ],
+      "searched_at": "2026-07-23"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com авто из кореи под заказ 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - Cyclel1ves/Spooky-AutoBuy: Лучший автобай на спукиче под ...",
+          "url": "https://github.com/Cyclel1ves/Spooky-AutoBuy",
+          "snippet": ""
+        },
+        {
+          "title": "GitHub - supersymmetry-technologies/BBT-FinCUGE-Applications",
+          "url": "https://github.com/supersymmetry-technologies/BBT-FinCUGE-Applications",
+          "snippet": "Проект состоит из Node.js‑контроллера и легковесного агента. Агенты подключаются к контроллеру по WebSocket (Socket.IO), запускает ботов на mineflayer, пересылают логи, баланс и события."
+        },
+        {
+          "title": "vzavaritskii's gists · GitHub",
+          "url": "https://gist.github.com/vzavaritskii",
+          "snippet": "预训练语料库的规模与多样性对PLM的性能和泛化能力具有重要作用，所以为了更好的训练PLM，首先需要搜集大规模多样性的语料库。 然而，目前中文金融领域缺乏大规模多样性开源语料库，已有的中文金融领域模型多数基于小规模的私有语料库，严重限制了中文金融PLM的能力提升。 为此，我们构建了BBT-FinCorpus，一个包含有从四种异质性来源获取的约300GB文本的大规模多样性语料库。 针对如何确定语料库的覆盖范围和语料来源集合的问题，我们首先搜集了中文互联网上可获取的所有中文金融NLP任务数据集，并根据其文本来源分布来确定所需要爬取的文本来源集合。 在确认好需要爬取的文本来源集合之后，我们使用基于代理的分布式爬虫技术实现大规模爬取网页上的文本。"
+        },
+        {
+          "title": "sql_data_analysis_yandex_praktikum_2022 · GitHub",
+          "url": "https://gist.github.com/ikashkovskiy/692f28ab22a386cf02fa853f34c61a25",
+          "snippet": "Посчитать, сколько раз была заказана каждая книга, для книги вывести ее автора (нужно посчитать, в каком количестве заказов фигурирует каждая книга). Вывести фамилию и инициалы автора, название книги, последний столбец назвать Количество. Результат отсортировать сначала по фамилиям авторов, а потом по названиям книг."
+        },
+        {
+          "title": "GitHub - horizoonn/Orders-app: Небольшой микросервис на Go с ...",
+          "url": "https://github.com/horizoonn/Orders-app",
+          "snippet": "Для каждой страны посчитайте среднюю стоимость заказов в 2009 году по месяцам. Отберите данные за 2, 5, 7 и 10 месяцы и сложите средние значения стоимости заказов."
+        },
+        {
+          "title": "login/login.svg at main · yohankim0318/login · GitHub",
+          "url": "https://github.com/yohankim0318/login/blob/main/login.svg",
+          "snippet": "Получение заказов из Kafka — асинхронный consumer, валидация и логирование невалидных сообщений. Сохранение в PostgreSQL — для каждого заказа транзакционно сохраняются order, delivery, payment, items."
+        }
+      ],
+      "searched_at": "2026-07-23"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "авто из кореи под заказ official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как привезти корейский автомобиль: пошлины, утильсбор, CarHistory и ...",
+          "url": "https://auto.rambler.ru/navigator/56795236-kak-privezti-koreyskiy-avtomobil-poshliny-utilsbor-carhistory-i-logistika/",
+          "snippet": ""
+        },
+        {
+          "title": "Авто из Кореи под заказ — купить с доставкой по РФ | EncarRus",
+          "url": "https://encarrus.ru/korea/",
+          "snippet": "Полный гайд по заказу и ввозу авто из Южной Кореи в 2026 году. Расчет таможенных пошлин, проверка CarHistory на Encar, морская доставка и оформление ЭПТС. Ввоз автомобилей из Южной Кореи в 2026..."
+        },
+        {
+          "title": "Продажа автомобилей под заказ из Кореи - Авто.ру",
+          "url": "https://auto.ru/cars/vendor-korean/all/for-order/",
+          "snippet": "Вы выбираете машину из каталога 95 000+ авто, мы выкупаем её в Корее, проходим экспорт, доставку и растаможку — вы получаете автомобиль с ЭПТС и полным пакетом документов за 15-45 дней."
+        },
+        {
+          "title": "CarsKorea — авто из Южной Кореи под заказ с Енкар (Encar)",
+          "url": "https://carskorea.shop/",
+          "snippet": "Автомобили под заказ из Кореи по цене от 700 008 рублей - свежие объявления о продаже от частников и дилеров на Авто.ру. Заказать автомобиль из Кореи под ключ с доставкой и растаможкой."
+        },
+        {
+          "title": "Продажа Авто из Кореи под заказ - Корейские автомобили - Восток Транс ...",
+          "url": "https://koreacars.me/",
+          "snippet": "Мы — экспортер автомобилей из Южной Кореи. Лучшие авто с Енкар (Encar) под заказ. Поможем купить авто с доставкой в Россию. Encar доступен на русском языке."
+        },
+        {
+          "title": "Авто из Кореи под заказ: Цены, Растаможка, Доставка по РФ",
+          "url": "https://japantransit.ru/korea",
+          "snippet": "Продажа машин из Кореи под заказ: полная пошлина. Доставка в любой регион РФ. ООО «Восток Транс Импорт», Владивосток, Москва"
+        }
+      ],
+      "searched_at": "2026-07-23"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "авто из кореи под заказ forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как заказать авто из Кореи через Encar в 2026 году: Мой опыт ...",
+          "url": "https://vc.ru/transport/2125149-kak-zakazat-avto-iz-korei",
+          "snippet": ""
+        },
+        {
+          "title": "Авто из Кореи под заказ — схема мошенничества с перегоном машины 2026 ...",
+          "url": "https://yamal-media.ru/narrative/peregon-avto-iz-korei-v-2026-kak-eto-rabotaet-skolko-stoit-i-kak-ne-ostatsja-bez-deneg-i-mashiny",
+          "snippet": "Заказать авто с Encar из Кореи самому оказалось сложнее, чем я думал. Рассказываю честно: где ошибался, как проверял продавцов, как изменились правила после реформы утильсбора 2026 года и ..."
+        },
+        {
+          "title": "История покупки авто из Кореи — мой опыт с Купи авто",
+          "url": "https://www.drive2.ru/b/731518006294757620/",
+          "snippet": "В интернете много предложений о доставке авто из Кореи. Обещают экономию, честный пробег, машину без обмана. Но в 2026 году эта сказка все еще может обернуться криминальной хроникой."
+        },
+        {
+          "title": "Покупка Автомобиля Из Кореи. Личный Опыт. — Drive2",
+          "url": "https://www.drive2.ru/b/695463920508341384/",
+          "snippet": "Пишу этот пост, чтобы поделиться личным опытом покупки автомобиля через одну из компаний по привозу авто из Кореи. Возможно, кому-то это поможет лучше понять риски и принять своё ..."
+        },
+        {
+          "title": "Полный гайд по заказу авто из Кореи на 2026 год",
+          "url": "https://autodi.ru/privozsamomyvsdiauto",
+          "snippet": "Спустя 8,5 месяцев дошли руки написать пост о покупке автомобиля из Южной Кореи. Я долго искал компанию которая привезет мне автомобиль, перечитал кучу отзывов, с многими…"
+        },
+        {
+          "title": "Как я заказал авто из Кореи весной 2025: реальный отзыв, цифры и опыт",
+          "url": "https://podzakazavto.ru/uncategorized/realnyj-otzyv-kak-ya-zakazal-avto-iz-korei-i-chto-vyshlo/",
+          "snippet": "Как самостоятельно заказать автомобиль из Кореи в 2026 году и почему лучше с экспортной компанией без посредников"
+        }
+      ],
+      "searched_at": "2026-07-23"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "заказ авто из кореи 2026",
+      "purpose": "вторичный запрос: заказ авто из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Авто из Кореи под заказ: Цены, Растаможка, Доставка по РФ",
+          "url": "https://japantransit.ru/korea",
+          "snippet": ""
+        },
+        {
+          "title": "Как заказать авто из Кореи в 2026 году — пошаговая схема - ABCars ...",
+          "url": "https://abcars.ru/sovety/kak-zakazat-avto-iz-korei-v-2026-godu/",
+          "snippet": "Автомобили европейских, азиатских и американских марок из Кореи. Привезем по ценам ниже рыночных по РФ. Доставка по РФ автовозами со страховкой."
+        },
+        {
+          "title": "CarsKorea — авто из Южной Кореи под заказ с Енкар (Encar)",
+          "url": "https://carskorea.shop/",
+          "snippet": "Как в 2026 году заказать авто из Кореи: с чего начинать, как выбрать посредника, как проходит выкуп, доставка, растаможка и оформление машины под ключ в России."
+        },
+        {
+          "title": "Лучшие 8 фирм по привозу авто из Кореи под заказ — обновлённый рейтинг 2026",
+          "url": "https://vc.ru/rating_top/3036429-luchshie-firmy-po-privozu-avto-iz-korei-pod-zakaz",
+          "snippet": "Мы — экспортер автомобилей из Южной Кореи. Лучшие авто с Енкар (Encar) под заказ. Поможем купить авто с доставкой в Россию. Encar доступен на русском языке."
+        },
+        {
+          "title": "Авто из Кореи - Подбор и доставка в Россию - Encar",
+          "url": "https://encar-russia.ru/",
+          "snippet": "Авто из Кореи в 2026 году покупают не только ради цены. Главный интерес — свежие Hyundai, Kia, Genesis и другие модели с понятной историей, хорошими комплектациями и состоянием лучше, чем у многих машин на российской вторичке."
+        },
+        {
+          "title": "Как купить авто из Кореи в 2026? | DSS Group",
+          "url": "https://dss-g.com/all-news/articles/kak-kupit-avto-iz-korei-i-privezti-v-rossiyu-v-2026-godu/",
+          "snippet": "Хотите купить авто из Кореи с encar.com? Полный каталог на русском языке. Актуальные цены указаны \"под ключ\" с доставкой в Россию."
+        }
+      ],
+      "searched_at": "2026-07-23"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "купить авто из кореи 2026",
+      "purpose": "вторичный запрос: купить авто из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как купить авто из Кореи в 2026? | DSS Group",
+          "url": "https://dss-g.com/all-news/articles/kak-kupit-avto-iz-korei-i-privezti-v-rossiyu-v-2026-godu/",
+          "snippet": ""
+        },
+        {
+          "title": "Авто из Кореи - Подбор и доставка в Россию - Encar",
+          "url": "https://encar-russia.ru/",
+          "snippet": "Южная Корея ввела запрет на экспорт авто с двигателем от 2,0 литров, а корейская таможня создала особое подразделение для расследования обходных схем и с марта 2026 года усилила ..."
+        },
+        {
+          "title": "Купить Hyundai 2026 из Кореи под ключ — каталог, цены | EncarRus",
+          "url": "https://encarrus.ru/korea/hyundai/avtomobili-2026/",
+          "snippet": "Хотите купить авто из Кореи с encar.com? Полный каталог на русском языке. Актуальные цены указаны \"под ключ\" с доставкой в Россию."
+        },
+        {
+          "title": "Авто из Кореи с доставкой в Россию 2026 | Di Auto Trading",
+          "url": "https://autodi.ru/avtoizkorei2026",
+          "snippet": "Hyundai 2026 из Кореи под ключ. Расчёт стоимости с растаможкой и ЭПТС, доставка 15-45 дней."
+        },
+        {
+          "title": "Авто 2026 из Кореи купить с доставкой в ваш город Москва - Encarrus",
+          "url": "https://encarrus.ru/korea/avtomobili-2026/",
+          "snippet": "Hyundai, Kia, Genesis из Кореи с гарантией. Полная растаможка, доставка 30 дней. Цены на 30% ниже российских. Отзывы клиентов."
+        },
+        {
+          "title": "Автомобили из Кореи | каталог новых и б/у машин с фото и ценами на 2026 ...",
+          "url": "https://japantransit.ru/korea/auto",
+          "snippet": "Автомобили 2026 из Кореи доставим в ваш город Москва. Цены и полный каталог смотрите на сайте."
+        }
+      ],
+      "searched_at": "2026-07-23"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "пригнать авто из кореи 2026",
+      "purpose": "вторичный запрос: пригнать авто из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как пригнать авто из Кореи в 2026 году: пошаговая инструкция",
+          "url": "https://export-motors.com/blog/kak-prignat-avto-iz-korei",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка авто из Кореи в Россию в 2026 году: пошаговая инструкция ...",
+          "url": "https://vc.ru/transport/2947255-rastamozhka-avto-iz-korei-v-rossiyu",
+          "snippet": "Как пригнать авто из Кореи в 2026: 7 этапов сделки от выбора до ПТС. Сроки 35-45 дней, реальные расходы в рублях, документы и частые ошибки покупателя."
+        },
+        {
+          "title": "Как самому пригнать авто из Кореи в 2026 году: пошаговая инструкция",
+          "url": "https://toprigon.com/blog/kak-prignat-avto-iz-korei",
+          "snippet": "Ниже разберём, какие модели окупают пригон, как считается растаможка авто из Кореи по новой сетке 2026, где схема «физлицо для личного пользования» работает, а где ФНС с этого года ..."
+        },
+        {
+          "title": "Как самому привезти авто из Кореи в РФ в 2026 году",
+          "url": "https://top-autoimport.ru/blog/kak-prignat-avto-iz-korei",
+          "snippet": "Хотите купить машину в Корее самостоятельно? Полный гайд: как выбрать авто на Encar, оплатить инвойс, найти брокера и пройти таможню без посредников."
+        },
+        {
+          "title": "Как привезти корейский автомобиль: пошлины, утильсбор, CarHistory и ...",
+          "url": "https://auto.rambler.ru/navigator/56795236-kak-privezti-koreyskiy-avtomobil-poshliny-utilsbor-carhistory-i-logistika/",
+          "snippet": "Пошаговая инструкция, как в 2026 году пригнать самостоятельно автомобиль из Южной Кореи."
+        },
+        {
+          "title": "Как купить авто из Кореи в 2026? | DSS Group",
+          "url": "https://dss-g.com/all-news/articles/kak-kupit-avto-iz-korei-i-privezti-v-rossiyu-v-2026-godu/",
+          "snippet": "Полный гайд по заказу и ввозу авто из Южной Кореи в 2026 году. Расчет таможенных пошлин, проверка CarHistory на Encar, морская доставка и оформление ЭПТС. Ввоз автомобилей из Южной Кореи в 2026..."
+        }
+      ],
+      "searched_at": "2026-07-23"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "авто из кореи под ключ 2026",
+      "purpose": "вторичный запрос: авто из кореи под ключ",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "ТОП-9 компаний по привозу авто из Кореи под ключ — кто привезёт вам ...",
+          "url": "https://vc.ru/rating_top/3036509-kompanii-po-privozu-avto-iz-korei-pod-klyuch",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Hyundai 2026 из Кореи под ключ — каталог, цены | EncarRus",
+          "url": "https://encarrus.ru/korea/hyundai/avtomobili-2026/",
+          "snippet": "ТОП-9 компаний по привозу авто из Кореи под ключ — кто привезёт вам машину 2026 Автомобили из Кореи в 2026 году остаются одним из самых понятных способов купить свежую машину без ..."
+        },
+        {
+          "title": "Рейтинг фирм по привозу авто из Кореи в РФ — ТОП-22 компании 2026",
+          "url": "https://top-autoimport.ru/ratings/luchshie-kompanii-po-privozu-avto-iz-korei",
+          "snippet": "Hyundai 2026 из Кореи под ключ. Расчёт стоимости с растаможкой и ЭПТС, доставка 15-45 дней."
+        },
+        {
+          "title": "Авто из Кореи - Подбор и доставка в Россию - Encar",
+          "url": "https://encar-russia.ru/",
+          "snippet": "Топ-22 проверенных компаний по доставке авто из Кореи в Россию с растаможкой. Рейтинг лучших фирм 2026: отзывы, цены, сроки. Надежные поставщики под ключ."
+        },
+        {
+          "title": "Авто из Кореи под ключ c доставкой в РФ и СНГ | CarexKorea",
+          "url": "https://carexkorea.ru/",
+          "snippet": "Хотите купить авто из Кореи с encar.com? Полный каталог на русском языке. Актуальные цены указаны \"под ключ\" с доставкой в Россию."
+        },
+        {
+          "title": "Авто из Кореи под заказ — купить с доставкой по РФ | EncarRus",
+          "url": "https://encarrus.ru/korea/",
+          "snippet": "Продажа авто из Кореи с доставкой в Россию и СНГ под ключ. Доставка автомобилей из Южной Кореи в любой город России."
+        }
+      ],
+      "searched_at": "2026-07-23"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Авто из Кореи под заказ: как пройти путь от Encar до выдачи в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как заказать авто из Кореи через Encar в 2026 году: Мой опыт ...",
+          "url": "https://vc.ru/transport/2125149-kak-zakazat-avto-iz-korei",
+          "snippet": ""
+        },
+        {
+          "title": "Как заказать авто из Кореи в 2026: гайд после реформы утильсбора",
+          "url": "https://vc.ru/transport/2943047-kak-zakazat-avto-iz-korei",
+          "snippet": "Значит, нужно выбрать надёжную компанию, которая привозит авто из Кореи в Москву «под ключ», то есть берёт на себя весь цикл — от подбора машины до выдачи её мне с номерами."
+        },
+        {
+          "title": "Как привезти автомобиль из Южной Кореи в 2026 году: полный гайд",
+          "url": "https://jckauto.ru/blog/kak-privezti-avto-iz-korei",
+          "snippet": "Заказать авто из Кореи в 2026 году стало одновременно проще и сложнее, чем год назад. Проще — цепочка Пусан → Владивосток → регион отлажена до конвейера, на Encar по-прежнему висят тысячи свежих лотов."
+        },
+        {
+          "title": "Как купить авто на аукционе в Корее (Encar) — пошаговый гайд",
+          "url": "https://onlyjpcars.ru/blog/kak-kupit-avto-v-koree-encar",
+          "snippet": "Пошаговая инструкция по импорту авто из Кореи: площадка Encar.com, проверка истории, аукционы, логистика, таможня и стоимость под ключ в 2026 году."
+        },
+        {
+          "title": "Как привезти авто из Кореи в 2026: полный гайд — Altezza",
+          "url": "https://altezza.team/blog/import-korea-2026.html",
+          "snippet": "Этот гайд объясняет, как устроен корейский рынок подержанных автомобилей, что нужно проверить перед покупкой и как выглядит путь от выбора лота до получения автомобиля в вашем городе."
+        },
+        {
+          "title": "Как самому пригнать авто из Кореи в 2026 году: пошаговая инструкция",
+          "url": "https://toprigon.com/blog/kak-prignat-avto-iz-korei",
+          "snippet": "Коротко: Пошаговая инструкция импорта авто из Кореи в Россию в 2026 году. Подбор на Encar, осмотр, оплата, доставка, растаможка — все этапы с реальными цифрами и сроками."
+        }
+      ],
+      "searched_at": "2026-07-23"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://vc.ru/rating_top/3036429-luchshie-firmy-po-privozu-avto-iz-korei-pod-zakaz",
+      "title": "Лучшие 8 фирм по привозу авто из Кореи под заказ — обновлённый рейтинг 2026",
+      "from_query": "авто из кореи под заказ 2026"
+    },
+    {
+      "url": "https://avtoimport1.ru/blog/avto-iz-korei-pod-zakaz-v-2026-godu-top-10-nadezhnyh-i-likvidnyh-modeley-dlya-importa-v-rossiyu/",
+      "title": "Авто из Кореи под заказ в 2026 году: ТОП-10 надежных и ликвидных ...",
+      "from_query": "авто из кореи под заказ 2026"
+    },
+    {
+      "url": "https://encarrus.ru/korea/",
+      "title": "Авто из Кореи под заказ — купить с доставкой по РФ | EncarRus",
+      "from_query": "авто из кореи под заказ 2026"
+    },
+    {
+      "url": "https://vc.ru/top-raiting/3001791-avto-iz-korei-pod-zakaz-kompanii-s-dostavkoy-v-rossiyu",
+      "title": "Авто из Кореи под заказ: ТОП-7 компаний с доставкой в Россию в 2026",
+      "from_query": "авто из кореи под заказ 2026"
+    },
+    {
+      "url": "https://carskorea.shop/",
+      "title": "CarsKorea — авто из Южной Кореи под заказ с Енкар (Encar)",
+      "from_query": "авто из кореи под заказ 2026"
+    },
+    {
+      "url": "https://japantransit.ru/korea",
+      "title": "Авто из Кореи под заказ: Цены, Растаможка, Доставка по РФ",
+      "from_query": "авто из кореи под заказ 2026"
+    },
+    {
+      "url": "https://dtf.ru/rating_top/5195309-kompanii-po-dostavke-avto-iz-korei",
+      "title": "Лучшие 8 компаний по доставке авто из Кореи — разобрался по срокам и ...",
+      "from_query": "авто из кореи под заказ июль 2026"
+    },
+    {
+      "url": "https://dtf.ru/top-raiting/5155462-avto-iz-korei-pod-zakaz-luchshie-kompanii",
+      "title": "Авто из Кореи под заказ: 8 лучших фирм с доставкой — разбор 2026",
+      "from_query": "авто из кореи под заказ июль 2026"
+    },
+    {
+      "url": "https://top-autoimport.ru/ratings/luchshie-kompanii-po-privozu-avto-iz-korei",
+      "title": "Рейтинг фирм по привозу авто из Кореи в РФ — ТОП-22 компании 2026",
+      "from_query": "авто из кореи под заказ июль 2026"
+    },
+    {
+      "url": "https://dss-g.com/all-news/articles/kak-kupit-avto-iz-korei-i-privezti-v-rossiyu-v-2026-godu/",
+      "title": "Как купить авто из Кореи в 2026? | DSS Group",
+      "from_query": "авто из кореи под заказ новости 2026"
+    },
+    {
+      "url": "https://auto.rambler.ru/navigator/56795236-kak-privezti-koreyskiy-avtomobil-poshliny-utilsbor-carhistory-i-logistika/",
+      "title": "Как привезти корейский автомобиль: пошлины, утильсбор, CarHistory и ...",
+      "from_query": "авто из кореи под заказ новости 2026"
+    },
+    {
+      "url": "https://avtoimport1.ru/blog/avto-iz-korei-v-2026-na-chem-realno-sekonomit-i-kakie-modeli-v-tope/",
+      "title": "Авто из Кореи в 2026: на чем реально сэкономить и какие модели в топе",
+      "from_query": "авто из кореи под заказ новости 2026"
+    },
+    {
+      "url": "https://github.com/Cyclel1ves/Spooky-AutoBuy",
+      "title": "GitHub - Cyclel1ves/Spooky-AutoBuy: Лучший автобай на спукиче под ...",
+      "from_query": "site:github.com авто из кореи под заказ 2026"
+    },
+    {
+      "url": "https://github.com/supersymmetry-technologies/BBT-FinCUGE-Applications",
+      "title": "GitHub - supersymmetry-technologies/BBT-FinCUGE-Applications",
+      "from_query": "site:github.com авто из кореи под заказ 2026"
+    },
+    {
+      "url": "https://gist.github.com/vzavaritskii",
+      "title": "vzavaritskii's gists · GitHub",
+      "from_query": "site:github.com авто из кореи под заказ 2026"
+    },
+    {
+      "url": "https://gist.github.com/ikashkovskiy/692f28ab22a386cf02fa853f34c61a25",
+      "title": "sql_data_analysis_yandex_praktikum_2022 · GitHub",
+      "from_query": "site:github.com авто из кореи под заказ 2026"
+    },
+    {
+      "url": "https://github.com/horizoonn/Orders-app",
+      "title": "GitHub - horizoonn/Orders-app: Небольшой микросервис на Go с ...",
+      "from_query": "site:github.com авто из кореи под заказ 2026"
+    },
+    {
+      "url": "https://github.com/yohankim0318/login/blob/main/login.svg",
+      "title": "login/login.svg at main · yohankim0318/login · GitHub",
+      "from_query": "site:github.com авто из кореи под заказ 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/vendor-korean/all/for-order/",
+      "title": "Продажа автомобилей под заказ из Кореи - Авто.ру",
+      "from_query": "авто из кореи под заказ official docs documentation 2026"
+    },
+    {
+      "url": "https://koreacars.me/",
+      "title": "Продажа Авто из Кореи под заказ - Корейские автомобили - Восток Транс ...",
+      "from_query": "авто из кореи под заказ official docs documentation 2026"
+    },
+    {
+      "url": "https://vc.ru/transport/2125149-kak-zakazat-avto-iz-korei",
+      "title": "Как заказать авто из Кореи через Encar в 2026 году: Мой опыт ...",
+      "from_query": "авто из кореи под заказ forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://yamal-media.ru/narrative/peregon-avto-iz-korei-v-2026-kak-eto-rabotaet-skolko-stoit-i-kak-ne-ostatsja-bez-deneg-i-mashiny",
+      "title": "Авто из Кореи под заказ — схема мошенничества с перегоном машины 2026 ...",
+      "from_query": "авто из кореи под заказ forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/b/731518006294757620/",
+      "title": "История покупки авто из Кореи — мой опыт с Купи авто",
+      "from_query": "авто из кореи под заказ forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/b/695463920508341384/",
+      "title": "Покупка Автомобиля Из Кореи. Личный Опыт. — Drive2",
+      "from_query": "авто из кореи под заказ forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://autodi.ru/privozsamomyvsdiauto",
+      "title": "Полный гайд по заказу авто из Кореи на 2026 год",
+      "from_query": "авто из кореи под заказ forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://podzakazavto.ru/uncategorized/realnyj-otzyv-kak-ya-zakazal-avto-iz-korei-i-chto-vyshlo/",
+      "title": "Как я заказал авто из Кореи весной 2025: реальный отзыв, цифры и опыт",
+      "from_query": "авто из кореи под заказ forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://abcars.ru/sovety/kak-zakazat-avto-iz-korei-v-2026-godu/",
+      "title": "Как заказать авто из Кореи в 2026 году — пошаговая схема - ABCars ...",
+      "from_query": "заказ авто из кореи 2026"
+    },
+    {
+      "url": "https://encar-russia.ru/",
+      "title": "Авто из Кореи - Подбор и доставка в Россию - Encar",
+      "from_query": "заказ авто из кореи 2026"
+    },
+    {
+      "url": "https://encarrus.ru/korea/hyundai/avtomobili-2026/",
+      "title": "Купить Hyundai 2026 из Кореи под ключ — каталог, цены | EncarRus",
+      "from_query": "купить авто из кореи 2026"
+    },
+    {
+      "url": "https://autodi.ru/avtoizkorei2026",
+      "title": "Авто из Кореи с доставкой в Россию 2026 | Di Auto Trading",
+      "from_query": "купить авто из кореи 2026"
+    },
+    {
+      "url": "https://encarrus.ru/korea/avtomobili-2026/",
+      "title": "Авто 2026 из Кореи купить с доставкой в ваш город Москва - Encarrus",
+      "from_query": "купить авто из кореи 2026"
+    },
+    {
+      "url": "https://japantransit.ru/korea/auto",
+      "title": "Автомобили из Кореи | каталог новых и б/у машин с фото и ценами на 2026 ...",
+      "from_query": "купить авто из кореи 2026"
+    },
+    {
+      "url": "https://export-motors.com/blog/kak-prignat-avto-iz-korei",
+      "title": "Как пригнать авто из Кореи в 2026 году: пошаговая инструкция",
+      "from_query": "пригнать авто из кореи 2026"
+    },
+    {
+      "url": "https://vc.ru/transport/2947255-rastamozhka-avto-iz-korei-v-rossiyu",
+      "title": "Растаможка авто из Кореи в Россию в 2026 году: пошаговая инструкция ...",
+      "from_query": "пригнать авто из кореи 2026"
+    },
+    {
+      "url": "https://toprigon.com/blog/kak-prignat-avto-iz-korei",
+      "title": "Как самому пригнать авто из Кореи в 2026 году: пошаговая инструкция",
+      "from_query": "пригнать авто из кореи 2026"
+    },
+    {
+      "url": "https://top-autoimport.ru/blog/kak-prignat-avto-iz-korei",
+      "title": "Как самому привезти авто из Кореи в РФ в 2026 году",
+      "from_query": "пригнать авто из кореи 2026"
+    },
+    {
+      "url": "https://vc.ru/rating_top/3036509-kompanii-po-privozu-avto-iz-korei-pod-klyuch",
+      "title": "ТОП-9 компаний по привозу авто из Кореи под ключ — кто привезёт вам ...",
+      "from_query": "авто из кореи под ключ 2026"
+    },
+    {
+      "url": "https://carexkorea.ru/",
+      "title": "Авто из Кореи под ключ c доставкой в РФ и СНГ | CarexKorea",
+      "from_query": "авто из кореи под ключ 2026"
+    },
+    {
+      "url": "https://vc.ru/transport/2943047-kak-zakazat-avto-iz-korei",
+      "title": "Как заказать авто из Кореи в 2026: гайд после реформы утильсбора",
+      "from_query": "Авто из Кореи под заказ: как пройти путь от Encar до выдачи в 2026 2026"
+    },
+    {
+      "url": "https://jckauto.ru/blog/kak-privezti-avto-iz-korei",
+      "title": "Как привезти автомобиль из Южной Кореи в 2026 году: полный гайд",
+      "from_query": "Авто из Кореи под заказ: как пройти путь от Encar до выдачи в 2026 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/kak-kupit-avto-v-koree-encar",
+      "title": "Как купить авто на аукционе в Корее (Encar) — пошаговый гайд",
+      "from_query": "Авто из Кореи под заказ: как пройти путь от Encar до выдачи в 2026 2026"
+    },
+    {
+      "url": "https://altezza.team/blog/import-korea-2026.html",
+      "title": "Как привезти авто из Кореи в 2026: полный гайд — Altezza",
+      "from_query": "Авто из Кореи под заказ: как пройти путь от Encar до выдачи в 2026 2026"
+    }
+  ]
+}

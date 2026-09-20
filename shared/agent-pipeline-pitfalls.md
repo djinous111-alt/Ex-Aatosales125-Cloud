@@ -2,7 +2,7 @@
 
 ## Cloud / Task
 
-- Cloud не принимает `excalibur-blog-*` как Task types → fallback `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path.
+- Cloud не принимает `excalibur-blog-*` как Task types (часто нет typed `excalibur-blog-geo-qa`) → сразу fallback `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path; один Task = одна роль.
 - Parent-agent сам пишет статью вместо `excalibur-blog-writer` → **блокер**, перезапуск writer Task.
 - Объединение cover+schema в один Task → запрещено; только параллельные отдельные Task.
 
@@ -15,6 +15,8 @@
 
 - Перед пайплайном: `python3 scripts/excalibur_blog_today.py` и `python3 scripts/excalibur_blog_research_start.py --topic-id …`.
 - Если `EXCALIBUR_RUN_DATE` нет в выводе today.py — старая ветка/код, **блокер**.
+- `research_notes_gate`: короткие TECH_MARKERS (`ai`/`ии`/`api`) — только whole-word; `workflow` убран из TECH_MARKERS; `search_intent` не сканируется на tech. Авто-темы не требуют GitHub.
+- Source table: пиши `accessed_at: YYYY-MM-DD`; gate также засчитывает ISO-даты в колонке `accessed_at`.
 
 ## Publish
 
@@ -22,11 +24,20 @@
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
 - Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
 - SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
+- Cloud install (`.cursor/cloud-agent-install.sh` / Dockerfile) обязан ставить `paramiko` (и остальное из `requirements.txt`); без paramiko SSH publish падает `ModuleNotFoundError`.
+- Doctor с `--publish` требует `import paramiko`.
+
+## Secrets / commit artifacts
+
+- Имена Cloud Secrets — только bash-safe: `[A-Za-z_][A-Za-z0-9_]*` (без пробелов, `/`, URL-shaped имён).
+- Pre-commit `invalid variable name` = platform hook разворачивает невалидное имя секрета. Перед commit: sanitize `CLOUD_AGENT_INJECTED_SECRET_NAMES` / проверь `python3 scripts/excalibur_blog_check_secret_names.py`. Durable: переименуй/удали URL-as-name в Cursor Dashboard Secrets.
+- `PUBLIC_SITE_URL` (и похожие) часто в secret-scan: **не коммить** live URL в `schema.jsonld`, `llms.txt`, `llms-full.txt`, `promotion-checklist.md`, `wp-publish-result.json`. Перед commit redact → `${PUBLIC_SITE_URL}` / `${ENV}` / `[REDACTED]`. Runtime resolve из env. Не коммить `schema.jsonld.local` / handoff / fragments.
 
 ## Writer / Fact Check Box
 
 - Fact Check Box **не копирует** пример из `shared/excalibur-article-writing-contract.md`. Автор — только из `shared/authors-registry.json` по `author_id` в `article.meta.json`.
 - Запрещены legacy-имена вне реестра (в т.ч. «Елена Ковалева»). Human voice gate блокирует несовпадение автора и generic-шаблон «все статистические показатели…».
+- Utility маркеры боли/результата/action — в `memory/brief/editorial-policy.json`; `utility_gate` имеет built-in DEFAULT, если списки пусты. Recommendation literals: `Делать:` / `Не делать:` / `чек-лист`.
 
 ## QA
 
@@ -38,6 +49,8 @@
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- Generation order: Kie async → MCP sync → emergency Cursor `GenerateImage` i2i. Kie **402 Credits insufficient** → не retry createTask; emergency GenerateImage → `canvas-quad.png` → `cover_quad_split.py --canvas` (auto-normalize 2048×1152). Top-up Kie = needs-human.
+- `--canvas-local` в `quad_apply.py` не существует; локальный файл режь через split `--canvas`.
 
 ## Scout
 
@@ -46,3 +59,4 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator CLI: только `--blog-dir` (+ `--out-dir`, `--site-base`). Флага `--blog-path` нет; doctor проверяет `--blog-dir`.

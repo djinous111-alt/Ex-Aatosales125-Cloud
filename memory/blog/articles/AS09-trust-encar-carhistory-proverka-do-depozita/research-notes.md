@@ -19,7 +19,7 @@
 - Инструменты проверки: карточка лота на **Encar.com** (Performance Check / схема кузова, Insurance History) + **Carhistory** (`carhistory.or.kr` / `carhistory.kr`) по VIN.
 - Угол Авто-Сейлс: до депозита читатель умеет сам отсеять битые/утопленные/сомнительные лоты и понимает, зачем идти в каталог / Telegram за подбором под ключ (Владивосток).
 
-**reader_outcome:** чеклист «не платить депозит, пока нет VIN + Carhistory + Performance Check + фото/видео осмотра»; список красных флагов; CTA на https://avto-sales125.ru/ и https://t.me/avtosales125. В тексте статьи **не** упоминать Wordstat и Метрику.
+**reader_outcome:** чеклист «не платить депозит, пока нет VIN + Carhistory + Performance Check + фото/видео осмотра»; список красных флагов; CTA на ${CATALOG_URL} и ${TELEGRAM_URL}. В тексте статьи **не** упоминать Wordstat и Метрику.
 
 ---
 
@@ -121,7 +121,7 @@
 | 10 | В карточке Encar отдельно смотрят страховую историю (Insurance History) и дату производства (важна для таможни) | https://teletype.in/@vezemavto/B2hgUEkytih ; https://vc.ru/transport/2125149-kak-zakazat-avto-iz-korei |
 | 11 | Надёжный посредник/подборщик даёт отчёты, фото и видео осмотра **до** выкупа; без пакета документов покупать рискованно | https://vc.ru/transport/2125149-kak-zakazat-avto-iz-korei |
 | 12 | `trust-encar.ru` позиционирует себя как «официальный бренд Encar в России» и каталог под заказ – коммерческий канал, не замена Carhistory | https://trust-encar.ru/ |
-| 13 | Авто-Сейлс: привоз из Кореи (и JP/CN) под заказ; каталог https://avto-sales125.ru/ ; Telegram https://t.me/avtosales125 ; офис Владивосток, Днепровская 40а стр. 4 | memory/brief/fact-bank.md, site-brief.md, conversion-map.md |
+| 13 | Авто-Сейлс: привоз из Кореи (и JP/CN) под заказ; каталог ${CATALOG_URL} ; Telegram ${TELEGRAM_URL} ; офис Владивосток, Днепровская 40а стр. 4 | memory/brief/fact-bank.md, site-brief.md, conversion-map.md |
 | 14 | Кластер спроса «проверка авто из koreи» – 529 показов/мес; «trust encar» – 579; «carhistory» – 105 (внутренние цифры research, не для текста статьи) | MCP wordstat_get_top_requests, 2026-07-17 |
 | 15 | Корейские VIN (часто с префиксом K…) проверяют через Carhistory / данные Encar; полная картина = несколько источников, не один скрин | https://www.carspy.io/ru/journal/check-car-by-vin-code-complete-guide-2026 + Carhistory |
 
@@ -138,7 +138,7 @@
 5. Оценить красные флаги отчёта: крупные выплаты, total loss, кража, коммерческое использование/такси (если видно), скачки пробега.  
 6. Заказать **живой осмотр** в Корее (фото/видео, толщиномер, следы перекраса, работа ДВС) – до любого депозита.  
 7. Свести пакет: VIN + Carhistory + Performance Check + осмотр; только после этого обсуждать бронь/депозит и логистику через Владивосток.  
-8. Если нет времени/доступа к базам – уйти в каталог https://avto-sales125.ru/ или Telegram https://t.me/avtosales125 за проверкой и подбором до оплаты (без форм на странице статьи).
+8. Если нет времени/доступа к базам – уйти в каталог ${CATALOG_URL} или Telegram ${TELEGRAM_URL} за проверкой и подбором до оплаты (без форм на странице статьи).
 
 ---
 
@@ -150,8 +150,8 @@
 
 ## CTA / conversion (из conversion-map)
 
-- Каталог: https://avto-sales125.ru/ (до 3 упоминаний)  
-- Telegram: https://t.me/avtosales125 (до 2)  
+- Каталог: ${CATALOG_URL} (до 3 упоминаний)  
+- Telegram: ${TELEGRAM_URL} (до 2)  
 - Без лид-форм и без калькулятора пошлин на странице  
 - В тексте статьи не упоминать Wordstat / Метрику
 

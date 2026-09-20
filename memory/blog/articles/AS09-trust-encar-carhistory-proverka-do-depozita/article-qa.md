@@ -12,7 +12,7 @@
 | Script | Verdict | Notes |
 |--------|---------|-------|
 | fact-check | PASS | 2 stats; unverified vs fact-bank (1996, KRW 2,200) — есть в research-notes (Carhistory official) |
-| link-verify | PASS | 2/2 OK (`avto-sales125.ru`, `t.me/avtosales125`); `--site-base https://avtosales125.ru` |
+| link-verify | PASS | 2/2 OK (`avto-sales125.ru`, `t.me/avtosales125`); `--site-base ${PUBLIC_SITE_URL}` |
 | html-linter | PASS | 0 errors; TOC в теле нет |
 | slop-detector | PASS | 0 клише; 4 over-long (склейка таблицы/схем парсером); Flesch RU 73.2 |
 | cannibalization | PASS | 0 issues |

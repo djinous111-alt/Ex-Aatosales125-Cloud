@@ -139,7 +139,9 @@ Windows Планировщик: `scripts/install_excalibur_windows_cron.ps1`
 9. Task(excalibur-blog-indexer).
 10. Task(excalibur-blog-publish) — **автоматически** после Indexer (skip только publish:no). Skill: publish-excalibur-blog. Обнови shared/published-articles.md.
 
-Fallback: если Task types недоступны — generalPurpose per role (см. AGENTS.md).
+Fallback: если typed Task types недоступны (часто отсутствует `excalibur-blog-geo-qa`) — **сразу** `Task(generalPurpose)` per role + `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md` (см. AGENTS.md). Не делать typed-only retry loop.
+
+**Имена Cloud Secrets** — только bash identifiers `[A-Za-z_][A-Za-z0-9_]*` (без URL/пробелов/`/`). Иначе pre-commit падает с `invalid variable name`. Advisory: `python3 scripts/excalibur_blog_check_secret_names.py`.
 
 Запрещено: single-agent pipeline, cover до QA PASS, секреты в handoff.
 

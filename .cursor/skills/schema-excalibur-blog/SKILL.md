@@ -22,3 +22,7 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+## Git / secret-scan
+
+В JSON-LD пиши `${PUBLIC_SITE_URL}` (или path-only), не live secret value. Перед commit redact любой развёрнутый site URL — secret-scan блокирует commit. Локальный `schema.jsonld.local` с live URL **не коммитить**.

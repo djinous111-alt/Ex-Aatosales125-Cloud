@@ -55,6 +55,18 @@ EXCALIBUR_TOPIC_ID=<optional fixed topic id>
 
 Запрещено добавлять в repo реальные `.env`, `memory/site.env.local`, MCP tokens, SSH credentials, Cursor API keys.
 
+**Имена секретов (bash-safe):** только `[A-Za-z_][A-Za-z0-9_]*`. Имена с пробелами, `/` или URL-shaped токенами ломают Cloud pre-commit (`invalid variable name`). Проверка (без значений): `python3 scripts/excalibur_blog_check_secret_names.py`. Перед commit sanitize:
+
+```bash
+export CLOUD_AGENT_INJECTED_SECRET_NAMES="$(python3 scripts/excalibur_blog_check_secret_names.py --print-sanitized-injected)"
+```
+
+Durable: в Cursor Dashboard → Secrets удалить/переименовать URL-as-name (часто попадает в `CLOUD_AGENT_ALL_SECRET_NAMES`).
+
+**Secret-scan vs artifact URLs:** значения вроде `PUBLIC_SITE_URL` часто помечены как secrets. Перед commit в `schema.jsonld`, `llms.txt`, `llms-full.txt`, `promotion-checklist.md`, `wp-publish-result.json` redact live URL → `${PUBLIC_SITE_URL}` / `[REDACTED]`. Не коммить `schema.jsonld.local`, handoff, fragments.
+
+**Cloud install deps:** `.cursor/cloud-agent-install.sh` и Dockerfile ставят пакеты из `requirements.txt` включая **paramiko** (SSH publish). Без paramiko publish падает на первом SSH.
+
 ## GitHub setup
 
 1. Создать приватный GitHub repo.

@@ -24,10 +24,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Match requirements.txt: Pillow, numpy, paramiko (+ HTTP helpers for scripts).
 RUN python3 -m pip install --break-system-packages --no-cache-dir \
     requests \
     pillow \
     python-dotenv \
-    || python3 -m pip install --no-cache-dir requests pillow python-dotenv
+    numpy \
+    paramiko \
+    || python3 -m pip install --no-cache-dir requests pillow python-dotenv numpy paramiko
 
 WORKDIR /workspace

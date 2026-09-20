@@ -1,5 +1,5 @@
 {
-  "site": "https://avtosales125.ru",
+  "site": "${PUBLIC_SITE_URL}",
   "fetched_at": "2026-07-17T15:39:47.8232028+10:00",
   "count": 100,
   "posts": [

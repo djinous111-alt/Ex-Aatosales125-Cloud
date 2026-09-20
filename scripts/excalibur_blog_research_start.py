@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 import time
@@ -24,10 +25,66 @@ from excalibur_repo_paths import repo_relative
 USER_AGENT = "ExcaliburBlogResearch/1.0 (+research-start)"
 DDG_HTML = "https://html.duckduckgo.com/html/"
 DEFAULT_TZ = "Europe/Moscow"
+REDACTED_HOST = "[REDACTED]"
 
 
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
+
+
+def _site_hosts_to_redact() -> set[str]:
+    """Hosts from PUBLIC_SITE_URL / WP_* that must not land in committed SERP JSON."""
+    hosts: set[str] = set()
+    for key in ("PUBLIC_SITE_URL", "WP_SITE_URL", "WP_HOME"):
+        raw = (os.environ.get(key) or "").strip()
+        if not raw:
+            continue
+        if "://" not in raw:
+            raw = "https://" + raw
+        try:
+            host = (urllib.parse.urlparse(raw).hostname or "").lower().strip(".")
+        except Exception:
+            host = ""
+        if host and host not in {"localhost", "127.0.0.1"}:
+            hosts.add(host)
+            if host.startswith("www."):
+                hosts.add(host[4:])
+            else:
+                hosts.add(f"www.{host}")
+    return hosts
+
+
+def redact_own_site_url(url: str, hosts: set[str] | None = None) -> str:
+    """Replace own-site host with [REDACTED] so secret-scan allows commit."""
+    if not url:
+        return url
+    host_set = hosts if hosts is not None else _site_hosts_to_redact()
+    if not host_set:
+        return url
+    try:
+        parsed = urllib.parse.urlparse(url)
+    except Exception:
+        return url
+    host = (parsed.hostname or "").lower()
+    if host not in host_set:
+        return url
+    # Keep path/query for research usefulness; scrub secret-shaped host.
+    redacted = parsed._replace(netloc=REDACTED_HOST, scheme="https")
+    return urllib.parse.urlunparse(redacted)
+
+
+def redact_serp_payload(payload: dict[str, Any], hosts: set[str] | None = None) -> dict[str, Any]:
+    """Deep-redact own-site URLs inside research-serp.json structure."""
+    host_set = hosts if hosts is not None else _site_hosts_to_redact()
+    if not host_set:
+        return payload
+    text = json.dumps(payload, ensure_ascii=False)
+    # Also catch bare host strings outside full URLs.
+    for host in sorted(host_set, key=len, reverse=True):
+        text = text.replace(f"https://{host}", f"https://{REDACTED_HOST}")
+        text = text.replace(f"http://{host}", f"https://{REDACTED_HOST}")
+        text = text.replace(f"//{host}", f"//{REDACTED_HOST}")
+    return json.loads(text)
 
 
 def now_context(tz_name: str) -> dict[str, Any]:
@@ -369,6 +426,8 @@ def run_research_start(
         "errors": errors,
         "unique_urls": _unique_urls(serp_runs),
     }
+    # Never write live PUBLIC_SITE_URL host into memory artifacts (secret-scan).
+    payload_serp = redact_serp_payload(payload_serp)
 
     context_path = out_dir / "research-context.json"
     serp_path = out_dir / "research-serp.json"

@@ -122,17 +122,37 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE MCP / Kie API
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+Предпочтительно: `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir …`  
+или `CallMcpTool` → MCP-KV `gpt-image-2` с `jobs[0].mcp_args` из batch.
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+Ожидание: Image to Image, 1 входное фото, aspect **16:9**, 2K (canvas **2048×1152**).
 
-### Шаг 5 — apply
+**Credits / 402:** если Kie `createTask` → `402 Credits insufficient` или MCP падает с NoneType — **не** запускай 4 отдельные генерации. Это env/billing blocker: нужен top-up `KIE_API_KEY` (human). Emergency path ниже.
+
+### Шаг 4b — Emergency: Cursor GenerateImage (ONE quad)
+
+Только если Kie/MCP недоступны:
+
+1. **Один** GenerateImage i2i с `reference_image_paths` → `memory/cover/assets/blog-hero-reference.png`.
+2. Промпт = тот же quad collage (cover + 3 inline на одном холсте 2×2). **Запрещено** 4 GenerateImage.
+3. Сохрани результат как `cover/canvas-quad.png` (или временный файл).
+4. Apply с локальным canvas (нормализация 16:9 → 2048×1152 встроена):
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --canvas cover/canvas-quad.png \
+  --inject-html
+```
+
+GenerateImage часто отдаёт 1536×1024 (3:2) — `quad_apply` center-crop+resize до 2048×1152 перед split.
+
+### Шаг 5 — apply (URL path)
+
+```bash
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --url "<MCP result url>" \
   --inject-html

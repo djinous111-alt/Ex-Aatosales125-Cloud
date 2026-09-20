@@ -67,6 +67,27 @@ def detect_duplicate_faq_sections(html: str) -> list[str]:
     return errors
 
 
+def detect_redacted_hrefs(html: str) -> list[str]:
+    """Fail if live CTA hrefs contain secret-scan placeholders or scheme-less REDACTED."""
+    errors: list[str] = []
+    for match in re.finditer(r"""href\s*=\s*(['"])(.*?)\1""", html, flags=re.IGNORECASE | re.DOTALL):
+        href = match.group(2).strip()
+        if "[REDACTED]" in href.upper().replace(" ", "") or href.upper() == "[REDACTED]":
+            errors.append(
+                'Forbidden live href placeholder: href="[REDACTED]". '
+                "Use env TELEGRAM_URL / CATALOG_URL or canon t.me / https URL from site-brief. "
+                "Never paste secret-scan redaction into article.html."
+            )
+            break
+        # Bare placeholder without scheme (common after redacted transcript paste)
+        if href == "[REDACTED]" or re.fullmatch(r"\[REDACTED\]", href, flags=re.IGNORECASE):
+            errors.append(
+                'Forbidden scheme-less href="[REDACTED]" in article body CTA.'
+            )
+            break
+    return errors
+
+
 class HTMLTagLinter(HTMLParser):
     def __init__(self, whitelist: set[str]) -> None:
         super().__init__()
@@ -122,6 +143,7 @@ def lint_html_file(html_path: Path, whitelist: set[str]) -> dict[str, Any]:
     linter.check_unclosed_tags()
     linter.errors.extend(detect_anchor_toc(html_content))
     linter.errors.extend(detect_duplicate_faq_sections(html_content))
+    linter.errors.extend(detect_redacted_hrefs(html_content))
 
     return {
         "file": str(html_path.name),

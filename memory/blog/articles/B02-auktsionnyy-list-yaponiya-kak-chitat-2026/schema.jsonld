@@ -1,0 +1,199 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/auktsionnyy-list-yaponiya-kak-chitat-2026/#blogposting", "_excalibur_scan": "pragma: allowlist secret",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/auktsionnyy-list-yaponiya-kak-chitat-2026/", "_excalibur_scan": "pragma: allowlist secret"
+      },
+      "headline": "Как читать японский аукционный лист: расшифровка оценок до ставки в 2026",
+      "description": "Как читать аукционный лист Японии до ставки: оценки 4 и 4.5, схема A/U/W/X/XX, R vs RA, чек-лист из пяти зон. Подбор – в каталоге Авто-Сейлс.",
+      "datePublished": "2026-07-23",
+      "dateModified": "2026-07-23",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial", "_excalibur_scan": "pragma: allowlist secret",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png", "_excalibur_scan": "pragma: allowlist secret",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru/", "_excalibur_scan": "pragma: allowlist secret"
+        },
+        "sameAs": ["https://avtosales125.ru/", "https://avto-sales125.ru/", "https://t.me/avtosales125", "https://max.ru/id2508140890_biz", "https://www.instagram.com/avtosales_rf", "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"], "_excalibur_scan": "pragma: allowlist secret"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization", "_excalibur_scan": "pragma: allowlist secret",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru/", "_excalibur_scan": "pragma: allowlist secret",
+        "sameAs": ["https://avto-sales125.ru/", "https://t.me/avtosales125"], "_excalibur_scan": "pragma: allowlist secret"
+      },
+      "keywords": [
+        "как читать аукционный лист",
+        "расшифровка аукционного листа",
+        "аукционный лист япония",
+        "аукционный лист на русском"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/auktsionnyy-list-yaponiya-kak-chitat-2026/#faq", "_excalibur_scan": "pragma: allowlist secret",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Что значит оценка 4 и 4.5 в аукционном листе?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "4.5 обычно читают как сильный торгуемый баланс состояния и цены, 4 – рабочий вариант с более заметными следами жизни. Обе оценки требуют схемы и заметок. Для личного авто чаще ориентируются на 4–4.5 при салоне A/B."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем отличается R от RA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Обе буквы сигналят историю ремонта по правилам площадки. Где проходит граница \"мягче/тяжелее\", источники спорят. Не выбирайте по мему из чата – запросите схему и перевод заметок до ставки."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли верить только общей оценке без комментариев инспектора?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Grade – быстрый фильтр. Решение \"ок/стоп\" строится на схеме кузова и заметках. Типичная ошибка – \"ок\" по одной цифре."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "XX на крыле значит, что машина после аварии?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не автоматически. XX на съёмной панели значит \"элемент уже заменён\". Структурный ремонт обычно маркируют через R/RA и работы по несущим. Смотрите, где стоит XX и есть ли R/RA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какая оценка обычно ок для личного авто из Японии?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Практичный фильтр: 4 или 4.5, салон A или B, без R/RA и без тяжёлых W/X на силовых зонах. Ниже 3.5 – только если готовы к косметике и ремонту."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли японский язык, чтобы прочитать лист?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Для старта – нет. Grade, пробег и коды схемы читаются без иероглифов. Блок замечаний отдайте на перевод агенту или через камеру-переводчик, особенно при R/RA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Куда отправить лист на разбор до ставки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Пришлите оригинал бланка менеджеру Авто-Сейлс в Telegram @avtosales125 или уточните подбор в каталоге. Не ставьте лимит, пока не закрыты пять зон – так получите ясный \"ок\" или \"стоп\"."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/auktsionnyy-list-yaponiya-kak-chitat-2026/#howto", "_excalibur_scan": "pragma: allowlist secret",
+      "name": "Как читать японский аукционный лист до ставки",
+      "description": "Пошаговый чеклист согласия на ставку: оригинал листа, пять зон бланка, схема кузова, R/RA и заметки инспектора.",
+      "totalTime": "PT20M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Оригинал аукционного листа площадки (USS/TAA и др.)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Камера-переводчик или перевод заметок агентом"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Схема кузова с кодами A/U/W/X/XX"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Полный бланк листа, не скрин из чата перекупа"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Перевод ключевых заметок инспектора при R/RA"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Открыть оригинал аукционного листа",
+          "text": "Откройте оригинал аукционного листа, не чужой скрин из мессенджера.",
+          "url": "https://avtosales125.ru/auktsionnyy-list-yaponiya-kak-chitat-2026/#откройте-оригинал-листа-до-ставки-а-не-после-выкупа", "_excalibur_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Найти общую оценку и букву салона",
+          "text": "Найдите справа сверху общую оценку и букву салона.",
+          "url": "https://avtosales125.ru/auktsionnyy-list-yaponiya-kak-chitat-2026/#найдите-пять-зон-оценка-салон-пробег-схема-заметки", "_excalibur_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Сверить пробег с возрастом",
+          "text": "Сверьте пробег с возрастом и спросите легенду площадки при странных маркерах.",
+          "url": "https://avtosales125.ru/auktsionnyy-list-yaponiya-kak-chitat-2026/#найдите-пять-зон-оценка-салон-пробег-схема-заметки", "_excalibur_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Пройти схему кузова A/U/W/X/XX",
+          "text": "Пройдите схему: выпишите A/U/W/X/XX, отдельно отметьте силовые зоны.",
+          "url": "https://avtosales125.ru/auktsionnyy-list-yaponiya-kak-chitat-2026/#как-расшифровать-коды-повреждений-на-схеме-кузова", "_excalibur_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Проверить R/RA и запросить перевод",
+          "text": "Проверьте наличие R/RA: если есть – запросите перевод заметок и список зон.",
+          "url": "https://avtosales125.ru/auktsionnyy-list-yaponiya-kak-chitat-2026/#проверьте-красные-флаги-r-ra-и-комментарии-инспектора", "_excalibur_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Прочитать замечания инспектора",
+          "text": "Прочитайте блок замечаний инспектора (камера-переводчик или менеджер).",
+          "url": "https://avtosales125.ru/auktsionnyy-list-yaponiya-kak-chitat-2026/#проверьте-красные-флаги-r-ra-и-комментарии-инспектора", "_excalibur_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Свести решение ок/стоп для себя",
+          "text": "Сведите решение: для себя обычно ок 4–4.5 + A/B без R/RA и без тяжёлых W на силовых.",
+          "url": "https://avtosales125.ru/auktsionnyy-list-yaponiya-kak-chitat-2026/#выберите-ориентир-оценки-для-личного-авто-из-японии", "_excalibur_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Дать согласие на лимит ставки",
+          "text": "Только после чеклиста дайте согласие на лимит ставки; фото – вторым экраном.",
+          "url": "https://avtosales125.ru/auktsionnyy-list-yaponiya-kak-chitat-2026/#пройдите-чеклист-согласия-на-ставку", "_excalibur_scan": "pragma: allowlist secret"
+        }
+      ]
+    }
+  ]
+}

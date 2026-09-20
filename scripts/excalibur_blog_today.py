@@ -60,13 +60,15 @@ def active_article_topic_ids(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        # AS* (legacy pool) and B* (current series)
+        match = re.match(r"((?:AS|B)\d+)-", path.name, flags=re.IGNORECASE)
         if match:
             active.add(match.group(1).upper())
     return active
 
 
 def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
+    """Prefer next unused P0 in B* series; fall back to unused AS* P0 only if no B card exists."""
     topics_path = root / "memory/topics/blog-topics.md"
     if not topics_path.is_file():
         return ""
@@ -78,15 +80,28 @@ def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
     }
     used.update(active_article_topic_ids(root))
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    card_re = re.compile(
+        r"##\s+((?:AS|B)\d+)\s+[—\-][^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)",
+        re.DOTALL | re.IGNORECASE,
+    )
+    b_candidates: list[str] = []
+    as_candidates: list[str] = []
+    for match in card_re.finditer(text):
         topic_id = match.group(1).upper()
         block = match.group(2)
         if "priority:** P0" not in block and "**priority:** P0" not in block:
             pri = re.search(r"-\s*\*\*priority:\*\*\s*(\S+)", block)
             if not pri or pri.group(1).upper() != "P0":
                 continue
-        if topic_id not in used:
-            return topic_id
+        if topic_id in used:
+            continue
+        if topic_id.startswith("B"):
+            b_candidates.append(topic_id)
+        elif topic_id.startswith("AS"):
+            as_candidates.append(topic_id)
+    if b_candidates:
+        return sorted(b_candidates, key=lambda x: int(re.sub(r"\D", "", x) or "0"))[0]
+    # No free B P0 — signal needs_scout rather than recycling AS published niche.
     return ""
 
 

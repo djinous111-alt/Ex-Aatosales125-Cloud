@@ -1,0 +1,25 @@
+{
+  "policy_id": "utility_only_v1",
+  "overall": "PASS",
+  "reports": [
+    {
+      "gate": "article",
+      "article_dir": "memory/blog/articles/B02-auktsionnyy-list-yaponiya-kak-chitat-2026",
+      "status": "PASS",
+      "metrics": {
+        "numbered_list_items": 13,
+        "h2_sections": 7,
+        "faq_h3": 7,
+        "tables": 2,
+        "blockquotes": 4,
+        "ul_lists": 1,
+        "action_markers": 37,
+        "pain_markers": 6,
+        "outcome_markers": 9,
+        "water_hits": []
+      },
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

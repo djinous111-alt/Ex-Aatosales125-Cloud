@@ -1,0 +1,42 @@
+{
+  "topic_id": "B02",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Ставка по фото? Сначала лист!",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс со смартфоном и японским аукционным листом, схема кузова, плашка до ставки",
+      "scene_hint": "Герой (лицо с reference + очки) у смартфона/планшета с японским аукционным листом на экране: grade 4.5, схема кузова A/U/W, заметки инспектора. Одежда: neat casual — тёмно-синяя рубашка/лёгкий бомбер под офис-аукцион, без кепки и капюшона, НЕ майка с reference. Плашка кириллицей «до ставки». Fake UI: карточка аукционного листа + чеклист 5 зон на рваной бумаге со скотчем. Стикер «стоп по R». Мем facepalm/шок. Угол: avto-sales125.ru. Фон — Владивосток/логистика Япония, вечерний свет.",
+      "meme_caption_ru": "Сначала лист — потом ставка"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Откройте оригинал листа до ставки, а не после выкупа",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake UI скрин японского аукционного листа: оригинал PDF/фото бланка vs размытый скрин из чата перекупа; стрелка «открыть оригинал до ставки»; без лица героя; стикер «не после выкупа»",
+      "alt": "Скрин UI: оригинал аукционного листа до ставки против скрина из чата"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Найдите пять зон: оценка, салон, пробег, схема, заметки",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица/мокап пяти зон бланка: оценка | салон | пробег | схема кузова | заметки инспектора; галочки и маркеры; без героя; лёгкий скотч/стикер",
+      "alt": "Таблица пяти зон японского аукционного листа: оценка, салон, пробег, схема, заметки"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Как расшифровать коды повреждений на схеме кузова",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема кузова с кодами A U W X XX и стрелками расшифровки; workflow: зона → код → тяжесть → решение; без лица героя; мини-стикер «XX ≠ авто-приговор»",
+      "alt": "Схема кузова с кодами повреждений A/U/W/X/XX и шагами расшифровки"
+    }
+  }
+}

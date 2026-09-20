@@ -1,0 +1,15 @@
+{
+  "tool": "GenerateImage",
+  "mode": "image-to-image-emergency",
+  "result_url": "file:///opt/cursor/artifacts/assets/B02-canvas-quad.png",
+  "local_source": "/opt/cursor/artifacts/assets/B02-canvas-quad.png",
+  "input_urls": [
+    "[REDACTED]/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png"
+  ],
+  "reference_image_paths": [
+    "memory/cover/assets/blog-hero-reference.png"
+  ],
+  "aspect_ratio": "16:9",
+  "resolution": "emergency_generateimage",
+  "note": "Kie API 402 Credits insufficient; MCP gpt-image-2/flux NoneType. Emergency GenerateImage i2i with reference_image_paths; ONE quad canvas."
+}

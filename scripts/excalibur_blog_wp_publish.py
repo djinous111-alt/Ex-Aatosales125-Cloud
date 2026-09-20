@@ -95,6 +95,32 @@ def normalize_post_title(title: str) -> str:
     return title[0].upper() + title[1:]
 
 
+def strip_excalibur_scan_keys(obj: Any) -> Any:
+    """Remove secret-scan allowlist markers before writing WP schema meta."""
+    if isinstance(obj, dict):
+        return {
+            key: strip_excalibur_scan_keys(value)
+            for key, value in obj.items()
+            if key != "_excalibur_scan"
+        }
+    if isinstance(obj, list):
+        return [strip_excalibur_scan_keys(item) for item in obj]
+    return obj
+
+
+def prepare_schema_jsonld(raw: str) -> str:
+    """Keep valid JSON-LD for WP; drop `_excalibur_scan` allowlist keys used only for git secret-scan."""
+    text = (raw or "").strip()
+    if not text:
+        return ""
+    try:
+        data = json.loads(text)
+    except json.JSONDecodeError:
+        return text
+    cleaned = strip_excalibur_scan_keys(data)
+    return json.dumps(cleaned, ensure_ascii=False, separators=(",", ":"))
+
+
 def cover_url_from_registry(registry_path: Path) -> str:
     if not registry_path.is_file():
         return ""
@@ -186,7 +212,7 @@ def load_article(article_dir: Path) -> dict:
         cover_b64 = base64.b64encode(cover_path.read_bytes()).decode("ascii")
     schema_raw = ""
     if schema_path.is_file():
-        schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        schema_raw = prepare_schema_jsonld(schema_path.read_text(encoding="utf-8"))
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
@@ -467,48 +493,164 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+HTTP_TRIGGER_TIMEOUT_SECONDS = 180
+WEBFETCH_FALLBACK_WAIT_SECONDS = 90
+
+
+def is_http_gateway_timeout_error(exc: BaseException) -> bool:
+    text = str(exc).lower()
+    if "504" in text or "gateway time" in text or "timed out" in text or "timeout" in text:
+        return True
+    reason = getattr(exc, "reason", None)
+    if reason is not None and "timed out" in str(reason).lower():
+        return True
+    code = getattr(exc, "code", None)
+    return code == 504
+
+
+def trigger_bootstrap_http(url: str, root: Path, *, wait_webfetch: bool = True) -> str:
     try:
-        print(f"Triggering HTTP publish on {url}...")
+        print(f"Triggering HTTP publish on {url} (timeout={HTTP_TRIGGER_TIMEOUT_SECONDS}s)...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=HTTP_TRIGGER_TIMEOUT_SECONDS,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
-        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
+        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}).", file=sys.stderr)
+        if not wait_webfetch:
+            raise
+        print("Entering Cloud WebFetch Fallback mode...")
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
         print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        for _ in range(WEBFETCH_FALLBACK_WAIT_SECONDS):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {WEBFETCH_FALLBACK_WAIT_SECONDS} seconds. "
+            "Please trigger manually or use SSH PHP CLI fallback."
+        ) from e
 
 
-def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
+def php_cli_candidates(env: dict[str, str]) -> list[str]:
+    """Prefer Beget-like absolute PHP binaries, then PATH php."""
+    configured = (env.get("EXCALIBUR_PHP_BIN") or env.get("SSH_PHP_BIN") or "").strip()
+    candidates = [
+        configured,
+        "/usr/local/bin/php8.2",
+        "/usr/local/bin/php8.3",
+        "/usr/local/bin/php8.1",
+        "/usr/bin/php8.2",
+        "/usr/bin/php8.3",
+        "/usr/bin/php8.1",
+        "php",
+    ]
+    seen: set[str] = set()
+    ordered: list[str] = []
+    for item in candidates:
+        if item and item not in seen:
+            seen.add(item)
+            ordered.append(item)
+    return ordered
+
+
+def trigger_bootstrap_ssh_php_cli(env: dict[str, str], remote_path: str) -> str:
+    """Run uploaded bootstrap via SSH exec (bypasses nginx 504 on large payloads)."""
+    import paramiko
+
+    host, port, user, password = _ssh_creds(env)
+    client = paramiko.SSHClient()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    client.connect(hostname=host, port=port, username=user, password=password, timeout=30)
+    try:
+        last_err = ""
+        for php_bin in php_cli_candidates(env):
+            # Quote remote path for shell; keep php flags for large media bootstrap.
+            remote_cmd = (
+                f"{php_bin} -d memory_limit=512M -d max_execution_time=600 "
+                f"{sh_quote(remote_path)}"
+            )
+            print(f"SSH PHP CLI trigger: {php_bin}")
+            _stdin, stdout, stderr = client.exec_command(remote_cmd, timeout=600)
+            out = stdout.read().decode("utf-8", errors="replace")
+            err = stderr.read().decode("utf-8", errors="replace")
+            exit_status = stdout.channel.recv_exit_status()
+            if exit_status == 0 and ("OK post=" in out or "permalink=" in out):
+                if err.strip():
+                    print(f"WARN SSH PHP stderr: {err.strip()[:500]}", file=sys.stderr)
+                return out
+            last_err = f"exit={exit_status} stdout={out[:400]!r} stderr={err[:400]!r}"
+            # Binary missing → try next candidate
+            if exit_status in {127, 126} or "No such file" in err or "not found" in err.lower():
+                print(f"WARN PHP candidate failed ({php_bin}): {last_err}", file=sys.stderr)
+                continue
+            # PHP ran but publish failed — do not silently try other binaries
+            raise RuntimeError(f"SSH PHP CLI publish failed ({php_bin}): {last_err}")
+        raise RuntimeError(f"SSH PHP CLI: no working php binary. Last: {last_err}")
+    finally:
+        client.close()
+
+
+def sh_quote(value: str) -> str:
+    return "'" + value.replace("'", "'\"'\"'") + "'"
+
+
+def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> tuple[str, str]:
     remote = "excalibur-blog-publish-once.php"
     data = php.encode("utf-8")
     url = public_base.rstrip("/") + "/" + remote
     root = project_root()
 
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
+    method = "http"
+    out = ""
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        try:
+            # Prefer HTTP, but do not burn long webfetch wait when nginx 504 is expected for large payloads.
+            out = trigger_bootstrap_http(url, root, wait_webfetch=False)
+            method = "http"
+        except Exception as http_exc:
+            if is_http_gateway_timeout_error(http_exc):
+                print(
+                    "HTTP/nginx timeout or 504 — falling back to SSH PHP CLI "
+                    "(large cover+inline bootstrap).",
+                    file=sys.stderr,
+                )
+                out = trigger_bootstrap_ssh_php_cli(env, uploaded_remote_path)
+                method = "ssh-php-cli"
+            else:
+                print(
+                    f"HTTP trigger non-timeout failure ({type(http_exc).__name__}); "
+                    "trying short WebFetch wait then SSH PHP CLI...",
+                    file=sys.stderr,
+                )
+                try:
+                    out = trigger_bootstrap_http(url, root, wait_webfetch=True)
+                    method = "http-webfetch"
+                except Exception as webfetch_exc:
+                    print(
+                        f"WebFetch fallback failed ({type(webfetch_exc).__name__}: {webfetch_exc}); "
+                        "SSH PHP CLI...",
+                        file=sys.stderr,
+                    )
+                    out = trigger_bootstrap_ssh_php_cli(env, uploaded_remote_path)
+                    method = "ssh-php-cli"
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)
         except Exception as cleanup_error:  # noqa: BLE001
             print(f"WARN cleanup: could not delete bootstrap {remote}: {cleanup_error}", file=sys.stderr)
-    return out
+    print(f"publish_trigger_method={method}")
+    return out, method
 
 
 def upsert_publish_ledger(root: Path, payload: dict[str, Any], permalink: str) -> None:
@@ -588,7 +730,7 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ssh(env, php, public)
+    out, publish_method = publish_via_ssh(env, php, public)
     print(out)
 
     result_path = article_dir / "wp-publish-result.json"
@@ -600,7 +742,7 @@ def main() -> int:
         "slug": payload["slug"],
         "topic_id": payload["topic_id"],
         "permalink": permalink,
-        "publish_method": "ssh",
+        "publish_method": publish_method,
         "cover_evidence": payload.get("cover_evidence", {}),
         "raw_output": out,
         "verdict": "pass" if "OK post=" in out else "fail",

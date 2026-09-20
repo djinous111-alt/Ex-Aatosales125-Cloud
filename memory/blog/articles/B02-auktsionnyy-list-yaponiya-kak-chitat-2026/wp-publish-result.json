@@ -1,0 +1,19 @@
+{
+  "slug": "auktsionnyy-list-yaponiya-kak-chitat-2026",
+  "topic_id": "B02",
+  "permalink": "[REDACTED]/2026/07/23/auktsionnyy-list-yaponiya-kak-chitat-2026/",
+  "post_id": 3631,
+  "publish_method": "ssh-php-cli",
+  "php_bin": "/usr/local/bin/php8.2",
+  "php_rc": 0,
+  "cover_evidence": {
+    "path": "memory/blog/articles/B02-auktsionnyy-list-yaponiya-kak-chitat-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1276610,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3631 slug=auktsionnyy-list-yaponiya-kak-chitat-2026\nOK featured_image=3655\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3656 src=cover/inline-01.png\nOK inline_image_upload=3657 src=cover/inline-02.png\nOK inline_image_upload=3658 src=cover/inline-03.png\npermalink=[REDACTED]/2026/07/23/auktsionnyy-list-yaponiya-kak-chitat-2026/\n",
+  "stderr": "",
+  "verdict": "pass"
+}

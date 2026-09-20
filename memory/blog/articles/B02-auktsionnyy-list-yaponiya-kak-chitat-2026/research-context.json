@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-23",
+    "today_ru": "23.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-24",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-23 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B02",
+    "priority": "P0",
+    "slug": "auktsionnyy-list-yaponiya-kak-chitat-2026",
+    "h1": "Как читать японский аукционный лист: расшифровка оценок до ставки в 2026",
+    "primary_query": "как читать аукционный лист",
+    "secondary_queries": [
+      "расшифровка аукционного листа",
+      "аукционный лист япония",
+      "аукционный лист на русском",
+      "оценка в аукционном листе"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B02",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "как читать аукционный лист 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "как читать аукционный лист июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "как читать аукционный лист новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com как читать аукционный лист 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "как читать аукционный лист official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "как читать аукционный лист forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "расшифровка аукционного листа 2026",
+      "purpose": "вторичный запрос: расшифровка аукционного листа"
+    },
+    {
+      "id": "secondary_2",
+      "query": "аукционный лист япония 2026",
+      "purpose": "вторичный запрос: аукционный лист япония"
+    },
+    {
+      "id": "secondary_3",
+      "query": "аукционный лист на русском 2026",
+      "purpose": "вторичный запрос: аукционный лист на русском"
+    },
+    {
+      "id": "secondary_4",
+      "query": "оценка в аукционном листе 2026",
+      "purpose": "вторичный запрос: оценка в аукционном листе"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как читать японский аукционный лист: расшифровка оценок до ставки в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B02-auktsionnyy-list-yaponiya-kak-chitat-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

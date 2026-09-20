@@ -20,6 +20,8 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 
 `--dry-run` — только дата и запросы без HTTP.
 
+`research-serp.json` пишет URL с host из `PUBLIC_SITE_URL`/`WP_SITE_URL` как `https://[REDACTED]/…` (защита от secret-scan при commit).
+
 Перед **каждой** статьей затем пиши `research-notes.md`. Без него нельзя утверждать цены, даты, версии, статистику.
 
 ## Вход
@@ -55,7 +57,7 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 ## Правила
 
 1. **Сначала** `excalibur_blog_research_start.py` (шаг 0) — для валидации даты/года и utility-gate темы.
-2. Web research 15–25 мин: используй инструмент `**WebSearch`** Курсора для глубинного анализа ТОП-5 конкурентов в реальном времени. GitHub/docs/community нужны для фактов, но итоговый угол обязан быть beginner-first: что новичку нажать, подключить, проверить и как не сломать процесс. Приоритетный источник фактов — `fact-bank.md`.
+2. Web research 15–25 мин: используй инструмент `**WebSearch`** Курсора для глубинного анализа ТОП-5 конкурентов в реальном времени. GitHub/docs/community нужны для фактов, но итоговый угол обязан быть beginner-first: что новичку нажать, подключить, проверить и как не сломать процесс. Приоритетный источник фактов — `fact-bank.md`. Gate `technical_topic` срабатывает только по token-boundary маркерам в H1/query/slug (не из-за поля `reader_pain`); для non-tech auto/how-to github_urls≥3 не требуется.
 3. Микро-исследование Wordstat через `user-mcp-kv` -> `wordstat_get_top_requests` (см. выше).
 4. Извлеки минимум 10–15 проверенных фактов (цифр/утверждений) с точными URL источников из твоего интернет-поиска.
 5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.

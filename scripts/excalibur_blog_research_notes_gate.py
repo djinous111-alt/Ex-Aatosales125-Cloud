@@ -14,11 +14,10 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+TECH_MARKERS_WHOLE = (
     "ai",
     "ии",
     "agent",
-    "агент",
     "mcp",
     "api",
     "cursor",
@@ -28,6 +27,11 @@ TECH_MARKERS = (
     "docker",
     "rag",
     "workflow",
+)
+
+# Stem/prefix markers: intentional substring match (автоматизация, нейросеть, …).
+TECH_MARKERS_STEM = (
+    "агент",
     "автоматизац",
     "нейросет",
 )
@@ -73,14 +77,34 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _token_boundary_hit(marker: str, blob: str) -> bool:
+    """Whole-token match; avoids 'ai' inside 'reader_pain' / 'said'."""
+    pattern = rf"(?<![0-9A-Za-zА-Яа-яЁё_]){re.escape(marker)}(?![0-9A-Za-zА-Яа-яЁё_])"
+    return bool(re.search(pattern, blob, flags=re.IGNORECASE))
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Scan notes body but strip required field labels so schema names cannot
+    # false-positive (reader_pain contains Latin 'ai').
+    notes_scan = notes[:2000].lower()
+    notes_scan = re.sub(
+        r"\b(reader[_\s-]?pain|reader[_\s-]?outcome|success[_\s-]?criteria|"
+        r"voice[_\s-]?angle|reader[_\s-]?story|surprising[_\s-]?fact|"
+        r"pain[_\s-]?solution[_\s-]?map|github[_\s-]?evidence|action[_\s-]?outline|"
+        r"research[_\s-]?date|accessed[_\s-]?at|utility[_\s-]?verdict)\b",
+        " ",
+        notes_scan,
+        flags=re.I,
+    )
+    blob = f"{blob} {notes_scan}"
+    if any(_token_boundary_hit(marker, blob) for marker in TECH_MARKERS_WHOLE):
+        return True
+    return any(marker in blob for marker in TECH_MARKERS_STEM)
 
 
 def field_present(text_lower: str, field: str) -> bool:

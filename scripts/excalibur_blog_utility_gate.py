@@ -14,6 +14,41 @@ from typing import Any
 from excalibur_repo_paths import repo_relative
 
 
+# Built-in fallbacks when memory/brief/editorial-policy.json omits marker lists.
+# Without these, empty lists + default mins force UTILITY GATE BLOCKER on every article.
+DEFAULT_PAIN_MARKERS_RU = [
+    "боль",
+    "проблем",
+    "ошиб",
+    "ломает",
+    "не работает",
+    "теряет",
+    "дорого",
+    "долго",
+    "рутин",
+    "хаос",
+    "застр",
+    "сложно",
+    "страх",
+    "риск",
+    "путаниц",
+]
+DEFAULT_OUTCOME_MARKERS_RU = [
+    "результат",
+    "получите",
+    "сможете",
+    "сэконом",
+    "проверьте",
+    "запустите",
+    "соберите",
+    "настройте",
+    "исправьте",
+    "выберите",
+    "чеклист",
+    "критерий успеха",
+]
+
+
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
@@ -185,8 +220,18 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     if marker_count < min_rec:
         errors.append(f"мало action-маркеров в тексте: {marker_count} < {min_rec}")
 
-    pain_markers = policy.get("pain_markers_ru") or []
-    outcome_markers = policy.get("outcome_markers_ru") or []
+    pain_markers = list(policy.get("pain_markers_ru") or [])
+    outcome_markers = list(policy.get("outcome_markers_ru") or [])
+    if not pain_markers:
+        pain_markers = list(DEFAULT_PAIN_MARKERS_RU)
+        warnings.append(
+            "policy pain_markers_ru empty/missing — using built-in DEFAULT_PAIN_MARKERS_RU"
+        )
+    if not outcome_markers:
+        outcome_markers = list(DEFAULT_OUTCOME_MARKERS_RU)
+        warnings.append(
+            "policy outcome_markers_ru empty/missing — using built-in DEFAULT_OUTCOME_MARKERS_RU"
+        )
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 

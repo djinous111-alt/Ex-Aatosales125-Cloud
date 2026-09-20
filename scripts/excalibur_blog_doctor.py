@@ -113,6 +113,7 @@ def main() -> int:
 
     check(module_available("PIL"), "Pillow available", errors, warnings)
     check(module_available("numpy"), "numpy available", errors, warnings)
+    check(module_available("paramiko"), "paramiko available", errors, warnings, warn=not args.publish)
 
     interlinker = root / "scripts/excalibur_blog_interlinker.py"
     help_proc = subprocess.run(
@@ -132,7 +133,33 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    # Generator CLI uses --blog-dir / --out-dir; legacy --blog-path must stay absent.
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check("--out-dir" in llms_help.stdout, "llms generator supports --out-dir", errors, warnings)
+    check("--blog-path" not in llms_help.stdout, "llms generator has no --blog-path", errors, warnings)
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    if policy_path.is_file():
+        import json
+
+        try:
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            policy = {}
+            check(False, "editorial-policy.json parses as JSON", errors, warnings)
+        else:
+            check(True, "editorial-policy.json parses as JSON", errors, warnings)
+        pain = policy.get("pain_markers_ru") or []
+        outcome = policy.get("outcome_markers_ru") or []
+        check(isinstance(pain, list) and len(pain) >= 3, "editorial-policy pain_markers_ru present", errors, warnings)
+        check(
+            isinstance(outcome, list) and len(outcome) >= 3,
+            "editorial-policy outcome_markers_ru present",
+            errors,
+            warnings,
+        )
+    else:
+        check(False, "editorial-policy.json exists", errors, warnings)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

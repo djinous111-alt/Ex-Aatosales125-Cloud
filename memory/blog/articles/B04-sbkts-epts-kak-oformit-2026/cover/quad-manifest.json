@@ -1,0 +1,42 @@
+{
+  "topic_id": "B04",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "СВХ выпустили — ГИБДД развернуло",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у документов и современного авто во Владивостоке: плашка СБКТС → ЭПТС",
+      "scene_hint": "WEATHER: overcast Vladivostok coastal daylight, port/city skyline soft behind; OUTFIT: smart-casual navy blazer over light blue shirt (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie beside modern Japanese/Korean crossover, stack of customs papers + fake lab checklist card taped with scotch; huge Cyrillic plaque «СБКТС → ЭПТС» with yellow highlighter on «ЭПТС»; torn paper hook «СВХ выпустили — ГИБДД развернуло»; sticky note «сначала лаборатория»; shocked meme cutout + facepalm sticker (different formats); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics",
+      "meme_caption_ru": "Сначала лаборатория"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разберите, зачем СБКТС и ЭПТС до ГИБДД",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI 16:9: columns СБКТС | ЭПТС | ГИБДД; rows что это / куда смотреть / можно ли пропустить; yellow highlight row «без действующий — отказ»; pink sticky «порядок жёсткий»; scotch tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица: СБКТС vs ЭПТС vs ГИБДД — что обязательно до учёта"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Начните только после выпуска с таможни и СВХ",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Horizontal RU workflow diagram: Выпуск СВХ → пакет ДТ/ТПО → лаборатория → СБКТС → ЭПТС; red stop stamp «не планировать ГИБДД в день СБКТС»; sticky «2–5 дней Владивосток»; tape corner; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема: после выпуска с таможни и СВХ — пакет, потом лаборатория"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Соберите документы для лаборатории: чек-лист",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable checklist board: паспорт+ИНН, ДКП/инвойс, ДТ/ТПО+утильсбор, фото 4 ракурса+VIN, сверка VIN, фары/тюнинг; green checkboxes; mini fake catalog card inset; sticky «до звонка в лаб»; NO hero face; NO Wordstat/Metrika",
+      "alt": "Чеклист документов для лаборатории СБКТС: паспорт, ДТ, фото VIN"
+    }
+  }
+}

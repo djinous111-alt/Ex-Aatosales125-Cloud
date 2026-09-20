@@ -76,3 +76,12 @@ Terminal states:
 - One API task per article cover run, not four separate images.
 - `input_urls` is required; text-only generation is a cover blocker.
 - Do not retry createTask blindly after a network ambiguity if a `taskId` is known; poll the known task.
+
+## Billing / 402 Credits insufficient
+
+If createTask returns HTTP/API **402** (credits insufficient):
+
+- Cover agent must use the **emergency GenerateImage** path (one 16:9 quad canvas → `canvas-quad.png` → `excalibur_blog_cover_quad_split.py --inject-html`), not spin forever on Kie retries.
+- Log `method=emergency` and open an incident; topping up Kie credits is a **human** action (`needs-human`).
+- Prefer verifying billing / balance before the next cover run when possible.
+

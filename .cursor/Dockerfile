@@ -28,6 +28,8 @@ RUN python3 -m pip install --break-system-packages --no-cache-dir \
     requests \
     pillow \
     python-dotenv \
-    || python3 -m pip install --no-cache-dir requests pillow python-dotenv
+    numpy \
+    paramiko \
+    || python3 -m pip install --no-cache-dir requests pillow python-dotenv numpy paramiko
 
 WORKDIR /workspace

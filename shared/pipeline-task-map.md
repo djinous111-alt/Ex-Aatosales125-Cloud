@@ -2,6 +2,8 @@
 
 Директор **не** Task. Все роли ниже — `Task(<name>)`.
 
+**Cloud:** если typed `excalibur-blog-*` нет в enum (часто geo-qa) → `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill; не ретраить typed name.
+
 ## Схема
 
 ```text

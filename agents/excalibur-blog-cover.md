@@ -191,6 +191,10 @@ summary: ...
 | `excalibur_blog_cover_quad_split.py`   | split only (вызывается из apply)    |
 
 
+## Emergency (Kie 402 credits)
+
+Если Kie/MCP вернул 402 Credits insufficient → `GenerateImage` (один 16:9 quad) → `cover/canvas-quad.png` → `python3 scripts/excalibur_blog_cover_quad_split.py --article-dir … --inject-html`. Fragment: `method=emergency`. Incident + human top-up Kie. См. skill.
+
 ## Deprecated — не использовать
 
 - `excalibur_blog_visual_prompts.py`

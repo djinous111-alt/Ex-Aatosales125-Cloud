@@ -95,6 +95,98 @@ def normalize_post_title(title: str) -> str:
     return title[0].upper() + title[1:]
 
 
+def site_relative_permalink(permalink: str, public_base: str = "") -> str:
+    """Store ledger URLs as site-relative paths (secret-scan safe)."""
+    value = (permalink or "").strip()
+    if not value:
+        return value
+    from urllib.parse import urlparse
+
+    if value.startswith("/"):
+        return value
+    parsed = urlparse(value)
+    if parsed.scheme and parsed.netloc:
+        path = parsed.path or "/"
+        if parsed.query:
+            path = f"{path}?{parsed.query}"
+        return path if path.startswith("/") else f"/{path}"
+    base = (public_base or "").rstrip("/")
+    if base and value.startswith(base):
+        rest = value[len(base) :]
+        return rest if rest.startswith("/") else f"/{rest}"
+    return value
+
+
+def expand_redacted_urls(text: str, env: dict[str, str]) -> str:
+    """Replace committed [REDACTED] CTA/site placeholders with live env URLs at publish.
+
+    Patterns used in git-safe artifacts:
+    - ``[REDACTED]/path`` → PUBLIC_SITE_URL/path
+    - ``href="[REDACTED]"`` → CATALOG_URL then TELEGRAM_URL alternating
+    - bare ``[REDACTED]`` (sameAs etc.) → CATALOG_URL, TELEGRAM_URL, MAX_URL cycle
+    """
+    if not text or "[REDACTED]" not in text:
+        return text
+    catalog = (env.get("CATALOG_URL") or os.environ.get("CATALOG_URL") or "").strip()
+    telegram = (env.get("TELEGRAM_URL") or os.environ.get("TELEGRAM_URL") or "").strip()
+    max_url = (env.get("MAX_URL") or os.environ.get("MAX_URL") or "").strip()
+    site = (
+        env.get("PUBLIC_SITE_URL")
+        or env.get("WP_HOME")
+        or env.get("WP_SITE_URL")
+        or os.environ.get("PUBLIC_SITE_URL")
+        or ""
+    ).strip().rstrip("/")
+
+    out = text
+    if site:
+        out = out.replace("[REDACTED]/", f"{site}/")
+
+    href_cycle = [u for u in (catalog, telegram) if u]
+    if href_cycle:
+        parts = out.split('href="[REDACTED]"')
+        if len(parts) > 1:
+            rebuilt = [parts[0]]
+            for index, chunk in enumerate(parts[1:]):
+                rebuilt.append(f'href="{href_cycle[index % len(href_cycle)]}"')
+                rebuilt.append(chunk)
+            out = "".join(rebuilt)
+
+    bare_cycle = [u for u in (catalog, telegram, max_url) if u]
+    if bare_cycle and "[REDACTED]" in out:
+        parts = out.split("[REDACTED]")
+        if len(parts) > 1:
+            rebuilt = [parts[0]]
+            for index, chunk in enumerate(parts[1:]):
+                rebuilt.append(bare_cycle[index % len(bare_cycle)])
+                rebuilt.append(chunk)
+            out = "".join(rebuilt)
+    return out
+
+
+def strip_schema_secret_scan_pragmas(schema_raw: str) -> str:
+    """Drop __excalibur_pragma_* keys before writing WP post meta."""
+    if not schema_raw or "__excalibur_pragma_" not in schema_raw:
+        return schema_raw
+    try:
+        data = json.loads(schema_raw)
+    except json.JSONDecodeError:
+        return schema_raw
+
+    def _walk(node: Any) -> Any:
+        if isinstance(node, dict):
+            return {
+                key: _walk(value)
+                for key, value in node.items()
+                if not str(key).startswith("__excalibur_pragma_")
+            }
+        if isinstance(node, list):
+            return [_walk(item) for item in node]
+        return node
+
+    return json.dumps(_walk(data), ensure_ascii=False)
+
+
 def cover_url_from_registry(registry_path: Path) -> str:
     if not registry_path.is_file():
         return ""
@@ -168,14 +260,15 @@ def normalize_cover_png(cover_path: Path, registry_path: Path, root: Path) -> di
     return evidence
 
 
-def load_article(article_dir: Path) -> dict:
+def load_article(article_dir: Path, env: dict[str, str] | None = None) -> dict:
     meta_path = article_dir / "article.meta.json"
     html_path = article_dir / "article.html"
     if not meta_path.is_file() or not html_path.is_file():
         raise FileNotFoundError("article.meta.json and article.html required")
     meta = json.loads(meta_path.read_text(encoding="utf-8"))
     meta_ab = meta.get("meta_ab") or {}
-    content = html_path.read_text(encoding="utf-8").strip()
+    env = env or {}
+    content = expand_redacted_urls(html_path.read_text(encoding="utf-8").strip(), env)
     cover_path = article_dir / "cover" / "cover.png"
     schema_path = article_dir / "schema.jsonld"
     cover_b64 = ""
@@ -186,7 +279,8 @@ def load_article(article_dir: Path) -> dict:
         cover_b64 = base64.b64encode(cover_path.read_bytes()).decode("ascii")
     schema_raw = ""
     if schema_path.is_file():
-        schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        schema_raw = expand_redacted_urls(schema_path.read_text(encoding="utf-8").strip(), env)
+        schema_raw = strip_schema_secret_scan_pragmas(schema_raw)
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
@@ -415,7 +509,13 @@ def is_missing_remote_path_error(exc: OSError) -> bool:
 
 
 def upload_bootstrap_ssh(env: dict[str, str], remote: str, data: bytes) -> str:
-    import paramiko
+    try:
+        import paramiko
+    except ImportError as exc:
+        raise SystemExit(
+            "paramiko is required for SSH publish. "
+            "Install: pip3 install paramiko  (Cloud: .cursor/cloud-agent-install.sh / requirements.txt)"
+        ) from exc
 
     host, port, user, password = _ssh_creds(env)
     transport = paramiko.Transport((host, port))
@@ -451,7 +551,13 @@ def upload_bootstrap_ssh(env: dict[str, str], remote: str, data: bytes) -> str:
 
 
 def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | None = None) -> None:
-    import paramiko
+    try:
+        import paramiko
+    except ImportError as exc:
+        raise SystemExit(
+            "paramiko is required for SSH publish. "
+            "Install: pip3 install paramiko  (Cloud: .cursor/cloud-agent-install.sh / requirements.txt)"
+        ) from exc
 
     host, port, user, password = _ssh_creds(env)
     remote_path = remote_path or ssh_remote_path(env, remote)
@@ -528,7 +634,8 @@ def upsert_publish_ledger(root: Path, payload: dict[str, Any], permalink: str) -
 
     topic_id = str(payload.get("topic_id") or "").upper()
     slug = str(payload.get("slug") or "")
-    row = f"| {date.today().isoformat()} | {topic_id} | {slug} | {permalink} | published |"
+    ledger_url = site_relative_permalink(permalink)
+    row = f"| {date.today().isoformat()} | {topic_id} | {slug} | {ledger_url} | published |"
     lines = ledger_path.read_text(encoding="utf-8").splitlines()
     replaced = False
     for index, line in enumerate(lines):
@@ -567,8 +674,19 @@ def main() -> int:
         print("--article-dir is required unless --env-check is used", file=sys.stderr)
         return 2
 
+    env = load_env(root)
+    # Merge CTA URL env vars used to expand [REDACTED] placeholders at publish time.
+    for key in ("CATALOG_URL", "TELEGRAM_URL", "MAX_URL"):
+        value = os.environ.get(key)
+        if value:
+            env[key] = value
+        elif key not in env:
+            file_env = _read_env_file(root / "memory/site.env.local")
+            if file_env.get(key):
+                env[key] = file_env[key]
+
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
-    payload = load_article(article_dir)
+    payload = load_article(article_dir, env)
     php = build_php(payload)
 
     if args.dry_run:
@@ -576,7 +694,6 @@ def main() -> int:
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1

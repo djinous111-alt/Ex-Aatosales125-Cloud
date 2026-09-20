@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS03",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Корея или Япония — пока не посчитаете полную пошлину?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: герой Avto-Sales сравнивает авто из Кореи и Японии под полную пошлину 2026",
+      "scene_hint": "reference face locked; outfit: navy windbreaker + gray fleece midlayer (cool Vladivostok port evening, light mist, NOT reference t-shirt); pose: half-selfie pointing at torn-paper split KR|JP cards taped with scotch; fake UI collage: Encar listing card + Japanese auction sheet stub + catalog price card avto-sales125.ru corner; sticky note «до депозита — 2 сметы»; pink marker highlight on hook; meme sticker facepalm cat; NO Wordstat/Metrika/SEO dashboards; no cap/hood",
+      "meme_caption_ru": "Цена лота — не итог"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Соберите мини-профиль: регион, цель и руль",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "UI table 3 columns: Регион / Цель поездок / Руль (левый|правый); sample rows Владивосток·семья·правый, Москва·город·левый; torn paper edges + one pink sticky «профиль до страны»; NO human face, NO hero",
+      "alt": "Таблица мини-профиля: регион, цель поездок и сторона руля перед выбором страны"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Проверьте мощность до выбора страны",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board with horsepower gauge UI ~160 л.с. threshold; checkboxes: ПТС мощность, полный налог, утиль; red marker arrow to «≤160»; scotch tape photo of engine plate stub; NO hero face",
+      "alt": "Чеклист проверки мощности до ~160 л.с. перед выбором Кореи или Японии"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сравнение: кому Корея, кому Япония в 2026",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Side-by-side workflow diagram KR vs JP 2026: Encar→порт→смета vs аукцион→порт→смета; decision diamond «руль/мощность/бюджет»; tape + mini sticker «не лот, а смета»; NO hero face",
+      "alt": "Схема сравнения маршрутов: Корея через Encar и Япония через аукцион до сметы 2026"
+    }
+  }
+}

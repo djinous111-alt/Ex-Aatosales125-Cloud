@@ -55,6 +55,14 @@ EXCALIBUR_TOPIC_ID=<optional fixed topic id>
 
 Запрещено добавлять в repo реальные `.env`, `memory/site.env.local`, MCP tokens, SSH credentials, Cursor API keys.
 
+### Secret-scan pre-commit (`CLOUD_AGENT_INJECTED_SECRET_NAMES`)
+
+- Список имён секретов должен быть **comma-separated** (`NAME1,NAME2`), не space-joined.
+- Каждый элемент — валидное bash-имя env var (`^[A-Za-z_][A-Za-z0-9_]*$`), **не** URL-значение.
+- Если в список попал URL / мусор → `pre-commit.cursor` падает с `invalid variable name` на любом commit.
+- Harden на install: `bash scripts/excalibur_blog_patch_cursor_precommit.sh` (уже вызывается из `.cursor/cloud-agent-install.sh`) — патчит `pre-commit.cursor` и `commit-msg.cursor`, пропускает non-identifier имена вместо краша.
+- В Dashboard: исправь secret *names*; не клади публичный URL как имя секрета.
+
 ## GitHub setup
 
 1. Создать приватный GitHub repo.

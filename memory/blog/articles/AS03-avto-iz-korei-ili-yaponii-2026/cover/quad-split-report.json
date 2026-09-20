@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS03-avto-iz-korei-ili-yaponii-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1021,
+      600
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 600,
+        "end": 638
+      },
+      "v_gutter_px": {
+        "start": 1021,
+        "end": 1040
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 13,
+          "right": 1021,
+          "bottom": 587
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1021,
+          "bottom": 600
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Обложка: герой Avto-Sales сравнивает авто из Кореи и Японии под полную пошлину 2026",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1040,
+          "top": 16,
+          "right": 2048,
+          "bottom": 583
+        },
+        "raw_box_px": {
+          "left": 1040,
+          "top": 0,
+          "right": 2048,
+          "bottom": 600
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица мини-профиля: регион, цель поездок и сторона руля перед выбором страны",
+        "h2_anchor": "Соберите мини-профиль: регион, цель и руль"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 53,
+          "top": 638,
+          "right": 967,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 638,
+          "right": 1021,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист проверки мощности до ~160 л.с. перед выбором Кореи или Японии",
+        "h2_anchor": "Проверьте мощность до выбора страны"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1087,
+          "top": 638,
+          "right": 2001,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1040,
+          "top": 638,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема сравнения маршрутов: Корея через Encar и Япония через аукцион до сметы 2026",
+        "h2_anchor": "Сравнение: кому Корея, кому Япония в 2026"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Соберите мини-профиль: регион, цель и руль",
+    "injected inline_2 after H2 — Проверьте мощность до выбора страны",
+    "injected inline_3 after H2 — Сравнение: кому Корея, кому Япония в 2026"
+  ]
+}

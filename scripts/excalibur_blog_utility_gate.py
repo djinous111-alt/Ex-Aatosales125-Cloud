@@ -14,8 +14,59 @@ from typing import Any
 from excalibur_repo_paths import repo_relative
 
 
+# Keep in sync with excalibur_blog_human_voice_gate.py PAIN/OUTCOME_MARKERS
+# and memory/brief/editorial-policy.json pain_markers_ru / outcome_markers_ru.
+DEFAULT_PAIN_MARKERS_RU = [
+    "боль",
+    "проблем",
+    "ошиб",
+    "ломает",
+    "не работает",
+    "теряет",
+    "дорого",
+    "долго",
+    "рутин",
+    "хаос",
+    "застр",
+    "сложно",
+    "страх",
+]
+DEFAULT_OUTCOME_MARKERS_RU = [
+    "результат",
+    "получите",
+    "сможете",
+    "сэконом",
+    "проверьте",
+    "запустите",
+    "соберите",
+    "настройте",
+    "исправьте",
+    "выберите",
+]
+
+
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
+
+
+def resolve_marker_lists(policy: dict[str, Any]) -> tuple[list[str], list[str], list[str]]:
+    """Return (pain, outcome, load_warnings). Empty policy lists → defaults + warning."""
+    warnings: list[str] = []
+    pain = list(policy.get("pain_markers_ru") or [])
+    outcome = list(policy.get("outcome_markers_ru") or [])
+    if not pain:
+        warnings.append(
+            "editorial-policy.json missing/empty pain_markers_ru; "
+            "using DEFAULT_PAIN_MARKERS_RU (sync policy with human_voice_gate)"
+        )
+        pain = list(DEFAULT_PAIN_MARKERS_RU)
+    if not outcome:
+        warnings.append(
+            "editorial-policy.json missing/empty outcome_markers_ru; "
+            "using DEFAULT_OUTCOME_MARKERS_RU (sync policy with human_voice_gate)"
+        )
+        outcome = list(DEFAULT_OUTCOME_MARKERS_RU)
+    return pain, outcome, warnings
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -185,8 +236,8 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     if marker_count < min_rec:
         errors.append(f"мало action-маркеров в тексте: {marker_count} < {min_rec}")
 
-    pain_markers = policy.get("pain_markers_ru") or []
-    outcome_markers = policy.get("outcome_markers_ru") or []
+    pain_markers, outcome_markers, marker_load_warnings = resolve_marker_lists(policy)
+    warnings.extend(marker_load_warnings)
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 

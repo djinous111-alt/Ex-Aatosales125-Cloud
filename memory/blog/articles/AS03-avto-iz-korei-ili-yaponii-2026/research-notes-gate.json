@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/AS03-avto-iz-korei-ili-yaponii-2026",
+  "notes": "memory/blog/articles/AS03-avto-iz-korei-ili-yaponii-2026/research-notes.md",
+  "context": "memory/blog/articles/AS03-avto-iz-korei-ili-yaponii-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-07-19",
+    "prefer_sources_after": "2026-04-20",
+    "source_urls": 34,
+    "source_domains": 13,
+    "source_table_rows": 32,
+    "accessed_at": 16,
+    "github_urls": 4,
+    "official_doc_urls": 1,
+    "action_outline_items": 9,
+    "pain_solution_rows": 4,
+    "technical_topic": true
+  }
+}

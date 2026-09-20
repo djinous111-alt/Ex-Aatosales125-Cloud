@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS03",
+  "slug": "avto-iz-korei-ili-yaponii-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: герой Avto-Sales сравнивает авто из Кореи и Японии под полную пошлину 2026",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-07-19T13:27:19+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: герой Avto-Sales сравнивает авто из Кореи и Японии под полную пошлину 2026",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица мини-профиля: регион, цель поездок и сторона руля перед выбором страны",
+      "h2_anchor": "Соберите мини-профиль: регион, цель и руль",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Чеклист проверки мощности до ~160 л.с. перед выбором Кореи или Японии",
+      "h2_anchor": "Проверьте мощность до выбора страны",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема сравнения маршрутов: Корея через Encar и Япония через аукцион до сметы 2026",
+      "h2_anchor": "Сравнение: кому Корея, кому Япония в 2026",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

@@ -14,23 +14,26 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
-    "ai",
-    "ии",
-    "agent",
-    "агент",
-    "mcp",
-    "api",
-    "cursor",
-    "make",
-    "n8n",
-    "github",
-    "docker",
-    "rag",
-    "workflow",
-    "автоматизац",
-    "нейросет",
+# Short tokens use word-boundary regex. Substring match falsely flags auto niche
+# topics: "ai" inside reader_pain / "pain", "ии" inside «Японии».
+TECH_MARKERS_RE = (
+    r"\bai\b",
+    r"\bии\b",
+    r"\bagent\b",
+    r"\bагент\b",
+    r"\bmcp\b",
+    r"\bapi\b",
+    r"\bcursor\b",
+    r"\bmake\b",
+    r"\bn8n\b",
+    r"\bgithub\b",
+    r"\bdocker\b",
+    r"\brag\b",
+    r"\bworkflow\b",
+    r"автоматизац",
+    r"нейросет",
 )
+TECH_MARKER_PATTERN = re.compile("|".join(f"(?:{p})" for p in TECH_MARKERS_RE), flags=re.I)
 
 
 REQUIRED_FIELDS = (
@@ -74,13 +77,19 @@ def has_wordstat(text_lower: str) -> bool:
 
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect AI/automation niche topics that need GitHub/docs evidence.
+
+    Only topic-card fields are scanned. Full notes text is excluded because
+    required field names (reader_pain) and Russian place names (Японии)
+    create false TECH_MARKER hits under naive substring matching.
+    """
+    del notes  # intentionally unused — see docstring
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
-    ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    )
+    return bool(TECH_MARKER_PATTERN.search(blob))
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -159,9 +168,14 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         warnings.append("Wordstat auth warning present; exact demand volumes were not verified")
 
     technical = is_technical_topic(context, text)
-    if technical and len(github_urls) < 3:
-        errors.append(f"technical topic requires GitHub evidence: github_urls={len(github_urls)} < 3")
-    if technical and not official_doc_urls:
+    community_or_docs = len(github_urls) + len(official_doc_urls)
+    if technical and len(github_urls) < 3 and community_or_docs < 3:
+        errors.append(
+            "technical topic requires GitHub or official docs/community evidence: "
+            f"github_urls={len(github_urls)} official_doc_urls={len(official_doc_urls)} "
+            f"(need github_urls>=3 or combined>=3)"
+        )
+    if technical and not official_doc_urls and len(github_urls) < 3:
         warnings.append("technical topic has no obvious official docs/developer documentation URL")
 
     if year and year not in text:

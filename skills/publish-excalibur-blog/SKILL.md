@@ -22,8 +22,10 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Schema | `schema.jsonld` |
 | Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
+| SSH dep | `paramiko` (из `requirements.txt` / `.cursor/cloud-agent-install.sh`) |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
+Если `import paramiko` падает → поставь пакет (`pip3 install --break-system-packages paramiko`) и зафиксируй incident; Cloud install обязан тянуть `requirements.txt`.
 
 ## Алгоритм
 

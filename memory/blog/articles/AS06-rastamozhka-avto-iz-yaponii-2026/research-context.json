@@ -1,0 +1,89 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-18",
+    "today_ru": "18.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-19",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-18 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS06",
+    "priority": "P1",
+    "slug": "rastamozhka-avto-iz-yaponii-2026",
+    "h1": "Растаможка авто из Японии: обновлённый чек-лист на 2026",
+    "primary_query": "растаможка авто из японии",
+    "secondary_queries": [
+      "авто из японии владивосток",
+      "японский аукцион растаможка"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS06",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "растаможка авто из японии 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "растаможка авто из японии июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "растаможка авто из японии новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com растаможка авто из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "растаможка авто из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "растаможка авто из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "авто из японии владивосток 2026",
+      "purpose": "вторичный запрос: авто из японии владивосток"
+    },
+    {
+      "id": "secondary_2",
+      "query": "японский аукцион растаможка 2026",
+      "purpose": "вторичный запрос: японский аукцион растаможка"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Растаможка авто из Японии: обновлённый чек-лист на 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS06-rastamozhka-avto-iz-yaponii-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

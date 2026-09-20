@@ -1,0 +1,87 @@
+{
+  "article": "memory/blog/articles/AS06-rastamozhka-avto-iz-yaponii-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 11,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 9,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ладивостоке. Знакомо? Растаможка авто из Японии в 2026 – не одна цифра, а чек-лист до депозита: что можн",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "дешёвый\" лот часто нельзя даже вывезти. С августа 2023 Япония ограничила экспорт в РФ авто с ДВС больше 1",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1900",
+      "kind": "date_or_year",
+      "context": "верьте объём ДВС: ориентир для вывоза – не больше 1900 см³. Отметьте полный гибрид и электрокар как стоп,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "объём, статус физлица, год и правила после 01.12.2025 Смета под параметры лота В. Таможенный сбор Плата",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 дней",
+      "kind": "metric_or_duration",
+      "context": "ике 2026 выпуск может тянуться дольше привычных 3–5 дней; локальные сигналы говорили и про сроки около 10",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 дней",
+      "kind": "metric_or_duration",
+      "context": "ней; локальные сигналы говорили и про сроки около 10 дней. Уточните, кто подаёт декларацию и кто встречаетс",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "можка ещё тысяч 300\". Потом всплыли мощность выше 160 л.с., японский фильтр на вывоз и простой на СВХ во",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "107",
+      "kind": "large_number",
+      "context": "и ЕАЭС Платёж \"за ввоз для себя\" по правилам ЕЭК №107 Возраст авто (до 3 / 3–5 / старше 5), объём двигат",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "изменений правил утильсбора с 01.12.2025 (ПП РФ №1713) в формуле сильнее играет мощность. Порог, о кото",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3400",
+      "kind": "large_number",
+      "context": "нарий владения. Не делайте: путать чужие примеры \"3400/5200\" с машиной мощнее порога – это разные миры б",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5200",
+      "kind": "large_number",
+      "context": "владения. Не делайте: путать чужие примеры \"3400/5200\" с машиной мощнее порога – это разные миры бюджет",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

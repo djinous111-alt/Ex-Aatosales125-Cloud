@@ -1,0 +1,11 @@
+SSH upload OK: excalibur-blog-publish-once.php (4651888 bytes)
+Triggering HTTP publish on [REDACTED]/excalibur-blog-publish-once.php...
+OK post=3460 slug=rastamozhka-avto-iz-yaponii-2026
+OK featured_image=3461
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=3462 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/07/rastamozhka-avto-iz-yaponii-2026-inline-01.png
+OK inline_image_upload=3463 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/07/rastamozhka-avto-iz-yaponii-2026-inline-02.png
+OK inline_image_upload=3464 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/07/rastamozhka-avto-iz-yaponii-2026-inline-03.png
+permalink=[REDACTED]/2026/07/18/rastamozhka-avto-iz-yaponii-2026/
+

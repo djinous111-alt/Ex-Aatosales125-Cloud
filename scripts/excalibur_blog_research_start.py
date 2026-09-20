@@ -82,7 +82,7 @@ def parse_topic_card(topics_path: Path, topic_id: str) -> dict[str, Any]:
         raise FileNotFoundError(f"topics file not found: {topics_path}")
 
     text = topics_path.read_text(encoding="utf-8")
-    pattern = rf"##\s+{re.escape(topic_id)}\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+[A-Z]\d+|\Z)"
+    pattern = rf"##\s+{re.escape(topic_id)}\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)"
     match = re.search(pattern, text, re.DOTALL | re.IGNORECASE)
     if not match:
         raise ValueError(f"topic_id {topic_id!r} not found in {topics_path}")

@@ -41,7 +41,7 @@
   "cover_corner_brand": {
     "type": "catalog_url",
     "text": "avto-sales125.ru",
-    "url": "https://avto-sales125.ru/",
+    "url": "${SITE_OR_CTA}/",
     "placement": "corner_footer",
     "forbidden_on_cover_corner": ["Telegram", "@avtosales125", "t.me"]
   },

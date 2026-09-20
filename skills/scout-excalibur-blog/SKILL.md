@@ -13,7 +13,7 @@ published-articles.md + blog-topics.md (Audit)
               ↓
 excalibur_blog_scout_helper.py --suggest-next (Get next ID)
               ↓
-WebSearch (Cursor native trend scouting for 2026)
+WebSearch (Авто-Сейлс niche trend scouting for 2026)
               ↓
 wordstat_get_top_requests (Yandex Wordstat API demand verify)
               ↓
@@ -27,17 +27,18 @@ Append new Topic Card to blog-topics.md
 ## Подробный алгоритм действий
 
 ### Шаг 1 — Анализ прошлого и получение ID
-* Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
+* Считай ledger `shared/published-articles.md` **и** `EXCALIBUR_RECENT_WP_POSTS` из `python3 scripts/excalibur_blog_today.py` (live WP dedupe; не полагайся только на короткий ledger). и пул тем из `memory/topics/blog-topics.md`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Запомни следующий `topic_id` (например, `AS16`) и список невыполненных тем. Парсер — `(?:AS|B)\d+`.
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
-Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
-* Поисковые запросы: *«новые ИИ инструменты автоматизации 2026»*, *«how to automate business Claude Cursor»*, *«лучшие сценарии n8n Make автоматизация»*, *«как настроить ИИ-агента инструкция»*.
-* Найди свежие, практические боли пользователей, по которым не хватает качественных гайдов.
+Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по нише **Авто-Сейлс** (`memory/brief/site-brief.md`):
+* Поисковые запросы: *«доставка авто из владивостока 2026»*, *«автовоз или жд что выбрать»*, *«растаможка авто СВХ чек-лист»*, *«проверить авто encar инструкция»*.
+* Найди свежие practical боли (сроки, переплата, документы), по которым не хватает качественных гайдов.
+* Не предлагай Cursor/n8n/Make темы, если блог = Авто-Сейлс.
 
 ### Шаг 3 — Валидация спроса (Yandex Wordstat)
 Для 2-3 отобранных вариантов тем вызови инструмент `wordstat_get_top_requests` сервера `user-mcp-kv`.
@@ -47,7 +48,7 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
 Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
 

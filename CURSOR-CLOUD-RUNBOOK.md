@@ -30,15 +30,15 @@
 Минимум для dry-run:
 
 ```text
-PUBLIC_SITE_URL=https://avtosales125.ru
+PUBLIC_SITE_URL=${SITE_OR_CTA}
 EXCALIBUR_BLOG_ALLOW_PUBLISH=no
 ```
 
 Для боевой публикации:
 
 ```text
-PUBLIC_SITE_URL=https://avtosales125.ru
-WP_SITE_URL=https://avtosales125.ru
+PUBLIC_SITE_URL=${SITE_OR_CTA}
+WP_SITE_URL=${SITE_OR_CTA}
 SSH_HOST=<host>
 SSH_USER=<user>
 SSH_PASS=<password>

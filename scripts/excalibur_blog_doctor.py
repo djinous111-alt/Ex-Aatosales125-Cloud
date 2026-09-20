@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import importlib.util
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -132,7 +133,54 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check(
+        "--blog-dir" in llms_help.stdout,
+        "llms generator supports --blog-dir",
+        errors,
+        warnings,
+    )
+    # argparse may mention --blog-path only in epilog/docs; require --blog-dir present (canonical).
+    check(
+        "--blog-dir" in llms_help.stdout and "--blog-path" not in llms_help.stdout,
+        "llms CLI uses --blog-dir (not --blog-path)",
+        errors,
+        warnings,
+    )
+
+    # AS|B topic-id regression: after rebrand pool uses AS*, parsers must not be B-only.
+    topics_path = root / "memory/topics/blog-topics.md"
+    today_src = (root / "scripts/excalibur_blog_today.py").read_text(encoding="utf-8")
+    scout_src = (root / "scripts/excalibur_blog_scout_helper.py").read_text(encoding="utf-8")
+    dual_prefix = r"(?:AS|B)\d+"
+    check(
+        dual_prefix in today_src and dual_prefix in scout_src,
+        "today/scout_helper parse AS|B topic ids",
+        errors,
+        warnings,
+    )
+    if topics_path.is_file():
+        topics_text = topics_path.read_text(encoding="utf-8")
+        as_cards = re.findall(r"^##\s+(AS\d+)\s+—", topics_text, flags=re.M)
+        check(
+            bool(as_cards),
+            f"blog-topics.md has AS* cards ({len(as_cards)} found)",
+            errors,
+            warnings,
+            warn=not as_cards,
+        )
+        helper = subprocess.run(
+            [sys.executable, str(root / "scripts/excalibur_blog_scout_helper.py"), "--suggest-next"],
+            cwd=root,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        check(
+            helper.returncode == 0 and "AS" in (helper.stdout or ""),
+            "scout_helper --suggest-next returns AS* next id",
+            errors,
+            warnings,
+        )
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

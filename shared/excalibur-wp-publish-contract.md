@@ -16,7 +16,7 @@ Excalibur BLOG готовит артефакты локально; публик�
 python scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/B01-slug/article.html \
   -o memory/blog/articles/B01-slug/link-verify.json \
-  --site-base https://avtosales125.ru
+  --site-base ${SITE_OR_CTA}
 
 python scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/B01-slug

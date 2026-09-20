@@ -30,6 +30,15 @@
     - Атрибут `id` у `<h2>` — только если нужен для внешней перелинковки; не создавай оглавление в теле статьи.
     - В конце статьи (перед FAQ) вставляй блок верификации (**Fact Check Box**) через `<blockquote>` от редакции Авто-Сейлс. **Не** упоминай Wordstat и Метрику в тексте статьи.
 
+
+
+## CTA URLs (обязательно)
+
+1. `python3 scripts/excalibur_blog_cta_urls.py --json` → подставь `catalog_url` / `telegram_url` в `href`.
+2. **Не копируй** `[REDACTED]` из `conversion-map.md` / `site-brief.md` в HTML.
+3. На строке с Telegram CTA добавь `<!-- pragma: allowlist secret -->` перед коммитом (secret-scan).
+4. GEO QA `link-verify` hard-fail на литерал `[REDACTED]` в href.
+
 ## Выход
 
 ```text

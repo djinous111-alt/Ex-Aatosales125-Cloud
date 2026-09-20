@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS15-dostavka-avto-iz-vladivostoka-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1028,
+      577
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 577,
+        "end": 598
+      },
+      "v_gutter_px": {
+        "start": 1028,
+        "end": 1078
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1028,
+          "bottom": 577
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1028,
+          "bottom": 577
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у автовоза и жд-сетки во Владивостоке с плашкой выбора ж/д · автовоз · перегон",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1078,
+          "top": 15,
+          "right": 2048,
+          "bottom": 561
+        },
+        "raw_box_px": {
+          "left": 1078,
+          "top": 0,
+          "right": 2048,
+          "bottom": 577
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист: город, класс кузова и дедлайн до выбора доставки из Владивостока",
+        "h2_anchor": "Зафиксируйте город, класс кузова и дедлайн до выбора способа"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 21,
+          "top": 598,
+          "right": 1006,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 598,
+          "right": 1028,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения ж/д, автовоза и перегона по сроку, риску и документам",
+        "h2_anchor": "Сравните ж/д, автовоз и перегон по сроку, риску и документам"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1078,
+          "top": 602,
+          "right": 2048,
+          "bottom": 1148
+        },
+        "raw_box_px": {
+          "left": 1078,
+          "top": 598,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема общего срока доставки: очередь, путь и выгрузка",
+        "h2_anchor": "Посчитайте общий срок: очередь, путь и выгрузка"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте город, класс кузова и дедлайн до выбора способа",
+    "injected inline_2 after H2 — Сравните ж/д, автовоз и перегон по сроку, риску и документам",
+    "injected inline_3 after H2 — Посчитайте общий срок: очередь, путь и выгрузка"
+  ]
+}

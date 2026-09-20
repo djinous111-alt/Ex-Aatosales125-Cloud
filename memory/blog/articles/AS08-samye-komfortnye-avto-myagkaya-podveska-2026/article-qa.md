@@ -12,7 +12,7 @@
 | Script | Verdict | Notes |
 |--------|---------|-------|
 | fact-check | PASS | 3 stats; 1 verified (2026); 2 unverified (200 / 210 мм клиренс) — есть в research-notes (Favorit/Geely), не в fact-bank |
-| link-verify | PASS | 2/2 OK (`avto-sales125.ru`, `t.me/avtosales125`); `--site-base https://avtosales125.ru` |
+| link-verify | PASS | 2/2 OK (`avto-sales125.ru`, `t.me/avtosales125`); `--site-base ${SITE_OR_CTA}` |
 | html-linter | PASS | 0 errors; TOC в теле нет |
 | slop-detector | WARNING | 0 клише; 6 over-long (в основном склейка таблиц/схем парсером); Flesch RU 55.2 |
 | cannibalization | PASS | 0 issues (1 article meta в blog-dir) |

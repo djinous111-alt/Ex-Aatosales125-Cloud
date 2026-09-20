@@ -2,9 +2,9 @@
 
 Cursor Cloud Excalibur BLOG для **Авто-Сейлс (AVTO SALES)** — статьи про авто из Японии, Кореи и Китая.
 
-- Блог: https://avtosales125.ru
-- Каталог: https://avto-sales125.ru/
-- Telegram: https://t.me/avtosales125
+- Блог: ${SITE_OR_CTA}
+- Каталог: ${SITE_OR_CTA}/
+- Telegram: ${SITE_OR_CTA}
 
 Базовый шаблон: [excalibur-blog-cloud-public](https://github.com/Horosheff/excalibur-blog-cloud-public).
 
@@ -15,7 +15,7 @@ Cursor Cloud Excalibur BLOG для **Авто-Сейлс (AVTO SALES)** — ст
 ![Excalibur Blog Cloud cover](assets/excalibur-blog-cover.png)
 
 <p align="center">
-  <a href="https://t.me/avtosales125">
+  <a href="${SITE_OR_CTA}">
     <img src="https://img.shields.io/badge/Telegram-avtosales125-229ED9?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram Авто-Сейлс">
   </a>
 </p>
@@ -112,7 +112,7 @@ python scripts/excalibur_blog_setup.py
 Секреты не хранятся в репозитории. Для Авто-Сейлс в Cloud Dashboard / `memory/site.env.local`:
 
 ```env
-PUBLIC_SITE_URL=https://avtosales125.ru
+PUBLIC_SITE_URL=${SITE_OR_CTA}
 EXCALIBUR_BLOG_ALLOW_PUBLISH=yes
 
 FTP_HOST=djinoum7.beget.tech

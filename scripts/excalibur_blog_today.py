@@ -60,7 +60,7 @@ def active_article_topic_ids(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = re.match(r"((?:AS|B)\d+)-", path.name, flags=re.IGNORECASE)
         if match:
             active.add(match.group(1).upper())
     return active
@@ -78,7 +78,11 @@ def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
     }
     used.update(active_article_topic_ids(root))
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in re.finditer(
+        r"##\s+((?:AS|B)\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)|\Z)",
+        text,
+        re.DOTALL,
+    ):
         topic_id = match.group(1).upper()
         block = match.group(2)
         if "priority:** P0" not in block and "**priority:** P0" not in block:
@@ -136,6 +140,12 @@ def main() -> None:
         "EXCALIBUR_PUBLISHED_ARTICLES="
         + json.dumps(published[-10:], ensure_ascii=False)
     )
+
+    print(
+        "EXCALIBUR_LEDGER_WP_NOTE="
+        "consult EXCALIBUR_RECENT_WP_POSTS before scout; never drop historical ledger rows on rebrand"
+    )
+
 
     site_url = os.environ.get("PUBLIC_SITE_URL") or os.environ.get("WP_SITE_URL") or DEFAULT_SITE_URL
     if site_url:

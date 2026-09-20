@@ -1,0 +1,87 @@
+{
+  "article": "memory/blog/articles/AS15-dostavka-avto-iz-vladivostoka-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 11,
+  "verified_facts_count": 4,
+  "unverified_facts_count": 7,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ано. Коротко про этапы – в гайдах СВХ Владивосток 2026 и СБКТС и ЭПТС . Зафиксируйте город, класс кузова",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "14 дней",
+      "kind": "metric_or_duration",
+      "context": "дорога + выгрузка. У контейнерной ж/д транзит 10–14 дней часто превращается в 20–45 до получения. Автовоз",
+      "verified": true,
+      "reason": "Numerical value '14' matched in fact-bank context"
+    },
+    {
+      "fact": "22 дней",
+      "kind": "metric_or_duration",
+      "context": "втовоз до Москвы у открытых прайсов чаще около 17–22 дней пути. Перегон \"дешевле на бумаге\" съедают авиа, т",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "12 дней",
+      "kind": "metric_or_duration",
+      "context": "дедлайна. Не делайте: выбор по чужому скрину \"за 12 дней\" без даты и типа перевозки. Проверьте точный горо",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "15 дней",
+      "kind": "metric_or_duration",
+      "context": "ну \"12 дней\". Общий срок ж/д: ожидание погрузки 3–15 дней → путь 10–14 → выгрузка 2–3. У контейнерных прайс",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "45 дней",
+      "kind": "metric_or_duration",
+      "context": "в 2026 для Москвы встречаются коридоры 16–40 и 20–45 дней. У автовоза в сезон очередь 3–7 дней до отправки.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "7 дней",
+      "kind": "metric_or_duration",
+      "context": "16–40 и 20–45 дней. У автовоза в сезон очередь 3–7 дней до отправки. Вагон в пассажирском составе у commu",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "25 дней",
+      "kind": "metric_or_duration",
+      "context": "пример: \"беру автовоз до Казани, срок от сдачи 18–25 дней, страховка в договоре\". Перегон дороже нервов – э",
+      "verified": true,
+      "reason": "Numerical value '25' matched in fact-bank context"
+    },
+    {
+      "fact": "170",
+      "kind": "large_number",
+      "context": "ориентир седан МСК (открытые прайсы 2026) От ~150–170 тыс. ₽ и выше по классу; встречаются \"от 155\" ~205",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "225",
+      "kind": "large_number",
+      "context": "ыс. ₽ и выше по классу; встречаются \"от 155\" ~205–225 тыс. ₽ сетка; контейнер ~165–255 тыс. ₽ \"Дешевле\"",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "255",
+      "kind": "large_number",
+      "context": "ся \"от 155\" ~205–225 тыс. ₽ сетка; контейнер ~165–255 тыс. ₽ \"Дешевле\" только если честно сложить авиа+т",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

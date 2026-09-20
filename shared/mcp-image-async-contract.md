@@ -28,3 +28,19 @@ Cover agent:
 ## Why
 
 `KIE_IMAGE_MAX_WAIT_SECONDS` и nginx `proxy_read_timeout` не гарантируют, что Cursor MCP client будет держать один tool call так же долго. Async start/status/result убирает зависимость от длинного соединения и позволяет агенту получить URL через время без дублей.
+
+## Repo fallback (no async MCP tools)
+
+If Cursor only exposes sync `gpt-image-2` and it returns `-32001 Request timed out`:
+
+1. Do **not** blind-retry the sync MCP create (duplicate billed jobs).
+2. Run preferred batch path:
+
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+This uses Kie `createTask` → `recordInfo` poll and writes `cover/quad-mcp-result.json` for `excalibur_blog_quad_apply.py`.
+Requires `KIE_API_KEY` in Cloud Secrets.
+

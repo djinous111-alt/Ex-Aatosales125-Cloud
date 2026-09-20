@@ -1,7 +1,7 @@
 # Promotion checklist — AS09 trust-encar-carhistory-proverka-do-depozita
 
 Дата публикации: 2026-07-17  
-Live URL: https://avtosales125.ru/2026/07/17/trust-encar-carhistory-proverka-do-depozita/
+Live URL: ${SITE_OR_CTA}/2026/07/17/trust-encar-carhistory-proverka-do-depozita/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • До оплаты: VIN + Performance Check + Carhistory + flood + осмотр
 • Нет пакета — нет перевода
 
-Читать: https://avtosales125.ru/2026/07/17/trust-encar-carhistory-proverka-do-depozita/
+Читать: ${SITE_OR_CTA}/2026/07/17/trust-encar-carhistory-proverka-do-depozita/
 ```
 
 ## Перелинковка
@@ -45,6 +45,6 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 ## Notes
 
-- Indexer: interlinker `--apply --blog-dir memory/blog/articles --site-base https://avtosales125.ru` — 1 link applied (AS08→AS09).
+- Indexer: interlinker `--apply --blog-dir memory/blog/articles --site-base ${SITE_OR_CTA}` — 1 link applied (AS08→AS09).
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (site-name «Авто-Сейлс»).
 - Publish PASS (post_id=3364) — 2026-07-17.

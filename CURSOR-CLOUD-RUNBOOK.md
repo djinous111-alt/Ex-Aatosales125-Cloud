@@ -17,13 +17,17 @@
 
 ```json
 {
-  "install": "python3 -m pip install --user -r requirements.txt && python3 scripts/excalibur_blog_doctor.py",
-  "start": "",
-  "terminals": []
+  "install": "bash .cursor/cloud-agent-install.sh"
 }
 ```
 
-`install` должен быть идемпотентным: его можно запускать много раз, и он не должен писать секреты или runtime-артефакты в Git.
+`install` (`.cursor/cloud-agent-install.sh`) идемпотентен: ставит `requirements.txt` (**включая paramiko** для SSH publish), `requests`/`python-dotenv`, готовит handoff/fragments. Не пишет секреты в Git.
+
+Если publish падает с `ModuleNotFoundError: paramiko` — доустанови вручную:
+
+```bash
+python3 -m pip install --break-system-packages -r requirements.txt
+```
 
 ## Cursor Secrets
 
@@ -46,6 +50,9 @@ SSH_ROOT=.
 SSH_PORT=22
 EXCALIBUR_BLOG_ALLOW_PUBLISH=yes
 ```
+
+`SSH_PATH` — deprecated alias; publish `load_env` мапит его в `SSH_ROOT`, если `SSH_ROOT` пуст. В Dashboard лучше задать именно `SSH_ROOT=.`.
+
 
 Дополнительно:
 

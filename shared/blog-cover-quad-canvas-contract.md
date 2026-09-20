@@ -4,34 +4,44 @@ Cover-агент работает **после** `article.html` + GEO QA PASS.
 
 ## Главное правило
 
-**Один** вызов MCP `gpt-image-2` → один холст `2048×1152` (2×2, каждая панель 16:9) → split в `cover.png` + `inline-01..03.png`.
+**Один** image job → один холст `2048×1152` (2×2, каждая панель 16:9) → split в `cover.png` + `inline-01..03.png`.
 
 | Панель | Роль | Герой |
 |--------|------|-------|
 | **top-left cover** | Крючок + RU-мем | **да**, лицо с reference (`input_urls`); **одежда — на усмотрение агента** |
 | **3 inline** | Полезность по H2: таблица, workflow, чеклист, UI | **нет** |
 
+## Image provider order
+
+1. **Preferred:** если есть `KIE_API_KEY` → `scripts/excalibur_blog_kie_gpt_image2_api.py` (async createTask → poll → URL).
+2. **Fallback:** sync MCP `gpt-image-2` — один attempt. `-32001 Request timed out` ≠ final blocker: ищи URL/task_id в MCP logs; иначе Kie; не делай второй sync create вслепую.
+3. Без URL — не запускай `quad_apply`.
+
+См. `timeout_policy` / `preferred_image_flow` в `cover/quad-mcp-batch.json` (пишет `excalibur_blog_cover_quad_prompt.py`).
+
 ## Workflow
 
 ```bash
 # 1. Публичный URL эталона (обязательно для i2i)
-python scripts/excalibur_blog_hero_reference_url.py
+python3 scripts/excalibur_blog_hero_reference_url.py
 
 # 2. Manifest: cover_hook + visual_type для inline
-python scripts/excalibur_blog_quad_manifest.py \
+python3 scripts/excalibur_blog_quad_manifest.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> --merge
 
-# 3. Промпт + MCP batch (1 job)
-python scripts/excalibur_blog_cover_quad_prompt.py \
+# 3. Промпт + batch (1 job)
+python3 scripts/excalibur_blog_cover_quad_prompt.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> --write-batch
 
-# 4. ONE CallMcpTool gpt-image-2 по cover/quad-mcp-batch.json
-#    input_urls: [reference_url_hosted] — обязательно
+# 4. Preferred: Kie async (если KIE_API_KEY)
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+# Fallback only: ONE CallMcpTool gpt-image-2 по cover/quad-mcp-batch.json
 
 # 5. Скачать canvas + split
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<mcp_url>" --inject-html
+  --url "<result_url>" --inject-html
 ```
 
 ## Раскладка 2×2
@@ -75,7 +85,9 @@ Inline panels: полезный UI + лёгкий human layer (стикер, tap
 
 ## Blockers
 
-- `❌ COVER HERO BLOCKER` — нет `reference_url_hosted` или MCP без `input_urls`
-- **4 отдельных MCP** на cover+inline — запрещено
+- `❌ COVER HERO BLOCKER` — нет `reference_url_hosted` или image job без `input_urls`
+- **4 отдельных image jobs** на cover+inline — запрещено
+- blind second sync MCP create после `-32001` без URL/task_id
+- apply без реального image URL
 - inline-панель с meme/host вместо UI/схемы
 - обложка без крючка / без `meme_caption_ru`

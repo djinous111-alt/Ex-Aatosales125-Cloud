@@ -1,0 +1,15 @@
+{
+  "slug": "aukcionnyj-list-yaponii-kak-chitat",
+  "topic_id": "AS10",
+  "permalink": "[REDACTED]/2026/07/20/aukcionnyj-list-yaponii-kak-chitat/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/AS10-aukcionnyj-list-yaponii-kak-chitat/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1299556,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3529 slug=aukcionnyj-list-yaponii-kak-chitat\nOK featured_image=3530\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3531 src=cover/inline-01.png url=[REDACTED]\nOK inline_image_upload=3532 src=cover/inline-02.png url=[REDACTED]\nOK inline_image_upload=3533 src=cover/inline-03.png url=[REDACTED]\npermalink=[REDACTED]\n",
+  "verdict": "pass"
+}

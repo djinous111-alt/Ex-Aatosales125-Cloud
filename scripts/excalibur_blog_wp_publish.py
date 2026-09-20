@@ -31,6 +31,7 @@ PUBLISH_ENV_KEYS = {
     "SSH_PASS",
     "SSH_PASSWORD",
     "SSH_ROOT",
+    "SSH_PATH",  # deprecated alias → SSH_ROOT
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
 }
 
@@ -55,6 +56,9 @@ def load_env(root: Path) -> dict[str, str]:
             env[key] = value
     if not env.get("SSH_PASS") and env.get("SSH_PASSWORD"):
         env["SSH_PASS"] = env["SSH_PASSWORD"]
+    # Legacy Cloud Secret name: SSH_PATH → SSH_ROOT (prefer explicit SSH_ROOT).
+    if not (env.get("SSH_ROOT") or "").strip() and (env.get("SSH_PATH") or "").strip():
+        env["SSH_ROOT"] = env["SSH_PATH"].strip()
     return env
 
 

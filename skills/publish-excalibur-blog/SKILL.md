@@ -17,23 +17,42 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Проверка | Файл / env |
 |----------|------------|
 | QA PASS | `article-qa.md` → verdict PASS |
-| Links | `link-verify.json` → pass |
+| Links | `link-verify.json` → pass (нет literal `[REDACTED]` в href) |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | Cloud Secrets / `memory/site.env.local`: `SSH_*`, `PUBLIC_SITE_URL` |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
+
+## Env / deps preflight
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+- `SSH_ROOT` обязателен (рекомендуется `.`). Legacy Cloud Secret `SSH_PATH` скрипт мапит в `SSH_ROOT`.
+- Если `ModuleNotFoundError: paramiko`:
+
+```bash
+python3 -m pip install --break-system-packages -r requirements.txt
+# или минимум:
+python3 -m pip install --break-system-packages paramiko
+```
+
+Cloud install (`.cursor/cloud-agent-install.sh`) ставит `requirements.txt`, включая paramiko.
 
 ## Алгоритм
 
 ### 1. Preflight publish
 
+Перед link-verify: в `article.html` не должно быть `href` с literal `[REDACTED]`. Если есть — восстанови из `CATALOG_URL` / `TELEGRAM_URL` и добавь `<!-- pragma: allowlist secret -->` на CTA-строке.
+
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
-  --site-base https://avtosales125.ru
+  --site-base "$PUBLIC_SITE_URL"
 ```
 
 Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
@@ -41,7 +60,7 @@ Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
@@ -51,7 +70,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
@@ -81,15 +100,17 @@ python scripts/excalibur_blog_wp_publish.py \
 | `promotion-checklist.md` | Live URL = permalink |
 | handoff | блок `=== EXCALIBUR BLOG PUBLISH ===` + permalink в `PIPELINE DONE` |
 
+Перед commit redact literal `PUBLIC_SITE_URL` → `[REDACTED]` в ledger/log/result при необходимости.
+
 ### 6. Post-publish (рекомендуется)
 
 ```bash
-python scripts/excalibur_blog_interlinker.py --apply \
+python3 scripts/excalibur_blog_interlinker.py --apply \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru
+  --site-base "$PUBLIC_SITE_URL"
 ```
 
-Inbound-ссылки из старых статей на новую.
+Inbound-ссылки из старых статей на новую. Перед commit — redact site URL в артефактах.
 
 ## Handoff block (шаблон)
 
@@ -110,7 +131,7 @@ blockers:
 
 ## Blockers
 
-- `❌ PUBLISH BLOCKER` — QA не PASS, link-verify fail, нет cover/schema, credentials, allow flag
+- `❌ PUBLISH BLOCKER` — QA не PASS, link-verify fail / literal REDACTED href, нет cover/schema, credentials, allow flag, paramiko missing
 - `❌ PUBLISH FAIL` — скрипт вернул fail (смотри `raw_output` в wp-publish-result.json)
 
 ## Запрещено

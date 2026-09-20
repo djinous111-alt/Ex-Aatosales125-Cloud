@@ -232,8 +232,10 @@ Excalibur BLOG следует этому контракту для каждой 
 
 ### Блок 4: Мягкий CTA бренда (внутри одной секции блока 3)
 
-2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-tracking-map.md` / `offers-map.md`.  
+2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-tracking-map.md` / `offers-map.md` / env `CATALOG_URL`/`TELEGRAM_URL`.  
 Не больше **3** упоминаний основного офера/CTA на статью (включая баннер и «что дальше»).
+
+**Secret-scan:** в `article.html` CTA = живые https; на CTA-строке `<!-- pragma: allowlist secret -->`. Запрещён literal `href="[REDACTED]"`. Для `schema.jsonld` — unicode-escape через `scripts/excalibur_blog_schema_write.py --in-place` (не HTML pragma).
 
 ### Блок 5: Inline-баннер (опционально)
 

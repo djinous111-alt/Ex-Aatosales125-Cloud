@@ -30,6 +30,19 @@
     - Атрибут `id` у `<h2>` — только если нужен для внешней перелинковки; не создавай оглавление в теле статьи.
     - В конце статьи (перед FAQ) вставляй блок верификации (**Fact Check Box**) через `<blockquote>` от редакции Авто-Сейлс. **Не** упоминай Wordstat и Метрику в тексте статьи.
 
+## CTA и secret-scan (обязательно)
+
+- В `article.html` CTA — **живые** абсолютные https из env `CATALOG_URL` / `TELEGRAM_URL` (и при необходимости `MAX_URL`).
+- **Запрещено** писать `href="[REDACTED]"` или любой literal redaction token в рабочих ссылках: GEO QA / `link_verify` / publish preflight это валят.
+- На строке с CTA-ссылкой для commit добавь HTML-комментарий: `<!-- pragma: allowlist secret -->` (Cursor secret-scan allowlist).
+- Отчёты (`link-verify.json`) перед commit можно redact; **тело статьи** перед QA/publish всегда с живыми URL из env.
+
+Пример:
+
+```html
+<p><a href="https://example-catalog.example/">Смотреть каталог</a> <!-- pragma: allowlist secret --></p>
+```
+
 ## Выход
 
 ```text
@@ -42,5 +55,6 @@ memory/blog/articles/<topic_id>-<slug>/article.meta.json
 - нет research-notes.md
 - utility-only нарушен (вода, нет шагов)
 - объём вне диапазона после 1 правки
+- literal `[REDACTED]` в `href`
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`

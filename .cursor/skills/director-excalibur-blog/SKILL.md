@@ -63,6 +63,10 @@ python3 scripts/excalibur_blog_utility_gate.py --topic-id <id>
 python3 scripts/excalibur_blog_research_start.py --topic-id <id>
 ```
 
+**Topic ids:** серия Авто-Сейлс = `AS##` (regex `(?:AS|B)\d+` в today/scout_helper). Не предлагай `B01`, если пул AS жив.
+
+**Ledger sync (обязанность Директора):** перед выбором topic_id сверь `shared/published-articles.md` с `EXCALIBUR_RECENT_WP_POSTS` из today.py. Если live WP уже имеет пост, а ledger нет — допиши ledger (`published`), иначе риск republish / ложный next id.
+
 **Utility-only:** тема без how-to/checklist/comparison → **не стартуем** (`UTILITY TOPIC BLOCKER`).
 
 Прочитай `shared/editorial-utility-only.md`, `shared/agent-pipeline-pitfalls.md`, **`shared/pipeline-task-map.md`**.

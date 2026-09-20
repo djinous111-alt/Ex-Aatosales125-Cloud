@@ -47,6 +47,10 @@ SSH_PORT=22
 EXCALIBUR_BLOG_ALLOW_PUBLISH=yes
 ```
 
+`SSH_ROOT=.` — **обязательный канон** для SSH login cwd этого WP-хоста. Если secret unset, `excalibur_blog_wp_publish.py` всё равно трактует root как `.` (`root=default-dot` в `--env-check`), но Secret лучше задать явно.
+
+Нужен Python-модуль **paramiko** (см. `requirements.txt` и `.cursor/cloud-agent-install.sh`; fallback `apt install python3-paramiko`).
+
 Дополнительно:
 
 ```text
@@ -96,6 +100,7 @@ python3 scripts/excalibur_blog_wp_publish.py --env-check
 
 Если `--publish` падает из-за секретов, это нормально для dry-run окружения и блокер для боевой публикации.
 Если SSH upload пишет warning про fallback на `.`, обновите Cursor Secret `SSH_ROOT` на `.` или уберите несуществующий panel/root path. Секретные значения не записывать в repo.
+Doctor: `paramiko available` — WARN без `--publish`, FAIL с `--publish`, если модуль не установлен.
 
 ## Optional GitHub Actions preflight
 

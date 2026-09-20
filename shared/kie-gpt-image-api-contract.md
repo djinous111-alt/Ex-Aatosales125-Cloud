@@ -76,3 +76,4 @@ Terminal states:
 - One API task per article cover run, not four separate images.
 - `input_urls` is required; text-only generation is a cover blocker.
 - Do not retry createTask blindly after a network ambiguity if a `taskId` is known; poll the known task.
+- **`code=402` / Credits insufficient:** do not retry. Cover skill **§4b emergency** (GenerateImage + reference → LANCZOS 2048×1152 → split/inject). Top-up `KIE_API_KEY` balance is a human/billing action.

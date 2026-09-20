@@ -1,0 +1,17 @@
+{
+  "url": null,
+  "method": "emergency",
+  "provider": "cursor-GenerateImage",
+  "kie_status": "402_credits_insufficient",
+  "emergency": {
+    "tool": "GenerateImage",
+    "reference_image_paths": ["memory/cover/assets/blog-hero-reference.png"],
+    "aspect_ratio": "16:9",
+    "raw_size_px": [1536, 1024],
+    "canvas_size_px": [2048, 1152],
+    "resize": "LANCZOS",
+    "source_artifact": "/opt/cursor/artifacts/assets/B03-canvas-quad-emergency.png",
+    "local_src_copy": "cover/canvas-quad-emergency-src.png"
+  },
+  "note": "Kie createTask returned 402 Credits insufficient; used GenerateImage i2i + LANCZOS upscale to 2048x1152 then quad split+inject"
+}

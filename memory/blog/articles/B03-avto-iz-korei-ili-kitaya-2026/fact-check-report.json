@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/B03-avto-iz-korei-ili-kitaya-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ок проверок до перевода. Коротко: Корея и Китай в 2026 – разные продукты под один бюджет, а не \"кто выго",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2026 года",
+      "kind": "date_or_year",
+      "context": "тир по сроку регистрации авто в КНР до экспорта с 2026 года. До депозита уточните именно дату регистрации в д",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "180 дней",
+      "kind": "metric_or_duration",
+      "context": "е новое авто, но с пакетом документов и правилом ~180 дней регистрации. Сначала зафиксируйте сценарий и пров",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 лет",
+      "kind": "metric_or_duration",
+      "context": "до депозита Корея для заказа в 2026 – чаще б/у 2–5 лет с левым рулём и прозрачными отчётами. Encar (на п",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "е новое авто, но с пакетом документов и правилом ~180 дней регистрации. Сначала зафиксируйте сценарий и",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "льготность утильсбора (в обсуждениях 2026 часто ~160 л.с.), поэтому л.с. и возраст смотрите до лота. Су",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

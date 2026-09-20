@@ -380,30 +380,34 @@ def _ssh_creds(env: dict[str, str]) -> tuple[str, int, str, str]:
 
 
 def configured_ssh_root(env: dict[str, str]) -> str:
-    return (env.get("SSH_ROOT") or "").strip()
+    """Return SSH_ROOT; empty/unset defaults to '.' (SSH login cwd)."""
+    raw = (env.get("SSH_ROOT") or "").strip()
+    return raw if raw else "."
 
 
 def ssh_remote_path(env: dict[str, str], remote: str, root_override: str | None = None) -> str:
-    root = configured_ssh_root(env) if root_override is None else root_override.strip()
-    if not root:
+    root = configured_ssh_root(env) if root_override is None else (root_override or "").strip() or "."
+    if root in {".", "./"}:
         return remote
     return root.rstrip("/") + "/" + remote
 
 
 def ssh_root_label(env: dict[str, str]) -> str:
-    root = configured_ssh_root(env)
-    if not root:
-        return "unset"
-    if root in {".", "./"}:
+    raw = (env.get("SSH_ROOT") or "").strip()
+    if not raw:
+        return "default-dot"
+    if raw in {".", "./"}:
         return "dot"
     return "configured-non-dot"
 
 
 def ssh_root_candidates(env: dict[str, str]) -> list[str]:
-    root = configured_ssh_root(env)
-    if root and root not in {".", "./"}:
+    """Candidates for bootstrap upload. Unset SSH_ROOT → treat as '.'."""
+    raw = (env.get("SSH_ROOT") or "").strip()
+    root = raw if raw else "."
+    if root not in {".", "./"}:
         return [root, "."]
-    return [root]
+    return ["."]
 
 
 def is_missing_remote_path_error(exc: OSError) -> bool:

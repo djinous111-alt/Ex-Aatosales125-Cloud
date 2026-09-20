@@ -60,7 +60,9 @@ def check_url(url: str, timeout: float, user_agent: str) -> dict[str, Any]:
                 "error": None,
             }
     except urllib.error.HTTPError as e:
-        if e.code in (405, 501, 403):
+        # 405/501/403: method not allowed / forbidden on HEAD.
+        # 502/503/504: flaky CDNs often reject HEAD but answer GET (e.g. kolesa.kz).
+        if e.code in (405, 501, 403, 502, 503, 504):
             return _get_fallback(url, timeout, user_agent, ctx, str(e))
         return {
             "url": url,

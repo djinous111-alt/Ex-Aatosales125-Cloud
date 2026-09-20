@@ -1,0 +1,42 @@
+{
+  "topic_id": "B03",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Корея или Китай — до депозита",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс между корейским седаном и китайским кроссовером у порта Владивостока, плашка Корея или Китай",
+      "scene_hint": "WEATHER: cool foggy Vladivostok port morning, grey sea mist; OUTFIT: dark navy windbreaker over charcoal knit sweater (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie standing BETWEEN modern Korean sedan (left) and Chinese crossover (right) at Vladivostok port with containers/crane soft background; huge Cyrillic plaque «Корея или Китай» with yellow highlighter on «или»; torn paper hook «Корея или Китай — до депозита»; fake catalog card + Encar scrap taped with scotch; sticky note «сначала бюджет»; shocked meme cutout + cat reaction sticker (different formats); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; no toxic/insult text",
+      "meme_caption_ru": "Корея или Китай"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте бюджет \"под ключ\" до открытия лотов",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI for turnkey budget before lots: columns Корея | Китай | статья бюджета; rows лот, логистика, пошлины/платежи, сюрпризы; yellow highlight row «под ключ»; sticky «до лотов»; tape corner; NO hero face; NO Wordstat/Metrika; no toxic text",
+      "alt": "Таблица бюджета «под ключ»: статьи расходов Корея vs Китай до открытия лотов"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Разберите корейский путь: Encar, история и стоп до депозита",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake Encar listing UI screenshot: Performance Check + Insurance History panels, VIN row, red stop stamp «стоп до депозита»; sticky «сначала история»; scotch tape; NO hero face; NO Wordstat/Metrika; no toxic text",
+      "alt": "Мокап Encar: проверка истории и стоп до депозита на корейском пути"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте Китай до оплаты: дата регистрации и правило 180 дней",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable checklist board for China path: 1) дата регистрации 2) правило ~180 дней 3) документы до оплаты 4) фото vs паспорт 5) стоп если дата мутная; red stamp «до оплаты»; pink sticky «180 дней»; tape; NO hero face; NO Wordstat/Metrika; no toxic text",
+      "alt": "Чеклист Китая: дата регистрации и правило 180 дней до оплаты"
+    }
+  }
+}

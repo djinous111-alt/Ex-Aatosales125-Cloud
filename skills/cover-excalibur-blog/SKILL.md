@@ -122,12 +122,38 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE MCP / Kie primary
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+Предпочтительно Kie async API (не долгий sync MCP):
+
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+Либо `CallMcpTool` → `user-mcp-kv` / `gpt-image-2` с `jobs[0].mcp_args` из batch.
 
 Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+
+### Шаг 4b — Emergency (Kie 402 / credits insufficient)
+
+Если `createTask` вернул `code=402` / `Credits insufficient`:
+
+1. **Не ретраи** тот же Kie createTask — без top-up бесполезно.
+2. Cursor `GenerateImage` с `reference_image_paths=[memory/cover/assets/blog-hero-reference.png]` и prompt из batch (cover+3 inline на одном 2×2 холсте).
+3. Если выход не 2048×1152 (часто 1536×1024) — LANCZOS resize до **2048×1152**.
+4. Сохранить как `cover/canvas-quad.png`.
+5. Split + inject:
+
+```bash
+python3 scripts/excalibur_blog_cover_quad_split.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --inject-html
+```
+
+6. В `cover/quad-mcp-result.json` укажи `method: emergency`. Заведи incident в `memory/pipeline-fix-queue.md` (Kie top-up = needs-human).
+
+Primary path снова доступен только после пополнения баланса `KIE_API_KEY`.
 
 ### Шаг 5 — apply
 

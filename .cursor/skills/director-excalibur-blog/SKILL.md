@@ -39,6 +39,7 @@ Task(generalPurpose):
 Исправь open incidents из memory/pipeline-fix-queue.md durable repo changes, запусти проверки, обнови очередь.
 ```
 
+- После durable fixer (особенно `excalibur_topic_ids.py` / AS*|B* / doctor `--blog-dir`): **PR должен быть смержен в `main`** до следующего cron — иначе новый Cloud run снова стартует со stale `main` и платит restore.
 Не начинать следующую тему, пока blocker-инциденты текущего run не `fixed` или `needs-human`.
 
 ## Fragments (cover || schema)
@@ -52,7 +53,7 @@ Task(generalPurpose):
 
 ## Cloud Task fallback
 
-См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
+См. `AGENTS.md`. **Практический default:** сразу `Task(generalPurpose)` per role (typed `excalibur-blog-*` / `excalibur-blog-geo-qa` часто отсутствуют в Cloud enum) + `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`. Один Task = одна роль.
 
 ## Preflight (shell, директор)
 

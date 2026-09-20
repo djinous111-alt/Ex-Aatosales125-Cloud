@@ -14,23 +14,26 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
-    "ai",
-    "ии",
-    "agent",
-    "агент",
-    "mcp",
-    "api",
-    "cursor",
-    "make",
-    "n8n",
-    "github",
-    "docker",
-    "rag",
-    "workflow",
-    "автоматизац",
-    "нейросет",
+# Word-boundary / token patterns only. Bare "ai" must NOT match inside "pain"
+# (reader_pain / pain_solution_map) — that misclassified auto/customs topics as technical.
+TECH_MARKER_PATTERNS = (
+    r"\bai\b",
+    r"\bии\b",
+    r"\bagent\b",
+    r"\bагент\b",
+    r"\bmcp\b",
+    r"\bapi\b",
+    r"\bcursor\b",
+    r"\bn8n\b",
+    r"\bgithub\b",
+    r"\bdocker\b",
+    r"\brag\b",
+    r"\bworkflow\b",
+    r"\bmake\.com\b",
+    r"автоматизац",
+    r"нейросет",
 )
+TECH_MARKER_RE = re.compile("|".join(f"(?:{p})" for p in TECH_MARKER_PATTERNS), flags=re.IGNORECASE)
 
 
 REQUIRED_FIELDS = (
@@ -69,18 +72,61 @@ def count_action_items(text: str) -> int:
     return len(numbered)
 
 
+_PAIN_MAP_HEADER_CELLS = {
+    "pain",
+    "solution",
+    "proof",
+    "source",
+    "proof/source",
+    "reader_result",
+    "result",
+    "боль",
+    "решение",
+    "результат",
+    "источник",
+}
+
+
+def count_pain_solution_table_rows(text: str) -> int:
+    """Count markdown data rows under ## pain_solution_map (skip header/separator)."""
+    match = re.search(
+        r"##\s*\d*\.?\s*pain[_\s-]*solution[_\s-]*map\b([\s\S]*?)(?=\n##\s|\Z)",
+        text,
+        flags=re.I,
+    )
+    if not match:
+        return 0
+    rows = 0
+    for line in match.group(1).splitlines():
+        if not re.match(r"^\s*\|", line):
+            continue
+        if re.match(r"^\s*\|[\s|:\-]+\|\s*$", line):
+            continue
+        cells = [c.strip().lower() for c in line.strip().strip("|").split("|")]
+        if cells and all((c in _PAIN_MAP_HEADER_CELLS) or (not c) for c in cells):
+            continue
+        rows += 1
+    return rows
+
+
 def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect software/AI topics. Scan topic metadata + notes with token boundaries.
+
+    Do not use substring `ai` — it false-positives on `reader_pain` / `pain_solution_map`.
+    Auto/customs how-to without real tech intent must stay non-technical (no forced GitHub).
+    """
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
-    ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    )
+    # Notes body may repeat the query; keep a short window but rely on word boundaries.
+    blob += " " + notes[:2000]
+    return bool(TECH_MARKER_RE.search(blob))
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,9 +176,18 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    # Prefer explicit `accessed_at: YYYY-MM-DD` (colon optional before ISO date).
+    accessed_count = len(re.findall(r"\baccessed_at\b\s*:?\s*\d{4}-\d{2}-\d{2}", text_lower))
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    # Keyword cells (pain:/solution:/result:) OR non-header table rows under ## pain_solution_map.
+    pain_map_keyword_rows = len(
+        re.findall(
+            r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*",
+            text_lower,
+            flags=re.M,
+        )
+    )
+    pain_map_rows = max(pain_map_keyword_rows, count_pain_solution_table_rows(text))
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:

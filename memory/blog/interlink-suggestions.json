@@ -1,6 +1,14 @@
 {
-  "site_base": "https://avtosales125.ru",
-  "total_articles": 2,
-  "opportunities_found": 0,
-  "suggestions": []
+  "site_base": "[REDACTED]",
+  "total_articles": 3,
+  "opportunities_found": 1,
+  "suggestions": [
+    {
+      "source": "AS20-levyj-rul-iz-korei-2026-kak-kupit",
+      "target": "AS09-trust-encar-carhistory-proverka-do-depozita",
+      "keyword": "trust encar",
+      "context": "зита; глубокий разбор кодов отчётов – в отдельном гайде про Trust Encar и Carhistory.</p>  <h2>Выберите Корею осознанно: зачем левы",
+      "link_replacement": "<a href=\"/blog/trust-encar-carhistory-proverka-do-depozita/\">Trust Encar</a>"
+    }
+  ]
 }

@@ -14,6 +14,13 @@ from urllib.parse import urljoin
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
+from excalibur_topic_ids import (
+    TOPIC_HEADING_RE,
+    is_known_series,
+    normalize_topic_id,
+    topic_id_from_article_dirname,
+)
+
 TZ = ZoneInfo("Europe/Moscow")
 LEDGER_PATHS = (
     Path("shared/published-articles.md"),
@@ -60,9 +67,9 @@ def active_article_topic_ids(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
-        if match:
-            active.add(match.group(1).upper())
+        topic_id = topic_id_from_article_dirname(path.name)
+        if topic_id and is_known_series(topic_id):
+            active.add(topic_id)
     return active
 
 
@@ -72,14 +79,16 @@ def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
         return ""
 
     used = {
-        r["topic_id"].upper()
+        normalize_topic_id(r["topic_id"])
         for r in published
         if r["status"] in {"published", "in_progress", "draft_ready"}
     }
     used.update(active_article_topic_ids(root))
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
-        topic_id = match.group(1).upper()
+    for match in TOPIC_HEADING_RE.finditer(text):
+        topic_id = normalize_topic_id(match.group(1))
+        if not is_known_series(topic_id):
+            continue
         block = match.group(2)
         if "priority:** P0" not in block and "**priority:** P0" not in block:
             pri = re.search(r"-\s*\*\*priority:\*\*\s*(\S+)", block)

@@ -24,7 +24,28 @@ split → cover.png + inline-01..03.png (1200×675)
 inject <figure> after H2 in article.html
 ```
 
-**Запрещено:** 4 отдельных MCP на cover + inline.
+**Запрещено:** 4 отдельных MCP/image jobs на cover + inline.
+
+### Preferred generation (Cloud) — INC-20260722-2125
+
+1. После `--write-batch` читай `preferred_image_flow` в `cover/quad-mcp-batch.json`.
+2. **Сразу** запускай `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir <dir>` при наличии `KIE_API_KEY` (createTask → poll). Не жди успеха sync MCP.
+3. Sync MCP `gpt-image-2` — только optional probe; при `-32001` без URL/task_id **не** ретрай sync — переходи на Kie.
+4. `reference_url_hosted` только **https://** (скрипт `hero_reference_url.py` нормализует http→https).
+5. Kie script делает **credit preflight** (`GET /api/v1/chat/credit`, floor `KIE_MIN_CREDITS` / `--min-credits`). При balance ниже порога или createTask `code=402` — сразу `❌ COVER IMAGE CREDITS BLOCKER`, **без** spam-retry sync MCP.
+6. MCP `gpt-image-2` / `flux2-pro-*` ответ `NoneType...get` без URL/task_id чаще всего = credits/upstream null, не «надо ещё раз нажать». Max ~2 попытки суммарно, затем blocker.
+7. Catbox/0x0 rehost опциональны; wordpress **https** `reference_url_hosted` допустим, если ephemeral hosts падают (412/503).
+
+### Emergency fallback (только при credits blocker)
+
+Если Kie/MCP не дают canvas URL и Директор явно разрешил продолжить визуальный путь:
+
+1. Cursor **GenerateImage** (одна сцена под cover panel / full canvas intent).
+2. Pad/crop → **2048×1152**.
+3. `python3 scripts/excalibur_blog_cover_quad_split.py ... --inject-html` (или актуальный split/apply из skill).
+4. В fragment явно: non-canonical fallback; **Kie top-up всё ещё нужен** до следующего cron.
+
+Не генерируй cover «на всякий случай» и не запускай второй image job после успеха.
 
 ---
 
@@ -122,10 +143,10 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image job (prefer Kie)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+1. **Preferred:** `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir <dir>` (см. `preferred_image_flow` в batch).
+2. **Optional probe:** `CallMcpTool` → `gpt-image-2` с `jobs[0].mcp_args`. При `-32001` без URL/task_id — сразу Kie, без второго sync.
 
 Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
 
@@ -163,8 +184,8 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 
 ## QA перед ✅
 
-- [ ] 1 MCP, не 4
-- [ ] input_urls в MCP
+- [ ] 1 image job, не 4
+- [ ] input_urls https reference
 - [ ] cover.png + 3 inline существуют
 - [ ] alt в registry для всех 4
 - [ ] inline привязаны к H2 (`h2_anchor`)

@@ -43,6 +43,11 @@ python scripts/excalibur_blog_utility_gate.py --topic-id {ID}
 
 ## Формат research-notes.md обязателен
 
+Gate `excalibur_blog_research_notes_gate.py` считает маркеры **буквально**:
+
+1. В каждой строке `source_table` с URL пиши ячейку **`accessed_at: YYYY-MM-DD`** (токен `accessed_at:` + ISO-дата). Одна колонка-заголовок `accessed_at` без даты в строках **не** засчитывается.
+2. В `pain_solution_map` каждая data-row должна содержать ключевые слова gate (`pain`/`solution`/`result` или `боль`/`решение`/`результат`) — удобно префиксовать ячейки: `pain: …`, `solution: …`, `reader_result: …`.
+
 ```text
 research_date: YYYY-MM-DD
 accessed_at: YYYY-MM-DD
@@ -59,6 +64,7 @@ surprising_fact: неожиданный факт или конфликт мне�
 
 ## source_table
 | source | url | accessed_at | why_it_matters |
+| Example Doc | https://example.com/doc | accessed_at: YYYY-MM-DD | зачем источник |
 
 ## wordstat
 | phrase | impressions |
@@ -68,6 +74,7 @@ surprising_fact: неожиданный факт или конфликт мне�
 
 ## pain_solution_map
 | pain | solution | proof/source | reader_result |
+| pain: страх/затык | solution: что сделать | https://… | reader_result: что получит |
 
 ## action_outline
 1. ...

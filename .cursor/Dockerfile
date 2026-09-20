@@ -28,6 +28,13 @@ RUN python3 -m pip install --break-system-packages --no-cache-dir \
     requests \
     pillow \
     python-dotenv \
-    || python3 -m pip install --no-cache-dir requests pillow python-dotenv
+    paramiko \
+    || python3 -m pip install --no-cache-dir requests pillow python-dotenv paramiko
+
+# Fallback when pip is blocked by PEP 668 on rebuilds
+RUN apt-get update && apt-get install -y --no-install-recommends python3-paramiko \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
+    || true
 
 WORKDIR /workspace

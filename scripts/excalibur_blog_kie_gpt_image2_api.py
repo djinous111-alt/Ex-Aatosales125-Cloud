@@ -23,10 +23,13 @@ from typing import Any
 
 DEFAULT_CREATE_URL = "https://api.kie.ai/api/v1/jobs/createTask"
 DEFAULT_RECORD_URL = "https://api.kie.ai/api/v1/jobs/recordInfo"
+DEFAULT_CREDIT_URL = "https://api.kie.ai/api/v1/chat/credit"
 DEFAULT_MODEL = "gpt-image-2-image-to-image"
 DEFAULT_API_KEY_ENV = "KIE_API_KEY"
 DEFAULT_POLL_INTERVAL_SECONDS = 15
 DEFAULT_MAX_WAIT_SECONDS = 900
+# GPT Image 2 i2i typically needs more than a few credits; fail early under this floor.
+DEFAULT_MIN_CREDITS = float(os.environ.get("KIE_MIN_CREDITS", "1.0"))
 
 
 class KieApiError(RuntimeError):
@@ -92,7 +95,58 @@ def require_success(response: dict[str, Any], action: str) -> None:
     if response.get("code") == 200:
         return
     msg = response.get("msg") or "unknown error"
-    raise KieApiError(f"Kie API {action} failed: code={response.get('code')} msg={msg}")
+    code = response.get("code")
+    if code == 402:
+        raise KieApiError(
+            f"Kie API {action} failed: code=402 Credits insufficient ({msg}). "
+            "Top up Kie.ai for KIE_API_KEY; do not spam MCP gpt-image-2 retries "
+            "(NoneType/.get errors often mean the same empty upstream response)."
+        )
+    raise KieApiError(f"Kie API {action} failed: code={code} msg={msg}")
+
+
+def fetch_credit_balance(*, credit_url: str, api_key: str) -> float | None:
+    """Return remaining credits or None if the credit endpoint is unavailable."""
+    try:
+        response = http_json("GET", credit_url, api_key)
+    except KieApiError as exc:
+        print(f"Kie credit preflight skipped (endpoint error): {exc}", file=sys.stderr)
+        return None
+    if response.get("code") not in (None, 200):
+        print(
+            f"Kie credit preflight skipped: code={response.get('code')} msg={response.get('msg')}",
+            file=sys.stderr,
+        )
+        return None
+    data = response.get("data")
+    try:
+        if isinstance(data, dict):
+            for key in ("credits", "credit", "balance", "remaining"):
+                if key in data:
+                    return float(data[key])
+            return None
+        if data is None:
+            return None
+        return float(data)
+    except (TypeError, ValueError):
+        print(f"Kie credit preflight skipped: unparseable data={data!r}", file=sys.stderr)
+        return None
+
+
+def ensure_min_credits(*, credit_url: str, api_key: str, min_credits: float) -> float | None:
+    balance = fetch_credit_balance(credit_url=credit_url, api_key=api_key)
+    if balance is None:
+        return None
+    if balance < min_credits:
+        raise KieApiError(
+            f"❌ COVER IMAGE CREDITS BLOCKER: Kie balance={balance} < min_credits={min_credits}. "
+            "Top up Kie.ai (Cloud secret KIE_API_KEY account). "
+            "Do not retry sync MCP gpt-image-2 / flux; NoneType errors are usually the same upstream. "
+            "Emergency only: Cursor GenerateImage → pad/crop 2048x1152 → cover_quad_split.py "
+            "(non-canonical; still needs Kie top-up for next run)."
+        )
+    print(f"Kie credit preflight: balance={balance} (min={min_credits})")
+    return balance
 
 
 def batch_mcp_args(batch_path: Path) -> dict[str, Any]:
@@ -232,6 +286,13 @@ def main() -> int:
     ap.add_argument("--api-key-env", default=DEFAULT_API_KEY_ENV)
     ap.add_argument("--create-url", default=DEFAULT_CREATE_URL)
     ap.add_argument("--record-url", default=DEFAULT_RECORD_URL)
+    ap.add_argument("--credit-url", default=DEFAULT_CREDIT_URL)
+    ap.add_argument(
+        "--min-credits",
+        type=float,
+        default=DEFAULT_MIN_CREDITS,
+        help="Fail before createTask when Kie balance is below this floor (0 skips check)",
+    )
     ap.add_argument("--model", default=DEFAULT_MODEL)
     ap.add_argument("--callback-url", default=os.environ.get("KIE_CALLBACK_URL", "").strip())
     ap.add_argument("--poll-interval", type=int, default=DEFAULT_POLL_INTERVAL_SECONDS)
@@ -266,6 +327,13 @@ def main() -> int:
                 file=sys.stderr,
             )
             return 1
+
+        if args.min_credits > 0 and not args.task_id.strip():
+            ensure_min_credits(
+                credit_url=args.credit_url,
+                api_key=api_key,
+                min_credits=args.min_credits,
+            )
 
         task_id = args.task_id.strip()
         create_response: dict[str, Any] | None = None

@@ -1,0 +1,15 @@
+{
+  "slug": "levyj-rul-iz-korei-2026-kak-kupit",
+  "topic_id": "AS20",
+  "permalink": "https://avtosales125.ru/2026/07/22/levyj-rul-iz-korei-2026-kak-kupit/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/AS20-levyj-rul-iz-korei-2026-kak-kupit/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1365818,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3607 slug=levyj-rul-iz-korei-2026-kak-kupit\nOK featured_image=3608\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3609 src=cover/inline-01.png url=https://avtosales125.ru/wp-content/uploads/2026/07/levyj-rul-iz-korei-2026-kak-kupit-inline-01.png\nOK inline_image_upload=3610 src=cover/inline-02.png url=https://avtosales125.ru/wp-content/uploads/2026/07/levyj-rul-iz-korei-2026-kak-kupit-inline-02.png\nOK inline_image_upload=3611 src=cover/inline-03.png url=https://avtosales125.ru/wp-content/uploads/2026/07/levyj-rul-iz-korei-2026-kak-kupit-inline-03.png\npermalink=https://avtosales125.ru/2026/07/22/levyj-rul-iz-korei-2026-kak-kupit/\n",
+  "verdict": "pass"
+}

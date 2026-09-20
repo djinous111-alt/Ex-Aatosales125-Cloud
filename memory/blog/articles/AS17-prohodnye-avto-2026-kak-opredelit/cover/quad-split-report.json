@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS17-prohodnye-avto-2026-kak-opredelit/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1025,
+      577
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 577,
+        "end": 607
+      },
+      "v_gutter_px": {
+        "start": 1025,
+        "end": 1053
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1025,
+          "bottom": 577
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1025,
+          "bottom": 577
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс с календарём и карточкой лота: месяц выпуска важнее года в объявлении",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1053,
+          "top": 8,
+          "right": 2048,
+          "bottom": 568
+        },
+        "raw_box_px": {
+          "left": 1053,
+          "top": 0,
+          "right": 2048,
+          "bottom": 577
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица двух слоёв проходности: возраст 3–5 лет и мощность до 160 л.с.",
+        "h2_anchor": "Разберите, что значит \"проходное\" авто в 2026"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 28,
+          "top": 607,
+          "right": 997,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 607,
+          "right": 1025,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап ауклиста: месяц выпуска против года регистрации в объявлении",
+        "h2_anchor": "Как посчитать возраст: месяц выпуска, а не год в объявлении"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1066,
+          "top": 607,
+          "right": 2035,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1053,
+          "top": 607,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема проверок Япония–Корея–Китай при одном возрастном окне",
+        "h2_anchor": "Сравните Японию, Корею и Китай: одно правило возраста, разные ловушки"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разберите, что значит \"проходное\" авто в 2026",
+    "injected inline_2 after H2 — Как посчитать возраст: месяц выпуска, а не год в объявлении",
+    "injected inline_3 after H2 — Сравните Японию, Корею и Китай: одно правило возраста, разные ловушки"
+  ]
+}

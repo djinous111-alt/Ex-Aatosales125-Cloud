@@ -196,6 +196,18 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 
 ---
 
+## Kie soft lexicon + retry (обязательно)
+
+Перед `createTask` / `quad_prompt --write-batch`:
+
+- В `cover_hook`, `meme_caption_ru`, `scene_hint` **не** пиши gambling-like «ставка», сильное «ловушка», «казино».
+- Предпочитай нейтральные: «проверьте», «месяц выпуска», «вердикт зелёный», «стоп-лот».
+- `excalibur_blog_cover_quad_prompt.py` блокирует banned tokens в manifest (Kie failCode=422 sensitive).
+- Если Kie вернул 422 sensitive → смягчи lexicon, пересобери batch, **один** новый createTask.
+- Если Kie вернул 500 Internal Error → пауза ~20с и **один** retry того же task flow (не плодить параллельные jobs).
+
+---
+
 ## Эталон (B01)
 
 `memory/blog/articles/B01-primer-seo-stati/cover/` — reference implementation после design code v1.

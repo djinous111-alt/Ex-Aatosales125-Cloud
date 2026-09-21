@@ -6,6 +6,168 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+> Post-fixer 2026-07-26: open AS02 incidents closed as `fixed` or `needs-human` below. Remaining human blockers: Kie credits + cover→publish resume.
+
+
+## INC-20260726-2116-publish-missing-cover
+status: needs-human
+run_date: 2026-07-26
+role: excalibur-blog-publish
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: blocker
+category: publish
+
+### What went wrong
+- Publish step ⑥ ran with `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` and `publish: yes`, but required featured assets are missing: `cover/cover.png` and `cover/cover-registry.json`.
+- Root cause is upstream cover failure (Kie createTask 402 credits) — see INC-20260726-2112-cover-kie-402-credits.
+- Contract forbids inventing cover.png; featured image + alt registry are hard preconditions for WP publish.
+
+### How the agent recovered this run
+- Preflight: link-verify PASS (3/3), `--env-check` allow_publish=true / SSH host+user configured.
+- Dry-run `excalibur_blog_wp_publish.py --dry-run` OK (slug/title/PHP payload), but live publish was **not** started.
+- Returned explicit `❌ PUBLISH BLOCKER` (step completed, not skipped); ledger left `in_progress`.
+
+### Durable fix needed before next run
+- Top up Kie credits → re-run cover for AS02 → produce `cover/cover.png` + `cover-registry.json` + inject inline figures.
+- Then re-run publish only (link-verify → dry-run → publish → ledger `published`).
+- Optional: make `--dry-run` fail-fast when cover.png missing so director sees blocker earlier.
+
+### Suggested files to inspect/change
+- `memory/blog/articles/AS02-encar-na-russkom-kak-chitat/cover/`
+- `scripts/excalibur_blog_wp_publish.py` (preflight cover gate in dry-run)
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `memory/pipeline-fix-queue.md#INC-20260726-2112-cover-kie-402-credits`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: needs-human
+fixed_at: 2026-07-26
+reason:
+- Depends on cover (Kie 402); featured assets still missing — cannot invent cover.png.
+- Durable partial fix shipped: dry-run fail-fast when cover.png / cover-registry.json absent.
+needed_decision_or_secret:
+- After cover PASS for AS02: link-verify → dry-run → live publish → ledger `published`.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- AS02 `--dry-run` → exit 2, cover_missing listed
+resume:
+- cover → publish
+commit: a1f62bf
+
+## INC-20260726-2112-cover-kie-402-credits
+status: needs-human
+run_date: 2026-07-26
+role: excalibur-blog-cover
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: api
+
+### What went wrong
+- Preferred cover flow `scripts/excalibur_blog_kie_gpt_image2_api.py` (createTask → recordInfo) failed at createTask with `code=402` / `Credits insufficient`.
+- Same Cloud `KIE_API_KEY` balance issue as prior B01 cover run; cannot produce `canvas-quad.png` / `cover.png` / inline panels.
+- Skill forbids GenerateImage workaround and inventing cover assets without a real MCP/Kie URL.
+
+### How the agent recovered this run
+- Director MCP retry `gpt-image-2`: error NoneType/.get — no URL; cover remains missing (no invented PNG).
+- Prepared AS02 cover artifacts only: `cover/quad-manifest.json` (Encar hooks, non-toxic stickers), `quad-mcp-prompt.txt`, `quad-mcp-batch.json` (1 job, `input_urls` set).
+- Did **not** invent `cover.png` / inline PNGs; did **not** inject fake figures into `article.html`.
+- Wrote fragment `.cursor/excalibur-blog-fragments/cover.md` with status ❌ and blocker `KIE API 402 credits`.
+
+### Durable fix needed before next run
+- Top up Kie.ai credits for Cloud Secret `KIE_API_KEY`.
+- Re-run cover only: `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir memory/blog/articles/AS02-encar-na-russkom-kak-chitat` then `excalibur_blog_quad_apply.py --inject-html` (batch already ready).
+- Optionally document preflight balance check before cover||schema parallel start.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `memory/blog/articles/AS02-encar-na-russkom-kak-chitat/cover/quad-mcp-batch.json`
+- Cursor Dashboard Secrets → `KIE_API_KEY` billing
+
+### Secrets
+- none recorded (do not log API key)
+
+### Fixer resolution
+status: needs-human
+fixed_at: 2026-07-26
+reason:
+- Cannot top-up Kie.ai credits from the repository; createTask 402 is an external billing blocker.
+needed_decision_or_secret:
+- Human: top up Kie credits for Cloud Secret `KIE_API_KEY`.
+- Resume cover only (keep prepared `quad-mcp-batch.json`): `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir memory/blog/articles/AS02-encar-na-russkom-kak-chitat` then `excalibur_blog_quad_apply.py --inject-html` (or MCP gpt-image-2 with batch args).
+- Do not invent cover.png / GenerateImage workaround.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- confirmed AS02 cover/ has quad-mcp-batch.json and no cover.png
+commit: a1f62bf
+
+## INC-20260726-2108-writer-as02-policy-cta-gap
+status: fixed
+run_date: 2026-07-26
+role: excalibur-blog-writer
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: docs
+
+### What went wrong
+- `shared/public-cta.json` отсутствует; Writer брал CTA из env `CATALOG_URL` / `TELEGRAM_URL` (с `<!-- pragma: allowlist secret -->`), иначе conversion-map содержит placeholder.
+- `memory/brief/editorial-policy.json` не содержал `pain_markers_ru` / `outcome_markers_ru`, а `excalibur_blog_utility_gate.py` по умолчанию требует min 2/3 → любой article utility gate BLOCK (в т.ч. уже опубликованный AS09).
+- Recommendation markers в тексте должны быть императивом (`Сделайте` / `Не делайте`), формулировка `Делать:` / `Не делать:` utility gate не засчитывает.
+
+### How the agent recovered this run
+- CTA href подставлены из env; pragma allowlist на строках ссылок.
+- В `editorial-policy.json` добавлены `pain_markers_ru` / `outcome_markers_ru` (как в human-voice gate) и явные min в `article_required_signals`.
+- Статья переписана с маркерами действия; utility + human-voice + html linter PASS.
+
+### Durable fix needed before next run
+- Не коммитить `shared/public-cta.json`, пока CATALOG/TELEGRAM/PUBLIC/MAX URL лежат в Cloud Secrets (secret scan блокирует). Writer: CTA только из env + `<!-- pragma: allowlist secret -->`. Долгосрочно: вынести публичные URL из Secrets (см. INC-1720) либо whitelist в precommit.
+- Зафиксировать в writer skill: recommendation markers = императив из `recommendation_markers_ru`.
+- Fixer: подтвердить, что utility gate не падает при пустых marker lists (skip или fail-fast на policy).
+
+### Suggested files to inspect/change
+- `shared/public-cta.json` (создать)
+- `memory/brief/editorial-policy.json`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_utility_gate.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Writer skill/contract: CTA from env + pragma allowlist; do not commit live `public-cta.json` while URLs are Cloud Secrets; example at `shared/public-cta.example.json`.
+- Recommendation markers documented as imperatives from `recommendation_markers_ru` (`Сделайте`/`Не делайте`); `Делать:` not counted.
+- `editorial-policy.json` already has pain/outcome markers + mins; utility gate fail-fast if marker lists empty.
+- conversion-map documents env-based CTA roles.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/public-cta.example.json`
+- `memory/brief/conversion-map.md`
+- `memory/brief/editorial-policy.json` (markers confirmed)
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
+- JSON parse editorial-policy + public-cta.example
+- `rg` pragma/CTA guidance in writer skills
+commit: a1f62bf
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16
@@ -56,7 +218,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: bb13591
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -251,6 +413,159 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
-## Fixed incidents
+## INC-20260724-2029-director-as-topic-regex
+status: fixed
+run_date: 2026-07-24
+role: excalibur-blog-director
+topic_id: AS02
+article_dir: n/a
+severity: high
+category: script
 
-Handled above; commit is pending Director review.
+### What went wrong
+- `excalibur_blog_today.py` and `excalibur_blog_scout_helper.py` matched only `B\\d+` topic cards, so AS* pool looked empty and today returned `needs_scout`.
+- Doctor failed: missing numpy; llms generator lacked `--blog-path` alias required by doctor/indexer contract.
+
+### How the agent recovered this run
+- Extended topic regex to `(?:B|AS)\\d+` in today + scout helper.
+- Added `--blog-path` alias to llms generator.
+- Installed `python3-numpy` via apt for the Cloud VM.
+
+### Durable fix needed before next run
+- Keep AS|B topic ID support in today/scout helper.
+- Keep `--blog-path` alias; ensure Cloud image has numpy (apt or environment.json).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `.cursor/environment.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Confirmed `(?:B|AS)\d+` in today.py + scout_helper; `--blog-path` alias on llms generator.
+- Cloud image: numpy via Dockerfile `python3-numpy` + pip fallback in `cloud-agent-install.sh`; note in `environment.json`.
+files_changed:
+- `scripts/excalibur_blog_today.py` (already patched)
+- `scripts/excalibur_blog_scout_helper.py` (already patched)
+- `scripts/excalibur_blog_llms_generator.py` (alias + URL-path guard)
+- `.cursor/Dockerfile`
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/environment.json`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `python3 scripts/excalibur_blog_today.py` → SUGGESTED_TOPIC_ID=AS01
+- `python3 scripts/excalibur_blog_llms_generator.py --help` has `--blog-path`
+- `import numpy` OK
+commit: a1f62bf
+
+## INC-20260726-2105-research-wordstat-truncated-top
+status: fixed
+run_date: 2026-07-26
+role: excalibur-blog-research
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: api
+
+### What went wrong
+- `wordstat_get_top_requests` for secondary phrases `как читать encar` and `читать encar` returned truncated payload `{"totalCount":"3"}` without phrase list / impressions (not HTTP 401).
+- Same class of truncated Wordstat responses already seen on AS09 for some Encar-check phrases.
+- Separately: `excalibur_blog_research_notes_gate.py -o` with a repo-relative path nests output under `article_dir/`; must use `-o research-notes-gate.json` only.
+- Gate marks non-tech auto topics as `technical_topic` if notes contain `github` (section `github_evidence`), producing a docs warning unless a `/docs` URL is added.
+
+### How the agent recovered this run
+- Kept Wordstat numbers only for successful phrases (`encar на русском`, `проверка авто корея`, `encar`, `trust encar`, `carhistory`); documented partial warning without inventing impressions for broken secondary.
+- Re-ran research-notes gate with `-o research-notes-gate.json`; removed nested duplicate output dir; added `https://carapis.com/docs` for official docs signal.
+- Gate status PASS.
+
+### Durable fix needed before next run
+- Harden Wordstat MCP client/docs: on truncated `totalCount`-only responses, retry without regions / alternate phrasing and surface a stable `WORDSTAT PARTIAL` contract (not only 401 auth warning).
+- Document in research skill that `-o` for research-notes gate is relative to `--article-dir`.
+- Consider excluding the literal heading `github_evidence` / URL host `github.com` from `is_technical_topic()` false positives for auto niche topics.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- MCP Wordstat wrapper / server notes (if in repo)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Research skill: cluster-first Wordstat + `WORDSTAT PARTIAL` for totalCount-only payloads; retry without inventing impressions.
+- Documented `-o research-notes-gate.json` relative to `--article-dir`.
+- `is_technical_topic()` no longer false-positives on required `github_evidence` heading / github.com hosts.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+- `rg` WORDSTAT PARTIAL in research skills
+commit: a1f62bf
+
+## INC-20260726-2114-indexer-llms-blog-path-slash
+status: fixed
+run_date: 2026-07-26
+role: excalibur-blog-indexer
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer skill/agent still show `llms_generator --blog-path /` (URL path), but script treats `--blog-path` as alias for `--blog-dir`.
+- With both flags, `--blog-path /` wins → loads filesystem root → `Loaded 0 articles` and overwrites `memory/blog/llms.txt` / `llms-full.txt` with empty indexes.
+
+### How the agent recovered this run
+- Re-ran with only `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (omit `--blog-path /`).
+- Confirmed `Loaded 3 articles`; AS02 present in `llms.txt`.
+- Commit secret-scan blocked absolute `PUBLIC_SITE_URL` in llms/checklist → rewrote committed URLs to relative `/blog/...`.
+
+### Durable fix needed before next run
+- Update indexer skill/agent examples: either drop `--blog-path /` or pass `--blog-path memory/blog/articles`.
+- Add pitfalls line: never pass `--blog-path /` to llms generator; it is a dir alias, not WP URL path.
+- Optional: ignore `--blog-path` values that are URL paths (`/`, `/blog`) when `--blog-dir` is set.
+- Document commit-safe llms output: relative `/blog/{slug}/` or pragma allowlist when `PUBLIC_SITE_URL` is a Cloud Secret (related needs-human public-URL secret issue).
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_llms_generator.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-07-26
+fix_summary:
+- Indexer agent/skill examples drop `--blog-path /`; document alias = `--blog-dir memory/blog/articles`.
+- llms generator ignores URL-path-like `--blog-path` (`/`, `/blog`) with WARNING when `--blog-dir` is set.
+- Pitfalls + commit-safe relative `/blog/{slug}/` note.
+files_changed:
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `scripts/excalibur_blog_llms_generator.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `--blog-path /` with `--blog-dir memory/blog/articles` → WARNING + Loaded 3 articles
+- `rg` confirmed no command examples with `--blog-path /`
+commit: a1f62bf
+

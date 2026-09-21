@@ -3,5 +3,6 @@
     "dockerfile": "Dockerfile",
     "context": ".."
   },
-  "install": "bash .cursor/cloud-agent-install.sh"
+  "install": "bash .cursor/cloud-agent-install.sh",
+  "notes": "Doctor requires numpy (python3-numpy in Dockerfile + pip fallback in cloud-agent-install.sh). Topic IDs are B* and AS*."
 }

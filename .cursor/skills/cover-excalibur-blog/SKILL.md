@@ -174,6 +174,15 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 
 ---
 
+## Kie credits / 402 (needs-human)
+
+Если `excalibur_blog_kie_gpt_image2_api.py` createTask вернул `code=402` / `Credits insufficient`:
+
+1. **Не** выдумывай `cover.png` и **не** используй GenerateImage workaround.
+2. Сохрани подготовленные артефакты: `cover/quad-manifest.json`, `quad-mcp-prompt.txt`, `quad-mcp-batch.json` (1 job, `input_urls`).
+3. Верни fragment ❌ + incident; resume только после top-up Cloud Secret `KIE_API_KEY` на Kie.ai.
+4. Resume: `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir <article_dir>` → `excalibur_blog_quad_apply.py --inject-html` (или MCP `gpt-image-2` с args из batch) → затем publish.
+
 ## Blockers → verdict ❌
 
 - нет reference_url_hosted

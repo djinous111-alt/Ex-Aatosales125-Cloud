@@ -159,7 +159,14 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     faq_h3 = len(re.findall(r"<h3[^>]*>", html, flags=re.I))
 
     markers = policy.get("recommendation_markers_ru") or []
-    marker_count = count_markers(plain, markers)
+    if not markers:
+        errors.append(
+            "editorial-policy.json: recommendation_markers_ru пуст — "
+            "utility gate не может проверить action-маркеры (fail-fast на policy)"
+        )
+        marker_count = 0
+    else:
+        marker_count = count_markers(plain, markers)
 
     min_steps = int(req.get("min_numbered_steps") or 5)
     if li_in_ol < min_steps:
@@ -182,20 +189,34 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
         warnings.append(f"FAQ h3={faq_h3}, ожидалось ≥{min_faq}")
 
     min_rec = int(req.get("min_recommendation_markers") or 8)
-    if marker_count < min_rec:
+    if markers and marker_count < min_rec:
         errors.append(f"мало action-маркеров в тексте: {marker_count} < {min_rec}")
 
     pain_markers = policy.get("pain_markers_ru") or []
     outcome_markers = policy.get("outcome_markers_ru") or []
-    pain_count = count_markers(plain, pain_markers)
-    outcome_count = count_markers(plain, outcome_markers)
+    if not pain_markers:
+        errors.append(
+            "editorial-policy.json: pain_markers_ru пуст — "
+            "utility gate не может проверить боль читателя (fail-fast на policy)"
+        )
+        pain_count = 0
+    else:
+        pain_count = count_markers(plain, pain_markers)
+    if not outcome_markers:
+        errors.append(
+            "editorial-policy.json: outcome_markers_ru пуст — "
+            "utility gate не может проверить пользу/результат (fail-fast на policy)"
+        )
+        outcome_count = 0
+    else:
+        outcome_count = count_markers(plain, outcome_markers)
 
     min_pain = int(req.get("min_pain_markers") or 2)
-    if pain_count < min_pain:
+    if pain_markers and pain_count < min_pain:
         errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
 
     min_outcome = int(req.get("min_outcome_markers") or 3)
-    if outcome_count < min_outcome:
+    if outcome_markers and outcome_count < min_outcome:
         errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
 
     if req.get("requires_workflow_or_table_or_checklist"):

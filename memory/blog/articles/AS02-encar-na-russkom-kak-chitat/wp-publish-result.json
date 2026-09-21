@@ -1,0 +1,30 @@
+{
+  "verdict": "blocker",
+  "topic_id": "AS02",
+  "slug": "encar-na-russkom-kak-chitat",
+  "article_dir": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat",
+  "publish_date": "2026-07-26",
+  "permalink": null,
+  "post_id": null,
+  "featured_image": null,
+  "inline_images": [],
+  "schema_meta": null,
+  "dry_run": {
+    "ok": true,
+    "slug": "encar-na-russkom-kak-chitat",
+    "title": "Encar на русском: как читать объявления и не купить кота в мешке"
+  },
+  "preflight": {
+    "link_verify": "pass",
+    "env_check": "pass",
+    "allow_publish": true,
+    "qa": "PASS",
+    "schema": "present",
+    "cover_png": false,
+    "cover_registry": false
+  },
+  "blockers": [
+    "❌ PUBLISH BLOCKER — missing cover/cover.png and cover-registry.json (upstream Kie 402 credits; cover not invented)"
+  ],
+  "incident_report": "memory/pipeline-fix-queue.md#INC-20260726-2116-publish-missing-cover"
+}

@@ -1,0 +1,89 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-26",
+    "today_ru": "26.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-27",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-26 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS02",
+    "priority": "P0",
+    "slug": "encar-na-russkom-kak-chitat",
+    "h1": "Encar на русском: как читать объявления и не купить «кота в мешке»",
+    "primary_query": "encar на русском",
+    "secondary_queries": [
+      "как читать encar",
+      "проверка авто корея"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS02",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "encar на русском 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "encar на русском июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "encar на русском новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com encar на русском 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "encar на русском official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "encar на русском forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "как читать encar 2026",
+      "purpose": "вторичный запрос: как читать encar"
+    },
+    {
+      "id": "secondary_2",
+      "query": "проверка авто корея 2026",
+      "purpose": "вторичный запрос: проверка авто корея"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Encar на русском: как читать объявления и не купить «кота в мешке» 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

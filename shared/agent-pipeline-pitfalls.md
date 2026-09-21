@@ -22,6 +22,7 @@
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
 - Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
 - SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
+- Dry-run fail-fast без `cover/cover.png` + `cover-registry.json` (exit 2); resume: cover → publish.
 
 ## Writer / Fact Check Box
 
@@ -38,11 +39,30 @@
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- Kie createTask `402 Credits insufficient` → needs-human top-up `KIE_API_KEY`; сохраняй quad-mcp-batch, не выдумывай cover.png.
 
 ## Scout
 
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
 
+## Research
+
+- Wordstat `{"totalCount":"..."}` без phrase list → `WORDSTAT PARTIAL`: retry без regions / шире формулировка; не выдумывай impressions.
+- `research_notes_gate.py -o research-notes-gate.json` — путь относителен к `--article-dir`, не к корню репо.
+
+## Writer / CTA
+
+- CTA href из env (`CATALOG_URL` / `TELEGRAM_URL`) + `<!-- pragma: allowlist secret -->`; не коммить `shared/public-cta.json` с живыми URL при Cloud Secrets.
+- Recommendation markers = императив (`Сделайте` / `Не делайте`); `Делать:` / `Не делать:` utility gate не засчитывает.
+- Пустые `pain_markers_ru` / `outcome_markers_ru` / `recommendation_markers_ru` в editorial-policy → utility gate fail-fast на policy.
+
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- `--blog-path` = алиас `--blog-dir` (filesystem). Никогда `--blog-path /` — это не WP URL path; перезапишет llms пустым индексом. Используй `--blog-dir memory/blog/articles`.
+
+## Topic IDs / Cloud image
+
+- today/scout helper принимают topic_id `(?:B|AS)\d+`.
+- Doctor требует numpy: `python3-numpy` в Dockerfile + pip fallback в `cloud-agent-install.sh`.
+

@@ -31,3 +31,16 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-07-26 — AS02 encar-na-russkom-kak-chitat
+
+- **verdict:** ❌ PUBLISH BLOCKER
+- **post_id:** —
+- **permalink:** —
+- **featured_image:** missing (`cover/cover.png` + `cover-registry.json`)
+- **inline_images:** —
+- **schema_meta:** not applied (publish not started)
+- **preflight:** link-verify PASS; env-check allow=yes; dry-run OK
+- **blocker:** no cover assets after Kie 402 (INC-20260726-2112); cover not invented; live WP publish skipped by contract
+- **result:** `memory/blog/articles/AS02-encar-na-russkom-kak-chitat/wp-publish-result.json`
+- **incident:** `memory/pipeline-fix-queue.md#INC-20260726-2116-publish-missing-cover`

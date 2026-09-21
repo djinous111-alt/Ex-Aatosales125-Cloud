@@ -1,0 +1,16 @@
+{
+  "_comment": "Example only. Do NOT commit shared/public-cta.json with live URLs while CATALOG_URL/TELEGRAM_URL/PUBLIC_SITE_URL/MAX_URL are Cloud Secrets (secret-scan). Writer resolves CTA from env + conversion-map.md limits; use <!-- pragma: allowlist secret --> on live href lines in article.html.",
+  "catalog_url_env": "CATALOG_URL",
+  "telegram_url_env": "TELEGRAM_URL",
+  "max_url_env": "MAX_URL",
+  "max_mentions": {
+    "catalog": 3,
+    "telegram": 2,
+    "max": 1
+  },
+  "placeholders_when_env_empty": {
+    "catalog": "[CATALOG_URL]",
+    "telegram": "[TELEGRAM_URL]",
+    "max": "[MAX_URL]"
+  }
+}

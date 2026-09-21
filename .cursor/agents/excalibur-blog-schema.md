@@ -24,6 +24,7 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 
 1. Прочитать article.html, article.meta.json, research-notes, authors-registry.
 2. Собрать `schema.jsonld`: BlogPosting + FAQPage (+ HowTo если нужно).
+   Repo-артефакт: relative page `@id`/`url`; secret-scan-safe `sameAs` (см. skill). Не писать exact `PUBLIC_SITE_URL`/`CATALOG_URL`/`TELEGRAM_URL`/`MAX_URL`.
 3. datePublished из research-context (today).
 4. Fragment `.cursor/excalibur-blog-fragments/schema.md`:
 

@@ -1,0 +1,21 @@
+{
+  "topic_id": "AS10",
+  "slug": "tank-300-iz-kitaya-ramnik-ili-krossover-2026",
+  "article_dir": "memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026",
+  "verdict": "blocker",
+  "reason": "cover missing / credits — no cover/cover.png, cover-registry.json, or inline PNGs; contract forbids publish without featured",
+  "published": false,
+  "permalink": null,
+  "post_id": null,
+  "featured_image": null,
+  "inline_images": [],
+  "schema_meta": false,
+  "preflight": {
+    "env_check": "pass",
+    "allow_publish": true,
+    "link_verify": "pass"
+  },
+  "ledger_status": "in_progress",
+  "incident_report": "memory/pipeline-fix-queue.md#INC-20260726-2120-publish-cover-missing",
+  "upstream": "memory/pipeline-fix-queue.md#INC-20260726-2116-cover-kie-credits"
+}

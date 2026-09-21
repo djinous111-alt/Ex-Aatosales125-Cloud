@@ -235,6 +235,8 @@ Excalibur BLOG следует этому контракту для каждой 
 2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-tracking-map.md` / `offers-map.md`.  
 Не больше **3** упоминаний основного офера/CTA на статью (включая баннер и «что дальше»).
 
+**Запрещено:** `href="[REDACTED]"` / любой URL с токеном `[REDACTED]` в `article.html`. Это placeholder для handoff/docs, не для HTML. Используй secret-scan-safe рабочие CTA (каталог без trailing `/`, `telegram.me`). Exact значения Cloud Secrets (`CATALOG_URL`, `TELEGRAM_URL`, `PUBLIC_SITE_URL`) в committed HTML блокируют commit.
+
 ### Блок 5: Inline-баннер (опционально)
 
 **Только если** в `conversion-tracking-map.md` есть `excalibur_inline_banner: yes` и `banner_image_url` + `banner_link_url`.
@@ -347,6 +349,8 @@ Excalibur BLOG следует этому контракту для каждой 
   - Содержит `itemReviewed` (тип `Product` или `Thing`), `reviewRating` (оценка, например 4.8/5.0), `publisher` и `reviewBody` (краткий вердикт).
 
 Все поля должны быть валидными по валидаторам Schema.org / Google Rich Results. Валидный JSON-LD, без разрывов строк внутри строк, экранирование кавычек.
+
+**Secret-scan (repo artifact):** в committed `schema.jsonld` используй relative `@id`/`url` страницы и secret-scan-safe CTA для `sameAs`/`publisher.url` (каталог без trailing `/`, `telegram.me` вместо exact `t.me`/`TELEGRAM_URL`). Не копируй literal значения Cloud Secrets (`PUBLIC_SITE_URL`, `CATALOG_URL`, `MAX_URL`). Publish может absolutize на live host.
 
 ## Чеклист перед сдачей
 

@@ -31,3 +31,12 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-07-26 — AS10 tank-300-iz-kitaya-ramnik-ili-krossover-2026
+
+- **verdict:** ❌ PUBLISH BLOCKER
+- **reason:** cover missing / credits — нет `cover/cover.png`, `cover-registry.json`, inline PNG (Kie 402)
+- **preflight:** `--env-check` OK (`allow_publish=true`, SSH configured); `link-verify.json` pass (2/2)
+- **published:** no (контракт запрещает publish без featured)
+- **ledger:** `shared/published-articles.md` AS10 остаётся `in_progress`
+- **incident:** `memory/pipeline-fix-queue.md#INC-20260726-2120-publish-cover-missing`

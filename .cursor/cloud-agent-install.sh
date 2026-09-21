@@ -13,4 +13,9 @@ python3 -m pip install --break-system-packages --quiet \
 mkdir -p .cursor/excalibur-blog-fragments
 touch .cursor/excalibur-blog-handoff.md
 
+# Skip non-identifier secret names in Cursor agent git hooks (URL-as-name → invalid variable name).
+if [[ -x scripts/excalibur_blog_patch_agent_hooks.sh ]]; then
+  bash scripts/excalibur_blog_patch_agent_hooks.sh || echo "[excalibur-cloud] WARN: agent-hooks patch skipped"
+fi
+
 echo "[excalibur-cloud] install ok"

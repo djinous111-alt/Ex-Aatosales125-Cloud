@@ -23,6 +23,8 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
 
+Если cover отсутствует (в т.ч. после Kie **402 Credits**) → `❌ PUBLISH BLOCKER`: не публиковать без featured и не invent PNG. Сначала human top-up + re-run cover (`INC-…-cover-kie-credits`). Publish script hard-fails early when `cover/cover.png` / `cover-registry.json` missing.
+
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
 
 ## Алгоритм

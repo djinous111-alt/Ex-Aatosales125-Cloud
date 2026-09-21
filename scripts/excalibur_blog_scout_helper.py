@@ -10,8 +10,20 @@ import sys
 from pathlib import Path
 from typing import Any
 
+# Brand prefixes: AS* (Авто-Сейлс) and legacy B*.
+TOPIC_ID_TOKEN = r"(?:AS|B)\d+"
+TOPIC_DIR_RE = re.compile(rf"^({TOPIC_ID_TOKEN})-", re.IGNORECASE)
+TOPIC_HEADING_RE = re.compile(
+    rf"##\s+({TOPIC_ID_TOKEN})\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)",
+    re.DOTALL | re.IGNORECASE,
+)
+TOPIC_NUM_RE = re.compile(rf"^({TOPIC_ID_TOKEN})$", re.IGNORECASE)
+PREFIX_NUM_RE = re.compile(r"^(AS|B)(\d+)$", re.IGNORECASE)
+
+
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
+
 
 def load_published_topics(root: Path) -> set[str]:
     ledger_path = root / "shared/published-articles.md"
@@ -34,7 +46,7 @@ def load_active_article_topics(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = TOPIC_DIR_RE.match(path.name)
         if match:
             active.add(match.group(1).upper())
     return active
@@ -46,25 +58,50 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
     if not topics_path.is_file():
         return topics
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in TOPIC_HEADING_RE.finditer(text):
         topic_id = match.group(1).upper()
         block = match.group(2)
-        
+
         def field(name: str) -> str:
-            # Flexible matching for bullet points with different formats
             m = re.search(rf"(?:-|\*)\s*\*\*{re.escape(name)}:\*\*\s*(.+)", block, re.IGNORECASE)
             if not m:
-                # Fallback for plain bold key matching without lists
                 m = re.search(rf"\*\*{re.escape(name)}:\*\*\s*(.+)", block, re.IGNORECASE)
             return m.group(1).strip() if m else ""
-            
-        topics.append({
-            "topic_id": topic_id,
-            "primary_query": field("primary_query"),
-            "slug": field("slug"),
-            "priority": field("priority"),
-        })
+
+        topics.append(
+            {
+                "topic_id": topic_id,
+                "primary_query": field("primary_query"),
+                "slug": field("slug"),
+                "priority": field("priority"),
+            }
+        )
     return topics
+
+
+def load_live_slugs(path: Path) -> set[str]:
+    if not path.is_file():
+        return set()
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return set()
+    slugs: set[str] = set()
+    if isinstance(payload, list):
+        items = payload
+    elif isinstance(payload, dict):
+        items = payload.get("posts") or payload.get("items") or payload.get("articles") or []
+    else:
+        items = []
+    for item in items:
+        if isinstance(item, str):
+            slugs.add(item.strip().lower())
+        elif isinstance(item, dict):
+            slug = str(item.get("slug") or item.get("post_name") or "").strip().lower()
+            if slug:
+                slugs.add(slug)
+    return slugs
+
 
 def normalize_and_tokenize(text: str) -> set[str]:
     text = text.lower()
@@ -78,10 +115,11 @@ def normalize_and_tokenize(text: str) -> set[str]:
         tokens.add(w_clean[:5] if len(w_clean) > 4 else w_clean)
     return tokens
 
+
 def check_overlap(new_query: str, existing_topics: list[dict[str, str]], reserved_ids: set[str]) -> list[dict[str, Any]]:
     new_tokens = normalize_and_tokenize(new_query)
     warnings = []
-    
+
     for t in existing_topics:
         ext_tokens = normalize_and_tokenize(t["primary_query"])
         if not new_tokens or not ext_tokens:
@@ -89,63 +127,108 @@ def check_overlap(new_query: str, existing_topics: list[dict[str, str]], reserve
         intersection = len(new_tokens.intersection(ext_tokens))
         union = len(new_tokens.union(ext_tokens))
         similarity = intersection / union
-        
+
         status = "reserved" if t["topic_id"] in reserved_ids else "in_pool"
-        
+
         if t["primary_query"].strip().lower() == new_query.strip().lower():
-            warnings.append({
-                "severity": "CRITICAL",
-                "topic_id": t["topic_id"],
-                "similarity": 1.0,
-                "status": status,
-                "message": f"EXACT MATCH found with topic {t['topic_id']} ({status})! Primary query: '{t['primary_query']}'"
-            })
+            warnings.append(
+                {
+                    "severity": "CRITICAL",
+                    "topic_id": t["topic_id"],
+                    "similarity": 1.0,
+                    "status": status,
+                    "message": (
+                        f"EXACT MATCH found with topic {t['topic_id']} ({status})! "
+                        f"Primary query: '{t['primary_query']}'"
+                    ),
+                }
+            )
         elif similarity >= 0.35:
-            warnings.append({
-                "severity": "WARNING",
-                "topic_id": t["topic_id"],
-                "similarity": round(similarity, 2),
-                "status": status,
-                "message": f"High overlap ({round(similarity*100)}%) with topic {t['topic_id']} ({status}). Query: '{t['primary_query']}'"
-            })
+            warnings.append(
+                {
+                    "severity": "WARNING",
+                    "topic_id": t["topic_id"],
+                    "similarity": round(similarity, 2),
+                    "status": status,
+                    "message": (
+                        f"High overlap ({round(similarity * 100)}%) with topic "
+                        f"{t['topic_id']} ({status}). Query: '{t['primary_query']}'"
+                    ),
+                }
+            )
     return warnings
+
+
+def suggest_next_id(existing: list[dict[str, str]]) -> str:
+    """Prefer AS* when present (Авто-Сейлс); fall back to B*; default AS01."""
+    max_by_prefix: dict[str, int] = {}
+    for t in existing:
+        m = PREFIX_NUM_RE.match(t["topic_id"])
+        if not m:
+            continue
+        prefix = m.group(1).upper()
+        max_by_prefix[prefix] = max(max_by_prefix.get(prefix, 0), int(m.group(2)))
+    if "AS" in max_by_prefix:
+        return f"AS{max_by_prefix['AS'] + 1:02d}"
+    if "B" in max_by_prefix:
+        return f"B{max_by_prefix['B'] + 1:02d}"
+    return "AS01"
+
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Helper for Excalibur BLOG Scout Agent")
     ap.add_argument("--suggest-next", action="store_true", help="Print next available Topic ID and summary")
     ap.add_argument("--check-query", type=str, default="", help="Check new primary query for overlaps")
+    ap.add_argument(
+        "--check-live-slugs",
+        type=str,
+        default="",
+        help="JSON snapshot of live WP slugs (e.g. memory/blog/published-live-avtosales125.json)",
+    )
+    ap.add_argument("--slug", type=str, default="", help="Candidate slug to check against --check-live-slugs")
     args = ap.parse_args()
-    
-    # Reconfigure stdout for utf-8 on Windows
+
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
     if hasattr(sys.stderr, "reconfigure"):
         sys.stderr.reconfigure(encoding="utf-8")
-    
+
     root = project_root()
     published = load_published_topics(root)
     active = load_active_article_topics(root)
     reserved = published | active
     existing = load_existing_topics(root)
-    
+
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
-        max_num = 0
-        for t in existing:
-            m = re.match(r"B(\d+)", t["topic_id"])
-            if m:
-                max_num = max(max_num, int(m.group(1)))
-        
-        next_id = f"B{max_num + 1:02d}"
+        next_id = suggest_next_id(existing)
         print(f"Next available topic ID: {next_id}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")
         print(f"Active article dirs: {sorted(active)}")
-        
         unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
         print(f"Unwritten topic IDs in pool: {unwritten}")
         return 0
-        
+
+    if args.check_live_slugs:
+        live_path = Path(args.check_live_slugs)
+        if not live_path.is_absolute():
+            live_path = root / live_path
+        live_slugs = load_live_slugs(live_path)
+        print(f"Live slug snapshot: {live_path.relative_to(root) if live_path.is_relative_to(root) else live_path}")
+        print(f"Live slug count: {len(live_slugs)}")
+        if args.slug:
+            slug = args.slug.strip().lower().strip("/")
+            if slug in live_slugs:
+                print(f"❌ SLUG EXISTS ON LIVE SITE: {slug}")
+                return 1
+            print(f"✅ SLUG NOT IN LIVE SNAPSHOT: {slug}")
+        pool_slugs = {t["slug"].strip().lower() for t in existing if t.get("slug")}
+        overlap = sorted(pool_slugs & live_slugs)
+        if overlap:
+            print(f"NOTE: pool slugs also on live ({len(overlap)}): {overlap[:12]}")
+        return 0
+
     if args.check_query:
         warnings = check_overlap(args.check_query, existing, reserved)
         if warnings:
@@ -159,6 +242,7 @@ def main() -> int:
 
     ap.print_help()
     return 0
+
 
 if __name__ == "__main__":
     sys.exit(main())

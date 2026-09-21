@@ -1,0 +1,10 @@
+{
+  "ok": false,
+  "blocker": "COVER BLOCKER CREDITS",
+  "provider": "kie.ai",
+  "model": "gpt-image-2-image-to-image",
+  "code": 402,
+  "msg": "Credits insufficient : Your current balance isn’t enough to run this request. Please top up to continue.",
+  "canvas_url": null,
+  "invent_png": false
+}

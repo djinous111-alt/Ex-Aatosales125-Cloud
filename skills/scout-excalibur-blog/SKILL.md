@@ -27,12 +27,18 @@ Append new Topic Card to blog-topics.md
 ## Подробный алгоритм действий
 
 ### Шаг 1 — Анализ прошлого и получение ID
-* Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
+* Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md` (ID = `AS##` или legacy `B##`).
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Запомни следующий `topic_id` (для Авто-Сейлс ожидается `AS11`, не `B01`) и список невыполненных тем.
+* **Live WP:** опирайся на `PUBLIC_SITE_URL` через `python3 scripts/excalibur_blog_today.py` и snapshot `memory/blog/published-live-avtosales125.json`. MCP `wordpress_get_posts` может указывать на чужой сайт — не использовать как единственный источник каннибализации.
+  ```bash
+  python3 scripts/excalibur_blog_scout_helper.py \
+    --check-live-slugs memory/blog/published-live-avtosales125.json \
+    --slug "<candidate-slug>"
+  ```
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
@@ -47,9 +53,9 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
-Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
+Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными, live snapshot или запланированными статьями!
 
 ### Шаг 5 — Сборка карточки темы (Utility-Only)
 Сформируй карточку темы по шаблону:
@@ -79,5 +85,7 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 
 ## Блокеры скаута
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
-* Игнорирование проверки на каннибализацию ключей.
+* Игнорирование проверки на каннибализацию ключей / live slug snapshot.
+* Доверие к MCP WordPress без сверки с `PUBLIC_SITE_URL` / `published-live-*.json`.
 * Выдумывание цифр спроса без вызова Wordstat API.
+* Слепой next-ID `B01`, когда в пуле уже есть `AS*`.

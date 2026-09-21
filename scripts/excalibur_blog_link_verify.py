@@ -138,6 +138,35 @@ def verify_article(
     skip_external: bool = False,
 ) -> dict[str, Any]:
     html = html_path.read_text(encoding="utf-8")
+    # Writer must never leave secret-scan placeholders in live hrefs.
+    redacted_hrefs = re.findall(
+        r"""href\s*=\s*["'][^"']*\[REDACTED\][^"']*["']""",
+        html,
+        flags=re.I,
+    )
+    if redacted_hrefs:
+        return {
+            "source": str(html_path).replace("\\", "/"),
+            "total_links": len(redacted_hrefs),
+            "failed_count": len(redacted_hrefs),
+            "verdict": "fail",
+            "errors": [
+                'literal href="[REDACTED]" is forbidden in article.html; '
+                "use real public CTA variants (catalog without trailing slash, telegram.me)"
+            ],
+            "links": [
+                {
+                    "url": item,
+                    "kind": "redacted_placeholder",
+                    "status": None,
+                    "ok": False,
+                    "skipped": False,
+                    "method": None,
+                    "error": "REDACTED placeholder href",
+                }
+                for item in redacted_hrefs
+            ],
+        }
     links = extract_links(html)
     user_agent = "ExcaliburBlogLinkVerify/1.0"
     results: list[dict[str, Any]] = []

@@ -181,6 +181,16 @@ def load_article(article_dir: Path) -> dict:
     cover_b64 = ""
     cover_evidence: dict[str, object] = {}
     cover_reg = article_dir / "cover" / "cover-registry.json"
+    if not cover_path.is_file():
+        raise FileNotFoundError(
+            "PUBLISH BLOCKER: missing cover/cover.png (and usually cover-registry.json). "
+            "If cover failed with Kie 402 Credits insufficient, top up credits and re-run cover "
+            "before publish — do not invent PNGs."
+        )
+    if not cover_reg.is_file():
+        raise FileNotFoundError(
+            "PUBLISH BLOCKER: missing cover/cover-registry.json (alt/registry required with cover.png)"
+        )
     if cover_path.is_file():
         cover_evidence = normalize_cover_png(cover_path, cover_reg, project_root())
         cover_b64 = base64.b64encode(cover_path.read_bytes()).decode("ascii")

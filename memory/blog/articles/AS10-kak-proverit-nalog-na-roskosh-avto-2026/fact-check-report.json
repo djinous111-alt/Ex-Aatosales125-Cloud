@@ -1,0 +1,108 @@
+{
+  "article": "memory/blog/articles/AS10-kak-proverit-nalog-na-roskosh-avto-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 14,
+  "verified_facts_count": 4,
+  "unverified_facts_count": 10,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "говую не интересует. До депозита откройте файл на 2026, найдите свою строку и сохраните скрин \"в списке",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2026 года",
+      "kind": "date_or_year",
+      "context": "о к концу марта, и для расчёта за 2026 нужен файл 2026 года. Сделайте по шагам: Запишите до депозита: страна",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "2022 года",
+      "kind": "date_or_year",
+      "context": "пороги 2026: средняя стоимость и возраст машины С 2022 года порог средней стоимости – от 10 млн рублей. Коэфф",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2027",
+      "kind": "date_or_year",
+      "context": "ходит позже, а срок уплаты за 2026 – до 1 декабря 2027. Сюрприз отложенный, но платёжный. Сделайте чек-л",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "15 минут",
+      "kind": "metric_or_duration",
+      "context": "ция\" чаще всего и дают сюрприз. Ниже – маршрут на 15 минут без юриста и без таблиц пошлин. Поймите, зачем см",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 лет",
+      "kind": "metric_or_duration",
+      "context": "о заказа от 10 до 15 млн ₽ включительно не старше 10 лет с года выпуска сверить строку перечня и год; если",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "20 лет",
+      "kind": "metric_or_duration",
+      "context": "нт обычно не применяется свыше 15 млн ₽ не старше 20 лет проверять даже \"взрослые\" премиум-авто из Японии",
+      "verified": true,
+      "reason": "Numerical value '20' matched in fact-bank context"
+    },
+    {
+      "fact": "2022",
+      "kind": "large_number",
+      "context": "пороги 2026: средняя стоимость и возраст машины С 2022 года порог средней стоимости – от 10 млн рублей. К",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "001",
+      "kind": "large_number",
+      "context": "26 в группе 10–15 млн фигурируют Zeekr 009, Zeekr 001 FR, Li Auto L9, Li Auto L7 только Ultra, Xiaomi SU",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "449",
+      "kind": "large_number",
+      "context": "всех регионов): в разборе Autonews для Li Auto L9 449 л.с. в Москве при ставке 150 получилось 449×150×3",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "150",
+      "kind": "large_number",
+      "context": "onews для Li Auto L9 449 л.с. в Москве при ставке 150 получилось 449×150×3 = 202 050 ₽ в год. Уточните с",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "202 050",
+      "kind": "large_number",
+      "context": "с. в Москве при ставке 150 получилось 449×150×3 = 202 050 ₽ в год. Уточните сумму в калькуляторе транспортн",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "362",
+      "kind": "large_number",
+      "context": "рена с публикациями ФНС о перечне 2026 и п. 2 ст. 362 НК РФ; примеры китайских моделей и формулы – с раз",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "700",
+      "kind": "large_number",
+      "context": "нно Ultra), Xiaomi SU7 Ultra, Voyah, Hongqi, Tank 700 и похожие позиции по точной строке, а не \"на глаз\"",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

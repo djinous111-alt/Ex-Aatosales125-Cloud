@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS10",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Цена в договоре «ниже 10 млн» — а налог ×3?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс с телефоном и распечаткой перечня Минпромторга: сюрприз налога ×3 до депозита",
+      "scene_hint": "Face EXACT from reference + glasses; smart casual light shirt under open navy blazer (office/docs/customs vibe, indoor cool light — NOT reference tank top); holding phone with fake Минпромторг list screenshot and sticky note «в списке?»; torn paper strip with Cyrillic hook about налог ×3; yellow highlighter on «×3»; shocked meme reaction cutout; catalog card scrap avto-sales125.ru corner footer; NO toxic/insult stickers; NO Wordstat/Metrika; NO Telegram handle",
+      "meme_caption_ru": "До депозита сверь список"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Поймите, зачем смотреть налог до депозита, а не после растаможки",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "5-step workflow before deposit: записать марку/версию/год → открыть перечень 2026 → найти строку → да/нет ×3 → решить беру/меняю/не беру; torn-paper strip + marker arrows; small sticky «до оплаты»; NO host face",
+      "alt": "Схема из пяти шагов: сверка налога на роскошь до депозита, а не после растаможки"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Откройте актуальный перечень Минпромторга и найдите свою модель",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake browser/document screenshot of Минпромторг 2026 car list: brand/model/version rows, Ctrl+F highlight on Li Auto L7 Ultra vs L7; pink sticky «точную версию»; scotch tape corner; NO host face; NO Wordstat",
+      "alt": "Мокап перечня Минпромторга 2026: поиск точной модели и версии авто"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сверьте пороги 2026: средняя стоимость и возраст машины",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean comparison table UI: группы 10–15 млн ≤10 лет ×3 / свыше 15 млн ≤20 лет ×3 / нет в перечне — без ×3; accent coral headers; tape + mini sticky «порог 10 млн»; NO host face",
+      "alt": "Таблица порогов 2026: средняя стоимость, возраст и коэффициент ×3"
+    }
+  }
+}

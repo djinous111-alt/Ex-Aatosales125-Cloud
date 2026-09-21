@@ -1,0 +1,194 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/kak-proverit-nalog-na-roskosh-avto-2026/#blogposting", // pragma: allowlist secret
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/kak-proverit-nalog-na-roskosh-avto-2026/" // pragma: allowlist secret
+      },
+      "headline": "Как проверить налог на роскошь на авто из Азии до заказа в 2026",
+      "description": "Чеклист до депозита: перечень Минпромторга 2026, коэффициент ×3, Китай/Корея/Япония. Как понять, попала ли модель в список, до оплаты.",
+      "datePublished": "2026-07-26",
+      "dateModified": "2026-07-26",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial", // pragma: allowlist secret
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png", // pragma: allowlist secret
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru/" // pragma: allowlist secret
+        },
+        "sameAs": [
+          "https://avtosales125.ru/", // pragma: allowlist secret
+          "https://avto-sales125.ru/", // pragma: allowlist secret
+          "https://t.me/avtosales125", // pragma: allowlist secret
+          "https://max.ru/id2508140890_biz", // pragma: allowlist secret
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization", // pragma: allowlist secret
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru/", // pragma: allowlist secret
+        "sameAs": [
+          "https://avto-sales125.ru/", // pragma: allowlist secret
+          "https://t.me/avtosales125" // pragma: allowlist secret
+        ]
+      },
+      "keywords": [
+        "налог на роскошь автомобили 2026",
+        "налог на роскошь авто 2026",
+        "перечень минпромторга налог на роскошь",
+        "список автомобилей налог на роскошь 2026"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/kak-proverit-nalog-na-roskosh-avto-2026/#faq", // pragma: allowlist secret
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Где смотреть список Минпромторга на 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Откройте раздел \"Перечни и реестры\" на сайте Минпромторга либо новость ФНС со ссылкой на перечень легковых автомобилей средней стоимостью от 10 млн рублей (2026). Сохраните файл или скрин строки с датой – не полагайтесь на чужие Excel из чатов."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Попадает ли китайский премиум под налог на роскошь?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Часто да, если конкретная версия есть в перечне и возраст подходит. Перед депозитом проверьте Zeekr, Li Auto (особенно Ultra), Xiaomi SU7 Ultra, Voyah, Hongqi, Tank 700 и похожие позиции по точной строке, а не \"на глаз\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Считается ли коэффициент от цены покупки или от перечня?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "От перечня и возраста, не от суммы в договоре. Купили б/у сильно дешевле – коэффициент всё равно возможен. Не делайте вывод только по цене сделки."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если модель есть в списке, а я ещё не заказал?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Три рабочих варианта: заложить ×3 в бюджет, сменить версию/год/модель и повторить сверку, либо отказаться до оплаты. После депозита менять решение дороже."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как прикинуть сумму без сложных таблиц?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Возьмите мощность в л.с., умножьте на ставку транспортного налога вашего региона и на 3. Затем перепроверьте результат в официальном калькуляторе ФНС. Готовые \"прайсы пошлин\" к коэффициенту не относятся."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Параллельный ввоз освобождает от коэффициента?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Способ ввоза сам по себе не отменяет перечень. Если строка и возраст совпали – готовьтесь к транспортному налогу с коэффициентом 3."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/kak-proverit-nalog-na-roskosh-avto-2026/#howto", // pragma: allowlist secret
+      "name": "Как проверить налог на роскошь на авто из Азии до заказа",
+      "description": "Пошаговая сверка модели с перечнем Минпромторга 2026 до депозита: пороги, возраст, красные флаги и решение брать/менять/отказать.",
+      "totalTime": "PT15M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Перечень Минпромторга легковых автомобилей от 10 млн ₽ (файл 2026)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Калькулятор транспортного налога ФНС"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Карточка лота / ПТС: марка, версия, год, мощность"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Заметка «модель X, версия Y, год Z — в перечне 2026: да/нет»"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Скрин строки перечня с датой файла"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Поймите зачем смотреть налог до депозита",
+          "text": "Сверьте модель до оплаты: коэффициент 3 включается по перечню Минпромторга и возрасту, а не по цене в договоре. Так вы закладываете ×3 или меняете версию до депозита.",
+          "url": "https://avtosales125.ru/kak-proverit-nalog-na-roskosh-avto-2026/#поймите-зачем-смотреть-налог-до-депозита-а-не-после-растаможки" // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Откройте перечень Минпромторга и найдите модель",
+          "text": "Откройте перечень легковых автомобилей средней стоимостью от 10 млн рублей на 2026, найдите точную строку марки/модели/версии и сохраните скрин с датой файла.",
+          "url": "https://avtosales125.ru/kak-proverit-nalog-na-roskosh-avto-2026/#откройте-актуальный-перечень-минпромторга-и-найдите-свою-модель" // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Сверьте пороги 2026 и возраст",
+          "text": "Проверьте группу 10–15 млн (не старше 10 лет) или свыше 15 млн (не старше 20 лет). Если модели нет в перечне – коэффициент не применяется.",
+          "url": "https://avtosales125.ru/kak-proverit-nalog-na-roskosh-avto-2026/#сверьте-пороги-2026-средняя-стоимость-и-возраст-машины" // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Проверьте Китай, Корею и Японию",
+          "text": "Для китайского премиума, Кореи и Японии сверяйте точную версию и возраст. Параллельный ввоз сам по себе от коэффициента не освобождает.",
+          "url": "https://avtosales125.ru/kak-proverit-nalog-na-roskosh-avto-2026/#проверьте-авто-из-китая-кореи-и-японии-по-разным-маршрутам" // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Отловите красные флаги",
+          "text": "Не путайте похожие комплектации, считайте возраст от года выпуска и не полагайтесь на цену б/у: решают строка перечня и возраст.",
+          "url": "https://avtosales125.ru/kak-proverit-nalog-na-roskosh-avto-2026/#отловите-красные-флаги-комплектация-год-и-мощность" // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Сделайте чек-лист до оплаты",
+          "text": "Соберите заметку «модель/версия/год – в перечне: да/нет», прикиньте л.с. × ставка региона × 3 и уточните в калькуляторе ФНС до депозита.",
+          "url": "https://avtosales125.ru/kak-proverit-nalog-na-roskosh-avto-2026/#сделайте-чек-лист-модель-в-списке-или-нет-решение-до-оплаты" // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Что делать дальше",
+          "text": "Повторите сверку для финальной комплектации, заложите транспортный налог в бюджет владения и при необходимости уточните модель в каталоге Авто-Сейлс до перевода денег.",
+          "url": "https://avtosales125.ru/kak-proverit-nalog-na-roskosh-avto-2026/#что-делать-дальше" // pragma: allowlist secret
+        }
+      ]
+    }
+  ]
+}

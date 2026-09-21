@@ -181,6 +181,7 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 - 4 отдельные генерации
 - QUAD SPLIT fail
 - inline = meme с ведущим вместо UI
+- opaque MCP error `'NoneType' object has no attribute 'get'` на `gpt-image-2` / flux: сначала вызови другой Kie tool (`nano_banana_pro` smoke). Явный **402 Credits insufficient** → blocker = top-up баланса Kie.ai, не «битый prompt»; invent `cover.png` запрещён
 
 ---
 

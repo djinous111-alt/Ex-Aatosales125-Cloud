@@ -7,6 +7,7 @@ import base64
 import io
 import json
 import os
+import re
 import sys
 import urllib.request
 from pathlib import Path
@@ -186,13 +187,19 @@ def load_article(article_dir: Path) -> dict:
         cover_b64 = base64.b64encode(cover_path.read_bytes()).decode("ascii")
     schema_raw = ""
     if schema_path.is_file():
-        schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        # Strip Cursor secret-scanner allowlist markers so WP meta stays valid JSON-LD.
+        schema_raw = re.sub(
+            r"[ \t]*//[ \t]*pragma:[ \t]*allowlist secret[ \t]*",
+            "",
+            schema_path.read_text(encoding="utf-8"),
+        ).strip()
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
         cover_alt = cover_alt or reg.get("cover_alt_text", "")
 
-    import re
+    # Use module-level `import re` only — a local `import re` here shadows it and
+    # causes UnboundLocalError on the earlier re.sub() for schema pragmas.
     img_srcs = re.findall(r'<img\s+[^>]*src=["\']([^"\']+)["\']', content)
     inline_images = []
     for src in img_srcs:
@@ -568,6 +575,24 @@ def main() -> int:
         return 2
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
+
+    # Fail-fast before load/SSH: publish requires local cover artifacts (do not invent PNG).
+    cover_png = article_dir / "cover" / "cover.png"
+    cover_reg = article_dir / "cover" / "cover-registry.json"
+    missing_cover = []
+    if not cover_png.is_file():
+        missing_cover.append("cover/cover.png")
+    if not cover_reg.is_file():
+        missing_cover.append("cover/cover-registry.json")
+    if missing_cover:
+        print(
+            "BLOCKER: missing required cover artifacts: "
+            + ", ".join(missing_cover)
+            + " (retry cover agent after image API credits; inventing PNG forbidden)",
+            file=sys.stderr,
+        )
+        return 1
+
     payload = load_article(article_dir)
     php = build_php(payload)
 

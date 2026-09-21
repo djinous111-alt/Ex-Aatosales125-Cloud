@@ -1,0 +1,15 @@
+{
+  "slug": "kak-proverit-nalog-na-roskosh-avto-2026",
+  "topic_id": "AS10",
+  "permalink": "",
+  "publish_method": "none",
+  "verdict": "blocker",
+  "blockers": [
+    "missing cover/cover.png (and cover-registry.json) — COVER BLOCKER / Kie 402; invent forbidden",
+    "dry-run failed: UnboundLocalError re in load_article (local import re after schema pragma strip)"
+  ],
+  "link_verify": "pass",
+  "dry_run": "fail",
+  "allow_publish": "yes",
+  "raw_output": "❌ PUBLISH BLOCKER — cover/cover.png missing; dry-run UnboundLocalError"
+}

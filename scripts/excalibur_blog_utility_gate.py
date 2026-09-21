@@ -185,18 +185,32 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     if marker_count < min_rec:
         errors.append(f"мало action-маркеров в тексте: {marker_count} < {min_rec}")
 
-    pain_markers = policy.get("pain_markers_ru") or []
-    outcome_markers = policy.get("outcome_markers_ru") or []
-    pain_count = count_markers(plain, pain_markers)
-    outcome_count = count_markers(plain, outcome_markers)
+    pain_markers = [m for m in (policy.get("pain_markers_ru") or []) if str(m).strip()]
+    outcome_markers = [m for m in (policy.get("outcome_markers_ru") or []) if str(m).strip()]
+    pain_count = count_markers(plain, pain_markers) if pain_markers else 0
+    outcome_count = count_markers(plain, outcome_markers) if outcome_markers else 0
 
-    min_pain = int(req.get("min_pain_markers") or 2)
-    if pain_count < min_pain:
-        errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
+    # Empty marker lists must not BLOCK with 0 < min (misconfigured/legacy policy).
+    # Keep lists in sync with PAIN_MARKERS / OUTCOME_MARKERS in human_voice_gate.py.
+    if not pain_markers:
+        warnings.append(
+            "pain_markers_ru пуст в editorial-policy.json — проверка боли пропущена "
+            "(синхронизируй с human_voice_gate.PAIN_MARKERS)"
+        )
+    else:
+        min_pain = int(req.get("min_pain_markers") or 2)
+        if pain_count < min_pain:
+            errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
 
-    min_outcome = int(req.get("min_outcome_markers") or 3)
-    if outcome_count < min_outcome:
-        errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
+    if not outcome_markers:
+        warnings.append(
+            "outcome_markers_ru пуст в editorial-policy.json — проверка результата пропущена "
+            "(синхронизируй с human_voice_gate.OUTCOME_MARKERS)"
+        )
+    else:
+        min_outcome = int(req.get("min_outcome_markers") or 3)
+        if outcome_count < min_outcome:
+            errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
 
     if req.get("requires_workflow_or_table_or_checklist"):
         has_utility_block = bool(tables or blockquotes or ul_lists >= 2 or "→" in html)

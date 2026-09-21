@@ -76,3 +76,20 @@ Terminal states:
 - One API task per article cover run, not four separate images.
 - `input_urls` is required; text-only generation is a cover blocker.
 - Do not retry createTask blindly after a network ambiguity if a `taskId` is known; poll the known task.
+
+## Credits / 402 fallback
+
+If createTask returns `code=402` (Credits insufficient) or sync MCP `gpt-image-2` fails:
+
+1. Do **not** blind-retry createTask.
+2. Use Cursor `GenerateImage` (reference i2i, 16:9) → resize to 2048×1152 → `cover/canvas-quad.png`.
+3. Apply local canvas:
+
+```bash
+python3 scripts/excalibur_blog_quad_apply.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --local-canvas cover/canvas-quad.png \
+  --inject-html
+```
+
+Kie credit top-up is a human/Dashboard action (`needs-human`), not a repo code fix.

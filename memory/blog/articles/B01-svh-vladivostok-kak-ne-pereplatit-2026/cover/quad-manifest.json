@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "«Бесплатные» сутки СВХ кончаются раньше растаможки",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Ночной терминал Владивостока: герой Авто-Сейлс у авто на СВХ с плашкой про переплату за хранение",
+      "scene_hint": "Ночной порт/терминал Владивостока, огни кранов и контейнеров, мокрый асфальт, лёгкий туман у воды. Герой: EXACT face+glasses from reference; одежда — тёмный бомбер/кожанка night_city + тонкий шарф, без кепки/капюшона, без копирования майки с reference. Action selfie 24mm, жест «смотри на счёт». Fake UI: рваная бумажка-прайс СВХ (сутки 1–3 / лестница тарифов), чеклист «до судна», мини-карточка каталога авто; скотч, розовый стикер «льгота сгорела», мем shocked cat. Плашка hook кириллицей, highlight на «бесплатные». Угол: avto-sales125.ru. Запрет: Wordstat, Метрика, Telegram handle, токсичные слова лох/для лохов.",
+      "meme_caption_ru": "Льгота сгорела?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разберите роль СВХ в цепочке порт → растаможка → выдача",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Чистая UI-таблица без лица героя: колонки Порт / СВХ / Выпуск / Выдача; строки «где авто», «кто платит», «можно забрать?»; мини sticky note «не парковка». Лёгкий tape corner.",
+      "alt": "Таблица ролей: порт, СВХ, растаможка и выдача авто"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как запускается счётчик хранения и когда кончается льгота",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow без героя: выгрузка судна → старт льготы 5–10 суток → ступени тарифа → критический перестой; timeline-стрелки, цифры ориентир ₽/сутки на стикерах, без Wordstat.",
+      "alt": "Схема счётчика СВХ: льгота и ступени тарифа перестоя"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Срежьте типичные причины перестоя заранее",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист-доска без героя: документы, аванс ФТС, кто подаёт ДТ, название склада, план вывоза; галочки и красный маркер «до судна»; mini sticky «не ждать конца льготы».",
+      "alt": "Чеклист причин перестоя на СВХ: документы, ФТС, ДТ, вывоз"
+    }
+  }
+}

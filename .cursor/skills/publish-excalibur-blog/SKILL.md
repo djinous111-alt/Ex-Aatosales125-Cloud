@@ -61,15 +61,35 @@ python scripts/excalibur_blog_wp_publish.py \
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
 - пишет post meta `_excalibur_blog_schema_jsonld`.
 
-### 4. Cloud WebFetch Fallback
+### 4. HTTP timeout / WebFetch / REST recovery
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Локальный HTTP-триггер bootstrap: **timeout=300s**. Нужен **paramiko** для SSH/SFTP.
 
-1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+Рекомендуемый Cloud Secret: `SSH_ROOT=.` (login cwd). Если upload пишет warning про fallback на `.` — обнови секрет.
 
-**Не останавливайся** на первом timeout — используй fallback.
+Если локальный HTTP-триггер упал (timeout):
+
+1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` и **сразу** выходит с `needs_webfetch_or_rest_recovery` (код 3) — **без** блокирующего wait 120s (Cloud agent не может WebFetch, пока ждёт тот же процесс).
+2. **Не** делай второй upload bootstrap (риск дублей media `-1/-2/-3`).
+3. Сначала проверь, что пост уже создан:
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --recover-from-rest
+```
+
+4. Если поста ещё нет — WebFetch FALLBACK URL, сохрани тело в `memory/webfetch-response.txt`, затем:
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --resume-from-webfetch
+```
+
+Legacy blocking wait: только `--wait-webfetch` (не использовать в Cloud Task).
+
+**Не останавливайся** на первом timeout — REST recovery или WebFetch resume.
 
 ### 5. Post-publish артефакты
 

@@ -91,7 +91,17 @@ def is_actionable_h2(title: str) -> bool:
 
 def count_markers(text: str, markers: list[str]) -> int:
     hay = text.lower()
-    return sum(hay.count(marker.lower()) for marker in markers)
+    total = 0
+    for marker in markers:
+        m = marker.lower().strip()
+        if not m:
+            continue
+        # Whole-word for very short RU tokens like «боль» (avoid «небольшим»)
+        if m == "боль":
+            total += len(re.findall(r"(?<![а-яё])боль(?![а-яё])", hay))
+        else:
+            total += hay.count(m)
+    return total
 
 
 def gate_topic(topic: dict[str, str], policy: dict[str, Any]) -> dict[str, Any]:
@@ -190,13 +200,24 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 
-    min_pain = int(req.get("min_pain_markers") or 2)
-    if pain_count < min_pain:
-        errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
+    # Empty marker lists in policy must not silently apply min defaults (always 0 → BLOCK).
+    if not pain_markers:
+        warnings.append(
+            "pain_markers_ru missing/empty in editorial-policy.json — pain min check skipped (fail-open)"
+        )
+    else:
+        min_pain = int(req.get("min_pain_markers") or 2)
+        if pain_count < min_pain:
+            errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
 
-    min_outcome = int(req.get("min_outcome_markers") or 3)
-    if outcome_count < min_outcome:
-        errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
+    if not outcome_markers:
+        warnings.append(
+            "outcome_markers_ru missing/empty in editorial-policy.json — outcome min check skipped (fail-open)"
+        )
+    else:
+        min_outcome = int(req.get("min_outcome_markers") or 3)
+        if outcome_count < min_outcome:
+            errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
 
     if req.get("requires_workflow_or_table_or_checklist"):
         has_utility_block = bool(tables or blockquotes or ul_lists >= 2 or "→" in html)

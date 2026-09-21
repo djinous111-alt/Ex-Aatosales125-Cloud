@@ -14,6 +14,8 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Token / word-boundary markers only — bare substrings like "ai" in "daily"
+# or "ии" in "Японии" / "rag" in "storage" caused false technical_topic=true.
 TECH_MARKERS = (
     "ai",
     "ии",
@@ -22,14 +24,32 @@ TECH_MARKERS = (
     "mcp",
     "api",
     "cursor",
-    "make",
     "n8n",
     "github",
     "docker",
     "rag",
+    "llm",
     "workflow",
     "автоматизац",
     "нейросет",
+)
+
+# Auto-import / customs / logistics niches are never treated as GitHub-tech topics.
+NON_TECH_NICHE_MARKERS = (
+    "свх",
+    "растамож",
+    "тамож",
+    "утильсбор",
+    "encar",
+    "аукцион",
+    "автовоз",
+    "владивосток",
+    "импорт авто",
+    "авто из",
+    "сбктс",
+    "пошлин",
+    "carhistory",
+    "левый руль",
 )
 
 
@@ -73,14 +93,61 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _token_present(blob: str, marker: str) -> bool:
+    """Match whole tokens / word boundaries; allow stem prefixes for RU markers."""
+    marker = marker.lower().strip()
+    if not marker:
+        return False
+    if marker.endswith(("ац", "ет")):  # stem-ish: автоматизац, нейросет
+        return marker in blob
+    # Latin short tokens must be whole words (ai, rag, api, mcp, …)
+    if re.fullmatch(r"[a-z0-9]+", marker):
+        return bool(re.search(rf"(?<![a-z0-9]){re.escape(marker)}(?![a-z0-9])", blob))
+    # Cyrillic short tokens (ии) — whole word only
+    if re.fullmatch(r"[а-яё]+", marker) and len(marker) <= 3:
+        return bool(re.search(rf"(?<![а-яё]){re.escape(marker)}(?![а-яё])", blob))
+    return bool(re.search(rf"(?<![a-zа-яё0-9]){re.escape(marker)}", blob))
+
+
+def is_non_tech_niche(context: dict[str, Any], notes: str) -> bool:
+    topic = context.get("topic") or {}
+    blob = " ".join(
+        str(topic.get(key) or "")
+        for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
+    ).lower()
+    blob += " " + notes[:2500].lower()
+    return any(marker in blob for marker in NON_TECH_NICHE_MARKERS)
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    if is_non_tech_niche(context, notes):
+        return False
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
     blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Ignore github_evidence N/A blocks when scoring markers from notes head
+    return any(_token_present(blob, marker) for marker in TECH_MARKERS)
+
+
+def github_evidence_is_na(notes: str) -> bool:
+    match = re.search(
+        r"##\s*\d*\.?\s*github[_\s-]*evidence\b([\s\S]*?)(?=\n##\s|\Z)",
+        notes,
+        flags=re.I,
+    )
+    section = (match.group(1) if match else "").lower()
+    if not section.strip():
+        return False
+    return bool(
+        re.search(r"\bn/?a\b", section)
+        or "не применим" in section
+        or "не требуется" in section
+        or "non-tech" in section
+        or "non tech" in section
+    )
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -159,9 +226,12 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         warnings.append("Wordstat auth warning present; exact demand volumes were not verified")
 
     technical = is_technical_topic(context, text)
-    if technical and len(github_urls) < 3:
+    github_na = github_evidence_is_na(text)
+    if technical and not github_na and len(github_urls) < 3:
         errors.append(f"technical topic requires GitHub evidence: github_urls={len(github_urls)} < 3")
-    if technical and not official_doc_urls:
+    if technical and github_na:
+        warnings.append("technical topic marked github_evidence N/A — GitHub URL quota skipped")
+    if technical and not github_na and not official_doc_urls:
         warnings.append("technical topic has no obvious official docs/developer documentation URL")
 
     if year and year not in text:

@@ -247,7 +247,15 @@ def analyze_human_voice(article_dir: Path) -> dict[str, Any]:
     success_overlap = keyword_overlap(success_criteria, text) if success_criteria else []
     angle_overlap = keyword_overlap(voice_angle, text) if voice_angle else []
     surprising_overlap = keyword_overlap(surprising_fact, text) if surprising_fact else []
-    pain_hits = [marker for marker in PAIN_MARKERS if marker in text_lower]
+    pain_hits = [
+        marker
+        for marker in PAIN_MARKERS
+        if (
+            bool(re.search(r"(?<![а-яё])боль(?![а-яё])", text_lower))
+            if marker == "боль"
+            else marker in text_lower
+        )
+    ]
     outcome_hits = [marker for marker in OUTCOME_MARKERS if marker in text_lower]
 
     if ai_opening_hits:

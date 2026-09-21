@@ -1,0 +1,13 @@
+{
+  "url": "",
+  "source": "cursor-GenerateImage-fallback",
+  "method": "local",
+  "mcp_attempt": "failed:NoneType.get",
+  "kie_attempt": "failed:402_credits_insufficient",
+  "local_canvas": "cover/canvas-quad.png",
+  "artifact_src": "/opt/cursor/artifacts/assets/B01-canvas-quad.png",
+  "resize": "1536x1024 -> 2048x1152 LANCZOS",
+  "split": "PASS",
+  "inject_html": "ok",
+  "updated_at_epoch": 1784985847
+}

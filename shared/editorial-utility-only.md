@@ -6,7 +6,7 @@
 
 **Публикуем только то, что даёт действие.** После прочтения читатель знает *что сделать* — не «вообще про тему».
 
-Дополнительный фильтр канала: **новичок-first**. Статья должна быть полезна обычному человеку без технического бэкграунда, который только начинает путь в автоматизации, AI-агентах и нейросетях. Если тема требует опыта разработчика/админа/архитектора и не даёт простого первого результата — тему не берём.
+Ниша блога: **AVTO SALES** (импорт авто, СВХ, растаможка). Beginner-first для покупателя авто, не для DevOps/AI-инженера.
 
 | ✅ Берём | ❌ Не берём |
 |---------|------------|
@@ -15,14 +15,24 @@
 | Comparison с таблицей и выбором | «Что такое X» на 9k без шагов |
 | Troubleshooting / fix | Trend-посты, размышления |
 | Workflow (A→B→C) | Корпоративная вода, мотивация |
-| Автопостинг, авто-блог, лиды, трафик, сайт/лендинг через Cursor AI с чеклистом запуска | Абстрактное «будущее маркетинга с ИИ» без действий |
+| СВХ / Encar / растаможка / документы с чеклистом | Cursor/n8n/Make «автоматизация ради автоматизации» |
+
+## Pain / outcome markers (durable)
+
+Ключи в `memory/brief/editorial-policy.json` **обязательны**:
+
+- `pain_markers_ru` — минимум 2 совпадения в article (utility + human-voice)
+- `outcome_markers_ru` — минимум 3 совпадения
+- `article_required_signals.min_pain_markers` / `min_outcome_markers`
+
+Если списки маркеров пусты, `excalibur_blog_utility_gate.py` **fail-open** (warning, не BLOCK) — чтобы пустой policy не валил весь блог. Human-voice считает «боль» по word-boundary (не внутри «небольшим»).
 
 ## Gate 1 — тема (`blog-topics.md`)
 
 Перед research:
 
 ```bash
-python scripts/excalibur_blog_utility_gate.py --topic-id B01
+python3 scripts/excalibur_blog_utility_gate.py --topic-id B01
 ```
 
 **Blocker `UTILITY TOPIC BLOCKER`** — тему не пускаем в пайплайн.
@@ -41,7 +51,7 @@ Research-агент **отклоняет** угол без практики. В 
 - `utility_verdict: PASS`
 - `research_date` совпадает с `research-context.json` → `today_iso`
 - `source_table` с URL и `accessed_at`
-- `github_evidence` для технических тем
+- `github_evidence` для технических тем; для СВХ/авто — явный `N/A`
 - `reader_pain`: конкретная боль/риск/затык читателя
 - `reader_outcome`: одно предложение — какой первый результат сможет сделать новичок
 - `success_criteria`: как новичок поймёт, что проблема решена
@@ -52,7 +62,7 @@ Research-агент **отклоняет** угол без практики. В 
 Машинный gate:
 
 ```bash
-python scripts/excalibur_blog_research_notes_gate.py \
+python3 scripts/excalibur_blog_research_notes_gate.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   -o research-notes-gate.json
 ```
@@ -67,13 +77,14 @@ python scripts/excalibur_blog_research_notes_gate.py \
 - FAQ — короткие **ответы-действия**, не пересказ
 - Lead/H2 используют `reader_story`, `voice_angle`, `surprising_fact`
 - Lead называет боль, H2 закрывают боли из `pain_solution_map`, до FAQ есть понятный критерий результата.
-- Beginner-fit: сложный термин объяснён сразу, нет тона «для профи», есть первый безопасный шаг без команды разработчиков.
+- ≥2 pain + ≥3 outcome маркера из editorial-policy
+- CTA из `shared/public-cta.json` / env, не `[REDACTED]`
 - Human voice gate PASS: нет шаблонных H2, есть живые примеры, разный ритм абзацев
 
 ## Gate 4 — GEO QA
 
 ```bash
-python scripts/excalibur_blog_utility_gate.py \
+python3 scripts/excalibur_blog_utility_gate.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
@@ -93,6 +104,8 @@ python scripts/excalibur_blog_utility_gate.py \
 ## Связанные файлы
 
 - `memory/brief/site-brief.md` — niche + editorial
+- `memory/brief/editorial-policy.json` — pain/outcome markers
+- `shared/public-cta.json` — публичные CTA URL
 - `skills/excalibur/references/article-archetypes.md` — скелет B
 - `skills/excalibur/references/ai-slop-blocklist.md` — вода/штампы
 - `shared/quality-blog.md` — blockers

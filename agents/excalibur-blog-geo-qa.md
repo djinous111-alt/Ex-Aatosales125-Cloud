@@ -1,10 +1,10 @@
 ---
-
-## name: excalibur-blog-geo-qa
+name: excalibur-blog-geo-qa
 description: "③ GEO QA: 5 скриптов, article-qa PASS. Субагент Task. Не cover/schema."
 model: inherit
 readonly: false
 is_background: false
+---
 
 **Язык:** русский. **Шаг пайплайна:** ③
 
@@ -40,3 +40,17 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 ## Gate
 
 Без PASS директор **не** запускает cover||schema.
+
+## Cloud Task fallback (обязательно, пока enum не обновлён)
+
+Typed Task `excalibur-blog-geo-qa` может отсутствовать в Cloud Task enum. Это **platform limitation**, не баг репозитория.
+
+Director / parent обязан запускать роль так:
+
+```text
+Task(generalPurpose):
+Прочитай .cursor/agents/excalibur-blog-geo-qa.md + .cursor/skills/excalibur-geo-qa/SKILL.md.
+Выполни GEO QA для article_dir; верни === EXCALIBUR BLOG GEO QA ===.
+```
+
+После регистрации typed enum в Cursor Cloud Dashboard — снова предпочитать `Task(excalibur-blog-geo-qa)`.

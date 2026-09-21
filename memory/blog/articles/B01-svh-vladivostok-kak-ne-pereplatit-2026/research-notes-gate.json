@@ -1,0 +1,24 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-svh-vladivostok-kak-ne-pereplatit-2026",
+  "notes": "memory/blog/articles/B01-svh-vladivostok-kak-ne-pereplatit-2026/research-notes.md",
+  "context": "memory/blog/articles/B01-svh-vladivostok-kak-ne-pereplatit-2026/research-context.json",
+  "errors": [],
+  "warnings": [
+    "technical topic has no obvious official docs/developer documentation URL"
+  ],
+  "metrics": {
+    "today_iso": "2026-07-25",
+    "prefer_sources_after": "2026-04-26",
+    "source_urls": 17,
+    "source_domains": 13,
+    "source_table_rows": 17,
+    "accessed_at": 28,
+    "github_urls": 3,
+    "official_doc_urls": 0,
+    "action_outline_items": 9,
+    "pain_solution_rows": 5,
+    "technical_topic": true
+  }
+}

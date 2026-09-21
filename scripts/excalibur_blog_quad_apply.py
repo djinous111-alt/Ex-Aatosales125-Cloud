@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -24,7 +25,15 @@ def project_root() -> Path:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--article-dir", required=True)
-    ap.add_argument("--url", default="", help="MCP result URL (or read cover/quad-mcp-result.json)")
+    ap.add_argument("--url", default="", help="MCP/Kie result URL (or read cover/quad-mcp-result.json)")
+    ap.add_argument(
+        "--local-canvas",
+        default="",
+        help=(
+            "Path to an already-generated local canvas PNG (GenerateImage / resized fallback). "
+            "Skips URL download; copies/resizes path into cover/canvas-quad.png then splits."
+        ),
+    )
     ap.add_argument("--inject-html", action="store_true")
     ap.add_argument("--output-size", default="1200x675")
     args = ap.parse_args()
@@ -36,22 +45,56 @@ def main() -> int:
     cover_dir = article_dir / "cover"
     cover_dir.mkdir(parents=True, exist_ok=True)
 
-    url = args.url.strip()
-    if not url:
-        result_path = cover_dir / "quad-mcp-result.json"
-        if result_path.is_file():
-            url = (json.loads(result_path.read_text(encoding="utf-8")).get("url") or "").strip()
-    if not url:
-        print("❌ QUAD APPLY BLOCKER: pass --url or cover/quad-mcp-result.json", file=sys.stderr)
-        return 1
-
     canvas_path = cover_dir / "canvas-quad.png"
-    data, _evidence = download_url_bytes(url)
-    canvas_path.write_bytes(data)
-    print(f"OK canvas={canvas_path}")
+    local_canvas = (args.local_canvas or "").strip()
+    url = args.url.strip()
 
-    result_json = cover_dir / "quad-mcp-result.json"
-    result_json.write_text(json.dumps({"url": url}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    if local_canvas:
+        src = Path(local_canvas)
+        if not src.is_absolute():
+            src = root / src
+        if not src.is_file():
+            # Also try relative to article_dir / cover
+            alt = article_dir / local_canvas
+            src = alt if alt.is_file() else cover_dir / local_canvas
+        if not src.is_file():
+            print(f"❌ QUAD APPLY BLOCKER: --local-canvas not found: {local_canvas}", file=sys.stderr)
+            return 1
+        if src.resolve() != canvas_path.resolve():
+            shutil.copy2(src, canvas_path)
+        print(f"OK local-canvas → {canvas_path}")
+        result_json = cover_dir / "quad-mcp-result.json"
+        result_json.write_text(
+            json.dumps(
+                {
+                    "url": "",
+                    "source": "local-canvas",
+                    "local_canvas": str(src),
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+    else:
+        if not url:
+            result_path = cover_dir / "quad-mcp-result.json"
+            if result_path.is_file():
+                url = (json.loads(result_path.read_text(encoding="utf-8")).get("url") or "").strip()
+        if not url:
+            print(
+                "❌ QUAD APPLY BLOCKER: pass --url, cover/quad-mcp-result.json, or --local-canvas",
+                file=sys.stderr,
+            )
+            return 1
+
+        data, _evidence = download_url_bytes(url)
+        canvas_path.write_bytes(data)
+        print(f"OK canvas={canvas_path}")
+
+        result_json = cover_dir / "quad-mcp-result.json"
+        result_json.write_text(json.dumps({"url": url}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     cmd = [
         sys.executable,
@@ -60,6 +103,8 @@ def main() -> int:
         str(article_dir),
         "--manifest",
         "cover/quad-manifest.json",
+        "--canvas",
+        str(canvas_path),
         "--output-size",
         args.output_size,
     ]

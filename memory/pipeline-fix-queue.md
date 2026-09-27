@@ -55,11 +55,13 @@ category: qa
 - `link_verify` трактует это как `internal_relative` → 404 → GEO QA FAIL.
 
 ### How the agent recovered this run
-- Не правил HTML сам; вернул Writer FIX: подставить реальные CTA из env.
+- GEO QA не правил HTML; вернул Writer FIX.
+- Writer FIX (2026-09-27): в `article.html` подставил CTA из env (`CATALOG_URL` ×2 по якорям каталога, `TELEGRAM_URL` ×1); убрал ярлык TL;DR; слегка разнёс размеры списков; char_count 9466; `grep REDACTED` по html/meta пустой. Полный GEO QA re-run ещё не делал.
 
 ### Durable fix needed before next run
-- В writer skill/agent явно запретить литерал `[REDACTED]` в `href`; требовать env `PUBLIC_SITE_URL` + `TELEGRAM_URL` (или канонические публичные CTA из brief).
+- В writer skill/agent явно запретить литерал `[REDACTED]` в `href`; требовать env `PUBLIC_SITE_URL` / `CATALOG_URL` + `TELEGRAM_URL` (не копировать redacted placeholders из соседних статей).
 - Precheck Writer: grep `href="\[REDACTED\]"` = blocker до handoff.
+- Не коммитить article.html, пока env CTA не подставлены реально.
 
 ### Suggested files to inspect/change
 - `.cursor/skills/writer-excalibur-blog/SKILL.md`
@@ -70,7 +72,7 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+- pending (Writer artifact FIX done; durable skill/precheck still needed)
 
 ## INC-20260927-1715-research-tech-markers-false-positive
 status: open

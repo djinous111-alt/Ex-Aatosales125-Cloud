@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS11-proverka-kitayskogo-avto-po-vin-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2736,
+      1536
+    ],
+    "panel_size_px": [
+      1381,
+      781
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 781,
+        "end": 807
+      },
+      "v_gutter_px": {
+        "start": 1381,
+        "end": 1430
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1381,
+          "bottom": 781
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1381,
+          "bottom": 781
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у китайского кроссовера со смартфоном и VIN на стойке двери, плашка до депозита",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1430,
+          "top": 23,
+          "right": 2736,
+          "bottom": 758
+        },
+        "raw_box_px": {
+          "left": 1430,
+          "top": 0,
+          "right": 2736,
+          "bottom": 781
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Скриншот правила: VIN и отчёт до перевода депозита",
+        "h2_anchor": "Зафиксируйте правило: VIN до депозита, а не после перевода"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 42,
+          "top": 807,
+          "right": 1338,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 807,
+          "right": 1381,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сверки VIN: кузов, шильдик и инвойс",
+        "h2_anchor": "Где взять VIN и как сверить его с кузовом и инвойсом"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1435,
+          "top": 807,
+          "right": 2731,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 1430,
+          "top": 807,
+          "right": 2736,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема баз проверки авто из Китая в 2026",
+        "h2_anchor": "Какие базы смотреть для авто из Китая в 2026"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте правило: VIN до депозита, а не после перевода",
+    "injected inline_2 after H2 — Где взять VIN и как сверить его с кузовом и инвойсом",
+    "injected inline_3 after H2 — Какие базы смотреть для авто из Китая в 2026"
+  ]
+}

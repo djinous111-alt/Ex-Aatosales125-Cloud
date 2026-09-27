@@ -58,7 +58,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py scripts/excalibur_blog_sanitize_publish_artifacts.py`
 - unit: sanitize_public_urls
 - `PYTHONPATH=scripts python3 scripts/excalibur_blog_sanitize_publish_artifacts.py --dry-run --article-dir ...AS11...`
-commit: pending-parent-commit
+commit: 3334c7c
 
 ## INC-20260928-2131-publish-paramiko-missing
 status: fixed
@@ -106,7 +106,7 @@ files_changed:
 checks_run:
 - `python3 -c "import paramiko"` → paramiko 5.0.0
 - rg paramiko `.cursor/Dockerfile` `.cursor/cloud-agent-install.sh`
-commit: pending-parent-commit
+commit: 3334c7c
 
 ## INC-20260928-2126-indexer-llms-blog-path-stale
 status: fixed
@@ -159,7 +159,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → OK llms --blog-dir/--out-dir, SUMMARY errors=0
 - `python3 scripts/excalibur_blog_llms_generator.py --help`
-commit: pending-parent-commit
+commit: 3334c7c
 
 ## INC-20260928-2122-schema-secret-scan-relative-urls
 status: fixed
@@ -210,7 +210,7 @@ files_changed:
 checks_run:
 - `CLOUD_AGENT_INJECTED_SECRET_NAMES='PUBLIC_SITE_URL,[REDACTED],CATALOG_URL,bad-name' bash scripts/excalibur_blog_filter_secret_names.sh` → PUBLIC_SITE_URL,CATALOG_URL
 - rg secret-scan-safe in schema skill
-commit: pending-parent-commit
+commit: 3334c7c
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -509,7 +509,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → AS12, pool=10
 - `--check-query 'растаможка авто из кореи'` → OVERLAP AS01
 - `python3 scripts/excalibur_blog_today.py` → EXCALIBUR_SUGGESTED_TOPIC_ID=AS01
-commit: pending-parent-commit
+commit: 3334c7c
 
 ## INC-20260928-2115-research-wordstat-empty-and-gate-markers
 status: fixed
@@ -558,7 +558,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
 - unit: is_technical_topic ignores github_evidence heading
-commit: pending-parent-commit
+commit: 3334c7c
 
 ## INC-20260928-2120-writer-precommit-secret-names
 status: fixed
@@ -607,7 +607,7 @@ files_changed:
 checks_run:
 - filter_secret_names.sh unit
 - rg 'pragma: allowlist secret' skills/writer-excalibur-blog/SKILL.md shared/excalibur-article-writing-contract.md
-commit: pending-parent-commit
+commit: 3334c7c
 
 ## INC-20260928-2125-geo-qa-utility-pain-outcome-markers
 status: fixed
@@ -661,7 +661,7 @@ checks_run:
 - editorial-policy.json parse + pain/outcome keys
 - exactly-five unit (6-li not counted)
 - `human_voice_gate` AS11 → PASS, exactly_five=0, warnings=[]
-commit: pending-parent-commit
+commit: 3334c7c
 
 ## Fixed incidents
 

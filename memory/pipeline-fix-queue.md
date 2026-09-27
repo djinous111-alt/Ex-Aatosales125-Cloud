@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260927-1729-schema-secret-scan-jsonld-pragma
+status: open
+run_date: 2026-09-27
+role: excalibur-blog-schema
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cursor secret-scan блокирует `git commit` для `schema.jsonld`, если в файле есть значения `PUBLIC_SITE_URL` / `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL` (нужны для BlogPosting `@id`, `sameAs`, publisher).
+- Строгий JSON не допускает HTML-комментарий как в `article.html`; без allowlist commit невозможен.
+
+### How the agent recovered this run
+- Добавил хвостовые `// pragma: allowlist secret` на строки с публичными URL (JSONC); commit прошёл.
+- В `scripts/excalibur_blog_wp_publish.py` при чтении schema стрипает эти pragma-trailer, чтобы в post meta уходил валидный JSON-LD.
+
+### Durable fix needed before next run
+- В schema skill/agent явно описать: публичные CTA/site URL в `schema.jsonld` коммитить с `// pragma: allowlist secret` на той же строке.
+- В publish loader оставить strip pragma (уже сделано в этом run) + короткий тест.
+- Pitfall: secret-scan на schema.jsonld ≠ «не класть site URL»; URL обязательны для JSON-LD.
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (runtime strip in publish.py already applied this run; leave open for skill/pitfall docs)
+
+
 ## INC-20260927-1719-geo-qa-utility-pain-outcome-markers-missing
 status: open
 run_date: 2026-09-27

@@ -235,6 +235,13 @@ Excalibur BLOG следует этому контракту для каждой 
 2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-tracking-map.md` / `offers-map.md`.  
 Не больше **3** упоминаний основного офера/CTA на статью (включая баннер и «что дальше»).
 
+**CTA href (жёстко):**
+- Подставляй реальные URL из env: `PUBLIC_SITE_URL` / `CATALOG_URL`, `TELEGRAM_URL` (и аналоги из conversion map).
+- **Запрещён** литерал `href="[REDACTED]"` и копирование redacted-placeholder из соседних статей в git.
+- Precheck до handoff: нет `href="[REDACTED]"`; каждый CTA `href` начинается с `http`.
+- Для Cursor secret-scan на строках с публичным URL допустим `<!-- pragma: allowlist secret -->`.
+- Не коммить `article.html`, пока CTA не подставлены реально.
+
 ### Блок 5: Inline-баннер (опционально)
 
 **Только если** в `conversion-tracking-map.md` есть `excalibur_inline_banner: yes` и `banner_image_url` + `banner_link_url`.
@@ -347,6 +354,8 @@ Excalibur BLOG следует этому контракту для каждой 
   - Содержит `itemReviewed` (тип `Product` или `Thing`), `reviewRating` (оценка, например 4.8/5.0), `publisher` и `reviewBody` (краткий вердикт).
 
 Все поля должны быть валидными по валидаторам Schema.org / Google Rich Results. Валидный JSON-LD, без разрывов строк внутри строк, экранирование кавычек.
+
+**Secret-scan / commit:** публичные `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` в `schema.jsonld` **обязательны** для `@id` / `sameAs` / publisher. Если Cursor secret-scan блокирует commit, добавляй хвостовой `// pragma: allowlist secret` на той же строке (JSONC). Publish loader (`excalibur_blog_wp_publish.py`) стрипает эти pragma перед записью post meta — в WP уходит валидный JSON-LD.
 
 ## Чеклист перед сдачей
 

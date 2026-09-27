@@ -14,7 +14,9 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short tokens need word-boundary match: bare "ai" hits "reader_pain", bare "ии"
+# hits Russian endings like "комплектации". Prefix stems stay substring matches.
+TECH_MARKERS_WORD = (
     "ai",
     "ии",
     "agent",
@@ -28,6 +30,8 @@ TECH_MARKERS = (
     "docker",
     "rag",
     "workflow",
+)
+TECH_MARKERS_PREFIX = (
     "автоматизац",
     "нейросет",
 )
@@ -73,14 +77,35 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _tech_marker_hit(blob: str, marker: str) -> bool:
+    """True when marker is a real topic token, not a substring of an unrelated word."""
+    if marker in TECH_MARKERS_PREFIX:
+        return marker in blob
+    # Letters/digits on either side block the match (Latin + Cyrillic).
+    return bool(
+        re.search(
+            rf"(?<![0-9a-zа-яё_]){re.escape(marker)}(?![0-9a-zа-яё_])",
+            blob,
+            flags=re.IGNORECASE,
+        )
+    )
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech niches from topic identity only.
+
+    Do not scan research-notes body: required field names like ``reader_pain``
+    contain short substrings (``ai``) and force false GitHub evidence gates on
+    auto/how-to topics.
+    """
+    del notes  # kept in signature for call-site compatibility
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    markers = TECH_MARKERS_WORD + TECH_MARKERS_PREFIX
+    return any(_tech_marker_hit(blob, marker) for marker in markers)
 
 
 def field_present(text_lower: str, field: str) -> bool:

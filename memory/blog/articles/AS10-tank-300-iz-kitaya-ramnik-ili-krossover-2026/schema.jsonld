@@ -1,0 +1,219 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/tank-300-iz-kitaya-ramnik-ili-krossover-2026/#blogposting",  // pragma: allowlist secret
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/tank-300-iz-kitaya-ramnik-ili-krossover-2026/"  // pragma: allowlist secret
+      },
+      "headline": "Как выбрать Tank 300 из Китая в 2026: рамник или кроссовер до депозита",
+      "description": "Tank 300 из Китая в 2026: сравнение рамника и кроссовера, чеклист до депозита – мощность, утильсбор, VIN и инвойс. Подбор в каталоге Авто-Сейлс.",
+      "datePublished": "2026-09-27",
+      "dateModified": "2026-09-27",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",  // pragma: allowlist secret
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",  // pragma: allowlist secret
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru/"  // pragma: allowlist secret
+        },
+        "sameAs": [
+          "https://avtosales125.ru/",  // pragma: allowlist secret
+          "https://avto-sales125.ru/",  // pragma: allowlist secret
+          "https://t.me/avtosales125",  // pragma: allowlist secret
+          "https://max.ru/id2508140890_biz",  // pragma: allowlist secret
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",  // pragma: allowlist secret
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru/",  // pragma: allowlist secret
+        "sameAs": [
+          "https://avto-sales125.ru/",  // pragma: allowlist secret
+          "https://t.me/avtosales125"  // pragma: allowlist secret
+        ]
+      },
+      "keywords": [
+        "tank 300 из китая",
+        "tank 300 купить",
+        "tank 300 привезти из китая",
+        "китайские рамные внедорожники"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/tank-300-iz-kitaya-ramnik-ili-krossover-2026/#faq",  // pragma: allowlist secret
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Tank 300 отличается от обычного кроссовера?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "У Tank 300 отдельная рама, выше клиренс и брод, заявлен прицеп до 2500 кг с тормозами. Кроссовер на несущем кузове легче и спокойнее в городе. Сделайте тест из четырёх вопросов в начале статьи: если бездорожье редкое – начните с кроссовера."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Проходит ли льготный утильсбор на Tank 300?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "На типичный РФ-мотор около 220 л.с. – нет: льгота требует одновременно ≤160 л.с. и ≤3 л. Выпишите л.с. и см³ до депозита и не верьте обещаниям \"льгота почти наверняка\". Точный расчёт ставки – в каталоге."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что брать из Китая: дизель, бензин или Hi4-T?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Базу 2.0T часто проще смотреть у дилера РФ. Из Китая имеет смысл версии вроде Hi4-T, дизеля или китайских топов, которых нет в салоне. Сначала зафиксируйте нужную силовую установку в договоре, потом деньги."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить до депозита за Tank 300 из Китая?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Полный VIN, комплектацию и тип привода, инвойс с теми же опциями, мощность/объём под утильсбор, срок и ответственность. Нет VIN или \"как на фото\" – депозит не платите."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Part-Time или Сити – что выбрать?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Part-Time (Драйв/Премиум) – если много тяжёлого грунта и вы готовы включать режимы. Сити (Torque-on-Demand) – если асфальта больше. Не берите Part-Time \"для статуса\", если неделя сплошной город."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли антикор рамы сразу после выдачи?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, заложите антикор рамы и защиту зоны VIN на лонжероне в план после выдачи. Владельцы и обзоры фиксируют раннюю коррозию – это риск для регистрации, не косметика."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда лучше отказаться от Tank 300 и взять кроссовер?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Если нет регулярного бездорожья и тяжёлого прицепа, а расход и габариты рамника в городе вас уже раздражают на тест-драйве. В таком случае кроссовер из Китая или Кореи закрывает задачу спокойнее и дешевле в эксплуатации."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/tank-300-iz-kitaya-ramnik-ili-krossover-2026/#howto",  // pragma: allowlist secret
+      "name": "Как выбрать Tank 300 из Китая: рамник или кроссовер до депозита",
+      "description": "Пошаговый чеклист до депозита: задача рамник vs кроссовер, привод, мощность под утильсбор, VIN и инвойс.",
+      "totalTime": "PT30M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Официальные ТТХ Tank 300 (мощность, объём, привод, клиренс)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Карточка лота / дилера с л.с., см³ и комплектацией"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Договор и инвойс с полным VIN"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Чеклист «рамник или кроссовер» до депозита"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Пакет VIN + комплектация + инвойс"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Зафиксировать задачу одной строкой",
+          "text": "Запишите: регулярное бездорожье и тяжёлый прицеп — или город, трасса и редкий грунт. Если второе — сначала смотрите кроссовер, не Tank 300 ради вида.",
+          "url": "https://avtosales125.ru/tank-300-iz-kitaya-ramnik-ili-krossover-2026/#зафиксируйте-задачу-бездорожье-и-прицеп-или-город-и-трасса"  // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Сравнить раму Tank 300 с обычным кроссовером",
+          "text": "Сверьте клиренс 224 мм, брод до 700 мм и прицеп до 2500 кг с вашей задачей. Если неделя — парковка и трасса, начните с кроссовера.",
+          "url": "https://avtosales125.ru/tank-300-iz-kitaya-ramnik-ili-krossover-2026/#сравните-раму-tank-300-с-обычным-кроссовером"  // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Выбрать схему привода Part-Time или Сити",
+          "text": "До депозита выпишите комплектацию: Драйв/Премиум (Part-Time) или Сити (Torque-on-Demand). Не берите Part-Time «для статуса», если неделя сплошной город.",
+          "url": "https://avtosales125.ru/tank-300-iz-kitaya-ramnik-ili-krossover-2026/#выберите-схему-привода-part-time-или-сити"  // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Проверить мощность и объём под льготный утильсбор",
+          "text": "Выпишите л.с., см³ и тип силовой установки. Льгота требует одновременно ≤160 л.с. и ≤3 л; типичный 220 л.с. льготу режет. Точный расчёт — в каталоге.",
+          "url": "https://avtosales125.ru/tank-300-iz-kitaya-ramnik-ili-krossover-2026/#проверьте-мощность-и-объём-до-депозита-льгота-часто-не-проходит"  // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Сверить VIN, комплектацию и инвойс",
+          "text": "Соберите полный VIN, фото опций, тип привода и инвойс с той же комплектацией. Нет VIN или «примерно как на фото» — депозит не платите.",
+          "url": "https://avtosales125.ru/tank-300-iz-kitaya-ramnik-ili-krossover-2026/#сверьте-комплектацию-и-vin-с-инвойсом-до-перевода-денег"  // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Пройти чеклист и только потом обсуждать депозит",
+          "text": "Пройдите чеклист «брать / не брать», заложите антикор рамы и зоны VIN после выдачи. Депозит — только после совпадения документов; логистика через Владивосток.",
+          "url": "https://avtosales125.ru/tank-300-iz-kitaya-ramnik-ili-krossover-2026/#чеклист-когда-брать-tank-300-а-когда-хватит-кроссовера"  // pragma: allowlist secret
+        }
+      ]
+    },
+    {
+      "@type": "Review",
+      "@id": "https://avtosales125.ru/tank-300-iz-kitaya-ramnik-ili-krossover-2026/#review",  // pragma: allowlist secret
+      "itemReviewed": {
+        "@type": "Product",
+        "name": "Tank 300",
+        "brand": {
+          "@type": "Brand",
+          "name": "TANK"
+        },
+        "description": "Рамный внедорожник: клиренс 224 мм, брод до 700 мм, прицеп с тормозами до 2500 кг."
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Редакция Авто-Сейлс"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES"
+      },
+      "reviewBody": "Если ваша неделя – парковка, трасса и грунтовка до дачи, начните с кроссовера. Tank 300 оправдан, когда рама, клиренс и прицеп реально работают каждую неделю, а не раз в Instagram.",
+      "datePublished": "2026-09-27"
+    }
+  ]
+}

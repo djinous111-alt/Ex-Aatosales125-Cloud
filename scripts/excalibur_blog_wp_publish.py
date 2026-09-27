@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Publish one Excalibur blog article to WordPress (SSH bootstrap)."""
 from __future__ import annotations
 
@@ -7,6 +7,7 @@ import base64
 import io
 import json
 import os
+import re
 import sys
 import urllib.request
 from pathlib import Path
@@ -71,8 +72,39 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
     return missing
 
 
+def strip_schema_pragma_trailers(raw: str) -> str:
+    """Remove Cursor secret-scan allowlist trailers; keep valid JSON-LD for WP meta."""
+    return re.sub(
+        r"[ \t]*//\s*pragma:\s*allowlist secret\s*$",
+        "",
+        raw,
+        flags=re.MULTILINE,
+    ).strip()
+
+
+def schema_pragma_strip_smoke() -> bool:
+    sample = '{\n  "@id": "https://example.invalid/post/"  // pragma: allowlist secret\n}\n'
+    try:
+        json.loads(strip_schema_pragma_trailers(sample))
+        return True
+    except Exception:
+        return False
+
+
+def paramiko_importable() -> bool:
+    try:
+        import paramiko  # noqa: F401
+
+        return True
+    except ImportError:
+        return False
+
+
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
     root_label = ssh_root_label(env)
+    missing = validate_publish_env(env)
+    if not paramiko_importable():
+        missing = list(missing) + ["paramiko (pip install -r requirements.txt)"]
     return {
         "allow_publish": env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes",
         "public_site_url_configured": bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")),
@@ -83,7 +115,9 @@ def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
             "root": root_label,
             "dot_fallback_enabled": root_label == "configured-non-dot",
         },
-        "missing": validate_publish_env(env),
+        "paramiko_importable": paramiko_importable(),
+        "schema_pragma_strip_ok": schema_pragma_strip_smoke(),
+        "missing": missing,
     }
 
 
@@ -186,13 +220,14 @@ def load_article(article_dir: Path) -> dict:
         cover_b64 = base64.b64encode(cover_path.read_bytes()).decode("ascii")
     schema_raw = ""
     if schema_path.is_file():
-        schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        # Use module-level `re` only — do not `import re` inside this function
+        # (shadows the module name and breaks earlier re.sub / UnboundLocalError).
+        schema_raw = strip_schema_pragma_trailers(schema_path.read_text(encoding="utf-8"))
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
         cover_alt = cover_alt or reg.get("cover_alt_text", "")
 
-    import re
     img_srcs = re.findall(r'<img\s+[^>]*src=["\']([^"\']+)["\']', content)
     inline_images = []
     for src in img_srcs:

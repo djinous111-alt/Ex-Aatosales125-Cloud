@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2736,
+      1536
+    ],
+    "panel_size_px": [
+      1352,
+      758
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 758,
+        "end": 809
+      },
+      "v_gutter_px": {
+        "start": 1352,
+        "end": 1411
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1352,
+          "bottom": 758
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1352,
+          "bottom": 758
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой у рамного Tank 300 рядом с городским кроссовером, плашка «рамник или кроссовер», угол avto-sales125.ru",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1411,
+          "top": 6,
+          "right": 2736,
+          "bottom": 751
+        },
+        "raw_box_px": {
+          "left": 1411,
+          "top": 0,
+          "right": 2736,
+          "bottom": 758
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения задач: бездорожье и прицеп против города и трассы для Tank 300",
+        "h2_anchor": "Зафиксируйте задачу: бездорожье и прицеп или город и трасса"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 30,
+          "top": 809,
+          "right": 1322,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 809,
+          "right": 1352,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: рама Tank 300 против несущего кузова кроссовера",
+        "h2_anchor": "Сравните раму Tank 300 с обычным кроссовером"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1427,
+          "top": 809,
+          "right": 2719,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 1411,
+          "top": 809,
+          "right": 2736,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист выбора привода Part-Time или Сити для Tank 300",
+        "h2_anchor": "Выберите схему привода: Part-Time или Сити"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте задачу: бездорожье и прицеп или город и трасса",
+    "injected inline_2 after H2 — Сравните раму Tank 300 с обычным кроссовером",
+    "injected inline_3 after H2 — Выберите схему привода: Part-Time или Сити"
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-09-27",
+    "today_ru": "27.09.2026",
+    "year": 2026,
+    "month": 9,
+    "month_name_ru": "сентябрь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-06-29",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-09-27 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS10",
+    "priority": "P0",
+    "slug": "tank-300-iz-kitaya-ramnik-ili-krossover-2026",
+    "h1": "Как выбрать Tank 300 из Китая в 2026: рамник или кроссовер до депозита",
+    "primary_query": "tank 300 из китая",
+    "secondary_queries": [
+      "tank 300 купить",
+      "tank 300 привезти из китая",
+      "китайские рамные внедорожники",
+      "tank 300 комплектации"
+    ],
+    "search_intent": "comparison",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS10",
+    "status": "PASS",
+    "search_intent": "comparison",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "tank 300 из китая 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "tank 300 из китая сентябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "tank 300 из китая новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com tank 300 из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "tank 300 из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "tank 300 из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "tank 300 купить 2026",
+      "purpose": "вторичный запрос: tank 300 купить"
+    },
+    {
+      "id": "secondary_2",
+      "query": "tank 300 привезти из китая 2026",
+      "purpose": "вторичный запрос: tank 300 привезти из китая"
+    },
+    {
+      "id": "secondary_3",
+      "query": "китайские рамные внедорожники 2026",
+      "purpose": "вторичный запрос: китайские рамные внедорожники"
+    },
+    {
+      "id": "secondary_4",
+      "query": "tank 300 комплектации 2026",
+      "purpose": "вторичный запрос: tank 300 комплектации"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать Tank 300 из Китая в 2026: рамник или кроссовер до депозита 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

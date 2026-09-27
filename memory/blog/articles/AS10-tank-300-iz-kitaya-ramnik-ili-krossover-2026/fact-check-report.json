@@ -1,0 +1,87 @@
+{
+  "article": "memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 11,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 10,
+  "facts": [
+    {
+      "fact": "1967",
+      "kind": "date_or_year",
+      "context": "ru у Tank 300 в РФ мотор 2.0T около 220 л.с. при ~1967 см³. Для льготы физлица нужны оба порога сразу – м",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "а 2.0T, гарантия) vs импорт из Китая. На сентябрь 2026 база у дилера и \"под ключ из Китая\" часто близки;",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "30 минут",
+      "kind": "metric_or_duration",
+      "context": "ег: задача, привод, мощность, VIN и инвойс. За 20–30 минут заполните лист и решите \"брать / не брать\". Tank",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "300",
+      "kind": "large_number",
+      "context": "Картинка красивая, в Telegram пишут \"Tank 300 из Китая дешевле дилера\" – и рука уже тянется к де",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "224",
+      "kind": "large_number",
+      "context": "\"брать / не брать\". Tank 300 – рамник с клиренсом 224 мм и прицепом до 2500 кг, не \"красивый кроссовер\".",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2500",
+      "kind": "large_number",
+      "context": "ank 300 – рамник с клиренсом 224 мм и прицепом до 2500 кг, не \"красивый кроссовер\". Типичный мотор РФ око",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "220",
+      "kind": "large_number",
+      "context": "не \"красивый кроссовер\". Типичный мотор РФ около 220 л.с. – выше порога льготного утильсбора (нужны одн",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "порога льготного утильсбора (нужны одновременно ≤160 л.с. и ≤3 л). Из Китая имеет смысл Hi4-T, дизель и",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "100",
+      "kind": "large_number",
+      "context": "5 т? Готовы ли к городскому расходу около 14–15 л/100 км? Если на бездорожье и прицеп честно \"нет\" – смо",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "700",
+      "kind": "large_number",
+      "context": "циальным цифрам Tank 300: клиренс 224 мм, брод до 700 мм, углы въезда/съезда 33°/34°, прицеп с тормозами",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "750",
+      "kind": "large_number",
+      "context": "/34°, прицеп с тормозами до 2500 кг (без тормозов 750 кг). Это уже другой класс задач, не \"пакет Off-Roa",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

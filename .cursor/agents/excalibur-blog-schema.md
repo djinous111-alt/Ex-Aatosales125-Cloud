@@ -24,6 +24,7 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 
 1. Прочитать article.html, article.meta.json, research-notes, authors-registry.
 2. Собрать `schema.jsonld`: BlogPosting + FAQPage (+ HowTo если нужно).
+   - Публичные site/CTA URL обязательны. При secret-scan блокировке commit: `// pragma: allowlist secret` на строке с URL (JSONC). Publish стрипает pragma.
 3. datePublished из research-context (today).
 4. Fragment `.cursor/excalibur-blog-fragments/schema.md`:
 

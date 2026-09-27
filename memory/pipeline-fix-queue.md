@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260928-2126-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-indexer
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-proverka-kitayskogo-avto-po-vin-2026
+severity: low
+category: docs
+
+### What went wrong
+- `scripts/excalibur_blog_doctor.py` still asserts `llms generator supports --blog-path`, but `excalibur_blog_llms_generator.py --help` only exposes `--blog-dir` / `--site-base` / `--out-dir` (no `--blog-path`).
+- Indexer agent/skill shell examples still pass `--blog-path /`, which would fail argparse if followed literally.
+- First llms run with absolute `--site-base $PUBLIC_SITE_URL` could not be committed: pre-commit secret-scan blocks host literals in `llms.txt` / `llms-full.txt` (same class as schema/writer CTA URL incidents). Also `CLOUD_AGENT_INJECTED_SECRET_NAMES` must be comma-separated valid identifiers or the hook aborts with `invalid variable name`.
+
+### How the agent recovered this run
+- Ran llms generator with the real CLI: `--blog-dir memory/blog/articles --site-base "" --out-dir memory/blog` (no `--blog-path`; relative `/blog/<slug>/` URLs).
+- Generated `memory/blog/llms.txt` and `memory/blog/llms-full.txt` including AS11.
+- Commit with filtered comma-separated `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+
+### Durable fix needed before next run
+- Change doctor check from `--blog-path` to `--blog-dir` (and optionally `--out-dir`).
+- Align indexer agent + skill shell snippets with actual argparse (drop `--blog-path`; document relative `--site-base ""` for repo commits / secret-scan).
+- Note in pitfalls: doctor can be stale vs script `--help`; llms absolute site-base trips secret-scan.
+- Harden pre-commit wrapper to skip non-identifier secret name tokens; prefer comma-separated names.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260928-2122-schema-secret-scan-relative-urls
 status: open
 run_date: 2026-09-28

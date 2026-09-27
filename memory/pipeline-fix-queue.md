@@ -502,6 +502,40 @@ category: script
 - pending (runtime hotfix applied this run; durable pitfalls/test still open)
 
 
+
+## INC-20260927-1736-publish-paramiko-missing
+status: open
+run_date: 2026-09-27
+role: excalibur-blog-publish
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026
+severity: blocker
+category: env
+
+### What went wrong
+- Live publish crashed with `ModuleNotFoundError: No module named 'paramiko'` after dry-run passed.
+- `paramiko` is listed in `requirements.txt` but was not present in the Cloud Agent runtime until installed ad-hoc.
+
+### How the agent recovered this run
+- `pip3 install --user paramiko` then re-ran `excalibur_blog_wp_publish.py`.
+
+### Durable fix needed before next run
+- Ensure `.cursor/cloud-agent-install.sh` / environment build installs `requirements.txt` (including paramiko) before publish.
+- Optionally make publish `--env-check` also verify `import paramiko` and fail early with a clear blocker.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/environment.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

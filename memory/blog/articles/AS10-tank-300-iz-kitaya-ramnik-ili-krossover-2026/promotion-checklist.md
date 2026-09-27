@@ -1,7 +1,7 @@
 # Promotion checklist — AS10 tank-300-iz-kitaya-ramnik-ili-krossover-2026
 
-Дата публикации: 2026-09-27 (pending WP publish)  
-Live URL: (pending) /blog/tank-300-iz-kitaya-ramnik-ili-krossover-2026/
+Дата публикации: 2026-09-27  
+Live URL: [REDACTED]/2026/09/27/tank-300-iz-kitaya-ramnik-ili-krossover-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Типичный мотор РФ ~220 л.с. – выше порога льготного утильсбора (≤160 л.с. и ≤3 л)
 • Депозит – только после VIN и комплектации в договоре
 
-Читать: (после publish вставить live URL)
+Читать: [REDACTED]/2026/09/27/tank-300-iz-kitaya-ramnik-ili-krossover-2026/
 ```
 
 ## Перелинковка

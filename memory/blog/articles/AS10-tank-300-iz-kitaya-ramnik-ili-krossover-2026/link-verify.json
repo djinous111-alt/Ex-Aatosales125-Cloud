@@ -5,28 +5,22 @@
   "verdict": "pass",
   "links": [
     {
-      "url": "https://example.invalid/redacted-cta-1",
+      "url": "[REDACTED]",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "external",
-      "skipped": false,
-      "url_scrubbed": true,
-      "url_len": 25,
-      "url_startswith_http": true
+      "skipped": false
     },
     {
-      "url": "https://example.invalid/redacted-cta-2",
+      "url": "[REDACTED]",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "external",
-      "skipped": false,
-      "url_scrubbed": true,
-      "url_len": 25,
-      "url_startswith_http": true
+      "skipped": false
     }
   ]
 }

@@ -6,6 +6,72 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260927-1719-geo-qa-utility-pain-outcome-markers-missing
+status: open
+run_date: 2026-09-27
+role: excalibur-blog-geo-qa
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026
+severity: blocker
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` считает `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json`.
+- В текущем policy списки и `min_pain_markers` / `min_outcome_markers` отсутствуют (снова стёрты после rebrand/sync).
+- Пустой список → `pain_count=0` / `outcome_count=0` → всегда `UTILITY ARTICLE BLOCKER`, даже когда текст уже содержит маркеры (AS10: боль/ошиб/не работает + результат/проверьте/соберите/выберите).
+- Ранее фиксировалось в commit `1daa1aec` (restore markers + empty-list skip); защита снова потеряна.
+
+### How the agent recovered this run
+- GEO QA не рерайтил статью; вернул FAIL + FIX Writer только по битым CTA.
+- Зафиксировал в `article-qa.md`, что utility BLOCK — ложный относительно текста; нужен Fixer до/параллельно Writer-циклу links.
+
+### Durable fix needed before next run
+- Восстановить в `memory/brief/editorial-policy.json` те же `pain_markers_ru` / `outcome_markers_ru` (+ min_*), что в human_voice_gate.
+- В `excalibur_blog_utility_gate.py` снова skip-check при пустых списках (defense in depth).
+- Добавить pitfall: rebrand не должен вычищать marker lists из editorial-policy.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260927-1719-geo-qa-writer-literal-redacted-href
+status: open
+run_date: 2026-09-27
+role: excalibur-blog-geo-qa
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026
+severity: high
+category: qa
+
+### What went wrong
+- Writer закоммитил `article.html` с литералом `href="[REDACTED]"` (3 CTA), вместо URL из `PUBLIC_SITE_URL` / `TELEGRAM_URL`.
+- `link_verify` трактует это как `internal_relative` → 404 → GEO QA FAIL.
+
+### How the agent recovered this run
+- Не правил HTML сам; вернул Writer FIX: подставить реальные CTA из env.
+
+### Durable fix needed before next run
+- В writer skill/agent явно запретить литерал `[REDACTED]` в `href`; требовать env `PUBLIC_SITE_URL` + `TELEGRAM_URL` (или канонические публичные CTA из brief).
+- Precheck Writer: grep `href="\[REDACTED\]"` = blocker до handoff.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-writer.md`
+- `shared/excalibur-article-writing-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260927-1715-research-tech-markers-false-positive
 status: open
 run_date: 2026-09-27

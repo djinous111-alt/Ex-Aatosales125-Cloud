@@ -29,8 +29,8 @@
     "description_aeo": "Tank 300 из Китая – рамный внедорожник. До депозита сверьте задачу (рамник vs кроссовер), мощность под утильсбор, VIN и комплектацию с инвойсом."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 72,
+    "verdict": "FAIL",
     "date": "2026-09-27"
   },
   "cover_family": "brand_collage"

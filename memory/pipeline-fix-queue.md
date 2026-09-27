@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none — 2026-09-27 fixer closed all open items)_
+
+
 ## INC-20260927-1734-indexer-llms-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-09-27
 role: excalibur-blog-indexer
 topic_id: AS10
@@ -40,11 +43,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-09-27
+fix_summary:
+- Removed stale `--blog-path` from indexer agent/skill examples; CLI is `--blog-dir` + `--out-dir`.
+- Doctor now checks `--blog-dir` / `--out-dir` instead of `--blog-path`.
+- Pitfall documented.
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` (llms --blog-dir/--out-dir OK; no --blog-path)
+- `rg` no `--blog-path /` usage in agents/skills/scripts
+commit: pending-parent-commit
 
 ## INC-20260927-1729-schema-secret-scan-jsonld-pragma
-status: open
+status: fixed
 run_date: 2026-09-27
 role: excalibur-blog-schema
 topic_id: AS10
@@ -75,11 +93,27 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending (runtime strip in publish.py already applied this run; leave open for skill/pitfall docs)
-
+status: fixed
+fixed_at: 2026-09-27
+fix_summary:
+- Schema skill/agent + writing contract document JSONC `// pragma: allowlist secret` for public site/CTA URLs.
+- Publish loader uses `strip_schema_pragma_trailers()`; `--env-check` reports `schema_pragma_strip_ok`.
+- Pitfall: secret-scan ≠ omit site URL.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- AS10 schema.jsonld strip + json.loads OK
+- `--env-check` schema_pragma_strip_ok=true
+commit: pending-parent-commit
 
 ## INC-20260927-1719-geo-qa-utility-pain-outcome-markers-missing
-status: open
+status: fixed
 run_date: 2026-09-27
 role: excalibur-blog-geo-qa
 topic_id: AS10
@@ -112,10 +146,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending (runtime FIX verified PASS this GEO QA re-run; leave open for durable pitfalls/docs)
+status: fixed
+fixed_at: 2026-09-27
+fix_summary:
+- Confirmed `pain_markers_ru` / `outcome_markers_ru` and `min_*` present in editorial-policy.json.
+- Empty-list defense already in utility_gate.py (skip + warning).
+- Pitfall: rebrand/sync must not wipe marker lists.
+files_changed:
+- `memory/brief/editorial-policy.json` (verified)
+- `scripts/excalibur_blog_utility_gate.py` (verified empty-list defense)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- JSON parse editorial-policy markers + min_*
+- `rg` empty-list warnings in utility_gate.py
+commit: pending-parent-commit
 
 ## INC-20260927-1719-geo-qa-writer-literal-redacted-href
-status: open
+status: fixed
 run_date: 2026-09-27
 role: excalibur-blog-geo-qa
 topic_id: AS10
@@ -146,10 +193,24 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending (Writer artifact FIX + GEO QA link-verify PASS verified; leave open for durable skill/precheck)
+status: fixed
+fixed_at: 2026-09-27
+fix_summary:
+- Writer agent/skill + writing contract forbid `href="[REDACTED]"`; require env CTA URLs and precheck before handoff.
+- Documented HTML pragma allowlist for secret-scan on CTA lines.
+files_changed:
+- `agents/excalibur-blog-writer.md`
+- `.cursor/agents/excalibur-blog-writer.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` CTA/REDACTED ban present in writer contracts
+commit: pending-parent-commit
 
 ## INC-20260927-1715-research-tech-markers-false-positive
-status: open
+status: fixed
 run_date: 2026-09-27
 role: excalibur-blog-research
 topic_id: AS10
@@ -179,7 +240,20 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-27
+fix_summary:
+- TECH markers are word-boundary aware; technical_topic uses topic identity only (not notes body).
+- GitHub≥3 only when technical_topic; research skill documents auto/OEM community evidence path.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit smoke: auto topic False, MCP topic True
+- AS10 research_notes_gate metrics.technical_topic=false, status PASS
+commit: pending-parent-commit
 
 ## INC-20260927-1705-director-as-topic-id-regex
 status: fixed
@@ -470,7 +544,7 @@ commit: pending-parent-commit
 
 
 ## INC-20260927-1735-publish-re-import-shadow
-status: open
+status: fixed
 run_date: 2026-09-27
 role: excalibur-blog-publish
 topic_id: AS10
@@ -499,12 +573,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending (runtime hotfix applied this run; durable pitfalls/test still open)
-
-
+status: fixed
+fixed_at: 2026-09-27
+fix_summary:
+- Removed redundant local `import re` risk: schema strip via module-level helper `strip_schema_pragma_trailers`.
+- Documented mid-function stdlib re-import pitfall; env-check includes strip smoke.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- load_article has no local `import re`
+- schema_pragma_strip_ok via --env-check
+commit: pending-parent-commit
 
 ## INC-20260927-1736-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-09-27
 role: excalibur-blog-publish
 topic_id: AS10
@@ -533,8 +619,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-09-27
+fix_summary:
+- `.cursor/cloud-agent-install.sh` installs `requirements.txt` (incl. paramiko) and fails if import missing.
+- `--env-check` reports `paramiko_importable` and adds paramiko to missing when absent.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `requirements.txt` (verified lists paramiko)
+checks_run:
+- `bash -n .cursor/cloud-agent-install.sh`
+- `--env-check` paramiko_importable=true
+commit: pending-parent-commit
 
 ## Fixed incidents
 

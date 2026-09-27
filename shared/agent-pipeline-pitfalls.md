@@ -15,6 +15,7 @@
 
 - Перед пайплайном: `python3 scripts/excalibur_blog_today.py` и `python3 scripts/excalibur_blog_research_start.py --topic-id …`.
 - Если `EXCALIBUR_RUN_DATE` нет в выводе today.py — старая ветка/код, **блокер**.
+- `research_notes_gate` technical_topic: word-boundary по h1/query/slug, **не** по телу notes (`ai` ⊂ `reader_pain`, `ии` ⊂ `комплектации`). GitHub≥3 только для technical; auto/OEM — community/official OK.
 
 ## Publish
 
@@ -22,22 +23,31 @@
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
 - Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
 - SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
+- `paramiko` обязан быть в runtime (`requirements.txt` + `.cursor/cloud-agent-install.sh`). `--env-check` падает рано, если import невозможен.
+- Не делай `import re` внутри функции после использования module-level `re` (UnboundLocalError).
+- `schema.jsonld` может содержать `// pragma: allowlist secret`; publish стрипает pragma перед WP meta.
 
 ## Writer / Fact Check Box
 
 - Fact Check Box **не копирует** пример из `shared/excalibur-article-writing-contract.md`. Автор — только из `shared/authors-registry.json` по `author_id` в `article.meta.json`.
 - Запрещены legacy-имена вне реестра (в т.ч. «Елена Ковалева»). Human voice gate блокирует несовпадение автора и generic-шаблон «все статистические показатели…».
+- Запрещён `href="[REDACTED]"` в CTA. URL только из env (`PUBLIC_SITE_URL`/`CATALOG_URL`/`TELEGRAM_URL`); secret-scan → `<!-- pragma: allowlist secret -->`.
 
-## QA
+## QA / utility
 
 - Шаг cover||schema **только после** GEO QA PASS.
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
+- `pain_markers_ru` / `outcome_markers_ru` + `min_*` в `editorial-policy.json` не вычищать при rebrand/sync. Пустой список → skip (warning), не ложный BLOCK.
 
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+
+## Schema
+
+- Публичные site/CTA URL в `schema.jsonld` обязательны. Secret-scan → `// pragma: allowlist secret` на строке; это не повод убирать URL.
 
 ## Scout
 
@@ -46,3 +56,4 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator: только `--blog-dir` + `--out-dir` (+ `--site-base`). Флага `--blog-path` нет.

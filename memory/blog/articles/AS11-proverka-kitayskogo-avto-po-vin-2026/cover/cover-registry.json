@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS11",
+  "slug": "proverka-kitayskogo-avto-po-vin-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у китайского кроссовера со смартфоном и VIN на стойке двери, плашка до депозита",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-09-27T21:24:03+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у китайского кроссовера со смартфоном и VIN на стойке двери, плашка до депозита",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Скриншот правила: VIN и отчёт до перевода депозита",
+      "h2_anchor": "Зафиксируйте правило: VIN до депозита, а не после перевода",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица сверки VIN: кузов, шильдик и инвойс",
+      "h2_anchor": "Где взять VIN и как сверить его с кузовом и инвойсом",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема баз проверки авто из Китая в 2026",
+      "h2_anchor": "Какие базы смотреть для авто из Китая в 2026",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

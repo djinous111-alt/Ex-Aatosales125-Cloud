@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS11",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит без VIN — лотерея с авансом",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у китайского кроссовера со смартфоном и VIN на стойке двери, плашка до депозита",
+      "scene_hint": "герой в фирменных очках (лицо с reference) у современного китайского кроссовера, дневной свет, лёгкая куртка smart casual (не майка с reference), смартфон в руке с карточкой каталога/отчётом, крупно VIN на стойке двери B-pillar, плашка «до депозита», рваная бумага + скотч + розовый стикер «стоп», мем shocked face, угол avto-sales125.ru; без Wordstat/Метрики/Telegram",
+      "meme_caption_ru": "VIN до депозита!"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте правило: VIN до депозита, а не после перевода",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "fake UI чек-листа «до депозита»: шаги VIN с фото кузова → отчёт → залог; красная плашка «не переводи до сверки»; стикер «правило»; без лица героя, без Wordstat",
+      "alt": "Скриншот правила: VIN и отчёт до перевода депозита"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Где взять VIN и как сверить его с кузовом и инвойсом",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "таблица сверки трёх источников VIN: стойка двери / шильдик / инвойс — столбцы «совпало / расхождение»; мини-фото стойки двери; стикер «сверь»; без лица героя",
+      "alt": "Таблица сверки VIN: кузов, шильдик и инвойс"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Какие базы смотреть для авто из Китая в 2026",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "схема 4 шага: китайский отчёт (Che300/аналог) → пробег/аварии → реестр залогов ФНП → Госуслуги; стрелки маркером; стикер «2026»; без лица героя, без SEO-аналитики",
+      "alt": "Схема баз проверки авто из Китая в 2026"
+    }
+  }
+}

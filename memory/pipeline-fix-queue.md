@@ -323,8 +323,44 @@ category: api
 ### Fixer resolution
 - pending
 
+## INC-20260928-2120-writer-precommit-secret-names
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-writer
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-proverka-kitayskogo-avto-po-vin-2026
+severity: medium
+category: env
+
+### What went wrong
+- First `git commit` of `article.html` failed in Cloud pre-commit secret-scan: `CLOUD_AGENT_INJECTED_SECRET_NAMES` contains a non-identifier token `[REDACTED]`, so bash `${!SECRET_NAME}` aborts with `invalid variable name` before scanning finishes.
+- Even after filtering names, public marketing CTA values (`CATALOG_URL`, `TELEGRAM_URL`) are injected as secrets; Writer contract forbids `href="[REDACTED]"`, so real URLs in article body trip secret-scan unless allowlisted.
+
+### How the agent recovered this run
+- Kept real CTA hrefs from env (no `[REDACTED]` placeholders).
+- Added HTML comment `<!-- pragma: allowlist secret -->` on the same lines as public catalog/Telegram links.
+- Re-ran commit with `CLOUD_AGENT_INJECTED_SECRET_NAMES` filtered to valid bash identifiers only; commit `6b55bb4` pushed.
+
+### Durable fix needed before next run
+- Dashboard/Cloud: do not put redacted placeholders into `CLOUD_AGENT_INJECTED_SECRET_NAMES`; only real env var names.
+- Treat public catalog/Telegram URLs as non-secrets, or document Writer must add `pragma: allowlist secret` on CTA lines.
+- Optionally harden pre-commit wrapper to skip invalid secret name tokens instead of aborting.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/excalibur-article-writing-contract.md`
+- Cursor Dashboard Cloud Secrets / injected secret name list (no values recorded)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
 
 

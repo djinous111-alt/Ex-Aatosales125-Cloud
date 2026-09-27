@@ -42,5 +42,12 @@ memory/blog/articles/<topic_id>-<slug>/article.meta.json
 - нет research-notes.md
 - utility-only нарушен (вода, нет шагов)
 - объём вне диапазона после 1 правки
+- в `article.html` есть `href="[REDACTED]"` или CTA без реального `http`-URL из env (`PUBLIC_SITE_URL` / `CATALOG_URL` / `TELEGRAM_URL`)
+
+## CTA / links (обязательно)
+
+- Бери URL из env / `conversion-map.md`, не из соседних committed articles (там часто `[REDACTED]`).
+- Precheck: `rg 'href="\[REDACTED\]"' article.html` должен быть пуст; python-проверка `href.startswith("http")`.
+- Не коммить `article.html`, пока CTA не подставлены реально. Для secret-scan: `<!-- pragma: allowlist secret -->` на CTA-строке.
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`

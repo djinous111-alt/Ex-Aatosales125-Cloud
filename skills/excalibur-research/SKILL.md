@@ -10,7 +10,7 @@ description: Excalibur BLOG Research — topic research перед статьё�
 **Шаг 0 (скрипт, обязательно):** перед любым research — зафиксировать дату и собрать свежий SERP.
 
 ```bash
-python scripts/excalibur_blog_research_start.py --topic-id B01
+python3 scripts/excalibur_blog_research_start.py --topic-id AS11
 ```
 
 Создаёт в папке статьи:
@@ -39,10 +39,11 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 
 1. **Анализ спроса через Wordstat API:**
   Каждый прогон исследования **обязан** задействовать инструмент `wordstat_get_top_requests` сервера `user-mcp-kv` для анализа спроса:
-  - Вызови `wordstat_get_top_requests` для `primary_query` и ключевых `secondary_queries`.
+  - Вызови `wordstat_get_top_requests` для parent/broad phrase, затем `primary_query` и ключевых `secondary_queries` (cluster-first).
   - Если вызов вернул `401 Unauthorized` (токен устарел):
     - Запиши в `research-notes.md` предупреждение: `⚠️ WORDSTAT AUTH WARNING: Токен Wordstat устарел. Обновите токен через: https://oauth.yandex.ru/authorize?response_type=token&client_id=c654b948515a4a07a4c89648a0831d40`
     - Сделай экспертную оценку семантики, но явно укажи, что точные объемы спроса не получены из-за авторизации.
+  - Если ответ `{}`, `totalCount`-only или без списка фраз (часто на длинных how-to): это **low-result signal**, не fatal. Fallback на успешный parent/secondary ответ; в notes пометь `no exact volume`; **не выдумывай** impressions.
   - Если вызов успешен:
     - Сформируй в `research-notes.md` таблицу спроса: Фраза | Показы в месяц.
     - Выдели сопутствующие LSI-запросы из топа выдачи Вордстата для использования копирайтером.
@@ -61,6 +62,20 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
+8. **Gate markers (research-notes-gate):** в `source_table` каждая строка источника должна содержать литерал `accessed_at: YYYY-MM-DD` (не только дату в колонке). В `pain_solution_map` строки таблицы помечай маркерами `pain:` / `solution:` / `reader_result:` (или pain/solution/result). Секция `## github_evidence` обязательна, но сама по себе **не** делает тему technical: GitHub≥3 URL gate требует только если topic card (h1/query/slug) technical.
+
+### Пример фрагментов для gate
+
+```markdown
+| source | url | accessed |
+| --- | --- | --- |
+| Official docs | https://example.com/docs | accessed_at: 2026-09-28 |
+
+## pain_solution_map
+| pain | solution | reader_result |
+| --- | --- | --- |
+| pain: боюсь депозита вслепую | solution: проверка VIN до оплаты | reader_result: отказ или торг по фактам |
+```
 
 ## Blockers
 

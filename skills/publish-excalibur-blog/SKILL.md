@@ -50,8 +50,15 @@ python scripts/excalibur_blog_wp_publish.py \
 
 ### 3. Publish
 
+Перед live publish проверь SSH transport:
+
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 -c "import paramiko"
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
@@ -59,7 +66,10 @@ python scripts/excalibur_blog_wp_publish.py \
 - создаёт/обновляет WP post;
 - загружает featured image + alt;
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
-- пишет post meta `_excalibur_blog_schema_jsonld`.
+- пишет post meta `_excalibur_blog_schema_jsonld`;
+- пишет `wp-publish-result.json` и ledger со **sanitized** `[PUBLIC_SITE_URL]` (абсолютный permalink печатает в stdout для handoff).
+
+Если `import paramiko` падает — Cloud image без зависимости: `pip3 install --break-system-packages paramiko` (должно быть в `.cursor/cloud-agent-install.sh` / Dockerfile).
 
 ### 4. Cloud WebFetch Fallback
 
@@ -75,11 +85,20 @@ python scripts/excalibur_blog_wp_publish.py \
 
 | Файл | Действие |
 |------|----------|
-| `wp-publish-result.json` | создаёт скрипт (verdict pass/fail) |
-| `memory/blog/wp-publish-log.md` | допиши секцию с post_id, permalink, inline ids |
-| `shared/published-articles.md` | строка: date, topic_id, slug, url, status=published |
-| `promotion-checklist.md` | Live URL = permalink |
-| handoff | блок `=== EXCALIBUR BLOG PUBLISH ===` + permalink в `PIPELINE DONE` |
+| `wp-publish-result.json` | создаёт скрипт (verdict pass/fail; URL → `[PUBLIC_SITE_URL]`) |
+| `memory/blog/wp-publish-log.md` | допиши секцию с post_id, permalink, inline ids (sanitize host) |
+| `shared/published-articles.md` | строка: date, topic_id, slug, url=`[PUBLIC_SITE_URL]/…`, status=published |
+| `promotion-checklist.md` | Live URL = sanitized permalink |
+| handoff | блок `=== EXCALIBUR BLOG PUBLISH ===` + **абсолютный** permalink в `PIPELINE DONE` (handoff не коммитить) |
+
+Перед commit publish-артефактов:
+
+```bash
+python3 scripts/excalibur_blog_sanitize_publish_artifacts.py --article-dir memory/blog/articles/<topic_id>-<slug>
+export CLOUD_AGENT_INJECTED_SECRET_NAMES="$(bash scripts/excalibur_blog_filter_secret_names.sh)"
+```
+
+Secret-scan считает host из `PUBLIC_SITE_URL` секретом, если переменная в Cloud Secrets.
 
 ### 6. Post-publish (рекомендуется)
 

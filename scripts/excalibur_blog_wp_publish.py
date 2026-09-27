@@ -34,6 +34,26 @@ PUBLISH_ENV_KEYS = {
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
 }
 
+# Committed publish artifacts must not contain the live site host when it is a Cloud secret.
+PUBLIC_SITE_PLACEHOLDER = "[PUBLIC_SITE_URL]"
+
+
+def sanitize_public_urls(text: str, *bases: str) -> str:
+    """Replace absolute public site bases with a commit-safe placeholder."""
+    out = text
+    candidates: list[str] = []
+    for base in bases:
+        value = (base or "").strip().rstrip("/")
+        if value:
+            candidates.append(value)
+    for value in sorted(set(candidates), key=len, reverse=True):
+        out = out.replace(value, PUBLIC_SITE_PLACEHOLDER)
+    return out
+
+
+def sanitize_publish_payload(payload: dict[str, Any], *bases: str) -> dict[str, Any]:
+    return json.loads(sanitize_public_urls(json.dumps(payload, ensure_ascii=False), *bases))
+
 
 def _read_env_file(path: Path) -> dict[str, str]:
     env: dict[str, str] = {}
@@ -589,6 +609,7 @@ def main() -> int:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
     out = publish_via_ssh(env, php, public)
+    # Absolute permalink stays on stdout for the agent/handoff; repo artifacts are sanitized.
     print(out)
 
     result_path = article_dir / "wp-publish-result.json"
@@ -605,9 +626,23 @@ def main() -> int:
         "raw_output": out,
         "verdict": "pass" if "OK post=" in out else "fail",
     }
-    result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    safe_result = sanitize_publish_payload(
+        result,
+        public,
+        env.get("PUBLIC_SITE_URL", ""),
+        env.get("WP_HOME", ""),
+        env.get("WP_SITE_URL", ""),
+    )
+    result_path.write_text(json.dumps(safe_result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     if result["verdict"] == "pass":
-        upsert_publish_ledger(root, payload, permalink)
+        safe_permalink = sanitize_public_urls(
+            permalink,
+            public,
+            env.get("PUBLIC_SITE_URL", ""),
+            env.get("WP_HOME", ""),
+            env.get("WP_SITE_URL", ""),
+        )
+        upsert_publish_ledger(root, payload, safe_permalink)
     return 0 if result["verdict"] == "pass" else 1
 
 

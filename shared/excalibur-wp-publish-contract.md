@@ -54,7 +54,14 @@ Publish-скрипт выставляет meta `_excalibur_blog_skip_theme_faq` 
 ```text
 memory/blog/articles/<topic_id>-<slug>/wp-publish-result.json
 memory/blog/wp-publish-log.md
+shared/published-articles.md
 ```
+
+Transport: **SSH + paramiko** (не legacy FTP upload aliases). Перед live: `python3 -c "import paramiko"` и `python3 scripts/excalibur_blog_wp_publish.py --env-check`.
+
+**Secret-scan:** `excalibur_blog_wp_publish.py` пишет ledger/`wp-publish-result.json` с `[PUBLIC_SITE_URL]` вместо абсолютного host. Абсолютный permalink остаётся в stdout для handoff. Дополнительно:
+`python3 scripts/excalibur_blog_sanitize_publish_artifacts.py --article-dir <dir>`.
+Перед commit: `export CLOUD_AGENT_INJECTED_SECRET_NAMES="$(bash scripts/excalibur_blog_filter_secret_names.sh)"`.
 
 ## Schema в теме WP
 

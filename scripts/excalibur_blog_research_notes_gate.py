@@ -14,6 +14,8 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Detect technical topics from topic card fields only.
+# Do NOT scan research-notes body: required section ## github_evidence would false-positive.
 TECH_MARKERS = (
     "ai",
     "ии",
@@ -74,12 +76,12 @@ def has_wordstat(text_lower: str) -> bool:
 
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    del notes  # notes body always mentions github_evidence; ignore it for tech detection
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
     return any(marker in blob for marker in TECH_MARKERS)
 
 

@@ -6,8 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_none_
+
 ## INC-20260928-2132-publish-secret-scan-placeholders
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-publish
 topic_id: AS11
@@ -38,10 +40,28 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- `excalibur_blog_wp_publish.py` sanitizes ledger/result URLs to `[PUBLIC_SITE_URL]` while printing absolute permalink to stdout.
+- Added `scripts/excalibur_blog_sanitize_publish_artifacts.py` and filter helper for Cloud secret names.
+- Publish skill + wp-publish-contract document sanitize-before-commit.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_sanitize_publish_artifacts.py`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py scripts/excalibur_blog_sanitize_publish_artifacts.py`
+- unit: sanitize_public_urls
+- `PYTHONPATH=scripts python3 scripts/excalibur_blog_sanitize_publish_artifacts.py --dry-run --article-dir ...AS11...`
+commit: pending-parent-commit
 
 ## INC-20260928-2131-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-publish
 topic_id: AS11
@@ -71,10 +91,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- Baked `paramiko` / `python3-paramiko` into `.cursor/Dockerfile` and `.cursor/cloud-agent-install.sh`.
+- Publish skill requires `python3 -c "import paramiko"` before live publish.
+files_changed:
+- `.cursor/Dockerfile`
+- `.cursor/cloud-agent-install.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -c "import paramiko"` → paramiko 5.0.0
+- rg paramiko `.cursor/Dockerfile` `.cursor/cloud-agent-install.sh`
+commit: pending-parent-commit
 
 ## INC-20260928-2126-indexer-llms-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-indexer
 topic_id: AS11
@@ -109,11 +144,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- Doctor now asserts `--blog-dir` / `--out-dir` (not `--blog-path`).
+- Indexer agent/skill CLI examples use `--blog-dir` + `--site-base ""` for commit-safe relative URLs.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → OK llms --blog-dir/--out-dir, SUMMARY errors=0
+- `python3 scripts/excalibur_blog_llms_generator.py --help`
+commit: pending-parent-commit
 
 ## INC-20260928-2122-schema-secret-scan-relative-urls
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-schema
 topic_id: AS11
@@ -146,8 +195,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- Schema skill + writing-contract document secret-scan-safe relative JSON-LD rules.
+- Added `scripts/excalibur_blog_filter_secret_names.sh` for invalid CLOUD_AGENT_INJECTED_SECRET_NAMES tokens.
+- Optional Dashboard: mark public CTA hosts as non-secrets (human preference, not required for next run).
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+checks_run:
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES='PUBLIC_SITE_URL,[REDACTED],CATALOG_URL,bad-name' bash scripts/excalibur_blog_filter_secret_names.sh` → PUBLIC_SITE_URL,CATALOG_URL
+- rg secret-scan-safe in schema skill
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -395,7 +458,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20260928-2105-scout-as-prefix-regex
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-scout
 topic_id: AS11
@@ -428,10 +491,28 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- `scout_helper.py` and `today.py` parse `AS##`/`B##` topic cards and article dirs.
+- `--suggest-next` uses dominant prefix (AS for Авто-Сейлс); `--check-query` sees AS pool.
+- Scout agent/skill updated for AS prefix.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → AS12, pool=10
+- `--check-query 'растаможка авто из кореи'` → OVERLAP AS01
+- `python3 scripts/excalibur_blog_today.py` → EXCALIBUR_SUGGESTED_TOPIC_ID=AS01
+commit: pending-parent-commit
 
 ## INC-20260928-2115-research-wordstat-empty-and-gate-markers
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-research
 topic_id: AS11
@@ -464,10 +545,23 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- Research skill: Wordstat `{}`/totalCount-only → parent fallback; gate marker examples for accessed_at + pain_solution_map.
+- `research_notes_gate.is_technical_topic` no longer false-positives on `## github_evidence` section body.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+- unit: is_technical_topic ignores github_evidence heading
+commit: pending-parent-commit
 
 ## INC-20260928-2120-writer-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-writer
 topic_id: AS11
@@ -499,10 +593,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- Writer skill + writing-contract: CTA pragma allowlist + filter_secret_names.sh before commit.
+- Documented that CLOUD_AGENT_INJECTED_SECRET_NAMES must be valid bash identifiers only.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+checks_run:
+- filter_secret_names.sh unit
+- rg 'pragma: allowlist secret' skills/writer-excalibur-blog/SKILL.md shared/excalibur-article-writing-contract.md
+commit: pending-parent-commit
 
 ## INC-20260928-2125-geo-qa-utility-pain-outcome-markers
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-geo-qa
 topic_id: AS11
@@ -536,7 +644,24 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- Confirmed `pain_markers_ru` / `outcome_markers_ru` (+ min_*) in `memory/brief/editorial-policy.json`.
+- Writer/contract prefer «Сделайте/Не делайте», «чеклист», insight without TL;DR label.
+- `human_voice_gate` exactly-5 lists now counts `li == 5` (not ≥5).
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- editorial-policy.json parse + pain/outcome keys
+- exactly-five unit (6-li not counted)
+- `human_voice_gate` AS11 → PASS, exactly_five=0, warnings=[]
+commit: pending-parent-commit
 
 ## Fixed incidents
 

@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
     python3-pip \
     python3-venv \
+    python3-paramiko \
     openssh-client \
     ftp \
     lftp \
@@ -28,6 +29,7 @@ RUN python3 -m pip install --break-system-packages --no-cache-dir \
     requests \
     pillow \
     python-dotenv \
-    || python3 -m pip install --no-cache-dir requests pillow python-dotenv
+    paramiko \
+    || python3 -m pip install --no-cache-dir requests pillow python-dotenv paramiko
 
 WORKDIR /workspace

@@ -251,6 +251,43 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20260928-2105-scout-as-prefix-regex
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-scout
+topic_id: AS11
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py --suggest-next` матчит только `B(\\d+)`, поэтому при пуле `AS01`–`AS09` возвращает `Next available topic ID: B01` и `Total topics in pool: 0`.
+- `--check-query` тоже не видит карточки `AS##` в `memory/topics/blog-topics.md`, поэтому ложно печатает `NO CANNIBALIZATION RISK` даже при живых primary_query в пуле.
+- Для Авто-Сейлс канонический префикс тем – `AS##` (следующий свободный `AS11`; `AS10` = tank-300 уже на WP), а не `B##`.
+
+### How the agent recovered this run
+- Вручную взял `AS11` по контракту прогона и списку WP slugs.
+- Дополнительно вручную посчитал Jaccard/token-overlap primary_query vs `blog-topics.md` AS01–AS09 и vs recent WP slugs/titles; helper-результат не считал достаточным.
+- Узкий Wordstat how-to вернул `totalCount`-only / пустой ответ – зафиксировал как low-result signal, семантический хвост взял из parent-кластера «проверка авто из китая».
+
+### Durable fix needed before next run
+- Расширить regex topic_id в scout helper до `([A-Z]+)(\\d+)` (или минимум `B\\d+|AS\\d+`) для `--suggest-next` и парсинга пула.
+- `--check-query` должен читать все `## AS##` / `## B##` карточки из `blog-topics.md` и опционально принимать список occupied WP slugs.
+- Обновить scout skill/agent: для Авто-Сейлс следующий ID считать по префиксу `AS`, не `B`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+

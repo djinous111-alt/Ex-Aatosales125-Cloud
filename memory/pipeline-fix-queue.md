@@ -468,6 +468,40 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+
+## INC-20260927-1735-publish-re-import-shadow
+status: open
+run_date: 2026-09-27
+role: excalibur-blog-publish
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026
+severity: blocker
+category: script
+
+### What went wrong
+- `excalibur_blog_wp_publish.py` dry-run crashed with `UnboundLocalError: cannot access local variable 're'`.
+- Cause: local `import re` inside `load_article()` after an earlier use of module-level `re.sub` for schema pragma stripping, so Python treated `re` as local for the whole function.
+
+### How the agent recovered this run
+- Removed the redundant local `import re` (module-level import already present).
+- Re-ran dry-run / publish after the one-line fix.
+
+### Durable fix needed before next run
+- Keep only module-level `import re` in publish script; add a regression test or smoke that `--dry-run` loads an article with `schema.jsonld` containing pragma trailers.
+- Optionally note in pitfalls: do not re-import stdlib modules mid-function after using them.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (runtime hotfix applied this run; durable pitfalls/test still open)
+
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

@@ -199,7 +199,6 @@ def load_article(article_dir: Path) -> dict:
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
         cover_alt = cover_alt or reg.get("cover_alt_text", "")
 
-    import re
     img_srcs = re.findall(r'<img\s+[^>]*src=["\']([^"\']+)["\']', content)
     inline_images = []
     for src in img_srcs:

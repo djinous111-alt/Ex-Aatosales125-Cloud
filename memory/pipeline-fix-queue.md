@@ -12,7 +12,7 @@ run_date: 2026-09-27
 role: excalibur-blog-geo-qa
 topic_id: AS10
 article_dir: memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026
-severity: blocker
+severity: medium
 category: script
 
 ### What went wrong
@@ -24,11 +24,12 @@ category: script
 ### How the agent recovered this run
 - GEO QA не рерайтил статью; вернул FAIL + FIX Writer только по битым CTA.
 - Зафиксировал в `article-qa.md`, что utility BLOCK — ложный относительно текста; нужен Fixer до/параллельно Writer-циклу links.
+- Director (2026-09-27): восстановил `pain_markers_ru` / `outcome_markers_ru` в `memory/brief/editorial-policy.json` + empty-list defense в `scripts/excalibur_blog_utility_gate.py`.
+- GEO QA re-run (2026-09-27): `utility-gate-report.json` overall PASS (`pain_markers=4`, `outcome_markers=4`). Runtime blocker снят; article-qa PASS.
 
 ### Durable fix needed before next run
-- Восстановить в `memory/brief/editorial-policy.json` те же `pain_markers_ru` / `outcome_markers_ru` (+ min_*), что в human_voice_gate.
-- В `excalibur_blog_utility_gate.py` снова skip-check при пустых списках (defense in depth).
-- Добавить pitfall: rebrand не должен вычищать marker lists из editorial-policy.
+- Добавить pitfall в `shared/agent-pipeline-pitfalls.md`: rebrand/sync не должен вычищать marker lists из editorial-policy; empty-list defense обязателен.
+- Проверить, что `min_pain_markers` / `min_outcome_markers` явно заданы в policy (сейчас markers есть, min_* могут быть None → defaults в скрипте).
 
 ### Suggested files to inspect/change
 - `memory/brief/editorial-policy.json`
@@ -39,7 +40,7 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+- pending (runtime FIX verified PASS this GEO QA re-run; leave open for durable pitfalls/docs)
 
 ## INC-20260927-1719-geo-qa-writer-literal-redacted-href
 status: open
@@ -47,7 +48,7 @@ run_date: 2026-09-27
 role: excalibur-blog-geo-qa
 topic_id: AS10
 article_dir: memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026
-severity: high
+severity: medium
 category: qa
 
 ### What went wrong
@@ -56,11 +57,12 @@ category: qa
 
 ### How the agent recovered this run
 - GEO QA не правил HTML; вернул Writer FIX.
-- Writer FIX (2026-09-27): в `article.html` подставил CTA из env (`CATALOG_URL` ×2 по якорям каталога, `TELEGRAM_URL` ×1) + HTML-комментарий `pragma: allowlist secret` на CTA-строках (secret-scan иначе блокирует commit); убрал ярлык TL;DR; слегка разнёс размеры списков; char_count 9466; `grep REDACTED` по html/meta пустой. Полный GEO QA re-run ещё не делал.
+- Writer FIX (2026-09-27): в `article.html` подставил CTA из env (`CATALOG_URL` ×2 по якорям каталога, `TELEGRAM_URL` ×1) + HTML-комментарий `pragma: allowlist secret` на CTA-строках (secret-scan иначе блокирует commit); убрал ярлык TL;DR; слегка разнёс размеры списков; char_count 9466; `grep REDACTED` по html/meta пустой.
+- GEO QA re-run (2026-09-27): `link-verify.json` verdict pass (2 unique, failed=0, HEAD 200); python: 3 href startswith http, lens=[25,25,25], kinds catalog/telegram/catalog. Runtime blocker снят.
 
 ### Durable fix needed before next run
 - В writer skill/agent явно запретить литерал `[REDACTED]` в `href`; требовать env `PUBLIC_SITE_URL` / `CATALOG_URL` + `TELEGRAM_URL` (не копировать redacted placeholders из соседних статей).
-- Precheck Writer: grep `href="\[REDACTED\]"` = blocker до handoff.
+- Precheck Writer: grep `href="\[REDACTED\]"` = blocker до handoff; проверять через python len/startswith http (логи могут scrubить URL как `[REDACTED]`).
 - Не коммитить article.html, пока env CTA не подставлены реально.
 
 ### Suggested files to inspect/change
@@ -72,7 +74,7 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending (Writer artifact FIX done; durable skill/precheck still needed)
+- pending (Writer artifact FIX + GEO QA link-verify PASS verified; leave open for durable skill/precheck)
 
 ## INC-20260927-1715-research-tech-markers-false-positive
 status: open

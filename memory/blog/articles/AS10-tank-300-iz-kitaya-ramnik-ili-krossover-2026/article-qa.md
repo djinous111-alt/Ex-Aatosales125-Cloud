@@ -1,38 +1,38 @@
-# Article QA — AS10
+# Article QA — AS10 (re-run after FIX)
 
 **topic_id:** AS10  
 **slug:** tank-300-iz-kitaya-ramnik-ili-krossover-2026  
 **article_dir:** memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026  
 **date:** 2026-09-27  
-**verdict:** FAIL  
-**score:** 72
+**verdict:** PASS  
+**score:** 88
 
 ## Scripts
 
 | Script | Verdict | Notes |
 |--------|---------|-------|
-| research-notes-gate | PASS | warning: technical_topic false-positive (см. INC-20260927-1715) |
-| fact-check | PASS | 11 stats; verified 1 (2026); 10 unverified vs fact-bank (ТТХ/пороги есть в research-notes) |
-| link-verify | FAIL | 1/1 failed: literal `href="[REDACTED]"` → treated as internal_relative → HTTP 404 |
-| html-linter | PASS | 0 errors; TOC в теле нет; whitelist OK |
-| slop-detector | PASS | 0 клише; 4 over-long (таблица/чеклист); Flesch RU 74.6 |
+| research-notes-gate | PASS | warning: technical_topic false-positive (INC-20260927-1715) |
+| fact-check | PASS | 11 stats; verified 1 (2026); 10 unverified vs fact-bank (цифры в research-notes) |
+| link-verify | PASS | 2 unique CTA; failed=0; HEAD 200 (catalog + telegram); href startswith http, len=25, не литерал `[REDACTED]` |
+| html-linter | PASS | 0 errors; TOC нет; whitelist OK |
+| slop-detector | PASS | 0 клише; 4 over-long (таблица/списки); Flesch RU 74.3 |
 | cannibalization | PASS | 0 issues (3 article metas) |
-| utility gate | BLOCK | pain_markers=0, outcome_markers=0 — **пустые списки в editorial-policy.json** (не текст статьи) |
-| human-voice | PASS | WARN: multiple exactly-5-step lists |
+| utility gate | PASS | pain_markers=4, outcome_markers=4; policy markers restored + empty-list defense |
+| human-voice | PASS | WARN: multiple exactly-5-step lists (soft) |
 
 ## Scores
 
 | Блок | Балл | Комментарий |
 |------|------|-------------|
-| SEO structure | 16/20 | Primary в H1/title; H2 action; CTA битые |
+| SEO structure | 18/20 | Primary в H1/title; H2 action; CTA живые |
 | GEO / citability | 22/25 | Insight, таблица, схема →, FAQ×7, чеклист |
-| CORE-EEAT lite | 14/15 | 18/20 (см. ниже) |
-| Human voice | 14/15 | Gate PASS; TL;DR-ярлык в insight |
-| Fact safety | 11/15 | Цифры в research-notes; мало в fact-bank; CTA URL битые |
-| Contract HTML | 5/10 | Whitelist PASS, объём 9477; **utility BLOCK** + **link-verify FAIL** |
-| **Итого** | **72/100** | blockers → FAIL |
+| CORE-EEAT lite | 15/15 | 19/20 (см. ниже) |
+| Human voice | 14/15 | Gate PASS; soft WARN по размерам списков |
+| Fact safety | 13/15 | Цифры в research-notes; CTA OK; часть stats вне fact-bank |
+| Contract HTML | 10/10 | Whitelist PASS; utility PASS; link-verify PASS |
+| **Итого** | **88/100** | ≥80 → PASS |
 
-## CORE-EEAT lite: 18/20
+## CORE-EEAT lite: 19/20
 
 | ID | Result | Comment |
 |----|--------|---------|
@@ -50,7 +50,7 @@
 | R04 | ✓ | FAQ отвечает действием в 1-м предложении |
 | E01 | ✓ | Угол «до депозита» + рамник vs кроссовер |
 | E02 | ✓ | «Сделайте / Не делайте» в H2 |
-| E03 | ✗ | CTA href = literal `[REDACTED]` (не кликабельны) |
+| E03 | ✓ | CTA href = реальные http URL (catalog×2 + telegram×1), link-verify 200 |
 | Exp01 | ✓ | Mode B, без fake «я сделал» |
 | Exp02 | ✓ | Тон Авто-Сейлс / research |
 | Exp03 | ✓ | Slop hits = 0 |
@@ -58,7 +58,7 @@
 | Ept02 | ✗ | Нет 2–3 internal blog links (только каталог + Telegram) |
 
 **Target:** ≥16/20 ✓ · veto (R03 / Exp01 / slop≥2): нет  
-**Gate blockers:** utility BLOCK, link-verify FAIL → overall FAIL
+**Gate blockers:** нет
 
 ## Beginner-fit / pain-solution
 
@@ -71,40 +71,33 @@
 
 ## Link verify
 
-- total unique: 1 (`[REDACTED]`), failed: 1 (404 internal_relative)
-- anchor text mentions avto-sales125.ru / @avtosales125, но href невалиден
+- total unique: 2 (catalog + telegram), failed: 0, verdict pass
+- python check: 3 href, all startswith http, lens=[25,25,25], kinds catalog/telegram/catalog
 - see `link-verify.json`
 
 ## AI-slop scan
 
 - cliches: 0
 - over-long: 4 (артефакт таблицы/списков)
-- Flesch RU: 74.6
+- Flesch RU: 74.3
 
 ## Schema ready
 
-BlogPosting: pending (после PASS) | FAQPage: yes (7) | HowTo: yes (чеклисты) | Review: no
+BlogPosting: ready for schema agent | FAQPage: yes (7) | HowTo: yes (чеклисты) | Review: no
 
-## Blockers
+## Soft notes (не blockers)
 
-1. **UTILITY ARTICLE BLOCKER** — `pain_markers_ru` / `outcome_markers_ru` отсутствуют в `memory/brief/editorial-policy.json` → count всегда 0. В тексте уже есть: боль/ошиб/не работает (pain≥2) и результат/проверьте/соберите/выберите (outcome≥3). Нужен Fixer, не рерайт статьи.
-2. **link-verify FAIL** — три `<a href="[REDACTED]">`; Writer должен подставить реальные URL из env.
-
-## FIX для Writer (цикл 1)
-
-1. **BLOCKER / links:** заменить все `href="[REDACTED]"` на реальные CTA из env: `PUBLIC_SITE_URL` (каталог, 2 ссылки) и `TELEGRAM_URL` (`@avtosales125`, 1 ссылка). Не оставлять литерал `[REDACTED]` в HTML.
-2. **Soft / insight:** убрать шаблонный ярлык `TL;DR / Быстрый инсайт:` в первом `<blockquote>` — заменить на нейтральный заголовок (например «Коротко:» / «Суть:»), без слов TL;DR и «Быстрый инсайт».
-3. **Soft / human-voice WARN:** разнести размеры списков (сейчас несколько ровно по 5 пунктов) — один ol/ul сделать 4 или 6 пунктов без потери смысла.
-4. **Не нужно** ради utility_gate дописывать «боль/результат» в текст: маркеры уже есть; после Fixer-восстановления policy gate должен пройти без рерайта.
+1. human-voice WARN: vary exactly-5-step lists when editorially possible.
+2. Ept02: после появления соседних AS-статей можно добавить 2–3 internal blog links (не блокер mode B).
 
 ## Gate
 
-- score ≥ 80 → **72** ✗  
-- CORE-EEAT ≥ 16/20 → **18/20** ✓  
-- link-verify pass → ✗  
+- score ≥ 80 → **88** ✓  
+- CORE-EEAT ≥ 16/20 → **19/20** ✓  
+- link-verify pass → ✓  
 - research-notes-gate PASS → ✓  
-- utility gate PASS → ✗  
+- utility gate PASS → ✓  
 - human voice PASS → ✓  
-- beginner-fit PASS → ✓ (контент)
+- beginner-fit PASS → ✓  
 
-**Итог:** FAIL — вернуть Writer (FIX links + soft); параллельно Director → Fixer по INC utility markers. Cover/schema **не** стартовать.
+**Итог:** PASS — cover\|\|schema можно стартовать.

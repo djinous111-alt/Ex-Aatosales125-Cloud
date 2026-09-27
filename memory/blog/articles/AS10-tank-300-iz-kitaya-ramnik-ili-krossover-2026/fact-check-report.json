@@ -23,7 +23,7 @@
     {
       "fact": "30 минут",
       "kind": "metric_or_duration",
-      "context": "ег: задача, привод, мощность, VIN и инвойс. За 20–30 минут заполните лист и решите \"брать / не брать\". TL;DR",
+      "context": "ег: задача, привод, мощность, VIN и инвойс. За 20–30 минут заполните лист и решите \"брать / не брать\". Tank",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
     },
@@ -37,7 +37,7 @@
     {
       "fact": "224",
       "kind": "large_number",
-      "context": "R / Быстрый инсайт: Tank 300 – рамник с клиренсом 224 мм и прицепом до 2500 кг, не \"красивый кроссовер\".",
+      "context": "\"брать / не брать\". Tank 300 – рамник с клиренсом 224 мм и прицепом до 2500 кг, не \"красивый кроссовер\".",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
     },
@@ -65,7 +65,7 @@
     {
       "fact": "100",
       "kind": "large_number",
-      "context": "5 т? Готовы ли к городскому расходу около 14–15 л/100 км, как часто пишут владельцы? Если честно \"нет\" н",
+      "context": "5 т? Готовы ли к городскому расходу около 14–15 л/100 км? Если на бездорожье и прицеп честно \"нет\" – смо",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
     },

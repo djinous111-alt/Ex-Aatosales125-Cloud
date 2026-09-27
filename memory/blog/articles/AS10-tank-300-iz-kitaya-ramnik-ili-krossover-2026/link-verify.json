@@ -1,18 +1,32 @@
 {
   "source": "memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026/article.html",
-  "total_links": 1,
-  "failed_count": 1,
-  "verdict": "fail",
+  "total_links": 2,
+  "failed_count": 0,
+  "verdict": "pass",
   "links": [
     {
-      "url": "[REDACTED]",
-      "status": 404,
-      "ok": false,
+      "url": "https://example.invalid/redacted-cta-1",
+      "status": 200,
+      "ok": true,
       "method": "HEAD",
-      "error": "HTTP Error 404: Not Found",
-      "kind": "internal_relative",
+      "error": null,
+      "kind": "external",
       "skipped": false,
-      "checked_url": "[REDACTED]"
+      "url_scrubbed": true,
+      "url_len": 25,
+      "url_startswith_http": true
+    },
+    {
+      "url": "https://example.invalid/redacted-cta-2",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false,
+      "url_scrubbed": true,
+      "url_len": 25,
+      "url_startswith_http": true
     }
   ]
 }

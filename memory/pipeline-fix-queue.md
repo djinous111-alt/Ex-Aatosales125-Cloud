@@ -358,9 +358,47 @@ category: env
 ### Fixer resolution
 - pending
 
+## INC-20260928-2125-geo-qa-utility-pain-outcome-markers
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-geo-qa
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-proverka-kitayskogo-avto-po-vin-2026
+severity: medium
+category: qa
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требует `min_pain_markers` / `min_outcome_markers` (default 2/3), но в `memory/brief/editorial-policy.json` не было ключей `pain_markers_ru` / `outcome_markers_ru` → любой article получал BLOCK с pain=0/outcome=0 даже при живом тексте.
+- Параллельно article AS11 имел только 6 recommendation-маркеров («шаг »×5 + «проверьте»), формат «Делать/Не делать» не совпадал с «сделайте/не делайте».
+- Инсайт начинался с шаблонного «TL;DR / Быстрый инсайт» (запрет writing/QA skill).
+- `human_voice_gate` warning «multiple exactly-5-step lists» — false positive: regex считает ol с ≥5 `<li>`, не ровно 5.
+
+### How the agent recovered this run
+- Добавил `pain_markers_ru` / `outcome_markers_ru` (+ min_* в `article_required_signals`) в `memory/brief/editorial-policy.json`, согласовав с маркерами human-voice.
+- Минимально правил `article.html`: императивы Сделайте/Не делайте/Проверьте/Используйте/Избегайте, инсайт «Коротко:», усиление результата/чеклиста, 6 шагов в «Что дальше»; char_count 9495.
+- Перезапуск всех QA-скриптов → PASS; `article-qa.md` score 87.
+
+### Durable fix needed before next run
+- Зафиксировать pain/outcome маркеры в policy как канон (уже внесено в этом run — fixer подтвердить и синхронизировать docs/writer skill).
+- Writer skill: предпочитать «Сделайте/Не делайте» и «чеклист» без дефиса; не ставить ярлык TL;DR в инсайте.
+- Поправить `exactly_five_lists` в `excalibur_blog_human_voice_gate.py` на точный count `li == 5`.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
 
 
 

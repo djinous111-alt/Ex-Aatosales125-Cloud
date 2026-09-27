@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260927-1734-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-09-27
+role: excalibur-blog-indexer
+topic_id: AS10
+article_dir: memory/blog/articles/AS10-tank-300-iz-kitaya-ramnik-ili-krossover-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer skill/agent всё ещё показывают флаг `--blog-path /` для `excalibur_blog_llms_generator.py`.
+- Реальный CLI принимает только `--blog-dir` и `--out-dir` (нет `--blog-path`); doctor при этом проверяет `"--blog-path" in llms_help` и даёт ложный FAIL.
+- Director/handoff уже знал про stale doctor check; user Explicit: НЕ `--blog-path`.
+
+### How the agent recovered this run
+- Запустил generator с `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (без `--blog-path`) — PASS, AS10 в llms.txt/llms-full.txt.
+
+### Durable fix needed before next run
+- Убрать `--blog-path` из всех indexer agent/skill примеров; оставить `--blog-dir` + `--out-dir`.
+- В `excalibur_blog_doctor.py` проверять `--blog-dir` / `--out-dir`, не `--blog-path`.
+- Pitfall: llms generator flags = `--blog-dir` + `--out-dir`.
+
+### Suggested files to inspect/change
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260927-1729-schema-secret-scan-jsonld-pragma
 status: open
 run_date: 2026-09-27

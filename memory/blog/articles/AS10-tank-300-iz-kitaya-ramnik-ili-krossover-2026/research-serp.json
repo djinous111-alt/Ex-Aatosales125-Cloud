@@ -1,0 +1,701 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-09-27",
+    "today_ru": "27.09.2026",
+    "year": 2026,
+    "month": 9,
+    "month_name_ru": "сентябрь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-06-29",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-09-27 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS10",
+    "priority": "P0",
+    "slug": "tank-300-iz-kitaya-ramnik-ili-krossover-2026",
+    "h1": "Как выбрать Tank 300 из Китая в 2026: рамник или кроссовер до депозита",
+    "primary_query": "tank 300 из китая",
+    "secondary_queries": [
+      "tank 300 купить",
+      "tank 300 привезти из китая",
+      "китайские рамные внедорожники",
+      "tank 300 комплектации"
+    ],
+    "search_intent": "comparison",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "tank 300 из китая 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Tank 300: у дилера или из Китая в 2026 — где дешевле и что | CARTO Блог",
+          "url": "https://carto-auto.ru/blog/tank-300-u-dilera-ili-iz-kitaya-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Tank 300 из Китая 2026: цена, характеристики, комплектации и как купить",
+          "url": "https://160drive.ru/tank-300-iz-kitaya-2026/",
+          "snippet": "Официальный Tank 300 в Москве — от 3 890 000 ₽ за базу; под ключ из Китая — от 3 578 800 ₽. Разница небольшая, а главный аргумент импорта — версии Hi4-T и топовые комплектации, которых у дилера нет."
+        },
+        {
+          "title": "Купить Tank 300 2026 — параллельный импорт из Китая, 4.7 млн ₽ | CARTO",
+          "url": "https://carto-auto.ru/catalog/tank-300-china-2026-8/",
+          "snippet": "Tank 300 из Китая под ключ в 2026 — комплектации и цены 2026, характеристики, расход топлива, гибрид Hi4-T, утильсбор и как купить через 160Drive от 5 500 000 ₽."
+        },
+        {
+          "title": "Купить Tank 300 Из Китая С Аукциона Без Пробега По Рф - Каталог, Фото ...",
+          "url": "https://autosender.ru/avto-iz-kitaya/tank/300",
+          "snippet": "Полная комплектация Tank 300 в премиум-комплектации, типичной для лотов из Китая. Реальная комплектация конкретной машины подтверждается аукционным листом и прилагается к договору."
+        },
+        {
+          "title": "Обзор Tank 300 2026 — большой внедорожник из Китая",
+          "url": "https://avtospart.ru/blog/articles/detail/tank-300-2026",
+          "snippet": "Продажа автомобилей TANK 300 с надежных аукционов Китая на заказ напрямую без посредников. помогаем выбрать, осуществляем растаможку и доставку к заказчику. Все автомобили без пробега в России и с ПТС."
+        },
+        {
+          "title": "Tank 300 и Tank 500 из Китая: полный гайд по внедорожникам в 2026 году",
+          "url": "https://jckauto.ru/blog/tank-300-500-iz-kitaya",
+          "snippet": "Подробный обзор Tank 300 2026: размеры, интерьер, моторы, расход, обслуживание. Сравнение с конкурентами, плюсы и минусы."
+        }
+      ],
+      "searched_at": "2026-09-27"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "tank 300 из китая сентябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Tank 300: у дилера или из Китая в 2026 — где дешевле и что | CARTO Блог",
+          "url": "https://carto-auto.ru/blog/tank-300-u-dilera-ili-iz-kitaya-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Tank 300 из Китая 2026: цена, характеристики, комплектации и как купить",
+          "url": "https://160drive.ru/tank-300-iz-kitaya-2026/",
+          "snippet": "Базовый Tank 300 2.0T у дилера в Москве — от 3 890 000 ₽ (по объявлениям дилеров и auto.ru на середину сентября 2026), под ключ из Китая — от 3 578 800 ₽. Экономия есть, но она не главное."
+        },
+        {
+          "title": "Купить Tank 300 2026 — параллельный импорт из Китая, 4.3 млн ₽ | CARTO",
+          "url": "https://carto-auto.ru/catalog/tank-300-china-2026-2/",
+          "snippet": "Tank 300 из Китая под ключ в 2026 — комплектации и цены 2026, характеристики, расход топлива, гибрид Hi4-T, утильсбор и как купить через 160Drive от 5 500 000 ₽."
+        },
+        {
+          "title": "Tank 300 V6 2026: технические характеристики, цена и новый двигатель 3. ...",
+          "url": "https://160drive.ru/tank-300-obnovlenie-v6-2026/",
+          "snippet": "Полная комплектация Tank 300 в премиум-комплектации, типичной для лотов из Китая. Реальная комплектация конкретной машины подтверждается аукционным листом и прилагается к договору."
+        },
+        {
+          "title": "Обзор Tank 300 2026 — большой внедорожник из Китая",
+          "url": "https://avtospart.ru/blog/articles/detail/tank-300-2026",
+          "snippet": "Разбираем технические характеристики, цену, расход топлива танк 300 и как заказать этот внедорожник из Китая с 160Drive."
+        },
+        {
+          "title": "Tank 300 и Tank 500 из Китая: полный гайд по внедорожникам в 2026 году",
+          "url": "https://jckauto.ru/blog/tank-300-500-iz-kitaya",
+          "snippet": "Подробный обзор Tank 300 2026: размеры, интерьер, моторы, расход, обслуживание. Сравнение с конкурентами, плюсы и минусы."
+        }
+      ],
+      "searched_at": "2026-09-27"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "tank 300 из китая новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Tank больше не будет возить внедорожники 300 из Китая",
+          "url": "https://motor.ru/news/tank-bolshe-ne-budet-vozit-vnedorozhniki-300-iz-kitaya-16-03-2026.htm",
+          "snippet": ""
+        },
+        {
+          "title": "Tank 300 2026: старт предзаказов на гибридные версии Hi4-T и Hi4-Z ...",
+          "url": "https://kitajcar.ru/news/tank-300-2026-hi4-t-hi4-z-cena-harakteristiki/",
+          "snippet": "Tank больше не будет возить внедорожники 300 из Китая В Калининграде наладят производство рамных внедорожников Tank 300. Старт сборки машин запланирован на второй квартал 2026 года."
+        },
+        {
+          "title": "Tank 300 V6 2026: технические характеристики, цена и новый двигатель 3. ...",
+          "url": "https://160drive.ru/tank-300-obnovlenie-v6-2026/",
+          "snippet": "Официальный старт предзаказов на обновленный внедорожник Tank 300 2026 модельного года. Подробный обзор гибридных версий Hi4-T и Hi4-Z, цены, комплектации, характеристики и фото."
+        },
+        {
+          "title": "Обзор Tank 300 2026 — большой внедорожник из Китая",
+          "url": "https://avtospart.ru/blog/articles/detail/tank-300-2026",
+          "snippet": "Tank 300, один из самых харизматичных и востребованных китайских внедорожников, получил то, чего ему так не хватало для полного счастья - мощный двигатель Tank 300 V6. Здесь дело не в плановом рестайлинге - танк 300 обновлённый 2026 года заявляет о переходе в другую лигу."
+        },
+        {
+          "title": "Tank 300 2026: колёсная база 3010 мм, 200 км на электротяге, 422 л.с ...",
+          "url": "https://verticalauto.ru/articles/novyi-tank-300-2026-gigantskii-260-mm-k-baze-lidar-i-852-silnyi-gibrid-polnyi-razbor",
+          "snippet": "Подробный обзор Tank 300 2026: размеры, интерьер, моторы, расход, обслуживание. Сравнение с конкурентами, плюсы и минусы."
+        },
+        {
+          "title": "Tank 300 из Китая 2026: цена, характеристики, комплектации и как купить",
+          "url": "https://160drive.ru/tank-300-iz-kitaya-2026/",
+          "snippet": "Tank 300, с которого начиналась история отдельного бренда Tank, пережил полноценное перерождение. Презентация новинки состоялась в КНР в начале июля 2026 года. Это не просто рестайлинг, а смена всей концепции: внедорожник стал заметно крупнее, обзавёлся лидаром на крыше и полностью перешёл на гибридные силовые установки."
+        }
+      ],
+      "searched_at": "2026-09-27"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com tank 300 из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "WebServer/datum/model.png at master · linyacool/WebServer",
+          "url": "https://github.com/linyacool/WebServer/blob/master/datum/model.png",
+          "snippet": ""
+        },
+        {
+          "title": "iptv-by-fred/kinofilm.m3u at main · xidmetaa7-rgb/iptv-by-fred",
+          "url": "https://github.com/xidmetaa7-rgb/iptv-by-fred/blob/main/kinofilm.m3u",
+          "snippet": "A C++ High Performance Web Server. Contribute to linyacool/WebServer development by creating an account on GitHub."
+        },
+        {
+          "title": "Как получить доступ к ChatGPT и OpenAI из России в 2026 — рабочий гайд ...",
+          "url": "https://gist.github.com/evilork/01e4a7fdd2abab9dd24ed11f02e8e6ca",
+          "snippet": "Contribute to xidmetaa7-rgb/iptv-by-fred development by creating an account on GitHub."
+        },
+        {
+          "title": "tanki-online · GitHub Topics · GitHub",
+          "url": "https://github.com/topics/tanki-online",
+          "snippet": "При попытке зайти на chat.openai.com или chatgpt.com из российского IP вы получите одну из ошибок: We are not able to provide services to your area at this time."
+        },
+        {
+          "title": "GitHub - cherepakhin/shop_kotlin_yandex_tank_test",
+          "url": "https://github.com/cherepakhin/shop_kotlin_yandex_tank_test",
+          "snippet": "A large collection of all the Tanki Online game assets, such as images, audio and some new/old textures."
+        },
+        {
+          "title": "GitHub - Applejack2004/Class_figure_and_animation_of_tank_by_Windows ...",
+          "url": "https://github.com/Applejack2004/Class_figure_and_animation_of_tank_by_Windows_forms",
+          "snippet": "Нагрузочное тестирование часто не проводят и метрики получают уже на prod c помощью средств мониторинга (н.п. Grafana). Вопросы типа \"Что будет при возросшей нагрузке?\" остаются в стороне. И с другой стороны нагрузочное тестирование может показать узкие места при различных сценариях."
+        }
+      ],
+      "searched_at": "2026-09-27"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "tank 300 из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Tank 300 из Китая 2026: цена, характеристики, комплектации и как купить",
+          "url": "https://160drive.ru/tank-300-iz-kitaya-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Tank 300 2026 РЕСТАЙЛИНГ ДЛЯ РОССИИ (ФОТО И ЦЕНЫ): первые фото и ...",
+          "url": "https://gt-news.ru/news/tank-300-2026-rest/",
+          "snippet": "Купить Tank 300 из Китая под ключ в России можно от 5 500 000 ₽ - и это новый автомобиль с нулевым пробегом, полной документацией и прозрачной сделкой."
+        },
+        {
+          "title": "Tank В России — Комплектации И Цены",
+          "url": "https://tank.ru/models/tank-300/trims-versions/",
+          "snippet": "Цены на обновленный Tank 300 в России будут объявлены в ближайшее время, стоимость актуального внедорожника находится в диапазоне: 4,2 — 4,95 млн рублей. А какие изменения получил глобальный Tank 300 для китайского рынка?"
+        },
+        {
+          "title": "Tank 300: полный Обзор 2026. Стоит ли брать вместо Prado? Цены ...",
+          "url": "https://avtocod.ru/blog/post/on-i-pravda-zamena-prado-obzor-tank-300",
+          "snippet": "Выберите комплектацию TANK 300 на официальном сайте: сравните версии, цены, оснащение, внедорожные системы, двигатель 2,0T и доступные предложения у официальных дилеров TANK в России."
+        },
+        {
+          "title": "Tank 300 рестайлинг 2026, джип/suv 5 дв., 1 ... - Дром",
+          "url": "https://www.drom.ru/catalog/tank/300/g_2026_24760/",
+          "snippet": "Подробный обзор Tank 300: сравнение с Toyota Land Cruiser Prado, Jeep Wrangler. Узнайте все о двигателе, комплектациях, плюсах и минусах китайского внедорожника."
+        },
+        {
+          "title": "Новый «Tank-300» 2026 модельного года появился в России: обзор ...",
+          "url": "https://www.ixbt.com/live/car/novyy-tank-300-2026-modelnogo-goda-poyavilsya-v-rossii-obzor-izmeneniy-i-stoimosti.html",
+          "snippet": "Подробно расписаны модификации автомобилей Tank 300 рестайлинг 2026: все технические спецификации, полная комплектация салона, цвета, в которые окрашивался автомобиль, фотографии внешнего вида и салона. Есть возможность сравнивать разные авто между собой."
+        }
+      ],
+      "searched_at": "2026-09-27"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "tank 300 из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Tank 300 проблемы при эксплуатации в России: обзор и отзывы",
+          "url": "https://ezzhev.ru/chinese-cars/tank-300-problemy-pri-ekspluatacii-v-rossii/",
+          "snippet": ""
+        },
+        {
+          "title": "Tank 300 | ChinaAutoForum.ru - форум по китайским автомобилям",
+          "url": "https://chinaautoforum.ru/forums/tank-300.23/",
+          "snippet": "Разбираем основные Tank 300 проблемы при эксплуатации в России. Честные отзывы владельцев, фото типичных поломок, советы как избежать проблем."
+        },
+        {
+          "title": "Что ломается в Tank 300: опыт владельцев и сервисов",
+          "url": "https://dzen.ru/a/Z7tq6ZMGxxfNlM_q",
+          "snippet": "Форум Tank 300 — внедорожные возможности, доработки, отзывы владельцев, обслуживание, расход топлива и реальные впечатления от эксплуатации."
+        },
+        {
+          "title": "Tank 300 | Tank Клуб И Форум",
+          "url": "https://tank-forum.ru/forums/tank-300.19/",
+          "snippet": "На основе отзывов владельцев и данных из сервисов, собранных из открытых источников, таких как форумы, блоги и сайты вроде Drive2 и Drom, можно выделить самые распространённые неисправности Tank 300 (модель 2021-2025 годов, популярная в России и Китае)."
+        },
+        {
+          "title": "Great Wall TANK 300 - Хавал Клуб Форум | Haval Club (Хавейл)",
+          "url": "https://haval-clubs.ru/forums/forum/522-great-wall-tank-300/",
+          "snippet": "TANK 300 - среднеразмерный внедорожник, выпускаемый с 2020 года компанией Tank — внедорожным подразделением Great Wall Motors. Первый автомобиль бренда Tank. Автомобили Tank 300 продаются в России с весны 2023 года. Подходит второе то дилер сумму озвучил 41.500."
+        },
+        {
+          "title": "Отзывы Владельцев | Tank Клуб И Форум",
+          "url": "https://tank-forum.ru/forums/otzyvy-vladelcev.3/",
+          "snippet": "Great Wall TANK 300 Форумы Всё про TANK 300 Разные темы TANK 300 Выбор, комплектации и цены TANK 300 Тех. характеристики и опции TANK 300 Обзоры и отзывы владельцев TANK 300 ПРОБЛЕМЫ / косяки TANK 300 107 сообщений"
+        }
+      ],
+      "searched_at": "2026-09-27"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "tank 300 купить 2026",
+      "purpose": "вторичный запрос: tank 300 купить",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Купить новые Tank 300 2026 года по цене от 3 999 000 рублей - более 1 ...",
+          "url": "https://auto.ru/cars/tank/300/2026-year/new/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Tank 300 2026 года по цене от 3 535 000 рублей - более 1 855 ...",
+          "url": "https://auto.ru/cars/tank/300/2026-year/all/",
+          "snippet": "Полный модельный ряд новых Tank 300 2026 года по цене от 3 999 000 рублей - у нас вы можете выбрать и купить новую машину, ознакомиться с ценами и комплектациями."
+        },
+        {
+          "title": "Tank 300 — Купить У Официального Дилера В России | Цена И ...",
+          "url": "https://tank.ru/models/tank-300/",
+          "snippet": "Полный модельный ряд Tank 300 2026 года по цене от 3 535 000 рублей - более 1 855 Танк 300, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        },
+        {
+          "title": "Tank В России — Комплектации И Цены",
+          "url": "https://tank.ru/models/tank-300/trims-versions/",
+          "snippet": "Купить внедорожник TANK 300 в России. Официальный дилер в Москве. Цены, комплектации и характеристики автомобиля. Выгодная продажа авто по доступным ценам."
+        },
+        {
+          "title": "Tank 300 › Цена и комплектации 2026 - CarsDo.ru",
+          "url": "https://carsdo.ru/tank/300/",
+          "snippet": "Выберите комплектацию TANK 300 на официальном сайте: сравните версии, цены, оснащение, внедорожные системы, двигатель 2,0T и доступные предложения у официальных дилеров TANK в России."
+        },
+        {
+          "title": "Купить Новый Автомобиль Tank 300 2026 Года, По Цене Официального Дилера Ттс",
+          "url": "https://www.tts.ru/auto/tank/tank-300/2026/",
+          "snippet": "Tank 300: комплектации и цены (официальные), фото в новом кузове, модификации и оборудование автомобиля на 2026 год."
+        }
+      ],
+      "searched_at": "2026-09-27"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "tank 300 привезти из китая 2026",
+      "purpose": "вторичный запрос: tank 300 привезти из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Tank 300 из Китая 2026: цена, характеристики, комплектации и как купить",
+          "url": "https://160drive.ru/tank-300-iz-kitaya-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Tank 300 2026 — параллельный импорт из Китая, 4.7 млн ₽ | CARTO",
+          "url": "https://carto-auto.ru/catalog/tank-300-china-2026-8/",
+          "snippet": "Tank 300 из Китая под ключ в 2026 — комплектации и цены 2026, характеристики, расход топлива, гибрид Hi4-T, утильсбор и как купить через 160Drive от 5 500 000 ₽."
+        },
+        {
+          "title": "Tank 300 под ключ 2026: цена, растаможка, версии | ДАРЭ",
+          "url": "https://importdare.ru/blog/tank-300-pod-klyuch",
+          "snippet": "Полная комплектация Tank 300 в премиум-комплектации, типичной для лотов из Китая. Реальная комплектация конкретной машины подтверждается аукционным листом и прилагается к договору."
+        },
+        {
+          "title": "Tank 300 и Tank 500 из Китая: полный гайд по внедорожникам в 2026 году",
+          "url": "https://jckauto.ru/blog/tank-300-500-iz-kitaya",
+          "snippet": "Tank 300 под ключ из Китая в 2026: смета в рублях — авто по курсу ЦБ, пошлина, утильсбор, доставка. Ориентировочно 4-6 млн ₽, сроки 45-60 дней."
+        },
+        {
+          "title": "Tank из Китая под ключ: цена и растаможка 2026 | ДАРЭ",
+          "url": "https://importdare.ru/blog/tank-iz-kitaya-pod-klyuch",
+          "snippet": "Всё о Tank 300 и Tank 500 с китайского рынка: цены, комплектации, мощность, расчёт под ключ. Стоит ли везти и какие подводные камни."
+        },
+        {
+          "title": "Купить Tank 300 2026 — параллельный импорт из Китая, 4.3 млн ₽ | CARTO",
+          "url": "https://carto-auto.ru/catalog/tank-300-china-2026-2/",
+          "snippet": "Tank 300 и 500 из Китая под ключ: из чего складывается реальная цена, как проходит растаможка и что входит в смету. Разбираем честно, без сюрпризов."
+        }
+      ],
+      "searched_at": "2026-09-27"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "китайские рамные внедорожники 2026",
+      "purpose": "вторичный запрос: китайские рамные внедорожники",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Китайские рамные внедорожники 2026: обзор моделей и цен",
+          "url": "https://ezzhev.ru/how-buy-car/kitajskie-ramnye-vnedorozhniki-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Китайские рамные внедорожники 2026 с полным приводом в России",
+          "url": "https://www.allcarz.ru/kitayskie-ramnie-vnedorozhniki/",
+          "snippet": "Китайские рамные внедорожники 2026: полный обзор характеристик, плюсы и минусы. Узнайте цены и рассчитайте доставку авто из Китая с ПТС."
+        },
+        {
+          "title": "Топ-10 лучших китайских внедорожников 2026 году: какой купить, рейтинг ...",
+          "url": "https://auto.mail.ru/article/103545-luchshiye-kitayskiye-vnedorozhniki/",
+          "snippet": "Портал allcarz.ru составил подборку китайских рамных внедорожников 2026 с полным приводом, которые можно купить в России."
+        },
+        {
+          "title": "Лучшие рамные внедорожники 2026, продающиеся в России официально",
+          "url": "https://chinacardrive.ru/frame-suvs-2/ramnye-vnedorozhniki-2026",
+          "snippet": "Рейтинг лучших внедорожников хорошего качества из Китая в России в 2026 году с ценами и отзывами."
+        },
+        {
+          "title": "Китайские новинки авто в России 2026: самые ожидаемые кроссоверы ...",
+          "url": "https://gt-news.ru/blog/novinki-china-2026/",
+          "snippet": "Рамные внедорожники 2026 года, которые продаются в России официально. Мы расскажем, какие лучше подходят для для off-road, а какие для города"
+        },
+        {
+          "title": "Топ 10 китайских рамных внедорожников 2026",
+          "url": "https://dzen.ru/a/aRYKCn1RHWyLnC6T",
+          "snippet": "Китайские новинки авто в России 2026: самые ожидаемые кроссоверы, седаны, внедорожники, гибриды и 7-местные авто. Exeed, Geely, Omoda, Volga. Модельный ряд, фото, цены и дата выхода"
+        }
+      ],
+      "searched_at": "2026-09-27"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "tank 300 комплектации 2026",
+      "purpose": "вторичный запрос: tank 300 комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Tank В России — Комплектации И Цены",
+          "url": "https://tank.ru/models/tank-300/trims-versions/",
+          "snippet": ""
+        },
+        {
+          "title": "Тэнк 300 2026 технические характеристики. Tank 300 2026 комплектации и ...",
+          "url": "https://www.drom.ru/catalog/tank/300/2026/",
+          "snippet": "Выберите комплектацию TANK 300 на официальном сайте: сравните версии, цены, оснащение, внедорожные системы, двигатель 2,0T и доступные предложения у официальных дилеров TANK в России."
+        },
+        {
+          "title": "Tank 300 рестайлинг 2026, джип/suv 5 дв., 1 ... - Дром",
+          "url": "https://www.drom.ru/catalog/tank/300/g_2026_24760/",
+          "snippet": "Подробно расписан модельный ряд Tank 300 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тэнк 300 2026 между собой."
+        },
+        {
+          "title": "Tank 300 › Цена и комплектации 2026 - CarsDo.ru",
+          "url": "https://carsdo.ru/tank/300/",
+          "snippet": "Технические характеристики Тэнк 300 рестайлинг 2026, джип/suv 5 дв., 1 поколение 300. Подробно расписаны модификации автомобилей Tank 300 рестайлинг 2026: все технические спецификации, полная комплектация салона, цвета, в которые ..."
+        },
+        {
+          "title": "Tank 300 — Купить У Официального Дилера В России | Цена И ...",
+          "url": "https://tank.ru/models/tank-300/",
+          "snippet": "Tank 300: комплектации и цены (официальные), фото в новом кузове, модификации и оборудование автомобиля на 2026 год."
+        },
+        {
+          "title": "Tank 300 в 2026 году: цены, комплектации, сравнение с конкурентами",
+          "url": "https://avto-zhurnal.ru/article/tank-300-kupit/",
+          "snippet": "Купить внедорожник TANK 300 в России. Официальный дилер в Москве. Цены, комплектации и характеристики автомобиля. Выгодная продажа авто по доступным ценам."
+        }
+      ],
+      "searched_at": "2026-09-27"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Tank 300 из Китая в 2026: рамник или кроссовер до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Tank 300: у дилера или из Китая в 2026 — где дешевле и что | CARTO Блог",
+          "url": "https://carto-auto.ru/blog/tank-300-u-dilera-ili-iz-kitaya-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Tank 300 и Tank 500 из Китая: полный гайд по внедорожникам в 2026 году",
+          "url": "https://jckauto.ru/blog/tank-300-500-iz-kitaya",
+          "snippet": "Официальный Tank 300 в Москве — от 3 890 000 ₽ за базу; под ключ из Китая — от 3 578 800 ₽. Разница небольшая, а главный аргумент импорта — версии Hi4-T и топовые комплектации, которых у дилера нет."
+        },
+        {
+          "title": "Tank 300, 400, 500, 700 (Great Wall) — все модели и цены 2026 года под ...",
+          "url": "https://carto-auto.ru/blog/tank-300-400-500-700-vsya-lineyka-2026/",
+          "snippet": "Всё о Tank 300 и Tank 500 с китайского рынка: цены, комплектации, мощность, расчёт под ключ. Стоит ли везти и какие подводные камни."
+        },
+        {
+          "title": "Tank 300 против Jaecoo J7 — что выбрать в 2026 году: рамный внедорожник ...",
+          "url": "https://www.pro-avto-forum.ru/viewtopic.php?t=1091",
+          "snippet": "В этой статье разбираем всю линейку Tank на 2026 модельный год: характеристики, цены под ключ в Россию, сроки доставки 30-45 дней, реальные конкуренты в классе и ответ на главный вопрос — какой Tank ..."
+        },
+        {
+          "title": "Baic Bj40 Или Tank 300: Какой Рамный Внедорожник Из Китая Не Разочарует ...",
+          "url": "https://inycar.ru/blog/baic-bj40-ili-tank-300-kakoj-ramnyj-vnedorozhnik-iz-kitaya-ne-razocharuet-vas-na-bezdorozhe",
+          "snippet": "Подробно сравниваем Tank 300 и Jaecoo J7: проходимость, комфорт, расход топлива, надежность, цены и оснащение. Узнайте, какой автомобиль лучше подойдет для города, трассы и бездорожья."
+        },
+        {
+          "title": "Tank из Китая: история бренда, топ-модели и как считать утильсбор в 2026",
+          "url": "https://china.sferacar.ru/blog/tank-iz-kitaya-istoriya-top-modeli-utilsbor-2026.html",
+          "snippet": "Выбор между BAIC BJ40 и TANK 300 — это выбор двух подходов к рамному внедорожнику. На бумаге оба похожи: китайские, полный привод, рамная конструкция и опция тентовой крыши."
+        }
+      ],
+      "searched_at": "2026-09-27"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://carto-auto.ru/blog/tank-300-u-dilera-ili-iz-kitaya-2026/",
+      "title": "Tank 300: у дилера или из Китая в 2026 — где дешевле и что | CARTO Блог",
+      "from_query": "tank 300 из китая 2026"
+    },
+    {
+      "url": "https://160drive.ru/tank-300-iz-kitaya-2026/",
+      "title": "Tank 300 из Китая 2026: цена, характеристики, комплектации и как купить",
+      "from_query": "tank 300 из китая 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/catalog/tank-300-china-2026-8/",
+      "title": "Купить Tank 300 2026 — параллельный импорт из Китая, 4.7 млн ₽ | CARTO",
+      "from_query": "tank 300 из китая 2026"
+    },
+    {
+      "url": "https://autosender.ru/avto-iz-kitaya/tank/300",
+      "title": "Купить Tank 300 Из Китая С Аукциона Без Пробега По Рф - Каталог, Фото ...",
+      "from_query": "tank 300 из китая 2026"
+    },
+    {
+      "url": "https://avtospart.ru/blog/articles/detail/tank-300-2026",
+      "title": "Обзор Tank 300 2026 — большой внедорожник из Китая",
+      "from_query": "tank 300 из китая 2026"
+    },
+    {
+      "url": "https://jckauto.ru/blog/tank-300-500-iz-kitaya",
+      "title": "Tank 300 и Tank 500 из Китая: полный гайд по внедорожникам в 2026 году",
+      "from_query": "tank 300 из китая 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/catalog/tank-300-china-2026-2/",
+      "title": "Купить Tank 300 2026 — параллельный импорт из Китая, 4.3 млн ₽ | CARTO",
+      "from_query": "tank 300 из китая сентябрь 2026"
+    },
+    {
+      "url": "https://160drive.ru/tank-300-obnovlenie-v6-2026/",
+      "title": "Tank 300 V6 2026: технические характеристики, цена и новый двигатель 3. ...",
+      "from_query": "tank 300 из китая сентябрь 2026"
+    },
+    {
+      "url": "https://motor.ru/news/tank-bolshe-ne-budet-vozit-vnedorozhniki-300-iz-kitaya-16-03-2026.htm",
+      "title": "Tank больше не будет возить внедорожники 300 из Китая",
+      "from_query": "tank 300 из китая новости 2026"
+    },
+    {
+      "url": "https://kitajcar.ru/news/tank-300-2026-hi4-t-hi4-z-cena-harakteristiki/",
+      "title": "Tank 300 2026: старт предзаказов на гибридные версии Hi4-T и Hi4-Z ...",
+      "from_query": "tank 300 из китая новости 2026"
+    },
+    {
+      "url": "https://verticalauto.ru/articles/novyi-tank-300-2026-gigantskii-260-mm-k-baze-lidar-i-852-silnyi-gibrid-polnyi-razbor",
+      "title": "Tank 300 2026: колёсная база 3010 мм, 200 км на электротяге, 422 л.с ...",
+      "from_query": "tank 300 из китая новости 2026"
+    },
+    {
+      "url": "https://github.com/linyacool/WebServer/blob/master/datum/model.png",
+      "title": "WebServer/datum/model.png at master · linyacool/WebServer",
+      "from_query": "site:github.com tank 300 из китая 2026"
+    },
+    {
+      "url": "https://github.com/xidmetaa7-rgb/iptv-by-fred/blob/main/kinofilm.m3u",
+      "title": "iptv-by-fred/kinofilm.m3u at main · xidmetaa7-rgb/iptv-by-fred",
+      "from_query": "site:github.com tank 300 из китая 2026"
+    },
+    {
+      "url": "https://gist.github.com/evilork/01e4a7fdd2abab9dd24ed11f02e8e6ca",
+      "title": "Как получить доступ к ChatGPT и OpenAI из России в 2026 — рабочий гайд ...",
+      "from_query": "site:github.com tank 300 из китая 2026"
+    },
+    {
+      "url": "https://github.com/topics/tanki-online",
+      "title": "tanki-online · GitHub Topics · GitHub",
+      "from_query": "site:github.com tank 300 из китая 2026"
+    },
+    {
+      "url": "https://github.com/cherepakhin/shop_kotlin_yandex_tank_test",
+      "title": "GitHub - cherepakhin/shop_kotlin_yandex_tank_test",
+      "from_query": "site:github.com tank 300 из китая 2026"
+    },
+    {
+      "url": "https://github.com/Applejack2004/Class_figure_and_animation_of_tank_by_Windows_forms",
+      "title": "GitHub - Applejack2004/Class_figure_and_animation_of_tank_by_Windows ...",
+      "from_query": "site:github.com tank 300 из китая 2026"
+    },
+    {
+      "url": "https://gt-news.ru/news/tank-300-2026-rest/",
+      "title": "Tank 300 2026 РЕСТАЙЛИНГ ДЛЯ РОССИИ (ФОТО И ЦЕНЫ): первые фото и ...",
+      "from_query": "tank 300 из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://tank.ru/models/tank-300/trims-versions/",
+      "title": "Tank В России — Комплектации И Цены",
+      "from_query": "tank 300 из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://avtocod.ru/blog/post/on-i-pravda-zamena-prado-obzor-tank-300",
+      "title": "Tank 300: полный Обзор 2026. Стоит ли брать вместо Prado? Цены ...",
+      "from_query": "tank 300 из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/tank/300/g_2026_24760/",
+      "title": "Tank 300 рестайлинг 2026, джип/suv 5 дв., 1 ... - Дром",
+      "from_query": "tank 300 из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://www.ixbt.com/live/car/novyy-tank-300-2026-modelnogo-goda-poyavilsya-v-rossii-obzor-izmeneniy-i-stoimosti.html",
+      "title": "Новый «Tank-300» 2026 модельного года появился в России: обзор ...",
+      "from_query": "tank 300 из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/chinese-cars/tank-300-problemy-pri-ekspluatacii-v-rossii/",
+      "title": "Tank 300 проблемы при эксплуатации в России: обзор и отзывы",
+      "from_query": "tank 300 из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://chinaautoforum.ru/forums/tank-300.23/",
+      "title": "Tank 300 | ChinaAutoForum.ru - форум по китайским автомобилям",
+      "from_query": "tank 300 из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/Z7tq6ZMGxxfNlM_q",
+      "title": "Что ломается в Tank 300: опыт владельцев и сервисов",
+      "from_query": "tank 300 из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://tank-forum.ru/forums/tank-300.19/",
+      "title": "Tank 300 | Tank Клуб И Форум",
+      "from_query": "tank 300 из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://haval-clubs.ru/forums/forum/522-great-wall-tank-300/",
+      "title": "Great Wall TANK 300 - Хавал Клуб Форум | Haval Club (Хавейл)",
+      "from_query": "tank 300 из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://tank-forum.ru/forums/otzyvy-vladelcev.3/",
+      "title": "Отзывы Владельцев | Tank Клуб И Форум",
+      "from_query": "tank 300 из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/tank/300/2026-year/new/",
+      "title": "Купить новые Tank 300 2026 года по цене от 3 999 000 рублей - более 1 ...",
+      "from_query": "tank 300 купить 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/tank/300/2026-year/all/",
+      "title": "Купить Tank 300 2026 года по цене от 3 535 000 рублей - более 1 855 ...",
+      "from_query": "tank 300 купить 2026"
+    },
+    {
+      "url": "https://tank.ru/models/tank-300/",
+      "title": "Tank 300 — Купить У Официального Дилера В России | Цена И ...",
+      "from_query": "tank 300 купить 2026"
+    },
+    {
+      "url": "https://carsdo.ru/tank/300/",
+      "title": "Tank 300 › Цена и комплектации 2026 - CarsDo.ru",
+      "from_query": "tank 300 купить 2026"
+    },
+    {
+      "url": "https://www.tts.ru/auto/tank/tank-300/2026/",
+      "title": "Купить Новый Автомобиль Tank 300 2026 Года, По Цене Официального Дилера Ттс",
+      "from_query": "tank 300 купить 2026"
+    },
+    {
+      "url": "https://importdare.ru/blog/tank-300-pod-klyuch",
+      "title": "Tank 300 под ключ 2026: цена, растаможка, версии | ДАРЭ",
+      "from_query": "tank 300 привезти из китая 2026"
+    },
+    {
+      "url": "https://importdare.ru/blog/tank-iz-kitaya-pod-klyuch",
+      "title": "Tank из Китая под ключ: цена и растаможка 2026 | ДАРЭ",
+      "from_query": "tank 300 привезти из китая 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/how-buy-car/kitajskie-ramnye-vnedorozhniki-2026/",
+      "title": "Китайские рамные внедорожники 2026: обзор моделей и цен",
+      "from_query": "китайские рамные внедорожники 2026"
+    },
+    {
+      "url": "https://www.allcarz.ru/kitayskie-ramnie-vnedorozhniki/",
+      "title": "Китайские рамные внедорожники 2026 с полным приводом в России",
+      "from_query": "китайские рамные внедорожники 2026"
+    },
+    {
+      "url": "https://auto.mail.ru/article/103545-luchshiye-kitayskiye-vnedorozhniki/",
+      "title": "Топ-10 лучших китайских внедорожников 2026 году: какой купить, рейтинг ...",
+      "from_query": "китайские рамные внедорожники 2026"
+    },
+    {
+      "url": "https://chinacardrive.ru/frame-suvs-2/ramnye-vnedorozhniki-2026",
+      "title": "Лучшие рамные внедорожники 2026, продающиеся в России официально",
+      "from_query": "китайские рамные внедорожники 2026"
+    },
+    {
+      "url": "https://gt-news.ru/blog/novinki-china-2026/",
+      "title": "Китайские новинки авто в России 2026: самые ожидаемые кроссоверы ...",
+      "from_query": "китайские рамные внедорожники 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/aRYKCn1RHWyLnC6T",
+      "title": "Топ 10 китайских рамных внедорожников 2026",
+      "from_query": "китайские рамные внедорожники 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/tank/300/2026/",
+      "title": "Тэнк 300 2026 технические характеристики. Tank 300 2026 комплектации и ...",
+      "from_query": "tank 300 комплектации 2026"
+    },
+    {
+      "url": "https://avto-zhurnal.ru/article/tank-300-kupit/",
+      "title": "Tank 300 в 2026 году: цены, комплектации, сравнение с конкурентами",
+      "from_query": "tank 300 комплектации 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/tank-300-400-500-700-vsya-lineyka-2026/",
+      "title": "Tank 300, 400, 500, 700 (Great Wall) — все модели и цены 2026 года под ...",
+      "from_query": "Как выбрать Tank 300 из Китая в 2026: рамник или кроссовер до депозита 2026"
+    },
+    {
+      "url": "https://www.pro-avto-forum.ru/viewtopic.php?t=1091",
+      "title": "Tank 300 против Jaecoo J7 — что выбрать в 2026 году: рамный внедорожник ...",
+      "from_query": "Как выбрать Tank 300 из Китая в 2026: рамник или кроссовер до депозита 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/baic-bj40-ili-tank-300-kakoj-ramnyj-vnedorozhnik-iz-kitaya-ne-razocharuet-vas-na-bezdorozhe",
+      "title": "Baic Bj40 Или Tank 300: Какой Рамный Внедорожник Из Китая Не Разочарует ...",
+      "from_query": "Как выбрать Tank 300 из Китая в 2026: рамник или кроссовер до депозита 2026"
+    },
+    {
+      "url": "https://china.sferacar.ru/blog/tank-iz-kitaya-istoriya-top-modeli-utilsbor-2026.html",
+      "title": "Tank из Китая: история бренда, топ-модели и как считать утильсбор в 2026",
+      "from_query": "Как выбрать Tank 300 из Китая в 2026: рамник или кроссовер до депозита 2026"
+    }
+  ]
+}

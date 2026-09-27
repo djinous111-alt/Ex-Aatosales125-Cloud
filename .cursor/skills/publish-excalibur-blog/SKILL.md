@@ -25,6 +25,18 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
 
+## Env preflight (до dry-run)
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+Проверяет SSH/allow/public URL **и**:
+- `paramiko_importable` — иначе `pip install -r requirements.txt` (Cloud install: `.cursor/cloud-agent-install.sh`);
+- `schema_pragma_strip_ok` — loader стрипает `// pragma: allowlist secret` из `schema.jsonld`.
+
+Не делай ad-hoc `import` publish-модуля без `scripts/` в `sys.path`. Не добавляй `import re` внутри `load_article()` — только module-level `import re`.
+
 ## Алгоритм
 
 ### 1. Preflight publish

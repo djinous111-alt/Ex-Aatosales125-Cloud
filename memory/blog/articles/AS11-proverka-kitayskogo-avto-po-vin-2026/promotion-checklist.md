@@ -1,13 +1,13 @@
 # Promotion checklist — AS11 proverka-kitayskogo-avto-po-vin-2026
 
 Дата публикации: 2026-09-28  
-Live URL: /blog/proverka-kitayskogo-avto-po-vin-2026/ (после publish — абсолютный URL с site-base)
+Live URL: [PUBLIC_SITE_URL]/2026/09/28/proverka-kitayskogo-avto-po-vin-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)

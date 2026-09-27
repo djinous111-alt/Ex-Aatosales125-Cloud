@@ -6,6 +6,73 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260928-2132-publish-secret-scan-placeholders
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-publish
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-proverka-kitayskogo-avto-po-vin-2026
+severity: medium
+category: publish
+
+### What went wrong
+- First commit after successful live publish was blocked by Cursor secret-scan: `PUBLIC_SITE_URL` literal in `shared/published-articles.md`, `wp-publish-result.json`, `wp-publish-log.md`, `promotion-checklist.md`, `interlink-suggestions.json`.
+- Publish script `upsert_publish_ledger()` writes absolute permalink from WP response; result JSON also stores absolute media/permalink URLs.
+
+### How the agent recovered this run
+- Replaced absolute site base with `[PUBLIC_SITE_URL]` placeholders in those artifacts (including older AS08/AS09 ledger rows in the same files), then re-committed.
+- Live WordPress post remains at real permalink; runtime handoff keeps absolute URL (not committed).
+
+### Durable fix needed before next run
+- Teach `excalibur_blog_wp_publish.py` to write ledger/result/log with `[PUBLIC_SITE_URL]` (or relative path) for repo artifacts while still printing absolute permalink to stdout for the agent.
+- Document in publish skill/contract: sanitize before commit; secret-scan treats public site host as secret when it matches env.
+- Optionally add a small `scripts/excalibur_blog_sanitize_publish_artifacts.py`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260928-2131-publish-paramiko-missing
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-publish
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-proverka-kitayskogo-avto-po-vin-2026
+severity: low
+category: env
+
+### What went wrong
+- `import paramiko` failed (`ModuleNotFoundError`) before live SSH publish; dry-run does not need paramiko so it passed first.
+- Environment image / setup does not bake `python3-paramiko` by default.
+
+### How the agent recovered this run
+- Installed `paramiko` via `pip3 install --break-system-packages paramiko` (apt path attempted first).
+- Live publish succeeded: post=3760, featured=3761, inline=3762/3763/3764, live HEAD 200; no WebFetch fallback.
+
+### Durable fix needed before next run
+- Bake `paramiko` / `python3-paramiko` into Cloud environment install (`Dockerfile` / `.cursor/environment.json` install script).
+- Keep note in publish skill: verify `python3 -c "import paramiko"` before live publish.
+
+### Suggested files to inspect/change
+- `.cursor/environment.json`
+- `Dockerfile` (if present)
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260928-2126-indexer-llms-blog-path-stale
 status: open
 run_date: 2026-09-28

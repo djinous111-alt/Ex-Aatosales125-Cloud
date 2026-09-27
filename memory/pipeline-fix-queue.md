@@ -6,6 +6,48 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260927-1705-director-as-topic-id-regex
+status: fixed
+run_date: 2026-09-27
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_today.py` and `excalibur_blog_scout_helper.py` matched only `B##` topic IDs, while Авто-Сейлс pool uses `AS##`.
+- Result: `EXCALIBUR_TOPIC_SELECTION=needs_scout` even with AS01–AS09 in blog-topics.md; scout helper reported 0 topics and next ID `B01`.
+
+### How the agent recovered this run
+- Extended regexes to `((?:AS|B)\d+)`; scout `--suggest-next` prefers next `AS##` when AS pool exists.
+- Proceeding with Scout for a fresh AS10+ topic because AS01–AS09 slugs already exist on WordPress.
+
+### Durable fix needed before next run
+- Keep AS|B support in today/scout helpers; document Авто-Сейлс prefix in scout skill audience notes.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-09-27
+fix_summary:
+- today.py and scout_helper.py now accept AS## and B## topic IDs for P0 selection, active dirs, and next-ID suggestion.
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next`
+- `python3 scripts/excalibur_blog_today.py`
+commit: pending-parent-commit
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

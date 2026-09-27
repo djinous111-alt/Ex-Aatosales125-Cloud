@@ -287,7 +287,44 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20260928-2115-research-wordstat-empty-and-gate-markers
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-research
+topic_id: AS11
+article_dir: memory/blog/articles/AS11-proverka-kitayskogo-avto-po-vin-2026
+severity: low
+category: api
+
+### What went wrong
+- MCP `wordstat_get_top_requests` для длинных how-to фраз (`как проверить китайское авто по vin до депозита`, `проверить авто до депозита`) вернул пустой/неожиданный формат `{}` без списка фраз; короткие parent/secondary фразы ответили нормально.
+- Первый прогон `excalibur_blog_research_notes_gate.py` дал BLOCK: счётчик `accessed_at` требует литералы `accessed_at:` (не дату в колонке таблицы); `pain_solution_map` считает только строки таблицы, где есть слова pain/solution/result/боль/решение/результат.
+- Секция `github_evidence` в notes включает слово `github` в первых 2000 символах → gate помечает тему как technical и требует ≥3 GitHub URL + желательно official docs URL с `/docs|developers.|help.|learn.`.
+
+### How the agent recovered this run
+- Для Wordstat взял успешные ответы по parent «проверка авто из китая» / «проверить авто по vin» / secondary; длинные фразы пометил как no exact volume (без выдуманных цифр).
+- В `research-notes.md` проставил `accessed_at: 2026-09-28` в ячейках source_table и префиксы `pain:` / `solution:` / `reader_result:` в строках карты; добавил 4 GitHub URL + docs URL.
+- Gate повторно: PASS, warnings=[].
+
+### Durable fix needed before next run
+- В research skill явно: при `{}` / totalCount-only от Wordstat — fallback на parent phrase, не выдумывать impressions; логировать warning.
+- В research skill/template: пример `accessed_at: YYYY-MM-DD` внутри source_table и pain_solution_map с маркерами pain/solution/result.
+- Либо ослабить TECH_MARKERS для слова `github` в заголовке секции `github_evidence`, либо требовать GitHub URLs только для реально технических topic_id.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/excalibur-research/SKILL.md`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
 

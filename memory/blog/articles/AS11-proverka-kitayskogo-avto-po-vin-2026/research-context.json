@@ -1,0 +1,95 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-09-28",
+    "today_ru": "28.09.2026",
+    "year": 2026,
+    "month": 9,
+    "month_name_ru": "сентябрь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-06-30",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-09-28 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS11",
+    "priority": "P0",
+    "slug": "proverka-kitayskogo-avto-po-vin-2026",
+    "h1": "Как проверить китайское авто по VIN до депозита: чек-лист 2026",
+    "primary_query": "как проверить китайское авто по vin до депозита",
+    "secondary_queries": [
+      "проверка авто из китая по вин",
+      "проверка китайского авто по vin",
+      "проверка пробега авто из китая"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "AS11",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "как проверить китайское авто по vin до депозита 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "как проверить китайское авто по vin до депозита сентябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "как проверить китайское авто по vin до депозита новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com как проверить китайское авто по vin до депозита 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "как проверить китайское авто по vin до депозита official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "как проверить китайское авто по vin до депозита forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "проверка авто из китая по вин 2026",
+      "purpose": "вторичный запрос: проверка авто из китая по вин"
+    },
+    {
+      "id": "secondary_2",
+      "query": "проверка китайского авто по vin 2026",
+      "purpose": "вторичный запрос: проверка китайского авто по vin"
+    },
+    {
+      "id": "secondary_3",
+      "query": "проверка пробега авто из китая 2026",
+      "purpose": "вторичный запрос: проверка пробега авто из китая"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как проверить китайское авто по VIN до депозита: чек-лист 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/AS11-proverka-kitayskogo-avto-po-vin-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

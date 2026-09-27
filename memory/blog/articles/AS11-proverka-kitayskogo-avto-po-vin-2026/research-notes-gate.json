@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/AS11-proverka-kitayskogo-avto-po-vin-2026",
+  "notes": "memory/blog/articles/AS11-proverka-kitayskogo-avto-po-vin-2026/research-notes.md",
+  "context": "memory/blog/articles/AS11-proverka-kitayskogo-avto-po-vin-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-09-28",
+    "prefer_sources_after": "2026-06-30",
+    "source_urls": 37,
+    "source_domains": 13,
+    "source_table_rows": 32,
+    "accessed_at": 15,
+    "github_urls": 4,
+    "official_doc_urls": 1,
+    "action_outline_items": 10,
+    "pain_solution_rows": 6,
+    "technical_topic": true
+  }
+}

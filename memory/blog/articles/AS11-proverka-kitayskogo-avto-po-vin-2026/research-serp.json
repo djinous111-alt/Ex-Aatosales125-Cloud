@@ -1,0 +1,596 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-09-28",
+    "today_ru": "28.09.2026",
+    "year": 2026,
+    "month": 9,
+    "month_name_ru": "сентябрь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-06-30",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-09-28 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "AS11",
+    "priority": "P0",
+    "slug": "proverka-kitayskogo-avto-po-vin-2026",
+    "h1": "Как проверить китайское авто по VIN до депозита: чек-лист 2026",
+    "primary_query": "как проверить китайское авто по vin до депозита",
+    "secondary_queries": [
+      "проверка авто из китая по вин",
+      "проверка китайского авто по vin",
+      "проверка пробега авто из китая"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как проверить китайское авто по vin до депозита 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как Проверить Авто Из Китая По Vin: Полное Руководство 2026",
+          "url": "https://asiataauto.ru/blog/kak-proverit-avto-iz-kitaya-po-vin/",
+          "snippet": ""
+        },
+        {
+          "title": "Как Проверить Vin Китайского Авто: Полная Инструкция 2026",
+          "url": "https://auto-praktis.vercel.app/articles/p/pr/proverit-vin-kitajskogo-avto.html",
+          "snippet": "Пошаговый порядок проверки китайского автомобиля перед покупкой: какие отчёты заказывать и в каком порядке, что смотреть в каждом, какие цифры пересчитывать самому и какие находки меняют цену. С примерами из реальных проверок."
+        },
+        {
+          "title": "Китайский Vin-декодер И Проверка | Бесплатная История Авто",
+          "url": "https://www.chinavehiclehistory.com/ru",
+          "snippet": "Узнайте, как расшифровать VIN китайского автомобиля, проверить историю и избежать мошенничества. Пошаговые инструкции, сервисы и лайфхаки для покупателей."
+        },
+        {
+          "title": "Проверка Авто Из Китая По Vin — Дтп, Пробег, История | Vinzor",
+          "url": "https://vinzor.pro/",
+          "snippet": "Бесплатный китайский VIN-декодер для BYD, Geely, Great Wall, Changan. Расшифруйте VIN и проверьте историю китайских автомобилей мгновенно. Для покупателей в России, Беларуси, Казахстане и Кыргызстане."
+        },
+        {
+          "title": "Как проверить авто из Китая перед покупкой",
+          "url": "https://chinacartest.ru/blog/kak-proverit-avto-iz-kitaya-pered-pokupkoi",
+          "snippet": "Проверьте автомобиль из Китая по VIN или номеру кузова: ДТП, страховые случаи, пробег, обслуживание и ремонты. Отчёт на русском языке."
+        },
+        {
+          "title": "Проверка авто по вин-коду из Китая: какие данные доступны и как их читать",
+          "url": "https://chinacartest.ru/blog/proverka-avto-po-vin-kodu-iz-kitaya-kakie-dannye-dostupny-i-kak-ix-citat",
+          "snippet": "Возникает простой вопрос: как проверить авто из китая так, чтобы не влезть в дорогостоящие ремонты и скрытые проблем? Разберем по шагам, что нужно делать и чем тут может помочь проверка по VIN через телеграм бота ChinaCarTest. Почему обычная проверка не спасает."
+        }
+      ],
+      "searched_at": "2026-09-28"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как проверить китайское авто по vin до депозита сентябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как Проверить Vin Китайского Авто: Полная Инструкция 2026",
+          "url": "https://auto-praktis.vercel.app/articles/p/pr/proverit-vin-kitajskogo-avto.html",
+          "snippet": ""
+        },
+        {
+          "title": "Как Проверить Авто По Vin На Залог: Полное Руководство 2026",
+          "url": "https://auto-praktis.vercel.app/articles/p/pr/proverka-avto-po-vin-zalog.html",
+          "snippet": "Узнайте, как расшифровать VIN китайского автомобиля, проверить историю и избежать мошенничества. Пошаговые инструкции, сервисы и лайфхаки для покупателей."
+        },
+        {
+          "title": "Как Проверить Авто Из Китая По Vin: Полное Руководство 2026",
+          "url": "https://asiataauto.ru/blog/kak-proverit-avto-iz-kitaya-po-vin/",
+          "snippet": "Узнайте, как бесплатно проверить машину по VIN-коду на наличие залога в банке, ГИБДД и нотариальных ограничений. Пошаговые инструкции, сервисы и юридические нюансы для безопасной покупки авто."
+        },
+        {
+          "title": "Проверить Авто По Vin Из Китая Перед Сделкой: Чек-лист Для Покупателя ...",
+          "url": "https://chinacartest.ru/blog/proverit-avto-po-vin-iz-kitaya-pered-sdelkoi-cek-list-dlya-pokupatelya-za-10-minut",
+          "snippet": "Пошаговый порядок проверки китайского автомобиля перед покупкой: какие отчёты заказывать и в каком порядке, что смотреть в каждом, какие цифры пересчитывать самому и какие находки меняют цену. С примерами из реальных проверок."
+        },
+        {
+          "title": "Проверка авто из Китая по VIN | Sino360RU",
+          "url": "https://www.sino360.ru/",
+          "snippet": "Как за 10 минут проверить авто по VIN из Китая перед покупкой: быстрый чек-лист, что спросить у продавца, как сверить данные и что показывает китайский отчет, чтобы сразу отсеять машины ..."
+        },
+        {
+          "title": "Китайский Vin-декодер И Проверка | Бесплатная История Авто",
+          "url": "https://www.chinavehiclehistory.com/ru",
+          "snippet": "Как проверить авто из Китая по VIN? Введите 17-значный VIN код в форму проверки. Базовая расшифровка покажет производителя, модель, год выпуска и основные характеристики. Полный отчет может включать пробег, ДТП, ремонты, владельцев и экспортные данные. Какие китайские марки можно проверить?"
+        }
+      ],
+      "searched_at": "2026-09-28"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как проверить китайское авто по vin до депозита новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как Проверить Авто Из Китая По Vin: Полное Руководство 2026",
+          "url": "https://asiataauto.ru/blog/kak-proverit-avto-iz-kitaya-po-vin/",
+          "snippet": ""
+        },
+        {
+          "title": "Как Проверить Vin Китайского Авто: Полная Инструкция 2026",
+          "url": "https://auto-praktis.vercel.app/articles/p/pr/proverit-vin-kitajskogo-avto.html",
+          "snippet": "Сверьте VIN на машине с VIN в документах. На фотографиях это делается по табличке на стойке двери и по площадке под лобовым стеклом."
+        },
+        {
+          "title": "Китайский Vin-декодер И Проверка | Бесплатная История Авто",
+          "url": "https://www.chinavehiclehistory.com/ru",
+          "snippet": "Узнайте, как расшифровать VIN китайского автомобиля, проверить историю и избежать мошенничества. Пошаговые инструкции, сервисы и лайфхаки для покупателей."
+        },
+        {
+          "title": "Проверка авто из Китая по VIN | Sino360RU",
+          "url": "https://www.sino360.ru/",
+          "snippet": "Бесплатный китайский VIN-декодер для BYD, Geely, Great Wall, Changan. Расшифруйте VIN и проверьте историю китайских автомобилей мгновенно. Для покупателей в России, Беларуси, Казахстане и Кыргызстане."
+        },
+        {
+          "title": "Как Расшифровать Vin Китайского Автомобиля И Проверить Историю Импорта ...",
+          "url": "https://www.chinavehiclehistory.com/ru/blog/decode-chinese-vin-import-history-guide",
+          "snippet": "Как проверить авто из Китая по VIN? Введите 17-значный VIN код в форму проверки. Базовая расшифровка покажет производителя, модель, год выпуска и основные характеристики. Полный отчет может включать пробег, ДТП, ремонты, владельцев и экспортные данные. Какие китайские марки можно проверить?"
+        },
+        {
+          "title": "Иномарки с пробегом в 2026: как подлинная история авто зависит от ...",
+          "url": "https://110km.ru/art/kak-proverit-poderzhannyy-avtomobil-izza-granicy-po-vin-riski-i-nyuansy-v-2026-176276.html",
+          "snippet": "Узнайте, как расшифровать VIN китайских автомобилей, проверить VIN китайского электромобиля перед покупкой и изучить историю импорта."
+        }
+      ],
+      "searched_at": "2026-09-28"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как проверить китайское авто по vin до депозита 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - OSINT-up/osint_avto_probiv: Как проверить автомобиль по ...",
+          "url": "https://github.com/OSINT-up/osint_avto_probiv",
+          "snippet": ""
+        },
+        {
+          "title": "GitHub - sherlock-tg-bot/proverit-mashinu-po-vin-kodu: Проверить машину ...",
+          "url": "https://github.com/sherlock-tg-bot/proverit-mashinu-po-vin-kodu/tree/main",
+          "snippet": "Материал посвящён OSINT-проверке автомобилей по госномеру и VIN. Рассматриваются методы анализа истории авто, поиска объявлений, выявления ДТП, проверки пробега и сопоставления данных ..."
+        },
+        {
+          "title": "GitHub - hackumono/Probiv: Набор Telegram-ботов и OSINT-инструментов ...",
+          "url": "https://github.com/hackumono/Probiv",
+          "snippet": "VIN обычно состоит из 17 символов; буквы I, O и Q в нём не применяются. На сайте Госавтоинспекции проверьте доступные сведения о регистрации, розыске, ДТП и ограничениях."
+        },
+        {
+          "title": "GitHub - sherlock-tg-bot/proverit-avto: Проверить авто: практическое ...",
+          "url": "https://github.com/sherlock-tg-bot/proverit-avto",
+          "snippet": "Хотите быстро пробить номер телефона, VIN-код автомобиля, найти владельца Telegram или ВКонтакте? Здесь собраны лучшие OSINT боты для пробива данных, деанона, доксинга, поиска в базах и анализа соцсетей. Мы тестируем все инструменты, чтобы вы могли найти нужную информацию за 1 клик."
+        },
+        {
+          "title": "GitHub - sherlock-tg-bot/kak-uznat-registratsiyu-avtomobilya-po-vin ...",
+          "url": "https://github.com/sherlock-tg-bot/kak-uznat-registratsiyu-avtomobilya-po-vin",
+          "snippet": "Введите VIN или госномер без исправлений и сохраните дату проверки. Отметьте найденные события: ДТП, ограничения, залоги, регистрацию и изменения пробега."
+        },
+        {
+          "title": "osint-and-search/OSINT_i_poisk_po_avto_i_nomeru - GitHub",
+          "url": "https://github.com/osint-and-search/OSINT_i_poisk_po_avto_i_nomeru",
+          "snippet": "Для ответа на вопрос «как узнать регистрацию автомобиля по VIN» сначала используйте официальный сервис Госавтоинспекции, затем сверяйте его с документами и другими первоисточниками."
+        }
+      ],
+      "searched_at": "2026-09-28"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как проверить китайское авто по vin до депозита official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как Проверить Авто Из Китая По Vin: Полное Руководство 2026",
+          "url": "https://asiataauto.ru/blog/kak-proverit-avto-iz-kitaya-po-vin/",
+          "snippet": ""
+        },
+        {
+          "title": "Как Проверить Vin Китайского Авто: Полная Инструкция 2026",
+          "url": "https://auto-praktis.vercel.app/articles/p/pr/proverit-vin-kitajskogo-avto.html",
+          "snippet": "Пошаговый порядок проверки китайского автомобиля перед покупкой: какие отчёты заказывать и в каком порядке, что смотреть в каждом, какие цифры пересчитывать самому и какие находки меняют ..."
+        },
+        {
+          "title": "Проверка Китайского Авто По Vin Для Дилеров И Импортёров — Пригон ...",
+          "url": "https://www.chinavehiclehistory.com/ru/blog/vehicle-history-reports-dealers-importers",
+          "snippet": "В этой статье вы найдёте практические методы проверки VIN китайского автомобиля, включая расшифровку кода, анализ истории через специализированные сервисы и признаки подделки документов."
+        },
+        {
+          "title": "Как Расшифровать Vin Китайского Автомобиля И Проверить Историю Импорта ...",
+          "url": "https://www.chinavehiclehistory.com/ru/blog/decode-chinese-vin-import-history-guide",
+          "snippet": "В этой статье разберём, как VIN-проверка встраивается в полный цикл импорта авто из Китая: от поиска на аукционе до растаможки, русификации и продажи клиенту. Материал ориентирован на автосалоны, компании по пригону авто из Китая под ключ и независимых импортёров."
+        },
+        {
+          "title": "Как Проверить Vin Авто Из Китая Перед Покупкой",
+          "url": "https://blog.carmancars.ru/blog/kak-proverit-vin-avto-iz-kitaya",
+          "snippet": "Узнайте, как расшифровать VIN китайских автомобилей, проверить VIN китайского электромобиля перед покупкой и изучить историю импорта."
+        },
+        {
+          "title": "Проверить Авто По Vin Из Китая Перед Сделкой: Чек-лист Для Покупателя ...",
+          "url": "https://chinacartest.ru/blog/proverit-avto-po-vin-iz-kitaya-pered-sdelkoi-cek-list-dlya-pokupatelya-za-10-minut",
+          "snippet": "Пошаговый гайд: какие базы использовать, чтобы проверить VIN авто из Китая, и что скрывает история битого или скрученного авто."
+        }
+      ],
+      "searched_at": "2026-09-28"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как проверить китайское авто по vin до депозита forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как Проверить Авто Из Китая По Vin: Полное Руководство 2026",
+          "url": "https://asiataauto.ru/blog/kak-proverit-avto-iz-kitaya-po-vin/",
+          "snippet": ""
+        },
+        {
+          "title": "Как Проверить Vin Китайского Авто: Полная Инструкция 2026",
+          "url": "https://auto-praktis.vercel.app/articles/p/pr/proverit-vin-kitajskogo-avto.html",
+          "snippet": "С примерами из реальных проверок. Проверка китайской машины по VIN отличается от проверки европейской: другие базы, другие источники, другие типичные проблемы."
+        },
+        {
+          "title": "Как Проверить Vin Авто Из Китая Перед Покупкой",
+          "url": "https://blog.carmancars.ru/blog/kak-proverit-vin-avto-iz-kitaya",
+          "snippet": "Узнайте, как расшифровать VIN китайского автомобиля, проверить историю и избежать мошенничества. Пошаговые инструкции, сервисы и лайфхаки для покупателей."
+        },
+        {
+          "title": "Как проверить китайское авто на Autohome и Dongchedi перед покупко ...",
+          "url": "https://carto-auto.ru/blog/kak-proverit-kitayskoe-avto-autohome-dongchedi-pered-pokupkoy-2026/",
+          "snippet": "Пошаговый гайд: какие базы использовать, чтобы проверить VIN авто из Китая, и что скрывает история битого или скрученного авто."
+        },
+        {
+          "title": "Как проверить авто из Китая перед покупкой",
+          "url": "https://chinacartest.ru/blog/kak-proverit-avto-iz-kitaya-pered-pokupkoi",
+          "snippet": "В этом гайде разбираем по шагам, как самостоятельно проверить модель, комплектацию, реальную цену и надёжность китайского авто перед параллельным импортом, даже если вы не знаете ..."
+        },
+        {
+          "title": "Как Расшифровать Vin Китайского Автомобиля И Проверить Историю Импорта ...",
+          "url": "https://www.chinavehiclehistory.com/ru/blog/decode-chinese-vin-import-history-guide",
+          "snippet": "Возникает простой вопрос: как проверить авто из китая так, чтобы не влезть в дорогостоящие ремонты и скрытые проблем? Разберем по шагам, что нужно делать и чем тут может помочь проверка по VIN через телеграм бота ChinaCarTest. Почему обычная проверка не спасает."
+        }
+      ],
+      "searched_at": "2026-09-28"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "проверка авто из китая по вин 2026",
+      "purpose": "вторичный запрос: проверка авто из китая по вин",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Проверка Авто Из Китая По Vin — Дтп, Пробег, История | Vinzor",
+          "url": "https://vinzor.pro/",
+          "snippet": ""
+        },
+        {
+          "title": "Китайский Vin-декодер И Проверка | Бесплатная История Авто",
+          "url": "https://www.chinavehiclehistory.com/ru",
+          "snippet": "Проверьте автомобиль из Китая по VIN или номеру кузова: ДТП, страховые случаи, пробег, обслуживание и ремонты. Отчёт на русском языке."
+        },
+        {
+          "title": "ChinaCarTest - проверка истории и пробега авто из Китая по VIN - ВИН",
+          "url": "https://chinacartest.ru/",
+          "snippet": "Что включает бесплатная проверка VIN китайского авто? Введите 17-значный VIN-код и получите мгновенный отчёт о любом автомобиле, произведённом в Китае"
+        },
+        {
+          "title": "Проверка автомобиля из Китая по ВИН номеру — полный отчет о ДТП ...",
+          "url": "https://chinavin.ru/",
+          "snippet": "Полная история автомобиля из Китая: реальный пробег, ТО, страховые случаи, фото. Отчёт по VIN - ВИН за 5 минут."
+        },
+        {
+          "title": "Проверка Авто Из Китая По Vin: Дтп, Пробег, Страховые И История То",
+          "url": "https://www.drive2.ru/o/b/719753781633358152/",
+          "snippet": "Проверка автомобиля из Китая по VIN коду. Полный отчет: история ДТП, аварии, пробег, ремонты, ТО, затопления, пожары. Узнайте историю автомобиля из Китая онлайн. PDF на русском и китайском."
+        },
+        {
+          "title": "Проверка Авто Из Китая По Vin - История Автомобиля Онлайн | Винклик",
+          "url": "https://vinclick.ru/",
+          "snippet": "Проверка автомобиля из Китая по VIN нужна не меньше, чем для машин из США или Европы. У китайского рынка своя специфика: обычные дилерские запросы часто оказываются малоинформативными, а часть важной истории хранится в страховых базах и сетях технического обслуживания."
+        }
+      ],
+      "searched_at": "2026-09-28"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "проверка китайского авто по vin 2026",
+      "purpose": "вторичный запрос: проверка китайского авто по vin",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как Проверить Авто Из Китая По Vin: Полное Руководство 2026",
+          "url": "https://asiataauto.ru/blog/kak-proverit-avto-iz-kitaya-po-vin/",
+          "snippet": ""
+        },
+        {
+          "title": "Проверка Vin Китайского Авто: Базы Данных, Подводные Камни",
+          "url": "https://160drive.ru/proverka-vin-kitayskoe-avto-2026/",
+          "snippet": "Пошаговый порядок проверки китайского автомобиля перед покупкой: какие отчёты заказывать и в каком порядке, что смотреть в каждом, какие цифры пересчитывать самому и какие находки меняют цену. С примерами из реальных проверок."
+        },
+        {
+          "title": "Как Проверить Vin Китайского Авто: Полная Инструкция 2026",
+          "url": "https://auto-praktis.vercel.app/articles/p/pr/proverit-vin-kitajskogo-avto.html",
+          "snippet": "Проверка VIN китайского автомобиля: какие базы работают, где китайский VIN отличается от российских стандартов и как не купить битую машину с поддельным номером."
+        },
+        {
+          "title": "Китайский Vin-декодер И Проверка | Бесплатная История Авто",
+          "url": "https://www.chinavehiclehistory.com/ru",
+          "snippet": "Узнайте, как расшифровать VIN китайского автомобиля, проверить историю и избежать мошенничества. Пошаговые инструкции, сервисы и лайфхаки для покупателей."
+        },
+        {
+          "title": "Проверка авто из Китая по VIN | Sino360RU",
+          "url": "https://www.sino360.ru/",
+          "snippet": "Бесплатный китайский VIN-декодер для BYD, Geely, Great Wall, Changan. Расшифруйте VIN и проверьте историю китайских автомобилей мгновенно. Для покупателей в России, Беларуси, Казахстане и Кыргызстане."
+        },
+        {
+          "title": "Vin-код Китайского Авто: Расшифровка, Проверка И Риски Покупки",
+          "url": "https://auto-praktis.vercel.app/articles/v/vi/vin-kod-kitajskogo-avtomobilya.html",
+          "snippet": "Проверка VIN китайского автомобиля помогает увидеть ключевые данные до сделки: пробег, ДТП, ремонты, владельцев, комплектацию, отзывы и экспортные записи. Данные о страховых случаях, ремонтах и повреждениях, которые помогают оценить риск перед покупкой автомобиля из Китая."
+        }
+      ],
+      "searched_at": "2026-09-28"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "проверка пробега авто из китая 2026",
+      "purpose": "вторичный запрос: проверка пробега авто из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как проверить пробег авто из Китая: реальные схемы скрутки и как мы их ...",
+          "url": "https://chinacartest.ru/blog/kak-proverit-probeg-avto-iz-kitaya-realnye-sxemy-skrutki-i-kak-my-ix-lovim",
+          "snippet": ""
+        },
+        {
+          "title": "Авто из Китая с пробегом 2026: риски, цены, проверка",
+          "url": "https://chest-import.com/stati/avto-iz-kitaya-s-probegom",
+          "snippet": "И вопрос, который нужно задать себе перед покупкой: как проверить пробег авто из Китая так, чтобы не влететь на деньги и не купить уставшую машину с красивой приборкой."
+        },
+        {
+          "title": "ChinaCarTest - проверка истории и пробега авто из Китая по VIN - ВИН",
+          "url": "https://chinacartest.ru/",
+          "snippet": "Авто из Китая с пробегом в 2026 году: правило 180 дней, таблица пошлин по возрасту, утильсбор, проверка машины по VIN и случаи, когда везти не стоит."
+        },
+        {
+          "title": "Как Проверить Авто Из Китая По Vin: Полное Руководство 2026",
+          "url": "https://asiataauto.ru/blog/kak-proverit-avto-iz-kitaya-po-vin/",
+          "snippet": "Полная история автомобиля из Китая: реальный пробег, ТО, страховые случаи, фото. Отчёт по VIN - ВИН за 5 минут."
+        },
+        {
+          "title": "Авто из Китая с пробегом — руководство для импортеров 2026 | ZJLY Auto",
+          "url": "https://zjly-auto.com/avto-iz-kitaya-s-probegom-rukovodstvo-dlya-importerov-2026/",
+          "snippet": "Пошаговый порядок проверки китайского автомобиля перед покупкой: какие отчёты заказывать и в каком порядке, что смотреть в каждом, какие цифры пересчитывать самому и какие находки меняют цену. С примерами из реальных проверок."
+        },
+        {
+          "title": "Проверка Авто Перед Покупкой Из Китая: Полный Гид — Vin, Пробег, Осмотр ...",
+          "url": "https://ivan-auto.ru/blog/proverka-avto-pered-pokupkoy-iz-kitaya/",
+          "snippet": "Как купить авто из Китая с пробегом: проверка краски, OBD-диагностика, EXW/FOB, доставка в Казахстан, Узбекистан, Кыргызстан. Полное руководство 2026."
+        }
+      ],
+      "searched_at": "2026-09-28"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как проверить китайское авто по VIN до депозита: чек-лист 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как Проверить Vin Китайского Авто: Полная Инструкция 2026",
+          "url": "https://auto-praktis.vercel.app/articles/p/pr/proverit-vin-kitajskogo-avto.html",
+          "snippet": ""
+        },
+        {
+          "title": "Что проверить перед оплатой подержанного автомобиля из Китая",
+          "url": "https://www.leoev.cn/ru/2026/07/26/proverka-prodavtsa-avto-iz-kitaya-pered-oplatoy/",
+          "snippet": "Узнайте, как расшифровать VIN китайского автомобиля, проверить историю и избежать мошенничества. Пошаговые инструкции, сервисы и лайфхаки для покупателей."
+        },
+        {
+          "title": "Проверка б/у авто в Китае перед покупкой: полный чек-лист",
+          "url": "https://wetocar.ru/blog/kak-proverit-bu-avto-v-kitae",
+          "snippet": "Практический чек-лист для покупателя: как до оплаты проверить автомобиль, продавца, условия сделки и экспортные документы в Китае."
+        },
+        {
+          "title": "Как Проверить Авто Из Китая По Vin: Полное Руководство 2026",
+          "url": "https://asiataauto.ru/blog/kak-proverit-avto-iz-kitaya-po-vin/",
+          "snippet": "Как проверяют б/у автомобили в Китае: отчёты по VIN, страховая история, очная диагностика, толщиномер, замер деградации батареи. Чек-лист и типичные скрытые дефекты."
+        },
+        {
+          "title": "Проверка Авто Перед Покупкой По Vin В 2026: Полный Чек-лист",
+          "url": "https://teletype.in/@tg_groups/proverka_avto_pered_pokupkoy_po_vin_v_2026_polnyy",
+          "snippet": "Пошаговый порядок проверки китайского автомобиля перед покупкой: какие отчёты заказывать и в каком порядке, что смотреть в каждом, какие цифры пересчитывать самому и какие находки меняют ..."
+        },
+        {
+          "title": "Чек-лист проверки авто из Китая перед покупкой | ChinaStat",
+          "url": "https://chinastat.ru/cheklist-proverki-avto-iz-kitaya-pered-pokupkoy",
+          "snippet": "В этом руководстве — полный пошаговый алгоритм комплексной проверки в 2026 году."
+        }
+      ],
+      "searched_at": "2026-09-28"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://asiataauto.ru/blog/kak-proverit-avto-iz-kitaya-po-vin/",
+      "title": "Как Проверить Авто Из Китая По Vin: Полное Руководство 2026",
+      "from_query": "как проверить китайское авто по vin до депозита 2026"
+    },
+    {
+      "url": "https://auto-praktis.vercel.app/articles/p/pr/proverit-vin-kitajskogo-avto.html",
+      "title": "Как Проверить Vin Китайского Авто: Полная Инструкция 2026",
+      "from_query": "как проверить китайское авто по vin до депозита 2026"
+    },
+    {
+      "url": "https://www.chinavehiclehistory.com/ru",
+      "title": "Китайский Vin-декодер И Проверка | Бесплатная История Авто",
+      "from_query": "как проверить китайское авто по vin до депозита 2026"
+    },
+    {
+      "url": "https://vinzor.pro/",
+      "title": "Проверка Авто Из Китая По Vin — Дтп, Пробег, История | Vinzor",
+      "from_query": "как проверить китайское авто по vin до депозита 2026"
+    },
+    {
+      "url": "https://chinacartest.ru/blog/kak-proverit-avto-iz-kitaya-pered-pokupkoi",
+      "title": "Как проверить авто из Китая перед покупкой",
+      "from_query": "как проверить китайское авто по vin до депозита 2026"
+    },
+    {
+      "url": "https://chinacartest.ru/blog/proverka-avto-po-vin-kodu-iz-kitaya-kakie-dannye-dostupny-i-kak-ix-citat",
+      "title": "Проверка авто по вин-коду из Китая: какие данные доступны и как их читать",
+      "from_query": "как проверить китайское авто по vin до депозита 2026"
+    },
+    {
+      "url": "https://auto-praktis.vercel.app/articles/p/pr/proverka-avto-po-vin-zalog.html",
+      "title": "Как Проверить Авто По Vin На Залог: Полное Руководство 2026",
+      "from_query": "как проверить китайское авто по vin до депозита сентябрь 2026"
+    },
+    {
+      "url": "https://chinacartest.ru/blog/proverit-avto-po-vin-iz-kitaya-pered-sdelkoi-cek-list-dlya-pokupatelya-za-10-minut",
+      "title": "Проверить Авто По Vin Из Китая Перед Сделкой: Чек-лист Для Покупателя ...",
+      "from_query": "как проверить китайское авто по vin до депозита сентябрь 2026"
+    },
+    {
+      "url": "https://www.sino360.ru/",
+      "title": "Проверка авто из Китая по VIN | Sino360RU",
+      "from_query": "как проверить китайское авто по vin до депозита сентябрь 2026"
+    },
+    {
+      "url": "https://www.chinavehiclehistory.com/ru/blog/decode-chinese-vin-import-history-guide",
+      "title": "Как Расшифровать Vin Китайского Автомобиля И Проверить Историю Импорта ...",
+      "from_query": "как проверить китайское авто по vin до депозита новости 2026"
+    },
+    {
+      "url": "https://110km.ru/art/kak-proverit-poderzhannyy-avtomobil-izza-granicy-po-vin-riski-i-nyuansy-v-2026-176276.html",
+      "title": "Иномарки с пробегом в 2026: как подлинная история авто зависит от ...",
+      "from_query": "как проверить китайское авто по vin до депозита новости 2026"
+    },
+    {
+      "url": "https://github.com/OSINT-up/osint_avto_probiv",
+      "title": "GitHub - OSINT-up/osint_avto_probiv: Как проверить автомобиль по ...",
+      "from_query": "site:github.com как проверить китайское авто по vin до депозита 2026"
+    },
+    {
+      "url": "https://github.com/sherlock-tg-bot/proverit-mashinu-po-vin-kodu/tree/main",
+      "title": "GitHub - sherlock-tg-bot/proverit-mashinu-po-vin-kodu: Проверить машину ...",
+      "from_query": "site:github.com как проверить китайское авто по vin до депозита 2026"
+    },
+    {
+      "url": "https://github.com/hackumono/Probiv",
+      "title": "GitHub - hackumono/Probiv: Набор Telegram-ботов и OSINT-инструментов ...",
+      "from_query": "site:github.com как проверить китайское авто по vin до депозита 2026"
+    },
+    {
+      "url": "https://github.com/sherlock-tg-bot/proverit-avto",
+      "title": "GitHub - sherlock-tg-bot/proverit-avto: Проверить авто: практическое ...",
+      "from_query": "site:github.com как проверить китайское авто по vin до депозита 2026"
+    },
+    {
+      "url": "https://github.com/sherlock-tg-bot/kak-uznat-registratsiyu-avtomobilya-po-vin",
+      "title": "GitHub - sherlock-tg-bot/kak-uznat-registratsiyu-avtomobilya-po-vin ...",
+      "from_query": "site:github.com как проверить китайское авто по vin до депозита 2026"
+    },
+    {
+      "url": "https://github.com/osint-and-search/OSINT_i_poisk_po_avto_i_nomeru",
+      "title": "osint-and-search/OSINT_i_poisk_po_avto_i_nomeru - GitHub",
+      "from_query": "site:github.com как проверить китайское авто по vin до депозита 2026"
+    },
+    {
+      "url": "https://www.chinavehiclehistory.com/ru/blog/vehicle-history-reports-dealers-importers",
+      "title": "Проверка Китайского Авто По Vin Для Дилеров И Импортёров — Пригон ...",
+      "from_query": "как проверить китайское авто по vin до депозита official docs documentation 2026"
+    },
+    {
+      "url": "https://blog.carmancars.ru/blog/kak-proverit-vin-avto-iz-kitaya",
+      "title": "Как Проверить Vin Авто Из Китая Перед Покупкой",
+      "from_query": "как проверить китайское авто по vin до депозита official docs documentation 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/kak-proverit-kitayskoe-avto-autohome-dongchedi-pered-pokupkoy-2026/",
+      "title": "Как проверить китайское авто на Autohome и Dongchedi перед покупко ...",
+      "from_query": "как проверить китайское авто по vin до депозита forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://chinacartest.ru/",
+      "title": "ChinaCarTest - проверка истории и пробега авто из Китая по VIN - ВИН",
+      "from_query": "проверка авто из китая по вин 2026"
+    },
+    {
+      "url": "https://chinavin.ru/",
+      "title": "Проверка автомобиля из Китая по ВИН номеру — полный отчет о ДТП ...",
+      "from_query": "проверка авто из китая по вин 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/o/b/719753781633358152/",
+      "title": "Проверка Авто Из Китая По Vin: Дтп, Пробег, Страховые И История То",
+      "from_query": "проверка авто из китая по вин 2026"
+    },
+    {
+      "url": "https://vinclick.ru/",
+      "title": "Проверка Авто Из Китая По Vin - История Автомобиля Онлайн | Винклик",
+      "from_query": "проверка авто из китая по вин 2026"
+    },
+    {
+      "url": "https://160drive.ru/proverka-vin-kitayskoe-avto-2026/",
+      "title": "Проверка Vin Китайского Авто: Базы Данных, Подводные Камни",
+      "from_query": "проверка китайского авто по vin 2026"
+    },
+    {
+      "url": "https://auto-praktis.vercel.app/articles/v/vi/vin-kod-kitajskogo-avtomobilya.html",
+      "title": "Vin-код Китайского Авто: Расшифровка, Проверка И Риски Покупки",
+      "from_query": "проверка китайского авто по vin 2026"
+    },
+    {
+      "url": "https://chinacartest.ru/blog/kak-proverit-probeg-avto-iz-kitaya-realnye-sxemy-skrutki-i-kak-my-ix-lovim",
+      "title": "Как проверить пробег авто из Китая: реальные схемы скрутки и как мы их ...",
+      "from_query": "проверка пробега авто из китая 2026"
+    },
+    {
+      "url": "https://chest-import.com/stati/avto-iz-kitaya-s-probegom",
+      "title": "Авто из Китая с пробегом 2026: риски, цены, проверка",
+      "from_query": "проверка пробега авто из китая 2026"
+    },
+    {
+      "url": "https://zjly-auto.com/avto-iz-kitaya-s-probegom-rukovodstvo-dlya-importerov-2026/",
+      "title": "Авто из Китая с пробегом — руководство для импортеров 2026 | ZJLY Auto",
+      "from_query": "проверка пробега авто из китая 2026"
+    },
+    {
+      "url": "https://ivan-auto.ru/blog/proverka-avto-pered-pokupkoy-iz-kitaya/",
+      "title": "Проверка Авто Перед Покупкой Из Китая: Полный Гид — Vin, Пробег, Осмотр ...",
+      "from_query": "проверка пробега авто из китая 2026"
+    },
+    {
+      "url": "https://www.leoev.cn/ru/2026/07/26/proverka-prodavtsa-avto-iz-kitaya-pered-oplatoy/",
+      "title": "Что проверить перед оплатой подержанного автомобиля из Китая",
+      "from_query": "Как проверить китайское авто по VIN до депозита: чек-лист 2026 2026"
+    },
+    {
+      "url": "https://wetocar.ru/blog/kak-proverit-bu-avto-v-kitae",
+      "title": "Проверка б/у авто в Китае перед покупкой: полный чек-лист",
+      "from_query": "Как проверить китайское авто по VIN до депозита: чек-лист 2026 2026"
+    },
+    {
+      "url": "https://teletype.in/@tg_groups/proverka_avto_pered_pokupkoy_po_vin_v_2026_polnyy",
+      "title": "Проверка Авто Перед Покупкой По Vin В 2026: Полный Чек-лист",
+      "from_query": "Как проверить китайское авто по VIN до депозита: чек-лист 2026 2026"
+    },
+    {
+      "url": "https://chinastat.ru/cheklist-proverki-avto-iz-kitaya-pered-pokupkoy",
+      "title": "Чек-лист проверки авто из Китая перед покупкой | ChinaStat",
+      "from_query": "Как проверить китайское авто по VIN до депозита: чек-лист 2026 2026"
+    }
+  ]
+}

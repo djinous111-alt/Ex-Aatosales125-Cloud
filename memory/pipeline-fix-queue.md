@@ -298,7 +298,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → pool 10 (AS=9, B=1), next B02, active AS08/AS09/B01
 - `--check-query "растаможка авто из Кореи"` → CRITICAL match AS01
-commit: pending-parent-commit
+commit: d4cc023
 
 ## INC-20260928-1321-research-pain-map-keywords
 status: fixed
@@ -344,7 +344,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir …/B01-…` → PASS
-commit: pending-parent-commit
+commit: d4cc023
 
 ## Fixed incidents
 
@@ -394,7 +394,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` на формулировки «сразу generalPurpose» / «не тратить шаг на retry typed»
-commit: pending-parent-commit
+commit: d4cc023
 
 ## INC-20260928-1330-geo-qa-utility-pain-outcome-policy
 status: fixed
@@ -450,7 +450,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir …/B01-…` → PASS (pain=6, outcome=9, action=24)
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0 (`llms generator supports --blog-dir`)
-commit: pending-parent-commit
+commit: d4cc023
 
 ## INC-20260928-1336-writer-read-redact-href
 status: fixed
@@ -494,4 +494,4 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` на REDACTED/StrReplace guidance в writer docs
-commit: pending-parent-commit
+commit: d4cc023

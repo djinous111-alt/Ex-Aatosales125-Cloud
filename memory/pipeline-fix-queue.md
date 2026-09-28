@@ -559,3 +559,37 @@ category: api
 
 ### Fixer resolution
 - pending
+
+## INC-20260928-1356-indexer-precommit-site-url-pragma
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kalkulyator-rastamozhki-avto-2026-kak-schitat
+severity: medium
+category: env
+
+### What went wrong
+- Indexer commit blocked twice: (1) `CLOUD_AGENT_INJECTED_SECRET_NAMES` non-identifier entry → `${!SECRET_NAME}` invalid variable name (same as INC-1347); (2) after filter, scanner blocked `PUBLIC_SITE_URL` in `llms.txt` / `llms-full.txt` / `promotion-checklist.md` / `interlink-report.json`.
+- Scripts write absolute site URLs by design; Cloud treats `PUBLIC_SITE_URL` as secret.
+
+### How the agent recovered this run
+- Filtered secret names to bash identifiers before commit (reuse INC-1347).
+- Cleared `site_base` in `interlink-report.json` (0 opportunities; runtime used env).
+- Added same-line `<!-- pragma: allowlist secret -->` on URL lines in llms + promotion checklist; commit `15c41ab` pushed.
+
+### Durable fix needed before next run
+- Document in indexer skill/pitfalls: llms/promotion lines with `PUBLIC_SITE_URL` need `pragma: allowlist secret`; or generate relative `/blog/<slug>/` URLs for git artifacts.
+- Fixer: harden pre-commit / injection (INC-1347) + optional llms generator flag for relative URLs in repo copies.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_llms_generator.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

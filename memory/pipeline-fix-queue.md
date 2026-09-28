@@ -55,7 +55,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `python3 -c "import paramiko"` OK
-commit: pending-parent-commit
+commit: f34aea9+485ac51
 
 ## INC-20260928-1730-indexer-llms-blog-path-stale
 status: fixed

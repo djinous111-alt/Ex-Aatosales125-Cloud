@@ -374,6 +374,7 @@ category: script
 - Зафиксировал BLOCK в `utility-gate-report.json` и `article-qa.md` FAIL.
 - Отделил writer-actionable findings (action_markers 7<8; human-voice outcome 2<3) от durable policy bug.
 - Статью не переписывал (зона writer); cover/schema не запускал.
+- Writer FIX cycle 1 (13:36): human-voice PASS + action_markers 24; utility pain/outcome всё ещё 0 из-за пустых списков policy (этот INC).
 
 ### Durable fix needed before next run
 - Добавить в `memory/brief/editorial-policy.json` согласованные `pain_markers_ru` и `outcome_markers_ru` (можно выровнять с маркерами human-voice gate) + `min_pain_markers` / `min_outcome_markers` в `article_required_signals`.
@@ -386,6 +387,38 @@ category: script
 - `.cursor/skills/writer-excalibur-blog/SKILL.md`
 - `.cursor/skills/excalibur-geo-qa/SKILL.md`
 - `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260928-1336-writer-read-redact-href
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kalkulyator-rastamozhki-avto-2026-kak-schitat
+severity: medium
+category: other
+
+### What went wrong
+- При FIX после GEO QA полный `Write` статьи по тексту из `Read` записал в `href` литералы `[REDACTED]` вместо реальных CTA URL (каталог / Telegram): слой отображения/редактирования подменил URL при чтении.
+- Потеря ссылок ломает link-verify и publish CTA.
+
+### How the agent recovered this run
+- Восстановил `article.html` из git HEAD, затем нанёс правки через `StrReplace` без перезаписи href.
+- Проверил `http` count=3 и отсутствие литерала `[REDACTED]` в файле.
+
+### Durable fix needed before next run
+- В writer skill / pitfalls: не копировать CTA `href` из Read-вывода; править тело через StrReplace или брать URL из conversion-map/git.
+- Не использовать полный Rewrite HTML, если в буфере могли оказаться redacted placeholders.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/agents/excalibur-blog-writer.md`
 
 ### Secrets
 - none recorded

@@ -461,3 +461,36 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20260928-2136-publish-paramiko-missing
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-chitat-auktsionnyy-list-yaponii-2026
+severity: medium
+category: env
+
+### What went wrong
+- `import paramiko` failed at publish start (`ModuleNotFoundError`); Cloud image again missing SSH client dependency.
+- `SSH_ROOT` Cloud Secret unset (`root: unset` in `--env-check`); worked with runtime `SSH_ROOT=.` (login cwd).
+
+### How the agent recovered this run
+- `pip3 install --break-system-packages paramiko`
+- Exported `SSH_ROOT=.` for dry-run and publish
+- Publish PASS: post 3784 / featured 3785 / inline 3786–3788; live HEAD 200; no WebFetch fallback
+
+### Durable fix needed before next run
+- Bake `paramiko` into Dockerfile / environment install so publish does not reinstall every run
+- Set Cloud Secret `SSH_ROOT=.` (or document unset→dot default in script)
+
+### Suggested files to inspect/change
+- `.cursor/environment.json` / Dockerfile install
+- `scripts/excalibur_blog_wp_publish.py` (default SSH_ROOT to `.` when unset)
+- Cursor Dashboard Cloud Secrets (`SSH_ROOT` only; no values recorded)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

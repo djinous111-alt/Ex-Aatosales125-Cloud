@@ -1,7 +1,7 @@
 # Promotion checklist — B01 kak-chitat-auktsionnyy-list-yaponii-2026
 
-Дата публикации: 2026-09-29 (planned; publish pending)  
-Live URL: [REDACTED]/blog/kak-chitat-auktsionnyy-list-yaponii-2026/
+Дата публикации: 2026-09-29  
+Live URL: /2026/09/29/kak-chitat-auktsionnyy-list-yaponii-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • «Нет R» ≠ «не битая»: болтовые панели смотрите по кодам W/X/XX
 • Решение «ставлю / уточняю / пропускаю» — до депозита брокеру
 
-Читать: [REDACTED]/blog/kak-chitat-auktsionnyy-list-yaponii-2026/
+Читать: /2026/09/29/kak-chitat-auktsionnyy-list-yaponii-2026/
 ```
 
 ## Перелинковка
@@ -48,4 +48,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 - Indexer: interlinker `--apply --article-dir …/B01-… --site-base [REDACTED]` — 0 links applied.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (3 articles, site-name «Авто-Сейлс»; URLs redacted for secret scanner).
 - CLI llms generator: `--blog-dir` (legacy `--blog-path` в doctor/agent docs — drift, см. incident queue).
-- Publish: не запускался (зона Indexer).
+- Publish: PASS — post 3784; featured 3785; inline 3786/3787/3788; schema_meta ok; live HEAD 200.

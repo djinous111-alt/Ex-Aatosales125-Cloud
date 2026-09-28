@@ -6,8 +6,13 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None — all 2026-09-29 B01 incidents closed by fixer._
+
+## Recently fixed (2026-09-29 B01)
+
+
 ## INC-20260928-2131-indexer-llms-blog-path-doctor-drift
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-indexer
 topic_id: B01
@@ -41,10 +46,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Doctor проверяет `--blog-dir` и `--out-dir` вместо legacy `--blog-path`.
+- Agent/skill shell examples синхронизированы (без `--blog-path`); site-base в примерах redacted.
+- Pitfalls: Indexer CLI = `--blog-dir` + `--out-dir`.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 warnings=0
+- `rg` no durable `--blog-path` CLI examples (кроме pitfalls note)
+commit: pending-parent-commit
 
 ## INC-20260928-2125-geo-qa-typed-task-missing
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -72,10 +93,23 @@ category: handoff
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Typed Task missing → канон `Task(generalPurpose)` без retry-loop задокументирован в pipeline-task-map + CLOUD-AUTOMATION.
+- GEO QA agent-md явно указывает generalPurpose fallback для Cloud.
+files_changed:
+- `shared/pipeline-task-map.md`
+- `CLOUD-AUTOMATION.md`
+- `agents/excalibur-blog-geo-qa.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` generalPurpose/geo-qa fallback guidance present
+commit: pending-parent-commit
 
 ## INC-20260928-2126-geo-qa-utility-pain-outcome-policy-gap
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -109,10 +143,27 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Policy: расширены `recommendation_markers_ru` (делать/не делать, чек-лист).
+- Utility gate: defaults для pain/outcome/recommendation при пустых списках (синхрон human-voice).
+- Regression: `--self-test` + fixture `scripts/testdata/utility-gate-fixture/`.
+- Writer skill: словоформы маркеров для mode B.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/testdata/utility-gate-fixture/article.html`
+- `scripts/testdata/utility-gate-fixture/article.meta.json`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_utility_gate.py --self-test` → PASS (policy + empty defaults)
+commit: pending-parent-commit
 
 ## INC-20260928-2120-writer-precommit-secret-names-redacted
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-writer
 topic_id: B01
@@ -140,10 +191,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Добавлен `scripts/sanitize_cloud_secret_names.sh` (фильтр `^[A-Za-z_][A-Za-z0-9_]*$`).
+- Pitfalls: перед git commit в Cloud — `source scripts/sanitize_cloud_secret_names.sh`.
+- Host pre-commit hook вне репо; agent-side sanitize — durable mitigation.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- sanitize smoke: invalid names dropped, valid kept
+commit: pending-parent-commit
 
 ## INC-20260928-2111-research-tech-marker-ai-in-pain
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-research
 topic_id: B01
@@ -175,10 +237,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- `is_technical_topic`: word-boundary для коротких маркеров; strip имён обязательных полей/заголовков из скана.
+- Research skill: GitHub≥3 только для реальных tech-тем.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit assert: reader_pain/github_evidence heading → not technical; AI topic → technical
+commit: pending-parent-commit
 
 ## INC-20260928-2105-scout-helper-as-ids-invisible
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-scout
 topic_id: B01
@@ -211,7 +285,20 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Scout helper парсит `## [A-Za-z]+\d+` (B* и AS*); `--check-query` видит AS-пул; `--suggest-next` печатает AS pool IDs.
+- Scout skill: python3 + AS visibility note.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `--suggest-next` → Total topics=10, AS-series=9
+- `--check-query "растаможка авто из кореи"` → OVERLAP AS01 exit 1
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -463,7 +550,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20260928-2136-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-publish
 topic_id: B01
@@ -493,4 +580,20 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- `paramiko` добавлен в `.cursor/Dockerfile` и `cloud-agent-install.sh`.
+- `SSH_ROOT` unset → effective `.` (`root: default-dot` в env-check).
+- Publish skill: env-check + paramiko preflight note.
+files_changed:
+- `.cursor/Dockerfile`
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit assert configured_ssh_root({}) == '.' / label default-dot
+- `rg paramiko` in Dockerfile + install
+commit: pending-parent-commit

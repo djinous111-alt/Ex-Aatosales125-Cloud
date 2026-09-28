@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260928-0935-writer-utility-pain-markers-missing
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-writer
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: high
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` не содержал `pain_markers_ru` / `outcome_markers_ru`, хотя `excalibur_blog_utility_gate.py` считает их с дефолтом `min_pain_markers=2` / `min_outcome_markers=3`.
+- При пустых списках gate всегда даёт BLOCK (`pain_markers=0`, `outcome_markers=0`) даже на уже опубликованных AS08/AS09 и на свежей AS02 с живым human-voice PASS.
+- Повтор известного пробела из INC-20260726-2108 (writer AS02 policy CTA gap): маркеры боли/результата снова выпали из policy.
+
+### How the agent recovered this run
+- Восстановил `pain_markers_ru` / `outcome_markers_ru` в `editorial-policy.json` (списки согласованы с маркерами `human_voice_gate` + utility-сигналы `чеклист`/`вердикт`).
+- Усилил в `article.html` формулировки боли/результата; utility gate AS02 → PASS; human-voice → PASS; html linter → PASS.
+
+### Durable fix needed before next run
+- Зафиксировать в pitfalls/utility skill: `editorial-policy.json` обязан держать непустые `pain_markers_ru` и `outcome_markers_ru`.
+- В `excalibur_blog_utility_gate.py`: если списки маркеров пусты/отсутствуют – WARNING + skip count, а не ложный BLOCK на всех статьях; либо doctor-check на наличие ключей.
+- Не давать редактору/фиксерy удалять эти ключи при чистке policy.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260928-0920-scout-as-prefix-regex
 status: open
 run_date: 2026-09-28

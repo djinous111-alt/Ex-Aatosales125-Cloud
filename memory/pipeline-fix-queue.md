@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260928-2131-indexer-llms-blog-path-doctor-drift
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-chitat-auktsionnyy-list-yaponii-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_llms_generator.py` CLI принимает `--blog-dir` / `--out-dir`; флага `--blog-path` нет.
+- `scripts/excalibur_blog_doctor.py` всё ещё проверяет `"--blog-path" in llms_help` → ложный SUMMARY error на preflight.
+- Agent/skill shell examples (`.cursor/agents/excalibur-blog-indexer.md`, `.cursor/skills/indexer-excalibur-blog/SKILL.md`) всё ещё показывают `--blog-path /`, что при слепом копировании падает argparse.
+
+### How the agent recovered this run
+- Запустил generator с актуальными флагами: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (без `--blog-path`).
+- URLs в `memory/blog/llms.txt` / `llms-full.txt` / `interlink-suggestions.json` redacted до `[REDACTED]` перед commit (secret scanner).
+
+### Durable fix needed before next run
+- Doctor: проверять `--blog-dir` (и опционально `--out-dir`), убрать legacy `--blog-path`.
+- Синхронизировать shell-примеры в agent + skill (+ plugins `agents/` / `skills/` если дублируют) с CLI.
+- Добавить pitfalls-строку: Indexer → `--blog-dir`, не `--blog-path`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260928-2125-geo-qa-typed-task-missing
 status: open
 run_date: 2026-09-29

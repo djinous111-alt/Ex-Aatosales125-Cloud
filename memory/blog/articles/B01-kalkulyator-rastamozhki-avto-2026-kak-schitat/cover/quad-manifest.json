@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит наугад — лотерея",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у ноутбука с расчётом растаможки, документы и ключи, плашка считаем до депозита, Владивосток",
+      "scene_hint": "WEATHER: cool Vladivostok office daylight + soft port window haze; OUTFIT: smart-casual charcoal blazer over light blue shirt (customs/docs look, NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie at desk with laptop showing fake customs calculator UI (fields age/volume/hp — NO concrete totals), paper docs + car keys, torn paper Cyrillic hook plaque «Депозит наугад — лотерея» with yellow highlighter on «лотерея»; sticky note «считаем до депозита»; shocked meme cutout + facepalm sticker (different formats); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics",
+      "meme_caption_ru": "Считаем до депозита"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разложите смету: сбор, пошлина и утильсбор",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns Сбор | Пошлина/ЕТС | Утильсбор; rows что входит / когда считать / типичная ошибка; yellow highlight on Утильсбор row; tape corner mini catalog card; NO hero face; NO Wordstat/Metrika; subtle sticky «3 строки сметы»",
+      "alt": "Таблица: таможенный сбор, пошлина/ЕТС и утильсбор — три строки сметы растаможки"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Соберите данные для калькулятора пошагово",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 5 steps: возраст → объём → мощность л.с. → статус физлица → сверка вилки; arrows between cards; sticky «поля калькулятора»; scotch tape; NO hero face; NO concrete ruble totals; NO Wordstat/Metrika",
+      "alt": "Схема шагов: какие данные вводить в калькулятор растаможки"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте льготный утиль: 160 л.с. и другие пороги",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable checklist board: порог 160 л.с.; возраст 3/5 лет; мощность на ПТС; льгота физлица; сверка до депозита; red stamp «161 л.с. ломает смету»; pink sticky «пороги»; NO hero face; NO Wordstat/Metrika",
+      "alt": "Чеклист льготного утильсбора: 160 л.с. и другие пороги до депозита"
+    }
+  }
+}

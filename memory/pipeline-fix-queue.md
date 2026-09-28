@@ -527,3 +527,35 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20260928-1353-cover-hero-host-upload
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kalkulyator-rastamozhki-avto-2026-kak-schitat
+severity: low
+category: api
+
+### What went wrong
+- `excalibur_blog_hero_reference_url.py --force` failed: catbox HTTP 412, 0x0 HTTP 503, litterbox 500.
+- Script left stale `reference_url_hosted` unchanged (ok when URL already valid).
+
+### How the agent recovered this run
+- Verified existing `reference_url_hosted` on avtosales125.ru byte-matches local `blog-hero-reference.png` (same sha256).
+- Proceeded with ONE Kie API i2i via `excalibur_blog_kie_gpt_image2_api.py`; cover split PASS + inject.
+
+### Durable fix needed before next run
+- Add fallback hosts in `excalibur_blog_hero_reference_url.py` (tmpfiles.org / uguu.se worked this run).
+- Document that existing hosted URL must be hash-checked against local PNG before trusting `--force` failure as non-blocker.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "kalkulyator-rastamozhki-avto-2026-kak-schitat",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у ноутбука с расчётом растаможки, документы и ключи, плашка считаем до депозита, Владивосток",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-09-28T13:52:24+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у ноутбука с расчётом растаможки, документы и ключи, плашка считаем до депозита, Владивосток",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица: таможенный сбор, пошлина/ЕТС и утильсбор — три строки сметы растаможки",
+      "h2_anchor": "Разложите смету: сбор, пошлина и утильсбор",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема шагов: какие данные вводить в калькулятор растаможки",
+      "h2_anchor": "Соберите данные для калькулятора пошагово",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист льготного утильсбора: 160 л.с. и другие пороги до депозита",
+      "h2_anchor": "Проверьте льготный утиль: 160 л.с. и другие пороги",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

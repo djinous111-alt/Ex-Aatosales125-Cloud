@@ -1,0 +1,186 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/encar-na-russkom-kak-chitat/#blogposting", "_comment": "pragma: allowlist secret",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/encar-na-russkom-kak-chitat/", "_comment": "pragma: allowlist secret"
+      },
+      "headline": "Encar на русском: как читать объявления и не купить кота в мешке",
+      "description": "Encar на русском: ритуал чтения карточки до депозита. Коды X/W, лист 120 дней, Carhistory как вспомогательный слой. Чеклист из 7 пунктов от Авто-Сейлс.",
+      "datePublished": "2026-09-28",
+      "dateModified": "2026-09-28",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial", "_comment": "pragma: allowlist secret",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png", "_comment": "pragma: allowlist secret",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru/", "_comment": "pragma: allowlist secret"
+        },
+        "sameAs": ["https://avtosales125.ru/", "https://avto-sales125.ru/", "https://t.me/avtosales125", "https://max.ru/id2508140890_biz", "https://www.instagram.com/avtosales_rf", "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"], "_comment": "pragma: allowlist secret"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization", "_comment": "pragma: allowlist secret",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru/", "_comment": "pragma: allowlist secret",
+        "sameAs": ["https://avto-sales125.ru/", "https://t.me/avtosales125"], "_comment": "pragma: allowlist secret"
+      },
+      "keywords": [
+        "encar на русском",
+        "сайт encar на русском",
+        "encar com на русском языке",
+        "енкар на русском",
+        "trust encar",
+        "проверка авто из кореи"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/encar-na-russkom-kak-chitat/#faq", "_comment": "pragma: allowlist secret",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Есть ли официальный сайт Encar на русском языке?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет отдельной официальной русской версии encar.com. Используйте перевод браузера или EN-интерфейс и сверяйте цифры с оригиналом. Русские клоны – удобный перевод витрины, не замена первоисточнику по VIN и Performance Check."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что значат коды X и W на схеме кузова?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "По Encar Media: X – обмен детали, W – рихтовка и сварка, C – коррозия. X или W на силовом каркасе (лонжерон, стойка, крыша) для новичка – стоп до независимого осмотра. Не опирайтесь на гайды, где X и W перепутаны."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько действует Performance Check?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "120 дней с даты выдачи. Просроченный лист не используйте как аргумент \"всё проверено\" – нужен актуальный осмотр. Перед интересом к лоту всегда смотрите дату."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли верить пробегу в объявлении Encar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Только после сверки с пробегом на листе Performance Check. Если есть пометка о неисправности одометра или цифры не сходятся – это проблема: не верьте числу в шапке и не ставьте депозит \"по скрину\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем Trust Encar отличается от Carhistory?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Диагностика/Trust-контур площадки – про осмотр кузова и узлов. Carhistory (KIDI) – про страховые выплаты и статусы вроде flood или rental. Оба слоя смотрите до депозита; ни один не заменяет живой осмотр."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда звать подборщика, а не дожимать лот самому?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Когда нет полного VIN, лист старше 120 дней, на каркасе есть X/W, в страховке total loss/flood/rental или вы не уверены в схеме. Тогда отправьте ссылку в каталог Авто-Сейлс или Telegram @avtosales125 – до депозита, не после."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/encar-na-russkom-kak-chitat/#howto", "_comment": "pragma: allowlist secret",
+      "name": "Как читать карточку Encar на русском до депозита",
+      "description": "Ритуал одной карточки encar.com: перевод браузера, пять полей, Performance Check (X/W/C и 120 дней), сверка пробега, Carhistory как доп. слой и вердикт «на осмотр» или «мимо».",
+      "totalTime": "PT30M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Официальная карточка encar.com + перевод браузера"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Performance Check: схема кузова X/W/C и дата листа"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Carhistory (KIDI) как вспомогательный страховой слой"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Ссылка на лот encar.com и полный VIN"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Мини-чеклист из 7 пунктов до любого депозита"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Откройте официальный encar.com, а не клон «на русском»",
+          "text": "Откройте лот на официальном encar.com. Используйте перевод браузера или EN-интерфейс, а год, пробег, VIN и коды на схеме сверяйте с оригиналом. Не принимайте русскоязычный клон за первоисточник.",
+          "url": "https://avtosales125.ru/encar-na-russkom-kak-chitat/#откройте-официальный-encarcom-а-не-клон-на-русском", "_comment": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Выпишите с карточки пять полей до предоплаты",
+          "text": "По одному лоту зафиксируйте год и дату первой регистрации, пробег, объём и топливо, цену в вонах и полный VIN. Отдельно просмотрите фото таблички VIN, днища, проёмов и салона. Без полного VIN дальше не идите.",
+          "url": "https://avtosales125.ru/encar-na-russkom-kak-chitat/#выпишите-с-карточки-пять-полей-до-предоплаты", "_comment": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Как читать Performance Check: коды X, W и 120 дней",
+          "text": "Откройте Performance Inspection History. По Encar Media: X — обмен детали, W — рихтовка и сварка, C — коррозия. Проверьте, что лист не старше 120 дней. X или W на лонжеронах, стойках или крыше — стоп до независимого осмотра.",
+          "url": "https://avtosales125.ru/encar-na-russkom-kak-chitat/#как-читать-performance-check-коды-x-w-и-120-дней", "_comment": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Сверьте пробег объявления с цифрой на листе",
+          "text": "Сравните пробег в шапке объявления с пробегом на листе Performance Check. При неисправности одометра или расхождении цифр не доверяйте числу в заголовке и не ставьте депозит по скрину.",
+          "url": "https://avtosales125.ru/encar-na-russkom-kak-chitat/#сверьте-пробег-объявления-с-цифрой-на-листе", "_comment": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Откройте Carhistory как вспомогательный слой",
+          "text": "Просмотрите страховой слой Carhistory (KIDI): total loss, угон, flood, rental/business, суммы и владельцы. Помните: чистая страховка не ловит ремонт за наличные и не отменяет схему кузова.",
+          "url": "https://avtosales125.ru/encar-na-russkom-kak-chitat/#откройте-carhistory-как-вспомогательный-слой", "_comment": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Пройдите чеклист из 7 пунктов и вынесите вердикт",
+          "text": "Заполните чеклист: год/регистрация, сверка пробега, полный VIN, схема с кодами X/W/C, отсутствие X/W на каркасе или осознанный стоп, дата листа ≤ 120 дней, страховой слой без ложного «зелёного света». Вердикт только два: на независимый осмотр или мимо.",
+          "url": "https://avtosales125.ru/encar-na-russkom-kak-chitat/#пройдите-чеклист-из-7-пунктов-и-вынесите-вердикт", "_comment": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Когда звать Авто-Сейлс вместо депозита самому",
+          "text": "Если красных флагов два и больше, нет листа, VIN обрезан или схема непонятна — остановитесь. Отправьте ссылку лота в каталог Авто-Сейлс или Telegram @avtosales125 до депозита, приложив скрин схемы и дату листа.",
+          "url": "https://avtosales125.ru/encar-na-russkom-kak-chitat/#когда-звать-авто-сейлс-вместо-депозита-самому", "_comment": "pragma: allowlist secret"
+        }
+      ]
+    }
+  ]
+}

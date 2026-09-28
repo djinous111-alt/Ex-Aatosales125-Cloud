@@ -28,11 +28,13 @@ category: script
 ### Durable fix needed before next run
 - Расширить парсер helper на ID вида `AS\\d+` (и любые `[A-Z]+\\d+`), чтобы пул и check-query учитывали AS-карточки.
 - Опционально: принимать список reserved WP slugs/queries (env или файл) в `--check-query`.
+- Pre-commit secrets scanner: один элемент в `CLOUD_AGENT_INJECTED_SECRET_NAMES` невалиден как bash identifier (`${!name}` падает) – перед commit фильтровать имена через `^[A-Za-z_][A-Za-z0-9_]*$` (или вернуть `sanitize_secret_names.sh` в repo).
 
 ### Suggested files to inspect/change
 - `scripts/excalibur_blog_scout_helper.py`
 - `.cursor/skills/scout-excalibur-blog/SKILL.md`
 - `shared/agent-pipeline-pitfalls.md`
+- Cloud Agent secret name injection / pre-commit scanner
 
 ### Secrets
 - none recorded

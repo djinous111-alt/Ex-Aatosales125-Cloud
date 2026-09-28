@@ -58,6 +58,7 @@ category: api
 - Primary/соседние фразы (`encar`, `encar на русском`, `проверка авто корея`, `trust encar`, `енкар на русском`, `carhistory`) отработали нормально.
 - WebFetch `https://teletype.in/@vezemavto/B2hgUEkytih` дал 502; контент восстановлен из SERP/WebSearch snippet.
 - Gate ложно пометил тему Encar как `technical_topic=true` из-за маркера `github` в `github_evidence` / TECH_MARKERS, хотя ниша авто how-to.
+- Commit blocked: `research-serp.json` и ledger содержали `PUBLIC_SITE_URL`; Cloud secret scan не даёт коммитить self-site URL. Также `CLOUD_AGENT_INJECTED_SECRET_NAMES` иногда содержит URL вместо имени секрета → pre-commit `invalid variable name`.
 
 ### How the agent recovered this run
 - В `research-notes.md` зафиксировал Wordstat-таблицу по успешным фразам и явную secondary note без выдуманных показов.

@@ -251,6 +251,41 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20260928-1311-scout-as-id-blind
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py` парсит в пуле только `## B\\d+`, а article dirs — только `B\\d+-`. Карточки `AS01`–`AS09` в `memory/topics/blog-topics.md` и папки `AS08-*` / `AS09-*` helper не видит.
+- `--suggest-next` вернул `Total topics in pool: 0` и next ID `B01`, хотя в файле уже 9 AS-тем; `--check-query` не сравнивает primary_query с AS-пулом.
+- Дополнительно: первый батч WebSearch вернул temporary provider error (retry успешен); один вызов Wordstat по узкой фразе оборвался connection error (тема не на нём).
+
+### How the agent recovered this run
+- Принял `B01` как next ID по контракту run (AS остаются отдельной серией).
+- Каннибализацию с AS-пулом и Recent WP slugs проверил вручную по `blog-topics.md` + списку live slug.
+- Выбрал P0-тему вне пересечений: калькулятор растаможки / как считать платежи.
+
+### Durable fix needed before next run
+- Расширить regex helper до `(AS|B)\\d+` для pool, article dirs и overlap-check; либо явно документировать dual-prefix и учить today/scout читать оба.
+- В `--check-query` учитывать WP/ledger slugs или хотя бы AS primary_query из того же `blog-topics.md`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

@@ -113,6 +113,14 @@ def main() -> int:
 
     check(module_available("PIL"), "Pillow available", errors, warnings)
     check(module_available("numpy"), "numpy available", errors, warnings)
+    # paramiko is required for SSH publish; warn on normal preflight, FAIL with --publish
+    check(
+        module_available("paramiko"),
+        "paramiko available (SSH publish)",
+        errors,
+        warnings,
+        warn=not args.publish,
+    )
 
     interlinker = root / "scripts/excalibur_blog_interlinker.py"
     help_proc = subprocess.run(
@@ -132,7 +140,10 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    # CLI is --blog-dir / --out-dir / --url-mode (not legacy --blog-path)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check("--out-dir" in llms_help.stdout, "llms generator supports --out-dir", errors, warnings)
+    check("--url-mode" in llms_help.stdout, "llms generator supports --url-mode", errors, warnings)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

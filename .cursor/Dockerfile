@@ -24,10 +24,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Bake deps into the image (no project COPY — Cursor checks out the commit).
+# Keep in sync with requirements.txt: Pillow numpy paramiko requests python-dotenv
 RUN python3 -m pip install --break-system-packages --no-cache-dir \
     requests \
     pillow \
+    numpy \
+    paramiko \
     python-dotenv \
-    || python3 -m pip install --no-cache-dir requests pillow python-dotenv
+    || python3 -m pip install --no-cache-dir requests pillow numpy paramiko python-dotenv
 
 WORKDIR /workspace

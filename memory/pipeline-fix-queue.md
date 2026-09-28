@@ -286,6 +286,40 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20260928-1321-research-pain-map-keywords
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kalkulyator-rastamozhki-avto-2026-kak-schitat
+severity: low
+category: script
+
+### What went wrong
+- Первый прогон `excalibur_blog_research_notes_gate.py` дал BLOCK: `pain_solution_map too thin: rows=2 < 3`.
+- Счётчик считает любые markdown-строки таблицы во всём файле, где есть слова `боль|pain|решение|solution|result|результат`, а не строки секции `## pain_solution_map`.
+- Таблица с английскими заголовками `pain|solution|reader_result` и русским текстом без этих лексем в ячейках почти не засчитывалась; зачёт «2» давали заголовок + случайная строка source_table со словом «боль».
+
+### How the agent recovered this run
+- Переписал `pain_solution_map`: заголовки и ячейки с явными префиксами `боль:` / `решение:` / `результат:`.
+- Повторный gate: PASS.
+
+### Durable fix needed before next run
+- В gate считать только строки внутри секции `## pain_solution_map` (или требовать ≥3 data-rows после header).
+- В SKILL research явно указать: в каждой строке pain-map должны быть маркеры `боль`/`решение`/`результат` (или ослабить regex).
+- Добавить пример PASS-таблицы в skill / pitfalls.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-kalkulyator-rastamozhki-avto-2026-kak-schitat",
+  "notes": "memory/blog/articles/B01-kalkulyator-rastamozhki-avto-2026-kak-schitat/research-notes.md",
+  "context": "memory/blog/articles/B01-kalkulyator-rastamozhki-avto-2026-kak-schitat/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-09-28",
+    "prefer_sources_after": "2026-06-30",
+    "source_urls": 35,
+    "source_domains": 12,
+    "source_table_rows": 31,
+    "accessed_at": 12,
+    "github_urls": 6,
+    "official_doc_urls": 1,
+    "action_outline_items": 8,
+    "pain_solution_rows": 7,
+    "technical_topic": true
+  }
+}

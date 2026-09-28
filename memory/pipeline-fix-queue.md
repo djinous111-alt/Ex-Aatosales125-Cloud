@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260928-0938-schema-secret-scanner-public-urls
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-schema
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secret scanner блокирует `schema.jsonld`, потому что `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` совпадают с публичными brand URL в BlogPosting/author.sameAs (как в HTML с `<!-- pragma: allowlist secret -->`).
+- В `CLOUD_AGENT_INJECTED_SECRET_NAMES` иногда попадает сырой URL вместо имени env-переменной → bash `${!SECRET_NAME}` падает с `invalid variable name` до сканирования.
+
+### How the agent recovered this run
+- Отфильтровал невалидные идентификаторы из `CLOUD_AGENT_INJECTED_SECRET_NAMES` перед commit.
+- В `schema.jsonld` на строках с публичными URL добавил `"_comment": "pragma: allowlist secret"` (валидный JSON; сканер пропускает строку).
+
+### Durable fix needed before next run
+- В skill `schema-excalibur-blog` / pitfalls: публичные site/catalog/Telegram/MAX URL в JSON-LD требуют allowlist pragma на той же строке (аналог HTML).
+- В `excalibur_blog_wp_publish.py`: перед записью post meta удалять ключи `"_comment"` из JSON-LD, чтобы не светить pragma в `<script type="application/ld+json">`.
+- Не помечать публичные brand URL как commit-blocking secrets, либо завести allowlist доменов для schema/HTML.
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260928-0935-writer-utility-pain-markers-missing
 status: open
 run_date: 2026-09-28

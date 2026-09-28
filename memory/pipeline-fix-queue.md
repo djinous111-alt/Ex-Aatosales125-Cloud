@@ -7,7 +7,7 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 ## INC-20260928-1735-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-publish
 topic_id: B01
@@ -37,10 +37,28 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- Baked `paramiko` (+ numpy) into `.cursor/Dockerfile` and `.cursor/cloud-agent-install.sh` via `requirements.txt`.
+- Doctor now checks `paramiko available (SSH publish)` (WARN default, FAIL with `--publish`).
+- Publish skill + runbook + pitfalls document the bake path; no ad-hoc pip each run.
+files_changed:
+- `requirements.txt`
+- `.cursor/Dockerfile`
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `python3 -c "import paramiko"` OK
+commit: pending-parent-commit
 
 ## INC-20260928-1730-indexer-llms-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-indexer
 topic_id: B01
@@ -75,10 +93,28 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- Doctor checks `--blog-dir` / `--out-dir` / `--url-mode` (removed stale `--blog-path`).
+- llms generator gained `--url-mode {relative,absolute}` default `relative` → `/blog/<slug>/`.
+- Indexer agent/skill (both trees) use the real CLI; pitfalls updated.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `python3 scripts/excalibur_blog_llms_generator.py --url-mode relative --out-dir /tmp/...` → `/blog/<slug>/`
+- `rg` no command examples with `--blog-path` in durable agent/skill sources
+commit: pending-parent-commit
 
 ## INC-20260928-1725-schema-jsonld-secret-scanner
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-schema
 topic_id: B01
@@ -109,7 +145,26 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- Added `scripts/excalibur_blog_write_schema.py --annotate/--check` (same-line `x-excalibur-allowlist`, skips schema.org vocab).
+- Added `scripts/excalibur_blog_sanitize_secret_names.sh` to filter `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid bash identifiers.
+- Schema agent/skill (both trees) + pitfalls require annotate + sanitize before Cloud commit.
+files_changed:
+- `scripts/excalibur_blog_write_schema.py`
+- `scripts/excalibur_blog_sanitize_secret_names.sh`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+checks_run:
+- schema `--check` on B01 → OK
+- strip+annotate roundtrip → valid JSON, idempotent
+- sanitize smoke: URL name dropped from injected list
+commit: pending-parent-commit
 
 
 ## INC-20260928-1718-writer-empty-pain-outcome-markers

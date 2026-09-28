@@ -25,6 +25,10 @@
 
 `install` должен быть идемпотентным: его можно запускать много раз, и он не должен писать секреты или runtime-артефакты в Git.
 
+Актуальный repo install: `bash .cursor/cloud-agent-install.sh` (ставит `requirements.txt`, включая **paramiko** для SSH publish). Образ `.cursor/Dockerfile` тоже bake-ит paramiko/numpy/pillow/requests/python-dotenv — не полагайся на ad-hoc `pip install paramiko` в publish-агенте.
+
+Перед commit в Cloud: `source scripts/excalibur_blog_sanitize_secret_names.sh`.
+
 ## Cursor Secrets
 
 Минимум для dry-run:

@@ -25,6 +25,15 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
 
+**SSH dep:** нужен `paramiko` (baked via `requirements.txt` / Dockerfile / cloud-agent-install). Preflight:
+
+```bash
+python3 scripts/excalibur_blog_doctor.py --publish
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+Если doctor FAIL `paramiko available` — `python3 -m pip install -r requirements.txt`, затем зафиксируй incident (не должно повторяться после bake).
+
 ## Алгоритм
 
 ### 1. Preflight publish

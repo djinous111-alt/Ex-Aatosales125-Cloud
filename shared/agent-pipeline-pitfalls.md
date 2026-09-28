@@ -22,8 +22,10 @@
 
 - `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` только в Cloud Secrets, не в git.
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
+- Строки ledger только внутри markdown-таблицы (до любых `>` notes); `parse_published_slugs` / today.py читают `| 20…` rows.
 - Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
 - SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
+- `paramiko` обязателен для SSH publish: baked в `.cursor/Dockerfile` + `.cursor/cloud-agent-install.sh` (`requirements.txt`). Не нормализуй ad-hoc `pip install` каждый run; `doctor --publish` FAIL без paramiko.
 
 ## Writer / Fact Check Box
 
@@ -48,3 +50,9 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator CLI: `--blog-dir`, `--out-dir`, `--url-mode {relative,absolute}` — **нет** `--blog-path`. Default/preferred: `--url-mode relative` → `/blog/<slug>/`.
+
+## Schema / git hygiene
+
+- Site NAP URLs в `schema.jsonld` ожидаемы; перед commit: `python3 scripts/excalibur_blog_write_schema.py --annotate <schema.jsonld>` (same-line `x-excalibur-allowlist`).
+- Перед каждым Cloud commit: `source scripts/excalibur_blog_sanitize_secret_names.sh` — `CLOUD_AGENT_INJECTED_SECRET_NAMES` только valid bash identifiers (не raw URL).

@@ -21,8 +21,9 @@ category: docs
 - Preferred relative url-mode (`/blog/<slug>/`) is not a CLI flag; generator always builds `{site_base}/blog/{slug}/`.
 
 ### How the agent recovered this run
-- Ran llms generator with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
-- Kept absolute site-base URLs to match existing `memory/blog/llms.txt` entries for AS08/AS09.
+- Ran llms generator with `--blog-dir memory/blog/articles --site-base "" --out-dir memory/blog` (no `--blog-path`) → relative `/blog/<slug>/` URLs (avoids secret-scanner hits on PUBLIC_SITE_URL).
+- Interlinker likewise with empty site-base; 0 opportunities found.
+- Commit: filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid bash identifiers (1 invalid URL-as-name crashed pre-commit `${!SECRET_NAME}`).
 
 ### Durable fix needed before next run
 - Align doctor check and indexer skill/agent examples with real CLI (`--blog-dir` / `--out-dir` only).

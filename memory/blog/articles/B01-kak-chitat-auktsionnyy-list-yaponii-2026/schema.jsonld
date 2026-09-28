@@ -1,0 +1,197 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/kak-chitat-auktsionnyy-list-yaponii-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/kak-chitat-auktsionnyy-list-yaponii-2026/"
+      },
+      "headline": "Как читать аукционный лист из Японии: чек-лист до ставки в 2026",
+      "description": "Как читать аукционный лист из Японии до ставки: R/RA, схема A/U/W/X/XX, примечания инспектора и чек-лист перед депозитом брокеру.",
+      "datePublished": "2026-09-29",
+      "dateModified": "2026-09-29",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru/"
+        },
+        "sameAs": [
+          "https://avtosales125.ru/",
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru/",
+        "sameAs": [
+          "https://t.me/avtosales125",
+          "https://www.instagram.com/avtosales_rf"
+        ]
+      },
+      "keywords": [
+        "как читать аукционный лист",
+        "расшифровка аукционного листа",
+        "аукционный лист япония",
+        "что значит в аукционном листе"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/kak-chitat-auktsionnyy-list-yaponii-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Что значит оценка R и RA на японском аукционе?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Обе метки про историю ремонта сварного каркаса (修復歴). RA обычно легче по объёму, но это всё равно история ремонта, а не \"чистый кузов\". Решение принимайте после схемы и фото зоны, а не по одной букве."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как перевести аукционный лист на русский?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Таблицу кодов A/U/W/X/XX можно читать по шпаргалке выше. Рукописные примечания просите перевести у брокера целиком до ставки. Не опирайтесь только на автоперевод смазанной рукописи."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли верить пробегу только по листу?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Цифра листа – база осмотра, не полная сервисная история. Смотрите пометки достоверности (*, ?, замена одометра, \"неясен\"). При тревожной пометке – доп. проверка или пропуск лота."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что означает XX или W2 на схеме повреждений?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "XX – панель уже заменена, W – след ремонта или перекраса, цифра – размер. Выпишите код, сверьте с фото и примечаниями. XX на болтовой панели не всегда даёт R, но игнорировать его нельзя."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "С чего начать, если лист \"как иероглифы\"?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Идите по порядку: R/RA → схема → примечания → пробег и номер кузова → балл в конце. Пройдите чек-лист из десяти пунктов выше и только потом думайте о депозите."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Оценка 4.5 значит, что машина без ремонта?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Балл отражает текущий вид и общее впечатление по правилам площадки, а не отсутствие замен болтовых панелей. Схема и примечания важнее красивой цифры."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/kak-chitat-auktsionnyy-list-yaponii-2026/#howto",
+      "name": "Как читать аукционный лист из Японии до ставки",
+      "description": "Пошаговое чтение японского аукционного листа до депозита брокеру: R/RA, схема кузова, примечания, пробег, фото и решение ставить/уточнить/пропустить.",
+      "totalTime": "PT25M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Аукционный лист площадки (PDF/скрин)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Фото лота и чат с брокером для перевода примечаний"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Шпаргалка кодов A/U/W/X/XX"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Чек-лист новичка перед депозитом (10 пунктов)"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Найдите блок R/RA до мысли о балле",
+          "text": "Откройте лист и найдите блок истории ремонта: R, RA или пометка \"есть / нет\".",
+          "url": "https://avtosales125.ru/kak-chitat-auktsionnyy-list-yaponii-2026/#проверьте-r-и-ra-до-любой-мысли-о-балле"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Выпишите коды схемы A/U/W/X/XX",
+          "text": "Выпишите со схемы все коды A/U/W/X/XX/S/C с цифрами и зонами.",
+          "url": "https://avtosales125.ru/kak-chitat-auktsionnyy-list-yaponii-2026/#расшифруйте-схему-кузова-коды-a-u-w-x-xx"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Отметьте коды у силовых элементов",
+          "text": "Отметьте отдельно коды у силовых элементов: пороги, стойки, пол, лонжероны.",
+          "url": "https://avtosales125.ru/kak-chitat-auktsionnyy-list-yaponii-2026/#расшифруйте-схему-кузова-коды-a-u-w-x-xx"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Запросите полный перевод примечаний",
+          "text": "Запросите у брокера полный перевод рукописных примечаний.",
+          "url": "https://avtosales125.ru/kak-chitat-auktsionnyy-list-yaponii-2026/#запросите-перевод-примечаний-инспектора-целиком"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Сверьте пробег и возраст по японской дате",
+          "text": "Сверьте пробег (пометки *, ?, замена/неясен) и возраст по японской дате.",
+          "url": "https://avtosales125.ru/kak-chitat-auktsionnyy-list-yaponii-2026/#сверьте-пробег-номер-кузова-и-оценку-салона"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Запишите номер кузова, балл и салон",
+          "text": "Запишите номер кузова, общий балл и оценку салона как фильтр.",
+          "url": "https://avtosales125.ru/kak-chitat-auktsionnyy-list-yaponii-2026/#сверьте-пробег-номер-кузова-и-оценку-салона"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Сложите лист с фото лота",
+          "text": "Сложите лист с фото: каждое XX/W2/W3 либо видно, либо запрошено доп. фото.",
+          "url": "https://avtosales125.ru/kak-chitat-auktsionnyy-list-yaponii-2026/#сложите-лист-с-фото-и-решите-ставить-уточнить-или-пропустить"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Решите: ставить / уточнить / пропустить",
+          "text": "Примите одно из трёх решений: ставить / уточнить / пропустить – и только потом говорите о депозите.",
+          "url": "https://avtosales125.ru/kak-chitat-auktsionnyy-list-yaponii-2026/#пройдите-чеклист-новичка-перед-депозитом-брокеру"
+        }
+      ]
+    }
+  ]
+}

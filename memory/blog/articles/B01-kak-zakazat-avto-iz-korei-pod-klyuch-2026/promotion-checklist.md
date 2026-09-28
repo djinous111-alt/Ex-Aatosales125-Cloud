@@ -1,7 +1,7 @@
 # Promotion checklist — B01 kak-zakazat-avto-iz-korei-pod-klyuch-2026
 
-Дата публикации: 2026-09-28 (план; publish ещё pending)  
-Live URL: (после publish) `/blog/kak-zakazat-avto-iz-korei-pod-klyuch-2026/`
+Дата публикации: 2026-09-28  
+Live URL: `/2026/09/28/kak-zakazat-avto-iz-korei-pod-klyuch-2026/`
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Депозит только после VIN, отчёта и договора
 • 10 пунктов «стоп / можно платить»
 
-Читать: (live URL после publish)
+Читать: /2026/09/28/kak-zakazat-avto-iz-korei-pod-klyuch-2026/
 ```
 
 ## Перелинковка

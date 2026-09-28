@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260928-1735-publish-paramiko-missing
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-korei-pod-klyuch-2026
+severity: medium
+category: env
+
+### What went wrong
+- `import paramiko` failed with `ModuleNotFoundError` in the Cloud Agent image before SSH publish.
+- Same gap already hit earlier runs (AS11/AS02/B01 calculator); image still does not bake `paramiko` by default.
+
+### How the agent recovered this run
+- `pip3 install --break-system-packages paramiko` then dry-run + publish succeeded (SSH_ROOT=., ~140s, no WebFetch fallback).
+- Live HEAD 200; post 3778; featured 3779; inline 3780/3781/3782.
+
+### Durable fix needed before next run
+- Add `paramiko` to environment install (Dockerfile / `.cursor/environment.json` install script / requirements) so publish does not depend on ad-hoc pip each run.
+
+### Suggested files to inspect/change
+- `.cursor/environment.json`
+- `Dockerfile` (if present)
+- `requirements*.txt` / install scripts
+- `shared/agent-pipeline-pitfalls.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260928-1730-indexer-llms-blog-path-stale
 status: open
 run_date: 2026-09-28

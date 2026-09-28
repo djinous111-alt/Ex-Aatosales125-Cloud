@@ -1,0 +1,87 @@
+{
+  "article": "memory/blog/articles/B01-kak-zakazat-avto-iz-korei-pod-klyuch-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 11,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 9,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "– пошаговый план заказа авто из Кореи под ключ в 2026: рамка параметров, двойной коридор и чек-лист до",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2024 года",
+      "kind": "date_or_year",
+      "context": "6 лот часто ломается сразу с двух сторон. Корея с 2024 года режет экспорт легковых авто с мотором больше 2,0",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "55 дней",
+      "kind": "metric_or_duration",
+      "context": "на русском с составом цены. Штатный цикл часто 30–55 дней: выкуп → Пусан → Владивосток → растаможка → ЭПТС",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "30 минут",
+      "kind": "metric_or_duration",
+      "context": "лечится до эмоций. На практике рамка занимает 20–30 минут. Запишите бюджет \"с конца\": сколько готовы отдать",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 лет",
+      "kind": "metric_or_duration",
+      "context": "де. Выберите возраст: часто экономичный коридор 3–5 лет – сверяйте с расчётом. Ограничьте объём двигателя",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "12 месяцев",
+      "kind": "metric_or_duration",
+      "context": "м пользованием и без быстрой перепродажи в первые 12 месяцев. Например, турбо \"небольшой по литражу\", но 180+",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "100",
+      "kind": "large_number",
+      "context": "ram Sonata \"под ключ за 2,4 млн\" и почти отправил 100 тысяч \"за подбор\" – без VIN и без состава цены. Ти",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "амка: бюджет с конца, объём до 2,0 л, мощность до 160 л.с., возраст и город выдачи. Депозит – только пос",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2024",
+      "kind": "large_number",
+      "context": "6 лот часто ломается сразу с двух сторон. Корея с 2024 года режет экспорт легковых авто с мотором больше",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "физлица держится на мощности до 160 л.с. (ПП РФ № 1713). Турбо 1,6 на 180 л.с. может выйти по объёму и в",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "мощности до 160 л.с. (ПП РФ № 1713). Турбо 1,6 на 180 л.с. может выйти по объёму и взорвать бюджет утиль",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

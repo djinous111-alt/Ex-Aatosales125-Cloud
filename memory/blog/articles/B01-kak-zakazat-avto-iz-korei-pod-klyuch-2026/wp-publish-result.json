@@ -1,0 +1,32 @@
+{
+  "slug": "kak-zakazat-avto-iz-korei-pod-klyuch-2026",
+  "topic_id": "B01",
+  "permalink": "/2026/09/28/kak-zakazat-avto-iz-korei-pod-klyuch-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-kak-zakazat-avto-iz-korei-pod-klyuch-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1237076,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3778 slug=kak-zakazat-avto-iz-korei-pod-klyuch-2026\nOK featured_image=3779\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3780 src=cover/inline-01.png url=/wp-content/uploads/2026/09/kak-zakazat-avto-iz-korei-pod-klyuch-2026-inline-01.png\nOK inline_image_upload=3781 src=cover/inline-02.png url=/wp-content/uploads/2026/09/kak-zakazat-avto-iz-korei-pod-klyuch-2026-inline-02.png\nOK inline_image_upload=3782 src=cover/inline-03.png url=/wp-content/uploads/2026/09/kak-zakazat-avto-iz-korei-pod-klyuch-2026-inline-03.png\npermalink=/2026/09/28/kak-zakazat-avto-iz-korei-pod-klyuch-2026/\n",
+  "verdict": "pass",
+  "post_id": 3778,
+  "featured_image": 3779,
+  "inline_images": [
+    {
+      "id": 3780,
+      "src": "cover/inline-01.png"
+    },
+    {
+      "id": 3781,
+      "src": "cover/inline-02.png"
+    },
+    {
+      "id": 3782,
+      "src": "cover/inline-03.png"
+    }
+  ],
+  "schema_meta": 1
+}

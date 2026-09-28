@@ -48,6 +48,16 @@ python scripts/excalibur_blog_wp_publish.py \
 
 Проверь: slug, title, размер PHP payload без ошибок.
 
+Перед dry-run/publish:
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+python3 -c "import paramiko; print('paramiko ok')"
+```
+
+- `paramiko` должен быть в Cloud image (`Dockerfile` / `cloud-agent-install.sh`). Если `ModuleNotFoundError` — установи и допиши в install.
+- `SSH_ROOT` unset → скрипт использует `.` (`root: default-dot`). Явно задавать Cloud Secret `SSH_ROOT=.` предпочтительно.
+
 ### 3. Publish
 
 ```bash

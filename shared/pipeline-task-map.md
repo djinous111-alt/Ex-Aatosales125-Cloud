@@ -2,6 +2,19 @@
 
 Директор **не** Task. Все роли ниже — `Task(<name>)`.
 
+## Typed Task vs generalPurpose (канон)
+
+Если Cloud API **не** принимает `excalibur-blog-*` как typed Task (часто: `excalibur-blog-geo-qa`):
+
+1. **Не** ретраить typed name больше одного раза.
+2. Сразу запускай отдельный `Task(generalPurpose)` на роль с:
+   - `.cursor/agents/<role>.md`
+   - `.cursor/skills/<skill>/SKILL.md`
+   - короткий контракт: входы, маркер `=== EXCALIBUR BLOG … ===`, запреты.
+3. Один Task = одна роль; параллель cover||schema = два generalPurpose в одном сообщении.
+
+Это канонический путь, не workaround. См. также `CLOUD-AUTOMATION.md` и `AGENTS.md`.
+
 ## Схема
 
 ```text

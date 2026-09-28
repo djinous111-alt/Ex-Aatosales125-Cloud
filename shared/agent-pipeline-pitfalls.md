@@ -2,9 +2,10 @@
 
 ## Cloud / Task
 
-- Cloud не принимает `excalibur-blog-*` как Task types → fallback `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path.
+- Cloud не принимает `excalibur-blog-*` как Task types → **канонический** fallback: сразу `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path (не тратить шаги на retry typed Task). Особенно часто отсутствует typed `excalibur-blog-geo-qa`.
 - Parent-agent сам пишет статью вместо `excalibur-blog-writer` → **блокер**, перезапуск writer Task.
 - Объединение cover+schema в один Task → запрещено; только параллельные отдельные Task.
+- Перед `git commit` в Cloud: `source scripts/sanitize_cloud_secret_names.sh` — host pre-commit падает на `${!SECRET_NAME}`, если в `CLOUD_AGENT_INJECTED_SECRET_NAMES` после redact попали невалидные bash-идентификаторы.
 
 ## Handoff / fragments
 
@@ -21,7 +22,8 @@
 - `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` только в Cloud Secrets, не в git.
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
 - Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
-- SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
+- `paramiko` обязателен для SSH publish: должен быть в `.cursor/Dockerfile` / `cloud-agent-install.sh`. Если `ModuleNotFoundError` — `pip3 install --break-system-packages paramiko`, затем зафиксировать в image install.
+- `SSH_ROOT` unset → скрипт использует `.` (login cwd) как default (`root: default-dot` в `--env-check`). Если bootstrap ENOENT на непустом root — retry на `.` + warning; обнови Cloud Secret на `.`.
 
 ## Writer / Fact Check Box
 
@@ -34,6 +36,8 @@
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
+- Utility gate: `pain_markers_ru` / `outcome_markers_ru` / `recommendation_markers_ru` должны жить в `memory/brief/editorial-policy.json`; если списки пустые — скрипт берёт defaults (синхрон с human-voice). Regression: `python3 scripts/excalibur_blog_utility_gate.py --self-test`.
+- Research notes gate: `technical_topic` использует word-boundary для коротких маркеров (`ai`/`api`/`rag`); обязательные поля вроде `reader_pain` / `github_evidence` не должны сами по себе включать tech-режим.
 
 ## Cover
 
@@ -42,7 +46,9 @@
 ## Scout
 
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- `excalibur_blog_scout_helper.py` парсит карточки `## B\\d+` и `## AS\\d+` (любые `[A-Za-z]+\\d+`). `--check-query` обязан видеть AS-пул; `--suggest-next` предлагает следующий **B**-id, но печатает AS pool IDs.
 
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator CLI: `--blog-dir` + `--out-dir` (флага `--blog-path` нет). Doctor проверяет `--blog-dir`/`--out-dir`.

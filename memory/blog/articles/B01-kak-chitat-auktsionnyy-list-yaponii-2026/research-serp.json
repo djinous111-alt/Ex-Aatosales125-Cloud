@@ -1,0 +1,601 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-09-29",
+    "today_ru": "29.09.2026",
+    "year": 2026,
+    "month": 9,
+    "month_name_ru": "сентябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-01",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-09-29 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "kak-chitat-auktsionnyy-list-yaponii-2026",
+    "h1": "Как читать аукционный лист из Японии: чек-лист до ставки в 2026",
+    "primary_query": "как читать аукционный лист",
+    "secondary_queries": [
+      "расшифровка аукционного листа",
+      "аукционный лист япония",
+      "что значит в аукционном листе"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как читать аукционный лист 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как Читать Аукционный Лист Из Японии И Кореи В 2026 | Carto Блог",
+          "url": "https://carto-auto.ru/blog/kak-chitat-aukcionnyy-list-iz-yaponii-i-korei-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Как читать аукционный лист автомобиля: пошаговая инструкция 2026",
+          "url": "https://auto-praktis.vercel.app/articles/k/ka/kak-prochitat-auktsionnyj-list.html",
+          "snippet": "В Японии это аукционный лист, в Корее — отчёт о состоянии транспортного средства. Научиться их читать важнее, чем разбираться в комплектациях: именно здесь видно, была машина в аварии ..."
+        },
+        {
+          "title": "Как Читать Аукционный Лист: U1, W1, W2, W3, R И Ra",
+          "url": "https://azway.ru/blog/kak-chitat-auktsionnyy-list",
+          "snippet": "Разбираемся, как правильно прочитать аукционный лист (auction sheet) японского авто: расшифровка оценок, кодов повреждений, пробега и истории."
+        },
+        {
+          "title": "Как читать аукционный лист: подробная инструкция по расшифровке",
+          "url": "https://avto-listing.ru/blog/kak-chitat-aukcionnyj-list",
+          "snippet": "В AZWAY сделали инструмент расшифровки аукционного листа: он читает загруженное изображение и показывает найденные поля на русском."
+        },
+        {
+          "title": "Как Читать Аукционный Лист: Расшифровка Оценок Uss, Taa, Caa И Mirive",
+          "url": "https://silacar.ru/articles/kak-chitat-auktsionnyy-list.html",
+          "snippet": "Как читать аукционный лист: подробная инструкция по расшифровке Вы нашли подходящий автомобиль на японском аукционе, но перед вами лист с десятками полей, кодами и аббревиатурами на ..."
+        },
+        {
+          "title": "Как проверить аукционный лист автомобиля бесплатно — 5 способов 2026 ...",
+          "url": "https://avto-spravochnik.vercel.app/articles/p/pr/proverka-auktsionnogo-lista-besplatno.html",
+          "snippet": "Подробное руководство, как читать аукционные листы японских авто: расшифровка оценок и дефектов. Узнайте особенности крупнейших аукционов (USS, TAA, CAA, MIRIVE) и их систем проверки."
+        }
+      ],
+      "searched_at": "2026-09-29"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как читать аукционный лист сентябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как читать аукционный лист автомобиля: пошаговая инструкция 2026",
+          "url": "https://auto-praktis.vercel.app/articles/k/ka/kak-prochitat-auktsionnyj-list.html",
+          "snippet": ""
+        },
+        {
+          "title": "Как Читать Аукционный Лист. - Aleado.ru",
+          "url": "https://aleado.ru/help/auctions/read-auction-sheet.html",
+          "snippet": "Разбираемся, как правильно прочитать аукционный лист (auction sheet) японского авто: расшифровка оценок, кодов повреждений, пробега и истории."
+        },
+        {
+          "title": "Как читать аукционный лист автомобиля: подробное объяснение",
+          "url": "https://f-mo.ru/blog/sovety-pokupatelyam/auktsionnye-listy-kak-pravilno-chitat-i-na-chto-obrashchat-vnimanie/",
+          "snippet": "Примеры Аукционных листов с различными оценками. Аукционная оценка 5 (Замечания инспектора): Несколько царапин и вмятин. Аукционная оценка 4.5 (Замечания инспектора): Салон немного загрязнен. Рулевое колесо имеет потертости. На дуге есть небольшие царапины. Несколько маленьких царапин по кузову."
+        },
+        {
+          "title": "Как читать аукционный лист: подробная инструкция по расшифровке",
+          "url": "https://avto-listing.ru/blog/kak-chitat-aukcionnyj-list",
+          "snippet": "В этой статье подробно разберем, что такое аукционный лист, кто и как его заполняет, какие разделы в нём самые важные и на что стоит обращать внимание в первую очередь."
+        },
+        {
+          "title": "Как читать аукционный лист? — I-Trade",
+          "url": "https://i-tradeinc.ru/blog/13",
+          "snippet": "Аукционный лист — это официальный документ, который составляет инспектор аукционного дома на основе осмотра автомобиля."
+        },
+        {
+          "title": "Как Читать Аукционный Лист: U1, W1, W2, W3, R И Ra",
+          "url": "https://azway.ru/blog/kak-chitat-auktsionnyy-list",
+          "snippet": "Качественный подбор автомобиля начинается с умения правильно читать аукционный лист и замечать то, что большинство просто не видит."
+        }
+      ],
+      "searched_at": "2026-09-29"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как читать аукционный лист новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как Читать Аукционный Лист: U1, W1, W2, W3, R И Ra",
+          "url": "https://azway.ru/blog/kak-chitat-auktsionnyy-list",
+          "snippet": ""
+        },
+        {
+          "title": "Как читать аукционный лист автомобиля: пошаговая инструкция 2026",
+          "url": "https://auto-praktis.vercel.app/articles/k/ka/kak-prochitat-auktsionnyj-list.html",
+          "snippet": "В AZWAY сделали инструмент расшифровки аукционного листа: он читает загруженное изображение и показывает найденные поля на русском."
+        },
+        {
+          "title": "Как Читать Аукционный Лист Из Японии И Кореи В 2026 | Carto Блог",
+          "url": "https://carto-auto.ru/blog/kak-chitat-aukcionnyy-list-iz-yaponii-i-korei-2026/",
+          "snippet": "Разбираемся, как правильно прочитать аукционный лист (auction sheet) японского авто: расшифровка оценок, кодов повреждений, пробега и истории."
+        },
+        {
+          "title": "Что такое аукционный лист и как его читать (разбор для новичков)",
+          "url": "https://autodi.ru/auction-list",
+          "snippet": "В Японии это аукционный лист, в Корее — отчёт о состоянии транспортного средства. Научиться их читать важнее, чем разбираться в комплектациях: именно здесь видно, была машина в аварии ..."
+        },
+        {
+          "title": "Как читать аукционный лист: подробная инструкция по расшифровке",
+          "url": "https://avto-listing.ru/blog/kak-chitat-aukcionnyj-list",
+          "snippet": "Аукционный лист — это паспорт автомобиля на торгах. Там написано всё: битая или нет, сколько реально проехала, какие скрытые дефекты. Научим читать как эксперт."
+        },
+        {
+          "title": "Как правильно читать аукционный лист?",
+          "url": "https://rutube.ru/video/bced6b95f134701ad17ecac62d6f69c0/",
+          "snippet": "Аукционный лист — это официальный документ, который составляет инспектор аукционного дома на основе осмотра автомобиля."
+        }
+      ],
+      "searched_at": "2026-09-29"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как читать аукционный лист 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - NNTU-CS/OOP-2026-Info",
+          "url": "https://github.com/NNTU-CS/OOP-2026-Info/tree/main",
+          "snippet": ""
+        },
+        {
+          "title": "alchemists-loop/godot_android_tz at master · RedRad1sh ... - GitHub",
+          "url": "https://github.com/RedRad1sh/alchemists-loop/tree/master/godot_android_tz",
+          "snippet": "Отправка работы Пояснительная записка оформляется в виде единого PDF-файла. Имя файла должно строго соответствовать значению \"Имя файла\" из таблицы, расположенной в репозитории OOP-2026."
+        },
+        {
+          "title": "gist:9a0c0fc50f8502e5de4fc35f5bc6fdf8 · GitHub",
+          "url": "https://gist.github.com/naviHaRpY/9a0c0fc50f8502e5de4fc35f5bc6fdf8",
+          "snippet": "Заимствовано из альтернативного ТЗ после проверки (внесено в документы): Godot 4.6+ зеркалирование Android-устройств в редакторе (проверено: godotengine.org, апрель 2026) — в чек-лист тестирования ..."
+        },
+        {
+          "title": "ALMATY-SYNTH-01 — чек-лист поездки · GitHub",
+          "url": "https://gist.github.com/takemake-tech/0dd112708995efcd1285769bf1045b45",
+          "snippet": "GitHub Gist: instantly share code, notes, and snippets."
+        },
+        {
+          "title": "GitHub - DocHansan/LowestPrice_SCBot: STALCRAFT auction bot for X page ...",
+          "url": "https://github.com/DocHansan/LowestPrice_SCBot",
+          "snippet": "Сценарий поездки — 10-13 октября 2026 года; подготовка — 8 октября, подтверждение компенсации за проживание — 14 октября. Эти даты не являются сообщением о реальных событиях."
+        },
+        {
+          "title": "sudnyeshtalekar/Assets/jetbrains_pycharm.svg at master ... - GitHub",
+          "url": "https://github.com/sudnyeshtalekar/sudnyeshtalekar/blob/master/Assets/jetbrains_pycharm.svg",
+          "snippet": "Скрипт предназначен для автоматической работы с аукционом в Steam-версии Stalcraft. Он открывает аукцион, следит за его работой и периодически перезапускает игру для стабильности. Запустите игру через Steam и зайдите на нужный сервер. Переключитесь в окно игры (бот взаимодействует напрямую)."
+        }
+      ],
+      "searched_at": "2026-09-29"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как читать аукционный лист official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как Читать Аукционный Лист Из Японии И Кореи В 2026 | Carto Блог",
+          "url": "https://carto-auto.ru/blog/kak-chitat-aukcionnyy-list-iz-yaponii-i-korei-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Как Читать Аукционный Лист: U1, W1, W2, W3, R И Ra",
+          "url": "https://azway.ru/blog/kak-chitat-auktsionnyy-list",
+          "snippet": "В Японии это аукционный лист, в Корее — отчёт о состоянии транспортного средства. Научиться их читать важнее, чем разбираться в комплектациях: именно здесь видно, была машина в аварии ..."
+        },
+        {
+          "title": "Как читать аукционный лист автомобиля: пошаговая инструкция 2026",
+          "url": "https://auto-praktis.vercel.app/articles/k/ka/kak-prochitat-auktsionnyj-list.html",
+          "snippet": "Здесь разберём, как самостоятельно проверить результат: где искать номер кузова, как читать U1 и W1-W3, почему R и RA нельзя оценивать без контекста и что значат статусы торгов."
+        },
+        {
+          "title": "Как Читать Аукционный Лист: Расшифровка Оценок Uss, Taa, Caa И Mirive",
+          "url": "https://silacar.ru/articles/kak-chitat-auktsionnyy-list.html",
+          "snippet": "В этой статье мы разберём все секции аукционного листа — от базовых данных до скрытых кодов повреждений, научимся отличать «чистое» авто от перекрашенного или после ДТП, и покажем, на что ..."
+        },
+        {
+          "title": "Aleado.ru: Как Читать Аукционный Лист",
+          "url": "https://aleado.ru/help/auctions/read-auction-sheet.html",
+          "snippet": "Подробное руководство, как читать аукционные листы японских авто: расшифровка оценок и дефектов. Узнайте особенности крупнейших аукционов (USS, TAA, CAA, MIRIVE) и их систем проверки."
+        },
+        {
+          "title": "Как читать аукционный лист: подробная инструкция по расшифровке",
+          "url": "https://avto-listing.ru/blog/kak-chitat-aukcionnyj-list",
+          "snippet": "Примеры Аукционных листов с различными оценками. Аукционная оценка 5 (Замечания инспектора): Несколько царапин и вмятин. Аукционная оценка 4.5 (Замечания инспектора): Салон немного загрязнен."
+        }
+      ],
+      "searched_at": "2026-09-29"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как читать аукционный лист forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как читать аукционный лист автомобиля: пошаговая инструкция 2026",
+          "url": "https://auto-praktis.vercel.app/articles/k/ka/kak-prochitat-auktsionnyj-list.html",
+          "snippet": ""
+        },
+        {
+          "title": "Как Читать Аукционный Лист: Расшифровка Оценок Uss, Taa, Caa И Mirive",
+          "url": "https://silacar.ru/articles/kak-chitat-auktsionnyy-list.html",
+          "snippet": "Разбираемся, как правильно прочитать аукционный лист (auction sheet) японского авто: расшифровка оценок, кодов повреждений, пробега и истории."
+        },
+        {
+          "title": "Расшифровка аукционного листа из Японии: оценки, обозначения, схема ...",
+          "url": "https://onteco.ru/blog/rasshifrovka-auktsionnogo-lista-iz-yaponii",
+          "snippet": "Подробное руководство, как читать аукционные листы японских авто: расшифровка оценок и дефектов. Узнайте особенности крупнейших аукционов (USS, TAA, CAA, MIRIVE) и их систем проверки."
+        },
+        {
+          "title": "Как читать японский аукционный лист: подробная расшифровка для покупателя",
+          "url": "https://perviyzakaz.ru/articles/kak-chitat-yaponskiy-auktsionnyy-list-podrobnaya-rasshifrovka-dlya-pokupatelya/",
+          "snippet": "Как читать аукционный лист японского аукциона: что значат оценки 4, 4.5, R и A, буквы салона, карта кузова и коды дефектов. Полный разбор с примерами от Onteco."
+        },
+        {
+          "title": "Расшифровка аукционного листа: как оценить авто из Японии правильно",
+          "url": "https://peregonpro.ru/poleznoe/kak-chitat-aukczionnyj-list-podrobnyj-gid-po-oczenke-sostoyaniya-avto-iz-yaponii/",
+          "snippet": "Японский аукционный лист - это главный документ при покупке автомобиля из Японии. Именно он показывает реальное состояние автомобиля, а не красивые фотографии. Умение правильно читать аукционный лист защищает покупателя от скрытых дефектов, скрученного пробега и дорогостоящего ремонта после доставки."
+        },
+        {
+          "title": "Как читать аукционный лист? Расшифровка.",
+          "url": "https://jplife.ru/stati/rasshifrovka-yaponskogo-auktsionnogo-lista-avtomobilya/",
+          "snippet": "Умение правильно читать аукционный лист — это навык, который экономит сотни тысяч рублей и спасает от покупки «кота в мешке»."
+        }
+      ],
+      "searched_at": "2026-09-29"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "расшифровка аукционного листа 2026",
+      "purpose": "вторичный запрос: расшифровка аукционного листа",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Аукционный лист авто из Японии: расшифровка 2026 | ДАРЭ",
+          "url": "https://importdare.ru/blog/auktsionnyj-list-yaponii-kak-chitat",
+          "snippet": ""
+        },
+        {
+          "title": "Расшифровка аукционного листа: что означают оценки",
+          "url": "https://auto.mail.ru/article/114795-auktsionnyij-list-instruktsiya-po-rasshifrovke-otsenki-yaponskogo-avto/",
+          "snippet": "Аукционный лист авто из Японии — это карта техсостояния лота, которую составляет независимый инспектор аукциона перед торгами. Чтобы за минуту оценить машину, смотрите три точки."
+        },
+        {
+          "title": "Как читать аукционный лист автомобиля: пошаговая инструкция 2026",
+          "url": "https://auto-praktis.vercel.app/articles/k/ka/kak-prochitat-auktsionnyj-list.html",
+          "snippet": "Покупка японского автомобиля с аукциона — шанс получить отличную машину за разумные деньги. Но чтобы сделка была удачной, нужно понимать главный документ — аукционный лист. Для непосвященного он точно покажется шифровкой с непонятными цифрами, буквами и иероглифами."
+        },
+        {
+          "title": "Как Читать Аукционный Лист Из Японии И Кореи В 2026 | Carto Блог",
+          "url": "https://carto-auto.ru/blog/kak-chitat-aukcionnyy-list-iz-yaponii-i-korei-2026/",
+          "snippet": "Разбираемся, как правильно прочитать аукционный лист (auction sheet) японского авто: расшифровка оценок, кодов повреждений, пробега и истории."
+        },
+        {
+          "title": "Аукционный лист Японии - расшифровка всех оценок, букв и баллов с ...",
+          "url": "https://vc.ru/growth/2857906-auktsionnyy-list-yaponii-rasshifrovka-ozenok-i-bukv",
+          "snippet": "В Японии это аукционный лист, в Корее — отчёт о состоянии транспортного средства. Научиться их читать важнее, чем разбираться в комплектациях: именно здесь видно, была машина в аварии или нет. Лист состоит из четырёх смысловых блоков: Общая оценка — одна цифра или буква в правом верхнем углу."
+        },
+        {
+          "title": "Расшифровка аукционного листа из Японии на русском",
+          "url": "https://car.ms/auction-sheets/",
+          "snippet": "Вместе с ребятами из Alex Avto мы решили разложить аукционный лист Японии на понятные составляющие."
+        }
+      ],
+      "searched_at": "2026-09-29"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "аукционный лист япония 2026",
+      "purpose": "вторичный запрос: аукционный лист япония",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Аукционный лист Японии - расшифровка всех оценок, букв и баллов с ...",
+          "url": "https://vc.ru/growth/2857906-auktsionnyy-list-yaponii-rasshifrovka-ozenok-i-bukv",
+          "snippet": ""
+        },
+        {
+          "title": "Аукционный Лист Японии: Расшифровка Оценок R, Ra, Баллов 2026",
+          "url": "https://autoprofiasia.ru/blog/rasshifrovka-aukcionnogo-lista-yaponii-2026",
+          "snippet": "Вместе с ребятами из Alex Avto мы решили разложить аукционный лист Японии на понятные составляющие."
+        },
+        {
+          "title": "Как Читать Аукционный Лист Из Японии И Кореи В 2026 | Carto Блог",
+          "url": "https://carto-auto.ru/blog/kak-chitat-aukcionnyy-list-iz-yaponii-i-korei-2026/",
+          "snippet": "Учимся читать аукционные листы японских авто: оценки 3.5-5, баллы кузова и салона, отметки R и RA. Реальные примеры с фото от AutoProfi Asia."
+        },
+        {
+          "title": "Аукционный лист авто из Японии: расшифровка 2026 | ДАРЭ",
+          "url": "https://importdare.ru/blog/auktsionnyj-list-yaponii-kak-chitat",
+          "snippet": "В Японии это аукционный лист, в Корее — отчёт о состоянии транспортного средства. Научиться их читать важнее, чем разбираться в комплектациях: именно здесь видно, была машина в аварии или нет."
+        },
+        {
+          "title": "Как Читать Аукционный Лист Из Японии: Оценки R И Ra",
+          "url": "https://asia-pod-klyuch.ru/blog/6-oshibok-pokupatelej-iz-yaponii-2026",
+          "snippet": "Учимся читать аукционный лист авто из Японии: оценки S-R, буквы A/U/W/S/C, схема кузова. Проверка лота за 24 ч, подбор под ключ за 45-60 дней."
+        },
+        {
+          "title": "Как читать японский аукционный лист: оценки до ставки",
+          "url": "[REDACTED_SITE]/2026/07/23/auktsionnyy-list-yaponiya-kak-chitat-2026/",
+          "snippet": "Разбираем аукционный лист авто из Японии: что значат оценки R и RA, как читать схему кузова и комментарии инспектора и как проверить дату выпуска до ставки."
+        }
+      ],
+      "searched_at": "2026-09-29"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "что значит в аукционном листе 2026",
+      "purpose": "вторичный запрос: что значит в аукционном листе",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Перевод аукционного листа",
+          "url": "https://j-autotrade.ru/ocenka-auc",
+          "snippet": ""
+        },
+        {
+          "title": "Справочник обозначений аукционного листа — гид АвтоВезем",
+          "url": "https://autovezem.ru/perevod-auktsionnikov",
+          "snippet": "Аукционный лист - это важнейший документ аукционной площадки, в котором содержится подробное описание состояние автомобиля, комплектации и установленных опций."
+        },
+        {
+          "title": "U1, A1, W1 в аукционном листе: что значат — POWER Car",
+          "url": "https://power-car.ru/articles/reading-japanese-auction-sheet.html",
+          "snippet": "Подробный гид по аукционному листу: что означают оценки 5, 4.5, 4, баллы за кузов и салон, отметки R и RA. Научитесь понимать реальное состояние авто."
+        },
+        {
+          "title": "Расшифровка аукционного листа",
+          "url": "https://silacar.ru/rasshifrovka-auktsionnogo-lista/",
+          "snippet": "Что значит W2, W1, W3 и другие коды в японском аукционном листе. Разбор отметок дефектов кузова W1-W3, U1-U3, A1 — научитесь читать состояние авто в 2026 году."
+        },
+        {
+          "title": "Расшифровка аукционного листа: что означают оценки",
+          "url": "https://auto.mail.ru/article/114795-auktsionnyij-list-instruktsiya-po-rasshifrovke-otsenki-yaponskogo-avto/",
+          "snippet": "Эксперт на свое усмотрение делает пометки в аукционном листе о нехарактерных звуках двигателя или что гремит подвеска. Эта информация указывается только на его усмотрение специалиста."
+        },
+        {
+          "title": "Расшифровка аукционного листа: полная инструкция - CarVizor",
+          "url": "https://carvizor.ru/article/japanese-auctions/transcript-auction-complete-manual-/",
+          "snippet": "Покупка японского автомобиля с аукциона — шанс получить отличную машину за разумные деньги. Но чтобы сделка была удачной, нужно понимать главный документ — аукционный лист. Для непосвященного он точно покажется шифровкой с непонятными цифрами, буквами и иероглифами."
+        }
+      ],
+      "searched_at": "2026-09-29"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как читать аукционный лист из Японии: чек-лист до ставки в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как Читать Аукционный Лист Из Японии И Кореи В 2026 | Carto Блог",
+          "url": "https://carto-auto.ru/blog/kak-chitat-aukcionnyy-list-iz-yaponii-i-korei-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Как читать японский аукционный лист: оценки до ставки",
+          "url": "[REDACTED_SITE]/2026/07/23/auktsionnyy-list-yaponiya-kak-chitat-2026/",
+          "snippet": "В Японии это аукционный лист, в Корее — отчёт о состоянии транспортного средства. Научиться их читать важнее, чем разбираться в комплектациях: именно здесь видно, была машина в аварии или нет. Лист состоит из четырёх смысловых блоков: Общая оценка — одна цифра или буква в правом верхнем углу."
+        },
+        {
+          "title": "Аукционный лист из Японии: как читать поля до депозита",
+          "url": "[REDACTED_SITE]/2026/07/20/aukcionnyj-list-yaponii-kak-chitat/",
+          "snippet": "Как читать аукционный лист Японии до ставки: оценки 4 и 4.5, схема A/U/W/X/XX, R vs RA, чек-лист из пяти зон. Подбор - в каталоге Авто-Сейлс."
+        },
+        {
+          "title": "Аукционный лист авто из Японии: расшифровка 2026 | ДАРЭ",
+          "url": "https://importdare.ru/blog/auktsionnyj-list-yaponii-kak-chitat",
+          "snippet": "Как читать аукционный лист Японии до депозита: оценки 4/4.5/R, буквы A/U/W/X, салон, схема и чек-лист. Подбор - в каталоге Авто-Сейлс."
+        },
+        {
+          "title": "Как Читать Аукционный Лист Из Японии: Расшифровка Оценок | Silenko ...",
+          "url": "https://silenkoautocratia.ru/blog/kak-chitat-auktsionny-list-yaponiya/",
+          "snippet": "Учимся читать аукционный лист авто из Японии: оценки S-R, буквы A/U/W/S/C, схема кузова. Проверка лота за 24 ч, подбор под ключ за 45-60 дней."
+        },
+        {
+          "title": "Аукционный лист Японии - расшифровка всех оценок, букв и баллов с ...",
+          "url": "https://vc.ru/growth/2857906-auktsionnyy-list-yaponii-rasshifrovka-ozenok-i-bukv",
+          "snippet": "Каждый аукционный лист, который мы рассматриваем для клиента SILENKO AUTOcratia, разбирают наши специалисты — с переводом комментариев аукциониста и пояснением по каждому значку на ..."
+        }
+      ],
+      "searched_at": "2026-09-29"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://carto-auto.ru/blog/kak-chitat-aukcionnyy-list-iz-yaponii-i-korei-2026/",
+      "title": "Как Читать Аукционный Лист Из Японии И Кореи В 2026 | Carto Блог",
+      "from_query": "как читать аукционный лист 2026"
+    },
+    {
+      "url": "https://auto-praktis.vercel.app/articles/k/ka/kak-prochitat-auktsionnyj-list.html",
+      "title": "Как читать аукционный лист автомобиля: пошаговая инструкция 2026",
+      "from_query": "как читать аукционный лист 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/kak-chitat-auktsionnyy-list",
+      "title": "Как Читать Аукционный Лист: U1, W1, W2, W3, R И Ra",
+      "from_query": "как читать аукционный лист 2026"
+    },
+    {
+      "url": "https://avto-listing.ru/blog/kak-chitat-aukcionnyj-list",
+      "title": "Как читать аукционный лист: подробная инструкция по расшифровке",
+      "from_query": "как читать аукционный лист 2026"
+    },
+    {
+      "url": "https://silacar.ru/articles/kak-chitat-auktsionnyy-list.html",
+      "title": "Как Читать Аукционный Лист: Расшифровка Оценок Uss, Taa, Caa И Mirive",
+      "from_query": "как читать аукционный лист 2026"
+    },
+    {
+      "url": "https://avto-spravochnik.vercel.app/articles/p/pr/proverka-auktsionnogo-lista-besplatno.html",
+      "title": "Как проверить аукционный лист автомобиля бесплатно — 5 способов 2026 ...",
+      "from_query": "как читать аукционный лист 2026"
+    },
+    {
+      "url": "https://aleado.ru/help/auctions/read-auction-sheet.html",
+      "title": "Как Читать Аукционный Лист. - Aleado.ru",
+      "from_query": "как читать аукционный лист сентябрь 2026"
+    },
+    {
+      "url": "https://f-mo.ru/blog/sovety-pokupatelyam/auktsionnye-listy-kak-pravilno-chitat-i-na-chto-obrashchat-vnimanie/",
+      "title": "Как читать аукционный лист автомобиля: подробное объяснение",
+      "from_query": "как читать аукционный лист сентябрь 2026"
+    },
+    {
+      "url": "https://i-tradeinc.ru/blog/13",
+      "title": "Как читать аукционный лист? — I-Trade",
+      "from_query": "как читать аукционный лист сентябрь 2026"
+    },
+    {
+      "url": "https://autodi.ru/auction-list",
+      "title": "Что такое аукционный лист и как его читать (разбор для новичков)",
+      "from_query": "как читать аукционный лист новости 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/bced6b95f134701ad17ecac62d6f69c0/",
+      "title": "Как правильно читать аукционный лист?",
+      "from_query": "как читать аукционный лист новости 2026"
+    },
+    {
+      "url": "https://github.com/NNTU-CS/OOP-2026-Info/tree/main",
+      "title": "GitHub - NNTU-CS/OOP-2026-Info",
+      "from_query": "site:github.com как читать аукционный лист 2026"
+    },
+    {
+      "url": "https://github.com/RedRad1sh/alchemists-loop/tree/master/godot_android_tz",
+      "title": "alchemists-loop/godot_android_tz at master · RedRad1sh ... - GitHub",
+      "from_query": "site:github.com как читать аукционный лист 2026"
+    },
+    {
+      "url": "https://gist.github.com/naviHaRpY/9a0c0fc50f8502e5de4fc35f5bc6fdf8",
+      "title": "gist:9a0c0fc50f8502e5de4fc35f5bc6fdf8 · GitHub",
+      "from_query": "site:github.com как читать аукционный лист 2026"
+    },
+    {
+      "url": "https://gist.github.com/takemake-tech/0dd112708995efcd1285769bf1045b45",
+      "title": "ALMATY-SYNTH-01 — чек-лист поездки · GitHub",
+      "from_query": "site:github.com как читать аукционный лист 2026"
+    },
+    {
+      "url": "https://github.com/DocHansan/LowestPrice_SCBot",
+      "title": "GitHub - DocHansan/LowestPrice_SCBot: STALCRAFT auction bot for X page ...",
+      "from_query": "site:github.com как читать аукционный лист 2026"
+    },
+    {
+      "url": "https://github.com/sudnyeshtalekar/sudnyeshtalekar/blob/master/Assets/jetbrains_pycharm.svg",
+      "title": "sudnyeshtalekar/Assets/jetbrains_pycharm.svg at master ... - GitHub",
+      "from_query": "site:github.com как читать аукционный лист 2026"
+    },
+    {
+      "url": "https://onteco.ru/blog/rasshifrovka-auktsionnogo-lista-iz-yaponii",
+      "title": "Расшифровка аукционного листа из Японии: оценки, обозначения, схема ...",
+      "from_query": "как читать аукционный лист forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://perviyzakaz.ru/articles/kak-chitat-yaponskiy-auktsionnyy-list-podrobnaya-rasshifrovka-dlya-pokupatelya/",
+      "title": "Как читать японский аукционный лист: подробная расшифровка для покупателя",
+      "from_query": "как читать аукционный лист forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://peregonpro.ru/poleznoe/kak-chitat-aukczionnyj-list-podrobnyj-gid-po-oczenke-sostoyaniya-avto-iz-yaponii/",
+      "title": "Расшифровка аукционного листа: как оценить авто из Японии правильно",
+      "from_query": "как читать аукционный лист forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://jplife.ru/stati/rasshifrovka-yaponskogo-auktsionnogo-lista-avtomobilya/",
+      "title": "Как читать аукционный лист? Расшифровка.",
+      "from_query": "как читать аукционный лист forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://importdare.ru/blog/auktsionnyj-list-yaponii-kak-chitat",
+      "title": "Аукционный лист авто из Японии: расшифровка 2026 | ДАРЭ",
+      "from_query": "расшифровка аукционного листа 2026"
+    },
+    {
+      "url": "https://auto.mail.ru/article/114795-auktsionnyij-list-instruktsiya-po-rasshifrovke-otsenki-yaponskogo-avto/",
+      "title": "Расшифровка аукционного листа: что означают оценки",
+      "from_query": "расшифровка аукционного листа 2026"
+    },
+    {
+      "url": "https://vc.ru/growth/2857906-auktsionnyy-list-yaponii-rasshifrovka-ozenok-i-bukv",
+      "title": "Аукционный лист Японии - расшифровка всех оценок, букв и баллов с ...",
+      "from_query": "расшифровка аукционного листа 2026"
+    },
+    {
+      "url": "https://car.ms/auction-sheets/",
+      "title": "Расшифровка аукционного листа из Японии на русском",
+      "from_query": "расшифровка аукционного листа 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/blog/rasshifrovka-aukcionnogo-lista-yaponii-2026",
+      "title": "Аукционный Лист Японии: Расшифровка Оценок R, Ra, Баллов 2026",
+      "from_query": "аукционный лист япония 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/6-oshibok-pokupatelej-iz-yaponii-2026",
+      "title": "Как Читать Аукционный Лист Из Японии: Оценки R И Ra",
+      "from_query": "аукционный лист япония 2026"
+    },
+    {
+      "url": "[REDACTED_SITE]/2026/07/23/auktsionnyy-list-yaponiya-kak-chitat-2026/",
+      "title": "Как читать японский аукционный лист: оценки до ставки",
+      "from_query": "аукционный лист япония 2026"
+    },
+    {
+      "url": "https://j-autotrade.ru/ocenka-auc",
+      "title": "Перевод аукционного листа",
+      "from_query": "что значит в аукционном листе 2026"
+    },
+    {
+      "url": "https://autovezem.ru/perevod-auktsionnikov",
+      "title": "Справочник обозначений аукционного листа — гид АвтоВезем",
+      "from_query": "что значит в аукционном листе 2026"
+    },
+    {
+      "url": "https://power-car.ru/articles/reading-japanese-auction-sheet.html",
+      "title": "U1, A1, W1 в аукционном листе: что значат — POWER Car",
+      "from_query": "что значит в аукционном листе 2026"
+    },
+    {
+      "url": "https://silacar.ru/rasshifrovka-auktsionnogo-lista/",
+      "title": "Расшифровка аукционного листа",
+      "from_query": "что значит в аукционном листе 2026"
+    },
+    {
+      "url": "https://carvizor.ru/article/japanese-auctions/transcript-auction-complete-manual-/",
+      "title": "Расшифровка аукционного листа: полная инструкция - CarVizor",
+      "from_query": "что значит в аукционном листе 2026"
+    },
+    {
+      "url": "[REDACTED_SITE]/2026/07/20/aukcionnyj-list-yaponii-kak-chitat/",
+      "title": "Аукционный лист из Японии: как читать поля до депозита",
+      "from_query": "Как читать аукционный лист из Японии: чек-лист до ставки в 2026 2026"
+    },
+    {
+      "url": "https://silenkoautocratia.ru/blog/kak-chitat-auktsionny-list-yaponiya/",
+      "title": "Как Читать Аукционный Лист Из Японии: Расшифровка Оценок | Silenko ...",
+      "from_query": "Как читать аукционный лист из Японии: чек-лист до ставки в 2026 2026"
+    }
+  ]
+}

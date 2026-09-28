@@ -593,3 +593,37 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20260928-1401-publish-paramiko-missing
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kalkulyator-rastamozhki-avto-2026-kak-schitat
+severity: medium
+category: env
+
+### What went wrong
+- `import paramiko` failed in Cloud image before SSH publish (`ModuleNotFoundError`).
+- Same class of gap as prior AS11/AS02 publishes: `paramiko` listed in `requirements.txt` but not present in the running environment.
+
+### How the agent recovered this run
+- Installed via `pip3 install --break-system-packages paramiko`.
+- Continued env-check → link-verify → dry-run → live SSH publish; post 3772 OK without HTTP fallback.
+
+### Durable fix needed before next run
+- Bake `paramiko` into Dockerfile / environment build / `environment.json` install so publish agents do not reinstall every run.
+- Optionally have `excalibur_blog_doctor.py --publish` fail loudly if paramiko missing.
+
+### Suggested files to inspect/change
+- `.cursor/environment.json`
+- `Dockerfile` (if present)
+- `requirements.txt`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

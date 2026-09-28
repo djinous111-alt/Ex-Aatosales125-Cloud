@@ -1,13 +1,13 @@
 # Promotion checklist — B01 kalkulyator-rastamozhki-avto-2026-kak-schitat
 
 Дата публикации: 2026-09-28  
-Live URL: https://avtosales125.ru/blog/kalkulyator-rastamozhki-avto-2026-kak-schitat/ <!-- pragma: allowlist secret -->
+Live URL: /2026/09/28/kalkulyator-rastamozhki-avto-2026-kak-schitat/ <!-- pragma: allowlist secret -->
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL (HEAD 200) — title, excerpt, featured image, FAQ
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • 161 л.с. или рубеж 3/5 лет ломают смету сильнее «скидки»
 • Калькулятор — ориентир; до депозита сверка вилки
 
-Читать: https://avtosales125.ru/blog/kalkulyator-rastamozhki-avto-2026-kak-schitat/ <!-- pragma: allowlist secret -->
+Читать: /2026/09/28/kalkulyator-rastamozhki-avto-2026-kak-schitat/ <!-- pragma: allowlist secret -->
 ```
 
 ## Перелинковка
@@ -48,4 +48,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 - Indexer: interlinker `--apply --article-dir …/B01-… --site-base $PUBLIC_SITE_URL` — 0 links applied (3 articles scanned).
 - Report: `interlink-report.json` (opportunities_found=0).
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (B01 в индексе).
-- Publish: pending (indexer only).
+- Publish: PASS post=3772 featured=3773 inline=3774/3775/3776 schema_meta=1; live HEAD 200.

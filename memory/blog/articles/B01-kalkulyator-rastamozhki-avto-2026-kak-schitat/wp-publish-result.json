@@ -1,0 +1,15 @@
+{
+  "slug": "kalkulyator-rastamozhki-avto-2026-kak-schitat",
+  "topic_id": "B01",
+  "permalink": "/2026/09/28/kalkulyator-rastamozhki-avto-2026-kak-schitat/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-kalkulyator-rastamozhki-avto-2026-kak-schitat/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1303943,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3772 slug=kalkulyator-rastamozhki-avto-2026-kak-schitat\nOK featured_image=3773\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3774 src=cover/inline-01.png url=/wp-content/uploads/2026/09/kalkulyator-rastamozhki-avto-2026-kak-schitat-inline-01.png\nOK inline_image_upload=3775 src=cover/inline-02.png url=/wp-content/uploads/2026/09/kalkulyator-rastamozhki-avto-2026-kak-schitat-inline-02.png\nOK inline_image_upload=3776 src=cover/inline-03.png url=/wp-content/uploads/2026/09/kalkulyator-rastamozhki-avto-2026-kak-schitat-inline-03.png\npermalink=/2026/09/28/kalkulyator-rastamozhki-avto-2026-kak-schitat/\n",
+  "verdict": "pass"
+}

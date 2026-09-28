@@ -30,6 +30,7 @@ is_background: false
 
 ## Твои задачи (строго по порядку)
 
+0. **Deps:** `python3 scripts/excalibur_blog_doctor.py --publish` (paramiko + SSH allow). Missing paramiko → PUBLISH BLOCKER / incident, не silent pip-only workaround без INC.
 1. **Preflight:** link-verify с `--site-base` из `PUBLIC_SITE_URL`.
 2. **Dry-run:** `excalibur_blog_wp_publish.py --dry-run`.
 3. **Publish:** `excalibur_blog_wp_publish.py` без dry-run.
@@ -39,7 +40,6 @@ is_background: false
 7. **Promotion:** Live URL в `promotion-checklist.md`.
 8. **Handoff:** блок `=== EXCALIBUR BLOG PUBLISH ===` + permalink в `=== EXCALIBUR BLOG (PIPELINE DONE) ===`.
 9. **Post-publish (опционально):** interlinker `--apply` для inbound-ссылок.
-
 ## Preconditions
 
 - `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` в `memory/site.env.local`

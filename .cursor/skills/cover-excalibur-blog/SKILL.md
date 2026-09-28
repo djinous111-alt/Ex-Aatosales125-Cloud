@@ -90,12 +90,16 @@ inject <figure> after H2 in article.html
 ### Шаг 1 — reference URL
 
 ```bash
-python scripts/excalibur_blog_hero_reference_url.py
+python3 scripts/excalibur_blog_hero_reference_url.py
+# optional refresh:
+# python3 scripts/excalibur_blog_hero_reference_url.py --force
 ```
 
+Hosts (auto): catbox → 0x0 → litterbox → tmpfiles → uguu.  
 Проверить `memory/cover/blog-hero.json` → `reference_url_hosted`.  
 Fallback env: `BLOG_HERO_REFERENCE_URL`.
 
+Если `--force` upload упал, а существующий hosted URL **sha256-совпадает** с локальным `blog-hero-reference.png` — reuse URL, это не COVER HERO BLOCKER.
 ### Шаг 2 — manifest
 
 ```bash

@@ -57,3 +57,13 @@ Utility pain/outcome маркеры берутся из `memory/brief/editorial-
 **Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.
 
 Schema и cover — **не** твоя зона (отдельные субагенты после PASS).
+
+## Git commit (Cloud)
+
+Перед `git commit` QA-артефактов:
+
+```bash
+source scripts/excalibur_blog_sanitize_secret_names.sh
+```
+
+Если pre-commit падает с `invalid variable name` — в `CLOUD_AGENT_INJECTED_SECRET_NAMES` попал non-identifier (часто raw URL). Sanitize и повтори commit; **не** `--no-verify`.

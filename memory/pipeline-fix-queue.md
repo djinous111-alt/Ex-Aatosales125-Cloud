@@ -497,7 +497,7 @@ checks_run:
 commit: d4cc023
 
 ## INC-20260928-1347-geo-qa-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -526,10 +526,29 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- Добавлен `scripts/excalibur_blog_sanitize_secret_names.sh` — фильтрует `CLOUD_AGENT_INJECTED_SECRET_NAMES` до bash identifiers; soft-source из cloud-agent-install.
+- Pitfalls + GEO QA / Indexer / Publish skills: sanitize перед commit; запрет `--no-verify`.
+- Формирование списка в Cloud platform остаётся вне репо; in-repo workaround идемпотентен.
+files_changed:
+- `scripts/excalibur_blog_sanitize_secret_names.sh`
+- `.cursor/cloud-agent-install.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+checks_run:
+- `source scripts/excalibur_blog_sanitize_secret_names.sh` с mixed names → dropped URL, kept identifiers
+- `bash -n` sanitize + install scripts
+commit: pending
 
 ## INC-20260928-1353-cover-hero-host-upload
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-cover
 topic_id: B01
@@ -558,10 +577,25 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- Hero uploader: auto chain catbox → 0x0 → litterbox → tmpfiles → uguu; `--force` fail + sha256 match existing hosted URL → reuse (non-blocker).
+- Cover agent/skill + pitfalls обновлены (`python3`, fallbacks, hash-reuse).
+files_changed:
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
+- `--help` показывает providers litterbox/tmpfiles/uguu
+commit: pending
 
 ## INC-20260928-1356-indexer-precommit-site-url-pragma
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-indexer
 topic_id: B01
@@ -592,10 +626,28 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- llms generator default `--url-mode relative` (`/blog/<slug>/`); absolute mode auto-appends secret pragma.
+- interlinker report `site_base` cleared when absolute PUBLIC_SITE_URL passed.
+- Indexer agent/skill + pitfalls документируют relative + sanitize + pragma.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- relative llms dry-run → `/blog/...` without absolute host
+- absolute + pragma dry-run → `<!-- pragma: allowlist secret -->`
+- `git_safe_site_base` unit asserts
+commit: pending
 
 ## INC-20260928-1401-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-publish
 topic_id: B01
@@ -626,4 +678,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- paramiko (+ numpy) baked into `.cursor/Dockerfile` and `.cursor/cloud-agent-install.sh`; requirements sync (requests/python-dotenv).
+- doctor: `paramiko available` WARN by default, ERROR with `--publish`.
+- Publish agent/skill: doctor `--publish` as step 0; ad-hoc pip не норма.
+files_changed:
+- `.cursor/Dockerfile`
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-publish.md`
+- `.cursor/agents/excalibur-blog-publish.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0, paramiko OK
+- `python3 scripts/excalibur_blog_doctor.py --publish` → errors=0
+- `rg paramiko` in Dockerfile/install/requirements/doctor
+commit: pending

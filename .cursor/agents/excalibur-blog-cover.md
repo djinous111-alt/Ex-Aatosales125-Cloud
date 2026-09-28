@@ -62,8 +62,8 @@ Cover-агент генерирует **один** quad-холст 2×2 (MCP `gp
 ARTICLE="memory/blog/articles/<topic_id>-<slug>"
 
 # 1. Публичный URL эталона лица
-python scripts/excalibur_blog_hero_reference_url.py
-
+python3 scripts/excalibur_blog_hero_reference_url.py
+# если --force upload fail: script reuses existing URL when sha256(local)==sha256(hosted)
 # 2. Manifest (H2 → visual_type; cover_hook — вручную/merge)
 python scripts/excalibur_blog_quad_manifest.py --article-dir "$ARTICLE" --merge
 
@@ -184,7 +184,7 @@ summary: ...
 
 | Скрипт                                 | Назначение                          |
 | -------------------------------------- | ----------------------------------- |
-| `excalibur_blog_hero_reference_url.py` | catbox/0x0 → `reference_url_hosted` |
+| `excalibur_blog_hero_reference_url.py` | catbox/0x0/litterbox/tmpfiles/uguu → `reference_url_hosted` (+ sha reuse) |
 | `excalibur_blog_quad_manifest.py`      | `cover/quad-manifest.json`          |
 | `excalibur_blog_cover_quad_prompt.py`  | prompt + `--write-batch`            |
 | `excalibur_blog_quad_apply.py`         | download URL → split → inject       |

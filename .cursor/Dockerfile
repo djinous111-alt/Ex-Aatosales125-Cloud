@@ -24,10 +24,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Keep in sync with requirements.txt + .cursor/cloud-agent-install.sh
+# paramiko is required for SSH publish (INC-20260928-1401).
 RUN python3 -m pip install --break-system-packages --no-cache-dir \
     requests \
     pillow \
     python-dotenv \
-    || python3 -m pip install --no-cache-dir requests pillow python-dotenv
+    numpy \
+    paramiko \
+    || python3 -m pip install --no-cache-dir requests pillow python-dotenv numpy paramiko
 
 WORKDIR /workspace

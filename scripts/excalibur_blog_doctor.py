@@ -113,6 +113,14 @@ def main() -> int:
 
     check(module_available("PIL"), "Pillow available", errors, warnings)
     check(module_available("numpy"), "numpy available", errors, warnings)
+    # paramiko is required for SSH publish; bake via Dockerfile / cloud-agent-install.sh
+    check(
+        module_available("paramiko"),
+        "paramiko available (SSH publish)",
+        errors,
+        warnings,
+        warn=not args.publish,
+    )
 
     interlinker = root / "scripts/excalibur_blog_interlinker.py"
     help_proc = subprocess.run(

@@ -1,8 +1,11 @@
 ﻿#!/usr/bin/env python3
 """Excalibur BLOG LLMs Generator: AI-First Crawler Policy.
 
-Generates and maintains standard llms.txt and llms-full.txt in the root folder,
+Generates and maintains standard llms.txt and llms-full.txt,
 providing LLM-readable indices and plain-text summaries of all blog articles.
+
+For git-committed copies prefer --url-mode relative (default) so PUBLIC_SITE_URL
+values never land in the tree. Absolute mode auto-appends secret-scanner pragma.
 """
 from __future__ import annotations
 
@@ -13,18 +16,17 @@ from pathlib import Path
 from typing import Any
 
 
+SECRET_PRAGMA = "<!-- pragma: allowlist secret -->"
+
+
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
 
 def strip_html(html: str) -> str:
-    # Remove script and style tags completely
     html = re.sub(r"<(script|style)[^>]*>[\s\S]*?</\1>", "", html, flags=re.IGNORECASE)
-    # Convert paragraph endings and headers to newlines
     html = re.sub(r"</?(p|h1|h2|h3|li|div|blockquote)[^>]*>", "\n", html, flags=re.IGNORECASE)
-    # Remove all other HTML tags
     text = re.sub(r"<[^>]+>", "", html)
-    # Normalize whitespaces and newlines
     text = re.sub(r"[ \t]+", " ", text)
     text = re.sub(r"\n\s*\n", "\n\n", text)
     return text.strip()
@@ -46,7 +48,6 @@ def load_articles(blog_dir: Path) -> list[dict[str, Any]]:
                 html_content = html_path.read_text(encoding="utf-8")
                 plain_text = strip_html(html_content)
 
-                # Use AEO description as the highly dense summaries for AI
                 meta_ab = meta.get("meta_ab", {})
                 aeo_desc = meta_ab.get("description_aeo") or meta_ab.get("description_seo") or meta.get("description", "")
 
@@ -61,45 +62,75 @@ def load_articles(blog_dir: Path) -> list[dict[str, Any]]:
     return articles
 
 
-def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]], site_base: str) -> str:
-    site_base = site_base.rstrip("/")
+def article_url(slug: str, site_base: str, *, url_mode: str) -> str:
+    """relative=/blog/<slug>/ avoids embedding PUBLIC_SITE_URL in git artifacts."""
+    if url_mode == "relative" or not site_base or site_base in ("[REDACTED]", "/"):
+        return f"/blog/{slug}/"
+    return f"{site_base.rstrip('/')}/blog/{slug}/"
+
+
+def with_secret_pragma(line: str, *, enabled: bool, url: str) -> str:
+    if not enabled:
+        return line
+    needs = url.startswith("http://") or url.startswith("https://") or "[REDACTED]" in url
+    if needs and "pragma: allowlist secret" not in line:
+        return f"{line} {SECRET_PRAGMA}"
+    return line
+
+
+def build_llms_txt(
+    site_name: str,
+    site_desc: str,
+    articles: list[dict[str, Any]],
+    site_base: str,
+    *,
+    url_mode: str,
+    secret_pragma: bool,
+) -> str:
     lines = [
         f"# {site_name}",
         f"> {site_desc}",
         "",
         "## Blog Articles",
-        ""
+        "",
     ]
     for a in articles:
-        url = f"{site_base}/blog/{a['slug']}/"
-        lines.append(f"- [{a['title']}]({url}): {a['description']}")
-
+        url = article_url(a["slug"], site_base, url_mode=url_mode)
+        line = f"- [{a['title']}]({url}): {a['description']}"
+        lines.append(with_secret_pragma(line, enabled=secret_pragma, url=url))
     return "\n".join(lines) + "\n"
 
 
-def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_base: str) -> str:
-    site_base = site_base.rstrip("/")
+def build_llms_full_txt(
+    site_name: str,
+    articles: list[dict[str, Any]],
+    site_base: str,
+    *,
+    url_mode: str,
+    secret_pragma: bool,
+) -> str:
     lines = [
         f"# {site_name} - Full LLM Knowledge Base",
         "This file contains full plain-text articles optimized for AI reasoning and semantic search.",
         "",
         "---",
-        ""
+        "",
     ]
-
     for a in articles:
-        url = f"{site_base}/blog/{a['slug']}/"
-        lines.extend([
-            f"## {a['title']}",
-            f"- **URL**: {url}",
-            f"- **Summary**: {a['description']}",
-            "",
-            a["plain_text"],
-            "",
-            "---",
-            ""
-        ])
-
+        url = article_url(a["slug"], site_base, url_mode=url_mode)
+        url_line = with_secret_pragma(f"- **URL**: {url}", enabled=secret_pragma, url=url)
+        lines.extend(
+            [
+                f"## {a['title']}",
+                url_line,
+                f"- **Summary**: {a['description']}",
+                "",
+                a["plain_text"],
+                "",
+                "---",
+                "",
+            ]
+        )
     return "\n".join(lines)
 
 
@@ -107,8 +138,24 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Generate AI-friendly llms.txt and llms-full.txt")
     ap.add_argument("--blog-dir", type=Path, default=None)
     ap.add_argument("--site-name", type=str, default="Авто-Сейлс")
-    ap.add_argument("--site-desc", type=str, default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.")
-    ap.add_argument("--site-base", type=str, default="https://avtosales125.ru")
+    ap.add_argument(
+        "--site-desc",
+        type=str,
+        default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.",
+    )
+    ap.add_argument("--site-base", type=str, default="[REDACTED]")
+    ap.add_argument(
+        "--url-mode",
+        choices=("relative", "absolute"),
+        default="relative",
+        help="relative=/blog/<slug>/ (git-safe default); absolute uses --site-base",
+    )
+    ap.add_argument(
+        "--secret-pragma",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Append pragma: allowlist secret on absolute/redacted URL lines (default: on)",
+    )
     ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for llms.txt/llms-full.txt")
     args = ap.parse_args()
 
@@ -124,8 +171,21 @@ def main() -> int:
     articles = load_articles(blog_dir)
     print(f"Loaded {len(articles)} articles to index for LLMs.")
 
-    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, args.site_base)
-    llms_full_txt = build_llms_full_txt(args.site_name, articles, args.site_base)
+    llms_txt = build_llms_txt(
+        args.site_name,
+        args.site_desc,
+        articles,
+        args.site_base,
+        url_mode=args.url_mode,
+        secret_pragma=args.secret_pragma,
+    )
+    llms_full_txt = build_llms_full_txt(
+        args.site_name,
+        articles,
+        args.site_base,
+        url_mode=args.url_mode,
+        secret_pragma=args.secret_pragma,
+    )
 
     llms_path = out_dir / "llms.txt"
     llms_full_path = out_dir / "llms-full.txt"
@@ -135,6 +195,7 @@ def main() -> int:
 
     print(f"llms.txt generated at {llms_path.relative_to(root) if root in llms_path.parents else llms_path}")
     print(f"llms-full.txt generated at {llms_full_path.relative_to(root) if root in llms_full_path.parents else llms_full_path}")
+    print(f"url_mode={args.url_mode} secret_pragma={args.secret_pragma}")
 
     return 0
 

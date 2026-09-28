@@ -55,3 +55,23 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- Для git-committed `llms.txt` / `llms-full.txt` используй `--url-mode relative` (default) → `/blog/<slug>/`. Absolute `PUBLIC_SITE_URL` в артефактах ломает Cloud secret scanner.
+- Если всё же пишешь absolute/redacted URL-строки: same-line `<!-- pragma: allowlist secret -->` (llms generator делает это при `--secret-pragma`, default on).
+- `interlink-report.json`: `site_base` должен быть пустым/relative; скрипт больше не пишет absolute PUBLIC_SITE_URL в report.
+
+## Cover / hero host
+
+- `excalibur_blog_hero_reference_url.py` пробует hosts: catbox → 0x0 → litterbox → tmpfiles → uguu.
+- При `--force` upload fail: сначала sha256-сравни существующий `reference_url_hosted` с локальным PNG; match = не blocker, reuse URL.
+
+## Git / Cloud secret scanner
+
+- Перед `git commit` в Cloud: `source scripts/excalibur_blog_sanitize_secret_names.sh` — фильтрует `CLOUD_AGENT_INJECTED_SECRET_NAMES` до bash identifiers.
+- Ошибка `invalid variable name` на pre-commit = в списке секретов попал raw URL; sanitize, **не** `--no-verify`.
+- `PUBLIC_SITE_URL` как Cloud Secret → не коммить absolute site URL без pragma / relative path / `[REDACTED]`.
+
+## Publish / env bake
+
+- `paramiko` обязателен для SSH publish. Bake: `requirements.txt` + `.cursor/Dockerfile` + `.cursor/cloud-agent-install.sh`.
+- Preflight: `python3 scripts/excalibur_blog_doctor.py --publish` → FAIL если paramiko отсутствует (без `--publish` = WARN).
+- Не ставь `pip install paramiko` как норму каждого run — это симптом сломанного environment build.

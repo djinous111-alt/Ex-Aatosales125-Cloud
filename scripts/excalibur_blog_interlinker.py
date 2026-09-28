@@ -48,17 +48,31 @@ def load_all_articles(blog_dir: Path) -> list[dict[str, Any]]:
     return articles
 
 
+def git_safe_site_base(site_base: str) -> str:
+    """Do not persist absolute PUBLIC_SITE_URL values into committed JSON reports."""
+    value = (site_base or "").strip().rstrip("/")
+    if not value or value == "[REDACTED]":
+        return ""
+    if value.startswith("http://") or value.startswith("https://"):
+        return ""
+    return value
+
+
+def relative_blog_url(slug: str) -> str:
+    return f"/blog/{slug}/"
+
+
 def find_linking_opportunities(articles: list[dict[str, Any]], site_base: str) -> list[dict[str, Any]]:
     suggestions = []
-    # Normalize site base URL
-    site_base = site_base.rstrip("/")
+    # Applied HTML links always use relative /blog/<slug>/; keep reports git-safe.
+    _ = site_base  # accepted for CLI compat; not written into committed artifacts
 
     for target in articles:
         target_slug = target["slug"]
         if not target_slug:
             continue
 
-        target_url = f"{site_base}/blog/{target_slug}/"
+        target_url = relative_blog_url(target_slug)
         # Prioritize natural anchor variants for diversification, then primary, then secondary queries
         raw_keywords = target.get("anchor_variants", []) + [target["primary_query"]] + target["secondary_queries"]
         # Remove duplicates while preserving order
@@ -224,7 +238,8 @@ def main() -> int:
     print(f"Found {len(suggestions)} internal linking opportunities.")
 
     report = {
-        "site_base": args.site_base,
+        # Empty when absolute PUBLIC_SITE_URL was passed — avoids secret-scanner blocks.
+        "site_base": git_safe_site_base(args.site_base),
         "total_articles": len(articles),
         "opportunities_found": len(suggestions),
         "suggestions": [

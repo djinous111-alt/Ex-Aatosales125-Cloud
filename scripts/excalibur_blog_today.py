@@ -60,7 +60,7 @@ def active_article_topic_ids(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = re.match(r"((?:AS|B)\d+)-", path.name, flags=re.IGNORECASE)
         if match:
             active.add(match.group(1).upper())
     return active
@@ -78,15 +78,30 @@ def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
     }
     used.update(active_article_topic_ids(root))
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    # Collect unwritten P0; prefer B## (current series) over AS##.
+    candidates_b: list[str] = []
+    candidates_as: list[str] = []
+    for match in re.finditer(
+        r"##\s+((?:AS|B)\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)",
+        text,
+        re.DOTALL | re.IGNORECASE,
+    ):
         topic_id = match.group(1).upper()
         block = match.group(2)
         if "priority:** P0" not in block and "**priority:** P0" not in block:
             pri = re.search(r"-\s*\*\*priority:\*\*\s*(\S+)", block)
             if not pri or pri.group(1).upper() != "P0":
                 continue
-        if topic_id not in used:
-            return topic_id
+        if topic_id in used:
+            continue
+        if topic_id.startswith("B"):
+            candidates_b.append(topic_id)
+        else:
+            candidates_as.append(topic_id)
+    if candidates_b:
+        return candidates_b[0]
+    if candidates_as:
+        return candidates_as[0]
     return ""
 
 

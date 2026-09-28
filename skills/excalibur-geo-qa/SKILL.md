@@ -41,14 +41,16 @@ python scripts/excalibur_blog_cannibalization_guard.py \
   --blog-dir memory/blog/articles \
   -o memory/blog/articles/<dir>/cannibalization-report.json
 
-python scripts/excalibur_blog_utility_gate.py \
+python3 scripts/excalibur_blog_utility_gate.py \
   --article-dir memory/blog/articles/<dir> \
   --output utility-gate-report.json
 
-python scripts/excalibur_blog_human_voice_gate.py \
+python3 scripts/excalibur_blog_human_voice_gate.py \
   --article-dir memory/blog/articles/<dir> \
   -o human-voice-report.json
 ```
+
+Utility pain/outcome маркеры берутся из `memory/brief/editorial-policy.json` (`pain_markers_ru` / `outcome_markers_ru`, синхрон с human-voice). Если оба gate расходятся по спискам — это policy bug для Fixer, не writer-only правки.
 
 **Pass:** score ≥ 80, CORE-EEAT ≥ 16/20, link-verify pass, **research notes gate PASS**, **utility gate PASS**, **human voice gate PASS**, **beginner-fit PASS**. В `article-qa.md` отдельно зафиксируй: какая боль новичка решена, где показано решение, какой первый результат получит читатель, какие сложные термины объяснены «на пальцах».
 

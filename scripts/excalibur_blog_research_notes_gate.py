@@ -62,9 +62,43 @@ def extract_urls(text: str) -> list[str]:
     return [url.rstrip(".,;:") for url in urls]
 
 
+def extract_heading_section(text: str, heading: str) -> str:
+    """Return body under ## heading (optional leading number), until next ## or EOF."""
+    field_pattern = re.escape(heading).replace("_", r"[_\s-]")
+    match = re.search(
+        rf"##\s*\d*\.?\s*{field_pattern}\b([\s\S]*?)(?=\n##\s|\Z)",
+        text,
+        flags=re.I,
+    )
+    return match.group(1) if match else ""
+
+
+def count_pain_solution_rows(text: str) -> int:
+    """Count markdown table data rows inside ## pain_solution_map only.
+
+    Ignores the first header row and |---| separator rows. Scope is the section
+    body so source_table lines elsewhere no longer inflate the count.
+    """
+    section = extract_heading_section(text, "pain_solution_map")
+    if not section.strip():
+        return 0
+    table_rows: list[str] = []
+    for line in section.splitlines():
+        stripped = line.strip()
+        if not stripped.startswith("|"):
+            continue
+        cells = [c.strip() for c in stripped.strip("|").split("|")]
+        if cells and all(re.fullmatch(r":?-{3,}:?", c or "") for c in cells):
+            continue
+        table_rows.append(stripped)
+    # Drop a single leading header row when present.
+    if table_rows:
+        table_rows = table_rows[1:]
+    return len(table_rows)
+
+
 def count_action_items(text: str) -> int:
-    match = re.search(r"##\s*\d*\.?\s*action_outline\b([\s\S]*?)(?=\n##\s|\Z)", text, flags=re.I)
-    section = match.group(1) if match else text
+    section = extract_heading_section(text, "action_outline") or text
     numbered = re.findall(r"^\s*(?:\d+[\).]|[-*])\s+\S+", section, flags=re.M)
     return len(numbered)
 
@@ -132,7 +166,7 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     ]
     accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    pain_map_rows = count_pain_solution_rows(text)
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:

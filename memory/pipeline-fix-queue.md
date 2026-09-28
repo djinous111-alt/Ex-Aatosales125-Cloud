@@ -252,7 +252,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20260928-1311-scout-as-id-blind
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-scout
 topic_id: B01
@@ -284,10 +284,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- scout_helper + today: dual-prefix `(AS|B)\\d+` для pool, article dirs; next ID остаётся в серии B##; `--check-query` видит AS primary_query.
+- Scout skill + pitfalls документируют AS|B.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → pool 10 (AS=9, B=1), next B02, active AS08/AS09/B01
+- `--check-query "растаможка авто из Кореи"` → CRITICAL match AS01
+commit: pending-parent-commit
 
 ## INC-20260928-1321-research-pain-map-keywords
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-research
 topic_id: B01
@@ -318,14 +332,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- Gate считает data-rows только внутри `## pain_solution_map` (≥3 после header/separator).
+- Research skill + pitfalls: пример PASS-таблицы с `боль:`/`решение:`/`результат:`.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir …/B01-…` → PASS
+commit: pending-parent-commit
 
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
 
 ## INC-20260928-1329-geo-qa-typed-task-fallback
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -354,10 +380,24 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- Docs/contracts: канон — сразу `Task(generalPurpose)` без retry typed (в т.ч. geo-qa). Регистрация typed enum вне репо → не needs-human.
+files_changed:
+- `CLOUD-AUTOMATION.md`
+- `agents/excalibur-blog-director.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/pipeline-task-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` на формулировки «сразу generalPurpose» / «не тратить шаг на retry typed»
+commit: pending-parent-commit
 
 ## INC-20260928-1330-geo-qa-utility-pain-outcome-policy
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -392,10 +432,28 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- `editorial-policy.json`: `pain_markers_ru`/`outcome_markers_ru` синхрон с human_voice PAIN/OUTCOME + min 2/3 в article_required_signals.
+- utility_gate: пустые списки → WARN skip, не вечный BLOCK; writer/geo-qa docs про маркеры.
+- Doctor: `--blog-path` → `--blog-dir` для llms CLI check.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_utility_gate.py --article-dir …/B01-…` → PASS (pain=6, outcome=9, action=24)
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 (`llms generator supports --blog-dir`)
+commit: pending-parent-commit
 
 ## INC-20260928-1336-writer-read-redact-href
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-writer
 topic_id: B01
@@ -424,4 +482,16 @@ category: other
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- Writer agent/skill + pitfalls: запрет полного Write HTML из Read при FIX; CTA URL из conversion-map/git + StrReplace.
+files_changed:
+- `agents/excalibur-blog-writer.md`
+- `.cursor/agents/excalibur-blog-writer.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` на REDACTED/StrReplace guidance в writer docs
+commit: pending-parent-commit

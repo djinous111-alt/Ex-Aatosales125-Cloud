@@ -2,6 +2,8 @@
 
 Директор **не** Task. Все роли ниже — `Task(<name>)`.
 
+**Cloud enum note (2026-09):** typed `excalibur-blog-*` часто отсутствуют в Cloud Task types. Канонический путь без retry: сразу отдельный `Task(generalPurpose)` на роль + `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md` (см. `AGENTS.md`). Это относится и к `excalibur-blog-geo-qa`.
+
 ## Схема
 
 ```text

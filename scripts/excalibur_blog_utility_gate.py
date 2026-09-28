@@ -28,7 +28,7 @@ def save_json(path: Path, data: dict[str, Any]) -> None:
 
 def parse_topic_card(topics_path: Path, topic_id: str) -> dict[str, str]:
     text = topics_path.read_text(encoding="utf-8")
-    pattern = rf"##\s+{re.escape(topic_id)}\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+[A-Z]\d+|\Z)"
+    pattern = rf"##\s+{re.escape(topic_id)}\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)"
     match = re.search(pattern, text, re.DOTALL | re.IGNORECASE)
     if not match:
         raise ValueError(f"topic card not found: {topic_id}")
@@ -187,16 +187,30 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
 
     pain_markers = policy.get("pain_markers_ru") or []
     outcome_markers = policy.get("outcome_markers_ru") or []
-    pain_count = count_markers(plain, pain_markers)
-    outcome_count = count_markers(plain, outcome_markers)
+    pain_count = count_markers(plain, pain_markers) if pain_markers else 0
+    outcome_count = count_markers(plain, outcome_markers) if outcome_markers else 0
 
-    min_pain = int(req.get("min_pain_markers") or 2)
-    if pain_count < min_pain:
-        errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
+    # Empty marker lists are a policy misconfig: do not hard-BLOCK every article.
+    # Prefer durable lists in editorial-policy.json (aligned with human_voice_gate).
+    if not pain_markers:
+        warnings.append(
+            "pain_markers_ru пуст в editorial-policy — pain check пропущен; "
+            "добавьте список (синхрон с human_voice PAIN_MARKERS)"
+        )
+    else:
+        min_pain = int(req.get("min_pain_markers") or 2)
+        if pain_count < min_pain:
+            errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
 
-    min_outcome = int(req.get("min_outcome_markers") or 3)
-    if outcome_count < min_outcome:
-        errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
+    if not outcome_markers:
+        warnings.append(
+            "outcome_markers_ru пуст в editorial-policy — outcome check пропущен; "
+            "добавьте список (синхрон с human_voice OUTCOME_MARKERS)"
+        )
+    else:
+        min_outcome = int(req.get("min_outcome_markers") or 3)
+        if outcome_count < min_outcome:
+            errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
 
     if req.get("requires_workflow_or_table_or_checklist"):
         has_utility_block = bool(tables or blockquotes or ul_lists >= 2 or "→" in html)

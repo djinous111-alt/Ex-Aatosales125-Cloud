@@ -6,6 +6,48 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260928-1708-research-tech-marker-false-positive
+status: fixed
+run_date: 2026-09-28
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-korei-pod-klyuch-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marked non-tech auto-import topic B01 as `technical_topic=true` because TECH_MARKERS used naive substring match: `ai` inside required field `reader_pain`, and `ии` inside Russian genitive forms like `истории`.
+- Gate then demanded `github_urls >= 3`, which blocked a valid beginner how-to about ordering cars from Korea.
+- Separately, `accessed_at` counter required the literal token `accessed_at:` (≥5), while source_table rows only had bare dates in the accessed_at column.
+
+### How the agent recovered this run
+- Patched `is_technical_topic()` to use token boundaries for markers with length ≤3.
+- Rewrote source_table date cells as `accessed_at: 2026-09-28`.
+- Re-ran research-notes gate → PASS (`technical_topic: false`).
+
+### Durable fix needed before next run
+- Keep token-boundary matching for short TECH_MARKERS (`ai`, `ии`, `rag`, `api`, `mcp`) so required human-voice fields never flip auto niches to "technical".
+- Optionally document that source_table dates should include the `accessed_at:` label, or count the dedicated column without requiring the key in every cell.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-09-28
+fix_summary: Research agent applied token-boundary fix in `is_technical_topic` during B01 run; gate PASS without fake GitHub URLs.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `memory/blog/articles/B01-kak-zakazat-avto-iz-korei-pod-klyuch-2026/research-notes.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir memory/blog/articles/B01-kak-zakazat-avto-iz-korei-pod-klyuch-2026 -o research-notes-gate.json` → PASS
+commit: pending-parent-commit
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

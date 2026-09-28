@@ -80,7 +80,16 @@ def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
     blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Short markers like "ai"/"ии" must be whole tokens: otherwise every notes file
+    # with required field reader_pain (…ai…) or Russian "истории" (…ии…) becomes "technical"
+    # and falsely demands github.com URLs (e.g. auto-import how-to topics).
+    for marker in TECH_MARKERS:
+        if len(marker) <= 3:
+            if re.search(rf"(?<![a-z0-9а-яё]){re.escape(marker)}(?![a-z0-9а-яё])", blob, flags=re.I):
+                return True
+        elif marker in blob:
+            return True
+    return False
 
 
 def field_present(text_lower: str, field: str) -> bool:

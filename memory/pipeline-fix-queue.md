@@ -23,11 +23,14 @@ category: docs
 - Перегенерировал llms с `--site-base ""` (relative `/blog/<slug>/`).
 - Обнулил `site_base` в `interlink-report.json`.
 - Перед commit отфильтровал невалидные bash-идентификаторы из `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+- GEO QA `link-verify.json` с TELEGRAM_URL не коммитил (оставлен untracked; добавлен `_comment` allowlist на диске).
+- Local commit `1b4b097` ok; `git push` → GitHub `Invalid username or token` (Cloud git credential stale) — 4 retry с backoff, без успеха.
 
 ### Durable fix needed before next run
 - В skill `indexer-excalibur-blog` и agent contract: для commit-safe артефактов по умолчанию `--site-base ""`; абсолютный base только если publish-step сам подставит домен.
 - В pitfalls Indexer: не коммитить absolute `$PUBLIC_SITE_URL` в llms/interlink-report.
 - Fixer: hardening pre-commit/env injection (общий с INC-20260928-0938).
+- Cloud: обновить GitHub push token / credential helper для ветки агента.
 
 ### Suggested files to inspect/change
 - `.cursor/skills/indexer-excalibur-blog/SKILL.md`

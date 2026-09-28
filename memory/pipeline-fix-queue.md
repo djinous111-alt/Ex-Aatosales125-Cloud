@@ -57,7 +57,7 @@ files_changed:
 checks_run:
 - `python3 -c 'import paramiko'`
 - `python3 scripts/excalibur_blog_doctor.py` (paramiko OK)
-commit: pending-parent-commit
+commit: ecf2449
 
 ## INC-20260928-0945-indexer-llms-absolute-site-base
 status: fixed
@@ -116,7 +116,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` (llms --blog-dir OK)
 - `python3 scripts/excalibur_blog_llms_generator.py --help`
 - filter_secret_names dry-run
-commit: pending-parent-commit
+commit: ecf2449
 
 ## INC-20260928-0938-schema-secret-scanner-public-urls
 status: fixed
@@ -165,7 +165,7 @@ files_changed:
 checks_run:
 - unit test strip_schema_jsonld_comments
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
-commit: pending-parent-commit
+commit: ecf2449
 
 ## INC-20260928-0935-writer-utility-pain-markers-missing
 status: fixed
@@ -216,7 +216,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir memory/blog/articles/AS02-encar-na-russkom-kak-chitat` PASS
 - doctor editorial-policy checks OK
-commit: pending-parent-commit
+commit: ecf2449
 
 
 ## INC-20260928-0920-scout-as-prefix-regex
@@ -273,7 +273,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → AS10, pool=9
 - `--check-query "encar на русском"` → CRITICAL AS02
 - `today.py` → EXCALIBUR_SUGGESTED_TOPIC_ID=AS01, selection=ready
-commit: pending-parent-commit
+commit: ecf2449
 
 ## INC-20260928-0926-research-wordstat-secondary-format
 status: fixed
@@ -328,7 +328,7 @@ files_changed:
 checks_run:
 - unit: Encar how-to + github_evidence notes → technical_topic=False
 - unit: MCP/Cursor topic → technical_topic=True
-commit: pending-parent-commit
+commit: ecf2449
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

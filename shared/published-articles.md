@@ -6,4 +6,4 @@
 | 2026-07-17 | AS09 | trust-encar-carhistory-proverka-do-depozita | /2026/07/17/trust-encar-carhistory-proverka-do-depozita/ | published |
 
 > Ledger сброшен при перенастройке под AVTO SALES (2026-07-17).
-| 2026-09-28 | AS02 | encar-na-russkom-kak-chitat | memory/blog/articles/AS02-encar-na-russkom-kak-chitat | in_progress |
+| 2026-09-28 | AS02 | encar-na-russkom-kak-chitat | /2026/07/18/encar-na-russkom-kak-chitat/ | published |

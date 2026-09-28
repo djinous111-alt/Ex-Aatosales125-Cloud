@@ -1,0 +1,66 @@
+{
+  "article": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 8,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 7,
+  "facts": [
+    {
+      "fact": "2000",
+      "kind": "date_or_year",
+      "context": "Гарантия по листу в Корее ориентирно 1 месяц или 2000 км – это не страховка после Владивостока. Сделайте",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "Encar Media; срок листа 120 дней – с Dong-A (март 2025) и гайдами 2026; ограничения Carhistory – с EN-га",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "к листа 120 дней – с Dong-A (март 2025) и гайдами 2026; ограничения Carhistory – с EN-гайдом carhistory.",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "120 дней",
+      "kind": "metric_or_duration",
+      "context": "нжероне, дата Performance Check просрочена больше 120 дней. Боль новичка простая: Encar на корейском, страх",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "120",
+      "kind": "large_number",
+      "context": "нжероне, дата Performance Check просрочена больше 120 дней. Боль новичка простая: Encar на корейском, ст",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1890",
+      "kind": "large_number",
+      "context": "Переведите цену: часто она в манвонах. Например, 1890 значит 18 900 000 вон – цена в Корее, не \"под ключ",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "18 900 000",
+      "kind": "large_number",
+      "context": "цену: часто она в манвонах. Например, 1890 значит 18 900 000 вон – цена в Корее, не \"под ключ\" в РФ. Скопируйте",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "48 000",
+      "kind": "large_number",
+      "context": "сходятся – пробег не доверяйте. Например, в шапке 48 000 км, а на листе другая цифра: это развилка \"ок / не",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

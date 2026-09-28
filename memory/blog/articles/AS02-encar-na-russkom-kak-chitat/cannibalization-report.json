@@ -1,0 +1,18 @@
+{
+  "verdict": "warning",
+  "total_issues": 1,
+  "issues": [
+    {
+      "severity": "warning",
+      "type": "primary_secondary_cannibalization",
+      "message": "WARNING: Primary query of 'AS09-trust-encar-carhistory-proverka-do-depozita' ('trust encar') highly overlaps with secondary query of 'AS02-encar-na-russkom-kak-chitat' ('trust encar'). Similarity: 100%",
+      "articles": [
+        "AS02-encar-na-russkom-kak-chitat",
+        "AS09-trust-encar-carhistory-proverka-do-depozita"
+      ],
+      "primary_query": "trust encar",
+      "secondary_query": "trust encar",
+      "similarity": 1.0
+    }
+  ]
+}

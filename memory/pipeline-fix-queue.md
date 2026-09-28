@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260928-0953-publish-paramiko-missing
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-publish
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: env
+
+### What went wrong
+- `import paramiko` failed (`ModuleNotFoundError`) в Cloud runtime перед live publish, хотя dry-run payload собрался без SSH.
+- `SSH_ROOT` в env unset (`--env-check` → root unset / dot_fallback_enabled false); для этого хоста нужен login cwd `.`.
+
+### How the agent recovered this run
+- `pip3 install --break-system-packages paramiko` (5.0.0).
+- `export SSH_ROOT=.` на сессию; publish PASS: post 3394, featured 3767, inline 3768–3770, schema_meta ok, live HEAD 200 (~133s, без WebFetch fallback).
+- Ledger URL санитизирован до site-relative `/2026/07/18/encar-na-russkom-kak-chitat/`; `wp-publish-result.json` permalink → `[PUBLIC_SITE_URL]/…`.
+
+### Durable fix needed before next run
+- Bake `paramiko` в Dockerfile / environment.json install (повтор AS11/AS02).
+- Cloud Secret `SSH_ROOT=.` по умолчанию для этого SSH-аккаунта.
+- Publish skill: явный preflight `python3 -c 'import paramiko'` перед live publish.
+
+### Suggested files to inspect/change
+- `.cursor/environment.json` / Dockerfile
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- Cursor Dashboard Cloud Secrets (`SSH_ROOT` only)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260928-0945-indexer-llms-absolute-site-base
 status: open
 run_date: 2026-09-28

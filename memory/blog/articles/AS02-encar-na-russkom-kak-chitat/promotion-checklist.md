@@ -1,7 +1,7 @@
 # Promotion checklist — AS02 encar-na-russkom-kak-chitat
 
-Дата публикации: 2026-09-28 (planned; pre-publish)  
-Live URL: /blog/encar-na-russkom-kak-chitat/ (после WP publish)
+Дата публикации: 2026-09-28  
+Live URL: /2026/07/18/encar-na-russkom-kak-chitat/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -11,6 +11,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
+- [x] Live HEAD 200 после publish (post_id 3394)
 
 ## Соцсети / каналы (из conversion-tracking-map)
 
@@ -29,7 +30,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • X = обмен детали, W = рихтовка/сварка; лист 120 дней
 • Carhistory — вспомогательный слой, не замена Performance Check
 
-Читать: /blog/encar-na-russkom-kak-chitat/
+Читать: /2026/07/18/encar-na-russkom-kak-chitat/
 ```
 
 ## Перелинковка
@@ -46,6 +47,6 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 ## Notes
 
-- Indexer: interlinker `--apply --article-dir …/AS02-encar-na-russkom-kak-chitat --site-base $PUBLIC_SITE_URL` — 3 links applied (AS08×1, AS09×2 → AS02); relative `/blog/…` anchors.
-- llms.txt / llms-full.txt обновлены в `memory/blog/` (`--blog-dir memory/blog/articles --site-base "" --out-dir memory/blog`; без устаревшего `--blog-path`; relative URLs для commit-safe).
-- Publish: pending после Indexer.
+- Indexer: interlinker `--apply` — 3 links applied (AS08×1, AS09×2 → AS02); relative `/blog/…` anchors.
+- llms.txt / llms-full.txt обновлены в `memory/blog/` (relative URLs; commit-safe).
+- Publish PASS: post 3394; featured 3767; inline 3768/3769/3770; schema_meta ok; live HEAD 200.

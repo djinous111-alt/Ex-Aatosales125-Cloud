@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Балл 4.5 — ещё не решение",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс с распечатанным аукционным листом и смартфоном у порта: крючок читать лист до ставки",
+      "scene_hint": "WEATHER: foggy Vladivostok port morning grey; OUTFIT: navy field jacket over charcoal knit crewneck (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie holding printed Japanese auction sheet with body-map diagram circled + phone mock auction card; torn paper hook plaque Cyrillic «Балл 4.5 — ещё не решение» with yellow highlighter on «не решение»; sticky note «до ставки»; shocked meme cutout + cat meme sticker (different formats, NO toxic insults); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; sticker text only neutral RU like «схема», «R/RA», «читай лист»",
+      "meme_caption_ru": "Сначала схема"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Начните не с цены: порядок чтения листа до ставки",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Clean RU workflow diagram 5 steps left-to-right: 1) R/RA 2) схема кузова 3) примечания 4) пробег/кузов 5) фото → решение; red X over «цена в ¥ первой»; pink sticky «порядок»; scotch tape; NO hero face; NO Wordstat/Metrika; no toxic slang on stickers",
+      "alt": "Схема порядка чтения аукционного листа: R/RA → повреждения → примечания → пробег → фото"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Проверьте R и RA до любой мысли о балле",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable checklist board: □ нет R □ нет RA □ схема без XX □ примечания переведены □ фото сходятся — BEFORE grade; red stamp «балл потом»; sticky «R/RA первым»; tape corner; NO hero face; NO Wordstat/Metrika",
+      "alt": "Чеклист: сначала R и RA, общий балл только после проверки повреждений"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Расшифруйте схему кузова: коды A, U, W, X, XX",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns код | смысл | риск; rows A | U | W | X | XX with short Cyrillic meanings (scratch/dent/repair/replace/heavy); yellow highlight X/XX rows; mini body-map inset with tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица кодов схемы кузова A U W X XX с кратким смыслом и уровнем риска"
+    }
+  }
+}

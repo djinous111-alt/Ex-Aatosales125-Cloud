@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "kak-chitat-auktsionnyy-list-yaponii-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс с распечатанным аукционным листом и смартфоном у порта: крючок читать лист до ставки",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-09-28T21:27:36+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс с распечатанным аукционным листом и смартфоном у порта: крючок читать лист до ставки",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Схема порядка чтения аукционного листа: R/RA → повреждения → примечания → пробег → фото",
+      "h2_anchor": "Начните не с цены: порядок чтения листа до ставки",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Чеклист: сначала R и RA, общий балл только после проверки повреждений",
+      "h2_anchor": "Проверьте R и RA до любой мысли о балле",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Таблица кодов схемы кузова A U W X XX с кратким смыслом и уровнем риска",
+      "h2_anchor": "Расшифруйте схему кузова: коды A, U, W, X, XX",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

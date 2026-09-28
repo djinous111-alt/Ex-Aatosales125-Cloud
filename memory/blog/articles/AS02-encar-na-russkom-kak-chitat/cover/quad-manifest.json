@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS02",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Красивая цена — кот в мешке?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс в очках со смартфоном у карточки Encar: крючок «красивая цена — кот в мешке»",
+      "scene_hint": "WEATHER: cool cloudy indoor café/desk near window, soft grey Vladivostok daylight; OUTFIT: neat casual charcoal zip sweater over light shirt (NOT reference tank/t-shirt), NO cap NO hood, stylish glasses on; reference EXACT face likeness; action selfie holding smartphone showing fake Encar listing UI (Korean car card, price, mileage); torn-paper Cyrillic hook plaque «Красивая цена — кот в мешке?» with yellow highlighter on «кот в мешке»; cat-in-bag irony sticker + shocked meme cutout (different formats, max one Drake); sticky note «сначала X/W»; scotch tape; DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; NEVER toxic labels лох/лохов",
+      "meme_caption_ru": "Сначала схема кузова"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Откройте официальный encar.com, а не клон \"на русском\"",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake browser UI split: left official encar.com address bar green lock + listing card; right shady clone site «Encar на русском» with red warning stamp «клон»; Cyrillic labels; sticky «только encar.com»; scotch tape corner; NO hero face; NO Wordstat/Metrika",
+      "alt": "Мокап браузера: официальный encar.com против клона «на русском»"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Выпишите с карточки пять полей до предоплаты",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison/checklist table UI with 5 rows before prepayment: год/модель, пробег, цена, Performance Check дата, комплектация; yellow highlight on «до предоплаты»; mini sticky «5 полей»; tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица пяти полей карточки Encar до предоплаты"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Как читать Performance Check: коды X, W и 120 дней",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram: body diagram mock → find code X (обмен) → code W (сварка) → check sheet date ≤120 days → verdict осмотр/мимо; arrows handwritten; sticky «X=обмен W=сварка»; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема чтения Performance Check: коды X, W и срок листа 120 дней"
+    }
+  }
+}

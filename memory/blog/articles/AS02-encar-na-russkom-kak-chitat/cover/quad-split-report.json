@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/cover/canvas-quad.png",
+    "source_size_px": [
+      2736,
+      1536
+    ],
+    "panel_size_px": [
+      1374,
+      775
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 775,
+        "end": 820
+      },
+      "v_gutter_px": {
+        "start": 1374,
+        "end": 1416
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1374,
+          "bottom": 775
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1374,
+          "bottom": 775
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс в очках со смартфоном у карточки Encar: крючок «красивая цена — кот в мешке»",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1416,
+          "top": 16,
+          "right": 2736,
+          "bottom": 758
+        },
+        "raw_box_px": {
+          "left": 1416,
+          "top": 0,
+          "right": 2736,
+          "bottom": 775
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап браузера: официальный encar.com против клона «на русском»",
+        "h2_anchor": "Откройте официальный encar.com, а не клон \"на русском\""
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 50,
+          "top": 820,
+          "right": 1323,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 820,
+          "right": 1374,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица пяти полей карточки Encar до предоплаты",
+        "h2_anchor": "Выпишите с карточки пять полей до предоплаты"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1439,
+          "top": 820,
+          "right": 2712,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 1416,
+          "top": 820,
+          "right": 2736,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема чтения Performance Check: коды X, W и срок листа 120 дней",
+        "h2_anchor": "Как читать Performance Check: коды X, W и 120 дней"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Откройте официальный encar.com, а не клон \"на русском\"",
+    "injected inline_2 after H2 — Выпишите с карточки пять полей до предоплаты",
+    "injected inline_3 after H2 — Как читать Performance Check: коды X, W и 120 дней"
+  ]
+}

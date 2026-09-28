@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260928-2105-scout-helper-as-ids-invisible
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py` парсит только карточки `## B\\d+` в `memory/topics/blog-topics.md`.
+- Пул AS01–AS09 и их `primary_query`/`slug` невидимы для `--suggest-next` и `--check-query` (helper показал Total topics=0 при живом AS-пуле).
+- Риск ложного `NO CANNIBALIZATION` и повторного B01 при сброшенном ledger, если не сверять WP/AS вручную.
+
+### How the agent recovered this run
+- Вручную исключил slug/primary из AS01–AS09 и списка live WP постов из handoff.
+- Выбрал тему вне пересечения: аукционный лист Японии (`kak-chitat-auktsionnyy-list-yaponii-2026`).
+- `--check-query` по primary прошёл; финальная защита – ручной gap-check.
+
+### Durable fix needed before next run
+- Расширить парсер helper на ID вида `AS\\d+` (и любые `[A-Z]+\\d+`), чтобы пул и check-query учитывали AS-карточки.
+- Опционально: принимать список reserved WP slugs/queries (env или файл) в `--check-query`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

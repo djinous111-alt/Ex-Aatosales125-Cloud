@@ -15,6 +15,8 @@
 
 - Перед пайплайном: `python3 scripts/excalibur_blog_today.py` и `python3 scripts/excalibur_blog_research_start.py --topic-id …`.
 - Если `EXCALIBUR_RUN_DATE` нет в выводе today.py — старая ветка/код, **блокер**.
+- В `research-notes.md` в `source_table` пиши явный `accessed_at: YYYY-MM-DD` в ячейках (gate считает литерал `accessed_at:`, не голую дату).
+- Короткие TECH_MARKERS (`ai`, `ии`) в research-notes gate — только как целые токены; иначе `reader_pain` / «истории» ложно включают требование github.com на авто-темах.
 
 ## Publish
 

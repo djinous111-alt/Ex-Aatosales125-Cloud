@@ -1,0 +1,28 @@
+{
+  "site_base": "",
+  "total_articles": 3,
+  "opportunities_found": 3,
+  "suggestions": [
+    {
+      "source": "AS08-samye-komfortnye-avto-myagkaya-podveska-2026",
+      "target": "AS02-encar-na-russkom-kak-chitat",
+      "keyword": "carhistory",
+      "context": "и комментарии по ходовой; для Кореи – отчёт сервисов вроде Carhistory / <a href=\"/blog/trust-encar-carhistory-proverka-do-depozit",
+      "link_replacement": "<a href=\"/blog/encar-na-russkom-kak-chitat/\">Carhistory</a>"
+    },
+    {
+      "source": "AS09-trust-encar-carhistory-proverka-do-depozita",
+      "target": "AS02-encar-na-russkom-kak-chitat",
+      "keyword": "trust encar",
+      "context": "<p>В выдаче по запросу \"trust encar\" часто всплывают посредники и красивые каталоги, а депозит",
+      "link_replacement": "<a href=\"/blog/encar-na-russkom-kak-chitat/\">trust encar</a>"
+    },
+    {
+      "source": "AS09-trust-encar-carhistory-proverka-do-depozita",
+      "target": "AS02-encar-na-russkom-kak-chitat",
+      "keyword": "carhistory",
+      "context": "говая проверка корейского авто до депозита: карточка Encar, Carhistory по VIN, живой осмотр и стоп-правила оплаты. После гайда вы",
+      "link_replacement": "<a href=\"/blog/encar-na-russkom-kak-chitat/\">Carhistory</a>"
+    }
+  ]
+}

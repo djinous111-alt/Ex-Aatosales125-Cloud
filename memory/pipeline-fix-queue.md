@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260928-0945-indexer-llms-absolute-site-base
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-indexer
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: docs
+
+### What went wrong
+- Первый прогон `excalibur_blog_llms_generator.py` с `--site-base $PUBLIC_SITE_URL` записал абсолютные URL в `memory/blog/llms.txt` / `llms-full.txt` и `site_base` в `interlink-report.json` → pre-commit secret scanner блокирует commit.
+- Параллельно pre-commit по-прежнему падает на `invalid variable name`, если в `CLOUD_AGENT_INJECTED_SECRET_NAMES` лежит сырой URL вместо идентификатора (см. INC-20260928-0938).
+
+### How the agent recovered this run
+- Перегенерировал llms с `--site-base ""` (relative `/blog/<slug>/`).
+- Обнулил `site_base` в `interlink-report.json`.
+- Перед commit отфильтровал невалидные bash-идентификаторы из `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+
+### Durable fix needed before next run
+- В skill `indexer-excalibur-blog` и agent contract: для commit-safe артефактов по умолчанию `--site-base ""`; абсолютный base только если publish-step сам подставит домен.
+- В pitfalls Indexer: не коммитить absolute `$PUBLIC_SITE_URL` в llms/interlink-report.
+- Fixer: hardening pre-commit/env injection (общий с INC-20260928-0938).
+
+### Suggested files to inspect/change
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260928-0938-schema-secret-scanner-public-urls
 status: open
 run_date: 2026-09-28

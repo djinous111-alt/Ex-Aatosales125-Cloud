@@ -111,7 +111,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `python3 scripts/excalibur_blog_llms_generator.py --url-mode relative --out-dir /tmp/...` → `/blog/<slug>/`
 - `rg` no command examples with `--blog-path` in durable agent/skill sources
-commit: pending-parent-commit
+commit: f34aea9+485ac51
 
 ## INC-20260928-1725-schema-jsonld-secret-scanner
 status: fixed
@@ -164,7 +164,7 @@ checks_run:
 - schema `--check` on B01 → OK
 - strip+annotate roundtrip → valid JSON, idempotent
 - sanitize smoke: URL name dropped from injected list
-commit: pending-parent-commit
+commit: f34aea9+485ac51
 
 
 ## INC-20260928-1718-writer-empty-pain-outcome-markers

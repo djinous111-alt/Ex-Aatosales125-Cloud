@@ -64,11 +64,14 @@ category: api
 - В `research-notes.md` зафиксировал Wordstat-таблицу по успешным фразам и явную secondary note без выдуманных показов.
 - Для Teletype использовал сниппеты WebSearch + параллельные гайды (chest-import, auto.ru, carto).
 - Research-notes gate: PASS (warning про official docs на technical false-positive оставлен).
+- Self-site URL в `research-serp.json` заменены на placeholder; в `published-articles.md` URL AS08/AS09 переведены в site-relative paths; secret-names env отфильтрован по `str.isidentifier()` перед commit.
 
 ### Durable fix needed before next run
 - В MCP/обёртке Wordstat: при ответе только `totalCount` без `topRequests` возвращать понятную ошибку или пустой список, а не "unexpected format" без retry-подсказки.
 - В `excalibur_blog_research_notes_gate.py`: не считать тему technical только из наличия секции `github_evidence` / слова github в notes; матчить tech-markers по topic h1/primary_query, не по всему тексту notes.
 - Pitfalls: при secondary Wordstat totalCount-only не выдумывать impressions.
+- `research_start` / SERP writer: сразу редактировать self-site URL (PUBLIC_SITE_URL) в serp JSON; ledger хранить path-only или env-composed URL.
+- Document Cloud secret-scan + invalid SECRET_NAMES workaround in pitfalls.
 
 ### Suggested files to inspect/change
 - `scripts/excalibur_blog_research_notes_gate.py`

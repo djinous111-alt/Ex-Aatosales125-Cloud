@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260928-1730-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-korei-pod-klyuch-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Doctor preflight checks that `excalibur_blog_llms_generator.py --help` contains `--blog-path`; the live CLI only has `--blog-dir` and `--out-dir`.
+- Agent/skill contracts still show `python3 …llms_generator.py … --blog-path /`, so indexer/doctor disagree with the script and waste a preflight FAIL + agent confusion every run.
+- Preferred relative url-mode (`/blog/<slug>/`) is not a CLI flag; generator always builds `{site_base}/blog/{slug}/`.
+
+### How the agent recovered this run
+- Ran llms generator with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
+- Kept absolute site-base URLs to match existing `memory/blog/llms.txt` entries for AS08/AS09.
+
+### Durable fix needed before next run
+- Align doctor check and indexer skill/agent examples with real CLI (`--blog-dir` / `--out-dir` only).
+- Optionally add `--url-mode {absolute,relative}` (or treat empty/`/` site-base as relative `/blog/<slug>/`) and document the preferred default.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260928-1725-schema-jsonld-secret-scanner
 status: open
 run_date: 2026-09-28

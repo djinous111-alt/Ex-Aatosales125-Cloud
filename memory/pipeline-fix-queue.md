@@ -44,6 +44,42 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20260928-0926-research-wordstat-secondary-format
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-research
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: low
+category: api
+
+### What went wrong
+- `wordstat_get_top_requests` для secondary query `как читать encar` вернул неожиданный формат `{ "totalCount": "7" }` без списка фраз/показов (и с `regions`, и без).
+- Primary/соседние фразы (`encar`, `encar на русском`, `проверка авто корея`, `trust encar`, `енкар на русском`, `carhistory`) отработали нормально.
+- WebFetch `https://teletype.in/@vezemavto/B2hgUEkytih` дал 502; контент восстановлен из SERP/WebSearch snippet.
+- Gate ложно пометил тему Encar как `technical_topic=true` из-за маркера `github` в `github_evidence` / TECH_MARKERS, хотя ниша авто how-to.
+
+### How the agent recovered this run
+- В `research-notes.md` зафиксировал Wordstat-таблицу по успешным фразам и явную secondary note без выдуманных показов.
+- Для Teletype использовал сниппеты WebSearch + параллельные гайды (chest-import, auto.ru, carto).
+- Research-notes gate: PASS (warning про official docs на technical false-positive оставлен).
+
+### Durable fix needed before next run
+- В MCP/обёртке Wordstat: при ответе только `totalCount` без `topRequests` возвращать понятную ошибку или пустой список, а не "unexpected format" без retry-подсказки.
+- В `excalibur_blog_research_notes_gate.py`: не считать тему technical только из наличия секции `github_evidence` / слова github в notes; матчить tech-markers по topic h1/primary_query, не по всему тексту notes.
+- Pitfalls: при secondary Wordstat totalCount-only не выдумывать impressions.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260928-0920-scout-as-prefix-regex
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-scout
+topic_id: AS02
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py` и `scripts/excalibur_blog_today.py` матчат topic id только как `B\d+` (карточки в `blog-topics.md`, папки `memory/blog/articles/`, next-id / P0 suggest).
+- Для ниши AVTO SALES пул использует `AS##`, поэтому `--suggest-next` печатает `Next ID: B01`, `Total topics in pool: 0`, `Unwritten: []`, а `today.py` отдаёт `EXCALIBUR_TOPIC_SELECTION=needs_scout` даже при живых P0 AS01–AS07.
+- `--check-query` тоже не видит AS-карточки, поэтому ложно отвечает `NO CANNIBALIZATION` на exact primary_query вроде `encar на русском` (AS02).
+
+### How the agent recovered this run
+- Вручную посчитал ID: AS01–AS09 в пуле; next new = AS10+; выбрал незакрытую P0 `AS02` без новой карточки.
+- Каннибализацию проверил вручную против AS01–AS09 и live WP slugs; utility gate: `python3 scripts/excalibur_blog_utility_gate.py --topic-id AS02` → PASS.
+
+### Durable fix needed before next run
+- Расширить regex topic id до `(?:AS|B)\d+` (или конфигурируемый prefix) в scout_helper и today:
+  - парсинг `## AS## —` / `## B## —` в `blog-topics.md`;
+  - article dirs `AS##-*` / `B##-*`;
+  - `--suggest-next` next id по фактическому префиксу пула (для AVTO SALES → AS10+);
+  - `--check-query` обязан учитывать AS-карточки.
+- Обновить pitfalls/scout skill: не доверять `Total topics in pool: 0` при AS-пуле.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

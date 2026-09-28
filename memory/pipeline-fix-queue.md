@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260928-1718-writer-empty-pain-outcome-markers
+status: fixed
+run_date: 2026-09-28
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-korei-pod-klyuch-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` required `pain_markers_ru` / `outcome_markers_ru` from `memory/brief/editorial-policy.json`, but both lists were missing.
+- Gate always reported `pain_markers=0 < 2` and `outcome_markers=0 < 3` even when the article already contained human-voice pain/outcome language.
+- Same false BLOCK hit AS09 sample; prior INC-1330 lesson said to keep lists synced with `human_voice_gate.py`, but policy file never had the keys.
+
+### How the agent recovered this run
+- Kept article human markers; StrReplace for list-size warning and stronger `сделайте` / `не делайте`.
+- Added `pain_markers_ru` + `outcome_markers_ru` (mirror of `PAIN_MARKERS` / `OUTCOME_MARKERS`) and `min_pain_markers` / `min_outcome_markers` into `article_required_signals`.
+- Re-ran utility gate → PASS; HTML linter → PASS.
+
+### Durable fix needed before next run
+- Keep editorial-policy marker lists in sync with `scripts/excalibur_blog_human_voice_gate.py`.
+- Optionally make utility_gate fall back to human_voice marker constants when policy lists are empty, instead of false-failing.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- fixed by writer mid-run: policy markers restored; leave pitfalls note if fixer wants script fallback
+
 ## INC-20260928-1708-research-tech-marker-false-positive
 status: fixed
 run_date: 2026-09-28

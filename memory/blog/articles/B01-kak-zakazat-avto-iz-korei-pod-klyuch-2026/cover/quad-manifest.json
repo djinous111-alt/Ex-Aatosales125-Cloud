@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Красивый скрин Encar — ещё не ключи",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у смартфона с карточкой Encar и чек-листом до депозита, порт Владивостока",
+      "scene_hint": "Foggy Vladivostok port morning: blog host EXACT face+glasses from reference, CHANGE outfit to waterproof navy rain jacket over dark hoodie (NO tank top, NO cap, NO hood up), holding phone with fake Encar lot card (price only) vs torn sticky note checklist 'до депозита'; shocked meme reaction cutout; yellow highlight on word 'ключи'; corner brand avto-sales125.ru; DIY torn paper+tape collage; NO Wordstat NO Metrika",
+      "meme_caption_ru": "Скрин ≠ ключи"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разберите, что значит \"под ключ\" и чем это не цена на скрине",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean comparison table UI RU: left column 'Цена на скрине Encar' (лот, фото, ставка) vs right 'Под ключ' (выкуп+логистика+таможня+ЭПТС+выдача); sticky note 'не путай'; scotch tape corner; NO hero face",
+      "alt": "Таблица: цена лота на Encar против сметы «под ключ» до выдачи"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Задайте рамки до заявки: бюджет, объём и мощность",
+      "visual_type": "infographic_card",
+      "scene_hint": "Infographic card RU: dual corridor badges '≤2,0 л' and '≤160 л.с.' with budget slider mock and note 'рамка до заявки'; marker arrow; soft paper texture; NO hero face",
+      "alt": "Карточка рамок до заявки: бюджет, объём ≤2,0 л и мощность ≤160 л.с."
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте лот до договора: VIN, отчёт и осмотр",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake phone/tool screenshot: Encar/auction lot card with VIN field, Performance Check and Carhistory report tabs, inspection photo strip; sticky 'стоп без VIN'; tape; NO hero face; NO Wordstat",
+      "alt": "Мокап проверки лота: VIN, отчёт Performance Check / Carhistory и осмотр до договора"
+    }
+  }
+}

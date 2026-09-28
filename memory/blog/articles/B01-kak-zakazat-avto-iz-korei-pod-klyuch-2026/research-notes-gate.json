@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-kak-zakazat-avto-iz-korei-pod-klyuch-2026",
+  "notes": "memory/blog/articles/B01-kak-zakazat-avto-iz-korei-pod-klyuch-2026/research-notes.md",
+  "context": "memory/blog/articles/B01-kak-zakazat-avto-iz-korei-pod-klyuch-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-09-28",
+    "prefer_sources_after": "2026-06-30",
+    "source_urls": 25,
+    "source_domains": 14,
+    "source_table_rows": 25,
+    "accessed_at": 20,
+    "github_urls": 0,
+    "official_doc_urls": 0,
+    "action_outline_items": 9,
+    "pain_solution_rows": 5,
+    "technical_topic": false
+  }
+}

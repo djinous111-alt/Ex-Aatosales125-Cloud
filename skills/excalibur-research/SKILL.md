@@ -62,6 +62,19 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
 
+## Wordstat secondary / totalCount-only
+
+Если `wordstat_get_top_requests` вернул только `totalCount` без `topRequests`/фраз — зафиксируй note без выдуманных показов; используй успешный broad cluster. Не invent impressions.
+
+## technical_topic gate
+
+`excalibur_blog_research_notes_gate.py` определяет technical topic **только** по полям topic card (h1/primary_query/slug/…), не по телу notes. Секция `github_evidence` сама по себе не делает авто how-to «technical».
+
+## Commit hygiene
+
+Self-site URL из `PUBLIC_SITE_URL` не коммить в `research-serp.json` / ledger — path-only или placeholder. Перед commit:
+`export CLOUD_AGENT_INJECTED_SECRET_NAMES="$(bash scripts/excalibur_blog_filter_secret_names.sh)"`
+
 ## Blockers
 
 - `❌ RESEARCH BLOCKER` — тема не найдена и не создана из запроса пользователя

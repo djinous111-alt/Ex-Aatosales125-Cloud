@@ -6,8 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+(none — AS02 2026-09-28 fixer closed all open items below as fixed)
+
 ## INC-20260928-0953-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-publish
 topic_id: AS02
@@ -39,10 +41,26 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- `paramiko` (+ `numpy`) baked into `.cursor/Dockerfile` and `.cursor/cloud-agent-install.sh` (already listed in `requirements.txt`).
+- Doctor warns/fails on missing paramiko (`--publish` → error).
+- Publish skill: explicit `python3 -c 'import paramiko'` + `--env-check` before live publish; documents `SSH_ROOT=.` session/Cloud Secret fallback.
+files_changed:
+- `.cursor/Dockerfile`
+- `.cursor/cloud-agent-install.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -c 'import paramiko'`
+- `python3 scripts/excalibur_blog_doctor.py` (paramiko OK)
+commit: pending-parent-commit
 
 ## INC-20260928-0945-indexer-llms-absolute-site-base
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-indexer
 topic_id: AS02
@@ -77,10 +95,31 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- Indexer agent/skill default to `--site-base ""` (relative `/blog/<slug>/`); removed stale `--blog-path`.
+- `llms_generator` / `interlinker` default `--site-base` is empty (commit-safe).
+- Doctor checks `--blog-dir` (not `--blog-path`).
+- Added `scripts/excalibur_blog_filter_secret_names.sh` for invalid SECRET_NAMES injection.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` (llms --blog-dir OK)
+- `python3 scripts/excalibur_blog_llms_generator.py --help`
+- filter_secret_names dry-run
+commit: pending-parent-commit
 
 ## INC-20260928-0938-schema-secret-scanner-public-urls
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-schema
 topic_id: AS02
@@ -111,10 +150,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- Schema skill documents `"_comment": "pragma: allowlist secret"` on public brand URL lines.
+- `excalibur_blog_wp_publish.strip_schema_jsonld_comments` removes `_comment` before WP post meta.
+- Filter script for `CLOUD_AGENT_INJECTED_SECRET_NAMES` documented in schema skill + pitfalls.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit test strip_schema_jsonld_comments
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+commit: pending-parent-commit
 
 ## INC-20260928-0935-writer-utility-pain-markers-missing
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-writer
 topic_id: AS02
@@ -146,11 +200,27 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- Confirmed `editorial-policy.json` already has non-empty `pain_markers_ru` / `outcome_markers_ru` (writer recovery kept).
+- Utility gate: empty marker lists → WARNING + skip count (no false-BLOCK on all articles).
+- Doctor FAIL if pain/outcome marker lists missing/empty.
+- Writer skill + pitfalls: do not delete these policy keys.
+files_changed:
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_utility_gate.py --article-dir memory/blog/articles/AS02-encar-na-russkom-kak-chitat` PASS
+- doctor editorial-policy checks OK
+commit: pending-parent-commit
 
 
 ## INC-20260928-0920-scout-as-prefix-regex
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-scout
 topic_id: AS02
@@ -185,10 +255,28 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- `scout_helper` + `today.py` topic id regex expanded to `(?:AS|B)\d+` for cards, article dirs, P0 suggest.
+- `--suggest-next` uses dominant pool prefix (AS pool → AS10+).
+- `--check-query` sees AS cards (exact match AS02 for `encar на русском`).
+- Scout skill + pitfalls updated.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_utility_gate.py` (topic card lookahead)
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → AS10, pool=9
+- `--check-query "encar на русском"` → CRITICAL AS02
+- `today.py` → EXCALIBUR_SUGGESTED_TOPIC_ID=AS01, selection=ready
+commit: pending-parent-commit
 
 ## INC-20260928-0926-research-wordstat-secondary-format
-status: open
+status: fixed
 run_date: 2026-09-28
 role: excalibur-blog-research
 topic_id: AS02
@@ -225,7 +313,22 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-28
+fix_summary:
+- `is_technical_topic` uses topic card fields only (no notes body / github_evidence false-positive).
+- Research + Scout skills: totalCount-only Wordstat = low-result, do not invent impressions; commit hygiene for self-site URLs + SECRET_NAMES filter.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: Encar how-to + github_evidence notes → technical_topic=False
+- unit: MCP/Cursor topic → technical_topic=True
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

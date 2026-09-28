@@ -22,3 +22,21 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+## Secret scanner / public brand URLs
+
+Публичные site/catalog/Telegram/MAX URL в BlogPosting и `author.sameAs` совпадают с Cloud Secrets → pre-commit secret scanner блокирует commit.
+
+На **каждой строке** с таким URL добавь валидный JSON-ключ:
+
+```json
+"_comment": "pragma: allowlist secret"
+```
+
+`excalibur_blog_wp_publish.py` удаляет ключи `"_comment"` перед записью post meta, чтобы pragma не попал в live `<script type="application/ld+json">`.
+
+Перед `git commit`:
+
+```bash
+export CLOUD_AGENT_INJECTED_SECRET_NAMES="$(bash scripts/excalibur_blog_filter_secret_names.sh)"
+```

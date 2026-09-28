@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import os
 import subprocess
 import sys
@@ -113,6 +114,30 @@ def main() -> int:
 
     check(module_available("PIL"), "Pillow available", errors, warnings)
     check(module_available("numpy"), "numpy available", errors, warnings)
+    check(module_available("paramiko"), "paramiko available", errors, warnings, warn=not args.publish)
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    if policy_path.is_file():
+        try:
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            policy = {}
+            check(False, "editorial-policy.json parses as JSON", errors, warnings)
+        else:
+            check(
+                bool(policy.get("pain_markers_ru")),
+                "editorial-policy pain_markers_ru non-empty",
+                errors,
+                warnings,
+            )
+            check(
+                bool(policy.get("outcome_markers_ru")),
+                "editorial-policy outcome_markers_ru non-empty",
+                errors,
+                warnings,
+            )
+    else:
+        check(False, "editorial-policy.json exists", errors, warnings)
 
     interlinker = root / "scripts/excalibur_blog_interlinker.py"
     help_proc = subprocess.run(
@@ -132,7 +157,7 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

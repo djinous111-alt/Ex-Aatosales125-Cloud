@@ -30,7 +30,7 @@ Append new Topic Card to blog-topics.md
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
   Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
 
@@ -47,7 +47,7 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
 Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
 
@@ -76,6 +76,17 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 Допиши (append) карточку в конец `memory/topics/blog-topics.md`.
 
 ---
+
+## Topic ID prefixes (AS / B)
+
+Helper и `today.py` распознают `AS\d+` и `B\d+` (AVTO SALES vs legacy).
+- Не доверяй `Total topics in pool: 0` / `Next ID: B01`, если в `blog-topics.md` есть карточки `## AS##` — обнови скрипты или перезапусти helper после фикса.
+- `--suggest-next` берёт префикс доминирующего пула (для Авто-Сейлс → `AS10+`).
+- `--check-query` обязан видеть AS-карточки.
+
+## Wordstat
+
+Cluster-first: широкий parent → узкий how-to. Ответ только `{ "totalCount": "N" }` без списка фраз = low-result signal: расширь запрос, не выдумывай impressions.
 
 ## Блокеры скаута
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.

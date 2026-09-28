@@ -37,6 +37,10 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## Utility markers
+
+`memory/brief/editorial-policy.json` должен содержать непустые `pain_markers_ru` и `outcome_markers_ru`. Не удаляй эти ключи при правках policy. Перед сдачей: `python3 scripts/excalibur_blog_utility_gate.py --article-dir <dir>`.
+
 ## Blockers
 
 - нет research-notes.md

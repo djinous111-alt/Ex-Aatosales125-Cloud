@@ -168,6 +168,25 @@ def normalize_cover_png(cover_path: Path, registry_path: Path, root: Path) -> di
     return evidence
 
 
+def strip_schema_jsonld_comments(schema_raw: str) -> str:
+    """Remove repo-only `_comment` keys (secret-scanner pragmas) before WP meta."""
+    if not schema_raw:
+        return schema_raw
+    try:
+        data = json.loads(schema_raw)
+    except json.JSONDecodeError:
+        return schema_raw
+
+    def walk(obj: object) -> object:
+        if isinstance(obj, dict):
+            return {k: walk(v) for k, v in obj.items() if k != "_comment"}
+        if isinstance(obj, list):
+            return [walk(x) for x in obj]
+        return obj
+
+    return json.dumps(walk(data), ensure_ascii=False)
+
+
 def load_article(article_dir: Path) -> dict:
     meta_path = article_dir / "article.meta.json"
     html_path = article_dir / "article.html"
@@ -186,7 +205,7 @@ def load_article(article_dir: Path) -> dict:
         cover_b64 = base64.b64encode(cover_path.read_bytes()).decode("ascii")
     schema_raw = ""
     if schema_path.is_file():
-        schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        schema_raw = strip_schema_jsonld_comments(schema_path.read_text(encoding="utf-8").strip())
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))

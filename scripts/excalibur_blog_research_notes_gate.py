@@ -73,13 +73,18 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
-def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+def is_technical_topic(context: dict[str, Any], notes: str = "") -> bool:
+    """Detect technical niche from topic card fields only.
+
+    Do not scan research-notes body: required sections like `github_evidence`
+    contain the word "github" and would false-positive auto how-to topics.
+    """
+    del notes  # kept for call-site compatibility; intentionally unused
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
     return any(marker in blob for marker in TECH_MARKERS)
 
 

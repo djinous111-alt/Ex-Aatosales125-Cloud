@@ -39,10 +39,30 @@
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
 
-## Scout
+## Scout / topic IDs
 
-- Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- Topic id regex: `AS\d+|B\d+` (AVTO SALES + legacy). `scout_helper` / `today.py` обязаны видеть оба префикса; `Total topics in pool: 0` при AS-пуле = баг старого кода.
+- Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal; не выдумывай impressions.
+
+## Research
+
+- `research_notes_gate` technical_topic смотрит только topic card (h1/primary_query/…), не тело notes / секцию `github_evidence`.
+- Self-site URL (`PUBLIC_SITE_URL`) не коммить в serp/ledger — path-only или placeholder.
+
+## Writer / utility policy
+
+- `memory/brief/editorial-policy.json` обязан держать непустые `pain_markers_ru` и `outcome_markers_ru`. Пустые списки → utility gate WARN+skip (не false-BLOCK), но doctor FAIL.
+
+## Schema / secrets
+
+- Публичные brand URL в `schema.jsonld` → `"_comment": "pragma: allowlist secret"` на той же строке. Publish strip'ает `_comment` перед WP meta.
+- Перед commit: `export CLOUD_AGENT_INJECTED_SECRET_NAMES="$(bash scripts/excalibur_blog_filter_secret_names.sh)"` (сырые URL в env ломают `${!name}`).
 
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- Commit-safe llms/interlink: `--site-base ""` (relative `/blog/<slug>/`). CLI flag — `--blog-dir`, не `--blog-path`. Не коммить absolute `$PUBLIC_SITE_URL` в llms/interlink-report.
+
+## Publish deps
+
+- `paramiko` обязателен для SSH publish; bake в Dockerfile + `cloud-agent-install.sh`. Preflight: `python3 -c 'import paramiko'`.

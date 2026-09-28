@@ -19,6 +19,14 @@ LEDGER_PATHS = (
     Path("shared/published-articles.md"),
 )
 DEFAULT_SITE_URL = ""
+# AVTO SALES uses AS##; legacy Excalibur pool uses B##.
+TOPIC_ID = r"(?:AS|B)\d+"
+TOPIC_ID_PREFIX = r"(?:AS|B)"
+TOPIC_HEADING_RE = re.compile(
+    rf"##\s+({TOPIC_ID})\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+{TOPIC_ID_PREFIX}|\Z)",
+    re.DOTALL | re.IGNORECASE,
+)
+ARTICLE_DIR_RE = re.compile(rf"^({TOPIC_ID})-", re.IGNORECASE)
 
 
 def project_root() -> Path:
@@ -60,7 +68,7 @@ def active_article_topic_ids(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = ARTICLE_DIR_RE.match(path.name)
         if match:
             active.add(match.group(1).upper())
     return active
@@ -78,7 +86,7 @@ def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
     }
     used.update(active_article_topic_ids(root))
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in TOPIC_HEADING_RE.finditer(text):
         topic_id = match.group(1).upper()
         block = match.group(2)
         if "priority:** P0" not in block and "**priority:** P0" not in block:

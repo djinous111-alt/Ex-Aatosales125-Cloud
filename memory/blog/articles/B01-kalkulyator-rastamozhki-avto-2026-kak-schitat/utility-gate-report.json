@@ -1,0 +1,29 @@
+{
+  "policy_id": "utility_only_v1",
+  "overall": "BLOCK",
+  "reports": [
+    {
+      "gate": "article",
+      "article_dir": "memory/blog/articles/B01-kalkulyator-rastamozhki-avto-2026-kak-schitat",
+      "status": "BLOCK",
+      "metrics": {
+        "numbered_list_items": 14,
+        "h2_sections": 6,
+        "faq_h3": 6,
+        "tables": 2,
+        "blockquotes": 3,
+        "ul_lists": 1,
+        "action_markers": 7,
+        "pain_markers": 0,
+        "outcome_markers": 0,
+        "water_hits": []
+      },
+      "errors": [
+        "мало action-маркеров в тексте: 7 < 8",
+        "слабо раскрыта боль читателя: pain_markers=0 < 2",
+        "слабо раскрыта польза/результат: outcome_markers=0 < 3"
+      ],
+      "warnings": []
+    }
+  ]
+}

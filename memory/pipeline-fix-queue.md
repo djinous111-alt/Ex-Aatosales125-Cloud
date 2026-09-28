@@ -323,3 +323,72 @@ category: script
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20260928-1329-geo-qa-typed-task-fallback
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kalkulyator-rastamozhki-avto-2026-kak-schitat
+severity: medium
+category: api
+
+### What went wrong
+- Typed Cloud Task `excalibur-blog-geo-qa` недоступен в Cloud enum Task types.
+- Директор вынужден запускать роль через fallback `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Выполнена роль GEO QA в generalPurpose subagent по контракту агента/skill; single-agent pipeline не использовался.
+
+### Durable fix needed before next run
+- Зарегистрировать typed Task `excalibur-blog-geo-qa` в Cloud Task enum / automation config, либо явно зафиксировать generalPurpose fallback как канон во всех director/CLOUD docs (чтобы не тратить шаги на retry typed).
+
+### Suggested files to inspect/change
+- `CLOUD-AUTOMATION.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/pipeline-task-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260928-1330-geo-qa-utility-pain-outcome-policy
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kalkulyator-rastamozhki-avto-2026-kak-schitat
+severity: blocker
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требует `min_pain_markers` (default 2) и `min_outcome_markers` (default 3), читая списки `pain_markers_ru` / `outcome_markers_ru` из policy.
+- В `memory/brief/editorial-policy.json` этих ключей нет → списки пустые → `pain_markers=0` и `outcome_markers=0` на любой статье.
+- Повторная проверка: AS08 и AS09 (ранее PASS в ledger QA) сейчас тоже получают UTILITY BLOCK только по pain/outcome.
+
+### How the agent recovered this run
+- Зафиксировал BLOCK в `utility-gate-report.json` и `article-qa.md` FAIL.
+- Отделил writer-actionable findings (action_markers 7<8; human-voice outcome 2<3) от durable policy bug.
+- Статью не переписывал (зона writer); cover/schema не запускал.
+
+### Durable fix needed before next run
+- Добавить в `memory/brief/editorial-policy.json` согласованные `pain_markers_ru` и `outcome_markers_ru` (можно выровнять с маркерами human-voice gate) + `min_pain_markers` / `min_outcome_markers` в `article_required_signals`.
+- Либо в скрипте: если списки маркеров пусты — не применять pain/outcome check (skip), чтобы не блокировать весь пайплайн.
+- Обновить writer skill: «Сделайте/Не делайте» (policy) vs «Делать/Не делать»; `чеклист` без дефиса если нужен recommendation marker.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

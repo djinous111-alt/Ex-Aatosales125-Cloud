@@ -1,0 +1,115 @@
+{
+  "article": "memory/blog/articles/B01-kalkulyator-rastamozhki-avto-2026-kak-schitat/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 15,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 13,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "рмление\" на таможне Таможенная стоимость; с 01.01.2026 шкала от 1 231 до 73 860 ₽ Пошлина / ЕТС Единая ст",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "верх пошлины База 20 000 ₽ × коэффициент; с 01.12.2025 учитывают мощность ЕТС – это \"единая ставка\": для",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 лет",
+      "kind": "metric_or_duration",
+      "context": "Жёсткие пороги: 160 л.с., 3 000 см³, возраст 3 и 5 лет. Финальную вилку \"под ключ\" до депозита сверяйте",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "а: возраст считают до дня, а корзины пошлины – до 3 лет / 3–5 / старше 5. Выпишите дату выпуска с месяцем",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "12 месяцев",
+      "kind": "metric_or_duration",
+      "context": "ольше одной машины в год, готовность не продавать 12 месяцев. Определите возрастную корзину пошлины: до 3 лет",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "165",
+      "kind": "large_number",
+      "context": "о – вышло \"терпимо\". Вечером друг сказал: \"у тебя 165 лошадей – льготный утиль уже не твой\". Рука тянула",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": ", а в голове каша из пошлины, утильсбора и льготы 160 л.с. Ниже – как собрать смету на бумаге до перевод",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 000",
+      "kind": "large_number",
+      "context": "нтир, не счёт к оплате. Жёсткие пороги: 160 л.с., 3 000 см³, возраст 3 и 5 лет. Финальную вилку \"под ключ\"",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1 231",
+      "kind": "large_number",
+      "context": "можне Таможенная стоимость; с 01.01.2026 шкала от 1 231 до 73 860 ₽ Пошлина / ЕТС Единая ставка по правила",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "73 860",
+      "kind": "large_number",
+      "context": "оженная стоимость; с 01.01.2026 шкала от 1 231 до 73 860 ₽ Пошлина / ЕТС Единая ставка по правилам ЕАЭС Во",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "20 000",
+      "kind": "large_number",
+      "context": "ена Утильсбор Отдельный платёж сверх пошлины База 20 000 ₽ × коэффициент; с 01.12.2025 учитывают мощность",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 400",
+      "kind": "large_number",
+      "context": "л.с. и другие пороги Многие думают: \"утиль будет 3 400 ₽, все так ездят\". На практике льгота физлица сго",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "161",
+      "kind": "large_number",
+      "context": "по 30-минутной мощности до 80 л.с. Порог жёсткий: 161 л.с. снимает льготу целиком, не \"пропорционально\".",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 200",
+      "kind": "large_number",
+      "context": "циенты льготы: 0,17 → 3 400 ₽ (до 3 лет) и 0,26 → 5 200 ₽ (старше 3 лет). Коммерческий утиль считают от б",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "и источниками по утильсбору и ЕТС (в т.ч. ПП РФ № 1713, материалы TKS/отраслевых калькуляторов) и практи",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

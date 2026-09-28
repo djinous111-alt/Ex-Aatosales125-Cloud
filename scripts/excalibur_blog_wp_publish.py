@@ -380,6 +380,12 @@ def _ssh_creds(env: dict[str, str]) -> tuple[str, int, str, str]:
 
 
 def configured_ssh_root(env: dict[str, str]) -> str:
+    """Effective SSH root. Unset/empty → '.' (SSH login cwd) so publish works without Cloud Secret."""
+    raw = (env.get("SSH_ROOT") or "").strip()
+    return raw if raw else "."
+
+
+def ssh_root_raw(env: dict[str, str]) -> str:
     return (env.get("SSH_ROOT") or "").strip()
 
 
@@ -391,17 +397,17 @@ def ssh_remote_path(env: dict[str, str], remote: str, root_override: str | None 
 
 
 def ssh_root_label(env: dict[str, str]) -> str:
-    root = configured_ssh_root(env)
-    if not root:
-        return "unset"
-    if root in {".", "./"}:
+    raw = ssh_root_raw(env)
+    if not raw:
+        return "default-dot"
+    if raw in {".", "./"}:
         return "dot"
     return "configured-non-dot"
 
 
 def ssh_root_candidates(env: dict[str, str]) -> list[str]:
     root = configured_ssh_root(env)
-    if root and root not in {".", "./"}:
+    if root not in {".", "./"}:
         return [root, "."]
     return [root]
 

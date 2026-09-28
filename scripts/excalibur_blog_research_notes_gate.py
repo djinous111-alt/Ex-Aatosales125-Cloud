@@ -14,22 +14,33 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short tokens need word-boundary match ("ai" inside "pain" / "reader_pain" must NOT trip).
+TECH_MARKERS_BOUNDED = (
     "ai",
     "ии",
-    "agent",
-    "агент",
     "mcp",
     "api",
-    "cursor",
+    "rag",
     "make",
     "n8n",
+)
+TECH_MARKERS_SUBSTRING = (
+    "agent",
+    "агент",
+    "cursor",
     "github",
     "docker",
-    "rag",
     "workflow",
     "автоматизац",
     "нейросет",
+)
+# Field/heading labels that always appear in valid notes and must not drive technical_topic.
+TECH_SCAN_FIELD_NOISE = re.compile(
+    r"(?im)^\s*(?:#{1,6}\s*\d*\.?\s*)?(?:"
+    r"reader_pain|pain_solution_map|reader_outcome|success_criteria|"
+    r"voice_angle|reader_story|surprising_fact|github_evidence|"
+    r"action_outline|research_date|accessed_at|utility_verdict"
+    r")\b.*$"
 )
 
 
@@ -73,14 +84,23 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _tech_marker_hit(blob: str) -> bool:
+    for marker in TECH_MARKERS_BOUNDED:
+        if re.search(rf"(?<![a-zа-яё0-9_]){re.escape(marker)}(?![a-zа-яё0-9_])", blob, flags=re.I):
+            return True
+    return any(marker in blob for marker in TECH_MARKERS_SUBSTRING)
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech niche from topic fields + note body, not from required field names."""
     topic = context.get("topic") or {}
-    blob = " ".join(
+    topic_blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    notes_scan = TECH_SCAN_FIELD_NOISE.sub(" ", notes[:2000]).lower()
+    blob = f"{topic_blob} {notes_scan}"
+    return _tech_marker_hit(blob)
 
 
 def field_present(text_lower: str, field: str) -> bool:

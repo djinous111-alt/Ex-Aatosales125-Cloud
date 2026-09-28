@@ -10,6 +10,14 @@ import sys
 from pathlib import Path
 from typing import Any
 
+# Topic cards: B01, AS01, or any PREFIX+digits heading.
+TOPIC_ID_RE = re.compile(r"([A-Za-z]+\d+)")
+TOPIC_HEADING_RE = re.compile(
+    r"##\s+([A-Za-z]+\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+[A-Za-z]+\d+|\Z)",
+    re.DOTALL,
+)
+
+
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
@@ -34,7 +42,7 @@ def load_active_article_topics(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = re.match(r"([A-Za-z]+\d+)-", path.name)
         if match:
             active.add(match.group(1).upper())
     return active
@@ -46,7 +54,7 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
     if not topics_path.is_file():
         return topics
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in TOPIC_HEADING_RE.finditer(text):
         topic_id = match.group(1).upper()
         block = match.group(2)
         
@@ -130,20 +138,26 @@ def main() -> int:
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
+        # Next ID stays on the B-series (pipeline topic_id); AS* remain visible in the pool.
         max_num = 0
         for t in existing:
-            m = re.match(r"B(\d+)", t["topic_id"])
+            m = re.match(r"B(\d+)$", t["topic_id"])
             if m:
                 max_num = max(max_num, int(m.group(1)))
         
         next_id = f"B{max_num + 1:02d}"
+        as_ids = sorted(t["topic_id"] for t in existing if t["topic_id"].startswith("AS"))
+        b_ids = sorted(t["topic_id"] for t in existing if t["topic_id"].startswith("B"))
         print(f"Next available topic ID: {next_id}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
+        print(f"  B-series: {len(b_ids)} | AS-series: {len(as_ids)}")
         print(f"Total articles written/in_progress: {len(reserved)}")
         print(f"Active article dirs: {sorted(active)}")
         
         unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
         print(f"Unwritten topic IDs in pool: {unwritten}")
+        if as_ids:
+            print(f"AS pool IDs (visible to --check-query): {as_ids}")
         return 0
         
     if args.check_query:

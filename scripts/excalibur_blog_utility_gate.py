@@ -14,6 +14,51 @@ from typing import Any
 from excalibur_repo_paths import repo_relative
 
 
+# Defaults stay in sync with excalibur_blog_human_voice_gate.py when policy lists are empty.
+DEFAULT_PAIN_MARKERS_RU = (
+    "боль",
+    "проблем",
+    "ошиб",
+    "ломает",
+    "не работает",
+    "теряет",
+    "дорого",
+    "долго",
+    "рутин",
+    "хаос",
+    "застр",
+    "сложно",
+)
+DEFAULT_OUTCOME_MARKERS_RU = (
+    "результат",
+    "получите",
+    "сможете",
+    "сэконом",
+    "проверьте",
+    "запустите",
+    "соберите",
+    "настройте",
+    "исправьте",
+    "выберите",
+)
+DEFAULT_RECOMMENDATION_MARKERS_RU = (
+    "сделайте",
+    "не делайте",
+    "делать",
+    "не делать",
+    "шаг ",
+    "проверьте",
+    "используйте",
+    "добавьте",
+    "уберите",
+    "избегайте",
+    "ориентир",
+    "чеклист",
+    "чек-лист",
+    "workflow",
+)
+
+
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
@@ -158,7 +203,7 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     blockquotes = len(re.findall(r"<blockquote[\s\S]*?</blockquote>", html, flags=re.I))
     faq_h3 = len(re.findall(r"<h3[^>]*>", html, flags=re.I))
 
-    markers = policy.get("recommendation_markers_ru") or []
+    markers = list(policy.get("recommendation_markers_ru") or []) or list(DEFAULT_RECOMMENDATION_MARKERS_RU)
     marker_count = count_markers(plain, markers)
 
     min_steps = int(req.get("min_numbered_steps") or 5)
@@ -185,8 +230,8 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     if marker_count < min_rec:
         errors.append(f"мало action-маркеров в тексте: {marker_count} < {min_rec}")
 
-    pain_markers = policy.get("pain_markers_ru") or []
-    outcome_markers = policy.get("outcome_markers_ru") or []
+    pain_markers = list(policy.get("pain_markers_ru") or []) or list(DEFAULT_PAIN_MARKERS_RU)
+    outcome_markers = list(policy.get("outcome_markers_ru") or []) or list(DEFAULT_OUTCOME_MARKERS_RU)
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 
@@ -302,12 +347,44 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def run_self_test(root: Path, policy: dict[str, Any]) -> int:
+    """Regression: fixture article PASS with policy markers and with empty marker lists (defaults)."""
+    fixture = root / "scripts/testdata/utility-gate-fixture"
+    if not (fixture / "article.html").is_file():
+        print("❌ UTILITY GATE SELF-TEST: fixture missing", file=sys.stderr)
+        return 1
+
+    primary = gate_article(fixture, policy)
+    empty_policy = dict(policy)
+    empty_policy["pain_markers_ru"] = []
+    empty_policy["outcome_markers_ru"] = []
+    empty_policy["recommendation_markers_ru"] = []
+    fallback = gate_article(fixture, empty_policy)
+
+    ok = primary["status"] == "PASS" and fallback["status"] == "PASS"
+    print(f"self-test policy-markers: {primary['status']} pain={primary['metrics']['pain_markers']} outcome={primary['metrics']['outcome_markers']}")
+    print(f"self-test empty-markers-defaults: {fallback['status']} pain={fallback['metrics']['pain_markers']} outcome={fallback['metrics']['outcome_markers']}")
+    if not ok:
+        for rep in (primary, fallback):
+            for err in rep.get("errors") or []:
+                print(f"  ERROR: {err}")
+        print("❌ UTILITY GATE SELF-TEST BLOCKER", file=sys.stderr)
+        return 1
+    print("OK UTILITY GATE SELF-TEST PASS")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Utility-only editorial gate")
     ap.add_argument("--topic-id", default="", help="Validate topic card in blog-topics.md")
     ap.add_argument("--article-dir", default="", help="Validate article.html utility signals")
     ap.add_argument("--policy", default="memory/brief/editorial-policy.json")
     ap.add_argument("--output", default="", help="Write JSON report")
+    ap.add_argument(
+        "--self-test",
+        action="store_true",
+        help="Run fixture regression (policy markers + empty-list defaults)",
+    )
     args = ap.parse_args()
 
     root = project_root()
@@ -315,6 +392,9 @@ def main() -> int:
     if not policy_path.is_absolute():
         policy_path = root / policy_path
     policy = load_json(policy_path)
+
+    if args.self_test:
+        return run_self_test(root, policy)
 
     reports: list[dict[str, Any]] = []
 

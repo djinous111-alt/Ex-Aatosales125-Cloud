@@ -545,7 +545,7 @@ files_changed:
 checks_run:
 - `source scripts/excalibur_blog_sanitize_secret_names.sh` с mixed names → dropped URL, kept identifiers
 - `bash -n` sanitize + install scripts
-commit: pending
+commit: 2cfdaab
 
 ## INC-20260928-1353-cover-hero-host-upload
 status: fixed
@@ -592,7 +592,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
 - `--help` показывает providers litterbox/tmpfiles/uguu
-commit: pending
+commit: 2cfdaab
 
 ## INC-20260928-1356-indexer-precommit-site-url-pragma
 status: fixed
@@ -644,7 +644,7 @@ checks_run:
 - relative llms dry-run → `/blog/...` without absolute host
 - absolute + pragma dry-run → `<!-- pragma: allowlist secret -->`
 - `git_safe_site_base` unit asserts
-commit: pending
+commit: 2cfdaab
 
 ## INC-20260928-1401-publish-paramiko-missing
 status: fixed
@@ -698,4 +698,4 @@ checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0, paramiko OK
 - `python3 scripts/excalibur_blog_doctor.py --publish` → errors=0
 - `rg paramiko` in Dockerfile/install/requirements/doctor
-commit: pending
+commit: 2cfdaab

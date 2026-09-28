@@ -1,0 +1,205 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/kalkulyator-rastamozhki-avto-2026-kak-schitat/#blogposting", "_comment": "pragma: allowlist secret",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/kalkulyator-rastamozhki-avto-2026-kak-schitat/", "_comment_2": "pragma: allowlist secret"
+      },
+      "headline": "Как рассчитать растаможку авто в 2026: калькулятор, пошлина и утильсбор без сюрпризов",
+      "description": "Как считать растаможку авто в 2026: сбор, пошлина/ЕТС, утильсбор, льгота 160 л.с. и чек-лист до депозита. Ориентир в калькуляторе, вилка – в каталоге Авто-Сейлс.",
+      "datePublished": "2026-09-28",
+      "dateModified": "2026-09-28",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial", "_comment_3": "pragma: allowlist secret",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png", "_comment_4": "pragma: allowlist secret",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru/", "_comment_5": "pragma: allowlist secret"
+        },
+        "sameAs": [
+          {
+            "@id": "https://avtosales125.ru/", "_comment_6": "pragma: allowlist secret",
+            "_comment": "pragma: allowlist secret"
+          },
+          {
+            "@id": "https://avto-sales125.ru/", "_comment_7": "pragma: allowlist secret",
+            "_comment": "pragma: allowlist secret"
+          },
+          {
+            "@id": "https://t.me/avtosales125", "_comment_8": "pragma: allowlist secret",
+            "_comment": "pragma: allowlist secret"
+          },
+          {
+            "@id": "https://max.ru/id2508140890_biz", "_comment_9": "pragma: allowlist secret",
+            "_comment": "pragma: allowlist secret"
+          },
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization", "_comment_10": "pragma: allowlist secret",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru/", "_comment_11": "pragma: allowlist secret",
+        "sameAs": [
+          {
+            "@id": "https://avto-sales125.ru", "_comment_12": "pragma: allowlist secret",
+            "_comment": "pragma: allowlist secret"
+          },
+          {
+            "@id": "https://t.me/avtosales125", "_comment_13": "pragma: allowlist secret",
+            "_comment": "pragma: allowlist secret"
+          }
+        ]
+      },
+      "keywords": [
+        "калькулятор растаможки авто",
+        "растаможка авто калькулятор 2026",
+        "сколько стоит растаможить машину",
+        "как рассчитать стоимость растаможки авто"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/kalkulyator-rastamozhki-avto-2026-kak-schitat/#faq", "_comment_14": "pragma: allowlist secret",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Входит ли утильсбор в калькулятор растаможки авто?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В нормальном калькуляторе 2026 – да, отдельной строкой. Если видите только пошлину без утиля, пересчитайте: для бюджета \"под ключ\" утиль обязателен. Сверьте, что выбран режим физлица и верный тип мотора."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему цифры на разных сайтах-калькуляторах расходятся?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Чаще всего виноваты курс, дата расчёта, перевод кВт↔л.с., цена без доставки или режим юрлица вместо физлица. Зафиксируйте поля и курс, затем сверьте вилку в каталоге Авто-Сейлс до депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как рассчитать стоимость растаможки авто из Китая или Кореи?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Те же формулы, что и для Японии: сбор + пошлина/ЕТС + утиль. Сначала выпишите возраст, объём, л.с., тип мотора и цену с доставкой. Для электро из Китая не подставляйте схему обычного ДВС."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что обязательно проверить до оплаты депозита?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Возраст до дня, мощность относительно 160 л.с., объём относительно 3 л, статус физлица и \"один авто в год\", плюс услуги сверх таможни. Нет сверки вилки – нет перевода."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Работает ли льгота утильсбора 3 400 или 5 200 ₽ всегда?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Нужны все условия сразу: личное пользование, лимиты по л.с. и объёму, не больше одной машины в год, без продажи 12 месяцев. 161 л.с. – уже без льготы."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько стоит растаможить машину \"примерно\" по калькулятору?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Калькулятор даёт ориентир на дату расчёта, не финальный счёт. Курс и корректировка стоимости на таможне могут сдвинуть итог. Для решения по депозиту берите вилку под конкретный лот у Авто-Сейлс."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/kalkulyator-rastamozhki-avto-2026-kak-schitat/#howto", "_comment_15": "pragma: allowlist secret",
+      "name": "Как рассчитать растаможку авто в 2026 до депозита",
+      "description": "Пошаговый расчёт растаможки для физлица: три строки сметы, поля калькулятора, льгота утильсбора 160 л.с. и чеклист до депозита.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Актуальный калькулятор растаможки 2026 (ориентир, не счёт)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Паспорт/аукционный лист: дата выпуска, объём, мощность"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Каталог Авто-Сейлс для сверки вилки под ключ"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Пакет данных: возраст до дня, см³, л.с., тип мотора, цена с доставкой, статус физлица"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Чеклист льготы утильсбора и порогов 160 л.с. / 3 л / 3–5 лет"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Разложить смету на три строки",
+          "text": "Запишите отдельно таможенный сбор, пошлину/ЕТС и утильсбор. Не сравнивайте только «итого» без разбивки.",
+          "url": "https://avtosales125.ru/kalkulyator-rastamozhki-avto-2026-kak-schitat/#разложите-смету-сбор-пошлина-и-утильсбор", "_comment_16": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Собрать данные для калькулятора",
+          "text": "Выпишите дату выпуска с месяцем, объём см³, мощность л.с./кВт, тип мотора, цену с доставкой и статус физлица; отметьте возрастную корзину до 3 / 3–5 / 5+ лет.",
+          "url": "https://avtosales125.ru/kalkulyator-rastamozhki-avto-2026-kak-schitat/#соберите-данные-для-калькулятора-пошагово", "_comment_17": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Проверить льготный утильсбор",
+          "text": "Отметьте «льгота да/нет» по чеклисту: личное пользование, один авто в год, объём до 3 000 см³ и мощность до 160 л.с. включительно. 161 л.с. снимает льготу целиком.",
+          "url": "https://avtosales125.ru/kalkulyator-rastamozhki-avto-2026-kak-schitat/#проверьте-льготный-утиль-160-л-с-и-другие-пороги", "_comment_18": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Сравнить Китай, Корею и Японию без мифа о стране",
+          "text": "Сравнивайте лоты по возрасту, л.с., объёму и типу мотора: формулы пошлины и утиля одни, меняются валюта, логистика и документы.",
+          "url": "https://avtosales125.ru/kalkulyator-rastamozhki-avto-2026-kak-schitat/#сравните-китай-корею-и-японию-без-мифа-о-стране", "_comment_19": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Разобрать расхождения калькуляторов",
+          "text": "Зафиксируйте курс, дату и все поля ввода. Не вносите депозит по самому низкому скрину с разных сайтов.",
+          "url": "https://avtosales125.ru/kalkulyator-rastamozhki-avto-2026-kak-schitat/#разберите-почему-калькуляторы-расходятся", "_comment_20": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Пройти чеклист до депозита",
+          "text": "Закройте пакет данных, три строки сметы, статус льготы и сверку вилки «под ключ» с Авто-Сейлс. Только потом решайте про депозит.",
+          "url": "https://avtosales125.ru/kalkulyator-rastamozhki-avto-2026-kak-schitat/#пройдите-чеклист-до-депозита-что-получите", "_comment_21": "pragma: allowlist secret"
+        }
+      ]
+    }
+  ]
+}

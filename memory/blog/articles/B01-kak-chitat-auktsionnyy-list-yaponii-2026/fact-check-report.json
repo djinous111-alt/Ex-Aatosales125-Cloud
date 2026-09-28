@@ -1,0 +1,24 @@
+{
+  "article": "memory/blog/articles/B01-kak-chitat-auktsionnyy-list-yaponii-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 2,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 1,
+  "facts": [
+    {
+      "fact": "2019",
+      "kind": "date_or_year",
+      "context": "истрации часто в японском летоисчислении (Reiwa с 2019, раньше Heisei): ошибка перевода года = ошибка в",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ерность: факты сверены с открытыми источниками на 2026-09-29: критерии 修復歴 JAAI, разбор R vs RA (Japan V",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    }
+  ]
+}

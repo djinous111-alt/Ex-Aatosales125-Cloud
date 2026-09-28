@@ -6,6 +6,74 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260928-2125-geo-qa-typed-task-missing
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-chitat-auktsionnyy-list-yaponii-2026
+severity: medium
+category: handoff
+
+### What went wrong
+- Typed Task `excalibur-blog-geo-qa` недоступен в Cloud API; роль запущена через `generalPurpose` fallback.
+
+### How the agent recovered this run
+- Выполнил контракт `.cursor/agents/excalibur-blog-geo-qa.md` + skill `excalibur-geo-qa` как generalPurpose subagent.
+- Все QA-скрипты и handoff-маркер записаны штатно.
+
+### Durable fix needed before next run
+- Зарегистрировать typed Task `excalibur-blog-geo-qa` в Cloud Task types / automation map.
+- Либо явно документировать generalPurpose fallback как канон в `CLOUD-AUTOMATION.md` / `pipeline-task-map.md`, чтобы Director не тратил шаги на retry typed Task.
+
+### Suggested files to inspect/change
+- `shared/pipeline-task-map.md`
+- `CLOUD-AUTOMATION.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260928-2126-geo-qa-utility-pain-outcome-policy-gap
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-chitat-auktsionnyy-list-yaponii-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` считает `pain_markers_ru` / `outcome_markers_ru` из policy и по умолчанию требует min 2 / 3.
+- В `memory/brief/editorial-policy.json` этих списков не было → count всегда 0 → вечный UTILITY BLOCK даже при живом тексте боли/результата.
+- Параллельно human-voice gate BLOCK из-за слабых outcome/pain substring-маркеров в статье (не те словоформы).
+
+### How the agent recovered this run
+- Добавил `pain_markers_ru` / `outcome_markers_ru` + min thresholds в `editorial-policy.json` (согласовано с human-voice markers).
+- FIX-цикл статьи: маркеры «Сделайте/Не делайте», «чеклист», «результат/проблема/проверьте»; убран ярлык TL;DR.
+- Повтор: utility PASS, human-voice PASS, article-qa PASS score 89.
+
+### Durable fix needed before next run
+- Держать policy markers в sync с `excalibur_blog_human_voice_gate.py` (или читать один shared JSON).
+- Расширить `recommendation_markers_ru` синонимами «делать/не делать» / «чек-лист», чтобы writer mode B не флапал на словоформах.
+- Добавить regression-тест: utility gate PASS на fixture article без правки policy mid-run.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260928-2120-writer-precommit-secret-names-redacted
 status: open
 run_date: 2026-09-29

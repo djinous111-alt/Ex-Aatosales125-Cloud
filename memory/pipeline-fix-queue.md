@@ -495,3 +495,35 @@ files_changed:
 checks_run:
 - `rg` на REDACTED/StrReplace guidance в writer docs
 commit: d4cc023
+
+## INC-20260928-1347-geo-qa-precommit-secret-names
+status: open
+run_date: 2026-09-28
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kalkulyator-rastamozhki-avto-2026-kak-schitat
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` упал в Cloud pre-commit secret scanner: `CLOUD_AGENT_INJECTED_SECRET_NAMES` содержит не только имена env vars, но и raw URL (невалидный bash identifier).
+- Indirect expansion `${!SECRET_NAME}` → `invalid variable name`; commit блокируется даже когда staged diff без секретов.
+
+### How the agent recovered this run
+- Перед commit отфильтровал список до `str.isidentifier()` и перезапустил commit/push.
+- QA-артефакты B01 закоммичены (`4563875`).
+
+### Durable fix needed before next run
+- Исправить формирование `CLOUD_AGENT_INJECTED_SECRET_NAMES` в Cloud (только валидные имена переменных, не значения URL).
+- Либо hardened pre-commit.cursor: skip non-identifier names вместо падения.
+- В pitfalls: при `invalid variable name` на pre-commit — filter identifiers, не `--no-verify`.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- Cloud Agent Secrets / hook env injection (вне репо)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

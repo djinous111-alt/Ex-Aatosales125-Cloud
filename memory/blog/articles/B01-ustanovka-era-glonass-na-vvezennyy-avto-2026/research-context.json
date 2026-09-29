@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-09-29",
+    "today_ru": "29.09.2026",
+    "year": 2026,
+    "month": 9,
+    "month_name_ru": "сентябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-01",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-09-29 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "ustanovka-era-glonass-na-vvezennyy-avto-2026",
+    "h1": "Как поставить ЭРА-ГЛОНАСС на ввезённый авто в 2026: чек-лист до ЭПТС",
+    "primary_query": "установка эра глонасс",
+    "secondary_queries": [
+      "установка эра глонасс на авто",
+      "установка эра глонасс для растаможки",
+      "сколько стоит установка эры глонасс",
+      "обязательна установка эра глонасс"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "установка эра глонасс 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "установка эра глонасс сентябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "установка эра глонасс новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com установка эра глонасс 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "установка эра глонасс official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "установка эра глонасс forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "установка эра глонасс на авто 2026",
+      "purpose": "вторичный запрос: установка эра глонасс на авто"
+    },
+    {
+      "id": "secondary_2",
+      "query": "установка эра глонасс для растаможки 2026",
+      "purpose": "вторичный запрос: установка эра глонасс для растаможки"
+    },
+    {
+      "id": "secondary_3",
+      "query": "сколько стоит установка эры глонасс 2026",
+      "purpose": "вторичный запрос: сколько стоит установка эры глонасс"
+    },
+    {
+      "id": "secondary_4",
+      "query": "обязательна установка эра глонасс 2026",
+      "purpose": "вторичный запрос: обязательна установка эра глонасс"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как поставить ЭРА-ГЛОНАСС на ввезённый авто в 2026: чек-лист до ЭПТС 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-ustanovka-era-glonass-na-vvezennyy-avto-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

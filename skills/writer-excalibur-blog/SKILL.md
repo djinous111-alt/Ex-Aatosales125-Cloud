@@ -7,6 +7,11 @@
 - `shared/editorial-utility-only.md`
 - `memory/brief/site-brief.md`, `conversion-map.md`
 
+## CTA / ссылки
+
+- Живые CTA URL только из `memory/brief/conversion-map.md` / authors registry.
+- **Запрещён** литерал `href="[REDACTED]"` в `article.html` — redaction не для тела статьи (иначе link-verify 404).
+
 ## Задача
 
 1. **Только режим B** — инструкция/гайд/чеклист/comparison. Режим A запрещён.

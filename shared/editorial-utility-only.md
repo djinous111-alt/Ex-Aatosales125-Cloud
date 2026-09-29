@@ -79,6 +79,8 @@ python scripts/excalibur_blog_utility_gate.py \
 
 **Blocker `UTILITY ARTICLE BLOCKER`** — writer правит (FIX), QA не PASS.
 
+Маркеры боли/результата (`pain_markers_ru`, `outcome_markers_ru`) и пороги `min_pain_markers` / `min_outcome_markers` задаются в `memory/brief/editorial-policy.json`. Пустой список маркеров отключает соответствующую проверку (не даёт вечный BLOCK). Regression: `python3 scripts/excalibur_blog_utility_gate.py --self-test`.
+
 Плюс slop-detector (вода/штампы).
 
 ## Как провернуть без воды (чеклист редактора)

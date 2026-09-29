@@ -28,11 +28,13 @@ Append new Topic Card to blog-topics.md
 
 ### Шаг 1 — Анализ прошлого и получение ID
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
+* Пул может смешивать префиксы `AS01`… и канонические `B01`… — helper учитывает любой `## [A-Z]+\d+`.
+* Unwritten = карточки вне ledger (`published|in_progress|draft_ready`) и вне active `memory/blog/articles/<ID>-*`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Запомни следующий `topic_id` (серия `Bxx`, например `B02`) и список невыполненных тем.
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:

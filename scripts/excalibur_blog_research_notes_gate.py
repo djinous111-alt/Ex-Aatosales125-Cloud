@@ -14,22 +14,26 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short markers need token/word-boundary match (avoid "pain"→"ai", "Японии"→"ии").
+TECH_MARKERS_TOKEN = (
     "ai",
     "ии",
+    "api",
+    "mcp",
+    "rag",
+    "n8n",
+)
+# Longer / unambiguous markers may match as substrings or tokens.
+TECH_MARKERS_SUBSTR = (
     "agent",
     "агент",
-    "mcp",
-    "api",
     "cursor",
-    "make",
-    "n8n",
     "github",
     "docker",
-    "rag",
     "workflow",
     "автоматизац",
     "нейросет",
+    "make.com",
 )
 
 
@@ -73,14 +77,77 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _token_boundary_hit(blob: str, marker: str) -> bool:
+    """True when marker appears as a whole token, not inside another word."""
+    return bool(
+        re.search(
+            rf"(?<![a-zа-яё0-9_]){re.escape(marker)}(?![a-zа-яё0-9_])",
+            blob,
+            flags=re.IGNORECASE,
+        )
+    )
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech niches that need GitHub evidence.
+
+    Uses topic card fields first; short markers require word boundaries so
+    auto/import niches (reader_pain, Японии/Кореи) are not false-positive tech.
+    """
     topic = context.get("topic") or {}
-    blob = " ".join(
+    topic_blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Prefer topic card; fall back to a short notes prefix only if card is empty.
+    blob = topic_blob if topic_blob.strip() else notes[:800].lower()
+    if any(_token_boundary_hit(blob, marker) for marker in TECH_MARKERS_TOKEN):
+        return True
+    return any(marker in blob for marker in TECH_MARKERS_SUBSTR)
+
+
+def count_accessed_at(text: str) -> int:
+    """Count source access dates: explicit accessed_at: or ISO dates on URL table rows."""
+    text_lower = text.lower()
+    labeled = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    iso_on_url_rows = len(
+        re.findall(r"^\s*\|[^\n]*https?://[^\n]*\d{4}-\d{2}-\d{2}", text, flags=re.M)
+    )
+    return max(labeled, iso_on_url_rows)
+
+
+def count_pain_solution_rows(text: str) -> int:
+    """Count data rows in pain_solution_map table (any rows after header/separator)."""
+    match = re.search(
+        r"##\s*\d*\.?\s*pain[_\s-]*solution[_\s-]*map\b([\s\S]*?)(?=\n##\s|\Z)",
+        text,
+        flags=re.I,
+    )
+    if not match:
+        # Fallback: legacy keyword-row heuristic
+        return len(
+            re.findall(
+                r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*",
+                text.lower(),
+                flags=re.M,
+            )
+        )
+    section = match.group(1)
+    data_rows = 0
+    seen_header = False
+    for line in section.splitlines():
+        if not re.match(r"^\s*\|", line):
+            continue
+        if re.match(r"^\s*\|\s*:?-{2,}", line):
+            seen_header = True
+            continue
+        if not seen_header:
+            seen_header = True
+            continue
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if any(cells):
+            data_rows += 1
+    return data_rows
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,10 +197,12 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    pain_map_rows = count_pain_solution_rows(text)
     action_items = count_action_items(text)
+    # Non-tech niches (auto, customs, etc.): official docs/help URLs are enough;
+    # GitHub is only required when technical_topic is true (see check below).
 
     for field in REQUIRED_FIELDS:
         if not field_present(text_lower, field):

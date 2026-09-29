@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/B01-ustanovka-era-glonass-na-vvezennyy-avto-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "через Владивосток: в чатах кричали, что с апреля 2026 без неё не растаможите. Потом выяснилось: он физли",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2022",
+      "kind": "date_or_year",
+      "context": "ложено; юрлица и ИП обязаны ставить УВЭОС с 01.10.2022. Центр берите только с карты партнёров АО \"ГЛОНАС",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2027",
+      "kind": "date_or_year",
+      "context": "ьные страницы могут упоминать исключение до конца 2027 – держите формулу: \"пока действует мораторий; ста",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "855",
+      "kind": "large_number",
+      "context": "промторга о переносе даты 01.04.2026; портал ПП № 855 ИП или юрлицо Да, с 01.10.2022 Официальная схема н",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "35 000",
+      "kind": "large_number",
+      "context": "о Владивостоке часто 28–55 тыс. ₽; терминал около 35 000 ₽; по регионам 40–70 тыс. ₽. Сравнивайте состав у",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

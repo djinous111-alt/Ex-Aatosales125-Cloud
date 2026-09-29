@@ -465,6 +465,71 @@ category: docs
 ### Fixer resolution
 - pending
 
+## INC-20260929-1736-publish-paramiko-missing
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-publish
+topic_id: B02
+article_dir: memory/blog/articles/B02-prohodnye-avto-iz-yaponii-2026
+severity: medium
+category: env
+
+### What went wrong
+- `import paramiko` failed at publish preflight (`ModuleNotFoundError`).
+- Dependency still not present in cloud install path / snapshot for this run.
+
+### How the agent recovered this run
+- Installed with `pip3 install --break-system-packages paramiko` (got 5.0.0).
+- Continued env-check → link-verify PASS → dry-run OK → live publish.
+
+### Durable fix needed before next run
+- Add `paramiko` to `.cursor/cloud-agent-install.sh` and/or environment.json install deps so publish agents do not reinstall every run.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/environment.json`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260929-1745-publish-http-gateway-504
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-publish
+topic_id: B02
+article_dir: memory/blog/articles/B02-prohodnye-avto-iz-yaponii-2026
+severity: high
+category: publish
+
+### What went wrong
+- HTTP trigger of `excalibur-blog-publish-once.php` returned gateway 504 / read timeout (~120s) with ~7.2MB PHP payload (cover+3 inline).
+- WebFetch and curl fallbacks also hit 504; bootstrap deleted before a usable OK body arrived.
+- Post not found in WP after failed attempts (slug search empty).
+
+### How the agent recovered this run
+- Patched `scripts/excalibur_blog_wp_publish.py`: longer HTTP/WebFetch waits + SSH CLI `php` fallback after HTTP/WebFetch failure.
+- Re-ran publish preferring SSH CLI path to bypass gateway timeout.
+
+### Durable fix needed before next run
+- Keep SSH CLI fallback in publish script (or prefer CLI for large payloads).
+- Document gateway 504 + SSH CLI recovery in pitfalls / publish skill.
+- Optionally raise proxy/php max execution on host if HTTP path must remain primary.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

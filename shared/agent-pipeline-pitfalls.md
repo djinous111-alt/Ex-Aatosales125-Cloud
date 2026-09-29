@@ -22,6 +22,7 @@
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
 - Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
 - SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
+- Publish HTTP gateway 504 on large cover+inline PHP (~7MB): script falls back to SSH CLI `/usr/local/bin/php8.1` (Beget default `php` is 5.6 and cannot boot modern WP). Override with `EXCALIBUR_BLOG_PHP_BIN`; force CLI with `EXCALIBUR_BLOG_PUBLISH_FORCE_SSH_CLI=yes`.
 
 ## Writer / Fact Check Box
 

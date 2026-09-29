@@ -472,7 +472,7 @@ def trigger_bootstrap_http(url: str, root: Path) -> str:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=180,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
@@ -483,14 +483,55 @@ def trigger_bootstrap_http(url: str, root: Path) -> str:
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        for _ in range(180):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError("Cloud WebFetch Fallback timed out after 180 seconds. Please trigger manually.")
+
+
+def resolve_ssh_php_bin(env: dict[str, str]) -> str:
+    """Prefer site PHP 8.x; default `php` on shared hosts is often 5.6 and cannot boot modern WP."""
+    configured = (env.get("EXCALIBUR_BLOG_PHP_BIN") or "").strip()
+    if configured:
+        return configured
+    return "/usr/local/bin/php8.1"
+
+
+def trigger_bootstrap_ssh_cli(env: dict[str, str], remote_path: str) -> str:
+    """Run uploaded bootstrap via SSH `php` to bypass HTTP/gateway timeouts on large payloads."""
+    import paramiko
+
+    host, port, user, password = _ssh_creds(env)
+    php_bin = resolve_ssh_php_bin(env)
+    client = paramiko.SSHClient()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    client.connect(hostname=host, port=port, username=user, password=password, timeout=60)
+    try:
+        # remote_path is relative to SSH login cwd (WP root when SSH_ROOT=.)
+        # Quote path; set memory high for cover+inline base64 payload.
+        cmd = (
+            f"{php_bin} -d memory_limit=512M -d display_errors=1 "
+            f"{remote_path}"
+        )
+        print(f"Triggering SSH CLI publish: {cmd}")
+        _stdin, stdout, stderr = client.exec_command(cmd, timeout=600)
+        out = stdout.read().decode("utf-8", errors="replace")
+        err = stderr.read().decode("utf-8", errors="replace")
+        status = stdout.channel.recv_exit_status()
+        if err.strip():
+            print(f"SSH CLI stderr: {err.strip()[:500]}", file=sys.stderr)
+        if status != 0 and "OK post=" not in out:
+            raise RuntimeError(f"SSH CLI php exited {status}: {(out or err)[:800]}")
+        if "OK post=" not in out:
+            raise RuntimeError(f"SSH CLI php returned no OK post= line: {(out or err)[:800]}")
+        print("SSH CLI publish OK")
+        return out
+    finally:
+        client.close()
 
 
 def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
@@ -502,7 +543,19 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        force_cli = (env.get("EXCALIBUR_BLOG_PUBLISH_FORCE_SSH_CLI") or "").strip().lower() in {"1", "yes", "true"}
+        if force_cli:
+            print("EXCALIBUR_BLOG_PUBLISH_FORCE_SSH_CLI=yes — skipping HTTP trigger, using SSH CLI php")
+            out = trigger_bootstrap_ssh_cli(env, uploaded_remote_path)
+        else:
+            try:
+                out = trigger_bootstrap_http(url, root)
+            except Exception as http_exc:  # noqa: BLE001
+                print(
+                    f"HTTP/WebFetch publish failed ({type(http_exc).__name__}: {http_exc}). "
+                    "Falling back to SSH CLI php (bypasses gateway 504 on large payloads)..."
+                )
+                out = trigger_bootstrap_ssh_cli(env, uploaded_remote_path)
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)

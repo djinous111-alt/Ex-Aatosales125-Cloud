@@ -1,0 +1,17 @@
+{
+  "slug": "prohodnye-avto-iz-yaponii-2026",
+  "topic_id": "B02",
+  "permalink": "[SITE]/2026/09/29/prohodnye-avto-iz-yaponii-2026/",
+  "publish_method": "ssh_cli",
+  "php_bin": "/usr/local/bin/php8.1",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B02-prohodnye-avto-iz-yaponii-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1320718,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3802 slug=prohodnye-avto-iz-yaponii-2026\nOK featured_image=3832\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3833 src=cover/inline-01.png url=[SITE]/wp-content/uploads/2026/09/prohodnye-avto-iz-yaponii-2026-inline-01-5.png\nOK inline_image_upload=3834 src=cover/inline-02.png url=[SITE]/wp-content/uploads/2026/09/prohodnye-avto-iz-yaponii-2026-inline-02-5.png\nOK inline_image_upload=3835 src=cover/inline-03.png url=[SITE]/wp-content/uploads/2026/09/prohodnye-avto-iz-yaponii-2026-inline-03-5.png\npermalink=[SITE]/2026/09/29/prohodnye-avto-iz-yaponii-2026/\n",
+  "verdict": "pass",
+  "permalink_path": "/2026/09/29/prohodnye-avto-iz-yaponii-2026/"
+}

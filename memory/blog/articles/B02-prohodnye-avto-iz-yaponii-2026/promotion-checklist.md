@@ -1,7 +1,7 @@
 # Promotion checklist — B02 prohodnye-avto-iz-yaponii-2026
 
 Дата публикации: 2026-09-29  
-Live URL: (после publish) /blog/prohodnye-avto-iz-yaponii-2026/
+Live URL: /2026/09/29/prohodnye-avto-iz-yaponii-2026/ <!-- pragma: allowlist secret -->
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Окно 3–5 лет считают на дату декларации
 • Параллельно: кВт и санкционный контур — красный пункт = ставка на паузу
 
-Читать: [URL после publish]
+Читать: /2026/09/29/prohodnye-avto-iz-yaponii-2026/
 ```
 
 ## Перелинковка

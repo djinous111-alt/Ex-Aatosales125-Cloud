@@ -6,6 +6,99 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260929-0920-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-ustanovka-era-glonass-na-vvezennyy-avto-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud API не принимает typed Task `excalibur-blog-geo-qa`; директор вынужден запускать роль через канонический fallback (generalPurpose / inline role с `.cursor/agents/excalibur-blog-geo-qa.md` + skill).
+
+### How the agent recovered this run
+- GEO QA выполнен по контракту agent+skill без typed Task; пайплайн не останавливался.
+
+### Durable fix needed before next run
+- Зафиксировать в Cloud Task catalog / docs, что fallback `Task(generalPurpose)` + `.cursor/agents/<role>.md` — штатный путь, пока typed types недоступны.
+- Не пытаться один parent-agent писать article-qa вместо отдельной роли GEO QA.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260929-0920-geo-qa-utility-pain-markers-missing
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-ustanovka-era-glonass-na-vvezennyy-avto-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требовал `min_pain_markers=2` и `min_outcome_markers=3` по умолчанию, но в `memory/brief/editorial-policy.json` не было `pain_markers_ru` / `outcome_markers_ru` → count всегда 0 → UTILITY ARTICLE BLOCKER на любой статье (включая ранее PASS AS09 при повторном прогоне).
+
+### How the agent recovered this run
+- Добавлены `pain_markers_ru` / `outcome_markers_ru` и min-пороги в `editorial-policy.json` (согласовано с human-voice markers).
+- В скрипте: enforce pain/outcome только если списки маркеров в policy непустые.
+- Utility gate B01: PASS (pain=10, outcome=13).
+
+### Durable fix needed before next run
+- Fixer: убедиться, что policy и script синхронизированы; добавить regression-тест «пустой marker list не даёт вечный BLOCK».
+- Опционально: упомянуть pain/outcome markers в `shared/editorial-utility-only.md`.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/editorial-utility-only.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260929-0920-geo-qa-writer-literal-redacted-href
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-ustanovka-era-glonass-na-vvezennyy-avto-2026
+severity: medium
+category: qa
+related: INC-20260929-0918-writer-precommit-secret-names
+
+### What went wrong
+- В `article.html` CTA были записаны как литерал `href="[REDACTED]"` (не живые URL katalog/Telegram) → link-verify классифицировал как internal_relative и дал 404.
+
+### How the agent recovered this run
+- GEO QA восстановил CTA URL по образцу AS09 / conversion-map (каталог + Telegram); link-verify PASS 3/3.
+
+### Durable fix needed before next run
+- Writer contract: запретить литерал `[REDACTED]` в `href`; брать URL из `memory/brief/conversion-map.md` / authors registry.
+- Не путать redaction в логах/секретах с содержимым article.html.
+
+### Suggested files to inspect/change
+- `shared/excalibur-article-writing-contract.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `memory/brief/conversion-map.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260929-0918-writer-precommit-secret-names
 status: open
 run_date: 2026-09-29

@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260930-2105-scout-next-id-live-wp-override
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-scout
+topic_id: B03
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_scout_helper.py --suggest-next` вернул `B01` и `Total topics in pool: 0`, хотя в `blog-topics.md` уже есть AS01–AS09, а live WP уже занимает серии B01/B02 (СБКТС/ЭПТС и проходные авто) плюс десяток AS-slug.
+- Helper не учитывает live-WP avoid-list и не-Bxx ID в пуле, поэтому следующий Cloud run рискует снова предложить занятый ID.
+
+### How the agent recovered this run
+- Вручную зафиксировал `topic_id: B03` по контракту директора/handoff (B01/B02 = live WP).
+- Каннибализацию проверил через `--check-query` для «заказ авто из японии» / «авто из японии под заказ» – NO OVERLAP.
+- Добавил utility-карточку B03 в конец `memory/topics/blog-topics.md`.
+
+### Durable fix needed before next run
+- `excalibur_blog_scout_helper.py --suggest-next` должен учитывать: (1) все ID в `blog-topics.md` (AS* и B*), (2) ledger `shared/published-articles.md`, (3) опциональный live-WP avoid-list / handoff block «Do not republish».
+- Scout skill/agent для AVTO SALES должны читать niche из `memory/brief/site-brief.md` (автоимпорт), а не дефолтный AI/Cursor шаблон.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

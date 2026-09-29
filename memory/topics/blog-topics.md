@@ -184,3 +184,30 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram @avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B03 — Как заказать авто из Японии под ключ
+
+- **priority:** P0
+- **slug:** kak-zakazat-avto-iz-yaponii-pod-klyuch-2026
+- **h1:** Как заказать авто из Японии под ключ в 2026: от аукциона до выдачи
+- **primary_query:** заказ авто из японии
+- **secondary_queries:** авто из японии под заказ, заказ авто из японии с аукциона, заказ авто из японии с растаможкой, авто из японии под заказ с доставкой
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Что входит в заказ «под ключ» и чего там обычно нет
+  2. Как зафиксировать бюджет и тип авто до первого платежа
+  3. Аукцион Японии: что проверить новичку до ставки
+  4. Договор и этапы оплаты: как не потерять депозит
+  5. Путь через Владивосток: таможня, СВХ, документы без лишних кругов
+  6. Доставка по РФ и приёмка авто при выдаче
+  7. Чек-лист первого заказа из Японии
+- **faq_hints:** чем заказ с аукциона отличается от схемы под ключ; нужно ли ехать во Владивосток; что спросить у компании до депозита
+- **internal_links:** /kak-chitat-auktsionnyy-list-yaponii-2026/, /prohodnye-avto-iz-yaponii-2026/, /svh-vladivostok-kak-ne-pereplatit-2026/, /kak-zakazat-avto-iz-korei-pod-klyuch-2026/
+- **cta:** каталог + Telegram @avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у ролкера/порта Владивостока, японский седан/кроссовер, плашка «заказ из Японии», угол avto-sales125.ru
+- **wordstat_signal:** parent «авто из японии» 105356; «заказ авто из японии» 11771; «авто из японии под заказ» 9424; narrow how-to «как заказать авто из японии» 222 (low-detail tail)
+- **metrika_signal:** Japan process gap vs live Korea turnkey; Дзен Japan-кластер сильный
+- **status_note:** scout 2026-09-30; ID B03 (не B01) – B01/B02 заняты live WP (СБКТС/ЭПТС и проходные авто)

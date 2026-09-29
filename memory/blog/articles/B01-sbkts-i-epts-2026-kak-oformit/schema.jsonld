@@ -1,0 +1,203 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/sbkts-i-epts-2026-kak-oformit/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/sbkts-i-epts-2026-kak-oformit/"
+      },
+      "headline": "СБКТС и ЭПТС в 2026: как оформить на авто из Японии, Кореи и Китая",
+      "description": "СБКТС и ЭПТС в 2026: чеклист после таможни, проверка лаборатории в реестре и статус \"действующий\" до ГИБДД. Без серых схем и выдуманных цен.",
+      "datePublished": "2026-09-29",
+      "dateModified": "2026-09-29",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru/"
+        },
+        "sameAs": [
+          "https://avtosales125.ru/",
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru/",
+        "sameAs": [
+          "https://avtosales125.ru/",
+          "https://t.me/avtosales125"
+        ]
+      },
+      "keywords": [
+        "сбктс и эптс",
+        "как оформить эптс",
+        "как получить сбктс",
+        "оформление сбктс и эптс",
+        "сбктс и эптс оформление"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/sbkts-i-epts-2026-kak-oformit/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Можно ли получить ЭПТС без СБКТС на авто из Азии?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Для типичного физлица с единичным ввозом – нет. В системе СЭП нужен документ соответствия (СБКТС или ОТТС). Обещания \"без лаборатории\" обходите и проверяйте лабораторию в реестре до оплаты."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько ждать оформление СБКТС и ЭПТС?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Точный день не обещаем: у лабораторий разные окна. Ориентир – несколько рабочих дней на СБКТС после осмотра, затем дни на ЭПТС и отдельное ожидание статуса \"действующий\" из-за утильсбора. Срок по вашему VIN уточняйте у лаборатории или в сопровождении."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем отличается пакет для Японии, Кореи и Китая?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "База документов одна. У японских праворулек чаще риск по фарам, у Кореи – сверка комплектации и истории, у Китая – описание модели и документы, особенно для электромобилей. Не верьте фразе \"из Китая всегда проще\" без проверки конкретной машины."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужна ли ЭРА-ГЛОНАСС физлицу в 2026 году?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Требования менялись и продлевались. Не опирайтесь на чужой скрин \"до 2027 всем отменили\". Перед ввозом уточните актуальное требование на дату вашей поставки и не смешивайте правила для физлиц и юрлиц."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где проверить лабораторию и сам ЭПТС?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Лабораторию – в pub.fsa.gov.ru/ral по ИНН и области ТР ТС 018/2011. ЭПТС и статус – на dp.elpts.ru через Госуслуги. Нужен статус \"действующий\", плюс выписка перед ОСАГО и ГИБДД."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если ЭПТС есть, а в ГИБДД разворачивают?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Откройте кабинет СЭП и проверьте статус. Если \"незавершённый\" – ждите передачу данных об утильсборе. Если \"действующий\", но отказали – проверьте выписку, ОСАГО по номеру ЭПТС и таможенные бумаги, затем запросите письменную причину отказа."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/sbkts-i-epts-2026-kak-oformit/#howto",
+      "name": "Как оформить СБКТС и ЭПТС на авто из Азии в 2026",
+      "description": "Порядок после таможни: пакет документов, проверка лаборатории в реестре, СБКТС, ЭПТС со статусом «действующий», ОСАГО и ГИБДД.",
+      "totalTime": "P5D",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Реестр Росаккредитации pub.fsa.gov.ru/ral"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Личный кабинет СЭП dp.elpts.ru (вход через Госуслуги)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Аккредитованная испытательная лаборатория по ТР ТС 018/2011"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Паспорт владельца и ИНН"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Договор / инвойс или аукционный лист"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Таможенная декларация или ТПО после выпуска"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Данные VIN и фото четырёх ракурсов с зоной VIN"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Выпишите VIN и таможенный статус",
+          "text": "Выпишите VIN, страну ввоза (Япония / Корея / Китай) и что уже есть: ТД или ТПО, подтверждение утильсбора.",
+          "url": "https://avtosales125.ru/sbkts-i-epts-2026-kak-oformit/#poryadok-posle-tamozhni"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Соберите пакет документов до лаборатории",
+          "text": "Соберите пакет до лаборатории по чеклисту: паспорт, ИНН, договор/инвойс, ТД или ТПО, VIN, фото – без «потом донесём».",
+          "url": "https://avtosales125.ru/sbkts-i-epts-2026-kak-oformit/#cheklist-dokumentov"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Проверьте лабораторию в реестре до оплаты",
+          "text": "Выберите лабораторию и проверьте её в реестре Росаккредитации pub.fsa.gov.ru/ral по ИНН и области ТР ТС 018/2011 до оплаты.",
+          "url": "https://avtosales125.ru/sbkts-i-epts-2026-kak-oformit/#proverka-laboratorii"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Пройдите очный осмотр и дождитесь СБКТС",
+          "text": "Пройдите осмотр, дождитесь внесения СБКТС; не принимайте «готовое» от посредника вне реестра.",
+          "url": "https://avtosales125.ru/sbkts-i-epts-2026-kak-oformit/#poryadok-posle-tamozhni"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Оформите ЭПТС на основании СБКТС",
+          "text": "Оформите ЭПТС через уполномоченную организацию на основании СБКТС и таможенных данных.",
+          "url": "https://avtosales125.ru/sbkts-i-epts-2026-kak-oformit/#poryadok-posle-tamozhni"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Проверьте статус ЭПТС «действующий»",
+          "text": "В кабинете на dp.elpts.ru (Госуслуги) убедитесь, что статус ЭПТС – «действующий».",
+          "url": "https://avtosales125.ru/sbkts-i-epts-2026-kak-oformit/#gotovo-k-gibdd"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Соберите выписку и ОСАГО перед ГИБДД",
+          "text": "Скачайте выписку, оформите ОСАГО по номеру ЭПТС и только потом едьте в ГИБДД.",
+          "url": "https://avtosales125.ru/sbkts-i-epts-2026-kak-oformit/#gotovo-k-gibdd"
+        }
+      ]
+    }
+  ]
+}

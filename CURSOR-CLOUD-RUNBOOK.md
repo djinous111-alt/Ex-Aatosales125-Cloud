@@ -55,6 +55,23 @@ EXCALIBUR_TOPIC_ID=<optional fixed topic id>
 
 Запрещено добавлять в repo реальные `.env`, `memory/site.env.local`, MCP tokens, SSH credentials, Cursor API keys.
 
+### Secret name hygiene (pre-commit)
+
+- Имена Cloud Secrets / значения в `CLOUD_AGENT_INJECTED_SECRET_NAMES` должны быть **valid bash identifiers**: `^[A-Za-z_][A-Za-z0-9_]*$`. Raw URL как «имя» ломает scanner (`invalid variable name`).
+- Перед любым `git commit` / `git push` в Cloud Agent:
+
+```bash
+source scripts/sanitize_cloud_secret_names.sh
+```
+
+- Для commit `schema.jsonld` / `llms.txt` / артефактов с обязательными public URLs:
+
+```bash
+EXCALIBUR_EXCLUDE_PUBLIC_URL_SECRETS=1 source scripts/sanitize_cloud_secret_names.sh
+```
+
+- Публичные CTA в `article.html`: на строке с href добавь `<!-- pragma: allowlist secret -->` (см. Writer skill). Не дублируй публичные marketing URL в Dashboard Secrets без необходимости.
+
 ## GitHub setup
 
 1. Создать приватный GitHub repo.

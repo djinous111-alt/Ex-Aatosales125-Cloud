@@ -29,6 +29,14 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `shared/quality-blog.md`
 - MCP сервер `user-mcp-kv` со всеми инструментами `wordstat_*`
 
+
+
+## Research notes gate (machine)
+
+- Gate `technical_topic` смотрит только topic card (h1/query/slug), не тело notes — иначе `ai` внутри `reader_pain` даёт false positive.
+- `github_evidence` ≥3 URL обязателен только для technical topics; для auto/import и прочих non-tech ниш достаточно official/community docs.
+- В `pain_solution_map` каждая data-строка таблицы должна содержать маркеры `боль|pain|решение|solution|результат|result` (иначе row counter = 0).
+
 ## Выход
 
 `memory/blog/articles/<topic_id>-<slug>/research-context.json`  

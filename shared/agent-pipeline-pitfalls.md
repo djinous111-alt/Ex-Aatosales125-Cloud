@@ -47,3 +47,25 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator CLI: `--blog-dir` + `--out-dir` (флага `--blog-path` больше нет).
+
+## Research notes gate
+
+- `technical_topic` определяется по полям topic card (h1/query/slug), не по телу notes: голый substring `ai`/`ии` давал false positive на `reader_pain` / «декларации».
+- Строки `pain_solution_map` должны содержать `боль|pain|решение|solution|результат|result`, иначе row counter = 0.
+- GitHub evidence (≥3 URL) обязателен только для technical topics; auto/import и прочие non-tech ниши — community/official docs достаточно.
+
+## Utility / editorial policy
+
+- `memory/brief/editorial-policy.json` обязан содержать непустые `pain_markers_ru` и `outcome_markers_ru` (+ mins в `article_required_signals`). Doctor это проверяет.
+
+## Cloud pre-commit / secrets
+
+- Перед commit: `source scripts/sanitize_cloud_secret_names.sh`. Для schema/llms: `EXCALIBUR_EXCLUDE_PUBLIC_URL_SECRETS=1 source …`.
+- Public CTA в HTML: `<!-- pragma: allowlist secret -->` на строке с href.
+- Secret names только bash identifiers; не инжектить raw URL как имя.
+
+## Publish deps / gateway
+
+- `paramiko` обязателен для SSH publish; ставится через `.cursor/cloud-agent-install.sh` / `requirements.txt`.
+- HTTP gateway 504 на большом PHP payload → SSH CLI php fallback (`EXCALIBUR_BLOG_PUBLISH_FORCE_SSH_CLI=yes`).

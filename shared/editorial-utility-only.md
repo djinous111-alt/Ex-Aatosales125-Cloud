@@ -73,13 +73,15 @@ python scripts/excalibur_blog_research_notes_gate.py \
 ## Gate 4 — GEO QA
 
 ```bash
-python scripts/excalibur_blog_utility_gate.py \
+python3 scripts/excalibur_blog_utility_gate.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
 **Blocker `UTILITY ARTICLE BLOCKER`** — writer правит (FIX), QA не PASS.
 
 Плюс slop-detector (вода/штампы).
+
+Utility gate читает `pain_markers_ru` / `outcome_markers_ru` и `min_pain_markers` / `min_outcome_markers` из `memory/brief/editorial-policy.json` (согласованы с human-voice gate). Списки **нельзя** удалять: иначе pain/outcome checks пропускаются, а `excalibur_blog_doctor.py` падает. Статья должна называть боль читателя и конкретный результат действия.
 
 ## Как провернуть без воды (чеклист редактора)
 

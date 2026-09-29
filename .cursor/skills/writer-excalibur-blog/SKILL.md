@@ -37,6 +37,13 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## CTA и Cloud pre-commit
+
+- В `article.html` ставь **живые** публичные CTA из `memory/brief/conversion-map.md` (каталог / Telegram / MAX) — не `[REDACTED]`.
+- Если Dashboard Secrets дублируют эти публичные URL, Cloud pre-commit scanner блокирует commit. На каждой HTML-строке с таким href добавь `<!-- pragma: allowlist secret -->`.
+- Перед `git commit` в Cloud: `source scripts/sanitize_cloud_secret_names.sh` (отсекает non-identifier имена в `CLOUD_AGENT_INJECTED_SECRET_NAMES`).
+- Не клади публичные marketing URL в Dashboard Secrets, если можно избежать; иначе pragma обязателен.
+
 ## Blockers
 
 - нет research-notes.md

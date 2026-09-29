@@ -22,3 +22,13 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+## Commit / Cloud secrets
+
+- JSON-LD **обязан** содержать абсолютные public site/author URLs (`PUBLIC_SITE_URL`, catalog/Telegram/MAX из `sameAs` автора).
+- Перед commit schema/llms:
+  ```bash
+  EXCALIBUR_EXCLUDE_PUBLIC_URL_SECRETS=1 source scripts/sanitize_cloud_secret_names.sh
+  ```
+- Dashboard: secret **names** только valid bash identifiers (`[A-Za-z_][A-Za-z0-9_]*`). Не инжектить raw URL как имя секрета.
+- Предпочтительно не хранить уже публичные marketing URL как commit-blocking secrets.

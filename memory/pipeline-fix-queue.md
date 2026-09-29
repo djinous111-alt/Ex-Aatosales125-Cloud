@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260929-1348-cover-mcp-timeout-toxic-prompt
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-sbkts-i-epts-2026-kak-oformit
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` returned HTTP `-32001` Request timed out; no image URL/task_id appeared in local MCP/agent-tools logs for recovery.
+- Prompt builder `excalibur_blog_cover_quad_prompt.py` embedded toxic ban-list words and hardcoded white hoodie, conflicting with non-toxic sticker rules and cover `scene_hint` outfit.
+
+### How the agent recovered this run
+- Sanitized prompt builder (non-toxic wording without listing insult words; outfit follows scene_hint, no hoodie/cap/hood).
+- Regenerated `quad-mcp-batch.json`; after poll with no URL, used Kie async API (`excalibur_blog_kie_gpt_image2_api.py`) with the same batch payload → success URL → quad_apply + inject-html PASS.
+
+### Durable fix needed before next run
+- Prefer async Kie createTask→recordInfo (or async MCP) for 2K i2i so Cloud client timeout does not lose the result.
+- Keep toxic words out of prompt text entirely (ban-list must not appear in model prompt).
+- Outfit lock must come from manifest `scene_hint`, not a hardcoded hoodie.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/blog-cover-quad-canvas-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260929-1347-schema-precommit-public-url-secrets
 status: open
 run_date: 2026-09-29

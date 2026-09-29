@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "sbkts-i-epts-2026-kak-oformit",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у документов и планшета с ЭПТС, лаборатория и порт Владивостока, плашка СБКТС + ЭПТС, угол avto-sales125.ru",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-09-29T13:54:44+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у документов и планшета с ЭПТС, лаборатория и порт Владивостока, плашка СБКТС + ЭПТС, угол avto-sales125.ru",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сравнения СБКТС и ЭПТС: роль, оформление, значение для ГИБДД",
+      "h2_anchor": "Разберите, чем СБКТС отличается от ЭПТС",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема порядка после таможни: от СВХ через СБКТС и ЭПТС до ГИБДД",
+      "h2_anchor": "Пройдите порядок после таможни: от СВХ до ГИБДД",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист документов перед записью в лабораторию для СБКТС",
+      "h2_anchor": "Соберите документы до записи в лабораторию",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

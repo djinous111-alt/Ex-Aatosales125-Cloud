@@ -14,22 +14,24 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Token/phrase markers with word boundaries. Bare "ai"/"ии" must NOT match
+# inside "pain", "reader_pain", "аккредитации", etc.
 TECH_MARKERS = (
-    "ai",
-    "ии",
-    "agent",
-    "агент",
-    "mcp",
-    "api",
-    "cursor",
-    "make",
-    "n8n",
-    "github",
-    "docker",
-    "rag",
-    "workflow",
-    "автоматизац",
-    "нейросет",
+    r"\bai\b",
+    r"\bии\b",
+    r"\bagent\b",
+    r"агент",
+    r"\bmcp\b",
+    r"\bapi\b",
+    r"\bcursor\b",
+    r"\bmake\b",
+    r"\bn8n\b",
+    r"\bgithub\b",
+    r"\bdocker\b",
+    r"\brag\b",
+    r"\bworkflow\b",
+    r"автоматизац",
+    r"нейросет",
 )
 
 
@@ -75,12 +77,15 @@ def has_wordstat(text_lower: str) -> bool:
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
+    # Prefer topic card fields; do not scan full notes (labels like reader_pain
+    # and Russian case endings falsely tripped bare substring markers).
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    if not blob.strip():
+        blob = notes[:800].lower()
+    return any(re.search(marker, blob, flags=re.IGNORECASE) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -163,6 +168,15 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         errors.append(f"technical topic requires GitHub evidence: github_urls={len(github_urls)} < 3")
     if technical and not official_doc_urls:
         warnings.append("technical topic has no obvious official docs/developer documentation URL")
+    if not technical and len(github_urls) == 0:
+        # Non-dev niches (auto import, customs, etc.) may mark github_evidence N/A.
+        if re.search(r"github[_\s-]*evidence[\s\S]{0,200}\bn/?a\b", text_lower):
+            warnings.append("github_evidence marked N/A for non-technical topic")
+        else:
+            warnings.append(
+                "non-technical topic: github.com URLs optional; "
+                "use github_evidence: N/A with justification if none apply"
+            )
 
     if year and year not in text:
         warnings.append(f"current year {year} is not visible in research notes")

@@ -1,7 +1,7 @@
 # Promotion checklist — B01 ustanovka-era-glonass-na-vvezennyy-avto-2026
 
-Дата публикации: (pending publish)  
-Live URL: (pending) — ожидаемый путь `/blog/ustanovka-era-glonass-na-vvezennyy-avto-2026/`
+Дата публикации: 2026-09-29  
+Live URL: https://avtosales125.ru/2026/09/29/ustanovka-era-glonass-na-vvezennyy-avto-2026/ <!-- pragma: allowlist secret -->
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Центр только с карты 855.aoglonass.ru
 • Активация и документы до СБКТС и ЭПТС
 
-Читать: (live URL после publish)
+Читать: https://avtosales125.ru/2026/09/29/ustanovka-era-glonass-na-vvezennyy-avto-2026/ <!-- pragma: allowlist secret -->
 ```
 
 ## Перелинковка

@@ -1,0 +1,16 @@
+{
+  "slug": "ustanovka-era-glonass-na-vvezennyy-avto-2026",
+  "topic_id": "B01",
+  "permalink": "[REDACTED]/2026/09/29/ustanovka-era-glonass-na-vvezennyy-avto-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-ustanovka-era-glonass-na-vvezennyy-avto-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1280217,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3790 slug=ustanovka-era-glonass-na-vvezennyy-avto-2026\nOK featured_image=3791\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3792 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/09/ustanovka-era-glonass-na-vvezennyy-avto-2026-inline-01.png\nOK inline_image_upload=3793 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/09/ustanovka-era-glonass-na-vvezennyy-avto-2026-inline-02.png\nOK inline_image_upload=3794 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/09/ustanovka-era-glonass-na-vvezennyy-avto-2026-inline-03.png\npermalink=[REDACTED]/2026/09/29/ustanovka-era-glonass-na-vvezennyy-avto-2026/\n",
+  "verdict": "pass",
+  "permalink_note": "PUBLIC_SITE_URL redacted for git; live post_id=3790"
+}

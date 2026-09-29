@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260929-0930-publish-paramiko-missing
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-ustanovka-era-glonass-na-vvezennyy-avto-2026
+severity: high
+category: env
+
+### What went wrong
+- Real publish failed on first attempt: `ModuleNotFoundError: No module named 'paramiko'`.
+- `requirements.txt` lists `paramiko`, but `.cursor/cloud-agent-install.sh` installed only `requests pillow python-dotenv`.
+- `scripts/sanitize_cloud_secret_names.sh` referenced by publish runbook was missing (agents filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` ad hoc).
+
+### How the agent recovered this run
+- Installed `paramiko` via `pip install --break-system-packages`; retry publish succeeded (SSH + HTTP trigger, no WebFetch fallback needed).
+- Added `paramiko`/`numpy` to `.cursor/cloud-agent-install.sh`.
+- Created `scripts/sanitize_cloud_secret_names.sh` for pre-commit identifier filter.
+
+### Durable fix needed before next run
+- Ensure Cloud install always installs `requirements.txt` (or at least paramiko) so SSH publish works cold.
+- Source sanitize script before every commit; optionally wire into pitfalls.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `scripts/sanitize_cloud_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260929-0926-indexer-precommit-secret-name
 status: open
 run_date: 2026-09-29

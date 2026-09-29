@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260929-1357-indexer-llms-stale-blog-path-flag
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-sbkts-i-epts-2026-kak-oformit
+severity: low
+category: docs
+
+### What went wrong
+- Indexer skill Shell block still documents `excalibur_blog_llms_generator.py --blog-path /`, but the script argparse only accepts `--blog-dir` and `--out-dir` (no `--blog-path`).
+- Director handoff already flagged doctor `--blog-path` vs `--blog-dir`; skill copies were not updated in the same fix wave.
+- User contract for this run explicitly required `--blog-dir` / `--out-dir` (NOT `--blog-path`).
+
+### How the agent recovered this run
+- Ran llms generator with `--blog-dir memory/blog/articles --out-dir memory/blog --site-base [REDACTED]` (env `PUBLIC_SITE_URL` already redacted; no `--redact-site-base` flag exists on the script).
+- Generated `memory/blog/llms.txt` and `memory/blog/llms-full.txt` with B01 included.
+
+### Durable fix needed before next run
+- Replace `--blog-path /` with `--blog-dir memory/blog/articles --out-dir memory/blog` in both indexer skill copies.
+- Optionally document that `PUBLIC_SITE_URL` may already be `[REDACTED]` in Cloud and that `--redact-site-base` is not a CLI flag.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md` (if it still mentions `--blog-path`)
+- `.cursor/agents/excalibur-blog-indexer.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260929-1348-cover-mcp-timeout-toxic-prompt
 status: open
 run_date: 2026-09-29

@@ -252,7 +252,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20260929-1715-research-notes-gate-tech-false-positive
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-research
 topic_id: B02
@@ -286,10 +286,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- `technical_topic` now uses topic-card fields only + word-boundary checks for short tokens (`ai`/`ии`/`api`/`rag`/`make`); no longer scans notes body (`reader_pain`).
+- Clearer pain_solution_map row-counter error; research skills document row markers and non-tech GitHub rules.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+- B02 research-notes-gate → PASS, `technical_topic=False`
+commit: pending-parent-commit
 
 ## INC-20260929-1705-scout-precommit-secret-name
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-scout
 topic_id: B02
@@ -320,10 +333,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Added `scripts/sanitize_cloud_secret_names.sh` — filters `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid bash identifiers (space/comma lists).
+- Documented secret-name hygiene + `source scripts/sanitize_cloud_secret_names.sh` before commit in CURSOR-CLOUD-RUNBOOK and pitfalls.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- bash dry-run: drops non-identifiers; keeps SSH_*
+commit: pending-parent-commit
 
 ## INC-20260929-1718-writer-cta-secret-allowlist
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-writer
 topic_id: B02
@@ -354,10 +378,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Writer skill documents live CTA hrefs + `<!-- pragma: allowlist secret -->` + sanitize script before commit.
+- conversion-map notes updated; Cloud runbook covers CTA allowlist.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `memory/brief/conversion-map.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` for pragma/sanitize guidance in Writer skill
+commit: pending-parent-commit
 
 ## INC-20260929-1720-geo-qa-utility-pain-outcome-markers-missing
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-geo-qa
 topic_id: B02
@@ -392,11 +429,28 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Restored `pain_markers_ru` / `outcome_markers_ru` (+ mins) in `memory/brief/editorial-policy.json` (aligned with human-voice gate).
+- Utility gate skips pain/outcome mins when lists empty (no whole-pipeline false BLOCK); doctor requires non-empty lists + mins.
+- Documented in editorial-utility-only + pitfalls; B02 QA rerun artifacts kept.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/blog/articles/B02-prohodnye-avto-iz-yaponii-2026/article-qa.md`
+- `memory/blog/articles/B02-prohodnye-avto-iz-yaponii-2026/utility-gate-report.json`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `python3 scripts/excalibur_blog_utility_gate.py --article-dir …/B02-…` → PASS
+commit: pending-parent-commit
 
 
 ## INC-20260929-1728-schema-precommit-public-urls
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-schema
 topic_id: B02
@@ -427,11 +481,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Schema skill documents absolute public URLs + `EXCALIBUR_EXCLUDE_PUBLIC_URL_SECRETS=1 source scripts/sanitize_cloud_secret_names.sh` before schema/llms commit.
+- Sanitize script supports excluding PUBLIC_SITE_URL/CATALOG_URL/TELEGRAM_URL/MAX_URL from scanner name list.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/sanitize_cloud_secret_names.sh`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- sanitize dry-run with EXCLUDE → keeps SSH_*, drops PUBLIC_SITE_URL/CATALOG_URL/TELEGRAM_URL
+commit: pending-parent-commit
 
 
 ## INC-20260929-1734-indexer-llms-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-indexer
 topic_id: B02
@@ -463,10 +530,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Doctor now checks `--blog-dir` + `--out-dir` and warns if stale `--blog-path` reappears.
+- Indexer agent/skill examples updated to current CLI (no `--blog-path`).
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → llms --blog-dir/--out-dir OK
+- `rg` confirms no command examples still pass `--blog-path`
+commit: pending-parent-commit
 
 ## INC-20260929-1736-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-publish
 topic_id: B02
@@ -494,10 +576,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Added `paramiko` (and `numpy`) to `.cursor/cloud-agent-install.sh` install set; already listed in `requirements.txt`.
+- Doctor checks `paramiko` availability for publish SSH.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → paramiko OK
+commit: pending-parent-commit
 
 ## INC-20260929-1745-publish-http-gateway-504
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-publish
 topic_id: B02
@@ -528,7 +623,19 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Confirmed SSH CLI php fallback already in `excalibur_blog_wp_publish.py` (HTTP/WebFetch → SSH CLI; FORCE_SSH_CLI / PHP_BIN env).
+- Documented gateway 504 recovery in publish skill + pitfalls (Beget php8.1 path).
+files_changed:
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `rg` FORCE_SSH_CLI / 504 guidance in publish skill
+commit: pending-parent-commit
 
 ## Fixed incidents
 

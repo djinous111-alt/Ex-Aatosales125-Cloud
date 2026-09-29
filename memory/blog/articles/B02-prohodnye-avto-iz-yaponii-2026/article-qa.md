@@ -1,21 +1,22 @@
-# Article QA — B02
+# Article QA — B02 (rerun)
 
 **topic_id:** B02  
 **slug:** prohodnye-avto-iz-yaponii-2026  
 **article_dir:** memory/blog/articles/B02-prohodnye-avto-iz-yaponii-2026  
 **date:** 2026-09-29  
-**verdict:** FAIL  
-**score:** 84
+**qa_run:** rerun after editorial-policy pain/outcome markers restore (INC-20260929-1720)  
+**verdict:** PASS  
+**score:** 86
 
 ## Scripts
 
 | Script | Verdict | Notes |
 |--------|---------|-------|
-| research-notes-gate | PASS | warnings: technical topic without official docs URL |
-| utility gate | **BLOCK** | pain_markers=0&lt;2, outcome_markers=0&lt;3 — см. blocker ниже |
-| human-voice | PASS | warnings: multiple exactly-5-step lists |
+| research-notes-gate | PASS | warning: technical topic without official docs URL |
+| utility gate | **PASS** | pain_markers=4 (≥2), outcome_markers=8 (≥3); action_markers=10 |
+| human-voice | PASS | warning: multiple exactly-5-step lists |
 | html-linter | PASS | 0 errors; TOC нет |
-| slop-detector | PASS | 0 клише; 2 over-long (таблица + success H2); Flesch RU 64.5 |
+| slop-detector | PASS | 0 клише; 2 over-long; Flesch RU 64.5 |
 | fact-check | PASS | 11 stats; verified 1; unverified 10 (годы/сроки — в research-notes) |
 | link-verify | PASS | 2/2 OK (каталог + Telegram) |
 | cannibalization | PASS | 0 issues |
@@ -29,9 +30,9 @@
 | CORE-EEAT lite | 14/15 | 18/20 |
 | Human voice | 15/15 | HV PASS; 0 AI-slop |
 | Fact safety | 12/15 | цифры в research-notes; мало в fact-bank |
-| Contract HTML | 10/10 | whitelist PASS, ~9172–9411 chars, FAQ, CTA |
-| Utility gate | **0 (veto)** | BLOCK — policy markers empty |
-| **Итого (content)** | **84/100** | veto utility → verdict FAIL |
+| Contract HTML | 10/10 | whitelist PASS, FAQ, CTA |
+| Utility gate | 6/10 | PASS (pain 4 / outcome 8); soft: нет internal blog links |
+| **Итого** | **86/100** | ≥80 ✓ · no veto |
 
 ## CORE-EEAT lite: 18/20
 
@@ -58,7 +59,7 @@
 | Ept01 | ✓ | край пятилетки, регистрация≠выпуск, гибрид порог |
 | Ept02 | ✗ | нет 2–3 внутренних ссылок на другие посты блога |
 
-**Target:** ≥16/20 ✓ · veto (R03 / Exp01 / slop≥2): нет · **veto utility gate: да**
+**Target:** ≥16/20 ✓ · veto (R03 / Exp01 / slop≥2): нет · **veto utility gate: нет**
 
 ## Beginner-fit
 
@@ -73,7 +74,7 @@
 - Lead называет боль (депозит до месяца выпуска) ✓  
 - H2 закрывают pain_solution_map ✓  
 - success_criteria до FAQ ✓  
-- Машинный utility pain/outcome: **FAIL** (см. blocker)
+- Машинный utility pain/outcome: **PASS** (pain=4, outcome=8)
 
 ## Link verify
 
@@ -88,41 +89,26 @@
 
 ## Schema ready
 
-BlogPosting: pending (вне зоны QA) | FAQPage: yes (7) | HowTo: yes (чек-лист) | cover/schema: **не стартовать** без QA PASS
+BlogPosting: pending (вне зоны QA) | FAQPage: yes (7) | HowTo: yes (чек-лист) | cover/schema: **можно стартовать** после handoff PASS
+
+## Soft notes (non-blocking)
+
+1. Human-voice: варьировать длину одного из ol (два списка ровно по 5 пунктов).
+2. Ept02: 2–3 internal links на соседние посты блога с `anchor_variants`, когда URL готовы (Indexer).
+3. Fact soft: ключевые цифры (117,68 кВт; 09.08.2023; ЕЭК №74) — в `fact-bank.md` для verified.
 
 ## Blockers
 
-1. **`UTILITY ARTICLE BLOCKER`** — `utility-gate-report.json` status BLOCK:
-   - `pain_markers=0 < 2`
-   - `outcome_markers=0 < 3`
-   - **Корневая причина не в тексте статьи:** в `memory/brief/editorial-policy.json` нет `pain_markers_ru` / `outcome_markers_ru`, скрипт берёт `[]`, счётчик всегда 0, пороги по умолчанию 2/3 → **любая** статья BLOCK (проверено на AS09: исторический PASS-отчёт, повторный прогон сейчас тоже BLOCK).
-   - Human-voice gate по своим hardcoded маркерам: **PASS** (pain: боль/ошиб; outcome: результат/проверьте/соберите/выберите).
-
-## FIX для Writer (цикл 1) — текст
-
-> Writer **не** сможет снять utility BLOCK правками `article.html`, пока Fixer не добавит маркеры в policy. Ниже — лексический полир после policy-fix (или параллельно), без полного рерайта.
-
-1. **После появления `pain_markers_ru` в policy** — в lead/ближайший `<p>` явно вставить ≥2 подстроки из списка policy (ориентир HV: `боль`/`проблем`/`ошиб`/`дорого`/`сложно`/`застр`). Сейчас в тексте уже есть «ошибка», «ловушка», «риск»; усилить формулировку боли одной фразой («главная боль новичка…»).
-2. **После появления `outcome_markers_ru`** — в H2 результата и перед FAQ ≥3 маркера (ориентир HV: `результат`, `проверьте`, `соберите`, `выберите`, `получите`, `сможете`). Сейчас «результат»/«проверьте»/«выберите»/«соберите» уже есть — сверить с финальным списком policy 1:1.
-3. **Non-blocking:** варьировать длину одного из ol (human-voice warning: два списка ровно по 5 пунктов).
-4. **Non-blocking (Ept02):** 2–3 internal links на соседние посты блога с `anchor_variants`, когда URL готовы.
-5. **Non-blocking fact soft:** ключевые цифры (117,68 кВт; 09.08.2023; ЕЭК №74) — в `fact-bank.md` для verified.
-
-## FIX для Fixer (обязательно до re-QA)
-
-См. `memory/pipeline-fix-queue.md#INC-20260929-1720-geo-qa-utility-pain-outcome-markers-missing`
-
-- Добавить в `editorial-policy.json` списки `pain_markers_ru` / `outcome_markers_ru` (согласовать с `excalibur_blog_human_voice_gate.py`) и явные `min_pain_markers` / `min_outcome_markers` в `article_required_signals`.
-- Либо: если списки пусты — **не** применять пороги (skip), чтобы не блокировать все статьи.
+_none_
 
 ## Gate
 
-- score ≥ 80 → **84** ✓ (content)  
+- score ≥ 80 → **86** ✓  
 - CORE-EEAT ≥ 16/20 → **18/20** ✓  
 - research-notes-gate PASS ✓  
 - human-voice PASS ✓  
 - link-verify pass ✓  
-- utility gate PASS ✗ **BLOCK**  
+- utility gate PASS ✓  
 - beginner-fit PASS ✓  
 
-**Итог:** FAIL — cover || schema **не** запускать. Вернуть writer после Fixer policy-fix + re-run utility; либо только Fixer, затем re-QA без правок текста если маркеры уже матчятся.
+**Итог:** PASS — cover || schema можно запускать параллельно. Текст статьи в этом rerun не менялся; снят только policy-veto после restore маркеров.

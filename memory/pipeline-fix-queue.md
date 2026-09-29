@@ -93,21 +93,21 @@ category: env
 - Push succeeded after the filtered commit.
 
 ### Durable fix needed before next run
-- Add `scripts/sanitize_cloud_secret_names.sh` (or document `source` snippet) that strips non `[A-Za-z_][A-Za-z0-9_]*` names before commit.
-- Point scout/director/publish runbooks to source that script before every commit.
+- Point scout/director/publish/research runbooks to `source scripts/sanitize_cloud_secret_names.sh` before every commit (script added 2026-09-29 by research).
 - Optionally harden the Cloud pre-commit scanner to skip invalid names instead of aborting.
 
 ### Suggested files to inspect/change
-- `scripts/sanitize_cloud_secret_names.sh` (create)
+- `scripts/sanitize_cloud_secret_names.sh` (exists; wire into skills)
 - `shared/agent-pipeline-pitfalls.md`
 - `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
 - `CURSOR-CLOUD-RUNBOOK.md`
 
 ### Secrets
 - none recorded
 
 ### Fixer resolution
-- pending
+- pending (script created; skills/docs still need wiring)
 
 ---
 

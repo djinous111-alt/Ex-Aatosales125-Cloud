@@ -43,7 +43,7 @@
 | Contract HTML | 10/10 | Linter PASS; char_count 8653; CTA OK |
 | **Итого** | **76/100** | |
 
-## CORE-EEAT lite: 18/20
+## CORE-EEAT lite: 19/20
 
 | ID | Result | Comment |
 |----|--------|---------|
@@ -88,7 +88,7 @@
 ## Gate checklist
 
 - score ≥ 80 → **76** ✗  
-- CORE-EEAT ≥ 16/20 → **18/20** ✓  
+- CORE-EEAT ≥ 16/20 → **19/20** ✓  
 - link-verify pass → ✗  
 - research notes gate PASS → ✓  
 - utility gate PASS → ✗  

@@ -23,6 +23,7 @@ category: script
 - Добавил `pain_markers_ru` и `outcome_markers_ru` в `editorial-policy.json` (синхрон с маркерами human-voice gate).
 - В utility gate пропускать pain/outcome checks, если списки в policy пусты (warning вместо false-block).
 - Усилил action-маркеры в `article.html` (`сделайте` / `не делайте` / `проверьте` / `избегайте` / outcome-слова).
+- CTA href: реальные catalog/Telegram URL + `<!-- pragma: allowlist secret -->` на строке (не literal `[REDACTED]` без pragma); перед commit отфильтровал невалидный токен `[REDACTED]` из `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
 
 ### Durable fix needed before next run
 - Fixer: подтвердить, что policy и human-voice gate держат один канон маркеров; в pitfalls кратко описать ложный BLOCK на пустых списках.

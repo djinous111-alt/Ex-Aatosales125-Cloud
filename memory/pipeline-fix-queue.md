@@ -58,7 +58,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `python3 -c "import paramiko"`
-commit: pending-parent-commit
+commit: f1c6d00..f4b2b91
 
 
 ## INC-20260929-0926-indexer-precommit-secret-name
@@ -110,7 +110,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_llms_generator.py --redact-site-base --out-dir /tmp/llms-test`
 - doctor PASS for `--blog-dir/--out-dir`
-commit: pending-parent-commit
+commit: f1c6d00..f4b2b91
 
 ## INC-20260929-0923-cover-precommit-secret-name
 status: fixed
@@ -150,7 +150,7 @@ files_changed:
 checks_run:
 - `bash -n scripts/sanitize_cloud_secret_names.sh`
 - sanitize dry-run filters invalid identifiers
-commit: pending-parent-commit
+commit: f1c6d00..f4b2b91
 
 ## INC-20260929-0921-schema-precommit-secret-name
 status: fixed
@@ -191,7 +191,7 @@ files_changed:
 - `AGENTS.md`
 checks_run:
 - sanitize dry-run: URL-like names dropped, valid identifiers kept
-commit: pending-parent-commit
+commit: f1c6d00..f4b2b91
 
 ## INC-20260929-0920-geo-qa-typed-task-unavailable
 status: fixed
@@ -232,7 +232,7 @@ files_changed:
 - `.cursor/agents/excalibur-blog-geo-qa.md`
 checks_run:
 - rg generalPurpose / typed Task guidance in pitfalls + geo-qa agent
-commit: pending-parent-commit
+commit: f1c6d00..f4b2b91
 
 ## INC-20260929-0920-geo-qa-utility-pain-markers-missing
 status: fixed
@@ -277,7 +277,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_utility_gate.py --self-test`
-commit: pending-parent-commit
+commit: f1c6d00..f4b2b91
 
 ## INC-20260929-0920-geo-qa-writer-literal-redacted-href
 status: fixed
@@ -319,7 +319,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg for REDACTED href ban in writing contract + writer skills
-commit: pending-parent-commit
+commit: f1c6d00..f4b2b91
 
 ## INC-20260929-0918-writer-precommit-secret-names
 status: fixed
@@ -359,7 +359,7 @@ files_changed:
 - `AGENTS.md`
 checks_run:
 - sanitize dry-run
-commit: pending-parent-commit
+commit: f1c6d00..f4b2b91
 
 ## INC-20260929-0915-research-notes-gate-false-tech
 status: fixed
@@ -408,7 +408,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - regression: auto niche technical=False; tech niche True; B01 gate PASS technical=False
-commit: pending-parent-commit
+commit: f1c6d00..f4b2b91
 
 ## INC-20260929-0901-scout-helper-as-prefix
 status: fixed
@@ -455,7 +455,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → Total topics=10, AS* visible
-commit: pending-parent-commit
+commit: f1c6d00..f4b2b91
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

@@ -25,12 +25,14 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
 
+SSH-транспорт требует пакет `paramiko` (из `requirements.txt`; Cloud install: `.cursor/cloud-agent-install.sh`). Перед commit артефактов: `source scripts/sanitize_cloud_secret_names.sh`.
+
 ## Алгоритм
 
 ### 1. Preflight publish
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
   --site-base https://avtosales125.ru

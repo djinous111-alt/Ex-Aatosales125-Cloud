@@ -110,6 +110,14 @@ python3 scripts/excalibur_blog_research_start.py --topic-id B01
 
 **Коммитить после publish:** `shared/published-articles.md`, при необходимости артефакты статьи в `memory/blog/`.
 
+Перед любым Cloud commit:
+
+```bash
+source scripts/sanitize_cloud_secret_names.sh
+```
+
+Это фильтрует `CLOUD_AGENT_INJECTED_SECRET_NAMES` до валидных bash identifiers и предотвращает `pre-commit.cursor: invalid variable name`. Не используй `--no-verify` как обход.
+
 ## Incident memory и fixer loop
 
 - Любой агент, который встретил blocker, retry, tool/API error, ручной workaround, переписывание артефакта из-за неясного контракта или user correction, обязан дописать incident в `memory/pipeline-fix-queue.md`.

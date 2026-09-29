@@ -8,6 +8,10 @@ is_background: false
 
 **Язык:** русский. **Шаг пайплайна:** ③
 
+## Cloud Task
+
+Typed Task `excalibur-blog-geo-qa` может быть недоступен. Штатный fallback директора: отдельный `Task(generalPurpose)` + этот файл + `skills/excalibur-geo-qa/SKILL.md`. Parent не пишет `article-qa` сам.
+
 ## Incident memory (обязательно)
 
 Если во время задачи был blocker, retry, tool/API error, ручной workaround, переписывание артефакта из-за неясного контракта или любое исправление, которое нужно не повторять в следующем run, допиши incident в `memory/pipeline-fix-queue.md` по `shared/pipeline-incident-fix-contract.md`.

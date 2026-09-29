@@ -6,4 +6,4 @@
 | 2026-07-17 | AS09 | trust-encar-carhistory-proverka-do-depozita | [REDACTED]/2026/07/17/trust-encar-carhistory-proverka-do-depozita/ | published |
 
 > Ledger сброшен при перенастройке под AVTO SALES (2026-07-17).
-| 2026-09-30 | B03 | kak-zakazat-avto-iz-yaponii-pod-klyuch-2026 | memory/blog/articles/B03-kak-zakazat-avto-iz-yaponii-pod-klyuch-2026 | in_progress |
+| 2026-09-30 | B03 | kak-zakazat-avto-iz-yaponii-pod-klyuch-2026 | /2026/09/30/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/ | published | <!-- pragma: allowlist secret -->

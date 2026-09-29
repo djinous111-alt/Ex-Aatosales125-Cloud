@@ -1,0 +1,23 @@
+{
+  "slug": "kak-zakazat-avto-iz-yaponii-pod-klyuch-2026",
+  "topic_id": "B03",
+  "permalink": "/2026/09/30/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B03-kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1185751,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3837 slug=kak-zakazat-avto-iz-yaponii-pod-klyuch-2026\nOK featured_image=3838\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3839 src=cover/inline-01.png url=/wp-content/uploads/2026/09/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026-inline-01.png\nOK inline_image_upload=3840 src=cover/inline-02.png url=/wp-content/uploads/2026/09/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026-inline-02.png\nOK inline_image_upload=3841 src=cover/inline-03.png url=/wp-content/uploads/2026/09/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026-inline-03.png\npermalink=/2026/09/30/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/\n",
+  "verdict": "pass",
+  "post_id": 3837,
+  "featured_image": 3838,
+  "inline_images": [
+    3839,
+    3840,
+    3841
+  ],
+  "schema_meta": 1
+}

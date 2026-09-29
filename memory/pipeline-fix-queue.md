@@ -521,6 +521,40 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20260930-2136-publish-paramiko-missing
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-publish
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-zakazat-avto-iz-yaponii-pod-klyuch-2026
+severity: medium
+category: env
+
+### What went wrong
+- `import paramiko` failed with `ModuleNotFoundError` before publish.
+- `.cursor/cloud-agent-install.sh` installs `requests pillow python-dotenv` but not `paramiko`.
+- Plain `pip3 install paramiko` also fails on PEP 668 externally-managed-environment without `--break-system-packages`.
+
+### How the agent recovered this run
+- Installed with `pip3 install --break-system-packages paramiko` (got 5.0.0).
+- Publish succeeded: post 3837, featured 3838, inline 3839/3840/3841, schema_meta ok, live HEAD 200.
+
+### Durable fix needed before next run
+- Add `paramiko` to `.cursor/cloud-agent-install.sh` (and environment.json install list if present) so every Cloud boot has SSH transport deps.
+- Document `--break-system-packages` for Debian/Ubuntu Cloud images in publish skill pitfalls.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/environment.json`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

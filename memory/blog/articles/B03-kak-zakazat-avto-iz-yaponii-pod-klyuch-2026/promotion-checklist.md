@@ -1,13 +1,13 @@
 # Promotion checklist — B03 kak-zakazat-avto-iz-yaponii-pod-klyuch-2026
 
-Дата публикации: 2026-09-30 (planned)  
-Live URL: [REDACTED]/blog/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/
+Дата публикации: 2026-09-30  
+Live URL: /2026/09/30/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — HEAD 200 (publish) — title, excerpt, featured image, FAQ
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)

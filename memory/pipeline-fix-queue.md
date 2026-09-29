@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260929-1325-writer-git-push-auth
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-sbkts-i-epts-2026-kak-oformit
+severity: high
+category: api
+
+### What went wrong
+- Local commit succeeded (`8608d41` feat B01 writer article) after `source scripts/sanitize_cloud_secret_names.sh`.
+- `git push -u origin HEAD` failed 4 times with exponential backoff: `Invalid username or token` for github.com remote (HTTPS x-access-token).
+- `gh auth status` also reports invalid token in hosts.yml.
+
+### How the agent recovered this run
+- Left commit on local branch ahead of origin; artifacts remain in working tree/commit.
+- Attempted automation `open_git_pr` as alternate delivery path; did not invent new remotes or tokens.
+
+### Durable fix needed before next run
+- Refresh Cloud Agent GitHub token / gh credentials for this environment before Writer/Director push+PR steps.
+- Document that Writer must source sanitize script before commit (already in scout incident).
+
+### Suggested files to inspect/change
+- Cursor Dashboard Cloud Secrets / GitHub App installation for the repo
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+---
+
 ## INC-20260929-1321-writer-cta-env-redacted
 status: open
 run_date: 2026-09-29

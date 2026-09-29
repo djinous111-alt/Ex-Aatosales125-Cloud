@@ -6,6 +6,77 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260929-1306-scout-precommit-secret-name
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in Cloud pre-commit secrets scanner: `pre-commit.cursor` line 246 `invalid variable name` when expanding `${!SECRET_NAME}`.
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a non-identifier token that bash cannot use for indirect expansion.
+- Automation memory referenced `scripts/sanitize_cloud_secret_names.sh`, but the file is missing on this branch.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid bash identifiers via a one-off Python one-liner, then re-ran `git commit` with the hook still enabled (no `--no-verify`).
+- Push succeeded after the filtered commit.
+
+### Durable fix needed before next run
+- Add `scripts/sanitize_cloud_secret_names.sh` (or document `source` snippet) that strips non `[A-Za-z_][A-Za-z0-9_]*` names before commit.
+- Point scout/director/publish runbooks to source that script before every commit.
+- Optionally harden the Cloud pre-commit scanner to skip invalid names instead of aborting.
+
+### Suggested files to inspect/change
+- `scripts/sanitize_cloud_secret_names.sh` (create)
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+---
+
+## INC-20260929-1306-scout-as-id-not-parsed
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_scout_helper.py --suggest-next` and `today.py` topic selection only match `B\\d+`, so AS01–AS09 cards in `memory/topics/blog-topics.md` count as 0 pool topics.
+- Result: `EXCALIBUR_TOPIC_SELECTION=needs_scout` even with unwritten P0 AS cards, forcing a new B* card.
+
+### How the agent recovered this run
+- Followed run contract: created utility-only P0 `B01` (СБКТС и ЭПТС) after Wordstat + live WP slug dedupe + cannibalization clean + utility gate PASS.
+
+### Durable fix needed before next run
+- Teach `excalibur_blog_scout_helper.py` / `excalibur_blog_today.py` to parse `AS\\d+|B\\d+` (or migrate AS* cards to B* IDs consistently).
+- Keep live WP slug cross-check mandatory so reused B01 IDs across cron runs do not republish existing posts.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+---
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

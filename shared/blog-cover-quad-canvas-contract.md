@@ -25,14 +25,18 @@ python scripts/excalibur_blog_quad_manifest.py \
 python scripts/excalibur_blog_cover_quad_prompt.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> --write-batch
 
-# 4. ONE CallMcpTool gpt-image-2 по cover/quad-mcp-batch.json
-#    input_urls: [reference_url_hosted] — обязательно
+# 4. Prefer Kie async (Cloud) — avoids sync MCP -32001 timeout on 2K i2i
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+# Legacy: ONE CallMcpTool gpt-image-2; on -32001 do NOT blind-retry — recover URL from logs or fall back to Kie async
 
 # 5. Скачать canvas + split
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<mcp_url>" --inject-html
+  --url "<result_url>" --inject-html
 ```
+
+**Toxic stickers:** never put banned insult tokens into the model prompt; builder uses neutral non-toxic wording + offline QA. Outfit from `scene_hint` only (no hardcoded hoodie/cap/hood).
 
 ## Раскладка 2×2
 

@@ -6,9 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none open after post-publish fixer 2026-09-29 B01)_
 
 ## INC-20260929-1404-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-publish
 topic_id: B01
@@ -43,11 +44,27 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Added paramiko to cloud-agent-install.sh (pip -r requirements.txt + hard guarantee), Dockerfile base image, and requirements.txt peers.
+- Doctor now checks `paramiko available (SSH publish)`.
+- Publish skill preflight: doctor + import paramiko + --env-check before dry-run.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/Dockerfile`
+- `requirements.txt`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -c "import paramiko"`
+- `python3 scripts/excalibur_blog_doctor.py` → paramiko OK
+commit: pending-parent-commit
 
 ## INC-20260929-1357-indexer-llms-stale-blog-path-flag
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-indexer
 topic_id: B01
@@ -81,10 +98,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Removed stale `--blog-path` from indexer skill shell examples and agent contracts; documented `--blog-dir` + `--out-dir` only.
+- Added sanitize + EXCALIBUR_EXCLUDE_PUBLIC_URL_SECRETS guidance for llms commits.
+files_changed:
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg `--blog-path /` absent from indexer shell examples
+- doctor llms --blog-dir/--out-dir OK
+commit: pending-parent-commit
+
 
 ## INC-20260929-1348-cover-mcp-timeout-toxic-prompt
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-cover
 topic_id: B01
@@ -115,11 +148,26 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Prompt builder keeps toxic ban-list out of model prompt; offline `validate_prompt_non_toxic` blocks accidental tokens; outfit from scene_hint (no hoodie/cap/hood).
+- Cover skill + canvas contract: prefer Kie async API; on MCP -32001 do not blind-retry — recover URL or fall back to Kie.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `shared/blog-cover-quad-canvas-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+- unit: validate_prompt_non_toxic rejects banned token; clean prompt passes
+commit: pending-parent-commit
 
 
 ## INC-20260929-1347-schema-precommit-public-url-secrets
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-schema
 topic_id: B01
@@ -151,9 +199,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
 
----
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- sanitize_cloud_secret_names.sh supports EXCALIBUR_EXCLUDE_PUBLIC_URL_SECRETS=1 to drop public marketing URL secret names from scanner list.
+- Schema/indexer skills + runbook/pitfalls document the commit recipe.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- sanitize dry-run with exclude mode drops PUBLIC_SITE_URL/CATALOG_URL/TELEGRAM_URL/MAX_URL
+commit: pending-parent-commit
+
 
 ## INC-20260929-1327-geo-qa-typed-task-missing
 status: fixed
@@ -291,7 +353,7 @@ commit: pending-parent-commit
 ---
 
 ## INC-20260929-1325-writer-git-push-auth
-status: needs-human
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-writer
 topic_id: B01
@@ -320,18 +382,17 @@ category: api
 - none recorded
 
 ### Fixer resolution
-reason:
-- Cloud Agent GitHub HTTPS token / gh hosts.yml invalid (`Invalid username or token`). No durable in-repo fix without refreshing credentials in Cursor Dashboard / GitHub App installation.
-needed_decision_or_secret:
-- Refresh GitHub auth for this Cloud environment (Dashboard Secrets / GitHub App) so `git push` and `gh` work.
-- Documented stop-retry + incident path in pitfalls; sanitize-before-commit already wired.
+
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Re-checked post-publish: `git push -u origin HEAD` succeeded (Everything up-to-date / auth OK). Previous needs-human closed; sanitize-before-commit guidance remains.
 files_changed:
-- `shared/agent-pipeline-pitfalls.md`
+- `shared/agent-pipeline-pitfalls.md` (prior)
 checks_run:
-- n/a (env credential)
+- `git push -u origin HEAD` → authentication OK
+commit: pending-parent-commit
 
-
----
 
 ## INC-20260929-1321-writer-cta-env-redacted
 status: fixed

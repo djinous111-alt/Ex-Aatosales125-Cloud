@@ -22,3 +22,13 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+## Git commit (Cloud)
+
+`schema.jsonld` намеренно содержит абсолютные public site/catalog/social URLs. Перед commit:
+
+```bash
+EXCALIBUR_EXCLUDE_PUBLIC_URL_SECRETS=1 source scripts/sanitize_cloud_secret_names.sh
+```
+
+Это (1) чистит non-identifier names в `CLOUD_AGENT_INJECTED_SECRET_NAMES` и (2) временно убирает `PUBLIC_SITE_URL` / `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL` из scanner list, чтобы hook не считал публичные href утечкой. Не используй `--no-verify`.

@@ -15,6 +15,14 @@ REQUIRED_REFERENCE_HOST = "avtosales125.ru"
 MCP_RESOLUTION = "2K"
 KIE_IMAGE_MODEL = "gpt-image-2-image-to-image"
 
+# Offline QA only — NEVER interpolate these tokens into the model prompt text.
+# Listing them in the prompt teaches the model the forbidden phrases.
+_TOXIC_STICKER_TOKENS = (
+    "лох",
+    "лохов",
+    "для лохов",
+)
+
 
 def project_root() -> Path:
     env_root = os.environ.get("EXCALIBUR_PROJECT_ROOT", "").strip()
@@ -64,6 +72,21 @@ def validate_prompt_budget(prompt: str) -> bool:
     print(
         f"❌ COVER PROMPT BLOCKER: MCP prompt is {prompt_chars} chars, max {MAX_MCP_PROMPT_CHARS}. "
         "Use the compact prompt builder; do not duplicate style/negative blocks per panel.",
+        file=sys.stderr,
+    )
+    return False
+
+
+def validate_prompt_non_toxic(prompt: str) -> bool:
+    """Reject prompts that accidentally embed banned sticker insults."""
+    hay = prompt.lower()
+    hits = [token for token in _TOXIC_STICKER_TOKENS if token in hay]
+    if not hits:
+        return True
+    print(
+        "❌ COVER PROMPT BLOCKER: toxic sticker tokens found in prompt "
+        f"({', '.join(hits)}). Keep ban-list out of model prompt text; "
+        "use neutral 'non-toxic / no insults' wording only.",
         file=sys.stderr,
     )
     return False
@@ -138,6 +161,8 @@ def main() -> int:
 
     prompt = build_prompt(manifest, style, hero, types_catalog, design_code)
     if not validate_prompt_budget(prompt):
+        return 1
+    if not validate_prompt_non_toxic(prompt):
         return 1
     prompt_path = article_dir / "cover" / "quad-mcp-prompt.txt"
     prompt_path.write_text(prompt + "\n", encoding="utf-8")

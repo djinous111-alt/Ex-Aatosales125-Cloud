@@ -30,13 +30,18 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 ### 1. Preflight publish
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_doctor.py
+python3 -c "import paramiko; print('paramiko', paramiko.__version__)"
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
-  --site-base https://avtosales125.ru
+  --site-base "$PUBLIC_SITE_URL"
 ```
 
-Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
+Gate: doctor shows `paramiko available`; `--env-check` OK; `link-verify.json` → pass.
+If `ModuleNotFoundError: paramiko` — env install bug (`requirements.txt` + `.cursor/cloud-agent-install.sh`); re-run install, do not leave ad-hoc-only fix without incident.
+`SSH_ROOT` for this host is usually `.` (login cwd).
 
 ### 2. Dry-run
 

@@ -24,12 +24,14 @@
 
 - Парсер topic_id: `[A-Z]+\d+` (AS\* и B\*). Не игнорировать AS01–ASxx в пуле.
 - Перед commit: `source scripts/sanitize_cloud_secret_names.sh`.
+- Для schema.jsonld / llms.txt / checklist с абсолютными public URLs: `EXCALIBUR_EXCLUDE_PUBLIC_URL_SECRETS=1 source scripts/sanitize_cloud_secret_names.sh` (исключает PUBLIC_SITE_URL/CATALOG_URL/TELEGRAM_URL/MAX_URL из scanner list).
 
 ## Publish
 
 - `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` только в Cloud Secrets, не в git.
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
-- Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
+- Для publish-preflight: `doctor` (paramiko) + `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
+- `paramiko` обязан быть в `requirements.txt` + `.cursor/cloud-agent-install.sh` / Dockerfile — не ставить ad-hoc каждый run.
 - SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
 - `git push` Invalid username/token → stop retry spam; incident needs-human (Dashboard GitHub token). Local commits ок.
 
@@ -50,7 +52,9 @@
 
 ## Cover
 
-- Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: banned tokens проверяются offline; **не** вставляй сами оскорбления в model prompt.
+- Outfit только из manifest `scene_hint` (без hardcoded hoodie/cap/hood).
+- Sync MCP `gpt-image-2` на 2K i2i часто даёт `-32001` timeout → prefer `excalibur_blog_kie_gpt_image2_api.py` (createTask→recordInfo); не blind-retry sync MCP.
 
 ## Scout
 

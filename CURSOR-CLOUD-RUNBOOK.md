@@ -103,9 +103,12 @@ python3 scripts/excalibur_blog_wp_publish.py --env-check
 
 ```bash
 source scripts/sanitize_cloud_secret_names.sh
+# schema.jsonld / llms.txt with intentional public marketing URLs:
+EXCALIBUR_EXCLUDE_PUBLIC_URL_SECRETS=1 source scripts/sanitize_cloud_secret_names.sh
 ```
 
 Иначе pre-commit может упасть с `invalid variable name` на `${!SECRET_NAME}`, если в `CLOUD_AGENT_INJECTED_SECRET_NAMES` есть не-идентификатор.
+`EXCALIBUR_EXCLUDE_PUBLIC_URL_SECRETS=1` additionally drops PUBLIC_SITE_URL/CATALOG_URL/TELEGRAM_URL/MAX_URL from the scanner name list for commits that must embed those public hrefs.
 
 ## Optional GitHub Actions preflight
 

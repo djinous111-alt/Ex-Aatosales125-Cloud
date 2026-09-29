@@ -58,7 +58,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `rg` --blog-path only in «флага нет» notes
-commit: pending-parent-commit
+commit: 10f70b4/dcabeb4/58e6467
 
 ## INC-20260930-0027-schema-precommit-secret-scan
 status: fixed
@@ -105,7 +105,7 @@ files_changed:
 - `.cursor/skills/schema-excalibur-blog/SKILL.md`
 checks_run:
 - docs `rg` for secret-scan / schema public URL guidance
-commit: pending-parent-commit
+commit: 10f70b4/dcabeb4/58e6467
 
 
 ## INC-20260930-2125-geo-qa-typed-task-missing
@@ -152,7 +152,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - agent file present in `agents/` and `.cursor/agents/`
-commit: pending-parent-commit
+commit: 10f70b4/dcabeb4/58e6467
 
 ## INC-20260930-2121-writer-utility-pain-outcome-markers
 status: fixed
@@ -201,7 +201,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_utility_gate.py --topic-id B03` → PASS
 - `python3 scripts/excalibur_blog_human_voice_gate.py --article-dir …/B03-…` → PASS
-commit: pending-parent-commit
+commit: 10f70b4/dcabeb4/58e6467
 
 ## INC-20260930-0015-research-precommit-secret-redact
 status: fixed
@@ -245,7 +245,7 @@ files_changed:
 checks_run:
 - unit redact with PUBLIC_SITE_URL env → path-only
 - `python3 -m py_compile scripts/excalibur_blog_research_start.py`
-commit: pending-parent-commit
+commit: 10f70b4/dcabeb4/58e6467
 
 ## INC-20260930-0013-research-webfetch-timeout-vvo
 status: fixed
@@ -287,7 +287,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` WebFetch fallback / allowlist in research skills
-commit: pending-parent-commit
+commit: 10f70b4/dcabeb4/58e6467
 
 ## INC-20260930-0014-research-notes-gate-accessed-at-tech-false-positive
 status: fixed
@@ -331,7 +331,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - research_notes_gate B03 → PASS, technical_topic=False, accessed_at=23
-commit: pending-parent-commit
+commit: 10f70b4/dcabeb4/58e6467
 
 ## INC-20260930-2105-scout-next-id-live-wp-override
 status: fixed
@@ -381,7 +381,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → B04, pool=10
-commit: pending-parent-commit
+commit: 10f70b4/dcabeb4/58e6467
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -675,7 +675,7 @@ files_changed:
 checks_run:
 - `import paramiko` → 5.0.0
 - `rg` paramiko in cloud-agent-install.sh
-commit: pending-parent-commit
+commit: 10f70b4/dcabeb4/58e6467
 
 ## Fixed incidents
 

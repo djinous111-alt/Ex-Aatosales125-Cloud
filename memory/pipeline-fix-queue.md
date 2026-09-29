@@ -6,6 +6,36 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260929-0921-schema-precommit-secret-name
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-ustanovka-era-glonass-na-vvezennyy-avto-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud pre-commit secrets scanner (`pre-commit.cursor`) падает с `invalid variable name` при `git commit`: в `CLOUD_AGENT_INJECTED_SECRET_NAMES` есть имя, которое не является валидным bash identifier (после redaction/injection), и `${!SECRET_NAME}` ломает хук.
+
+### How the agent recovered this run
+- Перед commit отфильтровали `CLOUD_AGENT_INJECTED_SECRET_NAMES` до валидных `[A-Za-z_][A-Za-z0-9_]*` и повторили commit/push без `--no-verify`.
+- `schema.jsonld` успешно закоммичен (`e65bf8d`).
+
+### Durable fix needed before next run
+- В pitfalls/docs зафиксировать: при `pre-commit.cursor: invalid variable name` фильтровать secret names до bash identifiers, не отключать hooks.
+- Желательно платформенный фикс: scanner должен skip невалидные secret names вместо abort.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `AGENTS.md` (секция Cloud/git hygiene)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260929-0920-geo-qa-typed-task-unavailable
 status: open
 run_date: 2026-09-29

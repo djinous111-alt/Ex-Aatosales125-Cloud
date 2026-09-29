@@ -14,22 +14,28 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
-    "ai",
-    "ии",
+# Longer / distinctive markers: safe as substrings in topic fields.
+TECH_MARKERS_SUBSTR = (
     "agent",
     "агент",
     "mcp",
-    "api",
     "cursor",
-    "make",
     "n8n",
     "github",
     "docker",
-    "rag",
     "workflow",
     "автоматизац",
     "нейросет",
+)
+
+# Short / ambiguous tokens: word-boundary only.
+# Never use bare "ai" / "ии" substring — they match inside reader_pain / декларации.
+TECH_MARKERS_BOUNDED = (
+    "ai",
+    "ии",
+    "api",
+    "rag",
+    "make",
 )
 
 
@@ -73,14 +79,24 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_hit(blob: str, marker: str, *, bounded: bool) -> bool:
+    if bounded:
+        # Unicode-aware token edges: avoid matching ai inside pain / ии inside декларации.
+        return bool(re.search(rf"(?<![\w]){re.escape(marker)}(?![\w])", blob, flags=re.I | re.UNICODE))
+    return marker in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech niches from topic card fields only (not research body field names)."""
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Do not scan notes body: required field names like reader_pain contain "ai".
+    if any(_marker_hit(blob, marker, bounded=False) for marker in TECH_MARKERS_SUBSTR):
+        return True
+    return any(_marker_hit(blob, marker, bounded=True) for marker in TECH_MARKERS_BOUNDED)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -154,7 +170,10 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     if action_items < 5:
         errors.append(f"action_outline too short: {action_items} < 5")
     if pain_map_rows < 3:
-        errors.append(f"pain_solution_map too thin: rows={pain_map_rows} < 3")
+        errors.append(
+            f"pain_solution_map too thin: rows={pain_map_rows} < 3 "
+            "(each data row must contain боль|pain|решение|solution|результат|result)"
+        )
     if "⚠️ wordstat auth warning" in text_lower and "показы" not in text_lower:
         warnings.append("Wordstat auth warning present; exact demand volumes were not verified")
 

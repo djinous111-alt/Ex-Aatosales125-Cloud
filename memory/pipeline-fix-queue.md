@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260929-0901-scout-helper-as-prefix
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_scout_helper.py --suggest-next` парсит только заголовки `## B\d+`, поэтому пул AS01–AS09 в `memory/topics/blog-topics.md` считается пустым (`Total topics in pool: 0`, `Unwritten topic IDs: []`).
+- `today.py` из-за этого отдаёт `EXCALIBUR_TOPIC_SELECTION=needs_scout` даже когда в файле тем уже есть карточки ниши Авто-Сейлс; часть AS/live WP уже закрыта и не должна пересоздаваться.
+
+### How the agent recovered this run
+- Взял next ID `B01` из helper как канон для нового utility-слота.
+- Сверил live WP / ledger / AS-карточки вручную, выбрал угол вне занятых slug (ЭРА-ГЛОНАСС), проверил `--check-query`, append карточки `## B01` в конец `blog-topics.md`.
+
+### Durable fix needed before next run
+- Научить scout helper (и при необходимости today.py) учитывать префиксы `AS\d+` и/или любой `## [A-Z]+\d+`, либо мигрировать пул на единый `Bxx`.
+- При подсчёте unwritten исключать topic_id со status published/in_progress из ledger и известные live WP slug.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

@@ -29,12 +29,16 @@
     "description_aeo": "Заказ авто из Японии под ключ – это выкуп на аукционе, логистика, таможня, СВХ, СБКТС/ЭПТС и доставка. До депозита нужны смета и перевод аукционного листа."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 90,
+    "verdict": "PASS",
     "date": "2026-09-30",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "WARNING",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility_gate": "PASS",
+    "research_notes_gate": "PASS",
+    "core_eeat": "20/20"
   },
   "cover_family": "brand_collage"
 }

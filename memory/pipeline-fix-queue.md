@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260930-2125-geo-qa-typed-task-missing
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-geo-qa
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-zakazat-avto-iz-yaponii-pod-klyuch-2026
+severity: medium
+category: api
+
+### What went wrong
+- Cloud Task API rejected typed subagent_type `excalibur-blog-geo-qa` (not in enum).
+- Director had to launch GEO QA via `Task(generalPurpose)` fallback with agent/skill paths.
+
+### How the agent recovered this run
+- Ran as generalPurpose with `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+- Executed full GEO QA script suite and wrote handoff block.
+
+### Durable fix needed before next run
+- Register `excalibur-blog-geo-qa` in Cloud agent catalog / plugin so typed Task works.
+- Keep AGENTS.md generalPurpose fallback documented until typed Task is reliable.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260930-2121-writer-utility-pain-outcome-markers
 status: open
 run_date: 2026-09-30

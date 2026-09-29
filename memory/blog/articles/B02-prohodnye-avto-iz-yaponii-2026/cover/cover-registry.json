@@ -1,0 +1,50 @@
+{
+  "topic_id": "B02",
+  "slug": "prohodnye-avto-iz-yaponii-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у аукционного листа и календаря с годом выпуска, японский компакт у порта Владивостока, плашка проходной год",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-09-29T17:30:45+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у аукционного листа и календаря с годом выпуска, японский компакт у порта Владивостока, плашка проходной год",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица: ярлык «проходной» против правила окна 3–5 лет по дате декларации",
+      "h2_anchor": "Разберите, что рынок называет \"проходным\" авто",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема расчёта окна 3–5 лет по месяцу выпуска для 2026",
+      "h2_anchor": "Как посчитать окно 3–5 лет по месяцу выпуска в 2026",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Мокап аукционного листа: дата аукциона отдельно от месяца выпуска",
+      "h2_anchor": "Не путайте дату в аукционном листе с датой выпуска",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

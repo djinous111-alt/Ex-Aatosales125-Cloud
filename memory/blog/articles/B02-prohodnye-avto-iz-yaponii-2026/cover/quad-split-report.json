@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B02-prohodnye-avto-iz-yaponii-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1027,
+      577
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 577,
+        "end": 604
+      },
+      "v_gutter_px": {
+        "start": 1027,
+        "end": 1048
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1027,
+          "bottom": 577
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1027,
+          "bottom": 577
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у аукционного листа и календаря с годом выпуска, японский компакт у порта Владивостока, плашка проходной год",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1048,
+          "top": 7,
+          "right": 2048,
+          "bottom": 569
+        },
+        "raw_box_px": {
+          "left": 1048,
+          "top": 0,
+          "right": 2048,
+          "bottom": 577
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: ярлык «проходной» против правила окна 3–5 лет по дате декларации",
+        "h2_anchor": "Разберите, что рынок называет \"проходным\" авто"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 26,
+          "top": 604,
+          "right": 1000,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 604,
+          "right": 1027,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема расчёта окна 3–5 лет по месяцу выпуска для 2026",
+        "h2_anchor": "Как посчитать окно 3–5 лет по месяцу выпуска в 2026"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1061,
+          "top": 604,
+          "right": 2035,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1048,
+          "top": 604,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап аукционного листа: дата аукциона отдельно от месяца выпуска",
+        "h2_anchor": "Не путайте дату в аукционном листе с датой выпуска"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разберите, что рынок называет \"проходным\" авто",
+    "injected inline_2 after H2 — Как посчитать окно 3–5 лет по месяцу выпуска в 2026",
+    "injected inline_3 after H2 — Не путайте дату в аукционном листе с датой выпуска"
+  ]
+}

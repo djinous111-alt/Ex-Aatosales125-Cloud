@@ -6,10 +6,11 @@ echo "[excalibur-cloud] install start"
 python3 --version
 git --version
 
-# Keep in sync with requirements.txt (publish needs paramiko for SSH transport).
+# Prefer requirements.txt (paramiko required for SSH publish); also install
+# common Cloud runtime deps used by cover/QA helpers.
 python3 -m pip install --break-system-packages --quiet \
-  requests pillow numpy python-dotenv paramiko 2>/dev/null \
-  || python3 -m pip install --quiet requests pillow numpy python-dotenv paramiko
+  -r requirements.txt requests python-dotenv 2>/dev/null \
+  || python3 -m pip install --quiet -r requirements.txt requests python-dotenv
 
 mkdir -p .cursor/excalibur-blog-fragments
 touch .cursor/excalibur-blog-handoff.md

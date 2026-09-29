@@ -200,6 +200,11 @@ def main() -> int:
     ap.add_argument("--blog-dir", type=Path, default=None, help="Path to articles/ directory")
     ap.add_argument("--article-dir", type=Path, default=None, help="Limit suggestions to one article as source or target")
     ap.add_argument("--site-base", type=str, default="https://avtosales125.ru", help="Base site URL")
+    ap.add_argument(
+        "--redact-site-base",
+        action="store_true",
+        help="Write site_base=[REDACTED] in JSON report for git-safe commits",
+    )
     ap.add_argument("--apply", action="store_true", help="Directly edit html files to apply links")
     ap.add_argument("--output", type=Path, default=None, help="Output path for JSON suggestions report")
     args = ap.parse_args()
@@ -216,7 +221,8 @@ def main() -> int:
     articles = load_all_articles(blog_dir)
     print(f"Loaded {len(articles)} articles from memory.")
 
-    suggestions = find_linking_opportunities(articles, args.site_base)
+    site_base = "[REDACTED]" if args.redact_site_base else args.site_base
+    suggestions = find_linking_opportunities(articles, site_base)
     article_dir = args.article_dir
     if article_dir and not article_dir.is_absolute():
         article_dir = root / article_dir
@@ -224,7 +230,7 @@ def main() -> int:
     print(f"Found {len(suggestions)} internal linking opportunities.")
 
     report = {
-        "site_base": args.site_base,
+        "site_base": site_base,
         "total_articles": len(articles),
         "opportunities_found": len(suggestions),
         "suggestions": [

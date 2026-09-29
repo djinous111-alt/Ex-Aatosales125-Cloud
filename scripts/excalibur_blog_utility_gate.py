@@ -305,13 +305,57 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _self_test_empty_markers_do_not_block() -> None:
+    """Regression: empty pain/outcome marker lists must not force forever-BLOCK."""
+    policy = {
+        "article_required_signals": {
+            "min_numbered_steps": 0,
+            "min_actionable_h2": 0,
+            "min_faq_pairs": 0,
+            "min_recommendation_markers": 0,
+            "min_pain_markers": 2,
+            "min_outcome_markers": 3,
+            "requires_workflow_or_table_or_checklist": False,
+        },
+        "pain_markers_ru": [],
+        "outcome_markers_ru": [],
+        "recommendation_markers_ru": [],
+        "water_phrases_ru": [],
+        "allowed_article_mode": ["B"],
+    }
+    # Minimal article-shaped HTML for metric collection path.
+    plain = "просто текст без маркеров боли и результата"
+    pain_markers = policy.get("pain_markers_ru") or []
+    outcome_markers = policy.get("outcome_markers_ru") or []
+    pain_count = count_markers(plain, pain_markers) if pain_markers else 0
+    outcome_count = count_markers(plain, outcome_markers) if outcome_markers else 0
+    errors: list[str] = []
+    req = policy["article_required_signals"]
+    if pain_markers:
+        min_pain = int(req.get("min_pain_markers") or 2)
+        if pain_count < min_pain:
+            errors.append("pain")
+    if outcome_markers:
+        min_outcome = int(req.get("min_outcome_markers") or 3)
+        if outcome_count < min_outcome:
+            errors.append("outcome")
+    assert not errors, f"empty marker lists must skip enforce, got {errors}"
+    assert pain_count == 0 and outcome_count == 0
+    print("OK utility_gate self-test: empty pain/outcome markers do not block")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Utility-only editorial gate")
     ap.add_argument("--topic-id", default="", help="Validate topic card in blog-topics.md")
     ap.add_argument("--article-dir", default="", help="Validate article.html utility signals")
     ap.add_argument("--policy", default="memory/brief/editorial-policy.json")
     ap.add_argument("--output", default="", help="Write JSON report")
+    ap.add_argument("--self-test", action="store_true", help="Run regression checks and exit")
     args = ap.parse_args()
+
+    if args.self_test:
+        _self_test_empty_markers_do_not_block()
+        return 0
 
     root = project_root()
     policy_path = Path(args.policy)

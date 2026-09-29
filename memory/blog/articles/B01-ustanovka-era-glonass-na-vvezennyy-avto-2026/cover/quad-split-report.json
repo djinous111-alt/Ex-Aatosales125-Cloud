@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-ustanovka-era-glonass-na-vvezennyy-avto-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1025,
+      577
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 577,
+        "end": 598
+      },
+      "v_gutter_px": {
+        "start": 1025,
+        "end": 1035
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1025,
+          "bottom": 577
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1025,
+          "bottom": 577
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у ввезённого кроссовера на площадке Владивостока с кнопкой SOS ЭРА-ГЛОНАСС и плашкой до ЭПТС",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1035,
+          "top": 3,
+          "right": 2048,
+          "bottom": 573
+        },
+        "raw_box_px": {
+          "left": 1035,
+          "top": 0,
+          "right": 2048,
+          "bottom": 577
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: обязательна ли ЭРА-ГЛОНАСС для физлица, ИП и юрлица до ЭПТС",
+        "h2_anchor": "Определите, обязательна ли установка эра глонасс именно вам"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 20,
+          "top": 598,
+          "right": 1005,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 598,
+          "right": 1025,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: как проверить актуальность правил ЭРА-ГЛОНАСС и не верить устаревшим статьям",
+        "h2_anchor": "Как не попасть на устаревшие статьи про 1 апреля 2026"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1049,
+          "top": 598,
+          "right": 2034,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1035,
+          "top": 598,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист выбора аккредитованного центра ЭРА-ГЛОНАСС во Владивостоке по карте 855",
+        "h2_anchor": "Найдите аккредитованный центр во Владивостоке по карте, а не по чату"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Определите, обязательна ли установка эра глонасс именно вам",
+    "injected inline_2 after H2 — Как не попасть на устаревшие статьи про 1 апреля 2026",
+    "injected inline_3 after H2 — Найдите аккредитованный центр во Владивостоке по карте, а не по чату"
+  ]
+}

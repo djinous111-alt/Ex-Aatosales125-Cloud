@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "ustanovka-era-glonass-na-vvezennyy-avto-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у ввезённого кроссовера на площадке Владивостока с кнопкой SOS ЭРА-ГЛОНАСС и плашкой до ЭПТС",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-09-29T09:22:43+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у ввезённого кроссовера на площадке Владивостока с кнопкой SOS ЭРА-ГЛОНАСС и плашкой до ЭПТС",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица: обязательна ли ЭРА-ГЛОНАСС для физлица, ИП и юрлица до ЭПТС",
+      "h2_anchor": "Определите, обязательна ли установка эра глонасс именно вам",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема: как проверить актуальность правил ЭРА-ГЛОНАСС и не верить устаревшим статьям",
+      "h2_anchor": "Как не попасть на устаревшие статьи про 1 апреля 2026",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист выбора аккредитованного центра ЭРА-ГЛОНАСС во Владивостоке по карте 855",
+      "h2_anchor": "Найдите аккредитованный центр во Владивостоке по карте, а не по чату",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

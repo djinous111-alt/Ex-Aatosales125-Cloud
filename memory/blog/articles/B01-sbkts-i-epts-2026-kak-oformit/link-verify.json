@@ -34,14 +34,13 @@
       "warning": "soft official-host failure (403/timeout/SSL common for bot clients); verify manually in a browser if needed"
     },
     {
-      "url": "https://t.me/<TELEGRAM_HANDLE>",
+      "url": "https://t.me/avtosales125",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "external",
-      "skipped": false,
-      "scrubbed": true
+      "skipped": false
     }
   ]
 }

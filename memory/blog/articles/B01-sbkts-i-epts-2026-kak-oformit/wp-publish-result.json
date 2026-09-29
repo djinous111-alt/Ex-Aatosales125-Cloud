@@ -1,0 +1,23 @@
+{
+  "slug": "sbkts-i-epts-2026-kak-oformit",
+  "topic_id": "B01",
+  "permalink": "[REDACTED]/2026/09/29/sbkts-i-epts-2026-kak-oformit/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-sbkts-i-epts-2026-kak-oformit/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1151457,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3796 slug=sbkts-i-epts-2026-kak-oformit\nOK featured_image=3797\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3798 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/09/sbkts-i-epts-2026-kak-oformit-inline-01.png\nOK inline_image_upload=3799 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/09/sbkts-i-epts-2026-kak-oformit-inline-02.png\nOK inline_image_upload=3800 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/09/sbkts-i-epts-2026-kak-oformit-inline-03.png\npermalink=[REDACTED]/2026/09/29/sbkts-i-epts-2026-kak-oformit/\n",
+  "verdict": "pass",
+  "post_id": 3796,
+  "featured_image": 3797,
+  "inline_images": [
+    3798,
+    3799,
+    3800
+  ],
+  "schema_meta": 1
+}

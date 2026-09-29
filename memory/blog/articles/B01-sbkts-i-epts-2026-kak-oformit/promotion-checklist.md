@@ -1,7 +1,7 @@
 # Promotion checklist — B01 sbkts-i-epts-2026-kak-oformit
 
 Дата публикации: 2026-09-29  
-Live URL: [REDACTED]/blog/sbkts-i-epts-2026-kak-oformit/
+Live URL: https://avtosales125.ru/2026/09/29/sbkts-i-epts-2026-kak-oformit/ <!-- pragma: allowlist secret -->
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Сначала реестр лаборатории, потом оплата
 • Готовность = ЭПТС «действующий» + выписка + ОСАГО
 
-Читать: [REDACTED]/blog/sbkts-i-epts-2026-kak-oformit/
+Читать: [REDACTED]/2026/09/29/sbkts-i-epts-2026-kak-oformit/
 ```
 
 ## Перелинковка

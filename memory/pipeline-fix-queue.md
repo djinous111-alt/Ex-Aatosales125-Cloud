@@ -6,6 +6,46 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+
+## INC-20260929-1404-publish-paramiko-missing
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-sbkts-i-epts-2026-kak-oformit
+severity: medium
+category: env
+
+### What went wrong
+- `paramiko` was missing in the Cloud Agent Python env (`ModuleNotFoundError`) despite being listed in `requirements.txt`.
+- `.cursor/cloud-agent-install.sh` installs `requests pillow python-dotenv` but not `paramiko`, so every publish run re-hits the same gap.
+- `SSH_ROOT` was unset in `memory/site.env.local` (needed `.` for this SSH login cwd).
+
+### How the agent recovered this run
+- Installed with `pip3 install --break-system-packages paramiko` (PEP 668).
+- Appended `SSH_ROOT=.` to `memory/site.env.local` for the run.
+- link-verify PASS → dry-run OK → live publish PASS (post 3796, featured 3797, inline 3798/3799/3800); no HTTP fallback needed; live HEAD 200.
+
+### Durable fix needed before next run
+- Add `paramiko` to `.cursor/cloud-agent-install.sh` pip install list (and/or ensure environment.json install installs requirements.txt).
+- Keep Cloud Secret `SSH_ROOT=.` for this host so agents do not rely on local append.
+- Document publish preflight: `--env-check` then paramiko import check before dry-run.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/environment.json`
+- `requirements.txt`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260929-1357-indexer-llms-stale-blog-path-flag
 status: open
 run_date: 2026-09-29

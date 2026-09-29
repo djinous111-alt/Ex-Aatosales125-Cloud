@@ -31,3 +31,19 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-09-29 — B01 sbkts-i-epts-2026-kak-oformit
+
+- **verdict:** PASS
+- **post_id:** 3796
+- **permalink:** [REDACTED]/2026/09/29/sbkts-i-epts-2026-kak-oformit/
+- **featured_image:** 3797
+- **inline_images:** 3798 (inline-01.png), 3799 (inline-02.png), 3800 (inline-03.png)
+- **schema_meta:** ok (_excalibur_blog_schema_jsonld)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH upload + HTTP trigger (~144s); no WebFetch fallback
+- **SSH_ROOT:** . (was unset; appended to site.env.local for run)
+- **paramiko:** installed via pip3 install --break-system-packages paramiko (was missing)
+- **live HEAD:** 200
+- **result:** memory/blog/articles/B01-sbkts-i-epts-2026-kak-oformit/wp-publish-result.json
+

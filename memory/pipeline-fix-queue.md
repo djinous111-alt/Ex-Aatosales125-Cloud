@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260929-1321-writer-cta-env-redacted
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-sbkts-i-epts-2026-kak-oformit
+severity: medium
+category: env
+
+### What went wrong
+- `CATALOG_URL`, `TELEGRAM_URL` and `PUBLIC_SITE_URL` in the Cloud Agent env were literal placeholder strings `[REDACTED]` (length 25/25/23), not live marketing URLs.
+- `conversion-map.md` / `fact-bank.md` also store `[REDACTED]` for those CTA cells, so Writer cannot copy href from brief files alone.
+- Using `href="[REDACTED]"` is explicitly forbidden for article.html and breaks publish/link-verify.
+
+### How the agent recovered this run
+- Resolved CTA from public brand hosts named in site-brief plain text and authors-registry bio (catalog host avto-sales125.ru verified HTTP 200; Telegram handle @avtosales125).
+- Did not write placeholder `href="[REDACTED]"`. Kept CTA counts within conversion-map limits and added HTML pragma allowlist comments on CTA lines.
+
+### Durable fix needed before next run
+- Ensure Cloud Secrets inject real `CATALOG_URL` / `TELEGRAM_URL` (not the scrubbed placeholder token).
+- Or store non-secret public CTA hosts in a committed brief field that is never scrubbed to `[REDACTED]` (e.g. plain `catalog_host` / `telegram_handle` in site-brief).
+- Document Writer fallback: if env value equals `[REDACTED]`, resolve from public brand hosts in site-brief text, never write placeholder href.
+
+### Suggested files to inspect/change
+- `memory/brief/conversion-map.md`
+- `memory/brief/site-brief.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+---
+
 ## INC-20260929-1316-research-webfetch-official-timeouts
 status: open
 run_date: 2026-09-29

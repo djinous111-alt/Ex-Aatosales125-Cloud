@@ -299,7 +299,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
 - B02 research-notes-gate → PASS, `technical_topic=False`
-commit: pending-parent-commit
+commit: ae95f7b
 
 ## INC-20260929-1705-scout-precommit-secret-name
 status: fixed
@@ -344,7 +344,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - bash dry-run: drops non-identifiers; keeps SSH_*
-commit: pending-parent-commit
+commit: ae95f7b
 
 ## INC-20260929-1718-writer-cta-secret-allowlist
 status: fixed
@@ -391,7 +391,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` for pragma/sanitize guidance in Writer skill
-commit: pending-parent-commit
+commit: 777e525
 
 ## INC-20260929-1720-geo-qa-utility-pain-outcome-markers-missing
 status: fixed
@@ -446,7 +446,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir …/B02-…` → PASS
-commit: pending-parent-commit
+commit: 04a5e10
 
 
 ## INC-20260929-1728-schema-precommit-public-urls
@@ -494,7 +494,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - sanitize dry-run with EXCLUDE → keeps SSH_*, drops PUBLIC_SITE_URL/CATALOG_URL/TELEGRAM_URL
-commit: pending-parent-commit
+commit: 777e525
 
 
 ## INC-20260929-1734-indexer-llms-blog-path-stale
@@ -545,7 +545,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → llms --blog-dir/--out-dir OK
 - `rg` confirms no command examples still pass `--blog-path`
-commit: pending-parent-commit
+commit: ae95f7b
 
 ## INC-20260929-1736-publish-paramiko-missing
 status: fixed
@@ -589,7 +589,7 @@ files_changed:
 - `.cursor/skills/publish-excalibur-blog/SKILL.md`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → paramiko OK
-commit: pending-parent-commit
+commit: ae95f7b
 
 ## INC-20260929-1745-publish-http-gateway-504
 status: fixed
@@ -635,7 +635,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `rg` FORCE_SSH_CLI / 504 guidance in publish skill
-commit: pending-parent-commit
+commit: 777e525
 
 ## Fixed incidents
 

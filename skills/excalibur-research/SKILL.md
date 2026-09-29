@@ -51,6 +51,9 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
   - Агент имеет полноценный доступ в интернет через нативный инструмент `**WebSearch`** (или `WebFetch` для чтения конкретных страниц).
   - Для анализа конкурентов в SERP **всегда используй инструмент `WebSearch`**. Ищи статьи, руководства, гайды по `primary_query` и ключевым словам в Яндексе и Google.
   - Игнорируй сырой `research-serp.json` из шага 0, если он пуст, неполный или нерелевантный. Твой собственный поиск через `WebSearch` — приоритетный источник свежих данных 2026 года.
+  - **WebFetch fallback:** при 5xx / Gateway Timeout / пустом теле сразу переходи на WebSearch snippets + открой ≥2 альтернативных URL по той же теме. Не блокируй `research-notes.md` из‑за одного недоступного конкурента.
+  - **Автоимпорт (AVTO SALES):** allowlist официальных/нормативных доменов при слабом SERP `customs.gov.ru`: `publication.pravo.gov.ru`, `garant.ru`, `consultant.ru`, `eec.eaeunion.org`, `tks.ru`, отраслевые обзоры (ngs и т.п.).
+  - В `source_table` достаточно ISO-даты в колонке даты (gate считает и `accessed_at:`, и даты в URL-строках таблицы).
 
 ## Правила
 

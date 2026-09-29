@@ -10,3 +10,7 @@ description: Alias для publish-excalibur-blog — публикация ста
 Используй его для всех шагов publish (preflight, dry-run, publish, fallback, ledger, handoff).
 
 Контракт: `shared/excalibur-wp-publish-contract.md`
+
+## Dependencies
+
+- Requires `paramiko` (see publish-excalibur-blog skill / cloud-agent-install.sh).

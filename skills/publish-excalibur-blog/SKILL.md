@@ -119,3 +119,10 @@ blockers:
 - Генерировать cover/schema с нуля
 - Пропускать dry-run
 - Завершать пайплайн без записи в `published-articles.md` при успешном publish
+
+## Dependencies (Cloud)
+
+- SSH transport требует `paramiko` (`requirements.txt`, `.cursor/cloud-agent-install.sh`).
+- На Debian/Ubuntu Cloud (PEP 668), если модуль отсутствует:
+  `pip3 install --break-system-packages paramiko`
+- Не публикуй без успешного `import paramiko`.

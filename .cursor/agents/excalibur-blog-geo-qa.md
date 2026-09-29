@@ -40,3 +40,7 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 ## Gate
 
 Без PASS директор **не** запускает cover||schema.
+
+## Cloud Task type
+
+Если `Task(excalibur-blog-geo-qa)` отвергнут Cloud enum — запускайся через `Task(generalPurpose)` с этим файлом и `.cursor/skills/excalibur-geo-qa/SKILL.md`. Это штатный fallback, не блокер пайплайна.

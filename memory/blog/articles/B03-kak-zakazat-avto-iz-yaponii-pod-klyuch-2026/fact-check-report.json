@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/B03-kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "меты и понятного перевода листа – нет депозита. В 2026 году новичков чаще шокирует не \"морская доставка\".",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "10 дней",
+      "kind": "metric_or_duration",
+      "context": "латные сутки на СВХ во Владивостоке часто всего 5–10 дней – дальше простой дорожает ступенями. Мы в Авто-Се",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "5 лет",
+      "kind": "metric_or_duration",
+      "context": "(не \"цена на аукционе\"). Год выпуска: границы 3 и 5 лет влияют на пошлину и \"проходность\". Кузов, привод,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "12 месяцев",
+      "kind": "metric_or_duration",
+      "context": "сть до 160 л.с., 1 авто в год и запрет отчуждения 12 месяцев (проверяйте по вашему лоту). Доставка в ваш город",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "ание льготный режим обычно завязан на мощность до 160 л.с., 1 авто в год и запрет отчуждения 12 месяцев",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "(гайды по заказу и растаможке 2026, обзор ПП РФ №1713 / рамка утильсбора, практика СВХ во Владивостоке,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

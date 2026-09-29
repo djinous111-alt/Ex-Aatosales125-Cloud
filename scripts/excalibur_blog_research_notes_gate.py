@@ -14,22 +14,26 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Whole-token / stem markers only. Short substrings like "ии" must NOT match
+# inside ordinary Russian words (e.g. «японии»). Prefer explicit stems.
 TECH_MARKERS = (
-    "ai",
-    "ии",
-    "agent",
-    "агент",
-    "mcp",
-    "api",
-    "cursor",
-    "make",
-    "n8n",
-    "github",
-    "docker",
-    "rag",
-    "workflow",
-    "автоматизац",
-    "нейросет",
+    r"\bai\b",
+    r"\bии\b",
+    r"\bagent\b",
+    r"\bагент",
+    r"\bmcp\b",
+    r"\bapi\b",
+    r"\bcursor\b",
+    r"\bmake\.com\b",
+    r"\bn8n\b",
+    r"\bgithub\b",
+    r"\bdocker\b",
+    r"\brag\b",
+    r"\bworkflow\b",
+    r"автоматизац",
+    r"нейросет",
+    r"\bllm\b",
+    r"\bdevops\b",
 )
 
 
@@ -79,8 +83,26 @@ def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Topic card fields only for auto-detect — do not scan full notes (false positives
+    # from competitor domain names / incidental words like «японии»).
+    return any(re.search(marker, blob, flags=re.I) for marker in TECH_MARKERS)
+
+
+def count_accessed_at(text: str) -> int:
+    """Count source access dates from label form or markdown table date cells."""
+    text_lower = text.lower()
+    labeled = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    # ISO dates in markdown table cells (source_table rows with URLs).
+    table_dates = set()
+    for line in text.splitlines():
+        if not re.search(r"https?://", line):
+            continue
+        if not line.strip().startswith("|"):
+            continue
+        for date in re.findall(r"\b(20\d{2}-\d{2}-\d{2})\b", line):
+            table_dates.add(date)
+    # Prefer the larger signal so either style satisfies the gate.
+    return max(labeled, len(table_dates))
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,12 +152,15 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
     pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:
+        # accessed_at may appear only as ISO dates in source_table cells.
+        if field == "accessed_at" and accessed_count >= 5:
+            continue
         if not field_present(text_lower, field):
             errors.append(f"missing required research field: {field}")
 

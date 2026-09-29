@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B03-kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1028,
+      574
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 574,
+        "end": 592
+      },
+      "v_gutter_px": {
+        "start": 1028,
+        "end": 1047
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 4,
+          "top": 0,
+          "right": 1024,
+          "bottom": 574
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1028,
+          "bottom": 574
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у порта Владивостока: крючок про заказ авто из Японии под ключ без дырявой сметы",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1047,
+          "top": 5,
+          "right": 2048,
+          "bottom": 568
+        },
+        "raw_box_px": {
+          "left": 1047,
+          "top": 0,
+          "right": 2048,
+          "bottom": 574
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица этапов «под ключ»: что входит и что часто выносят за скобки",
+        "h2_anchor": "Разберите, что входит в заказ \"под ключ\", а чего там обычно нет"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 16,
+          "top": 592,
+          "right": 1012,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 592,
+          "right": 1028,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: бюджет и параметры авто до первого платежа",
+        "h2_anchor": "Зафиксируйте бюджет и тип авто до первого платежа"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1047,
+          "top": 592,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1047,
+          "top": 592,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап аукционного листа: проверка до ставки",
+        "h2_anchor": "Проверьте аукционный лист до ставки"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разберите, что входит в заказ \"под ключ\", а чего там обычно нет",
+    "injected inline_2 after H2 — Зафиксируйте бюджет и тип авто до первого платежа",
+    "injected inline_3 after H2 — Проверьте аукционный лист до ставки"
+  ]
+}

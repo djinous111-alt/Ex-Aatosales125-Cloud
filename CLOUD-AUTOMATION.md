@@ -134,12 +134,17 @@ Windows Планировщик: `scripts/install_excalibur_windows_cron.ps1`
 5. Task(excalibur-blog-research) → research-notes.md.
 6. Task(excalibur-blog-writer) → article.html + meta.
 7. Task(excalibur-blog-geo-qa) → PASS + все QA JSON.
+   Если typed `excalibur-blog-geo-qa` отвергнут Cloud enum → сразу
+   `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` +
+   `.cursor/skills/excalibur-geo-qa/SKILL.md` (роль есть в plugin `agents/`,
+   но Cloud Task enum может не включать все имена).
 8. ПАРАЛЛЕЛЬНО Task(excalibur-blog-cover) + Task(excalibur-blog-schema).
    Cover/schema пишут во fragments; перенеси в handoff.
 9. Task(excalibur-blog-indexer).
 10. Task(excalibur-blog-publish) — **автоматически** после Indexer (skip только publish:no). Skill: publish-excalibur-blog. Обнови shared/published-articles.md.
 
-Fallback: если Task types недоступны — generalPurpose per role (см. AGENTS.md).
+Fallback: если любые Task types недоступны — generalPurpose per role (см. AGENTS.md).
+Typed geo-qa часто отсутствует в enum — generalPurpose для GEO QA считается штатным путём, не инцидентом, пока enum не синхронизирован.
 
 Запрещено: single-agent pipeline, cover до QA PASS, секреты в handoff.
 

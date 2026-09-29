@@ -1,0 +1,24 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B03-kak-zakazat-avto-iz-yaponii-pod-klyuch-2026",
+  "notes": "memory/blog/articles/B03-kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/research-notes.md",
+  "context": "memory/blog/articles/B03-kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/research-context.json",
+  "errors": [],
+  "warnings": [
+    "technical topic has no obvious official docs/developer documentation URL"
+  ],
+  "metrics": {
+    "today_iso": "2026-09-30",
+    "prefer_sources_after": "2026-07-02",
+    "source_urls": 31,
+    "source_domains": 15,
+    "source_table_rows": 31,
+    "accessed_at": 23,
+    "github_urls": 5,
+    "official_doc_urls": 0,
+    "action_outline_items": 8,
+    "pain_solution_rows": 4,
+    "technical_topic": true
+  }
+}

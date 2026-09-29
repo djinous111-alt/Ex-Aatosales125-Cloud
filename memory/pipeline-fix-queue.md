@@ -6,6 +6,35 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260929-0923-cover-precommit-secret-name
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-ustanovka-era-glonass-na-vvezennyy-avto-2026
+severity: medium
+category: env
+related: INC-20260929-0921-schema-precommit-secret-name
+
+### What went wrong
+- Тот же root cause: `pre-commit.cursor` → `invalid variable name` из-за невалидного bash identifier в `CLOUD_AGENT_INJECTED_SECRET_NAMES` при commit cover-артефактов B01.
+
+### How the agent recovered this run
+- Отфильтровали имена до `[A-Za-z_][A-Za-z0-9_]*`, commit/push без `--no-verify` (`768b1b2`).
+
+### Durable fix needed before next run
+- См. INC-20260929-0921: pitfalls + platform skip невалидных secret names.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `AGENTS.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260929-0921-schema-precommit-secret-name
 status: open
 run_date: 2026-09-29

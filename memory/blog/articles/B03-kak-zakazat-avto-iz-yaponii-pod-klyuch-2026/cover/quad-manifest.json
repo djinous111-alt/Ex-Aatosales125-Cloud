@@ -1,0 +1,42 @@
+{
+  "topic_id": "B03",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "«Под ключ» без сметы — лотерея",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у порта Владивостока: крючок про заказ авто из Японии под ключ без дырявой сметы",
+      "scene_hint": "WEATHER: cool foggy Vladivostok port morning, grey sea mist; OUTFIT: matte olive rain jacket over dark navy layer (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie near roll-on ship silhouette and modern Japanese compact car silhouette; layered fake UI scraps: catalog card «Toyota под ключ», auction sheet fragment, customs checklist with СВХ/СБКТС; torn paper hook plaque Cyrillic ««Под ключ» без сметы — лотерея» with yellow highlighter on «лотерея»; sticky notes «жиза» and «сначала смета» (NEVER toxic insults, NEVER лох/лохов/для лохов); shocked meme cutout + cat reaction sticker (different formats, max 1 Drake); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics",
+      "meme_caption_ru": "Сначала смета"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разберите, что входит в заказ \"под ключ\", а чего там обычно нет",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI 16:9: columns Этап | Обычно в «под ключ» | Часто отдельно; rows Выкуп аукцион, Фрахт, Таможня/утиль, СВХ, СБКТС/ЭПТС, Доставка по РФ; green check vs orange warning icons; yellow highlight row СВХ; pink sticky «спросите до депозита»; scotch tape corner; NO hero face; NO Wordstat/Metrika; no toxic sticker words",
+      "alt": "Таблица этапов «под ключ»: что входит и что часто выносят за скобки"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Зафиксируйте бюджет и тип авто до первого платежа",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 16:9: 6 numbered steps with arrows — Бюджет до города → Год/кузов → Мощность/льгота → Доставка → Гибрид? → Готово к ставке; bold Cyrillic labels; mini sticky «3 цифры до ставки»; tape; NO hero face; NO Wordstat/Metrika; no toxic sticker words",
+      "alt": "Схема: бюджет и параметры авто до первого платежа"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте аукционный лист до ставки",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake Japanese auction sheet UI screenshot 16:9: grade, mileage, chassis number, damage marks; Cyrillic overlay labels «полный лист», «перевод понятен», «сверь кузов»; red stamp «нет перевода — нет ставки»; sticky note «жиза»; NO hero face; NO Wordstat/Metrika; no toxic sticker words like лох/лохов",
+      "alt": "Мокап аукционного листа: проверка до ставки"
+    }
+  }
+}

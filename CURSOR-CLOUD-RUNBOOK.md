@@ -97,6 +97,16 @@ python3 scripts/excalibur_blog_wp_publish.py --env-check
 Если `--publish` падает из-за секретов, это нормально для dry-run окружения и блокер для боевой публикации.
 Если SSH upload пишет warning про fallback на `.`, обновите Cursor Secret `SSH_ROOT` на `.` или уберите несуществующий panel/root path. Секретные значения не записывать в repo.
 
+## Git commit / secrets scrub
+
+Перед каждым `git commit` в Cloud Agent:
+
+```bash
+source scripts/sanitize_cloud_secret_names.sh
+```
+
+Иначе pre-commit может упасть с `invalid variable name` на `${!SECRET_NAME}`, если в `CLOUD_AGENT_INJECTED_SECRET_NAMES` есть не-идентификатор.
+
 ## Optional GitHub Actions preflight
 
 Пример workflow лежит в `shared/cloud-preflight-workflow.yml.example`. Он не включен активным `.github/workflows/*`, потому что GitHub требует у token scope `workflow` для пуша workflow-файлов.

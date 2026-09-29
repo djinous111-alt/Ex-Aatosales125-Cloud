@@ -35,8 +35,36 @@
     "min_actionable_h2": 3,
     "min_faq_pairs": 5,
     "min_recommendation_markers": 8,
+    "min_pain_markers": 2,
+    "min_outcome_markers": 3,
     "requires_workflow_or_table_or_checklist": true
   },
+  "pain_markers_ru": [
+    "боль",
+    "проблем",
+    "ошиб",
+    "ломает",
+    "не работает",
+    "теряет",
+    "дорого",
+    "долго",
+    "рутин",
+    "хаос",
+    "застр",
+    "сложно"
+  ],
+  "outcome_markers_ru": [
+    "результат",
+    "получите",
+    "сможете",
+    "сэконом",
+    "проверьте",
+    "запустите",
+    "соберите",
+    "настройте",
+    "исправьте",
+    "выберите"
+  ],
   "meta_ab_rules": {
     "title_seo_min_len": 35,
     "title_seo_max_len": 75,

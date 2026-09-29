@@ -25,6 +25,8 @@ python scripts/excalibur_blog_link_verify.py \
   -o memory/blog/articles/<dir>/link-verify.json \
   --site-base https://YOUR_SITE
 
+**Link-verify soft-fail:** social (`t.me`, …) timeouts и official hosts (`*.elpts.ru`, `*.fsa.gov.ru`, `*.nami.ru`) с 403/429/503/504 или SSL/timeout → warning, не fail. URL из статьи не удалять; при необходимости manual-verify note в article-qa.
+
 python scripts/excalibur_blog_html_linter.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/html-linter-report.json

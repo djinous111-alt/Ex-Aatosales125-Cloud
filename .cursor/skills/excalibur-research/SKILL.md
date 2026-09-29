@@ -56,11 +56,14 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 
 1. **Сначала** `excalibur_blog_research_start.py` (шаг 0) — для валидации даты/года и utility-gate темы.
 2. Web research 15–25 мин: используй инструмент `**WebSearch`** Курсора для глубинного анализа ТОП-5 конкурентов в реальном времени. GitHub/docs/community нужны для фактов, но итоговый угол обязан быть beginner-first: что новичку нажать, подключить, проверить и как не сломать процесс. Приоритетный источник фактов — `fact-bank.md`.
-3. Микро-исследование Wordstat через `user-mcp-kv` -> `wordstat_get_top_requests` (см. выше).
-4. Извлеки минимум 10–15 проверенных фактов (цифр/утверждений) с точными URL источников из твоего интернет-поиска.
-5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.
-6. Не копировать структуру конкурента 1:1.
-7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
+3. **WebFetch soft-fail на official hosts:** `pub.fsa.gov.ru`, `nami.ru`, `dp.elpts.ru`, Drive2/auto.ru часто дают 403/504/timeout. Не блокируй research: бери WebSearch snippets + зеркала/официальные PDF (ТР ТС, elpts-info). Факты со статусом «проверь в реестре» — без выдуманной аккредитации.
+4. Микро-исследование Wordstat через `user-mcp-kv` -> `wordstat_get_top_requests` (см. выше).
+5. Извлеки минимум 10–15 проверенных фактов (цифр/утверждений) с точными URL источников из твоего интернет-поиска.
+6. Каждая цифра → таблица фактов в `research-notes.md` или не использовать. В `source_table` ячейках пиши буквально `accessed_at: YYYY-MM-DD` (gate считает regex).
+7. Не копировать структуру конкурента 1:1.
+8. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
+9. **github_evidence:** обязателен как секция. Для tech-тем (AI/MCP/API/n8n) — ≥3 github.com URL. Для non-tech (авто/таможня) — `github_evidence: N/A` + краткое обоснование; gate не требует github.com.
+10. Перед `git commit` в Cloud: `source scripts/sanitize_cloud_secret_names.sh` (иначе pre-commit падает на invalid secret name).
 
 ## Blockers
 

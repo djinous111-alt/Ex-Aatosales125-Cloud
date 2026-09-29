@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-sbkts-i-epts-2026-kak-oformit/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1027,
+      578
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 578,
+        "end": 592
+      },
+      "v_gutter_px": {
+        "start": 1027,
+        "end": 1064
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1027,
+          "bottom": 578
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1027,
+          "bottom": 578
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у документов и планшета с ЭПТС, лаборатория и порт Владивостока, плашка СБКТС + ЭПТС, угол avto-sales125.ru",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1064,
+          "top": 12,
+          "right": 2048,
+          "bottom": 566
+        },
+        "raw_box_px": {
+          "left": 1064,
+          "top": 0,
+          "right": 2048,
+          "bottom": 578
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения СБКТС и ЭПТС: роль, оформление, значение для ГИБДД",
+        "h2_anchor": "Разберите, чем СБКТС отличается от ЭПТС"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 15,
+          "top": 592,
+          "right": 1011,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 592,
+          "right": 1027,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема порядка после таможни: от СВХ через СБКТС и ЭПТС до ГИБДД",
+        "h2_anchor": "Пройдите порядок после таможни: от СВХ до ГИБДД"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1064,
+          "top": 595,
+          "right": 2048,
+          "bottom": 1149
+        },
+        "raw_box_px": {
+          "left": 1064,
+          "top": 592,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист документов перед записью в лабораторию для СБКТС",
+        "h2_anchor": "Соберите документы до записи в лабораторию"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разберите, чем СБКТС отличается от ЭПТС",
+    "injected inline_2 after H2 — Пройдите порядок после таможни: от СВХ до ГИБДД",
+    "injected inline_3 after H2 — Соберите документы до записи в лабораторию"
+  ]
+}

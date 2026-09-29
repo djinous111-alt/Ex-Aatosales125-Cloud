@@ -6,3 +6,4 @@
 | 2026-07-17 | AS09 | trust-encar-carhistory-proverka-do-depozita | https://avtosales125.ru/2026/07/17/trust-encar-carhistory-proverka-do-depozita/ | published |
 
 > Ledger сброшен при перенастройке под AVTO SALES (2026-07-17).
+| 2026-09-29 | B01 | sbkts-i-epts-2026-kak-oformit | memory/blog/articles/B01-sbkts-i-epts-2026-kak-oformit | in_progress |

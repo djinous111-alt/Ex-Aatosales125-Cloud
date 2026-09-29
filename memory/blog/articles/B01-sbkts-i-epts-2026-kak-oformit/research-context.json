@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-09-29",
+    "today_ru": "29.09.2026",
+    "year": 2026,
+    "month": 9,
+    "month_name_ru": "сентябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-01",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-09-29 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "sbkts-i-epts-2026-kak-oformit",
+    "h1": "СБКТС и ЭПТС в 2026: как оформить на авто из Японии, Кореи и Китая",
+    "primary_query": "сбктс и эптс",
+    "secondary_queries": [
+      "как оформить эптс",
+      "как получить сбктс",
+      "оформление сбктс и эптс",
+      "сбктс и эптс оформление"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "сбктс и эптс 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "сбктс и эптс сентябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "сбктс и эптс новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com сбктс и эптс 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "сбктс и эптс official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "сбктс и эптс forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "как оформить эптс 2026",
+      "purpose": "вторичный запрос: как оформить эптс"
+    },
+    {
+      "id": "secondary_2",
+      "query": "как получить сбктс 2026",
+      "purpose": "вторичный запрос: как получить сбктс"
+    },
+    {
+      "id": "secondary_3",
+      "query": "оформление сбктс и эптс 2026",
+      "purpose": "вторичный запрос: оформление сбктс и эптс"
+    },
+    {
+      "id": "secondary_4",
+      "query": "сбктс и эптс оформление 2026",
+      "purpose": "вторичный запрос: сбктс и эптс оформление"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "СБКТС и ЭПТС в 2026: как оформить на авто из Японии, Кореи и Китая 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-sbkts-i-epts-2026-kak-oformit",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

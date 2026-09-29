@@ -117,17 +117,40 @@ def classify_link(href: str, site_base: str | None) -> str:
     return "external"
 
 
+# Social profiles often time out for bots; official RU portals often 403/SSL-block crawlers.
+SOFT_SOCIAL_HOSTS = frozenset({"t.me", "telegram.me", "wa.me", "vk.com"})
+SOFT_OFFICIAL_HOST_SUFFIXES = (
+    "elpts.ru",
+    "fsa.gov.ru",
+    "nami.ru",
+)
+
+
+def _host_matches_suffix(host: str, suffix: str) -> bool:
+    return host == suffix or host.endswith("." + suffix)
+
+
 def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
-    """Treat flaky social profile timeouts as warnings, not publish blockers."""
+    """Treat flaky social/official-portal failures as warnings, not publish blockers."""
     parsed = urlparse(href)
     host = parsed.netloc.lower()
-    soft_hosts = {"t.me", "telegram.me", "wa.me", "vk.com"}
-    if host not in soft_hosts:
-        return False
-    if result.get("status") is not None:
-        return False
     error = str(result.get("error") or "").lower()
-    return any(token in error for token in ("timed out", "timeout", "ssl", "network"))
+    status = result.get("status")
+    timeoutish = any(
+        token in error for token in ("timed out", "timeout", "ssl", "network", "handshake")
+    )
+
+    if host in SOFT_SOCIAL_HOSTS:
+        if status is not None:
+            return False
+        return timeoutish
+
+    if any(_host_matches_suffix(host, suffix) for suffix in SOFT_OFFICIAL_HOST_SUFFIXES):
+        if status in (403, 429, 503, 504):
+            return True
+        if status is None and timeoutish:
+            return True
+    return False
 
 
 def verify_article(
@@ -180,7 +203,14 @@ def verify_article(
             r["checked_url"] = check_target
         if kind == "external" and is_soft_external_failure(href, r):
             r["ok"] = True
-            r["warning"] = "soft external social timeout; verify manually if needed"
+            host = urlparse(href).netloc.lower()
+            if any(_host_matches_suffix(host, suffix) for suffix in SOFT_OFFICIAL_HOST_SUFFIXES):
+                r["warning"] = (
+                    "soft official-host failure (403/timeout/SSL common for bot clients); "
+                    "verify manually in a browser if needed"
+                )
+            else:
+                r["warning"] = "soft external social timeout; verify manually if needed"
         results.append(r)
 
     failed = [r for r in results if not r.get("ok")]

@@ -52,7 +52,11 @@ Task(generalPurpose):
 
 ## Cloud Task fallback
 
-См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
+См. `AGENTS.md` и `shared/pipeline-task-map.md`. Кратко:
+
+- typed `excalibur-blog-*` отвергнут API → **сразу** `Task(generalPurpose)` + `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`;
+- **не ретраить** typed name (особенно `excalibur-blog-geo-qa` — часто отсутствует);
+- один generalPurpose Task = одна роль; cover||schema = два Task.
 
 ## Preflight (shell, директор)
 
@@ -211,9 +215,9 @@ Task(excalibur-blog-publish)
 
 ## Blockers
 
-Если typed Task `excalibur-blog-*` недоступны:
+Если typed Task `excalibur-blog-*` недоступны (в т.ч. только `excalibur-blog-geo-qa`):
 
-1. Используй fallback из `AGENTS.md`: отдельный `Task(generalPurpose)` на каждую роль с `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`.
+1. Сразу fallback из `AGENTS.md` / `pipeline-task-map.md`: отдельный `Task(generalPurpose)` на каждую роль с `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`. Не трать шаги на повтор typed name.
 2. Если недоступен даже `generalPurpose`, тогда:
 
 `❌ БЛОКЕР: среда не поддерживает Task/subagents. Single-agent pipeline запрещён.`

@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "СБКТС «по фото»? В ГИБДД скажут нет",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у документов и планшета с ЭПТС, лаборатория и порт Владивостока, плашка СБКТС + ЭПТС, угол avto-sales125.ru",
+      "scene_hint": "reference face + glasses only; outfit: smart casual navy jacket over light shirt (customs/docs vibe, foggy Vladivostok port morning — NOT reference t-shirt, NO cap NO hood); hero holds tablet showing ЭПТС status screen; fake UI layers: customs checklist sticky note, lab registry stamp scrap, phone mock of car catalog card; torn paper + scotch tape + yellow highlight on «по фото»; shocked meme sticker + handwritten arrow «сначала лаборатория»; corner brand avto-sales125.ru; NO Wordstat NO Metrika NO Telegram",
+      "meme_caption_ru": "По фото — отказ"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разберите, чем СБКТС отличается от ЭПТС",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean 16:9 comparison table UI mockup: columns СБКТС vs ЭПТС — роль, кто оформляет, зачем для ГИБДД; sticky note «это не одно и то же»; tape corner; NO human face, NO hero",
+      "alt": "Таблица сравнения СБКТС и ЭПТС: роль, оформление, значение для ГИБДД"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Пройдите порядок после таможни: от СВХ до ГИБДД",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Horizontal workflow diagram 6 steps with Cyrillic labels: СВХ → лаборатория → СБКТС → ЭПТС «действующий» → ОСАГО → ГИБДД; mini port/customs icon; small sticky «порядок важен»; NO hero face",
+      "alt": "Схема порядка после таможни: от СВХ через СБКТС и ЭПТС до ГИБДД"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Соберите документы до записи в лабораторию",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable checklist board UI: документы для лаборатории — ПТС/декларация, VIN фото, доверенность, паспорт; checkboxes; pink sticky «до записи»; scotch tape; NO hero face",
+      "alt": "Чеклист документов перед записью в лабораторию для СБКТС"
+    }
+  }
+}

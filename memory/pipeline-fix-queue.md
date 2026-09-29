@@ -6,6 +6,69 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260930-0013-research-webfetch-timeout-vvo
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-research
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-zakazat-avto-iz-yaponii-pod-klyuch-2026
+severity: low
+category: api
+
+### What went wrong
+- WebFetch конкурента `vvo.live` вернул 504 Gateway Timeout во время deep research B03.
+- Официальный SERP `site:customs.gov.ru` по ввозу авто дал слабый/нерелевантный сниппет (почтовая таможня), пришлось опираться на ГАРАНТ/TKS/НГС по ПП №1713.
+
+### How the agent recovered this run
+- Взял факты по тому же материалу из WebSearch snippets + параллельные источники (tempa-cars, regionauto, AZWAY, vc.ru).
+- Нормативку утильсбора закрыл через garant.ru / tks.ru / ngs.ru вместо прямого customs.gov.ru FAQ.
+
+### Durable fix needed before next run
+- В research skill зафиксировать fallback: при WebFetch 5xx сразу WebSearch + 2 альтернативных URL, не блокировать notes.
+- Для автоимпорта добавить allowlist официальных доменов (publication.pravo.gov.ru, garant/consultant, eec) в research checklist.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260930-0014-research-notes-gate-accessed-at-tech-false-positive
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-research
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-zakazat-avto-iz-yaponii-pod-klyuch-2026
+severity: medium
+category: script
+
+### What went wrong
+- Первый прогон `excalibur_blog_research_notes_gate.py` дал BLOCK: `accessed_at=1 < 5`, хотя в `source_table` было 17 строк с датой – gate считает только паттерн `accessed_at:`, а не колонку таблицы.
+- Gate пометил тему как `technical_topic: true` (WARN про official docs) из-за substring-маркера `ии` внутри слова «японии» / «Японии».
+
+### How the agent recovered this run
+- Переписал ячейки таблицы в формат `accessed_at: 2026-09-30` и добавил явные строки accessed_at под таблицей.
+- Добавил `prefer_sources_after: 2026-07-02`; gate после правки = PASS (warning остался).
+
+### Durable fix needed before next run
+- Считать `accessed_at` также в markdown-таблицах (дата в колонке или `accessed_at:` в ячейке без обязательного rewrite).
+- TECH_MARKERS: word-boundary / токены, чтобы `ии` не матчил «японии»; авто-ниши не должны получать technical github/docs требования.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260930-2105-scout-next-id-live-wp-override
 status: open
 run_date: 2026-09-30

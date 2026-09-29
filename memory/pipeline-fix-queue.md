@@ -22,6 +22,7 @@ category: docs
 ### How the agent recovered this run
 - Ran llms generator with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`); PASS.
 - Wrote promotion-checklist and INDEXER handoff noting the stale flag.
+- Pre-commit: filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid comma-separated identifiers and excluded public URL keys so `llms.txt` could commit (same class of issue as INC-20260930-0027).
 
 ### Durable fix needed before next run
 - Remove `--blog-path` from indexer agent/skill shell examples; keep `--blog-dir` + `--out-dir`.

@@ -429,6 +429,42 @@ category: env
 ### Fixer resolution
 - pending
 
+
+## INC-20260929-1734-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-indexer
+topic_id: B02
+article_dir: memory/blog/articles/B02-prohodnye-avto-iz-yaponii-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `scripts/excalibur_blog_llms_generator.py` больше не принимает `--blog-path` (только `--blog-dir`, `--site-base`, `--out-dir`, …).
+- `scripts/excalibur_blog_doctor.py` всё ещё проверяет `"--blog-path" in llms_help.stdout` → ложный FAIL на актуальном CLI.
+- Skill/agent контракты Indexer всё ещё показывают `--blog-path /` в примере команды.
+
+### How the agent recovered this run
+- Запустил llms generator без `--blog-path`: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog`.
+- Получил `memory/blog/llms.txt` и `memory/blog/llms-full.txt` (B02 в индексе).
+
+### Durable fix needed before next run
+- Убрать check `--blog-path` из `excalibur_blog_doctor.py` (или заменить на проверку `--out-dir` / `--blog-dir`).
+- Обновить примеры в skill/agent Indexer: только `--blog-dir` + `--out-dir`, без `--blog-path`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

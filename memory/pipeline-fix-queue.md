@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None for run 2026-09-29 B01 after fixer._
+
+## Recently fixed (2026-09-29)
+
 ## INC-20260929-0930-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-publish
 topic_id: B01
@@ -39,11 +43,26 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- `.cursor/cloud-agent-install.sh` installs `-r requirements.txt` (+ requests/python-dotenv), including paramiko for SSH publish.
+- Doctor checks `paramiko available` and `scripts/sanitize_cloud_secret_names.sh`.
+- Pitfalls/publish skill document dependency and sanitize-before-commit.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `python3 -c "import paramiko"`
+commit: pending-parent-commit
 
 
 ## INC-20260929-0926-indexer-precommit-secret-name
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-indexer
 topic_id: B01
@@ -75,10 +94,26 @@ related: INC-20260929-0923-cover-precommit-secret-name, INC-20260929-0921-schema
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Added `--redact-site-base` to llms generator and interlinker; indexer skill uses `--blog-dir/--out-dir` + redact (no `--blog-path`).
+- Canonical sanitize script + pitfalls: filter secret names + redact PUBLIC_SITE_URL before commit.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `scripts/sanitize_cloud_secret_names.sh`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `AGENTS.md`
+checks_run:
+- `python3 scripts/excalibur_blog_llms_generator.py --redact-site-base --out-dir /tmp/llms-test`
+- doctor PASS for `--blog-dir/--out-dir`
+commit: pending-parent-commit
 
 ## INC-20260929-0923-cover-precommit-secret-name
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-cover
 topic_id: B01
@@ -104,10 +139,21 @@ related: INC-20260929-0921-schema-precommit-secret-name
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Same root cause as schema/writer: document `source scripts/sanitize_cloud_secret_names.sh` in AGENTS.md and pitfalls; do not use `--no-verify`.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `AGENTS.md`
+checks_run:
+- `bash -n scripts/sanitize_cloud_secret_names.sh`
+- sanitize dry-run filters invalid identifiers
+commit: pending-parent-commit
 
 ## INC-20260929-0921-schema-precommit-secret-name
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-schema
 topic_id: B01
@@ -134,10 +180,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Durable repo workaround: `scripts/sanitize_cloud_secret_names.sh` + git hygiene in AGENTS/pitfalls.
+- Platform skip of invalid secret names remains outside repo; agents must filter names before commit.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `AGENTS.md`
+checks_run:
+- sanitize dry-run: URL-like names dropped, valid identifiers kept
+commit: pending-parent-commit
 
 ## INC-20260929-0920-geo-qa-typed-task-unavailable
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -164,10 +221,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Pitfalls/AGENTS reinforce generalPurpose fallback as the canonical path while typed Task catalog is unavailable.
+- GEO QA agent contract: typed Task may be missing; parent must not write article-qa alone.
+files_changed:
+- `shared/agent-pipeline-pitfalls.md`
+- `agents/excalibur-blog-geo-qa.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+checks_run:
+- rg generalPurpose / typed Task guidance in pitfalls + geo-qa agent
+commit: pending-parent-commit
 
 ## INC-20260929-0920-geo-qa-utility-pain-markers-missing
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -196,10 +264,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- `editorial-policy.json` has `pain_markers_ru` / `outcome_markers_ru` and min thresholds.
+- Utility gate enforces only when marker lists are non-empty; added `--self-test` regression.
+- Documented in `shared/editorial-utility-only.md` and pitfalls.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_utility_gate.py --self-test`
+commit: pending-parent-commit
 
 ## INC-20260929-0920-geo-qa-writer-literal-redacted-href
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -227,10 +308,21 @@ related: INC-20260929-0918-writer-precommit-secret-names
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Writing contract and writer skill forbid literal `href="[REDACTED]"`; CTA URLs only from conversion-map / registry.
+files_changed:
+- `shared/excalibur-article-writing-contract.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg for REDACTED href ban in writing contract + writer skills
+commit: pending-parent-commit
 
 ## INC-20260929-0918-writer-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-writer
 topic_id: B01
@@ -257,10 +349,20 @@ related: INC-20260929-0915-research-notes-gate-false-tech
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Same durable fix as schema/cover: sanitize script + docs; writer must not use `--no-verify`.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `AGENTS.md`
+checks_run:
+- sanitize dry-run
+commit: pending-parent-commit
 
 ## INC-20260929-0915-research-notes-gate-false-tech
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-research
 topic_id: B01
@@ -293,10 +395,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- `is_technical_topic` uses word-boundary for short markers; topic card preferred over notes blob.
+- `accessed_at` counts ISO dates on URL rows; `pain_solution_map` counts data-rows after header.
+- GitHub >=3 only for technical topics; research skill updated.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- regression: auto niche technical=False; tech niche True; B01 gate PASS technical=False
+commit: pending-parent-commit
 
 ## INC-20260929-0901-scout-helper-as-prefix
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-scout
 topic_id: B01
@@ -326,7 +441,21 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- scout_helper and today.py parse any `## [A-Z]+digits` heading (AS* and B*); active dirs likewise.
+- Unwritten excludes ledger reserved; next ID stays in Bxx series.
+- Scout skill documents mixed pool prefixes.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → Total topics=10, AS* visible
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260930-0015-research-precommit-secret-redact
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-research
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-zakazat-avto-iz-yaponii-pod-klyuch-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secrets scanner blocked first commit: `research-serp.json` содержал `PUBLIC_SITE_URL` (собственная статья блога в SERP).
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` содержит невалидный токен `[REDACTED]`, из-за чего hook падает на `${!SECRET_NAME}` до фильтрации.
+
+### How the agent recovered this run
+- Заменил URL сайта на `[REDACTED]` в `research-serp.json` и `shared/published-articles.md`.
+- Временно отфильтровал невалидные имена из `CLOUD_AGENT_INJECTED_SECRET_NAMES` перед commit (хук не отключался).
+
+### Durable fix needed before next run
+- `research_start` / SERP writer должен сразу редактировать `PUBLIC_SITE_URL` в `research-serp.json`.
+- Ledger permalinks хранить path-only (`/2026/.../`) без host.
+- Cloud secret-name injection не должен подставлять литерал `[REDACTED]` как имя переменной.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_start.py`
+- `shared/published-articles.md` convention
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260930-0013-research-webfetch-timeout-vvo
 status: open
 run_date: 2026-09-30

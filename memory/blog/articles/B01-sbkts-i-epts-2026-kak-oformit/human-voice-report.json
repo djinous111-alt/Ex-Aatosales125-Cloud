@@ -1,20 +1,16 @@
 {
   "gate": "human-voice",
-  "status": "BLOCK",
+  "status": "PASS",
   "article_dir": "memory/blog/articles/B01-sbkts-i-epts-2026-kak-oformit",
-  "errors": [
-    "reader pain is weak or invisible: article must name the problem it solves"
-  ],
-  "warnings": [
-    "multiple exactly-5-step lists detected; vary list size when editorially possible"
-  ],
+  "errors": [],
+  "warnings": [],
   "metrics": {
     "h2_count": 7,
     "repeated_h2_openers": [],
     "textbook_h2_count": 0,
     "paragraph_count": 25,
-    "paragraph_avg_words": 26.8,
-    "paragraph_variance_ratio": 0.46,
+    "paragraph_avg_words": 27.3,
+    "paragraph_variance_ratio": 0.48,
     "concrete_markers": [
       "например",
       "на практике",
@@ -22,7 +18,12 @@
       "в реальном проекте"
     ],
     "pain_markers": [
-      "ошиб"
+      "боль",
+      "проблем",
+      "ошиб",
+      "дорого",
+      "долго",
+      "сложно"
     ],
     "outcome_markers": [
       "результат",
@@ -57,7 +58,6 @@
       "каком",
       "лабораторию",
       "пакета",
-      "понимает",
       "порядке",
       "потратить",
       "приехать",
@@ -126,7 +126,7 @@
       "учёту",
       "часто"
     ],
-    "exactly_five_lists": 2,
+    "exactly_five_lists": 1,
     "fact_check_template_blocks": 0
   }
 }

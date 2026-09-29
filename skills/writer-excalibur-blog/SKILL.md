@@ -29,6 +29,8 @@
     - **ЗАПРЕЩЕНО:** интерактивное оглавление — `<ol>` или `<ul>` с `<a href="#...">` на заголовки H2/H3 сразу после TL;DR. После blockquote TL;DR идёт контекстный `<p>`, затем первый `<h2>`.
     - Атрибут `id` у `<h2>` — только если нужен для внешней перелинковки; не создавай оглавление в теле статьи.
     - В конце статьи (перед FAQ) вставляй блок верификации (**Fact Check Box**) через `<blockquote>` от редакции Авто-Сейлс. **Не** упоминай Wordstat и Метрику в тексте статьи.
+13. **CTA href (критично):** никогда не пиши placeholder `href` из scrubbed env. Если `CATALOG_URL`/`TELEGRAM_URL` scrubbed — собери URL из `catalog_host` / `telegram_handle` в `memory/brief/site-brief.md` (+ таблица hosts в `conversion-map.md`). На CTA-строках — HTML pragma allowlist comments по контракту.
+14. Перед `git commit` в Cloud: `source scripts/sanitize_cloud_secret_names.sh`.
 
 ## Выход
 

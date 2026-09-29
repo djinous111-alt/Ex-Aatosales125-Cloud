@@ -1,11 +1,13 @@
 # Conversion map — Excalibur BLOG (Авто-Сейлс)
 
+Public CTA **hosts** (not secrets). Cloud may scrub full marketing URLs to `[REDACTED]` in env and brief cells.
+Writer must build href from hosts below — never write `href="[REDACTED]"`.
 
-| CTA | URL / action | Max mentions per article | Notes |
-| --- | --- | --- | --- |
-| Каталог авто | https://avto-sales125.ru/ | 3 | главный оффер; расчёты и подбор только здесь |
-| Telegram Авто-Сейлс | https://t.me/avtosales125 | 2 | детали заказа, ответы менеджера |
-| MAX | https://max.ru/id2508140890_biz | 1 | альтернативный мессенджер |
-| Отзывы 2GIS | https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417/131.924668%2C43.140033/tab/reviews | 1 | доверие / E-E-A-T |
-| Instagram | https://www.instagram.com/avtosales_rf | 1 | опционально, если релевантно |
-| Адрес офиса | Владивосток, Днепровская 40а стр. 4 | 1 | в футере/блоке компании, не как CTA-кнопка |
+| CTA | Host / handle | Built href rule | Max mentions | Notes |
+| --- | --- | --- | --- | --- |
+| Каталог авто | host `avto-sales125.ru` | `https://` + host + `/` | 3 | главный оффер |
+| Telegram Авто-Сейлс | handle `avtosales125` | `https://t.me/` + handle | 2 | детали заказа |
+| MAX | see site-brief | optional | 1 | не обязателен |
+| Отзывы 2GIS | 2gis firm link in site-brief | as listed in site-brief | 1 | доверие / E-E-A-T |
+| Instagram | `instagram.com/avtosales_rf` | https URL | 1 | опционально |
+| Адрес офиса | Владивосток, Днепровская 40а стр. 4 | plain text | 1 | не CTA-кнопка |

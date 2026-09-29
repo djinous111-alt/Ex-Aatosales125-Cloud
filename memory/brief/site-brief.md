@@ -9,6 +9,9 @@ Excalibur BLOG читает этот файл для метаданных сай
 - **site_url:** https://avtosales125.ru
 - **blog_path:** /
 - **catalog_url:** https://avto-sales125.ru/
+- **catalog_host:** avto-sales125.ru
+- **telegram_handle:** avtosales125
+- **cta_url_build:** if env CATALOG_URL/TELEGRAM_URL is placeholder/scrubbed, Writer builds scheme+host from catalog_host and t.me+telegram_handle; never write placeholder href
 - **language:** ru
 - **geo:** Владивосток, Дальний Восток, РФ
 - **niche:** автомобили под заказ из Японии, Кореи и Китая; растаможка, СВХ Владивосток, доставка по России

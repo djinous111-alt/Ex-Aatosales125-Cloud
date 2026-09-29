@@ -6,8 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none open for 2026-09-29; see needs-human / fixed below)_
+
 ## INC-20260929-1327-geo-qa-typed-task-missing
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -33,12 +35,25 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-09-29
+fix_summary:
+- Documented that typed `excalibur-blog-geo-qa` often missing → immediately Task(generalPurpose) + agent/skill paths (no typed retry).
+- Updated AGENTS.md, pipeline-task-map.md, director skill, pitfalls.
+files_changed:
+- `AGENTS.md`
+- `shared/pipeline-task-map.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg for geo-qa generalPurpose guidance in AGENTS.md / pipeline-task-map / director skill
+commit: pending-parent-commit
+
 
 ---
 
 ## INC-20260929-1327-geo-qa-utility-policy-markers-missing
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -66,12 +81,25 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-09-29
+fix_summary:
+- Added `pain_markers_ru` / `outcome_markers_ru` aligned with human-voice gate lexicon.
+- Set `min_pain_markers` / `min_outcome_markers` under `article_required_signals`.
+- Utility gate skips pain/outcome checks with warning when marker lists empty (no false BLOCK).
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m json.tool memory/brief/editorial-policy.json`
+- `python3 scripts/excalibur_blog_utility_gate.py --topic-id B01 --article-dir memory/blog/articles/B01-sbkts-i-epts-2026-kak-oformit` → PASS (pain=6, outcome=11)
+commit: pending-parent-commit
+
 
 ---
 
 ## INC-20260929-1327-geo-qa-link-verify-official-hosts
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -98,12 +126,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-09-29
+fix_summary:
+- Soft-fail official hosts `*.elpts.ru`, `*.fsa.gov.ru`, `*.nami.ru` on 403/429/503/504 and SSL/timeout (plus existing social soft-fail).
+- Documented in GEO QA skill and pitfalls.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit checks for soft official/social hosts
+- `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
+commit: pending-parent-commit
+
 
 ---
 
 ## INC-20260929-1325-writer-git-push-auth
-status: open
+status: needs-human
 run_date: 2026-09-29
 role: excalibur-blog-writer
 topic_id: B01
@@ -132,12 +173,21 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+reason:
+- Cloud Agent GitHub HTTPS token / gh hosts.yml invalid (`Invalid username or token`). No durable in-repo fix without refreshing credentials in Cursor Dashboard / GitHub App installation.
+needed_decision_or_secret:
+- Refresh GitHub auth for this Cloud environment (Dashboard Secrets / GitHub App) so `git push` and `gh` work.
+- Documented stop-retry + incident path in pitfalls; sanitize-before-commit already wired.
+files_changed:
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- n/a (env credential)
+
 
 ---
 
 ## INC-20260929-1321-writer-cta-env-redacted
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-writer
 topic_id: B01
@@ -169,12 +219,27 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-09-29
+fix_summary:
+- Added durable non-secret `catalog_host` / `telegram_handle` / `cta_url_build` to site-brief.
+- Rewrote conversion-map around hosts (full marketing URLs get Cloud-scrubbed to placeholder).
+- Writer skill: never placeholder href; build from hosts when env scrubbed.
+files_changed:
+- `memory/brief/site-brief.md`
+- `memory/brief/conversion-map.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg catalog_host / telegram_handle in site-brief
+- rg CTA href guidance in writer skill
+commit: pending-parent-commit
+
 
 ---
 
 ## INC-20260929-1316-research-webfetch-official-timeouts
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-research
 topic_id: B01
@@ -202,12 +267,22 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-09-29
+fix_summary:
+- Research skill: WebFetch soft-fail on FSA/NAMI/ELPTS/Drive2 → WebSearch + mirrors; do not block research-notes.
+files_changed:
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg WebFetch soft-fail in research skill
+commit: pending-parent-commit
+
 
 ---
 
 ## INC-20260929-1316-research-gate-false-technical
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-research
 topic_id: B01
@@ -238,11 +313,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-09-29
+fix_summary:
+- TECH_MARKERS now word-boundary regex; topic detection uses topic card fields only (not notes labels like reader_pain).
+- Non-tech niches may use `github_evidence: N/A`; github.com URLs required only when technical_topic=true.
+- Documented accessed_at cell format in research skill.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- auto how-to is_technical_topic → False; Cursor MCP topic → True
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+commit: pending-parent-commit
+
 
 ---
 ## INC-20260929-1306-scout-precommit-secret-name
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-scout
 topic_id: B01
@@ -274,12 +363,27 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending (script created; skills/docs still need wiring)
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- Wired `source scripts/sanitize_cloud_secret_names.sh` into scout/research/writer skills and CURSOR-CLOUD-RUNBOOK.
+files_changed:
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `test -f scripts/sanitize_cloud_secret_names.sh`
+- rg sanitize_cloud_secret_names in scout/research/writer/runbook
+commit: pending-parent-commit
 
----
 
 ## INC-20260929-1306-scout-as-id-not-parsed
-status: open
+status: fixed
 run_date: 2026-09-29
 role: excalibur-blog-scout
 topic_id: B01
@@ -308,9 +412,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-29
+fix_summary:
+- today.py + scout_helper parse topic_id `[A-Z]+\d+` (AS* and B*); article dirs and P0 selection include AS*.
+- Doctor llms check updated to `--blog-dir` / `--out-dir`.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- scout_helper pool=10, unwritten includes AS01–AS07
+- today.py EXCALIBUR_SUGGESTED_TOPIC_ID=AS01, selection=ready
+- doctor SUMMARY errors=0
+commit: pending-parent-commit
 
----
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

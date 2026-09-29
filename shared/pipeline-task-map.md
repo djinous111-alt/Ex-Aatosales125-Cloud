@@ -2,6 +2,16 @@
 
 Директор **не** Task. Все роли ниже — `Task(<name>)`.
 
+## Typed Task missing → generalPurpose
+
+Если Cloud API отвергает typed name (`excalibur-blog-geo-qa`, `excalibur-blog-research`, …):
+
+1. **Не ретраить** typed Task — сразу `Task(generalPurpose)`.
+2. В промпт: `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md` + topic_id/article_dir + маркер результата.
+3. Особенно часто отсутствует **GEO QA** (`excalibur-blog-geo-qa`) — считать generalPurpose каноническим fallback, не инцидентом среды.
+
+См. также `AGENTS.md` § Cloud Task fallback и director skill.
+
 ## Схема
 
 ```text

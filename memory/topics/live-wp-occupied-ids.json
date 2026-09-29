@@ -1,0 +1,7 @@
+{
+  "occupied_topic_ids": [
+    "B01",
+    "B02"
+  ],
+  "note": "Topic IDs already used on live WordPress that may be missing from blog-topics.md or the ledger. Scout helper --suggest-next must skip these. Update when new live posts use Bxx/ASxx IDs outside the ledger."
+}

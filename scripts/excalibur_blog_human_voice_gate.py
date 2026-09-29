@@ -100,7 +100,8 @@ CONCRETE_MARKERS = (
     "из практики",
 )
 
-PAIN_MARKERS = (
+# Defaults mirror memory/brief/editorial-policy.json; runtime prefers policy lists.
+DEFAULT_PAIN_MARKERS = (
     "боль",
     "проблем",
     "ошиб",
@@ -115,7 +116,7 @@ PAIN_MARKERS = (
     "сложно",
 )
 
-OUTCOME_MARKERS = (
+DEFAULT_OUTCOME_MARKERS = (
     "результат",
     "получите",
     "сможете",
@@ -127,6 +128,30 @@ OUTCOME_MARKERS = (
     "исправьте",
     "выберите",
 )
+
+
+def load_editorial_markers(root: Path) -> tuple[list[str], list[str]]:
+    """Canonical pain/outcome markers from editorial-policy.json (shared with utility gate).
+
+    Missing keys → built-in defaults. Present-but-empty lists → skip hard checks
+    (same contract as excalibur_blog_utility_gate.py).
+    """
+    path = root / "memory" / "brief" / "editorial-policy.json"
+    if not path.is_file():
+        return list(DEFAULT_PAIN_MARKERS), list(DEFAULT_OUTCOME_MARKERS)
+    try:
+        policy = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return list(DEFAULT_PAIN_MARKERS), list(DEFAULT_OUTCOME_MARKERS)
+    if "pain_markers_ru" in policy:
+        pain = [str(x) for x in (policy.get("pain_markers_ru") or []) if str(x).strip()]
+    else:
+        pain = list(DEFAULT_PAIN_MARKERS)
+    if "outcome_markers_ru" in policy:
+        outcome = [str(x) for x in (policy.get("outcome_markers_ru") or []) if str(x).strip()]
+    else:
+        outcome = list(DEFAULT_OUTCOME_MARKERS)
+    return pain, outcome
 
 AI_OPENERS = (
     "в современном мире",
@@ -247,17 +272,22 @@ def analyze_human_voice(article_dir: Path) -> dict[str, Any]:
     success_overlap = keyword_overlap(success_criteria, text) if success_criteria else []
     angle_overlap = keyword_overlap(voice_angle, text) if voice_angle else []
     surprising_overlap = keyword_overlap(surprising_fact, text) if surprising_fact else []
-    pain_hits = [marker for marker in PAIN_MARKERS if marker in text_lower]
-    outcome_hits = [marker for marker in OUTCOME_MARKERS if marker in text_lower]
+    pain_markers, outcome_markers = load_editorial_markers(root)
+    pain_hits = [marker for marker in pain_markers if marker in text_lower]
+    outcome_hits = [marker for marker in outcome_markers if marker in text_lower]
 
     if ai_opening_hits:
         errors.append(f"AI-style opening phrases near lead: {ai_opening_hits}")
     if len(concrete_hits) < 2:
         errors.append("too few concrete human markers: need examples/practice/error/scenario language")
-    if len(pain_hits) < 2:
+    if pain_markers and len(pain_hits) < 2:
         errors.append("reader pain is weak or invisible: article must name the problem it solves")
-    if len(outcome_hits) < 3:
+    elif not pain_markers:
+        warnings.append("policy.pain_markers_ru пуст – проверка боли читателя пропущена")
+    if outcome_markers and len(outcome_hits) < 3:
         errors.append("reader outcome is weak or invisible: article must promise and deliver a usable result")
+    elif not outcome_markers:
+        warnings.append("policy.outcome_markers_ru пуст – проверка результата читателя пропущена")
     if repeated_openers:
         errors.append(f"repeated H2 openers make article formulaic: {repeated_openers}")
     if len(textbook_h2s) >= 2:

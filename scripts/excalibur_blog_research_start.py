@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 import time
@@ -369,6 +370,8 @@ def run_research_start(
         "errors": errors,
         "unique_urls": _unique_urls(serp_runs),
     }
+    # Cloud secret-scan treats PUBLIC_SITE_URL host as a secret; redact before write.
+    payload_serp = _redact_public_site_urls(payload_serp, _public_site_hosts())
 
     context_path = out_dir / "research-context.json"
     serp_path = out_dir / "research-serp.json"
@@ -402,6 +405,48 @@ def _unique_urls(serp_runs: list[dict[str, Any]]) -> list[dict[str, str]]:
                 seen.add(url)
                 out.append({"url": url, "title": row.get("title") or "", "from_query": run.get("query") or ""})
     return out
+
+
+def _public_site_hosts() -> list[str]:
+    """Hosts that must not appear as raw URLs in committed research-serp.json."""
+    hosts: list[str] = []
+    for key in ("PUBLIC_SITE_URL", "WP_HOME", "WP_SITE_URL"):
+        raw = (os.environ.get(key) or "").strip()
+        if not raw:
+            continue
+        try:
+            host = urllib.parse.urlparse(raw).netloc.lower().removeprefix("www.")
+        except Exception:
+            host = ""
+        if host and host not in hosts:
+            hosts.append(host)
+    return hosts
+
+
+def _redact_public_site_urls(value: Any, hosts: list[str]) -> Any:
+    """Replace own-site absolute URLs with path-only or [REDACTED] for secret-scan safety."""
+    if not hosts:
+        return value
+    if isinstance(value, dict):
+        return {k: _redact_public_site_urls(v, hosts) for k, v in value.items()}
+    if isinstance(value, list):
+        return [_redact_public_site_urls(v, hosts) for v in value]
+    if isinstance(value, str):
+        out = value
+        for host in hosts:
+            # https://host/path → /path ; bare host URLs → [REDACTED]
+            pattern = re.compile(
+                rf"https?://(?:www\.)?{re.escape(host)}(/[^\s\"'<>]*)?",
+                flags=re.I,
+            )
+
+            def _repl(match: re.Match[str], _host: str = host) -> str:
+                path = match.group(1) or ""
+                return path if path.startswith("/") else "[REDACTED]"
+
+            out = pattern.sub(_repl, out)
+        return out
+    return value
 
 
 def main() -> int:

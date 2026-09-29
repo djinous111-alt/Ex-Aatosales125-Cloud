@@ -1,0 +1,87 @@
+{
+  "article": "memory/blog/articles/B02-prohodnye-avto-iz-yaponii-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 11,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 10,
+  "facts": [
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "Иван увидел \"Toyota 2023 за хорошие деньги\", кинул депозит – и только потом",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "сяц выпуска. В листе стоял ноябрь 2023: до ноября 2026 машина ещё в зоне \"младше 3 лет\" с другой пошлиной",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2021",
+      "kind": "date_or_year",
+      "context": "сентября 2026 ориентир выпуска примерно сентябрь 2021 – сентябрь 2023; полностью удобный календарный го",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2022",
+      "kind": "date_or_year",
+      "context": "ентябрь 2023; полностью удобный календарный год – 2022. Окно сдвигается каждый месяц. Живой пример: лот",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "рь 2023: до ноября 2026 машина ещё в зоне \"младше 3 лет\" с другой пошлиной. Пока лот плыл во Владивосток,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 лет",
+      "kind": "metric_or_duration",
+      "context": "лось. Ниже – чек до ставки: месяц выпуска, окно 3–5 лет на дату декларации, мощность в кВт, тип мотора и",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "6 месяцев",
+      "kind": "metric_or_duration",
+      "context": "= первая регистрация в Японии, выпуск обычно на 1–6 месяцев раньше. Параллельно фильтруйте мощность (для обыч",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4 мес",
+      "kind": "metric_or_duration",
+      "context": "равило ЕЭК (1 июля / 15-е) → запас на логистику 3–4 мес. → \"можно ставить / стоп\" Не путайте дату в аукци",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "ощность ДВС КВт из документов, порог 117,68 кВт (~160 л.с.) В объявлении \"160\", в бумагах чуть выше Обяз",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "116",
+      "kind": "large_number",
+      "context": "д / e-Power / EV Тип схемы и свой порог мощности \"116 л.с.\" у последовательного гибрида Стоп до пересчёт",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "171",
+      "kind": "large_number",
+      "context": "\": по возрасту окно сходилось, а в карточке около 171 л.с. – льготного сценария по мощности уже нет. Дру",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

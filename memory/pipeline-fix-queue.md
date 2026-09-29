@@ -356,6 +356,44 @@ category: env
 ### Fixer resolution
 - pending
 
+## INC-20260929-1720-geo-qa-utility-pain-outcome-markers-missing
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-geo-qa
+topic_id: B02
+article_dir: memory/blog/articles/B02-prohodnye-avto-iz-yaponii-2026
+severity: blocker
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` считает `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json` и требует `min_pain_markers` (default 2) / `min_outcome_markers` (default 3).
+- В policy этих списков нет → `[]` → счётчики всегда 0 → **любая** статья получает `UTILITY ARTICLE BLOCKER`.
+- Повторный прогон AS09 (исторически PASS без pain/outcome metrics) сейчас тоже BLOCK с теми же ошибками.
+- При этом `excalibur_blog_human_voice_gate.py` имеет hardcoded PAIN/OUTCOME маркеры и для B02 даёт PASS — текст статьи боль/результат называет.
+
+### How the agent recovered this run
+- Не переписывал `article.html` (writer FIX не снимает BLOCK при пустых списках policy).
+- Зафиксировал FAIL в `article-qa.md`, FIX-лист для writer после policy-fix, incident для fixer.
+- Cover/schema/publish не запускал.
+
+### Durable fix needed before next run
+- Добавить в `memory/brief/editorial-policy.json` `pain_markers_ru` и `outcome_markers_ru` (согласовать с маркерами human-voice gate) плюс явные `min_pain_markers` / `min_outcome_markers` в `article_required_signals`.
+- Альтернатива: если списки пусты — пропускать pain/outcome checks (не применять default min), чтобы не блокировать весь пайплайн.
+- Документировать маркеры в `shared/editorial-utility-only.md` / Writer skill.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

@@ -1,0 +1,531 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-09-29",
+    "today_ru": "29.09.2026",
+    "year": 2026,
+    "month": 9,
+    "month_name_ru": "сентябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-01",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-09-29 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B02",
+    "priority": "P0",
+    "slug": "prohodnye-avto-iz-yaponii-2026",
+    "h1": "Проходные авто из Японии 2026: как проверить год до ставки на аукционе",
+    "primary_query": "проходные авто из японии",
+    "secondary_queries": [
+      "проходные авто из японии в 2026",
+      "проходной год для авто из японии",
+      "какие авто из японии проходные"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "проходные авто из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Проходные авто из Японии в 2026 году: что значит «проходной год» и ...",
+          "url": "https://onteco.ru/blog/prokhodnye-avto-iz-yaponii-v-2026-godu",
+          "snippet": ""
+        },
+        {
+          "title": "ТОП-12 проходных авто до 160 л.с. в 2026: что реально везут из Японии ...",
+          "url": "https://vc.ru/decoded/3072669-prokhodnye-avtomobili-do-160-ls-iz-yaponii-korei-i-kitaya",
+          "snippet": "Что такое проходные авто из Японии, какие годы выпуска проходные в 2026 году, как возраст влияет на пошлину и утильсбор, и какие модели сейчас выгоднее всего везти."
+        },
+        {
+          "title": "Проходные авто из Японии в 2026 году: какие подходят для ввоза",
+          "url": "https://japanexport55.ru/articles/sovety-avtovladeltsam/prokhodnye-avto-iz-yaponii-v-2026-godu-kakie-goda-i-mashiny-podkhodyat-dlya-vygodnogo-vvoza/",
+          "snippet": "Сколько стоит привезти машину из Японии под ключ? В 2026 году рабочий коридор — от 760 тысяч до 2,7 миллиона рублей за машину до 160 л.с. В сумму входят лот, пошлина, утильсбор, оформление и ..."
+        },
+        {
+          "title": "Авто из Японии 2026: какие машины все еще выгодно привозить",
+          "url": "https://jpstar.ru/blog/avto-iz-yaponii-2026.html",
+          "snippet": "Какие года авто из Японии считаются проходными в 2026 году, как определить возраст машины, что учитывать по мощности, двигателю и платежам."
+        },
+        {
+          "title": "Какие авто из Японии действительно выгодны к ввозу в 2026 году",
+          "url": "https://www.drive2.ru/o/b/726604013952304841/",
+          "snippet": "Оптимальный японский автомобиль для ввоза в 2026 году это компактный хэтчбек, седан, универсал, минивэн или кроссовер с бензиновым мотором до 1.9 л и мощностью до примерно 150-160 сил."
+        },
+        {
+          "title": "Машины из Японии 2026: какие авто выгодно ввозить, правила импорта и ...",
+          "url": "https://v-tagile.ru/obschestvo-may-6/mashiny-iz-yaponii-2026",
+          "snippet": "Семейный сегмент в 2026 году снова активно растёт. Особенно востребованы гибридные минивэны с передним приводом — экономичные, просторные и понятные в обслуживании."
+        }
+      ],
+      "searched_at": "2026-09-29"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "проходные авто из японии сентябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Проходные авто из Японии в 2026 году: что значит «проходной год» и ...",
+          "url": "https://onteco.ru/blog/prokhodnye-avto-iz-yaponii-v-2026-godu",
+          "snippet": ""
+        },
+        {
+          "title": "Проходные авто из Японии в 2026 году: какие подходят для ввоза",
+          "url": "https://japanexport55.ru/articles/sovety-avtovladeltsam/prokhodnye-avto-iz-yaponii-v-2026-godu-kakie-goda-i-mashiny-podkhodyat-dlya-vygodnogo-vvoza/",
+          "snippet": "Что такое проходные авто из Японии, какие годы выпуска проходные в 2026 году, как возраст влияет на пошлину и утильсбор, и какие модели сейчас выгоднее всего везти."
+        },
+        {
+          "title": "ТОП-12 проходных авто до 160 л.с. в 2026: что реально везут из Японии ...",
+          "url": "https://vc.ru/decoded/3072669-prokhodnye-avtomobili-do-160-ls-iz-yaponii-korei-i-kitaya",
+          "snippet": "Какие года авто из Японии считаются проходными в 2026 году, как определить возраст машины, что учитывать по мощности, двигателю и платежам."
+        },
+        {
+          "title": "Проходной и непроходной год выпуска авто из Японии в 2026 году",
+          "url": "https://tempa-cars.ru/blog/prohodnoy-i-neprohodnoy-god-vypuska-avto-iz-yaponii-v-2026-godu.html",
+          "snippet": "Сколько стоит привезти машину из Японии под ключ? В 2026 году рабочий коридор — от 760 тысяч до 2,7 миллиона рублей за машину до 160 л.с. В сумму входят лот, пошлина, утильсбор, оформление и ..."
+        },
+        {
+          "title": "Авто из Японии 2026: какие машины все еще выгодно привозить",
+          "url": "https://jpstar.ru/blog/avto-iz-yaponii-2026.html",
+          "snippet": "Разбираем, какой год выпуска считается проходным и непроходным при ввозе авто из Японии в 2026 году, как считается возраст машины, почему важен месяц выпуска и какие годы особенно ..."
+        },
+        {
+          "title": "Машины из Японии 2026: какие авто выгодно ввозить, правила импорта и ...",
+          "url": "https://v-tagile.ru/obschestvo-may-6/mashiny-iz-yaponii-2026",
+          "snippet": "Оптимальный японский автомобиль для ввоза в 2026 году это компактный хэтчбек, седан, универсал, минивэн или кроссовер с бензиновым мотором до 1.9 л и мощностью до примерно 150-160 сил."
+        }
+      ],
+      "searched_at": "2026-09-29"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "проходные авто из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Проходные авто из Японии в 2026 году: что значит «проходной год» и ...",
+          "url": "https://onteco.ru/blog/prokhodnye-avto-iz-yaponii-v-2026-godu",
+          "snippet": ""
+        },
+        {
+          "title": "ТОП-12 проходных авто до 160 л.с. в 2026: что реально везут из Японии ...",
+          "url": "https://vc.ru/decoded/3072669-prokhodnye-avtomobili-do-160-ls-iz-yaponii-korei-i-kitaya",
+          "snippet": "Что такое проходные авто из Японии, какие годы выпуска проходные в 2026 году, как возраст влияет на пошлину и утильсбор, и какие модели сейчас выгоднее всего везти."
+        },
+        {
+          "title": "Проходные авто из Японии в 2026 году: какие подходят для ввоза",
+          "url": "https://japanexport55.ru/articles/sovety-avtovladeltsam/prokhodnye-avto-iz-yaponii-v-2026-godu-kakie-goda-i-mashiny-podkhodyat-dlya-vygodnogo-vvoza/",
+          "snippet": "В 2026 году рабочий коридор — от 760 тысяч до 2,7 миллиона рублей за машину до 160 л.с. В сумму входят лот, пошлина, утильсбор, оформление и доставка до Владивостока."
+        },
+        {
+          "title": "Машины из Японии 2026: какие авто выгодно ввозить, правила импорта и ...",
+          "url": "https://v-tagile.ru/obschestvo-may-6/mashiny-iz-yaponii-2026",
+          "snippet": "Какие года авто из Японии считаются проходными в 2026 году, как определить возраст машины, что учитывать по мощности, двигателю и платежам."
+        },
+        {
+          "title": "Какие авто из Японии действительно выгодны к ввозу в 2026 году",
+          "url": "https://www.drive2.ru/o/b/726604013952304841/",
+          "snippet": "Полный гид по импорту автомобилей из Японии в 2026 году: проходные модели, расчет утильсбора, таможенные правила, топ-5 выгодных авто и пошаговая схема покупки с аукционов."
+        },
+        {
+          "title": "Авто из Японии 2026: какие машины все еще выгодно привозить",
+          "url": "https://jpstar.ru/blog/avto-iz-yaponii-2026.html",
+          "snippet": "Семейный сегмент в 2026 году снова активно растёт. Особенно востребованы гибридные минивэны с передним приводом — экономичные, просторные и понятные в обслуживании."
+        }
+      ],
+      "searched_at": "2026-09-29"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com проходные авто из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Exsh/arch.png at master · RootSprout/Exsh · GitHub",
+          "url": "https://github.com/RootSprout/Exsh/blob/master/arch.png",
+          "snippet": ""
+        },
+        {
+          "title": "dashbeam/assets/header.png at main · tonyantony300/dashbeam",
+          "url": "https://github.com/tonyantony300/dashbeam/blob/main/assets/header.png",
+          "snippet": "A Unix-like shell in C. Contribute to RootSprout/Exsh development by creating an account on GitHub."
+        },
+        {
+          "title": "yongle/assets/terminal.svg at main · TwotwoPiggy/yongle · GitHub",
+          "url": "https://github.com/TwotwoPiggy/yongle/blob/main/assets/terminal.svg",
+          "snippet": "Contribute to tonyantony300/dashbeam development by creating an account on GitHub."
+        },
+        {
+          "title": "TVLogo/CGTN阿语.png at main · vircloud/TVLogo · GitHub",
+          "url": "https://github.com/vircloud/TVLogo/blob/main/CGTN%E9%98%BF%E8%AF%AD.png",
+          "snippet": "A light-weight and powerful meta-prompting, context engineering and spec-driven development system for Claude Code by TÂCHES. - TwotwoPiggy/yongle"
+        },
+        {
+          "title": "SCAIL-2/examples/animation_003_multi_ref/background.png at wan-scail2 ...",
+          "url": "https://github.com/zai-org/SCAIL-2/blob/wan-scail2/examples/animation_003_multi_ref/background.png",
+          "snippet": "央视、卫视和一些地方台、数字台的台标收集，已统一尺寸为 300px*180px，透明底色，命名使用 112114 频道 ID - TVLogo/CGTN阿语.png at main · vircloud/TVLogo"
+        },
+        {
+          "title": "RoboLab/assets/scenes/_images/mugs_on_shelf.png at main · NVlabs ...",
+          "url": "https://github.com/NVlabs/RoboLab/blob/main/assets/scenes/_images/mugs_on_shelf.png",
+          "snippet": "Official Implementation of SCAIL-2: Unifying Controlled Character Animation with End-to-end In-Context Conditioning - zai-org/SCAIL-2"
+        }
+      ],
+      "searched_at": "2026-09-29"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "проходные авто из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Проходные авто из Японии в 2026 году: что значит «проходной год» и ...",
+          "url": "https://onteco.ru/blog/prokhodnye-avto-iz-yaponii-v-2026-godu",
+          "snippet": ""
+        },
+        {
+          "title": "Проходные авто из Японии в 2026 году: какие подходят для ввоза",
+          "url": "https://japanexport55.ru/articles/sovety-avtovladeltsam/prokhodnye-avto-iz-yaponii-v-2026-godu-kakie-goda-i-mashiny-podkhodyat-dlya-vygodnogo-vvoza/",
+          "snippet": "Что такое проходные авто из Японии, какие годы выпуска проходные в 2026 году, как возраст влияет на пошлину и утильсбор, и какие модели сейчас выгоднее всего везти."
+        },
+        {
+          "title": "Какие авто из Японии действительно выгодны к ввозу в 2026 году",
+          "url": "https://www.drive2.ru/o/b/726604013952304841/",
+          "snippet": "Какие года авто из Японии считаются проходными в 2026 году, как определить возраст машины, что учитывать по мощности, двигателю и платежам."
+        },
+        {
+          "title": "Проходной и непроходной год выпуска авто из Японии в 2026 году",
+          "url": "https://tempa-cars.ru/blog/prohodnoy-i-neprohodnoy-god-vypuska-avto-iz-yaponii-v-2026-godu.html",
+          "snippet": "Семейный сегмент в 2026 году снова активно растёт. Особенно востребованы гибридные минивэны с передним приводом — экономичные, просторные и понятные в обслуживании."
+        },
+        {
+          "title": "Машины из Японии 2026: какие авто выгодно ввозить, правила импорта и ...",
+          "url": "https://v-tagile.ru/obschestvo-may-6/mashiny-iz-yaponii-2026",
+          "snippet": "Разбираем, какой год выпуска считается проходным и непроходным при ввозе авто из Японии в 2026 году, как считается возраст машины, почему важен месяц выпуска и какие годы особенно ..."
+        },
+        {
+          "title": "Авто из Японии до 160 л.с.: модели 2026",
+          "url": "https://asia-pod-klyuch.ru/blog/avto-iz-yaponii-do-160-ls-2026",
+          "snippet": "Полный гид по импорту автомобилей из Японии в 2026 году: проходные модели, расчет утильсбора, таможенные правила, топ-5 выгодных авто и пошаговая схема покупки с аукционов."
+        }
+      ],
+      "searched_at": "2026-09-29"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "проходные авто из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Проходные авто из Японии в 2026 году: что значит «проходной год» и ...",
+          "url": "https://onteco.ru/blog/prokhodnye-avto-iz-yaponii-v-2026-godu",
+          "snippet": ""
+        },
+        {
+          "title": "ТОП-12 проходных авто до 160 л.с. в 2026: что реально везут из Японии ...",
+          "url": "https://vc.ru/decoded/3072669-prokhodnye-avtomobili-do-160-ls-iz-yaponii-korei-i-kitaya",
+          "snippet": "Что такое проходные авто из Японии, какие годы выпуска проходные в 2026 году, как возраст влияет на пошлину и утильсбор, и какие модели сейчас выгоднее всего везти."
+        },
+        {
+          "title": "Топ проходных авто из Японии и Кореи до 160 л.с. в 2026",
+          "url": "https://amgamma.ru/knowledge-base/blog/top-prohodnyh-avto-do-160-ls",
+          "snippet": "Что такое проходной автомобиль в 2026 году? Машина, которая одновременно попадает в льготный утильсбор по мощности до 160 л.с. и в минимальную пошлину по возрасту 3-5 лет."
+        },
+        {
+          "title": "Авто из Японии 2026: какие машины все еще выгодно привозить",
+          "url": "https://jpstar.ru/blog/avto-iz-yaponii-2026.html",
+          "snippet": "Собрали популярные проходные модели из Японии и Кореи с примерами цен под ключ и подсказками, как выбрать."
+        },
+        {
+          "title": "Машины из Японии 2026: какие авто выгодно ввозить, правила импорта и ...",
+          "url": "https://v-tagile.ru/obschestvo-may-6/mashiny-iz-yaponii-2026",
+          "snippet": "В 2026 году Япония остается главным донором честных праворульных машин, но правила игры ужесточились. Экспорт мощных моторов и гибридов сильно ограничен, поэтому фокус сместился на компактные бензиновые авто с объемом до 1.9 л и нормальной налоговой/пошлинной нагрузкой."
+        },
+        {
+          "title": "Авто из Японии: тенденции покупки и ввоза автомобилей в Россию в 2026 ...",
+          "url": "https://www.e1.ru/text/auto/2026/03/19/76318051/",
+          "snippet": "В этой статье мы подробно разберем, какие модели выгодно ввозить в 2026 году, как изменились правила растаможки, на что обратить внимание при выборе и как правильно рассчитать итоговую стоимость автомобиля «под ключ»."
+        }
+      ],
+      "searched_at": "2026-09-29"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "проходные авто из японии в 2026 2026",
+      "purpose": "вторичный запрос: проходные авто из японии в 2026",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Проходные авто из Японии в 2026 году: что значит «проходной год» и ...",
+          "url": "https://onteco.ru/blog/prokhodnye-avto-iz-yaponii-v-2026-godu",
+          "snippet": ""
+        },
+        {
+          "title": "Проходные авто из Японии в 2026 году: какие подходят для ввоза",
+          "url": "https://japanexport55.ru/articles/sovety-avtovladeltsam/prokhodnye-avto-iz-yaponii-v-2026-godu-kakie-goda-i-mashiny-podkhodyat-dlya-vygodnogo-vvoza/",
+          "snippet": "Что такое проходные авто из Японии, какие годы выпуска проходные в 2026 году, как возраст влияет на пошлину и утильсбор, и какие модели сейчас выгоднее всего везти."
+        },
+        {
+          "title": "ТОП-12 проходных авто до 160 л.с. в 2026: что реально везут из Японии ...",
+          "url": "https://vc.ru/decoded/3072669-prokhodnye-avtomobili-do-160-ls-iz-yaponii-korei-i-kitaya",
+          "snippet": "Какие года авто из Японии считаются проходными в 2026 году, как определить возраст машины, что учитывать по мощности, двигателю и платежам."
+        },
+        {
+          "title": "Машины из Японии 2026: какие авто выгодно ввозить, правила импорта и ...",
+          "url": "https://v-tagile.ru/obschestvo-may-6/mashiny-iz-yaponii-2026",
+          "snippet": "Что такое проходной автомобиль в 2026 году? Машина, которая одновременно попадает в льготный утильсбор по мощности до 160 л.с. и в минимальную пошлину по возрасту 3-5 лет."
+        },
+        {
+          "title": "Авто из Японии 2026: какие машины все еще выгодно привозить",
+          "url": "https://jpstar.ru/blog/avto-iz-yaponii-2026.html",
+          "snippet": "Полный гид по импорту автомобилей из Японии в 2026 году: проходные модели, расчет утильсбора, таможенные правила, топ-5 выгодных авто и пошаговая схема покупки с аукционов."
+        },
+        {
+          "title": "Проходной и непроходной год выпуска авто из Японии в 2026 году",
+          "url": "https://www.japantrek.ru/blog/prohodnoy-i-neprohodnoy-god-vypuska-avto-iz-yaponii-v-2026-godu.html",
+          "snippet": "Оптимальный японский автомобиль для ввоза в 2026 году это компактный хэтчбек, седан, универсал, минивэн или кроссовер с бензиновым мотором до 1.9 л и мощностью до примерно 150-160 сил."
+        }
+      ],
+      "searched_at": "2026-09-29"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "проходной год для авто из японии 2026",
+      "purpose": "вторичный запрос: проходной год для авто из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Проходные авто из Японии в 2026 году: что значит «проходной год» и ...",
+          "url": "https://onteco.ru/blog/prokhodnye-avto-iz-yaponii-v-2026-godu",
+          "snippet": ""
+        },
+        {
+          "title": "Проходной и непроходной год выпуска авто из Японии в 2026 году",
+          "url": "https://www.japantrek.ru/blog/prohodnoy-i-neprohodnoy-god-vypuska-avto-iz-yaponii-v-2026-godu.html",
+          "snippet": "Что такое проходные авто из Японии, какие годы выпуска проходные в 2026 году, как возраст влияет на пошлину и утильсбор, и какие модели сейчас выгоднее всего везти."
+        },
+        {
+          "title": "Проходной и непроходной год выпуска авто из Японии в 2026 году",
+          "url": "https://tempa-cars.ru/blog/prohodnoy-i-neprohodnoy-god-vypuska-avto-iz-yaponii-v-2026-godu.html",
+          "snippet": "Что такое проходной и непроходной год выпуска авто из Японии в 2026 году, как считается возраст автомобиля, почему важен месяц выпуска и как это влияет на пошлину."
+        },
+        {
+          "title": "Проходные авто из Японии в 2026 году: какие подходят для ввоза",
+          "url": "https://japanexport55.ru/articles/sovety-avtovladeltsam/prokhodnye-avto-iz-yaponii-v-2026-godu-kakie-goda-i-mashiny-podkhodyat-dlya-vygodnogo-vvoza/",
+          "snippet": "Разбираем, какой год выпуска считается проходным и непроходным при ввозе авто из Японии в 2026 году, как считается возраст машины, почему важен месяц выпуска и какие годы особенно ..."
+        },
+        {
+          "title": "Как пригнать авто из Японии: гайд 2026",
+          "url": "https://asia-pod-klyuch.ru/blog/kak-prignat-avto-iz-yaponii",
+          "snippet": "Какие года авто из Японии считаются проходными в 2026 году, как определить возраст машины, что учитывать по мощности, двигателю и платежам."
+        },
+        {
+          "title": "Проходной год и объём двигателя авто 2026: что выгодно везти",
+          "url": "https://amgamma.ru/knowledge-base/blog/prohodnoy-god-i-obem-dvigatelya-2026",
+          "snippet": "Как пригнать авто из Японии в 2026 году: аукционы, шакен, таможня и проходные годы. Пошаговая схема, реальные цифры, расходы и подводные камни от практиков."
+        }
+      ],
+      "searched_at": "2026-09-29"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "какие авто из японии проходные 2026",
+      "purpose": "вторичный запрос: какие авто из японии проходные",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Проходные авто из Японии в 2026 году: что значит «проходной год» и ...",
+          "url": "https://onteco.ru/blog/prokhodnye-avto-iz-yaponii-v-2026-godu",
+          "snippet": ""
+        },
+        {
+          "title": "ТОП-12 проходных авто до 160 л.с. в 2026: что реально везут из Японии ...",
+          "url": "https://vc.ru/decoded/3072669-prokhodnye-avtomobili-do-160-ls-iz-yaponii-korei-i-kitaya",
+          "snippet": "Что такое проходные авто из Японии, какие годы выпуска проходные в 2026 году, как возраст влияет на пошлину и утильсбор, и какие модели сейчас выгоднее всего везти."
+        },
+        {
+          "title": "Авто из Японии 2026: какие машины все еще выгодно привозить",
+          "url": "https://jpstar.ru/blog/avto-iz-yaponii-2026.html",
+          "snippet": "Сколько стоит привезти машину из Японии под ключ? В 2026 году рабочий коридор — от 760 тысяч до 2,7 миллиона рублей за машину до 160 л.с. В сумму входят лот, пошлина, утильсбор, оформление и доставка ..."
+        },
+        {
+          "title": "Проходные авто из Японии в 2026 году: какие подходят для ввоза",
+          "url": "https://japanexport55.ru/articles/sovety-avtovladeltsam/prokhodnye-avto-iz-yaponii-v-2026-godu-kakie-goda-i-mashiny-podkhodyat-dlya-vygodnogo-vvoza/",
+          "snippet": "Оптимальный японский автомобиль для ввоза в 2026 году это компактный хэтчбек, седан, универсал, минивэн или кроссовер с бензиновым мотором до 1.9 л и мощностью до примерно 150-160 сил."
+        },
+        {
+          "title": "Машины из Японии 2026: какие авто выгодно ввозить, правила импорта и ...",
+          "url": "https://v-tagile.ru/obschestvo-may-6/mashiny-iz-yaponii-2026",
+          "snippet": "Какие года авто из Японии считаются проходными в 2026 году, как определить возраст машины, что учитывать по мощности, двигателю и платежам."
+        },
+        {
+          "title": "Какие авто из Японии действительно выгодны к ввозу в 2026 году",
+          "url": "https://www.drive2.ru/o/b/726604013952304841/",
+          "snippet": "Полный гид по импорту автомобилей из Японии в 2026 году: проходные модели, расчет утильсбора, таможенные правила, топ-5 выгодных авто и пошаговая схема покупки с аукционов."
+        }
+      ],
+      "searched_at": "2026-09-29"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Проходные авто из Японии 2026: как проверить год до ставки на аукционе 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Проходной и непроходной год выпуска авто из Японии в 2026 году",
+          "url": "https://www.japantrek.ru/blog/prohodnoy-i-neprohodnoy-god-vypuska-avto-iz-yaponii-v-2026-godu.html",
+          "snippet": ""
+        },
+        {
+          "title": "Проходные авто в 2026: как определить год и страну до заказа",
+          "url": "https://avtosales125.ru/2026/07/21/prohodnye-avto-2026-kak-opredelit/",
+          "snippet": "Что такое проходной и непроходной год выпуска авто из Японии в 2026 году, как считается возраст автомобиля, почему важен месяц выпуска и как это влияет на пошлину."
+        },
+        {
+          "title": "Растаможка авто из Японии 2026: калькулятор, аукционы, запрет на экспорт",
+          "url": "https://ivan-auto.ru/blog/rastamozhka-avto-iz-yaponii-2026/",
+          "snippet": "Для японского лота запросите проверку по кузову/VIN до депозита. Отметьте, сколько месяцев осталось до \"полных 5 лет\" на предполагаемую дату декларации."
+        },
+        {
+          "title": "Проходной и непроходной год выпуска авто из Японии в 2026 году",
+          "url": "https://tempa-cars.ru/blog/prohodnoy-i-neprohodnoy-god-vypuska-avto-iz-yaponii-v-2026-godu.html",
+          "snippet": "Как посчитать растаможку авто из Японии в 2026: пошлина, утильсбор, доставка Владивосток/Сахалин, покупка с аукциона через агента и честный статус запрета на экспорт двигателей свыше 1,9 л."
+        },
+        {
+          "title": "Машины из Японии 2026: какие авто выгодно ввозить, правила импорта и ...",
+          "url": "https://v-tagile.ru/obschestvo-may-6/mashiny-iz-yaponii-2026",
+          "snippet": "Разбираем, какой год выпуска считается проходным и непроходным при ввозе авто из Японии в 2026 году, как считается возраст машины, почему важен месяц выпуска и какие годы особенно ..."
+        },
+        {
+          "title": "Проходные авто из Японии в 2026 году: что значит «проходной год» и ...",
+          "url": "https://onteco.ru/blog/prokhodnye-avto-iz-yaponii-v-2026-godu",
+          "snippet": "В этой статье мы подробно разберем, какие модели выгодно ввозить в 2026 году, как изменились правила растаможки, на что обратить внимание при выборе и как правильно рассчитать итоговую стоимость автомобиля «под ключ»."
+        }
+      ],
+      "searched_at": "2026-09-29"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://onteco.ru/blog/prokhodnye-avto-iz-yaponii-v-2026-godu",
+      "title": "Проходные авто из Японии в 2026 году: что значит «проходной год» и ...",
+      "from_query": "проходные авто из японии 2026"
+    },
+    {
+      "url": "https://vc.ru/decoded/3072669-prokhodnye-avtomobili-do-160-ls-iz-yaponii-korei-i-kitaya",
+      "title": "ТОП-12 проходных авто до 160 л.с. в 2026: что реально везут из Японии ...",
+      "from_query": "проходные авто из японии 2026"
+    },
+    {
+      "url": "https://japanexport55.ru/articles/sovety-avtovladeltsam/prokhodnye-avto-iz-yaponii-v-2026-godu-kakie-goda-i-mashiny-podkhodyat-dlya-vygodnogo-vvoza/",
+      "title": "Проходные авто из Японии в 2026 году: какие подходят для ввоза",
+      "from_query": "проходные авто из японии 2026"
+    },
+    {
+      "url": "https://jpstar.ru/blog/avto-iz-yaponii-2026.html",
+      "title": "Авто из Японии 2026: какие машины все еще выгодно привозить",
+      "from_query": "проходные авто из японии 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/o/b/726604013952304841/",
+      "title": "Какие авто из Японии действительно выгодны к ввозу в 2026 году",
+      "from_query": "проходные авто из японии 2026"
+    },
+    {
+      "url": "https://v-tagile.ru/obschestvo-may-6/mashiny-iz-yaponii-2026",
+      "title": "Машины из Японии 2026: какие авто выгодно ввозить, правила импорта и ...",
+      "from_query": "проходные авто из японии 2026"
+    },
+    {
+      "url": "https://tempa-cars.ru/blog/prohodnoy-i-neprohodnoy-god-vypuska-avto-iz-yaponii-v-2026-godu.html",
+      "title": "Проходной и непроходной год выпуска авто из Японии в 2026 году",
+      "from_query": "проходные авто из японии сентябрь 2026"
+    },
+    {
+      "url": "https://github.com/RootSprout/Exsh/blob/master/arch.png",
+      "title": "Exsh/arch.png at master · RootSprout/Exsh · GitHub",
+      "from_query": "site:github.com проходные авто из японии 2026"
+    },
+    {
+      "url": "https://github.com/tonyantony300/dashbeam/blob/main/assets/header.png",
+      "title": "dashbeam/assets/header.png at main · tonyantony300/dashbeam",
+      "from_query": "site:github.com проходные авто из японии 2026"
+    },
+    {
+      "url": "https://github.com/TwotwoPiggy/yongle/blob/main/assets/terminal.svg",
+      "title": "yongle/assets/terminal.svg at main · TwotwoPiggy/yongle · GitHub",
+      "from_query": "site:github.com проходные авто из японии 2026"
+    },
+    {
+      "url": "https://github.com/vircloud/TVLogo/blob/main/CGTN%E9%98%BF%E8%AF%AD.png",
+      "title": "TVLogo/CGTN阿语.png at main · vircloud/TVLogo · GitHub",
+      "from_query": "site:github.com проходные авто из японии 2026"
+    },
+    {
+      "url": "https://github.com/zai-org/SCAIL-2/blob/wan-scail2/examples/animation_003_multi_ref/background.png",
+      "title": "SCAIL-2/examples/animation_003_multi_ref/background.png at wan-scail2 ...",
+      "from_query": "site:github.com проходные авто из японии 2026"
+    },
+    {
+      "url": "https://github.com/NVlabs/RoboLab/blob/main/assets/scenes/_images/mugs_on_shelf.png",
+      "title": "RoboLab/assets/scenes/_images/mugs_on_shelf.png at main · NVlabs ...",
+      "from_query": "site:github.com проходные авто из японии 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/avto-iz-yaponii-do-160-ls-2026",
+      "title": "Авто из Японии до 160 л.с.: модели 2026",
+      "from_query": "проходные авто из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://amgamma.ru/knowledge-base/blog/top-prohodnyh-avto-do-160-ls",
+      "title": "Топ проходных авто из Японии и Кореи до 160 л.с. в 2026",
+      "from_query": "проходные авто из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.e1.ru/text/auto/2026/03/19/76318051/",
+      "title": "Авто из Японии: тенденции покупки и ввоза автомобилей в Россию в 2026 ...",
+      "from_query": "проходные авто из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.japantrek.ru/blog/prohodnoy-i-neprohodnoy-god-vypuska-avto-iz-yaponii-v-2026-godu.html",
+      "title": "Проходной и непроходной год выпуска авто из Японии в 2026 году",
+      "from_query": "проходные авто из японии в 2026 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/kak-prignat-avto-iz-yaponii",
+      "title": "Как пригнать авто из Японии: гайд 2026",
+      "from_query": "проходной год для авто из японии 2026"
+    },
+    {
+      "url": "https://amgamma.ru/knowledge-base/blog/prohodnoy-god-i-obem-dvigatelya-2026",
+      "title": "Проходной год и объём двигателя авто 2026: что выгодно везти",
+      "from_query": "проходной год для авто из японии 2026"
+    },
+    {
+      "url": "https://avtosales125.ru/2026/07/21/prohodnye-avto-2026-kak-opredelit/",
+      "title": "Проходные авто в 2026: как определить год и страну до заказа",
+      "from_query": "Проходные авто из Японии 2026: как проверить год до ставки на аукционе 2026"
+    },
+    {
+      "url": "https://ivan-auto.ru/blog/rastamozhka-avto-iz-yaponii-2026/",
+      "title": "Растаможка авто из Японии 2026: калькулятор, аукционы, запрет на экспорт",
+      "from_query": "Проходные авто из Японии 2026: как проверить год до ставки на аукционе 2026"
+    }
+  ]
+}

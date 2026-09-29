@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-ustanovka-era-glonass-na-vvezennyy-avto-2026",
+  "notes": "memory/blog/articles/B01-ustanovka-era-glonass-na-vvezennyy-avto-2026/research-notes.md",
+  "context": "memory/blog/articles/B01-ustanovka-era-glonass-na-vvezennyy-avto-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-09-29",
+    "prefer_sources_after": "2026-07-01",
+    "source_urls": 37,
+    "source_domains": 13,
+    "source_table_rows": 28,
+    "accessed_at": 16,
+    "github_urls": 3,
+    "official_doc_urls": 3,
+    "action_outline_items": 9,
+    "pain_solution_rows": 9,
+    "technical_topic": true
+  }
+}

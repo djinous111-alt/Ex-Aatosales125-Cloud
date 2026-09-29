@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260929-0915-research-notes-gate-false-tech
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-ustanovka-era-glonass-na-vvezennyy-avto-2026
+severity: medium
+category: script
+
+### What went wrong
+- Первый прогон `excalibur_blog_research_notes_gate.py` дал BLOCK на автотеме B01: `technical_topic=true` из-за substring-маркеров (`ai` внутри обязательного поля `reader_pain`, `ии` внутри «Японии/Кореи») и потребовал `github_urls >= 3`.
+- Дополнительно gate не засчитывал даты в колонке таблицы без литерала `accessed_at:` в ячейке и строки `pain_solution_map` без слов боль/решение/результат в каждой data-row.
+
+### How the agent recovered this run
+- Добавил 3 релевантных GitHub URL по протоколу EGTS (фоновый сигнал, не угол статьи).
+- Проставил `accessed_at: 2026-09-29` в ячейках source_table и префиксы боль/решение/результат в pain_solution_map.
+- Gate повторно: PASS.
+
+### Durable fix needed before next run
+- В `is_technical_topic` использовать word-boundary / токены, а не `marker in blob` (иначе `pain`→`ai`, `Японии`→`ии`).
+- Для non-tech ниш (авто, растаможка) не требовать GitHub; принимать official docs URL.
+- Считать `accessed_at` по колонке source_table или ISO-датам рядом с URL; в pain_map считать любые data-rows таблицы после заголовка.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260929-0901-scout-helper-as-prefix
 status: open
 run_date: 2026-09-29

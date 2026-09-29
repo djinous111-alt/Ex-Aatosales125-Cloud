@@ -322,7 +322,42 @@ category: env
 ### Fixer resolution
 - pending
 
+## INC-20260929-1718-writer-cta-secret-allowlist
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-writer
+topic_id: B02
+article_dir: memory/blog/articles/B02-prohodnye-avto-iz-yaponii-2026
+severity: medium
+category: env
+
+### What went wrong
+- Writer must put live catalog/Telegram hrefs in `article.html` (not `[REDACTED]`), but Cloud pre-commit secrets scanner treats `TELEGRAM_URL` / `CATALOG_URL` values as secrets and blocks the commit.
+- Same run also hit `INC-20260929-1705` (`invalid variable name` in `CLOUD_AGENT_INJECTED_SECRET_NAMES`) before the CTA scan could finish.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to identifier-only names (same workaround as scout).
+- Kept public CTA hrefs in the article and added `<!-- pragma: allowlist secret -->` on lines that contain those URLs so the scanner can commit intentional public links.
+- Did not use `--no-verify`.
+
+### Durable fix needed before next run
+- Document in Writer skill / Cloud runbook: public brand CTAs that match Dashboard secret values need `pragma: allowlist secret` on the HTML line, or secrets should not duplicate public marketing URLs.
+- Prefer publishing pipeline that injects CTA URLs at publish time if Dashboard continues to store public URLs as secrets.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `memory/brief/conversion-map.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
 

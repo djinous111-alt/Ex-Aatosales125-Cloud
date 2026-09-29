@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None for run 2026-09-30 after fixer._
+
+
 ## INC-20260930-2131-indexer-llms-blog-path-stale-docs
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-indexer
 topic_id: B03
@@ -40,10 +43,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Doctor asserts `--blog-dir` / `--out-dir` (not `--blog-path`).
+- Indexer agent/skill shell examples synced; note that `--blog-path` does not exist.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `rg` --blog-path only in «флага нет» notes
+commit: pending-parent-commit
 
 ## INC-20260930-0027-schema-precommit-secret-scan
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-schema
 topic_id: B03
@@ -75,11 +93,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Documented secret-scan workaround: filter `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid bash ids; exclude public URL keys for schema/llms commits.
+- Schema skill notes that public sameAs/page URLs are intentional.
+- Operator follow-up (non-blocking): Dashboard should not inject raw URLs or `[REDACTED]` as secret *names*.
+files_changed:
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+checks_run:
+- docs `rg` for secret-scan / schema public URL guidance
+commit: pending-parent-commit
 
 
 ## INC-20260930-2125-geo-qa-typed-task-missing
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-geo-qa
 topic_id: B03
@@ -109,10 +139,23 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Documented that typed `excalibur-blog-geo-qa` is often missing from Cloud Task enum; generalPurpose + agent/skill paths is the штатный fallback.
+- Agent contracts and CLOUD-AUTOMATION/AGENTS.md updated; plugin already lists `agents/`.
+files_changed:
+- `agents/excalibur-blog-geo-qa.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- agent file present in `agents/` and `.cursor/agents/`
+commit: pending-parent-commit
 
 ## INC-20260930-2121-writer-utility-pain-outcome-markers
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-writer
 topic_id: B03
@@ -144,10 +187,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Confirmed `editorial-policy.json` holds `pain_markers_ru` / `outcome_markers_ru`.
+- Utility gate skips hard min when lists empty; human-voice gate loads the same policy lists.
+- Pitfalls document false-BLOCK risk on empty marker lists.
+files_changed:
+- `memory/brief/editorial-policy.json` (markers already present; kept)
+- `scripts/excalibur_blog_utility_gate.py` (empty-list skip already present; kept)
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_utility_gate.py --topic-id B03` → PASS
+- `python3 scripts/excalibur_blog_human_voice_gate.py --article-dir …/B03-…` → PASS
+commit: pending-parent-commit
 
 ## INC-20260930-0015-research-precommit-secret-redact
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-research
 topic_id: B03
@@ -177,10 +234,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- `research_start` redacts `PUBLIC_SITE_URL`/`WP_*` hosts in `research-serp.json` to path-only or `[REDACTED]` before write.
+- Pitfalls: ledger permalinks path-only; filter invalid injected secret names before commit.
+files_changed:
+- `scripts/excalibur_blog_research_start.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit redact with PUBLIC_SITE_URL env → path-only
+- `python3 -m py_compile scripts/excalibur_blog_research_start.py`
+commit: pending-parent-commit
 
 ## INC-20260930-0013-research-webfetch-timeout-vvo
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-research
 topic_id: B03
@@ -208,10 +276,21 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Research skill: WebFetch 5xx/timeout → WebSearch + ≥2 alternate URLs; do not block notes.
+- Auto-import official domain allowlist documented (pravo/garant/consultant/eec/tks).
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` WebFetch fallback / allowlist in research skills
+commit: pending-parent-commit
 
 ## INC-20260930-0014-research-notes-gate-accessed-at-tech-false-positive
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-research
 topic_id: B03
@@ -240,10 +319,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Gate counts ISO dates in markdown source-table rows as accessed_at.
+- TECH_MARKERS use token/regex boundaries; topic-card-only scan (no «японии»→technical).
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- research_notes_gate B03 → PASS, technical_topic=False, accessed_at=23
+commit: pending-parent-commit
 
 ## INC-20260930-2105-scout-next-id-live-wp-override
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-scout
 topic_id: B03
@@ -274,7 +365,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Scout helper parses AS*+B* topics, ledger, article dirs, and `live-wp-occupied-ids.json`.
+- Suggest-next now returns B04 (skips B01/B02 live WP + B03).
+- Scout agent/skill niche switched to AVTO SALES / site-brief (not AI/Cursor template).
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `memory/topics/live-wp-occupied-ids.json`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → B04, pool=10
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -522,7 +629,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20260930-2136-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-publish
 topic_id: B03
@@ -553,7 +660,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Added `paramiko` to `.cursor/cloud-agent-install.sh` (with --break-system-packages note).
+- Documented in publish skills and pitfalls; already in requirements.txt.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `skills/excalibur-wp-publish/SKILL.md`
+- `.cursor/skills/excalibur-wp-publish/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `import paramiko` → 5.0.0
+- `rg` paramiko in cloud-agent-install.sh
+commit: pending-parent-commit
 
 ## Fixed incidents
 

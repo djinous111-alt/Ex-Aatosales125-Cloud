@@ -29,12 +29,17 @@
     "description_aeo": "СБКТС подтверждает безопасность по ТР ТС 018/2011, ЭПТС – электронный паспорт. Порядок: лаборатория → СБКТС → ЭПТС \"действующий\" → ОСАГО → ГИБДД."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 76,
+    "verdict": "FIX",
     "date": "2026-09-29",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "WARNING",
+    "cannibalization": "PASS",
+    "research_notes_gate": "PASS",
+    "utility_gate": "BLOCK",
+    "human_voice_gate": "BLOCK",
+    "link_verify": "FAIL",
+    "fact_check": "PASS"
   },
   "cover_family": "brand_collage"
 }

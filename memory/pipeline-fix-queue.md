@@ -6,6 +6,102 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260929-1327-geo-qa-typed-task-missing
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-sbkts-i-epts-2026-kak-oformit
+severity: medium
+category: api
+
+### What went wrong
+- Cloud API does not accept typed Task `excalibur-blog-geo-qa`; Director had to launch `Task(generalPurpose)` fallback with paths to `.cursor/agents/excalibur-blog-geo-qa.md` and `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Ran full GEO QA role via generalPurpose contract (scripts + article-qa + handoff block).
+
+### Durable fix needed before next run
+- Register typed Task type `excalibur-blog-geo-qa` in Cloud Agent config, or document generalPurpose fallback as the stable path in director skill / AGENTS.md (already partially documented).
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `AGENTS.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+---
+
+## INC-20260929-1327-geo-qa-utility-policy-markers-missing
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-sbkts-i-epts-2026-kak-oformit
+severity: high
+category: qa
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` defaults `min_pain_markers=2` and `min_outcome_markers=3`, but `memory/brief/editorial-policy.json` has no `pain_markers_ru` / `outcome_markers_ru` keys.
+- Empty marker lists → counts always 0 → article utility gate false BLOCK on any article (B01: pain_markers=0, outcome_markers=0) even when pain/outcome are editorially present.
+
+### How the agent recovered this run
+- Did not rewrite article for a false policy gap; logged FIX for Writer on human-voice lexical pain + Telegram href; filed this incident for Fixer to restore policy markers.
+
+### Durable fix needed before next run
+- Add `pain_markers_ru` and `outcome_markers_ru` (aligned with human-voice gate lexicon) to `editorial-policy.json`.
+- Optionally set explicit `min_pain_markers` / `min_outcome_markers` under `article_required_signals`, or skip those checks when marker lists are empty.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+---
+
+## INC-20260929-1327-geo-qa-link-verify-official-hosts
+status: open
+run_date: 2026-09-29
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-sbkts-i-epts-2026-kak-oformit
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_link_verify.py` hard-failed official links needed by the article: `https://dp.elpts.ru/` → HTTP 403; `https://pub.fsa.gov.ru/ral` → SSL handshake timeout.
+- Soft-fail currently covers only social hosts (`t.me`, etc.), not government/official portals that often block bots.
+
+### How the agent recovered this run
+- Kept official URLs in FIX notes (do not remove); marked link-verify FAIL in article-qa; did not rewrite article to drop FSA/ELPTS links.
+
+### Durable fix needed before next run
+- Treat 403/timeout on known official hosts (`dp.elpts.ru`, `pub.fsa.gov.ru`, maybe `nami.ru`) as soft warning with manual-verify note, similar to social soft-fail; or add retry + browser-like User-Agent.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+---
+
 ## INC-20260929-1325-writer-git-push-auth
 status: open
 run_date: 2026-09-29

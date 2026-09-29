@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B01-sbkts-i-epts-2026-kak-oformit/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2011",
+      "kind": "date_or_year",
+      "context": "я подтвердила: конструкция безопасна по ТР ТС 018/2011 Электронный паспорт машины в реестре СЭП (вместо б",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "s.ru) и отраслевыми гайдами по СБКТС/ЭПТС на дату 2026-09-29. Актуальные расчёты – только в каталоге. Ча",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2027",
+      "kind": "date_or_year",
+      "context": "и продлевались. Не опирайтесь на чужой скрин \"до 2027 всем отменили\". Перед ввозом уточните актуальное т",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "15 минут",
+      "kind": "metric_or_duration",
+      "context": "ующим\". Восстановить нервы сложнее, чем потратить 15 минут на проверку. Откройте реестр: pub.fsa.gov.ru/ral",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

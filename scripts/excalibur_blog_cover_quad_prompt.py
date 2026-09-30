@@ -69,6 +69,40 @@ def validate_prompt_budget(prompt: str) -> bool:
     return False
 
 
+def infer_outfit_lock(cover_slot: dict, hero: dict, manifest: dict) -> str:
+    """Outfit from scene weather/topic — never hardcode white hoodie (INC-20260930-1343)."""
+    scene = " ".join(
+        [
+            str(cover_slot.get("scene_hint") or ""),
+            str(cover_slot.get("meme_caption_ru") or ""),
+            str(manifest.get("cover_hook") or ""),
+        ]
+    ).lower()
+    examples = hero.get("weather_outfit_examples") or {}
+    weather_map = [
+        (("снег", "зим", "snow", "мороз"), "winter_snow"),
+        (("дожд", "порт", "туман", "rain", "drizzle", "владивосток"), "rain_fog_port"),
+        (("жар", "лет", "солнц", "summer", "heat"), "summer_heat"),
+        (("ноч", "night"), "night_city"),
+        (("тамож", "документ", "эптс", "сбктс", "customs", "office"), "office_docs_customs"),
+    ]
+    weather_key = ""
+    for keys, mapped in weather_map:
+        if any(k in scene for k in keys):
+            weather_key = mapped
+            break
+    example = ""
+    if weather_key and isinstance(examples, dict):
+        example = str(examples.get(weather_key) or "").strip()
+    if not example:
+        example = "smart-casual layer matching scene weather and article topic"
+    return (
+        f"Outfit MUST match scene weather/topic: {compact(example, 120)}. "
+        "NO cap, NO hood worn (hood DOWN if jacket has one). "
+        "Do not copy reference clothing. Do not default to white hoodie."
+    )
+
+
 def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, design_code: dict) -> str:
     slots = manifest.get("slots") or {}
 
@@ -77,6 +111,7 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
 
     cover = slot("cover")
     i1, i2, i3 = slot("inline_1"), slot("inline_2"), slot("inline_3")
+    outfit = infer_outfit_lock(cover, hero, manifest)
 
     lines = [
         "Russian human-made Excalibur BLOG hook collage on PURE WHITE #FFFFFF. Zine/trash-design: torn paper, scotch tape, pink notes, marker arrows, fake RU UI screenshots, meme cutouts. DESIGN.md-inspired bold readable Cyrillic; rotate hot accents (hot pink/purple/blue/orange); keep stickers/memes/collage; no price badges. Not corporate, not stock.",
@@ -86,7 +121,7 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         "",
         "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
         "",
-        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
+        f"REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. {outfit} Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds.",
         "",
         f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
         "",

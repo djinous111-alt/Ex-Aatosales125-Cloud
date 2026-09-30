@@ -61,8 +61,23 @@ def load_articles(blog_dir: Path) -> list[dict[str, Any]]:
     return articles
 
 
+def normalize_site_base(site_base: str, *, commit_safe: bool) -> str:
+    """For git commits, never embed absolute PUBLIC_SITE_URL (secret-scan)."""
+    base = (site_base or "").strip().rstrip("/")
+    if commit_safe:
+        return "[REDACTED]"
+    if not base:
+        return "[REDACTED]"
+    return base
+
+
+def article_url(site_base: str, slug: str) -> str:
+    if site_base == "[REDACTED]" or not site_base:
+        return f"/blog/{slug}/"
+    return f"{site_base}/blog/{slug}/"
+
+
 def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]], site_base: str) -> str:
-    site_base = site_base.rstrip("/")
     lines = [
         f"# {site_name}",
         f"> {site_desc}",
@@ -71,14 +86,13 @@ def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]
         ""
     ]
     for a in articles:
-        url = f"{site_base}/blog/{a['slug']}/"
+        url = article_url(site_base, a["slug"])
         lines.append(f"- [{a['title']}]({url}): {a['description']}")
 
     return "\n".join(lines) + "\n"
 
 
 def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_base: str) -> str:
-    site_base = site_base.rstrip("/")
     lines = [
         f"# {site_name} - Full LLM Knowledge Base",
         "This file contains full plain-text articles optimized for AI reasoning and semantic search.",
@@ -88,7 +102,7 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
     ]
 
     for a in articles:
-        url = f"{site_base}/blog/{a['slug']}/"
+        url = article_url(site_base, a["slug"])
         lines.extend([
             f"## {a['title']}",
             f"- **URL**: {url}",
@@ -108,8 +122,13 @@ def main() -> int:
     ap.add_argument("--blog-dir", type=Path, default=None)
     ap.add_argument("--site-name", type=str, default="Авто-Сейлс")
     ap.add_argument("--site-desc", type=str, default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.")
-    ap.add_argument("--site-base", type=str, default="https://avtosales125.ru")
+    ap.add_argument("--site-base", type=str, default="[REDACTED]")
     ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for llms.txt/llms-full.txt")
+    ap.add_argument(
+        "--commit-safe",
+        action="store_true",
+        help="Redact site base to [REDACTED] / relative /blog/... for secret-scan-safe commits",
+    )
     args = ap.parse_args()
 
     root = project_root()
@@ -120,12 +139,14 @@ def main() -> int:
     out_dir = args.out_dir or root
     if not out_dir.is_absolute():
         out_dir = root / out_dir
+    out_dir.mkdir(parents=True, exist_ok=True)
 
     articles = load_articles(blog_dir)
     print(f"Loaded {len(articles)} articles to index for LLMs.")
 
-    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, args.site_base)
-    llms_full_txt = build_llms_full_txt(args.site_name, articles, args.site_base)
+    site_base = normalize_site_base(args.site_base, commit_safe=args.commit_safe)
+    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, site_base)
+    llms_full_txt = build_llms_full_txt(args.site_name, articles, site_base)
 
     llms_path = out_dir / "llms.txt"
     llms_full_path = out_dir / "llms-full.txt"
@@ -135,6 +156,8 @@ def main() -> int:
 
     print(f"llms.txt generated at {llms_path.relative_to(root) if root in llms_path.parents else llms_path}")
     print(f"llms-full.txt generated at {llms_full_path.relative_to(root) if root in llms_full_path.parents else llms_full_path}")
+    if args.commit_safe:
+        print("commit-safe: site base redacted to [REDACTED] / relative /blog/...")
 
     return 0
 

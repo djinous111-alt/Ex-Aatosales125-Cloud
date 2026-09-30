@@ -139,7 +139,10 @@ Windows Планировщик: `scripts/install_excalibur_windows_cron.ps1`
 9. Task(excalibur-blog-indexer).
 10. Task(excalibur-blog-publish) — **автоматически** после Indexer (skip только publish:no). Skill: publish-excalibur-blog. Обнови shared/published-articles.md.
 
-Fallback: если Task types недоступны — generalPurpose per role (см. AGENTS.md).
+**Канон Cloud Tasks:** typed `excalibur-blog-*` часто отсутствуют в Cloud enum.
+Всегда готовь fallback: отдельный `Task(generalPurpose)` на каждую роль с путями
+`.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md` (см. AGENTS.md).
+Не блокируй пайплайн ожиданием регистрации typed Task.
 
 Запрещено: single-agent pipeline, cover до QA PASS, секреты в handoff.
 

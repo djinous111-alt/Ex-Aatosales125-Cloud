@@ -13,17 +13,17 @@
 
 ## Repo-level environment
 
-Файл `.cursor/environment.json` выполняется из корня проекта:
+Файл `.cursor/environment.json` выполняется из корня проекта и указывает на:
 
-```json
-{
-  "install": "python3 -m pip install --user -r requirements.txt && python3 scripts/excalibur_blog_doctor.py",
-  "start": "",
-  "terminals": []
-}
+```text
+install → bash .cursor/cloud-agent-install.sh
 ```
 
-`install` должен быть идемпотентным: его можно запускать много раз, и он не должен писать секреты или runtime-артефакты в Git.
+Install ставит `requirements.txt` (включая **paramiko** для SSH publish) + runtime extras
+(`requests pillow python-dotenv paramiko numpy`). Скрипт идемпотентен; не пишет секреты в Git.
+
+Typed Cloud Task enum для `excalibur-blog-*` может отсутствовать → используй
+`Task(generalPurpose)` per role (см. `AGENTS.md` / `CLOUD-AUTOMATION.md`).
 
 ## Cursor Secrets
 

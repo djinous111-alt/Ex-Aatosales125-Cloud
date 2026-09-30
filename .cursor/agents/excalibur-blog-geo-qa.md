@@ -40,3 +40,7 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 ## Gate
 
 Без PASS директор **не** запускает cover||schema.
+
+## Cloud Task
+
+Typed `excalibur-blog-geo-qa` может отсутствовать в Cloud enum → Директор запускает эту роль через `Task(generalPurpose)` с этим файлом + `skills/excalibur-geo-qa/SKILL.md`. Это канон, не exception.

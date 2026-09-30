@@ -6,8 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none for 2026-09-30 B05 — closed below as fixed)_
+
 ## INC-20260930-1350-publish-paramiko-missing-install
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-publish
 topic_id: B05
@@ -42,10 +44,28 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending (partial: install.sh already patched by publish agent)
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- `.cursor/cloud-agent-install.sh` installs `requirements.txt` + explicit `paramiko`/runtime extras.
+- Doctor checks `paramiko` module presence.
+- Publish skill documents SSH/`SSH_ROOT=.`/`--env-check` and paramiko dependency.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_doctor.py`
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `rg paramiko` in install/requirements/doctor
+commit: pending-parent-commit
+
 
 ## INC-20260930-1346-indexer-llms-stale-blog-path-flag
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-indexer
 topic_id: B05
@@ -80,10 +100,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Removed `--blog-path` from Indexer agent/skill examples; document `--blog-dir`/`--out-dir`/`--commit-safe`.
+- llms generator gained `--commit-safe` (relative `/blog/...`, no absolute PUBLIC_SITE_URL in git).
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_llms_generator.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_llms_generator.py --help` shows `--blog-dir`/`--out-dir`/`--commit-safe`
+- commit-safe dry-run to `/tmp/llms-test2` (no absolute site base)
+commit: pending-parent-commit
+
 
 ## INC-20260930-1343-cover-outfit-lock-hoodie-vs-weather
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-cover
 topic_id: B05
@@ -112,10 +148,24 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- `excalibur_blog_cover_quad_prompt.py` infers outfit from scene_hint + `blog-hero.weather_outfit_examples`; no hardcoded white hoodie; NO cap/NO hood.
+- Cover skill notes prompt-builder behavior.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+- B05 prompt rebuild → rain jacket / no hoodie lock
+commit: pending-parent-commit
+
 
 ## INC-20260930-1341-schema-secret-scan-public-urls
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-schema
 topic_id: B05
@@ -147,11 +197,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Schema skill documents `pragma: allowlist secret` for public marketing URLs and commit-safe alternatives.
+- Added `scripts/excalibur_blog_filter_injected_secret_names.sh` to drop non-identifier entries from `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_filter_injected_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- script exists and is executable
+- schema skill contains pragma/filter guidance
+commit: pending-parent-commit
+
 
 
 ## INC-20260930-1335-geo-qa-typed-task-fallback
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-geo-qa
 topic_id: B05
@@ -179,10 +243,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Documented generalPurpose-per-role as Cloud canon when typed enum missing (AGENTS/CLOUD-AUTOMATION/RUNBOOK/pitfalls + geo-qa agent).
+- No platform-side typed Task registration available from repo; docs prevent false expectations.
+files_changed:
+- `CLOUD-AUTOMATION.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `agents/excalibur-blog-geo-qa.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+checks_run:
+- `rg generalPurpose` in CLOUD-AUTOMATION / pitfalls / geo-qa agent
+commit: pending-parent-commit
+
 
 ## INC-20260930-1335-geo-qa-elpts-dns
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-geo-qa
 topic_id: B05
@@ -214,10 +292,22 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- fact-bank + pitfalls + research skill: canonical ЭПТС URL `https://elpts.ru/` (not portal.elpts.ru); DNS/HTTP before citing gov portals.
+files_changed:
+- `memory/brief/fact-bank.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+checks_run:
+- `rg elpts.ru` in fact-bank/pitfalls/research skill
+commit: pending-parent-commit
+
 
 ## INC-20260930-1330-writer-utility-pain-markers-missing
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-writer
 topic_id: B05
@@ -249,10 +339,23 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- `editorial-policy.json` already has pain/outcome marker lists + mins (kept).
+- utility_gate skips pain/outcome thresholds when lists are empty (no false BLOCK 0<min).
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- JSON parse editorial-policy.json
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
+commit: pending-parent-commit
+
 
 ## INC-20260930-1315-director-doctor-blog-path
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-director
 topic_id: n/a
@@ -280,10 +383,20 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Doctor asserts `--blog-dir` / `--out-dir` / `--commit-safe` (warn), not `--blog-path`.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+commit: pending-parent-commit
+
 
 ## INC-20260930-1315-director-scout-occupied-ids
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-director
 topic_id: B05
@@ -314,10 +427,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- scout_helper loads `live-wp-occupied-ids.json` for mapped IDs, next_suggested, avoid fragments, occupied slugs.
+- `--suggest-next` returns B06 after B01–B05 mapped/occupied (not B01).
+- occupied-ids updated with B05 slug/wp id and next B06.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `memory/topics/live-wp-occupied-ids.json`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → B06
+commit: pending-parent-commit
+
 
 ## INC-20260930-1320-scout-avtovoz-denylist-gap
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-scout
 topic_id: B05
@@ -351,10 +480,27 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- `--check-query` fails on avoid_query_fragments (автовоз/доставка/перегон/korea-china) from occupied-ids.
+- Scout docs: MCP WP ≠ AVTO SALES denylist; keep denylist extras beyond recent WP window.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `memory/topics/live-wp-occupied-ids.json`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `--check-query "доставка авто из владивостока автовоз"` → OVERLAP exit 1
+- unrelated winter-tires query → clean exit 0
+commit: pending-parent-commit
+
 
 ## INC-20260930-1324-research-false-technical-topic
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-research
 topic_id: B05
@@ -385,7 +531,20 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- TECH_MARKERS matching is word-boundary for short tokens; scans topic metadata + notes head with `reader_pain` labels stripped.
+- B05 research gate: technical_topic=false, status PASS without requiring github_urls>=3.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir .../B05-...` → PASS technical False
+commit: pending-parent-commit
+
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

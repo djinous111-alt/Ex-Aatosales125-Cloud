@@ -437,3 +437,42 @@ category: qa
 
 ### Fixer resolution
 - pending
+
+## INC-20260930-2143-cover-hero-upload-outfit-prompt
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-cover
+topic_id: B02
+article_dir: memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_hero_reference_url.py --force` failed: catbox HTTP 412 and 0x0 HTTP 503; could not refresh hosted face PNG from local `blog-hero-reference.png`.
+- `excalibur_blog_cover_quad_prompt.py` previously hard-locked outfit to "thick heavyweight white hoodie" and listed toxic RU sticker words (лох/лохов) inside the prompt body, conflicting with `blog-hero.json` outfit_rule and cover_scene_hint for B02 (navy windbreaker / port rain).
+- Pre-commit secrets scanner again died on invalid secret name `[REDACTED]` in `CLOUD_AGENT_*_SECRET_NAMES` (`${!SECRET_NAME}`); sanitize script still missing.
+
+### How the agent recovered this run
+- Kept existing `reference_url_hosted` (avtosales125.ru WP asset) for i2i `input_urls`.
+- Patched `scripts/excalibur_blog_cover_quad_prompt.py` to follow `cover.scene_hint` + outfit_rule and to ban insults without listing toxic tokens; regenerated batch; ONE Kie `gpt-image-2` i2i → split PASS + inject.
+- Filtered `[REDACTED]` from `CLOUD_AGENT_ALL_SECRET_NAMES` / `CLOUD_AGENT_INJECTED_SECRET_NAMES` before commit/push.
+
+### Durable fix needed before next run
+- Restore `scripts/excalibur_blog_sanitize_commit_env.py` (or equivalent) so every role can commit without manual env filter.
+- Prefer reliable host for `blog-hero-reference.png` (retry matrix / CDN) when catbox/0x0 fail; avoid stale non-face WP cover as face lock when local PNG exists.
+- Keep outfit prompt sourced only from scene_hint/outfit_rule (no clothing hardcode); keep toxic-sticker ban abstract (do not print banned words in prompt).
+- Sync `.cursor/skills/cover-excalibur-blog/SKILL.md` with Kie-preferred path already in batch `preferred_image_flow`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_sanitize_commit_env.py` (restore)
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

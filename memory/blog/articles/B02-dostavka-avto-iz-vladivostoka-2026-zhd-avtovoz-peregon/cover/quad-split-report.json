@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1028,
+      580
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 580,
+        "end": 606
+      },
+      "v_gutter_px": {
+        "start": 1028,
+        "end": 1060
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1028,
+          "bottom": 580
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1028,
+          "bottom": 580
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у автовоза и ж/д сетки во Владивостоке, кроссовер на платформе, плашка жд / автовоз / перегон",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1060,
+          "top": 12,
+          "right": 2048,
+          "bottom": 568
+        },
+        "raw_box_px": {
+          "left": 1060,
+          "top": 0,
+          "right": 2048,
+          "bottom": 580
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения автовоза, ж/д и перегона после растаможки во Владивостоке",
+        "h2_anchor": "Сравните три способа после растаможки"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 28,
+          "top": 606,
+          "right": 999,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 606,
+          "right": 1028,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема шагов автовоза: договор, сдача, фото, погрузка, выгрузка",
+        "h2_anchor": "Выберите автовоз, если нужен баланс срока и защиты"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1068,
+          "top": 606,
+          "right": 2039,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1060,
+          "top": 606,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист выбора ж/д: открытая сетка или закрытый контейнер",
+        "h2_anchor": "Разберите ж/д: сетка или контейнер"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Сравните три способа после растаможки",
+    "injected inline_2 after H2 — Выберите автовоз, если нужен баланс срока и защиты",
+    "injected inline_3 after H2 — Разберите ж/д: сетка или контейнер"
+  ]
+}

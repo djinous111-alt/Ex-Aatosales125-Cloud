@@ -1,0 +1,50 @@
+{
+  "topic_id": "B04",
+  "slug": "kak-zakazat-avto-iz-kitaya-pod-klyuch-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у китайского кроссовера с документами заказа, порт Владивостока, плашка из Китая под ключ",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-09-30T09:29:57+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у китайского кроссовера с документами заказа, порт Владивостока, плашка из Китая под ключ",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сравнения схемы под ключ и самостоятельной покупки авто из Китая",
+      "h2_anchor": "Разведите \"под ключ\" и \"сам без посредников\"",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема выбора страны импорта: Китай, Корея или Япония до модели",
+      "h2_anchor": "Сравните Китай, Корею и Японию до выбора модели",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист проверки мощности и документов до депозита за авто из Китая",
+      "h2_anchor": "Проверьте мощность до влюблённости в комплектацию",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B05-kak-kupit-avto-po-parallelnomu-importu-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1044,
+      595
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 595,
+        "end": 598
+      },
+      "v_gutter_px": {
+        "start": 1044,
+        "end": 1067
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 4,
+          "right": 1044,
+          "bottom": 591
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1044,
+          "bottom": 595
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс с папкой документов у кроссовера в порту Владивостока, плашка до оплаты, угол avto-sales125.ru",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1067,
+          "top": 21,
+          "right": 2048,
+          "bottom": 573
+        },
+        "raw_box_px": {
+          "left": 1067,
+          "top": 0,
+          "right": 2048,
+          "bottom": 595
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: параллельный импорт vs просто привезти из Азии — критерии для покупателя",
+        "h2_anchor": "Разведите параллельный импорт и \"просто привезти из Азии\""
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 29,
+          "top": 598,
+          "right": 1014,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 598,
+          "right": 1044,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап проверки VIN и статуса ЭПТС до депозита",
+        "h2_anchor": "Проверьте машину до депозита: VIN, страна, сервис"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1067,
+          "top": 598,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1067,
+          "top": 598,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема этапов от заказа до выдачи авто по параллельному импорту",
+        "h2_anchor": "Соберите документы и этапы от заказа до выдачи"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разведите параллельный импорт и \"просто привезти из Азии\"",
+    "injected inline_2 after H2 — Проверьте машину до депозита: VIN, страна, сервис",
+    "injected inline_3 after H2 — Соберите документы и этапы от заказа до выдачи"
+  ]
+}

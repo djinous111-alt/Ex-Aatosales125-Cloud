@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260930-1343-cover-outfit-lock-hoodie-vs-weather
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-cover
+topic_id: B05
+article_dir: memory/blog/articles/B05-kak-kupit-avto-po-parallelnomu-importu-2026
+severity: low
+category: prompt
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` hardcodes `Outfit lock: thick heavyweight white hoodie`, which fights `blog-hero.json` weather/topic outfit_rule and B05 scene (Vladivostok port rain jacket, NO hood).
+- Cover agent had to manually patch `quad-mcp-prompt.txt` + `quad-mcp-batch.json` after `--write-batch` so Kie i2i followed the port scene.
+
+### How the agent recovered this run
+- Replaced hoodie lock with rain-jacket / smart-casual Vladivostok outfit line before `excalibur_blog_kie_gpt_image2_api.py`.
+- Generation + split + inject PASS; toxic sticker ban already present in prompt.
+
+### Durable fix needed before next run
+- Stop hardcoding white hoodie; prefer outfit from `slots.cover.scene_hint` + `blog-hero.outfit_rule` / weather examples.
+- Keep explicit NO cap / NO hood worn.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/blog-hero.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260930-1341-schema-secret-scan-public-urls
 status: open
 run_date: 2026-09-30

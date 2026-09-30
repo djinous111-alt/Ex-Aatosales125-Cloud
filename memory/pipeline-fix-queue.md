@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260930-1804-indexer-llms-public-site-url-commit
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-postanovka-na-uchet-vvezennogo-avto-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer skill/agent CLI shows `--site-base ${PUBLIC_SITE_URL}`; generator wrote absolute site URL into `memory/blog/llms.txt` and `llms-full.txt`.
+- Cloud pre-commit secret-scan blocked commit (`PUBLIC_SITE_URL` in staged llms files).
+- Related env crash: `CLOUD_AGENT_INJECTED_SECRET_NAMES` still may contain non-bash identifiers (see INC-20260930-1753); filtered identifiers for commit session.
+
+### How the agent recovered this run
+- Re-ran llms generator and interlinker with `--site-base '[REDACTED]'` for commit-safe repo artifacts.
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid bash identifiers before commit.
+- Interlink opportunities remained 0; promotion checklist already used `[REDACTED]`.
+
+### Durable fix needed before next run
+- Indexer skill/agent: document commit-safe pattern — generate/commit llms + interlink reports with `--site-base '[REDACTED]'` in Cloud sandbox (live URL only at publish).
+- Optional: llms generator flag or post-step that rewrites `PUBLIC_SITE_URL` host to `[REDACTED]` when writing under `memory/blog/`.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_llms_generator.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+---
+
 ## INC-20260930-1800-cover-outfit-hoodie-lock
 status: open
 run_date: 2026-09-30

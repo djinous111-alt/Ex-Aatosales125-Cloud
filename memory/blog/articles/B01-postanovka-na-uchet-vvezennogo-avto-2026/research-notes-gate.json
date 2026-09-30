@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-postanovka-na-uchet-vvezennogo-avto-2026",
+  "notes": "memory/blog/articles/B01-postanovka-na-uchet-vvezennogo-avto-2026/research-notes.md",
+  "context": "memory/blog/articles/B01-postanovka-na-uchet-vvezennogo-avto-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-09-30",
+    "prefer_sources_after": "2026-07-02",
+    "source_urls": 30,
+    "source_domains": 11,
+    "source_table_rows": 30,
+    "accessed_at": 8,
+    "github_urls": 0,
+    "official_doc_urls": 0,
+    "action_outline_items": 9,
+    "pain_solution_rows": 9,
+    "technical_topic": false
+  }
+}

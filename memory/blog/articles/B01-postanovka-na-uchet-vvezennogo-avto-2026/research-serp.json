@@ -1,0 +1,576 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-09-30",
+    "today_ru": "30.09.2026",
+    "year": 2026,
+    "month": 9,
+    "month_name_ru": "сентябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-02",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-09-30 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "postanovka-na-uchet-vvezennogo-avto-2026",
+    "h1": "Как поставить на учёт авто из Японии, Кореи и Китая в 2026: чек-лист после растаможки",
+    "primary_query": "постановка на учет авто из японии",
+    "secondary_queries": [
+      "постановка на учет авто из китая",
+      "документы для постановки на учет ввезенного авто",
+      "постановка на учет авто из кореи"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "постановка на учет авто из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как поставить на учёт авто из Японии в 2026: документы и чек-лист",
+          "url": "[REDACTED]/2026/07/21/postanovka-na-uchet-avto-iz-yaponii-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Постановка авто из Японии на учёт ГИБДД Москва и СПб 2026: гайд",
+          "url": "https://autoprofiasia.ru/blog/postanovka-na-uchet-gibdd-moskva-spb-import",
+          "snippet": "Постановка на учет авто из Японии после растаможки: документы, Госуслуги, 10 дней, госпошлины 2026 и чек-лист перед ГИБДД без повторного визита."
+        },
+        {
+          "title": "Постановка автомобиля на учет из Японии через Госуслуги",
+          "url": "https://gosuslugisovet.ru/articles/view/postanovka-avtomobilya-na-uchet-iz-yaponii-cherez-gosuslugi",
+          "snippet": "Пошаговый чек-лист постановки на учёт авто из Японии, Кореи и Китая в Москве и СПб в 2026. Документы, госпошлина, сроки, частые отказы и как их избежать."
+        },
+        {
+          "title": "Как поставить на учёт авто из Японии в 2026: документы и чек-лист",
+          "url": "https://dzen.ru/a/al-uOdVlSA96_Ehi",
+          "snippet": "Для успешного ввода сведений о транспортном средстве, импортированном из Японии, в личный кабинет на портале Госуслуг, необходимо обеспечить их полную соответствие требованиям ..."
+        },
+        {
+          "title": "Как поставить на учет машину из Японии? | DSS Group",
+          "url": "https://dss-g.com/all-news/articles/kak-v-rossii-postavit-na-uchet-mashinu-iz-yaponii-v-2026-godu/",
+          "snippet": "Статья автора «Авто-Сейлс» в Дзене : Постановка на учет авто из Японии после растаможки: документы, Госуслуги, 10 дней, госпошлины 2026 и чек-лист перед ГИБДД без повторного визита."
+        },
+        {
+          "title": "Постановка на учет авто после растаможки: документы и порядок",
+          "url": "https://peregonpro.ru/dokumenty/postanovka-na-uchet-v-gibdd-avtomobilya-prignannogo-iz-za-graniczy/",
+          "snippet": "Как в России поставить на учет машину из Японии в 2026 году? 1. От покупки до границы - что происходит с авто до его появления в России? 2. Таможенная очистка - ключевой этап перед постановкой на учет. 3. Документы для постановки на учет - что нужно подготовить? 4. Как правильно записаться и пройти осмотр в ГИБДД? 5."
+        }
+      ],
+      "searched_at": "2026-09-30"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "постановка на учет авто из японии сентябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как поставить на учёт авто из Японии в 2026: документы и чек-лист",
+          "url": "[REDACTED]/2026/07/21/postanovka-na-uchet-avto-iz-yaponii-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Постановка авто из Японии на учёт ГИБДД Москва и СПб 2026: гайд",
+          "url": "https://autoprofiasia.ru/blog/postanovka-na-uchet-gibdd-moskva-spb-import",
+          "snippet": "Постановка на учет авто из Японии после растаможки: документы, Госуслуги, 10 дней, госпошлины 2026 и чек-лист перед ГИБДД без повторного визита."
+        },
+        {
+          "title": "Как поставить на учёт авто из Японии в 2026: документы и чек-лист",
+          "url": "https://dzen.ru/a/al-uOdVlSA96_Ehi",
+          "snippet": "Пошаговый чек-лист постановки на учёт авто из Японии, Кореи и Китая в Москве и СПб в 2026. Документы, госпошлина, сроки, частые отказы и как их избежать."
+        },
+        {
+          "title": "Как поставить на учет машину из Японии? | DSS Group",
+          "url": "https://dss-g.com/all-news/articles/kak-v-rossii-postavit-na-uchet-mashinu-iz-yaponii-v-2026-godu/",
+          "snippet": "Какие документы нужны для постановки на учёт авто из Японии? Паспорт, выписка ЭПТС со статусом \"действующий\", СБКТС, таможенные документы (ПТД/ТПО/ДТ), заявление и оплата госпошлины."
+        },
+        {
+          "title": "Какие документы нужны для постановки на учет авто из-за рубежа в 2026 году",
+          "url": "https://auto-import-rating.ru/news/dokumenty-dlya-postanovki-na-uchet-avto-iz-za-rubezha/",
+          "snippet": "Хотите узнать информацию о постановке на учет автомобиля из Японии? Разберем как ставить на учет машину из Японии в материале от DSS Group"
+        },
+        {
+          "title": "Постановка на учет авто после растаможки: документы и порядок",
+          "url": "https://peregonpro.ru/dokumenty/postanovka-na-uchet-v-gibdd-avtomobilya-prignannogo-iz-za-graniczy/",
+          "snippet": "Какие документы нужны для постановки на учет автомобиля из Японии, Кореи или Китая в 2026 году. ЭПТС, СБКТС, утильсбор, техосмотр и регистрация в ГИБДД."
+        }
+      ],
+      "searched_at": "2026-09-30"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "постановка на учет авто из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как поставить на учёт авто из Японии в 2026: документы и чек-лист",
+          "url": "[REDACTED]/2026/07/21/postanovka-na-uchet-avto-iz-yaponii-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Постановка авто из Японии на учёт ГИБДД Москва и СПб 2026: гайд",
+          "url": "https://autoprofiasia.ru/blog/postanovka-na-uchet-gibdd-moskva-spb-import",
+          "snippet": "Постановка на учет авто из Японии после растаможки: документы, Госуслуги, 10 дней, госпошлины 2026 и чек-лист перед ГИБДД без повторного визита."
+        },
+        {
+          "title": "Постановка на учет автомобиля после растаможки в 2026: пошаговая ...",
+          "url": "https://auto-praktis.vercel.app/articles/p/pe/pervaya-postanovka-na-uchet-avtomobilya-posle-rastamozhki.html",
+          "snippet": "Пошаговый чек-лист постановки на учёт авто из Японии, Кореи и Китая в Москве и СПб в 2026. Документы, госпошлина, сроки, частые отказы и как их избежать."
+        },
+        {
+          "title": "Постановка на учет авто после растаможки: документы и порядок",
+          "url": "https://peregonpro.ru/dokumenty/postanovka-na-uchet-v-gibdd-avtomobilya-prignannogo-iz-za-graniczy/",
+          "snippet": "Как правильно поставить на учет растаможенный автомобиль в ГИБДД: документы, сроки, пошлины и типичные ошибки. Актуально для 2026 года."
+        },
+        {
+          "title": "Постановка на учет авто из-за границы: правила 2026",
+          "url": "https://auto-praktis.vercel.app/articles/p/po/postanovka-na-uchet-avto-iz-za-granitsy.html",
+          "snippet": "Как поставить на учет автомобиль, пригнанный из Японии , Китая или Кореи? Полный гид: документы (ЭПТС, СБКТС, ПТД, ТПО), срок 10 дней, осмотр в ГИБДД, госпошлина через Госуслуги."
+        },
+        {
+          "title": "Как поставить на учет машину из Японии? | DSS Group",
+          "url": "https://dss-g.com/all-news/articles/kak-v-rossii-postavit-na-uchet-mashinu-iz-yaponii-v-2026-godu/",
+          "snippet": "Полная инструкция по регистрации авто из-за границы. Таможенные пошлины, ЭПТС, утильсбор и новые правила ГИБДД в 2026 году."
+        }
+      ],
+      "searched_at": "2026-09-30"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com постановка на учет авто из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "pastiera/dict_backup/ru_base.json at main - GitHub",
+          "url": "https://github.com/palsoftware/pastiera/blob/main/dict_backup/ru_base.json",
+          "snippet": ""
+        },
+        {
+          "title": "mesh-llm/mesh.png at main · Mesh-LLM/mesh-llm · GitHub",
+          "url": "https://github.com/Mesh-LLM/mesh-llm/blob/main/mesh.png",
+          "snippet": "Expanded dictionary files for multiple languages, adding new entries … {\"w\":\"я\",\"f\":5081568}, {\"w\":\"не\",\"f\":4334804}, {\"w\":\"что\",\"f\":3552532}, {\"w\":\"в\",\"f\":2953981}, {\"w\":\"и\",\"f\":2917112}, {\"w\":\"ты\",\"f\":2723798}, {\"w\":\"это\",\"f\":2640455}, {\"w\":\"на\",\"f\":1655351}, {\"w\":\"с\",\"f\":1509844}, {\"w\":\"он\",\"f\":1283590}, {\"w\":\"мы\",\"f\":1214875},"
+        },
+        {
+          "title": "yandex_python_data_analyst_5_Pandas для анализа данных",
+          "url": "https://gist.github.com/dsibi/bbf6f3d445768fda730a81ea326bd04b",
+          "snippet": "Distributed AI/LLM for the people. Share compute privately or publicly to power your agents and chat. - mesh-llm/mesh.png at main · Mesh-LLM/mesh-llm."
+        },
+        {
+          "title": "vexa/assets/architecture.svg at main · Vexa-ai/vexa · GitHub",
+          "url": "https://github.com/Vexa-ai/vexa/blob/main/assets/architecture.svg",
+          "snippet": "В этой теме мы начнём с первой стадии. В получении данных и ознакомлении с ними важную роль выполняет библиотека Pandas. Познакомитесь с библиотекой Pandas и её базовыми методами: чтением файла, выводом данных на экран, получением сводной информации и запросом значений из определённых ячеек таблицы. 2 часа = 6 уроков от 2 до 30 минут."
+        },
+        {
+          "title": "Chason/architecture.png at main · UbaidHunts/Chason · GitHub",
+          "url": "https://github.com/UbaidHunts/Chason/blob/main/architecture.png",
+          "snippet": "Open-source meeting transcription API for Google Meet, Microsoft Teams & Zoom. Auto-join bots, real-time WebSocket transcripts, MCP server for AI agents. Self-host or use hosted SaaS. - vexa/assets/architecture.svg at main · Vexa-ai/vexa."
+        },
+        {
+          "title": "models.dev/providers/opencode/logo.svg at dev · anomalyco ... - GitHub",
+          "url": "https://github.com/anomalyco/models.dev/blob/dev/providers/opencode/logo.svg",
+          "snippet": "Contribute to UbaidHunts/Chason development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-09-30"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "постановка на учет авто из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Постановка авто из Японии на учёт ГИБДД Москва и СПб 2026: гайд",
+          "url": "https://autoprofiasia.ru/blog/postanovka-na-uchet-gibdd-moskva-spb-import",
+          "snippet": ""
+        },
+        {
+          "title": "Как поставить на учёт авто из Японии в 2026: документы и чек-лист",
+          "url": "[REDACTED]/2026/07/21/postanovka-na-uchet-avto-iz-yaponii-2026/",
+          "snippet": "Пошаговый чек-лист постановки на учёт авто из Японии, Кореи и Китая в Москве и СПб в 2026. Документы, госпошлина, сроки, частые отказы и как их избежать."
+        },
+        {
+          "title": "Какие документы нужны для постановки на учет авто из-за рубежа в 2026 году",
+          "url": "https://auto-import-rating.ru/news/dokumenty-dlya-postanovki-na-uchet-avto-iz-za-rubezha/",
+          "snippet": "Постановка на учет авто из Японии после растаможки: документы, Госуслуги, 10 дней, госпошлины 2026 и чек-лист перед ГИБДД без повторного визита."
+        },
+        {
+          "title": "Как поставить на учёт авто из Японии в 2026: документы и чек-лист",
+          "url": "https://dzen.ru/a/al-uOdVlSA96_Ehi",
+          "snippet": "Какие документы нужны для постановки на учет автомобиля из Японии, Кореи или Китая в 2026 году. ЭПТС, СБКТС, утильсбор, техосмотр и регистрация в ГИБДД."
+        },
+        {
+          "title": "Постановка на учёт авто из-за границы: пошагово 2026",
+          "url": "https://importdare.ru/blog/postanovka-na-uchet-avto-iz-za-granicy-2026",
+          "snippet": "Какие документы нужны для постановки на учёт авто из Японии? Паспорт, выписка ЭПТС со статусом \"действующий\", СБКТС, таможенные документы (ПТД/ТПО/ДТ), заявление и оплата госпошлины."
+        },
+        {
+          "title": "Как поставить на учёт авто из Японии и Кореи — документы и сроки",
+          "url": "https://cars-from-japan.ru/informatsiya/postanovka-na-uchyot-avto-iz-yaponii-i-korei",
+          "snippet": "Какие документы нужны для постановки на учёт авто из-за границы? Заявление, паспорт, ЭПТС, СБКТС, ТПО и ПТД (подтверждение растаможки), ДКП/инвойс от зарубежной организации и квитанция ..."
+        }
+      ],
+      "searched_at": "2026-09-30"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "постановка на учет авто из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Постановка авто из Японии на учёт ГИБДД Москва и СПб 2026: гайд",
+          "url": "https://autoprofiasia.ru/blog/postanovka-na-uchet-gibdd-moskva-spb-import",
+          "snippet": ""
+        },
+        {
+          "title": "Как поставить на учёт авто из Японии в 2026: документы и чек-лист",
+          "url": "[REDACTED]/2026/07/21/postanovka-na-uchet-avto-iz-yaponii-2026/",
+          "snippet": "Пошаговый чек-лист постановки на учёт авто из Японии, Кореи и Китая в Москве и СПб в 2026. Документы, госпошлина, сроки, частые отказы и как их избежать."
+        },
+        {
+          "title": "Постановка на учёт авто из-за границы: пошагово 2026",
+          "url": "https://importdare.ru/blog/postanovka-na-uchet-avto-iz-za-granicy-2026",
+          "snippet": "Постановка на учет авто из Японии после растаможки: документы, Госуслуги, 10 дней, госпошлины 2026 и чек-лист перед ГИБДД без повторного визита."
+        },
+        {
+          "title": "Как поставить на учёт авто из Японии в 2026: документы и чек-лист",
+          "url": "https://dzen.ru/a/al-uOdVlSA96_Ehi",
+          "snippet": "Как поставить импортное авто на учёт в 2026: 6 шагов, документы, сроки 10 дней, смета от 15-30 тыс за СБКТС и ЭПТС. Утильсбор, ОСАГО, нюансы Кореи и Китая."
+        },
+        {
+          "title": "Постановка на учет авто из-за границы | ZakazAvtoVPlus",
+          "url": "https://zakazautovplus.ru/2026/07/31/postanovka-na-uchet-avto-iz-za-rubezha-2026/",
+          "snippet": "Статья автора «Авто-Сейлс» в Дзене : Постановка на учет авто из Японии после растаможки: документы, Госуслуги, 10 дней, госпошлины 2026 и чек-лист перед ГИБДД без повторного визита."
+        },
+        {
+          "title": "Постановка на учет авто с аукциона в Японии: полная инструкция 2026 и ...",
+          "url": "https://vk.com/@yamatocar-postanovka-na-uchet-avto-s-aukciona-v-yaponii-polnaya-instru",
+          "snippet": "В этой статье подробно разберем, как поставить на учет автомобиль, ввезенный из Японии, Китая, Кореи, США, Канады и других стран, какие документы понадобятся и каких ошибок следует ..."
+        }
+      ],
+      "searched_at": "2026-09-30"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "постановка на учет авто из китая 2026",
+      "purpose": "вторичный запрос: постановка на учет авто из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Постановка на учёт авто из-за границы: пошагово 2026",
+          "url": "https://importdare.ru/blog/postanovka-na-uchet-avto-iz-za-granicy-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Какие документы нужны для постановки авто из Китая на учет",
+          "url": "https://china.sferacar.ru/blog/dokumenty-dlya-postanovki-avto-iz-kitaya-na-uchet.html",
+          "snippet": "Как поставить импортное авто на учёт в 2026: 6 шагов, документы, сроки 10 дней, смета от 15-30 тыс за СБКТС и ЭПТС. Утильсбор, ОСАГО, нюансы Кореи и Китая."
+        },
+        {
+          "title": "Постановка на учет автомобиля после растаможки в 2026: пошаговая ...",
+          "url": "https://auto-praktis.vercel.app/articles/p/pe/pervaya-postanovka-na-uchet-avtomobilya-posle-rastamozhki.html",
+          "snippet": "Разбираем, какие документы нужны для постановки автомобиля из Китая на учет в ГИБДД: ЭПТС, СБКТС, таможенные документы, договор, ОСАГО, госпошлина и этапы оформления."
+        },
+        {
+          "title": "Постановка на учет авто из Китая: пошаговая инструкция",
+          "url": "https://ezzhev.ru/how-buy-car/postanovka-na-uchet-avtomobilya-iz-kitaya-poshagovaya/",
+          "snippet": "Как правильно поставить на учет растаможенный автомобиль в ГИБДД: документы, сроки, пошлины и типичные ошибки. Актуально для 2026 года."
+        },
+        {
+          "title": "Постановка на учёт авто из Китая: как зарегистрировать в...",
+          "url": "https://ezzhev.ru/%D0%B1%D0%B5%D0%B7-%D1%80%D1%83%D0%B1%D1%80%D0%B8%D0%BA%D0%B8/postanovka-na-uchet-avto-iz-kitaya/",
+          "snippet": "Постановка на учет автомобиля из Китая пошаговая инструкция. Узнайте, как пройти растаможку, получить СБКТС и ЭПТС для легальной регистрации авто в ГИБДД."
+        },
+        {
+          "title": "Постановка на учет авто из-за границы: правила 2026",
+          "url": "https://auto-praktis.vercel.app/articles/p/po/postanovka-na-uchet-avto-iz-za-granitsy.html",
+          "snippet": "Коротко: постановка на учет авто из китая в ГИБДД РФ проходит в 6 шагах после растаможки и пакета ЭПТС/СБКТС: сверка VIN, ОСАГО, запись на Госуслугах, осмотр, СТС и номера."
+        }
+      ],
+      "searched_at": "2026-09-30"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "документы для постановки на учет ввезенного авто 2026",
+      "purpose": "вторичный запрос: документы для постановки на учет ввезенного авто",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Постановка на учёт авто из-за границы: пошагово 2026",
+          "url": "https://importdare.ru/blog/postanovka-na-uchet-avto-iz-za-granicy-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Какие документы нужны для импорта авто в Россию 2026 — полный список",
+          "url": "https://carto-auto.ru/blog/kakie-dokumenty-nuzhny-dlya-importa-avto-2026/",
+          "snippet": "Постановка на учёт авто из-за границы в 2026 году — это одна цепочка: растаможка → СБКТС → ЭПТС → (ОСАГО опционально) → запись через Госуслуги → осмотр в ГИБДД/МРЭО. Главный принцип: сначала машину «легализуют» на таможне и получают на неё электронные документы, и только потом ставят на учёт."
+        },
+        {
+          "title": "Документы для постановки автомобиля на учет в ГИБДД 2026: полный список ...",
+          "url": "https://pravovoi.center/avtoyurist/uchet-v-gibdd/kak-postavit-mashinu-na-uchet/dokumenty-dlya-p",
+          "snippet": "От инвойса с аукциона до постановки на учёт в ГИБДД — пошаговый список всех документов при ввозе автомобиля в Россию в 2026 году. Отдельно для физлиц и юрлиц. Импорт автомобиля в Россию — это четыре последовательных этапа, каждый из которых требует своего пакета документов."
+        },
+        {
+          "title": "Документы для постановки ТС на учет 2026: полный список и нюансы — Авто ...",
+          "url": "https://auto-praktis.vercel.app/articles/k/ka/kakie-dokumenty-nuzhny-chtoby-postavit-ts-na-uchet.html",
+          "snippet": "Полный перечень документов для регистрации автомобиля в ГИБДД в 2026 году: для физических и юридических лиц, новых и б/у авто, с изменениями конструкции."
+        },
+        {
+          "title": "Постановка авто на учет в 2026: пошаговая инструкция и документы",
+          "url": "https://auto-praktis.vercel.app/articles/p/pr/protsess-postanovki-na-uchet-avtomobilya.html",
+          "snippet": "Какие документы нужны для регистрации автомобиля в ГИБДД в 2026 году? Пошаговый разбор пакета бумаг для новых и б/у машин, особенности для юридических лиц и иностранных ТС."
+        },
+        {
+          "title": "Какие документы нужны для постановки на учет авто из-за рубежа в 2026 году",
+          "url": "https://auto-import-rating.ru/news/dokumenty-dlya-postanovki-na-uchet-avto-iz-za-rubezha/",
+          "snippet": "В этой статье мы разберем пошаговый алгоритм постановки на учет с учетом последних изменений законодательства, перечнем необходимых документов и актуальными тарифами на госпошлины."
+        }
+      ],
+      "searched_at": "2026-09-30"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "постановка на учет авто из кореи 2026",
+      "purpose": "вторичный запрос: постановка на учет авто из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Постановка на учёт авто из-за границы: пошагово 2026",
+          "url": "https://importdare.ru/blog/postanovka-na-uchet-avto-iz-za-granicy-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Постановка корейского авто на учет в ГИБДД 2026 — EncarRus",
+          "url": "https://encarrus.ru/news/postanovka-koreyskogo-avto-na-uchet-gibdd-2026/",
+          "snippet": "Как поставить импортное авто на учёт в 2026: 6 шагов, документы, сроки 10 дней, смета от 15-30 тыс за СБКТС и ЭПТС. Утильсбор, ОСАГО, нюансы Кореи и Китая."
+        },
+        {
+          "title": "Постановка на учет автомобиля после растаможки в 2026: пошаговая ...",
+          "url": "https://auto-praktis.vercel.app/articles/p/pe/pervaya-postanovka-na-uchet-avtomobilya-posle-rastamozhki.html",
+          "snippet": "Финальный шаг после растаможки — поставить авто на учет в ГИБДД. Это один визит и один рабочий день, если документы собраны правильно. Рассказываем, что взять, куда идти и чего не забыть."
+        },
+        {
+          "title": "Постановка на учет авто из-за границы | ZakazAvtoVPlus",
+          "url": "https://zakazautovplus.ru/2026/07/31/postanovka-na-uchet-avto-iz-za-rubezha-2026/",
+          "snippet": "Как правильно поставить на учет растаможенный автомобиль в ГИБДД: документы, сроки, пошлины и типичные ошибки. Актуально для 2026 года."
+        },
+        {
+          "title": "Постановка ввезённого авто на учёт в ГИБДД: документы и…",
+          "url": "https://car-hunt.ru/blog/postanovka-na-uchet-gibdd",
+          "snippet": "В этой статье подробно разберем, как поставить на учет автомобиль, ввезенный из Японии, Китая, Кореи, США, Канады и других стран, какие документы понадобятся и каких ошибок следует избегать."
+        },
+        {
+          "title": "Растаможка корейского авто 2026 — пошаговая инструкция",
+          "url": "https://encarrus.ru/news/rastamojka-koreyskogo-avto-2026/",
+          "snippet": "Постановка на учёт авто из Кореи жёстко ограничена по срокам — закон даёт на неё 10 дней. Просрочили — штраф. Ниже разберём, какие документы нужны для привезённого автомобиля, сколько стоят госпошлины в 2026 году и как пройти всю процедуру через Госуслуги без нервов."
+        }
+      ],
+      "searched_at": "2026-09-30"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как поставить на учёт авто из Японии, Кореи и Китая в 2026: чек-лист после растаможки 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Постановка на учёт авто из-за границы: пошагово 2026",
+          "url": "https://importdare.ru/blog/postanovka-na-uchet-avto-iz-za-granicy-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Постановка авто из Японии на учёт ГИБДД Москва и СПб 2026: гайд",
+          "url": "https://autoprofiasia.ru/blog/postanovka-na-uchet-gibdd-moskva-spb-import",
+          "snippet": "Постановка на учёт авто из-за границы в 2026 году — это одна цепочка: растаможка → СБКТС → ЭПТС → (ОСАГО опционально) → запись через Госуслуги → осмотр в ГИБДД/МРЭО. Главный принцип: сначала машину «легализуют» на таможне и получают на неё электронные документы, и только потом ставят на учёт."
+        },
+        {
+          "title": "Как поставить на учёт авто из Японии в 2026: документы и чек-лист",
+          "url": "[REDACTED]/2026/07/21/postanovka-na-uchet-avto-iz-yaponii-2026/",
+          "snippet": "Пошаговый чек-лист постановки на учёт авто из Японии, Кореи и Китая в Москве и СПб в 2026. Документы, госпошлина, сроки, частые отказы и как их избежать."
+        },
+        {
+          "title": "Как поставить на учет авто из Японии, Южной Кореи или Китая?",
+          "url": "https://priority-auto.ru/blog/kak-postavit-na-uchet-avto-iz-yaponii-yuzhnoj-korei-ili-kitaya/?bxrand=1788332203376",
+          "snippet": "Постановка на учет авто из Японии после растаможки: документы, Госуслуги, 10 дней, госпошлины 2026 и чек-лист перед ГИБДД без повторного визита."
+        },
+        {
+          "title": "Как поставить на учёт авто из Японии в 2026: документы и чек-лист",
+          "url": "https://dzen.ru/a/al-uOdVlSA96_Ehi",
+          "snippet": "Как законно поставить на учет авто из Японии, Кореи или Китая? Пошаговая инструкция постановки на регистрацию в ГИБДД от Priority Auto. Полный список требуемых документов и действий."
+        },
+        {
+          "title": "Какие документы нужны для постановки на учет авто из-за рубежа в 2026 году",
+          "url": "https://auto-import-rating.ru/news/dokumenty-dlya-postanovki-na-uchet-avto-iz-za-rubezha/",
+          "snippet": "Статья автора «Авто-Сейлс» в Дзене : Постановка на учет авто из Японии после растаможки: документы, Госуслуги, 10 дней, госпошлины 2026 и чек-лист перед ГИБДД без повторного визита."
+        }
+      ],
+      "searched_at": "2026-09-30"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "[REDACTED]/2026/07/21/postanovka-na-uchet-avto-iz-yaponii-2026/",
+      "title": "Как поставить на учёт авто из Японии в 2026: документы и чек-лист",
+      "from_query": "постановка на учет авто из японии 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/blog/postanovka-na-uchet-gibdd-moskva-spb-import",
+      "title": "Постановка авто из Японии на учёт ГИБДД Москва и СПб 2026: гайд",
+      "from_query": "постановка на учет авто из японии 2026"
+    },
+    {
+      "url": "https://gosuslugisovet.ru/articles/view/postanovka-avtomobilya-na-uchet-iz-yaponii-cherez-gosuslugi",
+      "title": "Постановка автомобиля на учет из Японии через Госуслуги",
+      "from_query": "постановка на учет авто из японии 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/al-uOdVlSA96_Ehi",
+      "title": "Как поставить на учёт авто из Японии в 2026: документы и чек-лист",
+      "from_query": "постановка на учет авто из японии 2026"
+    },
+    {
+      "url": "https://dss-g.com/all-news/articles/kak-v-rossii-postavit-na-uchet-mashinu-iz-yaponii-v-2026-godu/",
+      "title": "Как поставить на учет машину из Японии? | DSS Group",
+      "from_query": "постановка на учет авто из японии 2026"
+    },
+    {
+      "url": "https://peregonpro.ru/dokumenty/postanovka-na-uchet-v-gibdd-avtomobilya-prignannogo-iz-za-graniczy/",
+      "title": "Постановка на учет авто после растаможки: документы и порядок",
+      "from_query": "постановка на учет авто из японии 2026"
+    },
+    {
+      "url": "https://auto-import-rating.ru/news/dokumenty-dlya-postanovki-na-uchet-avto-iz-za-rubezha/",
+      "title": "Какие документы нужны для постановки на учет авто из-за рубежа в 2026 году",
+      "from_query": "постановка на учет авто из японии сентябрь 2026"
+    },
+    {
+      "url": "https://auto-praktis.vercel.app/articles/p/pe/pervaya-postanovka-na-uchet-avtomobilya-posle-rastamozhki.html",
+      "title": "Постановка на учет автомобиля после растаможки в 2026: пошаговая ...",
+      "from_query": "постановка на учет авто из японии новости 2026"
+    },
+    {
+      "url": "https://auto-praktis.vercel.app/articles/p/po/postanovka-na-uchet-avto-iz-za-granitsy.html",
+      "title": "Постановка на учет авто из-за границы: правила 2026",
+      "from_query": "постановка на учет авто из японии новости 2026"
+    },
+    {
+      "url": "https://github.com/palsoftware/pastiera/blob/main/dict_backup/ru_base.json",
+      "title": "pastiera/dict_backup/ru_base.json at main - GitHub",
+      "from_query": "site:github.com постановка на учет авто из японии 2026"
+    },
+    {
+      "url": "https://github.com/Mesh-LLM/mesh-llm/blob/main/mesh.png",
+      "title": "mesh-llm/mesh.png at main · Mesh-LLM/mesh-llm · GitHub",
+      "from_query": "site:github.com постановка на учет авто из японии 2026"
+    },
+    {
+      "url": "https://gist.github.com/dsibi/bbf6f3d445768fda730a81ea326bd04b",
+      "title": "yandex_python_data_analyst_5_Pandas для анализа данных",
+      "from_query": "site:github.com постановка на учет авто из японии 2026"
+    },
+    {
+      "url": "https://github.com/Vexa-ai/vexa/blob/main/assets/architecture.svg",
+      "title": "vexa/assets/architecture.svg at main · Vexa-ai/vexa · GitHub",
+      "from_query": "site:github.com постановка на учет авто из японии 2026"
+    },
+    {
+      "url": "https://github.com/UbaidHunts/Chason/blob/main/architecture.png",
+      "title": "Chason/architecture.png at main · UbaidHunts/Chason · GitHub",
+      "from_query": "site:github.com постановка на учет авто из японии 2026"
+    },
+    {
+      "url": "https://github.com/anomalyco/models.dev/blob/dev/providers/opencode/logo.svg",
+      "title": "models.dev/providers/opencode/logo.svg at dev · anomalyco ... - GitHub",
+      "from_query": "site:github.com постановка на учет авто из японии 2026"
+    },
+    {
+      "url": "https://importdare.ru/blog/postanovka-na-uchet-avto-iz-za-granicy-2026",
+      "title": "Постановка на учёт авто из-за границы: пошагово 2026",
+      "from_query": "постановка на учет авто из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://cars-from-japan.ru/informatsiya/postanovka-na-uchyot-avto-iz-yaponii-i-korei",
+      "title": "Как поставить на учёт авто из Японии и Кореи — документы и сроки",
+      "from_query": "постановка на учет авто из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://zakazautovplus.ru/2026/07/31/postanovka-na-uchet-avto-iz-za-rubezha-2026/",
+      "title": "Постановка на учет авто из-за границы | ZakazAvtoVPlus",
+      "from_query": "постановка на учет авто из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://vk.com/@yamatocar-postanovka-na-uchet-avto-s-aukciona-v-yaponii-polnaya-instru",
+      "title": "Постановка на учет авто с аукциона в Японии: полная инструкция 2026 и ...",
+      "from_query": "постановка на учет авто из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://china.sferacar.ru/blog/dokumenty-dlya-postanovki-avto-iz-kitaya-na-uchet.html",
+      "title": "Какие документы нужны для постановки авто из Китая на учет",
+      "from_query": "постановка на учет авто из китая 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/how-buy-car/postanovka-na-uchet-avtomobilya-iz-kitaya-poshagovaya/",
+      "title": "Постановка на учет авто из Китая: пошаговая инструкция",
+      "from_query": "постановка на учет авто из китая 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/%D0%B1%D0%B5%D0%B7-%D1%80%D1%83%D0%B1%D1%80%D0%B8%D0%BA%D0%B8/postanovka-na-uchet-avto-iz-kitaya/",
+      "title": "Постановка на учёт авто из Китая: как зарегистрировать в...",
+      "from_query": "постановка на учет авто из китая 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/kakie-dokumenty-nuzhny-dlya-importa-avto-2026/",
+      "title": "Какие документы нужны для импорта авто в Россию 2026 — полный список",
+      "from_query": "документы для постановки на учет ввезенного авто 2026"
+    },
+    {
+      "url": "https://pravovoi.center/avtoyurist/uchet-v-gibdd/kak-postavit-mashinu-na-uchet/dokumenty-dlya-p",
+      "title": "Документы для постановки автомобиля на учет в ГИБДД 2026: полный список ...",
+      "from_query": "документы для постановки на учет ввезенного авто 2026"
+    },
+    {
+      "url": "https://auto-praktis.vercel.app/articles/k/ka/kakie-dokumenty-nuzhny-chtoby-postavit-ts-na-uchet.html",
+      "title": "Документы для постановки ТС на учет 2026: полный список и нюансы — Авто ...",
+      "from_query": "документы для постановки на учет ввезенного авто 2026"
+    },
+    {
+      "url": "https://auto-praktis.vercel.app/articles/p/pr/protsess-postanovki-na-uchet-avtomobilya.html",
+      "title": "Постановка авто на учет в 2026: пошаговая инструкция и документы",
+      "from_query": "документы для постановки на учет ввезенного авто 2026"
+    },
+    {
+      "url": "https://encarrus.ru/news/postanovka-koreyskogo-avto-na-uchet-gibdd-2026/",
+      "title": "Постановка корейского авто на учет в ГИБДД 2026 — EncarRus",
+      "from_query": "постановка на учет авто из кореи 2026"
+    },
+    {
+      "url": "https://car-hunt.ru/blog/postanovka-na-uchet-gibdd",
+      "title": "Постановка ввезённого авто на учёт в ГИБДД: документы и…",
+      "from_query": "постановка на учет авто из кореи 2026"
+    },
+    {
+      "url": "https://encarrus.ru/news/rastamojka-koreyskogo-avto-2026/",
+      "title": "Растаможка корейского авто 2026 — пошаговая инструкция",
+      "from_query": "постановка на учет авто из кореи 2026"
+    },
+    {
+      "url": "https://priority-auto.ru/blog/kak-postavit-na-uchet-avto-iz-yaponii-yuzhnoj-korei-ili-kitaya/?bxrand=1788332203376",
+      "title": "Как поставить на учет авто из Японии, Южной Кореи или Китая?",
+      "from_query": "Как поставить на учёт авто из Японии, Кореи и Китая в 2026: чек-лист после растаможки 2026"
+    }
+  ]
+}

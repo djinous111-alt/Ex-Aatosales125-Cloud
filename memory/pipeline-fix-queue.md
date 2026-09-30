@@ -6,6 +6,75 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260930-0921-geo-qa-utility-policy-missing-pain-outcome
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-geo-qa
+topic_id: B04
+article_dir: memory/blog/articles/B04-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always required `min_pain_markers` (default 2) and `min_outcome_markers` (default 3), but `memory/brief/editorial-policy.json` had no `pain_markers_ru` / `outcome_markers_ru`.
+- Empty marker lists → counts stay 0 → utility gate BLOCK on any article (false negative).
+
+### How the agent recovered this run
+- Added `pain_markers_ru` / `outcome_markers_ru` (aligned with `excalibur_blog_human_voice_gate.py`) and explicit `min_pain_markers` / `min_outcome_markers` to `memory/brief/editorial-policy.json`.
+- Re-ran utility gate for B04 → PASS (pain=5, outcome=8).
+
+### Durable fix needed before next run
+- Keep policy markers in sync with human-voice marker lists (or share one source of truth).
+- Optionally skip pain/outcome checks when marker lists are empty, instead of defaulting mins to 2/3.
+- Document markers in `shared/editorial-utility-only.md` / pitfalls.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260930-0921-geo-qa-cta-redacted-and-2gis-encoding
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-geo-qa
+topic_id: B04
+article_dir: memory/blog/articles/B04-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026
+severity: medium
+category: qa
+
+### What went wrong
+- Writer left literal `href="[REDACTED]"` for catalog/Telegram (see INC-20260930-0918) → link-verify treated them as internal_relative and got HTTP 404 against site-base.
+- 2GIS review URL mixed raw Cyrillic path segments with `%20` → urllib `'ascii' codec can't encode` → link-verify fail.
+
+### How the agent recovered this run
+- Restored catalog/Telegram hrefs from env (`CATALOG_URL`, `TELEGRAM_URL`) for a real link-verify PASS.
+- Fully percent-encoded the 2GIS path; link-verify 6/6 OK.
+- Renamed insight label off forbidden `TL;DR / Быстрый инсайт` → `Коротко по делу`.
+
+### Durable fix needed before next run
+- Resolve conflict: git secret-scan vs link-verify needing live CTA hrefs (publish-time restore script, or allowlist public CTA hosts, or link-verify skip for a documented placeholder token).
+- Teach writer/link-verify to IRI-encode external URLs with non-ASCII paths before check.
+- Keep insight-block label contract visible in writer skill (no `TL;DR` / `Быстрый инсайт`).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260930-0918-writer-cta-href-secret-scan
 status: open
 run_date: 2026-09-30
@@ -27,6 +96,7 @@ category: env
 - Document in writer skill/contract: committed `article.html` CTA hrefs must use `[REDACTED]` (or non-secret public placeholders) because Telegram/catalog env values are secret-scanned.
 - Prefer restoring real hrefs only at publish time from env, not in git artifacts.
 - Keep fixing invalid names in `CLOUD_AGENT_INJECTED_SECRET_NAMES` (INC-0905).
+- Note: GEO QA B04 restored live CTA hrefs for link-verify (see INC-20260930-0921-geo-qa-cta-redacted-and-2gis-encoding); secret-scan policy still unresolved.
 
 ### Suggested files to inspect/change
 - `.cursor/skills/writer-excalibur-blog/SKILL.md`

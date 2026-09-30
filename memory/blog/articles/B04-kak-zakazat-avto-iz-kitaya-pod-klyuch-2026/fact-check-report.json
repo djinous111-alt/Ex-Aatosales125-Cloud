@@ -1,0 +1,59 @@
+{
+  "article": "memory/blog/articles/B04-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 7,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 6,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ках. Ниже – как заказать авто из Китая под ключ в 2026: шаги от подбора до выдачи во Владивостоке и жёст",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": ": ориентир – до 160 л.с. (с учётом правил с 01.12.2025). Утильсбор – платёж за утилизацию авто в будущем",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180 дней",
+      "kind": "metric_or_duration",
+      "context": "иентир льготы для физлица – до 160 л.с.). Правило 180 дней – фильтр китайского экспорта, не \"запрет ФТС\". Ак",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "8 недель",
+      "kind": "metric_or_duration",
+      "context": "итайского правила 180 дней Ориентир срока Часто 4–8 недель после оплаты ~4–6 недель ~3–6 недель Итоговый вер",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "6 недель",
+      "kind": "metric_or_duration",
+      "context": "й Ориентир срока Часто 4–8 недель после оплаты ~4–6 недель ~3–6 недель Итоговый вердикт: Нужен новый левый р",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "оверка мощности (ориентир льготы для физлица – до 160 л.с.). Правило 180 дней – фильтр китайского экспор",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "иентир льготы для физлица – до 160 л.с.). Правило 180 дней – фильтр китайского экспорта, не \"запрет ФТС\"",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -6,6 +6,77 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260930-1719-director-doctor-llms-flag
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `python3 scripts/excalibur_blog_doctor.py` FAIL: expects llms generator flag `--blog-path`, but `scripts/excalibur_blog_llms_generator.py` only documents/accepts `--blog-dir` (and related out-dir flags).
+- Preflight on this branch reports `SUMMARY errors=1` and blocks a clean doctor green light before Scout/research.
+
+### How the agent recovered this run
+- Continued pipeline after noting the mismatch; Indexer will use `--blog-dir` as implemented by the generator CLI.
+- Logged incident for Fixer to align doctor check with actual CLI (or restore `--blog-path` alias).
+
+### Durable fix needed before next run
+- Align `scripts/excalibur_blog_doctor.py` check with `excalibur_blog_llms_generator.py` argparse (`--blog-dir` / aliases), and update Indexer skill docs if they still say `--blog-path`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20260930-1725-scout-niche-drift-avto-sales
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: high
+category: prompt
+
+### What went wrong
+- `.cursor/agents/excalibur-blog-scout.md` и `.cursor/skills/scout-excalibur-blog/SKILL.md` всё ещё описывают нишу Cursor/AI/n8n/Make/автопостинг и audience "новички в автоматизации".
+- `shared/editorial-utility-only.md` тоже держит примеры про Cursor AI и автопостинг, хотя `memory/brief/site-brief.md` канонически задаёт Авто-Сейлс: авто под заказ из Японии/Кореи/Китая, растаможка, СВХ, утильсбор.
+- Без override Директора Scout рискует генерировать P0-темы вне ниши сайта и ломать контент-стратегию.
+
+### How the agent recovered this run
+- Проигнорировал AI-примеры в scout agent/skill; следовал `memory/brief/site-brief.md` и avoid-list live WP.
+- Собрал B01 utility-only карточку про постановку на учёт ввезённого авто (Wordstat parent+narrow OK, check-query clean).
+
+### Durable fix needed before next run
+- Переписать scout agent + skill под нишу Авто-Сейлс (кластеры site-brief, запрет Cursor/n8n/Make/ИИ-агентов).
+- Обновить audience-first и WebSearch примеры в scout skill на растаможку/документы/логистику/проверку авто Азии.
+- В `shared/editorial-utility-only.md` заменить AI-примеры на auto-import utility примеры, сохранив utility-only gates.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-scout.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

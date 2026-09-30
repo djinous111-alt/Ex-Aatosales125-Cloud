@@ -315,7 +315,7 @@ checks_run:
 - sanitize export dry-run with `[REDACTED]` + CATALOG_URL
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next`
 - `python3 scripts/excalibur_blog_doctor.py` (errors=0)
-commit: pending-parent-commit
+commit: b7370cf
 
 
 ## INC-20261001-2120-research-notes-gate-ai-in-pain
@@ -371,7 +371,7 @@ checks_run:
 - unit: pain/said/email not technical; MCP/API/Cursor is technical
 - unit: table accessed_at count ≥5
 - `research_notes_gate` on B02 → PASS technical=false
-commit: pending-parent-commit
+commit: b7370cf
 
 
 ## INC-20261001-2225-writer-precommit-redacted-secret-name
@@ -420,7 +420,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - sanitize export dry-run keeps FOO/BAR, drops `[REDACTED]` and CATALOG_URL
-commit: pending-parent-commit
+commit: b7370cf
 
 
 ## INC-20261001-0028-geo-qa-utility-pain-outcome-empty
@@ -474,7 +474,7 @@ files_changed:
 checks_run:
 - JSON parse editorial-policy (12 pain / 10 outcome markers)
 - `utility_gate --article-dir B02` → PASS
-commit: pending-parent-commit
+commit: b7370cf
 
 
 ## INC-20261001-0029-geo-qa-cta-href-redacted-literal
@@ -531,7 +531,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - unit: href=`[REDACTED]` → verdict fail kind=placeholder
-commit: pending-parent-commit
+commit: b7370cf
 
 
 ## INC-20260930-2143-cover-hero-upload-outfit-prompt
@@ -588,7 +588,7 @@ files_changed:
 checks_run:
 - `py_compile` hero_reference_url + cover_quad_prompt
 - `rg` no white-hoodie / toxic tokens in prompt builder
-commit: pending-parent-commit
+commit: b7370cf
 
 
 ## INC-20261001-0045-indexer-llms-blog-path-doctor-drift
@@ -642,7 +642,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0 (`llms generator supports --blog-dir`)
 - `rg` no `--blog-path` in indexer docs/doctor
-commit: pending-parent-commit
+commit: b7370cf
 
 
 ## INC-20261001-2158-publish-http-timeout-large-payload
@@ -696,5 +696,5 @@ files_changed:
 checks_run:
 - PYTHONPATH=scripts import asserts timeouts ≥300/180
 - doctor errors=0
-commit: pending-parent-commit
+commit: b7370cf
 

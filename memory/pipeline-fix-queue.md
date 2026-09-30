@@ -7,7 +7,7 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 ## INC-20260930-0930-cover-precommit-secret-name-filter
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-cover
 topic_id: B04
@@ -36,11 +36,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Added `scripts/excalibur_blog_filter_injected_secret_names.sh` to keep only bash identifiers in `CLOUD_AGENT_INJECTED_SECRET_NAMES` before commit.
+- Documented cover commit path in cover skill + `shared/agent-pipeline-pitfalls.md` (prefer filter over `--no-verify`).
+files_changed:
+- `scripts/excalibur_blog_filter_injected_secret_names.sh`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter smoke: non-id tokens dropped, identifiers kept
+- `python3 scripts/excalibur_blog_doctor.py` errors=0
+commit: e424c0d5869a6e50109199e22b7ecff3e0026587,0d0ac7aab2c2ff0c7b8f1004b80c69fd36997f99
 
 
 ## INC-20260930-0928-schema-precommit-secret-scan
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-schema
 topic_id: B04
@@ -71,11 +84,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Schema skill documents secret-scan commit path + filter script; public site URLs may use SITE.example placeholder when scanned.
+- Aligns with writer CTA redact / publish restore policy in pitfalls.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_filter_injected_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter smoke
+- doctor errors=0
+commit: e424c0d5869a6e50109199e22b7ecff3e0026587,0d0ac7aab2c2ff0c7b8f1004b80c69fd36997f99
 
 
 ## INC-20260930-0921-geo-qa-utility-policy-missing-pain-outcome
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-geo-qa
 topic_id: B04
@@ -106,10 +132,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Kept `pain_markers_ru` / `outcome_markers_ru` in `memory/brief/editorial-policy.json`.
+- `excalibur_blog_utility_gate.py` skips pain/outcome mins when marker lists are empty (warning instead of false BLOCK).
+- Documented in `shared/editorial-utility-only.md` and pitfalls.
+files_changed:
+- `scripts/excalibur_blog_utility_gate.py`
+- `memory/brief/editorial-policy.json`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
+commit: e424c0d5869a6e50109199e22b7ecff3e0026587,0d0ac7aab2c2ff0c7b8f1004b80c69fd36997f99
+
 
 ## INC-20260930-0921-geo-qa-cta-redacted-and-2gis-encoding
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-geo-qa
 topic_id: B04
@@ -141,10 +181,25 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- `link_verify` skips `[REDACTED]` CTA placeholders; IRI-encodes non-ASCII URL paths before HTTP check.
+- Writer/contract: insight label `Коротко по делу` (not TL;DR / Быстрый инсайт); CTA redact in git, restore at publish.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- iri_to_uri + placeholder classify smoke
+- py_compile link_verify
+commit: e424c0d5869a6e50109199e22b7ecff3e0026587,0d0ac7aab2c2ff0c7b8f1004b80c69fd36997f99
+
 
 ## INC-20260930-0918-writer-cta-href-secret-scan
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-writer
 topic_id: B04
@@ -176,7 +231,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Writer skill + writing contract: committed CTA hrefs use `[REDACTED]`; publish restores from env.
+- Documented secret-name filter before git commit.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg for CTA redact guidance
+commit: e424c0d5869a6e50109199e22b7ecff3e0026587,0d0ac7aab2c2ff0c7b8f1004b80c69fd36997f99
+
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -428,7 +497,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20260930-0904-scout-helper-ignores-live-wp-ids
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-scout
 topic_id: B04
@@ -457,10 +526,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Scout helper `--suggest-next` reads `live-wp-occupied-ids.json`, unions occupied IDs into reserved, suggests next free Bxx (B05 after B04).
+- Recognizes legacy ASxx topic cards in blog-topics.md.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `memory/topics/live-wp-occupied-ids.json`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → B05
+commit: e424c0d5869a6e50109199e22b7ecff3e0026587,0d0ac7aab2c2ff0c7b8f1004b80c69fd36997f99
+
 
 ## INC-20260930-0905-scout-precommit-hook-invalid-var
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-scout
 topic_id: B04
@@ -484,10 +566,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Repo cannot patch Cursor-injected secret-scan hook; added durable filter script agents must source before commit.
+- Documented in pitfalls for all roles (scout/cover/schema/indexer/writer/publish).
+files_changed:
+- `scripts/excalibur_blog_filter_injected_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter smoke with mixed identifier/non-identifier names
+commit: e424c0d5869a6e50109199e22b7ecff3e0026587,0d0ac7aab2c2ff0c7b8f1004b80c69fd36997f99
+
 
 ## INC-20260930-0907-scout-avtovoz-pivot-to-china
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-scout
 topic_id: B04
@@ -516,10 +609,22 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Expanded `live-wp-occupied-ids.json` with B04 + avoid_slug_substrings / avoid_query_tokens for avtovoz/delivery.
+- Scout helper `--check-query --slug` enforces denylist.
+files_changed:
+- `memory/topics/live-wp-occupied-ids.json`
+- `scripts/excalibur_blog_scout_helper.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+checks_run:
+- `--check-query "автовоз из владивостока"` → CRITICAL avoid hit
+commit: e424c0d5869a6e50109199e22b7ecff3e0026587,0d0ac7aab2c2ff0c7b8f1004b80c69fd36997f99
+
 
 ## INC-20260930-0915-research-notes-gate-ai-false-technical
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-research
 topic_id: B04
@@ -551,10 +656,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- TECH_MARKERS use token-boundary match on topic metadata only (not notes field names like reader_pain).
+- pain_solution_map row counter counts markdown table data rows in section without requiring English keywords per cell.
+- Research skill documents non-tech GitHub expectation.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- China how-to → technical_topic=False; mcp+api → True; pain rows>=3
+- py_compile research_notes_gate
+commit: e424c0d5869a6e50109199e22b7ecff3e0026587,0d0ac7aab2c2ff0c7b8f1004b80c69fd36997f99
+
 
 ## INC-20260930-0933-indexer-llms-stale-blog-path-flag
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-indexer
 topic_id: B04
@@ -583,11 +703,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Removed stale `--blog-path` from indexer agent/skill examples.
+- Doctor now checks `--blog-dir` and `--out-dir` (not `--blog-path`).
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- doctor errors=0
+- `rg --blog-path` only in negative-doc mentions
+commit: e424c0d5869a6e50109199e22b7ecff3e0026587,0d0ac7aab2c2ff0c7b8f1004b80c69fd36997f99
 
 
 ## INC-20260930-0934-indexer-llms-site-url-secret-scan
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-indexer
 topic_id: B04
@@ -618,10 +752,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- llms generator default/commit-safe site-base is `https://SITE.example`; added `--commit-safe` flag.
+- Indexer skill documents commit-safe generation + secret-name filter.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+checks_run:
+- `--help` shows `--commit-safe`
+- doctor errors=0
+commit: e424c0d5869a6e50109199e22b7ecff3e0026587,0d0ac7aab2c2ff0c7b8f1004b80c69fd36997f99
+
 
 ## INC-20260930-0945-publish-http-timeout-webfetch-window
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-publish
 topic_id: B04
@@ -654,5 +801,20 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Publish: HTTP timeout default 180s; on failure tries SSH CLI (`php8.1`/`php`) before WebFetch wait; honors `EXCALIBUR_BLOG_PUBLISH_FORCE_SSH_CLI`.
+- Added `paramiko` to `.cursor/cloud-agent-install.sh`.
+- Publish skill documents CTA restore + SSH CLI / parallel WebFetch.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/cloud-agent-install.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- py_compile / ast parse wp_publish
+- doctor errors=0
+commit: e424c0d5869a6e50109199e22b7ecff3e0026587,0d0ac7aab2c2ff0c7b8f1004b80c69fd36997f99
 

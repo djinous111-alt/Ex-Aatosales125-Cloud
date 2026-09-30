@@ -1,7 +1,7 @@
 {
   "updated_at": "2026-09-30",
-  "source": "EXCALIBUR_RECENT_WP_POSTS + automation memory",
-  "occupied_topic_ids": ["B01", "B02", "B03"],
+  "source": "EXCALIBUR_RECENT_WP_POSTS + automation memory + B04 publish",
+  "occupied_topic_ids": ["B01", "B02", "B03", "B04"],
   "occupied_slugs": [
     "kak-zakazat-avto-iz-yaponii-pod-klyuch-2026",
     "prohodnye-avto-iz-yaponii-2026",
@@ -16,7 +16,21 @@
     "lgotnyy-utilsbor-fizlico-2026-kak-proverit",
     "rastamozhka-elektromobilya-iz-kitaya-2026",
     "samye-komfortnye-avto-myagkaya-podveska-2026",
-    "trust-encar-carhistory-proverka-do-depozita"
+    "trust-encar-carhistory-proverka-do-depozita",
+    "kak-zakazat-avto-iz-kitaya-pod-klyuch-2026"
   ],
-  "notes": "Local ledger incomplete after AVTO SALES reset; do not scout-duplicate these live WP slugs. Also avoid memory-flagged gaps already covered elsewhere: avtovoz/delivery-from-Vladivostok, korea-or-china. B04 reserved in blog-topics.md as kak-zakazat-avto-iz-kitaya-pod-klyuch-2026. Next scout ID should be B05. Helper --suggest-next may still say B01 if it ignores this file."
+  "avoid_slug_substrings": [
+    "avtovoz",
+    "dostavka-avto",
+    "delivery-from-vladivostok",
+    "otpravka-avto",
+    "korea-or-china"
+  ],
+  "avoid_query_tokens": [
+    "автовоз",
+    "автовозом",
+    "доставка авто из владивостока",
+    "отправка авто после таможни"
+  ],
+  "notes": "Local ledger incomplete after AVTO SALES reset; do not scout-duplicate these live WP slugs or avoid_* delivery/avtovoz topics. B04 published (WP 3843). Next scout ID should be B05. Scout helper --suggest-next must read this file."
 }

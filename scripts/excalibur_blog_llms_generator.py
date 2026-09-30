@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Excalibur BLOG LLMs Generator: AI-First Crawler Policy.
 
 Generates and maintains standard llms.txt and llms-full.txt in the root folder,
@@ -107,8 +107,25 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Generate AI-friendly llms.txt and llms-full.txt")
     ap.add_argument("--blog-dir", type=Path, default=None)
     ap.add_argument("--site-name", type=str, default="Авто-Сейлс")
-    ap.add_argument("--site-desc", type=str, default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.")
-    ap.add_argument("--site-base", type=str, default="https://avtosales125.ru")
+    ap.add_argument(
+        "--site-desc",
+        type=str,
+        default=(
+            "Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, "
+            "растаможка и доставка через Владивосток."
+        ),
+    )
+    ap.add_argument(
+        "--site-base",
+        type=str,
+        default="https://SITE.example",
+        help="Public site origin. For git commits use https://SITE.example (secret-scan safe).",
+    )
+    ap.add_argument(
+        "--commit-safe",
+        action="store_true",
+        help="Force site-base to https://SITE.example so llms*.txt can be committed under secret-scan.",
+    )
     ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for llms.txt/llms-full.txt")
     args = ap.parse_args()
 
@@ -121,11 +138,14 @@ def main() -> int:
     if not out_dir.is_absolute():
         out_dir = root / out_dir
 
+    site_base = "https://SITE.example" if args.commit_safe else (args.site_base or "https://SITE.example")
+    site_base = site_base.rstrip("/")
+
     articles = load_articles(blog_dir)
     print(f"Loaded {len(articles)} articles to index for LLMs.")
 
-    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, args.site_base)
-    llms_full_txt = build_llms_full_txt(args.site_name, articles, args.site_base)
+    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, site_base)
+    llms_full_txt = build_llms_full_txt(args.site_name, articles, site_base)
 
     llms_path = out_dir / "llms.txt"
     llms_full_path = out_dir / "llms-full.txt"
@@ -134,7 +154,12 @@ def main() -> int:
     llms_full_path.write_text(llms_full_txt, encoding="utf-8")
 
     print(f"llms.txt generated at {llms_path.relative_to(root) if root in llms_path.parents else llms_path}")
-    print(f"llms-full.txt generated at {llms_full_path.relative_to(root) if root in llms_full_path.parents else llms_full_path}")
+    print(
+        f"llms-full.txt generated at "
+        f"{llms_full_path.relative_to(root) if root in llms_full_path.parents else llms_full_path}"
+    )
+    if "SITE.example" in site_base:
+        print("NOTE: commit-safe site-base in use; regenerate with real --site-base at deploy/publish.")
 
     return 0
 

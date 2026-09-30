@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B05-kak-kupit-avto-po-parallelnomu-importu-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "при корректировке. Споры о таможенной стоимости в 2026 ещё встречаются; проверка бумаг до оплаты остаётся",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "8 недель",
+      "kind": "metric_or_duration",
+      "context": "аш VIN. Ориентир сроков у части рынка – порядка 2–8 недель от подбора до готовности к учёту; фиксированный с",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "506",
+      "kind": "large_number",
+      "context": "импорт легален (постановление Правительства РФ № 506 и перечень Минпромторга), но в быту так же называю",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4769",
+      "kind": "large_number",
+      "context": "й день брони\". Перечень менялся: правки приказа № 4769 применяются с 27.05.2026. Сверяйте не только бренд",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

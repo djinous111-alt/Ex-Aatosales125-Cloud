@@ -1,0 +1,636 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-09-30",
+    "today_ru": "30.09.2026",
+    "year": 2026,
+    "month": 9,
+    "month_name_ru": "сентябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-02",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-09-30 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B05",
+    "priority": "P0",
+    "slug": "kak-kupit-avto-po-parallelnomu-importu-2026",
+    "h1": "Как купить авто по параллельному импорту в 2026: чек-лист до оплаты",
+    "primary_query": "параллельный импорт авто",
+    "secondary_queries": [
+      "купить авто по параллельному импорту",
+      "параллельный импорт авто из китая",
+      "параллельный импорт авто 2026",
+      "авто ввезенные параллельным импортом"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "параллельный импорт авто 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Параллельный импорт авто 2026 — полный гайд: как купить, растаможи ...",
+          "url": "https://carto-auto.ru/blog/parallelnyi-import-avto-2026-polnyy-gid/",
+          "snippet": ""
+        },
+        {
+          "title": "Параллельный импорт автомобилей 2026 — легально ли это",
+          "url": "https://encarrus.ru/news/parallelnyy-import-avtomobiley-2026/",
+          "snippet": "Полный гайд по параллельному импорту авто в Россию в 2026: легальность, пошаговая схема, страны-доноры, растаможка и утильсбор, сроки, договор с импортёром и риски."
+        },
+        {
+          "title": "Параллельный импорт автомобилей в 2026 году: растаможка, риски, схемы ...",
+          "url": "https://pricepclub.ru/avtosalony-avtodilery/parallelnyy-import-avtomobiley",
+          "snippet": "Параллельный импорт автомобилей 2026 — легально ли это С 2022 года параллельный импорт в России легален."
+        },
+        {
+          "title": "Параллельный импорт в России 2026: закон, утильсбор и риски",
+          "url": "https://avadge.com/blog/articles/parallelnyi-import-avto-2026-zakon-utilsbor-riski/",
+          "snippet": "Что на практике представляет собой параллельный импорт автомобилей в 2026 году? Почему эта схема остаётся востребованной? Какие автомобили сейчас ввозят по этой схеме чаще всего? Как выглядит процедура растаможки при параллельном импорте автомобилей? Какие платежи ждут покупателя?"
+        },
+        {
+          "title": "Как ввезти авто по параллельному импорту в 2026. Расчёты и риски",
+          "url": "https://verticalauto.ru/articles/parallelnyi-import-avto-v-2026-godu-cto-izmenilos-i-skolko-stoit",
+          "snippet": "Параллельный импорт авто в 2026 году: на чём держится законность, что изменилось, утильсбор по новым ставкам, ЭПТС, гарантия и риски сделки."
+        },
+        {
+          "title": "Параллельный импорт авто 2025-2026: выгода, риски, утильсбор и таможня",
+          "url": "https://journal.carso.ru/posts/parallelnyy-import-avto-2025-2026-vygoda-riski-utilsbor-i-tamozhnya",
+          "snippet": "В мае 2026 года параллельный импорт автомобилей в РФ окончательно перешёл под жёсткий контроль ФТС. Схемы занижения стоимости через страны СНГ ликвидированы. Основные риски теперь — доначисления пошлин, блокировки ПО китайских электрокаров и высокие ставки утильсбора, делающие ввоз бюджетных моделей невыгодным."
+        }
+      ],
+      "searched_at": "2026-09-30"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "параллельный импорт авто сентябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Параллельный импорт автомобилей в Россию вырос почти на 70% - 14 ...",
+          "url": "https://www.fontanka.ru/2026/09/14/76637439/",
+          "snippet": ""
+        },
+        {
+          "title": "Параллельный импорт в России 2026: закон, утильсбор и риски",
+          "url": "https://avadge.com/blog/articles/parallelnyi-import-avto-2026-zakon-utilsbor-riski/",
+          "snippet": "В Россию хлынули машины по альтернативным схемам. Российский рынок новых автомобилей все заметнее меняет привычную структуру поставок. На фоне сокращения классического официального импорта растет параллельный ввоз — причем россияне чаще привозят не только привычные европейские, японские и корейские модели, но и автомобили китайского производства."
+        },
+        {
+          "title": "Параллельный импорт авто 2026 — полный гайд: как купить, растаможи ...",
+          "url": "https://carto-auto.ru/blog/parallelnyi-import-avto-2026-polnyy-gid/",
+          "snippet": "Параллельный импорт авто в 2026 году: на чём держится законность, что изменилось, утильсбор по новым ставкам, ЭПТС, гарантия и риски сделки."
+        },
+        {
+          "title": "Параллельный импорт автомобилей 2026 — легально ли это",
+          "url": "https://encarrus.ru/news/parallelnyy-import-avtomobiley-2026/",
+          "snippet": "Полный гайд по параллельному импорту авто в Россию в 2026: легальность, пошаговая схема, страны-доноры, растаможка и утильсбор, сроки, договор с импортёром и риски."
+        },
+        {
+          "title": "Как ввезти авто по параллельному импорту в 2026. Расчёты и риски",
+          "url": "https://verticalauto.ru/articles/parallelnyi-import-avto-v-2026-godu-cto-izmenilos-i-skolko-stoit",
+          "snippet": "Параллельный импорт автомобилей 2026 — легально ли это С 2022 года параллельный импорт в России легален."
+        },
+        {
+          "title": "Параллельный импорт новых авто в РФ вырос на 86% за 8 месяцев",
+          "url": "https://mercora.ru/news/parallelnyy-import-novykh-avto-v-rf-2026-09-19",
+          "snippet": "Параллельный импорт в 2026 году — это не для экономии, а для эксклюзива. Закрытие схем через Киргизию, рост утильсбора и ужесточение проверок ФТС сделали ввоз бюджетных авто невыгодным."
+        }
+      ],
+      "searched_at": "2026-09-30"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "параллельный импорт авто новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Параллельный импорт авто 2026: схемы, изменения в законодательстве, риски",
+          "url": "https://autoprofiasia.ru/blog/parallelnyj-import-avto-2026-skhemy-izmeneniya",
+          "snippet": ""
+        },
+        {
+          "title": "Параллельный импорт автомобилей 2026 — легально ли это",
+          "url": "https://encarrus.ru/news/parallelnyy-import-avtomobiley-2026/",
+          "snippet": "Актуальный обзор схем параллельного импорта автомобилей в 2026 году: ключевые изменения в законодательстве, новые риски и легальные способы ввоза авто из-за рубежа."
+        },
+        {
+          "title": "Параллельный импорт авто 2026 — полный гайд: как купить, растаможи ...",
+          "url": "https://carto-auto.ru/blog/parallelnyi-import-avto-2026-polnyy-gid/",
+          "snippet": "Параллельный импорт автомобилей 2026 — легально ли это С 2022 года параллельный импорт в России легален."
+        },
+        {
+          "title": "Параллельный импорт авто в РФ весной 2026: цифры, тренды и скрытые ...",
+          "url": "https://companies.rbc.ru/news/6lYwOkF8AO/parallelnyij-import-avto-v-rf-vesnoj-2026-tsifryi-trendyi-i-skryityie-riski/",
+          "snippet": "Полный гайд по параллельному импорту авто в Россию в 2026: легальность, пошаговая схема, страны-доноры, растаможка и утильсбор, сроки, договор с импортёром и риски."
+        },
+        {
+          "title": "Параллельный импорт автомобилей в 2026 году: растаможка, риски, схемы ...",
+          "url": "https://pricepclub.ru/avtosalony-avtodilery/parallelnyy-import-avtomobiley",
+          "snippet": "Но в марте 2026 года мы наблюдали обратное: параллельный импорт не просто жив, а пошел в рост. Только за месяц, по данным Автостата, в страну ввезли около 16 300 новых легковушек."
+        },
+        {
+          "title": "Параллельный импорт в России 2026: закон, утильсбор и риски",
+          "url": "https://avadge.com/blog/articles/parallelnyi-import-avto-2026-zakon-utilsbor-riski/",
+          "snippet": "Что на практике представляет собой параллельный импорт автомобилей в 2026 году? Почему эта схема остаётся востребованной? Какие автомобили сейчас ввозят по этой схеме чаще всего?"
+        }
+      ],
+      "searched_at": "2026-09-30"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com параллельный импорт авто 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Параллельный импорт в Россию 2026: полное руководство",
+          "url": "https://github.com/stanislavmareshkin/parallel-import-guide-2026",
+          "snippet": ""
+        },
+        {
+          "title": "GitHub - gorbacenkovitalij6-prog/auto-import-russia: Сайт для компании ...",
+          "url": "https://github.com/gorbacenkovitalij6-prog/auto-import-russia",
+          "snippet": "Что такое параллельный импорт Параллельный импорт — это легальная схема ввоза товаров в обход официальных дистрибьюторов."
+        },
+        {
+          "title": "GitHub - paryashie-yasheri/stm32valeronNhui",
+          "url": "https://github.com/paryashie-yasheri/stm32valeronNhui",
+          "snippet": "🚗 О проекте Полнофункциональный сайт для компании БТА ТОРГ, специализирующейся на пригоне автомобилей из Германии, Польши, Бельгии и Нидерландов."
+        },
+        {
+          "title": "chess2/queen-b.svg at main · neverhoxx/chess2 · GitHub",
+          "url": "https://github.com/neverhoxx/chess2/blob/main/queen-b.svg",
+          "snippet": "РЕКОМЕНДОВАНО К ИСПОЛЬЗОВАНИЮ В УНИВЕРСИТЕТЕ ИТМО по направлениям подготовки 09.04.01 «Информатика и вычислительная техника», 09.04.04 «Программная инженерия» в качестве учебного пособия для реализации основных ..."
+        },
+        {
+          "title": "GitHub - yannlie/huijia: 回家的路 · GitHub",
+          "url": "https://github.com/yannlie/huijia",
+          "snippet": "Contribute to neverhoxx/chess2 development by creating an account on GitHub."
+        },
+        {
+          "title": "GitHub",
+          "url": "https://github.com/ShadowMario/FNF-PsychEngine/blob/main/docs/img/chart.png?raw=true",
+          "snippet": "Contribute to yannlie/huijia development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-09-30"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "параллельный импорт авто official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Параллельный импорт авто 2026 — полный гайд: как купить, растаможи ...",
+          "url": "https://carto-auto.ru/blog/parallelnyi-import-avto-2026-polnyy-gid/",
+          "snippet": ""
+        },
+        {
+          "title": "Параллельный импорт автомобилей в 2026 году: растаможка, риски, схемы ...",
+          "url": "https://pricepclub.ru/avtosalony-avtodilery/parallelnyy-import-avtomobiley",
+          "snippet": "Полный гайд по параллельному импорту авто в Россию в 2026: легальность, пошаговая схема, страны-доноры, растаможка и утильсбор, сроки, договор с импортёром и риски."
+        },
+        {
+          "title": "Параллельный импорт авто 2026: схемы, изменения в законодательстве, риски",
+          "url": "https://autoprofiasia.ru/blog/parallelnyj-import-avto-2026-skhemy-izmeneniya",
+          "snippet": "Как работает параллельный импорт автомобилей в Россию в 2026 году. Какие пошлины и НДС 22%, стоит ли везти авто самому, как проверить посредника. Практические советы эксперта."
+        },
+        {
+          "title": "Параллельный импорт автомобилей в 2026 году: что изменилось",
+          "url": "https://faminta.com/parallelnyi-import-avtomobilei-v-2026-gody-chto-izmenilos.html",
+          "snippet": "Актуальный обзор схем параллельного импорта автомобилей в 2026 году: ключевые изменения в законодательстве, новые риски и легальные способы ввоза авто из-за рубежа."
+        },
+        {
+          "title": "Как ввезти авто по параллельному импорту в 2026. Расчёты и риски",
+          "url": "https://verticalauto.ru/articles/parallelnyi-import-avto-v-2026-godu-cto-izmenilos-i-skolko-stoit",
+          "snippet": "Как работает параллельный импорт автомобилей в России, чем отличаются схемы перекупщиков от официальных дилеров и что изменится в 2026 году. Параллельный импорт — это процедура ввоза юридическими лицами оригинальных иностранных товаров, в том числе автомобилей, в Россию."
+        },
+        {
+          "title": "Параллельный импорт авто в РФ — 10 направлений 2026",
+          "url": "https://globamart.ru/import",
+          "snippet": "В мае 2026 года параллельный импорт автомобилей в РФ окончательно перешёл под жёсткий контроль ФТС. Схемы занижения стоимости через страны СНГ ликвидированы. Основные риски теперь — доначисления пошлин, блокировки ПО китайских электрокаров и высокие ставки утильсбора, делающие ввоз бюджетных моделей невыгодным."
+        }
+      ],
+      "searched_at": "2026-09-30"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "параллельный импорт авто forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Параллельный импорт авто 2026 — схема ввоза, утильсбор, риски",
+          "url": "https://www.moonauto.ru/blog/parallelnyy-import-avto-2026-kak-rabotaet-riski/",
+          "snippet": ""
+        },
+        {
+          "title": "Параллельный импорт автомобилей в 2026 году: растаможка, риски, схемы ...",
+          "url": "https://pricepclub.ru/avtosalony-avtodilery/parallelnyy-import-avtomobiley",
+          "snippet": "Как устроена схема Параллельный импорт — ввоз оригинальных автомобилей без разрешения правообладателя, легализованный для перечня брендов."
+        },
+        {
+          "title": "Параллельный импорт авто 2026: схемы, изменения в законодательстве, риски",
+          "url": "https://autoprofiasia.ru/blog/parallelnyj-import-avto-2026-skhemy-izmeneniya",
+          "snippet": "Как работает параллельный импорт автомобилей в Россию в 2026 году. Какие пошлины и НДС 22%, стоит ли везти авто самому, как проверить посредника. Практические советы эксперта."
+        },
+        {
+          "title": "Как избежать рисков и проблем при покупке автомобилей по параллельному ...",
+          "url": "https://radator.ru/kak-izbezhat-riskov-i-problem-pri-pokupke-avtomobiley-po-parallelnomu-importu-v-2026-godu-prakticheskie-rekomendacii-i-otvety-na-chastye-voprosy/",
+          "snippet": "Актуальный обзор схем параллельного импорта автомобилей в 2026 году: ключевые изменения в законодательстве, новые риски и легальные способы ввоза авто из-за рубежа."
+        },
+        {
+          "title": "Параллельный импорт 2026: как ввезти BMW, Toyota и Mercedes и ...",
+          "url": "https://www.drive2.ru/b/737857790340514885/",
+          "snippet": "В этой статье мы разберём, как избежать рисков и проблем при покупке автомобиля по параллельному импорту, дадим практические рекомендации и ответим на частые вопросы, чтобы помочь вам ..."
+        },
+        {
+          "title": "Параллельный импорт авто 2026 — полный гайд: как купить, растаможи ...",
+          "url": "https://carto-auto.ru/blog/parallelnyi-import-avto-2026-polnyy-gid/",
+          "snippet": "В 2026 году он стал единственным способом купить премиальную иномарку. Но правила игры изменились: государство закрыло популярные \"серые\" схемы, а таможня начала проверять каждую ..."
+        }
+      ],
+      "searched_at": "2026-09-30"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "купить авто по параллельному импорту 2026",
+      "purpose": "вторичный запрос: купить авто по параллельному импорту",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Параллельный импорт авто 2026 — полный гайд: как купить, растаможи ...",
+          "url": "https://carto-auto.ru/blog/parallelnyi-import-avto-2026-polnyy-gid/",
+          "snippet": ""
+        },
+        {
+          "title": "Как купить авто по параллельному импорту: пошаговая инструкция 2026 ...",
+          "url": "https://auto-praktis.vercel.app/articles/k/ka/kak-kupit-avto-po-parallelnomu-importu-samostoyatelno.html",
+          "snippet": "Полный гайд по параллельному импорту авто в Россию в 2026: легальность, пошаговая схема, страны-доноры, растаможка и утильсбор, сроки, договор с импортёром и риски."
+        },
+        {
+          "title": "Купить авто по параллельному импорту: цена, риски и схема",
+          "url": "https://auto-praktis.vercel.app/articles/m/ma/mashina-po-parallelnomu-importu-kupit.html",
+          "snippet": "Самостоятельная покупка авто по параллельному импорту: от поиска до растаможки. Разбираем риски, цены и юридические нюансы. Актуально для 2026 года."
+        },
+        {
+          "title": "Параллельный импорт авто в Россию 2026 — какие машины купить и сколько ...",
+          "url": "https://dss-g.com/all-news/articles/import-avtomobilej-v-rossiyu-parallelnyj-import-avto/",
+          "snippet": "Как купить машину по параллельному импорту в 2026 году. Полный разбор схемы, таможенных платежей, рисков и пошаговая инструкция для buyers."
+        },
+        {
+          "title": "Как ввезти авто по параллельному импорту в 2026. Расчёты и риски",
+          "url": "https://verticalauto.ru/articles/parallelnyi-import-avto-v-2026-godu-cto-izmenilos-i-skolko-stoit",
+          "snippet": "Разбираем, какие авто можно привезти в Россию по параллельному импорту, сколько стоит доставка и растаможка, и почему выгоднее доверить процесс DSS Group"
+        },
+        {
+          "title": "Что привезти по параллельному импорту в Россию в 2026 году",
+          "url": "https://cars.avtocod.ru/blog/parallelnyi-import-avtomobilei-v-2026-godu-cto-eto-takoe-i-kakie-modeli-vygodno-pokupat-1082.html",
+          "snippet": "Параллельный импорт авто в 2026 году — новые правила с апреля, закрытие схем через Киргизию, стоимость утильсбора (до 1,8 млн ₽). Маршруты доставки, риски доначислений и чек-лист для покупателя."
+        }
+      ],
+      "searched_at": "2026-09-30"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "параллельный импорт авто из китая 2026",
+      "purpose": "вторичный запрос: параллельный импорт авто из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Параллельный импорт авто из Китая 2026 — пошагово, цены, сроки",
+          "url": "https://carto-auto.ru/blog/parallelnyy-import-avto-iz-kitaya-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Параллельный импорт из Китая: схема поставок, оплаты и логистики в 2026",
+          "url": "https://exnode.ru/community/articles/parallelnyy-import-iz-kitaya-kak-privezti-mashinu-ili-tovar-v-2026-godu-v-rf",
+          "snippet": "Все модели актуальны для импорта в 2026 году. Цена «под ключ» включает доставку, растаможку, утильсбор и оформление ЭПТС."
+        },
+        {
+          "title": "Параллельный импорт авто из Китая: пошаговая схема, цены и подводные ...",
+          "url": "https://avto-zhurnal.ru/article/parallel-import-iz-kitaya/",
+          "snippet": "Параллельный импорт из Китая в 2026 году позволяет легально ввозить автомобили, оборудование и товары в Россию. Узнайте, как выстроить оплату, логистику и импортировать груз законно."
+        },
+        {
+          "title": "Параллельный импорт авто 2026 — полный гайд: как купить, растаможи ...",
+          "url": "https://carto-auto.ru/blog/parallelnyi-import-avto-2026-polnyy-gid/",
+          "snippet": "Параллельный импорт автомобилей из Китая — главный канал поставок премиальных моделей в Россию в 2026 году. По оценке участников рынка, в 2025 году в страну ввезено около 180 000 автомобилей через схемы параллельного импорта, преимущественно из Китая, Кореи, ОАЭ и Кыргызстана."
+        },
+        {
+          "title": "Параллельный импорт автомобилей 2026: как работает, риски и реальные цены",
+          "url": "https://160drive.ru/parallelnyy-import-avto-2026/",
+          "snippet": "В 2026 году это основной способ купить новый премиум-автомобиль европейских, японских, корейских, американских и китайских марок, которые официально ушли с российского рынка. Эта статья — главный навигатор по теме: здесь собрана вся схема целиком, а по каждому этапу даны ссылки на подробные разборы."
+        },
+        {
+          "title": "Параллельный импорт авто в 2026: как не нарваться на проверки ФТС",
+          "url": "https://ivan-auto.ru/blog/parallelnyy-import-avto-2026/",
+          "snippet": "Что такое параллельный импорт автомобилей в России и разрешён ли он в 2026 году: какие марки везут, реальные цены и почему прямой ввоз из Китая через 160Drive выгоднее серых схем."
+        }
+      ],
+      "searched_at": "2026-09-30"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "параллельный импорт авто 2026 2026",
+      "purpose": "вторичный запрос: параллельный импорт авто 2026",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Параллельный импорт авто 2026 — полный гайд: как купить, растаможи ...",
+          "url": "https://carto-auto.ru/blog/parallelnyi-import-avto-2026-polnyy-gid/",
+          "snippet": ""
+        },
+        {
+          "title": "Как ввезти авто по параллельному импорту в 2026. Расчёты и риски",
+          "url": "https://verticalauto.ru/articles/parallelnyi-import-avto-v-2026-godu-cto-izmenilos-i-skolko-stoit",
+          "snippet": "Полный гайд по параллельному импорту авто в Россию в 2026: легальность, пошаговая схема, страны-доноры, растаможка и утильсбор, сроки, договор с импортёром и риски."
+        },
+        {
+          "title": "Параллельный импорт автомобилей 2026 — легально ли это",
+          "url": "https://encarrus.ru/news/parallelnyy-import-avtomobiley-2026/",
+          "snippet": "В мае 2026 года параллельный импорт автомобилей в РФ окончательно перешёл под жёсткий контроль ФТС. Схемы занижения стоимости через страны СНГ ликвидированы. Основные риски теперь — доначисления пошлин, блокировки ПО китайских электрокаров и высокие ставки утильсбора, делающие ввоз бюджетных моделей невыгодным."
+        },
+        {
+          "title": "Параллельный импорт в России 2026: закон, утильсбор и риски",
+          "url": "https://avadge.com/blog/articles/parallelnyi-import-avto-2026-zakon-utilsbor-riski/",
+          "snippet": "Параллельный импорт автомобилей 2026 — легально ли это С 2022 года параллельный импорт в России легален."
+        },
+        {
+          "title": "Параллельный импорт авто 2026 — схема ввоза, утильсбор, риски",
+          "url": "https://www.moonauto.ru/blog/parallelnyy-import-avto-2026-kak-rabotaet-riski/",
+          "snippet": "Параллельный импорт авто в 2026 году: на чём держится законность, что изменилось, утильсбор по новым ставкам, ЭПТС, гарантия и риски сделки."
+        },
+        {
+          "title": "Параллельный импорт автомобилей в 2026 году: растаможка, риски, схемы ...",
+          "url": "https://pricepclub.ru/avtosalony-avtodilery/parallelnyy-import-avtomobiley",
+          "snippet": "Параллельный импорт — ввоз оригинальных автомобилей без разрешения правообладателя, легализованный для перечня брендов. Цепочка: дилер за рубежом → экспортёр → таможня (пошлина, акциз, НДС, утильсбор) → СБКТС/ЭПТС → продажа. Машину можно заказать «под себя» или купить уже ввезённую со склада."
+        }
+      ],
+      "searched_at": "2026-09-30"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "авто ввезенные параллельным импортом 2026",
+      "purpose": "вторичный запрос: авто ввезенные параллельным импортом",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Параллельный импорт автомобилей 2026 — легально ли это",
+          "url": "https://encarrus.ru/news/parallelnyy-import-avtomobiley-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Параллельный импорт авто 2026 — полный гайд: как купить, растаможи ...",
+          "url": "https://carto-auto.ru/blog/parallelnyi-import-avto-2026-polnyy-gid/",
+          "snippet": "Заводская гарантия привязана к стране официального ввоза. В России обслуживание идет через независимые сервисы и параллельный импорт запчастей. Что будет с параллельным импортом после 2026?"
+        },
+        {
+          "title": "Параллельный импорт автомобилей в 2026 году: растаможка, риски, схемы ...",
+          "url": "https://pricepclub.ru/avtosalony-avtodilery/parallelnyy-import-avtomobiley",
+          "snippet": "Полный гайд по параллельному импорту авто в Россию в 2026: легальность, пошаговая схема, страны-доноры, растаможка и утильсбор, сроки, договор с импортёром и риски."
+        },
+        {
+          "title": "Что происходит с параллельным импортом автомобилей в 2026 году?",
+          "url": "https://auto.ru/logbook/chto-proiskhodit-s-parallelnym-importom-avtomobiley-v-2026-godu_0af68630-8d8b-4f5b-84a9-2625781933e2/",
+          "snippet": "Что на практике представляет собой параллельный импорт автомобилей в 2026 году? Почему эта схема остаётся востребованной? Какие автомобили сейчас ввозят по этой схеме чаще всего? Как выглядит процедура растаможки при параллельном импорте автомобилей? Какие платежи ждут покупателя?"
+        },
+        {
+          "title": "Список брендов параллельного импорта 2026: полный перечень авто",
+          "url": "https://auto-praktis.vercel.app/articles/s/sp/spisok-brendov-parallelnogo-importa-polnyj.html",
+          "snippet": "Поставщики продолжают активно работать с Южной Кореей, Японией и Китаем. Благодаря этому выбор автомобилей с небольшим пробегом сегодня значительно шире, чем был еще год назад."
+        },
+        {
+          "title": "Параллельный импорт авто в РФ весной 2026: цифры, тренды и скрытые ...",
+          "url": "https://companies.rbc.ru/news/6lYwOkF8AO/parallelnyij-import-avto-v-rf-vesnoj-2026-tsifryi-trendyi-i-skryityie-riski/",
+          "snippet": "Актуальный список брендов параллельного импорта автомобилей в 2026 году. Полный перечень марок, разрешенных к ввозу, особенности растаможки и гарантии."
+        }
+      ],
+      "searched_at": "2026-09-30"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как купить авто по параллельному импорту в 2026: чек-лист до оплаты 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как купить авто по параллельному импорту: пошаговая инструкция 2026",
+          "url": "https://auto-praktis.vercel.app/articles/k/ka/kak-kupit-avto-po-parallelnomu-importu-samostoyatelno.html",
+          "snippet": ""
+        },
+        {
+          "title": "Как ввезти авто по параллельному импорту в 2026. Расчёты и риски",
+          "url": "https://verticalauto.ru/articles/parallelnyi-import-avto-v-2026-godu-cto-izmenilos-i-skolko-stoit",
+          "snippet": "В этой статье мы разберём весь путь от выбора автомобиля до его постановки на учёт в ГИБДД — без посредников и с минимальными рисками."
+        },
+        {
+          "title": "Параллельный импорт авто 2026 — полный гайд: как купить, растаможи ...",
+          "url": "https://carto-auto.ru/blog/parallelnyi-import-avto-2026-polnyy-gid/",
+          "snippet": "В этой статье — новые схемы логистики, реальная калькуляция стоимости, подводные камни и чек-лист для безопасной покупки."
+        },
+        {
+          "title": "Параллельный импорт авто: как безопасно купить в 2026 | Х-Авто | Х-Авто",
+          "url": "https://msk-xauto.ru/blog/parallelnyy-import-avtomobiley-kak-bezopasno-kupit-v-2026",
+          "snippet": "Полный гайд по параллельному импорту авто в Россию в 2026: легальность, пошаговая схема, страны-доноры, растаможка и утильсбор, сроки, договор с импортёром и риски."
+        },
+        {
+          "title": "Купить авто по параллельному импорту: цена, риски и схема",
+          "url": "https://auto-praktis.vercel.app/articles/m/ma/mashina-po-parallelnomu-importu-kupit.html",
+          "snippet": "Разбираем, как проверить VIN, ЭПТС, таможенные документы, договор, гарантию и продавца перед покупкой автомобиля по параллельному импорту в 2026 году."
+        },
+        {
+          "title": "Инвойс за машину: как оплатить авто по параллельному импорту в 2026 ...",
+          "url": "https://vc.ru/money/3011759-invoice-za-mashinu-kak-oplatit-avto-po-parallelnomu-importu",
+          "snippet": "Как купить машину по параллельному импорту в 2026 году. Полный разбор схемы, таможенных платежей, рисков и пошаговая инструкция для buyers."
+        }
+      ],
+      "searched_at": "2026-09-30"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://carto-auto.ru/blog/parallelnyi-import-avto-2026-polnyy-gid/",
+      "title": "Параллельный импорт авто 2026 — полный гайд: как купить, растаможи ...",
+      "from_query": "параллельный импорт авто 2026"
+    },
+    {
+      "url": "https://encarrus.ru/news/parallelnyy-import-avtomobiley-2026/",
+      "title": "Параллельный импорт автомобилей 2026 — легально ли это",
+      "from_query": "параллельный импорт авто 2026"
+    },
+    {
+      "url": "https://pricepclub.ru/avtosalony-avtodilery/parallelnyy-import-avtomobiley",
+      "title": "Параллельный импорт автомобилей в 2026 году: растаможка, риски, схемы ...",
+      "from_query": "параллельный импорт авто 2026"
+    },
+    {
+      "url": "https://avadge.com/blog/articles/parallelnyi-import-avto-2026-zakon-utilsbor-riski/",
+      "title": "Параллельный импорт в России 2026: закон, утильсбор и риски",
+      "from_query": "параллельный импорт авто 2026"
+    },
+    {
+      "url": "https://verticalauto.ru/articles/parallelnyi-import-avto-v-2026-godu-cto-izmenilos-i-skolko-stoit",
+      "title": "Как ввезти авто по параллельному импорту в 2026. Расчёты и риски",
+      "from_query": "параллельный импорт авто 2026"
+    },
+    {
+      "url": "https://journal.carso.ru/posts/parallelnyy-import-avto-2025-2026-vygoda-riski-utilsbor-i-tamozhnya",
+      "title": "Параллельный импорт авто 2025-2026: выгода, риски, утильсбор и таможня",
+      "from_query": "параллельный импорт авто 2026"
+    },
+    {
+      "url": "https://www.fontanka.ru/2026/09/14/76637439/",
+      "title": "Параллельный импорт автомобилей в Россию вырос почти на 70% - 14 ...",
+      "from_query": "параллельный импорт авто сентябрь 2026"
+    },
+    {
+      "url": "https://mercora.ru/news/parallelnyy-import-novykh-avto-v-rf-2026-09-19",
+      "title": "Параллельный импорт новых авто в РФ вырос на 86% за 8 месяцев",
+      "from_query": "параллельный импорт авто сентябрь 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/blog/parallelnyj-import-avto-2026-skhemy-izmeneniya",
+      "title": "Параллельный импорт авто 2026: схемы, изменения в законодательстве, риски",
+      "from_query": "параллельный импорт авто новости 2026"
+    },
+    {
+      "url": "https://companies.rbc.ru/news/6lYwOkF8AO/parallelnyij-import-avto-v-rf-vesnoj-2026-tsifryi-trendyi-i-skryityie-riski/",
+      "title": "Параллельный импорт авто в РФ весной 2026: цифры, тренды и скрытые ...",
+      "from_query": "параллельный импорт авто новости 2026"
+    },
+    {
+      "url": "https://github.com/stanislavmareshkin/parallel-import-guide-2026",
+      "title": "Параллельный импорт в Россию 2026: полное руководство",
+      "from_query": "site:github.com параллельный импорт авто 2026"
+    },
+    {
+      "url": "https://github.com/gorbacenkovitalij6-prog/auto-import-russia",
+      "title": "GitHub - gorbacenkovitalij6-prog/auto-import-russia: Сайт для компании ...",
+      "from_query": "site:github.com параллельный импорт авто 2026"
+    },
+    {
+      "url": "https://github.com/paryashie-yasheri/stm32valeronNhui",
+      "title": "GitHub - paryashie-yasheri/stm32valeronNhui",
+      "from_query": "site:github.com параллельный импорт авто 2026"
+    },
+    {
+      "url": "https://github.com/neverhoxx/chess2/blob/main/queen-b.svg",
+      "title": "chess2/queen-b.svg at main · neverhoxx/chess2 · GitHub",
+      "from_query": "site:github.com параллельный импорт авто 2026"
+    },
+    {
+      "url": "https://github.com/yannlie/huijia",
+      "title": "GitHub - yannlie/huijia: 回家的路 · GitHub",
+      "from_query": "site:github.com параллельный импорт авто 2026"
+    },
+    {
+      "url": "https://github.com/ShadowMario/FNF-PsychEngine/blob/main/docs/img/chart.png?raw=true",
+      "title": "GitHub",
+      "from_query": "site:github.com параллельный импорт авто 2026"
+    },
+    {
+      "url": "https://faminta.com/parallelnyi-import-avtomobilei-v-2026-gody-chto-izmenilos.html",
+      "title": "Параллельный импорт автомобилей в 2026 году: что изменилось",
+      "from_query": "параллельный импорт авто official docs documentation 2026"
+    },
+    {
+      "url": "https://globamart.ru/import",
+      "title": "Параллельный импорт авто в РФ — 10 направлений 2026",
+      "from_query": "параллельный импорт авто official docs documentation 2026"
+    },
+    {
+      "url": "https://www.moonauto.ru/blog/parallelnyy-import-avto-2026-kak-rabotaet-riski/",
+      "title": "Параллельный импорт авто 2026 — схема ввоза, утильсбор, риски",
+      "from_query": "параллельный импорт авто forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://radator.ru/kak-izbezhat-riskov-i-problem-pri-pokupke-avtomobiley-po-parallelnomu-importu-v-2026-godu-prakticheskie-rekomendacii-i-otvety-na-chastye-voprosy/",
+      "title": "Как избежать рисков и проблем при покупке автомобилей по параллельному ...",
+      "from_query": "параллельный импорт авто forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/b/737857790340514885/",
+      "title": "Параллельный импорт 2026: как ввезти BMW, Toyota и Mercedes и ...",
+      "from_query": "параллельный импорт авто forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto-praktis.vercel.app/articles/k/ka/kak-kupit-avto-po-parallelnomu-importu-samostoyatelno.html",
+      "title": "Как купить авто по параллельному импорту: пошаговая инструкция 2026 ...",
+      "from_query": "купить авто по параллельному импорту 2026"
+    },
+    {
+      "url": "https://auto-praktis.vercel.app/articles/m/ma/mashina-po-parallelnomu-importu-kupit.html",
+      "title": "Купить авто по параллельному импорту: цена, риски и схема",
+      "from_query": "купить авто по параллельному импорту 2026"
+    },
+    {
+      "url": "https://dss-g.com/all-news/articles/import-avtomobilej-v-rossiyu-parallelnyj-import-avto/",
+      "title": "Параллельный импорт авто в Россию 2026 — какие машины купить и сколько ...",
+      "from_query": "купить авто по параллельному импорту 2026"
+    },
+    {
+      "url": "https://cars.avtocod.ru/blog/parallelnyi-import-avtomobilei-v-2026-godu-cto-eto-takoe-i-kakie-modeli-vygodno-pokupat-1082.html",
+      "title": "Что привезти по параллельному импорту в Россию в 2026 году",
+      "from_query": "купить авто по параллельному импорту 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/parallelnyy-import-avto-iz-kitaya-2026/",
+      "title": "Параллельный импорт авто из Китая 2026 — пошагово, цены, сроки",
+      "from_query": "параллельный импорт авто из китая 2026"
+    },
+    {
+      "url": "https://exnode.ru/community/articles/parallelnyy-import-iz-kitaya-kak-privezti-mashinu-ili-tovar-v-2026-godu-v-rf",
+      "title": "Параллельный импорт из Китая: схема поставок, оплаты и логистики в 2026",
+      "from_query": "параллельный импорт авто из китая 2026"
+    },
+    {
+      "url": "https://avto-zhurnal.ru/article/parallel-import-iz-kitaya/",
+      "title": "Параллельный импорт авто из Китая: пошаговая схема, цены и подводные ...",
+      "from_query": "параллельный импорт авто из китая 2026"
+    },
+    {
+      "url": "https://160drive.ru/parallelnyy-import-avto-2026/",
+      "title": "Параллельный импорт автомобилей 2026: как работает, риски и реальные цены",
+      "from_query": "параллельный импорт авто из китая 2026"
+    },
+    {
+      "url": "https://ivan-auto.ru/blog/parallelnyy-import-avto-2026/",
+      "title": "Параллельный импорт авто в 2026: как не нарваться на проверки ФТС",
+      "from_query": "параллельный импорт авто из китая 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/chto-proiskhodit-s-parallelnym-importom-avtomobiley-v-2026-godu_0af68630-8d8b-4f5b-84a9-2625781933e2/",
+      "title": "Что происходит с параллельным импортом автомобилей в 2026 году?",
+      "from_query": "авто ввезенные параллельным импортом 2026"
+    },
+    {
+      "url": "https://auto-praktis.vercel.app/articles/s/sp/spisok-brendov-parallelnogo-importa-polnyj.html",
+      "title": "Список брендов параллельного импорта 2026: полный перечень авто",
+      "from_query": "авто ввезенные параллельным импортом 2026"
+    },
+    {
+      "url": "https://msk-xauto.ru/blog/parallelnyy-import-avtomobiley-kak-bezopasno-kupit-v-2026",
+      "title": "Параллельный импорт авто: как безопасно купить в 2026 | Х-Авто | Х-Авто",
+      "from_query": "Как купить авто по параллельному импорту в 2026: чек-лист до оплаты 2026"
+    },
+    {
+      "url": "https://vc.ru/money/3011759-invoice-za-mashinu-kak-oplatit-avto-po-parallelnomu-importu",
+      "title": "Инвойс за машину: как оплатить авто по параллельному импорту в 2026 ...",
+      "from_query": "Как купить авто по параллельному импорту в 2026: чек-лист до оплаты 2026"
+    }
+  ]
+}

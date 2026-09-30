@@ -1,0 +1,42 @@
+{
+  "topic_id": "B05",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит без VIN — лотерея, не сделка",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс с папкой документов у кроссовера в порту Владивостока, плашка до оплаты, угол avto-sales125.ru",
+      "scene_hint": "EXACT face+glasses from reference; CHANGE outfit to smart-casual under light rain jacket (Vladivostok port mist/drizzle, cool day) — NOT reference t-shirt; NO cap NO hood; holds folder of customs/ЭПТС papers beside a fresh modern crossover; Vladivostok port cranes/ro-ro hinterground; bold Cyrillic plaque «до оплаты» with yellow highlight on «оплаты»; fake UI: car catalog card + customs checklist sticky; torn paper + scotch tape; shocked-face meme cutout; sticky note «нет VIN — стоп» (friendly, not insulting); corner brand avto-sales125.ru; 16:9 hook collage",
+      "meme_caption_ru": "Нет VIN — нет денег"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разведите параллельный импорт и \"просто привезти из Азии\"",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean 16:9 comparison table UI (NO hero face): columns «Параллельный импорт» vs «Просто привезли из Азии»; rows: режим Минпромторга, согласие бренда, таможня/утиль, что смотреть (VIN/ЭПТС); sticky note «ярлык ≠ защита»; tape corner; Cyrillic only",
+      "alt": "Таблица: параллельный импорт vs просто привезти из Азии — критерии для покупателя"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Проверьте машину до депозита: VIN, страна, сервис",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake phone/desktop screenshot UI (NO hero): VIN check card + ЭПТС status «действующий» mock on elpts-style portal; country of import field; service/warranty note; red marker arrow «до депозита»; sticky «сверь VIN»; NO Wordstat/Metrika",
+      "alt": "Мокап проверки VIN и статуса ЭПТС до депозита"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Соберите документы и этапы от заказа до выдачи",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Horizontal workflow diagram (NO hero): Задача → схема → VIN/осмотр → договор → таможня → ЭПТС действующий → выдача; numbered circles; mini checklist inset; tape + small sticky «пакет до оплаты»; readable Cyrillic UI",
+      "alt": "Схема этапов от заказа до выдачи авто по параллельному импорту"
+    }
+  }
+}

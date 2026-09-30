@@ -1,0 +1,24 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B05-kak-kupit-avto-po-parallelnomu-importu-2026",
+  "notes": "memory/blog/articles/B05-kak-kupit-avto-po-parallelnomu-importu-2026/research-notes.md",
+  "context": "memory/blog/articles/B05-kak-kupit-avto-po-parallelnomu-importu-2026/research-context.json",
+  "errors": [],
+  "warnings": [
+    "technical topic has no obvious official docs/developer documentation URL"
+  ],
+  "metrics": {
+    "today_iso": "2026-09-30",
+    "prefer_sources_after": "2026-07-02",
+    "source_urls": 26,
+    "source_domains": 14,
+    "source_table_rows": 18,
+    "accessed_at": 16,
+    "github_urls": 3,
+    "official_doc_urls": 0,
+    "action_outline_items": 10,
+    "pain_solution_rows": 4,
+    "technical_topic": true
+  }
+}

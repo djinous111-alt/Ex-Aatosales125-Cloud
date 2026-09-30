@@ -4,6 +4,7 @@
   "article_dir": "memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon",
   "errors": [],
   "warnings": [
+    "paragraph rhythm too uniform: variance/avg=0.34",
     "multiple exactly-5-step lists detected; vary list size when editorially possible"
   ],
   "metrics": {
@@ -12,7 +13,7 @@
     "textbook_h2_count": 0,
     "paragraph_count": 28,
     "paragraph_avg_words": 32.4,
-    "paragraph_variance_ratio": 0.36,
+    "paragraph_variance_ratio": 0.34,
     "concrete_markers": [
       "например",
       "на практике",

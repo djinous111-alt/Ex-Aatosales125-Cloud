@@ -1,26 +1,26 @@
-# Article QA — B02
+# Article QA — B02 (FIX cycle 1 rerun)
 
 **topic_id:** B02  
 **slug:** dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon  
 **article_dir:** memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon  
 **date:** 2026-10-01  
-**verdict:** FAIL  
-**score:** 74  
-**fix_cycle:** 1 (return to writer)
+**verdict:** PASS  
+**score:** 88  
+**fix_cycle:** 1 rerun (after writer FIX)
 
 ## Scripts
 
 | Script | Verdict | Notes |
 |--------|---------|-------|
-| research-notes-gate | PASS | warnings: technical topic without official docs URL |
+| research-notes-gate | PASS | warning: technical topic without official docs URL |
 | utility gate (topic B02) | PASS | comparison / mode B |
-| utility gate (article) | **BLOCK** | action_markers 7&lt;8; pain_markers 0&lt;2; outcome_markers 0&lt;3 |
+| utility gate (article) | PASS | action_markers 10; pain_markers 8; outcome_markers 6 |
 | fact-check | PASS | 8 stats; 3 verified / 5 unverified vs fact-bank |
-| link-verify | **fail** | 1 unique href = literal `[REDACTED]` → 404; Telegram/catalog URL отсутствуют |
+| link-verify | PASS | 2 unique external hrefs OK (catalog + Telegram); failed_count 0; `--site-base $PUBLIC_SITE_URL` |
 | html-linter | PASS | 0 errors; TOC нет |
-| slop-detector | WARNING | 0 клише; 7 over-long (склейка таблицы/схем); Flesch RU 59.7 |
-| cannibalization | PASS | 0 issues |
-| human-voice | PASS | warnings: 2× exactly-5-step lists |
+| slop-detector | WARNING | 0 клише; 7 over-long (склейка таблицы/схем); Flesch RU 59.5 |
+| cannibalization | PASS | 0 issues (`--blog-dir memory/blog/articles`) |
+| human-voice | PASS | warnings: paragraph rhythm variance/avg=0.34; 2× exactly-5-step lists |
 
 ## Pain / solution / beginner-fit
 
@@ -36,15 +36,15 @@
 
 | Блок | Балл | Комментарий |
 |------|------|-------------|
-| SEO structure | 14/20 | Primary в H1/title; H2 actionable; CTA битые (`[REDACTED]`); нет blog internal |
-| GEO / citability | 22/25 | Insight, таблица, схемы →, FAQ×6, чеклисты |
-| CORE-EEAT lite | 14/15 | 17/20 |
-| Human voice | 14/15 | gate PASS; insight стартует с ярлыка `TL;DR / Быстрый инсайт` |
-| Fact safety | 11/15 | 5 unverified чисел (18/7/60 дней, 245/130 тыс.) — есть в research-notes, нет в fact-bank |
-| Contract HTML | 6/10 | Whitelist PASS, объём 9499, FAQ×6; **все 3 href = `[REDACTED]`** |
-| **Итого** | **74/100** | |
+| SEO structure | 17/20 | Primary в H1/title; H2 actionable; CTA catalog×2 + Telegram×1 OK; нет blog internal |
+| GEO / citability | 22/25 | Insight (без ярлыка TL;DR), таблица, схемы →, FAQ×6, чеклисты |
+| CORE-EEAT lite | 14/15 | 19/20 |
+| Human voice | 15/15 | gate PASS; ярлык TL;DR убран |
+| Fact safety | 12/15 | 5 unverified чисел — есть в research-notes, нет в fact-bank |
+| Contract HTML | 10/10 | Whitelist PASS, объём 9481, FAQ×6, живые CTA, без форм |
+| **Итого** | **88/100** | |
 
-## CORE-EEAT lite: 17/20
+## CORE-EEAT lite: 19/20
 
 | ID | Result | Comment |
 |----|--------|---------|
@@ -62,7 +62,7 @@
 | R04 | ✓ | FAQ отвечает в 1-м предложении |
 | E01 | ✓ | Угол «после таможни», три рабочих пути |
 | E02 | ✓ | «Делать / Не делать» в секциях |
-| E03 | ✗ | CTA hrefs = `[REDACTED]` (не рабочие ссылки) |
+| E03 | ✓ | CTA: catalog×2 + Telegram×1 (HTTP 200) |
 | Exp01 | ✓ | Mode B, без fake first-person |
 | Exp02 | ✓ | Тон Авто-Сейлс / research voice_angle |
 | Exp03 | ✓ | Slop cliches = 0 |
@@ -70,38 +70,30 @@
 | Ept02 | ✗ | Нет 2–3 внутренних ссылок на другие посты блога |
 
 **Target:** ≥16/20 ✓ · veto (R03 / Exp01 / slop≥2): нет  
-**Gate score ≥80:** ✗ (74)
+**Gate score ≥80:** ✓ (88)
 
-## Blockers (must FIX before cover||schema)
+## FIX cycle 1 — verified on rerun
 
-1. **UTILITY ARTICLE BLOCKER** — `utility-gate-report.json` BLOCK:
-   - `action_markers=7 < 8`: в тексте «Делать/Не делать», а policy считает `сделайте` / `не делайте` / `избегайте` / `чеклист` (без дефиса) / `шаг ` и т.д. Добавить ≥1 точный маркер (например «избегайте» или «не делайте» / «чеклист»).
-   - `pain_markers=0 < 2` и `outcome_markers=0 < 3`: в `memory/brief/editorial-policy.json` **нет** списков `pain_markers_ru` / `outcome_markers_ru`, при этом скрипт всё равно требует min 2/3 → systematic BLOCK (см. incident). Writer не сможет набрать маркеры по пустому списку; нужен Fixer **или** временный workaround после появления списков в policy.
-2. **LINK VERIFY FAIL** — все три `<a href="[REDACTED]">` литералы-заглушки. Вернуть CTA из env `$CATALOG_URL` (×2) + `$TELEGRAM_URL` (×1), как в AS09. Перезапустить `excalibur_blog_link_verify.py --site-base $PUBLIC_SITE_URL`.
+1. CTA href из env CATALOG_URL×2 + TELEGRAM_URL×1 — literal `[REDACTED]` в HTML отсутствует; link-verify PASS.
+2. utility article PASS — action_markers 10 (≥8); pain 8; outcome 6 (policy lists restored).
+3. Ярлык `TL;DR / Быстрый инсайт` убран из insight.
+4. char_count 9481 (в коридоре 8500–9500).
 
-## FIX list для Writer (цикл 1)
+## Soft / non-blocking (optional)
 
-1. Заменить все `href="[REDACTED]"` на `$CATALOG_URL` (×2) + `$TELEGRAM_URL` (×1), без плейсхолдеров.
-2. Поднять `action_markers` до ≥8 точными фразами из `recommendation_markers_ru` (минимум +1: `избегайте` / `не делайте` / `чеклист` / `шаг N`).
-3. Убрать ярлык `TL;DR / Быстрый инсайт:` из начала insight-blockquote (skill: не начинать с этих шаблонов); оставить суть.
-4. После Fixer починит policy markers — перегнать utility gate; при появлении списков вписать 2+ pain и 3+ outcome маркера естественно в lead/H2/результат.
-5. (Optional) Разный размер списков (сейчас 2× ровно 5 шагов — human-voice warning).
-6. (Optional) Ept02: 2–3 internal blog links с `anchor_variants` после публикации соседних URL.
-
-## Soft / non-blocking
-
-- fact-check: дописать в fact-bank ориентиры 18–22 / 3–7 / 30–60 дней, 165–245 тыс., ~130 тыс. перегон (из research-notes).
-- slop over-long: артефакт таблицы; не критично.
-- char_count 9499 — у верхней границы; при правках не раздувать.
+- Ept02: 2–3 internal blog links с `anchor_variants` после публикации соседних URL.
+- fact-check: дописать в fact-bank ориентиры 18–22 / 3–7 / 30–60 дней, 165–245 тыс., ~130 тыс. перегон.
+- slop over-long / human-voice list-size warnings — не блокеры.
+- Vary size of two 5-item lists when editorially possible.
 
 ## Gate checklist
 
-- score ≥ 80 → **74** ✗  
-- CORE-EEAT ≥ 16/20 → **17/20** ✓  
-- link-verify pass → ✗  
+- score ≥ 80 → **88** ✓  
+- CORE-EEAT ≥ 16/20 → **19/20** ✓  
+- link-verify pass → ✓  
 - research-notes-gate PASS → ✓  
-- utility gate article PASS → ✗  
+- utility gate article PASS → ✓  
 - human-voice PASS → ✓  
 - beginner-fit PASS → ✓  
 
-**Итог:** FAIL — вернуть Writer (FIX list выше). Cover||schema **не** запускать.
+**Итог:** PASS — cover\|\|schema можно стартовать.

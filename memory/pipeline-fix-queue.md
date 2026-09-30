@@ -552,3 +552,70 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20260930-0933-indexer-llms-stale-blog-path-flag
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-indexer
+topic_id: B04
+article_dir: memory/blog/articles/B04-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026
+severity: low
+category: docs
+
+### What went wrong
+- Agent/skill contracts list `excalibur_blog_llms_generator.py` with flag `--blog-path /`, but CLI has no such argument (`--help` shows only `--blog-dir`, `--site-base`, `--out-dir`, etc.).
+- Blind copy-paste of the documented command would fail argparse.
+
+### How the agent recovered this run
+- Ran `--help`, omitted `--blog-path`, used `--blog-dir memory/blog/articles --out-dir memory/blog --site-base $PUBLIC_SITE_URL` as directed by Director.
+
+### Durable fix needed before next run
+- Remove `--blog-path /` from indexer agent/skill shell examples; align with actual CLI.
+- Optionally sync `skills/indexer-excalibur-blog/SKILL.md` and `.cursor/skills/indexer-excalibur-blog/SKILL.md` / agents.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md` (if present)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20260930-0934-indexer-llms-site-url-secret-scan
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-indexer
+topic_id: B04
+article_dir: memory/blog/articles/B04-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026
+severity: medium
+category: env
+
+### What went wrong
+- `excalibur_blog_llms_generator.py --site-base $PUBLIC_SITE_URL` writes absolute URLs into `memory/blog/llms.txt` and `llms-full.txt`.
+- Cursor pre-commit secret-scan blocks commit because `PUBLIC_SITE_URL` is a configured secret (same class as INC publish redaction).
+- Separately, `CLOUD_AGENT_INJECTED_SECRET_NAMES` still needs identifier filter before `${!name}` (INC-0905).
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to bash identifiers.
+- Replaced absolute site-base in committed llms/interlink artifacts with non-secret placeholder `https://SITE.example` (paths preserved). Publish/live deploy should regenerate with real site-base.
+
+### Durable fix needed before next run
+- Indexer skill: generate commit-safe llms with placeholder/relative site-base, or document redaction step before git add.
+- Or allowlist public production host if `PUBLIC_SITE_URL` should not be secret-scanned.
+- Keep fixing invalid names in `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

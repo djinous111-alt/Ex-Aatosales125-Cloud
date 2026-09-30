@@ -414,12 +414,14 @@ category: qa
 
 ### How the agent recovered this run
 - Did not rewrite longread; FAIL + FIX list: restore catalog×2 + Telegram×1 URLs, re-run link-verify.
+- Writer FIX cycle 1: restored CTA via Python from env `CATALOG_URL`/`TELEGRAM_URL` (2+1 hrefs); verified `b'[REDACTED]' not in article.html` and `http` count ≥3 without printing URLs to transcript.
 
 ### Durable fix needed before next run
 - Writer/GEO contracts: forbid literal `[REDACTED]` / placeholder hrefs in `article.html`; require CTA from env `CATALOG_URL` + `TELEGRAM_URL` before QA.
 - Decide whether `CATALOG_URL`/`TELEGRAM_URL` should remain secret-scanned; if yes, provide a safe write path so article markup is not rewritten to `[REDACTED]`.
 - Optional preflight in link-verify or writer check that fails fast on `href="[REDACTED]"`.
 - Clarify in pitfalls that env/log redaction must never land inside article markup.
+- Document that Read/tool transcripts may display live CTA hrefs as `[REDACTED]` even when file bytes are correct — verify with Python byte checks, never by visual copy from chat.
 
 ### Suggested files to inspect/change
 - `shared/excalibur-article-writing-contract.md`

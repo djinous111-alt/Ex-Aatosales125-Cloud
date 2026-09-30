@@ -11,7 +11,7 @@
     "жд доставка авто из владивостока",
     "перегон авто из владивостока"
   ],
-  "char_count": 9499,
+  "char_count": 9481,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -31,14 +31,17 @@
     "score": 74,
     "verdict": "FAIL",
     "date": "2026-10-01",
+    "fix_cycle": 1,
+    "fix_applied": true,
+    "utility_gate_after_fix": "PASS",
+    "awaiting_geo_qa_rerun": true,
     "html_linter": "pass",
     "slop_score": "warning",
     "cannibalization": "pass",
     "human_voice": "PASS",
-    "utility_gate": "BLOCK",
-    "link_verify": "fail",
-    "research_notes_gate": "PASS",
-    "fix_cycle": 1
+    "utility_gate": "PASS",
+    "link_verify": "pending_rerun",
+    "research_notes_gate": "PASS"
   },
   "cover_family": "brand_collage"
 }

@@ -76,7 +76,7 @@
 Ты excalibur-blog-scout.
 Прочитай agents/excalibur-blog-scout.md + skills/scout-excalibur-blog/SKILL.md + shared/editorial-utility-only.md.
 1) python scripts/excalibur_blog_scout_helper.py --suggest-next
-2) WebSearch Курсора — найди горячие тренды 2026 (ИИ, автоматизация, n8n, Cursor, Make)
+2) WebSearch Курсора — найди горячие тренды 2026 по нише Авто-Сейлс (растаможка, СВХ, утильсбор, Encar/auction sheet, постановка на учёт; не Cursor/n8n/Make)
 3) Вызови wordstat_get_top_requests в user-mcp-kv для проверки показов в месяц и LSI-ключей
 4) python scripts/excalibur_blog_scout_helper.py --check-query "<запрос>" (защита от каннибализации)
 5) Сделай карточку темы и допиши (append) её в конец memory/topics/blog-topics.md.

@@ -6,146 +6,7 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
-## INC-20260930-1740-geo-qa-utility-pain-outcome-policy-gap
-status: open
-run_date: 2026-09-30
-role: excalibur-blog-geo-qa
-topic_id: B01
-article_dir: memory/blog/articles/B01-postanovka-na-uchet-vvezennogo-avto-2026
-severity: blocker
-category: qa
-
-### What went wrong
-- `excalibur_blog_utility_gate.py` always BLOCKS articles with `pain_markers=0 < 2` and `outcome_markers=0 < 3` when `memory/brief/editorial-policy.json` has empty/missing `pain_markers_ru` and `outcome_markers_ru`.
-- Defaults `min_pain_markers=2` / `min_outcome_markers=3` still apply even though policy never defines marker lists → counting against `[]` always yields 0.
-- B01 `article.html` already contains human-voice pain/outcome wording (`боль`, `ошиб`, `результат`, `проверьте`, `соберите`, `выберите`); Writer rewrite cannot unblock the gate until policy/script is fixed.
-- GEO QA verdict FAIL; cover||schema blocked.
-
-### How the agent recovered this run
-- Documented FAIL in `article-qa.md` with root cause; did not force PASS.
-- Did not invent Writer-only FIX for empty marker lists; logged durable incident for Fixer.
-- Sanity-checked: with human-voice marker lists, B01 would clear min pain/outcome without text rewrite.
-
-### Durable fix needed before next run
-- Add `pain_markers_ru` / `outcome_markers_ru` (and optional `min_pain_markers` / `min_outcome_markers`) to `memory/brief/editorial-policy.json`, aligned with human-voice gate markers; OR skip pain/outcome checks when lists are empty.
-- Update `shared/editorial-utility-only.md` / Writer contract so markers are documented for authors.
-- Re-run utility gate on B01 after fix (expected PASS without article rewrite for this error).
-
-### Suggested files to inspect/change
-- `memory/brief/editorial-policy.json`
-- `scripts/excalibur_blog_utility_gate.py`
-- `scripts/excalibur_blog_human_voice_gate.py` (PAIN_MARKERS / OUTCOME_MARKERS as source of truth)
-- `shared/editorial-utility-only.md`
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
-
-
-## INC-20260930-1735-research-serp-public-site-url
-status: open
-run_date: 2026-09-30
-role: excalibur-blog-research
-topic_id: B01
-article_dir: memory/blog/articles/B01-postanovka-na-uchet-vvezennogo-avto-2026
-severity: medium
-category: script
-
-### What went wrong
-- `research-serp.json` from `excalibur_blog_research_start.py` contained absolute `PUBLIC_SITE_URL` permalinks; pre-commit secret scanner blocked the research commit.
-
-### How the agent recovered this run
-- Redacted site URLs to `[REDACTED]/...` in `research-serp.json` before commit.
-- Worked around pre-commit bash crash on invalid secret name `[REDACTED]` in `CLOUD_AGENT_INJECTED_SECRET_NAMES` by filtering non-alnum names for the commit session.
-
-### Durable fix needed before next run
-- Research start / SERP collector should never write `PUBLIC_SITE_URL` host into committed JSON (replace with placeholder or omit own-site URLs).
-- Cloud secret scanner env should not inject invalid bash names like `[REDACTED]` into `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
-
-### Suggested files to inspect/change
-- `scripts/excalibur_blog_research_start.py`
-- related SERP fetch helpers
-
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
-
-
-## INC-20260930-1719-director-doctor-llms-flag
-status: open
-run_date: 2026-09-30
-role: excalibur-blog-director
-topic_id: n/a
-article_dir: n/a
-severity: medium
-category: script
-
-### What went wrong
-- `python3 scripts/excalibur_blog_doctor.py` FAIL: expects llms generator flag `--blog-path`, but `scripts/excalibur_blog_llms_generator.py` only documents/accepts `--blog-dir` (and related out-dir flags).
-- Preflight on this branch reports `SUMMARY errors=1` and blocks a clean doctor green light before Scout/research.
-
-### How the agent recovered this run
-- Continued pipeline after noting the mismatch; Indexer will use `--blog-dir` as implemented by the generator CLI.
-- Logged incident for Fixer to align doctor check with actual CLI (or restore `--blog-path` alias).
-
-### Durable fix needed before next run
-- Align `scripts/excalibur_blog_doctor.py` check with `excalibur_blog_llms_generator.py` argparse (`--blog-dir` / aliases), and update Indexer skill docs if they still say `--blog-path`.
-
-### Suggested files to inspect/change
-- `scripts/excalibur_blog_doctor.py`
-- `scripts/excalibur_blog_llms_generator.py`
-- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
-
-
-## INC-20260930-1725-scout-niche-drift-avto-sales
-status: open
-run_date: 2026-09-30
-role: excalibur-blog-scout
-topic_id: B01
-article_dir: n/a
-severity: high
-category: prompt
-
-### What went wrong
-- `.cursor/agents/excalibur-blog-scout.md` и `.cursor/skills/scout-excalibur-blog/SKILL.md` всё ещё описывают нишу Cursor/AI/n8n/Make/автопостинг и audience "новички в автоматизации".
-- `shared/editorial-utility-only.md` тоже держит примеры про Cursor AI и автопостинг, хотя `memory/brief/site-brief.md` канонически задаёт Авто-Сейлс: авто под заказ из Японии/Кореи/Китая, растаможка, СВХ, утильсбор.
-- Без override Директора Scout рискует генерировать P0-темы вне ниши сайта и ломать контент-стратегию.
-
-### How the agent recovered this run
-- Проигнорировал AI-примеры в scout agent/skill; следовал `memory/brief/site-brief.md` и avoid-list live WP.
-- Собрал B01 utility-only карточку про постановку на учёт ввезённого авто (Wordstat parent+narrow OK, check-query clean).
-
-### Durable fix needed before next run
-- Переписать scout agent + skill под нишу Авто-Сейлс (кластеры site-brief, запрет Cursor/n8n/Make/ИИ-агентов).
-- Обновить audience-first и WebSearch примеры в scout skill на растаможку/документы/логистику/проверку авто Азии.
-- В `shared/editorial-utility-only.md` заменить AI-примеры на auto-import utility примеры, сохранив utility-only gates.
-
-### Suggested files to inspect/change
-- `.cursor/agents/excalibur-blog-scout.md`
-- `agents/excalibur-blog-scout.md`
-- `.cursor/skills/scout-excalibur-blog/SKILL.md`
-- `skills/scout-excalibur-blog/SKILL.md`
-- `shared/editorial-utility-only.md`
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
-
+_No open incidents._
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -393,6 +254,198 @@ checks_run:
 commit: pending-parent-commit
 
 ## Fixed incidents
+
+## INC-20260930-1740-geo-qa-utility-pain-outcome-policy-gap
+status: fixed
+run_date: 2026-09-30
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-postanovka-na-uchet-vvezennogo-avto-2026
+severity: blocker
+category: qa
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always BLOCKS articles with `pain_markers=0 < 2` and `outcome_markers=0 < 3` when `memory/brief/editorial-policy.json` has empty/missing `pain_markers_ru` and `outcome_markers_ru`.
+- Defaults `min_pain_markers=2` / `min_outcome_markers=3` still apply even though policy never defines marker lists → counting against `[]` always yields 0.
+- B01 `article.html` already contains human-voice pain/outcome wording (`боль`, `ошиб`, `результат`, `проверьте`, `соберите`, `выберите`); Writer rewrite cannot unblock the gate until policy/script is fixed.
+- GEO QA verdict FAIL; cover||schema blocked.
+
+### How the agent recovered this run
+- Documented FAIL in `article-qa.md` with root cause; did not force PASS.
+- Did not invent Writer-only FIX for empty marker lists; logged durable incident for Fixer.
+- Sanity-checked: with human-voice marker lists, B01 would clear min pain/outcome without text rewrite.
+
+### Durable fix needed before next run
+- Add `pain_markers_ru` / `outcome_markers_ru` (and optional `min_pain_markers` / `min_outcome_markers`) to `memory/brief/editorial-policy.json`, aligned with human-voice gate markers; OR skip pain/outcome checks when lists are empty.
+- Update `shared/editorial-utility-only.md` / Writer contract so markers are documented for authors.
+- Re-run utility gate on B01 after fix (expected PASS without article rewrite for this error).
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py` (PAIN_MARKERS / OUTCOME_MARKERS as source of truth)
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Added pain_markers_ru / outcome_markers_ru (aligned with human-voice gate) and min_pain_markers / min_outcome_markers to editorial-policy.json.
+- Documented markers in editorial-utility-only.md and pitfalls.
+- B01 utility gate PASS without article.html rewrite.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -c` JSON parse editorial-policy.json
+- `python3 scripts/excalibur_blog_utility_gate.py --article-dir memory/blog/articles/B01-postanovka-na-uchet-vvezennogo-avto-2026` → PASS
+commit: pending
+
+## INC-20260930-1735-research-serp-public-site-url
+status: fixed
+run_date: 2026-09-30
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-postanovka-na-uchet-vvezennogo-avto-2026
+severity: medium
+category: script
+
+### What went wrong
+- `research-serp.json` from `excalibur_blog_research_start.py` contained absolute `PUBLIC_SITE_URL` permalinks; pre-commit secret scanner blocked the research commit.
+
+### How the agent recovered this run
+- Redacted site URLs to `[REDACTED]/...` in `research-serp.json` before commit.
+- Worked around pre-commit bash crash on invalid secret name `[REDACTED]` in `CLOUD_AGENT_INJECTED_SECRET_NAMES` by filtering non-alnum names for the commit session.
+
+### Durable fix needed before next run
+- Research start / SERP collector should never write `PUBLIC_SITE_URL` host into committed JSON (replace with placeholder or omit own-site URLs).
+- Cloud secret scanner env should not inject invalid bash names like `[REDACTED]` into `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_start.py`
+- related SERP fetch helpers
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- research_start.py now redacts PUBLIC_SITE_URL / WP_* hosts and brand fallback hosts in research-serp.json before write.
+- Cloud secret-scanner invalid bash name `[REDACTED]` remains a platform env issue outside this repo (workaround: filter non-alnum names for commit session).
+files_changed:
+- `scripts/excalibur_blog_research_start.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_research_start.py`
+- PYTHONPATH unit check for redact_own_site_url / sanitize_serp_payload
+commit: pending
+
+## INC-20260930-1719-director-doctor-llms-flag
+status: fixed
+run_date: 2026-09-30
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `python3 scripts/excalibur_blog_doctor.py` FAIL: expects llms generator flag `--blog-path`, but `scripts/excalibur_blog_llms_generator.py` only documents/accepts `--blog-dir` (and related out-dir flags).
+- Preflight on this branch reports `SUMMARY errors=1` and blocks a clean doctor green light before Scout/research.
+
+### How the agent recovered this run
+- Continued pipeline after noting the mismatch; Indexer will use `--blog-dir` as implemented by the generator CLI.
+- Logged incident for Fixer to align doctor check with actual CLI (or restore `--blog-path` alias).
+
+### Durable fix needed before next run
+- Align `scripts/excalibur_blog_doctor.py` check with `excalibur_blog_llms_generator.py` argparse (`--blog-dir` / aliases), and update Indexer skill docs if they still say `--blog-path`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Doctor now checks llms generator for `--blog-dir` (actual argparse).
+- Removed stale `--blog-path` from Indexer agent/skill docs.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 warnings=0
+- `rg` no `--blog-path` left in indexer docs
+commit: pending
+
+## INC-20260930-1725-scout-niche-drift-avto-sales
+status: fixed
+run_date: 2026-09-30
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: high
+category: prompt
+
+### What went wrong
+- `.cursor/agents/excalibur-blog-scout.md` и `.cursor/skills/scout-excalibur-blog/SKILL.md` всё ещё описывают нишу Cursor/AI/n8n/Make/автопостинг и audience "новички в автоматизации".
+- `shared/editorial-utility-only.md` тоже держит примеры про Cursor AI и автопостинг, хотя `memory/brief/site-brief.md` канонически задаёт Авто-Сейлс: авто под заказ из Японии/Кореи/Китая, растаможка, СВХ, утильсбор.
+- Без override Директора Scout рискует генерировать P0-темы вне ниши сайта и ломать контент-стратегию.
+
+### How the agent recovered this run
+- Проигнорировал AI-примеры в scout agent/skill; следовал `memory/brief/site-brief.md` и avoid-list live WP.
+- Собрал B01 utility-only карточку про постановку на учёт ввезённого авто (Wordstat parent+narrow OK, check-query clean).
+
+### Durable fix needed before next run
+- Переписать scout agent + skill под нишу Авто-Сейлс (кластеры site-brief, запрет Cursor/n8n/Make/ИИ-агентов).
+- Обновить audience-first и WebSearch примеры в scout skill на растаможку/документы/логистику/проверку авто Азии.
+- В `shared/editorial-utility-only.md` заменить AI-примеры на auto-import utility примеры, сохранив utility-only gates.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-scout.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Rewrote scout agent + skill under AVTO SALES niche from site-brief; forbid Cursor/AI/n8n/Make topics.
+- Updated editorial-utility-only.md and pipeline-task-map scout prompt examples.
+files_changed:
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `shared/pipeline-task-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` scout docs mention Авто-Сейлс / site-brief and forbid Cursor/n8n niche
+commit: pending
+
 
 ## INC-20260930-1730-research-tech-marker-false-positive
 status: fixed

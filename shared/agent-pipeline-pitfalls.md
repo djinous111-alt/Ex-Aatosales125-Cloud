@@ -44,7 +44,17 @@
 ## Scout
 
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- Ниша Scout = `memory/brief/site-brief.md` (Авто-Сейлс). Темы Cursor/AI/n8n/Make/автопостинг — drift и blocker стратегии.
+
+## Utility / GEO QA
+
+- `excalibur_blog_utility_gate.py` считает `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json`. Пустые списки → всегда 0 маркеров → BLOCK даже при живом тексте. Держи списки синхронно с `PAIN_MARKERS` / `OUTCOME_MARKERS` в human-voice gate.
+
+## Research / SERP
+
+- `research_start.py` обязан redact'ить own-site URL (`PUBLIC_SITE_URL` host и fallback brand host) в `research-serp.json` до записи — иначе secret-scanner блокирует commit.
 
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator CLI: `--blog-dir` (не `--blog-path`). Doctor и Indexer skill должны совпадать с argparse.

@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 import time
@@ -20,6 +21,76 @@ from typing import Any
 from zoneinfo import ZoneInfo
 
 from excalibur_repo_paths import repo_relative
+
+
+OWN_SITE_HOST_FALLBACKS = (
+    "avto-sales125.ru",
+    "www.avto-sales125.ru",
+)
+
+
+def own_site_hosts() -> set[str]:
+    """Hosts that must never land in committed research-serp.json."""
+    hosts: set[str] = set(OWN_SITE_HOST_FALLBACKS)
+    for key in ("PUBLIC_SITE_URL", "WP_HOME", "WP_SITE_URL"):
+        raw = (os.environ.get(key) or "").strip()
+        if not raw or raw in {"[REDACTED]", "REDACTED"}:
+            continue
+        if "://" not in raw:
+            raw = "https://" + raw
+        try:
+            host = (urllib.parse.urlparse(raw).hostname or "").lower()
+        except Exception:
+            host = ""
+        if host:
+            hosts.add(host)
+            if host.startswith("www."):
+                hosts.add(host[4:])
+            else:
+                hosts.add("www." + host)
+    return hosts
+
+
+def redact_own_site_url(url: str, hosts: set[str] | None = None) -> str:
+    """Replace own-site absolute URLs with a non-secret placeholder."""
+    if not url:
+        return url
+    hosts = hosts if hosts is not None else own_site_hosts()
+    try:
+        parsed = urllib.parse.urlparse(url)
+    except Exception:
+        return url
+    host = (parsed.hostname or "").lower()
+    if host and host in hosts:
+        path = parsed.path or "/"
+        if parsed.query:
+            path = f"{path}?{parsed.query}"
+        return f"[REDACTED]{path}"
+    return url
+
+
+def sanitize_serp_payload(payload: dict[str, Any]) -> dict[str, Any]:
+    """Strip PUBLIC_SITE_URL / own-site hosts from SERP JSON before write."""
+    hosts = own_site_hosts()
+    searches: list[dict[str, Any]] = []
+    for run in payload.get("searches") or []:
+        cleaned_results = []
+        for row in run.get("results") or []:
+            item = dict(row)
+            item["url"] = redact_own_site_url(str(item.get("url") or ""), hosts)
+            cleaned_results.append(item)
+        cleaned_run = dict(run)
+        cleaned_run["results"] = cleaned_results
+        searches.append(cleaned_run)
+    unique: list[dict[str, str]] = []
+    for row in payload.get("unique_urls") or []:
+        item = dict(row)
+        item["url"] = redact_own_site_url(str(item.get("url") or ""), hosts)
+        unique.append(item)
+    out = dict(payload)
+    out["searches"] = searches
+    out["unique_urls"] = unique
+    return out
 
 USER_AGENT = "ExcaliburBlogResearch/1.0 (+research-start)"
 DDG_HTML = "https://html.duckduckgo.com/html/"
@@ -361,14 +432,16 @@ def run_research_start(
         "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md",
     }
 
-    payload_serp = {
-        "agent": "excalibur-blog",
-        "date_context": ctx,
-        "topic": topic,
-        "searches": serp_runs,
-        "errors": errors,
-        "unique_urls": _unique_urls(serp_runs),
-    }
+    payload_serp = sanitize_serp_payload(
+        {
+            "agent": "excalibur-blog",
+            "date_context": ctx,
+            "topic": topic,
+            "searches": serp_runs,
+            "errors": errors,
+            "unique_urls": _unique_urls(serp_runs),
+        }
+    )
 
     context_path = out_dir / "research-context.json"
     serp_path = out_dir / "research-serp.json"

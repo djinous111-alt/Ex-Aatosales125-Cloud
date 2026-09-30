@@ -254,3 +254,40 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261001-2112-scout-wordstat-empty-object
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-scout
+topic_id: B02
+article_dir: n/a
+severity: low
+category: api
+
+### What went wrong
+- MCP-KV `wordstat_get_top_requests` for narrow how-to phrase `как выбрать доставку авто из владивостока` returned unexpected empty object `{}` (client message: unexpected response format), not a normal top-phrases list and not a documented totalCount-only low-result.
+- A second narrow comparison phrase `жд или автовоз доставка авто` returned totalCount-only (`6`) without top phrases; treated as low-result per scout contract, not fatal.
+
+### How the agent recovered this run
+- Kept parent cluster `доставка авто из владивостока` (4324) as primary demand signal.
+- Pulled semantic tail / FAQ / secondary queries from working narrow siblings: `автовоз из владивостока` (5925), `жд доставка авто из владивостока` (327), `перегон авто из владивостока` (7136).
+- Cannibalization check PASSED before append; `utility_gate --topic-id B02` PASS.
+- Forced next free ID **B02** (not helper B01) because B01 already published as `postanovka-na-uchet-vvezennogo-avto-2026`.
+
+### Durable fix needed before next run
+- Document in scout skill that empty `{}` from Wordstat is a recoverable low-result/API quirk: fall back to parent + sibling phrases; do not abort scout.
+- Optionally harden MCP client / scout helper to map `{}` to `totalCount=0` low-result instead of hard error text.
+- Teach `excalibur_blog_scout_helper.py --suggest-next` to skip IDs already used on live WP / automation memory when local `memory/blog/articles/Bxx-*` is missing (ledger reset gap).
+
+### Suggested files to inspect/change
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

@@ -1,0 +1,42 @@
+{
+  "topic_id": "B02",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Три цены на одну Москву — и ни одной честной даты сдачи?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у автовоза и ж/д сетки во Владивостоке, кроссовер на платформе, плашка жд / автовоз / перегон",
+      "scene_hint": "Vladivostok rail/yard logistics morning: cool coastal fog + light drizzle, open car-carrier trailer and railway car grid/cage nearby; modern Korean/Japanese crossover secured on the autotransporter deck; blog host EXACT face+glasses from reference wearing waterproof navy windbreaker over dark layer (rain/fog port outfit per outfit_rule; no cap/hood); action selfie foreground pointing at three-way choice plaque «жд / автовоз / перегон» with yellow marker highlight on «автовоз»; fake UI scraps taped on: catalog delivery card stub + customs/ЭПТС checklist sticky + 2GIS-style 5★ carrier review scrap; torn paper + clear scotch tape; shocked-face meme sticker + handwritten arrow «срок от сдачи»; corner brand avto-sales125.ru; DIY zine collage 16:9; no Wordstat/Metrika/SEO dashboards; stickers friendly non-toxic only",
+      "meme_caption_ru": "Срок от сдачи, не от звонка"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Сравните три способа после растаможки",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI mockup: columns Автовоз | Ж/д сетка/контейнер | Перегон; rows Срок до Москвы, Защита кузова, Пробег, Сезон; small tape corner + sticky «не только цена»; NO hero face; readable Cyrillic cells",
+      "alt": "Таблица сравнения автовоза, ж/д и перегона после растаможки во Владивостоке"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Выберите автовоз, если нужен баланс срока и защиты",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Horizontal workflow diagram RU: КП и договор → сдача на площадку → фото кузова → погрузка на автовоз → выгрузка в городе; icons of car-carrier; sticky note «18–22 дня от сдачи»; subtle tape; NO hero face",
+      "alt": "Схема шагов автовоза: договор, сдача, фото, погрузка, выгрузка"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Разберите ж/д: сетка или контейнер",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board UI: сетка vs контейнер — cheaper open grid vs closed container for paint; ticks for ЛКП защита, очередь на станции, горизонт 16–40 дней; mini rail-cage sketch inset; pink sticky «контейнер бережнее»; NO hero face",
+      "alt": "Чеклист выбора ж/д: открытая сетка или закрытый контейнер"
+    }
+  }
+}

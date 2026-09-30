@@ -1,0 +1,24 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon",
+  "notes": "memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon/research-notes.md",
+  "context": "memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon/research-context.json",
+  "errors": [],
+  "warnings": [
+    "technical topic has no obvious official docs/developer documentation URL"
+  ],
+  "metrics": {
+    "today_iso": "2026-10-01",
+    "prefer_sources_after": "2026-07-03",
+    "source_urls": 37,
+    "source_domains": 20,
+    "source_table_rows": 35,
+    "accessed_at": 5,
+    "github_urls": 3,
+    "official_doc_urls": 0,
+    "action_outline_items": 8,
+    "pain_solution_rows": 3,
+    "technical_topic": true
+  }
+}

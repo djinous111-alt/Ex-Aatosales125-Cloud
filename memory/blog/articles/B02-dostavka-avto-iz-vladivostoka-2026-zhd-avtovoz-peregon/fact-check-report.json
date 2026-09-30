@@ -1,0 +1,66 @@
+{
+  "article": "memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 8,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 5,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "тику трассы много, но рабочий выбор большинства в 2026 – автовоз или закрытый ж/д-контейнер. Перегон ост",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "40 дней",
+      "kind": "metric_or_duration",
+      "context": "ревозчикам – и слышите три цены и сроки \"от 16 до 40 дней\", почти соглашаетесь на самый дешёвый перегон зим",
+      "verified": true,
+      "reason": "Numerical value '40' matched in fact-bank context"
+    },
+    {
+      "fact": "14 дней",
+      "kind": "metric_or_duration",
+      "context": "тайте от сдачи на площадку, а не от фразы \"в пути 14 дней\". Перед погрузкой – договор, акт и свои фото кузо",
+      "verified": true,
+      "reason": "Numerical value '14' matched in fact-bank context"
+    },
+    {
+      "fact": "7 дней",
+      "kind": "metric_or_duration",
+      "context": "сто 18–22 дня в пути; экспресс от ~14; +очередь 3–7 дней в сезон общий горизонт часто 16–40 / 20–40 дней с",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "18 дней",
+      "kind": "metric_or_duration",
+      "context": "не редкость. Типичная ошибка – услышать \"стандарт 18 дней\" и ждать ключи ровно через 18 суток с даты звонка",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "60 дней",
+      "kind": "metric_or_duration",
+      "context": "т-Петербург и Краснодар в витринах встречаются 30–60 дней – цифры плавают, поэтому в КП просите дату сдачи",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "245",
+      "kind": "large_number",
+      "context": "тиры до Москвы по классу кузова часто порядка 165–245 тыс. ₽ – рыночная вилка, не гарантия; сумму уточня",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "130",
+      "kind": "large_number",
+      "context": "квы. Открытые разборы бюджета часто выходят около 130 тыс. ₽ и выше – уже без романтики роликов. Когда п",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

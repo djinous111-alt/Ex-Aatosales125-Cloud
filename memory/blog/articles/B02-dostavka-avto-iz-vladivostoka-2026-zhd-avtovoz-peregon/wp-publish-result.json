@@ -1,0 +1,17 @@
+{
+  "slug": "dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon",
+  "topic_id": "B02",
+  "permalink": "https://avtosales125.ru/2026/10/01/dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon/",
+  "post_id": 3867,
+  "featured_image": 3886,
+  "inline_images": [
+    3884,
+    3888,
+    3891
+  ],
+  "schema_meta": 1,
+  "publish_method": "ssh",
+  "verdict": "pass",
+  "raw_output": "OK post=3867 slug=dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon\nOK featured_image=3886\nOK schema_meta=1\nOK inline_image_upload=3884,3888,3891\npermalink=https://avtosales125.ru/2026/10/01/dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon/\nNOTE recovered_after_http_timeout_via_live_verify",
+  "notes": "HTTP trigger timed out/504 but server completed; verified live post+meta via REST/SSH php8.3; no third republish to avoid more media dupes"
+}

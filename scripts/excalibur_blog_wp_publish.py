@@ -472,7 +472,7 @@ def trigger_bootstrap_http(url: str, root: Path) -> str:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=300,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
@@ -483,14 +483,14 @@ def trigger_bootstrap_http(url: str, root: Path) -> str:
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        for _ in range(180):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError("Cloud WebFetch Fallback timed out after 180 seconds. Please trigger manually.")
 
 
 def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:

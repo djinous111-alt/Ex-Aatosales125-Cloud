@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260930-1346-indexer-llms-stale-blog-path-flag
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-indexer
+topic_id: B05
+article_dir: memory/blog/articles/B05-kak-kupit-avto-po-parallelnomu-importu-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer agent/skill shell examples still pass `--blog-path /` to `excalibur_blog_llms_generator.py`.
+- Actual CLI only accepts `--blog-dir` / `--out-dir` (no `--blog-path`); following the agent contract literally would fail argparse.
+- Related doctor false-negative already tracked as INC-20260930-1315-director-doctor-blog-path; indexer docs were not listed there.
+
+### How the agent recovered this run
+- Ran llms generator with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
+- Generated `memory/blog/llms.txt` and `memory/blog/llms-full.txt` successfully (3 articles).
+
+### Durable fix needed before next run
+- Remove `--blog-path` from Indexer agent + skill shell examples; document only `--blog-dir` / `--out-dir`.
+- Keep doctor check aligned with the same flags (see INC-20260930-1315).
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260930-1343-cover-outfit-lock-hoodie-vs-weather
 status: open
 run_date: 2026-09-30

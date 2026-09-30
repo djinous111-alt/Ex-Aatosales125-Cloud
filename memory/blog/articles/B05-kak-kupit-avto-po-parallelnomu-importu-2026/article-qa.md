@@ -4,8 +4,9 @@
 **slug:** kak-kupit-avto-po-parallelnomu-importu-2026  
 **article_dir:** memory/blog/articles/B05-kak-kupit-avto-po-parallelnomu-importu-2026  
 **date:** 2026-09-30  
-**verdict:** FIX  
-**score:** 86
+**verdict:** PASS  
+**score:** 86  
+**qa_cycle:** retry after Writer FIX (portal.elpts.ru → elpts.ru)
 
 ## Scripts
 
@@ -13,10 +14,10 @@
 |--------|---------|-------|
 | research-notes-gate | PASS | warnings: technical topic без official docs URL |
 | fact-check | PASS | 4 stats; verified 1 (2026); unverified: 8 недель, №506, №4769 — есть в research-notes |
-| link-verify | FAIL | 1/3 fail: `https://portal.elpts.ru/` → DNS NXDOMAIN (`No address associated with hostname`); `elpts.ru` / `www.elpts.ru` → 200 |
+| link-verify | PASS | 3/3 OK: `elpts.ru` 200, `avto-sales125.ru` 200, Telegram CTA 200 |
 | html-linter | PASS | 0 errors; TOC в теле нет |
-| slop-detector | WARNING | 0 клише; 6 over-long (таблица/схемы); Flesch RU 57.2 |
-| cannibalization | PASS | 0 issues |
+| slop-detector | WARNING | 0 клише; 6 over-long (таблица/схемы); Flesch RU 56.8 |
+| cannibalization | PASS | 0 issues (`--blog-dir memory/blog/articles`) |
 | utility gate | PASS | action_markers 23; pain 4; outcome 4; FAQ×6; table×1 |
 | human-voice gate | PASS | warn: multiple exactly-5-step lists |
 
@@ -38,7 +39,7 @@
 | CORE-EEAT lite | 14/15 | 19/20 |
 | Human voice | 15/15 | 0 AI-slop; human-voice PASS |
 | Fact safety | 12/15 | №506 / 4769 / 2–8 недель — в research, не в fact-bank |
-| Contract HTML | 10/10 | Whitelist PASS, ~9406 знаков, FAQ, CTA≤3 |
+| Contract HTML | 10/10 | Whitelist PASS, ~9392 знаков, FAQ, CTA≤3; elpts.ru OK |
 | **Итого** | **86/100** | |
 
 ## CORE-EEAT lite: 19/20
@@ -70,38 +71,39 @@
 
 ## Link verify
 
-- total: 3, failed: 1
-- fail: `https://portal.elpts.ru/` — hostname не резолвится
-- ok: каталог avto-sales125.ru; Telegram CTA
+- total: 3, failed: 0, verdict: **pass**
+- ok: `https://elpts.ru/` (200); каталог avto-sales125.ru (200); Telegram CTA (200)
+- Writer FIX cycle 1: `portal.elpts.ru` удалён из article.html
 - see link-verify.json
 
 ## AI-slop scan
 
 - cliches: 0
 - over-long: 6 (артефакт таблицы/схем)
-- Flesch RU: 57.2
+- Flesch RU: 56.8
 
 ## Schema ready
 
-BlogPosting: yes | FAQPage: yes (6) | HowTo: yes (чеклисты) | Review: no | cover/schema: blocked until QA PASS
+BlogPosting: yes | FAQPage: yes (6) | HowTo: yes (чеклисты) | Review: no | cover/schema: **разрешены директору** после этого PASS
 
 ## Blockers
 
-1. **link-verify FAIL:** заменить `https://portal.elpts.ru/` на рабочий URL официального СЭП (`https://elpts.ru/` резолвится и отдаёт 200 в этом окружении). Обновить анкор/упоминание в тексте и в блоке «Источники сверки». Не править из GEO QA — вернуть Writer (FIX cycle 1).
+Нет.
 
-## FIX cycle (QA)
+## FIX cycle (закрыт)
 
-1. Writer: починить битую ссылку ЭПТС/СЭП (и текст-источник), затем повтор link-verify.
-2. Optional non-blocking: Ept02 internal blog links; fact-bank для №506/4769; vary exactly-5-step lists.
+1. Writer FIX cycle 1: `https://portal.elpts.ru/` → `https://elpts.ru/` (2 места) — **done**
+2. GEO QA retry: link-verify PASS — **done**
+3. Optional non-blocking: Ept02 internal blog links; fact-bank для №506/4769; vary exactly-5-step lists
 
 ## Gate
 
 - score ≥ 80 → **86** ✓  
 - CORE-EEAT ≥ 16/20 → **19/20** ✓  
-- link-verify pass → **FAIL** ✗  
+- link-verify pass → **PASS** ✓  
 - research-notes-gate PASS ✓  
 - utility gate PASS ✓  
 - human-voice PASS ✓  
 - beginner-fit PASS ✓  
 
-**Итог:** FIX — cover \|\| schema **не** запускать до повторного GEO QA PASS после правки ссылки Writer.
+**Итог:** PASS — директор может запускать cover \|\| schema.

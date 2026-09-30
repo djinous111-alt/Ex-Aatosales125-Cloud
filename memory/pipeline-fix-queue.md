@@ -60,7 +60,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_llms_generator.py`
 - dry-run llms with `--site-base https://example.invalid` → WARN + `[REDACTED]` output
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
-commit: pending
+commit: 2eea1ce
 
 ---
 
@@ -114,7 +114,7 @@ checks_run:
 - `python3 -m py_compile` cover prompt + quad manifest
 - unit assert no `white hoodie` lock; manifest hook AVTO defaults
 - JSON parse style preset
-commit: pending
+commit: f6710ed
 
 ---
 
@@ -163,7 +163,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_sanitize_commit_env.py`
 - env with `PUBLIC_SITE_URL,[REDACTED]` → drops `[REDACTED]`; `--export --empty-ok` works
-commit: pending
+commit: 5d326ec
 
 ---
 

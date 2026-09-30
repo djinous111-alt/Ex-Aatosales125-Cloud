@@ -1,0 +1,127 @@
+{
+  "gate": "human-voice",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-postanovka-na-uchet-vvezennogo-avto-2026",
+  "errors": [],
+  "warnings": [
+    "Fact Check block uses a repeated template; vary wording while preserving facts",
+    "multiple exactly-5-step lists detected; vary list size when editorially possible"
+  ],
+  "metrics": {
+    "h2_count": 7,
+    "repeated_h2_openers": [],
+    "textbook_h2_count": 0,
+    "paragraph_count": 28,
+    "paragraph_avg_words": 30.3,
+    "paragraph_variance_ratio": 0.44,
+    "concrete_markers": [
+      "например",
+      "на практике",
+      "типичная ошибка"
+    ],
+    "pain_markers": [
+      "боль",
+      "ошиб"
+    ],
+    "outcome_markers": [
+      "результат",
+      "проверьте",
+      "соберите",
+      "выберите"
+    ],
+    "ai_opening_hits": [],
+    "reader_story_overlap": [
+      "госуслугах",
+      "готов",
+      "езжай",
+      "записи",
+      "менеджер",
+      "паспорт",
+      "площадке",
+      "проверки",
+      "сказал",
+      "сошёлся",
+      "статуса",
+      "утильсбора",
+      "учёта",
+      "хабаровска",
+      "штраф",
+      "японцем"
+    ],
+    "reader_pain_overlap": [
+      "взять",
+      "гибдд",
+      "из-за",
+      "машина",
+      "обязательного",
+      "осаго",
+      "отказом",
+      "растаможена",
+      "статуса",
+      "уехать",
+      "человек"
+    ],
+    "reader_outcome_overlap": [
+      "визита",
+      "гибдд",
+      "госуслуги",
+      "из-за",
+      "номерами",
+      "пакет",
+      "повторного",
+      "таможни"
+    ],
+    "success_criteria_overlap": [
+      "владельца",
+      "возникла",
+      "госномера",
+      "данные",
+      "зарегистрировать",
+      "заявлении",
+      "когда",
+      "кузов",
+      "момента",
+      "обязанность",
+      "руках",
+      "совпадают",
+      "укладывается",
+      "учёта"
+    ],
+    "voice_angle_overlap": [
+      "авто-сейлс",
+      "закрыта",
+      "инспектор",
+      "когда",
+      "номера",
+      "отдал",
+      "таможня",
+      "финиш",
+      "эксперт"
+    ],
+    "surprising_fact_overlap": [
+      "гайды",
+      "гибдд",
+      "документы",
+      "дороги",
+      "едете",
+      "марта",
+      "машину",
+      "нужен",
+      "обязательного",
+      "осаго",
+      "пакета",
+      "полис",
+      "полиса",
+      "поставят",
+      "путают",
+      "регистрации",
+      "самой",
+      "своим",
+      "убрали",
+      "учёта",
+      "ходом"
+    ],
+    "exactly_five_lists": 3,
+    "fact_check_template_blocks": 1
+  }
+}

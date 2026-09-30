@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260930-1740-geo-qa-utility-pain-outcome-policy-gap
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-postanovka-na-uchet-vvezennogo-avto-2026
+severity: blocker
+category: qa
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always BLOCKS articles with `pain_markers=0 < 2` and `outcome_markers=0 < 3` when `memory/brief/editorial-policy.json` has empty/missing `pain_markers_ru` and `outcome_markers_ru`.
+- Defaults `min_pain_markers=2` / `min_outcome_markers=3` still apply even though policy never defines marker lists → counting against `[]` always yields 0.
+- B01 `article.html` already contains human-voice pain/outcome wording (`боль`, `ошиб`, `результат`, `проверьте`, `соберите`, `выберите`); Writer rewrite cannot unblock the gate until policy/script is fixed.
+- GEO QA verdict FAIL; cover||schema blocked.
+
+### How the agent recovered this run
+- Documented FAIL in `article-qa.md` with root cause; did not force PASS.
+- Did not invent Writer-only FIX for empty marker lists; logged durable incident for Fixer.
+- Sanity-checked: with human-voice marker lists, B01 would clear min pain/outcome without text rewrite.
+
+### Durable fix needed before next run
+- Add `pain_markers_ru` / `outcome_markers_ru` (and optional `min_pain_markers` / `min_outcome_markers`) to `memory/brief/editorial-policy.json`, aligned with human-voice gate markers; OR skip pain/outcome checks when lists are empty.
+- Update `shared/editorial-utility-only.md` / Writer contract so markers are documented for authors.
+- Re-run utility gate on B01 after fix (expected PASS without article rewrite for this error).
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py` (PAIN_MARKERS / OUTCOME_MARKERS as source of truth)
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260930-1735-research-serp-public-site-url
 status: open
 run_date: 2026-09-30

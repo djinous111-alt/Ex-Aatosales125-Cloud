@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/B01-postanovka-na-uchet-vvezennogo-avto-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "остановки на учёт авто из Японии, Кореи и Китая в 2026 после выпуска с таможни: пакет → Госуслуги → СТС и",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "статус ЭПТС и идентификатор на табличках. С 01.03.2025 ОСАГО для окна регистрации не обязательно; полис н",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 дней",
+      "kind": "metric_or_duration",
+      "context": "из-за статуса ЭПТС и не оштрафуют ли за просрочку 10 дней. Типичная история – как у Андрея из Хабаровска: м",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "1 500",
+      "kind": "large_number",
+      "context": "осрочку для граждан – ч.1 ст.19.22 КоАП, ориентир 1 500–2 000 ₽. Точную точку отсчёта берите из своих там",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2 000",
+      "kind": "large_number",
+      "context": "у для граждан – ч.1 ст.19.22 КоАП, ориентир 1 500–2 000 ₽. Точную точку отсчёта берите из своих таможенны",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4 500",
+      "kind": "large_number",
+      "context": "ное СТС – 1 500 ₽, пластиковое нового поколения – 4 500 ₽; знаки – отдельно. В коммерческих статьях цифры",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

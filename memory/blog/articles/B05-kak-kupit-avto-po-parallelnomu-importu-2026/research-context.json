@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-09-30",
+    "today_ru": "30.09.2026",
+    "year": 2026,
+    "month": 9,
+    "month_name_ru": "сентябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-02",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-09-30 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B05",
+    "priority": "P0",
+    "slug": "kak-kupit-avto-po-parallelnomu-importu-2026",
+    "h1": "Как купить авто по параллельному импорту в 2026: чек-лист до оплаты",
+    "primary_query": "параллельный импорт авто",
+    "secondary_queries": [
+      "купить авто по параллельному импорту",
+      "параллельный импорт авто из китая",
+      "параллельный импорт авто 2026",
+      "авто ввезенные параллельным импортом"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B05",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "параллельный импорт авто 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "параллельный импорт авто сентябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "параллельный импорт авто новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com параллельный импорт авто 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "параллельный импорт авто official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "параллельный импорт авто forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "купить авто по параллельному импорту 2026",
+      "purpose": "вторичный запрос: купить авто по параллельному импорту"
+    },
+    {
+      "id": "secondary_2",
+      "query": "параллельный импорт авто из китая 2026",
+      "purpose": "вторичный запрос: параллельный импорт авто из китая"
+    },
+    {
+      "id": "secondary_3",
+      "query": "параллельный импорт авто 2026 2026",
+      "purpose": "вторичный запрос: параллельный импорт авто 2026"
+    },
+    {
+      "id": "secondary_4",
+      "query": "авто ввезенные параллельным импортом 2026",
+      "purpose": "вторичный запрос: авто ввезенные параллельным импортом"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как купить авто по параллельному импорту в 2026: чек-лист до оплаты 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B05-kak-kupit-avto-po-parallelnomu-importu-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

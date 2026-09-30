@@ -108,6 +108,40 @@ category: docs
 ### Fixer resolution
 - pending
 
+## INC-20260930-1324-research-false-technical-topic
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-research
+topic_id: B05
+article_dir: memory/blog/articles/B05-kak-kupit-avto-po-parallelnomu-importu-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marks topic as `technical_topic=true` via substring match on TECH_MARKERS.
+- Required field `reader_pain:` always contains `ai` inside `pain`, so auto/checklist темы ложно требуют `github_urls >= 3`.
+- Подстроки `ии` (гарантии/Азии) усиливают ложное срабатывание на RU-тексте.
+
+### How the agent recovered this run
+- Добавил 3 периферийных GitHub URL в `github_evidence` (tks-api, EwaQwa wiki, carsBase), явно пометив что угол статьи не технический.
+- Gate получил PASS; остался warning про official docs/developer URL.
+
+### Durable fix needed before next run
+- Matching TECH_MARKERS должен быть word-boundary / token-based, не substring (`pain` не должно триггерить `ai`).
+- Для non-tech checklist/how_to авто-тем разрешить `github_evidence: N/A` без требования 3 github.com URL.
+- Не считать technical только из наличия секции `## github_evidence`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

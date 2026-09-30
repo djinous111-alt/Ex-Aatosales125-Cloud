@@ -6,6 +6,8 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None for current fixer pass (B02). Historical fixed incidents below._
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16
@@ -256,7 +258,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261001-2112-scout-wordstat-empty-object
-status: open
+status: fixed
 run_date: 2026-10-01
 role: excalibur-blog-scout
 topic_id: B02
@@ -292,10 +294,32 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-01
+fix_summary:
+- Restored `scripts/excalibur_blog_sanitize_commit_env.py` (`--export --empty-ok`) to filter `[REDACTED]` / non-identifier secret names before commit.
+- Scout agent/skill: empty `{}` / unexpected Wordstat format = recoverable low-result; use parent + siblings.
+- `scout_helper --suggest-next` skips IDs already in ledger + article dirs.
+- Pitfalls updated.
+files_changed:
+- `scripts/excalibur_blog_sanitize_commit_env.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_sanitize_commit_env.py scripts/excalibur_blog_scout_helper.py`
+- sanitize export dry-run with `[REDACTED]` + CATALOG_URL
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next`
+- `python3 scripts/excalibur_blog_doctor.py` (errors=0)
+commit: pending-parent-commit
+
 
 ## INC-20261001-2120-research-notes-gate-ai-in-pain
-status: open
+status: fixed
 run_date: 2026-10-01
 role: excalibur-blog-research
 topic_id: B02
@@ -330,10 +354,28 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-01
+fix_summary:
+- TECH_MARKERS short tokens use word-boundary matching; meta fields (`reader_pain`, …) stripped from technical scan blob.
+- `accessed_at` accepts markdown table ISO dates as well as labeled lines.
+- Research skill documents non-tech GitHub exemption + gate behavior.
+- B02 re-gate: PASS, `technical_topic=false`.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: pain/said/email not technical; MCP/API/Cursor is technical
+- unit: table accessed_at count ≥5
+- `research_notes_gate` on B02 → PASS technical=false
+commit: pending-parent-commit
+
 
 ## INC-20261001-2225-writer-precommit-redacted-secret-name
-status: open
+status: fixed
 run_date: 2026-10-01
 role: excalibur-blog-writer
 topic_id: B02
@@ -363,10 +405,26 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-01
+fix_summary:
+- Added sanitize_commit_env script; writer agent/skill require eval before commit.
+- Sanitize also drops public `CATALOG_URL`/`TELEGRAM_URL` from scanned name lists.
+files_changed:
+- `scripts/excalibur_blog_sanitize_commit_env.py`
+- `agents/excalibur-blog-writer.md`
+- `.cursor/agents/excalibur-blog-writer.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- sanitize export dry-run keeps FOO/BAR, drops `[REDACTED]` and CATALOG_URL
+commit: pending-parent-commit
+
 
 ## INC-20261001-0028-geo-qa-utility-pain-outcome-empty
-status: open
+status: fixed
 run_date: 2026-10-01
 role: excalibur-blog-geo-qa
 topic_id: B02
@@ -398,10 +456,29 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-01
+fix_summary:
+- Confirmed `pain_markers_ru` / `outcome_markers_ru` already committed in `memory/brief/editorial-policy.json` (Director restore).
+- utility_gate skips pain/outcome thresholds when lists empty (warning instead of silent zero BLOCK).
+- Documented markers in editorial-utility-only + writer skill + pitfalls.
+- B02 utility gate PASS after markers present.
+files_changed:
+- `memory/brief/editorial-policy.json` (already tracked; markers present)
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/editorial-utility-only.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- JSON parse editorial-policy (12 pain / 10 outcome markers)
+- `utility_gate --article-dir B02` → PASS
+commit: pending-parent-commit
+
 
 ## INC-20261001-0029-geo-qa-cta-href-redacted-literal
-status: open
+status: fixed
 run_date: 2026-10-01
 role: excalibur-blog-geo-qa
 topic_id: B02
@@ -436,10 +513,29 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-01
+fix_summary:
+- `link_verify` hard-fails on placeholder/`[REDACTED]` hrefs.
+- Writer contract/agent/skill forbid literal redacted CTA; require env CATALOG_URL/TELEGRAM_URL.
+- Pitfalls note transcript redaction vs file bytes.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/excalibur-article-writing-contract.md`
+- `agents/excalibur-blog-writer.md`
+- `.cursor/agents/excalibur-blog-writer.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: href=`[REDACTED]` → verdict fail kind=placeholder
+commit: pending-parent-commit
+
 
 ## INC-20260930-2143-cover-hero-upload-outfit-prompt
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-cover
 topic_id: B02
@@ -475,10 +571,28 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-01
+fix_summary:
+- hero_reference_url: retries with backoff for catbox/0x0; keep existing hosted URL on total failure.
+- cover_quad_prompt already sources outfit from scene_hint/outfit_rule (no hoodie hardcode); toxic ban stays abstract.
+- Cover skill: Kie-preferred path, outfit rules, sanitize before commit.
+- sanitize_commit_env restored for cover commits.
+files_changed:
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_sanitize_commit_env.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `py_compile` hero_reference_url + cover_quad_prompt
+- `rg` no white-hoodie / toxic tokens in prompt builder
+commit: pending-parent-commit
+
 
 ## INC-20261001-0045-indexer-llms-blog-path-doctor-drift
-status: open
+status: fixed
 run_date: 2026-10-01
 role: excalibur-blog-indexer
 topic_id: B02
@@ -512,10 +626,27 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-01
+fix_summary:
+- Doctor aligned to CLI: checks `--blog-dir` (does not restore `--blog-path`).
+- Indexer agent/skill examples drop `--blog-path`; document commit-safe `--site-base '[REDACTED]'`.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 (`llms generator supports --blog-dir`)
+- `rg` no `--blog-path` in indexer docs/doctor
+commit: pending-parent-commit
+
 
 ## INC-20261001-2158-publish-http-timeout-large-payload
-status: open
+status: fixed
 run_date: 2026-10-01
 role: excalibur-blog-publish
 topic_id: B02
@@ -550,4 +681,20 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-01
+fix_summary:
+- Named constants `HTTP_TRIGGER_TIMEOUT_SEC=300` and `WEBFETCH_FALLBACK_WAIT_SEC=180` in wp_publish.
+- Publish skill documents timeouts, early WebFetch write, no blind republish after bootstrap cleanup.
+- `paramiko` already in `.cursor/cloud-agent-install.sh`.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- PYTHONPATH=scripts import asserts timeouts ≥300/180
+- doctor errors=0
+commit: pending-parent-commit
+

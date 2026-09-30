@@ -5,27 +5,27 @@
   "verdict": "pass",
   "links": [
     {
-      "url": "[REDACTED]/2026/09/30/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/",
+      "url": "https://SITE.example/2026/09/30/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "internal_relative",
       "skipped": false,
-      "checked_url": "[REDACTED]/2026/09/30/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/"
+      "checked_url": "https://SITE.example/2026/09/30/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/"
     },
     {
-      "url": "[REDACTED]/proverka-kitayskogo-avto-po-vin-2026/",
+      "url": "https://SITE.example/proverka-kitayskogo-avto-po-vin-2026/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "internal_relative",
       "skipped": false,
-      "checked_url": "[REDACTED]/proverka-kitayskogo-avto-po-vin-2026/"
+      "checked_url": "https://SITE.example/proverka-kitayskogo-avto-po-vin-2026/"
     },
     {
-      "url": "[REDACTED]",
+      "url": "https://avto-sales125.ru",
       "status": 200,
       "ok": true,
       "method": "HEAD",
@@ -34,14 +34,14 @@
       "skipped": false
     },
     {
-      "url": "[REDACTED]/2026/09/29/sbkts-i-epts-2026-kak-oformit/",
+      "url": "https://SITE.example/2026/09/29/sbkts-i-epts-2026-kak-oformit/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "internal_relative",
       "skipped": false,
-      "checked_url": "[REDACTED]/2026/09/29/sbkts-i-epts-2026-kak-oformit/"
+      "checked_url": "https://SITE.example/2026/09/29/sbkts-i-epts-2026-kak-oformit/"
     },
     {
       "url": "[REDACTED]",

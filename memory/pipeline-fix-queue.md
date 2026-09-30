@@ -619,3 +619,40 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20260930-0945-publish-http-timeout-webfetch-window
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-publish
+topic_id: B04
+article_dir: memory/blog/articles/B04-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026
+severity: medium
+category: publish
+
+### What went wrong
+- First publish: SSH upload OK (~6.9MB bootstrap), local HTTP trigger hit TimeoutError (120s); script entered WebFetch wait, but no parallel WebFetch wrote `memory/webfetch-response.txt` within 120s → RuntimeError.
+- `paramiko` was missing from the environment and had to be installed at runtime.
+- Automation memory documents `EXCALIBUR_BLOG_PUBLISH_FORCE_SSH_CLI=yes` + php8.1, but `scripts/excalibur_blog_wp_publish.py` has no SSH CLI trigger path (env flag ignored).
+
+### How the agent recovered this run
+- Installed paramiko; set `SSH_ROOT=.`; restored Telegram CTA from env into article.html before publish.
+- Re-ran publish; second HTTP trigger succeeded (~155s) with OK post/featured/inline/schema.
+- Live HEAD 200; ledger updated to published; repo Telegram href re-redacted for secret-scan.
+
+### Durable fix needed before next run
+- Add SSH CLI fallback (`php8.1` remote exec) when HTTP times out, or auto-honor `EXCALIBUR_BLOG_PUBLISH_FORCE_SSH_CLI`.
+- Bundle `paramiko` in cloud install / environment.json.
+- Document parallel WebFetch writer during fallback wait (or lengthen wait / self-fetch).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/environment.json`
+- `.cursor/cloud-agent-install.sh` (or equivalent)
+- `skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

@@ -1,13 +1,13 @@
 # Promotion checklist — B04 kak-zakazat-avto-iz-kitaya-pod-klyuch-2026
 
 Дата публикации: 2026-09-30  
-Live URL: (после publish) /blog/kak-zakazat-avto-iz-kitaya-pod-klyuch-2026/
+Live URL: /2026/09/30/kak-zakazat-avto-iz-kitaya-pod-klyuch-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200; content markers present)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • До депозита: договор, VIN/осмотр, состав платежа, мощность (ориентир льготы — до 160 л.с.)
 • Правило 180 дней — фильтр китайского экспорта, не «запрет ФТС»
 
-Читать: /blog/kak-zakazat-avto-iz-kitaya-pod-klyuch-2026/
+Читать: /2026/09/30/kak-zakazat-avto-iz-kitaya-pod-klyuch-2026/
 ```
 
 ## Перелинковка
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir …/B04-… --site-base $PUBLIC_SITE_URL` — 0 links applied.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (3 articles, включая B04).
-- Publish: не выполнен на шаге Indexer (ожидает excalibur-blog-publish).
+- Publish: PASS post_id=3843; featured=3850; inline=3851/3852/3853; schema_meta=ok; live HEAD 200.

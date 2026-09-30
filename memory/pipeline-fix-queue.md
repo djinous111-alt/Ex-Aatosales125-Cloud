@@ -331,3 +331,34 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261001-2225-writer-precommit-redacted-secret-name
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-writer
+topic_id: B02
+article_dir: memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon
+severity: low
+category: env
+
+### What went wrong
+- Writer commit failed: pre-commit secrets scanner died on invalid secret name `[REDACTED]` inside comma-separated `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `SECRET_NAMES` (`${!SECRET_NAME}` → `invalid variable name`). Same class as INC-20261001-2112; sanitize script still missing.
+
+### How the agent recovered this run
+- Filtered non-identifier names from `CLOUD_AGENT_INJECTED_SECRET_NAMES`, `CLOUD_AGENT_ALL_SECRET_NAMES`, and `SECRET_NAMES` (comma-split, keep `^[A-Za-z_][A-Za-z0-9_]*$`), then commit/push of `article.html` + `article.meta.json` succeeded.
+
+### Durable fix needed before next run
+- Restore `scripts/excalibur_blog_sanitize_commit_env.py` (or document one-liner filter) and call it from writer/scout/research commit checklists before `git commit`.
+- Prefer fixing the redaction pipeline so secret-name lists never contain literal `[REDACTED]` placeholders.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_sanitize_commit_env.py` (missing)
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

@@ -513,3 +513,41 @@ category: docs
 
 ### Fixer resolution
 - pending
+
+## INC-20261001-2158-publish-http-timeout-large-payload
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-publish
+topic_id: B02
+article_dir: memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon
+severity: high
+category: publish
+
+### What went wrong
+- `excalibur_blog_wp_publish.py` HTTP trigger used `timeout=120` while ~6.5MB bootstrap needs ~150–250s; gateway returned TimeoutError/504.
+- Script then waited only 120s for WebFetch fallback; agent could not write `memory/webfetch-response.txt` in time.
+- `finally` deleted bootstrap → subsequent WebFetch/curl got WP 404 theme page.
+- Two retries still completed server-side publish (post 3867) but left duplicate media attachments for the same slug.
+
+### How the agent recovered this run
+- Confirmed live permalink HEAD 200 and REST post 3867 (featured 3886, inline media in content, schema meta via SSH `/usr/local/bin/php8.3` probe).
+- Wrote `wp-publish-result.json` from live verify; updated ledger/log/handoff without a third republish.
+- Patched script HTTP timeout 120→300 and fallback wait 120→180.
+- Recreated gitignored `memory/site.env.local` from Cloud Secrets with `SSH_ROOT=.`; installed `paramiko` via pip `--break-system-packages`.
+
+### Durable fix needed before next run
+- Keep HTTP timeout ≥300 for large cover+inline payloads (patched this run).
+- Ensure `paramiko` is installed in Cloud Agent install/start scripts.
+- Prefer WebFetch/curl fallback **during** first HTTP wait, or SSH `php8.3` CLI trigger instead of default `php` 5.6.
+- Optional: cleanup orphan duplicate media for this slug (ids ~3868–3892 except final 3884/3886/3888/3891).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/cloud-agent-install.sh` / environment install for `paramiko`
+- `skills/publish-excalibur-blog/SKILL.md` (fallback timing)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

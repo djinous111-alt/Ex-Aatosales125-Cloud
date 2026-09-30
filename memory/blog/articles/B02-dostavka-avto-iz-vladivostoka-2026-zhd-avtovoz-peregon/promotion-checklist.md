@@ -1,7 +1,7 @@
 # Promotion checklist — B02 dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon
 
 Дата публикации: 2026-10-01  
-Live URL: [REDACTED]/2026/10/01/dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon/
+Live URL: https://avtosales125.ru/2026/10/01/dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

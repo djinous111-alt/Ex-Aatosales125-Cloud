@@ -1,7 +1,7 @@
 # Promotion checklist — B01 postanovka-na-uchet-vvezennogo-avto-2026
 
-Дата публикации: 2026-09-30 (planned; до publish)  
-Live URL: [REDACTED]/blog/postanovka-na-uchet-vvezennogo-avto-2026/
+Дата публикации: 2026-09-30  
+Live URL: /2026/09/30/postanovka-na-uchet-vvezennogo-avto-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • С 01.03.2025 ОСАГО для окна не обязательно; полис нужен для дороги своим ходом
 • Цель: СТС и номера с первого визита в срок 10 дней
 
-Читать: [REDACTED]/blog/postanovka-na-uchet-vvezennogo-avto-2026/
+Читать: /2026/09/30/postanovka-na-uchet-vvezennogo-avto-2026/
 ```
 
 ## Перелинковка
@@ -47,5 +47,5 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir …/B01-… --site-base '[REDACTED]'` — opportunities_found=0, article.html без изменений.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` с commit-safe `--site-base '[REDACTED]'` (B01 в индексе).
-- Publish: pending (Indexer не публикует).
+- Publish: PASS — WP post **3861**; featured **3862**; inline **3863/3864/3865**; live HEAD 200.
 - Incident: memory/pipeline-fix-queue.md#INC-20260930-1804-indexer-llms-public-site-url-commit

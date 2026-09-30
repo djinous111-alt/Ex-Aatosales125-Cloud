@@ -23,9 +23,12 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 ## Твои задачи
 
 1. `python3 scripts/excalibur_blog_interlinker.py --apply --article-dir <dir> --site-base ${PUBLIC_SITE_URL}`
-2. `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base ${PUBLIC_SITE_URL} --blog-path / --out-dir memory/blog`
+2. Для commit-safe llms (рекомендуется в Cloud):
+   `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --out-dir memory/blog --commit-safe`
+   (CLI: `--blog-dir` / `--out-dir` / `--site-base`; флага `--blog-path` нет. Не коммить live `PUBLIC_SITE_URL` в llms*.txt.)
 3. `promotion-checklist.md` из template.
 4. Handoff `=== EXCALIBUR BLOG INDEXER ===`.
+5. Перед git commit: `source scripts/excalibur_blog_filter_injected_secret_names.sh`.
 
 ## Не твоя зона
 

@@ -41,8 +41,12 @@ Append new Topic Card to blog-topics.md
 
 ### Шаг 3 — Валидация спроса (Yandex Wordstat)
 Для 2-3 отобранных вариантов тем вызови инструмент `wordstat_get_top_requests` сервера `user-mcp-kv`.
+* **Cluster-first:** сначала широкий parent-кластер, затем узкий how-to.
 * **Цель:** Найти ключевой запрос (primary query) с живым спросом в Яндексе и выписать 3–5 связанных поисковых вопросов для FAQ и secondary queries.
 * **Фильтр:** Если тема имеет микро-спрос (меньше 10 показов в месяц) и нет смежных тем — отложи её и возьми другую, более востребованную.
+* **Low-result / empty `{}`:** ответ только с `totalCount` без top phrases **или** пустой объект `{}` / «unexpected response format» — recoverable quirk, не fatal. Используй parent + рабочие sibling-фразы; Scout не abort.
+* **ID:** `excalibur_blog_scout_helper.py --suggest-next` пропускает ID из ledger (`published`/`in_progress`) и локальных `memory/blog/articles/Bxx-*`.
+* **Перед commit:** `eval "$(python3 scripts/excalibur_blog_sanitize_commit_env.py --export --empty-ok)"`.
 
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:

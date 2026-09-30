@@ -63,13 +63,17 @@ python scripts/excalibur_blog_wp_publish.py \
 
 ### 4. Cloud WebFetch Fallback
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+HTTP trigger timeout = **300s** (`HTTP_TRIGGER_TIMEOUT_SEC`) — большие cover+inline bootstrap (~6MB) часто требуют 150–250s.  
+WebFetch fallback wait = **180s** (`WEBFETCH_FALLBACK_WAIT_SEC`).
+
+Если локальный HTTP-триггер bootstrap упал (timeout / 504 / WinError 10060):
 
 1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
+2. Cloud-агент **сразу** открывает URL через WebFetch/curl и пишет ответ в `memory/webfetch-response.txt` (не жди конца 300s idle).
 3. Скрипт продолжает и читает ответ из файла.
+4. `finally` удаляет bootstrap — повторный WebFetch после cleanup получит 404 theme page; не republish вслепую, сначала live verify (HEAD/REST).
 
-**Не останавливайся** на первом timeout — используй fallback.
+**Не останавливайся** на первом timeout — используй fallback. Нужен `paramiko` (ставится в `.cursor/cloud-agent-install.sh`).
 
 ### 5. Post-publish артефакты
 

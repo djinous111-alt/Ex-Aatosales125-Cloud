@@ -48,9 +48,11 @@ Scout-агент ищет горячие и свежие инфоповоды п
 4. **Валидация спроса (Yandex Wordstat):** 
    - Сначала вызвать `wordstat_get_top_requests` сервера `user-mcp-kv` для широкого parent-кластера (например, `llms.txt`, `rag система`, `чат боты для бизнеса`), затем для узкого how-to запроса.
    - Если узкий запрос возвращает только `totalCount` без списка top phrases, не считать это fatal/tool error: зафиксировать как низкодетальный low-result signal и использовать широкий кластер для semantic tail, FAQ и secondary queries.
+   - Пустой объект `{}` / «unexpected response format» на узком запросе — тот же recoverable low-result/API quirk: не abort Scout; держи parent-кластер + рабочие sibling-фразы для хвоста/FAQ.
    - Оценить объем спроса. Выбрать тему с живой частотностью (показами) и широким семантическим хвостом.
 5. **Защита от каннибализации:** Запустить скрипт `scripts/excalibur_blog_scout_helper.py --check-query "<выбранный запрос>"` чтобы убедиться, что тема не будет конфликтовать или дублировать существующие/уже начатые.
 6. **Генерация карточки темы:** Сформировать новую карточку строго по канону **utility-only** (режим B, how_to/checklist/comparison) и **дописать (append)** её в конец файла `memory/topics/blog-topics.md`. В `h1`, `h2_outline`, `faq_hints` избегай формулировок "для профи", "архитектура enterprise", "продвинутый стек"; пиши как для человека, который делает первый рабочий шаг.
+7. **Перед `git commit`:** `eval "$(python3 scripts/excalibur_blog_sanitize_commit_env.py --export --empty-ok)"` — иначе pre-commit может упасть на placeholder `[REDACTED]` в `CLOUD_AGENT_*_SECRET_NAMES`.
 
 ## Не твоя зона
 - Написание статей (`article.html`), верстка, нарезка картинок или публикация.

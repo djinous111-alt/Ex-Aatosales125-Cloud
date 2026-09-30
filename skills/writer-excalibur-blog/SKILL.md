@@ -37,10 +37,18 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## CTA и commit hygiene
+
+- CTA href бери из env `CATALOG_URL` / `TELEGRAM_URL` (или conversion-map). **Никогда** не пиши в `article.html` литерал `href="[REDACTED]"` / placeholder URL.
+- Перед commit: `eval "$(python3 scripts/excalibur_blog_sanitize_commit_env.py --export --empty-ok)"`.
+- Read/tool transcript может показывать живые CTA как `[REDACTED]` даже когда байты файла корректны — проверяй Python byte-check (`b'[REDACTED]' not in Path('article.html').read_bytes()`), не копируй URL из чата.
+- Pain/outcome маркеры для utility gate: `pain_markers_ru` / `outcome_markers_ru` в `memory/brief/editorial-policy.json` (боль, проблем, результат, получите, …).
+
 ## Blockers
 
 - нет research-notes.md
 - utility-only нарушен (вода, нет шагов)
 - объём вне диапазона после 1 правки
+- placeholder CTA href (`[REDACTED]`) в article.html
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`

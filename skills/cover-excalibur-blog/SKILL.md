@@ -57,8 +57,8 @@ inject <figure> after H2 in article.html
 ## Герой (blog-host)
 
 **Lock (reference i2i):** только лицо и очки с `blog-hero-reference.png`.  
-**Одежда (обязательно менять):** под **погоду** сцены (снег/дождь/жара/туман/ночь) и **тему** статьи (порт, таможня, Encar, салон, ямы/комфорт и т.д.). Майку с reference не копировать.  
-**Запрет:** кепка, капюшон.  
+**Одежда:** только из `cover.scene_hint` + `blog-hero.json` → `outfit_rule` (погода/тема). **Не** хардкодить толстовку/hoodie в prompt builder. Майку с reference не копировать.  
+**Запрет:** кепка, капюшон; токсичные/оскорбительные стикеры (бан **абстрактный** — не печатать запрещённые слова в prompt).  
 **Footer / угол обложки:** сайт каталога `avto-sales125.ru` (не Telegram).  
 **Стиль:** hyper-realistic action selfie + плашка (blueprint Avto-Sales).
 
@@ -90,7 +90,9 @@ inject <figure> after H2 in article.html
 ### Шаг 1 — reference URL
 
 ```bash
-python scripts/excalibur_blog_hero_reference_url.py
+python3 scripts/excalibur_blog_hero_reference_url.py
+# --force только если нужен refresh; script ретраит catbox/0x0 и при фейле
+# сохраняет существующий reference_url_hosted (не подменяй face lock не-face WP cover).
 ```
 
 Проверить `memory/cover/blog-hero.json` → `reference_url_hosted`.  
@@ -122,10 +124,11 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image job (Kie preferred)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+Предпочитай **direct Kie** API (`scripts/excalibur_blog_kie_gpt_image2_api.py` / batch `preferred_image_flow`), не sync MCP `gpt-image-2` (client timeout).  
+Если всё же MCP: `CallMcpTool` → `user-mcp-kv` / `gpt-image-2`, аргументы = `jobs[0].mcp_args` из batch.  
+**ONE** успешная генерация → split. Перед commit: `eval "$(python3 scripts/excalibur_blog_sanitize_commit_env.py --export --empty-ok)"`.
 
 Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
 

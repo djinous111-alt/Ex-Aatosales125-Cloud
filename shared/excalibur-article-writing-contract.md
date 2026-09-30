@@ -235,6 +235,8 @@ Excalibur BLOG следует этому контракту для каждой 
 2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-tracking-map.md` / `offers-map.md`.  
 Не больше **3** упоминаний основного офера/CTA на статью (включая баннер и «что дальше»).
 
+**CTA href (критично):** подставляй реальные URL из env `CATALOG_URL` / `TELEGRAM_URL` (или из conversion-map). **Запрещены** литералы `href="[REDACTED]"`, `{{URL}}`, `TODO` и любые placeholder-ссылки в `article.html`. Env/log redaction не должна попадать в разметку статьи. `excalibur_blog_link_verify.py` падает на placeholder href.
+
 ### Блок 5: Inline-баннер (опционально)
 
 **Только если** в `conversion-tracking-map.md` есть `excalibur_inline_banner: yes` и `banner_image_url` + `banner_link_url`.

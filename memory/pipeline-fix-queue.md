@@ -313,3 +313,35 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20260930-0907-scout-avtovoz-pivot-to-china
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-scout
+topic_id: B04
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- First B04 draft targeted delivery/автовоз from Vladivostok. Automation memory already flagged `avtovoz` as do-not-scout-duplicate, and MCP WordPress search surfaced a close live article about отправка авто после таможни (even though that MCP host may not be AVTO SALES).
+- `live-wp-occupied-ids.json` occupied_slugs from the run brief did not list avtovoz, so helper/check-query alone were not enough to catch the conflict.
+
+### How the agent recovered this run
+- Replaced B04 card with China under-key how-to (`kak-zakazat-avto-iz-kitaya-pod-klyuch-2026`), which fills the gap vs occupied japan/korea pod-klyuch slugs.
+- Updated live-wp notes to mention avtovoz/delivery and korea-or-china as avoid flags.
+
+### Durable fix needed before next run
+- Expand `live-wp-occupied-ids.json` (or a sibling denylist) with memory-flagged topics/slugs beyond current B01–B03 WP IDs, including delivery/avtovoz.
+- Confirm which WordPress site MCP-KV points to for AVTO SALES vs other hosts before treating search hits as cannibalization for this brand.
+
+### Suggested files to inspect/change
+- `memory/topics/live-wp-occupied-ids.json`
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

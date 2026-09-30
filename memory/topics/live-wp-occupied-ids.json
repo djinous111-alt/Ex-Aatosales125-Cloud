@@ -18,5 +18,5 @@
     "samye-komfortnye-avto-myagkaya-podveska-2026",
     "trust-encar-carhistory-proverka-do-depozita"
   ],
-  "notes": "Local ledger incomplete after AVTO SALES reset; do not scout-duplicate these live WP slugs. B04 reserved in memory/topics/blog-topics.md (dostavka-avto-iz-vladivostoka-avtovoz-zhd-konteyner-2026). Next scout ID should be B05. Helper --suggest-next may still say B01 until it reads this file."
+  "notes": "Local ledger incomplete after AVTO SALES reset; do not scout-duplicate these live WP slugs. Also avoid memory-flagged gaps already covered elsewhere: avtovoz/delivery-from-Vladivostok, korea-or-china. B04 reserved in blog-topics.md as kak-zakazat-avto-iz-kitaya-pod-klyuch-2026. Next scout ID should be B05. Helper --suggest-next may still say B01 if it ignores this file."
 }

@@ -1,7 +1,7 @@
 # Promotion checklist — B05 kak-kupit-avto-po-parallelnomu-importu-2026
 
-Дата публикации: 2026-09-30 (ожидается после publish)  
-Live URL: [REDACTED]/blog/kak-kupit-avto-po-parallelnomu-importu-2026/
+Дата публикации: 2026-09-30  
+Live URL: /2026/09/30/kak-kupit-avto-po-parallelnomu-importu-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • До оплаты: VIN + ЭПТС «действующий» + договор с итоговой ценой
 • Нет пакета — нет перевода
 
-Читать: [REDACTED]/blog/kak-kupit-avto-po-parallelnomu-importu-2026/
+Читать: /2026/09/30/kak-kupit-avto-po-parallelnomu-importu-2026/
 ```
 
 ## Перелинковка

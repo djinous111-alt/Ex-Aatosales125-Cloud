@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260930-1350-publish-paramiko-missing-install
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-publish
+topic_id: B05
+article_dir: memory/blog/articles/B05-kak-kupit-avto-po-parallelnomu-importu-2026
+severity: high
+category: env
+
+### What went wrong
+- First publish attempt failed immediately: `ModuleNotFoundError: No module named 'paramiko'`.
+- `paramiko` is listed in `requirements.txt` but `.cursor/cloud-agent-install.sh` only installed `requests pillow python-dotenv`.
+- Publish transport is SSH/SFTP via paramiko; without it publish cannot upload bootstrap PHP.
+
+### How the agent recovered this run
+- Installed `paramiko` with `pip3 install --break-system-packages paramiko`.
+- Set `SSH_ROOT=.`, restored `TELEGRAM_URL` into article.html, ran dry-run then publish.
+- Publish PASS: post 3855, featured 3856, inline 3857/3858/3859, schema_meta ok; live HEAD 200.
+- Patched `.cursor/cloud-agent-install.sh` to include `paramiko` for next Cloud boots.
+- Re-redacted Telegram href before commit.
+
+### Durable fix needed before next run
+- Keep `paramiko` in Cloud install script (done this run); verify environment.json / install path uses requirements.txt or the same package set.
+- Prefer documenting `SSH_ROOT=.` in publish env-check guidance when host login cwd is WP root.
+- Optional: implement `EXCALIBUR_BLOG_PUBLISH_FORCE_SSH_CLI` (mentioned in patterns/memories) — current script only has HTTP + WebFetch wait.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `.cursor/environment.json`
+- `scripts/excalibur_blog_wp_publish.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (partial: install.sh already patched by publish agent)
+
 ## INC-20260930-1346-indexer-llms-stale-blog-path-flag
 status: open
 run_date: 2026-09-30

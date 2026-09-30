@@ -1,0 +1,15 @@
+{
+  "slug": "kak-kupit-avto-po-parallelnomu-importu-2026",
+  "topic_id": "B05",
+  "permalink": "/2026/09/30/kak-kupit-avto-po-parallelnomu-importu-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B05-kak-kupit-avto-po-parallelnomu-importu-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1314340,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3855 slug=kak-kupit-avto-po-parallelnomu-importu-2026\nOK featured_image=3856\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3857 src=cover/inline-01.png url=/wp-content/uploads/2026/09/kak-kupit-avto-po-parallelnomu-importu-2026-inline-01.png\nOK inline_image_upload=3858 src=cover/inline-02.png url=/wp-content/uploads/2026/09/kak-kupit-avto-po-parallelnomu-importu-2026-inline-02.png\nOK inline_image_upload=3859 src=cover/inline-03.png url=/wp-content/uploads/2026/09/kak-kupit-avto-po-parallelnomu-importu-2026-inline-03.png\npermalink=/2026/09/30/kak-kupit-avto-po-parallelnomu-importu-2026/\n",
+  "verdict": "pass"
+}

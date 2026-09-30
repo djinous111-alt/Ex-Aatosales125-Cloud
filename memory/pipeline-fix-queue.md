@@ -6,6 +6,107 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260930-1315-director-doctor-blog-path
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` still checks that llms generator help contains `--blog-path`.
+- Actual CLI is `--blog-dir` / `--out-dir` (see `excalibur_blog_llms_generator.py`), so doctor reports FAIL even when the toolchain is healthy.
+
+### How the agent recovered this run
+- Continued preflight after confirming `python3 scripts/excalibur_blog_llms_generator.py --help` exposes `--blog-dir`.
+- Did not block the pipeline on this false-negative doctor check.
+
+### Durable fix needed before next run
+- Update doctor check to assert `--blog-dir` (and optionally `--out-dir` / `--commit-safe` if present), not `--blog-path`.
+- Align pitfalls/docs if any still mention `--blog-path` for llms generator.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260930-1315-director-scout-occupied-ids
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-director
+topic_id: B05
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- After rebrand, `shared/published-articles.md` only has AS08/AS09 while live WP already has many 2026 articles (B01–B04 era).
+- `excalibur_blog_scout_helper.py --suggest-next` returns B01 because it only scans B* cards in `blog-topics.md` and does not read live WP / occupied-ids.
+- Automation memory expected `memory/topics/live-wp-occupied-ids.json` + helper denylist; file was missing and helper code does not load it.
+
+### How the agent recovered this run
+- Recreated `memory/topics/live-wp-occupied-ids.json` from `EXCALIBUR_RECENT_WP_POSTS`.
+- Forced Scout to use topic_id **B05** and avoid occupied slugs/queries from that file + live WP list.
+
+### Durable fix needed before next run
+- Make `excalibur_blog_scout_helper.py` load `memory/topics/live-wp-occupied-ids.json` (and/or recent WP from today) when suggesting next ID and checking query overlap.
+- Optionally sync ledger rows for already-live posts so cron runs do not re-scout B01.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `memory/topics/live-wp-occupied-ids.json`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/published-articles.md` (sync policy)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260930-1320-scout-avtovoz-denylist-gap
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-scout
+topic_id: B05
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- First Scout draft for B05 targeted «доставка авто из Владивостока / автовоз / перегон» with strong Wordstat (автовоз 15947 / перегон 7136 / доставка 4324).
+- `live-wp-occupied-ids.json` rebuilt only from `EXCALIBUR_RECENT_WP_POSTS` and missed automation denylist extras (`avtovoz/delivery`, `korea-or-china`), so helper `--check-query` returned clean while topic was already marked do-not-duplicate in automation memory.
+- MCP `wordpress_*` for this environment points at another WP site (not AVTO SALES), so live search cannot be used as denylist source.
+
+### How the agent recovered this run
+- Pivoted B05 to utility checklist «как купить авто по параллельному импорту» (Wordstat parent 3920; cannibalization clean vs occupied fragments).
+- Extended `memory/topics/live-wp-occupied-ids.json` avoid_query_fragments with автовоз / доставка авто из владивостока / перегон / korea-china comparison phrases.
+- Forced topic_id B05 despite helper `--suggest-next` = B01.
+
+### Durable fix needed before next run
+- Scout helper must load occupied-ids + automation denylist fragments for `--suggest-next` and `--check-query`.
+- Keep `avtovoz/delivery` and korea-vs-china fragments in occupied-ids even if slugs are outside recent WP window.
+- Document that MCP WordPress namespace may not be the AVTO SALES site; denylist = today.py recent posts + occupied-ids, not MCP WP search.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `memory/topics/live-wp-occupied-ids.json`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

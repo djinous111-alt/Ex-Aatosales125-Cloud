@@ -52,7 +52,7 @@ today + research_start → research → writer → geo-qa → cover||schema → 
 Правильный путь:
 
 1. Репозиторий Cloud: **Ex-Aatosales125-Cloud** (этот проект).
-2. В Dashboard → Cloud Agents → Secrets: `FTP_*` (`FTP_ROOT=/`), `PUBLIC_SITE_URL=https://avtosales125.ru`, `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`.
+2. В Dashboard → Cloud Agents → Secrets: `FTP_*` (`FTP_ROOT=/`), `PUBLIC_SITE_URL=[REDACTED]`, `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`.
 3. Если в Environments есть старый broken snapshot — удалите или создайте Personal environment с новым именем.
 4. Запустите **обычного** Cloud Agent на ветке `main` — образ соберётся из `.cursor/Dockerfile` (не жмите «Среда установки»).
 5. Automation cron: `0 23,3,7,11 * * *` (UTC = 09/13/17/21 Владивосток) или `0 9,13,17,21 * * *` если TZ = Asia/Vladivostok.
@@ -85,6 +85,18 @@ agent worker start --pool --pool-name excalibur-blog --idle-release-timeout 600
 | `EXCALIBUR_PROJECT_ROOT` | корень репо на worker |
 
 Не коммитить: `memory/site.env.local`, реальные ключи MCP.
+
+### Commit hygiene в redacted Cloud sandbox
+
+`PUBLIC_SITE_URL` часто secret-scanned: в committed `memory/blog/*` и schema пиши `[REDACTED]`, не live host.
+
+Если pre-commit падает с `invalid variable name` потому что `CLOUD_AGENT_INJECTED_SECRET_NAMES` содержит литерал `[REDACTED]`:
+
+```bash
+eval "$(python3 scripts/excalibur_blog_sanitize_commit_env.py --export --empty-ok)"
+```
+
+Это фильтрует невалидные bash identifiers до цикла `${!SECRET_NAME}`. Не отключай реальный secret-scan на prod worker.
 
 ## Automation schedule
 

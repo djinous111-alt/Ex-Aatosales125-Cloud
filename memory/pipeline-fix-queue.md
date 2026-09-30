@@ -6,8 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_No open incidents._
+
 ## INC-20260930-1804-indexer-llms-public-site-url-commit
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-indexer
 topic_id: B01
@@ -41,12 +43,29 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Indexer agent/skill now mandate `--site-base '[REDACTED]'` for memory/blog artifacts; forbid `${PUBLIC_SITE_URL}` in Cloud sandbox.
+- `excalibur_blog_llms_generator.py` auto-rewrites absolute own-site `--site-base` → `[REDACTED]` with WARN.
+- Pitfalls document commit-safe indexer pattern.
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_llms_generator.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_llms_generator.py`
+- dry-run llms with `--site-base https://example.invalid` → WARN + `[REDACTED]` output
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+commit: pending
 
 ---
 
 ## INC-20260930-1800-cover-outfit-hoodie-lock
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-cover
 topic_id: B01
@@ -78,12 +97,29 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Removed hardcoded white hoodie outfit lock from `excalibur_blog_cover_quad_prompt.py`; outfit follows scene_hint / blog-hero outfit_rule.
+- `excalibur_blog_quad_manifest.py` AVTO SALES defaults for cover_hook/scene_hint (no SEO/Wordstat/laptop seed).
+- Cover skill + style tone updated; pitfalls note added.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `memory/cover/quad-style-digital-meme-collage-ru.json`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile` cover prompt + quad manifest
+- unit assert no `white hoodie` lock; manifest hook AVTO defaults
+- JSON parse style preset
+commit: pending
 
 ---
 
 ## INC-20260930-1753-schema-precommit-redacted-secret-name
-status: open
+status: fixed
 run_date: 2026-09-30
 role: excalibur-blog-schema
 topic_id: B01
@@ -112,7 +148,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-09-30
+fix_summary:
+- Documented redacted-sandbox commit workaround in pitfalls, CLOUD-AUTOMATION, schema skill.
+- Added `scripts/excalibur_blog_sanitize_commit_env.py` to filter non-bash identifiers (e.g. `[REDACTED]`) from `CLOUD_AGENT_INJECTED_SECRET_NAMES` before commit.
+- Platform still may inject invalid names; durable agent path is sanitize script + empty-ok export.
+files_changed:
+- `scripts/excalibur_blog_sanitize_commit_env.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `CLOUD-AUTOMATION.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_sanitize_commit_env.py`
+- env with `PUBLIC_SITE_URL,[REDACTED]` → drops `[REDACTED]`; `--export --empty-ok` works
+commit: pending
 
 ---
 

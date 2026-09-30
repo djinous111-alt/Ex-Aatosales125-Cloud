@@ -74,13 +74,21 @@ def has_wordstat(text_lower: str) -> bool:
 
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech/AI niche topics. Use word boundaries so short markers
+    like ``ai`` / ``ии`` do not match inside ``reader_pain`` / ``японии``.
+    """
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
     blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    for marker in TECH_MARKERS:
+        # Word-ish boundaries: ASCII word chars + Cyrillic letters.
+        pattern = rf"(?<![0-9a-zа-яё_]){re.escape(marker)}(?![0-9a-zа-яё_])"
+        if re.search(pattern, blob, flags=re.I):
+            return True
+    return False
 
 
 def field_present(text_lower: str, field: str) -> bool:

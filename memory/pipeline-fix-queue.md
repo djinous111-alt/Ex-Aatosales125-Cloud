@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260930-0918-writer-cta-href-secret-scan
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-writer
+topic_id: B04
+article_dir: memory/blog/articles/B04-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026
+severity: medium
+category: env
+
+### What went wrong
+- Writer commit blocked by Cursor secret-scan: CTA href with `TELEGRAM_URL` value in `article.html`.
+- Pre-commit also required filtering `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid bash identifiers (related to open INC-20260930-0905).
+
+### How the agent recovered this run
+- Replaced catalog/Telegram href targets with literal `[REDACTED]` (same pattern as AS08/AS09 committed articles).
+- Filtered secret-name list to valid bash ids, then recommitted and pushed.
+
+### Durable fix needed before next run
+- Document in writer skill/contract: committed `article.html` CTA hrefs must use `[REDACTED]` (or non-secret public placeholders) because Telegram/catalog env values are secret-scanned.
+- Prefer restoring real hrefs only at publish time from env, not in git artifacts.
+- Keep fixing invalid names in `CLOUD_AGENT_INJECTED_SECRET_NAMES` (INC-0905).
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

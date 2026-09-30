@@ -269,12 +269,14 @@ category: api
 - A second narrow comparison phrase `жд или автовоз доставка авто` returned totalCount-only (`6`) without top phrases; treated as low-result per scout contract, not fatal.
 
 ### How the agent recovered this run
+- First commit attempt failed: pre-commit secrets scanner choked on invalid secret name `[REDACTED]` in `CLOUD_AGENT_*_SECRET_NAMES` (`${!SECRET_NAME}`). Filtered invalid names from those env vars, then commit/push succeeded. `scripts/excalibur_blog_sanitize_commit_env.py` is missing in this checkout.
 - Kept parent cluster `доставка авто из владивостока` (4324) as primary demand signal.
 - Pulled semantic tail / FAQ / secondary queries from working narrow siblings: `автовоз из владивостока` (5925), `жд доставка авто из владивостока` (327), `перегон авто из владивостока` (7136).
 - Cannibalization check PASSED before append; `utility_gate --topic-id B02` PASS.
 - Forced next free ID **B02** (not helper B01) because B01 already published as `postanovka-na-uchet-vvezennogo-avto-2026`.
 
 ### Durable fix needed before next run
+- Restore or recreate `scripts/excalibur_blog_sanitize_commit_env.py` (or document env filter) so pre-commit does not die on `[REDACTED]` secret name placeholders.
 - Document in scout skill that empty `{}` from Wordstat is a recoverable low-result/API quirk: fall back to parent + sibling phrases; do not abort scout.
 - Optionally harden MCP client / scout helper to map `{}` to `totalCount=0` low-result instead of hard error text.
 - Teach `excalibur_blog_scout_helper.py --suggest-next` to skip IDs already used on live WP / automation memory when local `memory/blog/articles/Bxx-*` is missing (ledger reset gap).

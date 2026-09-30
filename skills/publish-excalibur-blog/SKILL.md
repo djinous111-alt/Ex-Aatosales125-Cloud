@@ -61,15 +61,22 @@ python scripts/excalibur_blog_wp_publish.py \
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
 - пишет post meta `_excalibur_blog_schema_jsonld`.
 
-### 4. Cloud WebFetch Fallback
+### 4. Cloud WebFetch Fallback + SSH CLI
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Если локальный HTTP-триггер bootstrap упал (timeout / network):
 
-1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+1. Скрипт **сначала** пробует SSH CLI: `php8.1` затем `php` на загруженном bootstrap (`EXCALIBUR_BLOG_PUBLISH_FORCE_SSH_CLI=yes` пропускает HTTP сразу).
+2. Если SSH CLI тоже fail — печатает `=== FALLBACK_TRIGGER_URL ===`.
+3. Cloud-агент **сразу** открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt` (не жди конца таймера).
+4. Скрипт читает файл (wait по умолчанию 180s; `EXCALIBUR_BLOG_PUBLISH_HTTP_TIMEOUT` / `EXCALIBUR_BLOG_PUBLISH_WEBFETCH_WAIT`).
 
-**Не останавливайся** на первом timeout — используй fallback.
+**Не останавливайся** на первом timeout — используй SSH CLI / fallback.
+
+### 4b. CTA restore / redact
+
+- Перед publish: подставь live `TELEGRAM_URL` / `CATALOG_URL` вместо `href="[REDACTED]"` в `article.html`.
+- После успешного publish / перед commit: снова redact secret CTA; `source scripts/excalibur_blog_filter_injected_secret_names.sh`.
+- Dep: `paramiko` обязателен (ставится через `.cursor/cloud-agent-install.sh`).
 
 ### 5. Post-publish артефакты
 

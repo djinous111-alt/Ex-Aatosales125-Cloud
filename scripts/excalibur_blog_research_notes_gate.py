@@ -14,6 +14,8 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Short tokens (ai/api/ии) must use word-boundary matching so field names like
+# reader_pain / pain_solution_map do not falsely mark auto-import topics as technical.
 TECH_MARKERS = (
     "ai",
     "ии",
@@ -28,6 +30,11 @@ TECH_MARKERS = (
     "docker",
     "rag",
     "workflow",
+    "автоматизац",
+    "нейросет",
+)
+
+TECH_MARKER_PREFIXES = (
     "автоматизац",
     "нейросет",
 )
@@ -73,14 +80,56 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_matches(blob: str, marker: str) -> bool:
+    """True if marker appears as a token/word, not as a substring inside another word."""
+    if marker in TECH_MARKER_PREFIXES:
+        return marker in blob
+    # Word boundary: avoid matching "ai" inside "reader_pain" / "pain_solution_map".
+    return bool(re.search(rf"(?<![a-zа-яё0-9_]){re.escape(marker)}(?![a-zа-яё0-9_])", blob, flags=re.I))
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
+    # Only topic metadata — not full notes — so required field names cannot trip markers.
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    return any(_marker_matches(blob, marker) for marker in TECH_MARKERS)
+
+
+def count_pain_solution_rows(text: str) -> int:
+    """Count markdown table data rows inside ## pain_solution_map (header row excluded)."""
+    match = re.search(
+        r"##\s*\d*\.?\s*pain[_\s-]*solution[_\s-]*map\b([\s\S]*?)(?=\n##\s|\Z)",
+        text,
+        flags=re.I,
+    )
+    section = match.group(1) if match else text
+    rows = 0
+    for line in section.splitlines():
+        stripped = line.strip()
+        if not stripped.startswith("|"):
+            continue
+        # Skip separator and header-ish rows.
+        cells = [c.strip() for c in stripped.strip("|").split("|")]
+        if not cells or all(re.fullmatch(r":?-{3,}:?", c or "") for c in cells):
+            continue
+        joined = " ".join(cells).lower()
+        if re.search(r"\b(pain|боль|solution|решение|result|результат)\b", joined):
+            # header row with column labels
+            if all(
+                re.fullmatch(r"(pain|боль|solution|решение|result|результат|outcome|итог)", c.lower())
+                for c in cells
+                if c
+            ):
+                continue
+            rows += 1
+            continue
+        # Data rows without English keywords still count if the section exists and row has 2+ cells.
+        if len([c for c in cells if c]) >= 2:
+            rows += 1
+    return rows
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -132,7 +181,7 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     ]
     accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    pain_map_rows = count_pain_solution_rows(text)
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:

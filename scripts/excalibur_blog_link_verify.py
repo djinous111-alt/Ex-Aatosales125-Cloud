@@ -12,7 +12,7 @@ import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import quote, urlsplit, urlunsplit, urlparse
 
 
 class LinkExtractor(HTMLParser):
@@ -104,7 +104,43 @@ def _get_fallback(
         }
 
 
+def is_redacted_placeholder(href: str) -> bool:
+    """Committed CTA placeholders must not be verified as live URLs."""
+    value = (href or "").strip()
+    if not value:
+        return True
+    lowered = value.lower()
+    return (
+        value == "[REDACTED]"
+        or lowered in {"https://[redacted]", "http://[redacted]", "[redacted]"}
+        or "[redacted]" in lowered
+        or value.startswith("{{")
+    )
+
+
+def iri_to_uri(url: str) -> str:
+    """Percent-encode non-ASCII path/query so urllib does not raise ascii codec errors."""
+    try:
+        parts = urlsplit(url)
+    except ValueError:
+        return url
+    def enc(segment: str, safe: str) -> str:
+        return quote(segment, safe=safe, encoding="utf-8")
+
+    return urlunsplit(
+        (
+            parts.scheme,
+            parts.netloc.encode("idna").decode("ascii") if parts.netloc else parts.netloc,
+            enc(parts.path, safe="/:@-._~!$&'()*+,;="),
+            enc(parts.query, safe="=@-._~!$&'()*+,;/?"),
+            enc(parts.fragment, safe="=@-._~!$&'()*+,;/?"),
+        )
+    )
+
+
 def classify_link(href: str, site_base: str | None) -> str:
+    if is_redacted_placeholder(href):
+        return "placeholder"
     if href.startswith("/"):
         return "internal_relative"
     parsed = urlparse(href)
@@ -143,6 +179,19 @@ def verify_article(
     results: list[dict[str, Any]] = []
     for href in links:
         kind = classify_link(href, site_base)
+        if kind == "placeholder":
+            results.append(
+                {
+                    "url": href,
+                    "kind": kind,
+                    "status": None,
+                    "ok": True,
+                    "skipped": True,
+                    "method": None,
+                    "error": "redacted/placeholder CTA; restore from env at publish",
+                }
+            )
+            continue
         if skip_external and kind == "external":
             results.append(
                 {
@@ -173,10 +222,11 @@ def verify_article(
                 }
             )
             continue
+        check_target = iri_to_uri(check_target)
         r = check_url(check_target, timeout, user_agent)
         r["kind"] = kind
         r["skipped"] = False
-        if kind == "internal_relative":
+        if check_target != href:
             r["checked_url"] = check_target
         if kind == "external" and is_soft_external_failure(href, r):
             r["ok"] = True

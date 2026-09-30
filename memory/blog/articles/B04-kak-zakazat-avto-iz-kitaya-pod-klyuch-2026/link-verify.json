@@ -1,0 +1,65 @@
+{
+  "source": "memory/blog/articles/B04-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026/article.html",
+  "total_links": 6,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "https://SITE.example/2026/09/30/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "https://SITE.example/2026/09/30/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/"
+    },
+    {
+      "url": "https://SITE.example/proverka-kitayskogo-avto-po-vin-2026/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "https://SITE.example/proverka-kitayskogo-avto-po-vin-2026/"
+    },
+    {
+      "url": "https://avto-sales125.ru",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://SITE.example/2026/09/29/sbkts-i-epts-2026-kak-oformit/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "https://SITE.example/2026/09/29/sbkts-i-epts-2026-kak-oformit/"
+    },
+    {
+      "url": "[REDACTED]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://2gis.ru/vladivostok/search/%D0%B0%D0%B2%D1%82%D0%BE%20%D1%81%D0%B5%D0%B9%D0%BB%D1%81%20%D0%B2%D0%BB%D0%B0%D0%B4%D0%B8%D0%B2%D0%BE%D1%81%D1%82%D0%BE%D0%BA/firm/70000001090415417/131.924668%2C43.140033/tab/reviews",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

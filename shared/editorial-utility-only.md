@@ -73,9 +73,13 @@ python scripts/excalibur_blog_research_notes_gate.py \
 ## Gate 4 — GEO QA
 
 ```bash
-python scripts/excalibur_blog_utility_gate.py \
+python3 scripts/excalibur_blog_utility_gate.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
+
+`memory/brief/editorial-policy.json` обязан содержать `pain_markers_ru` / `outcome_markers_ru`
+(те же маркеры, что human-voice gate). Пустые списки → utility gate **пропускает** pain/outcome
+check с warning (не ложный BLOCK).
 
 **Blocker `UTILITY ARTICLE BLOCKER`** — writer правит (FIX), QA не PASS.
 

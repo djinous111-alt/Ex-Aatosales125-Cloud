@@ -1,0 +1,42 @@
+{
+  "topic_id": "B04",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Цена в объявлении — ещё не ключи",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у китайского кроссовера с документами заказа, порт Владивостока, плашка из Китая под ключ",
+      "scene_hint": "port drizzle Vladivostok, Chinese crossover, fake catalog phone card + sticky «договор до депозита», torn paper hook with yellow highlight on «ключи», shocked meme cutout, tape, corner avto-sales125.ru, no toxic stickers",
+      "meme_caption_ru": "Сначала смета — потом деньги"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разведите \"под ключ\" и \"сам без посредников\"",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "RU table «под ключ» vs «сам»: договор, юани, экспорт, логистика Вл, СБКТС/ЭПТС, риск депозита; checks vs warnings; tape + sticky «не путать»; no face",
+      "alt": "Таблица сравнения схемы под ключ и самостоятельной покупки авто из Китая"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните Китай, Корею и Японию до выбора модели",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU decision flow: cards Китай/Корея/Япония → руль, сроки, история, 180 дней; center «выбор до модели»; sticky «сначала страна»; no face",
+      "alt": "Схема выбора страны импорта: Китай, Корея или Япония до модели"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте мощность до влюблённости в комплектацию",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU checklist: мощность ≤160 л.с., VIN, осмотр фото-видео, договор до оплаты, полная смета; highlight 160; mini catalog; tape; no face",
+      "alt": "Чеклист проверки мощности и документов до депозита за авто из Китая"
+    }
+  }
+}

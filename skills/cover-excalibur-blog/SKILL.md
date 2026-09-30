@@ -199,3 +199,15 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 ## Эталон (B01)
 
 `memory/blog/articles/B01-primer-seo-stati/cover/` — reference implementation после design code v1.
+
+---
+
+## Git commit (Cloud secret-scan)
+
+Перед `git commit` cover-артефактов:
+
+```bash
+source scripts/excalibur_blog_filter_injected_secret_names.sh
+```
+
+Не начинай с `--no-verify`. Фильтр убирает non-identifier токены из `CLOUD_AGENT_INJECTED_SECRET_NAMES` (`invalid variable name` в pre-commit).

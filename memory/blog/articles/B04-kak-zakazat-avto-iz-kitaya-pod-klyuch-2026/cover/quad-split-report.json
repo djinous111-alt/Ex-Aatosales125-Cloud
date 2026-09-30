@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B04-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2736,
+      1536
+    ],
+    "panel_size_px": [
+      1365,
+      770
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 770,
+        "end": 812
+      },
+      "v_gutter_px": {
+        "start": 1365,
+        "end": 1387
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1365,
+          "bottom": 770
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1365,
+          "bottom": 770
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у китайского кроссовера с документами заказа, порт Владивостока, плашка из Китая под ключ",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1387,
+          "top": 5,
+          "right": 2736,
+          "bottom": 764
+        },
+        "raw_box_px": {
+          "left": 1387,
+          "top": 0,
+          "right": 2736,
+          "bottom": 770
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения схемы под ключ и самостоятельной покупки авто из Китая",
+        "h2_anchor": "Разведите \"под ключ\" и \"сам без посредников\""
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 39,
+          "top": 812,
+          "right": 1326,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 812,
+          "right": 1365,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема выбора страны импорта: Китай, Корея или Япония до модели",
+        "h2_anchor": "Сравните Китай, Корею и Японию до выбора модели"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1418,
+          "top": 812,
+          "right": 2705,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 1387,
+          "top": 812,
+          "right": 2736,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист проверки мощности и документов до депозита за авто из Китая",
+        "h2_anchor": "Проверьте мощность до влюблённости в комплектацию"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разведите \"под ключ\" и \"сам без посредников\"",
+    "injected inline_2 after H2 — Сравните Китай, Корею и Японию до выбора модели",
+    "injected inline_3 after H2 — Проверьте мощность до влюблённости в комплектацию"
+  ]
+}

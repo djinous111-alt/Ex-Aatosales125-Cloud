@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B04-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026",
+  "notes": "memory/blog/articles/B04-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026/research-notes.md",
+  "context": "memory/blog/articles/B04-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-09-30",
+    "prefer_sources_after": "2026-07-02",
+    "source_urls": 43,
+    "source_domains": 15,
+    "source_table_rows": 33,
+    "accessed_at": 22,
+    "github_urls": 5,
+    "official_doc_urls": 2,
+    "action_outline_items": 9,
+    "pain_solution_rows": 7,
+    "technical_topic": true
+  }
+}

@@ -58,3 +58,15 @@
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
 - llms generator CLI: `--blog-dir` (не `--blog-path`). Doctor и Indexer skill должны совпадать с argparse.
+- Indexer commit-safe: `--site-base '[REDACTED]'` для `memory/blog/llms*.txt` и interlink reports. Не подставляй `${PUBLIC_SITE_URL}` — secret-scan блокирует commit. Live URL только на publish.
+
+## Cover / outfit
+
+- Не hardcode white hoodie в quad prompt. Outfit = weather/topic из `scene_hint` + `blog-hero.json` `outfit_rule`.
+- Auto-seed `cover_hook` / `scene_hint` в `excalibur_blog_quad_manifest.py` — AVTO SALES (авто/таможня/ГИБДД), не SEO/Wordstat/ноутбук.
+
+## Cloud commit / secret-scan env
+
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` иногда содержит невалидный bash identifier `[REDACTED]` → pre-commit падает на `${!SECRET_NAME}`.
+- Перед commit в redacted sandbox: `eval "$(python3 scripts/excalibur_blog_sanitize_commit_env.py --export --empty-ok)"`.
+- Не отключай реальный secret-scan на prod worker; workaround только для sandbox с redacted env.

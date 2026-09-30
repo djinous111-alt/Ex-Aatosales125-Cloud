@@ -8,13 +8,73 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
+import urllib.parse
 from pathlib import Path
 from typing import Any
+
+COMMIT_SAFE_SITE_BASE = "[REDACTED]"
+OWN_SITE_HOST_FALLBACKS = (
+    "avto-sales125.ru",
+    "www.avto-sales125.ru",
+    "avtosales125.ru",
+    "www.avtosales125.ru",
+)
 
 
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
+
+
+def _env_site_hosts() -> set[str]:
+    hosts: set[str] = set(OWN_SITE_HOST_FALLBACKS)
+    for key in ("PUBLIC_SITE_URL", "WP_HOME", "WP_SITE_URL"):
+        raw = (os.environ.get(key) or "").strip()
+        if not raw or raw in {COMMIT_SAFE_SITE_BASE, "REDACTED"}:
+            continue
+        if "://" not in raw:
+            raw = "https://" + raw
+        try:
+            host = (urllib.parse.urlparse(raw).hostname or "").lower()
+        except Exception:
+            host = ""
+        if host:
+            hosts.add(host)
+            if host.startswith("www."):
+                hosts.add(host[4:])
+            else:
+                hosts.add("www." + host)
+    return hosts
+
+
+def commit_safe_site_base(site_base: str) -> str:
+    """Rewrite live PUBLIC_SITE_URL hosts to [REDACTED] for committed memory/blog artifacts."""
+    raw = (site_base or "").strip() or COMMIT_SAFE_SITE_BASE
+    if raw in {COMMIT_SAFE_SITE_BASE, "REDACTED"}:
+        return COMMIT_SAFE_SITE_BASE
+    if "://" not in raw:
+        probe = "https://" + raw
+    else:
+        probe = raw
+    try:
+        host = (urllib.parse.urlparse(probe).hostname or "").lower()
+    except Exception:
+        host = ""
+    if host and host in _env_site_hosts():
+        print(
+            f"WARN: --site-base looks like live own-site URL; rewriting to {COMMIT_SAFE_SITE_BASE} "
+            "for commit-safe llms artifacts (live URL only at publish)."
+        )
+        return COMMIT_SAFE_SITE_BASE
+    # Absolute http(s) URLs in Cloud sandbox are almost always secret-scanned — force placeholder.
+    if probe.startswith(("http://", "https://")) and host:
+        print(
+            f"WARN: --site-base is absolute URL; rewriting to {COMMIT_SAFE_SITE_BASE} "
+            "for commit-safe memory/blog llms files."
+        )
+        return COMMIT_SAFE_SITE_BASE
+    return raw
 
 
 def strip_html(html: str) -> str:
@@ -107,8 +167,24 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Generate AI-friendly llms.txt and llms-full.txt")
     ap.add_argument("--blog-dir", type=Path, default=None)
     ap.add_argument("--site-name", type=str, default="Авто-Сейлс")
-    ap.add_argument("--site-desc", type=str, default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.")
-    ap.add_argument("--site-base", type=str, default="https://avtosales125.ru")
+    ap.add_argument(
+        "--site-desc",
+        type=str,
+        default=(
+            "Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, "
+            "растаможка и доставка через Владивосток."
+        ),
+    )
+    ap.add_argument(
+        "--site-base",
+        type=str,
+        default=COMMIT_SAFE_SITE_BASE,
+        help=(
+            "Base URL for article links. Prefer [REDACTED] for committed memory/blog "
+            "artifacts (live PUBLIC_SITE_URL only at publish). Absolute own-site URLs "
+            "are auto-rewritten."
+        ),
+    )
     ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for llms.txt/llms-full.txt")
     args = ap.parse_args()
 
@@ -121,11 +197,13 @@ def main() -> int:
     if not out_dir.is_absolute():
         out_dir = root / out_dir
 
+    site_base = commit_safe_site_base(args.site_base)
+
     articles = load_articles(blog_dir)
     print(f"Loaded {len(articles)} articles to index for LLMs.")
 
-    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, args.site_base)
-    llms_full_txt = build_llms_full_txt(args.site_name, articles, args.site_base)
+    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, site_base)
+    llms_full_txt = build_llms_full_txt(args.site_name, articles, site_base)
 
     llms_path = out_dir / "llms.txt"
     llms_full_path = out_dir / "llms-full.txt"

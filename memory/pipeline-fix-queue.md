@@ -254,3 +254,35 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20260930-0904-scout-helper-ignores-live-wp-ids
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-scout
+topic_id: B04
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py --suggest-next` returned Next available topic ID: B01 even though `memory/topics/live-wp-occupied-ids.json` marks B01/B02/B03 as occupied on live WP and notes say next scout ID must be B04.
+- Helper counts topics in `blog-topics.md` as 0 because it only recognizes `Bxx` cards, while the pool still uses legacy `ASxx` IDs after AVTO SALES reset.
+
+### How the agent recovered this run
+- Ignored helper suggestion and forced topic_id B04 per live-wp-occupied-ids.json + run brief.
+- Cannibalization and utility gates run against the new B04 card; PASS.
+
+### Durable fix needed before next run
+- Teach `excalibur_blog_scout_helper.py --suggest-next` to read `memory/topics/live-wp-occupied-ids.json` and skip occupied_topic_ids.
+- Optionally count/recognize `ASxx` topic cards or migrate pool IDs so Total topics is not falsely 0.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `memory/topics/live-wp-occupied-ids.json`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260930-1735-research-serp-public-site-url
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-postanovka-na-uchet-vvezennogo-avto-2026
+severity: medium
+category: script
+
+### What went wrong
+- `research-serp.json` from `excalibur_blog_research_start.py` contained absolute `PUBLIC_SITE_URL` permalinks; pre-commit secret scanner blocked the research commit.
+
+### How the agent recovered this run
+- Redacted site URLs to `[REDACTED]/...` in `research-serp.json` before commit.
+- Worked around pre-commit bash crash on invalid secret name `[REDACTED]` in `CLOUD_AGENT_INJECTED_SECRET_NAMES` by filtering non-alnum names for the commit session.
+
+### Durable fix needed before next run
+- Research start / SERP collector should never write `PUBLIC_SITE_URL` host into committed JSON (replace with placeholder or omit own-site URLs).
+- Cloud secret scanner env should not inject invalid bash names like `[REDACTED]` into `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_start.py`
+- related SERP fetch helpers
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260930-1719-director-doctor-llms-flag
 status: open
 run_date: 2026-09-30

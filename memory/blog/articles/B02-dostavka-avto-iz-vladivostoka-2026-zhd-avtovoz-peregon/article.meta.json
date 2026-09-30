@@ -28,12 +28,17 @@
     "description_aeo": "После растаможки во Владивостоке выбирают автовоз, ж/д-контейнер/сетку или перегон. Срок считают от сдачи; до погрузки нужны договор, акт и фото."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 74,
+    "verdict": "FAIL",
     "date": "2026-10-01",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "pass",
+    "slop_score": "warning",
+    "cannibalization": "pass",
+    "human_voice": "PASS",
+    "utility_gate": "BLOCK",
+    "link_verify": "fail",
+    "research_notes_gate": "PASS",
+    "fix_cycle": 1
   },
   "cover_family": "brand_collage"
 }

@@ -362,3 +362,74 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261001-0028-geo-qa-utility-pain-outcome-empty
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-geo-qa
+topic_id: B02
+article_dir: memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always checks `pain_markers_ru` / `outcome_markers_ru` with defaults `min_pain_markers=2` and `min_outcome_markers=3`.
+- `memory/brief/editorial-policy.json` has neither marker lists nor min overrides, so counts stay 0 and **every** article gets UTILITY ARTICLE BLOCKER (reproduced on published AS09 and new B02).
+
+### How the agent recovered this run
+- Did not rewrite the longread; recorded FAIL + FIX list for Writer/Director.
+- Separated writer-fixable issues (action_markers 7<8, literal CTA hrefs) from this systematic gate bug.
+
+### Durable fix needed before next run
+- Add `pain_markers_ru` and `outcome_markers_ru` arrays to `memory/brief/editorial-policy.json` (aligned with human-voice / editorial language), **or** skip pain/outcome checks when lists are empty.
+- Optionally document the markers in `shared/editorial-utility-only.md` and writer skill so authors can hit them intentionally.
+- Re-run utility gate on B02 after policy/script fix.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/editorial-utility-only.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261001-0029-geo-qa-cta-href-redacted-literal
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-geo-qa
+topic_id: B02
+article_dir: memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon
+severity: high
+category: qa
+
+### What went wrong
+- `article.html` contains three CTA anchors with literal `href="[REDACTED]"` (not real catalog/Telegram URLs).
+- `excalibur_blog_link_verify.py` classifies them as internal_relative, joins `--site-base`, and returns HTTP 404 → link-verify fail / GEO QA FAIL.
+- Likely cause: Cloud redaction/secret-scan treats `CATALOG_URL` / `TELEGRAM_URL` as secrets; writer CTA values were replaced with the placeholder `[REDACTED]` inside article markup (AS09 still has live URLs from an earlier commit).
+
+### How the agent recovered this run
+- Did not rewrite longread; FAIL + FIX list: restore catalog×2 + Telegram×1 URLs, re-run link-verify.
+
+### Durable fix needed before next run
+- Writer/GEO contracts: forbid literal `[REDACTED]` / placeholder hrefs in `article.html`; require CTA from env `CATALOG_URL` + `TELEGRAM_URL` before QA.
+- Decide whether `CATALOG_URL`/`TELEGRAM_URL` should remain secret-scanned; if yes, provide a safe write path so article markup is not rewritten to `[REDACTED]`.
+- Optional preflight in link-verify or writer check that fails fast on `href="[REDACTED]"`.
+- Clarify in pitfalls that env/log redaction must never land inside article markup.
+
+### Suggested files to inspect/change
+- `shared/excalibur-article-writing-contract.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_link_verify.py` (optional hard-fail on placeholder href)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

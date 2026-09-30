@@ -34,6 +34,11 @@ PUBLISH_ENV_KEYS = {
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
 }
 
+# Large cover+inline bootstrap payloads often need 150–250s; keep HTTP wait ≥300s.
+HTTP_TRIGGER_TIMEOUT_SEC = 300
+# Cloud WebFetch fallback: agent must write memory/webfetch-response.txt in time.
+WEBFETCH_FALLBACK_WAIT_SEC = 180
+
 
 def _read_env_file(path: Path) -> dict[str, str]:
     env: dict[str, str] = {}
@@ -472,25 +477,31 @@ def trigger_bootstrap_http(url: str, root: Path) -> str:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=300,
+            timeout=HTTP_TRIGGER_TIMEOUT_SEC,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
         print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
-        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
+        print(
+            f"Waiting up to {WEBFETCH_FALLBACK_WAIT_SEC}s for cloud-agent to write "
+            "response to memory/webfetch-response.txt..."
+        )
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(180):
+        for _ in range(WEBFETCH_FALLBACK_WAIT_SEC):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 180 seconds. Please trigger manually.")
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {WEBFETCH_FALLBACK_WAIT_SEC} seconds. "
+            "Please trigger manually."
+        )
 
 
 def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:

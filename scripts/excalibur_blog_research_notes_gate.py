@@ -14,22 +14,42 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short Latin/Cyrillic tokens use word-boundary matching so field names like
+# ``reader_pain`` / words like ``pain`` / ``said`` / ``email`` do not trip ``ai``.
+TECH_MARKERS_WORD = (
     "ai",
     "ии",
+    "api",
+    "mcp",
+    "rag",
+    "n8n",
+)
+TECH_MARKERS_SUBSTRING = (
     "agent",
     "агент",
-    "mcp",
-    "api",
     "cursor",
     "make",
-    "n8n",
     "github",
     "docker",
-    "rag",
     "workflow",
     "автоматизац",
     "нейросет",
+)
+
+# Meta keys that must not influence technical_topic classification.
+TECH_SCAN_STRIP_FIELDS = (
+    "research_date",
+    "accessed_at",
+    "reader_pain",
+    "reader_outcome",
+    "success_criteria",
+    "voice_angle",
+    "reader_story",
+    "surprising_fact",
+    "pain_solution_map",
+    "github_evidence",
+    "action_outline",
+    "utility_verdict",
 )
 
 
@@ -73,14 +93,64 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _strip_meta_field_noise(notes_lower: str) -> str:
+    """Remove required meta field labels/values from the technical scan blob."""
+    text = notes_lower
+    for field in TECH_SCAN_STRIP_FIELDS:
+        field_pattern = re.escape(field).replace("_", r"[_\s-]")
+        # Drop ``field: value`` lines and ``## field`` headings from the scan window.
+        text = re.sub(rf"^\s*##\s*\d*\.?\s*{field_pattern}\b.*$", " ", text, flags=re.M)
+        text = re.sub(rf"\b{field_pattern}\b\s*:\s*[^\n]*", " ", text)
+    return text
+
+
+def _marker_hit(blob: str, marker: str, *, word: bool) -> bool:
+    if word:
+        return bool(re.search(rf"(?<![a-zа-яё0-9_]){re.escape(marker)}(?![a-zа-яё0-9_])", blob, flags=re.I))
+    return marker in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    notes_window = _strip_meta_field_noise(notes[:2000].lower())
+    blob = f"{blob} {notes_window}".strip()
+    if any(_marker_hit(blob, marker, word=True) for marker in TECH_MARKERS_WORD):
+        return True
+    return any(_marker_hit(blob, marker, word=False) for marker in TECH_MARKERS_SUBSTRING)
+
+
+def count_accessed_at(text: str) -> int:
+    """Count explicit ``accessed_at:`` labels and ISO dates in an accessed_at table column."""
+    text_lower = text.lower()
+    labeled = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    # Markdown table rows that include an ISO date after an accessed_at header.
+    header = re.search(
+        r"^\s*\|[^\n]*\baccessed_at\b[^\n]*\|\s*$",
+        text_lower,
+        flags=re.M,
+    )
+    table_dates = 0
+    if header:
+        # Count YYYY-MM-DD cells in subsequent table rows until a blank/non-table line.
+        start = header.end()
+        tail = text[start:]
+        seen_row = False
+        for line in tail.splitlines():
+            if not line.strip():
+                if seen_row:
+                    break
+                continue
+            if not line.lstrip().startswith("|"):
+                break
+            seen_row = True
+            if re.match(r"^\s*\|\s*[-:| ]+\|\s*$", line):
+                continue
+            table_dates += len(re.findall(r"\b20\d{2}-\d{2}-\d{2}\b", line))
+    return max(labeled, table_dates)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,7 +200,7 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
     pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
     action_items = count_action_items(text)

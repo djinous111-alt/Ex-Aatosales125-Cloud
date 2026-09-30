@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260930-1341-schema-secret-scan-public-urls
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-schema
+topic_id: B05
+article_dir: memory/blog/articles/B05-kak-kupit-avto-po-parallelnomu-importu-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secret scanner blocked `schema.jsonld` because BlogPosting/FAQ/HowTo URLs reuse `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` from authors-registry (public marketing URLs already present in prior AS08/AS09 schemas).
+- Separately, `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained one non-identifier entry (`https://...`), so bash `${!SECRET_NAME}` crashed the hook until the list was filtered.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid identifiers for the commit.
+- Kept absolute schema.org URLs and marked secret-bearing JSON lines with `pragma: allowlist secret` via sibling `_scan` keys so the hook allowlists intentional public URLs without `--no-verify`.
+
+### Durable fix needed before next run
+- Document in schema skill that public site/catalog/Telegram/MAX URLs in `schema.jsonld` need `pragma: allowlist secret` on the same line (or expand absolute URLs at publish from env instead of committing them).
+- Fix secret-name injection so URLs are not placed into `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+- Prefer classifying public marketing URLs as non-secrets for schema commits, or generate allowlisted lines in a shared schema builder script.
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `scripts/` (schema builder / publish URL expansion)
+- `shared/authors-registry.json` (source of sameAs URLs)
+- `CLOUD-AUTOMATION.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260930-1335-geo-qa-typed-task-fallback
 status: open
 run_date: 2026-09-30

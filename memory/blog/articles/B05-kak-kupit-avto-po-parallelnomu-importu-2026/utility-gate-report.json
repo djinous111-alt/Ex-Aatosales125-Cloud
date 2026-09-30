@@ -1,0 +1,25 @@
+{
+  "policy_id": "utility_only_v1",
+  "overall": "PASS",
+  "reports": [
+    {
+      "gate": "article",
+      "article_dir": "memory/blog/articles/B05-kak-kupit-avto-po-parallelnomu-importu-2026",
+      "status": "PASS",
+      "metrics": {
+        "numbered_list_items": 24,
+        "h2_sections": 7,
+        "faq_h3": 6,
+        "tables": 1,
+        "blockquotes": 3,
+        "ul_lists": 1,
+        "action_markers": 23,
+        "pain_markers": 4,
+        "outcome_markers": 4,
+        "water_hits": []
+      },
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

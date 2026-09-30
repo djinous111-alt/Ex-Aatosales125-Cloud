@@ -1,0 +1,35 @@
+{
+  "source": "memory/blog/articles/B05-kak-kupit-avto-po-parallelnomu-importu-2026/article.html",
+  "total_links": 3,
+  "failed_count": 1,
+  "verdict": "fail",
+  "links": [
+    {
+      "url": "https://portal.elpts.ru/",
+      "status": null,
+      "ok": false,
+      "method": "GET",
+      "error": "<urlopen error [Errno -5] No address associated with hostname>",
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://avto-sales125.ru",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_absolute",
+      "skipped": false
+    },
+    {
+      "url": "https://t.me/avtosales125",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

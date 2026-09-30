@@ -6,6 +6,72 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260930-1335-geo-qa-typed-task-fallback
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-geo-qa
+topic_id: B05
+article_dir: memory/blog/articles/B05-kak-kupit-avto-po-parallelnomu-importu-2026
+severity: medium
+category: env
+
+### What went wrong
+- Typed Cloud Task `excalibur-blog-geo-qa` недоступен в Cloud enum Task types.
+- Директор вынужден запускать роль через `Task(generalPurpose)` fallback.
+
+### How the agent recovered this run
+- Выполнена роль GEO QA через generalPurpose с контрактами `.cursor/agents/excalibur-blog-geo-qa.md` и `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### Durable fix needed before next run
+- Зарегистрировать typed Task `excalibur-blog-geo-qa` (и остальные excalibur-blog-* roles) в Cloud Task enum / automation config, либо явно задокументировать generalPurpose fallback как канон в cloud runbook без ложных ожиданий typed enum.
+
+### Suggested files to inspect/change
+- `CLOUD-AUTOMATION.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `AGENTS.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20260930-1335-geo-qa-elpts-dns
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-geo-qa
+topic_id: B05
+article_dir: memory/blog/articles/B05-kak-kupit-avto-po-parallelnomu-importu-2026
+severity: high
+category: qa
+
+### What went wrong
+- `link-verify` FAIL: `https://portal.elpts.ru/` — DNS NXDOMAIN (`No address associated with hostname`).
+- В том же окружении `https://elpts.ru/` и `https://www.elpts.ru/` резолвятся и отдают HTTP 200.
+- Research notes и article.html унаследовали устаревший/нерезолвящийся hostname portal.elpts.ru как «официальный» СЭП.
+
+### How the agent recovered this run
+- Не правил article.html (зона Writer).
+- Зафиксировал FIX в `article-qa.md`, overall GEO QA = FIX; cover/schema не стартовать.
+- Рекомендация Writer: заменить URL на рабочий `https://elpts.ru/` (и упоминание в блоке источников), затем повтор link-verify + GEO QA.
+
+### Durable fix needed before next run
+- В research/fact-bank зафиксировать канонический URL проверки ЭПТС (СЭП), который резолвится: `https://elpts.ru/` (не `portal.elpts.ru`).
+- Добавить в pitfalls: перед цитированием гос-портала проверять DNS/HTTP в link-verify, не копировать hostname из вторичных статей вслепую.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/brief/fact-bank.md`
+- `memory/blog/articles/B05-kak-kupit-avto-po-parallelnomu-importu-2026/article.html`
+- `memory/blog/articles/B05-kak-kupit-avto-po-parallelnomu-importu-2026/research-notes.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260930-1330-writer-utility-pain-markers-missing
 status: open
 run_date: 2026-09-30

@@ -324,4 +324,38 @@ commit: pending-parent-commit
 
 ## Fixed incidents
 
+## INC-20260930-1730-research-tech-marker-false-positive
+status: fixed
+run_date: 2026-09-30
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-postanovka-na-uchet-vvezennogo-avto-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` treated B01 (auto registration) as technical_topic because TECH_MARKERS used naive substring match.
+- Short markers matched false positives: `ai` inside `reader_pain`, `ии` inside `японии` (H1/topic).
+- Gate then required github_urls>=3 for a non-tech auto-legal niche and BLOCKed research-notes.
+
+### How the agent recovered this run
+- Patched `is_technical_topic()` to use Cyrillic/ASCII word-boundary regex for markers.
+- Added explicit `accessed_at:` source_access_log lines (gate counts `accessed_at:` occurrences, not table column headers alone).
+- Re-ran research-notes gate to PASS.
+
+### Durable fix needed before next run
+- Keep word-boundary matching in research-notes gate; add regression note in pitfalls that auto-niche H1 with "Японии" and field `reader_pain` must not trip tech markers.
+- Optionally add unit test: notes containing `reader_pain` + `японии` and no real tech tokens => technical_topic False.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- fixed in-run by research agent: word-boundary TECH_MARKERS in `scripts/excalibur_blog_research_notes_gate.py`; gate re-validated PASS for B01.
+
+
 Handled above; commit is pending Director review.

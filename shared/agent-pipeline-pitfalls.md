@@ -15,6 +15,8 @@
 
 - Перед пайплайном: `python3 scripts/excalibur_blog_today.py` и `python3 scripts/excalibur_blog_research_start.py --topic-id …`.
 - Если `EXCALIBUR_RUN_DATE` нет в выводе today.py — старая ветка/код, **блокер**.
+- `research-notes-gate` считает только литералы `accessed_at:` (колонка таблицы без двоеточия не засчитывается) — держи `source_access_log` или явные `accessed_at:` у источников.
+- TECH_MARKERS в research-notes gate обязаны матчиться по границам слова: иначе `ai` ловится в `reader_pain`, а `ии` — в `японии`, и авто-ниша ложно требует GitHub evidence.
 
 ## Publish
 

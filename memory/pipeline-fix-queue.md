@@ -23,10 +23,12 @@ category: docs
 ### How the agent recovered this run
 - Ran llms generator with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
 - Generated `memory/blog/llms.txt` and `memory/blog/llms-full.txt` successfully (3 articles).
+- Pre-commit secret-scan blocked commit of absolute `PUBLIC_SITE_URL` in llms artifacts; filtered invalid entry in `CLOUD_AGENT_INJECTED_SECRET_NAMES`, then redacted site base to `[REDACTED]` in committed `llms.txt` / `llms-full.txt` / `interlink-suggestions.json`.
 
 ### Durable fix needed before next run
 - Remove `--blog-path` from Indexer agent + skill shell examples; document only `--blog-dir` / `--out-dir`.
 - Keep doctor check aligned with the same flags (see INC-20260930-1315).
+- Make llms generator (or Indexer commit step) emit commit-safe site base (`[REDACTED]` / relative `/blog/...`) when `PUBLIC_SITE_URL` is a Cloud secret; expand absolute URLs only at publish upload.
 
 ### Suggested files to inspect/change
 - `.cursor/agents/excalibur-blog-indexer.md`
@@ -34,6 +36,7 @@ category: docs
 - `.cursor/skills/indexer-excalibur-blog/SKILL.md`
 - `skills/indexer-excalibur-blog/SKILL.md`
 - `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
 
 ### Secrets
 - none recorded

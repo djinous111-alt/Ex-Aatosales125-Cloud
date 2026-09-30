@@ -22,6 +22,9 @@
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
 - Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
 - SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
+- `paramiko` ставится в `.cursor/cloud-agent-install.sh`.
+- HTTP trigger timeout по умолчанию 180s; при timeout сначала SSH CLI (`php8.1`/`php`), затем WebFetch wait. `EXCALIBUR_BLOG_PUBLISH_FORCE_SSH_CLI=yes` пропускает HTTP.
+- Перед publish восстанови Telegram/catalog CTA из env; после — снова redact для commit.
 
 ## Writer / Fact Check Box
 
@@ -39,10 +42,29 @@
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
 
-## Scout
-
-- Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
-
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- `excalibur_blog_llms_generator.py` CLI: `--blog-dir`, `--out-dir`, `--site-base` (флага `--blog-path` нет). Для git commit генерируй с `--commit-safe` / `https://SITE.example`, не с live `PUBLIC_SITE_URL`.
+
+## Scout
+
+- Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- `excalibur_blog_scout_helper.py --suggest-next` читает `memory/topics/live-wp-occupied-ids.json` и пропускает occupied_topic_ids; также распознаёт legacy `ASxx` карточки. Перед новой картой: `--check-query "…" --slug "…"`.
+- Avoid delivery/avtovoz: смотри `avoid_slug_substrings` / `avoid_query_tokens` в live-wp-occupied-ids.json.
+
+## Research
+
+- `research_notes_gate`: TECH_MARKERS матчятся token-boundary по topic metadata (h1/query/slug), не по именам полей вроде `reader_pain`. Non-tech auto how-to не требует 3 GitHub URL.
+- `pain_solution_map`: считаются строки markdown-таблицы в секции; English keywords не обязательны в каждой ячейке.
+
+## CTA / secret-scan / commits
+
+- В git-артефактах (`article.html`, schema sameAs при необходимости, llms.txt) CTA/Telegram/catalog/public site URL → `href="[REDACTED]"` или `https://SITE.example`. Live URL восстанавливай из env только перед publish/link-verify с live checks.
+- Перед `git commit` в Cloud: `source scripts/excalibur_blog_filter_injected_secret_names.sh` (фильтрует `CLOUD_AGENT_INJECTED_SECRET_NAMES` до bash identifiers). Не используй `--no-verify` как первый шаг.
+- `link_verify`: `[REDACTED]` placeholders пропускаются; non-ASCII URL path IRI-кодируется автоматически.
+- Insight label: не `TL;DR` / `Быстрый инсайт` — используй `Коротко по делу`.
+
+## Utility gate
+
+- `pain_markers_ru` / `outcome_markers_ru` должны быть в `memory/brief/editorial-policy.json`. Если списки пустые — utility gate пропускает pain/outcome check (warning), а не BLOCK.

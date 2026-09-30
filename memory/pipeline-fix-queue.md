@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260930-0930-cover-precommit-secret-name-filter
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-cover
+topic_id: B04
+article_dir: memory/blog/articles/B04-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` of cover artifacts failed in Cursor pre-commit secret-scan: `CLOUD_AGENT_INJECTED_SECRET_NAMES` is comma-separated and includes a non-identifier token (`[REDACTED]`), so `${!SECRET_NAME}` dies with `invalid variable name`.
+- Same class as INC-20260930-0928; schema used `--no-verify`, cover recovered without skipping hooks.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to comma-joined bash identifiers only (`[A-Za-z_][A-Za-z0-9_]*`), then recommitted; push OK.
+- Cover pipeline itself succeeded: ONE Kie gpt-image-2 i2i → split PASS → inject figures OK. Fragment written; no toxic stickers.
+
+### Durable fix needed before next run
+- Cursor/agent-hooks: skip non-identifier entries before `${!SECRET_NAME}` (or never inject placeholder tokens into the names list).
+- Document cover/schema/writer commit env filter in `shared/agent-pipeline-pitfalls.md` so agents do not reach for `--no-verify` first.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- Cursor pre-commit secret-scan hook / secret name injection
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260930-0928-schema-precommit-secret-scan
 status: open
 run_date: 2026-09-30

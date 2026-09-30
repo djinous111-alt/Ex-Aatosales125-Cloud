@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-postanovka-na-uchet-vvezennogo-avto-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2736,
+      1536
+    ],
+    "panel_size_px": [
+      1366,
+      763
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 763,
+        "end": 812
+      },
+      "v_gutter_px": {
+        "start": 1366,
+        "end": 1407
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 5,
+          "top": 0,
+          "right": 1361,
+          "bottom": 763
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1366,
+          "bottom": 763
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс в дождевике с папкой документов у окна ГИБДД и кроссовера, плашка «на учёт без сюрпризов», дождь Владивостока",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1407,
+          "top": 7,
+          "right": 2736,
+          "bottom": 755
+        },
+        "raw_box_px": {
+          "left": 1407,
+          "top": 0,
+          "right": 2736,
+          "bottom": 763
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист готовности до визита в ГИБДД: ЭПТС, выпуск, право собственности",
+        "h2_anchor": "Проверьте, что уже готово до визита в ГИБДД"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 39,
+          "top": 812,
+          "right": 1326,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 812,
+          "right": 1366,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица пакета документов для окна ГИБДД: Япония, Корея, Китай",
+        "h2_anchor": "Соберите пакет: что реально спрашивают в окне"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1428,
+          "top": 812,
+          "right": 2715,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 1407,
+          "top": 812,
+          "right": 2736,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: ОСАГО для окна ГИБДД и для дороги — разные требования",
+        "h2_anchor": "Когда оформлять ОСАГО: дорога и окно – разные вещи"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Проверьте, что уже готово до визита в ГИБДД",
+    "injected inline_2 after H2 — Соберите пакет: что реально спрашивают в окне",
+    "injected inline_3 after H2 — Когда оформлять ОСАГО: дорога и окно – разные вещи"
+  ]
+}

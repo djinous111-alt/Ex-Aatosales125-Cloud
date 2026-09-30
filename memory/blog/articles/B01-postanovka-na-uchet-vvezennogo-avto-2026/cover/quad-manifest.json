@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "10 дней сгорели в ГИБДД — пакет был неполный?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс в дождевике с папкой документов у окна ГИБДД и кроссовера, плашка «на учёт без сюрпризов», дождь Владивостока",
+      "scene_hint": "EXACT face+glasses from reference; OUTFIT: dark olive waterproof rain jacket (no hood up), navy knit underlayer, damp shoulders from rain — NOT reference hoodie/tank; pose: action selfie holding blue document folder near GIBDD window + modern Korean/Japanese crossover behind; Vladivostok rainy gray sky, wet asphalt reflections; fake UI: document checklist sticky (ЭПТС/ПТД/ОСАГО) + torn paper; yellow plaque Cyrillic «на учёт без сюрпризов» with highlighter on «без сюрпризов»; shocked-cat meme sticker; corner footer avto-sales125.ru; NO Wordstat NO Metrika NO Telegram",
+      "meme_caption_ru": "на учёт без сюрпризов"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Проверьте, что уже готово до визита в ГИБДД",
+      "visual_type": "checklist_board",
+      "scene_hint": "Readable checklist board 16:9: галочки ЭПТС статус регистрации, выпуск с таможни, право собственности, СБКТС/сертификаты готовы; sticky note «до окна»; tape corner; NO hero face",
+      "alt": "Чеклист готовности до визита в ГИБДД: ЭПТС, выпуск, право собственности"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Соберите пакет: что реально спрашивают в окне",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Comparison table UI: колонки Япония / Корея / Китай vs строки ЭПТС, договор/инвойс, утильсбор, ПТД; header «что спрашивают в окне»; mini sticky «пакет»; NO hero",
+      "alt": "Таблица пакета документов для окна ГИБДД: Япония, Корея, Китай"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Когда оформлять ОСАГО: дорога и окно – разные вещи",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram: два пути — «окно ГИБДД» (ОСАГО не обязательно с 01.03.2025) vs «своим ходом по дороге» (нужен полис); стрелки, иконки полиса/номера; tape edge; NO hero face",
+      "alt": "Схема: ОСАГО для окна ГИБДД и для дороги — разные требования"
+    }
+  }
+}

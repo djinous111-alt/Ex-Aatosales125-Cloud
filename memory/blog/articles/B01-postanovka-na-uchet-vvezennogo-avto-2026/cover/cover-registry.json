@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "postanovka-na-uchet-vvezennogo-avto-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс в дождевике с папкой документов у окна ГИБДД и кроссовера, плашка «на учёт без сюрпризов», дождь Владивостока",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-09-30T17:59:39+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс в дождевике с папкой документов у окна ГИБДД и кроссовера, плашка «на учёт без сюрпризов», дождь Владивостока",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Чеклист готовности до визита в ГИБДД: ЭПТС, выпуск, право собственности",
+      "h2_anchor": "Проверьте, что уже готово до визита в ГИБДД",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица пакета документов для окна ГИБДД: Япония, Корея, Китай",
+      "h2_anchor": "Соберите пакет: что реально спрашивают в окне",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема: ОСАГО для окна ГИБДД и для дороги — разные требования",
+      "h2_anchor": "Когда оформлять ОСАГО: дорога и окно – разные вещи",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

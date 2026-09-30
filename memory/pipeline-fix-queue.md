@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260930-1800-cover-outfit-hoodie-lock
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-postanovka-na-uchet-vvezennogo-avto-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` hardcodes `Outfit lock: thick heavyweight white hoodie` in the REFERENCE FACE block.
+- This contradicts `memory/cover/blog-hero.json` outfit_rule (одежда под погоду/тему; майку/худи с reference не копировать) и scene_hint дождя Владивостока (rain jacket).
+- Auto-manifest merge also seeded SEO-шаблонный cover_hook/scene_hint (Wordstat/ноутбук) вместо авто-темы B01.
+
+### How the agent recovered this run
+- Вручную переписал `cover/quad-manifest.json` (hook ГИБДД, rain jacket, inline visual_type сцены).
+- Перед Kie API патчил `quad-mcp-prompt.txt` + `quad-mcp-batch.json`: заменил hoodie lock на weather/topic outfit MUST match scene_hint.
+- ONE Kie gpt-image-2 i2i → split PASS → inject 3 figures.
+
+### Durable fix needed before next run
+- Убрать hardcoded white hoodie из `excalibur_blog_cover_quad_prompt.py`; брать outfit из scene_hint / blog-hero outfit_rule.
+- Авто-seed cover_hook в `excalibur_blog_quad_manifest.py` не должен подставлять SEO-мифы для AVTO SALES тем.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `memory/cover/quad-style-digital-meme-collage-ru.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+---
+
 ## INC-20260930-1753-schema-precommit-redacted-secret-name
 status: open
 run_date: 2026-09-30

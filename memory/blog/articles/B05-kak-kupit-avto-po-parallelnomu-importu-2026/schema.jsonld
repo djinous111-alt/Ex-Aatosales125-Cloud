@@ -1,0 +1,184 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/kak-kupit-avto-po-parallelnomu-importu-2026/#blogposting", "_scan": "pragma: allowlist secret",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/kak-kupit-avto-po-parallelnomu-importu-2026/", "_scan": "pragma: allowlist secret"
+      },
+      "headline": "Как купить авто по параллельному импорту в 2026: чек-лист до оплаты",
+      "description": "Параллельный импорт авто: чеклист до оплаты. VIN, ЭПТС, таможня, договор и гарантия без выдуманных пошлин. Подбор – в каталоге Авто-Сейлс.",
+      "datePublished": "2026-09-30",
+      "dateModified": "2026-09-30",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial", "_scan": "pragma: allowlist secret",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png", "_scan": "pragma: allowlist secret",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru/", "_scan": "pragma: allowlist secret"
+        },
+        "sameAs": ["https://avtosales125.ru/", "https://avto-sales125.ru/", "https://t.me/avtosales125", "https://max.ru/id2508140890_biz", "https://www.instagram.com/avtosales_rf", "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"], "_scan": "pragma: allowlist secret"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization", "_scan": "pragma: allowlist secret",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru/", "_scan": "pragma: allowlist secret",
+        "sameAs": ["https://avto-sales125.ru/", "https://t.me/avtosales125"], "_scan": "pragma: allowlist secret"
+      },
+      "keywords": [
+        "параллельный импорт авто",
+        "купить авто по параллельному импорту",
+        "параллельный импорт авто из китая",
+        "параллельный импорт авто 2026"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/kak-kupit-avto-po-parallelnomu-importu-2026/#faq", "_scan": "pragma: allowlist secret",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Можно ли купить новый авто по параллельному импорту?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, если позиция есть в актуальном перечне Минпромторга и документы чистые. Сначала сверьте перечень и договор, потом думайте про оплату. Без VIN и таможенной цепочки \"новый\" не отменяет риски."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем отличается параллельный импорт авто из Китая?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Часто это европейские/японские марки из КНР по перечню либо китайские бренды вне механизма параллельного импорта. До оплаты попросите схему письменно: страна ввоза, декларант, платежи в цене."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что будет с гарантией?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Заводская гарантия автоматически обычно не действует. Берите письменные условия продавца или сервисной программы и адрес ремонта. Устное \"гарантия есть\" не принимайте."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие документы смотреть до оплаты?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Полный VIN, договор с итоговой ценой и возвратом аванса, ЭПТС в СЭП со статусом \"действующий\" (или письменный план), таможенная цепочка и кто платит при доначислении. Нет пакета – нет перевода."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если ЭПТС \"незавершённый\"?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не оплачивайте крупный платёж. Уточните, что не закрыто, и дождитесь статуса \"действующий\" либо зафиксируйте план и ответственность в договоре до выдачи."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда лучше идти в подбор, а не брать \"уже приехало\"?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Когда нет VIN до оплаты, ЭПТС не \"действующий\", цена без состава платежей или давят срочностью. Тогда безопаснее подбор под заказ с этапами до крупных сумм – через каталог и переписку, без форм на странице."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/kak-kupit-avto-po-parallelnomu-importu-2026/#howto", "_scan": "pragma: allowlist secret",
+      "name": "Как купить авто по параллельному импорту в 2026: чек-лист до оплаты",
+      "description": "Пошаговый чек-лист до перевода денег: отличие режима от пригона, VIN и ЭПТС, документы, ловушки 2026, 12 пунктов и подбор под заказ.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Портал СЭП для проверки ЭПТС по VIN"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Договор с итоговой ценой, сроками и возвратом аванса"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Чеклист из 12 пунктов до перевода"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Полный VIN и фото/видео конкретного автомобиля"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Таможенная цепочка и письменные условия гарантии/сервиса"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Разведите параллельный импорт и обычный пригон из Азии",
+          "text": "Отделите юридический режим параллельного импорта (перечень Минпромторга) от бытового ярлыка \"привезли из Азии\". Таможня, утильсбор и ЭПТС обязательны в любом случае.",
+          "url": "https://avtosales125.ru/kak-kupit-avto-po-parallelnomu-importu-2026/#разведите-параллельный-импорт-и-просто-привезти-из-азии", "_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Запросите VIN и проверку до депозита",
+          "text": "Потребуйте полный VIN до любого перевода, сверьте его в договоре и ЭПТС, уточните страну ввоза, декларанта, комплектацию и сервис письменно. Нет VIN – нет денег.",
+          "url": "https://avtosales125.ru/kak-kupit-avto-po-parallelnomu-importu-2026/#проверьте-машину-до-депозита-vin-страна-сервис", "_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Соберите документы и этапы до выдачи",
+          "text": "Соберите пакет: задача и бюджет, проверка схемы, VIN и осмотр, договор с итоговой ценой, таможенная цепочка и платежи, ЭПТС со статусом \"действующий\", затем выдача и учёт.",
+          "url": "https://avtosales125.ru/kak-kupit-avto-po-parallelnomu-importu-2026/#соберите-документы-и-этапы-от-заказа-до-выдачи", "_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Отсейте ловушки цены, маршрута и сроков",
+          "text": "Откажитесь от цены без состава платежей, намёков на занижение через ЕАЭС, устных сроков, схемы \"VIN после оплаты\" и давления \"только сегодня\".",
+          "url": "https://avtosales125.ru/kak-kupit-avto-po-parallelnomu-importu-2026/#отсейте-ловушки-2026-цена-маршрут-сроки-на-словах", "_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Пройдите чеклист из 12 пунктов",
+          "text": "Пройдите 12 пунктов до перевода: VIN, ЭПТС \"действующий\" или письменный план, договор с итоговой ценой и ответственностью за доплаты, таможенная цепочка. Хотя бы один красный флаг – стоп.",
+          "url": "https://avtosales125.ru/kak-kupit-avto-po-parallelnomu-importu-2026/#пройдите-чеклист-из-12-пунктов-перед-переводом", "_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Уйдите в подбор под заказ, если бумаг нет",
+          "text": "Если нет VIN до оплаты или ЭПТС не \"действующий\", выбирайте подбор под заказ с документами до крупных платежей через каталог или Telegram Авто-Сейлс, без форм на странице.",
+          "url": "https://avtosales125.ru/kak-kupit-avto-po-parallelnomu-importu-2026/#выберите-подбор-под-заказ-если-бумаг-нет", "_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Сделайте шаги сегодня и платите только с пакетом",
+          "text": "Выпишите задачу, запросите VIN/договор/скрин ЭПТС, отметьте красные флаги по чеклисту и переводите деньги только когда на месте VIN, ЭПТС, договор и таможенная цепочка.",
+          "url": "https://avtosales125.ru/kak-kupit-avto-po-parallelnomu-importu-2026/#что-сделать-сегодня", "_scan": "pragma: allowlist secret"
+        }
+      ]
+    }
+  ]
+}

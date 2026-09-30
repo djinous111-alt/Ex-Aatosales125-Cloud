@@ -304,7 +304,7 @@ files_changed:
 checks_run:
 - `python3 -c` JSON parse editorial-policy.json
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir memory/blog/articles/B01-postanovka-na-uchet-vvezennogo-avto-2026` → PASS
-commit: pending
+commit: 1b694fb
 
 ## INC-20260930-1735-research-serp-public-site-url
 status: fixed
@@ -345,7 +345,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_start.py`
 - PYTHONPATH unit check for redact_own_site_url / sanitize_serp_payload
-commit: pending
+commit: 1b694fb
 
 ## INC-20260930-1719-director-doctor-llms-flag
 status: fixed
@@ -392,7 +392,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 warnings=0
 - `rg` no `--blog-path` left in indexer docs
-commit: pending
+commit: 1b694fb
 
 ## INC-20260930-1725-scout-niche-drift-avto-sales
 status: fixed
@@ -444,7 +444,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` scout docs mention Авто-Сейлс / site-brief and forbid Cursor/n8n niche
-commit: pending
+commit: 1b694fb
 
 
 ## INC-20260930-1730-research-tech-marker-false-positive

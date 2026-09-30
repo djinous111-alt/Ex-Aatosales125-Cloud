@@ -476,3 +476,40 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261001-0045-indexer-llms-blog-path-doctor-drift
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-indexer
+topic_id: B02
+article_dir: memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_doctor.py` still asserts `llms generator supports --blog-path`, but `excalibur_blog_llms_generator.py` CLI only has `--blog-dir` (no `--blog-path`).
+- Indexer agent/skill shell examples still pass `--blog-path /` and `${PUBLIC_SITE_URL}` into llms generator, which would either argparse-fail or write live site URLs into commit-tracked `memory/blog/llms*.txt`.
+
+### How the agent recovered this run
+- Ran llms generator with `--blog-dir memory/blog/articles --site-base '[REDACTED]' --out-dir memory/blog` (no `--blog-path`), matching AS08/AS09 commit-safe pattern; live URL left for publish.
+- Interlinker `--apply` completed with `links_applied=0` (no keyword overlap with AS08/AS09).
+
+### Durable fix needed before next run
+- Align doctor check with actual CLI (`--blog-dir`) OR restore `--blog-path` alias if still required.
+- Update indexer agent + skill examples: drop `--blog-path`; document commit-safe `--site-base [REDACTED]` for `memory/blog` artifacts; live `PUBLIC_SITE_URL` only at publish.
+- Add pitfalls note under Indexer for site-base redaction policy.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

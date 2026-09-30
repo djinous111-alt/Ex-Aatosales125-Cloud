@@ -106,19 +106,23 @@ python scripts/excalibur_blog_quad_manifest.py \
 
 **Руками** доработать `cover/quad-manifest.json`:
 
-- `cover_hook` — провокация
+- `cover_hook` — провокация про авто/таможню/документы (не SEO/Wordstat мифы)
 - `slots.cover.meme_caption_ru` — 2–6 слов
-- `slots.cover.scene_hint` — fake скрины + мемы + outfit агента
+- `slots.cover.scene_hint` — weather + outfit под тему + fake скрины/мемы; **не** копировать hoodie/майку с reference
 - `slots.inline_*.scene_hint` — конкретика H2
 - `alt` — осмысленные, не «seo картинка»
+
+Auto-seed (`excalibur_blog_quad_manifest.py`) уже AVTO SALES defaults; всё равно проверь hook/outfit перед image job.
 
 ### Шаг 3 — prompt + batch
 
 ```bash
-python scripts/excalibur_blog_cover_quad_prompt.py \
+python3 scripts/excalibur_blog_cover_quad_prompt.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --write-batch
 ```
+
+Prompt builder берёт outfit из `scene_hint` / `blog-hero.json` `outfit_rule` — **без** hardcoded white hoodie.
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 

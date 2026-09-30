@@ -69,6 +69,32 @@ def validate_prompt_budget(prompt: str) -> bool:
     return False
 
 
+def outfit_lock_line(hero: dict, cover: dict) -> str:
+    """Outfit follows scene_hint / blog-hero outfit_rule — never hardcode reference hoodie."""
+    scene = compact(cover.get("scene_hint", ""), 220)
+    outfit_rule = compact(hero.get("outfit_rule", ""), 180)
+    topic_hint = compact(hero.get("topic_outfit_hint", ""), 120)
+    if scene:
+        return (
+            "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. "
+            "OUTFIT MUST match scene WEATHER/TOPIC from cover scene_hint "
+            f"({scene}). "
+            "Do NOT copy reference hoodie/tank/t-shirt. No cap, no hood up. "
+            "Vary pose, gesture, angle, expression, props and composition every cover. "
+            "No headphones/headset/earbuds."
+        )
+    rule_bit = outfit_rule or topic_hint or (
+        "change full outfit to match scene weather and article topic "
+        "(rain jacket in rain, winter coat in snow, smart casual for customs/docs)"
+    )
+    return (
+        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. "
+        f"OUTFIT: {rule_bit}. Do NOT copy reference hoodie/tank/t-shirt. No cap, no hood up. "
+        "Vary pose, gesture, angle, expression, props and composition every cover. "
+        "No headphones/headset/earbuds."
+    )
+
+
 def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, design_code: dict) -> str:
     slots = manifest.get("slots") or {}
 
@@ -86,7 +112,7 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         "",
         "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
         "",
-        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
+        outfit_lock_line(hero, cover),
         "",
         f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
         "",

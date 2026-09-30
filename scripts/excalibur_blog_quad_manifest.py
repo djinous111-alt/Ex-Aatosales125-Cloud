@@ -84,20 +84,37 @@ def pick_visual_type(h2: str, types_catalog: dict, used: set[str]) -> str:
 
 
 def scene_hint_for_type(type_id: str, h2: str) -> str:
+    """AVTO SALES niche defaults — never seed Wordstat/SEO-laptop myths."""
     hints = {
-        "comparison_table_ui": f"Таблица SEO vs GEO: критерии, цели, человек vs AI — «{h2}»",
-        "workflow_diagram": f"6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «{h2}»",
-        "checklist_board": f"Printable чеклист перед публикацией — «{h2}»",
-        "schema_faq_ui": f"FAQ accordion + JSON-LD schema UI — «{h2}»",
-        "tool_screenshot": f"Скрин SEO-инструмента — «{h2}»",
-        "infographic_card": f"Карточка фактов — «{h2}»",
+        "comparison_table_ui": f"Таблица сравнения: Япония / Корея / Китай или документы vs риск — «{h2}»; NO Wordstat NO Metrika",
+        "workflow_diagram": f"Схема шагов: таможня → документы → ГИБДД / проверка до депозита — «{h2}»; NO SEO tools",
+        "checklist_board": f"Printable чеклист по документам/проверке авто — «{h2}»; NO Wordstat",
+        "schema_faq_ui": f"FAQ accordion UI про авто/растаможку — «{h2}»",
+        "tool_screenshot": f"Fake UI: Encar / аукционный лист / каталог avto-sales125.ru — «{h2}»; NEVER Wordstat/Metrika",
+        "infographic_card": f"Карточка фактов про авто из Азии / документы — «{h2}»",
     }
-    return hints.get(type_id, f"Полезная иллюстрация — «{h2}»")
+    return hints.get(type_id, f"Полезная иллюстрация про авто/документы — «{h2}»")
 
 
 def alt_for_type(type_id: str, h2: str, types_catalog: dict) -> str:
     label = ((types_catalog.get("types") or {}).get(type_id) or {}).get("label_ru") or type_id
     return f"{label}: {h2}"
+
+
+def compact_topic(value: object, limit: int = 80) -> str:
+    text = " ".join(str(value or "").split())
+    if len(text) <= limit:
+        return text
+    return text[: limit - 1].rstrip() + "…"
+
+
+def default_cover_hook(article_topic: str, meta: dict) -> str:
+    """AVTO SALES pain hook — never seed SEO/Wordstat myths."""
+    primary = (meta.get("primary_query") or meta.get("h1") or article_topic or "").strip()
+    short = compact_topic(primary, 70)
+    if short:
+        return f"Пропустили шаг — и «{short}» превратился в отказ?"
+    return "Документы вроде есть — а в ГИБДД разворачивают?"
 
 
 def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict[str, Any]:
@@ -109,13 +126,19 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
     article_topic = meta.get("h1") or article_dir.name
 
     old_cover = ((preserve or {}).get("slots") or {}).get("cover") or {}
+    default_cover_scene = (
+        "EXACT face+glasses from reference; OUTFIT under weather/topic from article "
+        "(rain jacket / winter coat / smart casual — NOT reference hoodie/tank); "
+        f"pose/props under hook for «{compact_topic(article_topic)}»; "
+        "Vladivostok/port/customs/docs vibe when relevant; "
+        "NO Wordstat NO Metrika NO SEO laptop myths; corner footer avto-sales125.ru"
+    )
     cover = {
         "quadrant": "top_left",
         "role": "cover_meme_hero",
         "alt": old_cover.get("alt") or f"Обложка: {article_topic}",
-        "scene_hint": old_cover.get("scene_hint")
-        or "reference-лицо, белое плотное худи из толстой ткани, новая поза/жест/ракурс под крючок, без наушников/headset/earbuds, шок/ирония SEOшника, Wordstat + ноутбук",
-        "meme_caption_ru": old_cover.get("meme_caption_ru") or "15k ключей — 0 прочтений?",
+        "scene_hint": old_cover.get("scene_hint") or default_cover_scene,
+        "meme_caption_ru": old_cover.get("meme_caption_ru") or "без сюрпризов на таможне",
     }
 
     used: set[str] = set()
@@ -129,11 +152,12 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
             "quadrant": DEFAULT_SLOT_MAP[slot_key],
             "h2_anchor": old.get("h2_anchor") or h2,
             "visual_type": visual_type,
-            "scene_hint": scene_hint_for_type(visual_type, old.get("h2_anchor") or h2),
+            "scene_hint": old.get("scene_hint")
+            or scene_hint_for_type(visual_type, old.get("h2_anchor") or h2),
             "alt": alt_for_type(visual_type, old.get("h2_anchor") or h2, types_catalog),
         }
 
-    cover_hook = (preserve or {}).get("cover_hook") or "SEO-текст, который люди дочитают — миф или workflow?"
+    cover_hook = (preserve or {}).get("cover_hook") or default_cover_hook(article_topic, meta)
 
     return {
         "topic_id": topic_id,

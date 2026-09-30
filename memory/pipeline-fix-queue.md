@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20260930-1330-writer-utility-pain-markers-missing
+status: open
+run_date: 2026-09-30
+role: excalibur-blog-writer
+topic_id: B05
+article_dir: memory/blog/articles/B05-kak-kupit-avto-po-parallelnomu-importu-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always counts `pain_markers_ru` / `outcome_markers_ru` and requires min 2 / 3 by default.
+- `memory/brief/editorial-policy.json` did not define these lists, so every article got false BLOCK (`pain_markers=0`, `outcome_markers=0`), including previously published AS09.
+- `CATALOG_URL` / `TELEGRAM_URL` env values were literal `[REDACTED]`; CTA links written as live `avto-sales125.ru` / `t.me/avtosales125` per prior writer pattern.
+
+### How the agent recovered this run
+- Added `pain_markers_ru` / `outcome_markers_ru` (aligned with `excalibur_blog_human_voice_gate.py`) and explicit `min_pain_markers` / `min_outcome_markers` to `editorial-policy.json`.
+- Tuned article recommendation wording to policy markers (`Сделайте` / `Не делайте` / `чеклист` / `Шаг `).
+- Used public catalog and Telegram URLs instead of redacted env placeholders.
+
+### Durable fix needed before next run
+- Keep policy marker lists in sync with human-voice gate, or skip pain/outcome checks in utility gate when lists are empty.
+- Stop storing CTA env as the literal string `[REDACTED]` in Cloud Secrets; use real public URLs or document the fallback domain in site-brief.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `memory/brief/conversion-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260930-1315-director-doctor-blog-path
 status: open
 run_date: 2026-09-30

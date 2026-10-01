@@ -1,7 +1,7 @@
 # Promotion checklist — B06 avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026
 
 Дата публикации: 2026-10-01  
-Live URL: [REDACTED]/blog/avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026/
+Live URL: https://avtosales125.ru/2026/10/01/avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • До перевода нужны сканы 行驶证, 交强险, VIN и одометр
 • ≤180 дней без письма завода — экспортную лицензию не дадут
 
-Читать: [REDACTED]/blog/avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026/
+Читать: https://avtosales125.ru/2026/10/01/avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026/
 ```
 
 ## Перелинковка
@@ -47,3 +47,13 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer run 2026-10-01: interlink --apply → 0 links; llms.txt/llms-full.txt regenerated with site-base `[REDACTED]`
 - Cover||Schema PASS before Indexer; publish — следующий Task
+
+## Publish result (auto)
+
+- wp_post_id: 3895
+- featured_image: 3902
+- inline_images: 3903, 3904, 3905
+- schema_meta: ok
+- Live HEAD: 200
+- permalink: https://avtosales125.ru/2026/10/01/avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026/
+

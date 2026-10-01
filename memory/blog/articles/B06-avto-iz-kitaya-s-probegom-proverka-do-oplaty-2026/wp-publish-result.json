@@ -1,0 +1,17 @@
+{
+  "slug": "avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026",
+  "topic_id": "B06",
+  "permalink": "http://avtosales125.ru/2026/10/01/avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026/",
+  "publish_method": "ssh_php83_cli",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B06-avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1243899,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3895 slug=avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026\nOK featured_image=3902\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3903 src=cover/inline-01.png url=http://avtosales125.ru/wp-content/uploads/2026/10/avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026-inline-01-1.png\nOK inline_image_upload=3904 src=cover/inline-02.png url=http://avtosales125.ru/wp-content/uploads/2026/10/avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026-inline-02-1.png\nOK inline_image_upload=3905 src=cover/inline-03.png url=http://avtosales125.ru/wp-content/uploads/2026/10/avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026-inline-03-1.png\npermalink=http://avtosales125.ru/2026/10/01/avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026/\n",
+  "stderr": "",
+  "php_rc": 0,
+  "verdict": "pass"
+}

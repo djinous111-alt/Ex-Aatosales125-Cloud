@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261001-1000-publish-paramiko-missing-http-timeout
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-publish
+topic_id: B06
+article_dir: memory/blog/articles/B06-avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026
+severity: high
+category: env
+
+### What went wrong
+- `paramiko` missing in Cloud runtime (`ModuleNotFoundError`) though listed in `requirements.txt`; not present in `.cursor/cloud-agent-install.sh`.
+- Local HTTP trigger of `excalibur-blog-publish-once.php` (~6.6MB payload) hit `TimeoutError` at urllib timeout=120s; script entered WebFetch fallback wait 120s then failed; `finally` deleted bootstrap (HEAD 404).
+- Fallback wait message still says 120s while publish-patterns mention 180s patch — mismatch remains.
+
+### How the agent recovered this run
+- Installed `paramiko` via `pip3 install --break-system-packages paramiko`.
+- After bootstrap cleanup, performed **one** republish via SSH `/usr/local/bin/php8.3 ./excalibur-blog-publish-once.php` (default `php` is 5.6 and cannot load WP).
+- Result: NEW post 3895, featured 3902, inline 3903/3904/3905, schema_meta ok, live HEAD 200. No blind third republish; did not touch posts 3861/3867/etc.
+
+### Durable fix needed before next run
+- Ensure `paramiko` is installed in `.cursor/cloud-agent-install.sh` / environment build.
+- Raise HTTP trigger timeout to ≥300s and/or add first-class SSH `php8.3` exec path in `excalibur_blog_wp_publish.py` (avoid relying on 120s urllib + WebFetch race).
+- Align fallback wait seconds in script with docs (180 vs 120).
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261001-0954-indexer-llms-blog-path-vs-blog-dir
 status: open
 run_date: 2026-10-01

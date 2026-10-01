@@ -1,0 +1,195 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/kak-rusifitsirovat-avto-iz-kitaya-2026/#blogposting",  // pragma: allowlist secret
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/kak-rusifitsirovat-avto-iz-kitaya-2026/"  // pragma: allowlist secret
+      },
+      "headline": "Как русифицировать авто из Китая: чек-лист до выдачи в 2026",
+      "description": "Русификация авто из Китая в 2026: чек-лист до депозита и при выдаче. Меню, карты, CarPlay, OTA-риски. Подбор – в каталоге Авто-Сейлс.",
+      "datePublished": "2026-10-02",
+      "dateModified": "2026-10-02",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",  // pragma: allowlist secret
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",  // pragma: allowlist secret
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru/"  // pragma: allowlist secret
+        },
+        "sameAs": [
+          "https://avtosales125.ru/",  // pragma: allowlist secret
+          "https://avto-sales125.ru/",  // pragma: allowlist secret
+          "https://t.me/avtosales125",  // pragma: allowlist secret
+          "https://max.ru/id2508140890_biz",  // pragma: allowlist secret
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",  // pragma: allowlist secret
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru/",  // pragma: allowlist secret
+        "sameAs": [
+          "https://t.me/avtosales125",  // pragma: allowlist secret
+          "https://www.instagram.com/avtosales_rf"
+        ]
+      },
+      "keywords": [
+        "русификация авто из китая",
+        "русификация китайских автомобилей",
+        "сколько стоит русификация авто из китая",
+        "русификация авто из китая своими руками"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/kak-rusifitsirovat-avto-iz-kitaya-2026/#faq",  // pragma: allowlist secret
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сколько примерно этапов у русификации авто из Китая?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Считайте этапы сделки: список слоёв → вопросы и видео до депозита → смета → приёмка → правила OTA. Работы у сервиса могут быть одной сессией, ваш контроль – эти пять ступеней."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли русифицировать авто из Китая своими руками?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Новичку – не стоит. Риск \"кирпича\", сброса после OTA и потери функций выше экономии. Выберите сервис с опытом модели и восстановлением после обновлений, сами держите чек-лист приёмки."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить до депозита, если меню только на китайском?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не переводите деньги \"вслепую\". Запросите письменный план по слоям, сроки, исполнителя, что будет на русском к выдаче, и непрерывное видео этой VIN. Нет плана и видео – нет депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужна ли отдельная \"коробочка\" для CarPlay?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Уточните штатную поддержку. На ряде моделей (часто Lixiang, Zeekr, NIO, Aito) CarPlay не появляется от перевода меню – нужен внешний модуль, ориентир 15–40 тыс. ₽. Заложите это в смету до оплаты."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько стоит русификация авто из Китая в 2026 году?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ориентиры рынка: базовая мультимедиа около 10–30 тыс. ₽, полная локализация часто 50–150 тыс. ₽, сложные кейсы выше. Точную цифру по комплектации считайте в каталоге или у менеджера."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если после OTA русский интерфейс слетел?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не ставьте обновления \"на удачу\". Свяжитесь с исполнителем адаптации: норма рынка – восстановление по гарантии сервиса. Если ответа про OTA не было до оплаты, зафиксируйте это до следующих работ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем этот чек-лист отличается от \"русификации до отправки в Москву\"?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Фокус здесь на приёмке: вопросы до депозита и осмотр при выдаче. Логистика до Москвы – отдельная тема и не спасает, если на выдаче мёртвые карты."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/kak-rusifitsirovat-avto-iz-kitaya-2026/#howto",  // pragma: allowlist secret
+      "name": "Как русифицировать авто из Китая: чек-лист до выдачи",
+      "description": "Пошаговый чек-лист покупателя: слои русификации, вопросы до депозита, смета, приёмка при выдаче и правила OTA без DIY-прошивки.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Видео конкретной VIN: экраны, адрес в РФ, звонок"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Письменные ответы продавца по слоям и OTA"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Чек-лист приёмки на 12 пунктов при выдаче"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Список критичных слоёв: меню, приборка, карты, телефон"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Смета по глубине работ и модулю CarPlay"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Выпишите критичные слои русификации",
+          "text": "Выпишите критичные слои – меню, приборка, карты, телефон.",
+          "url": "https://avtosales125.ru/kak-rusifitsirovat-avto-iz-kitaya-2026/#зафиксируйте-слои-русификации-до-звонка-продавцу"  // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Отправьте продавцу семь вопросов до депозита",
+          "text": "Отправьте продавцу семь вопросов из раздела до депозита.",
+          "url": "https://avtosales125.ru/kak-rusifitsirovat-avto-iz-kitaya-2026/#спросите-продавца-до-депозита-язык-карты-carplay-ota"  // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Дождитесь видео этой VIN с адресом в РФ",
+          "text": "Дождитесь видео этой VIN с адресом в РФ и звонком.",
+          "url": "https://avtosales125.ru/kak-rusifitsirovat-avto-iz-kitaya-2026/#спросите-продавца-до-депозита-язык-карты-carplay-ota"  // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Сверьте смету с глубиной работ и CarPlay",
+          "text": "Сверьте смету с глубиной работ и модулем CarPlay.",
+          "url": "https://avtosales125.ru/kak-rusifitsirovat-avto-iz-kitaya-2026/#выберите-глубину-работ-и-заложите-бюджет-без-сюрпризов"  // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Пройдите 12 пунктов чек-листа на выдаче",
+          "text": "На выдаче пройдите 12 пунктов чеклиста и подпишите акт.",
+          "url": "https://avtosales125.ru/kak-rusifitsirovat-avto-iz-kitaya-2026/#примите-машину-по-чек-листу-за-один-проход-по-салону"  // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Сохраните контакты исполнителя и правила OTA",
+          "text": "Сохраните контакты исполнителя и правила OTA до выезда.",
+          "url": "https://avtosales125.ru/kak-rusifitsirovat-avto-iz-kitaya-2026/#откажитесь-от-diy-и-заранее-решите-вопрос-с-ota"  // pragma: allowlist secret
+        }
+      ]
+    }
+  ]
+}

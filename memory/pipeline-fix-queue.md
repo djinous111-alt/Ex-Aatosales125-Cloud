@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261001-1343-indexer-llms-doctor-blog-path-stale
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-indexer
+topic_id: B07
+article_dir: memory/blog/articles/B07-lgotnyy-utilsbor-na-avto-2026-kak-poluchit
+severity: low
+category: docs
+
+### What went wrong
+- `excalibur_blog_doctor.py` asserts `--blog-path` in llms generator `--help`, but CLI only has `--blog-dir` (no `--blog-path`).
+- Indexer skill/agent shell examples still pass `--blog-path /`, which would fail argparse if copied literally.
+- Preflight doctor already reported errors=1 for this stale assert; Indexer recovered by calling the real CLI.
+
+### How the agent recovered this run
+- Ran `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base "$PUBLIC_SITE_URL" --out-dir memory/blog` without `--blog-path`.
+- Generator EXIT 0; wrote `memory/blog/llms.txt` and `memory/blog/llms-full.txt`.
+
+### Durable fix needed before next run
+- Doctor: check `--blog-dir` (not `--blog-path`) in llms generator help.
+- Sync Indexer skill/agent examples: drop `--blog-path /` from the documented command.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261001-1340-cover-mcp-timeout-kie-recovery
 status: open
 run_date: 2026-10-01

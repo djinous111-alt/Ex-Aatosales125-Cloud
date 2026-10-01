@@ -624,3 +624,38 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261002-0058-indexer-precommit-site-url-allowlist
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rusifitsirovat-avto-iz-kitaya-2026
+severity: medium
+category: env
+
+### What went wrong
+- Indexer commit blocked twice: (1) `CLOUD_AGENT_INJECTED_SECRET_NAMES` still contains a non-identifier URL entry → bash `${!SECRET_NAME}` `invalid variable name` (same root as INC-20261002-0028 / INC-20261002-2152); (2) after filtering names, scanner blocked `PUBLIC_SITE_URL` values in regenerated `llms.txt` / `llms-full.txt` / `promotion-checklist.md` / `interlink-suggestions.json`.
+
+### How the agent recovered this run
+- Filtered injected secret names to `^[A-Za-z_][A-Za-z0-9_]*$`.
+- Appended `<!-- pragma: allowlist secret -->` (md/txt) or `// pragma: allowlist secret` (json line) on lines with the public site base URL.
+- Commit `a47bedc` pushed successfully.
+
+### Durable fix needed before next run
+- Fix Cloud injected secret names (identifiers only) — parent INC-20261002-0028.
+- Teach `excalibur_blog_llms_generator.py` (and interlinker report writer) to emit allowlist pragmas on site-base URL lines, OR treat PUBLIC_SITE_URL as non-secret for blog artifacts.
+- Document pragma rule in indexer skill.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- Cursor Dashboard Cloud Secrets / injected secret name list
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

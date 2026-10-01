@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B08-kakie-gibridy-mozhno-privezti-iz-yaponii-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1027,
+      580
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 580,
+        "end": 607
+      },
+      "v_gutter_px": {
+        "start": 1027,
+        "end": 1055
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1027,
+          "bottom": 580
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1027,
+          "bottom": 580
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у японского гибрида в порту Владивостока, плашка про гибрид 2026 и угол avto-sales125.ru",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1055,
+          "top": 10,
+          "right": 2048,
+          "bottom": 569
+        },
+        "raw_box_px": {
+          "left": 1055,
+          "top": 0,
+          "right": 2048,
+          "bottom": 580
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: новость про гибриды vs правило конкретного лота до ставки",
+        "h2_anchor": "Отделите новость \"разрешили\" от правила лота"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 29,
+          "top": 607,
+          "right": 998,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 607,
+          "right": 1027,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: как отличить mild от полного гибрида и e-Power по документам",
+        "h2_anchor": "Как отличить мягкий гибрид от полного и e-Power"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1067,
+          "top": 607,
+          "right": 2036,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1055,
+          "top": 607,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Инфографика: код кузова и объём двигателя сверить до ставки на аукционе",
+        "h2_anchor": "Сверьте код кузова и объём до ставки"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Отделите новость \"разрешили\" от правила лота",
+    "injected inline_2 after H2 — Как отличить мягкий гибрид от полного и e-Power",
+    "injected inline_3 after H2 — Сверьте код кузова и объём до ставки"
+  ]
+}

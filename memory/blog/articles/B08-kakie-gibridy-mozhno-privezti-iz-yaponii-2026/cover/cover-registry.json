@@ -1,0 +1,50 @@
+{
+  "topic_id": "B08",
+  "slug": "kakie-gibridy-mozhno-privezti-iz-yaponii-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у японского гибрида в порту Владивостока, плашка про гибрид 2026 и угол avto-sales125.ru",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-01T17:40:00+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у японского гибрида в порту Владивостока, плашка про гибрид 2026 и угол avto-sales125.ru",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица: новость про гибриды vs правило конкретного лота до ставки",
+      "h2_anchor": "Отделите новость \"разрешили\" от правила лота",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема: как отличить mild от полного гибрида и e-Power по документам",
+      "h2_anchor": "Как отличить мягкий гибрид от полного и e-Power",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Инфографика: код кузова и объём двигателя сверить до ставки на аукционе",
+      "h2_anchor": "Сверьте код кузова и объём до ставки",
+      "visual_type": "infographic_card",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

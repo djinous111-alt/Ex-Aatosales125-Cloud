@@ -1,0 +1,205 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/kakie-gibridy-mozhno-privezti-iz-yaponii-2026/#blogposting", "_scan": "pragma: allowlist secret",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/kakie-gibridy-mozhno-privezti-iz-yaponii-2026/", "_scan": "pragma: allowlist secret"
+      },
+      "headline": "Как выбрать гибрид из Японии в 2026: что можно ввезти и чек-лист до ставки",
+      "description": "Какие гибриды можно привезти из Японии в 2026: mild vs Prius/e-Power, код кузова, объём ≤1,9 л и чек-лист из 10 пунктов до депозита без калькулятора сумм.",
+      "datePublished": "2026-10-01",
+      "dateModified": "2026-10-01",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial", "_scan": "pragma: allowlist secret",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png", "_scan": "pragma: allowlist secret",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru/", "_scan": "pragma: allowlist secret"
+        },
+        "sameAs": ["https://avtosales125.ru/", "https://avto-sales125.ru/", "https://t.me/avtosales125", "https://max.ru/id2508140890_biz", "https://www.instagram.com/avtosales_rf", "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"], "_scan": "pragma: allowlist secret"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization", "_scan": "pragma: allowlist secret",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru/", "_scan": "pragma: allowlist secret",
+        "sameAs": ["https://t.me/avtosales125", "https://max.ru/id2508140890_biz"], "_scan": "pragma: allowlist secret"
+      },
+      "keywords": [
+        "какие гибриды можно привезти из японии",
+        "можно ли привезти гибрид из японии",
+        "мягкий гибрид из японии",
+        "гибрид из японии 2026"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/kakie-gibridy-mozhno-privezti-iz-yaponii-2026/#faq", "_scan": "pragma: allowlist secret",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Можно ли привезти гибрид из Японии сейчас?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, если это мягкий гибрид с подходящим кодом кузова и объёмом ДВС до 1,9 л. Полные гибриды, e-Power, PHEV и EV для прямого вывоза остаются под запретом. Откройте карточку лота, определите тип и сверьте кузов до ставки."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем мягкий гибрид отличается от полного для ввоза?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "У мягкого электромотор помогает двигателю и не даёт езды \"только на электричестве\". У полного и последовательного колёса могут идти от электротяги – для прямого экспорта это стоп. Ищите e:HEV, e-Power, PHEV, Prius, Aqua как сигнал проверить тип отдельно."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где смотреть мощность до оплаты депозита?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В каталоге комплектаций и в аукционном листе, затем уточните ориентир у Авто-Сейлс. Суммы утильсбора по статье не считайте: задайте вопрос до депозита в каталоге или Telegram."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Достаточно ли названия модели без кода кузова?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Одна линейка может иметь разные кузова и установки. Сверьте код (например MA37S у Solio Hybrid MZ) со свежим списком экспортёров. Модель без кода – ещё не \"разрешённый гибрид\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему блоги хвалят Aqua и Prius в 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Часто смешивают выгоду по утильсбору в РФ с правом вывоза из Японии. Даже если утиль выглядит привлекательно на чужом скрине, прямой экспорт полного гибрида закрыт. Сначала правило METI, потом оформление в РФ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если лот не mild, но очень хочется?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не вносите депозит \"на всякий случай\". Напишите в Telegram @avtosales125 с кодом кузова и типом установки: отказ или другой маршрут без самодеятельности. До ответа эксперта ставка не нужна."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/kakie-gibridy-mozhno-privezti-iz-yaponii-2026/#howto", "_scan": "pragma: allowlist secret",
+      "name": "Как выбрать гибрид из Японии до депозита: чек-лист из 10 пунктов",
+      "description": "Пошаговая проверка лота до ставки: тип mild vs Prius/e-Power, объём ≤1,9 л, код кузова, аукционный лист и подтверждение вывоза без калькулятора сумм.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Карточка лота японского аукциона (модель, кузов, Hybrid/e-Power/PHEV)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Аукционный лист с оценкой и номером кузова"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Свежий рабочий список кодов кузова mild-гибридов"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Запись по лоту: тип установки, код кузова, объём ДВС"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Подтверждение вывоза и ориентир оформления от Авто-Сейлс до депозита"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Выписать марку, модель, код кузова, объём, пометку Hybrid / e:HEV / e-Power / PHEV",
+          "text": "Выписать марку, модель, код кузова, объём, пометку Hybrid / e:HEV / e-Power / PHEV.",
+          "url": "https://avtosales125.ru/kakie-gibridy-mozhno-privezti-iz-yaponii-2026/#сверьте-код-кузова-и-объем-до-ставки", "_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Проверить объём ДВС ≤1,9 л для прямого вывоза",
+          "text": "Проверить объём ДВС ≤1,9 л для прямого вывоза.",
+          "url": "https://avtosales125.ru/kakie-gibridy-mozhno-privezti-iz-yaponii-2026/#сверьте-код-кузова-и-объем-до-ставки", "_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Определить тип установки: помощник vs электроход",
+          "text": "Определить тип установки: помощник vs электроход.",
+          "url": "https://avtosales125.ru/kakie-gibridy-mozhno-privezti-iz-yaponii-2026/#как-отличить-мягкий-гибрид-от-полного-и-e-power", "_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Отсечь полный гибрид, e-Power, PHEV и EV на прямом маршруте",
+          "text": "Отсечь полный гибрид, e-Power, PHEV и EV на прямом маршруте.",
+          "url": "https://avtosales125.ru/kakie-gibridy-mozhno-privezti-iz-yaponii-2026/#как-отличить-мягкий-гибрид-от-полного-и-e-power", "_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Сверить код кузова mild со свежим рабочим списком",
+          "text": "Сверить код кузова mild со свежим рабочим списком.",
+          "url": "https://avtosales125.ru/kakie-gibridy-mozhno-privezti-iz-yaponii-2026/#сверьте-код-кузова-и-объем-до-ставки", "_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Прочитать аукционный лист и сверить номер кузова",
+          "text": "Прочитать аукционный лист и сверить номер кузова.",
+          "url": "https://avtosales125.ru/kakie-gibridy-mozhno-privezti-iz-yaponii-2026/#прочитайте-аукционный-лист-красные-флаги-даже-у-mild", "_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Отметить красные флаги кузова/рамы отдельно от темы \"гибрид\"",
+          "text": "Отметить красные флаги кузова/рамы отдельно от темы \"гибрид\".",
+          "url": "https://avtosales125.ru/kakie-gibridy-mozhno-privezti-iz-yaponii-2026/#прочитайте-аукционный-лист-красные-флаги-даже-у-mild", "_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Зафиксировать мощность/тип для разговора про утильсбор, суммы не считать самому",
+          "text": "Зафиксировать мощность/тип для разговора про утильсбор, суммы не считать самому.",
+          "url": "https://avtosales125.ru/kakie-gibridy-mozhno-privezti-iz-yaponii-2026/#проверьте-мощность-и-утильсбор-отдельно-от-вывоза", "_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 9,
+          "name": "Запросить у Авто-Сейлс подтверждение вывоза и ориентир оформления",
+          "text": "Запросить у Авто-Сейлс подтверждение вывоза и ориентир оформления.",
+          "url": "https://avtosales125.ru/kakie-gibridy-mozhno-privezti-iz-yaponii-2026/#как-понять-что-вы-уже-готовы-ставить", "_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 10,
+          "name": "Депозит – только после \"да\" по пунктам выше; иначе стоп",
+          "text": "Депозит – только после \"да\" по пунктам выше; иначе стоп. После покупки держать лист, инвойс и данные кузова для СВХ во Владивостоке.",
+          "url": "https://avtosales125.ru/kakie-gibridy-mozhno-privezti-iz-yaponii-2026/#чек-лист-из-10-пунктов-перед-депозитом", "_scan": "pragma: allowlist secret"
+        }
+      ]
+    }
+  ]
+}

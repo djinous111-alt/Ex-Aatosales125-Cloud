@@ -1,0 +1,596 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-02",
+    "today_ru": "02.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-04",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-02 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "kak-rusifitsirovat-avto-iz-kitaya-2026",
+    "h1": "Как русифицировать авто из Китая: чек-лист до выдачи в 2026",
+    "primary_query": "русификация авто из китая",
+    "secondary_queries": [
+      "русификация китайских автомобилей",
+      "сколько стоит русификация авто из китая",
+      "русификация авто из китая своими руками",
+      "программа для русификации китайских автомобилей"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "русификация авто из китая 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Русификация автомобилей из Китая в 2026 году: нюансы, цены и скрытые ...",
+          "url": "https://auto.rambler.ru/lifehacks/56213236-rusifikatsiya-avtomobiley-iz-kitaya-v-2026-godu-nyuansy-tseny-i-skrytye-riski/",
+          "snippet": ""
+        },
+        {
+          "title": "Русификация Китайских Авто 2026: Цены И Чек-лист | Vk",
+          "url": "https://vk.ru/@gblogger-rusifikaciya-kitaiskih-avto-2026-ceny-i-chek-list",
+          "snippet": "Заключение Русификация китайского автомобиля в 2026 году требует взвешенного подхода. Для машин от официальных дилеров вопрос адаптации решён производителем."
+        },
+        {
+          "title": "Русификация китайского авто 2026: цены и способы",
+          "url": "https://vk.ru/@gblogger-rusifikaciya-kitaiskogo-avto-2026-ceny-i-sposoby",
+          "snippet": "Русификация китайского автомобиля в 2026 году: полный чек-лист по прошивке ГУ, впайке SIM и установке навигатора Русификация головного устройства (ГУ) китайских автомобилей в 2026 году включает установку русскоязычного ..."
+        },
+        {
+          "title": "Русификация Audi Q5 2026 г. из Китая очно в Москве",
+          "url": "https://www.drive2.ru/b/744444689624601735/",
+          "snippet": "Русификация китайского авто 2026: цены и способы Русификация китайского автомобиля в 2026 году: сколько стоит и что выбрать В 2026 году русификация мультимедиа для китайских автомобилей стала обязательным этапом после ..."
+        },
+        {
+          "title": "SFD2 и русификация BMW, VW, Audi из Китая: что это и...",
+          "url": "https://160drive.ru/sfd2-rusifikaciya-avto-iz-kitaya-2026/",
+          "snippet": "Всем привет! На новом автомобиле Audi Q5 GU (B10) 2026 г.в. из Китая с защитой блоков SFD2 были выполнены следующие работы очно в Москве: Русификации мультимедиа, экрана пассажира и панели приборов…"
+        },
+        {
+          "title": "Русификация китайских авто: цена и методы адаптации 2026",
+          "url": "https://ezzhev.ru/chinese-cars/rusifikaciya-kitayskih-avto-cena/",
+          "snippet": "SFD2 и русификация авто из Китая: что это такое, сколько стоит для BMW, VW и Audi, какие функции открывает и где правильно сделать в 2026 году."
+        }
+      ],
+      "searched_at": "2026-10-02"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "русификация авто из китая октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Русификация автомобилей из Китая в 2026 году: нюансы, цены и скрытые ...",
+          "url": "https://auto.rambler.ru/lifehacks/56213236-rusifikatsiya-avtomobiley-iz-kitaya-v-2026-godu-nyuansy-tseny-i-skrytye-riski/",
+          "snippet": ""
+        },
+        {
+          "title": "Русификация Китайских Авто 2026: Цены И Чек-лист | Vk",
+          "url": "https://vk.ru/@gblogger-rusifikaciya-kitaiskih-avto-2026-ceny-i-chek-list",
+          "snippet": "Заключение Русификация китайского автомобиля в 2026 году требует взвешенного подхода. Для машин от официальных дилеров вопрос адаптации решён производителем."
+        },
+        {
+          "title": "Русификация китайского авто 2026: цены и способы",
+          "url": "https://vk.ru/@gblogger-rusifikaciya-kitaiskogo-avto-2026-ceny-i-sposoby",
+          "snippet": "Русификация китайского автомобиля в 2026 году: полный чек-лист по прошивке ГУ, впайке SIM и установке навигатора Русификация головного устройства (ГУ) китайских автомобилей в 2026 году включает установку русскоязычного ..."
+        },
+        {
+          "title": "SFD2 и русификация BMW, VW, Audi из Китая: что это и...",
+          "url": "https://160drive.ru/sfd2-rusifikaciya-avto-iz-kitaya-2026/",
+          "snippet": "В 2026 году русификация мультимедиа для китайских автомобилей стала обязательным этапом после покупки: заводские системы не поддерживают сервисы Google или Яндекс, а встроенная eSIM не работает ..."
+        },
+        {
+          "title": "Русификация и обслуживание китайского авто в России (2026) — проши ...",
+          "url": "https://carto-auto.ru/blog/rusifikatsiya-kitayskogo-avto-2026/",
+          "snippet": "SFD2 и русификация авто из Китая: что это такое, сколько стоит для BMW, VW и Audi, какие функции открывает и где правильно сделать в 2026 году."
+        },
+        {
+          "title": "Русификация мультимедиа в китайских авто: цены, риски и нюансы 2026 ...",
+          "url": "https://podolyaka.ru/rusifikatsiya-multimedia-v-kitayskih-avto-tseny-riski-i-nyuansy-2026-goda/",
+          "snippet": "Запчасти на китайские авто: доступность и логика Второй большой вопрос после софта — запчасти. Здесь ситуация в 2026 году заметно лучше, чем пару лет назад:"
+        }
+      ],
+      "searched_at": "2026-10-02"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "русификация авто из китая новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Русификация автомобилей из Китая в 2026 году: нюансы, цены и скрытые ...",
+          "url": "https://auto.rambler.ru/lifehacks/56213236-rusifikatsiya-avtomobiley-iz-kitaya-v-2026-godu-nyuansy-tseny-i-skrytye-riski/",
+          "snippet": ""
+        },
+        {
+          "title": "Русификация Китайских Авто 2026: Цены И Чек-лист | Vk",
+          "url": "https://vk.ru/@gblogger-rusifikaciya-kitaiskih-avto-2026-ceny-i-chek-list",
+          "snippet": "Заключение Русификация китайского автомобиля в 2026 году требует взвешенного подхода. Для машин от официальных дилеров вопрос адаптации решён производителем."
+        },
+        {
+          "title": "SFD2 и русификация BMW, VW, Audi из Китая: что это и...",
+          "url": "https://160drive.ru/sfd2-rusifikaciya-avto-iz-kitaya-2026/",
+          "snippet": "Русификация китайского автомобиля в 2026 году: полный чек-лист по прошивке ГУ, впайке SIM и установке навигатора Русификация головного устройства (ГУ) китайских автомобилей в 2026 году включает установку русскоязычного ..."
+        },
+        {
+          "title": "Русификация мультимедиа в китайских авто: цены, риски и нюансы 2026 ...",
+          "url": "https://podolyaka.ru/rusifikatsiya-multimedia-v-kitayskih-avto-tseny-riski-i-nyuansy-2026-goda/",
+          "snippet": "SFD2 и русификация авто из Китая: что это такое, сколько стоит для BMW, VW и Audi, какие функции открывает и где правильно сделать в 2026 году."
+        },
+        {
+          "title": "Русификация китайского авто 2026: цены и способы",
+          "url": "https://vk.ru/@gblogger-rusifikaciya-kitaiskogo-avto-2026-ceny-i-sposoby",
+          "snippet": "Узнайте первыми: Русификация мультимедиа в китайских авто: цены, риски и нюансы 2026 года. Полный обзор события, эксклюзивные детали и мнения экспертов. Следите за развитием ситуации в реальном времени."
+        },
+        {
+          "title": "Русификация мультимедиа в китайских авто: цены, риски и нюансы 2026 года",
+          "url": "https://110km.ru/art/rusifikaciya-multimedia-v-kitayskih-avto-ceny-riski-i-nyuansy-2026-goda-174637.html",
+          "snippet": "В 2026 году русификация мультимедиа для китайских автомобилей стала обязательным этапом после покупки: заводские системы не поддерживают сервисы Google или Яндекс, а встроенная eSIM не работает ..."
+        }
+      ],
+      "searched_at": "2026-10-02"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com русификация авто из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - x-guest/s07.github.io: Deepal S07 2026 Main menu",
+          "url": "https://github.com/x-guest/s07.github.io",
+          "snippet": ""
+        },
+        {
+          "title": "GitHub - Leostrange/zcode-ru-patcher: Неофициальная русификация ZCode ...",
+          "url": "https://github.com/Leostrange/zcode-ru-patcher",
+          "snippet": "Данный проект является web-страницей перевода настроек и приложений авто Deepal S07 рестайлинг 2026 (DEEPAL OS 4.1.0), направлен чтоб избавить владельцев китайского автомобиля Deepal S07 2026 от рутины перевода скриншотов."
+        },
+        {
+          "title": "GitHub - bbepis/XUnity.AutoTranslator",
+          "url": "https://github.com/bbepis/XUnity.AutoTranslator",
+          "snippet": "Неофициальная русификация ZCode под Windows. Contribute to Leostrange/zcode-ru-patcher development by creating an account on GitHub."
+        },
+        {
+          "title": "GitHub - os-car-man/os-car-man: Open-source Car Manual",
+          "url": "https://github.com/os-car-man/os-car-man",
+          "snippet": "Contribute to bbepis/XUnity.AutoTranslator development by creating an account on GitHub."
+        },
+        {
+          "title": "Русификатор конфигуратора · Issue #9802 · iNavFlight/inav",
+          "url": "https://github.com/iNavFlight/inav/issues/9802",
+          "snippet": "Open-source Car Manual. Contribute to os-car-man/os-car-man development by creating an account on GitHub."
+        },
+        {
+          "title": "GitHub - GooDDarK/UTranslator: Лаунчер для русификаторов множества ...",
+          "url": "https://github.com/GooDDarK/UTranslator",
+          "snippet": "Файл русификации конфигуратора Для русификации INAV - Конфигуратор: откройте папку \"_locales\" в скачанном каталоге конфигуратора, создайте в этой папке папку \"ru\" и сохраните скачанный здесь файл messages.json в этой папке. При ..."
+        }
+      ],
+      "searched_at": "2026-10-02"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "русификация авто из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Русификация автомобилей из Китая в 2026 году: нюансы, цены и скрытые ...",
+          "url": "https://auto.rambler.ru/lifehacks/56213236-rusifikatsiya-avtomobiley-iz-kitaya-v-2026-godu-nyuansy-tseny-i-skrytye-riski/",
+          "snippet": ""
+        },
+        {
+          "title": "Гайды — Русификация Китайских Авто | Red Team",
+          "url": "https://redteamcar.com/ru/guides",
+          "snippet": "Заключение Русификация китайского автомобиля в 2026 году требует взвешенного подхода. Для машин от официальных дилеров вопрос адаптации решён производителем."
+        },
+        {
+          "title": "SFD2 и русификация BMW, VW, Audi из Китая: что это и...",
+          "url": "https://160drive.ru/sfd2-rusifikaciya-avto-iz-kitaya-2026/",
+          "snippet": "Русификация AITO на HarmonyOS — M5, M7, M9 (2026) Русификация AITO M5, M7 и M9: специфика HarmonyOS, экосистема Huawei, приложения, HUD-навигация и чем AITO отличается от других китайских авто."
+        },
+        {
+          "title": "Русификация Китайских Авто 2026: Цены И Чек-лист | Vk",
+          "url": "https://vk.ru/@gblogger-rusifikaciya-kitaiskih-avto-2026-ceny-i-chek-list",
+          "snippet": "SFD2 и русификация авто из Китая: что это такое, сколько стоит для BMW, VW и Audi, какие функции открывает и где правильно сделать в 2026 году."
+        },
+        {
+          "title": "Русификация и обслуживание китайского авто в России (2026) — проши ...",
+          "url": "https://carto-auto.ru/blog/rusifikatsiya-kitayskogo-avto-2026/",
+          "snippet": "Русификация головного устройства (ГУ) китайских автомобилей в 2026 году включает установку русскоязычного интерфейса, впайку слота под российскую SIM-карту (от 10 000 ₽) и интеграцию ..."
+        },
+        {
+          "title": "Русификация Toyota из параллельного импорта 2026: Китай, ОАЭ",
+          "url": "https://russification.ru/blog/rusifikaciya-toyota-parallelnyj-import-2026/",
+          "snippet": "Запчасти на китайские авто: доступность и логика Второй большой вопрос после софта — запчасти. Здесь ситуация в 2026 году заметно лучше, чем пару лет назад:"
+        }
+      ],
+      "searched_at": "2026-10-02"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "русификация авто из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Русификация китайских авто. Реальные проблемы параллельного импорта и ...",
+          "url": "https://www.drive2.ru/b/723150997685281112/",
+          "snippet": ""
+        },
+        {
+          "title": "Русификация и обслуживание китайского авто в России (2026) — проши ...",
+          "url": "https://carto-auto.ru/blog/rusifikatsiya-kitayskogo-avto-2026/",
+          "snippet": "Русификация китайских авто. Реальные проблемы параллельного импорта и как их решают в России Russification 4 января 2026 russification.ru/"
+        },
+        {
+          "title": "Русификация автомобилей | otomotiv-forum.com",
+          "url": "https://otomotiv-forum.com/forums/RU_lang/",
+          "snippet": "Запчасти на китайские авто: доступность и логика Второй большой вопрос после софта — запчасти. Здесь ситуация в 2026 году заметно лучше, чем пару лет назад:"
+        },
+        {
+          "title": "Русификация автомобилей из Китая в 2026 году: нюансы, цены и скрытые ...",
+          "url": "https://auto.rambler.ru/lifehacks/56213236-rusifikatsiya-avtomobiley-iz-kitaya-v-2026-godu-nyuansy-tseny-i-skrytye-riski/",
+          "snippet": "Русификация автомобилей - Обновления новости анонсы vielho 17.04.2026 Ответы 1 Просмотры 2 тыс."
+        },
+        {
+          "title": "Русификация Китайских Авто И Ota-обновления: Риски «Окирпичивания ...",
+          "url": "https://www.pro-avto-forum.ru/viewtopic.php?t=1012",
+          "snippet": "Заключение Русификация китайского автомобиля в 2026 году требует взвешенного подхода. Для машин от официальных дилеров вопрос адаптации решён производителем."
+        },
+        {
+          "title": "Русификация Китайских Авто 2026: Цены И Чек-лист | Vk",
+          "url": "https://vk.ru/@gblogger-rusifikaciya-kitaiskih-avto-2026-ceny-i-chek-list",
+          "snippet": "Наиболее чувствительные моделиZeekr 001 Один из лидеров по количеству проблем после русификации. Причина проста: очень сложная архитектура ПО и агрессивные OTA-обновления."
+        }
+      ],
+      "searched_at": "2026-10-02"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "русификация китайских автомобилей 2026",
+      "purpose": "вторичный запрос: русификация китайских автомобилей",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Русификация автомобилей из Китая в 2026 году: нюансы, цены и скрытые ...",
+          "url": "https://auto.rambler.ru/lifehacks/56213236-rusifikatsiya-avtomobiley-iz-kitaya-v-2026-godu-nyuansy-tseny-i-skrytye-riski/",
+          "snippet": ""
+        },
+        {
+          "title": "Русификация Китайских Авто 2026: Цены И Чек-лист | Vk",
+          "url": "https://vk.ru/@gblogger-rusifikaciya-kitaiskih-avto-2026-ceny-i-chek-list",
+          "snippet": "Заключение Русификация китайского автомобиля в 2026 году требует взвешенного подхода. Для машин от официальных дилеров вопрос адаптации решён производителем."
+        },
+        {
+          "title": "Русификация китайских авто: цена и методы адаптации 2026",
+          "url": "https://ezzhev.ru/chinese-cars/rusifikaciya-kitayskih-avto-cena/",
+          "snippet": "Русификация китайского автомобиля в 2026 году: полный чек-лист по прошивке ГУ, впайке SIM и установке навигатора Русификация головного устройства (ГУ) китайских автомобилей в 2026 году включает установку русскоязычного ..."
+        },
+        {
+          "title": "Русификация китайского авто 2026: цены и способы",
+          "url": "https://vk.ru/@gblogger-rusifikaciya-kitaiskogo-avto-2026-ceny-i-sposoby",
+          "snippet": "Русификация китайских авто: цена от 15 000 ₽. Сравниваем методы прошивки, факторы цены и даем советы по выбору сервиса. Читайте подробнее."
+        },
+        {
+          "title": "Русификация мультимедиа в китайских авто: цены, риски и нюансы 2026 ...",
+          "url": "https://podolyaka.ru/rusifikatsiya-multimedia-v-kitayskih-avto-tseny-riski-i-nyuansy-2026-goda/",
+          "snippet": "Русификация китайского авто 2026: цены и способы Русификация китайского автомобиля в 2026 году: сколько стоит и что выбрать В 2026 году русификация мультимедиа для китайских автомобилей стала обязательным этапом после ..."
+        },
+        {
+          "title": "Русификация мультимедиа в китайских авто: цены, риски и нюансы 2026 года",
+          "url": "https://110km.ru/art/rusifikaciya-multimedia-v-kitayskih-avto-ceny-riski-i-nyuansy-2026-goda-174637.html",
+          "snippet": "Узнайте первыми: Русификация мультимедиа в китайских авто: цены, риски и нюансы 2026 года. Полный обзор события, эксклюзивные детали и мнения экспертов. Следите за развитием ситуации в реальном времени."
+        }
+      ],
+      "searched_at": "2026-10-02"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "сколько стоит русификация авто из китая 2026",
+      "purpose": "вторичный запрос: сколько стоит русификация авто из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Русификация Китайских Авто 2026: Цены И Чек-лист | Vk",
+          "url": "https://vk.ru/@gblogger-rusifikaciya-kitaiskih-avto-2026-ceny-i-chek-list",
+          "snippet": ""
+        },
+        {
+          "title": "Русификация автомобилей из Китая в 2026 году: нюансы, цены и скрытые ...",
+          "url": "https://auto.rambler.ru/lifehacks/56213236-rusifikatsiya-avtomobiley-iz-kitaya-v-2026-godu-nyuansy-tseny-i-skrytye-riski/",
+          "snippet": "Сколько стоит русификация в 2026 году: цены на прошивку, впайку SIM и навигатор Стоимость русификации китайского автомобиля в 2026 году сильно зависит от модели, года выпуска и выбранного метода. По данным профильных ..."
+        },
+        {
+          "title": "Русификация китайских авто: цена и методы адаптации 2026",
+          "url": "https://ezzhev.ru/chinese-cars/rusifikaciya-kitayskih-avto-cena/",
+          "snippet": "Заключение Русификация китайского автомобиля в 2026 году требует взвешенного подхода. Для машин от официальных дилеров вопрос адаптации решён производителем."
+        },
+        {
+          "title": "Русификация китайского авто 2026: цены и способы",
+          "url": "https://vk.ru/@gblogger-rusifikaciya-kitaiskogo-avto-2026-ceny-i-sposoby",
+          "snippet": "Русификация китайских авто: цена от 15 000 ₽. Сравниваем методы прошивки, факторы цены и даем советы по выбору сервиса. Читайте подробнее."
+        },
+        {
+          "title": "Русификация китайских авто — цены 2026, от $550",
+          "url": "https://redteamcar.com/ru/pricing",
+          "snippet": "Русификация китайского авто 2026: цены и способы Русификация китайского автомобиля в 2026 году: сколько стоит и что выбрать В 2026 году русификация мультимедиа для китайских автомобилей стала обязательным этапом после ..."
+        },
+        {
+          "title": "Русификация мультимедиа в китайских авто: цены, риски и нюансы 2026 ...",
+          "url": "https://podolyaka.ru/rusifikatsiya-multimedia-v-kitayskih-avto-tseny-riski-i-nyuansy-2026-goda/",
+          "snippet": "Сколько стоит русификация китайского авто: от $550 за Dongfeng до $1800 за Denza. Цены по маркам, состав пакетов, сроки работ."
+        }
+      ],
+      "searched_at": "2026-10-02"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "русификация авто из китая своими руками 2026",
+      "purpose": "вторичный запрос: русификация авто из китая своими руками",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Русификация автомобилей из Китая в 2026 году: нюансы, цены и скрытые ...",
+          "url": "https://auto.rambler.ru/lifehacks/56213236-rusifikatsiya-avtomobiley-iz-kitaya-v-2026-godu-nyuansy-tseny-i-skrytye-riski/",
+          "snippet": ""
+        },
+        {
+          "title": "Русификация Китайских Авто 2026: Цены И Чек-лист | Vk",
+          "url": "https://vk.ru/@gblogger-rusifikaciya-kitaiskih-avto-2026-ceny-i-chek-list",
+          "snippet": "Заключение Русификация китайского автомобиля в 2026 году требует взвешенного подхода. Для машин от официальных дилеров вопрос адаптации решён производителем."
+        },
+        {
+          "title": "Русификация китайского авто 2026: цены и способы",
+          "url": "https://vk.ru/@gblogger-rusifikaciya-kitaiskogo-avto-2026-ceny-i-sposoby",
+          "snippet": "Русификация китайского автомобиля в 2026 году: полный чек-лист по прошивке ГУ, впайке SIM и установке навигатора Русификация головного устройства (ГУ) китайских автомобилей в 2026 году включает установку русскоязычного ..."
+        },
+        {
+          "title": "Русификация китайских авто: как сделать быстро и качественно",
+          "url": "https://www.autodela.ru/main/blogs/Ira_Avto/rusifikaciya-kitayskih-avto",
+          "snippet": "Русификация китайского авто 2026: цены и способы Русификация китайского автомобиля в 2026 году: сколько стоит и что выбрать В 2026 году русификация мультимедиа для китайских автомобилей стала обязательным этапом после ..."
+        },
+        {
+          "title": "Гайды — Русификация Китайских Авто | Red Team",
+          "url": "https://redteamcar.com/ru/guides",
+          "snippet": "Нужна ли русификация вашему «китайцу» в 2026 году? Экспертный разбор прошивки мультимедиа, рисков и способов перевода меню авто без потери гарантии."
+        },
+        {
+          "title": "Как я русифицировал свой китайский автомобиль: способы, цены, нюансы",
+          "url": "https://auto.ru/logbook/kak-ia-rusifitsiroval-svoy-kitayskiy-avtomobil-sposoby-tseny-niuansy_22066f76-c706-4d58-829f-dfb0f547d2ee/",
+          "snippet": "Чек-лист после ввоза китайского авто (2026) Что делать после доставки китайского электромобиля: регистрация, страховка, техосмотр, русификация, гарантия, приложения, зарядка. 15 шагов."
+        }
+      ],
+      "searched_at": "2026-10-02"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "программа для русификации китайских автомобилей 2026",
+      "purpose": "вторичный запрос: программа для русификации китайских автомобилей",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Русификация Китайских Авто 2026: Цены И Чек-лист | Vk",
+          "url": "https://vk.ru/@gblogger-rusifikaciya-kitaiskih-avto-2026-ceny-i-chek-list",
+          "snippet": ""
+        },
+        {
+          "title": "Русификация китайского авто 2026: цены и способы",
+          "url": "https://vk.ru/@gblogger-rusifikaciya-kitaiskogo-avto-2026-ceny-i-sposoby",
+          "snippet": "Сколько стоит русификация в 2026 году: цены на прошивку, впайку SIM и навигатор Стоимость русификации китайского автомобиля в 2026 году сильно зависит от модели, года выпуска и выбранного метода. По данным профильных ..."
+        },
+        {
+          "title": "Русификация китайских авто: цена и методы адаптации 2026",
+          "url": "https://ezzhev.ru/chinese-cars/rusifikaciya-kitayskih-avto-cena/",
+          "snippet": "Русификация китайского авто 2026: цены и способы Русификация китайского автомобиля в 2026 году: сколько стоит и что выбрать В 2026 году русификация мультимедиа для китайских автомобилей стала обязательным этапом после ..."
+        },
+        {
+          "title": "Гайды — Русификация Китайских Авто | Red Team",
+          "url": "https://redteamcar.com/ru/guides",
+          "snippet": "Русификация китайских авто: цена от 15 000 ₽. Сравниваем методы прошивки, факторы цены и даем советы по выбору сервиса. Читайте подробнее."
+        },
+        {
+          "title": "Русификация и обслуживание китайского авто в России (2026) — проши ...",
+          "url": "https://carto-auto.ru/blog/rusifikatsiya-kitayskogo-avto-2026/",
+          "snippet": "Русификация Toyota китайских версий — RAV4 и BZ5 (2026) Китайские версии Toyota (RAV4 6-е поколение, BZ5) — чем отличаются от глобальных, что сложного в русификации, вопросы гарантии."
+        },
+        {
+          "title": "Русификация китайских автомобилей Комплект прошивок и видео инструкции ...",
+          "url": "https://www.drive2.ru/b/725392077260588749/",
+          "snippet": "Запчасти на китайские авто: доступность и логика Второй большой вопрос после софта — запчасти. Здесь ситуация в 2026 году заметно лучше, чем пару лет назад:"
+        }
+      ],
+      "searched_at": "2026-10-02"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как русифицировать авто из Китая: чек-лист до выдачи в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Русификация Китайских Авто 2026: Цены И Чек-лист | Vk",
+          "url": "https://vk.ru/@gblogger-rusifikaciya-kitaiskih-avto-2026-ceny-i-chek-list",
+          "snippet": ""
+        },
+        {
+          "title": "Гайды — Русификация Китайских Авто | Red Team",
+          "url": "https://redteamcar.com/ru/guides",
+          "snippet": "Русификация китайского автомобиля в 2026 году: полный чек-лист по прошивке ГУ, впайке SIM и установке навигатора Русификация головного устройства (ГУ) китайских автомобилей в 2026 году включает установку русскоязычного ..."
+        },
+        {
+          "title": "Русификация и обслуживание китайского авто в России (2026) — проши ...",
+          "url": "https://carto-auto.ru/blog/rusifikatsiya-kitayskogo-avto-2026/",
+          "snippet": "Чек-лист после ввоза китайского авто (2026) Что делать после доставки китайского электромобиля: регистрация, страховка, техосмотр, русификация, гарантия, приложения, зарядка. 15 шагов."
+        },
+        {
+          "title": "Гайды по пригону авто из Китая — пошаговые инструкции — Иван Авто",
+          "url": "https://ivan-auto.ru/blog/gajdy/",
+          "snippet": "Главная / Блог / Русификация и обслуживание китайского авто в России (2026) — прошивка, мультимедиа, запчасти Гайды"
+        },
+        {
+          "title": "Русификация автомобилей из Китая в 2026 году: нюансы, цены и скрытые ...",
+          "url": "https://auto.rambler.ru/lifehacks/56213236-rusifikatsiya-avtomobiley-iz-kitaya-v-2026-godu-nyuansy-tseny-i-skrytye-riski/",
+          "snippet": "Как правильно пригнать авто из Китая: пошаговые гайды, льготы 2026, проходная машина, русификация. Чек-листы и реальные сметы от практикующего пригонщика."
+        },
+        {
+          "title": "Русификация китайских автомобилей: цены, этапы и риски",
+          "url": "https://ezzhev.ru/chinese-cars/rusifikaciya-kitajskih-avtomobilej/",
+          "snippet": "Внешний модуль для CarPlay и Android Auto (если требуется): 15 000 - 40 000 рублей. Общая стоимость для сложных моделей с несколькими экранами и развитой электронной архитектурой может достигать 150 ..."
+        }
+      ],
+      "searched_at": "2026-10-02"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://auto.rambler.ru/lifehacks/56213236-rusifikatsiya-avtomobiley-iz-kitaya-v-2026-godu-nyuansy-tseny-i-skrytye-riski/",
+      "title": "Русификация автомобилей из Китая в 2026 году: нюансы, цены и скрытые ...",
+      "from_query": "русификация авто из китая 2026"
+    },
+    {
+      "url": "https://vk.ru/@gblogger-rusifikaciya-kitaiskih-avto-2026-ceny-i-chek-list",
+      "title": "Русификация Китайских Авто 2026: Цены И Чек-лист | Vk",
+      "from_query": "русификация авто из китая 2026"
+    },
+    {
+      "url": "https://vk.ru/@gblogger-rusifikaciya-kitaiskogo-avto-2026-ceny-i-sposoby",
+      "title": "Русификация китайского авто 2026: цены и способы",
+      "from_query": "русификация авто из китая 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/b/744444689624601735/",
+      "title": "Русификация Audi Q5 2026 г. из Китая очно в Москве",
+      "from_query": "русификация авто из китая 2026"
+    },
+    {
+      "url": "https://160drive.ru/sfd2-rusifikaciya-avto-iz-kitaya-2026/",
+      "title": "SFD2 и русификация BMW, VW, Audi из Китая: что это и...",
+      "from_query": "русификация авто из китая 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/chinese-cars/rusifikaciya-kitayskih-avto-cena/",
+      "title": "Русификация китайских авто: цена и методы адаптации 2026",
+      "from_query": "русификация авто из китая 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/rusifikatsiya-kitayskogo-avto-2026/",
+      "title": "Русификация и обслуживание китайского авто в России (2026) — проши ...",
+      "from_query": "русификация авто из китая октябрь 2026"
+    },
+    {
+      "url": "https://podolyaka.ru/rusifikatsiya-multimedia-v-kitayskih-avto-tseny-riski-i-nyuansy-2026-goda/",
+      "title": "Русификация мультимедиа в китайских авто: цены, риски и нюансы 2026 ...",
+      "from_query": "русификация авто из китая октябрь 2026"
+    },
+    {
+      "url": "https://110km.ru/art/rusifikaciya-multimedia-v-kitayskih-avto-ceny-riski-i-nyuansy-2026-goda-174637.html",
+      "title": "Русификация мультимедиа в китайских авто: цены, риски и нюансы 2026 года",
+      "from_query": "русификация авто из китая новости 2026"
+    },
+    {
+      "url": "https://github.com/x-guest/s07.github.io",
+      "title": "GitHub - x-guest/s07.github.io: Deepal S07 2026 Main menu",
+      "from_query": "site:github.com русификация авто из китая 2026"
+    },
+    {
+      "url": "https://github.com/Leostrange/zcode-ru-patcher",
+      "title": "GitHub - Leostrange/zcode-ru-patcher: Неофициальная русификация ZCode ...",
+      "from_query": "site:github.com русификация авто из китая 2026"
+    },
+    {
+      "url": "https://github.com/bbepis/XUnity.AutoTranslator",
+      "title": "GitHub - bbepis/XUnity.AutoTranslator",
+      "from_query": "site:github.com русификация авто из китая 2026"
+    },
+    {
+      "url": "https://github.com/os-car-man/os-car-man",
+      "title": "GitHub - os-car-man/os-car-man: Open-source Car Manual",
+      "from_query": "site:github.com русификация авто из китая 2026"
+    },
+    {
+      "url": "https://github.com/iNavFlight/inav/issues/9802",
+      "title": "Русификатор конфигуратора · Issue #9802 · iNavFlight/inav",
+      "from_query": "site:github.com русификация авто из китая 2026"
+    },
+    {
+      "url": "https://github.com/GooDDarK/UTranslator",
+      "title": "GitHub - GooDDarK/UTranslator: Лаунчер для русификаторов множества ...",
+      "from_query": "site:github.com русификация авто из китая 2026"
+    },
+    {
+      "url": "https://redteamcar.com/ru/guides",
+      "title": "Гайды — Русификация Китайских Авто | Red Team",
+      "from_query": "русификация авто из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://russification.ru/blog/rusifikaciya-toyota-parallelnyj-import-2026/",
+      "title": "Русификация Toyota из параллельного импорта 2026: Китай, ОАЭ",
+      "from_query": "русификация авто из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/b/723150997685281112/",
+      "title": "Русификация китайских авто. Реальные проблемы параллельного импорта и ...",
+      "from_query": "русификация авто из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://otomotiv-forum.com/forums/RU_lang/",
+      "title": "Русификация автомобилей | otomotiv-forum.com",
+      "from_query": "русификация авто из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.pro-avto-forum.ru/viewtopic.php?t=1012",
+      "title": "Русификация Китайских Авто И Ota-обновления: Риски «Окирпичивания ...",
+      "from_query": "русификация авто из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://redteamcar.com/ru/pricing",
+      "title": "Русификация китайских авто — цены 2026, от $550",
+      "from_query": "сколько стоит русификация авто из китая 2026"
+    },
+    {
+      "url": "https://www.autodela.ru/main/blogs/Ira_Avto/rusifikaciya-kitayskih-avto",
+      "title": "Русификация китайских авто: как сделать быстро и качественно",
+      "from_query": "русификация авто из китая своими руками 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/kak-ia-rusifitsiroval-svoy-kitayskiy-avtomobil-sposoby-tseny-niuansy_22066f76-c706-4d58-829f-dfb0f547d2ee/",
+      "title": "Как я русифицировал свой китайский автомобиль: способы, цены, нюансы",
+      "from_query": "русификация авто из китая своими руками 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/b/725392077260588749/",
+      "title": "Русификация китайских автомобилей Комплект прошивок и видео инструкции ...",
+      "from_query": "программа для русификации китайских автомобилей 2026"
+    },
+    {
+      "url": "https://ivan-auto.ru/blog/gajdy/",
+      "title": "Гайды по пригону авто из Китая — пошаговые инструкции — Иван Авто",
+      "from_query": "Как русифицировать авто из Китая: чек-лист до выдачи в 2026 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/chinese-cars/rusifikaciya-kitajskih-avtomobilej/",
+      "title": "Русификация китайских автомобилей: цены, этапы и риски",
+      "from_query": "Как русифицировать авто из Китая: чек-лист до выдачи в 2026 2026"
+    }
+  ]
+}

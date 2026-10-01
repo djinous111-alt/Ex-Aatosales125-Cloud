@@ -323,3 +323,36 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261002-0027-research-accessed-at-gate
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rusifitsirovat-avto-iz-kitaya-2026
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` counts only literal `accessed_at:` key tokens (`accessed_at=1 < 5`), not dates in a markdown `source_table` column named `accessed_at`.
+- First gate run BLOCKED despite every source row having `2026-10-02`; research had to rewrite notes with a redundant `source_access_log` block.
+- Auto-niche topics with a `github_evidence` section are flagged `technical_topic=true` (substring `github` in first 2000 chars), which emits a soft warning about missing official `/docs` URLs even when OEM docs do not exist.
+
+### How the agent recovered this run
+- Added explicit `accessed_at: 2026-10-02` lines under `source_access_log` (≥5), re-ran gate → PASS.
+- Kept GitHub community repos as DIY-risk evidence; warning about official docs accepted as non-blocking for auto niche.
+
+### Durable fix needed before next run
+- Count `accessed_at` from source_table date cells OR document in research skill that ≥5 literal `accessed_at:` keys are required outside the table header.
+- Exclude the `github_evidence` section / word `github` from `is_technical_topic` heuristics for non-AI niches, or allow `N/A + justification` without forcing technical mode.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/editorial-utility-only.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

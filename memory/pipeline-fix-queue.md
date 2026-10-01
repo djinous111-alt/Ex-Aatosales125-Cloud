@@ -254,3 +254,37 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261001-0917-scout-suggest-next-ignores-live-wp
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-scout
+topic_id: B06
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_scout_helper.py --suggest-next` returned `B01` because the local B-pool in `memory/topics/blog-topics.md` was empty and ledger only has AS08/AS09.
+- Live WordPress already has published B01–B05 (and other posts). Blindly following helper would collide with live slugs/IDs.
+
+### How the agent recovered this run
+- Followed Director override: forced `topic_id = B06` (next free after B05).
+- Cross-checked recent WP/memory slug denylist before append.
+- Appended utility card `## B06` and passed `excalibur_blog_utility_gate.py --topic-id B06`.
+
+### Durable fix needed before next run
+- Teach scout helper to skip IDs already used on live WP and/or accept an explicit `--min-id B06` / denylist from published ledger + WP snapshot.
+- Document in scout skill that empty local B-pool does not mean B01 is free when WP ledger lags.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/published-articles.md` sync from WP
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

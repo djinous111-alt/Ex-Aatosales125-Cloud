@@ -7,19 +7,18 @@
       "article_dir": "memory/blog/articles/B06-avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026",
       "status": "BLOCK",
       "metrics": {
-        "numbered_list_items": 25,
+        "numbered_list_items": 20,
         "h2_sections": 7,
         "faq_h3": 6,
         "tables": 1,
         "blockquotes": 5,
         "ul_lists": 1,
-        "action_markers": 3,
+        "action_markers": 15,
         "pain_markers": 0,
         "outcome_markers": 0,
         "water_hits": []
       },
       "errors": [
-        "мало action-маркеров в тексте: 3 < 8",
         "слабо раскрыта боль читателя: pain_markers=0 < 2",
         "слабо раскрыта польза/результат: outcome_markers=0 < 3"
       ],

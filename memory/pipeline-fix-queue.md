@@ -25,6 +25,7 @@ category: script
 - Correct re-run for B06 used a temp policy with human-voice-aligned pain/outcome marker lists → pain=8, outcome=3; remaining real BLOCK: action_markers 3&lt;8.
 - Kept evidence: `utility-gate-report.default-policy.json` (false pain/outcome) vs canonical `utility-gate-report.json` (meaningful re-run).
 - Did not rewrite article; returned FAIL + FIX to writer for action markers + human-voice outcome unique count.
+- Re-QA after Writer FIX 1 (2026-10-01): same workaround still required; canonical utility PASS (action=15, pain=8, outcome=6) while default policy still false-BLOCK pain/outcome=0.
 
 ### Durable fix needed before next run
 - In `scripts/excalibur_blog_utility_gate.py`: apply pain/outcome minimums only when the corresponding marker lists are non-empty; do not use `or 2` / `or 3` when lists absent.

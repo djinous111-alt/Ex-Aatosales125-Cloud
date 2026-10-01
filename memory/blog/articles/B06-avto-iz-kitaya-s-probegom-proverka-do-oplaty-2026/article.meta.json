@@ -26,18 +26,20 @@
   },
   "cover_family": "brand_collage",
   "geo_qa": {
-    "score": 72,
-    "verdict": "FAIL",
+    "score": 86,
+    "verdict": "PASS",
     "date": "2026-10-01",
     "html_linter": "PASS",
     "slop_score": "PASS",
     "cannibalization": "PASS",
-    "human_voice": "BLOCK",
-    "utility": "BLOCK",
+    "human_voice": "PASS",
+    "utility": "PASS",
     "link_verify": "pass",
     "research_notes_gate": "PASS",
     "writer_fix_cycle": 1,
     "writer_fix_at": "2026-10-01",
-    "writer_fix_note": "action_markers+outcome+ol lengths; re-run GEO QA"
+    "writer_fix_note": "action_markers+outcome+ol lengths; re-QA PASS",
+    "re_qa_at": "2026-10-01",
+    "core_eeat_lite": "17/20"
   }
 }

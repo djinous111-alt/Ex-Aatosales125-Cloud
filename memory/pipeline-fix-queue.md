@@ -565,3 +565,33 @@ category: publish
 
 ### Fixer resolution
 - pending
+
+## INC-20261002-2152-cover-precommit-secret-names-url
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rusifitsirovat-avto-iz-kitaya-2026
+severity: medium
+category: env
+
+### What went wrong
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` содержит элемент, который не является валидным bash identifier (URL вида https://…), из‑за чего pre-commit.cursor падает на `${!SECRET_NAME}` с `invalid variable name`.
+- Commit cover-артефактов блокировался до фильтрации списка.
+
+### How the agent recovered this run
+- Перед commit отфильтровали SECRET_NAMES до `^[A-Za-z_][A-Za-z0-9_]*$` (остальные 14 secrets сканировались как обычно; `--no-verify` не использовали).
+
+### Durable fix needed before next run
+- Исправить инжекцию `CLOUD_AGENT_INJECTED_SECRET_NAMES`: только имена env vars, не значения/URL.
+- В pre-commit.cursor пропускать невалидные identifiers вместо abort.
+
+### Suggested files to inspect/change
+- Cloud secrets / agent inject config
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (platform)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

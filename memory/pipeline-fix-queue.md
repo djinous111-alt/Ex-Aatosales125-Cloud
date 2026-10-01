@@ -510,6 +510,8 @@ category: docs
 
 ### How the agent recovered this run
 - Ran llms generator with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`); PASS, B08 present in both llms files.
+- First `git commit` failed: pre-commit `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained literal `[REDACTED]` → `invalid variable name` (same root as INC-20261001-1718).
+- Filtered secret names to `[A-Za-z_][A-Za-z0-9_]*`, added same-line `<!-- pragma: allowlist secret -->` on new B08 URL lines in `llms.txt` / `llms-full.txt`, then commit succeeded.
 
 ### Durable fix needed before next run
 - Remove `--blog-path` from indexer agent/skill shell examples; keep `--blog-dir` for articles root and `--blog-path` only as site-brief concept if needed.

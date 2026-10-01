@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261001-1312-scout-suggest-next-ignores-live-b-ids
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-scout
+topic_id: B07
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py --suggest-next` вернул `B01` и `Total topics in pool: 0`, потому что парсер читает только заголовки `## B\\d+`, а в `memory/topics/blog-topics.md` лежат карточки `AS01–AS09`.
+- Live WP уже содержит статьи прошлых прогонов с id B01–B06; локальный ledger знает только AS08/AS09. Без ручного обхода следующий topic_id снова стал бы B01 и создал бы коллизию id.
+
+### How the agent recovered this run
+- Вручную выбрал `topic_id=B07` по handoff/live WP context.
+- Проверил Wordstat и `--check-query` для primary «льготный утильсбор» (PASS).
+- Append карточку `## B07` в `memory/topics/blog-topics.md`.
+
+### Durable fix needed before next run
+- Научить helper учитывать max(B*) из ledger + live/handoff reserved ids, либо парсить AS* и принимать `--min-id B07` / seed из `EXCALIBUR_SUGGESTED_TOPIC_ID`.
+- Синхронизировать `shared/published-articles.md` с live WP slugs B01–B06, чтобы cannibalization/suggest-next не опирались только на локальный AS-ledger.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/published-articles.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

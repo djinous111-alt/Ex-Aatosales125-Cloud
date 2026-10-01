@@ -58,9 +58,11 @@ inject <figure> after H2 in article.html
 
 **Lock (reference i2i):** только лицо и очки с `blog-hero-reference.png`.  
 **Одежда (обязательно менять):** под **погоду** сцены (снег/дождь/жара/туман/ночь) и **тему** статьи (порт, таможня, Encar, салон, ямы/комфорт и т.д.). Майку с reference не копировать.  
+**Запрет default:** белое худи / white hoodie (скрипт `cover_quad_prompt.py` больше не lock'ает hoodie).  
 **Запрет:** кепка, капюшон.  
 **Footer / угол обложки:** сайт каталога `avto-sales125.ru` (не Telegram).  
-**Стиль:** hyper-realistic action selfie + плашка (blueprint Avto-Sales).
+**Стиль:** hyper-realistic action selfie + плашка (blueprint Avto-Sales).  
+**MCP:** сначала Kie async image-to-image createTask (один quad job), не 4 отдельных генерации.
 
 ---
 

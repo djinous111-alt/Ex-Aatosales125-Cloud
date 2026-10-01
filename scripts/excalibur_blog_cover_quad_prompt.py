@@ -86,7 +86,7 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         "",
         "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
         "",
-        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
+        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. OUTFIT follows scene weather + article topic from cover scene_hint / blog-hero outfit_rule; NEVER default white hoodie; NO cap NO hood. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
         "",
         f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
         "",

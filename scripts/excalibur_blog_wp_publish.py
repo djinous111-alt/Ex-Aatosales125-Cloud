@@ -380,7 +380,22 @@ def _ssh_creds(env: dict[str, str]) -> tuple[str, int, str, str]:
 
 
 def configured_ssh_root(env: dict[str, str]) -> str:
-    return (env.get("SSH_ROOT") or "").strip()
+    # Empty SSH_ROOT → login cwd (required on hosts where panel path is missing).
+    return (env.get("SSH_ROOT") or "").strip() or "."
+
+
+def require_paramiko():
+    try:
+        import paramiko  # noqa: F401
+    except ModuleNotFoundError as exc:
+        raise SystemExit(
+            "❌ PUBLISH BLOCKER: paramiko is not installed. "
+            "Install via `.cursor/cloud-agent-install.sh` / `requirements.txt` "
+            "(pip install paramiko), then retry."
+        ) from exc
+    import paramiko
+
+    return paramiko
 
 
 def ssh_remote_path(env: dict[str, str], remote: str, root_override: str | None = None) -> str:
@@ -415,7 +430,7 @@ def is_missing_remote_path_error(exc: OSError) -> bool:
 
 
 def upload_bootstrap_ssh(env: dict[str, str], remote: str, data: bytes) -> str:
-    import paramiko
+    paramiko = require_paramiko()
 
     host, port, user, password = _ssh_creds(env)
     transport = paramiko.Transport((host, port))
@@ -451,7 +466,7 @@ def upload_bootstrap_ssh(env: dict[str, str], remote: str, data: bytes) -> str:
 
 
 def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | None = None) -> None:
-    import paramiko
+    paramiko = require_paramiko()
 
     host, port, user, password = _ssh_creds(env)
     remote_path = remote_path or ssh_remote_path(env, remote)

@@ -1,4 +1,4 @@
-﻿---
+---
 name: excalibur-wp-publish
 description: Alias для publish-excalibur-blog — публикация статьи в WordPress.
 ---
@@ -10,3 +10,5 @@ description: Alias для publish-excalibur-blog — публикация ста
 Используй его для всех шагов publish (preflight, dry-run, publish, fallback, ledger, handoff).
 
 Контракт: `shared/excalibur-wp-publish-contract.md`
+
+Deps: `paramiko` via `.cursor/cloud-agent-install.sh` / `requirements.txt`. Default `SSH_ROOT=.` when unset.

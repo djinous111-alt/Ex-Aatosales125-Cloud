@@ -20,17 +20,27 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | SSH: `SSH_HOST`, `SSH_USER`, `SSH_PASS`/`SSH_PASSWORD`, `PUBLIC_SITE_URL` |
+| SSH root | `SSH_ROOT=.` (login cwd), если panel path отсутствует |
+| Deps | `paramiko` (ставится через `.cursor/cloud-agent-install.sh` / `requirements.txt`) |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
+
+Перед dry-run/publish:
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+Если `ModuleNotFoundError: paramiko` — `pip3 install --break-system-packages paramiko` и зафиксируй gap в incident queue (install script должен уже содержать paramiko).
 
 ## Алгоритм
 
 ### 1. Preflight publish
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
   --site-base https://avtosales125.ru
@@ -41,7 +51,7 @@ Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
@@ -51,7 +61,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
@@ -84,7 +94,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 6. Post-publish (рекомендуется)
 
 ```bash
-python scripts/excalibur_blog_interlinker.py --apply \
+python3 scripts/excalibur_blog_interlinker.py --apply \
   --blog-dir memory/blog/articles \
   --site-base https://avtosales125.ru
 ```

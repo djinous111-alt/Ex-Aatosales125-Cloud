@@ -27,12 +27,12 @@ Append new Topic Card to blog-topics.md
 ## Подробный алгоритм действий
 
 ### Шаг 1 — Анализ прошлого и получение ID
-* Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
+* Считай список опубликованных статей из `shared/published-articles.md`, пул тем из `memory/topics/blog-topics.md` и `memory/topics/live-wp-occupied-ids.json`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Helper учитывает `occupied_topic_ids` / `next_suggested_topic_id` из live-wp JSON и не предлагает уже занятые B*/AS* ID. Запомни следующий `topic_id` и список невыполненных тем.
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
@@ -47,9 +47,14 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
-Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
+Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными, запланированными или live-WP occupied slug'ами.
+
+Перед любым `git commit` в Cloud:
+```bash
+source scripts/sanitize_cloud_secret_names.sh
+```
 
 ### Шаг 5 — Сборка карточки темы (Utility-Only)
 Сформируй карточку темы по шаблону:

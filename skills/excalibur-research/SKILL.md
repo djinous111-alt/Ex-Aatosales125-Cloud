@@ -10,7 +10,7 @@ description: Excalibur BLOG Research — topic research перед статьё�
 **Шаг 0 (скрипт, обязательно):** перед любым research — зафиксировать дату и собрать свежий SERP.
 
 ```bash
-python scripts/excalibur_blog_research_start.py --topic-id B01
+python3 scripts/excalibur_blog_research_start.py --topic-id B01
 ```
 
 Создаёт в папке статьи:
@@ -20,7 +20,9 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 
 `--dry-run` — только дата и запросы без HTTP.
 
-Перед **каждой** статьей затем пиши `research-notes.md`. Без него нельзя утверждать цены, даты, версии, статистику.
+Перед **каждой** статьей затем пиши `research-notes.md`.
+
+Gate `excalibur_blog_research_notes_gate.py` определяет technical topic по **границам слов** для коротких маркеров (`ии`, `ai`, `api`, …): слово «японии» / «Япония» само по себе не делает тему technical и не требует `github_urls >= 3`. Без него нельзя утверждать цены, даты, версии, статистику.
 
 ## Вход
 

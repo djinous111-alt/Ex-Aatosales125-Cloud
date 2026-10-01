@@ -1,0 +1,187 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026/"
+      },
+      "headline": "Как проверить авто из Китая с пробегом до оплаты: чек-лист на 2026",
+      "description": "Чек-лист проверки авто из Китая с пробегом до депозита: правило 180 дней по дате регистрации, сканы 行驶证 и 交强险, письмо завода и красные флаги 2026.",
+      "datePublished": "2026-10-01",
+      "dateModified": "2026-10-01",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru/"
+        },
+        "sameAs": [
+          "https://avtosales125.ru/",
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru/",
+        "sameAs": [
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz"
+        ]
+      },
+      "keywords": [
+        "авто из китая с пробегом",
+        "купить авто с пробегом из китая",
+        "заказ авто из китая с пробегом",
+        "авто из китая с пробегом владивосток"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Что такое правило 180 дней для авто из Китая?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Это порог для экспортной лицензии: отсчёт идёт от даты первой регистрации в 行驶证. Если дней 180 и меньше, без письма завода о послепродажном обслуживании лицензию не дают. Посчитайте дни по календарю до любого депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли вывезти машину младше 180 дней?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Формального тотального запрета нет. Нужен After-Sales Service Confirmation Letter именно от завода с печатью, VIN и страной назначения. Нет письма – не платите и не верьте обещанию \"сделаем потом\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие документы смотреть до оплаты депозита?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Минимум: скан 行驶证 с датой регистрации, 交强险, фото шильдика VIN, одометра и свежие фото с площадки. Для \"молодого\" лота добавьте статус письма завода. Пакет неполный – депозит не отправляйте."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "От какой даты считать 180 дней – от выпуска или от оплаты?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Только от даты первой регистрации в Китае. Год выпуска, дата перевода и дата \"снимется с учёта\" для этого порога не подходят. Запросите скан и считайте от поля регистрации."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Кто может выдать письмо завода?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Производитель из релевантного списка MIIT, не дочерняя sales-компания и не overseas dealer. Спросите письменно: кто печатает документ и есть ли в нём РФ как страна назначения. Ответ размытый – стоп."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если продавец давит \"сегодня или уйдёт\"?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Повторите запрос скана 行驶证 и статуса письма при ≤180 днях. Дайте срок на документы, а не на перевод. Ушёл без сканов – скорее всего, ушёл правильный риск."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026/#howto",
+      "name": "Как проверить авто из Китая с пробегом до оплаты",
+      "description": "Пошаговая проверка б/у авто из Китая до депозита: правило 180 дней по 行驶证, пакет сканов, письмо завода и красные флаги.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Скан 行驶证 с датой первой регистрации"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Скан 交强险 и фото VIN / одометра"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Календарь для подсчёта 180 дней"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Ссылка или карточка лота и переписка с продавцом"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "After-Sales Service Confirmation Letter от завода (если ≤180 дней)"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Запросить скан 行驶证 и посчитать 180 дней",
+          "text": "Запросите скан 行驶证, найдите дату первой регистрации и посчитайте календарные дни до порога 180.",
+          "url": "https://avtosales125.ru/avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026/#как-посчитать-правило-180-дней-по-дате-первой-регистрации"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Собрать пакет сканов до перевода",
+          "text": "Соберите сканы 行驶证, 交强险, фото шильдика VIN, одометра и свежие фото с площадки; сверьте VIN везде.",
+          "url": "https://avtosales125.ru/avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026/#какие-сканы-запросить-до-любого-перевода"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Проверить письмо завода для молодого лота",
+          "text": "Если регистрации 180 дней и меньше — запросите After-Sales Service Confirmation Letter от завода с печатью, VIN и страной назначения (РФ).",
+          "url": "https://avtosales125.ru/avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026/#когда-нужен-after-sales-service-confirmation-letter-от-завода"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Отсечь красные флаги до оплаты",
+          "text": "Остановите оплату при отказе показать 行驶证, давлении «сегодня или уйдёт», студийных фото без площадки или просьбе перевести на личную карту.",
+          "url": "https://avtosales125.ru/avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026/#красные-флаги-когда-оплату-останавливаете-сразу"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Пройти чеклист перед депозитом",
+          "text": "Пройдите чеклист: дата регистрации, счёт 180 дней, статус письма при ≤180, полный пакет сканов, совпадение VIN, понятный экспортёр через Владивосток.",
+          "url": "https://avtosales125.ru/avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026/#чеклист-перед-переводом-и-что-уточнить-у-авто-сейлс"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Зафиксировать вердикт платить или нет",
+          "text": "Заполните чеклист до оплаты и только при полном «да» переходите к депозиту и расчёту в каталоге Авто-Сейлс.",
+          "url": "https://avtosales125.ru/avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026/#что-сделать-сегодня-ваш-первый-результат"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "updated_at": "2026-10-01",
+  "source": "handoff Live WP context + publish-patterns + automation memory denylist",
+  "next_suggested_topic_id": "B08",
+  "do_not_republish_wp_ids": [3907, 3895, 3867, 3861, 3855, 3843, 3837, 3802, 3796],
+  "occupied_slugs": [
+    "lgotnyy-utilsbor-na-avto-2026-kak-poluchit",
+    "avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026",
+    "dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon",
+    "postanovka-na-uchet-vvezennogo-avto-2026",
+    "kak-kupit-avto-po-parallelnomu-importu-2026",
+    "kak-zakazat-avto-iz-kitaya-pod-klyuch-2026",
+    "kak-zakazat-avto-iz-yaponii-pod-klyuch-2026",
+    "prohodnye-avto-iz-yaponii-2026",
+    "sbkts-i-epts-2026-kak-oformit",
+    "ustanovka-era-glonass-na-vvezennyy-avto-2026",
+    "kak-chitat-auktsionnyy-list-yaponii-2026",
+    "kak-zakazat-avto-iz-korei-pod-klyuch-2026",
+    "kalkulyator-rastamozhki-avto-2026-kak-schitat",
+    "samye-komfortnye-avto-myagkaya-podveska-2026",
+    "trust-encar-carhistory-proverka-do-depozita"
+  ],
+  "avoid_query_fragments": [
+    "льготный утильсбор",
+    "авто из китая с пробегом",
+    "доставка авто из владивостока",
+    "постановка на учет ввезенного",
+    "параллельный импорт авто",
+    "авто из китая под ключ",
+    "авто из японии под ключ",
+    "авто из кореи под ключ",
+    "проходные авто из японии",
+    "сбктс",
+    "эптс",
+    "эра-глонасс",
+    "аукционный лист",
+    "калькулятор растаможки",
+    "мягкая подвеска",
+    "trust encar",
+    "автовоз",
+    "перегон авто из владивостока"
+  ],
+  "mapped_topic_ids": {
+    "B01": "postanovka-na-uchet-vvezennogo-avto-2026",
+    "B02": "dostavka-avto-iz-vladivostoka-2026-zhd-avtovoz-peregon",
+    "B03": "kak-zakazat-avto-iz-yaponii-pod-klyuch-2026",
+    "B04": "kak-zakazat-avto-iz-kitaya-pod-klyuch-2026",
+    "B05": "kak-kupit-avto-po-parallelnomu-importu-2026",
+    "B06": "avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026",
+    "B07": "lgotnyy-utilsbor-na-avto-2026-kak-poluchit"
+  }
+}

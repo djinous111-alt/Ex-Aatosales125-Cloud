@@ -493,3 +493,39 @@ category: env
 ### Fixer resolution
 - pending
 
+
+## INC-20261001-1743-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-indexer
+topic_id: B08
+article_dir: memory/blog/articles/B08-kakie-gibridy-mozhno-privezti-iz-yaponii-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Agent/skill shell examples still pass `--blog-path /` to `excalibur_blog_llms_generator.py`.
+- Actual CLI only accepts `--blog-dir`, `--site-base`, `--out-dir` (and site-name/desc); `--blog-path` exits argparse error code 2.
+- `excalibur_blog_doctor.py` incorrectly asserts `"--blog-path" in llms_help.stdout`, so doctor reports errors=1 even when generator is healthy.
+
+### How the agent recovered this run
+- Ran llms generator with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`); PASS, B08 present in both llms files.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent/skill shell examples; keep `--blog-dir` for articles root and `--blog-path` only as site-brief concept if needed.
+- Fix doctor check: either drop `--blog-path` assertion or verify `--blog-dir` instead.
+- Align `agents/`, `.cursor/agents/`, `skills/`, `.cursor/skills/` indexer docs.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

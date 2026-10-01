@@ -16,10 +16,12 @@ python3 scripts/excalibur_blog_interlinker.py --apply \
 
 python3 scripts/excalibur_blog_llms_generator.py \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru \
-  --blog-path / \
+  --site-base '[REDACTED]' \
   --out-dir memory/blog
 ```
+
+CLI accepts `--blog-dir` / `--site-base` / `--out-dir` only — there is no `--blog-path`.
+For memory/blog commits keep `--site-base '[REDACTED]'` so secret-scan does not block.
 
 ## Выход
 

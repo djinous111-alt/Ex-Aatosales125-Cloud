@@ -22,8 +22,10 @@
 Перед research:
 
 ```bash
-python scripts/excalibur_blog_utility_gate.py --topic-id B01
+python3 scripts/excalibur_blog_utility_gate.py --topic-id B01
 ```
+
+Policy must include non-empty `pain_markers_ru` / `outcome_markers_ru` (+ mins). Utility gate skips pain/outcome mins only when lists are empty (warning); doctor fails if lists missing.
 
 **Blocker `UTILITY TOPIC BLOCKER`** — тему не пускаем в пайплайн.
 

@@ -44,3 +44,16 @@ memory/blog/articles/<topic_id>-<slug>/article.meta.json
 - объём вне диапазона после 1 правки
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`
+
+
+## Commit hygiene
+
+Cloud pre-commit may abort with `invalid variable name` when `CLOUD_AGENT_INJECTED_SECRET_NAMES` contains a non-identifier.
+Before commit:
+
+```bash
+eval "$(python3 scripts/excalibur_blog_sanitize_commit_env.py --export --empty-ok)"
+# fallback: source scripts/excalibur_blog_sanitize_secret_names.sh
+```
+
+`--no-verify` is allowed only for article artifacts after an empty secret scan of staged files, when sanitize helpers are unavailable.

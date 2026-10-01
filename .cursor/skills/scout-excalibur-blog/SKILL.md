@@ -27,10 +27,21 @@ Append new Topic Card to blog-topics.md
 ## Подробный алгоритм действий
 
 ### Шаг 1 — Анализ прошлого и получение ID
+
+### Live WP occupied IDs (обязательно)
+* Пустой локальный B-pool **не** значит, что `B01` свободен: live WordPress может уже иметь B01–Bxx.
+* Перед выбором ID читай `memory/topics/live-wp-occupied-ids.json` и запускай:
+  ```bash
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
+  ```
+  Helper учитывает ledger + article dirs + `mapped_topic_ids` / occupied slugs / avoid fragments.
+* `--check-query` также блокирует denylist fragments из occupied-ids.
+* После publish обновляй `live-wp-occupied-ids.json` (`next_suggested_topic_id`, mapped ids, slugs).
+
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
   Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
 
@@ -47,7 +58,7 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
 Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
 

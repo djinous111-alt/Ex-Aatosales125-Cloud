@@ -119,3 +119,12 @@ blockers:
 - Генерировать cover/schema с нуля
 - Пропускать dry-run
 - Завершать пайплайн без записи в `published-articles.md` при успешном publish
+
+
+## SSH / HTTP trigger (Cloud)
+
+- `paramiko` must be installed via `.cursor/cloud-agent-install.sh` / `requirements.txt`.
+- Default HTTP timeout is **300s** (`EXCALIBUR_BLOG_PUBLISH_HTTP_TIMEOUT`). Large bootstrap (~6–7MB) often exceeds 120s.
+- On HTTP failure the script tries **SSH CLI** (`php8.3` → `php8.1` → `php`) before WebFetch wait (`EXCALIBUR_BLOG_PUBLISH_WEBFETCH_WAIT`, default 180s).
+- Prefer `EXCALIBUR_BLOG_PUBLISH_FORCE_SSH_CLI=yes` on hosts where bare `php` is 5.6.
+- After bootstrap cleanup do **one** SSH-php retry — no blind third republish.

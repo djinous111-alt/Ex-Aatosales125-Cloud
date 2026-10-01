@@ -199,3 +199,9 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 ## Эталон (B01)
 
 `memory/blog/articles/B01-primer-seo-stati/cover/` — reference implementation после design code v1.
+
+
+## Image generation order
+
+Prefer Kie async `excalibur_blog_kie_gpt_image2_api.py` before sync MCP `gpt-image-2` (sync often returns `-32001` timeout on 2K i2i).
+Outfit must follow `cover.scene_hint` / `blog-hero.json` outfit_rule — never default to white hoodie.

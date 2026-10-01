@@ -22,7 +22,9 @@ python scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/B01-slug
 ```
 
-`--dry-run` — проверка payload без FTP.
+`--dry-run` — проверка payload без FTP/SSH.
+
+Cloud SSH path: `paramiko` required; HTTP trigger default timeout 300s; on timeout script tries SSH CLI (`php8.3`/`php8.1`/`php`) then WebFetch wait 180s. Env overrides: `EXCALIBUR_BLOG_PUBLISH_HTTP_TIMEOUT`, `EXCALIBUR_BLOG_PUBLISH_WEBFETCH_WAIT`, `EXCALIBUR_BLOG_PUBLISH_FORCE_SSH_CLI`.
 
 ## Что делает publish
 

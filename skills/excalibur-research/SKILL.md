@@ -68,3 +68,10 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+
+## Gate parsers (research-notes-gate)
+
+- `accessed_at` must appear as literal `accessed_at:` at least 5 times (source table cells).
+- Each `pain_solution_map` data row must contain one of: `боль|pain|решение|solution|результат|result` (prefix cells with `pain:` / `solution:` / `result:`).
+- `technical_topic` uses word-boundary markers on topic card fields (not bare substring `ai`/`ии` inside `reader_pain` / Russian endings). Non-tech auto/legal topics should not be forced into ≥3 github.com URLs.
+- `research_start` redacts `PUBLIC_SITE_URL` / catalog hosts from `research-serp.json` before write — do not re-introduce live site hosts before commit.

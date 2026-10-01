@@ -254,3 +254,35 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261001-1717-scout-suggest-next-ignores-occupied
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-scout
+topic_id: B08
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py --suggest-next` вернул `Next available topic ID: B01` и `Total topics in pool: 0`, хотя `memory/topics/live-wp-occupied-ids.json` уже помечает B01–B07 как занятые на live WP и `next_suggested_topic_id: B08`.
+- Helper смотрит только на B*-карточки в `blog-topics.md` / локальные article dirs и не читает occupied-ids, из-за чего новый Cloud run рискует заново взять B01.
+
+### How the agent recovered this run
+- Принудительно использовал `B08` из `live-wp-occupied-ids.json` / handoff (`EXCALIBUR_TOPIC_SELECTION=needs_scout`).
+- Дополнительно сверил slug и primary_query с `occupied_slugs` и `recent_wp_slugs` перед append карточки.
+
+### Durable fix needed before next run
+- Научить `excalibur_blog_scout_helper.py --suggest-next` учитывать `memory/topics/live-wp-occupied-ids.json` (occupied_topic_ids / next_suggested_topic_id) и не предлагать ID из occupied списка.
+- Зафиксировать это в scout skill / director preflight pitfalls.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

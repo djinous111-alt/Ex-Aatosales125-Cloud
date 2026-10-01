@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261001-1347-publish-paramiko-missing-runtime
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-publish
+topic_id: B07
+article_dir: memory/blog/articles/B07-lgotnyy-utilsbor-na-avto-2026-kak-poluchit
+severity: high
+category: env
+
+### What went wrong
+- First publish attempt failed with `ModuleNotFoundError: No module named 'paramiko'`.
+- `paramiko` is listed in `requirements.txt` but `.cursor/cloud-agent-install.sh` only installs `requests pillow python-dotenv` (no paramiko).
+- `memory/site.env.local` was missing in the cloud workspace (secrets only in process env); SSH_ROOT was unset until session export `.`.
+
+### How the agent recovered this run
+- Installed paramiko via `pip3 install --break-system-packages paramiko`.
+- Created gitignored `memory/site.env.local` from Cloud Secrets; set `SSH_ROOT=.`.
+- Re-ran publish: SSH upload OK, HTTP trigger OK (no WebFetch fallback), post 3907, live HEAD 200.
+
+### Durable fix needed before next run
+- Add `paramiko` to `.cursor/cloud-agent-install.sh` pip install list (match `requirements.txt`).
+- Document `SSH_ROOT=.` in publish skill/env-check examples for this host.
+- Ensure cloud preflight creates `memory/site.env.local` from secrets when absent.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py` (env-check messaging for SSH_ROOT unset)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261001-1343-indexer-llms-doctor-blog-path-stale
 status: open
 run_date: 2026-10-01

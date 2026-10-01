@@ -1,7 +1,7 @@
 # Promotion checklist — B07 lgotnyy-utilsbor-na-avto-2026-kak-poluchit
 
-Дата публикации: 2026-10-01 (pending publish)  
-Live URL: (заполнить после publish) /blog/lgotnyy-utilsbor-na-avto-2026-kak-poluchit/
+Дата публикации: 2026-10-01  
+Live URL: https://avtosales125.ru/2026/10/01/lgotnyy-utilsbor-na-avto-2026-kak-poluchit/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • пороги ~117,68 / ~58,84 кВт и правило 1 авто / 12 мес. от ТПО
 • без продажи раньше срока — иначе доплата
 
-Читать: [URL после publish]
+Читать: https://avtosales125.ru/2026/10/01/lgotnyy-utilsbor-na-avto-2026-kak-poluchit/
 ```
 
 ## Перелинковка
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlink opportunities_found=0 (локально 3 статьи: B07 + AS08 + AS09).
 - llms.txt / llms-full.txt обновлены в memory/blog/.
-- Cover/schema PASS; publish — следующий шаг.
+- Cover/schema PASS; publish PASS post_id=3907.

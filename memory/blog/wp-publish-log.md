@@ -31,3 +31,17 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-01 — B07 lgotnyy-utilsbor-na-avto-2026-kak-poluchit
+
+- **verdict:** PASS
+- **post_id:** 3907
+- **permalink:** https://avtosales125.ru/2026/10/01/lgotnyy-utilsbor-na-avto-2026-kak-poluchit/
+- **featured_image:** 3908
+- **inline_images:** 3909 (`inline-01.png`), 3910 (`inline-02.png`), 3911 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH upload + HTTP trigger (no WebFetch fallback needed)
+- **live_HEAD:** 200
+- **note:** first attempt failed: ModuleNotFoundError paramiko (not installed despite requirements.txt); installed via pip --break-system-packages; SSH_ROOT=.
+- **result:** `memory/blog/articles/B07-lgotnyy-utilsbor-na-avto-2026-kak-poluchit/wp-publish-result.json`

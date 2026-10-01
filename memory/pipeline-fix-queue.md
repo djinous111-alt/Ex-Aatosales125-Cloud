@@ -6,6 +6,75 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261002-0015-doctor-llms-blog-path
+status: open
+run_date: 2026-10-02
+role: director
+topic_id: pending
+article_dir: pending
+severity: medium
+category: contract
+
+### What went wrong
+- `excalibur_blog_doctor.py` asserts `llms generator supports --blog-path`, but `excalibur_blog_llms_generator.py` CLI only exposes `--blog-dir`.
+- `excalibur_blog_today.py` `next_p0_topic` regex only matches `## B\d+`, while niche pool in `memory/topics/blog-topics.md` uses `AS\d+` cards; run reports `needs_scout` even with unwritten AS P0 cards.
+- Local `shared/published-articles.md` was reset to AS08/AS09 only, while live WP already has AS01–AS09 slugs published — risk of republish without scout/WP dedupe.
+
+### How the agent recovered this run
+- Did not treat doctor FAIL as hard stop for article generation; proceeded to Scout for a fresh non-cannibalizing topic against live WP.
+- Will not reuse AS01–AS09; require Scout + utility gate + WP slug search before research_start.
+
+### Durable fix needed before next run
+- Align doctor check with actual llms CLI (`--blog-dir`).
+- Extend `today.py` topic selection to AS* (or document B*-only and keep scout generating B* in Авто-Сейлс niche).
+- Sync ledger regeneration / occupied-ids from live WP to prevent republish.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/published-articles.md` sync process
+
+### Secrets
+- none recorded
+
+
+## INC-20261002-2145-scout-mcp-wp-wrong-site
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- MCP-KV `wordpress_search_posts` / `wordpress_get_posts` returned posts from a different WordPress host (tamopro.ru customs blog), not the Avto-Sales `PUBLIC_SITE_URL` blog.
+- Public `avto-sales125.ru/wp-json` SPA-fallback returned HTML for all paths, so catalog host cannot be used for WP inventory.
+- Without fallback to `PUBLIC_SITE_URL/wp-json`, Scout would have under-deduped live AS/B articles.
+
+### How the agent recovered this run
+- Used `PUBLIC_SITE_URL` REST search (`/wp-json/wp/v2/posts`) for inventory and slug checks (1156 published posts).
+- Cross-checked candidate primary_query and slug against live WP before appending B01.
+- Treated MCP WP results as non-authoritative for Avto-Sales dedupe this run.
+
+### Durable fix needed before next run
+- Point MCP-KV WordPress credentials/base URL at Avto-Sales blog (`PUBLIC_SITE_URL`), or document that Scout must prefer `PUBLIC_SITE_URL` wp-json over MCP WP tools.
+- Add scout helper flag/docs for live WP slug inventory via `PUBLIC_SITE_URL`.
+
+### Suggested files to inspect/change
+- MCP-KV WordPress server env / secrets
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

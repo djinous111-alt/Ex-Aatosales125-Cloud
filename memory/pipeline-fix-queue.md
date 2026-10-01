@@ -286,3 +286,34 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261001-1718-scout-precommit-redacted-secret-name
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-scout
+topic_id: B08
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- Cloud pre-commit secrets scanner failed with `pre-commit.cursor: line 270: [REDACTED]: invalid variable name`.
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` содержал литерал `[REDACTED]` вместо валидного имени env var, из-за чего `${!SECRET_NAME}` падал и блокировал любой `git commit`.
+
+### How the agent recovered this run
+- Перед commit отфильтровал `CLOUD_AGENT_INJECTED_SECRET_NAMES`, оставив только имена вида `[A-Za-z_][A-Za-z0-9_]*`.
+- Повторил commit без `--no-verify`; hook прошёл на отфильтрованном списке.
+
+### Durable fix needed before next run
+- В pre-commit.cursor пропускать невалидные SECRET_NAME до indirect expansion.
+- Либо не подставлять `[REDACTED]` внутрь `CLOUD_AGENT_INJECTED_SECRET_NAMES` в Cloud Agent runtime.
+
+### Suggested files to inspect/change
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (managed) / Cloud secrets injection
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

@@ -595,3 +595,32 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261002-2153-cover-git-push-token-401
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rusifitsirovat-avto-iz-kitaya-2026
+severity: high
+category: env
+
+### What went wrong
+- `git push` на feature branch падает: Invalid username or token (HTTPS x-access-token → GitHub API 401).
+- `git fetch` читает remote; локальные cover commits `b57de07` / `0b22d41` остаются ahead of origin.
+
+### How the agent recovered this run
+- Cover artifacts и fragment готовы локально; PR #57 создан через Cursor Automation Tools `open_git_pr` (без гарантии наличия cover commits на remote).
+
+### Durable fix needed before next run
+- Обновить Cloud Agent GitHub write token / credentials для push.
+- Director/fixer: дождаться push или перепушить commits cover.
+
+### Suggested files to inspect/change
+- Cloud Agent git credentials / GitHub App installation token
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

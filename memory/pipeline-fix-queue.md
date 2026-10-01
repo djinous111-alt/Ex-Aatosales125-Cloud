@@ -356,3 +356,33 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261002-0028-research-precommit-secret-names
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rusifitsirovat-avto-iz-kitaya-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in Cloud pre-commit secrets scanner: `CLOUD_AGENT_INJECTED_SECRET_NAMES` contains a non-identifier entry (a site URL string) so bash `${!SECRET_NAME}` dies with `invalid variable name`.
+- Blocks normal commits until the env list is filtered to bash-safe identifiers.
+
+### How the agent recovered this run
+- Re-exported `CLOUD_AGENT_INJECTED_SECRET_NAMES` to only names matching `[A-Za-z_][A-Za-z0-9_]*`, then committed and pushed research artifacts.
+
+### Durable fix needed before next run
+- Remove the URL-shaped entry from Cloud injected secret names (names must be env var identifiers, not values).
+- Optionally harden `pre-commit.cursor` to skip non-identifier names instead of crashing.
+
+### Suggested files to inspect/change
+- Cursor Dashboard Cloud Secrets / injected secret name list
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (platform) or local docs in `CURSOR-CLOUD-RUNBOOK.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

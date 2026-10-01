@@ -122,19 +122,34 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — image generation (prefer Kie async)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+**Preferred (Cloud):** direct Kie API — avoids sync MCP client timeout `-32001` on 2K i2i.
+
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+Это createTask → poll recordInfo → пишет `cover/quad-mcp-result.json` с URL. Один job, без дублей.
+
+**Legacy fallback:** sync MCP `gpt-image-2` с `jobs[0].mcp_args` из batch.
+
+Если sync MCP вернул HTTP `-32001` Request timed out:
+
+1. Не создавай второй image job вслепую.
+2. Проверь expanded MCP/Cloud logs на URL или task_id; если URL есть — сохрани в `cover/quad-mcp-result.json` и иди в apply.
+3. Если URL/task_id нет — **сразу** Kie async script выше (тот же `quad-mcp-batch.json`), не ретрай sync MCP.
+4. Blocker только если и async Kie недоступен / нет `KIE_API_KEY`.
 
 Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --url "<result url from Kie/MCP>" \
   --inject-html
 ```
 
@@ -144,6 +159,15 @@ python scripts/excalibur_blog_quad_apply.py \
 
 `.cursor/excalibur-blog-fragments/cover.md` — шаблон в `agents/excalibur-blog-cover.md`.
 
+---
+
+## Toxic sticker text (hard rule)
+
+- В **model prompt** не перечисляй запрещённые оскорбления (это учит модель словам).
+- Prompt builder пишет нейтрально: «non-toxic / no insults / no humiliating labels».
+- Offline QA (`validate_prompt_non_toxic`) блокирует prompt, если в тексте всё же появились banned tokens.
+- Visible sticker QA: оскорбительные ярлыки на PNG — cover blocker (см. pitfalls).
+- Outfit: только из `scene_hint` манифеста; **не** hardcoded hoodie/cap/hood.
 ---
 
 ## visual_type (inline)

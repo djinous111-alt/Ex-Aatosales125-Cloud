@@ -27,12 +27,13 @@ Append new Topic Card to blog-topics.md
 ## Подробный алгоритм действий
 
 ### Шаг 1 — Анализ прошлого и получение ID
-* Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
+* Считай `shared/published-articles.md`, пул `memory/topics/blog-topics.md` и **`memory/topics/live-wp-occupied-ids.json`** (live WP slugs + denylist fragments после rebrand).
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Helper учитывает ledger + active dirs + `mapped_topic_ids` / `next_suggested_topic_id` из occupied-ids. Не игнорируй occupied-ids в пользу «пустого» ledger AS*.
+* MCP `wordpress_*` может указывать на **другой** WP-сайт — не используй его как denylist. Источник: `today.py` recent posts + occupied-ids.
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
@@ -47,9 +48,10 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
-Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
+Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему.
+Helper также бьёт по `avoid_query_fragments` / `occupied_slugs` из occupied-ids (автовоз/доставка/перегон, korea-vs-china и т.п.) даже если slug вне окна recent WP.
 
 ### Шаг 5 — Сборка карточки темы (Utility-Only)
 Сформируй карточку темы по шаблону:
@@ -74,6 +76,14 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 ```
 
 Допиши (append) карточку в конец `memory/topics/blog-topics.md`.
+
+### Перед git commit (Cloud)
+
+```bash
+source scripts/sanitize_cloud_secret_names.sh
+```
+
+Иначе pre-commit secrets scanner может упасть на `invalid variable name`, если в `CLOUD_AGENT_INJECTED_SECRET_NAMES` попал не-identifier.
 
 ---
 

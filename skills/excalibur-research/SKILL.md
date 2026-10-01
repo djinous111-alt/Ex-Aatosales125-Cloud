@@ -68,3 +68,13 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+## РФ-нормативы / WebFetch fallback
+
+При таймауте/504 ведомственного сайта (например `minpromtorg.gov.ru`):
+
+1. `publication.pravo.gov.ru` — официальный текст постановления/закона;
+2. разъяснения на `gosuslugi` / региональные прокурорские порталы;
+3. отраслевые гайды 2026 как вторичный разбор.
+
+Не блокируй research из-за одного WebFetch 504. Зафиксируй недоступный URL и продолжай с fallback-цепочкой.
+

@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261001-1345-geo-qa-utility-pain-outcome-markers-missing
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-geo-qa
+topic_id: B07
+article_dir: memory/blog/articles/B07-lgotnyy-utilsbor-na-avto-2026-kak-poluchit
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` вернул false BLOCK: `pain_markers=0 < 2`, `outcome_markers=0 < 3`.
+- В `memory/brief/editorial-policy.json` отсутствовали `pain_markers_ru` / `outcome_markers_ru` (снесены rebrand/sync на main), а скрипт применял default mins даже при пустых списках.
+- Текст статьи при этом проходил human-voice gate (pain/outcome markers найдены) — FAIL не из-за Writer.
+
+### How the agent recovered this run
+- Восстановил `pain_markers_ru` / `outcome_markers_ru` (+ min_* в `article_required_signals`) в sync с human-voice.
+- Вернул skip-when-empty в `scripts/excalibur_blog_utility_gate.py`.
+- Повтор utility gate: PASS (pain 4, outcome 6). Статья не правилась.
+
+### Durable fix needed before next run
+- Защитить editorial-policy от silent wipe маркеров (CI assert / doctor check на наличие списков).
+- Зафиксировать в pitfalls: utility gate без `pain_markers_ru`/`outcome_markers_ru` = false BLOCK, не Writer FIX.
+- Убедиться, что skip-when-empty остаётся в скрипте после будущих sync/rebrand.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261001-1330-research-tech-marker-false-positive
 status: open
 run_date: 2026-10-01

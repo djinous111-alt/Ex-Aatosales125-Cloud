@@ -1,0 +1,108 @@
+{
+  "article": "memory/blog/articles/B07-lgotnyy-utilsbor-na-avto-2026-kak-poluchit/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 14,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 11,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ет / риск\". Коротко по делу: Льготный утильсбор в 2026 для физических лиц – пакет условий сразу: личное п",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "-лист – потом ставка. Правила обновлялись с 01.12.2025 (ПП РФ №1713 к базе №1291). Ориентиры 3 400 ₽ (до",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "12 месяцев",
+      "kind": "metric_or_duration",
+      "context": "егистрация на плательщика и без отчуждения раньше 12 месяцев. Порог в киловаттах: около 117,68 кВт ≈ 160 л.с.;",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "(ПП РФ №1713 к базе №1291). Ориентиры 3 400 ₽ (до 3 лет) и 5 200 ₽ (старше 3 лет) работают только при реа",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "12 мес",
+      "kind": "metric_or_duration",
+      "context": "а → кВт и объём из документов → История \"1 авто / 12 мес.\" → Статус \"льгота да / нет / риск\" → Ставка или",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "2 месяцев. Порог в киловаттах: около 117,68 кВт ≈ 160 л.с.; для электро и последовательных гибридов – ок",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "ставка. Правила обновлялись с 01.12.2025 (ПП РФ №1713 к базе №1291). Ориентиры 3 400 ₽ (до 3 лет) и 5 20",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1291",
+      "kind": "large_number",
+      "context": "ила обновлялись с 01.12.2025 (ПП РФ №1713 к базе №1291). Ориентиры 3 400 ₽ (до 3 лет) и 5 200 ₽ (старше",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 400",
+      "kind": "large_number",
+      "context": "01.12.2025 (ПП РФ №1713 к базе №1291). Ориентиры 3 400 ₽ (до 3 лет) и 5 200 ₽ (старше 3 лет) работают то",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 200",
+      "kind": "large_number",
+      "context": "713 к базе №1291). Ориентиры 3 400 ₽ (до 3 лет) и 5 200 ₽ (старше 3 лет) работают только при реальном поп",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3000",
+      "kind": "large_number",
+      "context": "параллельный гибрид До ~160 л.с. (117,68 кВт), до 3000 см³ кВт и объём по документам комплектации Электро",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "7355",
+      "kind": "large_number",
+      "context": "не красивая цифра в объявлении. Грубо: 1 л.с. ≈ 0,7355 кВт. Порог ~160 л.с. – это 117,68 кВт. Если в бума",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "118",
+      "kind": "large_number",
+      "context": "Порог ~160 л.с. – это 117,68 кВт. Если в бумагах 118 кВт, \"почти 160\" уже мимо. Зафиксируйте комплектац",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "162",
+      "kind": "large_number",
+      "context": "о ~117,68 кВт и до 3000 см³. При пограничных \"158–162 л.с.\" в объявлении остановите оплату и перепроверь",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-01",
+    "today_ru": "01.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-03",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-01 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026",
+    "h1": "Как проверить авто из Китая с пробегом до оплаты: чек-лист на 2026",
+    "primary_query": "авто из китая с пробегом",
+    "secondary_queries": [
+      "купить авто с пробегом из китая",
+      "заказ авто из китая с пробегом",
+      "авто из китая с пробегом владивосток"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B06",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "авто из китая с пробегом 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "авто из китая с пробегом октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "авто из китая с пробегом новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com авто из китая с пробегом 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "авто из китая с пробегом official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "авто из китая с пробегом forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "купить авто с пробегом из китая 2026",
+      "purpose": "вторичный запрос: купить авто с пробегом из китая"
+    },
+    {
+      "id": "secondary_2",
+      "query": "заказ авто из китая с пробегом 2026",
+      "purpose": "вторичный запрос: заказ авто из китая с пробегом"
+    },
+    {
+      "id": "secondary_3",
+      "query": "авто из китая с пробегом владивосток 2026",
+      "purpose": "вторичный запрос: авто из китая с пробегом владивосток"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как проверить авто из Китая с пробегом до оплаты: чек-лист на 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B06-avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

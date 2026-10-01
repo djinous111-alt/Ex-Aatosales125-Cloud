@@ -56,7 +56,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: 7bdc6d1
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -107,7 +107,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: 7bdc6d1
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -148,7 +148,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: 7bdc6d1
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -195,7 +195,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: 7bdc6d1
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -249,14 +249,14 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: 7bdc6d1
 
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
 
 ## INC-20261001-1722-research-tech-marker-ii-false-positive
-status: open
+status: fixed
 run_date: 2026-10-01
 role: excalibur-blog-research
 topic_id: B08
@@ -287,10 +287,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-01
+fix_summary:
+- `is_technical_topic()` матчит короткие TECH маркеры по Unicode word-boundary; «японии» больше не technical.
+- Research skill + pitfalls документируют правило.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- PYTHONPATH=scripts regression: японии=False, ai агент=True
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+commit: 7bdc6d1
 
 ## INC-20261001-1717-scout-suggest-next-ignores-occupied
-status: open
+status: fixed
 run_date: 2026-10-01
 role: excalibur-blog-scout
 topic_id: B08
@@ -319,10 +332,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-01
+fix_summary:
+- `excalibur_blog_scout_helper.py --suggest-next` читает `memory/topics/live-wp-occupied-ids.json` (occupied_topic_ids + next_suggested_topic_id).
+- Парсит AS*|B* карточки; reserved = ledger + article dirs + occupied + pool IDs.
+- Scout agent/skill/pitfalls обновлены; dry-run предлагает B09.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → B09
+- `python3 -m py_compile scripts/excalibur_blog_scout_helper.py`
+commit: 7bdc6d1
 
 ## INC-20261001-1718-scout-precommit-redacted-secret-name
-status: open
+status: fixed
 run_date: 2026-10-01
 role: excalibur-blog-scout
 topic_id: B08
@@ -350,10 +379,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-01
+fix_summary:
+- Добавлен `scripts/sanitize_cloud_secret_names.sh`: фильтрует `CLOUD_AGENT_*_SECRET_NAMES` до валидных идентификаторов.
+- Pitfalls/scout/writer/schema/indexer skills требуют `source` перед commit.
+- Doctor проверяет наличие sanitize-скрипта.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+checks_run:
+- source sanitize with `[REDACTED]` → filtered
+- doctor errors=0
+commit: 7bdc6d1
 
 ## INC-20261001-1730-writer-cta-secret-scan-pragma
-status: open
+status: fixed
 run_date: 2026-10-01
 role: excalibur-blog-writer
 topic_id: B08
@@ -386,10 +430,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-01
+fix_summary:
+- Writer skill: CTA commit recipe (sanitize + trailing-slash + HTML pragma; no placeholder href).
+- conversion-map Cloud commit note; sanitize script shipped.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `memory/brief/conversion-map.md`
+- `scripts/sanitize_cloud_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg CTA commit recipe in writer skill
+- sanitize script dry-run
+commit: 7bdc6d1
 
 ## INC-20261001-1732-geo-qa-utility-pain-outcome-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-01
 role: excalibur-blog-geo-qa
 topic_id: B08
@@ -422,10 +480,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-01
+fix_summary:
+- `editorial-policy.json` уже содержит non-empty pain/outcome markers + min_* в article_required_signals.
+- utility_gate skip-when-empty сохранён; doctor FAIL если markers пустые.
+- Pitfalls: проверять markers после sync/rebrand.
+files_changed:
+- `memory/brief/editorial-policy.json` (verified present)
+- `scripts/excalibur_blog_utility_gate.py` (skip-when-empty verified)
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor: pain/outcome markers OK
+- doctor errors=0
+commit: 7bdc6d1
 
 ## INC-20261001-1735-cover-white-hoodie-hardcode
-status: open
+status: fixed
 run_date: 2026-10-01
 role: excalibur-blog-cover
 topic_id: B08
@@ -455,10 +527,25 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-01
+fix_summary:
+- Удалён Outfit lock white hoodie из `cover_quad_prompt.py`; outfit = weather/topic.
+- Default scene/hook в `quad_manifest.py` без SEO/Wordstat/hoodie.
+- Cover skill: no white hoodie default + Kie async first.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg no "Outfit lock: thick heavyweight white hoodie"
+- `python3 -m py_compile` cover scripts
+commit: 7bdc6d1
 
 ## INC-20261001-1736-schema-jsonld-secret-allowlist
-status: open
+status: fixed
 run_date: 2026-10-01
 role: excalibur-blog-schema
 topic_id: B08
@@ -491,11 +578,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-01
+fix_summary:
+- Schema skill: same-line `"_scan": "pragma: allowlist secret"` + sanitize before commit.
+- sanitize script shipped; pitfalls обновлены.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/sanitize_cloud_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg _scan pragma recipe in schema skill
+commit: 7bdc6d1
 
 ## INC-20261001-1743-indexer-llms-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-10-01
 role: excalibur-blog-indexer
 topic_id: B08
@@ -530,11 +628,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-01
+fix_summary:
+- Удалён `--blog-path` из indexer agent/skill examples; CLI только `--blog-dir`.
+- Doctor asserts `--blog-dir` (и warn если всплывёт stale `--blog-path`).
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor: llms generator supports --blog-dir OK; errors=0
+- rg no `--blog-path /` in indexer docs
+commit: 7bdc6d1
 
 ## INC-20261001-1749-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-10-01
 role: excalibur-blog-publish
 topic_id: B08
@@ -564,4 +676,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-01
+fix_summary:
+- paramiko добавлен в `.cursor/cloud-agent-install.sh` (уже был в requirements.txt).
+- `require_paramiko()` с ясным PUBLISH BLOCKER; empty SSH_ROOT → `.`.
+- Publish skill/alias document deps + env-check.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `skills/excalibur-wp-publish/SKILL.md`
+- `.cursor/skills/excalibur-wp-publish/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor: paramiko available OK
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+commit: 7bdc6d1
+

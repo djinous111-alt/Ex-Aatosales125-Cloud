@@ -8,7 +8,7 @@
     "авто из китая с пробегом владивосток"
   ],
   "h1": "Как проверить авто из Китая с пробегом до оплаты: чек-лист на 2026",
-  "char_count": 9164,
+  "char_count": 9186,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -35,6 +35,9 @@
     "human_voice": "BLOCK",
     "utility": "BLOCK",
     "link_verify": "pass",
-    "research_notes_gate": "PASS"
+    "research_notes_gate": "PASS",
+    "writer_fix_cycle": 1,
+    "writer_fix_at": "2026-10-01",
+    "writer_fix_note": "action_markers+outcome+ol lengths; re-run GEO QA"
   }
 }

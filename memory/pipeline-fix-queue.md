@@ -372,6 +372,7 @@ category: env
 
 ### How the agent recovered this run
 - Re-exported `CLOUD_AGENT_INJECTED_SECRET_NAMES` to only names matching `[A-Za-z_][A-Za-z0-9_]*`, then committed and pushed research artifacts.
+- Writer B01 reused the same filter; for `CATALOG_URL`/`TELEGRAM_URL` in article hrefs used HTML comment `<!-- pragma: allowlist secret -->` on CTA lines (public marketing URLs).
 
 ### Durable fix needed before next run
 - Remove the URL-shaped entry from Cloud injected secret names (names must be env var identifiers, not values).

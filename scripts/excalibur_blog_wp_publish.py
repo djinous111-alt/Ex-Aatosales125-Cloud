@@ -35,6 +35,14 @@ PUBLISH_ENV_KEYS = {
 }
 
 
+def _strip_env_value_quotes(value: str) -> str:
+    """Shell-quoted KEY=\"value\" must not keep the quotes in the value."""
+    value = value.strip()
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:
+        return value[1:-1]
+    return value
+
+
 def _read_env_file(path: Path) -> dict[str, str]:
     env: dict[str, str] = {}
     if not path.is_file():
@@ -43,16 +51,57 @@ def _read_env_file(path: Path) -> dict[str, str]:
         line = line.strip()
         if "=" in line and not line.startswith("#"):
             k, v = line.split("=", 1)
-            env[k.strip()] = v.strip()
+            env[k.strip()] = _strip_env_value_quotes(v)
     return env
+
+
+# CTA / schema URLs that may appear as ${ENV} placeholders or Cloud Secrets.
+PUBLISH_URL_EXPAND_KEYS = (
+    "PUBLIC_SITE_URL",
+    "WP_SITE_URL",
+    "WP_HOME",
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
+)
+
+
+def strip_allowlist_pragmas(text: str) -> str:
+    """Remove commit-scanner allowlist markers before JSON/HTML publish use."""
+    import re
+
+    text = re.sub(r"[ \t]*//\s*pragma:\s*allowlist\s+secret\s*$", "", text, flags=re.I | re.M)
+    text = re.sub(r"[ \t]*<!--\s*pragma:\s*allowlist\s+secret\s*-->", "", text, flags=re.I)
+    return text
+
+
+def expand_publish_placeholders(text: str, env: dict[str, str]) -> str:
+    """Expand ${CATALOG_URL}/… and [REDACTED] site hosts for live WP payload only."""
+    for key in PUBLISH_URL_EXPAND_KEYS:
+        val = (env.get(key) or os.environ.get(key) or "").strip().rstrip("/")
+        if not val:
+            continue
+        text = text.replace(f"${{{key}}}", val)
+        text = text.replace(f"${key}", val)
+    site = (
+        (env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL") or "").strip().rstrip("/")
+    )
+    if site and "[REDACTED]" in text:
+        # Schema @id / sameAs often commit with [REDACTED] host; CTA should use ${CATALOG_URL}.
+        text = text.replace("[REDACTED]", site)
+    return text
+
+
+def prepare_publish_text(text: str, env: dict[str, str]) -> str:
+    return expand_publish_placeholders(strip_allowlist_pragmas(text), env)
 
 
 def load_env(root: Path) -> dict[str, str]:
     env = _read_env_file(root / "memory/site.env.local")
-    for key in PUBLISH_ENV_KEYS:
+    for key in set(PUBLISH_ENV_KEYS) | set(PUBLISH_URL_EXPAND_KEYS):
         value = os.environ.get(key)
         if value:
-            env[key] = value
+            env[key] = _strip_env_value_quotes(value)
     if not env.get("SSH_PASS") and env.get("SSH_PASSWORD"):
         env["SSH_PASS"] = env["SSH_PASSWORD"]
     return env
@@ -168,14 +217,15 @@ def normalize_cover_png(cover_path: Path, registry_path: Path, root: Path) -> di
     return evidence
 
 
-def load_article(article_dir: Path) -> dict:
+def load_article(article_dir: Path, env: dict[str, str] | None = None) -> dict:
     meta_path = article_dir / "article.meta.json"
     html_path = article_dir / "article.html"
     if not meta_path.is_file() or not html_path.is_file():
         raise FileNotFoundError("article.meta.json and article.html required")
     meta = json.loads(meta_path.read_text(encoding="utf-8"))
     meta_ab = meta.get("meta_ab") or {}
-    content = html_path.read_text(encoding="utf-8").strip()
+    publish_env = env if env is not None else load_env(project_root())
+    content = prepare_publish_text(html_path.read_text(encoding="utf-8").strip(), publish_env)
     cover_path = article_dir / "cover" / "cover.png"
     schema_path = article_dir / "schema.jsonld"
     cover_b64 = ""
@@ -186,7 +236,12 @@ def load_article(article_dir: Path) -> dict:
         cover_b64 = base64.b64encode(cover_path.read_bytes()).decode("ascii")
     schema_raw = ""
     if schema_path.is_file():
-        schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        schema_raw = prepare_publish_text(schema_path.read_text(encoding="utf-8").strip(), publish_env)
+        # Validate JSON-LD after pragma strip / placeholder expand
+        try:
+            json.loads(schema_raw)
+        except json.JSONDecodeError as exc:
+            raise RuntimeError(f"schema.jsonld invalid after publish prepare: {exc}") from exc
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
@@ -414,8 +469,20 @@ def is_missing_remote_path_error(exc: OSError) -> bool:
     return "no such file" in text or "enoent" in text
 
 
+def _require_paramiko():
+    try:
+        import paramiko
+    except ModuleNotFoundError as exc:
+        raise RuntimeError(
+            "BLOCKER: Python package 'paramiko' is missing. "
+            "Install via `python3 -m pip install --break-system-packages -r requirements.txt` "
+            "or ensure `.cursor/cloud-agent-install.sh` / environment install includes paramiko."
+        ) from exc
+    return paramiko
+
+
 def upload_bootstrap_ssh(env: dict[str, str], remote: str, data: bytes) -> str:
-    import paramiko
+    paramiko = _require_paramiko()
 
     host, port, user, password = _ssh_creds(env)
     transport = paramiko.Transport((host, port))
@@ -451,7 +518,7 @@ def upload_bootstrap_ssh(env: dict[str, str], remote: str, data: bytes) -> str:
 
 
 def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | None = None) -> None:
-    import paramiko
+    paramiko = _require_paramiko()
 
     host, port, user, password = _ssh_creds(env)
     remote_path = remote_path or ssh_remote_path(env, remote)
@@ -568,7 +635,8 @@ def main() -> int:
         return 2
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
-    payload = load_article(article_dir)
+    env = load_env(root)
+    payload = load_article(article_dir, env=env)
     php = build_php(payload)
 
     if args.dry_run:
@@ -576,7 +644,6 @@ def main() -> int:
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1

@@ -14,6 +14,8 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Note: do NOT include bare "github" — every research pack has a github_evidence
+# section, which would false-positive auto/OEM niches as technical.
 TECH_MARKERS = (
     "ai",
     "ии",
@@ -24,7 +26,6 @@ TECH_MARKERS = (
     "cursor",
     "make",
     "n8n",
-    "github",
     "docker",
     "rag",
     "workflow",
@@ -73,14 +74,64 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def strip_github_evidence_section(notes: str) -> str:
+    """Remove github_evidence section so required DIY repos do not trigger tech mode."""
+    return re.sub(
+        r"##\s*\d*\.?\s*github[_\s-]*evidence\b[\s\S]*?(?=\n##\s|\Z)",
+        "",
+        notes,
+        flags=re.I,
+    )
+
+
+def _marker_hits(blob: str, marker: str) -> bool:
+    """Avoid false positives: 'ai' in reader_pain, 'ии' in русификации, etc."""
+    if len(marker) <= 3:
+        # Short Latin/digit markers need ASCII word boundaries.
+        if re.fullmatch(r"[a-z0-9]+", marker):
+            return bool(re.search(rf"(?<![a-z0-9]){re.escape(marker)}(?![a-z0-9])", blob))
+        # Short Cyrillic markers need Cyrillic letter boundaries.
+        return bool(re.search(rf"(?<![а-яё]){re.escape(marker)}(?![а-яё])", blob))
+    return marker in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
-    blob = " ".join(
+    # Prefer topic card fields; notes body often contains required keys like reader_pain
+    # that substring-match short markers (ai/ии).
+    topic_blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    if any(_marker_hits(topic_blob, marker) for marker in TECH_MARKERS):
+        return True
+    notes_for_check = strip_github_evidence_section(notes)
+    # Ignore YAML-like required field labels that contain short Latin stems (reader_pain).
+    notes_for_check = re.sub(
+        r"\b(?:reader_pain|reader_outcome|success_criteria|voice_angle|reader_story|surprising_fact|pain_solution_map|accessed_at|research_date)\b\s*:",
+        "",
+        notes_for_check,
+        flags=re.I,
+    )
+    notes_blob = notes_for_check[:2000].lower()
+    return any(_marker_hits(notes_blob, marker) for marker in TECH_MARKERS)
+
+
+def count_accessed_at(text: str) -> int:
+    """Count access dates from literal `accessed_at:` keys OR source_table date cells."""
+    text_lower = text.lower()
+    key_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    table_dates = 0
+    # Markdown tables whose header row mentions accessed_at
+    for match in re.finditer(
+        r"^\|[^\n]*accessed_at[^\n]*\|\s*\n\|[-| :\t]+\|\s*\n((?:\|[^\n]+\|\s*\n?)*)",
+        text,
+        flags=re.I | re.M,
+    ):
+        body = match.group(1) or ""
+        table_dates += len(re.findall(r"\b20\d{2}-\d{2}-\d{2}\b", body))
+    # Prefer the stronger signal; avoid double-counting when both styles exist.
+    return max(key_count, table_dates)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,7 +181,7 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
     pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
     action_items = count_action_items(text)

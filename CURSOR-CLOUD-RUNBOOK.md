@@ -55,6 +55,33 @@ EXCALIBUR_TOPIC_ID=<optional fixed topic id>
 
 Запрещено добавлять в repo реальные `.env`, `memory/site.env.local`, MCP tokens, SSH credentials, Cursor API keys.
 
+### Injected secret names (pre-commit)
+
+`CLOUD_AGENT_INJECTED_SECRET_NAMES` должен быть comma-separated списком **имён env vars** (`PUBLIC_SITE_URL`, `CATALOG_URL`, …), а не значений/URL. URL-shaped элемент ломает bash `${!SECRET_NAME}` (`invalid variable name`) в `pre-commit.cursor`.
+
+Workaround в агенте до фикса Dashboard:
+
+```bash
+export CLOUD_AGENT_INJECTED_SECRET_NAMES="$(
+  python3 - <<'PY'
+import os,re
+names=os.environ.get("CLOUD_AGENT_INJECTED_SECRET_NAMES","")
+parts=[p.strip() for p in names.replace("\n",",").split(",") if p.strip()]
+print(",".join(p for p in parts if re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", p)))
+PY
+)"
+```
+
+Human fix: в Cursor Dashboard Secrets / agent inject убрать URL-значения из списка имён. Platform `pre-commit.cursor` должен skip'ать non-identifier names вместо abort.
+
+### Git push 401
+
+Если `git push` падает с `Invalid username or token` / GitHub API 401, а `git fetch` читает remote — обновить Cloud Agent GitHub write token / GitHub App installation. Локальные commits можно оставить; PR создаётся через Automation `open_git_pr` после успешного push.
+
+### MCP WordPress vs PUBLIC_SITE_URL
+
+MCP-KV WordPress tools должны смотреть на тот же host, что `PUBLIC_SITE_URL`. Если MCP возвращает посты с другого сайта — Scout/Publish используют `PUBLIC_SITE_URL/wp-json` как source of truth и пишут incident `needs-human` на перенастройку MCP credentials.
+
 ## GitHub setup
 
 1. Создать приватный GitHub repo.

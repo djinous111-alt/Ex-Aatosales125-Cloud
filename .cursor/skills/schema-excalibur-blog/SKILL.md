@@ -22,3 +22,9 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+## Pre-commit / publish placeholders
+
+- Если Cloud secret-scanner блокирует `PUBLIC_SITE_URL` / `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL` в `schema.jsonld`, на таких строках допустим trailing `// pragma: allowlist secret`.
+- Альтернатива для commit-safe файла: host `[REDACTED]` или `${PUBLIC_SITE_URL}` / `${CATALOG_URL}` placeholders.
+- `excalibur_blog_wp_publish.py` `load_article()` снимает pragma-комментарии и раскрывает `${…}` / `[REDACTED]` из env **только в publish payload** — committed schema может оставаться redacted.

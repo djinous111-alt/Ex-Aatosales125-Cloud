@@ -54,6 +54,8 @@ Task(generalPurpose):
 
 См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
 
+**Текущий Cloud статус (2026-10):** typed Task enum часто **не** принимает `excalibur-blog-research|writer|geo-qa|cover|schema|indexer|publish|fixer`. Это ожидаемо, не blocker. Оркестрируй **сразу** через отдельный `Task(generalPurpose)` на каждую роль (включая `excalibur-blog-geo-qa`), передавая agent-md + skill path + короткий контракт. Не трать retry на typed Task, если enum уже отклонил имя. Parallel `cover || schema` = **два** generalPurpose Task в одном сообщении.
+
 ## Preflight (shell, директор)
 
 ```bash

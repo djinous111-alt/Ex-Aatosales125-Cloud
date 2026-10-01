@@ -112,6 +112,18 @@ blockers:
 
 - `❌ PUBLISH BLOCKER` — QA не PASS, link-verify fail, нет cover/schema, credentials, allow flag
 - `❌ PUBLISH FAIL` — скрипт вернул fail (смотри `raw_output` в wp-publish-result.json)
+- `❌ paramiko missing` — поставь `pip install -r requirements.txt` (install script обязан включать paramiko)
+
+## Publish-time expand (committed redaction)
+
+`excalibur_blog_wp_publish.py` `load_article()` перед PHP payload:
+1. снимает `// pragma: allowlist secret` и `<!-- pragma: allowlist secret -->`;
+2. раскрывает `${PUBLIC_SITE_URL}` / `${CATALOG_URL}` / `${TELEGRAM_URL}` / `${MAX_URL}`;
+3. заменяет оставшийся `[REDACTED]` host на `PUBLIC_SITE_URL`.
+
+Committed `article.html` / `schema.jsonld` могут оставаться redacted; live CTA/schema собираются только при publish. Для CTA предпочитай `${CATALOG_URL}` / `${TELEGRAM_URL}`, не голый `[REDACTED]`.
+
+`memory/site.env.local`: только `KEY=value` без кавычек (`SSH_ROOT=.`, не `SSH_ROOT="."`).
 
 ## Запрещено
 

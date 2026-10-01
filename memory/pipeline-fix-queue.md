@@ -7,7 +7,7 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 ## INC-20261002-2137-geo-qa-link-verify-secret-urls
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -34,11 +34,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- `excalibur_blog_link_verify.py` по умолчанию redact'ит URL из Cloud Secrets (`CATALOG_URL`/`TELEGRAM_URL`/`PUBLIC_SITE_URL`/…) в `${ENV_NAME}` при записи JSON (`--redact-env-urls`, opt-out `--no-redact-env-urls`).
+- GEO QA skill документирует commit-safe поведение.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
+- unit redact assert `${CATALOG_URL}/foo`
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+commit: pending-parent-commit
 
 
 ## INC-20261002-2135-geo-qa-typed-task-fallback
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -66,7 +80,18 @@ category: tooling
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Director skill + CLOUD-AUTOMATION + pitfalls: typed `excalibur-blog-*` enum часто недоступен — сразу `Task(generalPurpose)` per role (включая geo-qa), без retry typed enum.
+files_changed:
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` generalPurpose/geo-qa guidance in director skill
+commit: pending-parent-commit
 
 
 ## INC-20261002-2136-geo-qa-utility-policy-markers
@@ -151,7 +176,7 @@ category: contract
 
 
 ## INC-20261002-2145-scout-mcp-wp-wrong-site
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-scout
 topic_id: B01
@@ -183,7 +208,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Scout helper: `--live-wp-slugs` / `--check-slug` через `PUBLIC_SITE_URL/wp-json` (authoritative).
+- Scout agent/skill + runbook: MCP-KV `wordpress_*` не authoritative для Avto-Sales; при расхождении верить PUBLIC_SITE_URL.
+- Optional human follow-up: перенастроить MCP-KV WP credentials на Avto-Sales host (не блокирует Scout path).
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --help`
+- `python3 -m py_compile scripts/excalibur_blog_scout_helper.py`
+commit: pending-parent-commit
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -436,7 +478,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261002-0027-research-accessed-at-gate
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-research
 topic_id: B01
@@ -466,10 +508,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Gate считает `accessed_at` из literal keys И ISO-дат в markdown source_table с колонкой accessed_at.
+- Убраны false-positive technical: strip `github_evidence`, word-boundary для коротких маркеров, игнор labels вроде `reader_pain`.
+- Research skill документирует оба формата accessed_at.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: table accessed_at=5; B01 gate PASS technical=False; AI topic still technical=True
+commit: pending-parent-commit
 
 ## INC-20261002-0028-research-precommit-secret-names
-status: open
+status: needs-human
 run_date: 2026-10-02
 role: excalibur-blog-research
 topic_id: B01
@@ -497,10 +552,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+reason:
+- Root cause в Cursor Dashboard / agent inject: `CLOUD_AGENT_INJECTED_SECRET_NAMES` содержит URL-shaped non-identifier; platform `pre-commit.cursor` падает на `${!SECRET_NAME}`.
+- Repo durable: documented workaround filter + pitfalls/runbook; platform hook вне репозитория.
+needed_decision_or_secret:
+- Dashboard: оставить в injected secret names только bash identifiers (`PUBLIC_SITE_URL`, …), не значения URL.
+- Optional platform: skip non-identifier names in pre-commit.cursor.
+files_changed:
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+checks_run:
+- docs updated; cannot mutate Cloud inject list from fixer
+commit: pending-parent-commit
 
 ## INC-20261002-2148-cover-prompt-hoodie-outfit-lock
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-cover
 topic_id: B01
@@ -528,10 +596,25 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Удалён hardcoded «Outfit lock: thick heavyweight white hoodie»; prompt берёт `blog-hero.json` `outfit_rule` + CHANGE outfit / no hoodie-cap lock.
+- Cover agent/skill синхронизированы.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: prompt has CHANGE full outfit, no hoodie Outfit lock
+- `rg` confirms old lock string gone
+commit: pending-parent-commit
 
 ## INC-20261002-2148-schema-jsonld-pragma-comments
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-schema
 topic_id: B01
@@ -564,10 +647,22 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- `excalibur_blog_wp_publish.py` `prepare_publish_text`/`load_article` снимает `// pragma: allowlist secret` и раскрывает `${…}`/`[REDACTED]` перед JSON-LD validate + PHP payload.
+- Schema skill документирует pragma/placeholder правило.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+checks_run:
+- unit: schema with pragma+[REDACTED] → valid JSON with PUBLIC_SITE_URL
+commit: pending-parent-commit
 
 ## INC-20261002-2152-cover-precommit-secret-names-url
-status: open
+status: needs-human
 run_date: 2026-10-02
 role: excalibur-blog-cover
 topic_id: B01
@@ -594,10 +689,20 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+reason:
+- Тот же root cause, что INC-20261002-0028: URL-shaped entry в `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+needed_decision_or_secret:
+- Cursor Dashboard Cloud Secrets / agent inject: identifiers only.
+files_changed:
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- docs/workaround only; inject list not writable from repo
+commit: pending-parent-commit
 
 ## INC-20261002-2153-cover-git-push-token-401
-status: open
+status: needs-human
 run_date: 2026-10-02
 role: excalibur-blog-cover
 topic_id: B01
@@ -623,10 +728,20 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+reason:
+- `git push` HTTPS x-access-token → GitHub API 401; read fetch works. Нет доступа fixer к ротации Cloud Agent GitHub write token / App installation.
+needed_decision_or_secret:
+- Обновить Cloud Agent GitHub credentials / GitHub App write token; перепушить cover commits если ещё ahead.
+files_changed:
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- documented; cannot refresh platform token from fixer
+commit: pending-parent-commit
 
 ## INC-20261002-0058-indexer-precommit-site-url-allowlist
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-indexer
 topic_id: B01
@@ -658,10 +773,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- llms generator / interlinker добавляют pragma allowlist на строки с live site_base; skill рекомендует `--site-base "[REDACTED]"` и убирает stale `--blog-path`.
+- Parent secret-names inject остаётся needs-human (INC-0028).
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+checks_run:
+- unit llms pragma on live URL; no pragma for [REDACTED]
+- doctor: llms --blog-dir OK
+commit: pending-parent-commit
 
 ## INC-20261002-2205-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-publish
 topic_id: B01
@@ -693,10 +821,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- `.cursor/cloud-agent-install.sh` ставит `-r requirements.txt` (paramiko уже в requirements).
+- `_read_env_file` снимает quotes; `site.env.local.example` документирует `SSH_ROOT=.` unquoted; publish даёт явный blocker если paramiko отсутствует.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- `memory/site.env.local.example`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `import paramiko` OK
+- quote-strip unit `"."` → `.`
+- doctor errors=0
+commit: pending-parent-commit
 
 ## INC-20261002-2206-publish-redacted-cta-schema-restore
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-publish
 topic_id: B01
@@ -724,5 +867,16 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- `load_article(env=…)` вызывает `prepare_publish_text`: strip pragma + expand `${CATALOG_URL}`/`${TELEGRAM_URL}`/`[REDACTED]` только в publish payload; committed artifacts остаются redacted.
+- Publish skill документирует правило CTA placeholders.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+checks_run:
+- unit HTML/schema expand + JSON validate
+commit: pending-parent-commit
 

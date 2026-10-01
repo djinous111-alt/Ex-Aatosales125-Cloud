@@ -241,7 +241,18 @@ def main() -> int:
 
     output_path = args.output or root / "memory/blog/interlink-suggestions.json"
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    # Live site_base values are Cloud Secrets; annotate JSON lines for pre-commit allowlist.
+    report_text = json.dumps(report, ensure_ascii=False, indent=2)
+    site_base = (args.site_base or "").strip().rstrip("/")
+    if site_base.startswith(("http://", "https://")) and "[REDACTED]" not in site_base:
+        annotated_lines: list[str] = []
+        for line in report_text.splitlines():
+            if site_base in line and "pragma: allowlist secret" not in line:
+                annotated_lines.append(line + "  // pragma: allowlist secret")
+            else:
+                annotated_lines.append(line)
+        report_text = "\n".join(annotated_lines)
+    output_path.write_text(report_text + "\n", encoding="utf-8")
     print(f"Saved suggestions report to {output_path.relative_to(root) if root in output_path.parents else output_path}")
 
     if args.apply and suggestions:

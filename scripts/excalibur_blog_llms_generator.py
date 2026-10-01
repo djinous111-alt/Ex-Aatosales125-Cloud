@@ -61,6 +61,24 @@ def load_articles(blog_dir: Path) -> list[dict[str, Any]]:
     return articles
 
 
+ALLOWLIST_PRAGMA_MD = " <!-- pragma: allowlist secret -->"
+
+
+def _needs_site_url_pragma(site_base: str) -> bool:
+    base = (site_base or "").strip()
+    return base.startswith(("http://", "https://")) and "[REDACTED]" not in base
+
+
+def _annotate_site_url_line(line: str, site_base: str) -> str:
+    """Append commit-scanner allowlist pragma on lines that embed a live site base."""
+    if not _needs_site_url_pragma(site_base):
+        return line
+    base = site_base.rstrip("/")
+    if base and base in line and "pragma: allowlist secret" not in line:
+        return line.rstrip() + ALLOWLIST_PRAGMA_MD
+    return line
+
+
 def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]], site_base: str) -> str:
     site_base = site_base.rstrip("/")
     lines = [
@@ -72,7 +90,7 @@ def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]
     ]
     for a in articles:
         url = f"{site_base}/blog/{a['slug']}/"
-        lines.append(f"- [{a['title']}]({url}): {a['description']}")
+        lines.append(_annotate_site_url_line(f"- [{a['title']}]({url}): {a['description']}", site_base))
 
     return "\n".join(lines) + "\n"
 
@@ -91,7 +109,7 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
         url = f"{site_base}/blog/{a['slug']}/"
         lines.extend([
             f"## {a['title']}",
-            f"- **URL**: {url}",
+            _annotate_site_url_line(f"- **URL**: {url}", site_base),
             f"- **Summary**: {a['description']}",
             "",
             a["plain_text"],

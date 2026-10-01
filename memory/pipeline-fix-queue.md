@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261002-2137-geo-qa-link-verify-secret-urls
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rusifitsirovat-avto-iz-kitaya-2026
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_link_verify.py` пишет абсолютные URL из статьи в `link-verify.json`.
+- Значения совпадают с Cloud secrets `CATALOG_URL` / `TELEGRAM_URL` → pre-commit secret scanner блокирует commit отчёта.
+
+### How the agent recovered this run
+- После успешного verify вручную заменили URL в `link-verify.json` на `${CATALOG_URL}` / `${TELEGRAM_URL}` перед commit (verdict/status сохранены).
+
+### Durable fix needed before next run
+- Добавить в link-verify опцию `--redact-env-urls` или авто-редакцию известных env URL при записи JSON.
+- Либо документировать post-step редакцию в GEO QA skill.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261002-2135-geo-qa-typed-task-fallback
 status: open
 run_date: 2026-10-02

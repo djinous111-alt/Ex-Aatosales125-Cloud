@@ -40,6 +40,35 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20261001-1314-scout-precommit-invalid-secret-name
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-scout
+topic_id: B07
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` упал в Cloud Agent pre-commit secrets scanner: `CLOUD_AGENT_INJECTED_SECRET_NAMES` содержит элемент, который не является валидным bash identifier; `${!SECRET_NAME}` даёт `invalid variable name`.
+
+### How the agent recovered this run
+- Перед повторным commit отфильтровал `CLOUD_AGENT_INJECTED_SECRET_NAMES` до валидных `[A-Za-z_][A-Za-z0-9_]*` имён и успешно закоммитил/запушил.
+
+### Durable fix needed before next run
+- В pre-commit.cursor пропускать/логировать невалидные имена секретов вместо падения всего commit.
+- Либо нормализовать `CLOUD_AGENT_INJECTED_SECRET_NAMES` на стороне Cloud Agent inject.
+
+### Suggested files to inspect/change
+- Cloud Agent pre-commit secrets scanner
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

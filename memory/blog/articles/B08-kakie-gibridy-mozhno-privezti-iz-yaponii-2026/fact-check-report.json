@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/B08-kakie-gibridy-mozhno-privezti-iz-yaponii-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "ого калькулятора сумм. Коротко по делу: С августа 2023 Япония закрыла прямой экспорт в РФ легковых гибрид",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2024",
+      "kind": "date_or_year",
+      "context": ", плюс машин с ДВС больше 1,9 л. Уточнение ноября 2024 касается мягких гибридов: электромотор только помо",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "аньше не были главной целью запрета. Часть блогов 2026 всё ещё хвалит Aqua и Prius \"по утильсбору\", не ра",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "1900",
+      "kind": "date_or_year",
+      "context": "rid passenger vehicles и авто с двигателем больше 1900 cc. Reuters подтвердил расширение на гибриды, PHEV",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1291",
+      "kind": "large_number",
+      "context": "а из Японии (METI) → отдельно утильсбор в РФ (ПП №1291) → только потом депозит Как отличить мягкий гибри",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

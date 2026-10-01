@@ -387,3 +387,39 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261001-1732-geo-qa-utility-pain-outcome-markers-missing
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-geo-qa
+topic_id: B08
+article_dir: memory/blog/articles/B08-kakie-gibridy-mozhno-privezti-iz-yaponii-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требовал `min_pain_markers=2` / `min_outcome_markers=3` (defaults), но в `memory/brief/editorial-policy.json` отсутствовали `pain_markers_ru` / `outcome_markers_ru` и ключи min_* — ложный BLOCK `0 < min` на любом article.html.
+- Та же регрессия ломала бы AS08/AS09; ранее уже чинилась (restore utility pain/outcome markers), но маркеры снова выпали из policy после sync/rebrand.
+- Defensive skip-when-empty в utility_gate тоже отсутствовал в рабочем дереве.
+
+### How the agent recovered this run
+- Восстановил `pain_markers_ru` / `outcome_markers_ru` и `min_pain_markers` / `min_outcome_markers` в editorial-policy (синхрон с human-voice gate).
+- Вернул skip-when-empty + warning при пустых списках в `scripts/excalibur_blog_utility_gate.py`.
+- Перезапустил utility gate на B08 → PASS (pain=9, outcome=5). Longread не менялся.
+
+### Durable fix needed before next run
+- Зафиксировать в pitfalls: после sync/rebrand проверять наличие pain/outcome markers в editorial-policy.json.
+- Добавить doctor/preflight check: policy содержит non-empty pain_markers_ru и outcome_markers_ru, иначе FAIL.
+- Не удалять эти ключи при sanitization/rebrand шаблона.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

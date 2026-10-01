@@ -659,3 +659,70 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261002-2205-publish-paramiko-missing
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rusifitsirovat-avto-iz-kitaya-2026
+severity: medium
+category: env
+
+### What went wrong
+- Runtime image lacked `paramiko`; `excalibur_blog_wp_publish.py` cannot SSH-upload bootstrap without it (same class as B07/B08 INC-20261001-1749).
+- `memory/site.env.local` was absent; secrets existed only in process env. Writing `SSH_ROOT="."` with shell quotes left value `"\"."` and broke root label until rewritten without quotes.
+
+### How the agent recovered this run
+- `pip3 install --break-system-packages paramiko`.
+- Created gitignored `memory/site.env.local` from Cloud Secrets with `SSH_ROOT=.` (unquoted KEY=value).
+- Publish succeeded via SSH + HTTP trigger without WebFetch fallback.
+
+### Durable fix needed before next run
+- Ensure paramiko is in environment install snapshot / `.cursor/cloud-agent-install.sh` + `requirements.txt` (close parent INC-20261001-1749).
+- Document unquoted `KEY=value` format for `memory/site.env.local` because `_read_env_file` does not strip quotes.
+- Optionally auto-bootstrap `site.env.local` from env in publish script when file missing.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `scripts/excalibur_blog_wp_publish.py` (`_read_env_file` quote strip)
+- `memory/site.env.local.example`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261002-2206-publish-redacted-cta-schema-restore
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rusifitsirovat-avto-iz-kitaya-2026
+severity: medium
+category: publish
+
+### What went wrong
+- `article.html` CTA hrefs were `[REDACTED]` after GEO/pre-commit; publishing that would ship dead links.
+- `schema.jsonld` had trailing `// pragma: allowlist secret` comments and `[REDACTED]` hosts → invalid JSON-LD for WP meta (parent INC-20261002-2148).
+
+### How the agent recovered this run
+- Restored catalog/Telegram hrefs from env for publish; expanded schema placeholders; stripped pragma comments; validated JSON; published; restored redacted bak copies for commit.
+
+### Durable fix needed before next run
+- Teach `excalibur_blog_wp_publish.py` `load_article()` to: (1) strip trailing `// pragma: allowlist secret`; (2) expand `[REDACTED]` / secret placeholders using `PUBLIC_SITE_URL`/`CATALOG_URL`/`TELEGRAM_URL`/`MAX_URL` before PHP payload.
+- Keep committed artifacts redacted; expansion only at publish time.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

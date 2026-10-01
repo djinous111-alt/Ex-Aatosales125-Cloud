@@ -1,13 +1,13 @@
 # Promotion checklist — B01 kak-rusifitsirovat-avto-iz-kitaya-2026
 
 Дата публикации: 2026-10-02  
-Live URL: https://avtosales125.ru/blog/kak-rusifitsirovat-avto-iz-kitaya-2026/ <!-- pragma: allowlist secret -->
+Live URL: [REDACTED]/2026/10/02/kak-rusifitsirovat-avto-iz-kitaya-2026/ <!-- pragma: allowlist secret -->
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — HEAD 200 (post 3919; featured 3920; inline 3921–3923)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Видео именно этой VIN с поиском адреса в вашем городе
 • DIY-прошивка новичку не нужна — риск сброса после OTA
 
-Читать: https://avtosales125.ru/blog/kak-rusifitsirovat-avto-iz-kitaya-2026/ <!-- pragma: allowlist secret -->
+Читать: [REDACTED]/2026/10/02/kak-rusifitsirovat-avto-iz-kitaya-2026/ <!-- pragma: allowlist secret -->
 ```
 
 ## Перелинковка
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir memory/blog/articles/B01-kak-rusifitsirovat-avto-iz-kitaya-2026` — 0 links applied (opportunities_found=0).
 - llms.txt / llms-full.txt обновлены в `memory/blog/` через `--blog-dir memory/blog/articles` (CLI без `--blog-path`; актуальный флаг `--blog-dir`).
-- Publish: pending (директор запускает следующим шагом).
+- Publish: PASS — WP post 3919; featured 3920; inline 3921/3922/3923; schema_meta ok; live HEAD 200.

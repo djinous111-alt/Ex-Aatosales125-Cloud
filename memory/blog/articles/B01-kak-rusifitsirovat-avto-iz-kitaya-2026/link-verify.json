@@ -5,25 +5,22 @@
   "verdict": "pass",
   "links": [
     {
-      "url": "${CATALOG_URL}",
+      "url": "[REDACTED]",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "external",
-      "skipped": false,
-      "url_redacted": true
+      "skipped": false
     },
     {
-      "url": "${TELEGRAM_URL}",
+      "url": "[REDACTED]",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "external",
-      "skipped": false,
-      "url_redacted": true
+      "skipped": false
     }
-  ],
-  "note": "URLs redacted for commit hygiene; live verify used PUBLIC_SITE_URL/CATALOG_URL/TELEGRAM_URL env"
+  ]
 }

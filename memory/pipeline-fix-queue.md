@@ -70,7 +70,7 @@ category: tooling
 
 
 ## INC-20261002-2136-geo-qa-utility-policy-markers
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -103,11 +103,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Director restored pain_markers_ru/outcome_markers_ru in editorial-policy.json and skip-when-empty in utility_gate.py from prior good commits.
+files_changed:
+- memory/brief/editorial-policy.json
+- scripts/excalibur_blog_utility_gate.py
+- scripts/excalibur_blog_doctor.py
+checks_run:
+- python3 scripts/excalibur_blog_doctor.py → errors=0
+- AS09 utility gate PASS after policy restore
+commit: pending-parent-commit
 
 
 ## INC-20261002-0015-doctor-llms-blog-path
-status: open
+status: fixed
 run_date: 2026-10-02
 role: director
 topic_id: pending

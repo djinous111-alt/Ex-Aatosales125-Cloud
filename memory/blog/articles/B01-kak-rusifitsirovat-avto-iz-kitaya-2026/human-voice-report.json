@@ -1,10 +1,8 @@
 {
   "gate": "human-voice",
-  "status": "BLOCK",
+  "status": "PASS",
   "article_dir": "memory/blog/articles/B01-kak-rusifitsirovat-avto-iz-kitaya-2026",
-  "errors": [
-    "reader pain is weak or invisible: article must name the problem it solves"
-  ],
+  "errors": [],
   "warnings": [
     "multiple exactly-5-step lists detected; vary list size when editorially possible"
   ],
@@ -13,8 +11,8 @@
     "repeated_h2_openers": [],
     "textbook_h2_count": 0,
     "paragraph_count": 27,
-    "paragraph_avg_words": 28.8,
-    "paragraph_variance_ratio": 0.38,
+    "paragraph_avg_words": 28.4,
+    "paragraph_variance_ratio": 0.39,
     "concrete_markers": [
       "например",
       "на практике",
@@ -22,10 +20,13 @@
       "в реальном проекте"
     ],
     "pain_markers": [
-      "ошиб"
+      "проблем",
+      "ошиб",
+      "сложно"
     ],
     "outcome_markers": [
       "результат",
+      "сможете",
       "проверьте",
       "выберите"
     ],
@@ -34,7 +35,6 @@
       "carplay",
       "видео",
       "выдаче",
-      "говорит",
       "городе",
       "депозит",
       "игорь",
@@ -63,7 +63,9 @@
       "иероглифами",
       "китая",
       "машину",
-      "потом"
+      "оплачено",
+      "потом",
+      "чинить"
     ],
     "reader_outcome_overlap": [
       "вопросов",
@@ -83,9 +85,7 @@
       "звонок",
       "интерфейс",
       "нужных",
-      "обещания",
       "поиск",
-      "полной",
       "правила",
       "проекция",
       "российского",

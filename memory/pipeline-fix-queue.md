@@ -58,7 +58,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `python3 -c "import paramiko"`
-commit: 47fce12
+commit: 47fce12..1c8af86
 
 
 ## INC-20261001-1343-indexer-llms-doctor-blog-path-stale
@@ -109,7 +109,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `rg` no `--blog-path` in indexer agent/skill docs
-commit: 47fce12
+commit: 47fce12..1c8af86
 
 ## INC-20261001-1340-cover-mcp-timeout-kie-recovery
 status: fixed
@@ -154,7 +154,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` Kie async first in cover skill / task-map
-commit: 47fce12
+commit: 47fce12..1c8af86
 
 ## INC-20261001-1331-cover-manifest-seo-hoodie-defaults
 status: fixed
@@ -201,7 +201,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile` cover scripts
 - rebuild prompt for B07: no `Outfit lock: thick heavyweight white hoodie`
-commit: 47fce12
+commit: 47fce12..1c8af86
 
 
 ## INC-20261001-1345-geo-qa-utility-pain-outcome-markers-missing
@@ -252,7 +252,7 @@ files_changed:
 checks_run:
 - doctor editorial-policy checks OK
 - utility gate B07 PASS
-commit: 47fce12
+commit: 47fce12..1c8af86
 
 ## INC-20261001-1330-research-tech-marker-false-positive
 status: fixed
@@ -296,7 +296,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - research-notes-gate B07 → PASS, technical_topic=False
-commit: 47fce12
+commit: 47fce12..1c8af86
 
 ## INC-20261001-1325-research-minpromtorg-webfetch-504
 status: fixed
@@ -334,7 +334,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` РФ-нормативы fallback in research skills
-commit: 47fce12
+commit: 47fce12..1c8af86
 
 ## INC-20261001-1312-scout-suggest-next-ignores-live-b-ids
 status: fixed
@@ -385,7 +385,7 @@ files_changed:
 checks_run:
 - `--suggest-next` → B08; occupied mapped B01–B07
 - `--check-query "льготный утильсбор"` → denylist CRITICAL
-commit: 47fce12
+commit: 47fce12..1c8af86
 
 ## INC-20261001-1314-scout-precommit-invalid-secret-name
 status: fixed
@@ -430,7 +430,7 @@ files_changed:
 checks_run:
 - `source scripts/sanitize_cloud_secret_names.sh` OK
 - doctor warns if sanitize script missing
-commit: 47fce12
+commit: 47fce12..1c8af86
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

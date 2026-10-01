@@ -1,0 +1,127 @@
+{
+  "gate": "human-voice",
+  "status": "BLOCK",
+  "article_dir": "memory/blog/articles/B06-avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026",
+  "errors": [
+    "reader outcome is weak or invisible: article must promise and deliver a usable result"
+  ],
+  "warnings": [
+    "multiple exactly-5-step lists detected; vary list size when editorially possible"
+  ],
+  "metrics": {
+    "h2_count": 7,
+    "repeated_h2_openers": [],
+    "textbook_h2_count": 0,
+    "paragraph_count": 24,
+    "paragraph_avg_words": 30.3,
+    "paragraph_variance_ratio": 0.4,
+    "concrete_markers": [
+      "например",
+      "на практике",
+      "типичная ошибка",
+      "в реальном проекте"
+    ],
+    "pain_markers": [
+      "боль",
+      "проблем",
+      "ошиб",
+      "застр"
+    ],
+    "outcome_markers": [
+      "результат",
+      "соберите"
+    ],
+    "ai_opening_hits": [],
+    "reader_story_overlap": [
+      "готовил",
+      "границы",
+      "депозит",
+      "завода",
+      "завтра",
+      "какая",
+      "кроссовер",
+      "машина",
+      "младше",
+      "недели",
+      "новый",
+      "первой",
+      "перевод",
+      "письма",
+      "почти",
+      "работе",
+      "регистрации",
+      "снимем",
+      "спросил",
+      "только",
+      "учёта"
+    ],
+    "reader_pain_overlap": [
+      "деньги",
+      "завода",
+      "лицензии",
+      "машина",
+      "младше",
+      "перевести",
+      "почти",
+      "экспортной"
+    ],
+    "reader_outcome_overlap": [
+      "депозита",
+      "китае",
+      "красным",
+      "пакет",
+      "первой",
+      "перевода",
+      "посчитать",
+      "регистрации",
+      "сканов",
+      "флагам"
+    ],
+    "success_criteria_overlap": [
+      "after-sales",
+      "confirmation",
+      "letter",
+      "service",
+      "депозит",
+      "заполнен",
+      "неполный",
+      "нужен",
+      "оплаты",
+      "пакет",
+      "первой",
+      "понятно",
+      "регистрации",
+      "уходит",
+      "чек-лист"
+    ],
+    "voice_angle_overlap": [
+      "деньги",
+      "календарь",
+      "потом",
+      "сканы",
+      "сначала",
+      "эксперт"
+    ],
+    "surprising_fact_overlap": [
+      "after-sales",
+      "confirmation",
+      "letter",
+      "service",
+      "вывоз",
+      "дадут",
+      "ждать",
+      "завода",
+      "запрет",
+      "лицензию",
+      "письма",
+      "письмо",
+      "полгода",
+      "правило",
+      "регистрации",
+      "сроке",
+      "экспортёру"
+    ],
+    "exactly_five_lists": 4,
+    "fact_check_template_blocks": 0
+  }
+}

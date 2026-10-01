@@ -6,6 +6,74 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261001-1340-cover-mcp-timeout-kie-recovery
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-cover
+topic_id: B07
+article_dir: memory/blog/articles/B07-lgotnyy-utilsbor-na-avto-2026-kak-poluchit
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` (MCP-KV) вернул `HTTP MCP error -32001: Request timed out` на 2K i2i.
+- Cursor MCP Logs / expanded tool response с URL недоступны агенту; async start/status tools в Available Tools нет.
+- Blind retry sync MCP запрещён контрактом.
+
+### How the agent recovered this run
+- После polling (~1 мин) без URL перешёл на primary Cloud path: `scripts/excalibur_blog_kie_gpt_image2_api.py` (createTask → recordInfo).
+- Получен URL → `quad_apply --inject-html` → split PASS, 3 figure inject OK.
+
+### Durable fix needed before next run
+- Director/task map: для Cloud явно ставить Kie async first (уже в automation memory), MCP sync только legacy.
+- Либо добавить async MCP create/status tools, чтобы -32001 не требовал отдельного HTTP-скрипта.
+
+### Suggested files to inspect/change
+- `shared/pipeline-task-map.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261001-1331-cover-manifest-seo-hoodie-defaults
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-cover
+topic_id: B07
+article_dir: memory/blog/articles/B07-lgotnyy-utilsbor-na-avto-2026-kak-poluchit
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_quad_manifest.py --merge` заполнил cover SEO-дефолтами: Wordstat/ноутбук, «белое худи», hook про SEO-ключи.
+- `excalibur_blog_cover_quad_prompt.py` жёстко вшивает `Outfit lock: thick heavyweight white hoodie` в промпт, конфликтуя с scene_hint outfit и правилом «no white hoodie default».
+
+### How the agent recovered this run
+- Вручную переписал `cover/quad-manifest.json` под льготный утильсбор (olive jacket, кВт/таможня).
+- Перед генерацией вырезал white-hoodie lock из `quad-mcp-prompt.txt` / `quad-mcp-batch.json`.
+
+### Durable fix needed before next run
+- Убрать SEO defaults из merge для auto-niche; брать cover_scene_hint из topic card / article.
+- Удалить hardcode white hoodie из prompt builder; outfit только из scene_hint + blog-hero outfit_rule.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_quad_manifest.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/cover-design-code.json`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261001-1345-geo-qa-utility-pain-outcome-markers-missing
 status: open
 run_date: 2026-10-01

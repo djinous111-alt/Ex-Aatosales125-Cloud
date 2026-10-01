@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B07-lgotnyy-utilsbor-na-avto-2026-kak-poluchit/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1028,
+      581
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 581,
+        "end": 605
+      },
+      "v_gutter_px": {
+        "start": 1028,
+        "end": 1048
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1028,
+          "bottom": 581
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1028,
+          "bottom": 581
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у порта Владивостока с чек-листом льготного утильсбора и плашкой про сюрприз на таможне",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1048,
+          "top": 9,
+          "right": 2048,
+          "bottom": 571
+        },
+        "raw_box_px": {
+          "left": 1048,
+          "top": 0,
+          "right": 2048,
+          "bottom": 581
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап Encar: мощность в кВт сверяют до ставки, а не по фразе про 160 сил",
+        "h2_anchor": "Проверьте льготу до ставки на аукционе или Encar"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 28,
+          "top": 605,
+          "right": 1000,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 605,
+          "right": 1028,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица условий льготного утильсбора для физлица 2026: мощность, частота, запрет продажи",
+        "h2_anchor": "Сверьте условия льготного утильсбора для физлица в 2026"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1062,
+          "top": 605,
+          "right": 2034,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1048,
+          "top": 605,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: как посчитать мощность в кВт по документам до депозита",
+        "h2_anchor": "Как посчитать мощность в киловаттах до депозита"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Проверьте льготу до ставки на аукционе или Encar",
+    "injected inline_2 after H2 — Сверьте условия льготного утильсбора для физлица в 2026",
+    "injected inline_3 after H2 — Как посчитать мощность в киловаттах до депозита"
+  ]
+}

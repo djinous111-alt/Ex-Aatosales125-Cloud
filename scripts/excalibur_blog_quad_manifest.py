@@ -114,8 +114,8 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
         "role": "cover_meme_hero",
         "alt": old_cover.get("alt") or f"Обложка: {article_topic}",
         "scene_hint": old_cover.get("scene_hint")
-        or "reference-лицо, белое плотное худи из толстой ткани, новая поза/жест/ракурс под крючок, без наушников/headset/earbuds, шок/ирония SEOшника, Wordstat + ноутбук",
-        "meme_caption_ru": old_cover.get("meme_caption_ru") or "15k ключей — 0 прочтений?",
+        or "WEATHER+OUTFIT from topic cover_scene_hint and blog-hero outfit_rule (match weather/topic; NEVER white hoodie; NEVER copy reference tee); reference face+glasses; NO cap/hood; fake car-catalog/docs UI + DIY collage; corner avto-sales125.ru; NEVER Wordstat/Metrika",
+        "meme_caption_ru": old_cover.get("meme_caption_ru") or "Сначала проверь",
     }
 
     used: set[str] = set()
@@ -133,7 +133,7 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
             "alt": alt_for_type(visual_type, old.get("h2_anchor") or h2, types_catalog),
         }
 
-    cover_hook = (preserve or {}).get("cover_hook") or "SEO-текст, который люди дочитают — миф или workflow?"
+    cover_hook = (preserve or {}).get("cover_hook") or "Сначала проверка — потом деньги"
 
     return {
         "topic_id": topic_id,

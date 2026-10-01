@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B06-avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2736,
+      1536
+    ],
+    "panel_size_px": [
+      1370,
+      786
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 786,
+        "end": 826
+      },
+      "v_gutter_px": {
+        "start": 1370,
+        "end": 1404
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 7,
+          "right": 1370,
+          "bottom": 778
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1370,
+          "bottom": 786
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у кроссовера с пробегом держит смартфон и скан китайского ПТС: крючок про проверку до оплаты",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1404,
+          "top": 18,
+          "right": 2736,
+          "bottom": 767
+        },
+        "raw_box_px": {
+          "left": 1404,
+          "top": 0,
+          "right": 2736,
+          "bottom": 786
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист: проверка авто из Китая строго до депозита, а не после отправки во Владивосток",
+        "h2_anchor": "Зачем проверять машину до депозита, а не после отправки во Владивосток"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 54,
+          "top": 826,
+          "right": 1316,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 826,
+          "right": 1370,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: как посчитать правило 180 дней по дате первой регистрации в китайском ПТС",
+        "h2_anchor": "Как посчитать правило 180 дней по дате первой регистрации"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1439,
+          "top": 826,
+          "right": 2701,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 1404,
+          "top": 826,
+          "right": 2736,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: какие сканы запросить до любого перевода за авто из Китая",
+        "h2_anchor": "Какие сканы запросить до любого перевода"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зачем проверять машину до депозита, а не после отправки во Владивосток",
+    "injected inline_2 after H2 — Как посчитать правило 180 дней по дате первой регистрации",
+    "injected inline_3 after H2 — Какие сканы запросить до любого перевода"
+  ]
+}

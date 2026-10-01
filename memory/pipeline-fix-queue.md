@@ -441,3 +441,37 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261001-0951-cover-white-hoodie-default
+status: fixed
+run_date: 2026-10-01
+role: excalibur-blog-cover
+topic_id: B06
+article_dir: memory/blog/articles/B06-avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_quad_manifest.py` default `cover.scene_hint` still hardcoded «белое плотное худи» + SEO/Wordstat leftovers.
+- `excalibur_blog_cover_quad_prompt.py` injected `Outfit lock: thick heavyweight white hoodie` into every quad prompt, conflicting with `blog-hero.json` outfit_rule and topic `cover_scene_hint`.
+- Sync MCP `gpt-image-2` returned `-32001` timeout; recovered via preferred Kie async script (expected fallback, recorded for visibility).
+
+### How the agent recovered this run
+- Rewrote B06 `cover/quad-manifest.json` with port/docs outfit (charcoal waterproof jacket + light-blue shirt) from scene_hint/outfit_rule.
+- Patched both scripts to stop defaulting to white hoodie / SEO stubs.
+- Regenerated batch, ran `excalibur_blog_kie_gpt_image2_api.py`, split+inject PASS.
+
+### Durable fix needed before next run
+- Keep prompt/manifest defaults aligned with `memory/cover/blog-hero.json` outfit_rule (already patched this run).
+- Cover skill/runbook should lead with Kie async script before sync MCP to avoid `-32001` token waste (optional follow-up).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- Cover agent patched scripts in-run (2026-10-01): removed white-hoodie outfit lock and SEO default scene_hint/hook; verified B06 prompt no longer locks white hoodie. Optional: skill order Kie-first remains for fixer polish.

@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит без сканов — лотерея",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у кроссовера с пробегом держит смартфон и скан китайского ПТС: крючок про проверку до оплаты",
+      "scene_hint": "WEATHER: foggy Vladivostok port morning, cool mist over water and ro-ro hint; OUTFIT: charcoal waterproof field jacket over light-blue button shirt and dark jeans (smart casual for docs/customs + port weather), NOT white hoodie, NOT reference tank/t-shirt, NO cap NO hood, glasses on; reference EXACT face likeness; action selfie holding phone with fake Chinese 行驶证 registration scan + mileage odometer photo scrap taped with scotch; modern Chinese used crossover behind; torn paper hook plaque Cyrillic «Депозит без сканов — лотерея» with yellow highlighter on «лотерея»; sticky note «до оплаты»; shocked meme cutout + cat meme sticker (different formats, no toxic labels); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics",
+      "meme_caption_ru": "Сначала сканы"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зачем проверять машину до депозита, а не после отправки во Владивосток",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable checklist board before deposit: 1) дата регистрации в 行驶证 2) пакет сканов 3) фото шильдика 4) стоп если пакет неполный 5) только потом перевод; red stamp «после Владивостока — поздно»; pink sticky «до депозита»; scotch tape; NO hero face; NO Wordstat/Metrika; no toxic labels",
+      "alt": "Чеклист: проверка авто из Китая строго до депозита, а не после отправки во Владивосток"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как посчитать правило 180 дней по дате первой регистрации",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns дата регистрации | дней до сегодня | статус вывоза; rows пример ≥180 / <180 / нет даты; yellow highlight row «считай от 行驶证»; sticky «календарь»; tape corner mini catalog card; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица: как посчитать правило 180 дней по дате первой регистрации в китайском ПТС"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Какие сканы запросить до любого перевода",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 5 steps arrows: 行驶证 → 交强险 → шильдик VIN → панель/пробег → письмо завода если молодой лот; sticky «до перевода»; mini fake scan thumbnails; NO hero face; NO Wordstat/Metrika; readable Cyrillic labels only",
+      "alt": "Схема: какие сканы запросить до любого перевода за авто из Китая"
+    }
+  }
+}

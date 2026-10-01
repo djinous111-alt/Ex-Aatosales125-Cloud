@@ -531,3 +531,37 @@ category: docs
 
 ### Fixer resolution
 - pending
+
+
+## INC-20261001-1749-publish-paramiko-missing
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-publish
+topic_id: B08
+article_dir: memory/blog/articles/B08-kakie-gibridy-mozhno-privezti-iz-yaponii-2026
+severity: medium
+category: env
+
+### What went wrong
+- `import paramiko` failed with ModuleNotFoundError before SSH publish for B08.
+- Same class of gap as B07 (INC-20261001-1347): paramiko not present in boot environment / install snapshot.
+
+### How the agent recovered this run
+- Runtime `pip3 install --break-system-packages paramiko` then dry-run + publish PASS (post 3913).
+- Set `SSH_ROOT=.` when unset (login cwd); HTTP trigger completed without WebFetch fallback (~114s).
+
+### Durable fix needed before next run
+- Ensure `paramiko` is installed in `.cursor/cloud-agent-install.sh` and `requirements.txt` (and any environment build snapshot).
+- Document `SSH_ROOT=.` default for this host in publish preflight if still unset in secrets.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `.cursor/environment.json`
+- `scripts/excalibur_blog_wp_publish.py` (optional clearer missing-dep message)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

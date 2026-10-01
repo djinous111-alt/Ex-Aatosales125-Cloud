@@ -8,7 +8,8 @@
     "B04",
     "B05",
     "B06",
-    "B07"
+    "B07",
+    "B08"
   ],
   "occupied_slugs": [
     "avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026",
@@ -18,21 +19,27 @@
     "kak-zakazat-avto-iz-kitaya-pod-klyuch-2026",
     "kak-zakazat-avto-iz-korei-pod-klyuch-2026",
     "kak-zakazat-avto-iz-yaponii-pod-klyuch-2026",
+    "kakie-gibridy-mozhno-privezti-iz-yaponii-2026",
     "lgotnyy-utilsbor-na-avto-2026-kak-poluchit",
     "postanovka-na-uchet-vvezennogo-avto-2026",
     "prohodnye-avto-iz-yaponii-2026",
     "sbkts-i-epts-2026-kak-oformit",
     "ustanovka-era-glonass-na-vvezennyy-avto-2026"
   ],
-  "next_suggested_topic_id": "B08",
+  "next_suggested_topic_id": "B09",
   "do_not_republish_wp_ids": [
-    3907,
-    3895,
-    3867,
-    3861,
-    3855,
+    3837,
     3843,
-    3837
+    3855,
+    3861,
+    3867,
+    3895,
+    3907,
+    3913,
+    3914,
+    3915,
+    3916,
+    3917
   ],
   "recent_wp_slugs": [
     "lgotnyy-utilsbor-na-avto-2026-kak-poluchit",
@@ -55,5 +62,18 @@
     "rastamozhka-elektromobilya-iz-kitaya-2026",
     "avtovoz-iz-vladivostoka-2026-kak-vybrat",
     "avto-iz-korei-ili-kitaya-2026"
-  ]
+  ],
+  "posts": {
+    "B08": {
+      "post_id": 3913,
+      "slug": "kakie-gibridy-mozhno-privezti-iz-yaponii-2026",
+      "featured_image": 3914,
+      "inline_images": [
+        3915,
+        3916,
+        3917
+      ],
+      "permalink": "/2026/10/01/kakie-gibridy-mozhno-privezti-iz-yaponii-2026/"
+    }
+  }
 }

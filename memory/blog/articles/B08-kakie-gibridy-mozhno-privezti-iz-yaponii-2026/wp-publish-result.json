@@ -1,0 +1,23 @@
+{
+  "slug": "kakie-gibridy-mozhno-privezti-iz-yaponii-2026",
+  "topic_id": "B08",
+  "permalink": "/2026/10/01/kakie-gibridy-mozhno-privezti-iz-yaponii-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B08-kakie-gibridy-mozhno-privezti-iz-yaponii-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1326420,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3913 slug=kakie-gibridy-mozhno-privezti-iz-yaponii-2026\nOK featured_image=3914\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3915 src=cover/inline-01.png url=/wp-content/uploads/2026/10/kakie-gibridy-mozhno-privezti-iz-yaponii-2026-inline-01.png\nOK inline_image_upload=3916 src=cover/inline-02.png url=/wp-content/uploads/2026/10/kakie-gibridy-mozhno-privezti-iz-yaponii-2026-inline-02.png\nOK inline_image_upload=3917 src=cover/inline-03.png url=/wp-content/uploads/2026/10/kakie-gibridy-mozhno-privezti-iz-yaponii-2026-inline-03.png\npermalink=/2026/10/01/kakie-gibridy-mozhno-privezti-iz-yaponii-2026/\n",
+  "verdict": "pass",
+  "post_id": 3913,
+  "featured_image": 3914,
+  "inline_images": [
+    3915,
+    3916,
+    3917
+  ],
+  "schema_meta": 1
+}

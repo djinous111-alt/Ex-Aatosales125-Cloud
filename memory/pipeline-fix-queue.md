@@ -267,14 +267,16 @@ category: script
 ### What went wrong
 - `excalibur_blog_scout_helper.py --suggest-next` returned `B01` because the local B-pool in `memory/topics/blog-topics.md` was empty and ledger only has AS08/AS09.
 - Live WordPress already has published B01–B05 (and other posts). Blindly following helper would collide with live slugs/IDs.
+- First B06 draft targeted льготный утильсбор EV, but automation memory denylist already marks `lgotnyy utilsbor` / `EV China` as live — local helper/ledger did not surface that.
 
 ### How the agent recovered this run
 - Followed Director override: forced `topic_id = B06` (next free after B05).
-- Cross-checked recent WP/memory slug denylist before append.
-- Appended utility card `## B06` and passed `excalibur_blog_utility_gate.py --topic-id B06`.
+- Rewrote B06 to `avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026` (правило 180 дней + чек-лист до оплаты).
+- Cross-checked recent WP/memory slug denylist; utility gate PASS.
 
 ### Durable fix needed before next run
 - Teach scout helper to skip IDs already used on live WP and/or accept an explicit `--min-id B06` / denylist from published ledger + WP snapshot.
+- Persist live-WP slug denylist into a repo file scout can read (not only automation memory).
 - Document in scout skill that empty local B-pool does not mean B01 is free when WP ledger lags.
 
 ### Suggested files to inspect/change
@@ -282,6 +284,7 @@ category: script
 - `.cursor/skills/scout-excalibur-blog/SKILL.md`
 - `shared/published-articles.md` sync from WP
 - `shared/agent-pipeline-pitfalls.md`
+- optional: `memory/topics/live-wp-slug-denylist.md`
 
 ### Secrets
 - none recorded

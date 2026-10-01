@@ -423,3 +423,73 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261001-1735-cover-white-hoodie-hardcode
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-cover
+topic_id: B08
+article_dir: memory/blog/articles/B08-kakie-gibridy-mozhno-privezti-iz-yaponii-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` still hardcodes `Outfit lock: thick heavyweight white hoodie` in `build_prompt()`.
+- This conflicts with `memory/cover/blog-hero.json` outfit_rule, design code weather/topic outfit, and durable pipeline note "Cover: no white hoodie default".
+- Auto-generated `quad-manifest.py` defaults also still seed white-hoodie/Wordstat SEO placeholders for new topics.
+
+### How the agent recovered this run
+- Manually rewrote B08 `cover/quad-manifest.json` with port outfit + hybrid scene (no white hoodie, no Wordstat).
+- Patched `cover/quad-mcp-prompt.txt` and synced into `cover/quad-mcp-batch.json` before Kie createTask.
+
+### Durable fix needed before next run
+- Remove white-hoodie outfit lock from `excalibur_blog_cover_quad_prompt.py`; use weather/topic outfit from scene_hint / blog-hero.
+- Update `excalibur_blog_quad_manifest.py` default cover scene/meme away from SEO/Wordstat/white hoodie placeholders.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `memory/cover/blog-hero.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261001-1736-schema-jsonld-secret-allowlist
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-schema
+topic_id: B08
+article_dir: memory/blog/articles/B08-kakie-gibridy-mozhno-privezti-iz-yaponii-2026
+severity: medium
+category: env
+
+### What went wrong
+- Первый `git commit` schema.jsonld упал: pre-commit `CLOUD_AGENT_INJECTED_SECRET_NAMES` содержал литерал `[REDACTED]` → `invalid variable name` (тот же корень, что INC-20261001-1718).
+- После фильтра имён scanner заблокировал PUBLIC_SITE_URL / CATALOG_URL / TELEGRAM_URL / MAX_URL в BlogPosting/@id, sameAs и HowTo step url.
+- В `.cursor/skills/schema-excalibur-blog/SKILL.md` нет рецепта `_scan: "pragma: allowlist secret"` (паттерн B01/B05), агент тратил шаги на rediscovery.
+
+### How the agent recovered this run
+- Отфильтровал secret names до `[A-Za-z_][A-Za-z0-9_]*` перед commit.
+- Пересобрал schema.jsonld с `"_scan": "pragma: allowlist secret"` на строках с URL (как B05).
+- Commit `605189c` прошёл без `--no-verify`.
+
+### Durable fix needed before next run
+- Документировать в schema skill: same-line `"_scan": "pragma: allowlist secret"` на всех URL с PUBLIC_SITE_URL/CATALOG/Telegram/MAX.
+- Добавить `scripts/sanitize_cloud_secret_names.sh` и вызов в pitfalls/schema agent.
+- Убрать публичные site/catalog/Telegram/MAX URL из Cloud «secrets» или inject URL на publish.
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/sanitize_cloud_secret_names.sh`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

@@ -6,6 +6,75 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261002-2135-geo-qa-typed-task-fallback
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rusifitsirovat-avto-iz-kitaya-2026
+severity: medium
+category: tooling
+
+### What went wrong
+- Cloud API enum не принимает typed Task `excalibur-blog-geo-qa`.
+- Директор вынужден запускать роль через `Task(generalPurpose)` fallback с путями `.cursor/agents/excalibur-blog-geo-qa.md` и `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Выполнен GEO QA как generalPurpose subagent по контракту агента/skill; пайплайн не останавливался из‑за отсутствия typed Task.
+
+### Durable fix needed before next run
+- Зарегистрировать `excalibur-blog-geo-qa` (и остальные excalibur-blog-* роли) в Cloud Task type enum / automation config, либо явно задокументировать generalPurpose-only orchestration в director skill и CLOUD-AUTOMATION.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+- Cursor Cloud / Automation Task type configuration
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261002-2136-geo-qa-utility-policy-markers
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rusifitsirovat-avto-iz-kitaya-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требует `min_pain_markers` (default 2) и `min_outcome_markers` (default 3), читая списки `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json`.
+- В актуальной policy этих ключей нет → `pain_count`/`outcome_count` всегда 0 → utility article gate всегда BLOCK по pain/outcome.
+- Проверка: ранее PASS статья AS09 сейчас тоже BLOCK с теми же ошибками pain/outcome=0.
+
+### How the agent recovered this run
+- Не правили policy из роли GEO QA; зафиксировали FAIL + FIX-лист writer по action/human-voice маркерам; durable fix отдаём fixer.
+- B01 дополнительно имеет реальный action_markers=7&lt;8 (writer FIX) и human-voice pain_hits=1&lt;2.
+
+### Durable fix needed before next run
+- Добавить в `editorial-policy.json` согласованные `pain_markers_ru` / `outcome_markers_ru` (и опционально явные min_*), либо убрать defaults 2/3 в скрипте когда списки пустые.
+- Синхронизировать маркеры с `excalibur_blog_human_voice_gate.py` PAIN_MARKERS / OUTCOME_MARKERS, чтобы writer и гейты говорили одним словарём.
+- Расширить `recommendation_markers_ru` синонимами `чек-лист` / `не делать` или задокументировать обязательные формы в writer contract.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/excalibur-article-writing-contract.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261002-0015-doctor-llms-blog-path
 status: open
 run_date: 2026-10-02

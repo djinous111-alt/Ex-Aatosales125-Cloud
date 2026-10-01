@@ -1,0 +1,132 @@
+{
+  "gate": "human-voice",
+  "status": "BLOCK",
+  "article_dir": "memory/blog/articles/B01-kak-rusifitsirovat-avto-iz-kitaya-2026",
+  "errors": [
+    "reader pain is weak or invisible: article must name the problem it solves"
+  ],
+  "warnings": [
+    "multiple exactly-5-step lists detected; vary list size when editorially possible"
+  ],
+  "metrics": {
+    "h2_count": 7,
+    "repeated_h2_openers": [],
+    "textbook_h2_count": 0,
+    "paragraph_count": 27,
+    "paragraph_avg_words": 28.8,
+    "paragraph_variance_ratio": 0.38,
+    "concrete_markers": [
+      "например",
+      "на практике",
+      "типичная ошибка",
+      "в реальном проекте"
+    ],
+    "pain_markers": [
+      "ошиб"
+    ],
+    "outcome_markers": [
+      "результат",
+      "проверьте",
+      "выберите"
+    ],
+    "ai_opening_hits": [],
+    "reader_story_overlap": [
+      "carplay",
+      "видео",
+      "выдаче",
+      "говорит",
+      "городе",
+      "депозит",
+      "игорь",
+      "иероглифами",
+      "карты",
+      "китая",
+      "коробочка",
+      "кроссовер",
+      "оплаты",
+      "отдельно",
+      "по-русски",
+      "приборка",
+      "продавец",
+      "родном",
+      "русский",
+      "сорок",
+      "только",
+      "улицу",
+      "центральном",
+      "штатные",
+      "экране"
+    ],
+    "reader_pain_overlap": [
+      "carplay",
+      "депозит",
+      "иероглифами",
+      "китая",
+      "машину",
+      "потом"
+    ],
+    "reader_outcome_overlap": [
+      "вопросов",
+      "выдаче",
+      "депозита",
+      "продавцу",
+      "список",
+      "телефона",
+      "чек-лист",
+      "экранов"
+    ],
+    "success_criteria_overlap": [
+      "адреса",
+      "видео",
+      "выдаче",
+      "депозита",
+      "звонок",
+      "интерфейс",
+      "нужных",
+      "обещания",
+      "поиск",
+      "полной",
+      "правила",
+      "проекция",
+      "российского",
+      "русификации",
+      "русский",
+      "слоёв",
+      "списка",
+      "телефона",
+      "чек-лист",
+      "экранов"
+    ],
+    "voice_angle_overlap": [
+      "денег",
+      "иероглифы",
+      "спросить",
+      "трассе"
+    ],
+    "surprising_fact_overlap": [
+      "carplay",
+      "lixiang",
+      "zeekr",
+      "внешний",
+      "восстановления",
+      "заводского",
+      "карты",
+      "китая",
+      "машине",
+      "модуль",
+      "перевода",
+      "премиум-моделей",
+      "равен",
+      "россию",
+      "русский",
+      "сервис",
+      "текст",
+      "центральном",
+      "часто",
+      "штатно",
+      "экране"
+    ],
+    "exactly_five_lists": 3,
+    "fact_check_template_blocks": 0
+  }
+}

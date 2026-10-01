@@ -29,12 +29,15 @@
     "description_aeo": "Русификация авто из Китая – проверка слоёв меню, приборки, карт РФ и CarPlay до депозита и при выдаче. DIY-прошивка новичку не нужна."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 74,
+    "verdict": "FAIL",
     "date": "2026-10-02",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "utility_gate": "BLOCK",
+    "human_voice": "BLOCK",
+    "article_qa": "memory/blog/articles/B01-kak-rusifitsirovat-avto-iz-kitaya-2026/article-qa.md"
   },
   "cover_family": "brand_collage"
 }

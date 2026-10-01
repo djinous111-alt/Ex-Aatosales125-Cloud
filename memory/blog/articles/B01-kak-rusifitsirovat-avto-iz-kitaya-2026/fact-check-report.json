@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B01-kak-rusifitsirovat-avto-iz-kitaya-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 1,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "даче и правила восстановления после обновлений. В 2026 году китайские авто часто приезжают с заводским ки",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "20 минут",
+      "kind": "metric_or_duration",
+      "context": "исту за один проход по салону При выдаче у вас 15–20 минут. Не подписывайте акт \"потом разберёмся\". Пройдите",
+      "verified": true,
+      "reason": "Numerical value '20' matched in fact-bank context"
+    },
+    {
+      "fact": "150",
+      "kind": "large_number",
+      "context": "ю + приборка + приложения/карты по смете часто 50–150 тыс. ₽ Сложные / премиум Глубокая адаптация, отдел",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "250",
+      "kind": "large_number",
+      "context": "премиум Глубокая адаптация, отдельные модули до ~250 тыс. ₽ и выше Модуль CarPlay Внешняя \"коробочка\",",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    }
+  ]
+}

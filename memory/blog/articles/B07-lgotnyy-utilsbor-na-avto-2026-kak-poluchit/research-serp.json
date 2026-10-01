@@ -1,0 +1,591 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-01",
+    "today_ru": "01.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-03",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-01 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B07",
+    "priority": "P0",
+    "slug": "lgotnyy-utilsbor-na-avto-2026-kak-poluchit",
+    "h1": "Как получить льготный утильсбор на авто из Азии в 2026: чек-лист для физлица",
+    "primary_query": "льготный утильсбор",
+    "secondary_queries": [
+      "льготный утильсбор 2026",
+      "льготный утильсбор для физических лиц",
+      "авто под льготный утильсбор"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "льготный утильсбор 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Калькулятор утильсбора 2026",
+          "url": "https://calcus.ru/kalkulyator-utilsbora",
+          "snippet": ""
+        },
+        {
+          "title": "Калькулятор утиль сбора: онлайн расчёт 2026",
+          "url": "https://calculatorov.ru/kalkulyator-util-sbora/",
+          "snippet": "Льготный утильсбор Льготные коэффициенты утилизационного сбора - 0,17 и 0,26 для ТС младше и старше 3-х лет соответственно - применяются при выполнении следующих условий:"
+        },
+        {
+          "title": "Утильсбор 2026: ставки, таблица, расчёт, льготы и кто может не платить",
+          "url": "https://www.avtovzglyad.ru/avto/price/72942-2026-06-25-utilsbor-2026-stavki-tablitsa-raschyot-lgotyi-ikto-mozhet-neplatit/",
+          "snippet": "Онлайн-калькулятор утилизационного сбора на 2026 год. Рассчитайте точную сумму для легковых авто, электромобилей и грузовиков с учётом льгот для физлиц."
+        },
+        {
+          "title": "Утильсбор 2026 (с 1 января): таблицы с новыми ставками, льготный «утиль ...",
+          "url": "https://gt-news.ru/news/utilsbor-2026/",
+          "snippet": "Утильсбор 2026: ставки, таблица, расчёт, льготы и кто может не платить Всё, что нужно знать, заказывая авто из-за границы"
+        },
+        {
+          "title": "Калькулятор утильсбора 2026: рассчитать утилизационный сбор онлайн",
+          "url": "https://web-calculator.ru/avtomobilnyye-kalkulyatory/kalkulyator-utilsbora",
+          "snippet": "Утильсбор 2026 (с 1 января): таблицы с новыми ставками, льготный «утиль» для физ лиц до 160 л.с, примеры расчета. Что будет с ценами на новые и б/у авто в 2026 году 28 ноября 2025 • Левченко Максим ..."
+        },
+        {
+          "title": "Утильсбор для физических лиц 2026: льготный vs коммерческий — полный разбор",
+          "url": "https://peregonpro.ru/poleznoe/lgotnyj-vs-kommercheskij-utilsbor-kak-rasschitat-i-kto-mozhet-platit-3400-rublej-podrobnyj-razbor-stavok-i-uslovij-polucheniya-lgoty/",
+          "snippet": "Рассчитайте утилизационный сбор на автомобиль в 2026 году: для физлиц (личное пользование) и юрлиц, по объёму, мощности двигателя (л.с.) и возрасту. Льготный утильсбор 3 400 / 5 200 ₽ и полные ставки по ПП РФ № 1713 с формулой ..."
+        }
+      ],
+      "searched_at": "2026-10-01"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "льготный утильсбор октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Льготный утильсбор 2026: кому положен и как оформить",
+          "url": "https://chest-import.com/stati/lgotnyy-utilsbor",
+          "snippet": ""
+        },
+        {
+          "title": "Льготный утильсбор 2026 — кому положен и сколько платить",
+          "url": "https://globamart.ru/guides/lgotnyj-utilsbor",
+          "snippet": "Льготный утильсбор в 2026 году: 3 400 и 5 200 рублей, все условия льготы по мощности, объёму и сроку владения, кто освобождён и за что льготу снимают."
+        },
+        {
+          "title": "Льготный утильсбор 2026 — кто платит 3 400 ₽ и условия",
+          "url": "https://carto-auto.ru/blog/lgotnyy-utilsbor-kto-osvobozhden/",
+          "snippet": "Льготный утильсбор в 2026: кому положен, сколько платить и что его снимает Разница между льготной и коммерческой ставкой — сотни тысяч рублей на одной машине. Разбираем условия, пороги и типовые способы льготу потерять."
+        },
+        {
+          "title": "Льготный утильсбор 2026: условия для физлиц, многодетных и участников СВО",
+          "url": "https://blog.kmgexport.com/avto-novosti/lgotnyj-utilsbor-2026-uslovija-dlja-fizlic-mnogodetnyh-i-uchastnikov-svo/",
+          "snippet": "Льготный утильсбор в 2026: 3 400 или 5 200 ₽ вместо сотен тысяч. Четыре условия для физлица, порог 160 л.с., льготы участникам СВО и многодетным, продажа до года."
+        },
+        {
+          "title": "Льготный Утильсбор В 2026: Условия И Когда Пересчитают — Mikado",
+          "url": "https://mikado-auto.ru/blog/lgotnyy-utilsbor-2026.html",
+          "snippet": "Льготный утильсбор в 2026 году — 3 400 или 5 200 рублей для физлиц при соблюдении условий. Кто имеет право, порог 160 л.с., правила для многодетных и участников СВО, что будет при нарушении условий."
+        },
+        {
+          "title": "Утильсбор 2026 (с 1 января): таблицы с новыми ставками, льготный «утиль ...",
+          "url": "https://gt-news.ru/news/utilsbor-2026/",
+          "snippet": "Льготный утильсбор 3400-5200 рублей в 2026 году: все условия для физлица, порог 160 л.с., правило одного авто в год. Пять ситуаций, когда льготу пересчитают с доплатой."
+        }
+      ],
+      "searched_at": "2026-10-01"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "льготный утильсбор новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Утильсбор 2026 (с 1 января): таблицы с новыми ставками, льготный «утиль ...",
+          "url": "https://gt-news.ru/news/utilsbor-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Льготный утильсбор 2026: кому положен и как оформить",
+          "url": "https://chest-import.com/stati/lgotnyy-utilsbor",
+          "snippet": "Утильсбор 2026 (с 1 января): таблицы с новыми ставками, льготный «утиль» для физ лиц до 160 л.с, примеры расчета. Что будет с ценами на новые и б/у авто в 2026 году 28 ноября 2025 • Левченко Максим ..."
+        },
+        {
+          "title": "Льготный утильсбор 2026 — кто платит 3 400 ₽ и условия",
+          "url": "https://carto-auto.ru/blog/lgotnyy-utilsbor-kto-osvobozhden/",
+          "snippet": "Льготный утильсбор в 2026 году: 3 400 и 5 200 рублей, все условия льготы по мощности, объёму и сроку владения, кто освобождён и за что льготу снимают."
+        },
+        {
+          "title": "Льготный утильсбор 2026: условия для физлиц, многодетных и участников СВО",
+          "url": "https://blog.kmgexport.com/avto-novosti/lgotnyj-utilsbor-2026-uslovija-dlja-fizlic-mnogodetnyh-i-uchastnikov-svo/",
+          "snippet": "Льготный утильсбор в 2026: 3 400 или 5 200 ₽ вместо сотен тысяч. Четыре условия для физлица, порог 160 л.с., льготы участникам СВО и многодетным, продажа до года."
+        },
+        {
+          "title": "Утильсбор 2026: ставки, таблица, расчёт, льготы и кто может не платить",
+          "url": "https://www.avtovzglyad.ru/avto/price/72942-2026-06-25-utilsbor-2026-stavki-tablitsa-raschyot-lgotyi-ikto-mozhet-neplatit/",
+          "snippet": "Льготный утильсбор в 2026 году — 3 400 или 5 200 рублей для физлиц при соблюдении условий. Кто имеет право, порог 160 л.с., правила для многодетных и участников СВО, что будет при нарушении условий."
+        },
+        {
+          "title": "Льготный Утильсбор В 2026: Условия И Когда Пересчитают — Mikado",
+          "url": "https://mikado-auto.ru/blog/lgotnyy-utilsbor-2026.html",
+          "snippet": "Утильсбор 2026: ставки, таблица, расчёт, льготы и кто может не платить Всё, что нужно знать, заказывая авто из-за границы"
+        }
+      ],
+      "searched_at": "2026-10-01"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com льготный утильсбор 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "AcFANcom (AcFAN) · GitHub",
+          "url": "https://github.com/AcFANcom",
+          "snippet": ""
+        },
+        {
+          "title": "alpha-future-2026/docs/ts_extended.md at main - GitHub",
+          "url": "https://github.com/ProstoSaniok/alpha-future-2026/blob/main/docs/ts_extended.md",
+          "snippet": "Contribution activity September 2026 AcFANcom has no activity yet for this period."
+        },
+        {
+          "title": "GitHub - ProstoSaniok/alpha-future-2026",
+          "url": "https://github.com/ProstoSaniok/alpha-future-2026/tree/main/",
+          "snippet": "Название карты: \"Альфа-Карта Первая\" 1 строка — почему она подходит: \"Идеально для первого кредита: низкий лимит, льготный период 60 дней, кэшбэк на повседневные покупки\" 3 иконки с условиями:"
+        },
+        {
+          "title": "alpha-future-2026/docs/ts.md at main · ProstoSaniok/alpha ... - GitHub",
+          "url": "https://github.com/ProstoSaniok/alpha-future-2026/blob/main/docs/ts.md",
+          "snippet": "Прототип для кейса «Банковское приложение будущего» (хакатон Alpha Future 2026). Проблема: Молодые люди 18-25 лет боятся кредитных карт: непонятные условия, страх испортить ..."
+        },
+        {
+          "title": "ponytail/assets/benchmark-agentic.svg at main - GitHub",
+          "url": "https://github.com/DietrichGebert/ponytail/blob/main/assets/benchmark-agentic.svg",
+          "snippet": "Contribute to ProstoSaniok/alpha-future-2026 development by creating an account on GitHub."
+        },
+        {
+          "title": "zmk-sofle/keymap-drawer/eyelash_sofle.svg at main - GitHub",
+          "url": "https://github.com/mackziller/zmk-sofle/blob/main/keymap-drawer/eyelash_sofle.svg",
+          "snippet": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote. - DietrichGebert/ponytail"
+        }
+      ],
+      "searched_at": "2026-10-01"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "льготный утильсбор official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Утильсбор для участников СВО и ветеранов: что действует в 2026 году",
+          "url": "https://utilsbora.ru/uchastnikam-svo/",
+          "snippet": ""
+        },
+        {
+          "title": "Льготный Утильсбор В 2026: Условия И Когда Пересчитают — Mikado",
+          "url": "https://mikado-auto.ru/blog/lgotnyy-utilsbor-2026.html",
+          "snippet": "Льготы по утильсбору для участников СВО и ветеранов боевых действий нет: законопроект от 30.04.2026 первое чтение не прошёл. Действует льгота физлица 3 400 / 5 200 ₽."
+        },
+        {
+          "title": "Льготный утильсбор 2026: кому положен и как оформить",
+          "url": "https://chest-import.com/stati/lgotnyy-utilsbor",
+          "snippet": "Льготный утильсбор 3400-5200 рублей в 2026 году: все условия для физлица, порог 160 л.с., правило одного авто в год. Пять ситуаций, когда льготу пересчитают с доплатой."
+        },
+        {
+          "title": "Льготный утильсбор 2026 — кто платит 3 400 ₽ и условия",
+          "url": "https://carto-auto.ru/blog/lgotnyy-utilsbor-kto-osvobozhden/",
+          "snippet": "Льготный утильсбор в 2026 году: 3 400 и 5 200 рублей, все условия льготы по мощности, объёму и сроку владения, кто освобождён и за что льготу снимают."
+        },
+        {
+          "title": "Льготный утильсбор 2026: условия для физлиц, многодетных и участников СВО",
+          "url": "https://blog.kmgexport.com/avto-novosti/lgotnyj-utilsbor-2026-uslovija-dlja-fizlic-mnogodetnyh-i-uchastnikov-svo/",
+          "snippet": "Льготный утильсбор в 2026: 3 400 или 5 200 ₽ вместо сотен тысяч. Четыре условия для физлица, порог 160 л.с., льготы участникам СВО и многодетным, продажа до года."
+        },
+        {
+          "title": "Утильсбор 2026: ставки, таблица, расчёт, льготы и кто может не платить",
+          "url": "https://www.avtovzglyad.ru/avto/price/72942-2026-06-25-utilsbor-2026-stavki-tablitsa-raschyot-lgotyi-ikto-mozhet-neplatit/",
+          "snippet": "Льготный утильсбор в 2026 году — 3 400 или 5 200 рублей для физлиц при соблюдении условий. Кто имеет право, порог 160 л.с., правила для многодетных и участников СВО, что будет при нарушении условий."
+        }
+      ],
+      "searched_at": "2026-10-01"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "льготный утильсбор forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Льготный утильсбор 2026: кому положен и как оформить",
+          "url": "https://chest-import.com/stati/lgotnyy-utilsbor",
+          "snippet": ""
+        },
+        {
+          "title": "Льготный утильсбор 2026 — кому положен и сколько платить",
+          "url": "https://globamart.ru/guides/lgotnyj-utilsbor",
+          "snippet": "Льготный утильсбор в 2026 году: 3 400 и 5 200 рублей, все условия льготы по мощности, объёму и сроку владения, кто освобождён и за что льготу снимают."
+        },
+        {
+          "title": "Льготный утильсбор в 2026 году: кому положен и как его не…",
+          "url": "https://car-hunt.ru/blog/lgotnyj-utilsbor",
+          "snippet": "Льготный утильсбор в 2026: кому положен, сколько платить и что его снимает Разница между льготной и коммерческой ставкой — сотни тысяч рублей на одной машине. Разбираем условия, пороги и типовые способы льготу потерять."
+        },
+        {
+          "title": "Льготный утильсбор 2026 — кто платит 3 400 ₽ и условия",
+          "url": "https://carto-auto.ru/blog/lgotnyy-utilsbor-kto-osvobozhden/",
+          "snippet": "Условия льготы в 2026 году: чек-лист из шести пунктов Опираюсь на официальную страницу СЗТУ ФТС об условиях применения пониженных коэффициентов — это первоисточник, а не пересказ."
+        },
+        {
+          "title": "Льготный утильсбор 2026: условия для физлиц, многодетных и участников ...",
+          "url": "https://dzen.ru/a/afBWtU64eBw9baA8",
+          "snippet": "Льготный утильсбор в 2026: 3 400 или 5 200 ₽ вместо сотен тысяч. Четыре условия для физлица, порог 160 л.с., льготы участникам СВО и многодетным, продажа до года."
+        },
+        {
+          "title": "Льготный утильсбор 2026: условия для физлиц, многодетных и участников СВО",
+          "url": "https://blog.kmgexport.com/avto-novosti/lgotnyj-utilsbor-2026-uslovija-dlja-fizlic-mnogodetnyh-i-uchastnikov-svo/",
+          "snippet": "Льготный утильсбор в 3 400-5 200 рублей сохраняется для физических лиц при соблюдении трёх обязательных условий одновременно. Условие первое — мощность до 160 л.с. Это главное ограничение."
+        }
+      ],
+      "searched_at": "2026-10-01"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "льготный утильсбор 2026 2026",
+      "purpose": "вторичный запрос: льготный утильсбор 2026",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Утильсбор 2026 (с 1 января): таблицы с новыми ставками, льготный «утиль ...",
+          "url": "https://gt-news.ru/news/utilsbor-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Льготный утильсбор 2026 — кто платит 3 400 ₽ и условия",
+          "url": "https://carto-auto.ru/blog/lgotnyy-utilsbor-kto-osvobozhden/",
+          "snippet": "Утильсбор 2026 (с 1 января): таблицы с новыми ставками, льготный «утиль» для физ лиц до 160 л.с, примеры расчета. Что будет с ценами на новые и б/у авто в 2026 году 28 ноября 2025 • Левченко Максим ..."
+        },
+        {
+          "title": "Калькулятор утильсбора 2026",
+          "url": "https://calcus.ru/kalkulyator-utilsbora",
+          "snippet": "Льготный утильсбор в 2026: 3 400 или 5 200 ₽ вместо сотен тысяч. Четыре условия для физлица, порог 160 л.с., льготы участникам СВО и многодетным, продажа до года."
+        },
+        {
+          "title": "Утильсбор для физических лиц 2026: льготный vs коммерческий — полный разбор",
+          "url": "https://peregonpro.ru/poleznoe/lgotnyj-vs-kommercheskij-utilsbor-kak-rasschitat-i-kto-mozhet-platit-3400-rublej-podrobnyj-razbor-stavok-i-uslovij-polucheniya-lgoty/",
+          "snippet": "Льготный утильсбор Льготные коэффициенты утилизационного сбора - 0,17 и 0,26 для ТС младше и старше 3-х лет соответственно - применяются при выполнении следующих условий:"
+        },
+        {
+          "title": "Льготный утильсбор 2026: кому положен и как оформить",
+          "url": "https://chest-import.com/stati/lgotnyy-utilsbor",
+          "snippet": "Вариант 3 (Для максимального охвата):Утильсбор 2026: полный разбор льготных и коммерческих ставок. Кто может платить 3400 рублей (физлица, авто до 160 л.с., 1 машина в год). Что будет при превышении мощности или продаже авто ..."
+        },
+        {
+          "title": "Утильсбор 2026: ставки, таблица, расчёт, льготы и кто может не платить",
+          "url": "https://www.avtovzglyad.ru/avto/price/72942-2026-06-25-utilsbor-2026-stavki-tablitsa-raschyot-lgotyi-ikto-mozhet-neplatit/",
+          "snippet": "Льготный утильсбор в 2026 году: 3 400 и 5 200 рублей, все условия льготы по мощности, объёму и сроку владения, кто освобождён и за что льготу снимают."
+        }
+      ],
+      "searched_at": "2026-10-01"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "льготный утильсбор для физических лиц 2026",
+      "purpose": "вторичный запрос: льготный утильсбор для физических лиц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Льготный утильсбор для физических лиц в 2026 году: условия ставки 3 400 ...",
+          "url": "https://kad-autoconsult.ru/statyi/lgotnyj-utilsbor-do-160-ls.html",
+          "snippet": ""
+        },
+        {
+          "title": "Утильсбор для физических лиц 2026: льготный vs коммерческий — полный разбор",
+          "url": "https://peregonpro.ru/poleznoe/lgotnyj-vs-kommercheskij-utilsbor-kak-rasschitat-i-kto-mozhet-platit-3400-rublej-podrobnyj-razbor-stavok-i-uslovij-polucheniya-lgoty/",
+          "snippet": "Льготный утильсбор 3 400/5 200 ₽ для физлиц в 2026 году: все 5 условий — мощность до 160 л.с., объём до 3 л, личное пользование, 1 авто в год, без продажи 12 месяцев. Что будет при превышении порога, как платить, КБК и сроки ..."
+        },
+        {
+          "title": "Утильсбор 2026 (с 1 января): таблицы с новыми ставками, льготный «утиль ...",
+          "url": "https://gt-news.ru/news/utilsbor-2026/",
+          "snippet": "Вариант 3 (Для максимального охвата):Утильсбор 2026: полный разбор льготных и коммерческих ставок. Кто может платить 3400 рублей (физлица, авто до 160 л.с., 1 машина в год). Что будет при превышении мощности или продаже авто ..."
+        },
+        {
+          "title": "Утильсбор в России 2026: полные таблицы ставок и расчёт для физлиц",
+          "url": "https://autoprofiasia.ru/blog/utilsbor-v-rossii-2026-tablitsy-stavki-raschet",
+          "snippet": "Утильсбор 2026 (с 1 января): таблицы с новыми ставками, льготный «утиль» для физ лиц до 160 л.с, примеры расчета. Что будет с ценами на новые и б/у авто в 2026 году 28 ноября 2025 • Левченко Максим ..."
+        },
+        {
+          "title": "Льготный утильсбор 2026 — кто платит 3 400 ₽ и условия",
+          "url": "https://carto-auto.ru/blog/lgotnyy-utilsbor-kto-osvobozhden/",
+          "snippet": "Утильсбор в 2026 году: льготные ставки 3 400-5 200 ₽ для авто до 160 л.с. и коммерческая 2D-матрица до 6,3 млн ₽ для мощных машин. Полные таблицы и примеры расчёта по ПП РФ №1713."
+        },
+        {
+          "title": "Как рассчитать утильсбор в 2026: льготы физлиц, примеры, изменения ...",
+          "url": "https://kad-autoconsult.ru/statyi/utilsbor-2026-stavki-tablica.html",
+          "snippet": "Льготный утильсбор в 2026: 3 400 или 5 200 ₽ вместо сотен тысяч. Четыре условия для физлица, порог 160 л.с., льготы участникам СВО и многодетным, продажа до года."
+        }
+      ],
+      "searched_at": "2026-10-01"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "авто под льготный утильсбор 2026",
+      "purpose": "вторичный запрос: авто под льготный утильсбор",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Ультимативный гайд: собрали 50 машин под льготный утильсбор в 2026 году",
+          "url": "https://www.avito.ru/auto-journal/ultimativnyy-gayd-sobrali-50-mashin-pod-lgotnyy-utilsbor-v-2026-godu",
+          "snippet": ""
+        },
+        {
+          "title": "Авто под льготный утильсбор-2026 под ключ — TopCar25",
+          "url": "https://www.topcar25.ru/pod-lgotnyy-util",
+          "snippet": "Журнал Авито Авто нашел 50 моделей, которые можно привезти под льготный утильсбор в 2026 году. В 2025 г. у многих российских покупателей пропала возможность выгодно привезти автомобиль из-за рубежа для личного ..."
+        },
+        {
+          "title": "Какие автомобили проходят по льготному утильсбору в 2026 году",
+          "url": "https://revocars.ru/blog/%D0%BF%D1%80%D0%BE%D1%85%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5-%D0%B0%D0%B2%D1%82%D0%BE-2026.html",
+          "snippet": "Главная / Каталог / Под льготный утиль Авто под льготный утильсбор-2026 Здесь собраны автомобили, которые проходят под льготный утилизационный сбор 2026 года: для личного пользования это 3 400 ₽ для машин 0-3 лет и 5 200 ₽ для ..."
+        },
+        {
+          "title": "Льготный Утильсбор 2026: Какие Авто Проходят | Revocars",
+          "url": "https://revocars.ru/catalog/lgotnyy-util/",
+          "snippet": "В 2026 году многие автомобили попали под коммерческий утильсбор. Разбираем какие модели остаются проходными: ДВС до 160 л.с., электромобили с 30-минутной мощностью до 80 л.с. и список автомобилей из Китая."
+        },
+        {
+          "title": "Льготный утильсбор 2026: авто до 160 л.с. для ввоза в РФ",
+          "url": "https://fb.ru/post/cars/2026/3/1/422211",
+          "snippet": "Какие авто попадают под льготный утильсбор в 2026 году? Автомобили с зачётной мощностью до 160 л.с. для ДВС и до 58,85 кВт (80 л.с.) для электромобилей при ввозе на физическое лицо."
+        },
+        {
+          "title": "Утилизационный сбор на автомобили в 2026 году: ставки и расчет",
+          "url": "https://blank-dogovor-kupli-prodazhi.ru/articles/avto/utilizacionniy-sbor-na-avtomobili.html",
+          "snippet": "Льготный утильсбор 2026 в РФ для авто до 160 л.с.: ставки 3400-5200 руб. Эксперт Кирилл Милешкин назвал выгодные модели — Subaru Forester, Mazda 6, Suzuki Jimny, VW Golf, BMW дизели, Geely Coolray. Условия параллельного импорта, риски и примеры цен для ..."
+        }
+      ],
+      "searched_at": "2026-10-01"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как получить льготный утильсбор на авто из Азии в 2026: чек-лист для физлица 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Утильсбор на авто из Китая 2026: расчёт, льготы, порядок",
+          "url": "https://flipexport.ru/blog/utilsbor-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Льготный утильсбор 2026: кому положен и как оформить",
+          "url": "https://chest-import.com/stati/lgotnyy-utilsbor",
+          "snippet": "Утилизационный сбор на авто из Китая в 2026 году: расчёт, ставки, льготы Автор: Максим Юрьевич, основатель FlipExport Утилизационный сбор — обязательный платёж при ввозе автомобиля в Россию."
+        },
+        {
+          "title": "Льготный утильсбор 2026: ставки и расчет — POWER Car",
+          "url": "https://power-car.ru/articles/raschet-utilsbora-2026.html",
+          "snippet": "Льготный утильсбор в 2026 году: 3 400 и 5 200 рублей, все условия льготы по мощности, объёму и сроку владения, кто освобождён и за что льготу снимают."
+        },
+        {
+          "title": "Утильсбор на авто 2026: ставки, таблица и условия льготы",
+          "url": "https://chest-import.com/stati/utilsbor-na-avto-2026",
+          "snippet": "Узнайте, как рассчитать льготный утильсбор в 2026 году для физлиц. Актуальные ставки ФТС, лимиты до 160 л.с. и правила ввоза. Получите расчет на сайте!"
+        },
+        {
+          "title": "Льготный утильсбор для физлиц в 2026: условия и ставки",
+          "url": "https://tnved-spravochnik.ru/blog/lgotnyj-utilsbor-fizlicam-2026",
+          "snippet": "Утильсбор на авто в 2026 году: льготные 3 400 и 5 200 ₽, оба условия льготы (160 л. с. и 3 литра), таблица коммерческих ставок и разбор примера."
+        },
+        {
+          "title": "Льготный утильсбор 2026: условия для физлиц, многодетных и участников СВО",
+          "url": "https://blog.kmgexport.com/avto-novosti/lgotnyj-utilsbor-2026-uslovija-dlja-fizlic-mnogodetnyh-i-uchastnikov-svo/",
+          "snippet": "Льготный утильсбор для физлиц в 2026: ставки 3400 и 5200 ₽, порог 160 л.с., условие личного пользования и риск доначисления при продаже авто в течение года."
+        }
+      ],
+      "searched_at": "2026-10-01"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://calcus.ru/kalkulyator-utilsbora",
+      "title": "Калькулятор утильсбора 2026",
+      "from_query": "льготный утильсбор 2026"
+    },
+    {
+      "url": "https://calculatorov.ru/kalkulyator-util-sbora/",
+      "title": "Калькулятор утиль сбора: онлайн расчёт 2026",
+      "from_query": "льготный утильсбор 2026"
+    },
+    {
+      "url": "https://www.avtovzglyad.ru/avto/price/72942-2026-06-25-utilsbor-2026-stavki-tablitsa-raschyot-lgotyi-ikto-mozhet-neplatit/",
+      "title": "Утильсбор 2026: ставки, таблица, расчёт, льготы и кто может не платить",
+      "from_query": "льготный утильсбор 2026"
+    },
+    {
+      "url": "https://gt-news.ru/news/utilsbor-2026/",
+      "title": "Утильсбор 2026 (с 1 января): таблицы с новыми ставками, льготный «утиль ...",
+      "from_query": "льготный утильсбор 2026"
+    },
+    {
+      "url": "https://web-calculator.ru/avtomobilnyye-kalkulyatory/kalkulyator-utilsbora",
+      "title": "Калькулятор утильсбора 2026: рассчитать утилизационный сбор онлайн",
+      "from_query": "льготный утильсбор 2026"
+    },
+    {
+      "url": "https://peregonpro.ru/poleznoe/lgotnyj-vs-kommercheskij-utilsbor-kak-rasschitat-i-kto-mozhet-platit-3400-rublej-podrobnyj-razbor-stavok-i-uslovij-polucheniya-lgoty/",
+      "title": "Утильсбор для физических лиц 2026: льготный vs коммерческий — полный разбор",
+      "from_query": "льготный утильсбор 2026"
+    },
+    {
+      "url": "https://chest-import.com/stati/lgotnyy-utilsbor",
+      "title": "Льготный утильсбор 2026: кому положен и как оформить",
+      "from_query": "льготный утильсбор октябрь 2026"
+    },
+    {
+      "url": "https://globamart.ru/guides/lgotnyj-utilsbor",
+      "title": "Льготный утильсбор 2026 — кому положен и сколько платить",
+      "from_query": "льготный утильсбор октябрь 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/lgotnyy-utilsbor-kto-osvobozhden/",
+      "title": "Льготный утильсбор 2026 — кто платит 3 400 ₽ и условия",
+      "from_query": "льготный утильсбор октябрь 2026"
+    },
+    {
+      "url": "https://blog.kmgexport.com/avto-novosti/lgotnyj-utilsbor-2026-uslovija-dlja-fizlic-mnogodetnyh-i-uchastnikov-svo/",
+      "title": "Льготный утильсбор 2026: условия для физлиц, многодетных и участников СВО",
+      "from_query": "льготный утильсбор октябрь 2026"
+    },
+    {
+      "url": "https://mikado-auto.ru/blog/lgotnyy-utilsbor-2026.html",
+      "title": "Льготный Утильсбор В 2026: Условия И Когда Пересчитают — Mikado",
+      "from_query": "льготный утильсбор октябрь 2026"
+    },
+    {
+      "url": "https://github.com/AcFANcom",
+      "title": "AcFANcom (AcFAN) · GitHub",
+      "from_query": "site:github.com льготный утильсбор 2026"
+    },
+    {
+      "url": "https://github.com/ProstoSaniok/alpha-future-2026/blob/main/docs/ts_extended.md",
+      "title": "alpha-future-2026/docs/ts_extended.md at main - GitHub",
+      "from_query": "site:github.com льготный утильсбор 2026"
+    },
+    {
+      "url": "https://github.com/ProstoSaniok/alpha-future-2026/tree/main/",
+      "title": "GitHub - ProstoSaniok/alpha-future-2026",
+      "from_query": "site:github.com льготный утильсбор 2026"
+    },
+    {
+      "url": "https://github.com/ProstoSaniok/alpha-future-2026/blob/main/docs/ts.md",
+      "title": "alpha-future-2026/docs/ts.md at main · ProstoSaniok/alpha ... - GitHub",
+      "from_query": "site:github.com льготный утильсбор 2026"
+    },
+    {
+      "url": "https://github.com/DietrichGebert/ponytail/blob/main/assets/benchmark-agentic.svg",
+      "title": "ponytail/assets/benchmark-agentic.svg at main - GitHub",
+      "from_query": "site:github.com льготный утильсбор 2026"
+    },
+    {
+      "url": "https://github.com/mackziller/zmk-sofle/blob/main/keymap-drawer/eyelash_sofle.svg",
+      "title": "zmk-sofle/keymap-drawer/eyelash_sofle.svg at main - GitHub",
+      "from_query": "site:github.com льготный утильсбор 2026"
+    },
+    {
+      "url": "https://utilsbora.ru/uchastnikam-svo/",
+      "title": "Утильсбор для участников СВО и ветеранов: что действует в 2026 году",
+      "from_query": "льготный утильсбор official docs documentation 2026"
+    },
+    {
+      "url": "https://car-hunt.ru/blog/lgotnyj-utilsbor",
+      "title": "Льготный утильсбор в 2026 году: кому положен и как его не…",
+      "from_query": "льготный утильсбор forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/afBWtU64eBw9baA8",
+      "title": "Льготный утильсбор 2026: условия для физлиц, многодетных и участников ...",
+      "from_query": "льготный утильсбор forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://kad-autoconsult.ru/statyi/lgotnyj-utilsbor-do-160-ls.html",
+      "title": "Льготный утильсбор для физических лиц в 2026 году: условия ставки 3 400 ...",
+      "from_query": "льготный утильсбор для физических лиц 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/blog/utilsbor-v-rossii-2026-tablitsy-stavki-raschet",
+      "title": "Утильсбор в России 2026: полные таблицы ставок и расчёт для физлиц",
+      "from_query": "льготный утильсбор для физических лиц 2026"
+    },
+    {
+      "url": "https://kad-autoconsult.ru/statyi/utilsbor-2026-stavki-tablica.html",
+      "title": "Как рассчитать утильсбор в 2026: льготы физлиц, примеры, изменения ...",
+      "from_query": "льготный утильсбор для физических лиц 2026"
+    },
+    {
+      "url": "https://www.avito.ru/auto-journal/ultimativnyy-gayd-sobrali-50-mashin-pod-lgotnyy-utilsbor-v-2026-godu",
+      "title": "Ультимативный гайд: собрали 50 машин под льготный утильсбор в 2026 году",
+      "from_query": "авто под льготный утильсбор 2026"
+    },
+    {
+      "url": "https://www.topcar25.ru/pod-lgotnyy-util",
+      "title": "Авто под льготный утильсбор-2026 под ключ — TopCar25",
+      "from_query": "авто под льготный утильсбор 2026"
+    },
+    {
+      "url": "https://revocars.ru/blog/%D0%BF%D1%80%D0%BE%D1%85%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5-%D0%B0%D0%B2%D1%82%D0%BE-2026.html",
+      "title": "Какие автомобили проходят по льготному утильсбору в 2026 году",
+      "from_query": "авто под льготный утильсбор 2026"
+    },
+    {
+      "url": "https://revocars.ru/catalog/lgotnyy-util/",
+      "title": "Льготный Утильсбор 2026: Какие Авто Проходят | Revocars",
+      "from_query": "авто под льготный утильсбор 2026"
+    },
+    {
+      "url": "https://fb.ru/post/cars/2026/3/1/422211",
+      "title": "Льготный утильсбор 2026: авто до 160 л.с. для ввоза в РФ",
+      "from_query": "авто под льготный утильсбор 2026"
+    },
+    {
+      "url": "https://blank-dogovor-kupli-prodazhi.ru/articles/avto/utilizacionniy-sbor-na-avtomobili.html",
+      "title": "Утилизационный сбор на автомобили в 2026 году: ставки и расчет",
+      "from_query": "авто под льготный утильсбор 2026"
+    },
+    {
+      "url": "https://flipexport.ru/blog/utilsbor-2026",
+      "title": "Утильсбор на авто из Китая 2026: расчёт, льготы, порядок",
+      "from_query": "Как получить льготный утильсбор на авто из Азии в 2026: чек-лист для физлица 2026"
+    },
+    {
+      "url": "https://power-car.ru/articles/raschet-utilsbora-2026.html",
+      "title": "Льготный утильсбор 2026: ставки и расчет — POWER Car",
+      "from_query": "Как получить льготный утильсбор на авто из Азии в 2026: чек-лист для физлица 2026"
+    },
+    {
+      "url": "https://chest-import.com/stati/utilsbor-na-avto-2026",
+      "title": "Утильсбор на авто 2026: ставки, таблица и условия льготы",
+      "from_query": "Как получить льготный утильсбор на авто из Азии в 2026: чек-лист для физлица 2026"
+    },
+    {
+      "url": "https://tnved-spravochnik.ru/blog/lgotnyj-utilsbor-fizlicam-2026",
+      "title": "Льготный утильсбор для физлиц в 2026: условия и ставки",
+      "from_query": "Как получить льготный утильсбор на авто из Азии в 2026: чек-лист для физлица 2026"
+    }
+  ]
+}

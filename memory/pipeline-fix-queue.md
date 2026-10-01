@@ -6,6 +6,67 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261001-1330-research-tech-marker-false-positive
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-research
+topic_id: B07
+article_dir: memory/blog/articles/B07-lgotnyy-utilsbor-na-avto-2026-kak-poluchit
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` пометил нетехническую тему «льготный утильсбор» как `technical_topic=true`, потому что TECH_MARKERS ищутся как substring: `ии` внутри «Японии», `ai` внутри соседних латинских фрагментов.
+- Из-за этого gate потребовал `github_urls >= 3` и сначала вернул BLOCK на валидном research-notes.
+
+### How the agent recovered this run
+- Добавил 3+ релевантных GitHub URL (tks-api, api.tks.ru, AutoCalculator и др.) в `github_evidence`.
+- Повторный gate: PASS (warning про official docs остался).
+
+### Durable fix needed before next run
+- В `is_technical_topic` использовать word-boundary / токены, а не raw substring (`ии`, `ai`).
+- Для legal/customs/consumer how-to не требовать GitHub; либо allowlist intents `checklist/how_to` без tech markers.
+- Опционально: расширить `official_doc_urls` на `publication.pravo.gov.ru`, `gosuslugi`, `/document/`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261001-1325-research-minpromtorg-webfetch-504
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-research
+topic_id: B07
+article_dir: memory/blog/articles/B07-lgotnyy-utilsbor-na-avto-2026-kak-poluchit
+severity: low
+category: api
+
+### What went wrong
+- WebFetch `minpromtorg.gov.ru` press-centre news по изменениям ПП №1291 вернул 504 Gateway Timeout.
+
+### How the agent recovered this run
+- Взял официальную публикацию ПП №1713 на `publication.pravo.gov.ru` + разъяснение прокуратуры на gosuslugi + вторичные разборы 2026.
+
+### Durable fix needed before next run
+- В research skill зафиксировать fallback-цепочку для РФ-нормативы: pravo.gov.ru → региональные/прокурорские разъяснения → отраслевые гайды; не блокировать research на одном таймауте ведомственного сайта.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261001-1312-scout-suggest-next-ignores-live-b-ids
 status: open
 run_date: 2026-10-01

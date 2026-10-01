@@ -1,0 +1,42 @@
+{
+  "topic_id": "B08",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Hybrid на шильдике ≠ можно ввезти",
+  "mcp_note": "ONE gpt-image-2 / Kie API call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у японского гибрида в порту Владивостока, плашка про гибрид 2026 и угол avto-sales125.ru",
+      "scene_hint": "WEATHER: overcast Vladivostok port with ro-ro and sea mist; OUTFIT OVERRIDE (NOT white hoodie, NOT reference t-shirt): navy waterproof port jacket over charcoal sweater, NO cap NO hood, glasses on; EXACT reference face; action selfie beside modern Japanese hybrid hatchback; fake auction lot card + customs checklist scrap taped with scotch; torn-paper Cyrillic hook «Hybrid на шильдике ≠ можно ввезти» with yellow highlighter on «можно ввезти»; sticky note «гибрид 2026»; shocked meme cutout + facepalm sticker (different formats); DIY zine collage; corner footer ONLY avto-sales125.ru; NEVER Wordstat NEVER Metrika NEVER SEO analytics; NO toxic/insult stickers",
+      "meme_caption_ru": "Сначала тип гибрида"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Отделите новость \"разрешили\" от правила лота",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns Новость vs Правило лота; rows «разрешили гибриды» | тип mild/полный/e-Power | код кузова | объём ≤1,9 л; red stamp «новость ≠ лот»; pink sticky «сверь лот»; tape corner; NO hero face; NO Wordstat/Metrika; no toxic text",
+      "alt": "Таблица: новость про гибриды vs правило конкретного лота до ставки"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как отличить мягкий гибрид от полного и e-Power",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow strip 4 steps with arrows: 1 шильдик Hybrid 2 документы/тип 3 mild vs Prius/полный 4 e-Power стоп; green OK on mild, red STOP on full/e-Power; marker arrows; sticky «до депозита»; NO hero face; no toxic text",
+      "alt": "Схема: как отличить mild от полного гибрида и e-Power по документам"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сверьте код кузова и объём до ставки",
+      "visual_type": "infographic_card",
+      "scene_hint": "RU infographic card 3 facts: код кузова из листа, объём ДВС ≤1,9 л, сверка до ставки; fake auction sheet inset with blurred VIN; yellow highlight «до депозита»; tape + mini checklist; NO hero face; no prices; no toxic text",
+      "alt": "Инфографика: код кузова и объём двигателя сверить до ставки на аукционе"
+    }
+  }
+}

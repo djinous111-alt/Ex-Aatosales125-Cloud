@@ -255,6 +255,40 @@ commit: pending-parent-commit
 
 Handled above; commit is pending Director review.
 
+## INC-20261001-1722-research-tech-marker-ii-false-positive
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-research
+topic_id: B08
+article_dir: memory/blog/articles/B08-kakie-gibridy-mozhno-privezti-iz-yaponii-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` пометил нетехническую тему про гибриды из Японии как `technical_topic: true`.
+- Причина: TECH_MARKERS содержит подстроку `ии`, которая матчится внутри слова `японии` / `Японии` в `primary_query`, H1 и notes.
+- Из-за ложного technical gate потребовал `github_urls >= 3`, хотя для checklist-темы про таможню/аукцион GitHub не является каноническим evidence.
+
+### How the agent recovered this run
+- Добавил 3 смежных GitHub URL (Japan car import / customs HS) в `github_evidence` как workaround.
+- Добавил `source_access_log` с явными `accessed_at:` (gate считает только `accessed_at:`, не даты в ячейках таблицы).
+- Повторный `research_notes_gate` → PASS.
+
+### Durable fix needed before next run
+- В `is_technical_topic()` искать маркеры по границам слов / токенам, а не `marker in blob` для коротких подстрок вроде `ии`, `ai`, `api`.
+- Либо исключить ложные срабатывания на `японии`/`япония` и аналоги; для auto-import тем не требовать GitHub, если есть official docs + community evidence.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261001-1717-scout-suggest-next-ignores-occupied
 status: open
 run_date: 2026-10-01

@@ -1,0 +1,95 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-01",
+    "today_ru": "01.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-03",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-01 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B08",
+    "priority": "P0",
+    "slug": "kakie-gibridy-mozhno-privezti-iz-yaponii-2026",
+    "h1": "Как выбрать гибрид из Японии в 2026: что можно ввезти и чек-лист до ставки",
+    "primary_query": "какие гибриды можно привезти из японии",
+    "secondary_queries": [
+      "можно ли привезти гибрид из японии",
+      "мягкий гибрид из японии",
+      "гибрид из японии 2026"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B08",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "какие гибриды можно привезти из японии 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "какие гибриды можно привезти из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "какие гибриды можно привезти из японии новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com какие гибриды можно привезти из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "какие гибриды можно привезти из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "какие гибриды можно привезти из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "можно ли привезти гибрид из японии 2026",
+      "purpose": "вторичный запрос: можно ли привезти гибрид из японии"
+    },
+    {
+      "id": "secondary_2",
+      "query": "мягкий гибрид из японии 2026",
+      "purpose": "вторичный запрос: мягкий гибрид из японии"
+    },
+    {
+      "id": "secondary_3",
+      "query": "гибрид из японии 2026 2026",
+      "purpose": "вторичный запрос: гибрид из японии 2026"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать гибрид из Японии в 2026: что можно ввезти и чек-лист до ставки 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B08-kakie-gibridy-mozhno-privezti-iz-yaponii-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

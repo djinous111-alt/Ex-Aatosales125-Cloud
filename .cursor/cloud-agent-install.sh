@@ -6,9 +6,16 @@ echo "[excalibur-cloud] install start"
 python3 --version
 git --version
 
+# Prefer requirements.txt (includes paramiko for SSH publish). Fallback to explicit set.
+if [[ -f requirements.txt ]]; then
+  python3 -m pip install --break-system-packages --quiet -r requirements.txt 2>/dev/null \
+    || python3 -m pip install --quiet -r requirements.txt
+fi
+
+# Ensure runtime extras always present even if requirements.txt is trimmed.
 python3 -m pip install --break-system-packages --quiet \
-  requests pillow python-dotenv 2>/dev/null \
-  || python3 -m pip install --quiet requests pillow python-dotenv
+  requests pillow python-dotenv paramiko numpy 2>/dev/null \
+  || python3 -m pip install --quiet requests pillow python-dotenv paramiko numpy
 
 mkdir -p .cursor/excalibur-blog-fragments
 touch .cursor/excalibur-blog-handoff.md

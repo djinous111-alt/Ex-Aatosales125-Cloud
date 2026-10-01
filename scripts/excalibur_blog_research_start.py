@@ -6,6 +6,7 @@ Outputs research-context.json and research-serp.json for the agent to write rese
 from __future__ import annotations
 
 import argparse
+import os
 import json
 import re
 import sys
@@ -20,6 +21,69 @@ from typing import Any
 from zoneinfo import ZoneInfo
 
 from excalibur_repo_paths import repo_relative
+
+
+def _public_hosts_to_redact() -> list[str]:
+    """Hosts from public brand URL env vars that must not land in committed SERP JSON."""
+    hosts: list[str] = []
+    for key in (
+        "PUBLIC_SITE_URL",
+        "WP_HOME",
+        "WP_SITE_URL",
+        "CATALOG_URL",
+        "TELEGRAM_URL",
+        "MAX_URL",
+        "SITE_URL",
+    ):
+        raw = (os.environ.get(key) or "").strip()
+        if not raw:
+            continue
+        try:
+            from urllib.parse import urlparse
+
+            host = urlparse(raw if "://" in raw else f"https://{raw}").netloc.lower().removeprefix("www.")
+            if host:
+                hosts.append(host)
+        except Exception:
+            continue
+    # de-dupe
+    seen: set[str] = set()
+    out: list[str] = []
+    for h in hosts:
+        if h not in seen:
+            seen.add(h)
+            out.append(h)
+    return out
+
+
+def redact_sensitive_hosts(obj):
+    """Replace occurrences of configured public hosts with [REDACTED] in nested JSON."""
+    hosts = _public_hosts_to_redact()
+    if not hosts:
+        return obj
+
+    def _redact_str(s: str) -> str:
+        out = s
+        for host in hosts:
+            if host and host in out.lower():
+                # case-insensitive replace of host token
+                import re
+
+                out = re.sub(re.escape(host), "[REDACTED]", out, flags=re.I)
+                out = re.sub(r"https?://\[REDACTED\]", "[REDACTED]", out, flags=re.I)
+        return out
+
+    def _walk(value):
+        if isinstance(value, str):
+            return _redact_str(value)
+        if isinstance(value, list):
+            return [_walk(v) for v in value]
+        if isinstance(value, dict):
+            return {k: _walk(v) for k, v in value.items()}
+        return value
+
+    return _walk(obj)
+
 
 USER_AGENT = "ExcaliburBlogResearch/1.0 (+research-start)"
 DDG_HTML = "https://html.duckduckgo.com/html/"
@@ -42,7 +106,7 @@ def now_context(tz_name: str) -> dict[str, Any]:
         1: "январь",
         2: "февраль",
         3: "март",
-        4: "апril",
+        4: "апрель",
         5: "май",
         6: "июнь",
         7: "июль",
@@ -375,7 +439,10 @@ def run_research_start(
 
     if not dry_run:
         context_path.write_text(json.dumps(payload_context, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        serp_path.write_text(json.dumps(payload_serp, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        serp_path.write_text(
+            json.dumps(redact_sensitive_hosts(payload_serp), ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
         save_utility = out_dir / "utility-gate-topic.json"
         save_utility.write_text(json.dumps(utility_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         ledger_reserved = reserve_topic_in_ledger(project_root(), topic, ctx, out_dir)

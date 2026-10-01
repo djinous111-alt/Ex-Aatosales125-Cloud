@@ -14,20 +14,30 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short tokens use word-boundary matching so "pain"/"гарантии"/"Азии" do not
+# false-trigger technical_topic (INC-20260930-1324).
+TECH_MARKERS_WORD = (
     "ai",
     "ии",
     "agent",
     "агент",
     "mcp",
     "api",
-    "cursor",
-    "make",
+    "rag",
     "n8n",
+)
+# Whole-token phrase markers (word-boundary).
+TECH_MARKERS_TOKEN = (
+    "cursor",
+    "make.com",
     "github",
     "docker",
-    "rag",
     "workflow",
+    "llm",
+    "chatgpt",
+)
+# Distinctive stems OK as substrings inside topic fields only.
+TECH_MARKERS_STEM = (
     "автоматизац",
     "нейросет",
 )
@@ -73,14 +83,38 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_hit(blob: str, marker: str, *, word_boundary: bool) -> bool:
+    if word_boundary:
+        return bool(re.search(rf"(?<![\w/]){re.escape(marker)}(?![\w/])", blob, flags=re.I))
+    return marker in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech niches from topic card fields only (not research body).
+
+    Never scan notes body: required headings like `github_evidence` / labels like
+    `reader_pain` false-trigger substring markers (INC-20261001-0930).
+    Short tokens (`ai`, `ии`, `api`, …) use word-boundary so Russian endings
+    (`гарантии`, `Азии`) and `pain`⊃`ai` do not force GitHub evidence.
+    """
+    del notes  # explicit: notes body is not a tech-topic signal
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    if not blob.strip():
+        return False
+    for marker in TECH_MARKERS_WORD:
+        if _marker_hit(blob, marker, word_boundary=True):
+            return True
+    for marker in TECH_MARKERS_TOKEN:
+        if _marker_hit(blob, marker, word_boundary=True):
+            return True
+    for marker in TECH_MARKERS_STEM:
+        if _marker_hit(blob, marker, word_boundary=False):
+            return True
+    return False
 
 
 def field_present(text_lower: str, field: str) -> bool:

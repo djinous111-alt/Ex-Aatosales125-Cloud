@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261001-0935-geo-qa-utility-pain-outcome-empty-policy
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-geo-qa
+topic_id: B06
+article_dir: memory/blog/articles/B06-avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always enforces `min_pain_markers` (default 2) and `min_outcome_markers` (default 3) even when `memory/brief/editorial-policy.json` has no `pain_markers_ru` / `outcome_markers_ru` lists.
+- With empty marker lists, counts stay 0 → every article gets false BLOCK on pain/outcome.
+- Confirmed on previously PASS AS09: re-run under current script → BLOCK only on pain_markers=0 and outcome_markers=0 while action_markers=13.
+
+### How the agent recovered this run
+- Filed this incident.
+- Correct re-run for B06 used a temp policy with human-voice-aligned pain/outcome marker lists → pain=8, outcome=3; remaining real BLOCK: action_markers 3&lt;8.
+- Kept evidence: `utility-gate-report.default-policy.json` (false pain/outcome) vs canonical `utility-gate-report.json` (meaningful re-run).
+- Did not rewrite article; returned FAIL + FIX to writer for action markers + human-voice outcome unique count.
+
+### Durable fix needed before next run
+- In `scripts/excalibur_blog_utility_gate.py`: apply pain/outcome minimums only when the corresponding marker lists are non-empty; do not use `or 2` / `or 3` when lists absent.
+- Optionally add `pain_markers_ru` / `outcome_markers_ru` (+ mins) to `memory/brief/editorial-policy.json` aligned with human-voice gate.
+- Re-check AS08/AS09 utility gate after the script/policy fix.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_utility_gate.py`
+- `memory/brief/editorial-policy.json`
+- `shared/editorial-utility-only.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261001-0945-writer-precommit-secret-name
 status: open
 run_date: 2026-10-01

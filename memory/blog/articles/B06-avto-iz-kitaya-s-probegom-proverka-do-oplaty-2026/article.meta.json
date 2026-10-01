@@ -26,11 +26,15 @@
   },
   "cover_family": "brand_collage",
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 72,
+    "verdict": "FAIL",
     "date": "2026-10-01",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "human_voice": "BLOCK",
+    "utility": "BLOCK",
+    "link_verify": "pass",
+    "research_notes_gate": "PASS"
   }
 }

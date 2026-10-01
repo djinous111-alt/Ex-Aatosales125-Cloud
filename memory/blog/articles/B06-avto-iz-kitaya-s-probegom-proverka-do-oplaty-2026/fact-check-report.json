@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/B06-avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 5,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "сканы и стоп по красным флагам – ниже чек-лист на 2026. Коротко по делу: 180 дней считают от даты первой",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "продажном обслуживании. Основание – Shangmao Han [2025] No. 648 (MOFCOM, MIIT, MPS, GACC от 11.11.2025).",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180 дней",
+      "kind": "metric_or_duration",
+      "context": "какая?\" Иван не знал. Через две недели лот младше 180 дней стоял у границы без экспортной лицензии, а депози",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "800",
+      "kind": "large_number",
+      "context": "ан уже готовил перевод за кроссовер \"почти новый, 800 км, завтра снимем с учёта\". Друг спросил одно: \"А",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "какая?\" Иван не знал. Через две недели лот младше 180 дней стоял у границы без экспортной лицензии, а де",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "648",
+      "kind": "large_number",
+      "context": "ны с разбором уведомления Shangmao Han [2025] No. 648 на CNLegal и англ. переводом ecaicar (прогон 2026-",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

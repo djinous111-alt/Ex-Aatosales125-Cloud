@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261001-0954-indexer-llms-blog-path-vs-blog-dir
+status: open
+run_date: 2026-10-01
+role: excalibur-blog-indexer
+topic_id: B06
+article_dir: memory/blog/articles/B06-avto-iz-kitaya-s-probegom-proverka-do-oplaty-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_doctor.py` still checks that llms generator help contains `--blog-path` → doctor error=1 on preflight.
+- Indexer agent/skill still document `--blog-path /` in the llms generator command.
+- Actual CLI `excalibur_blog_llms_generator.py --help` accepts only `--blog-dir` (no `--blog-path`); passing `--blog-path` would argparse-fail.
+
+### How the agent recovered this run
+- Ran llms generator with working flags: `--blog-dir memory/blog/articles --site-base '[REDACTED]' --out-dir memory/blog` (no `--blog-path`).
+- Used commit-safe site-base `[REDACTED]` so secret-scan does not block memory/blog artifacts.
+- Interlinker `--apply` completed (0 opportunities among AS08/AS09/B06).
+
+### Durable fix needed before next run
+- Update doctor check from `--blog-path` to `--blog-dir` (or accept either).
+- Remove `--blog-path /` from indexer agent/skill shell examples; keep `--blog-dir` + `--blog-path` only if CLI gains a URL-prefix flag later.
+- Align `agents/`, `.cursor/agents/`, `skills/`, `.cursor/skills/` indexer docs with real argparse.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261001-0946-schema-precommit-public-urls
 status: open
 run_date: 2026-10-01

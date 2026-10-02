@@ -42,6 +42,25 @@
 ## Scout
 
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- `--check-query` обязан сверять ещё и live WP (`EXCALIBUR_RECENT_WP_POSTS` / `PUBLIC_SITE_URL`), не только `blog-topics.md`.
+- Пул тем: карточки **AS*** и **B***; today/scout helper обязаны видеть оба префикса. Next B-id не переиспользует номера с live WP/ledger.
+- Не доверяй одному устаревшему `published-live-*.json` без live REST.
+
+## Research
+
+- Wordstat empty/`totalCount`-only: parent-кластер + явная пометка в notes; не выдумывай показы.
+- Official customs.gov.ru / DVTU 504 → Alta-Soft / пресс-релизы / gazette mirrors.
+- `research_notes_gate` tech markers = whole-word; `reader_pain` / русские слова с «ии» не делают тему technical.
+
+## Writer / Git hygiene
+
+- Action markers: «сделайте/не делайте» и «делать/не делать» оба валидны (`recommendation_markers_ru`).
+- Публичные CTA (`t.me/...`, каталог): на строке `href` — `<!-- pragma: allowlist secret -->`, если URL совпадает с Cloud Secret value.
+- Dashboard Secrets: имена = bash identifiers; **не** класть публичные URL как secret names/values для scanner.
+
+## Doctor / Indexer CLI
+
+- llms generator CLI = `--blog-dir` (не `--blog-path`). Doctor проверяет `--blog-dir`.
 
 ## Indexer
 

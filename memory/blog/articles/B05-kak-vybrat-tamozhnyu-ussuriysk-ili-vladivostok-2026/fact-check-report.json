@@ -1,0 +1,87 @@
+{
+  "article": "memory/blog/articles/B05-kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 11,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 10,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "асходы. На практике объёмы разные: за I полугодие 2026 через Владивосток прошло около 144 тыс. авто, чере",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "до депозита Приказ Минфина № 178н (в силе с 27.02.2025) – это правило, на каком посту вам разрешено офор",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "144",
+      "kind": "large_number",
+      "context": "а I полугодие 2026 через Владивосток прошло около 144 тыс. авто, через Уссурийск – около 44 тыс., но Усс",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10720020",
+      "kind": "large_number",
+      "context": "ее. С 15.07.2026 у Владивостокского ЦЭД новый код 10720020 – ошибка в реквизитах декларации бьёт больнее, че",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "43 712",
+      "kind": "large_number",
+      "context": "оз Япония и Корея, море / порт Объём I пол. 2026 ~43 712 ТС (рост в ~2,5 раза г/г) ~144 308 ТС (+4,7% г/г)",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "144 308",
+      "kind": "large_number",
+      "context": "ём I пол. 2026 ~43 712 ТС (рост в ~2,5 раза г/г) ~144 308 ТС (+4,7% г/г) Доля потока физлиц (янв–май) ~22% ~",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10716050",
+      "kind": "large_number",
+      "context": "правила РФ Код органа (ориентир) Уссурийский пост 10716050 Владивостокский ЦЭД 10720020 (с 15.07.2026) Когда",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10702030",
+      "kind": "large_number",
+      "context": "ложения к приказу). Пост Морской порт Владивосток 10702030 – по приложению 2 к 178н работает с Приморским кр",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "545",
+      "kind": "large_number",
+      "context": "ке корректировали стоимость примерно у 1,6% авто (545 случаев из 33 569). Корректировка таможенной стоим",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "33 569",
+      "kind": "large_number",
+      "context": "ли стоимость примерно у 1,6% авто (545 случаев из 33 569). Корректировка таможенной стоимости (КТС) – когд",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "539",
+      "kind": "large_number",
+      "context": "нным ФТС за январь–июнь 2026, Уссурийск пригласил 539 владельцев – это около 1% потока, не массовая обяз",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

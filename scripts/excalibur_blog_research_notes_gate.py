@@ -73,14 +73,54 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+# Required meta field names / section headers that must not bias tech detection.
+# Example false positive: substring ``ai`` inside ``reader_pain`` before whole-word fix.
+TECH_SCAN_FIELD_NOISE = (
+    "research_date",
+    "accessed_at",
+    "reader_pain",
+    "reader_outcome",
+    "success_criteria",
+    "voice_angle",
+    "reader_story",
+    "surprising_fact",
+    "pain_solution_map",
+    "github_evidence",
+    "action_outline",
+    "utility_verdict",
+    "source_table",
+    "wordstat",
+)
+
+
+def _strip_field_name_noise(text: str) -> str:
+    cleaned = text
+    for field in TECH_SCAN_FIELD_NOISE:
+        cleaned = re.sub(rf"\b{re.escape(field)}\b", " ", cleaned, flags=re.I)
+    return cleaned
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect developer/automation topics.
+
+    Markers must match as whole words. Substring checks false-positive on
+    Russian text (``ии`` inside ``компетенции``) and required fields
+    (``ai`` inside ``reader_pain``), which blocked non-tech customs articles.
+    Required meta field names are stripped from the notes window before scan.
+    """
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    notes_window = _strip_field_name_noise(notes[:2000].lower())
+    blob += " " + notes_window
+    for marker in TECH_MARKERS:
+        # Latin tokens: word boundary. Cyrillic short tokens: avoid matching
+        # inside longer words (ии ⊂ компетенции, ai ⊂ pain).
+        if re.search(rf"(?<![a-zа-яё0-9_]){re.escape(marker)}(?![a-zа-яё0-9_])", blob, flags=re.I):
+            return True
+    return False
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -194,11 +234,56 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     }
 
 
+def _self_test_tech_detection() -> None:
+    """Fixture: Russian non-tech customs notes with reader_pain must not force tech."""
+    context = {
+        "topic": {
+            "h1": "Как выбрать таможню: Уссурийск или Владивосток",
+            "primary_query": "таможня уссурийск или владивосток",
+            "secondary_queries": "растаможка владивосток, уссурийск свх",
+            "search_intent": "comparison",
+            "slug": "kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026",
+        }
+    }
+    notes = """
+## Meta
+research_date: 2026-10-02
+reader_pain: долго ждать и переплачивать на чужой таможне
+reader_outcome: выбрать порт с понятным маршрутом
+success_criteria: есть чеклист документов и срок
+pain_solution_map: таблица боль → решение
+github_evidence: n/a для таможенной темы
+компетенции брокера важны; сравниваем порты и сроки, без автоматизации.
+"""
+    assert is_technical_topic(context, notes) is False, "customs notes must be non-tech"
+    # Explicit regression: field name reader_pain must not create Latin ``ai`` hit.
+    assert is_technical_topic({"topic": {"h1": "Сравнение портов", "primary_query": "таможня", "slug": "x"}}, "reader_pain: очереди") is False
+    tech_context = {
+        "topic": {
+            "h1": "Как настроить MCP агента в Cursor",
+            "primary_query": "cursor mcp agent",
+            "secondary_queries": "github docker rag",
+            "search_intent": "how_to",
+            "slug": "nastroit-mcp-agent-cursor",
+        }
+    }
+    assert is_technical_topic(tech_context, "workflow автоматизация api") is True
+    print("research_notes_gate self-test: PASS")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Validate research-notes.md freshness and depth")
-    ap.add_argument("--article-dir", type=Path, required=True)
+    ap.add_argument("--article-dir", type=Path, default=None)
     ap.add_argument("-o", "--output", type=Path, default=None)
+    ap.add_argument("--self-test", action="store_true", help="Run tech-detection fixture checks")
     args = ap.parse_args()
+
+    if args.self_test:
+        _self_test_tech_detection()
+        return 0
+
+    if not args.article_dir:
+        ap.error("--article-dir is required unless --self-test")
 
     root = project_root()
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir

@@ -47,9 +47,17 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+# Сначала today.py — чтобы получить EXCALIBUR_RECENT_WP_POSTS
+eval "$(python3 scripts/excalibur_blog_today.py | sed -n 's/^EXCALIBUR_RECENT_WP_POSTS=/export EXCALIBUR_RECENT_WP_POSTS=/p')"
+python3 scripts/excalibur_blog_scout_helper.py \
+  --check-query "<выбранный_запрос>" \
+  --proposed-slug "<kebab-slug>"
 ```
-Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
+Hard-step: сравни `primary_query` + `slug` с `EXCALIBUR_RECENT_WP_POSTS` / live REST **до** append в `blog-topics.md`. Не доверяй одному июльскому dump `published-live-*.json`.
+
+Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными, live WP или запланированными статьями!
+
+Helper видит карточки **AS*** и **B***; `--suggest-next` не переиспользует B-номера, занятые ledger/dirs/live WP.
 
 ### Шаг 5 — Сборка карточки темы (Utility-Only)
 Сформируй карточку темы по шаблону:

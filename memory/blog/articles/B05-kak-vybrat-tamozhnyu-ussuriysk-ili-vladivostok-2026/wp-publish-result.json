@@ -1,0 +1,23 @@
+{
+  "slug": "kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026",
+  "topic_id": "B05",
+  "permalink": "[REDACTED]/2026/10/02/kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B05-kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1240884,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3937 slug=kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026\nOK featured_image=3938\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3939 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/10/kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026-inline-01.png\nOK inline_image_upload=3940 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/10/kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026-inline-02.png\nOK inline_image_upload=3941 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/10/kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026-inline-03.png\npermalink=[REDACTED]/2026/10/02/kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026/\n",
+  "verdict": "pass",
+  "post_id": 3937,
+  "featured_image_id": 3938,
+  "inline_image_ids": [
+    3939,
+    3940,
+    3941
+  ],
+  "schema_meta": 1
+}

@@ -1,0 +1,95 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-02",
+    "today_ru": "02.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-04",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-02 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B05",
+    "priority": "P0",
+    "slug": "kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026",
+    "h1": "Как выбрать таможню Уссурийск или Владивосток в 2026: сравнение для авто из Азии",
+    "primary_query": "как выбрать таможню уссурийск или владивосток",
+    "secondary_queries": [
+      "таможня уссурийск авто",
+      "уссурийск таможня автомобилей",
+      "таможня в уссурийске с китаем"
+    ],
+    "search_intent": "comparison",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B05",
+    "status": "PASS",
+    "search_intent": "comparison",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "как выбрать таможню уссурийск или владивосток 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "как выбрать таможню уссурийск или владивосток октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "как выбрать таможню уссурийск или владивосток новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com как выбрать таможню уссурийск или владивосток 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "как выбрать таможню уссурийск или владивосток official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "как выбрать таможню уссурийск или владивосток forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "таможня уссурийск авто 2026",
+      "purpose": "вторичный запрос: таможня уссурийск авто"
+    },
+    {
+      "id": "secondary_2",
+      "query": "уссурийск таможня автомобилей 2026",
+      "purpose": "вторичный запрос: уссурийск таможня автомобилей"
+    },
+    {
+      "id": "secondary_3",
+      "query": "таможня в уссурийске с китаем 2026",
+      "purpose": "вторичный запрос: таможня в уссурийске с китаем"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать таможню Уссурийск или Владивосток в 2026: сравнение для авто из Азии 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B05-kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

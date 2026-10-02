@@ -1,0 +1,42 @@
+{
+  "topic_id": "B05",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Пост не по чату про очереди",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс между указателями Уссурийск и Владивосток у КПП, плашка какой пост, угол avto-sales125.ru",
+      "scene_hint": "WEATHER: cool coastal Primorye haze near customs checkpoint; OUTFIT: charcoal smart-casual field jacket over light shirt (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie standing between two road signs «Уссурийск» and «Владивосток», container and KPP booth behind; fake phone UI customs checklist + torn paper plaque Cyrillic «Пост не по чату про очереди» with yellow highlighter on «очереди»; sticky note «какой пост?»; shocked meme cutout + cat meme sticker (different formats, non-toxic); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics",
+      "meme_caption_ru": "Какой пост?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Сравните маршрут: когда Уссурийск, а когда Владивосток",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns Китай сухопуть | Япония/Корея море | пост; rows Уссурийск vs Владивосток; yellow highlight «маршрут = пост»; pink sticky «не по очереди»; scotch tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица: Китай сухопуть → Уссурийск, Япония/Корея море → Владивосток"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Проверьте зону по приказу 178н до депозита",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable checklist clipboard: 1) прописка/пребывание 2) зона поста 178н 3) совпадение с городом прибытия 4) иначе транзит 5) стоп до депозита; red stamp «до оплаты»; sticky «178н»; NO hero face; NO Wordstat/Metrika",
+      "alt": "Чеклист зоны по приказу 178н: прописка, пост, транзит до депозита"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сверьте критерии до оплаты перегона и депозита",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram numbered steps: страна ввоза → город прибытия → зона 178н → пост или транзит → только потом депозит/перегон; marker arrows; torn-paper strip; sticky «~98 км стоп»; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема до депозита: маршрут, зона 178н, пост или транзит, затем оплата"
+    }
+  }
+}

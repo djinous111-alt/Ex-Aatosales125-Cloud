@@ -6,7 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
-(none — current-run items resolved below as fixed/needs-human)
+- INC-20261002-1746-geo-qa-fact-check-marker-overcorrection
+
+
+## INC-20261002-1746-geo-qa-fact-check-marker-overcorrection
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-geo-qa
+topic_id: B05
+article_dir: memory/blog/articles/B05-kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026
+severity: blocker
+category: qa
+
+### What went wrong
+- После FIX utility markers Writer перефразировал Fact Check soft-warn и заменил обязательный opener «Материал проверен» на «Проверка редакции», а «Редакция Авто-Сейлс» на «команда Авто-Сейлс».
+- `excalibur_blog_human_voice_gate.py` → BLOCK: Fact Check Box missing «Материал проверен»; registry `name_ru` тоже не совпадает.
+- Utility gate при этом PASS (action_markers=29, pain=6, outcome=6). Soft-warn про template срабатывает только при паре «материал проверен» + «достоверность данных» в одном blockquote — opener нельзя удалять.
+
+### How the agent recovered this run
+- Полный QA recheck с нуля; FAIL зафиксирован в `article-qa.md` с конкретным FIX для Writer.
+- `article.html` не переписывался (зона Writer).
+- cover/schema не запускались.
+
+### Durable fix needed before next run
+- В Writer skill / pitfalls явно: Fact Check **hard** markers — фраза «Материал проверен» + `name_ru` из authors-registry; варьировать только вторую строку источников, не opener и не имя автора.
+- В soft FIX GEO QA не советовать «перефразировать Fact Check» без уточнения, что opener и registry name неприкосновенны.
+
+### Suggested files to inspect/change
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/excalibur-article-writing-contract.md`
+- `memory/blog/articles/B05-kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026/article.html`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
 
 
 ## INC-20261002-1737-geo-qa-utility-pain-outcome-markers-missing

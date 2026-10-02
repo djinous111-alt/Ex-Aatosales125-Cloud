@@ -12,7 +12,7 @@
     "плюсы и минусы правого руля",
     "стоит ли брать правый руль"
   ],
-  "char_count": 9494,
+  "char_count": 9437,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -29,12 +29,15 @@
     "description_aeo": "Правый руль из Японии подходит, если городской сценарий и закрыт вопрос фар; при частой трассе или продаже на западе РФ чаще спокойнее левый из Кореи."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
-    "date": null,
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "score": 88,
+    "verdict": "PASS",
+    "date": "2026-10-02",
+    "html_linter": "pass",
+    "slop_score": "warning",
+    "cannibalization": "pass",
+    "utility_gate": "PASS",
+    "human_voice": "PASS",
+    "core_eeat": "18/20"
   },
   "cover_family": "brand_collage"
 }

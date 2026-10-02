@@ -73,33 +73,32 @@ category: qa
 ### Fixer resolution
 - pending
 
-## INC-20261002-0948-geo-qa-writer-href-redacted
+## INC-20261002-0948-geo-qa-cta-expand-reredact
 status: open
 run_date: 2026-10-02
 role: excalibur-blog-geo-qa
 topic_id: B02
 article_dir: memory/blog/articles/B02-pravyy-rul-iz-yaponii-2026-kak-ponyat
-severity: high
-category: env
+severity: medium
+category: docs
 
 ### What went wrong
-- Writer saved CTA links as literal `href="[REDACTED]"` in `article.html` (3 anchors).
-- link-verify failed (404 on relative `[REDACTED]`).
-- Likely secret-redaction / over-sanitization during write, not intentional placeholders.
+- Repo convention stores CTA as `href="[REDACTED]"`; raw link-verify fails until expand from env.
+- GEO QA first treated this as writer corruption; secret scanner then blocked commit of expanded URLs.
+- Skill/geo-qa docs do not spell the mandatory expand → verify → re-redact cycle.
 
 ### How the agent recovered this run
-- GEO QA restored catalog×2 + Telegram×1 from `CATALOG_URL` / `TELEGRAM_URL` env; link-verify 2/2 PASS.
+- Expanded `CATALOG_URL`/`TELEGRAM_URL` for link-verify (2/2 PASS), then re-redacted hrefs and link-verify.json for git.
 
 ### Durable fix needed before next run
-- Writer skill: never write literal `[REDACTED]` into href; use env URLs or conversion-map.
-- Optional post-write assert: no `[REDACTED]` token in article.html before handoff.
-- Document in pitfalls for Cloud secret redaction side-effects on HTML.
+- Document in geo-qa + writer skills: CTA placeholders `[REDACTED]` are intentional; expand only for verify/publish; never commit live secret URLs.
+- Optional helper script: `excalibur_blog_cta_expand.py --mode expand|redact`.
 
 ### Suggested files to inspect/change
-- `.cursor/skills/writer-excalibur-blog/SKILL.md`
-- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
 - `shared/agent-pipeline-pitfalls.md`
-- `scripts/excalibur_blog_html_linter.py` (optional ban on `[REDACTED]` href)
+- `shared/agent-pipeline-pitfalls.md`
 
 ### Secrets
 - none recorded

@@ -74,13 +74,24 @@ def has_wordstat(text_lower: str) -> bool:
 
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect developer/automation topics.
+
+    Markers must match as whole words. Substring checks false-positive on
+    Russian text (``ии`` inside ``компетенции``) and required fields
+    (``ai`` inside ``reader_pain``), which blocked non-tech customs articles.
+    """
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
     blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    for marker in TECH_MARKERS:
+        # Latin tokens: word boundary. Cyrillic short tokens: avoid matching
+        # inside longer words (ии ⊂ компетенции, ai ⊂ pain).
+        if re.search(rf"(?<![a-zа-яё0-9_]){re.escape(marker)}(?![a-zа-яё0-9_])", blob, flags=re.I):
+            return True
+    return False
 
 
 def field_present(text_lower: str, field: str) -> bool:

@@ -20,12 +20,21 @@ python scripts/excalibur_blog_fact_checker.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/fact-check-report.json
 
-python scripts/excalibur_blog_link_verify.py \
+# CTA placeholders are intentional in git. Expand before link-verify, then re-redact.
+python3 scripts/excalibur_blog_cta_expand.py \
+  --article-dir memory/blog/articles/<dir> \
+  --mode expand
+
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/link-verify.json \
-  --site-base https://YOUR_SITE
+  --site-base "$PUBLIC_SITE_URL"
 
-python scripts/excalibur_blog_html_linter.py \
+python3 scripts/excalibur_blog_cta_expand.py \
+  --article-dir memory/blog/articles/<dir> \
+  --mode redact
+
+python3 scripts/excalibur_blog_html_linter.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/html-linter-report.json
 ```
@@ -52,6 +61,12 @@ python scripts/excalibur_blog_human_voice_gate.py \
 
 **Pass:** score ≥ 80, CORE-EEAT ≥ 16/20, link-verify pass, **research notes gate PASS**, **utility gate PASS**, **human voice gate PASS**, **beginner-fit PASS**. В `article-qa.md` отдельно зафиксируй: какая боль новичка решена, где показано решение, какой первый результат получит читатель, какие сложные термины объяснены «на пальцах».
 
+**CTA policy:** `href="[REDACTED]"` в article.html — не corruption Writer. Обязательный цикл: expand (`CATALOG_URL`/`TELEGRAM_URL`) → link-verify → re-redact (+ redact `link-verify.json` URLs) перед git. Не коммить live secret URLs.
+
+**Utility policy:** `memory/brief/editorial-policy.json` должен иметь non-empty `pain_markers_ru` / `outcome_markers_ru`. Utility gate skip-when-empty; regression: `python3 scripts/excalibur_blog_utility_gate.py --self-test`.
+
 **Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.
 
 Schema и cover — **не** твоя зона (отдельные субагенты после PASS).
+
+Перед commit: `source scripts/sanitize_cloud_secret_names.sh`.

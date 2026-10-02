@@ -29,7 +29,13 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 
 ### 1. Preflight publish
 
-Перед link-verify: если в `article.html` CTA `href="[REDACTED]"`, временно подставь `CATALOG_URL` / `TELEGRAM_URL` из env, проверь ссылки, после publish снова заредайктируй для git. Нужен `paramiko` (см. `requirements.txt` + `.cursor/cloud-agent-install.sh`). Предпочтительно `SSH_ROOT=.` и файл `memory/site.env.local` (gitignored).
+Перед link-verify/publish CTA:
+```bash
+python3 scripts/excalibur_blog_cta_expand.py --article-dir <article_dir> --mode expand
+# ... link-verify / publish ...
+python3 scripts/excalibur_blog_cta_expand.py --article-dir <article_dir> --mode redact
+```
+Нужен `paramiko` (см. `requirements.txt` + `.cursor/cloud-agent-install.sh`). Предпочтительно `SSH_ROOT=.` и файл `memory/site.env.local` (gitignored). `wp-publish-result.json` парсит `OK post=` / featured / inline в structured fields.
 
 ```bash
 python scripts/excalibur_blog_link_verify.py \

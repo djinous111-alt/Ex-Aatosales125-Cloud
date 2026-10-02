@@ -21,9 +21,9 @@ shell today + research_start
 
 ## Cloud Task fallback
 
-Если Cloud API не принимает `excalibur-blog-research`, `excalibur-blog-writer`, … как Task types:
+Если Cloud API не принимает `excalibur-blog-research`, `excalibur-blog-writer`, `excalibur-blog-geo-qa`, … как Task types (известный пробел enum для geo-qa и других ролей):
 
-- **отдельный `Task(generalPurpose)` на каждую роль**;
+- **сразу** отдельный `Task(generalPurpose)` на каждую роль — не тратить retry на typed name;
 - передай путь `.cursor/agents/<role>.md` и `.cursor/skills/<skill>/SKILL.md`;
 - короткий контракт: входные файлы, маркер результата, запреты;
 - один Task = одна роль;
@@ -32,6 +32,8 @@ shell today + research_start
 Если недоступен даже `generalPurpose` Task:
 
 `❌ БЛОКЕР: Cloud Agent не может запускать отдельные Task/subagents даже через generalPurpose. Single-agent pipeline запрещён.`
+
+Платформенный follow-up (human): зарегистрировать недостающие `excalibur-blog-*` в Cloud Task enum.
 
 ## Что считать ошибкой
 

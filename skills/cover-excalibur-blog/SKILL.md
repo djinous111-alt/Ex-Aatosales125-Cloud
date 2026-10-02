@@ -58,7 +58,7 @@ inject <figure> after H2 in article.html
 
 **Lock (reference i2i):** только лицо и очки с `blog-hero-reference.png`.  
 **Одежда (обязательно менять):** под **погоду** сцены (снег/дождь/жара/туман/ночь) и **тему** статьи (порт, таможня, Encar, салон, ямы/комфорт и т.д.). Майку с reference не копировать.  
-**Запрет:** кепка, капюшон.  
+**Запрет:** кепка, капюшон, **default white hoodie** (скрипт `cover_quad_prompt.py` больше не hardcode'ит hoodie; outfit из `scene_hint` / `blog-hero.json` outfit_rule).  
 **Footer / угол обложки:** сайт каталога `avto-sales125.ru` (не Telegram).  
 **Стиль:** hyper-realistic action selfie + плашка (blueprint Avto-Sales).
 

@@ -322,6 +322,39 @@ category: docs
 ### Fixer resolution
 - pending
 
+## INC-20261003-2132-geo-qa-link-verify-secret-urls
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-korei-pod-klyuch-2026
+severity: medium
+category: tooling
+
+### What went wrong
+- `excalibur_blog_link_verify.py` writes full absolute URLs from `article.html` into `link-verify.json`.
+- Cloud pre-commit secret scan blocked the GEO QA commit because `CATALOG_URL` and `TELEGRAM_URL` values appeared verbatim in the report (lines for catalog + Telegram links).
+- Article HTML itself already uses allowlist pragma comments; the JSON report had no redaction path.
+
+### How the agent recovered this run
+- Manually scrubbed `link-verify.json` replacing catalog/Telegram URLs with `<CATALOG_URL>` / `<TELEGRAM_URL>` placeholders before re-staging.
+- Re-ran commit without changing article.html text (QA must not rewrite article body for this).
+
+### Durable fix needed before next run
+- Teach `excalibur_blog_link_verify.py` to redact known site secret env values (`CATALOG_URL`, `TELEGRAM_URL`, `PUBLIC_SITE_URL`, etc.) when writing `-o` JSON, while still verifying the real URLs at runtime.
+- Optionally document in GEO QA skill: after link-verify, scrub report before commit if secret scan is enabled.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

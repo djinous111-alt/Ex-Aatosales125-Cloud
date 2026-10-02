@@ -7,6 +7,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 
+## INC-20261002-1736-writer-precommit-telegram-url-secret
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-writer
+topic_id: B05
+article_dir: memory/blog/articles/B05-kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026
+severity: medium
+category: env
+
+### What went wrong
+- After filtering invalid secret *names* (same as INC-1730), pre-commit blocked commit because `article.html` CTA links matched secret *value* `TELEGRAM_URL` (`t.me/...`).
+- Public brand Telegram CTA is required by conversion-map / research constraints, but Dashboard stores the same URL as a secret.
+
+### How the agent recovered this run
+- Reused bash-identifier filter for secret name lists.
+- Added HTML comment `<!-- pragma: allowlist secret -->` on CTA lines with catalog/Telegram hrefs.
+- Commit `1b7b517` landed; html linter still PASS.
+
+### Durable fix needed before next run
+- Do not store public brand CTAs (`t.me/avtosales125`, catalog host) as Cloud Secrets values scanned by pre-commit; keep only private tokens.
+- Or document for Writer: brand CTA lines in `article.html` must include `pragma: allowlist secret`.
+- Add note to `shared/agent-pipeline-pitfalls.md` under Writer / Git hygiene.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/writer-excalibur-blog/SKILL.md` or `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- Cursor Cloud Dashboard Secrets (public URL values)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261002-1730-research-precommit-invalid-secret-name
 status: open
 run_date: 2026-10-02

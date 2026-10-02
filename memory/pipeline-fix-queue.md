@@ -288,6 +288,40 @@ checks_run:
 - sourced script then successful `git commit` / `git push` of B01 card
 commit: pending-parent-commit
 
+## INC-20261003-0127-writer-pain-outcome-markers-missing
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-korei-pod-klyuch-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` article gate requires `pain_markers_ru` / `outcome_markers_ru` from `memory/brief/editorial-policy.json`.
+- Both lists were missing again, so `pain_count`/`outcome_count` stayed 0 and every article (including previously published AS08/AS09) got `UTILITY GATE BLOCKER`.
+- Same class of failure was already noted in automation memory (AS02 writer, 2026-09-28), but the policy fields were not durable in repo HEAD.
+
+### How the agent recovered this run
+- Restored non-empty `pain_markers_ru` / `outcome_markers_ru` and min counts in `memory/brief/editorial-policy.json`.
+- Strengthened B01 article wording for pain/outcome markers; local utility gate PASS for B01.
+
+### Durable fix needed before next run
+- Keep pain/outcome marker lists non-empty in editorial-policy; add a doctor/utility preflight assert that fails fast if lists are empty.
+- Document the requirement in `shared/agent-pipeline-pitfalls.md` so Writer/QA do not rediscover it mid-run.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

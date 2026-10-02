@@ -489,6 +489,7 @@ category: env
 
 ### Suggested files to inspect/change
 - Cursor Cloud agent hook / secret-name injection for pre-commit
+- `scripts/sanitize_cloud_secret_names.sh` (referenced in automation memory but missing in repo — create and document `source` before commit)
 - `shared/agent-pipeline-pitfalls.md`
 - `.cursor/skills/schema-excalibur-blog/SKILL.md` (optional note on `[REDACTED]` site-base + commit)
 

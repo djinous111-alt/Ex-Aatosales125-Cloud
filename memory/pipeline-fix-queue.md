@@ -568,3 +568,39 @@ category: env
 
 ### Fixer resolution
 - pending
+
+
+## INC-20261002-1342-indexer-llms-stale-blog-path-flag
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-indexer
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-chitat-auktsionnyy-list-yaponiya-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md` and `.cursor/agents/excalibur-blog-indexer.md` still document `excalibur_blog_llms_generator.py --blog-path /`.
+- Actual CLI accepts only `--blog-dir` / `--site-base` / `--out-dir` (no `--blog-path`); following the skill literally fails argparse.
+- Related open doctor mismatch: `INC-20261002-1609-director-doctor-llms-blog-path`.
+
+### How the agent recovered this run
+- Ran llms generator with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (without `--blog-path`).
+- Generated `memory/blog/llms.txt` and `memory/blog/llms-full.txt` (3 articles indexed).
+
+### Durable fix needed before next run
+- Remove `--blog-path` from Indexer skill/agent shell examples; keep `--blog-dir` for articles corpus.
+- Align doctor check with real CLI (see INC-20261002-1609).
+
+### Suggested files to inspect/change
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+- `scripts/excalibur_blog_doctor.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

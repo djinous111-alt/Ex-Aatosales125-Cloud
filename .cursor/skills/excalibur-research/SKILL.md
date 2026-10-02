@@ -10,7 +10,7 @@ description: Excalibur BLOG Research — topic research перед статьё�
 **Шаг 0 (скрипт, обязательно):** перед любым research — зафиксировать дату и собрать свежий SERP.
 
 ```bash
-python scripts/excalibur_blog_research_start.py --topic-id B01
+python3 scripts/excalibur_blog_research_start.py --topic-id B01
 ```
 
 Создаёт в папке статьи:
@@ -67,4 +67,11 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — тема не найдена и не создана из запроса пользователя
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
+
+## accessed_at / source_table
+
+- В `source_table` пиши даты как `accessed_at: YYYY-MM-DD` (не голый ISO в ячейке без ключа).
+- Gate считает и literal `accessed_at:`, и ISO-ячейки при наличии колонки accessed_at.
+- Секция `github_evidence` обязательна как заголовок, но сама по себе не делает тему technical; для Авто-Сейлс достаточно industry/community/help URL.
+- `research-serp.json` пишется с redact публичных host (`[PUBLIC_SITE_URL]`) — не возвращай raw `PUBLIC_SITE_URL` в коммит.
 

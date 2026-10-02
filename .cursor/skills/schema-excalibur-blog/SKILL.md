@@ -22,3 +22,10 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+## Commit hygiene
+
+- В `schema.jsonld` site-base часто `[REDACTED]` — это нормально.
+- Перед commit: `source scripts/sanitize_cloud_secret_names.sh` (иначе pre-commit падает на литерале `[REDACTED]` внутри `CLOUD_AGENT_*_SECRET_NAMES`).
+- Push 401 / Bad credentials → needs-human (обновить Cloud GitHub token); артефакты валидируй локально.
+

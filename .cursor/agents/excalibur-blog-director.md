@@ -66,3 +66,8 @@ python3 scripts/excalibur_blog_research_start.py --topic-id <id>
 
 Полный сценарий: [skills/director-excalibur-blog/SKILL.md](../skills/director-excalibur-blog/SKILL.md)  
 Субагенты: [FOR-AGENTS.md](FOR-AGENTS.md) · Карта задач: [shared/pipeline-task-map.md](../shared/pipeline-task-map.md)
+
+## GEO QA typed Task
+
+Если Cloud отклоняет `excalibur-blog-geo-qa` (Invalid enum) — сразу `Task(generalPurpose)` с `.cursor/agents/excalibur-blog-geo-qa.md` + skill. Parent не делает QA.
+

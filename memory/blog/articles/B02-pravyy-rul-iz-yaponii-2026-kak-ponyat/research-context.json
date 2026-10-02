@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-02",
+    "today_ru": "02.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-04",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-02 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B02",
+    "priority": "P0",
+    "slug": "pravyy-rul-iz-yaponii-2026-kak-ponyat",
+    "h1": "Правый руль из Японии в 2026: как понять до ставки, подходит ли вам",
+    "primary_query": "правый руль япония",
+    "secondary_queries": [
+      "правый руль авто из японии",
+      "машина с правым рулем",
+      "плюсы и минусы правого руля",
+      "стоит ли брать правый руль"
+    ],
+    "search_intent": "comparison",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B02",
+    "status": "PASS",
+    "search_intent": "comparison",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "правый руль япония 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "правый руль япония октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "правый руль япония новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com правый руль япония 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "правый руль япония official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "правый руль япония forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "правый руль авто из японии 2026",
+      "purpose": "вторичный запрос: правый руль авто из японии"
+    },
+    {
+      "id": "secondary_2",
+      "query": "машина с правым рулем 2026",
+      "purpose": "вторичный запрос: машина с правым рулем"
+    },
+    {
+      "id": "secondary_3",
+      "query": "плюсы и минусы правого руля 2026",
+      "purpose": "вторичный запрос: плюсы и минусы правого руля"
+    },
+    {
+      "id": "secondary_4",
+      "query": "стоит ли брать правый руль 2026",
+      "purpose": "вторичный запрос: стоит ли брать правый руль"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Правый руль из Японии в 2026: как понять до ставки, подходит ли вам 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B02-pravyy-rul-iz-yaponii-2026-kak-ponyat",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

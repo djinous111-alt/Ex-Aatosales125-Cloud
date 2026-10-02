@@ -1,0 +1,591 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-02",
+    "today_ru": "02.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-04",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-02 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B02",
+    "priority": "P0",
+    "slug": "pravyy-rul-iz-yaponii-2026-kak-ponyat",
+    "h1": "Правый руль из Японии в 2026: как понять до ставки, подходит ли вам",
+    "primary_query": "правый руль япония",
+    "secondary_queries": [
+      "правый руль авто из японии",
+      "машина с правым рулем",
+      "плюсы и минусы правого руля",
+      "стоит ли брать правый руль"
+    ],
+    "search_intent": "comparison",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "правый руль япония 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Правый руль в 2026 году: стоит ли брать авто из Японии",
+          "url": "https://ruliauto-zakaz.ru/stati/pravyj-rul-2026-stoit-li-brat",
+          "snippet": ""
+        },
+        {
+          "title": "Праворульный автомобиль из Японии: плюсы, минусы и ввоз в 2026 году",
+          "url": "https://blank-dogovor-kupli-prodazhi.ru/articles/avto/pochemu-pokupaut-praviy-rul.html",
+          "snippet": "Легален ли правый руль в 2026 году, что с учётом и ОСАГО, сколько экономит покупка японца с аукциона и кому правый руль действительно подходит. Честный разбор без агитации."
+        },
+        {
+          "title": "Правый руль в России 2026 — стоит ли покупать авто из Японии",
+          "url": "https://jpstar.ru/blog/pravyj-rul-v-rossii.html",
+          "snippet": "Плюсы правого руля, ограничения на экспорт из Японии и расходы на ввоз автомобиля в Россию в 2026 году."
+        },
+        {
+          "title": "Правый руль из Японии в 2026: законно ли и поставят ли на учёт",
+          "url": "http://dolgovblogv2.ru/pravyy-rul-iz-yaponii-2026-zakonno-uchet/",
+          "snippet": "Для одних покупателей она почти не имеет значения, для других может быть решающим минусом. Правый руль в России в 2026 году остается рабочим вариантом для покупки автомобиля из Японии."
+        },
+        {
+          "title": "Правый руль снова в моде: эти два японских бренда авто впервые ...",
+          "url": "https://www.pravda.ru/news/auto/2413173-import-poderzhannykh-avto-iz-yaponii-2026/",
+          "snippet": "Правый руль из Японии в 2026 году законен и ставится на учёт при полном пакете документов. Разбираем регистрацию, мифы и экономию."
+        },
+        {
+          "title": "Праворульные авто из Японии: стоит ли покупать в 2026 году",
+          "url": "https://mixstuff.ru/archives/326456",
+          "snippet": "Импорт подержанных автомобилей из Японии в январе—августе 2026 года составил 171,6 тыс. единиц, увеличившись на 30,5% по сравнению с прошлым годом."
+        }
+      ],
+      "searched_at": "2026-10-02"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "правый руль япония октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Правый руль в 2026 году: стоит ли брать авто из Японии",
+          "url": "https://ruliauto-zakaz.ru/stati/pravyj-rul-2026-stoit-li-brat",
+          "snippet": ""
+        },
+        {
+          "title": "Праворульный автомобиль из Японии: плюсы, минусы и ввоз в 2026 году",
+          "url": "https://blank-dogovor-kupli-prodazhi.ru/articles/avto/pochemu-pokupaut-praviy-rul.html",
+          "snippet": "Легален ли правый руль в 2026 году, что с учётом и ОСАГО, сколько экономит покупка японца с аукциона и кому правый руль действительно подходит. Честный разбор без агитации."
+        },
+        {
+          "title": "Правый руль из Японии в 2026: законно ли и поставят ли на учёт",
+          "url": "http://dolgovblogv2.ru/pravyy-rul-iz-yaponii-2026-zakonno-uchet/",
+          "snippet": "Плюсы правого руля, ограничения на экспорт из Японии и расходы на ввоз автомобиля в Россию в 2026 году."
+        },
+        {
+          "title": "Праворульные авто из Японии: стоит ли покупать в 2026 году",
+          "url": "https://mixstuff.ru/archives/326456",
+          "snippet": "Правый руль из Японии в 2026 году законен и ставится на учёт при полном пакете документов. Разбираем регистрацию, мифы и экономию."
+        },
+        {
+          "title": "Правый руль в России в 2026 году: можно ли ездить, ввозить и ставить на ...",
+          "url": "https://autohubexport.ru/article/pravy-rul-v-rossii-v-2026-mojno-li-ezdit/",
+          "snippet": "Но в 2026 году покупка должна быть особенно расчетной. Важно понимать, для какого региона берется автомобиль, кто будет ездить, нужен ли правый руль в ежедневной жизни, насколько модель ..."
+        },
+        {
+          "title": "Правый руль в России 2026 — стоит ли покупать авто из Японии",
+          "url": "https://jpstar.ru/blog/pravyj-rul-v-rossii.html",
+          "snippet": "Разбираем, разрешены ли праворульные автомобили в России, что меняется в 2026 году, какие есть нюансы при ввозе, регистрации, техосмотре и повседневной эксплуатации машин из Японии."
+        }
+      ],
+      "searched_at": "2026-10-02"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "правый руль япония новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Правый руль в 2026 году: стоит ли брать авто из Японии",
+          "url": "https://ruliauto-zakaz.ru/stati/pravyj-rul-2026-stoit-li-brat",
+          "snippet": ""
+        },
+        {
+          "title": "Правый руль в России 2026 — стоит ли покупать авто из Японии",
+          "url": "https://jpstar.ru/blog/pravyj-rul-v-rossii.html",
+          "snippet": "Легален ли правый руль в 2026 году, что с учётом и ОСАГО, сколько экономит покупка японца с аукциона и кому правый руль действительно подходит. Честный разбор без агитации."
+        },
+        {
+          "title": "Правый руль снова в моде: эти два японских бренда авто впервые ...",
+          "url": "https://www.pravda.ru/news/auto/2413173-import-poderzhannykh-avto-iz-yaponii-2026/",
+          "snippet": "Для одних покупателей она почти не имеет значения, для других может быть решающим минусом. Правый руль в России в 2026 году остается рабочим вариантом для покупки автомобиля из Японии."
+        },
+        {
+          "title": "Правый руль из Японии в 2026: законно ли и поставят ли на учёт",
+          "url": "http://dolgovblogv2.ru/pravyy-rul-iz-yaponii-2026-zakonno-uchet/",
+          "snippet": "Импорт подержанных автомобилей из Японии в январе—августе 2026 года составил 171,6 тыс. единиц, увеличившись на 30,5% по сравнению с прошлым годом."
+        },
+        {
+          "title": "Праворульные авто из Японии: стоит ли покупать в 2026 году",
+          "url": "https://mixstuff.ru/archives/326456",
+          "snippet": "Правый руль из Японии в 2026 году законен и ставится на учёт при полном пакете документов. Разбираем регистрацию, мифы и экономию."
+        },
+        {
+          "title": "Правый руль в России в 2026 году: можно ли ездить, ввозить и ставить на ...",
+          "url": "https://autohubexport.ru/article/pravy-rul-v-rossii-v-2026-mojno-li-ezdit/",
+          "snippet": "Но в 2026 году покупка должна быть особенно расчетной. Важно понимать, для какого региона берется автомобиль, кто будет ездить, нужен ли правый руль в ежедневной жизни, насколько модель ..."
+        }
+      ],
+      "searched_at": "2026-10-02"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com правый руль япония 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "was-node-suite-comfyui/image/inner_shadow_example.jpg at main ...",
+          "url": "https://github.com/RituCodeWeb/was-node-suite-comfyui/blob/main/image/inner_shadow_example.jpg",
+          "snippet": ""
+        },
+        {
+          "title": "docs/favicon.svg at main · hannakc/docs · GitHub",
+          "url": "https://github.com/hannakc/docs/blob/main/favicon.svg",
+          "snippet": "Contribute to RituCodeWeb/was-node-suite-comfyui development by creating an account on GitHub."
+        },
+        {
+          "title": "vivian-dai/assets/latex.svg at main - GitHub",
+          "url": "https://github.com/vivian-dai/vivian-dai/blob/main/assets/latex.svg",
+          "snippet": "Contribute to hannakc/docs development by creating an account on GitHub."
+        },
+        {
+          "title": "divweb/chevron-back-outline.svg at main · divi-om/divweb · GitHub",
+          "url": "https://github.com/divi-om/divweb/blob/main/chevron-back-outline.svg",
+          "snippet": "my profile readme. Contribute to vivian-dai/vivian-dai development by creating an account on GitHub."
+        },
+        {
+          "title": "Langwenchong/img/Idea.svg at main - GitHub",
+          "url": "https://github.com/Langwenchong/Langwenchong/blob/main/img/Idea.svg",
+          "snippet": "Contribute to divi-om/divweb development by creating an account on GitHub."
+        },
+        {
+          "title": "Deep-Hashing-with-Semantic-Hash-Centers-for-Image-Retrieval/save ...",
+          "url": "https://github.com/Ryuge-Kisaki/Deep-Hashing-with-Semantic-Hash-Centers-for-Image-Retrieval/blob/main/save_figures/structure.png",
+          "snippet": "Contribute to Langwenchong/Langwenchong development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-02"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "правый руль япония official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Правый руль в 2026 году: стоит ли брать авто из Японии",
+          "url": "https://ruliauto-zakaz.ru/stati/pravyj-rul-2026-stoit-li-brat",
+          "snippet": ""
+        },
+        {
+          "title": "Правый руль из Японии в 2026: законно ли и поставят ли на учёт",
+          "url": "http://dolgovblogv2.ru/pravyy-rul-iz-yaponii-2026-zakonno-uchet/",
+          "snippet": "Легален ли правый руль в 2026 году, что с учётом и ОСАГО, сколько экономит покупка японца с аукциона и кому правый руль действительно подходит. Честный разбор без агитации."
+        },
+        {
+          "title": "Праворульные авто из Японии в России 2026: легальность и риски",
+          "url": "https://carto-auto.ru/blog/pravyy-rul-avto-iz-yaponii-legalnost-2026/",
+          "snippet": "Правый руль из Японии в 2026 году законен и ставится на учёт при полном пакете документов. Разбираем регистрацию, мифы и экономию."
+        },
+        {
+          "title": "Правый руль в России в 2026 году: можно ли ездить, ввозить и ставить на ...",
+          "url": "https://autohubexport.ru/article/pravy-rul-v-rossii-v-2026-mojno-li-ezdit/",
+          "snippet": "Легально ли ездить на праворульном авто из Японии в России в 2026 году: правила регистрации, ограничения по классам ТС, риски и обслуживание правого руля."
+        },
+        {
+          "title": "Праворульный автомобиль из Японии: плюсы, минусы и ввоз в 2026 году",
+          "url": "https://blank-dogovor-kupli-prodazhi.ru/articles/avto/pochemu-pokupaut-praviy-rul.html",
+          "snippet": "Разбираем, разрешены ли праворульные автомобили в России, что меняется в 2026 году, какие есть нюансы при ввозе, регистрации, техосмотре и повседневной эксплуатации машин из Японии."
+        },
+        {
+          "title": "ПРАВЫЙ РУЛЬ В 2026 ГОДУ - Авто.ру",
+          "url": "https://auto.ru/logbook/pravyy-rul-v-2026-godu_ff230848-a049-42fd-8091-f2a439b9a2e1/",
+          "snippet": "Плюсы правого руля, ограничения на экспорт из Японии и расходы на ввоз автомобиля в Россию в 2026 году."
+        }
+      ],
+      "searched_at": "2026-10-02"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "правый руль япония forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "r/rusAskReddit on Reddit: Правый руль!!!",
+          "url": "https://www.reddit.com/r/rusAskReddit/comments/1apr1zi/%D0%BF%D1%80%D0%B0%D0%B2%D1%8B%D0%B9_%D1%80%D1%83%D0%BB%D1%8C/",
+          "snippet": ""
+        },
+        {
+          "title": "Насколько неудобен правый руль в России? : r/AskARussian",
+          "url": "https://www.reddit.com/r/AskARussian/comments/11s8fzv/%D0%BD%D0%B0%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE_%D0%BD%D0%B5%D1%83%D0%B4%D0%BE%D0%B1%D0%B5%D0%BD_%D0%BF%D1%80%D0%B0%D0%B2%D1%8B%D0%B9_%D1%80%D1%83%D0%BB%D1%8C_%D0%B2_%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B8/",
+          "snippet": "Правый руль!!! У кого есть какие-либо сложности с вождением автомобиля с правым рулём? Что вы думайте о тех,кто имеет данный автомобиль?"
+        },
+        {
+          "title": "Правый руль в 2026 году: стоит ли брать авто из Японии",
+          "url": "https://ruliauto-zakaz.ru/stati/pravyj-rul-2026-stoit-li-brat",
+          "snippet": "Не слушай обгоняльщиков. Учился на права на правом руле, 15 лет стажа на правом руле, ни одной аварии. Те кто говорит что он не удобен на обгонах и не сидели там ни разу."
+        },
+        {
+          "title": "Правый руль в России 2026 — стоит ли покупать авто из Японии",
+          "url": "https://jpstar.ru/blog/pravyj-rul-v-rossii.html",
+          "snippet": "Легален ли правый руль в 2026 году, что с учётом и ОСАГО, сколько экономит покупка японца с аукциона и кому правый руль действительно подходит. Честный разбор без агитации."
+        },
+        {
+          "title": "Правый руль из Японии в 2026: законно ли и поставят ли на учёт",
+          "url": "http://dolgovblogv2.ru/pravyy-rul-iz-yaponii-2026-zakonno-uchet/",
+          "snippet": "Для одних покупателей она почти не имеет значения, для других может быть решающим минусом. Правый руль в России в 2026 году остается рабочим вариантом для покупки автомобиля из Японии."
+        },
+        {
+          "title": "Праворульный автомобиль из Японии: плюсы, минусы и ввоз в 2026 году",
+          "url": "https://blank-dogovor-kupli-prodazhi.ru/articles/avto/pochemu-pokupaut-praviy-rul.html",
+          "snippet": "Правый руль из Японии в 2026 году — это законный для личной эксплуатации автомобиль, который ставят на учёт в ГИБДД на общих основаниях. Привоз праворульных авто из Японии остаётся массовым от Дальнего Востока до ..."
+        }
+      ],
+      "searched_at": "2026-10-02"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "правый руль авто из японии 2026",
+      "purpose": "вторичный запрос: правый руль авто из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Правый руль в России 2026 — стоит ли покупать авто из Японии",
+          "url": "https://jpstar.ru/blog/pravyj-rul-v-rossii.html",
+          "snippet": ""
+        },
+        {
+          "title": "Правый руль в 2026 году: стоит ли брать авто из Японии",
+          "url": "https://ruliauto-zakaz.ru/stati/pravyj-rul-2026-stoit-li-brat",
+          "snippet": "Правый руль в России в 2026 году: стоит ли покупать авто из Японии В нашем блоге вы можете следить за активностью нашей компании, мы стараемся регулярно писать для вас интересные обзоры и ..."
+        },
+        {
+          "title": "Праворульные авто из Японии в России 2026: легальность и риски",
+          "url": "https://carto-auto.ru/blog/pravyy-rul-avto-iz-yaponii-legalnost-2026/",
+          "snippet": "Легален ли правый руль в 2026 году, что с учётом и ОСАГО, сколько экономит покупка японца с аукциона и кому правый руль действительно подходит. Честный разбор без агитации."
+        },
+        {
+          "title": "Праворульный автомобиль из Японии: плюсы, минусы и ввоз в 2026 году",
+          "url": "https://blank-dogovor-kupli-prodazhi.ru/articles/avto/pochemu-pokupaut-praviy-rul.html",
+          "snippet": "Легально ли ездить на праворульном авто из Японии в России в 2026 году: правила регистрации, ограничения по классам ТС, риски и обслуживание правого руля."
+        },
+        {
+          "title": "Правый руль в России в 2026 году: можно ли ездить, ввозить и ставить на ...",
+          "url": "https://autohubexport.ru/article/pravy-rul-v-rossii-v-2026-mojno-li-ezdit/",
+          "snippet": "Плюсы правого руля, ограничения на экспорт из Японии и расходы на ввоз автомобиля в Россию в 2026 году."
+        },
+        {
+          "title": "Праворульные авто из Японии: стоит ли покупать в 2026 году",
+          "url": "https://mixstuff.ru/archives/326456",
+          "snippet": "Разбираем, разрешены ли праворульные автомобили в России, что меняется в 2026 году, какие есть нюансы при ввозе, регистрации, техосмотре и повседневной эксплуатации машин из Японии."
+        }
+      ],
+      "searched_at": "2026-10-02"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "машина с правым рулем 2026",
+      "purpose": "вторичный запрос: машина с правым рулем",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Праворульный автомобиль в России 2026: оформление и риски",
+          "url": "https://ivan-auto.ru/blog/pravorulnye-avto-v-rossii/",
+          "snippet": ""
+        },
+        {
+          "title": "Покупка авто с правым рулём в 2026 году: чем это грозит водителю",
+          "url": "https://auto.yuga.ru/articles/2405.html",
+          "snippet": "Праворульная машина в России в 2026: как поставить на учёт, сколько занимает оформление и с чем реально сталкиваются владельцы — страховка, сервис, регион."
+        },
+        {
+          "title": "Правый руль в России в 2026 году: можно ли ездить, ввозить и ставить на ...",
+          "url": "https://autohubexport.ru/article/pravy-rul-v-rossii-v-2026-mojno-li-ezdit/",
+          "snippet": "В январе 2026 года граждане ввезли в Россию 12,8 тысячи подержанных автомобилей с правым рулём — на 15% больше, чем год назад. Почти все — из Японии. Топ-5 моделей по ввозу: Honda Freed Honda Stepwgn Honda ..."
+        },
+        {
+          "title": "Праворульный (Rhd) Автомобиль В России В 2026: Ограничения И Реальность",
+          "url": "https://onlyjpcars.ru/blog/pravyy-rul-2026",
+          "snippet": "Разбираем, разрешены ли праворульные автомобили в России, что меняется в 2026 году, какие есть нюансы при ввозе, регистрации, техосмотре и повседневной эксплуатации машин из Японии."
+        },
+        {
+          "title": "Праворульные авто из Японии в России 2026: легальность и риски",
+          "url": "https://carto-auto.ru/blog/pravyy-rul-avto-iz-yaponii-legalnost-2026/",
+          "snippet": "Правый руль 2026: можно ли ввозить и эксплуатировать праворульный авто в России, откуда миф о запрете, плюсы и минусы, нюансы оформления и СБКТС."
+        },
+        {
+          "title": "Правый руль в России 2026 — стоит ли покупать авто из Японии",
+          "url": "https://jpstar.ru/blog/pravyj-rul-v-rossii.html",
+          "snippet": "Легально ли ездить на праворульном авто из Японии в России в 2026 году: правила регистрации, ограничения по классам ТС, риски и обслуживание правого руля."
+        }
+      ],
+      "searched_at": "2026-10-02"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "плюсы и минусы правого руля 2026",
+      "purpose": "вторичный запрос: плюсы и минусы правого руля",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Правый руль 2026 — можно ли ставить на учёт, плюсы и минусы авто из ...",
+          "url": "https://ruliauto-zakaz.ru/stati/pravyj-rul-2026-stoit-li-brat",
+          "snippet": ""
+        },
+        {
+          "title": "Праворульный (Rhd) Автомобиль В России В 2026: Ограничения И Реальность",
+          "url": "https://onlyjpcars.ru/blog/pravyy-rul-2026",
+          "snippet": "Легален ли правый руль в 2026 году, что с учётом и ОСАГО, сколько экономит покупка японца с аукциона и кому правый руль действительно подходит. Честный разбор без агитации."
+        },
+        {
+          "title": "Правый руль в России в 2026 году: можно ли ездить, ввозить и ставить на ...",
+          "url": "https://autohubexport.ru/article/pravy-rul-v-rossii-v-2026-mojno-li-ezdit/",
+          "snippet": "Правый руль 2026: можно ли ввозить и эксплуатировать праворульный авто в России, откуда миф о запрете, плюсы и минусы, нюансы оформления и СБКТС."
+        },
+        {
+          "title": "Правый руль в России 2026 — стоит ли покупать авто из Японии",
+          "url": "https://jpstar.ru/blog/pravyj-rul-v-rossii.html",
+          "snippet": "Разбираем, разрешены ли праворульные автомобили в России, что меняется в 2026 году, какие есть нюансы при ввозе, регистрации, техосмотре и повседневной эксплуатации машин из Японии."
+        },
+        {
+          "title": "Праворульный автомобиль в России 2026: оформление и риски",
+          "url": "https://ivan-auto.ru/blog/pravorulnye-avto-v-rossii/",
+          "snippet": "Разбираем, стоит ли покупать праворульный автомобиль из Японии в 2026 году: плюсы, минусы, безопасность, регистрация, документы, ликвидность и лучшие модели."
+        },
+        {
+          "title": "Стоит ли брать праворульную машину из Японии в 2026 году",
+          "url": "http://dolgovblogv2.ru/stoit-li-brat-pravorulnuyu-mashinu-iz-yaponii-v-2026-godu/",
+          "snippet": "Праворульная машина в России в 2026: как поставить на учёт, сколько занимает оформление и с чем реально сталкиваются владельцы — страховка, сервис, регион."
+        }
+      ],
+      "searched_at": "2026-10-02"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "стоит ли брать правый руль 2026",
+      "purpose": "вторичный запрос: стоит ли брать правый руль",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Правый руль в 2026 году: стоит ли брать авто из Японии",
+          "url": "https://ruliauto-zakaz.ru/stati/pravyj-rul-2026-stoit-li-brat",
+          "snippet": ""
+        },
+        {
+          "title": "Правый руль в России 2026 — стоит ли покупать авто из Японии",
+          "url": "https://jpstar.ru/blog/pravyj-rul-v-rossii.html",
+          "snippet": "Легален ли правый руль в 2026 году, что с учётом и ОСАГО, сколько экономит покупка японца с аукциона и кому правый руль действительно подходит. Честный разбор без агитации."
+        },
+        {
+          "title": "Правый руль в 2026 году: Анахронизм или умный способ получить максимум ...",
+          "url": "https://novekauto.ru/informacziya/poleznaya-informacziya/pravyj-rul-v-2026-godu-anahronizm-ili-umnyj-sposob-poluchit-maksimum-za-svoi-dengi",
+          "snippet": "Для одних покупателей она почти не имеет значения, для других может быть решающим минусом. Правый руль в России в 2026 году остается рабочим вариантом для покупки автомобиля из Японии."
+        },
+        {
+          "title": "Праворульные авто из Японии: стоит ли покупать в 2026 году",
+          "url": "https://mixstuff.ru/archives/326456",
+          "snippet": "В 2026 году правый руль — это, прежде всего, прагматичный и умный выбор. Психологический барьер «неправильного» руля преодолевается за пару дней, а технологии нивелируют неудобства на трассе."
+        },
+        {
+          "title": "Правый или левый руль в 2026: что выбрать при ввозе",
+          "url": "https://asia-pod-klyuch.ru/blog/pravyy-ili-levyy-rul-2026",
+          "snippet": "Авто под заказ из Японии в 2026 году по-прежнему интересны покупателям, которые хотят получить широкий выбор моделей, хорошее состояние, понятную аукционную историю и комплектации, которые не всегда легко найти на ..."
+        },
+        {
+          "title": "Праворульный автомобиль из Японии: плюсы, минусы и ввоз в 2026 году",
+          "url": "https://blank-dogovor-kupli-prodazhi.ru/articles/avto/pochemu-pokupaut-praviy-rul.html",
+          "snippet": "Правый или левый руль при ввозе авто в 2026: разница в цене на реальных лотах, ликвидность по регионам, легальность, обгон и свет фар — разбор без агитации."
+        }
+      ],
+      "searched_at": "2026-10-02"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Правый руль из Японии в 2026: как понять до ставки, подходит ли вам 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Правый руль в 2026 году: стоит ли брать авто из Японии",
+          "url": "https://ruliauto-zakaz.ru/stati/pravyj-rul-2026-stoit-li-brat",
+          "snippet": ""
+        },
+        {
+          "title": "Правый руль в России 2026 — стоит ли покупать авто из Японии",
+          "url": "https://jpstar.ru/blog/pravyj-rul-v-rossii.html",
+          "snippet": "Легален ли правый руль в 2026 году, что с учётом и ОСАГО, сколько экономит покупка японца с аукциона и кому правый руль действительно подходит. Честный разбор без агитации."
+        },
+        {
+          "title": "Правый руль в России в 2026 году: можно ли ездить, ввозить и ставить на ...",
+          "url": "https://autohubexport.ru/article/pravy-rul-v-rossii-v-2026-mojno-li-ezdit/",
+          "snippet": "Для одних покупателей она почти не имеет значения, для других может быть решающим минусом. Правый руль в России в 2026 году остается рабочим вариантом для покупки автомобиля из Японии."
+        },
+        {
+          "title": "Правый руль из Японии в 2026: законно ли и поставят ли на учёт",
+          "url": "http://dolgovblogv2.ru/pravyy-rul-iz-yaponii-2026-zakonno-uchet/",
+          "snippet": "Разбираем, разрешены ли праворульные автомобили в России, что меняется в 2026 году, какие есть нюансы при ввозе, регистрации, техосмотре и повседневной эксплуатации машин из Японии."
+        },
+        {
+          "title": "Авто из Японии: тенденции покупки и ввоза автомобилей в Россию в 2026 ...",
+          "url": "https://ngs24.ru/text/auto/2026/03/19/76318056/",
+          "snippet": "Правый руль из Японии в 2026 году законен и ставится на учёт при полном пакете документов. Разбираем регистрацию, мифы и экономию."
+        },
+        {
+          "title": "Авто из Японии: тенденции покупки и ввоза автомобилей в Россию в 2026 ...",
+          "url": "https://ngs.ru/text/auto/2026/03/17/76309453/",
+          "snippet": "Покупка автомобиля из Японии уже давно стала привычной практикой для российских автолюбителей. Но в последние годы этот рынок - Авто - 19 марта 2026 | НГС24.ру"
+        }
+      ],
+      "searched_at": "2026-10-02"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://ruliauto-zakaz.ru/stati/pravyj-rul-2026-stoit-li-brat",
+      "title": "Правый руль в 2026 году: стоит ли брать авто из Японии",
+      "from_query": "правый руль япония 2026"
+    },
+    {
+      "url": "https://blank-dogovor-kupli-prodazhi.ru/articles/avto/pochemu-pokupaut-praviy-rul.html",
+      "title": "Праворульный автомобиль из Японии: плюсы, минусы и ввоз в 2026 году",
+      "from_query": "правый руль япония 2026"
+    },
+    {
+      "url": "https://jpstar.ru/blog/pravyj-rul-v-rossii.html",
+      "title": "Правый руль в России 2026 — стоит ли покупать авто из Японии",
+      "from_query": "правый руль япония 2026"
+    },
+    {
+      "url": "http://dolgovblogv2.ru/pravyy-rul-iz-yaponii-2026-zakonno-uchet/",
+      "title": "Правый руль из Японии в 2026: законно ли и поставят ли на учёт",
+      "from_query": "правый руль япония 2026"
+    },
+    {
+      "url": "https://www.pravda.ru/news/auto/2413173-import-poderzhannykh-avto-iz-yaponii-2026/",
+      "title": "Правый руль снова в моде: эти два японских бренда авто впервые ...",
+      "from_query": "правый руль япония 2026"
+    },
+    {
+      "url": "https://mixstuff.ru/archives/326456",
+      "title": "Праворульные авто из Японии: стоит ли покупать в 2026 году",
+      "from_query": "правый руль япония 2026"
+    },
+    {
+      "url": "https://autohubexport.ru/article/pravy-rul-v-rossii-v-2026-mojno-li-ezdit/",
+      "title": "Правый руль в России в 2026 году: можно ли ездить, ввозить и ставить на ...",
+      "from_query": "правый руль япония октябрь 2026"
+    },
+    {
+      "url": "https://github.com/RituCodeWeb/was-node-suite-comfyui/blob/main/image/inner_shadow_example.jpg",
+      "title": "was-node-suite-comfyui/image/inner_shadow_example.jpg at main ...",
+      "from_query": "site:github.com правый руль япония 2026"
+    },
+    {
+      "url": "https://github.com/hannakc/docs/blob/main/favicon.svg",
+      "title": "docs/favicon.svg at main · hannakc/docs · GitHub",
+      "from_query": "site:github.com правый руль япония 2026"
+    },
+    {
+      "url": "https://github.com/vivian-dai/vivian-dai/blob/main/assets/latex.svg",
+      "title": "vivian-dai/assets/latex.svg at main - GitHub",
+      "from_query": "site:github.com правый руль япония 2026"
+    },
+    {
+      "url": "https://github.com/divi-om/divweb/blob/main/chevron-back-outline.svg",
+      "title": "divweb/chevron-back-outline.svg at main · divi-om/divweb · GitHub",
+      "from_query": "site:github.com правый руль япония 2026"
+    },
+    {
+      "url": "https://github.com/Langwenchong/Langwenchong/blob/main/img/Idea.svg",
+      "title": "Langwenchong/img/Idea.svg at main - GitHub",
+      "from_query": "site:github.com правый руль япония 2026"
+    },
+    {
+      "url": "https://github.com/Ryuge-Kisaki/Deep-Hashing-with-Semantic-Hash-Centers-for-Image-Retrieval/blob/main/save_figures/structure.png",
+      "title": "Deep-Hashing-with-Semantic-Hash-Centers-for-Image-Retrieval/save ...",
+      "from_query": "site:github.com правый руль япония 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/pravyy-rul-avto-iz-yaponii-legalnost-2026/",
+      "title": "Праворульные авто из Японии в России 2026: легальность и риски",
+      "from_query": "правый руль япония official docs documentation 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/pravyy-rul-v-2026-godu_ff230848-a049-42fd-8091-f2a439b9a2e1/",
+      "title": "ПРАВЫЙ РУЛЬ В 2026 ГОДУ - Авто.ру",
+      "from_query": "правый руль япония official docs documentation 2026"
+    },
+    {
+      "url": "https://www.reddit.com/r/rusAskReddit/comments/1apr1zi/%D0%BF%D1%80%D0%B0%D0%B2%D1%8B%D0%B9_%D1%80%D1%83%D0%BB%D1%8C/",
+      "title": "r/rusAskReddit on Reddit: Правый руль!!!",
+      "from_query": "правый руль япония forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.reddit.com/r/AskARussian/comments/11s8fzv/%D0%BD%D0%B0%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE_%D0%BD%D0%B5%D1%83%D0%B4%D0%BE%D0%B1%D0%B5%D0%BD_%D0%BF%D1%80%D0%B0%D0%B2%D1%8B%D0%B9_%D1%80%D1%83%D0%BB%D1%8C_%D0%B2_%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B8/",
+      "title": "Насколько неудобен правый руль в России? : r/AskARussian",
+      "from_query": "правый руль япония forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://ivan-auto.ru/blog/pravorulnye-avto-v-rossii/",
+      "title": "Праворульный автомобиль в России 2026: оформление и риски",
+      "from_query": "машина с правым рулем 2026"
+    },
+    {
+      "url": "https://auto.yuga.ru/articles/2405.html",
+      "title": "Покупка авто с правым рулём в 2026 году: чем это грозит водителю",
+      "from_query": "машина с правым рулем 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/pravyy-rul-2026",
+      "title": "Праворульный (Rhd) Автомобиль В России В 2026: Ограничения И Реальность",
+      "from_query": "машина с правым рулем 2026"
+    },
+    {
+      "url": "http://dolgovblogv2.ru/stoit-li-brat-pravorulnuyu-mashinu-iz-yaponii-v-2026-godu/",
+      "title": "Стоит ли брать праворульную машину из Японии в 2026 году",
+      "from_query": "плюсы и минусы правого руля 2026"
+    },
+    {
+      "url": "https://novekauto.ru/informacziya/poleznaya-informacziya/pravyj-rul-v-2026-godu-anahronizm-ili-umnyj-sposob-poluchit-maksimum-za-svoi-dengi",
+      "title": "Правый руль в 2026 году: Анахронизм или умный способ получить максимум ...",
+      "from_query": "стоит ли брать правый руль 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/pravyy-ili-levyy-rul-2026",
+      "title": "Правый или левый руль в 2026: что выбрать при ввозе",
+      "from_query": "стоит ли брать правый руль 2026"
+    },
+    {
+      "url": "https://ngs24.ru/text/auto/2026/03/19/76318056/",
+      "title": "Авто из Японии: тенденции покупки и ввоза автомобилей в Россию в 2026 ...",
+      "from_query": "Правый руль из Японии в 2026: как понять до ставки, подходит ли вам 2026"
+    },
+    {
+      "url": "https://ngs.ru/text/auto/2026/03/17/76309453/",
+      "title": "Авто из Японии: тенденции покупки и ввоза автомобилей в Россию в 2026 ...",
+      "from_query": "Правый руль из Японии в 2026: как понять до ставки, подходит ли вам 2026"
+    }
+  ]
+}

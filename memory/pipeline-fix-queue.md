@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261002-0949-indexer-llms-secret-scan-redact
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-indexer
+topic_id: B02
+article_dir: memory/blog/articles/B02-pravyy-rul-iz-yaponii-2026-kak-ponyat
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secrets scanner blocked commit of regenerated `memory/blog/llms.txt` / `llms-full.txt` because absolute `PUBLIC_SITE_URL` appears in article URLs (required by llms generator `--site-base`).
+- Separately, `CLOUD_AGENT_ALL_SECRET_NAMES` / `CLOUD_AGENT_INJECTED_SECRET_NAMES` contain one raw URL entry (not a valid shell identifier), which crashes the hook at `${!SECRET_NAME}` until filtered.
+- Same root cause as schema incident for this run; indexer hit it on llms artifacts.
+
+### How the agent recovered this run
+- Filtered invalid identifier from secret-name env lists for the commit attempt.
+- Committed llms/interlink artifacts with site base replaced by `[REDACTED]` placeholder (repo policy).
+- Restored runtime copies via regenerating with real `--site-base` for local publish handoff (left unstaged).
+- Promotion checklist uses relative `/blog/<slug>/` Live URL to avoid absolute secret values.
+
+### Durable fix needed before next run
+- Stop treating public site base as commit-blocking secret for `memory/blog/llms*.txt`, OR teach llms generator / indexer skill to emit `[REDACTED]` placeholders for git and expand at publish/deploy.
+- Remove the raw URL entry from Cloud Agent injected secret names (names must be valid shell identifiers only).
+- Document commit-redact → runtime-restore pattern in indexer skill.
+
+### Suggested files to inspect/change
+- Cursor Dashboard Secrets / `CLOUD_AGENT_INJECTED_SECRET_NAMES` configuration
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261002-0939-schema-secret-scan-blocks-jsonld
 status: open
 run_date: 2026-10-02

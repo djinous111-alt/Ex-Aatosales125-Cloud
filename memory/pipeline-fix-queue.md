@@ -27,18 +27,23 @@ category: docs
 - User/director явно предупредил: «актуальный CLI (--blog-dir, не --blog-path)».
 
 ### How the agent recovered this run
-- Запустил generator без `--blog-path`: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` → PASS.
+- Запустил generator без `--blog-path`: `--blog-dir memory/blog/articles --out-dir memory/blog` → PASS.
 - B05 попал в `memory/blog/llms.txt` и `llms-full.txt`.
+- Pre-commit secret-scan падал на invalid secret **name** (URL-like, см. INC-1730); commit с фильтром только valid bash identifiers.
+- В git `llms*.txt` + checklist — placeholder `https://example.com` (PUBLIC_SITE_URL в secret-scan); publish должен перегенерировать llms с `$PUBLIC_SITE_URL` перед upload.
 
 ### Durable fix needed before next run
 - Убрать `--blog-path` из примеров indexer agent + skill (repo + `.cursor` зеркала).
 - Оставить только `--blog-dir` / `--out-dir` / `--site-base`.
+- Indexer/publish skill: git-safe site-base vs runtime `$PUBLIC_SITE_URL` (как schema redaction).
+- Dashboard: удалить invalid secret name (INC-1730) — иначе pre-commit ломает любой commit.
 
 ### Suggested files to inspect/change
 - `agents/excalibur-blog-indexer.md`
 - `.cursor/agents/excalibur-blog-indexer.md`
 - `skills/indexer-excalibur-blog/SKILL.md`
 - `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
 
 ### Secrets
 - none recorded

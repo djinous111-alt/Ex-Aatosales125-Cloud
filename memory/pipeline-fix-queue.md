@@ -6,9 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+(none — current-run items resolved below as fixed/needs-human)
+
 
 ## INC-20261002-1737-geo-qa-utility-pain-outcome-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-geo-qa
 topic_id: B05
@@ -41,11 +43,27 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Added `pain_markers_ru` / `outcome_markers_ru` (mirrors human_voice_gate) and `min_pain_markers`/`min_outcome_markers` to `editorial-policy.json`.
+- Added recommendation aliases `делать` / `не делать` alongside `сделайте` / `не делайте`.
+- Documented markers in `shared/editorial-utility-only.md` and Writer skills.
+- Utility gate re-check: AS09 PASS, B05 PASS (pain/outcome no longer stuck at 0).
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `shared/editorial-utility-only.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 -m json.tool memory/brief/editorial-policy.json`
+- `python3 scripts/excalibur_blog_utility_gate.py --article-dir .../AS09-...` → PASS
+- `python3 scripts/excalibur_blog_utility_gate.py --article-dir .../B05-...` → PASS
+commit: pending
 
 
 ## INC-20261002-1736-writer-precommit-telegram-url-secret
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-writer
 topic_id: B05
@@ -76,11 +94,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Writer skills + pitfalls document `<!-- pragma: allowlist secret -->` on brand CTA href lines.
+- Recommended Dashboard cleanup (do not store public CTA URLs as scanned secret values) left as optional human follow-up; Writer workaround is durable.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` for pragma allowlist guidance in Writer skills / pitfalls
+commit: pending
 
 
 ## INC-20261002-1730-research-precommit-invalid-secret-name
-status: open
+status: needs-human
 run_date: 2026-10-02
 role: excalibur-blog-research
 topic_id: B05
@@ -108,11 +137,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+fixed_at: 2026-10-02
+reason:
+- Platform hook `pre-commit.cursor` is outside the repo; cannot ship a durable in-repo patch that Cloud always loads.
+- Root cause is Dashboard secret *names* that are not bash identifiers (URL/value leaked into names list).
+needed_decision_or_secret:
+- In Cursor Dashboard Secrets: rename every secret to a valid `[A-Za-z_][A-Za-z0-9_]*` identifier; remove URL-like names.
+- Optionally ask Cursor platform to skip invalid names in `pre-commit.cursor` instead of aborting.
+- Pitfalls note added so agents know to filter identifiers as a temporary workaround.
+files_changed:
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- inspected agent-hooks path presence; no repo-owned pre-commit.cursor to patch
+commit: n/a
 
 
 ## INC-20261002-1729-research-notes-gate-tech-false-positive
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-research
 topic_id: B05
@@ -142,11 +184,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Kept whole-word TECH_MARKERS matching; strip required meta field names from notes window before scan.
+- Added `--self-test` fixture (customs + reader_pain non-tech; MCP/Cursor tech true).
+- B05 research-notes gate: PASS, `technical_topic: false`.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --self-test`
+- `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir .../B05-...` → PASS tech=false
+commit: pending
 
 
 ## INC-20261002-1728-research-wordstat-empty-and-dvtu-504
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-research
 topic_id: B05
@@ -174,11 +228,22 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Research skills document empty/`totalCount`-only Wordstat: parent cluster + explicit notes mark; never invent impressions.
+- customs.gov.ru/DVTU 504 → Alta-Soft / press / gazette mirrors with `timeout→mirror` in source_table.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` for wordstat_narrow_empty / timeout→mirror guidance in research skills
+commit: pending
 
 
 ## INC-20261002-1725-scout-live-wp-cannibalization-near-miss
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-scout
 topic_id: B04
@@ -212,11 +277,27 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- `--check-query` now compares against blog-topics + live WP (env `EXCALIBUR_RECENT_WP_POSTS`, `--recent-wp-json`, or PUBLIC_SITE_URL REST) with `--proposed-slug`.
+- Simulated B04 near-miss vs `prohodnye-avto-iz-yaponii-2026` → OVERLAP CRITICAL exit 1.
+- Scout agent/skill hard-step documented; July dump alone insufficient.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- WP near-miss dry-run exit 1; clean unique query exit 0
+- `python3 -m py_compile scripts/excalibur_blog_scout_helper.py`
+commit: pending
 
 
 ## INC-20261002-2015-director-doctor-llms-blog-path
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-director
 topic_id: n/a
@@ -248,7 +329,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Doctor asserts `--blog-dir` (accepts legacy `--blog-path` if present).
+- today.py + scout_helper parse AS* and B* cards/dirs; today suggests AS01 when unwritten P0 exists.
+- `--suggest-next` skips B numbers occupied by ledger/dirs/live WP.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
+- `python3 scripts/excalibur_blog_today.py` → EXCALIBUR_SUGGESTED_TOPIC_ID=AS01
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → B06, AS* count=9
+commit: pending
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch

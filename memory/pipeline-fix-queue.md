@@ -62,7 +62,7 @@ files_changed:
 checks_run:
 - `rg` no CLI `--blog-path /` examples left in indexer docs
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
-commit: pending
+commit: 4c4fe2e
 
 
 
@@ -115,7 +115,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile` hero + cover_quad_prompt
 - hero script emits RUNTIME_TLS; prefer_tls_url unit assert
-commit: pending
+commit: 4c4fe2e
 
 
 
@@ -169,7 +169,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` hard-marker guidance in writer/geo-qa/pitfalls
-commit: pending
+commit: 4c4fe2e
 
 
 
@@ -815,6 +815,6 @@ files_changed:
 checks_run:
 - expand_redacted_urls unit assert
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
-commit: pending
+commit: 4c4fe2e
 
 

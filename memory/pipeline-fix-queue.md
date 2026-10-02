@@ -251,6 +251,43 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261003-0015-scout-precommit-secret-names
+status: fixed
+run_date: 2026-10-03
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in Cloud pre-commit hook: `invalid variable name` while expanding `${!SECRET_NAME}` from `CLOUD_AGENT_*_SECRET_NAMES`.
+- Automation memory referenced `scripts/sanitize_cloud_secret_names.sh`, but the file was missing from the repo.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_ALL_SECRET_NAMES` / `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid bash identifiers, then committed/pushed B01 topic card.
+
+### Durable fix needed before next run
+- Keep `scripts/sanitize_cloud_secret_names.sh` in repo; source it before Cloud commits when pre-commit secret scan is enabled.
+
+### Suggested files to inspect/change
+- `scripts/sanitize_cloud_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- Restored `scripts/sanitize_cloud_secret_names.sh` that drops non-identifier tokens from Cloud secret-name lists before pre-commit.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+checks_run:
+- sourced script then successful `git commit` / `git push` of B01 card
+commit: pending-parent-commit
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

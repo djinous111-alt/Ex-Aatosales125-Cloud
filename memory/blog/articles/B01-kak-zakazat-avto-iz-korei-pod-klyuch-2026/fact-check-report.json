@@ -1,0 +1,101 @@
+{
+  "article": "memory/blog/articles/B01-kak-zakazat-avto-iz-korei-pod-klyuch-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 13,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 11,
+  "facts": [
+    {
+      "fact": "2024",
+      "kind": "date_or_year",
+      "context": "комплектацию выставьте жёсткие фильтры. С февраля 2024 Корея контролирует прямой экспорт легковых авто с",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "гковых авто с мотором свыше 2.0 л в РФ. А с 01.12.2025 утильсбор для физлиц жёстче смотрит на мощность: л",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "гадайте \"на глаз\". Ориентир по возрасту в гайдах 2026 – часто 3–5 лет: баланс цены, состояния и таможен",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "1996 года",
+      "kind": "date_or_year",
+      "context": "rhistory на пальцах – как \"страховая картотека\" с 1996 года: крупные выплаты видны, а ДТП без обращения в стр",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 лет",
+      "kind": "metric_or_duration",
+      "context": "аз\". Ориентир по возрасту в гайдах 2026 – часто 3–5 лет: баланс цены, состояния и таможенной логики. Напр",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "12 месяцев",
+      "kind": "metric_or_duration",
+      "context": "ти. Зафиксируйте цель: машина для себя минимум на 12 месяцев, без идеи быстрой перепродажи. Поставьте потолок",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "55 дней",
+      "kind": "metric_or_duration",
+      "context": "лный цикл под ключ часто укладывают в примерно 30–55 дней (ориентир 4–6 недель). Море с ожиданием рейса – п",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "6 недель",
+      "kind": "metric_or_duration",
+      "context": "асто укладывают в примерно 30–55 дней (ориентир 4–6 недель). Море с ожиданием рейса – порядка 1–3 недель; ра",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 недель",
+      "kind": "metric_or_duration",
+      "context": "р 4–6 недель). Море с ожиданием рейса – порядка 1–3 недель; растаможка во Владивостоке – часто около 5–12 ра",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "ту по ссылке из чата. Остановило другое: у версии 180 л.с. утильсбор уходит в коммерческую шкалу, а в це",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "не итог в России. Сначала фильтры (до 2.0 л и до 160 л.с.), потом VIN, схема кузова, Carhistory и осмот",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1996",
+      "kind": "large_number",
+      "context": "rhistory на пальцах – как \"страховая картотека\" с 1996 года: крупные выплаты видны, а ДТП без обращения в",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "пригону из Кореи (2026), сайт Carhistory, ПП РФ № 1713 (утиль и мощность), разборы схем предоплаты и пра",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

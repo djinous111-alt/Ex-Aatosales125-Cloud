@@ -6,6 +6,7 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+- INC-20261002-1755-schema-secret-scan-public-urls
 - INC-20261002-1746-geo-qa-fact-check-marker-overcorrection
 
 
@@ -632,3 +633,41 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+
+## INC-20261002-1755-schema-secret-scan-public-urls
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-schema
+topic_id: B05
+article_dir: memory/blog/articles/B05-kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026
+severity: medium
+category: env
+
+### What went wrong
+- Commit `schema.jsonld` blocked by Cloud secret-scan: `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` are Dashboard secrets and appear in BlogPosting/FAQ/HowTo absolute URLs and author `sameAs`.
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` also contained a raw URL token (invalid bash identifier), breaking `${!SECRET_NAME}` in pre-commit until filtered.
+- JSON cannot use `// pragma: allowlist secret` without becoming invalid JSON-LD for WordPress meta.
+
+### How the agent recovered this run
+- Committed redacted copy (`[REDACTED]` for secret URL bases); restored full-URL runtime `schema.jsonld` after push for publish.
+- Fragment documents redaction + runtime restore.
+
+### Durable fix needed before next run
+- Remove public brand URLs (`PUBLIC_SITE_URL`, catalog, Telegram, MAX) from Cloud secret-scan values; keep only private tokens.
+- Or document schema commit pattern: redact for git / expand at publish; add publish step to resolve `[REDACTED]`/`${PUBLIC_SITE_URL}` in `schema.jsonld`.
+- Schema skill should mention secret-scan handling for absolute site URLs.
+
+### Suggested files to inspect/change
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- Cursor Dashboard Cloud Secrets (public URL values)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

@@ -357,3 +357,40 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261002-1325-writer-utility-pain-outcome-markers
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-writer
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-chitat-auktsionnyy-list-yaponiya-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` requires `pain_markers_ru` / `outcome_markers_ru` from `memory/brief/editorial-policy.json`, but those lists were missing.
+- With empty lists the gate always counted `pain_markers=0` and `outcome_markers=0`, so every article (including prior AS09) got UTILITY BLOCK even when human-voice pain/outcome text was present.
+- Writer also had to map recommendation markers to exact policy tokens (`сделайте` / `не делайте` / `чеклист`), while body used `Делать`/`Не делать`.
+
+### How the agent recovered this run
+- Added `pain_markers_ru` and `outcome_markers_ru` to `editorial-policy.json` (aligned with human-voice gate constants) plus `min_pain_markers` / `min_outcome_markers` in `article_required_signals`.
+- Rewrote recommendation lines to use policy tokens; kept human lead/story/checklist.
+- Utility gate PASS and human-voice PASS for B03 after recovery.
+
+### Durable fix needed before next run
+- Keep policy marker lists in sync with `scripts/excalibur_blog_human_voice_gate.py` (single source of truth or shared constants).
+- Document in Writer skill that recommendation lines must include policy tokens (`сделайте`/`не делайте`/`проверьте`/...), not only `Делать`/`Не делать`.
+- Optionally skip pain/outcome checks in utility gate when marker lists are empty, instead of hard-failing with 0.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

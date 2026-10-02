@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261002-0919-scout-suggest-next-ignores-live-wp
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-scout
+topic_id: B02
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py --suggest-next` вернул `B01` и `Total topics in pool: 0`, хотя в `memory/topics/blog-topics.md` уже есть AS01–AS09.
+- Regex парсера принимает только заголовки `## B\d+`, поэтому AS-карточки невидимы для suggest-next и check-query.
+- Helper не сверяется с live WP: slug `kak-rusifitsirovat-avto-iz-kitaya-2026` (post 3919) уже опубликован, но suggest-next всё равно предлагает B01.
+
+### How the agent recovered this run
+- Принудительно взял `B02+` по контракту run.
+- Сделал live dedupe через `PUBLIC_SITE_URL/wp-json/wp/v2/posts?per_page=30&_fields=id,slug,title,date`.
+- Выбрал тему вне live slug/title и AS-пула; check-query для primary_query чистый.
+
+### Durable fix needed before next run
+- Парсить topic_id шире: `AS\d+` и `B\d+` (или любой `## ID —`).
+- В `--suggest-next` учитывать live WP slugs / ledger / article dirs и не предлагать ID/slug, уже занятые на сайте.
+- Зафиксировать в scout skill обязательный live dedupe для Авто-Сейлс, если helper ещё не умеет.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

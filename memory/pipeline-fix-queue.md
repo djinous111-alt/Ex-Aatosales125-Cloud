@@ -339,10 +339,12 @@ category: script
 ### How the agent recovered this run
 - Rewrote source_table cells as `accessed_at: 2026-10-02` (17 matches); gate PASS.
 - Kept 3 GitHub URLs + industry docs; ignored official-docs warning (auto niche, not API product).
+- Pre-commit secret scan blocked `research-serp.json` containing `PUBLIC_SITE_URL`; replaced host with `[PUBLIC_SITE_URL]` placeholder before commit.
 
 ### Durable fix needed before next run
 - Document in research skill: source_table dates must be written as `accessed_at: YYYY-MM-DD`, not bare ISO.
 - Soften `is_technical_topic()` so the word `github` inside required `github_evidence` heading does not alone force technical mode for Авто-Сейлс topics; or accept industry/help URLs without requiring developer docs.
+- Make `excalibur_blog_research_start.py` redact `PUBLIC_SITE_URL` / catalog host in `research-serp.json` before writing.
 
 ### Suggested files to inspect/change
 - `scripts/excalibur_blog_research_notes_gate.py`

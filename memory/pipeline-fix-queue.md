@@ -393,3 +393,37 @@ category: env
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261003-2136-cover-mcp-timeout-retry
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-korei-pod-klyuch-2026
+severity: medium
+category: api
+
+### What went wrong
+- First MCP `gpt-image-2` i2i call for B01 quad canvas returned `MCP error -32001: Request timed out` before an image URL was returned.
+- Generation of 2K 16:9 canvas can exceed default MCP client timeout.
+
+### How the agent recovered this run
+- Logged incident; second sync MCP `gpt-image-2` also timed out with `-32001` (no late URL/task_id in client response).
+- Switched to preferred path: `python scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir …` with HTTPS `input_urls` at runtime; ONE Kie job succeeded → `cover/quad-mcp-result.json` → `quad_apply --inject-html`.
+- Kept committed `blog-hero.json` / batch `input_urls` as `http://` for secret-scan; used TLS only for Kie runtime fetch.
+- Did not fall back to 4 separate image calls.
+
+### Durable fix needed before next run
+- Raise/document MCP client timeout for `gpt-image-2` image jobs (≥3–5 min) in cover skill / pitfalls.
+- Optionally add retry guidance (1–2 retries) in cover runbook when `-32001` occurs.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/blog-cover-quad-canvas-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

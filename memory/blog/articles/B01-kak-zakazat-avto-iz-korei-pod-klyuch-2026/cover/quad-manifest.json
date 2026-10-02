@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Цена Encar — ещё не «под ключ»",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у корейского кроссовера в порту Владивостока, плашка под ключ 2026",
+      "scene_hint": "Vladivostok port foggy morning, modern Korean crossover unloaded from ship; blog host EXACT face+glasses from reference, outfit=waterproof navy rain jacket over hoodie (NOT reference t-shirt), no cap/hood up; shocked pointing at phone fake Encar listing price vs sticky-note full turnkey estimate (фрахт+утиль+растаможка); torn paper hook with yellow marker on «под ключ»; 2GIS review stars scrap + catalog card tape; shocked cat meme cutout; corner brand avto-sales125.ru; no Wordstat/Metrika/Telegram",
+      "meme_caption_ru": "Не плати вслепую"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разложите смету: что входит в \"под ключ\" и чего нет в цене Encar",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean 16:9 UI comparison table: left column «Цена Encar» (лот) vs right «Итог под ключ» with line items фрахт Пусан→Вл, утильсбор, растаможка, СБКТС/ЭПТС, комиссия; sticky tape corner + small note «смета с конца»; NO people faces, no hero, Cyrillic only labels",
+      "alt": "Таблица сравнения: цена лота Encar и полная смета «под ключ» с фрахтом и растаможкой"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Отсейте непроходные лоты до поиска: объём, мощность, возраст",
+      "visual_type": "infographic_card",
+      "scene_hint": "Infographic card with three big filter chips: ≤2.0 л, ≤160 л.с., возраст/год выпуска; green pass / red reject icons; modern Korean SUV silhouette watermark; mini sticky «фильтр до поиска»; no hero face, readable Cyrillic, DIY tape edge",
+      "alt": "Инфографика фильтров лота: объём до 2.0 л, мощность до 160 л.с., возраст авто"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте лот до депозита: Encar, Carhistory и живой осмотр",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board before deposit: ☑ VIN сверить, ☑ отчёт Carhistory, ☑ живой осмотр/фото, ☑ договор до оплаты; fake Encar + Carhistory mini screenshot insets with tape; red marker «до депозита»; no hero, no toxic slang, Cyrillic checklist",
+      "alt": "Чеклист проверки лота до депозита: Encar, Carhistory и живой осмотр"
+    }
+  }
+}

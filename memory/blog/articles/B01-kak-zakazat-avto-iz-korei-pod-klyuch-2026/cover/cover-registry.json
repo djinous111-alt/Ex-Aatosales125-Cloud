@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "kak-zakazat-avto-iz-korei-pod-klyuch-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у корейского кроссовера в порту Владивостока, плашка под ключ 2026",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-02T21:39:20+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у корейского кроссовера в порту Владивостока, плашка под ключ 2026",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сравнения: цена лота Encar и полная смета «под ключ» с фрахтом и растаможкой",
+      "h2_anchor": "Разложите смету: что входит в \"под ключ\" и чего нет в цене Encar",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Инфографика фильтров лота: объём до 2.0 л, мощность до 160 л.с., возраст авто",
+      "h2_anchor": "Отсейте непроходные лоты до поиска: объём, мощность, возраст",
+      "visual_type": "infographic_card",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист проверки лота до депозита: Encar, Carhistory и живой осмотр",
+      "h2_anchor": "Проверьте лот до депозита: Encar, Carhistory и живой осмотр",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

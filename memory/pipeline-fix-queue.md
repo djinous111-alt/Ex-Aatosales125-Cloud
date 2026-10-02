@@ -6,6 +6,36 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261002-0938-research-precommit-secret-names-redacted
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-research
+topic_id: B02
+article_dir: memory/blog/articles/B02-pravyy-rul-iz-yaponii-2026-kak-ponyat
+severity: medium
+category: env
+
+### What went wrong
+- `pre-commit.cursor` secrets scanner failed with `invalid variable name` when iterating `CLOUD_AGENT_*_SECRET_NAMES`.
+- One entry in the injected secret-name list is the literal redaction token, which is not a valid bash identifier for `${!SECRET_NAME}`.
+
+### How the agent recovered this run
+- Before commit, filtered `CLOUD_AGENT_ALL_SECRET_NAMES` / `CLOUD_AGENT_INJECTED_SECRET_NAMES` to only `^[A-Za-z_][A-Za-z0-9_]*$` names, then committed and pushed normally (hooks still ran).
+
+### Durable fix needed before next run
+- Platform/hooks: skip non-identifier names in SECRET_NAMES before indirect expansion.
+- Or document Cloud Agent workaround in pitfalls for Avto-Sales runs.
+
+### Suggested files to inspect/change
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (platform)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261002-0935-research-notes-gate-false-technical
 status: open
 run_date: 2026-10-02

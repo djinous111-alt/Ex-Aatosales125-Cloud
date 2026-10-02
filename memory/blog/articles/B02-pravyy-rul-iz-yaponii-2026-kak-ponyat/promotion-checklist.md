@@ -1,7 +1,7 @@
 # Promotion checklist — B02 pravyy-rul-iz-yaponii-2026-kak-ponyat
 
 Дата публикации: 2026-10-02  
-Live URL: /blog/pravyy-rul-iz-yaponii-2026-kak-ponyat/
+Live URL: [REDACTED]/2026/10/02/pravyy-rul-iz-yaponii-2026-kak-ponyat/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Трасса с фурами и продажа на западе РФ — чаще спокойнее левый из Кореи
 • До депозита: фары, СБКТС, сервис и куда потом продадите
 
-Читать: /blog/pravyy-rul-iz-yaponii-2026-kak-ponyat/
+Читать: [REDACTED]/2026/10/02/pravyy-rul-iz-yaponii-2026-kak-ponyat/
 ```
 
 ## Перелинковка
@@ -47,4 +47,5 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir memory/blog/articles/B02-pravyy-rul-iz-yaponii-2026-kak-ponyat --site-base <PUBLIC_SITE_URL>` — links_applied=0.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (`--blog-dir memory/blog/articles`, без `--blog-path`).
-- Publish ещё не выполнен — Live URL плановый по паттерну llms.
+- Publish PASS: WP post 3925; featured 3926; inline 3927/3928/3929; schema_meta=1; live HEAD 200.
+- Live permalink: [REDACTED]/2026/10/02/pravyy-rul-iz-yaponii-2026-kak-ponyat/

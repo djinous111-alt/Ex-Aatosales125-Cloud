@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261002-0953-publish-paramiko-missing-install
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-publish
+topic_id: B02
+article_dir: memory/blog/articles/B02-pravyy-rul-iz-yaponii-2026-kak-ponyat
+severity: high
+category: env
+
+### What went wrong
+- Publish preflight found `paramiko` missing in the Cloud Agent runtime (`ModuleNotFoundError`), even though `requirements.txt` lists `paramiko`.
+- `.cursor/cloud-agent-install.sh` installs `requests pillow python-dotenv` but does **not** install `paramiko`, so SSH publish fails until a manual pip install.
+- `memory/site.env.local` was absent; Cloud Secrets were in process env. `SSH_ROOT` was unset (script label `unset`); publish recovered with runtime `SSH_ROOT=.` in gitignored `site.env.local`.
+
+### How the agent recovered this run
+- Ran `pip3 install --break-system-packages paramiko` at runtime.
+- Wrote gitignored `memory/site.env.local` from env with `SSH_ROOT=.` (unquoted KEY=value for the publish script parser).
+- Expanded CTA `[REDACTED]` hrefs from `CATALOG_URL`/`TELEGRAM_URL` for link-verify PASS, published NEW WP post 3925, then re-redacted HTML/ledger/result for git.
+- Enriched `wp-publish-result.json` with structured `post_id` / media ids (script stores mostly `raw_output`).
+
+### Durable fix needed before next run
+- Add `paramiko` to `.cursor/cloud-agent-install.sh` (and keep it in `requirements.txt` / environment snapshot).
+- Ensure Cloud Secret `SSH_ROOT=.` for this host, or auto-create `memory/site.env.local` in install/start with non-secret defaults + secret injection.
+- Publish skill: mandatory CTA expand before link-verify/publish; parse OK lines into structured fields in `wp-publish-result.json`.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `.cursor/environment.json`
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261002-0949-indexer-llms-secret-scan-redact
 status: open
 run_date: 2026-10-02

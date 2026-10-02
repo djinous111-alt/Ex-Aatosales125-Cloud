@@ -1,0 +1,35 @@
+{
+  "slug": "pravyy-rul-iz-yaponii-2026-kak-ponyat",
+  "topic_id": "B02",
+  "permalink": "[REDACTED]/2026/10/02/pravyy-rul-iz-yaponii-2026-kak-ponyat/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B02-pravyy-rul-iz-yaponii-2026-kak-ponyat/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1217100,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3925 slug=pravyy-rul-iz-yaponii-2026-kak-ponyat\nOK featured_image=3926\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3927 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/10/pravyy-rul-iz-yaponii-2026-kak-ponyat-inline-01.png\nOK inline_image_upload=3928 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/10/pravyy-rul-iz-yaponii-2026-kak-ponyat-inline-02.png\nOK inline_image_upload=3929 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/10/pravyy-rul-iz-yaponii-2026-kak-ponyat-inline-03.png\npermalink=[REDACTED]/2026/10/02/pravyy-rul-iz-yaponii-2026-kak-ponyat/\n",
+  "verdict": "pass",
+  "post_id": 3925,
+  "featured_image": 3926,
+  "inline_images": [
+    {
+      "id": 3927,
+      "src": "cover/inline-01.png",
+      "url": "[REDACTED]/wp-content/uploads/2026/10/pravyy-rul-iz-yaponii-2026-kak-ponyat-inline-01.png"
+    },
+    {
+      "id": 3928,
+      "src": "cover/inline-02.png",
+      "url": "[REDACTED]/wp-content/uploads/2026/10/pravyy-rul-iz-yaponii-2026-kak-ponyat-inline-02.png"
+    },
+    {
+      "id": 3929,
+      "src": "cover/inline-03.png",
+      "url": "[REDACTED]/wp-content/uploads/2026/10/pravyy-rul-iz-yaponii-2026-kak-ponyat-inline-03.png"
+    }
+  ],
+  "schema_meta": 1
+}

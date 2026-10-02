@@ -606,3 +606,38 @@ category: docs
 
 ### Fixer resolution
 - pending
+
+## INC-20261002-1351-publish-http504-webfetch-timeout
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-publish
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-chitat-auktsionnyy-list-yaponiya-2026
+severity: medium
+category: publish
+
+### What went wrong
+- SSH bootstrap upload succeeded (~6.6MB), but local HTTP trigger to `excalibur-blog-publish-once.php` returned HTTP 504 Gateway Time-out.
+- Script entered Cloud WebFetch Fallback and waited 120s for `memory/webfetch-response.txt`; agent did not write the file before timeout, so Python raised RuntimeError.
+- Bootstrap file was deleted in `finally` after failure, but WP post/media/schema had already been applied server-side (504 after work completed).
+
+### How the agent recovered this run
+- Did **not** republish (slug already live HEAD 200).
+- Recovered post_id/media via WP REST; verified `_excalibur_blog_schema_jsonld` + `_excalibur_blog_skip_theme_faq` via short SSH meta-check PHP.
+- Wrote `wp-publish-result.json`, ledger `published`, publish log, handoff from recovered IDs.
+
+### Durable fix needed before next run
+- When HTTP trigger fails, start WebFetch **immediately in parallel** (or raise FALLBACK earlier) so `webfetch-response.txt` is written within the 120s wait.
+- Prefer longer client timeout / curl `--max-time 300` fallback documented in AS08/AS09 logs, or detect completed publish by slug REST before treating as hard fail.
+- Avoid deleting bootstrap in `finally` before fallback success when 504 may mean "still running"; or keep bootstrap until OK markers recovered.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`trigger_bootstrap_http`, `publish_via_ssh` cleanup)
+- `skills/publish-excalibur-blog/SKILL.md` (parallel WebFetch steps)
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

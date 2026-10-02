@@ -1,7 +1,7 @@
 # Promotion checklist — B03 kak-chitat-auktsionnyy-list-yaponiya-2026
 
 Дата публикации: 2026-10-02  
-Live URL: https://avtosales125.ru/kak-chitat-auktsionnyy-list-yaponiya-2026/
+Live URL: [REDACTED]/2026/10/02/kak-chitat-auktsionnyy-list-yaponiya-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Порядок: оценка → пробег → R/RA/99 → схема → фото → вердикт
 • После экспорта претензии по листу почти мёртвы
 
-Читать: https://avtosales125.ru/kak-chitat-auktsionnyy-list-yaponiya-2026/
+Читать: [REDACTED]/2026/10/02/kak-chitat-auktsionnyy-list-yaponiya-2026/
 ```
 
 ## Перелинковка
@@ -45,6 +45,6 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 ## Notes
 
-- Indexer: interlinker `--apply --article-dir memory/blog/articles/B03-kak-chitat-auktsionnyy-list-yaponiya-2026 --site-base https://avtosales125.ru` — 0 links applied.
+- Indexer: interlinker `--apply --article-dir memory/blog/articles/B03-kak-chitat-auktsionnyy-list-yaponiya-2026 --site-base [REDACTED]` — 0 links applied.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (`--blog-dir memory/blog/articles`, без устаревшего `--blog-path`).
 - Publish: pending (Indexer only).

@@ -6,8 +6,47 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+- INC-20261002-1754-cover-kie-http-reference-fail
 - INC-20261002-1755-schema-secret-scan-public-urls
 - INC-20261002-1746-geo-qa-fact-check-marker-overcorrection
+
+
+## INC-20261002-1754-cover-kie-http-reference-fail
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-cover
+topic_id: B05
+article_dir: memory/blog/articles/B05-kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026
+severity: medium
+category: api
+
+### What went wrong
+- Первый Kie `gpt-image-2-image-to-image` createTask успешен, poll → `failCode=500 Internal Error`.
+- `blog-hero.json` держал `reference_url_hosted` на `http://` WP media; origin отвечает 301 на TLS, Kie иногда падает на http input.
+- Дополнительно: Cloud secret-scan трактует публичный site origin как `PUBLIC_SITE_URL`, поэтому TLS URL нельзя коммитить в blog-hero/batch без redaction.
+
+### How the agent recovered this run
+- Runtime: пересобрал batch с TLS WP media URL, повторный Kie → success.
+- Split PASS + inject HTML OK; fragment cover.md записан.
+- Для git: в blog-hero/batch оставлен `http://` commit-safe URL (как в AS09); runtime Kie использует TLS.
+
+### Durable fix needed before next run
+- `excalibur_blog_hero_reference_url.py`: runtime prefer TLS; commit/redact path must not write secret-scanned origin literally.
+- Cover skill/pitfalls: Kie failCode=500 → один retry с TLS reference; не сразу COVER BLOCKER.
+- Dashboard: не держать публичный site origin в secret-scan allowlist values (см. INC schema secret-scan).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `memory/cover/blog-hero.json`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 
 
 ## INC-20261002-1746-geo-qa-fact-check-marker-overcorrection

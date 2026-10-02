@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B05-kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1025,
+      577
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 577,
+        "end": 591
+      },
+      "v_gutter_px": {
+        "start": 1025,
+        "end": 1051
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1025,
+          "bottom": 577
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1025,
+          "bottom": 577
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс между указателями Уссурийск и Владивосток у КПП, плашка какой пост, угол avto-sales125.ru",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1051,
+          "top": 8,
+          "right": 2048,
+          "bottom": 569
+        },
+        "raw_box_px": {
+          "left": 1051,
+          "top": 0,
+          "right": 2048,
+          "bottom": 577
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: Китай сухопуть → Уссурийск, Япония/Корея море → Владивосток",
+        "h2_anchor": "Сравните маршрут: когда Уссурийск, а когда Владивосток"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 14,
+          "top": 591,
+          "right": 1011,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 591,
+          "right": 1025,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист зоны по приказу 178н: прописка, пост, транзит до депозита",
+        "h2_anchor": "Проверьте зону по приказу 178н до депозита"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1051,
+          "top": 591,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1051,
+          "top": 591,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема до депозита: маршрут, зона 178н, пост или транзит, затем оплата",
+        "h2_anchor": "Сверьте критерии до оплаты перегона и депозита"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Сравните маршрут: когда Уссурийск, а когда Владивосток",
+    "injected inline_2 after H2 — Проверьте зону по приказу 178н до депозита",
+    "injected inline_3 after H2 — Сверьте критерии до оплаты перегона и депозита"
+  ]
+}

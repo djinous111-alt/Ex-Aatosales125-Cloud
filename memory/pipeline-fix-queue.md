@@ -7,6 +7,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 
+## INC-20261002-1737-geo-qa-utility-pain-outcome-markers-missing
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-geo-qa
+topic_id: B05
+article_dir: memory/blog/articles/B05-kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026
+severity: blocker
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always fails article gate on `pain_markers=0 < 2` and `outcome_markers=0 < 3` because `memory/brief/editorial-policy.json` has no `pain_markers_ru` / `outcome_markers_ru` lists (and no `min_pain_markers` / `min_outcome_markers` overrides).
+- Empty marker lists → `count_markers` always 0 → every article BLOCK, including previously published AS09.
+- B05 additionally has a real writer issue: `action_markers=6 < 8` (pairs «Делать/Не делать» do not match policy tokens «сделайте/не делайте»).
+
+### How the agent recovered this run
+- Documented FAIL in `article-qa.md` with separate Writer FIX (action markers) vs Fixer FIX (policy lists).
+- Did not rewrite `article.html` (GEO QA contract).
+- Did not start cover/schema.
+
+### Durable fix needed before next run
+- Add `pain_markers_ru` and `outcome_markers_ru` to `memory/brief/editorial-policy.json` (mirror lists from `scripts/excalibur_blog_human_voice_gate.py` PAIN_MARKERS / OUTCOME_MARKERS) OR set `min_pain_markers`/`min_outcome_markers` to 0 until lists exist.
+- Optionally accept «делать/не делать» as aliases of «сделайте/не делайте» in `recommendation_markers_ru`, or document imperative forms for Writer.
+- Re-run utility gate on AS09 + B05 after policy fix.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/editorial-utility-only.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261002-1736-writer-precommit-telegram-url-secret
 status: open
 run_date: 2026-10-02

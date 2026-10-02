@@ -321,3 +321,37 @@ category: prompt
 
 ### Fixer resolution
 - pending
+
+## INC-20261002-1315-research-notes-gate-accessed-at-auto
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-research
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-chitat-auktsionnyy-list-yaponiya-2026
+severity: low
+category: script
+
+### What went wrong
+- First `research-notes-gate` run BLOCKed with `accessed_at=1 < 5` even though `source_table` already had 16 date cells `2026-10-02`.
+- Gate regex counts only literal `accessed_at:` tokens, not ISO dates in the `accessed_at` column.
+- Same gate marks auto-niche notes as `technical_topic=true` because section `github_evidence` contains marker `github`, then warns about missing `/docs|help.|developer.` URLs.
+
+### How the agent recovered this run
+- Rewrote source_table cells as `accessed_at: 2026-10-02` (17 matches); gate PASS.
+- Kept 3 GitHub URLs + industry docs; ignored official-docs warning (auto niche, not API product).
+
+### Durable fix needed before next run
+- Document in research skill: source_table dates must be written as `accessed_at: YYYY-MM-DD`, not bare ISO.
+- Soften `is_technical_topic()` so the word `github` inside required `github_evidence` heading does not alone force technical mode for Авто-Сейлс topics; or accept industry/help URLs without requiring developer docs.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

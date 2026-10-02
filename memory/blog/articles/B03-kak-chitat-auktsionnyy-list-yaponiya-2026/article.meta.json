@@ -12,7 +12,7 @@
     "что значит в аукционном листе",
     "оценка r на японском аукционе"
   ],
-  "char_count": 9108,
+  "char_count": 9103,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -29,12 +29,16 @@
     "description_aeo": "Аукционный лист из Японии читают сверху вниз: общая оценка, пробег, R/RA/99, схема кузова, примечания и сверка с фото до ставки."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 87,
+    "verdict": "PASS",
     "date": "2026-10-02",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility": "PASS",
+    "research_notes_gate": "PASS",
+    "link_verify": "PASS"
   },
   "cover_family": "brand_collage"
 }

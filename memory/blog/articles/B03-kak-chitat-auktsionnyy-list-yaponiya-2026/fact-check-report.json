@@ -1,0 +1,73 @@
+{
+  "article": "memory/blog/articles/B03-kak-chitat-auktsionnyy-list-yaponiya-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 9,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 6,
+  "facts": [
+    {
+      "fact": "2026 год",
+      "kind": "date_or_year",
+      "context": "опирается на общие правила осмотра. Ориентиры на 2026 год – смотрите легенду конкретного листа; это не \"гар",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "точники фактов: гайды KMC JAPAN (R/RA, обновление 2026-10-02), Provide Cars по шкале осмотра и разборы д",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "5 минут",
+      "kind": "metric_or_duration",
+      "context": "и ставка уходит вслепую. Ниже – порядок чтения за 5 минут: оценка, пробег, R/RA/99, схема, фото – и вердикт",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 минут",
+      "kind": "metric_or_duration",
+      "context": "Не делайте пропуск пунктов из-за \"лот уйдёт через 10 минут\". Что дальше Откройте любой японский лист и пройд",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "100 000",
+      "kind": "large_number",
+      "context": "у многих домов она ещё и про пробег (ориентир до ~100 000 км). R и RA – ремонт силового каркаса, не царапина",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "120 000",
+      "kind": "large_number",
+      "context": "она ограничена пробегом. Машина без вмятин, но с 120 000 км пятёрку с половиной уже не получит. А XX на кры",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "50 000",
+      "kind": "large_number",
+      "context": "едко и дорого 5 Очень крепкий экземпляр Часто до ~50 000 км Ок, если схема чистая 4.5 \"Красиво\", но с лимит",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "95 000",
+      "kind": "large_number",
+      "context": "пуск или эксперт Например, Prius с 4.5 и пробегом 95 000 км может быть честным лотом. Тот же балл при 130 0",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "130 000",
+      "kind": "large_number",
+      "context": "000 км может быть честным лотом. Тот же балл при 130 000 км уже заставляет перечитать легенду дома. Проверь",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

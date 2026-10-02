@@ -396,3 +396,69 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261002-1625-director-geo-qa-task-enum-missing
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-director
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-chitat-auktsionnyy-list-yaponiya-2026
+severity: high
+category: env
+
+### What went wrong
+- Cloud Task enum rejects `excalibur-blog-geo-qa` (Invalid enum). Available typed roles include research/writer/cover/schema/indexer/publish/fixer/scout but not geo-qa.
+
+### How the agent recovered this run
+- Fallback: Task(generalPurpose) with `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### Durable fix needed before next run
+- Register `excalibur-blog-geo-qa` in Cloud Task/subagent enum (or document fallback as mandatory in AGENTS.md/FOR-AGENTS if platform cannot add it).
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `AGENTS.md`
+- `shared/pipeline-task-map.md`
+- Cursor Cloud agent type registration for this repo/environment
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261002-1335-geo-qa-redacted-cta-hrefs
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-geo-qa
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-chitat-auktsionnyy-list-yaponiya-2026
+severity: medium
+category: qa
+
+### What went wrong
+- Writer left literal `[REDACTED]` placeholders in CTA `href` (secret-scan workaround). `excalibur_blog_link_verify.py` classified them as `internal_relative` and got HTTP 404 → link-verify FAIL blocker.
+- Writing-contract example still shows insight label `TL;DR / Быстрый инсайт`, while GEO QA skill forbids starting the insight block with those template labels.
+
+### How the agent recovered this run
+- FIX cycle (QA): restored live `CATALOG_URL` / `TELEGRAM_URL` from env into the three CTA anchors; re-ran link-verify → PASS 2/2.
+- Replaced insight label with `Коротко до ставки`; human-voice / utility / linter still PASS.
+- Wrote `article-qa.md` verdict PASS score 87.
+
+### Durable fix needed before next run
+- Writer must keep runtime CTA hrefs from env (`CATALOG_URL`, `TELEGRAM_URL`) through GEO QA; redact only at commit/publish artifact stage if secret-scan requires it — never leave `[REDACTED]` as the only href before link-verify.
+- Align `shared/excalibur-article-writing-contract.md` insight example with GEO QA skill (drop `TL;DR / Быстрый инсайт` from the canonical example) or relax the skill rule.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_link_verify.py` (optional: treat literal `[REDACTED]` as explicit config error)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

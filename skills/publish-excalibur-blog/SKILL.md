@@ -81,6 +81,15 @@ python scripts/excalibur_blog_wp_publish.py \
 | `promotion-checklist.md` | Live URL = permalink |
 | handoff | блок `=== EXCALIBUR BLOG PUBLISH ===` + permalink в `PIPELINE DONE` |
 
+Перед upload скрипт **раскрывает** `[REDACTED]` в `schema.jsonld` через `PUBLIC_SITE_URL` (+ optional catalog/telegram/max env). Если Indexer закоммитил llms с `https://example.com`, перед upload перегенерируй:
+
+```bash
+python3 scripts/excalibur_blog_llms_generator.py \
+  --blog-dir memory/blog/articles \
+  --site-base "$PUBLIC_SITE_URL" \
+  --out-dir memory/blog
+```
+
 ### 6. Post-publish (рекомендуется)
 
 ```bash

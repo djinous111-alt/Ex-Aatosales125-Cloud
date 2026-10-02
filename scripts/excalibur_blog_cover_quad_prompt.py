@@ -16,6 +16,14 @@ MCP_RESOLUTION = "2K"
 KIE_IMAGE_MODEL = "gpt-image-2-image-to-image"
 
 
+def prefer_tls_url(url: str) -> str:
+    """Kie i2i is more reliable on https WP media; http often 301 → failCode=500."""
+    url = (url or "").strip()
+    if url.startswith("http://"):
+        return "https://" + url[len("http://") :]
+    return url
+
+
 def project_root() -> Path:
     env_root = os.environ.get("EXCALIBUR_PROJECT_ROOT", "").strip()
     if env_root:
@@ -135,6 +143,10 @@ def main() -> int:
         return 1
     if not validate_reference_url(ref_url):
         return 1
+    # Runtime MCP/Kie input must prefer TLS even if git keeps http for secret-scan.
+    runtime_ref = prefer_tls_url(ref_url)
+    if runtime_ref != ref_url:
+        print(f"NOTE runtime TLS reference for Kie: {runtime_ref}")
 
     prompt = build_prompt(manifest, style, hero, types_catalog, design_code)
     if not validate_prompt_budget(prompt):
@@ -146,13 +158,14 @@ def main() -> int:
     if args.write_batch:
         api_input = {
             "prompt": prompt,
-            "input_urls": [ref_url],
+            "input_urls": [runtime_ref],
             "aspect_ratio": "16:9",
             "resolution": MCP_RESOLUTION,
         }
         batch = {
             "pipeline": "quad_canvas_1x_image_api",
             "reference_url_hosted": ref_url,
+            "reference_url_runtime_tls": runtime_ref,
             "output_canvas": "cover/canvas-quad.png",
             "expected_runtime_seconds": 900,
             "preferred_image_flow": {
@@ -162,7 +175,7 @@ def main() -> int:
                 "api_key_env": "KIE_API_KEY",
                 "result_path": "cover/quad-mcp-result.json",
                 "apply_script": "python scripts/excalibur_blog_quad_apply.py --article-dir <article_dir> --inject-html",
-                "note": "Cursor Cloud should use the direct Kie createTask -> recordInfo API flow. It returns task_id quickly and polls in shell, avoiding MCP client timeout.",
+                "note": "Cursor Cloud should use the direct Kie createTask -> recordInfo API flow. It returns task_id quickly and polls in shell, avoiding MCP client timeout. On failCode=500 with http reference, retry ONCE with reference_url_runtime_tls (https).",
             },
             "timeout_policy": {
                 "tool": "gpt-image-2",

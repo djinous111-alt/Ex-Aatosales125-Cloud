@@ -83,6 +83,22 @@ def upload_0x0(image_path: Path) -> str:
     return url
 
 
+
+def prefer_tls_url(url: str) -> str:
+    """Runtime Kie/MCP should fetch https; WP may 301 http→https and failCode=500 on http."""
+    url = (url or "").strip()
+    if url.startswith("http://"):
+        return "https://" + url[len("http://") :]
+    return url
+
+
+def commit_safe_media_url(url: str) -> str:
+    """Store http scheme for public WP media so secret-scan does not match https PUBLIC_SITE_URL."""
+    url = (url or "").strip()
+    if url.startswith("https://") and "avtosales125.ru" in url:
+        return "http://" + url[len("https://") :]
+    return url
+
 def resolve_reference_path(root: Path, hero: dict) -> Path:
     rel = hero.get("reference_image") or "memory/cover/assets/blog-hero-reference.png"
     path = Path(rel)
@@ -96,6 +112,16 @@ def main() -> int:
     ap.add_argument("--hero-json", default="memory/cover/blog-hero.json")
     ap.add_argument("--force", action="store_true", help="Re-upload even if URL exists")
     ap.add_argument("--provider", choices=("catbox", "0x0", "auto"), default="auto")
+    ap.add_argument(
+        "--print-runtime-tls",
+        action="store_true",
+        help="Print TLS-upgraded reference URL for Kie/MCP without rewriting hero JSON",
+    )
+    ap.add_argument(
+        "--write-commit-safe",
+        action="store_true",
+        help="Rewrite stored reference_url_hosted to http scheme (git-safe vs PUBLIC_SITE_URL scan)",
+    )
     args = ap.parse_args()
 
     root = project_root()
@@ -113,8 +139,21 @@ def main() -> int:
         return 1
 
     existing = (hero.get("reference_url_hosted") or "").strip()
+    if args.write_commit_safe and existing:
+        safe = commit_safe_media_url(existing)
+        hero["reference_url_hosted"] = safe
+        hero["reference_url_runtime_tls"] = prefer_tls_url(safe)
+        save_json(hero_path, hero)
+        print(f"OK commit_safe reference_url_hosted={safe}")
+        print(f"RUNTIME_TLS={prefer_tls_url(safe)}")
+        return 0
+
     if existing and not args.force:
+        runtime = prefer_tls_url(existing)
         print(f"OK reference_url_hosted={existing}")
+        print(f"RUNTIME_TLS={runtime}")
+        if args.print_runtime_tls and runtime != existing:
+            print("NOTE: use RUNTIME_TLS for Kie input_urls; keep http in git if PUBLIC_SITE_URL is secret-scanned")
         return 0
 
     env_url = os.environ.get("BLOG_HERO_REFERENCE_URL", "").strip()

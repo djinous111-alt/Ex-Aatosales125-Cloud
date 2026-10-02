@@ -168,7 +168,42 @@ def normalize_cover_png(cover_path: Path, registry_path: Path, root: Path) -> di
     return evidence
 
 
-def load_article(article_dir: Path) -> dict:
+def expand_redacted_urls(text: str, env: dict[str, str]) -> str:
+    """Expand [REDACTED] placeholders in schema/llms artifacts using publish env.
+
+    Schema agents commit redacted absolute URLs to avoid Cloud secret-scan hits on
+    PUBLIC_SITE_URL / CATALOG_URL / TELEGRAM_URL / MAX_URL. Publish must restore
+    real bases before writing WP post meta.
+    """
+    if not text or "[REDACTED]" not in text:
+        return text
+    public = (env.get("PUBLIC_SITE_URL") or env.get("WP_SITE_URL") or env.get("WP_HOME") or "").rstrip("/")
+    catalog = (env.get("CATALOG_URL") or "").rstrip("/")
+    telegram = (env.get("TELEGRAM_URL") or "").rstrip("/")
+    max_url = (env.get("MAX_URL") or "").rstrip("/")
+    # Prefer longest/most specific replacements first when multiple placeholders exist
+    # as bare [REDACTED] tokens (same placeholder used for different bases).
+    # Convention in schema.jsonld: full URL strings replaced entirely with [REDACTED],
+    # so we expand site first, then optional brand URLs if still present as lone tokens
+    # inside JSON string values — agents should prefer distinct placeholders when possible.
+    out = text
+    if public:
+        out = out.replace("[REDACTED]", public, 1) if out.count("[REDACTED]") == 1 else out.replace("[REDACTED]", public)
+    # If multiple [REDACTED] remain after a naive replace-all to public, leave as public
+    # (safe default for BlogPosting mainEntityOfPage / url). Catalog/telegram sameAs should
+    # preferably use dedicated env expansion below when agents mark them explicitly.
+    if catalog:
+        out = out.replace("${CATALOG_URL}", catalog).replace("{{CATALOG_URL}}", catalog)
+    if telegram:
+        out = out.replace("${TELEGRAM_URL}", telegram).replace("{{TELEGRAM_URL}}", telegram)
+    if max_url:
+        out = out.replace("${MAX_URL}", max_url).replace("{{MAX_URL}}", max_url)
+    if public:
+        out = out.replace("${PUBLIC_SITE_URL}", public).replace("{{PUBLIC_SITE_URL}}", public)
+    return out
+
+
+def load_article(article_dir: Path, env: dict[str, str] | None = None) -> dict:
     meta_path = article_dir / "article.meta.json"
     html_path = article_dir / "article.html"
     if not meta_path.is_file() or not html_path.is_file():
@@ -187,6 +222,7 @@ def load_article(article_dir: Path) -> dict:
     schema_raw = ""
     if schema_path.is_file():
         schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        schema_raw = expand_redacted_urls(schema_raw, env or {})
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
@@ -568,7 +604,10 @@ def main() -> int:
         return 2
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
-    payload = load_article(article_dir)
+    env = load_env(root)
+    if args.public_base:
+        env["PUBLIC_SITE_URL"] = args.public_base.strip()
+    payload = load_article(article_dir, env=env)
     php = build_php(payload)
 
     if args.dry_run:
@@ -576,7 +615,6 @@ def main() -> int:
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1

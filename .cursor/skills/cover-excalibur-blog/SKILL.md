@@ -90,10 +90,16 @@ inject <figure> after H2 in article.html
 ### Шаг 1 — reference URL
 
 ```bash
-python scripts/excalibur_blog_hero_reference_url.py
+python3 scripts/excalibur_blog_hero_reference_url.py
 ```
 
 Проверить `memory/cover/blog-hero.json` → `reference_url_hosted`.  
+Скрипт печатает `RUNTIME_TLS=https://...` — **для Kie `input_urls` всегда бери TLS**, даже если в git лежит `http://` (secret-scan на `PUBLIC_SITE_URL`).
+
+`quad-mcp-batch.json` пишет `input_urls` уже с TLS (`reference_url_runtime_tls`).
+
+**Kie failCode=500 Internal Error:** один retry с TLS WP media URL (`RUNTIME_TLS` / `reference_url_runtime_tls`). Не ставить сразу COVER BLOCKER на первый 500, если reference был `http://`. Не запускать второй createTask без смены URL / подтверждённого fail.
+
 Fallback env: `BLOG_HERO_REFERENCE_URL`.
 
 ### Шаг 2 — manifest

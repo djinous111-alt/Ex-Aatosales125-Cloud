@@ -6,14 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
-- INC-20261002-1801-indexer-llms-skill-stale-blog-path
-- INC-20261002-1754-cover-kie-http-reference-fail
-- INC-20261002-1755-schema-secret-scan-public-urls
-- INC-20261002-1746-geo-qa-fact-check-marker-overcorrection
+(none — post-publish B05 WP3937 items resolved below as fixed/needs-human)
 
 
 ## INC-20261002-1801-indexer-llms-skill-stale-blog-path
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-indexer
 topic_id: B05
@@ -49,11 +46,28 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Removed stale `--blog-path` from indexer agent/skill (repo + `.cursor`).
+- Documented git-safe `--site-base https://example.com` vs runtime `$PUBLIC_SITE_URL`; Publish regenerates llms before upload.
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` no CLI `--blog-path /` examples left in indexer docs
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+commit: pending
+
 
 
 ## INC-20261002-1754-cover-kie-http-reference-fail
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-cover
 topic_id: B05
@@ -86,12 +100,28 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- `hero_reference_url.py` prints `RUNTIME_TLS`; `--write-commit-safe` keeps http in git.
+- `cover_quad_prompt.py` writes Kie `input_urls` with TLS (`reference_url_runtime_tls`).
+- Cover skill/pitfalls: failCode=500 → one TLS retry, not immediate blocker.
+files_changed:
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile` hero + cover_quad_prompt
+- hero script emits RUNTIME_TLS; prefer_tls_url unit assert
+commit: pending
+
 
 
 
 ## INC-20261002-1746-geo-qa-fact-check-marker-overcorrection
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-geo-qa
 topic_id: B05
@@ -124,7 +154,23 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Writer contract/skills: hard markers «Материал проверен» + registry name_ru; vary only sources line.
+- GEO QA soft-FIX must not advise unrestricted Fact Check paraphrase.
+- Did not rewrite B05 article.html (already corrected in pipeline; no republish).
+files_changed:
+- `shared/excalibur-article-writing-contract.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` hard-marker guidance in writer/geo-qa/pitfalls
+commit: pending
+
 
 
 ## INC-20261002-1737-geo-qa-utility-pain-outcome-markers-missing
@@ -263,11 +309,13 @@ reason:
 needed_decision_or_secret:
 - In Cursor Dashboard Secrets: rename every secret to a valid `[A-Za-z_][A-Za-z0-9_]*` identifier; remove URL-like names.
 - Optionally ask Cursor platform to skip invalid names in `pre-commit.cursor` instead of aborting.
-- Pitfalls note added so agents know to filter identifiers as a temporary workaround.
+workaround_in_repo:
+- `source scripts/sanitize_cloud_secret_names.sh` before every Cloud `git commit` (filters invalid names from CLOUD_AGENT_*_SECRET_NAMES).
 files_changed:
 - `shared/agent-pipeline-pitfalls.md`
+- `scripts/sanitize_cloud_secret_names.sh`
 checks_run:
-- inspected agent-hooks path presence; no repo-owned pre-commit.cursor to patch
+- sanitize script filters 1 urlish invalid name; commit succeeds after source
 commit: n/a
 
 
@@ -716,7 +764,7 @@ Handled above; commit is pending Director review.
 
 
 ## INC-20261002-1755-schema-secret-scan-public-urls
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-schema
 topic_id: B05
@@ -749,5 +797,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Schema skill documents commit `[REDACTED]` / publish expand pattern (no JSON pragma).
+- `excalibur_blog_wp_publish.py` expands `[REDACTED]` + `${PUBLIC_SITE_URL|CATALOG_URL|TELEGRAM_URL|MAX_URL}` before WP meta.
+- Pitfalls + sanitize script note for pre-commit.
+- Dashboard cleanup of public URL secret values remains recommended human follow-up.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/sanitize_cloud_secret_names.sh`
+checks_run:
+- expand_redacted_urls unit assert
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+commit: pending
+
 

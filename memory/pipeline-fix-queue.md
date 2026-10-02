@@ -376,6 +376,8 @@ category: script
 - Added `pain_markers_ru` and `outcome_markers_ru` to `editorial-policy.json` (aligned with human-voice gate constants) plus `min_pain_markers` / `min_outcome_markers` in `article_required_signals`.
 - Rewrote recommendation lines to use policy tokens; kept human lead/story/checklist.
 - Utility gate PASS and human-voice PASS for B03 after recovery.
+- Pre-commit secret scan blocked real `CATALOG_URL` / `TELEGRAM_URL` in `article.html` hrefs; replaced with `[REDACTED]` placeholders (same pattern as AS09). Visible CTA text still names каталог / @avtosales125.
+- Pre-commit also crashed when `CLOUD_AGENT_*_SECRET_NAMES` contained a redacted invalid token; filtered names to valid bash identifiers for the commit.
 
 ### Durable fix needed before next run
 - Keep policy marker lists in sync with `scripts/excalibur_blog_human_voice_gate.py` (single source of truth or shared constants).

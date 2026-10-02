@@ -5,6 +5,7 @@
 - Cloud не принимает `excalibur-blog-*` как Task types → fallback `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path.
 - Parent-agent сам пишет статью вместо `excalibur-blog-writer` → **блокер**, перезапуск writer Task.
 - Объединение cover+schema в один Task → запрещено; только параллельные отдельные Task.
+- Перед `git commit` в Cloud: `source scripts/sanitize_cloud_secret_names.sh` — иначе pre-commit может упасть с `invalid variable name` на токене из `CLOUD_AGENT_*_SECRET_NAMES`.
 
 ## Handoff / fragments
 

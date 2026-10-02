@@ -254,3 +254,70 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261002-1609-director-doctor-llms-blog-path
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` asserts `--blog-path` in llms generator help, but CLI already uses `--blog-dir` only → doctor SUMMARY errors=1 while tool is correct.
+
+### How the agent recovered this run
+- Continued pipeline; deferred durable fix to fixer loop.
+
+### Durable fix needed before next run
+- Update doctor check to assert `--blog-dir` (and optionally fail if stale `--blog-path` remains).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md` (Indexer llms CLI note already documents `--blog-dir`)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261002-1310-scout-stale-ai-niche
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-scout
+topic_id: B03
+article_dir: n/a
+severity: high
+category: prompt
+
+### What went wrong
+- Scout skill/agent contracts still prioritize Cursor AI / n8n / Make / нейросети / автопостинг, while `memory/brief/site-brief.md` niche is Авто-Сейлс (авто из Японии/Кореи/Китая).
+- `shared/editorial-utility-only.md` beginner filter still frames audience as AI/automation newcomers.
+- `excalibur_blog_scout_helper.py --suggest-next` returned B01 although live WP already has B01/B02 from prior cron runs; pool uses AS* ids and ledger only mirrors AS08/AS09 after reset.
+
+### How the agent recovered this run
+- Ignored AI priorities; followed site-brief + Director override; forced topic_id B03.
+- WebSearch + MCP-KV Wordstat on auto niche; appended utility-only P0 card for Japanese auction sheet.
+- Utility gate PASS for B03.
+
+### Durable fix needed before next run
+- Rewrite scout agent/skill WebSearch niches and thematic priority to Авто-Сейлс clusters from site-brief.
+- Align `shared/editorial-utility-only.md` audience wording with auto-import beginners (not AI agents).
+- Teach scout helper to skip occupied live/ledger B* ids (or accept explicit `--min-id B03` / occupied-slug list).
+
+### Suggested files to inspect/change
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `scripts/excalibur_blog_scout_helper.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

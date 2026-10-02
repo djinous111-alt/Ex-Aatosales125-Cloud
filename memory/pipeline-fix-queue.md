@@ -297,7 +297,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_doctor.py`
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 warnings=0
 - `rg` / `--help` confirm `--blog-dir` only
-commit: pending-parent-commit
+commit: a450d2d
 
 ## INC-20261002-1310-scout-stale-ai-niche
 status: fixed
@@ -351,7 +351,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → B04
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next --min-id B10` → B10
-commit: pending-parent-commit
+commit: a450d2d
 
 ## INC-20261002-1315-research-notes-gate-accessed-at-auto
 status: fixed
@@ -403,7 +403,7 @@ files_changed:
 checks_run:
 - unit: count_accessed_at + is_technical_topic (B03 False, n8n True)
 - `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir .../B03-...` → PASS
-commit: pending-parent-commit
+commit: a450d2d
 
 ## INC-20261002-1325-writer-utility-pain-outcome-markers
 status: fixed
@@ -458,7 +458,7 @@ files_changed:
 checks_run:
 - JSON parse editorial-policy.json
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir .../B03-...` → PASS
-commit: pending-parent-commit
+commit: a450d2d
 
 ## INC-20261002-1625-director-geo-qa-task-enum-missing
 status: needs-human
@@ -504,7 +504,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - docs rg for geo-qa generalPurpose fallback
-commit: pending-parent-commit
+commit: a450d2d
 
 ## INC-20261002-1335-geo-qa-redacted-cta-hrefs
 status: fixed
@@ -555,7 +555,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - unit: classify_link('[REDACTED]') == redacted_placeholder
-commit: pending-parent-commit
+commit: a450d2d
 
 ## INC-20261002-1331-schema-precommit-secret-names-push-auth
 status: needs-human
@@ -604,7 +604,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `bash -n scripts/sanitize_cloud_secret_names.sh`
-commit: pending-parent-commit
+commit: a450d2d
 
 ## INC-20261002-1338-cover-mcp-timeout-kie-recovery
 status: fixed
@@ -653,7 +653,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - `rg` confirms hoodie is forbidden default, not lock
-commit: pending-parent-commit
+commit: a450d2d
 
 ## INC-20261002-1340-cover-push-auth-secret-scan
 status: needs-human
@@ -699,7 +699,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - docs mention sanitize + --no-verify path
-commit: pending-parent-commit
+commit: a450d2d
 
 ## INC-20261002-1342-indexer-llms-stale-blog-path-flag
 status: fixed
@@ -750,7 +750,7 @@ files_changed:
 checks_run:
 - doctor SUMMARY errors=0
 - indexer skill has no command-line `--blog-path /`
-commit: pending-parent-commit
+commit: a450d2d
 
 ## INC-20261002-1351-publish-http504-webfetch-timeout
 status: fixed
@@ -799,4 +799,4 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
-commit: pending-parent-commit
+commit: a450d2d

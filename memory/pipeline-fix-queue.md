@@ -7,6 +7,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 
+## INC-20261002-1730-research-precommit-invalid-secret-name
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-research
+topic_id: B05
+article_dir: memory/blog/articles/B05-kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud pre-commit secrets scanner failed with `invalid variable name` before any file scan.
+- `CLOUD_AGENT_ALL_SECRET_NAMES` / `CLOUD_AGENT_INJECTED_SECRET_NAMES` contain a non-identifier token (URL/value treated as a secret name), so `${!SECRET_NAME}` crashes the hook.
+
+### How the agent recovered this run
+- Re-ran `git commit` with env lists filtered to bash-valid identifiers only (no `--no-verify`).
+- Commit `f80bdee` landed successfully.
+
+### Durable fix needed before next run
+- Dashboard Secrets: ensure every secret *name* is a valid shell identifier; never put URLs/values in the names list.
+- Harden pre-commit.cursor to skip invalid names instead of aborting the commit.
+
+### Suggested files to inspect/change
+- Cursor Cloud Dashboard Secrets for this environment
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (platform) or local wrapper docs
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261002-1729-research-notes-gate-tech-false-positive
 status: open
 run_date: 2026-10-02

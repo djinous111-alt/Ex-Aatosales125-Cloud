@@ -29,11 +29,19 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 
 ### 1. Preflight publish
 
+Перед link-verify/publish CTA:
+```bash
+python3 scripts/excalibur_blog_cta_expand.py --article-dir <article_dir> --mode expand
+# ... link-verify / publish ...
+python3 scripts/excalibur_blog_cta_expand.py --article-dir <article_dir> --mode redact
+```
+Нужен `paramiko` (см. `requirements.txt` + `.cursor/cloud-agent-install.sh`). Предпочтительно `SSH_ROOT=.` и файл `memory/site.env.local` (gitignored). `wp-publish-result.json` парсит `OK post=` / featured / inline в structured fields.
+
 ```bash
 python scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
-  --site-base https://avtosales125.ru
+  --site-base [REDACTED]
 ```
 
 Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
@@ -86,7 +94,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ```bash
 python scripts/excalibur_blog_interlinker.py --apply \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru
+  --site-base [REDACTED]
 ```
 
 Inbound-ссылки из старых статей на новую.

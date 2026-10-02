@@ -20,7 +20,13 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 
 `--dry-run` — только дата и запросы без HTTP.
 
-Перед **каждой** статьей затем пиши `research-notes.md`. Без него нельзя утверждать цены, даты, версии, статистику.
+Перед **каждой** статьей затем пиши `research-notes.md`.
+
+Gate `excalibur_blog_research_notes_gate.py` определяет technical topic по **границам слов** и полям topic-card (`h1`/`primary_query`/…): «японии» / поле `reader_pain` сами по себе не делают тему technical и не требуют `github_urls >= 3`.
+
+`accessed_at:` должен встречаться как **ключ** ≥5 раз (`accessed_at:`), не только как заголовок колонки таблицы.
+
+Перед commit: `source scripts/sanitize_cloud_secret_names.sh`.
 
 ## Вход
 

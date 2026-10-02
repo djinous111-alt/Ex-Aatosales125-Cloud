@@ -7,6 +7,7 @@ import base64
 import io
 import json
 import os
+import re
 import sys
 import urllib.request
 from pathlib import Path
@@ -380,7 +381,22 @@ def _ssh_creds(env: dict[str, str]) -> tuple[str, int, str, str]:
 
 
 def configured_ssh_root(env: dict[str, str]) -> str:
-    return (env.get("SSH_ROOT") or "").strip()
+    # Empty SSH_ROOT → login cwd (required on hosts where panel path is missing).
+    return (env.get("SSH_ROOT") or "").strip() or "."
+
+
+def require_paramiko():
+    try:
+        import paramiko  # noqa: F401
+    except ModuleNotFoundError as exc:
+        raise SystemExit(
+            "❌ PUBLISH BLOCKER: paramiko is not installed. "
+            "Install via `.cursor/cloud-agent-install.sh` / `requirements.txt` "
+            "(pip install paramiko), then retry."
+        ) from exc
+    import paramiko
+
+    return paramiko
 
 
 def ssh_remote_path(env: dict[str, str], remote: str, root_override: str | None = None) -> str:
@@ -415,7 +431,7 @@ def is_missing_remote_path_error(exc: OSError) -> bool:
 
 
 def upload_bootstrap_ssh(env: dict[str, str], remote: str, data: bytes) -> str:
-    import paramiko
+    paramiko = require_paramiko()
 
     host, port, user, password = _ssh_creds(env)
     transport = paramiko.Transport((host, port))
@@ -451,7 +467,7 @@ def upload_bootstrap_ssh(env: dict[str, str], remote: str, data: bytes) -> str:
 
 
 def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | None = None) -> None:
-    import paramiko
+    paramiko = require_paramiko()
 
     host, port, user, password = _ssh_creds(env)
     remote_path = remote_path or ssh_remote_path(env, remote)
@@ -593,12 +609,31 @@ def main() -> int:
 
     result_path = article_dir / "wp-publish-result.json"
     permalink = ""
+    post_id = 0
+    featured_media_id = 0
+    inline_media_ids: list[int] = []
     for line in out.splitlines():
         if line.startswith("permalink="):
             permalink = line.split("=", 1)[1].strip()
+        elif line.startswith("OK post="):
+            # OK post=3925 slug=...
+            m = re.search(r"OK post=(\d+)", line)
+            if m:
+                post_id = int(m.group(1))
+        elif line.startswith("OK featured="):
+            m = re.search(r"OK featured=(\d+)", line)
+            if m:
+                featured_media_id = int(m.group(1))
+        elif line.startswith("OK inline="):
+            m = re.search(r"OK inline=(\d+)", line)
+            if m:
+                inline_media_ids.append(int(m.group(1)))
     result = {
         "slug": payload["slug"],
         "topic_id": payload["topic_id"],
+        "post_id": post_id,
+        "featured_media_id": featured_media_id,
+        "inline_media_ids": inline_media_ids,
         "permalink": permalink,
         "publish_method": "ssh",
         "cover_evidence": payload.get("cover_evidence", {}),

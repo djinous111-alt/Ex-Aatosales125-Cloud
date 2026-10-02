@@ -15,15 +15,19 @@
 
 Файл `.cursor/environment.json` выполняется из корня проекта:
 
+Фактический `install` в репо:
+
 ```json
 {
-  "install": "python3 -m pip install --user -r requirements.txt && python3 scripts/excalibur_blog_doctor.py",
-  "start": "",
-  "terminals": []
+  "install": "bash .cursor/cloud-agent-install.sh"
 }
 ```
 
-`install` должен быть идемпотентным: его можно запускать много раз, и он не должен писать секреты или runtime-артефакты в Git.
+`cloud-agent-install.sh` ставит `requests pillow python-dotenv numpy paramiko` и создаёт non-secret default `SSH_ROOT=.` в `memory/site.env.local` (gitignored). `install` идемпотентен; секреты только из Cloud Dashboard.
+
+Typed Task: если enum отвергает `excalibur-blog-geo-qa` / другие роли — сразу `Task(generalPurpose)` + agent/skill paths (см. `AGENTS.md`).
+
+Перед `git commit` в Cloud: `source scripts/sanitize_cloud_secret_names.sh` (фильтрует non-identifier entries в `CLOUD_AGENT_*_SECRET_NAMES`).
 
 ## Cursor Secrets
 
@@ -45,6 +49,8 @@ SSH_PASS=<password>
 SSH_ROOT=.
 SSH_PORT=22
 EXCALIBUR_BLOG_ALLOW_PUBLISH=yes
+CATALOG_URL=[REDACTED]
+TELEGRAM_URL=[REDACTED]
 ```
 
 Дополнительно:
@@ -52,6 +58,8 @@ EXCALIBUR_BLOG_ALLOW_PUBLISH=yes
 ```text
 EXCALIBUR_TOPIC_ID=<optional fixed topic id>
 ```
+
+Имена секретов в Dashboard — только valid shell identifiers (`^[A-Za-z_][A-Za-z0-9_]*$`). Не клади raw URL как *имя* секрета в injected secret-name lists.
 
 Запрещено добавлять в repo реальные `.env`, `memory/site.env.local`, MCP tokens, SSH credentials, Cursor API keys.
 

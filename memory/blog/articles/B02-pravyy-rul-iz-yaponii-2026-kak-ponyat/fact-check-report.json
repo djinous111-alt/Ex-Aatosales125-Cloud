@@ -1,0 +1,31 @@
+{
+  "article": "memory/blog/articles/B02-pravyy-rul-iz-yaponii-2026-kak-ponyat/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 3,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 2,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "– и вовремя остановились. Правый руль из Японии в 2026 подходит не всем: решает не красивый руль на фото,",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2028",
+      "kind": "date_or_year",
+      "context": "в июне 2026 не планировал – идёт исследование до 2028. Город на правом руле обычно комфортен, узкая тра",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2011",
+      "kind": "date_or_year",
+      "context": "ехнический регламент Таможенного союза (ТР ТС 018/2011, приложение 8). Японские фары изначально под лево",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -1,3 +1,8 @@
+---
+name: scout-excalibur-blog
+description: Excalibur BLOG Scout — новые topic cards, Wordstat, cannibalization guard.
+---
+
 # Excalibur BLOG — Scout (Скаут-разведчик новых тем)
 
 ## Когда запускаться
@@ -9,15 +14,15 @@
 ## Архитектура работы
 
 ```text
-published-articles.md + blog-topics.md (Audit)
+published-articles.md + blog-topics.md + live-wp-occupied-ids.json
               ↓
-excalibur_blog_scout_helper.py --suggest-next (Get next ID)
+excalibur_blog_scout_helper.py --suggest-next (Get next ID; AS*|B*)
               ↓
 WebSearch (Cursor native trend scouting for 2026)
               ↓
 wordstat_get_top_requests (Yandex Wordstat API demand verify)
               ↓
-excalibur_blog_scout_helper.py --check-query (Cannibalization Guard)
+excalibur_blog_scout_helper.py --check-query (Cannibalization Guard + occupied slugs)
               ↓
 Append new Topic Card to blog-topics.md
 ```
@@ -27,57 +32,38 @@ Append new Topic Card to blog-topics.md
 ## Подробный алгоритм действий
 
 ### Шаг 1 — Анализ прошлого и получение ID
-* Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
-* Вызови helper-скрипт:
+* Считай `shared/published-articles.md`, `memory/topics/blog-topics.md` (**AS\d+ и B\d+**) и `memory/topics/live-wp-occupied-ids.json`.
+* Live dedupe для Авто-Сейлс (обязательно, если helper JSON устарел):
+  `PUBLIC_SITE_URL/wp-json/wp/v2/posts?per_page=30&_fields=id,slug,title,date`
+* Вызови helper:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Helper учитывает `occupied_topic_ids` / `next_suggested_topic_id` и не предлагает уже занятые ID.
 
-### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
-Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
-* Поисковые запросы: *«новые ИИ инструменты автоматизации 2026»*, *«how to automate business Claude Cursor»*, *«лучшие сценарии n8n Make автоматизация»*, *«как настроить ИИ-агента инструкция»*.
-* Найди свежие, практические боли пользователей, по которым не хватает качественных гайдов.
+### Шаг 2 — Поиск трендов (WebSearch) в нише Авто-Сейлс
+Запросы про импорт авто / растаможку / Encar / правый руль / утильсбор / Владивосток — не AI/n8n/Make.
 
 ### Шаг 3 — Валидация спроса (Yandex Wordstat)
-Для 2-3 отобранных вариантов тем вызови инструмент `wordstat_get_top_requests` сервера `user-mcp-kv`.
-* **Цель:** Найти ключевой запрос (primary query) с живым спросом в Яндексе и выписать 3–5 связанных поисковых вопросов для FAQ и secondary queries.
-* **Фильтр:** Если тема имеет микро-спрос (меньше 10 показов в месяц) и нет смежных тем — отложи её и возьми другую, более востребованную.
+Cluster-first: широкий parent → узкий how-to. `totalCount`-only на узкий запрос = low-result, не fatal.
 
-### Шаг 4 — Тест на каннибализацию ключевых слов
-Перед созданием темы запусти:
+### Шаг 4 — Тест на каннибализацию
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
-Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
+Не допускай пересечения с ledger, pool, live occupied slugs.
 
-### Шаг 5 — Сборка карточки темы (Utility-Only)
-Сформируй карточку темы по шаблону:
-```markdown
-## {ID} — Короткое название темы
-
-- **priority:** P0 (если высокий спрос) | P1
-- **slug:** {kebab-case-slug}
-- **h1:** {Заголовок с глаголом действия: Как / Чек-лист / Инструкция}
-- **primary_query:** {главный запрос из Вордстата}
-- **secondary_queries:** {2-3 сопутствующих запроса из Вордстата}
-- **search_intent:** how_to | checklist | comparison | troubleshooting | workflow | parent_guide
-- **article_mode:** B
-- **h2_outline:**
-  1. {Действие 1}
-  2. {Действие 2}
-  3. {Действие 3}
-  4. {Чек-лист/Сравнение}
-- **faq_hints:** {2-3 вопроса-подсказки из хвоста Вордстата}
-- **internal_links:** /
-- **cover_scene_hint:** {Краткое ТЗ для картинки - обстановка, элементы DIY-коллажа}
+Перед любым `git commit` в Cloud:
+```bash
+source scripts/sanitize_cloud_secret_names.sh
 ```
 
-Допиши (append) карточку в конец `memory/topics/blog-topics.md`.
+### Шаг 5 — Карточка темы (Utility-Only)
+Формат `## {ID} — …` с `AS` или `B` префиксом; `article_mode: B` only. Append в `memory/topics/blog-topics.md`. После publish/new WP post обновляй `live-wp-occupied-ids.json`.
 
 ---
 
 ## Блокеры скаута
-* Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
-* Игнорирование проверки на каннибализацию ключей.
-* Выдумывание цифр спроса без вызова Wordstat API.
+* `article_mode: A`
+* Игнорирование cannibalization / live WP occupied
+* Цифры спроса без Wordstat

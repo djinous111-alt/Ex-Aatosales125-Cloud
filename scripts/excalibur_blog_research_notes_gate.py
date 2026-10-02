@@ -14,20 +14,24 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short tokens must match on word boundaries (avoid «ии» inside «японии»).
+TECH_MARKERS_WORD = (
     "ai",
     "ии",
-    "agent",
-    "агент",
     "mcp",
     "api",
-    "cursor",
+    "rag",
     "make",
     "n8n",
+    "agent",
+    "агент",
+    "cursor",
     "github",
     "docker",
-    "rag",
     "workflow",
+)
+# Stems / longer fragments may match as substrings.
+TECH_MARKERS_STEM = (
     "автоматизац",
     "нейросет",
 )
@@ -73,14 +77,31 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_in_blob(blob: str, marker: str, *, word_boundary: bool) -> bool:
+    if not marker:
+        return False
+    if not word_boundary:
+        return marker in blob
+    # Unicode-aware token edges so Cyrillic stems like «японии» do not match «ии».
+    pattern = rf"(?<![\w]){re.escape(marker)}(?![\w])"
+    return bool(re.search(pattern, blob, flags=re.UNICODE))
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
+    # Prefer topic-card fields only. Full notes include labels like reader_pain /
+    # github_evidence and RU place names («японии») that false-triggered substring markers.
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    if not blob.strip():
+        # Fallback: first heading line only (not whole notes body).
+        heading = re.search(r"^#\s+(.+)$", notes, flags=re.M)
+        blob = (heading.group(1) if heading else "")[:200].lower()
+    if any(_marker_in_blob(blob, marker, word_boundary=True) for marker in TECH_MARKERS_WORD):
+        return True
+    return any(_marker_in_blob(blob, marker, word_boundary=False) for marker in TECH_MARKERS_STEM)
 
 
 def field_present(text_lower: str, field: str) -> bool:

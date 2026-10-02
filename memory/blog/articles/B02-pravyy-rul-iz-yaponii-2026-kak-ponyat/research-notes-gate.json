@@ -1,0 +1,24 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B02-pravyy-rul-iz-yaponii-2026-kak-ponyat",
+  "notes": "memory/blog/articles/B02-pravyy-rul-iz-yaponii-2026-kak-ponyat/research-notes.md",
+  "context": "memory/blog/articles/B02-pravyy-rul-iz-yaponii-2026-kak-ponyat/research-context.json",
+  "errors": [],
+  "warnings": [
+    "technical topic has no obvious official docs/developer documentation URL"
+  ],
+  "metrics": {
+    "today_iso": "2026-10-02",
+    "prefer_sources_after": "2026-07-04",
+    "source_urls": 30,
+    "source_domains": 14,
+    "source_table_rows": 25,
+    "accessed_at": 6,
+    "github_urls": 3,
+    "official_doc_urls": 0,
+    "action_outline_items": 8,
+    "pain_solution_rows": 6,
+    "technical_topic": true
+  }
+}

@@ -427,3 +427,43 @@ category: api
 
 ### Fixer resolution
 - pending
+
+## INC-20261003-2141-indexer-llms-blog-path-mismatch
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-korei-pod-klyuch-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `scripts/excalibur_blog_doctor.py` asserts that `excalibur_blog_llms_generator.py --help` contains `--blog-path`.
+- Actual generator CLI has `--blog-dir` (and `--out-dir`, `--site-base`, …) but **no** `--blog-path` flag.
+- Indexer agent/skill shell examples still pass `--blog-path /`, which would fail argparse if followed literally.
+- Preflight doctor FAIL was already noted in handoff notes; confirmed again at indexer step via `--help`.
+
+### How the agent recovered this run
+- Ran `python3 scripts/excalibur_blog_llms_generator.py --help` and used the real flags: `--blog-dir memory/blog/articles --out-dir memory/blog` (no `--blog-path`).
+- First generator run with live `PUBLIC_SITE_URL` was blocked by pre-commit secret scan on `llms.txt` / `llms-full.txt`.
+- Regenerated committed artifacts with `--site-base '[REDACTED]'` (matches prior HEAD convention); publish expands live base later.
+- Generator succeeded: `memory/blog/llms.txt`, `memory/blog/llms-full.txt` (3 articles indexed).
+
+### Durable fix needed before next run
+- Align doctor check with generator CLI: either remove `--blog-path` assert from doctor, or add optional `--blog-path` alias to the generator if it is still a desired contract.
+- Update indexer skill/agent examples to drop `--blog-path /` (keep `--blog-dir` + `--out-dir`).
+- Document that committed `llms*.txt` / interlink JSON must use placeholder site-base (`[REDACTED]`), not live `PUBLIC_SITE_URL`, to pass Cloud secret scan.
+- Sync `.cursor/skills` and `skills/` copies of indexer skill.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

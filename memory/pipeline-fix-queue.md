@@ -6,6 +6,107 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261002-0940-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-geo-qa
+topic_id: B02
+article_dir: memory/blog/articles/B02-pravyy-rul-iz-yaponii-2026-kak-ponyat
+severity: medium
+category: api
+
+### What went wrong
+- Cloud Task API rejected typed subagent `excalibur-blog-geo-qa` (not in enum).
+- Director had to launch GEO QA via `Task(generalPurpose)` fallback with `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Ran full GEO QA contract under generalPurpose; produced article-qa PASS and handoff block.
+
+### Durable fix needed before next run
+- Register `excalibur-blog-geo-qa` in Cloud Task / agent catalog enum alongside research/writer/scout.
+- Keep generalPurpose fallback documented in AGENTS.md (already present).
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `AGENTS.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261002-0948-geo-qa-utility-pain-outcome-policy
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-geo-qa
+topic_id: B02
+article_dir: memory/blog/articles/B02-pravyy-rul-iz-yaponii-2026-kak-ponyat
+severity: high
+category: qa
+
+### What went wrong
+- `editorial-policy.json` again lacked `pain_markers_ru` / `outcome_markers_ru`.
+- `excalibur_blog_utility_gate.py` still enforced `min_pain_markers` / `min_outcome_markers` when lists were empty → every article (including AS09) false-BLOCK.
+- Recurrence of B06/B07 incidents after rebrand drift.
+
+### How the agent recovered this run
+- Restored marker lists in `memory/brief/editorial-policy.json`.
+- Patched utility gate to skip pain/outcome mins when lists are empty.
+- Light article FIX for recommendation/outcome markers; utility + human-voice PASS.
+
+### Durable fix needed before next run
+- Keep skip-when-empty in utility gate (committed this run).
+- Add regression check / fixture that AS09 utility remains PASS after policy edits.
+- Document required policy keys in writer/geo-qa skills.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261002-0948-geo-qa-writer-href-redacted
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-geo-qa
+topic_id: B02
+article_dir: memory/blog/articles/B02-pravyy-rul-iz-yaponii-2026-kak-ponyat
+severity: high
+category: env
+
+### What went wrong
+- Writer saved CTA links as literal `href="[REDACTED]"` in `article.html` (3 anchors).
+- link-verify failed (404 on relative `[REDACTED]`).
+- Likely secret-redaction / over-sanitization during write, not intentional placeholders.
+
+### How the agent recovered this run
+- GEO QA restored catalog×2 + Telegram×1 from `CATALOG_URL` / `TELEGRAM_URL` env; link-verify 2/2 PASS.
+
+### Durable fix needed before next run
+- Writer skill: never write literal `[REDACTED]` into href; use env URLs or conversion-map.
+- Optional post-write assert: no `[REDACTED]` token in article.html before handoff.
+- Document in pitfalls for Cloud secret redaction side-effects on HTML.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_html_linter.py` (optional ban on `[REDACTED]` href)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261002-0938-research-precommit-secret-names-redacted
 status: open
 run_date: 2026-10-02
@@ -358,3 +459,4 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+

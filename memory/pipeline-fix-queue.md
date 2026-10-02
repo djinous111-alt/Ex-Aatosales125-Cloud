@@ -6,8 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_B02 fixer run 2026-10-02: see resolutions below; open remainder only if needs-human._
+
 ## INC-20261002-0953-publish-paramiko-missing-install
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-publish
 topic_id: B02
@@ -43,10 +45,27 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- `paramiko` (+ numpy) в `.cursor/cloud-agent-install.sh` / `requirements.txt`; install создаёт non-secret `SSH_ROOT=.` в `memory/site.env.local`.
+- Doctor проверяет paramiko; publish `require_paramiko()` + default `SSH_ROOT=.`; `wp-publish-result.json` парсит structured post/media ids.
+- CTA helper `excalibur_blog_cta_expand.py` + publish skill cycle expand→verify→redact.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_cta_expand.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py scripts/excalibur_blog_cta_expand.py`
+- `python3 scripts/excalibur_blog_doctor.py` (errors=0)
+commit: db94427..d9ce577
 
 ## INC-20261002-0949-indexer-llms-secret-scan-redact
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-indexer
 topic_id: B02
@@ -80,10 +99,27 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Indexer skill: CLI only `--blog-dir` (no `--blog-path`); commit pattern redact/`[REDACTED]` site-base + `sanitize_cloud_secret_names.sh`.
+- Doctor checks `--blog-dir` and warns if stale `--blog-path` advertised.
+- Pitfalls document commit-redact → runtime-restore for llms.
+files_changed:
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/sanitize_cloud_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py`
+- `rg` confirms no agent CLI `--blog-path /` instruction
+commit: db94427..d9ce577
 
 ## INC-20261002-0939-schema-secret-scan-blocks-jsonld
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-schema
 topic_id: B02
@@ -116,10 +152,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Schema skill documents sanitize + `"_scan": "pragma: allowlist secret"` OR `[REDACTED]` placeholders for git; full URLs required at publish runtime.
+- Shared pitfalls + sanitize helper for invalid secret-name list crash.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/sanitize_cloud_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- skill/docs `rg` for pragma/sanitize guidance
+commit: db94427..d9ce577
 
 ## INC-20261002-0938-cover-hoodie-outfit-lock
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-cover
 topic_id: B02
@@ -151,11 +199,26 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Removed hardcoded white hoodie outfit lock from `cover_quad_prompt.py`; outfit follows scene weather + blog-hero outfit_rule.
+- Default cover `scene_hint` / hook in `quad_manifest.py` no longer mention худи/Wordstat SEO.
+- Cover skill notes NO default hoodie.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile` cover scripts
+- `rg` confirms old hoodie lock string absent from scripts
+commit: db94427..d9ce577
 
 
 ## INC-20261002-0940-geo-qa-typed-task-unavailable
-status: open
+status: needs-human
 run_date: 2026-10-02
 role: excalibur-blog-geo-qa
 topic_id: B02
@@ -183,10 +246,15 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+reason:
+- Cloud Task enum still rejects typed `excalibur-blog-geo-qa`; registration is a Cursor platform/Dashboard change, not a repo file.
+- Repo mitigation done: AGENTS.md / CURSOR-CLOUD-RUNBOOK / pitfalls document immediate `Task(generalPurpose)` fallback without typed retry.
+needed_decision_or_secret:
+- Register `excalibur-blog-geo-qa` (and other missing `excalibur-blog-*` roles) in Cloud Task / agent catalog enum.
 
 ## INC-20261002-0948-geo-qa-utility-pain-outcome-policy
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-geo-qa
 topic_id: B02
@@ -219,10 +287,26 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Kept skip-when-empty in utility gate; restored non-empty `pain_markers_ru` / `outcome_markers_ru`.
+- Added `--self-test` regression; doctor fails if marker lists empty.
+- GEO QA skill documents required policy keys.
+files_changed:
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `memory/brief/editorial-policy.json`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_utility_gate.py --self-test`
+- `python3 scripts/excalibur_blog_doctor.py` (pain/outcome OK)
+commit: db94427..d9ce577
 
 ## INC-20261002-0948-geo-qa-cta-expand-reredact
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-geo-qa
 topic_id: B02
@@ -252,10 +336,24 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Documented intentional CTA `[REDACTED]` + expand→verify→re-redact in geo-qa/publish skills and pitfalls.
+- Added helper `scripts/excalibur_blog_cta_expand.py --mode expand|redact`.
+files_changed:
+- `scripts/excalibur_blog_cta_expand.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cta_expand.py`
+commit: db94427..d9ce577
 
 ## INC-20261002-0938-research-precommit-secret-names-redacted
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-research
 topic_id: B02
@@ -282,10 +380,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Added `scripts/sanitize_cloud_secret_names.sh` to filter non-identifier entries before pre-commit `${!SECRET_NAME}` expansion.
+- Documented in pitfalls/runbook/scout/research/geo-qa; doctor asserts helper exists.
+- Optional human cleanup: remove raw URL / `[REDACTED]` from Dashboard injected secret-name lists.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+checks_run:
+- `bash -n scripts/sanitize_cloud_secret_names.sh`
+- `python3 scripts/excalibur_blog_doctor.py`
+commit: db94427..d9ce577
 
 ## INC-20261002-0935-research-notes-gate-false-technical
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-research
 topic_id: B02
@@ -320,10 +432,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Tech detection uses word-boundary tokens + stems; scans topic-card fields only (not full notes body).
+- B02 recheck: `technical_topic=false`, gate PASS without false GitHub requirement.
+- Research skill documents `accessed_at:` key count and word-boundary tech rules.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir memory/blog/articles/B02-pravyy-rul-iz-yaponii-2026-kak-ponyat`
+- metrics.technical_topic == false
+commit: db94427..d9ce577
 
 ## INC-20261002-0919-scout-suggest-next-ignores-live-wp
-status: open
+status: fixed
 run_date: 2026-10-02
 role: excalibur-blog-scout
 topic_id: B02
@@ -356,7 +482,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-02
+fix_summary:
+- Scout helper parses `## AS\d+` and `## B\d+`; article dirs `{B,AS}*`; reads `memory/topics/live-wp-occupied-ids.json`.
+- `--suggest-next` now returns B03 (not B01) with occupied AS01–AS09/B01/B02.
+- Scout agent/skill rebranded to Авто-Сейлс + mandatory live WP dedupe.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `memory/topics/live-wp-occupied-ids.json`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → Next available topic ID: B03; pool=10
+commit: db94427..d9ce577
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -605,5 +747,5 @@ commit: pending-parent-commit
 
 ## Fixed incidents
 
-Handled above; commit is pending Director review.
+B02 fixer closed script/docs incidents above; typed geo-qa Task enum remains needs-human. Commit pending push.
 

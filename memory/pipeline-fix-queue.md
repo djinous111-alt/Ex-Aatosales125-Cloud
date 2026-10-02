@@ -6,6 +6,77 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261002-0939-schema-secret-scan-blocks-jsonld
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-schema
+topic_id: B02
+article_dir: memory/blog/articles/B02-pravyy-rul-iz-yaponii-2026-kak-ponyat
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secrets scanner blocked commit of valid `schema.jsonld` because BlogPosting `@id` / author `sameAs` must include `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` values from `shared/authors-registry.json` and site brief.
+- The same public URL values are already present in committed AS08/AS09 `schema.jsonld` and `shared/authors-registry.json`.
+- Separately, `CLOUD_AGENT_INJECTED_SECRET_NAMES` contains one raw URL entry (not a valid env identifier), which crashes the hook at `${!SECRET_NAME}` until filtered.
+
+### How the agent recovered this run
+- Generated complete `schema.jsonld` on disk for publish/indexer (BlogPosting + FAQPage + HowTo + Review).
+- Filtered invalid identifier from `CLOUD_AGENT_INJECTED_SECRET_NAMES` to get past the hook crash; left schema uncommitted because scanner still flags public site URLs as secrets.
+- Wrote fragment `.cursor/excalibur-blog-fragments/schema.md` with PASS and this incident.
+
+### Durable fix needed before next run
+- Stop treating public site/catalog/Telegram/MAX URLs as commit-blocking secrets for JSON-LD / authors registry, OR provide an allowlisted commit path for `memory/blog/articles/*/schema.jsonld`.
+- Remove the raw URL entry from `CLOUD_AGENT_INJECTED_SECRET_NAMES` (names must be valid shell identifiers only).
+- Optionally: document placeholder→env expansion at publish if absolute URLs must stay out of git.
+
+### Suggested files to inspect/change
+- Cursor Dashboard Secrets / `CLOUD_AGENT_INJECTED_SECRET_NAMES` configuration
+- `shared/authors-registry.json`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261002-0938-cover-hoodie-outfit-lock
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-cover
+topic_id: B02
+article_dir: memory/blog/articles/B02-pravyy-rul-iz-yaponii-2026-kak-ponyat
+severity: medium
+category: prompt
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` hardcodes `Outfit lock: thick heavyweight white hoodie` in the MCP prompt.
+- This conflicts with `memory/cover/blog-hero.json` outfit_rule (weather/topic outfit; NO cap/hood) and cover-design-code.
+- Cover agent for B02 had to manually rewrite prompt/batch after `--write-batch`.
+
+### How the agent recovered this run
+- Replaced hoodie outfit lock in `cover/quad-mcp-prompt.txt` and `cover/quad-mcp-batch.json` with weather/topic outfit from cover scene_hint (navy windbreaker, no hoodie).
+
+### Durable fix needed before next run
+- Remove hardcoded hoodie outfit lock from `scripts/excalibur_blog_cover_quad_prompt.py`.
+- Align prompt fragment with blog-hero `outfit_rule` / `prompt_fragment` (face+glasses lock only; clothes from scene_hint).
+- Also fix default cover scene_hint in `scripts/excalibur_blog_quad_manifest.py` that still mentions «белое плотное худи» and Wordstat.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `memory/cover/blog-hero.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261002-0940-geo-qa-typed-task-unavailable
 status: open
 run_date: 2026-10-02

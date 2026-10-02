@@ -59,7 +59,7 @@ checks_run:
 - `python3 -m json.tool memory/brief/editorial-policy.json`
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir .../AS09-...` → PASS
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir .../B05-...` → PASS
-commit: pending
+commit: 09c4279
 
 
 ## INC-20261002-1736-writer-precommit-telegram-url-secret
@@ -105,7 +105,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` for pragma allowlist guidance in Writer skills / pitfalls
-commit: pending
+commit: 09c4279
 
 
 ## INC-20261002-1730-research-precommit-invalid-secret-name
@@ -196,7 +196,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_research_notes_gate.py --self-test`
 - `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir .../B05-...` → PASS tech=false
-commit: pending
+commit: 09c4279
 
 
 ## INC-20261002-1728-research-wordstat-empty-and-dvtu-504
@@ -239,7 +239,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` for wordstat_narrow_empty / timeout→mirror guidance in research skills
-commit: pending
+commit: 09c4279
 
 
 ## INC-20261002-1725-scout-live-wp-cannibalization-near-miss
@@ -293,7 +293,7 @@ files_changed:
 checks_run:
 - WP near-miss dry-run exit 1; clean unique query exit 0
 - `python3 -m py_compile scripts/excalibur_blog_scout_helper.py`
-commit: pending
+commit: 09c4279
 
 
 ## INC-20261002-2015-director-doctor-llms-blog-path
@@ -344,7 +344,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
 - `python3 scripts/excalibur_blog_today.py` → EXCALIBUR_SUGGESTED_TOPIC_ID=AS01
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → B06, AS* count=9
-commit: pending
+commit: 09c4279
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch

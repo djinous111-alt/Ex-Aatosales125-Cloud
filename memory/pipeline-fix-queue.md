@@ -499,3 +499,39 @@ category: env
 ### Fixer resolution
 - pending
 
+
+## INC-20261002-1338-cover-mcp-timeout-kie-recovery
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-cover
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-chitat-auktsionnyy-list-yaponiya-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync Cursor MCP `gpt-image-2` i2i (16:9, 2K, with `input_urls`) returned `HTTP MCP error -32001: Request timed out`.
+- Cloud run events had no late URL; no async status/result MCP tool returned a task_id from the timed-out sync call.
+
+### How the agent recovered this run
+- Did not blind-retry sync MCP create (avoid duplicate jobs).
+- Used preferred Cloud path from `quad-mcp-batch.json`: `scripts/excalibur_blog_kie_gpt_image2_api.py` (createTask → poll recordInfo) with the same batch `mcp_args` / i2i reference.
+- Got result URL, ran `excalibur_blog_quad_apply.py --inject-html`; split report PASS; 3 figures injected.
+- Patched generated prompt to remove style-preset «Outfit lock: white hoodie» in favor of navy softshell (auction/docs), per blog-hero outfit_rule.
+
+### Durable fix needed before next run
+- Prefer Kie async script for Cloud cover by default (document in cover skill as primary, MCP sync as legacy).
+- Style preset / prompt builder must not inject hoodie lock when agent scene_hint specifies a different outfit.
+- Optional: expose async MCP create/status for gpt-image-2 so -32001 can resume by task_id without a second create.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py` (hoodie lock / outfit fragment source)
+- `memory/cover/quad-style-digital-meme-collage-ru.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md` (Cloud: Kie primary)
+- `shared/blog-cover-quad-canvas-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

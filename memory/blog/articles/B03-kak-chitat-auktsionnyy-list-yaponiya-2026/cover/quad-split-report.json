@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B03-kak-chitat-auktsionnyy-list-yaponiya-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1018,
+      580
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 580,
+        "end": 621
+      },
+      "v_gutter_px": {
+        "start": 1018,
+        "end": 1040
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 3,
+          "right": 1018,
+          "bottom": 576
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1018,
+          "bottom": 580
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс со смартфоном и распечаткой аукционного листа, японский седан, плашка читай лист до ставки",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1040,
+          "top": 6,
+          "right": 2048,
+          "bottom": 573
+        },
+        "raw_box_px": {
+          "left": 1040,
+          "top": 0,
+          "right": 2048,
+          "bottom": 580
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап аукционного листа: четыре якоря — оценка, пробег, схема кузова, примечания",
+        "h2_anchor": "Найдите на листе четыре якоря до любой ставки"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 37,
+          "top": 621,
+          "right": 981,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 621,
+          "right": 1018,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица оценок аукциона: граница 4.5 и риски при 3.5 рядом с пробегом",
+        "h2_anchor": "Сопоставьте оценку с пробегом: граница 4.5 и риски 3.5"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1072,
+          "top": 621,
+          "right": 2016,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1040,
+          "top": 621,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема флагов R, RA и 99 на японском аукционном листе",
+        "h2_anchor": "Разберите R, RA и 99 без японского словаря"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Найдите на листе четыре якоря до любой ставки",
+    "injected inline_2 after H2 — Сопоставьте оценку с пробегом: граница 4.5 и риски 3.5",
+    "injected inline_3 after H2 — Разберите R, RA и 99 без японского словаря"
+  ]
+}

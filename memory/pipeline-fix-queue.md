@@ -6,9 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+- INC-20261002-1801-indexer-llms-skill-stale-blog-path
 - INC-20261002-1754-cover-kie-http-reference-fail
 - INC-20261002-1755-schema-secret-scan-public-urls
 - INC-20261002-1746-geo-qa-fact-check-marker-overcorrection
+
+
+## INC-20261002-1801-indexer-llms-skill-stale-blog-path
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-indexer
+topic_id: B05
+article_dir: memory/blog/articles/B05-kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026
+severity: low
+category: docs
+
+### What went wrong
+- После INC-2015 doctor уже проверяет `--blog-dir`, но indexer agent/skill всё ещё показывают CLI с `--blog-path /`.
+- Актуальный `scripts/excalibur_blog_llms_generator.py` принимает только `--blog-dir` (нет `--blog-path`).
+- User/director явно предупредил: «актуальный CLI (--blog-dir, не --blog-path)».
+
+### How the agent recovered this run
+- Запустил generator без `--blog-path`: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` → PASS.
+- B05 попал в `memory/blog/llms.txt` и `llms-full.txt`.
+
+### Durable fix needed before next run
+- Убрать `--blog-path` из примеров indexer agent + skill (repo + `.cursor` зеркала).
+- Оставить только `--blog-dir` / `--out-dir` / `--site-base`.
+
+### Suggested files to inspect/change
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
 
 
 ## INC-20261002-1754-cover-kie-http-reference-fail

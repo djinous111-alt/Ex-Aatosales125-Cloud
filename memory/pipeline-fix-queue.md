@@ -467,3 +467,41 @@ category: docs
 
 ### Fixer resolution
 - pending
+
+## INC-20261003-2142-publish-paramiko-siteenv-missing
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-korei-pod-klyuch-2026
+severity: medium
+category: env
+
+### What went wrong
+- `paramiko` missing in runtime (`ModuleNotFoundError`) despite SSH-only publish transport.
+- `memory/site.env.local` absent; Cloud Secrets were in process env but `SSH_ROOT` unset (`root: unset`).
+
+### How the agent recovered this run
+- `pip3 install --break-system-packages paramiko`.
+- Generated gitignored `memory/site.env.local` from Cloud Secrets with `SSH_ROOT=.` (unquoted values).
+- Restored CTA/schema `[REDACTED]` hosts for live publish, then re-redacted before commit.
+- Publish succeeded via SSH+HTTP (no WebFetch); live HEAD 200; new post_id 3778 (not forbidden list).
+
+### Durable fix needed before next run
+- Ensure `paramiko` is installed by `.cursor/cloud-agent-install.sh` / requirements on every cloud boot.
+- Document `SSH_ROOT=.` + `site.env.local` bootstrap from secrets in publish skill/pitfalls.
+- Optional: publish script should expand `[REDACTED]` CTA/schema hosts from `PUBLIC_SITE_URL`/`CATALOG_URL`/`TELEGRAM_URL` automatically.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_wp_publish.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

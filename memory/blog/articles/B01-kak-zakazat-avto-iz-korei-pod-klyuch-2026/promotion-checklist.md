@@ -1,13 +1,13 @@
 # Promotion checklist — B01 kak-zakazat-avto-iz-korei-pod-klyuch-2026
 
-Дата публикации: 2026-10-03 (ожидается после publish)  
-Live URL: (заполнить после WP publish)
+Дата публикации: 2026-10-03 (published)  
+Live URL: [REDACTED]/2026/09/28/kak-zakazat-avto-iz-korei-pod-klyuch-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL (HEAD 200) — title, excerpt, featured image, FAQ
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Фильтры до 2.0 л / 160 л.с. до поиска
 • VIN + Carhistory + осмотр — только потом депозит
 
-Читать: [URL после publish]
+Читать: [REDACTED]/2026/09/28/kak-zakazat-avto-iz-korei-pod-klyuch-2026/
 ```
 
 ## Перелинковка

@@ -6,6 +6,81 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+
+## INC-20261002-1725-scout-live-wp-cannibalization-near-miss
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-scout
+topic_id: B04
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- Scout appended B04 `kak-proverit-prohodnye-avto-iz-yaponii-2026` after `--check-query` PASS.
+- Live WP already had `2026-09-29|prohodnye-avto-iz-yaponii-2026|Проходные авто из Японии 2026: как проверить год до ставки` in `EXCALIBUR_RECENT_WP_POSTS`.
+- `excalibur_blog_scout_helper.py --check-query` only compares against `blog-topics.md` B* cards + local article dirs / ledger – it does **not** load `EXCALIBUR_RECENT_WP_POSTS` or live REST slugs.
+- Stale `published-live-avtosales125.json` (2026-07) also missed recent B-pipeline posts.
+
+### How the agent recovered this run
+- Removed B04 card from `memory/topics/blog-topics.md`.
+- Re-scouted against full `EXCALIBUR_RECENT_WP_POSTS` + live REST; chose B05 comparison Уссурийск vs Владивосток (no dedicated live slug).
+- Rejected AS02 Encar / AS01 растаможка Кореи / AS05 СВХ / документы Китай – already live.
+
+### Durable fix needed before next run
+- Scout helper `--check-query` must accept recent WP posts (from today.py JSON / PUBLIC_SITE_URL REST) and fail on slug/title near-duplicates.
+- Scout skill/agent: hard step "diff primary_query+slug vs EXCALIBUR_RECENT_WP_POSTS before append".
+- Refresh or auto-fetch live slug index; do not trust July dump alone.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261002-2015-director-doctor-llms-blog-path
+status: open
+run_date: 2026-10-02
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` fails with `FAIL llms generator supports --blog-path`.
+- Actual CLI of `scripts/excalibur_blog_llms_generator.py` is `--blog-dir` (no `--blog-path`).
+- `excalibur_blog_today.py` / scout helper only match `## B\\d+` topic cards, so existing AS* P0 pool is invisible and today reports `needs_scout` even when AS02/AS04/AS07 pass utility gate.
+
+### How the agent recovered this run
+- Continued pipeline: Scout for Авто-Сейлс B04+ (recent WP B03 already live), then research_start.
+- Did not treat doctor `--blog-path` fail as hard stop; noted for fixer.
+
+### Durable fix needed before next run
+- Doctor check should assert `--blog-dir` (or accept both).
+- today.py + scout_helper should recognize AS* topic cards OR migrate pool to B* consistently; next-id must consider recent WP / ledger occupancy so B01–B03 are not reused after ledger reset.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

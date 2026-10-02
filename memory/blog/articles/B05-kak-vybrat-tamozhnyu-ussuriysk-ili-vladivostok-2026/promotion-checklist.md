@@ -1,15 +1,16 @@
 # Promotion checklist — B05 kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026
 
 Дата публикации: 2026-10-02  
-Live URL: https://example.com/2026/10/02/kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026/
+Live URL: [REDACTED]/2026/10/02/kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026/  
+WP post_id: 3937 · featured: 3938 · inline: 3939/3940/3941 · schema_meta: ok
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200; REST id 3937)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
-- [ ] Проверить internal links из статьи (200)
+- [x] Проверить internal links из статьи (200) — CTA catalog+Telegram OK pre-publish
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
 
 ## Соцсети / каналы (из conversion-tracking-map)
@@ -29,7 +30,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • До депозита: маршрут ввоза + зона по приказу 178н
 • Нет совпадения — таможенный транзит, не перегон «ради очереди»
 
-Читать: https://example.com/2026/10/02/kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026/
+Читать: [REDACTED]/2026/10/02/kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026/
 ```
 
 ## Перелинковка
@@ -47,4 +48,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir …/B05-… --site-base $PUBLIC_SITE_URL` — 0 links applied; report `memory/blog/interlink-suggestions.json`.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` через `--blog-dir` (без `--blog-path`). Live URLs в git — placeholder `example.com` из‑за secret-scan PUBLIC_SITE_URL (runtime publish подставит origin).
-- Publish: ещё не выполнялся (Indexer only).
+- Publish PASS: post 3937; SSH+HTTP; no WebFetch fallback; do not republish.

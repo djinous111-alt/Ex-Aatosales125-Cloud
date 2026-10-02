@@ -1,10 +1,8 @@
 {
   "gate": "human-voice",
-  "status": "BLOCK",
+  "status": "PASS",
   "article_dir": "memory/blog/articles/B05-kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026",
-  "errors": [
-    "Fact Check Box missing: need <blockquote> with «Материал проверен» before FAQ"
-  ],
+  "errors": [],
   "warnings": [
     "multiple exactly-5-step lists detected; vary list size when editorially possible"
   ],

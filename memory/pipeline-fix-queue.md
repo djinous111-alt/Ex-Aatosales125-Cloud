@@ -58,6 +58,7 @@ category: prompt
 
 ### How the agent recovered this run
 - Replaced hoodie outfit lock in `cover/quad-mcp-prompt.txt` and `cover/quad-mcp-batch.json` with weather/topic outfit from cover scene_hint (navy windbreaker, no hoodie).
+- Sync MCP `gpt-image-2` returned -32001 ×3; completed via preferred `scripts/excalibur_blog_kie_gpt_image2_api.py` (ONE task) → split/inject PASS.
 
 ### Durable fix needed before next run
 - Remove hardcoded hoodie outfit lock from `scripts/excalibur_blog_cover_quad_prompt.py`.

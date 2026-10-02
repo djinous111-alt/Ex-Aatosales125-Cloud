@@ -1,0 +1,42 @@
+{
+  "topic_id": "B02",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Правый руль? Сначала маршрут",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у праворульного японского кроссовера в порту Владивостока, плашка «правый руль?»",
+      "scene_hint": "WEATHER: cool misty Vladivostok port morning, light fog over Golden Bridge; OUTFIT: navy windbreaker jacket over charcoal knit sweater (NOT hoodie, NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie next to modern Japanese RHD crossover with steering wheel visible on RIGHT side through open door; fake catalog card scrap «японец RHD» + sticky note «до ставки»; torn paper hook plaque Cyrillic «Правый руль? Сначала маршрут» with yellow highlighter on «маршрут»; shocked meme cutout + cat reaction sticker (different formats, max one Drake elsewhere on canvas only if needed); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; NO toxic sticker words like лох/лохов",
+      "meme_caption_ru": "Правый руль?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Сравните сценарии: кому правый руль удобен, а кому спокойнее левый из Кореи",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI 16:9: columns Япония правый | Корея левый; rows городской сценарий / трасса и обгоны / фары / перепродажа на западе РФ; yellow highlight row «ваш маршрут»; pink sticky «без магии цен»; scotch tape corner; NO hero face; NO Wordstat/Metrika; no toxic slang",
+      "alt": "Таблица сценариев: правый руль Япония vs левый Корея по маршруту и перепродаже"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Проверьте маршрут: город, трасса и обгоны без розовых очков",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable checklist board: 1) будни город 2) трасса и частота 3) обгоны/видимость 4) парковка 5) семья/пассажиры; red pen checkmarks; sticky «без розовых очков»; tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Чеклист маршрута: город, трасса, обгоны и парковка до выбора правого руля"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Уточните до ставки: фары, СБКТС, сервис и перепродажа",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU numbered workflow strip before bid: 1 фары/адаптация 2 СБКТС 3 сервис запчасти 4 перепродажа регион → стрелка «депозит только после»; torn-paper steps, marker arrows, mini customs checklist scrap taped; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема до ставки: фары, СБКТС, сервис и перепродажа перед депозитом"
+    }
+  }
+}

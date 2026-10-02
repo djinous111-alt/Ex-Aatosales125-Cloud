@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B02-pravyy-rul-iz-yaponii-2026-kak-ponyat/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1024,
+      575
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 575,
+        "end": 606
+      },
+      "v_gutter_px": {
+        "start": 1024,
+        "end": 1042
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1024,
+          "bottom": 575
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1024,
+          "bottom": 575
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у праворульного японского кроссовера в порту Владивостока, плашка «правый руль?»",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1042,
+          "top": 4,
+          "right": 2048,
+          "bottom": 570
+        },
+        "raw_box_px": {
+          "left": 1042,
+          "top": 0,
+          "right": 2048,
+          "bottom": 575
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сценариев: правый руль Япония vs левый Корея по маршруту и перепродаже",
+        "h2_anchor": "Сравните сценарии: кому правый руль удобен, а кому спокойнее левый из Кореи"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 26,
+          "top": 606,
+          "right": 997,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 606,
+          "right": 1024,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист маршрута: город, трасса, обгоны и парковка до выбора правого руля",
+        "h2_anchor": "Проверьте маршрут: город, трасса и обгоны без розовых очков"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1059,
+          "top": 606,
+          "right": 2030,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1042,
+          "top": 606,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема до ставки: фары, СБКТС, сервис и перепродажа перед депозитом",
+        "h2_anchor": "Уточните до ставки: фары, СБКТС, сервис и перепродажа"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Сравните сценарии: кому правый руль удобен, а кому спокойнее левый из Кореи",
+    "injected inline_2 after H2 — Проверьте маршрут: город, трасса и обгоны без розовых очков",
+    "injected inline_3 after H2 — Уточните до ставки: фары, СБКТС, сервис и перепродажа"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "topic_id": "B02",
+  "slug": "pravyy-rul-iz-yaponii-2026-kak-ponyat",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у праворульного японского кроссовера в порту Владивостока, плашка «правый руль?»",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-02T09:45:50+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у праворульного японского кроссовера в порту Владивостока, плашка «правый руль?»",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сценариев: правый руль Япония vs левый Корея по маршруту и перепродаже",
+      "h2_anchor": "Сравните сценарии: кому правый руль удобен, а кому спокойнее левый из Кореи",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Чеклист маршрута: город, трасса, обгоны и парковка до выбора правого руля",
+      "h2_anchor": "Проверьте маршрут: город, трасса и обгоны без розовых очков",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема до ставки: фары, СБКТС, сервис и перепродажа перед депозитом",
+      "h2_anchor": "Уточните до ставки: фары, СБКТС, сервис и перепродажа",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

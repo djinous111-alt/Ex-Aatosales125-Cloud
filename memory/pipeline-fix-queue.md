@@ -206,10 +206,11 @@ category: env
 - Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to `^[A-Za-z_][A-Za-z0-9_]*$` in the shell session, then recommitted successfully.
 - Push to feature branch succeeded after the filtered commit.
 - Recurrence 2026-10-03 writer(B01): same `invalid variable name` on first commit; cleared/filtered injected names in session and recommitted (`f451f51`).
+- Recurrence 2026-10-03 schema(B01): `scripts/sanitize_cloud_secret_names.sh` still missing; session list contained non-identifier `[REDACTED]`; filtered to `^[A-Za-z_][A-Za-z0-9_]*$` before commit of `schema.jsonld`.
 
 ### Durable fix needed before next run
 - Restore or add `scripts/sanitize_cloud_secret_names.sh` that filters invalid identifiers before any git hook expands `${!SECRET_NAME}`.
-- Wire the sanitize step into agent pre-commit docs / Cloud install so scout/research/writer/publish do not hit the same blocker.
+- Wire the sanitize step into agent pre-commit docs / Cloud install so scout/research/writer/schema/publish do not hit the same blocker.
 - Optionally harden the Cursor pre-commit hook to skip non-identifier names instead of aborting the commit.
 - Note: injected list may be comma-separated; sanitize must split on commas and drop non-identifiers (and redacted placeholders).
 

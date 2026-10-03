@@ -316,3 +316,36 @@ category: docs
 ### Fixer resolution
 - pending
 
+
+## INC-20261003-1724-scout-precommit-invalid-secret-name
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-scout
+topic_id: B02
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in pre-commit.cursor: `invalid variable name` while expanding `${!SECRET_NAME}`.
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained 1 non-identifier name (len=25); `scripts/sanitize_cloud_secret_names.sh` missing from repo.
+
+### How the agent recovered this run
+- Filtered non-identifier names out of `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `CLOUD_AGENT_ALL_SECRET_NAMES` for the commit shell, then committed and pushed B02 topic card.
+
+### Durable fix needed before next run
+- Restore `scripts/sanitize_cloud_secret_names.sh` (or equivalent) and document sourcing it before git commit in scout/director skills.
+- Ensure Dashboard secret names are valid bash identifiers (A-Za-z_[A-Za-z0-9_]*).
+
+### Suggested files to inspect/change
+- `scripts/sanitize_cloud_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded (name not logged)
+
+### Fixer resolution
+- pending
+

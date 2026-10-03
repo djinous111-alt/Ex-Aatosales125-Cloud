@@ -380,3 +380,36 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261003-2130-writer-utility-gate-empty-pain-markers
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always enforces `min_pain_markers` (default 2) and `min_outcome_markers` (default 3).
+- `memory/brief/editorial-policy.json` has no `pain_markers_ru` / `outcome_markers_ru`, so marker counts stay 0 and every article gets `UTILITY GATE BLOCKER` even when human-voice pain/outcome PASS.
+
+### How the agent recovered this run
+- Kept article pain/outcome language aligned with `excalibur_blog_human_voice_gate.py` markers; human-voice gate PASS.
+- Did not invent policy marker lists mid-writer; logged incident for fixer. GEO QA will see the same utility blocker until policy/script fix.
+
+### Durable fix needed before next run
+- Add `pain_markers_ru` and `outcome_markers_ru` to `memory/brief/editorial-policy.json` (reuse human-voice lists or a shared constant), OR skip min checks when marker lists are empty.
+- Document the fields in `shared/editorial-utility-only.md`.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/editorial-utility-only.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

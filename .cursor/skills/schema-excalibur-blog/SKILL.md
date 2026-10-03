@@ -22,3 +22,13 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+## Pre-commit (Cloud)
+
+Перед `git commit`:
+
+```bash
+source scripts/sanitize_cloud_secret_names.sh
+```
+
+Фильтрует `CLOUD_AGENT_*_SECRET_NAMES` до bash-identifier (`^[A-Za-z_][A-Za-z0-9_]*$`), иначе pre-commit падает на URL/`[REDACTED]`.

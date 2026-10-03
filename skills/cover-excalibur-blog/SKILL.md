@@ -122,12 +122,11 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image job (Kie preferred on Cloud)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+На Cloud: сразу `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir …` (createTask→poll).
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+Legacy sync MCP `gpt-image-2` — только если Kie недоступен; при `-32001` **один** раз, затем Kie/async, без multi-retry.
 
 ### Шаг 5 — apply
 
@@ -199,3 +198,16 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 ## Эталон (B01)
 
 `memory/blog/articles/B01-primer-seo-stati/cover/` — reference implementation после design code v1.
+
+## Image generation (Cloud)
+
+**Prefer Kie async first** on Cloud (or immediately after first sync MCP `-32001`):
+
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir memory/blog/articles/<topic_id>-<slug>
+python3 scripts/excalibur_blog_quad_apply.py --article-dir ... --inject-html
+```
+
+- Sync MCP `gpt-image-2` часто даёт client timeout `-32001` до URL; `sync_create_max_attempts: 1` — **не** ретраить sync вслепую и не перебирать alternate MCP image tools.
+- Face reference: `excalibur_blog_hero_reference_url.py` (catbox → 0x0 → **litterbox** temporary fallback). Litterbox expires — prefer stable WP media when possible.
+- Outfit: prompt builder читает `outfit_rule` / weather examples из `memory/cover/blog-hero.json` — **без** hardcoded white hoodie.

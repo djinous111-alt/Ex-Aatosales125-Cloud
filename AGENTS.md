@@ -28,6 +28,7 @@ shell today + research_start
 - короткий контракт: входные файлы, маркер результата, запреты;
 - один Task = одна роль;
 - параллель `cover || schema` — **два отдельных Task** в одном сообщении.
+- Часто отсутствует typed `excalibur-blog-geo-qa` → сразу generalPurpose (см. `shared/pipeline-task-map.md`), не ретраить enum.
 
 Если недоступен даже `generalPurpose` Task:
 

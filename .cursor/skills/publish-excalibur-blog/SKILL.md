@@ -20,7 +20,7 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | `memory/site.env.local` / Cloud Secrets: `SSH_*`, `SSH_ROOT=.`, `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL` |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
@@ -119,3 +119,27 @@ blockers:
 - Генерировать cover/schema с нуля
 - Пропускать dry-run
 - Завершать пайплайн без записи в `published-articles.md` при успешном publish
+
+## Deps / paramiko / SSH_ROOT
+
+`paramiko` обязателен для SSH publish. Ставится в `.cursor/cloud-agent-install.sh` (+ `requirements.txt`).
+Если `ModuleNotFoundError: paramiko`:
+
+```bash
+pip3 install --break-system-packages paramiko
+```
+
+Перед publish:
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+Если `SSH_ROOT` unset — скрипт теперь defaults to `.` (login cwd). В Cloud Secrets для этого хоста держи `SSH_ROOT=.`.
+При отсутствии `memory/site.env.local` — собери из Cloud Secrets (gitignored), формат unquoted `KEY=value`.
+
+## Pre-commit (Cloud)
+
+```bash
+source scripts/sanitize_cloud_secret_names.sh
+```

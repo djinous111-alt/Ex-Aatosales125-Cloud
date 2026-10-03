@@ -57,7 +57,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `python3 scripts/excalibur_blog_llms_generator.py --help`
-commit: pending-parent-commit
+commit: 5c1b4e7
 
 ## INC-20261003-1333-cover-git-push-auth
 status: needs-human
@@ -182,7 +182,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
-commit: pending-parent-commit
+commit: 5c1b4e7
 
 ## INC-20261003-1318-writer-commit-secret-name-filter
 status: fixed
@@ -230,7 +230,7 @@ files_changed:
 checks_run:
 - sanitize smoke: URL token stripped from CLOUD_AGENT_*_SECRET_NAMES
 - doctor OK sanitize script exists
-commit: pending-parent-commit
+commit: 5c1b4e7
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -282,7 +282,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: 5c1b4e7
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -333,7 +333,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: 5c1b4e7
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -374,7 +374,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: 5c1b4e7
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -421,7 +421,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: 5c1b4e7
 
 ## INC-20260616-2042-publish-ssh-root-dot
 status: fixed
@@ -474,7 +474,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: 5c1b4e7
 
 ## INC-20261003-1315-research-serp-public-site-url
 status: fixed
@@ -518,7 +518,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - unit redact_site_urls with fake PUBLIC_SITE_URL/CATALOG_URL
-commit: pending-parent-commit
+commit: 5c1b4e7
 
 ## INC-20261003-1312-research-tech-marker-false-positive
 status: fixed
@@ -564,7 +564,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - is_technical_topic(auto EV)=False; is_technical_topic(MCP/Cursor)=True
-commit: pending-parent-commit
+commit: 5c1b4e7
 
 ## INC-20261003-1311-research-pravo-fetch-timeout
 status: fixed
@@ -606,7 +606,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg Official regulation sources in research skills
-commit: pending-parent-commit
+commit: 5c1b4e7
 
 ## INC-20261003-1305-scout-wp-slug-blind-spot
 status: fixed
@@ -655,7 +655,7 @@ files_changed:
 checks_run:
 - Korea query/slug → OVERLAP exit 1
 - B01 published slug → OVERLAP exit 1
-commit: pending-parent-commit
+commit: 5c1b4e7
 
 ## INC-20261003-1323-geo-qa-utility-policy-markers-missing
 status: fixed
@@ -704,7 +704,7 @@ files_changed:
 checks_run:
 - doctor OK editorial-policy markers
 - json parse editorial-policy.json
-commit: pending-parent-commit
+commit: 5c1b4e7
 
 ## INC-20261003-1323-geo-qa-link-verify-cta-placeholders
 status: fixed
@@ -752,7 +752,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - B01 publish --dry-run shows cta_expanded CATALOG_URL/TELEGRAM_URL/PUBLIC_SITE_URL
-commit: pending-parent-commit
+commit: 5c1b4e7
 
 ## INC-20261003-1340-publish-ssh-cleanup-banner
 status: fixed
@@ -810,7 +810,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - doctor OK paramiko available
 - B01 dry-run cta_expanded
-commit: pending-parent-commit
+commit: 5c1b4e7
 
 ## Fixed incidents
 

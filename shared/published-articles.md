@@ -6,4 +6,4 @@
 | 2026-07-17 | AS09 | trust-encar-carhistory-proverka-do-depozita | [PUBLIC_SITE_URL]/2026/07/17/trust-encar-carhistory-proverka-do-depozita/ | published |
 
 > Ledger сброшен при перенастройке под AVTO SALES (2026-07-17).
-| 2026-10-04 | B01 | rastamozhka-avto-iz-kitaya-2026 | memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026 | in_progress |
+| 2026-10-03 | B01 | rastamozhka-avto-iz-kitaya-2026 | [PUBLIC_SITE_URL]/2026/07/22/rastamozhka-avto-iz-kitaya-2026/ | published |

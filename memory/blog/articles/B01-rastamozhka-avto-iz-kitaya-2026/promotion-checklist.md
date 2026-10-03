@@ -1,7 +1,7 @@
 # Promotion checklist — B01 rastamozhka-avto-iz-kitaya-2026
 
-Дата публикации: (pending publish)  
-Live URL: (pending publish)
+Дата публикации: 2026-10-03  
+Live URL: [PUBLIC_SITE_URL]/2026/07/22/rastamozhka-avto-iz-kitaya-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Документы и мощность в л.с. фиксируйте до оплаты
 • Уссурийск янв–май 2026: 33,5 тыс. авто, корректировка цены ~1,6%
 
-Читать: (permalink после publish)
+Читать: [PUBLIC_SITE_URL]/2026/07/22/rastamozhka-avto-iz-kitaya-2026/
 ```
 
 ## Перелинковка
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: `excalibur_blog_interlinker.py --apply --article-dir …/B01-rastamozhka-avto-iz-kitaya-2026` — links applied: 0.
 - llms.txt / llms-full.txt: `memory/blog/` с относительными URL (`--site-base /`, без PUBLIC_SITE_URL в артефакте).
-- Cover ✅ + Schema ✅; GEO QA PASS; publish — следующий шаг.
+- Cover ✅ + Schema ✅; GEO QA PASS; publish PASS (post=3601, featured=3974, inline=3975/3976/3977).

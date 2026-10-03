@@ -1,0 +1,23 @@
+{
+  "slug": "rastamozhka-avto-iz-kitaya-2026",
+  "topic_id": "B01",
+  "permalink": "[PUBLIC_SITE_URL]/2026/07/22/rastamozhka-avto-iz-kitaya-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1248655,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3601 slug=rastamozhka-avto-iz-kitaya-2026\nOK featured_image=3974\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3975 src=cover/inline-01.png url=[PUBLIC_SITE_URL]/wp-content/uploads/2026/07/rastamozhka-avto-iz-kitaya-2026-inline-01-1.png\nOK inline_image_upload=3976 src=cover/inline-02.png url=[PUBLIC_SITE_URL]/wp-content/uploads/2026/07/rastamozhka-avto-iz-kitaya-2026-inline-02-1.png\nOK inline_image_upload=3977 src=cover/inline-03.png url=[PUBLIC_SITE_URL]/wp-content/uploads/2026/07/rastamozhka-avto-iz-kitaya-2026-inline-03-1.png\npermalink=[PUBLIC_SITE_URL]/2026/07/22/rastamozhka-avto-iz-kitaya-2026/\n",
+  "verdict": "pass",
+  "post_id": 3601,
+  "featured_image": 3974,
+  "inline_images": [
+    3975,
+    3976,
+    3977
+  ],
+  "schema_meta": 1
+}

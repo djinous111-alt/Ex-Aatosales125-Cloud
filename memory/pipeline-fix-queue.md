@@ -647,3 +647,39 @@ category: prompt
 
 ### Fixer resolution
 - pending
+
+## INC-20261003-2155-publish-paramiko-ssh-root-missing
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026
+severity: medium
+category: env
+
+### What went wrong
+- `paramiko` was not installed in the Cloud runtime (`No module named 'paramiko'`), so SSH publish could not start until a manual pip install.
+- `SSH_ROOT` was unset in Cloud Secrets / env (`env-check` reported `root: unset`); publish-patterns for this host require `SSH_ROOT=.`.
+- `memory/site.env.local` was missing; publish relied on process env secrets only.
+
+### How the agent recovered this run
+- Installed `paramiko` via `pip3 install --break-system-packages paramiko`.
+- Exported `SSH_ROOT=.` for the publish session; SSH upload succeeded at `./excalibur-blog-publish-once.php`.
+- HTTP trigger completed without WebFetch fallback; live HEAD 200; ledger updated to published.
+
+### Durable fix needed before next run
+- Ensure `paramiko` is installed by `.cursor/cloud-agent-install.sh` / `requirements.txt` in the Cloud image.
+- Set `SSH_ROOT=.` in Cloud Secrets for this host (or document auto-export in publish skill).
+- Optional: bootstrap `memory/site.env.local` from secrets at session start (gitignored), unquoted `KEY=value`.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

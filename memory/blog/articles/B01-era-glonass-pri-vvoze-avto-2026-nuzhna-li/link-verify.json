@@ -1,0 +1,29 @@
+{
+  "source": "memory/blog/articles/B01-era-glonass-pri-vvoze-avto-2026-nuzhna-li/article.html",
+  "total_links": 2,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "[CATALOG_URL]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false,
+      "checked_url": null
+    },
+    {
+      "url": "[TELEGRAM_URL]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false,
+      "checked_url": null
+    }
+  ],
+  "note": "CTA hrefs are stored in the repo as [CATALOG_URL]/[TELEGRAM_URL] because CATALOG_URL and TELEGRAM_URL are configured Cloud Secrets and the pre-commit secret scan blocks their values. Verification ran on an out-of-tree copy with placeholders resolved from memory/brief/conversion-map.md; URLs below are masked back to placeholder tokens. Publish MUST resolve these placeholders before upload."
+}

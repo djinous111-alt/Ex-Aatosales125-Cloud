@@ -199,3 +199,9 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 ## Эталон (B01)
 
 `memory/blog/articles/B01-primer-seo-stati/cover/` — reference implementation после design code v1.
+
+## Outfit / brand lock
+
+- `excalibur_blog_cover_quad_prompt.py` берёт outfit из `scene_hint` (OUTFIT:) и `blog-hero.json` `outfit_rule` — не hardcode white hoodie.
+- Corner brand всегда `avto-sales125.ru` (не Telegram).
+- Перед commit: `source scripts/sanitize_cloud_secret_names.sh`.

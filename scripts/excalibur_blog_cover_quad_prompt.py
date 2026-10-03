@@ -69,6 +69,46 @@ def validate_prompt_budget(prompt: str) -> bool:
     return False
 
 
+def cover_corner_brand(hero: dict, design_code: dict) -> str:
+    brand = (
+        ((hero.get("cover_corner_brand") or {}).get("text") or "").strip()
+        or ((design_code.get("cover_corner_brand") or {}).get("text") or "").strip()
+        or "avto-sales125.ru"
+    )
+    return brand
+
+
+def cover_outfit_lock(hero: dict, cover_slot: dict) -> str:
+    """Weather/topic outfit from scene_hint + blog-hero outfit_rule; never hardcoded white hoodie."""
+    scene = " ".join(str(cover_slot.get("scene_hint") or "").split())
+    outfit_from_scene = ""
+    for token in ("OUTFIT:", "outfit:", "Одежда:", "одежда:"):
+        if token in scene:
+            after = scene.split(token, 1)[1].strip()
+            # stop at next ALLCAPS label or sentence boundary marker
+            for stopper in (" WEATHER:", " REFERENCE", " ACTION:", " NO ", "; ", ". "):
+                if stopper in after:
+                    after = after.split(stopper, 1)[0].strip()
+            outfit_from_scene = compact(after, 160)
+            break
+    rule = compact(hero.get("outfit_rule") or "", 220)
+    if outfit_from_scene:
+        return (
+            f"OUTFIT must match scene weather/topic from scene_hint ({outfit_from_scene}); "
+            "DO NOT copy reference t-shirt/tank; NO cap NO hood; glasses on."
+        )
+    if rule:
+        return (
+            f"OUTFIT lock from blog-hero: {rule} "
+            "DO NOT copy reference clothing; NO cap NO hood."
+        )
+    return (
+        "OUTFIT must match scene WEATHER and ARTICLE TOPIC from scene_hint "
+        "(rain jacket in rain/port, winter coat in snow, light shirt in heat, smart casual for docs). "
+        "DO NOT copy reference clothing; NO white-hoodie default; NO cap NO hood."
+    )
+
+
 def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, design_code: dict) -> str:
     slots = manifest.get("slots") or {}
 
@@ -77,6 +117,8 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
 
     cover = slot("cover")
     i1, i2, i3 = slot("inline_1"), slot("inline_2"), slot("inline_3")
+    brand = cover_corner_brand(hero, design_code)
+    outfit = cover_outfit_lock(hero, cover)
 
     lines = [
         "Russian human-made Excalibur BLOG hook collage on PURE WHITE #FFFFFF. Zine/trash-design: torn paper, scotch tape, pink notes, marker arrows, fake RU UI screenshots, meme cutouts. DESIGN.md-inspired bold readable Cyrillic; rotate hot accents (hot pink/purple/blue/orange); keep stickers/memes/collage; no price badges. Not corporate, not stock.",
@@ -86,9 +128,12 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         "",
         "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
         "",
-        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
+        f"REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard likeness. {outfit} "
+        "Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds.",
         "",
-        f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
+        f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; '
+        f'scene: {compact(cover.get("scene_hint", ""), 280)}; host with reference face; huge readable Cyrillic hook; '
+        f"1-2 meme reaction cutouts; corner footer ONLY {brand} catalog site (NOT Telegram, NOT @avtosales125).",
         "",
         f"Top-right inline: {inline_panel_prompt(i1, types_catalog)} Same Excalibur collage layer, useful UI/diagram, small meme cutout.",
         f"Bottom-left inline: {inline_panel_prompt(i2, types_catalog)} Same Excalibur collage layer, useful UI/diagram, small meme cutout.",

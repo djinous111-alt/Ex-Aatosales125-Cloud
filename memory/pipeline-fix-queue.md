@@ -499,6 +499,7 @@ category: prompt
 
 ### How the agent recovered this run
 - Point fix only: replaced 2 catalog + 1 Telegram href from env secrets; renamed TL;DR label to «Коротко по делу»; recalculated `char_count=9079`.
+- Commit was blocked by Cursor secret-scan (CATALOG_URL/TELEGRAM_URL are Dashboard secrets); added HTML `<!-- pragma: allowlist secret -->` on CTA lines so public catalog/Telegram URLs can live in article.html.
 - Local recheck: link-verify PASS (2 unique hosts 200 OK), human_voice PASS, utility PASS.
 
 ### Durable fix needed before next run

@@ -29,12 +29,16 @@
     "description_aeo": "30-минутная мощность – цифра для ЭПТС и утильсбора EV. До депозита нужны прецедент или вилка риска, не пик из рекламы."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 88,
+    "verdict": "PASS",
     "date": "2026-10-03",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility_gate": "PASS",
+    "research_notes_gate": "PASS",
+    "core_eeat": "19/20"
   },
   "cover_family": "brand_collage"
 }

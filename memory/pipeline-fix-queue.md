@@ -254,3 +254,65 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261003-2118-director-doctor-llms-flag
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `python3 scripts/excalibur_blog_doctor.py` returned errors=1: FAIL `llms generator supports --blog-path`.
+- Actual `scripts/excalibur_blog_llms_generator.py` exposes `--blog-dir`, not `--blog-path`.
+- Doctor check is stale and blocks a clean preflight even when llms tooling is correct.
+
+### How the agent recovered this run
+- Continued pipeline after confirming llms help contains `--blog-dir`; recorded incident for fixer post-run.
+
+### Durable fix needed before next run
+- Update `scripts/excalibur_blog_doctor.py` to assert `--blog-dir` (matching llms generator CLI), or add `--blog-path` alias in the generator and keep doctor in sync.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261003-2120-scout-precommit-secret-names
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in pre-commit.cursor: `invalid variable name` because `CLOUD_AGENT_ALL_SECRET_NAMES` / `CLOUD_AGENT_INJECTED_SECRET_NAMES` contain literal `[REDACTED]` token (not a valid bash identifier for `${!SECRET_NAME}`).
+- Documented helper `scripts/sanitize_cloud_secret_names.sh` is missing on this branch.
+
+### How the agent recovered this run
+- Filtered secret-name CSV to `^[A-Za-z_][A-Za-z0-9_]*$` in the shell env, then re-ran commit+push successfully (`7963497`).
+
+### Durable fix needed before next run
+- Restore or re-add `scripts/sanitize_cloud_secret_names.sh` (CSV-aware; strip `[REDACTED]`/URLs) and document `source` before commit in scout/director pitfalls.
+- Ensure Cloud secret-name injection never emits non-identifier placeholders into `CLOUD_AGENT_*_SECRET_NAMES`.
+
+### Suggested files to inspect/change
+- `scripts/sanitize_cloud_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

@@ -544,3 +544,36 @@ category: script
 
 ### Fixer resolution
 - pending
+
+
+## INC-20261003-1744-indexer-skill-llms-blog-path
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-indexer
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-kupit-avto-iz-korei-pod-klyuch-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md` и `.cursor/agents/excalibur-blog-indexer.md` всё ещё показывают `excalibur_blog_llms_generator.py ... --blog-path /`.
+- Реальный CLI принимает только `--blog-dir` / `--out-dir` / `--site-base` (нет `--blog-path`); doctor уже FAIL по тому же рассинхрону (см. INC-20261003-1720-director-doctor-blog-path).
+
+### How the agent recovered this run
+- Запустил generator без `--blog-path`: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` — OK, B02 попал в llms.txt / llms-full.txt.
+
+### Durable fix needed before next run
+- Убрать `--blog-path` из skill/agent indexer contracts; оставить `--blog-dir` + `--out-dir`.
+- Синхронизировать doctor check с реальным CLI (или alias), чтобы errors=0.
+
+### Suggested files to inspect/change
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `scripts/excalibur_blog_doctor.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

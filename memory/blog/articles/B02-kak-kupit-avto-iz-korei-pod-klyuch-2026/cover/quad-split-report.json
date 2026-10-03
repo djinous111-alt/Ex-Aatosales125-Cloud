@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B02-kak-kupit-avto-iz-korei-pod-klyuch-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2736,
+      1536
+    ],
+    "panel_size_px": [
+      1368,
+      770
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 770,
+        "end": 818
+      },
+      "v_gutter_px": {
+        "start": 1368,
+        "end": 1414
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1368,
+          "bottom": 770
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1368,
+          "bottom": 770
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у порта Владивостока со смартфоном Encar: цена лота ещё не смета под ключ",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1414,
+          "top": 13,
+          "right": 2736,
+          "bottom": 757
+        },
+        "raw_box_px": {
+          "left": 1414,
+          "top": 0,
+          "right": 2736,
+          "bottom": 770
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Инфографика сметы под ключ: строки расходов от авто до ЭПТС без готовых сумм",
+        "h2_anchor": "Зафиксируйте бюджет \"под ключ\", а не цену карточки Encar"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 46,
+          "top": 818,
+          "right": 1322,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 818,
+          "right": 1368,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист проверки лота Encar до депозита: VIN, Performance Check, Carhistory, осмотр",
+        "h2_anchor": "Как выбрать лот на Encar и что проверить до депозита"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1437,
+          "top": 818,
+          "right": 2713,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 1414,
+          "top": 818,
+          "right": 2736,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема этапов сделки: выкуп в Корее, море Пусан–Владивосток, СБКТС и ЭПТС",
+        "h2_anchor": "Пройдите этапы сделки: от выкупа в Корее до Владивостока"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте бюджет \"под ключ\", а не цену карточки Encar",
+    "injected inline_2 after H2 — Как выбрать лот на Encar и что проверить до депозита",
+    "injected inline_3 after H2 — Пройдите этапы сделки: от выкупа в Корее до Владивостока"
+  ]
+}

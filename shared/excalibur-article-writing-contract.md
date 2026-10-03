@@ -232,7 +232,8 @@ Excalibur BLOG следует этому контракту для каждой 
 
 ### Блок 4: Мягкий CTA бренда (внутри одной секции блока 3)
 
-2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-tracking-map.md` / `offers-map.md`.  
+2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `memory/brief/conversion-map.md`.
+В git допустимы CTA-токены `[CATALOG_URL]` / `[TELEGRAM_URL]` (раскрываются link-verify/publish из env `CATALOG_URL`/`TELEGRAM_URL` в `site.env.local`). Не оставляй «голые» placeholder-строки без квадратных скобок — link-verify сочтёт их relative path.  
 Не больше **3** упоминаний основного офера/CTA на статью (включая баннер и «что дальше»).
 
 ### Блок 5: Inline-баннер (опционально)

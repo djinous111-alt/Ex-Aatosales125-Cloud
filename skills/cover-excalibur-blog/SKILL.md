@@ -199,3 +199,12 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 ## Эталон (B01)
 
 `memory/blog/articles/B01-primer-seo-stati/cover/` — reference implementation после design code v1.
+
+## Quad manifest defaults
+
+`python3 scripts/excalibur_blog_quad_manifest.py --merge` **не** подставляет SEO/B01 seed (`15k ключей`, Wordstat, «SEO-текст…»).
+После `--merge` агент обязан заполнить:
+
+- `cover_hook` (из reader_pain / lead)
+- `slots.cover.meme_caption_ru`
+- topic-specific `scene_hint` **без** Wordstat/Метрики/SEO-analytics в кадре

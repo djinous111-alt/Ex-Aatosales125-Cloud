@@ -7,6 +7,7 @@ import base64
 import io
 import json
 import os
+import re
 import sys
 import urllib.request
 from pathlib import Path
@@ -192,7 +193,6 @@ def load_article(article_dir: Path) -> dict:
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
         cover_alt = cover_alt or reg.get("cover_alt_text", "")
 
-    import re
     img_srcs = re.findall(r'<img\s+[^>]*src=["\']([^"\']+)["\']', content)
     inline_images = []
     for src in img_srcs:
@@ -240,6 +240,64 @@ def load_article(article_dir: Path) -> dict:
         "topic_id": meta.get("topic_id", ""),
         "inline_images": inline_images,
     }
+
+
+CTA_PLACEHOLDERS = (
+    ("[CATALOG_URL]", "CATALOG_URL"),
+    ("[TELEGRAM_URL]", "TELEGRAM_URL"),
+    ("[MAX_URL]", "MAX_URL"),
+)
+
+
+def expand_cta_placeholders(content: str, env: dict[str, str]) -> tuple[str, list[str]]:
+    """Expand git-safe CTA tokens from env. Does not write back to article.html."""
+    expanded: list[str] = []
+    out = content
+    for token, env_key in CTA_PLACEHOLDERS:
+        if token not in out:
+            continue
+        value = (env.get(env_key) or "").strip()
+        if not value or value in {"[REDACTED]", "REDACTED"}:
+            raise RuntimeError(
+                f"Unresolved CTA placeholder {token}: set {env_key} in site.env.local / Cloud Secrets"
+            )
+        out = out.replace(token, value)
+        expanded.append(env_key)
+    leftover = re.findall(r"\[[A-Z][A-Z0-9_]+\]", out)
+    bad = [t for t in leftover if t.endswith("_URL]")]
+    if bad:
+        raise RuntimeError(f"Unresolved CTA placeholders remain: {', '.join(sorted(set(bad)))}")
+    return out, expanded
+
+
+def poll_wp_rest_by_slug(public_base: str, slug: str, *, attempts: int = 8, delay_s: float = 3.0) -> dict[str, Any] | None:
+    """After HTTP 504 the PHP bootstrap may still have created the post — poll REST."""
+    import time
+    import urllib.parse
+
+    base = public_base.rstrip("/")
+    api = f"{base}/wp-json/wp/v2/posts?slug={urllib.parse.quote(slug)}&status=publish"
+    for i in range(attempts):
+        try:
+            with urllib.request.urlopen(
+                urllib.request.Request(api, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
+                timeout=20,
+            ) as response:
+                body = response.read().decode("utf-8", errors="replace")
+            posts = json.loads(body)
+            if isinstance(posts, list) and posts:
+                post = posts[0]
+                return {
+                    "id": post.get("id"),
+                    "slug": post.get("slug") or slug,
+                    "link": post.get("link") or "",
+                    "status": post.get("status") or "publish",
+                    "poll_attempt": i + 1,
+                }
+        except Exception as exc:  # noqa: BLE001
+            print(f"WP REST poll attempt {i + 1}/{attempts} failed: {type(exc).__name__}: {exc}")
+        time.sleep(delay_s)
+    return None
 
 
 def build_php(payload: dict) -> str:
@@ -467,33 +525,64 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+def trigger_bootstrap_http(url: str, root: Path, *, slug: str = "", public_base: str = "") -> str:
     try:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=180,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
-        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
+        err_name = type(e).__name__
+        print(f"Local HTTP trigger failed ({err_name}: {e}).")
+        if slug and public_base:
+            print(f"Polling WP REST for slug={slug} before WebFetch wait...")
+            found = poll_wp_rest_by_slug(public_base, slug)
+            if found and found.get("id"):
+                permalink = found.get("link") or f"{public_base.rstrip('/')}/{slug}/"
+                synthetic = (
+                    f"OK post={found['id']}\n"
+                    f"permalink={permalink}\n"
+                    f"recover=wp_rest_poll_after_http_error\n"
+                )
+                print("WP REST poll recovered publish success after HTTP error.")
+                return synthetic
+
+        print("Entering Cloud WebFetch Fallback mode...")
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
+        print(
+            "Agent: while this process waits, WebFetch the FALLBACK_TRIGGER_URL in parallel "
+            "and write the response body to memory/webfetch-response.txt"
+        )
         print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        for _ in range(45):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
+            if slug and public_base and _ % 5 == 4:
+                found = poll_wp_rest_by_slug(public_base, slug, attempts=1, delay_s=0)
+                if found and found.get("id"):
+                    permalink = found.get("link") or f"{public_base.rstrip('/')}/{slug}/"
+                    return (
+                        f"OK post={found['id']}\n"
+                        f"permalink={permalink}\n"
+                        f"recover=wp_rest_poll_during_webfetch_wait\n"
+                    )
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError(
+            "Cloud WebFetch Fallback timed out after 45 seconds. "
+            "If the post exists in WP REST by slug, reconstruct wp-publish-result.json and continue."
+        )
 
 
-def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
+def publish_via_ssh(env: dict[str, str], php: str, public_base: str, *, slug: str = "") -> str:
     remote = "excalibur-blog-publish-once.php"
     data = php.encode("utf-8")
     url = public_base.rstrip("/") + "/" + remote
@@ -502,7 +591,7 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        out = trigger_bootstrap_http(url, root, slug=slug, public_base=public_base)
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)
@@ -569,14 +658,21 @@ def main() -> int:
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
     payload = load_article(article_dir)
+    env = load_env(root)
+    content, cta_expanded = expand_cta_placeholders(payload["content"], env)
+    payload["content"] = content
     php = build_php(payload)
 
     if args.dry_run:
-        print(json.dumps({"dry_run": True, "slug": payload["slug"], "title": payload["title"]}, ensure_ascii=False, indent=2))
+        print(json.dumps({
+            "dry_run": True,
+            "slug": payload["slug"],
+            "title": payload["title"],
+            "cta_expanded": cta_expanded,
+        }, ensure_ascii=False, indent=2))
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1
@@ -588,7 +684,7 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ssh(env, php, public)
+    out = publish_via_ssh(env, php, public, slug=str(payload.get("slug") or ""))
     print(out)
 
     result_path = article_dir / "wp-publish-result.json"

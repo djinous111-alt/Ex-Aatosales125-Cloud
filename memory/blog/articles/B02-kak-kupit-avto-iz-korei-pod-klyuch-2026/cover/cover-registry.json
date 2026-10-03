@@ -1,0 +1,50 @@
+{
+  "topic_id": "B02",
+  "slug": "kak-kupit-avto-iz-korei-pod-klyuch-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у порта Владивостока со смартфоном Encar: цена лота ещё не смета под ключ",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-03T17:41:37+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у порта Владивостока со смартфоном Encar: цена лота ещё не смета под ключ",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Инфографика сметы под ключ: строки расходов от авто до ЭПТС без готовых сумм",
+      "h2_anchor": "Зафиксируйте бюджет \"под ключ\", а не цену карточки Encar",
+      "visual_type": "infographic_card",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Чеклист проверки лота Encar до депозита: VIN, Performance Check, Carhistory, осмотр",
+      "h2_anchor": "Как выбрать лот на Encar и что проверить до депозита",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема этапов сделки: выкуп в Корее, море Пусан–Владивосток, СБКТС и ЭПТС",
+      "h2_anchor": "Пройдите этапы сделки: от выкупа в Корее до Владивостока",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

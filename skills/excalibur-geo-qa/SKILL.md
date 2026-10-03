@@ -55,3 +55,8 @@ python scripts/excalibur_blog_human_voice_gate.py \
 **Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.
 
 Schema и cover — **не** твоя зона (отдельные субагенты после PASS).
+
+## Utility policy markers
+
+Перед utility gate убедись, что `memory/brief/editorial-policy.json` содержит `pain_markers_ru` / `outcome_markers_ru`.
+CTA placeholders: link-verify раскрывает `[CATALOG_URL]`/`[TELEGRAM_URL]` из env; иначе FAIL с явной ошибкой unresolved placeholder.

@@ -84,15 +84,16 @@ def pick_visual_type(h2: str, types_catalog: dict, used: set[str]) -> str:
 
 
 def scene_hint_for_type(type_id: str, h2: str) -> str:
+    """Topic-neutral scene stubs. Never seed Wordstat/Metrika/SEO-analytics defaults."""
     hints = {
-        "comparison_table_ui": f"Таблица SEO vs GEO: критерии, цели, человек vs AI — «{h2}»",
-        "workflow_diagram": f"6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «{h2}»",
-        "checklist_board": f"Printable чеклист перед публикацией — «{h2}»",
-        "schema_faq_ui": f"FAQ accordion + JSON-LD schema UI — «{h2}»",
-        "tool_screenshot": f"Скрин SEO-инструмента — «{h2}»",
-        "infographic_card": f"Карточка фактов — «{h2}»",
+        "comparison_table_ui": f"Сравнительная таблица критериев выбора — «{h2}»",
+        "workflow_diagram": f"Пошаговая схема процесса — «{h2}»",
+        "checklist_board": f"Чеклист на доске перед действием — «{h2}»",
+        "schema_faq_ui": f"FAQ accordion UI — «{h2}»",
+        "tool_screenshot": f"Скрин рабочего инструмента по теме — «{h2}»",
+        "infographic_card": f"Инфографика-карточка по теме — «{h2}»",
     }
-    return hints.get(type_id, f"Полезная иллюстрация — «{h2}»")
+    return hints.get(type_id, f"Иллюстрация по теме секции — «{h2}»")
 
 
 def alt_for_type(type_id: str, h2: str, types_catalog: dict) -> str:
@@ -109,13 +110,19 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
     article_topic = meta.get("h1") or article_dir.name
 
     old_cover = ((preserve or {}).get("slots") or {}).get("cover") or {}
+    reader_pain = str(meta.get("reader_pain") or meta.get("hook") or "").strip()
+    # Prefer preserved agent edits; otherwise leave empty so cover agent MUST fill
+    # topic-specific hook/caption (no SEO/B01 seed defaults).
     cover = {
         "quadrant": "top_left",
         "role": "cover_meme_hero",
         "alt": old_cover.get("alt") or f"Обложка: {article_topic}",
         "scene_hint": old_cover.get("scene_hint")
-        or "reference-лицо, белое плотное худи из толстой ткани, новая поза/жест/ракурс под крючок, без наушников/headset/earbuds, шок/ирония SEOшника, Wordstat + ноутбук",
-        "meme_caption_ru": old_cover.get("meme_caption_ru") or "15k ключей — 0 прочтений?",
+        or (
+            "reference-лицо, белое плотное худи из толстой ткани, новая поза/жест/ракурс под крючок темы, "
+            "без наушников/headset/earbuds; без Wordstat/Метрики/SEO-analytics в кадре"
+        ),
+        "meme_caption_ru": old_cover.get("meme_caption_ru") or "",
     }
 
     used: set[str] = set()
@@ -133,7 +140,7 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
             "alt": alt_for_type(visual_type, old.get("h2_anchor") or h2, types_catalog),
         }
 
-    cover_hook = (preserve or {}).get("cover_hook") or "SEO-текст, который люди дочитают — миф или workflow?"
+    cover_hook = (preserve or {}).get("cover_hook") or reader_pain or ""
 
     return {
         "topic_id": topic_id,
@@ -146,6 +153,11 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
         "inline_types_catalog": "memory/cover/inline-visual-types.json",
         "cover_hook": cover_hook,
         "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+        "agent_must_fill": [
+            "cover_hook",
+            "slots.cover.meme_caption_ru",
+            "slots.cover.scene_hint (topic-specific; no Wordstat/Metrika)",
+        ],
         "slots": slots,
     }
 
@@ -174,6 +186,17 @@ def main() -> int:
     for key in ("inline_1", "inline_2", "inline_3"):
         s = manifest["slots"][key]
         print(f"  {key}: {s['visual_type']} -> {s['h2_anchor']}")
+    missing = []
+    if not str(manifest.get("cover_hook") or "").strip():
+        missing.append("cover_hook")
+    if not str(((manifest.get("slots") or {}).get("cover") or {}).get("meme_caption_ru") or "").strip():
+        missing.append("slots.cover.meme_caption_ru")
+    if missing:
+        print(
+            "WARN: fill before MCP: "
+            + ", ".join(missing)
+            + " (no SEO/Wordstat defaults — topic-specific copy required)"
+        )
     return 0
 
 

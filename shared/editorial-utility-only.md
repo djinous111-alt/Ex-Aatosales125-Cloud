@@ -96,3 +96,14 @@ python scripts/excalibur_blog_utility_gate.py \
 - `skills/excalibur/references/article-archetypes.md` — скелет B
 - `skills/excalibur/references/ai-slop-blocklist.md` — вода/штампы
 - `shared/quality-blog.md` — blockers
+
+## Pain / outcome markers (utility gate)
+
+Канон: `memory/brief/editorial-policy.json` должен содержать непустые:
+
+- `pain_markers_ru` + `article_required_signals.min_pain_markers` (default 2)
+- `outcome_markers_ru` + `article_required_signals.min_outcome_markers` (default 3)
+
+Writer: lead называет боль читателя; до FAQ — понятный результат/действие.
+Если списки маркеров пусты, `excalibur_blog_utility_gate.py` пишет warning и не считает 0/0 «тихим PASS».
+

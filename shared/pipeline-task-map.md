@@ -104,6 +104,8 @@
 
 ### ③ GEO QA
 
+Если Cloud отвергает `subagent_type=excalibur-blog-geo-qa`, сразу `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md` (не ретраить typed enum).
+
 ```text
 Ты excalibur-blog-geo-qa. topic_id: {ID}.
 Прочитай agents/excalibur-blog-geo-qa.md + skills/excalibur-geo-qa/SKILL.md.

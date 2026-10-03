@@ -62,6 +62,16 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
 
+## Soft failures: regulation.gov.ru и похожие порталы
+
+- `regulation.gov.ru` часто отвечает **5xx/503** или таймаутом — это **ожидаемый soft failure**, не research blocker.
+- Fallback-цепочка для статуса законопроекта / моратория:
+  1. `publication.pravo.gov.ru` (принятые постановления/законы);
+  2. официальные страницы оператора/ведомства по теме;
+  3. репутационные новости (TASS, отраслевые СМИ), которые **цитируют id проекта** regulation.gov.ru;
+  4. SERP-snippet / вторичный источник, если прямой fetch 403/5xx.
+- В `research-notes.md` явно пометь primary URL как недоступный и укажи secondary source; не выдумывай дату принятия указа.
+
 ## Blockers
 
 - `❌ RESEARCH BLOCKER` — тема не найдена и не создана из запроса пользователя

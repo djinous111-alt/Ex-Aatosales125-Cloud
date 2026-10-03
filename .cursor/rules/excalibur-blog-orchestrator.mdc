@@ -16,7 +16,7 @@ alwaysApply: false
 ## Главный и субагенты
 
 - **Директор** — чат (не Task): `agents/excalibur-blog-director.md`, skill `director-excalibur-blog`.
-- **Субагенты** — `Task(<name>)`, см. [agents/FOR-AGENTS.md](agents/FOR-AGENTS.md).
+- **Субагенты** — в Cloud typed `Task(excalibur-blog-*)` часто недоступны → **нормальный путь** `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill; готовые промпты в `shared/pipeline-task-map.md`. Один Task = одна роль. См. [agents/FOR-AGENTS.md](agents/FOR-AGENTS.md).
 
 ## Пайплайн
 

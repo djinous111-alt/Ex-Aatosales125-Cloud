@@ -6,8 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None — all 2026-10-03 B01 open incidents closed by fixer._
+
 ## INC-20261003-0934-indexer-doctor-stale-blog-path
-status: open
+status: fixed
 run_date: 2026-10-03
 role: excalibur-blog-indexer
 topic_id: B01
@@ -41,11 +43,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- Doctor теперь проверяет `--blog-dir` и `--out-dir` (не `--blog-path`).
+- Indexer agent/skill examples обновлены; stale `--blog-path /` удалён.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `rg` no `--blog-path` in indexer canonical docs/doctor
+commit: pending-parent-commit
 
 ## INC-20261003-0932-cover-precommit-redacted-secret-name
-status: open
+status: fixed
 run_date: 2026-10-03
 role: excalibur-blog-cover
 topic_id: B01
@@ -73,11 +89,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- Добавлен `scripts/sanitize_cloud_secret_names.sh` (фильтр валидных bash identifiers).
+- Локальный `pre-commit.cursor` пропускает non-identifier names вместо abort.
+- Documented in pitfalls + cloud-agent-install source step.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `.cursor/cloud-agent-install.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- platform `pre-commit.cursor` (runtime harden)
+checks_run:
+- sanitize unit: URL/`[REDACTED]` dropped; valid names kept
+- doctor: sanitize script exists
+commit: pending-parent-commit
 
 ## INC-20261003-0931-cover-prompt-outfit-lock-conflict
-status: open
+status: fixed
 run_date: 2026-10-03
 role: excalibur-blog-cover
 topic_id: B01
@@ -109,11 +138,23 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- `build_prompt()` больше не hardcode white hoodie; outfit из scene_hint OUTFIT: / blog-hero outfit_rule.
+- Corner brand `avto-sales125.ru` всегда в cover line.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `py_compile` cover_quad_prompt
+- regenerated B01 prompt: no hoodie lock; brand + rain jacket present
+commit: pending-parent-commit
 
 ## INC-20261003-0925-geo-qa-utility-gate-missing-markers
-status: open
+status: fixed
 run_date: 2026-10-03
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -149,10 +190,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- `editorial-policy.json` содержит pain/outcome markers + match-mode note (substring; no «страх»).
+- utility_gate fail-loud CONFIG ERROR на пустых списках.
+- doctor проверяет непустые marker lists.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/editorial-utility-only.md`
+checks_run:
+- empty pain → CONFIG ERROR
+- B01 utility PASS pain=7 outcome=6
+- doctor errors=0
+commit: pending-parent-commit
 
 ## INC-20261003-0930-geo-qa-cta-placeholder-vs-secret-scan
-status: open
+status: fixed
 run_date: 2026-10-03
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -190,10 +246,29 @@ category: publish
 - none recorded (secret names only, no values)
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- Publish expand `[CATALOG_URL]`/`[TELEGRAM_URL]`/`[REDACTED]` из env; abort на unresolved `_URL` tokens.
+- link_verify резолвит CTA из env и маскирует отчёт.
+- Writing/publish contracts документируют placeholder convention.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `memory/brief/conversion-map.md`
+checks_run:
+- expand unit + unresolved abort
+- dry-run B01 `cta_expanded: true` without writing secrets back to article.html
+commit: pending-parent-commit
 
 ## INC-20261003-0935-geo-qa-tldr-label-contract-conflict
-status: open
+status: fixed
 run_date: 2026-10-03
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -226,10 +301,23 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- Writing contract + writer skill: запрет TL;DR/Быстрый инсайт; живые примеры lead-in.
+- human_voice_gate блокирует шаблонный ярлык в первом blockquote.
+files_changed:
+- `shared/excalibur-article-writing-contract.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_human_voice_gate.py`
+checks_run:
+- B01 human-voice PASS (label «Если коротко:»)
+- `rg` no canonical `TL;DR / Быстрый инсайт` example in writing contract
+commit: pending-parent-commit
 
 ## INC-20261003-0940-geo-qa-typed-task-missing-in-cloud-enum
-status: open
+status: fixed
 run_date: 2026-10-03
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -262,10 +350,23 @@ category: handoff
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- AGENTS/orchestrator/task-map/director: generalPurpose = нормальный Cloud path; готовые промпты в pipeline-task-map.
+files_changed:
+- `AGENTS.md`
+- `.cursor/rules/excalibur-blog-orchestrator.mdc`
+- `shared/pipeline-task-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+checks_run:
+- docs contain «нормальный путь» / generalPurpose guidance
+commit: pending-parent-commit
 
 ## INC-20261003-0915-research-regulation-gov-503
-status: open
+status: fixed
 run_date: 2026-10-03
 role: excalibur-blog-research
 topic_id: B01
@@ -293,10 +394,21 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- Research skill: regulation.gov.ru 5xx = soft failure + fallback chain (pravo.gov.ru / operator / news citing project id).
+- Pitfalls note added.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` regulation.gov soft-failure guidance present
+commit: pending-parent-commit
 
 ## INC-20261003-0903-scout-precommit-secret-name-url
-status: open
+status: fixed
 run_date: 2026-10-03
 role: excalibur-blog-scout
 topic_id: B01
@@ -331,7 +443,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- Восстановлен `scripts/sanitize_cloud_secret_names.sh`; wired in cloud-agent-install + scout/cover skills + pitfalls.
+- pre-commit.cursor hardened to skip invalid names.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `.cursor/cloud-agent-install.sh`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- sanitize unit test
+- doctor sanitize exists
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -583,7 +709,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261003-0938-publish-cta-placeholder-expand
-status: open
+status: fixed
 run_date: 2026-10-03
 role: excalibur-blog-publish
 topic_id: B01
@@ -616,4 +742,16 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- `excalibur_blog_wp_publish.py`: CATALOG_URL/TELEGRAM_URL в PUBLISH_ENV_KEYS; expand at payload build; abort unresolved; no write-back to git files.
+- Publish skill/contract document expand-at-publish / re-redact-before-commit.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+checks_run:
+- dry-run B01 cta_expanded true; article.html placeholders intact
+commit: pending-parent-commit

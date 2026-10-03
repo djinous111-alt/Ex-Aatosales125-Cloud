@@ -19,13 +19,15 @@ shell today + research_start
  → excalibur-blog-fixer (если memory/pipeline-fix-queue.md содержит open incidents)
 ```
 
-## Cloud Task fallback
+## Cloud Task fallback (нормальный путь в Cloud)
 
-Если Cloud API не принимает `excalibur-blog-research`, `excalibur-blog-writer`, … как Task types:
+В текущем Cloud enum **typed** `Task(excalibur-blog-*)` обычно **недоступны** (в т.ч. `excalibur-blog-geo-qa`). Это ожидаемо, не сюрприз и не повод писать incident каждый run.
 
-- **отдельный `Task(generalPurpose)` на каждую роль**;
+**Нормальный путь:** отдельный `Task(generalPurpose)` на каждую роль:
+
 - передай путь `.cursor/agents/<role>.md` и `.cursor/skills/<skill>/SKILL.md`;
-- короткий контракт: входные файлы, маркер результата, запреты;
+- готовые копируемые контракты: `shared/pipeline-task-map.md` (секция «Промпты для Директора»);
+- короткий контракт: входные файлы, маркер результата, запреты, `incident_report`;
 - один Task = одна роль;
 - параллель `cover || schema` — **два отдельных Task** в одном сообщении.
 

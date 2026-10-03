@@ -1,6 +1,8 @@
 # Excalibur BLOG — карта задач и субагентов
 
-Директор **не** Task. Все роли ниже — `Task(<name>)`.
+Директор **не** Task. Роли ниже — ideally `Task(<name>)`.
+
+**Cloud (актуально):** typed `excalibur-blog-*` часто отсутствуют в enum → запускай каждую роль как `Task(generalPurpose)` и вставляй соответствующий промпт из секции ниже + пути `.cursor/agents/…` и `.cursor/skills/…`. Это нормальный путь, не exception.
 
 ## Схема
 

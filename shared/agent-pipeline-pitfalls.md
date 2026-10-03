@@ -24,8 +24,8 @@
 
 ## Git / secrets / pre-commit
 
-- Перед `git commit` в Cloud: `source scripts/sanitize_cloud_secret_names.sh` — иначе `${!SECRET_NAME}` падает на non-identifier именах.
-- Dashboard secret names должны быть bash identifiers: `A-Za-z_[A-Za-z0-9_]*` (не URL).
+- Перед `git commit` в Cloud: `source scripts/sanitize_cloud_secret_names.sh` — иначе `${!SECRET_NAME}` падает на non-identifier именах (список **comma-separated**; режет `[REDACTED]`/URL).
+- Dashboard secret names должны быть bash identifiers: `A-Za-z_[A-Za-z0-9_]*` (не URL и не `[REDACTED]`).
 - `llms.txt` коммить с relative `/blog/<slug>/` URLs; absolute `PUBLIC_SITE_URL` часто блокируется secret-scan.
 
 ## Publish

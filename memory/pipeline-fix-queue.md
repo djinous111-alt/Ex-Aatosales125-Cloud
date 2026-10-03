@@ -251,6 +251,39 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261003-1305-scout-wp-slug-blind-spot
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_scout_helper.py --check-query` смотрит только Bxx-карточки в `blog-topics.md` и ledger `published-articles.md`.
+- После сброса ledger и пустого B-пула helper дал Next ID B01 и NO OVERLAP для «авто из кореи под ключ», хотя slug `kak-zakazat-avto-iz-korei-pod-klyuch-2026` уже на WP (post 3778) и зафиксирован в automation memory / publish-patterns.
+- Карточку пришлось переписать на свежий угол «30 минутная мощность» (WP по теме пусто).
+
+### How the agent recovered this run
+- Сверил кандидатов с automation memory `publish-patterns.md` и WP search.
+- Заменил B01 на `kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026`; utility gate PASS.
+
+### Durable fix needed before next run
+- Расширить `--check-query`: блок-лист опубликованных slug/углов из automation memory или live WP search + ledger, не только B-пул.
+- В scout skill явно: перед append сверять кандидатов с `publish-patterns` / known WP slugs, даже если ledger сброшен.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

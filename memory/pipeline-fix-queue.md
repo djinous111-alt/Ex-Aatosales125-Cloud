@@ -614,6 +614,44 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20261003-1340-publish-ssh-cleanup-banner
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026
+severity: medium
+category: publish
+
+### What went wrong
+- Publish HTTP trigger succeeded (post=3955), but `delete_bootstrap_ssh` failed with `paramiko.ssh_exception.SSHException: Error reading SSH protocol banner`.
+- Bootstrap `excalibur-blog-publish-once.php` remained on the host until a second SFTP delete.
+- Separately: publish script still does not auto-expand `[CATALOG_URL]`/`[TELEGRAM_URL]` or schema `[REDACTED]` — agent had to expand from env pre-publish and re-redact after (related INC-20261003-1323 / INC-20261003-0938).
+- Runtime missing `paramiko` until `pip3 install --break-system-packages paramiko`.
+
+### How the agent recovered this run
+- Confirmed `OK post=3955`, featured/inline/schema lines, live HEAD 200.
+- Retried SFTP remove of `./excalibur-blog-publish-once.php` successfully.
+- Expanded CTA/schema only for payload; restored placeholders before commit; ledger/result redacted.
+
+### Durable fix needed before next run
+- Retry/backoff in `delete_bootstrap_ssh` on banner/EOF errors; never leave bootstrap PHP if cleanup fails (second attempt or warn louder).
+- Auto-expand CTA + schema host tokens inside `excalibur_blog_wp_publish.py` from env (do not write expanded URLs back to article files).
+- Ensure `paramiko` is installed by `.cursor/cloud-agent-install.sh` / requirements so publish does not fail cold.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

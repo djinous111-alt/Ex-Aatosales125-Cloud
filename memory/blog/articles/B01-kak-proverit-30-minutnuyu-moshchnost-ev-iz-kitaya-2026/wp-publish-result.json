@@ -1,0 +1,23 @@
+{
+  "slug": "kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026",
+  "topic_id": "B01",
+  "permalink": "[REDACTED]/2026/10/03/kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1410404,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3955 slug=kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026\nOK featured_image=3956\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3957 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/10/kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026-inline-01.png\nOK inline_image_upload=3958 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/10/kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026-inline-02.png\nOK inline_image_upload=3959 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/10/kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026-inline-03.png\npermalink=[REDACTED]/2026/10/03/kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026/\n",
+  "verdict": "pass",
+  "post_id": 3955,
+  "featured_image": 3956,
+  "inline_images": [
+    3957,
+    3958,
+    3959
+  ],
+  "schema_meta": 1
+}

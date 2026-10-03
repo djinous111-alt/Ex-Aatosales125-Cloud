@@ -1,7 +1,7 @@
 # Promotion checklist — B01 kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026
 
 Дата публикации: 2026-10-03 (planned)  
-Live URL: (после publish) /blog/kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026/
+Live URL: [REDACTED]/2026/10/03/kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • С 01.12.2025 льгота физлица по EV завязана на порог ≤80 л.с.
 • Сначала прецедент/документы завода, потом деньги
 
-Читать: [URL после publish]
+Читать: [REDACTED]/2026/10/03/kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026/
 ```
 
 ## Перелинковка

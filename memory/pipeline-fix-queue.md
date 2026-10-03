@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261003-0903-scout-precommit-secret-name-url
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- First `git commit` failed in pre-commit hook with `invalid variable name` while expanding `CLOUD_AGENT_INJECTED_SECRET_NAMES` (at least one injected "name" is not a valid bash identifier, e.g. a URL).
+- `scripts/sanitize_cloud_secret_names.sh` is referenced in automation memory / previous fixer notes, but the file is missing in this workspace checkout.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to `^[A-Za-z_][A-Za-z0-9_]*$` in the shell session, then recommitted successfully.
+- Push to feature branch succeeded after the filtered commit.
+
+### Durable fix needed before next run
+- Restore or add `scripts/sanitize_cloud_secret_names.sh` that filters invalid identifiers before any git hook expands `${!SECRET_NAME}`.
+- Wire the sanitize step into agent pre-commit docs / Cloud install so scout/research/publish do not hit the same blocker.
+- Optionally harden the Cursor pre-commit hook to skip non-identifier names instead of aborting the commit.
+
+### Suggested files to inspect/change
+- `scripts/sanitize_cloud_secret_names.sh` (missing; recreate)
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- Cloud agent install / pre-commit hook that expands `CLOUD_AGENT_INJECTED_SECRET_NAMES`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

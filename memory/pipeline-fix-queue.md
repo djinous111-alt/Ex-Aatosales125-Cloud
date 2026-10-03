@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261003-0932-cover-precommit-redacted-secret-name
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-era-glonass-pri-vvoze-avto-2026-nuzhna-li
+severity: medium
+category: env
+
+### What went wrong
+- Cloud pre-commit secret scanner failed with `invalid variable name` because `CLOUD_AGENT_ALL_SECRET_NAMES` contained a literal placeholder token that is not a valid bash identifier.
+- `${!SECRET_NAME}` in `pre-commit.cursor` therefore aborted before commit, blocking cover artifact push.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_ALL_SECRET_NAMES` / `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid `[A-Za-z_][A-Za-z0-9_]*` names for the commit shell, then committed and pushed successfully.
+
+### Durable fix needed before next run
+- Ensure Cloud Agent secret-name injection never emits non-identifier placeholders into `CLOUD_AGENT_*_SECRET_NAMES`.
+- Harden `pre-commit.cursor` to skip names that fail identifier validation instead of aborting the whole commit.
+
+### Suggested files to inspect/change
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (platform)
+- Cloud secret injection / dashboard secret names
+- `shared/agent-pipeline-pitfalls.md` (document workaround)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261003-0931-cover-prompt-outfit-lock-conflict
 status: open
 run_date: 2026-10-03

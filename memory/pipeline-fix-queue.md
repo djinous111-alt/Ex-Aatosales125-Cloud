@@ -58,7 +58,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `rg` no `--blog-path` in indexer canonical docs/doctor
-commit: pending-parent-commit
+commit: e38d451
 
 ## INC-20261003-0932-cover-precommit-redacted-secret-name
 status: fixed
@@ -103,7 +103,7 @@ files_changed:
 checks_run:
 - sanitize unit: URL/`[REDACTED]` dropped; valid names kept
 - doctor: sanitize script exists
-commit: pending-parent-commit
+commit: e38d451
 
 ## INC-20261003-0931-cover-prompt-outfit-lock-conflict
 status: fixed
@@ -151,7 +151,7 @@ files_changed:
 checks_run:
 - `py_compile` cover_quad_prompt
 - regenerated B01 prompt: no hoodie lock; brand + rain jacket present
-commit: pending-parent-commit
+commit: e38d451
 
 ## INC-20261003-0925-geo-qa-utility-gate-missing-markers
 status: fixed
@@ -205,7 +205,7 @@ checks_run:
 - empty pain → CONFIG ERROR
 - B01 utility PASS pain=7 outcome=6
 - doctor errors=0
-commit: pending-parent-commit
+commit: e38d451
 
 ## INC-20261003-0930-geo-qa-cta-placeholder-vs-secret-scan
 status: fixed
@@ -265,7 +265,7 @@ files_changed:
 checks_run:
 - expand unit + unresolved abort
 - dry-run B01 `cta_expanded: true` without writing secrets back to article.html
-commit: pending-parent-commit
+commit: e38d451
 
 ## INC-20261003-0935-geo-qa-tldr-label-contract-conflict
 status: fixed
@@ -314,7 +314,7 @@ files_changed:
 checks_run:
 - B01 human-voice PASS (label «Если коротко:»)
 - `rg` no canonical `TL;DR / Быстрый инсайт` example in writing contract
-commit: pending-parent-commit
+commit: e38d451
 
 ## INC-20261003-0940-geo-qa-typed-task-missing-in-cloud-enum
 status: fixed
@@ -363,7 +363,7 @@ files_changed:
 - `.cursor/skills/director-excalibur-blog/SKILL.md`
 checks_run:
 - docs contain «нормальный путь» / generalPurpose guidance
-commit: pending-parent-commit
+commit: e38d451
 
 ## INC-20261003-0915-research-regulation-gov-503
 status: fixed
@@ -405,7 +405,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` regulation.gov soft-failure guidance present
-commit: pending-parent-commit
+commit: e38d451
 
 ## INC-20261003-0903-scout-precommit-secret-name-url
 status: fixed
@@ -457,7 +457,7 @@ files_changed:
 checks_run:
 - sanitize unit test
 - doctor sanitize exists
-commit: pending-parent-commit
+commit: e38d451
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -509,7 +509,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: e38d451
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -560,7 +560,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: e38d451
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -601,7 +601,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: e38d451
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -648,7 +648,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: e38d451
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -702,7 +702,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: e38d451
 
 ## Fixed incidents
 
@@ -754,4 +754,4 @@ files_changed:
 - `shared/excalibur-wp-publish-contract.md`
 checks_run:
 - dry-run B01 cta_expanded true; article.html placeholders intact
-commit: pending-parent-commit
+commit: e38d451

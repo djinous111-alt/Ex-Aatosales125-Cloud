@@ -577,3 +577,68 @@ category: docs
 
 ### Fixer resolution
 - pending
+
+## INC-20261003-1745-indexer-precommit-invalid-secret-name
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-indexer
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-kupit-avto-iz-korei-pod-klyuch-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in pre-commit.cursor: `invalid variable name` on `${!SECRET_NAME}`.
+- Same root cause as INC-20261003-1724: `CLOUD_AGENT_*_SECRET_NAMES` contained 1 non-identifier entry (URL-like, len=25); sanitize script still missing.
+
+### How the agent recovered this run
+- Exported filtered identifier-only lists for the commit shell, then committed promotion-checklist + interlink report + incident queue.
+
+### Durable fix needed before next run
+- Restore `scripts/sanitize_cloud_secret_names.sh` and document sourcing before git commit for indexer/publish roles.
+- Remove non-identifier names from Dashboard secret injection lists.
+
+### Suggested files to inspect/change
+- `scripts/sanitize_cloud_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded (name not logged)
+
+### Fixer resolution
+- pending
+
+
+## INC-20261003-1745-indexer-llms-secret-scan-block
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-indexer
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-kupit-avto-iz-korei-pod-klyuch-2026
+severity: high
+category: publish
+
+### What went wrong
+- Cursor secret scanner blocked commit of regenerated `memory/blog/llms.txt` and `llms-full.txt` because they embed `PUBLIC_SITE_URL` absolute article URLs.
+- Same site URL already present in prior git history (`llms.txt`, schema, research, published-articles), so scanner now prevents refreshing AI crawler index in-repo.
+
+### How the agent recovered this run
+- Left updated `llms.txt` / `llms-full.txt` on disk for publish step; committed only promotion-checklist, interlink-suggestions.json, and incident queue.
+- Indexer handoff records on-disk paths; publish must deploy from workspace files, not rely on git HEAD for llms.
+
+### Durable fix needed before next run
+- Decide: (a) allowlist public site base for llms artifacts, or (b) generate llms with relative `/blog/...` URLs, or (c) stop treating public site URL as a commit-scanned secret for these paths.
+- Document which path publish uses for llms upload.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

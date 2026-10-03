@@ -349,3 +349,35 @@ category: env
 ### Fixer resolution
 - pending
 
+
+## INC-20261003-1746-writer-precommit-invalid-secret-name
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-writer
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-kupit-avto-iz-korei-pod-klyuch-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` for B02 article.html/meta failed in pre-commit.cursor: `invalid variable name` on `${!SECRET_NAME}`.
+- Same root cause as INC-20261003-1724: non-identifier entries in `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `CLOUD_AGENT_ALL_SECRET_NAMES` (this run: 1 bad name, len=218); sanitize script still missing.
+
+### How the agent recovered this run
+- Filtered names to bash identifiers only for the commit shell, then committed and pushed writer artifacts.
+
+### Durable fix needed before next run
+- Same as INC-20261003-1724: restore `scripts/sanitize_cloud_secret_names.sh` and document pre-commit env sanitize for all Excalibur roles (not only scout).
+- Fix Dashboard secret naming so injected names are valid identifiers.
+
+### Suggested files to inspect/change
+- `scripts/sanitize_cloud_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-writer.md`
+
+### Secrets
+- none recorded (name not logged)
+
+### Fixer resolution
+- pending

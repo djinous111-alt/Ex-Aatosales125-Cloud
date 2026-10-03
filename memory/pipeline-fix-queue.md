@@ -512,3 +512,35 @@ category: env
 ### Fixer resolution
 - pending
 
+
+## INC-20261003-1742-cover-quad-manifest-seo-defaults
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-cover
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-kupit-avto-iz-korei-pod-klyuch-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_quad_manifest.py --merge` для авто-темы Кореи заполнил cover_hook/meme_caption/scene_hint SEO-дефолтами B01: «SEO-текст…», «15k ключей», «Wordstat + ноутбук».
+- Wordstat в scene_hint нарушает design-code запрет на SEO-analytics в кадре; агент обязан руками переписать весь cover+inline block.
+
+### How the agent recovered this run
+- Переписал `cover/quad-manifest.json` под боль «Encar ≠ под ключ», outfit порт Владивостока, inline visual_type: infographic_card / checklist_board / workflow_diagram.
+- ONE Kie gpt-image-2 i2i → split PASS → inject-html ok.
+
+### Durable fix needed before next run
+- Убрать SEO-захардкоженные defaults из `excalibur_blog_quad_manifest.py`; брать hook/caption из article.meta / research reader_pain или оставлять пустые обязательные поля с FAIL, если агент не заполнил.
+- Не предлагать Wordstat/Метрику в любых default scene_hint.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_quad_manifest.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

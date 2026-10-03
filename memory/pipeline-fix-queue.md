@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261003-1326-cover-hero-host-catbox-fail
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026
+severity: medium
+category: api
+
+### What went wrong
+- `excalibur_blog_hero_reference_url.py --force` failed: catbox 412 and 0x0 503.
+- Existing `reference_url_hosted` pointed at blueprint winter-cars PNG, not `blog-hero-reference.png` face lock.
+- litterbox.catbox.moe also timed out (504).
+
+### How the agent recovered this run
+- Uploaded local `memory/cover/assets/blog-hero-reference.png` via SSH/SFTP into `wp-content/uploads/excalibur/` on the site and set `reference_url_hosted` to that public URL.
+- Continued cover pipeline with Kie i2i using the new hosted face URL.
+
+### Durable fix needed before next run
+- Add SSH/WP-uploads fallback (or WordPress media upload) inside `excalibur_blog_hero_reference_url.py` when catbox/0x0 fail.
+- Detect stale blueprint URLs that are not the face reference and force re-host.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261003-1318-writer-commit-secret-name-filter
 status: open
 run_date: 2026-10-03
@@ -22,6 +56,7 @@ category: env
 
 ### How the agent recovered this run
 - Temporarily filtered `CLOUD_AGENT_ALL_SECRET_NAMES` and `CLOUD_AGENT_INJECTED_SECRET_NAMES` to bash-safe identifiers only, then committed/pushed article artifacts.
+- Reproduced again on schema commit for the same `topic_id` B01; same filter workaround unblocked local `schema.jsonld` commit (`18b4238`). Push then failed separately (invalid GitHub token) — see INC-20261003-1327.
 
 ### Durable fix needed before next run
 - Restore or recreate `scripts/sanitize_cloud_secret_names.sh` and call it from writer/publish runbooks before commit.

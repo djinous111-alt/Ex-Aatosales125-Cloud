@@ -6,6 +6,69 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261003-2149-cover-mcp-sync-timeout-kie-api
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` returned `-32001 Request timed out` (client timeout) before URL; 2K and 1K both timed out.
+- Agent also made extra sync retries / alternate MCP image tools against batch `sync_create_max_attempts: 1` / "do not blindly retry" policy before switching to preferred Kie async script.
+
+### How the agent recovered this run
+- Used `scripts/excalibur_blog_kie_gpt_image2_api.py` (createTask → poll recordInfo) with `KIE_API_KEY`; got URL in ~76s; `quad_apply --inject-html` PASS.
+- Face reference rehosted to litterbox after catbox/0x0 failed (`--force` upload blocked); batch `input_urls` updated.
+
+### Durable fix needed before next run
+- Cover skill/agent must prefer Kie async script first on Cloud (or after first -32001), not multi-retry sync MCP.
+- Expose async MCP create/status tools OR raise MCP HTTP timeout; document litterbox as temporary face-host fallback when catbox/0x0 down.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `shared/blog-cover-quad-canvas-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261003-2149-cover-prompt-hoodie-outfit-lock
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026
+severity: low
+category: prompt
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` hardcodes `Outfit lock: thick heavyweight white hoodie`, conflicting with `blog-hero.json` outfit_rule (change clothes for weather/topic: port rain jacket).
+
+### How the agent recovered this run
+- Patched `cover/quad-mcp-prompt.txt` + synced `mcp_args.prompt` before Kie createTask to require waterproof rain jacket for Vladivostok port/SVH.
+
+### Durable fix needed before next run
+- Replace hoodie lock with weather/topic outfit instruction from `blog-hero.json` / scene_hint; do not force white hoodie.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/blog-hero.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261003-2140-schema-precommit-secret-names-url
 status: open
 run_date: 2026-10-04

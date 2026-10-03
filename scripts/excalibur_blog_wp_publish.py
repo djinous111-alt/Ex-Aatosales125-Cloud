@@ -8,6 +8,7 @@ import io
 import json
 import os
 import sys
+import urllib.parse
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -467,33 +468,73 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+def trigger_bootstrap_http(url: str, root: Path, *, timeout: int = 300) -> str:
+    """Trigger remote bootstrap. On local HTTP failure, enter WebFetch fallback wait.
+
+    Cloud agents must start WebFetch as soon as FALLBACK_TRIGGER_URL is printed —
+    do not wait for this function to finish its wait loop.
+    """
+    import time
+
     try:
-        print(f"Triggering HTTP publish on {url}...")
+        print(f"Triggering HTTP publish on {url} (timeout={timeout}s)...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=timeout,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
         print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
+        print(
+            "ACTION NOW (parallel): Cloud agent must WebFetch the URL above immediately and write "
+            "the response body to memory/webfetch-response.txt — do not wait for this wait loop."
+        )
         print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
-        import time
 
-        for _ in range(120):
+        for _ in range(timeout):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {timeout} seconds. "
+            "If WP already applied the post, recover via slug REST instead of republishing."
+        )
 
 
-def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
+def try_recover_publish_output(public_base: str, slug: str, timeout: float = 20.0) -> str | None:
+    """If HTTP 504 arrived after server-side work finished, recover OK markers via WP REST."""
+    slug = (slug or "").strip()
+    if not slug or not public_base:
+        return None
+    api = public_base.rstrip("/") + "/wp-json/wp/v2/posts?slug=" + urllib.parse.quote(slug)
+    try:
+        with urllib.request.urlopen(
+            urllib.request.Request(api, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
+            timeout=timeout,
+        ) as response:
+            body = response.read().decode("utf-8", errors="replace")
+        posts = json.loads(body)
+        if not isinstance(posts, list) or not posts:
+            return None
+        post = posts[0]
+        post_id = post.get("id")
+        link = post.get("link") or ""
+        if not post_id:
+            return None
+        print(f"Recovered publish via WP REST slug={slug} post_id={post_id}")
+        return f"OK post={post_id} slug={slug}\npermalink={link}\n"
+    except Exception as exc:  # noqa: BLE001
+        print(f"WARN slug REST recovery failed: {type(exc).__name__}: {exc}", file=sys.stderr)
+        return None
+
+
+def publish_via_ssh(env: dict[str, str], php: str, public_base: str, slug: str = "") -> str:
     remote = "excalibur-blog-publish-once.php"
     data = php.encode("utf-8")
     url = public_base.rstrip("/") + "/" + remote
@@ -501,13 +542,32 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
 
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
+    out = ""
+    success = False
     try:
-        out = trigger_bootstrap_http(url, root)
-    finally:
         try:
-            delete_bootstrap_ssh(env, remote, uploaded_remote_path)
-        except Exception as cleanup_error:  # noqa: BLE001
-            print(f"WARN cleanup: could not delete bootstrap {remote}: {cleanup_error}", file=sys.stderr)
+            out = trigger_bootstrap_http(url, root, timeout=300)
+        except RuntimeError as trigger_error:
+            recovered = try_recover_publish_output(public_base, slug)
+            if recovered:
+                out = recovered
+            else:
+                raise trigger_error
+        success = "OK post=" in out
+    finally:
+        # 504 often means gateway timeout after PHP finished — do not delete bootstrap
+        # until we have OK markers (or REST recovery). Keeps file available for retry/WebFetch.
+        if success:
+            try:
+                delete_bootstrap_ssh(env, remote, uploaded_remote_path)
+            except Exception as cleanup_error:  # noqa: BLE001
+                print(f"WARN cleanup: could not delete bootstrap {remote}: {cleanup_error}", file=sys.stderr)
+        else:
+            print(
+                f"WARN: keeping remote bootstrap {remote} after non-OK trigger "
+                "(HTTP 504 / fallback timeout may still be applying). Clean up manually if needed.",
+                file=sys.stderr,
+            )
     return out
 
 
@@ -588,7 +648,7 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ssh(env, php, public)
+    out = publish_via_ssh(env, php, public, slug=str(payload.get("slug") or ""))
     print(out)
 
     result_path = article_dir / "wp-publish-result.json"

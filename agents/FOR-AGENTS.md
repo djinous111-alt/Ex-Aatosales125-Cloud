@@ -45,3 +45,8 @@ skills/<role>/SKILL.md     ← детальные инструкции роли
 - Contract: `shared/pipeline-incident-fix-contract.md`
 - Любой агент после blocker/retry/workaround пишет incident и указывает `incident_report` в handoff/fragment.
 - После run Директор запускает `excalibur-blog-fixer`, если есть `status: open`.
+
+## Cloud Task enum gap
+
+`excalibur-blog-geo-qa` может отсутствовать в typed Task enum Cloud. Fallback: отдельный `Task(generalPurpose)` с agent+skill geo-qa. Не запускай QA в parent.
+

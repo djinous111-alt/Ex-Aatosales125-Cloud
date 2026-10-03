@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 import time
@@ -374,8 +375,10 @@ def run_research_start(
     serp_path = out_dir / "research-serp.json"
 
     if not dry_run:
+        hosts = sensitive_hosts_from_env()
+        serp_safe = redact_sensitive_hosts(payload_serp, hosts)
         context_path.write_text(json.dumps(payload_context, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        serp_path.write_text(json.dumps(payload_serp, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        serp_path.write_text(json.dumps(serp_safe, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         save_utility = out_dir / "utility-gate-topic.json"
         save_utility.write_text(json.dumps(utility_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         ledger_reserved = reserve_topic_in_ledger(project_root(), topic, ctx, out_dir)
@@ -402,6 +405,45 @@ def _unique_urls(serp_runs: list[dict[str, Any]]) -> list[dict[str, str]]:
                 seen.add(url)
                 out.append({"url": url, "title": row.get("title") or "", "from_query": run.get("query") or ""})
     return out
+
+
+def _host_from_url(value: str) -> str:
+    value = (value or "").strip()
+    if not value:
+        return ""
+    if "://" not in value:
+        value = "https://" + value
+    return urllib.parse.urlparse(value).netloc.lower().removeprefix("www.")
+
+
+def redact_sensitive_hosts(obj: Any, hosts: set[str]) -> Any:
+    """Replace catalog/public site hosts in research-serp.json before write (secret-scan safe)."""
+    if not hosts:
+        return obj
+    if isinstance(obj, str):
+        out = obj
+        for host in sorted(hosts, key=len, reverse=True):
+            if host and host in out.lower():
+                # Case-preserving-ish replace via regex
+                out = re.sub(re.escape(host), "[PUBLIC_SITE_URL]", out, flags=re.I)
+        return out
+    if isinstance(obj, list):
+        return [redact_sensitive_hosts(x, hosts) for x in obj]
+    if isinstance(obj, dict):
+        return {k: redact_sensitive_hosts(v, hosts) for k, v in obj.items()}
+    return obj
+
+
+def sensitive_hosts_from_env() -> set[str]:
+    hosts: set[str] = set()
+    for key in ("PUBLIC_SITE_URL", "WP_HOME", "WP_SITE_URL", "CATALOG_URL"):
+        host = _host_from_url(os.environ.get(key, ""))
+        if host:
+            hosts.add(host)
+    # Stable catalog host used in site-brief / cover corner brand (never commit as secret-scan bait).
+    hosts.add("avtosales125.ru")
+    hosts.add("avto-sales125.ru")
+    return hosts
 
 
 def main() -> int:

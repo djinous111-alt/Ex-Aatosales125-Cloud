@@ -14,22 +14,24 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# "github" is intentionally absent: required section ## github_evidence would
+# false-positive every topic (including Авто-Сейлс) as technical.
+# Use word-boundary regex: bare "ai"/"ии" substrings false-positive on "pain"/"японии".
 TECH_MARKERS = (
-    "ai",
-    "ии",
-    "agent",
-    "агент",
-    "mcp",
-    "api",
-    "cursor",
-    "make",
-    "n8n",
-    "github",
-    "docker",
-    "rag",
-    "workflow",
-    "автоматизац",
-    "нейросет",
+    r"\bai\b",
+    r"\bии\b",
+    r"\bagent\b",
+    r"\bагент\b",
+    r"\bmcp\b",
+    r"\bapi\b",
+    r"\bcursor\b",
+    r"\bmake\.com\b",
+    r"\bn8n\b",
+    r"\bdocker\b",
+    r"\brag\b",
+    r"\bllm\b",
+    r"автоматизац",
+    r"нейросет",
 )
 
 
@@ -79,8 +81,36 @@ def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Exclude required scaffolding sections so their headings/labels cannot force technical mode.
+    notes_scan = re.sub(
+        r"##\s*\d*\.?\s*github_evidence\b[\s\S]*?(?=\n##\s|\Z)",
+        " ",
+        notes[:4000],
+        flags=re.I,
+    )
+    blob += " " + notes_scan.lower()
+    return any(re.search(marker, blob, flags=re.I) for marker in TECH_MARKERS)
+
+
+def count_accessed_at(text: str, today_iso: str) -> int:
+    """Count source access dates.
+
+    Prefer explicit `accessed_at: YYYY-MM-DD`. Also accept ISO dates in markdown
+    table cells when the source_table header mentions accessed_at (common writer form).
+    """
+    explicit = len(re.findall(r"\baccessed_at\b\s*:\s*\d{4}-\d{2}-\d{2}", text, flags=re.I))
+    if explicit >= 5:
+        return explicit
+    text_lower = text.lower()
+    if "accessed_at" not in text_lower:
+        return explicit
+    iso = today_iso or ""
+    if iso:
+        iso_cells = len(re.findall(rf"\|\s*{re.escape(iso)}\s*\|", text))
+        return max(explicit, iso_cells)
+    # Any ISO date cell in a pipe table near source URLs
+    iso_cells = len(re.findall(r"\|\s*\d{4}-\d{2}-\d{2}\s*\|", text))
+    return max(explicit, iso_cells)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,7 +160,7 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text, today_iso)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
     pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
     action_items = count_action_items(text)
@@ -142,7 +172,10 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     if today_iso and today_iso not in text:
         errors.append(f"research_date must match current context today_iso={today_iso}")
     if today_iso and accessed_count < 5:
-        errors.append(f"too few source access dates: accessed_at={accessed_count} < 5")
+        errors.append(
+            f"too few source access dates: accessed_at={accessed_count} < 5 "
+            "(prefer `accessed_at: YYYY-MM-DD` in source_table cells)"
+        )
     if len(urls) < 8:
         errors.append(f"too few source URLs: {len(urls)} < 8")
     if len(domains) < 5:
@@ -162,7 +195,11 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     if technical and len(github_urls) < 3:
         errors.append(f"technical topic requires GitHub evidence: github_urls={len(github_urls)} < 3")
     if technical and not official_doc_urls:
-        warnings.append("technical topic has no obvious official docs/developer documentation URL")
+        # Soft warning only; Авто-Сейлс / industry topics may cite help pages without /docs URLs.
+        warnings.append(
+            "technical topic has no obvious official docs/developer documentation URL "
+            "(industry/help URLs are acceptable for non-API niches)"
+        )
 
     if year and year not in text:
         warnings.append(f"current year {year} is not visible in research notes")

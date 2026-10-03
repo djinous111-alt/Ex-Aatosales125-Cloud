@@ -1,0 +1,42 @@
+{
+  "topic_id": "B03",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Оценка 4.5 — а под ней R. Читал лист?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс со смартфоном и распечаткой аукционного листа, японский седан, плашка читай лист до ставки",
+      "scene_hint": "reference face + glasses ONLY; outfit: neat navy softshell jacket over light grey polo (auction/docs vibe, office-cool light, NOT hoodie, NOT reference t-shirt, NO cap/hood); action selfie holding smartphone with fake Japanese auction sheet UI + crumpled printout of auction grade card taped with scotch; modern Japanese sedan blurred behind; torn paper hook plaque with yellow highlight on «R»; sticky note «до ставки»; shocked-face meme cutout; corner brand avto-sales125.ru; 16:9 human collage",
+      "meme_caption_ru": "Читай лист до ставки"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Найдите на листе четыре якоря до любой ставки",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake Japanese auction sheet screenshot UI: four highlighted anchors — общая оценка, пробег, схема кузова, примечания; red marker circles; small sticky «якоря»; NO hero face; tape corner; readable Cyrillic labels",
+      "alt": "Мокап аукционного листа: четыре якоря — оценка, пробег, схема кузова, примечания"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сопоставьте оценку с пробегом: граница 4.5 и риски 3.5",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean comparison table UI: grades S/6/5/4.5/4/3.5 vs mileage risk columns; green zone at 4.5+, amber at 4, red at 3.5; sticky note «граница»; NO hero; light human tape layer",
+      "alt": "Таблица оценок аукциона: граница 4.5 и риски при 3.5 рядом с пробегом"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Разберите R, RA и 99 без японского словаря",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram 3 steps: R (repair) → RA (accident) → 99 (special); arrows and red flag icons; mini body-map with U/W/X marks; Cyrillic labels; NO hero face; small sticker «стоп»",
+      "alt": "Схема флагов R, RA и 99 на японском аукционном листе"
+    }
+  }
+}

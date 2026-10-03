@@ -186,3 +186,12 @@ Preflight link-verify → dry-run → publish → обнови shared/published-
 
 
 Cloud: те же имена в `.cursor/agents/`.
+
+## Cloud typed-Task gap (GEO QA)
+
+Если `Task(excalibur-blog-geo-qa)` → Invalid enum, немедленно запускай:
+
+`Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+Не пропускай GEO QA и не выполняй его parent-агентом.
+

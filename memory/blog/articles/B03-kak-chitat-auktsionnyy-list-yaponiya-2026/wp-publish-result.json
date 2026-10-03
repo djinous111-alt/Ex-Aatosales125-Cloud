@@ -1,0 +1,17 @@
+{
+  "slug": "kak-chitat-auktsionnyy-list-yaponiya-2026",
+  "topic_id": "B03",
+  "post_id": 3931,
+  "permalink": "[REDACTED]/2026/10/02/kak-chitat-auktsionnyy-list-yaponiya-2026/",
+  "featured_image": 3932,
+  "inline_images": [
+    3933,
+    3934,
+    3935
+  ],
+  "schema_meta": 1,
+  "skip_theme_faq_meta": 1,
+  "raw_output": "OK post=3931 slug=kak-chitat-auktsionnyy-list-yaponiya-2026\nOK featured_image=3932\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3933 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/10/kak-chitat-auktsionnyy-list-yaponiya-2026-inline-01.png\nOK inline_image_upload=3934 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/10/kak-chitat-auktsionnyy-list-yaponiya-2026-inline-02.png\nOK inline_image_upload=3935 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/10/kak-chitat-auktsionnyy-list-yaponiya-2026-inline-03.png\npermalink=[REDACTED]/2026/10/02/kak-chitat-auktsionnyy-list-yaponiya-2026/\n",
+  "verdict": "pass",
+  "publish_method": "ssh_http_504_recovered_via_rest_meta_check"
+}

@@ -110,9 +110,49 @@ def check_overlap(new_query: str, existing_topics: list[dict[str, str]], reserve
             })
     return warnings
 
+
+def parse_b_num(topic_id: str) -> int | None:
+    m = re.match(r"B(\d+)$", topic_id.upper())
+    return int(m.group(1)) if m else None
+
+
+def occupied_b_nums(reserved: set[str], existing: list[dict[str, str]]) -> set[int]:
+    nums: set[int] = set()
+    for tid in reserved:
+        n = parse_b_num(tid)
+        if n is not None:
+            nums.add(n)
+    for t in existing:
+        n = parse_b_num(t["topic_id"])
+        if n is not None:
+            nums.add(n)
+    return nums
+
+
+def suggest_next_id(occupied: set[int], min_id: str | None = None) -> str:
+    # Prefer monotonic next after highest known B-id. Do NOT fill gaps (B01/B02 may be
+    # live on WP while local ledger was reset to AS* / later B*).
+    start = (max(occupied) + 1) if occupied else 1
+    if min_id:
+        n = parse_b_num(min_id)
+        if n is None:
+            raise ValueError(f"--min-id must look like B03, got {min_id!r}")
+        start = max(start, n)
+    candidate = start
+    while candidate in occupied:
+        candidate += 1
+    return f"B{candidate:02d}"
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Helper for Excalibur BLOG Scout Agent")
     ap.add_argument("--suggest-next", action="store_true", help="Print next available Topic ID and summary")
+    ap.add_argument(
+        "--min-id",
+        type=str,
+        default="",
+        help="Floor for next B-id (e.g. B03). Still skips occupied ledger/article/pool ids.",
+    )
     ap.add_argument("--check-query", type=str, default="", help="Check new primary query for overlaps")
     args = ap.parse_args()
     
@@ -130,17 +170,18 @@ def main() -> int:
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
-        max_num = 0
-        for t in existing:
-            m = re.match(r"B(\d+)", t["topic_id"])
-            if m:
-                max_num = max(max_num, int(m.group(1)))
-        
-        next_id = f"B{max_num + 1:02d}"
+        occupied = occupied_b_nums(reserved, existing)
+        try:
+            next_id = suggest_next_id(occupied, args.min_id or None)
+        except ValueError as exc:
+            print(f"BLOCKER: {exc}", file=sys.stderr)
+            return 2
         print(f"Next available topic ID: {next_id}")
-        print(f"Total topics in pool (blog-topics.md): {len(existing)}")
+        print(f"Occupied B-ids (ledger+articles+pool): {sorted(f'B{n:02d}' for n in occupied)}")
+        print(f"Total topics in pool (blog-topics.md B*): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")
         print(f"Active article dirs: {sorted(active)}")
+        print(f"Ledger reserved/published: {sorted(published)}")
         
         unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
         print(f"Unwritten topic IDs in pool: {unwritten}")

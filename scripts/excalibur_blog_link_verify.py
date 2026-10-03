@@ -105,6 +105,10 @@ def _get_fallback(
 
 
 def classify_link(href: str, site_base: str | None) -> str:
+    raw = (href or "").strip()
+    # Literal secret-scan placeholders must never be treated as relative paths.
+    if raw.upper() in {"[REDACTED]", "REDACTED"} or raw.startswith("[REDACTED]"):
+        return "redacted_placeholder"
     if href.startswith("/"):
         return "internal_relative"
     parsed = urlparse(href)
@@ -143,6 +147,22 @@ def verify_article(
     results: list[dict[str, Any]] = []
     for href in links:
         kind = classify_link(href, site_base)
+        if kind == "redacted_placeholder":
+            results.append(
+                {
+                    "url": href,
+                    "kind": kind,
+                    "status": None,
+                    "ok": False,
+                    "skipped": False,
+                    "method": None,
+                    "error": (
+                        "CTA/href is literal [REDACTED]; restore CATALOG_URL/TELEGRAM_URL "
+                        "(or other live env URL) before link-verify; redact only at commit stage"
+                    ),
+                }
+            )
+            continue
         if skip_external and kind == "external":
             results.append(
                 {

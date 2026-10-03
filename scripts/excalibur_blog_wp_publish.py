@@ -7,6 +7,7 @@ import base64
 import io
 import json
 import os
+import re
 import sys
 import urllib.request
 from pathlib import Path
@@ -32,7 +33,13 @@ PUBLISH_ENV_KEYS = {
     "SSH_PASSWORD",
     "SSH_ROOT",
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
+    "CATALOG_URL",
+    "TELEGRAM_URL",
 }
+
+# CTA / host tokens kept in git-tracked HTML/JSON; expand only in publish payload.
+CTA_ENV_KEYS = ("CATALOG_URL", "TELEGRAM_URL")
+UNRESOLVED_URL_TOKEN_RE = re.compile(r"\[([A-Z][A-Z0-9_]*_URL)\]|<([A-Z][A-Z0-9_]*_URL)>")
 
 
 def _read_env_file(path: Path) -> dict[str, str]:
@@ -56,6 +63,48 @@ def load_env(root: Path) -> dict[str, str]:
     if not env.get("SSH_PASS") and env.get("SSH_PASSWORD"):
         env["SSH_PASS"] = env["SSH_PASSWORD"]
     return env
+
+
+def expand_publish_placeholders(text: str, env: dict[str, str]) -> str:
+    """Resolve secret-safe CTA/host tokens in memory only (never write back to git files)."""
+    if not text:
+        return text
+    out = text
+    for key in CTA_ENV_KEYS:
+        value = (env.get(key) or os.environ.get(key) or "").strip()
+        if not value:
+            continue
+        out = out.replace(f"[{key}]", value).replace(f"<{key}>", value)
+    public = (
+        env.get("PUBLIC_SITE_URL")
+        or env.get("WP_HOME")
+        or env.get("WP_SITE_URL")
+        or ""
+    ).strip().rstrip("/")
+    if public:
+        # Schema/page URLs committed as [REDACTED] host placeholders.
+        out = out.replace("[REDACTED]", public)
+    return out
+
+
+def assert_no_unresolved_url_tokens(text: str, *, label: str) -> None:
+    unresolved = sorted({m.group(1) or m.group(2) for m in UNRESOLVED_URL_TOKEN_RE.finditer(text or "")})
+    if unresolved:
+        raise RuntimeError(
+            f"unresolved URL placeholders in {label}: {', '.join(unresolved)}. "
+            "Set matching Cloud Secrets / env (e.g. CATALOG_URL, TELEGRAM_URL) before publish."
+        )
+
+
+def apply_publish_expansions(payload: dict, env: dict[str, str]) -> dict:
+    """Expand CTA/host placeholders inside the in-memory publish payload."""
+    payload = dict(payload)
+    payload["content"] = expand_publish_placeholders(str(payload.get("content") or ""), env)
+    payload["schema_jsonld"] = expand_publish_placeholders(str(payload.get("schema_jsonld") or ""), env)
+    payload["excerpt"] = expand_publish_placeholders(str(payload.get("excerpt") or ""), env)
+    assert_no_unresolved_url_tokens(payload["content"], label="article.html content")
+    assert_no_unresolved_url_tokens(payload["schema_jsonld"], label="schema.jsonld")
+    return payload
 
 
 def validate_publish_env(env: dict[str, str]) -> list[str]:
@@ -192,7 +241,6 @@ def load_article(article_dir: Path) -> dict:
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
         cover_alt = cover_alt or reg.get("cover_alt_text", "")
 
-    import re
     img_srcs = re.findall(r'<img\s+[^>]*src=["\']([^"\']+)["\']', content)
     inline_images = []
     for src in img_srcs:
@@ -568,15 +616,34 @@ def main() -> int:
         return 2
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
+    env = load_env(root)
+    if args.public_base:
+        env["PUBLIC_SITE_URL"] = args.public_base
     payload = load_article(article_dir)
+    try:
+        payload = apply_publish_expansions(payload, env)
+    except RuntimeError as exc:
+        print(f"BLOCKER: {exc}", file=sys.stderr)
+        return 2
     php = build_php(payload)
 
     if args.dry_run:
-        print(json.dumps({"dry_run": True, "slug": payload["slug"], "title": payload["title"]}, ensure_ascii=False, indent=2))
+        print(
+            json.dumps(
+                {
+                    "dry_run": True,
+                    "slug": payload["slug"],
+                    "title": payload["title"],
+                    "cta_expanded": True,
+                    "unresolved_url_tokens": 0,
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1

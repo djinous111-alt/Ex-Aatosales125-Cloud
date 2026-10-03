@@ -25,33 +25,42 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
 
+## CTA placeholders
+
+`article.html` хранит `[CATALOG_URL]` / `[TELEGRAM_URL]` (Cloud Secrets).
+Перед commit после ручных правок **не** оставляй живые URL этих secrets в git.
+
+Скрипт publish сам expand'ит токены из env в payload; `link-verify` тоже резолвит из env и маскирует отчёт.
+Перед commit: `source scripts/sanitize_cloud_secret_names.sh`.
+
 ## Алгоритм
 
 ### 1. Preflight publish
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
   --site-base https://avtosales125.ru
 ```
 
 Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
+Нужны env `CATALOG_URL` / `TELEGRAM_URL` для проверки CTA-токенов.
 
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
 
-Проверь: slug, title, размер PHP payload без ошибок.
+Проверь: slug, title, `cta_expanded: true`, размер PHP payload без ошибок.
 
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
@@ -84,7 +93,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 6. Post-publish (рекомендуется)
 
 ```bash
-python scripts/excalibur_blog_interlinker.py --apply \
+python3 scripts/excalibur_blog_interlinker.py --apply \
   --blog-dir memory/blog/articles \
   --site-base https://avtosales125.ru
 ```

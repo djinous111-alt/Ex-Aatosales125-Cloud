@@ -13,24 +13,38 @@ Excalibur BLOG готовит артефакты локально; публик�
 ## Скрипт
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/B01-slug/article.html \
   -o memory/blog/articles/B01-slug/link-verify.json \
   --site-base https://avtosales125.ru
 
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/B01-slug
 ```
 
-`--dry-run` — проверка payload без FTP.
+`--dry-run` — проверка payload без upload (уже с expand CTA placeholders).
+
+
+## CTA placeholders (обязательно)
+
+В git-tracked `article.html` / `schema.jsonld` допустимы только токены:
+
+- `[CATALOG_URL]` / `<CATALOG_URL>`
+- `[TELEGRAM_URL]` / `<TELEGRAM_URL>`
+- `[REDACTED]` для host/page URL в schema
+
+`excalibur_blog_wp_publish.py` читает `CATALOG_URL` / `TELEGRAM_URL` / `PUBLIC_SITE_URL` из env, расширяет payload **в памяти** и **абортит**, если остались нерезолвленные `[A-Z_]+_URL`. Значения secrets обратно в git не пишутся.
+
+`excalibur_blog_link_verify.py` резолвит те же токены из env для HTTP-проверки и маскирует URL в `link-verify.json`.
 
 ## Что делает publish
 
-1. `wp_insert_post` / `wp_update_post` — title, slug, content, excerpt
-2. Featured image из `cover/cover.png` + alt
-3. **Inline images** — все локальные `<img src="cover/...">` загружаются в Media Library, `src` заменяется на WP URL
-4. Post meta `_excalibur_blog_schema_jsonld` — JSON-LD для `single.php`
-5. Post meta `_excalibur_blog_skip_theme_faq` = `1` — сигнал теме **не** добавлять глобальный FAQ-блок
+1. Expand CTA/host placeholders из env (не трогая файлы на диске)
+2. `wp_insert_post` / `wp_update_post` — title, slug, content, excerpt
+3. Featured image из `cover/cover.png` + alt
+4. **Inline images** — все локальные `<img src="cover/...">` загружаются в Media Library, `src` заменяется на WP URL
+5. Post meta `_excalibur_blog_schema_jsonld` — JSON-LD для `single.php`
+6. Post meta `_excalibur_blog_skip_theme_faq` = `1` — сигнал теме **не** добавлять глобальный FAQ-блок
 
 ## Дубли FAQ на live-странице (важно)
 

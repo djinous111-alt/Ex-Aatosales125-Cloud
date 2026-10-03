@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import ssl
 import sys
@@ -13,6 +14,53 @@ from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
+
+CTA_PLACEHOLDER_RE = re.compile(r"^\[([A-Z][A-Z0-9_]*_URL)\]$|^<([A-Z][A-Z0-9_]*_URL)>$")
+CTA_ENV_KEYS = ("CATALOG_URL", "TELEGRAM_URL")
+
+
+def resolve_cta_placeholder(href: str) -> tuple[str, str | None]:
+    """Return (check_target, token_name_or_None). Resolves [CATALOG_URL]/<TELEGRAM_URL> from env."""
+    m = CTA_PLACEHOLDER_RE.match((href or "").strip())
+    if not m:
+        return href, None
+    key = m.group(1) or m.group(2)
+    value = (os.environ.get(key) or "").strip()
+    if not value:
+        return href, key
+    return value, key
+
+
+def mask_secret_urls_in_report(report: dict[str, Any]) -> dict[str, Any]:
+    """Replace resolved secret URL values with tokens before writing link-verify.json."""
+    reverse: dict[str, str] = {}
+    for key in CTA_ENV_KEYS:
+        value = (os.environ.get(key) or "").strip()
+        if value:
+            reverse[value] = f"[{key}]"
+    if not reverse:
+        return report
+
+    def mask_str(s: str) -> str:
+        out = s
+        for value, token in reverse.items():
+            out = out.replace(value, token)
+        return out
+
+    masked = dict(report)
+    links = []
+    for item in report.get("links") or []:
+        row = dict(item)
+        for field in ("url", "checked_url", "error", "warning"):
+            if isinstance(row.get(field), str):
+                row[field] = mask_str(row[field])
+        links.append(row)
+    masked["links"] = links
+    masked["note"] = (
+        "CTA secret URLs resolved from env for HTTP checks, then masked back to "
+        "[CATALOG_URL]/[TELEGRAM_URL] for secret-safe git commits."
+    )
+    return masked
 
 
 class LinkExtractor(HTMLParser):
@@ -156,7 +204,22 @@ def verify_article(
                 }
             )
             continue
-        check_target = href
+        check_target, cta_key = resolve_cta_placeholder(href)
+        if cta_key and check_target == href:
+            results.append(
+                {
+                    "url": href,
+                    "kind": "cta_placeholder",
+                    "status": None,
+                    "ok": False,
+                    "skipped": False,
+                    "method": None,
+                    "error": f"CTA placeholder {href} unresolved: set env {cta_key}",
+                }
+            )
+            continue
+        if cta_key:
+            kind = "cta_placeholder"
         if kind == "internal_relative" and site_base:
             base = site_base.rstrip("/")
             check_target = f"{base}{href if href.startswith('/') else '/' + href}"
@@ -176,8 +239,12 @@ def verify_article(
         r = check_url(check_target, timeout, user_agent)
         r["kind"] = kind
         r["skipped"] = False
-        if kind == "internal_relative":
-            r["checked_url"] = check_target
+        # Keep committed report secret-safe: show token, not resolved URL.
+        r["url"] = href if cta_key else r.get("url", href)
+        if kind == "internal_relative" or cta_key:
+            r["checked_url"] = f"[{cta_key}]" if cta_key else check_target
+        if cta_key:
+            r["resolved_from_env"] = cta_key
         if kind == "external" and is_soft_external_failure(href, r):
             r["ok"] = True
             r["warning"] = "soft external social timeout; verify manually if needed"
@@ -212,6 +279,7 @@ def main() -> int:
         timeout=args.timeout,
         skip_external=args.skip_external,
     )
+    report = mask_secret_urls_in_report(report)
     text = json.dumps(report, ensure_ascii=False, indent=2)
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)

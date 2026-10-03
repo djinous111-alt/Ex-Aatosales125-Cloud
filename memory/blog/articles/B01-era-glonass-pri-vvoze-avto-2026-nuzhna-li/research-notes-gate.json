@@ -1,0 +1,24 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-era-glonass-pri-vvoze-avto-2026-nuzhna-li",
+  "notes": "memory/blog/articles/B01-era-glonass-pri-vvoze-avto-2026-nuzhna-li/research-notes.md",
+  "context": "memory/blog/articles/B01-era-glonass-pri-vvoze-avto-2026-nuzhna-li/research-context.json",
+  "errors": [],
+  "warnings": [
+    "technical topic has no obvious official docs/developer documentation URL"
+  ],
+  "metrics": {
+    "today_iso": "2026-10-03",
+    "prefer_sources_after": "2026-07-05",
+    "source_urls": 30,
+    "source_domains": 12,
+    "source_table_rows": 30,
+    "accessed_at": 27,
+    "github_urls": 7,
+    "official_doc_urls": 0,
+    "action_outline_items": 9,
+    "pain_solution_rows": 8,
+    "technical_topic": true
+  }
+}

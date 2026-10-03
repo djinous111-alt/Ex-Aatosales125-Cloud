@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261003-0915-research-regulation-gov-503
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-era-glonass-pri-vvoze-avto-2026-nuzhna-li
+severity: low
+category: api
+
+### What went wrong
+- WebFetch `https://regulation.gov.ru/projects/163381/` returned HTTP 503 during deep research on ERA-GLONASS moratorium project status.
+- Auto.ru Mag page returned HTTP 403 on direct fetch (SERP snippet still usable).
+
+### How the agent recovered this run
+- Cross-checked project 163381 status via secondary sources that cite the same project id and Minpromtorg/TASS statements (glonasss.com, news.drom.ru, fontanka.ru).
+- Used official publication.pravo.gov.ru for PP 855 / PP 76 and 855.aoglonass.ru for operator process; did not invent decree adoption dates.
+
+### Durable fix needed before next run
+- Research skill: if regulation.gov.ru is 5xx, document fallback chain (pravo.gov.ru + operator pages + reputable news citing regulation project id) and treat 503 as expected soft failure, not research blocker.
+- Optionally add a short note in agent pipeline pitfalls about regulation.gov.ru instability.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261003-0903-scout-precommit-secret-name-url
 status: open
 run_date: 2026-10-03

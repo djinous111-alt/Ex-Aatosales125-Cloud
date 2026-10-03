@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-03",
+    "today_ru": "03.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-05",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-03 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "era-glonass-pri-vvoze-avto-2026-nuzhna-li",
+    "h1": "Как понять, нужна ли ЭРА-ГЛОНАСС при ввозе авто в 2026: чек-лист до растаможки",
+    "primary_query": "нужна ли эра глонасс",
+    "secondary_queries": [
+      "установка эра глонасс на авто",
+      "обязательна установка эра глонасс",
+      "мораторий на установку эра глонасс",
+      "установка эра глонасс для растаможки"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "нужна ли эра глонасс 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "нужна ли эра глонасс октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "нужна ли эра глонасс новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com нужна ли эра глонасс 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "нужна ли эра глонасс official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "нужна ли эра глонасс forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "установка эра глонасс на авто 2026",
+      "purpose": "вторичный запрос: установка эра глонасс на авто"
+    },
+    {
+      "id": "secondary_2",
+      "query": "обязательна установка эра глонасс 2026",
+      "purpose": "вторичный запрос: обязательна установка эра глонасс"
+    },
+    {
+      "id": "secondary_3",
+      "query": "мораторий на установку эра глонасс 2026",
+      "purpose": "вторичный запрос: мораторий на установку эра глонасс"
+    },
+    {
+      "id": "secondary_4",
+      "query": "установка эра глонасс для растаможки 2026",
+      "purpose": "вторичный запрос: установка эра глонасс для растаможки"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как понять, нужна ли ЭРА-ГЛОНАСС при ввозе авто в 2026: чек-лист до растаможки 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-era-glonass-pri-vvoze-avto-2026-nuzhna-li",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

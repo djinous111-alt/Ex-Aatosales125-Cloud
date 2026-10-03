@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Кнопку SOS ставить или нет?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split; prefer Kie async API",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у ввезённого кроссовера с плашкой SOS/ЭРА, порт Владивостока, угол avto-sales125.ru",
+      "scene_hint": "WEATHER: cool foggy Vladivostok port morning, grey-blue harbor light; OUTFIT: dark navy rain jacket over grey knit sweater (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie standing beside modern imported crossover at Vladivostok port; fake UI scraps: SOS/ЭРА button checklist card + customs status sticky taped with scotch; torn paper Cyrillic hook plaque «Кнопку SOS ставить или нет?» with yellow highlighter on «SOS»; shocked meme cutout + cat reaction sticker (different formats); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; NO toxic/aggressive/insulting text on plaques",
+      "meme_caption_ru": "Сначала статус"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте статус ввоза: физлицо для себя или юрлицо/ИП",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns Физлицо для себя | Юрлицо/ИП; rows обязанность ЭРА, мораторий, проверка УВЭОС; yellow highlight «сначала кто вы в документах»; pink sticky «статус ввоза»; scotch tape corner; NO hero face; NO Wordstat/Metrika; no toxic text",
+      "alt": "Таблица: физлицо vs юрлицо/ИП — нужна ли ЭРА-ГЛОНАСС при ввозе"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Проверьте мораторий на дату растаможки, а не на дату аукциона",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake phone/desktop screenshot of customs date checklist UI: field «дата растаможки» highlighted green vs greyed «дата аукциона»; calendar chip до 31.12.2027; sticky note «не на дату аукциона»; tape; NO hero face; NO Wordstat/Metrika; no toxic text",
+      "alt": "Мокап: проверка моратория по дате растаможки, не по дате аукциона"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сравните: когда кнопку ставить обязательно, а когда можно не ставить",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 3 branches: ставим кнопку / не ставим / идём в каталог; arrows from status→moratorium→decision; mini SOS button icon; sticky «до депозита»; tape; NO hero face; NO Wordstat/Metrika; no toxic text",
+      "alt": "Схема: когда кнопку ЭРА ставить обязательно, а когда можно не ставить"
+    }
+  }
+}

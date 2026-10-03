@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261003-0931-cover-prompt-outfit-lock-conflict
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-era-glonass-pri-vvoze-avto-2026-nuzhna-li
+severity: medium
+category: prompt
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` hardcodes cover outfit as "Outfit lock: thick heavyweight white hoodie", which conflicts with `memory/cover/blog-hero.json` outfit_rule (weather/topic outfit) and agent scene_hint (Vladivostok port rain jacket).
+- Generated prompt also omitted corner brand `avto-sales125.ru` unless manually patched; style preset mentions it, but compact builder does not inject it into the cover line.
+- Without a manual patch, i2i would ignore weather/topic outfit and catalog corner brand from design code / blog-hero lock.
+
+### How the agent recovered this run
+- After `--write-batch`, patched `cover/quad-mcp-prompt.txt` and synced `cover/quad-mcp-batch.json` mcp_args/api_args prompt: removed white-hoodie outfit lock, enforced rain-jacket outfit from scene_hint, added corner brand avto-sales125.ru.
+- Used preferred Kie async API (`excalibur_blog_kie_gpt_image2_api.py`) instead of sync MCP gpt-image-2; split PASS; inject_html ok.
+
+### Durable fix needed before next run
+- Replace hardcoded white-hoodie outfit lock in `build_prompt()` with weather/topic outfit rule from blog-hero.json / cover scene_hint.
+- Always append cover corner brand `avto-sales125.ru` (not Telegram) into the cover prompt line.
+- Optionally raise prompt budget or prioritize outfit/brand tokens before truncating long scene_hint.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/blog-hero.json`
+- `memory/cover/cover-design-code.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261003-0925-geo-qa-utility-gate-missing-markers
 status: open
 run_date: 2026-10-03

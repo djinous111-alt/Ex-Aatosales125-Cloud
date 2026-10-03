@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261003-1318-writer-commit-secret-name-filter
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secret scanner failed with `invalid variable name` because `CLOUD_AGENT_*_SECRET_NAMES` still contains a non-identifier entry (URL used as secret name).
+- Automation memory points to `scripts/sanitize_cloud_secret_names.sh`, but the file is missing from the repo, so the documented pre-commit workaround cannot run.
+- Same class of failure already noted in INC-20261003-1315; writer hit it again on article commit.
+
+### How the agent recovered this run
+- Temporarily filtered `CLOUD_AGENT_ALL_SECRET_NAMES` and `CLOUD_AGENT_INJECTED_SECRET_NAMES` to bash-safe identifiers only, then committed/pushed article artifacts.
+
+### Durable fix needed before next run
+- Restore or recreate `scripts/sanitize_cloud_secret_names.sh` and call it from writer/publish runbooks before commit.
+- Or harden Cloud secret injection so URLs never appear as secret *names*.
+- Cross-link with INC-20261003-1315 (SERP redact + secret-name hygiene).
+
+### Suggested files to inspect/change
+- `scripts/sanitize_cloud_secret_names.sh` (missing)
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

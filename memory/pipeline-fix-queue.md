@@ -254,3 +254,65 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261003-1720-director-doctor-blog-path
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` asserts `llms generator supports --blog-path`, but `excalibur_blog_llms_generator.py` exposes `--blog-dir` / `--out-dir`.
+- Doctor SUMMARY errors=1 before pipeline start; prior automation memory said this was fixed to `--blog-dir`.
+
+### How the agent recovered this run
+- Continued with needs_scout → Scout; will hand to fixer after PIPELINE DONE.
+
+### Durable fix needed before next run
+- Align doctor check with real CLI (`--blog-dir`) or add `--blog-path` alias to llms generator.
+- Ensure doctor errors=0 on clean env.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261003-1720-director-missing-known-wp-slugs
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: high
+category: docs
+
+### What went wrong
+- `shared/known-wp-slugs.md` missing after ledger reset; scout helper `--suggest-next` returns B01 even though WP already has many live posts (incl. B01 EV slug).
+- Risk of topic_id/slug reuse and cannibalization.
+
+### How the agent recovered this run
+- Scout instructed to avoid recent WP slugs from today.py list and not republish WP 3955.
+
+### Durable fix needed before next run
+- Restore `shared/known-wp-slugs.md` and wire scout helper `--check-query` / `--suggest-next` to consult it.
+
+### Suggested files to inspect/change
+- `shared/known-wp-slugs.md`
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

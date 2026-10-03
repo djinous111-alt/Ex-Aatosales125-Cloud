@@ -297,7 +297,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `rg` no `--blog-path` in indexer contracts/doctor
-commit: pending-parent-commit
+commit: 71ef9b8
 
 
 ## INC-20261003-1720-director-missing-known-wp-slugs
@@ -343,7 +343,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → B03
 - `--check-slug` collision on B02 slug exit 1; new slug exit 0
-commit: pending-parent-commit
+commit: 71ef9b8
 
 
 ## INC-20261003-1724-scout-precommit-invalid-secret-name
@@ -391,7 +391,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - source sanitize with mixed URL/identifier names → URL dropped
-commit: pending-parent-commit
+commit: 71ef9b8
 
 
 ## INC-20261003-1746-writer-precommit-invalid-secret-name
@@ -435,7 +435,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - sanitize smoke
-commit: pending-parent-commit
+commit: 71ef9b8
 
 
 ## INC-20261003-1755-geo-qa-utility-policy-pain-outcome-missing
@@ -487,7 +487,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
 - JSON present markers in editorial-policy.json
-commit: pending-parent-commit
+commit: 71ef9b8
 
 
 ## INC-20261003-1755-geo-qa-writer-cta-placeholders
@@ -537,7 +537,7 @@ files_changed:
 checks_run:
 - classify_link('[CATALOG_URL]') → unresolved_placeholder
 - py_compile link_verify + wp_publish
-commit: pending-parent-commit
+commit: 71ef9b8
 
 
 ## INC-20261003-1800-director-geo-qa-task-type-missing
@@ -582,7 +582,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` geo-qa generalPurpose fallback present in docs
-commit: pending-parent-commit
+commit: 71ef9b8
 
 
 ## INC-20261003-1738-schema-precommit-invalid-secret-name
@@ -625,7 +625,7 @@ files_changed:
 - `.cursor/skills/schema-excalibur-blog/SKILL.md`
 checks_run:
 - sanitize smoke
-commit: pending-parent-commit
+commit: 71ef9b8
 
 
 ## INC-20261003-1742-cover-quad-manifest-seo-defaults
@@ -672,7 +672,7 @@ files_changed:
 checks_run:
 - fresh manifest on B02 copy: no SEO seed; WARN fill hook/caption
 - py_compile quad_manifest
-commit: pending-parent-commit
+commit: 71ef9b8
 
 
 ## INC-20261003-1744-indexer-skill-llms-blog-path
@@ -719,7 +719,7 @@ files_changed:
 checks_run:
 - doctor errors=0
 - `rg` no `--blog-path` in indexer contracts
-commit: pending-parent-commit
+commit: 71ef9b8
 
 
 ## INC-20261003-1745-indexer-precommit-invalid-secret-name
@@ -761,7 +761,7 @@ files_changed:
 - `.cursor/skills/indexer-excalibur-blog/SKILL.md`
 checks_run:
 - sanitize smoke
-commit: pending-parent-commit
+commit: 71ef9b8
 
 
 ## INC-20261003-1745-indexer-llms-secret-scan-block
@@ -811,7 +811,7 @@ files_changed:
 - `memory/blog/llms-full.txt`
 checks_run:
 - generator `--relative-urls` → relative links in llms.txt
-commit: pending-parent-commit
+commit: 71ef9b8
 
 
 ## INC-20261003-1820-publish-paramiko-missing
@@ -857,7 +857,7 @@ files_changed:
 checks_run:
 - `python3 -c "import paramiko"` (runtime may already have it)
 - install script contains paramiko
-commit: pending-parent-commit
+commit: 71ef9b8
 
 
 ## INC-20261003-1820-publish-http-504-webfetch-timeout
@@ -906,5 +906,5 @@ files_changed:
 checks_run:
 - py_compile wp_publish
 - `rg` poll_wp_rest_by_slug / FALLBACK_TRIGGER present
-commit: pending-parent-commit
+commit: 71ef9b8
 

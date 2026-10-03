@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261003-2152-indexer-llms-relative-urls-missing
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026
+severity: low
+category: script
+
+### What went wrong
+- Indexer skill/agent examples still show `excalibur_blog_llms_generator.py --blog-path /`, but the CLI only exposes `--blog-dir` (related: `#INC-20261003-2118-director-doctor-llms-flag`).
+- Contract asked for `--relative-urls` to keep `PUBLIC_SITE_URL` out of git-scanned `llms*.txt`; flag does not exist on the generator.
+
+### How the agent recovered this run
+- Ran with `--blog-dir memory/blog/articles --site-base / --out-dir memory/blog` so article URLs are relative (`/blog/<slug>/`) and no live origin is written into llms artifacts.
+
+### Durable fix needed before next run
+- Add `--relative-urls` (or document `--site-base /` as the relative mode) in `excalibur_blog_llms_generator.py`.
+- Align indexer skill/agent shell examples with real flags (`--blog-dir`, not `--blog-path`).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261003-2149-cover-mcp-sync-timeout-kie-api
 status: open
 run_date: 2026-10-04

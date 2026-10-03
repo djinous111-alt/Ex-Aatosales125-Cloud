@@ -1,7 +1,7 @@
 # Promotion checklist — B01 era-glonass-pri-vvoze-avto-2026-nuzhna-li
 
 Дата публикации: 2026-10-03 (ожидается)  
-Live URL: pending publish → `/era-glonass-pri-vvoze-avto-2026-nuzhna-li/`
+Live URL: [REDACTED]/2026/10/03/era-glonass-pri-vvoze-avto-2026-nuzhna-li/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -11,7 +11,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
-- [ ] Подставить `[CATALOG_URL]` / `[TELEGRAM_URL]` из Cloud Secrets перед upload (см. GEO QA blocker)
+- [x] Подставить `[CATALOG_URL]` / `[TELEGRAM_URL]` из Cloud Secrets перед upload (см. GEO QA blocker)
 
 ## Соцсети / каналы (из conversion-tracking-map)
 

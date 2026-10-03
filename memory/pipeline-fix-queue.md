@@ -581,3 +581,39 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261003-0938-publish-cta-placeholder-expand
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-era-glonass-pri-vvoze-avto-2026-nuzhna-li
+severity: medium
+category: script
+
+### What went wrong
+- `article.html` хранит CTA как `[CATALOG_URL]` / `[TELEGRAM_URL]` (Cloud Secrets + pre-commit secret scan).
+- `excalibur_blog_wp_publish.py` не расширяет эти placeholders и не читает CATALOG_URL/TELEGRAM_URL (нет в PUBLISH_ENV_KEYS) — GEO QA заранее предупредил blocker_for_publish.
+- Без ручного expand на live ушли бы битые CTA.
+
+### How the agent recovered this run
+- Перед dry-run/publish подставил CATALOG_URL×2 и TELEGRAM_URL×1 из env в article.html; `[REDACTED]` в schema.jsonld → PUBLIC_SITE_URL.
+- После publish live HEAD 200, placeholders на live отсутствуют, CTA URL присутствуют.
+- Перед commit вернул placeholders в article.html / schema / link-verify / ledger host mask.
+
+### Durable fix needed before next run
+- Научить `excalibur_blog_wp_publish.py` расширять `[CATALOG_URL]`, `[TELEGRAM_URL]`, `<CATALOG_URL>`, `<TELEGRAM_URL>`, `[REDACTED]` (host) при сборке payload из env, не записывая значения обратно в git-tracked files.
+- Добавить CATALOG_URL/TELEGRAM_URL в PUBLISH_ENV_KEYS (или отдельный CTA expand step).
+- Документировать в publish skill: expand at publish, re-redact before commit.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

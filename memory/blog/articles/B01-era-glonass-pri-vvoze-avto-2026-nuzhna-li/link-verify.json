@@ -11,8 +11,7 @@
       "method": "HEAD",
       "error": null,
       "kind": "external",
-      "skipped": false,
-      "checked_url": null
+      "skipped": false
     },
     {
       "url": "[TELEGRAM_URL]",
@@ -21,9 +20,7 @@
       "method": "HEAD",
       "error": null,
       "kind": "external",
-      "skipped": false,
-      "checked_url": null
+      "skipped": false
     }
-  ],
-  "note": "CTA hrefs are stored in the repo as [CATALOG_URL]/[TELEGRAM_URL] because CATALOG_URL and TELEGRAM_URL are configured Cloud Secrets and the pre-commit secret scan blocks their values. Verification ran on an out-of-tree copy with placeholders resolved from memory/brief/conversion-map.md; URLs below are masked back to placeholder tokens. Publish MUST resolve these placeholders before upload."
+  ]
 }

@@ -448,3 +448,67 @@ category: qa
 
 ### Fixer resolution
 - pending
+
+## INC-20261003-1800-director-geo-qa-task-type-missing
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-director
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-kupit-avto-iz-korei-pod-klyuch-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud Task enum rejected `subagent_type=excalibur-blog-geo-qa` even though role is documented in AGENTS.md / available_subagent_types list in prompt.
+- Director had to fallback to `Task(generalPurpose)` with `.cursor/agents/excalibur-blog-geo-qa.md` + skill path.
+
+### How the agent recovered this run
+- Ran GEO QA via generalPurpose; article-qa PASS 90, human-voice PASS.
+
+### Durable fix needed before next run
+- Register `excalibur-blog-geo-qa` in Cloud Task/subagent enum consistently with other excalibur-blog-* roles, or document that GEO QA must always use generalPurpose fallback.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `AGENTS.md`
+- `shared/pipeline-task-map.md`
+- Cloud agent type registry (env)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261003-1738-schema-precommit-invalid-secret-name
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-schema
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-kupit-avto-iz-korei-pod-klyuch-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` for B02 schema.jsonld failed in pre-commit.cursor: `invalid variable name` on `${!SECRET_NAME}`.
+- Same root cause as INC-20261003-1724 / INC-20261003-1746: non-identifier entries in `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `CLOUD_AGENT_ALL_SECRET_NAMES`; sanitize script still missing.
+
+### How the agent recovered this run
+- Filtered secret name lists to bash identifiers only for the commit shell, then committed and pushed schema.jsonld.
+
+### Durable fix needed before next run
+- Same as INC-20261003-1724: restore `scripts/sanitize_cloud_secret_names.sh` and document pre-commit env sanitize for all Excalibur roles including schema.
+- Fix Dashboard secret naming so injected names are valid identifiers.
+
+### Suggested files to inspect/change
+- `scripts/sanitize_cloud_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+
+### Secrets
+- none recorded (name not logged)
+
+### Fixer resolution
+- pending
+

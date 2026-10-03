@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261003-0934-indexer-doctor-stale-blog-path
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-era-glonass-pri-vvoze-avto-2026-nuzhna-li
+severity: medium
+category: docs
+
+### What went wrong
+- `scripts/excalibur_blog_doctor.py` still asserts that `excalibur_blog_llms_generator.py --help` contains `--blog-path`, so preflight always reports `FAIL llms generator supports --blog-path` / `errors=1`.
+- Real CLI of `excalibur_blog_llms_generator.py` accepts `--blog-dir` + `--out-dir` and has no `--blog-path` flag.
+- Indexer agent/skill shell examples still show the stale `--blog-path /` argument, which would fail if followed literally.
+
+### How the agent recovered this run
+- Ran llms generator with real flags: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
+- Outputs written: `memory/blog/llms.txt`, `memory/blog/llms-full.txt` (3 articles indexed).
+- Did not change doctor/scripts in this Indexer step (durable fix deferred to fixer).
+
+### Durable fix needed before next run
+- Update doctor check to require `--blog-dir` and/or `--out-dir` instead of `--blog-path`.
+- Remove `--blog-path /` from Indexer agent + skill shell examples (both `agents/` and `.cursor/` copies).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261003-0932-cover-precommit-redacted-secret-name
 status: open
 run_date: 2026-10-03

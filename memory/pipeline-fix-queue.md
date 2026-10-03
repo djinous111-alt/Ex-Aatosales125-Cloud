@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261003-1333-cover-git-push-auth
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026
+severity: medium
+category: env
+
+### What went wrong
+- After successful cover commit, `git push` failed 4× with GitHub HTTPS auth: "Invalid username or token. Password authentication is not supported".
+- Same class as INC-20261003-1327 (schema).
+
+### How the agent recovered this run
+- Left commits local (`ahead` of origin); cover artifacts and fragment are ready for Director.
+- Will rely on automation `open_git_pr` / environment git credentials repair.
+
+### Durable fix needed before next run
+- Restore working git remote credentials / `gh` auth for the Cloud Agent environment.
+- Cross-link INC-20261003-1327.
+
+### Suggested files to inspect/change
+- `.cursor/environment.json`
+- `CLOUD-AUTOMATION.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261003-1327-schema-git-push-auth
 status: open
 run_date: 2026-10-03

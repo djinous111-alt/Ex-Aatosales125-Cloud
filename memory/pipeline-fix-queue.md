@@ -483,3 +483,35 @@ category: qa
 
 ### Fixer resolution
 - pending
+
+## INC-20261003-2137-writer-cta-env-urls-not-redacted-placeholder
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- After GEO QA FAIL (score 76), `article.html` still had 3 literal `href="[REDACTED]"` because writer copied the redaction token from `conversion-map.md` instead of live CTA URLs.
+- In this Cloud env `conversion-map.md` stores catalog/Telegram as `[REDACTED]`, so the only safe source for href is `CATALOG_URL` / `TELEGRAM_URL`.
+
+### How the agent recovered this run
+- Point fix only: replaced 2 catalog + 1 Telegram href from env secrets; renamed TL;DR label to «Коротко по делу»; recalculated `char_count=9079`.
+- Local recheck: link-verify PASS (2 unique hosts 200 OK), human_voice PASS, utility PASS.
+
+### Durable fix needed before next run
+- Writer skill/contract: if conversion-map URL is `[REDACTED]`/empty, read `CATALOG_URL`/`TELEGRAM_URL` from env; never write the redaction token into href.
+- Add a one-line writer preflight: fail if any `href="[REDACTED]"` remains before handoff.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

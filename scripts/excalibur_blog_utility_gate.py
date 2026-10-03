@@ -185,16 +185,36 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     if marker_count < min_rec:
         errors.append(f"мало action-маркеров в тексте: {marker_count} < {min_rec}")
 
-    pain_markers = policy.get("pain_markers_ru") or []
-    outcome_markers = policy.get("outcome_markers_ru") or []
+    pain_markers = policy.get("pain_markers_ru")
+    outcome_markers = policy.get("outcome_markers_ru")
+    if not isinstance(pain_markers, list) or not pain_markers:
+        return {
+            "gate": "article",
+            "status": "BLOCK",
+            "errors": [
+                "CONFIG ERROR: memory/brief/editorial-policy.json missing non-empty pain_markers_ru "
+                "(utility gate cannot score reader pain; fix policy, not the article)"
+            ],
+            "warnings": [],
+        }
+    if not isinstance(outcome_markers, list) or not outcome_markers:
+        return {
+            "gate": "article",
+            "status": "BLOCK",
+            "errors": [
+                "CONFIG ERROR: memory/brief/editorial-policy.json missing non-empty outcome_markers_ru "
+                "(utility gate cannot score reader outcome; fix policy, not the article)"
+            ],
+            "warnings": [],
+        }
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 
-    min_pain = int(req.get("min_pain_markers") or 2)
+    min_pain = int(req.get("min_pain_markers") or policy.get("min_pain_markers") or 2)
     if pain_count < min_pain:
         errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
 
-    min_outcome = int(req.get("min_outcome_markers") or 3)
+    min_outcome = int(req.get("min_outcome_markers") or policy.get("min_outcome_markers") or 3)
     if outcome_count < min_outcome:
         errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
 

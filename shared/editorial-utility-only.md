@@ -1,6 +1,6 @@
 # Excalibur BLOG — только полезные статьи (utility-only)
 
-Канон: `memory/brief/editorial-policy.json`
+Канон: `memory/brief/editorial-policy.json` (обязан содержать непустые `pain_markers_ru` / `outcome_markers_ru`; match mode = substring, см. `marker_match_note_ru` в policy).
 
 ## Принцип
 

@@ -266,6 +266,14 @@ def analyze_human_voice(article_dir: Path) -> dict[str, Any]:
         warnings.append(f"paragraph rhythm too uniform: variance/avg={uniform_ratio}")
     if fact_check_templates:
         warnings.append("Fact Check block uses a repeated template; vary wording while preserving facts")
+    # Insight / AEO box: keep blockquote, forbid slop labels TL;DR / Быстрый инсайт.
+    if blockquotes:
+        first_bq = re.sub(r"<[^>]+>", " ", blockquotes[0]).lower()
+        if "tl;dr" in first_bq or "быстрый инсайт" in first_bq:
+            errors.append(
+                "insight blockquote uses template label TL;DR / Быстрый инсайт; "
+                "use a natural lead-in (e.g. «Если коротко:», «Коротко по делу:»)"
+            )
     validate_fact_check_author(html, article_dir, root, errors, warnings)
     if exactly_five_lists >= 2:
         warnings.append("multiple exactly-5-step lists detected; vary list size when editorially possible")

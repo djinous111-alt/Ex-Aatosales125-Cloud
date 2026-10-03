@@ -64,6 +64,8 @@
     "чеклист",
     "workflow"
   ],
+  "marker_match_mode": "substring",
+  "marker_match_note_ru": "utility_gate считает вхождения подстрок (case-insensitive). Не добавляй короткие корни вроде «страх» (ложные срабатывания на «страховка»). Списки обязательны и непустые: пустой список = CONFIG ERROR, не article BLOCK.",
   "pain_markers_ru": [
     "боль",
     "ошибк",

@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 import time
@@ -24,6 +25,46 @@ from excalibur_repo_paths import repo_relative
 USER_AGENT = "ExcaliburBlogResearch/1.0 (+research-start)"
 DDG_HTML = "https://html.duckduckgo.com/html/"
 DEFAULT_TZ = "Europe/Moscow"
+PUBLIC_SITE_URL_PLACEHOLDER = "[PUBLIC_SITE_URL]"
+
+
+def redact_public_site_secrets(payload: Any) -> Any:
+    """Replace live PUBLIC_SITE_URL / catalog host with a git-safe placeholder.
+
+    Cursor secret-scan blocks commits when research-serp.json embeds the live
+    site origin from env PUBLIC_SITE_URL / WP_SITE_URL / WP_HOME.
+    """
+    secrets: list[str] = []
+    for key in ("PUBLIC_SITE_URL", "WP_SITE_URL", "WP_HOME", "SITE_URL"):
+        value = (os.environ.get(key) or "").strip().rstrip("/")
+        if value and value not in {"[REDACTED]", "REDACTED", PUBLIC_SITE_URL_PLACEHOLDER}:
+            secrets.append(value)
+            # Also redact host-only form
+            parsed = urllib.parse.urlparse(value if "://" in value else f"https://{value}")
+            if parsed.netloc:
+                secrets.append(parsed.netloc)
+                secrets.append(f"https://{parsed.netloc}")
+                secrets.append(f"http://{parsed.netloc}")
+
+    # Deduplicate longest-first so full URLs redact before bare hosts
+    secrets = sorted(set(secrets), key=len, reverse=True)
+    if not secrets:
+        return payload
+
+    def scrub(obj: Any) -> Any:
+        if isinstance(obj, dict):
+            return {k: scrub(v) for k, v in obj.items()}
+        if isinstance(obj, list):
+            return [scrub(v) for v in obj]
+        if isinstance(obj, str):
+            out = obj
+            for secret in secrets:
+                if secret and secret in out:
+                    out = out.replace(secret, PUBLIC_SITE_URL_PLACEHOLDER)
+            return out
+        return obj
+
+    return scrub(payload)
 
 
 def project_root() -> Path:
@@ -374,11 +415,15 @@ def run_research_start(
     serp_path = out_dir / "research-serp.json"
 
     if not dry_run:
-        context_path.write_text(json.dumps(payload_context, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        serp_path.write_text(json.dumps(payload_serp, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        safe_serp = redact_public_site_secrets(payload_serp)
+        safe_context = redact_public_site_secrets(payload_context)
+        context_path.write_text(json.dumps(safe_context, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        serp_path.write_text(json.dumps(safe_serp, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         save_utility = out_dir / "utility-gate-topic.json"
         save_utility.write_text(json.dumps(utility_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         ledger_reserved = reserve_topic_in_ledger(project_root(), topic, ctx, out_dir)
+        payload_serp = safe_serp
+        payload_context = safe_context
     else:
         ledger_reserved = False
 

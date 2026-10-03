@@ -12,6 +12,13 @@ from pathlib import Path
 
 MAX_MCP_PROMPT_CHARS = 3500
 REQUIRED_REFERENCE_HOST = "avtosales125.ru"
+TEMP_REFERENCE_HOST_MARKERS = (
+    "litter.catbox.moe",
+    "files.catbox.moe",
+    "catbox.moe",
+    "0x0.st",
+    "litterbox.catbox.moe",
+)
 MCP_RESOLUTION = "2K"
 KIE_IMAGE_MODEL = "gpt-image-2-image-to-image"
 
@@ -50,8 +57,16 @@ def inline_panel_prompt(slot: dict, types_catalog: dict) -> str:
 def validate_reference_url(ref_url: str) -> bool:
     if REQUIRED_REFERENCE_HOST in ref_url:
         return True
+    if any(marker in ref_url for marker in TEMP_REFERENCE_HOST_MARKERS):
+        print(
+            f"WARN cover reference uses temporary host ({ref_url}); prefer stable "
+            f"{REQUIRED_REFERENCE_HOST} WordPress media URL when available.",
+            file=sys.stderr,
+        )
+        return True
     print(
-        f"❌ COVER HERO BLOCKER: reference_url_hosted must use stable {REQUIRED_REFERENCE_HOST} WordPress media URL, got: {ref_url}",
+        f"❌ COVER HERO BLOCKER: reference_url_hosted must use stable {REQUIRED_REFERENCE_HOST} "
+        f"WordPress media URL or temporary litterbox/catbox/0x0 host, got: {ref_url}",
         file=sys.stderr,
     )
     return False
@@ -67,6 +82,31 @@ def validate_prompt_budget(prompt: str) -> bool:
         file=sys.stderr,
     )
     return False
+
+
+def outfit_lock_from_hero(hero: dict, cover: dict) -> str:
+    """Weather/topic outfit from blog-hero.json — never hardcode white hoodie."""
+    scene = compact(cover.get("scene_hint", ""), 180)
+    outfit_rule = compact(hero.get("outfit_rule") or "", 280)
+    prompt_frag = compact(hero.get("prompt_fragment") or "", 220)
+    topic_hint = compact(hero.get("topic_outfit_hint") or "", 160)
+    weather_examples = hero.get("weather_outfit_examples") or {}
+    examples = ""
+    if isinstance(weather_examples, dict) and weather_examples:
+        bits = [f"{k}: {compact(v, 60)}" for k, v in list(weather_examples.items())[:4]]
+        examples = " Examples: " + "; ".join(bits) + "."
+    base = (
+        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. "
+        "Outfit lock: CHANGE clothes to match scene WEATHER and ARTICLE TOPIC"
+        " (rain jacket/port coat for rain/SVH, winter coat for snow, light shirt for summer heat, "
+        "smart casual for customs/docs). DO NOT copy reference clothing; NO white-hoodie default; "
+        "NO cap NO hood. Vary pose, gesture, angle, expression, props and composition every cover. "
+        "No headphones/headset/earbuds."
+    )
+    extra_parts = [p for p in (outfit_rule, topic_hint, prompt_frag) if p]
+    extra = (" " + " ".join(extra_parts)) if extra_parts else ""
+    scene_bit = f" Scene cue: {scene}." if scene else ""
+    return base + examples + extra + scene_bit
 
 
 def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, design_code: dict) -> str:
@@ -86,7 +126,7 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         "",
         "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
         "",
-        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
+        outfit_lock_from_hero(hero, cover),
         "",
         f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
         "",

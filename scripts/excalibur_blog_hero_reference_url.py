@@ -83,6 +83,38 @@ def upload_0x0(image_path: Path) -> str:
     return url
 
 
+def upload_litterbox(image_path: Path, *, hours: str = "24") -> str:
+    """Temporary host fallback when catbox/0x0 are down (expires)."""
+    boundary = "----ExcaliburHeroLitterbox"
+    body_prefix = (
+        f"--{boundary}\r\n"
+        f'Content-Disposition: form-data; name="reqtype"\r\n\r\n'
+        f"fileupload\r\n"
+        f"--{boundary}\r\n"
+        f'Content-Disposition: form-data; name="time"\r\n\r\n'
+        f"{hours}\r\n"
+        f"--{boundary}\r\n"
+        f'Content-Disposition: form-data; name="fileToUpload"; filename="{image_path.name}"\r\n'
+        f"Content-Type: image/png\r\n\r\n"
+    ).encode("utf-8")
+    body_suffix = f"\r\n--{boundary}--\r\n".encode("utf-8")
+    body = body_prefix + image_path.read_bytes() + body_suffix
+    request = urllib.request.Request(
+        "https://litterbox.catbox.moe/resources/internals/api.php",
+        data=body,
+        headers={
+            "Content-Type": f"multipart/form-data; boundary={boundary}",
+            "User-Agent": "ExcaliburBlogHero/1.0",
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(request, timeout=120) as response:
+        url = response.read().decode("utf-8", errors="replace").strip()
+    if not url.startswith("https://"):
+        raise RuntimeError(f"litterbox upload failed: {url[:200]}")
+    return url
+
+
 def resolve_reference_path(root: Path, hero: dict) -> Path:
     rel = hero.get("reference_image") or "memory/cover/assets/blog-hero-reference.png"
     path = Path(rel)
@@ -95,7 +127,11 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--hero-json", default="memory/cover/blog-hero.json")
     ap.add_argument("--force", action="store_true", help="Re-upload even if URL exists")
-    ap.add_argument("--provider", choices=("catbox", "0x0", "auto"), default="auto")
+    ap.add_argument(
+        "--provider",
+        choices=("catbox", "0x0", "litterbox", "auto"),
+        default="auto",
+    )
     args = ap.parse_args()
 
     root = project_root()
@@ -126,15 +162,28 @@ def main() -> int:
         print(f"OK reference_url_hosted={env_url}")
         return 0
 
-    providers = ["catbox", "0x0"] if args.provider == "auto" else [args.provider]
+    if args.provider == "auto":
+        providers = ["catbox", "0x0", "litterbox"]
+    else:
+        providers = [args.provider]
+    uploaders = {
+        "catbox": upload_catbox,
+        "0x0": upload_0x0,
+        "litterbox": upload_litterbox,
+    }
     last_error: Exception | None = None
     for provider in providers:
         try:
-            url = upload_catbox(ref_path) if provider == "catbox" else upload_0x0(ref_path)
+            url = uploaders[provider](ref_path)
             hero["reference_url_hosted"] = url
             hero["reference_url_source"] = provider
             hero["reference_url_updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
             save_json(hero_path, hero)
+            if provider == "litterbox":
+                print(
+                    "WARN litterbox URL expires; re-host to stable WP media when possible",
+                    file=sys.stderr,
+                )
             print(f"OK reference_url_hosted={url}")
             return 0
         except (urllib.error.URLError, RuntimeError, TimeoutError) as exc:

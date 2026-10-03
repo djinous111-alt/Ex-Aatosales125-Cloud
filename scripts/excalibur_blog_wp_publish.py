@@ -380,7 +380,11 @@ def _ssh_creds(env: dict[str, str]) -> tuple[str, int, str, str]:
 
 
 def configured_ssh_root(env: dict[str, str]) -> str:
-    return (env.get("SSH_ROOT") or "").strip()
+    """SSH login cwd publish root. Default '.' when unset (host pattern for this Cloud)."""
+    root = (env.get("SSH_ROOT") or "").strip()
+    if not root:
+        return "."
+    return root
 
 
 def ssh_remote_path(env: dict[str, str], remote: str, root_override: str | None = None) -> str:
@@ -391,10 +395,10 @@ def ssh_remote_path(env: dict[str, str], remote: str, root_override: str | None 
 
 
 def ssh_root_label(env: dict[str, str]) -> str:
-    root = configured_ssh_root(env)
-    if not root:
-        return "unset"
-    if root in {".", "./"}:
+    raw = (env.get("SSH_ROOT") or "").strip()
+    if not raw:
+        return "default-dot"
+    if raw in {".", "./"}:
         return "dot"
     return "configured-non-dot"
 
@@ -403,7 +407,7 @@ def ssh_root_candidates(env: dict[str, str]) -> list[str]:
     root = configured_ssh_root(env)
     if root and root not in {".", "./"}:
         return [root, "."]
-    return [root]
+    return [root or "."]
 
 
 def is_missing_remote_path_error(exc: OSError) -> bool:

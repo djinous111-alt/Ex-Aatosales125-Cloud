@@ -1,0 +1,636 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-03",
+    "today_ru": "03.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-05",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-03 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026",
+    "h1": "Как проверить 30-минутную мощность электромобиля из Китая до депозита в 2026",
+    "primary_query": "30 минутная мощность",
+    "secondary_queries": [
+      "30 минутная мощность электромобилей",
+      "растаможка электромобиля из китая",
+      "30 минутная мощность byd",
+      "расчет 30 минутной мощности"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "30 минутная мощность 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Новый расчёт утильсбора 2026: 30-минутная мощность ×0,45 (Москва ...",
+          "url": "https://revocars.ru/blog/utilsbor-2026-formula-045-30-min-moshchnost.html",
+          "snippet": ""
+        },
+        {
+          "title": "30-минутная мощность электрокара: справочник моделей 2026",
+          "url": "https://flipexport.ru/blog/30-minutnaya-moschnost-elektromobiley-i-gibridov-tablitsa-dlya-rascheta-utilsbor",
+          "snippet": "30-минутная мощность = пиковая мощность × 0,45. Примеры: 100 л.с. → 45 л.с.; 200 л.с. → 90 л.с.; 925 л.с. → 416 л.с. Важно: эта методика не \"отменяет\" старые способы. Она используется только тогда, когда подтвердить 30-минутную мощность иначе невозможно. Это ключевой момент."
+        },
+        {
+          "title": "Как СЭП считает 30-минутную мощность гибридов и электромобилей в 2026 ...",
+          "url": "https://kad-autoconsult.ru/statyi/formula-30-minutnoy-moshchnosti-gibridy-elektro.html",
+          "snippet": "30-минутная мощность — это мощность, которую электромотор способен стабильно выдавать в течение 30 минут без перегрева и ухода в защитный режим. Это длительная отдача, а не пик «на разгоне». Если моторов несколько — их мощности складывают."
+        },
+        {
+          "title": "30-минутная мощность электромобиля и гибрида в 2026 году: почему важны ...",
+          "url": "https://www.drive2.ru/b/743698670985181717/",
+          "snippet": "С февраля 2026 года СЭП в ряде случаев определяет 30-минутную мощность гибридов и электромобилей по формуле «пиковая мощность × 0,45» — разбираем, когда это применяется и как это влияет на утильсбор."
+        },
+        {
+          "title": "Расчет 30 минутной мощности электромобиля формула и примеры",
+          "url": "https://auto-dealer-online.ru/article/raschet-moshhnosti-jelektromobilja-dlja-pts-formula-i-primery/",
+          "snippet": "Разберём, почему это так, что такое 30-минутная мощность, как считать автомобиль с двумя электромоторами и почему особенно внимательно нужно проверять китайские гибриды перед покупкой."
+        },
+        {
+          "title": "30-минутная Мощность — Таблица По Моделям 2026 | Wersum",
+          "url": "https://www.wersum.ru/uslugi/tamozhennyy-kalkulyator/30-minutnaya-moshchnost",
+          "snippet": "Расчет мощности электромобиля и гибрида для ПТС: формула и примеры Важные изменения в расчете 30 минутной мощности с 10 февраля 2026 года Новая формула расчета: кол-во квт * 0.40 = 30 минутная."
+        }
+      ],
+      "searched_at": "2026-10-03"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "30 минутная мощность октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "30-минутная мощность электрокара: справочник моделей 2026",
+          "url": "https://flipexport.ru/blog/30-minutnaya-moschnost-elektromobiley-i-gibridov-tablitsa-dlya-rascheta-utilsbor",
+          "snippet": ""
+        },
+        {
+          "title": "30-минутная Мощность — Таблица По Моделям 2026 | Wersum",
+          "url": "https://www.wersum.ru/uslugi/tamozhennyy-kalkulyator/30-minutnaya-moshchnost",
+          "snippet": "Ниже — что это за мощность, откуда её берут по закону, и таблица по популярным электромобилям и гибридам."
+        },
+        {
+          "title": "Новый расчёт утильсбора 2026: 30-минутная мощность ×0,45 (Москва ...",
+          "url": "https://revocars.ru/blog/utilsbor-2026-formula-045-30-min-moshchnost.html",
+          "snippet": "Источник — справочник WERSUM по лабораторным данным и СБКТС автомобилей. Полная база содержит 28 365 сочетаний характеристик и 50 706 отдельных значений мощности. Несколько значений не усредняются."
+        },
+        {
+          "title": "Как СЭП считает 30-минутную мощность гибридов и электромобилей в 2026 ...",
+          "url": "https://kad-autoconsult.ru/statyi/formula-30-minutnoy-moshchnosti-gibridy-elektro.html",
+          "snippet": "Утильсбор 2026 в Москве: как теперь считают 30-минутную мощность для электромобилей и гибридов"
+        },
+        {
+          "title": "30-минутная мощность электромобиля и гибрида в 2026 году: почему важны ...",
+          "url": "https://www.drive2.ru/b/743698670985181717/",
+          "snippet": "С февраля 2026 года СЭП в ряде случаев определяет 30-минутную мощность гибридов и электромобилей по формуле «пиковая мощность × 0,45» — разбираем, когда это применяется и как это влияет на утильсбор."
+        },
+        {
+          "title": "Расчет 30 минутной мощности электромобиля формула и примеры",
+          "url": "https://auto-dealer-online.ru/article/raschet-moshhnosti-jelektromobilja-dlja-pts-formula-i-primery/",
+          "snippet": "Разберём, почему это так, что такое 30-минутная мощность, как считать автомобиль с двумя электромоторами и почему особенно внимательно нужно проверять китайские гибриды перед покупкой."
+        }
+      ],
+      "searched_at": "2026-10-03"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "30 минутная мощность новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "30-минутная мощность электрокара: справочник моделей 2026",
+          "url": "https://flipexport.ru/blog/30-minutnaya-moschnost-elektromobiley-i-gibridov-tablitsa-dlya-rascheta-utilsbor",
+          "snippet": ""
+        },
+        {
+          "title": "Новый расчёт утильсбора 2026: 30-минутная мощность ×0,45 (Москва ...",
+          "url": "https://revocars.ru/blog/utilsbor-2026-formula-045-30-min-moshchnost.html",
+          "snippet": "30-минутная мощность — это мощность, которую электромотор способен стабильно выдавать в течение 30 минут без перегрева и ухода в защитный режим. Это длительная отдача, а не пик «на разгоне»."
+        },
+        {
+          "title": "Как СЭП считает 30-минутную мощность гибридов и электромобилей в 2026 ...",
+          "url": "https://kad-autoconsult.ru/statyi/formula-30-minutnoy-moshchnosti-gibridy-elektro.html",
+          "snippet": "И вот свежая новость из практики: наш таможенный брокер сообщил, что для машин без \"истории\" появилась новая понятная формула расчёта 30-минутной мощности. Разбираем, как было раньше и как ориентироваться теперь. Сразу главное: поводов для паники нет."
+        },
+        {
+          "title": "30-минутная Мощность — Таблица По Моделям 2026 | Wersum",
+          "url": "https://www.wersum.ru/uslugi/tamozhennyy-kalkulyator/30-minutnaya-moshchnost",
+          "snippet": "С февраля 2026 года СЭП в ряде случаев определяет 30-минутную мощность гибридов и электромобилей по формуле «пиковая мощность × 0,45» — разбираем, когда это применяется и как это влияет на утильсбор."
+        },
+        {
+          "title": "30-минутная мощность электромобиля и гибрида в 2026 году: почему важны ...",
+          "url": "https://www.drive2.ru/b/743698670985181717/",
+          "snippet": "Источник — справочник WERSUM по лабораторным данным и СБКТС автомобилей. Полная база содержит 28 365 сочетаний характеристик и 50 706 отдельных значений мощности. Несколько значений не усредняются."
+        },
+        {
+          "title": "30-минутная мощность автомобиля: где взять цифру для таможни | Азия Авто",
+          "url": "https://aa-dv.ru/30-minutnaya-moshchnost.html",
+          "snippet": "Разберём, почему это так, что такое 30-минутная мощность, как считать автомобиль с двумя электромоторами и почему особенно внимательно нужно проверять китайские гибриды перед покупкой."
+        }
+      ],
+      "searched_at": "2026-10-03"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com 30 минутная мощность 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "ihk-ap2/AUDIT-AP2-2026-10-02.md at main - GitHub",
+          "url": "https://github.com/LysenkoL/ihk-ap2/blob/main/AUDIT-AP2-2026-10-02.md",
+          "snippet": ""
+        },
+        {
+          "title": "AURA/mascot2.png at main · aurateam2026/AURA · GitHub",
+          "url": "https://github.com/aurateam2026/AURA/blob/main/mascot2.png",
+          "snippet": "Contribute to LysenkoL/ihk-ap2 development by creating an account on GitHub."
+        },
+        {
+          "title": "clock_angle.md · GitHub",
+          "url": "https://gist.github.com/v-kolesnikov/d0b67ba9abe9103dfc85",
+          "snippet": "Contribute to aurateam2026/AURA development by creating an account on GitHub."
+        },
+        {
+          "title": "RimWorld AutoTranslation Cache - Russian / Русский (Yandex)",
+          "url": "https://gist.github.com/csh1668/33933bca353f70f9b3b4212669e6551d",
+          "snippet": "Циферблат представляет собой окружность, разделенную часовыми делениями на 12 частей и на 60 частей - минутными. Полный оборот стрелки (минутной или часовой) от начальной оси (вертикальной линии проходящей через центр и отметку 12 часов) составляет угол в 360°, или по другому - в окружности 360°."
+        },
+        {
+          "title": "codicodec/architecture.png at main · SonyCSLParis/codicodec",
+          "url": "https://github.com/SonyCSLParis/codicodec/blob/main/architecture.png",
+          "snippet": "<Cache Language=\"Russian / Русский\"><Entry Key=\"MTAxMy52ay56ZXJvLnpoaXpoaXp6OmF0dGFjaGVkIG1vbnN0ZXI=\">прикреплённый монстр</Entry><Entry Key ..."
+        },
+        {
+          "title": "Awesome-LongTailed-Learning/resources/Fig2.png at main · YifanZhang07 ...",
+          "url": "https://github.com/YifanZhang07/Awesome-LongTailed-Learning/blob/main/resources/Fig2.png",
+          "snippet": "Encode and decode audio samples to/from continuous and discrete compressed representations! - codicodec/architecture.png at main · SonyCSLParis/codicodec"
+        }
+      ],
+      "searched_at": "2026-10-03"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "30 минутная мощность official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "30-минутная мощность электрокара: справочник моделей 2026",
+          "url": "https://flipexport.ru/blog/30-minutnaya-moschnost-elektromobiley-i-gibridov-tablitsa-dlya-rascheta-utilsbor",
+          "snippet": ""
+        },
+        {
+          "title": "30-минутная Мощность — Таблица По Моделям 2026 | Wersum",
+          "url": "https://www.wersum.ru/uslugi/tamozhennyy-kalkulyator/30-minutnaya-moshchnost",
+          "snippet": "Мы собрали справочник по конкретным моделям — с реальными значениями из лабораторных испытаний, а не с прикидкой «на глазок». Ниже — что это за мощность, откуда её берут по закону, и таблица по популярным электромобилям и гибридам."
+        },
+        {
+          "title": "30-минутная мощность автомобиля: где взять цифру для таможни | Азия Авто",
+          "url": "https://aa-dv.ru/30-minutnaya-moshchnost.html",
+          "snippet": "Источник — справочник WERSUM по лабораторным данным и СБКТС автомобилей. Полная база содержит 28 365 сочетаний характеристик и 50 706 отдельных значений мощности. Несколько значений не усредняются."
+        },
+        {
+          "title": "Как СЭП считает 30-минутную мощность гибридов и электромобилей в 2026 ...",
+          "url": "https://kad-autoconsult.ru/statyi/formula-30-minutnoy-moshchnosti-gibridy-elektro.html",
+          "snippet": "У электромобиля и у гибрида размер утилизационного сбора решает одна цифра — максимальная 30-минутная мощность электромотора. Берут её из документов на конкретную машину: одобрения типа (ОТТС), свидетельства о безопасности конструкции (СБКТС) или электронного паспорта."
+        },
+        {
+          "title": "Google Docs",
+          "url": "https://www.docs.google.com/",
+          "snippet": "С февраля 2026 года СЭП в ряде случаев определяет 30-минутную мощность гибридов и электромобилей по формуле «пиковая мощность × 0,45» — разбираем, когда это применяется и как это влияет на утильсбор."
+        },
+        {
+          "title": "Новый расчёт утильсбора 2026: 30-минутная мощность ×0,45 (Москва ...",
+          "url": "https://revocars.ru/blog/utilsbor-2026-formula-045-30-min-moshchnost.html",
+          "snippet": "Create and edit web-based documents, spreadsheets, and presentations. Store documents online and access them from any computer."
+        }
+      ],
+      "searched_at": "2026-10-03"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "30 минутная мощность forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "⚡ Что такое 30-минутная мощность и зачем она нужна при растаможке ...",
+          "url": "https://www.drive2.ru/b/712213056012175353/",
+          "snippet": ""
+        },
+        {
+          "title": "Does max 30-minute power of EVs mean they cannot maintain ... - Reddit",
+          "url": "https://www.reddit.com/r/electricvehicles/comments/1b0qugl/does_max_30minute_power_of_evs_mean_they_cannot/",
+          "snippet": "Если вы планируете ввоз электромобиля в Россию, обязательно столкнётесь с термином «30-минутная мощность». Но что это такое и почему она важна? 🔍 Что такое 30-минутная мощность? Это максимальная мощность электродвигателя, которую автомобиль может удерживать стабильно в течение 30 минут."
+        },
+        {
+          "title": "30-минутная мощность электрокара: справочник моделей 2026",
+          "url": "https://flipexport.ru/blog/30-minutnaya-moschnost-elektromobiley-i-gibridov-tablitsa-dlya-rascheta-utilsbor",
+          "snippet": "Does max 30-minute power of EVs mean they cannot maintain highway speed for long? Hello everyone, I am currently slowly considering switching from an ICE car to an EV. Thus, I'm exploring different aspects of EVs: prices, tech data, reviews, etc. On that journey, I stumbled upon the following issue."
+        },
+        {
+          "title": "30-ти минутная мощность автомобиля. Для чего она?",
+          "url": "https://auto.ru/logbook/30-ti-minutnaia-moshchnost-avtomobilia-dlia-chego-ona_8cf9d870-91f3-4dab-bc06-740324dde902/",
+          "snippet": "Ниже — что это за мощность, откуда её берут по закону, и таблица по популярным электромобилям и гибридам."
+        },
+        {
+          "title": "Новый расчёт утильсбора 2026: 30-минутная мощность ×0,45 (Москва ...",
+          "url": "https://revocars.ru/blog/utilsbor-2026-formula-045-30-min-moshchnost.html",
+          "snippet": "Если вы планируете ввоз электромобиля в Россию, обязательно столкнётесь с термином «30-минутная мощность». Но что это такое и почему она важна? 🔍 Что такое 30-минутная мощность? Это максимальная мощность электродвигателя, которую автомобиль может удерживать стабильно в течение 30 минут."
+        },
+        {
+          "title": "30-минутная мощность электромобиля и гибрида в 2026 году: почему важны ...",
+          "url": "https://www.drive2.ru/b/743698670985181717/",
+          "snippet": "И вот свежая новость из практики: наш таможенный брокер сообщил, что для машин без \"истории\" появилась новая понятная формула расчёта 30-минутной мощности. Разбираем, как было раньше и как ориентироваться теперь. Сразу главное: поводов для паники нет."
+        }
+      ],
+      "searched_at": "2026-10-03"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "30 минутная мощность электромобилей 2026",
+      "purpose": "вторичный запрос: 30 минутная мощность электромобилей",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "30-минутная мощность электрокара: справочник моделей 2026",
+          "url": "https://flipexport.ru/blog/30-minutnaya-moschnost-elektromobiley-i-gibridov-tablitsa-dlya-rascheta-utilsbor",
+          "snippet": ""
+        },
+        {
+          "title": "Новый расчёт утильсбора 2026: 30-минутная мощность ×0,45 (Москва ...",
+          "url": "https://revocars.ru/blog/utilsbor-2026-formula-045-30-min-moshchnost.html",
+          "snippet": "30-минутная мощность — это мощность, которую электромотор способен стабильно выдавать в течение 30 минут без перегрева и ухода в защитный режим. Это длительная отдача, а не пик «на разгоне». Если моторов несколько — их мощности складывают."
+        },
+        {
+          "title": "Как СЭП считает 30-минутную мощность гибридов и электромобилей в 2026 ...",
+          "url": "https://kad-autoconsult.ru/statyi/formula-30-minutnoy-moshchnosti-gibridy-elektro.html",
+          "snippet": "Для электропривода в расчётах берут не пиковую мощность \"на разгоне\", а длительную — так называемую 30-минутную. Это показатель, который электромотор способен удерживать в течение 30 минут непрерывной работы."
+        },
+        {
+          "title": "Расчет транспортного налога на электромобили 2026: 30-минутная мощность",
+          "url": "https://moitok.ru/articles/raschet-transportnogo-naloga-na-elektromobili/",
+          "snippet": "С февраля 2026 года СЭП в ряде случаев определяет 30-минутную мощность гибридов и электромобилей по формуле «пиковая мощность × 0,45» — разбираем, когда это применяется и как это влияет на утильсбор."
+        },
+        {
+          "title": "Сравнение 30-минутной мощности популярных электромобилей",
+          "url": "https://autodi.ru/sravnenie-30-minut-ev-auto",
+          "snippet": "Как правильно определить налоговую базу, рассчитать 30-минутную мощность и проверить коэффициент роскоши, чтобы не переплачивать ФНС."
+        },
+        {
+          "title": "Расчет 30 минутной мощности электромобиля формула и примеры",
+          "url": "https://auto-dealer-online.ru/article/raschet-moshhnosti-jelektromobilja-dlja-pts-formula-i-primery/",
+          "snippet": "30-минутная мощность — это мощность электродвигателя, которую он может выдавать длительное время (30+ минут). Именно этот параметр определяет ставку утильсбора при растаможке электромобиля в России. Правило: Если 30-минутная мощность ≤ 80 л.с. → утильсбор 3 400 ₽ (для физлиц)."
+        }
+      ],
+      "searched_at": "2026-10-03"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "растаможка электромобиля из китая 2026",
+      "purpose": "вторичный запрос: растаможка электромобиля из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Растаможка электромобиля из Китая 2026: цена, калькулятор",
+          "url": "https://ezzhev.ru/kitajskie-avto/skolko-stoit-rastamozhka-elektromobilya-iz-kitaya-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка электромобиля в 2026 году: как растаможить электромобиль в ...",
+          "url": "https://auto.mail.ru/article/98273-rastamozhka-ehlektromobilya/",
+          "snippet": "Узнайте, сколько стоит растаможка электромобиля из Китая в 2026 году. Полный разбор пошлин, налогов, утильсбора. Рассчитайте стоимость на нашем калькуляторе!"
+        },
+        {
+          "title": "Растаможка электромобиля из Китая в 2026: цена | ДАРЭ",
+          "url": "https://importdare.ru/blog/rastamozhka-elektromobilya-iz-kitaya-2026",
+          "snippet": "В этой статье расскажем, какие сложности может вызвать процедура, сколько стоит растаможка электромобиля в 2026 году."
+        },
+        {
+          "title": "Как привезти электромобиль из Китая 2026: растаможка и ЭПТС",
+          "url": "https://ivan-auto.ru/blog/kitajskie-brendy/elektro/elektromobili-iz-kitaya-2026/",
+          "snippet": "Это обязательные документы для легального оформления любого электромобиля, ввезённого из Китая, независимо от мощности и стоимости."
+        },
+        {
+          "title": "Растаможка авто из Китая в 2026 году: пошлины, утильсбор, льгота на ...",
+          "url": "https://silenkoautocratia.ru/blog/rastamozhka-avto-iz-kitaya-2026/",
+          "snippet": "Пригон электромобилей из Китая в 2026: батарея как опасный груз, сертификация ЭПТС, разъёмы GB/T vs CCS2, зарядка в РФ и реальная смета под ключ."
+        },
+        {
+          "title": "Электромобили из Китая 2026: растаможка, пошлина, утильсбор",
+          "url": "https://amgamma.ru/knowledge-base/blog/elektromobili-iz-kitaya-2026",
+          "snippet": "Растаможка авто из Китая в 2026: чем отличается от Кореи, льготная пошлина 15% на электромобили, маршруты доставки, СБКТС, пример расчёта Changan CS75 Plus."
+        }
+      ],
+      "searched_at": "2026-10-03"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "30 минутная мощность byd 2026",
+      "purpose": "вторичный запрос: 30 минутная мощность byd",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "30-минутная мощность электрокара: справочник моделей 2026",
+          "url": "https://flipexport.ru/blog/30-minutnaya-moschnost-elektromobiley-i-gibridov-tablitsa-dlya-rascheta-utilsbor",
+          "snippet": ""
+        },
+        {
+          "title": "30-минутная Мощность Byd Seal — Растаможка 2026 | Wersum",
+          "url": "https://www.wersum.ru/30-minutnaya-moshchnost/byd-seal",
+          "snippet": "30-минутная мощность — это мощность, которую электромотор способен стабильно выдавать в течение 30 минут без перегрева и ухода в защитный режим. Это длительная отдача, а не пик «на разгоне»."
+        },
+        {
+          "title": "BYD Seagull 30 kWh Dynamic (05.2026 - н.в ... - Дром",
+          "url": "https://www.drom.ru/catalog/byd/seagull/554475/",
+          "snippet": "30-минутная мощность BYD SEAL по базе WERSUM: годы, допустимая масса, кВт и л.с. Пример платежей и переход в калькулятор."
+        },
+        {
+          "title": "30-минутная Мощность — Таблица По Моделям 2026 | Wersum",
+          "url": "https://www.wersum.ru/uslugi/tamozhennyy-kalkulyator/30-minutnaya-moshchnost",
+          "snippet": "Подробно расписаны модификации автомобилей BYD Seagull 30 kWh Dynamic: все технические спецификации, полная комплектация салона, цвета, в которые окрашивался автомобиль, фотографии внешнего вида и салона. Есть возможность сравнивать разные авто между собой."
+        },
+        {
+          "title": "BYD Seagull: 30-минутная мощность 25 кВт - Авто.ру",
+          "url": "https://auto.ru/logbook/cars/byd/seagull/byd-seagull-30-minutnaia-moshchnost-25-kvt_5bb54d87-c96c-4b26-ace5-7a03090f0e91/",
+          "snippet": "Источник — справочник WERSUM по лабораторным данным и СБКТС автомобилей. Полная база содержит 28 365 сочетаний характеристик и 50 706 отдельных значений мощности. Несколько значений не усредняются."
+        },
+        {
+          "title": "Электромобили под льготный утильсбор 2026: список моделей",
+          "url": "https://whitebrokerdv.ru/articles/elektromobili-pod-lgotnyj-utilizacionnyj-sbor-2026",
+          "snippet": "Пиковая мощность — это максимальная мощность, которую мотор может выдать кратковременно. 30-минутная мощность — это мощность, которую двигатель способен держать длительное время."
+        }
+      ],
+      "searched_at": "2026-10-03"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "расчет 30 минутной мощности 2026",
+      "purpose": "вторичный запрос: расчет 30 минутной мощности",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Расчет 30 минутной мощности электромобиля формула и примеры",
+          "url": "https://auto-dealer-online.ru/article/raschet-moshhnosti-jelektromobilja-dlja-pts-formula-i-primery/",
+          "snippet": ""
+        },
+        {
+          "title": "Новый расчёт утильсбора 2026: 30-минутная мощность ×0,45 (Москва ...",
+          "url": "https://revocars.ru/blog/utilsbor-2026-formula-045-30-min-moshchnost.html",
+          "snippet": "Расчет мощности электромобиля и гибрида для ПТС: формула и примеры Важные изменения в расчете 30 минутной мощности с 10 февраля 2026 года Новая формула расчета: кол-во квт * 0.40 = 30 минутная."
+        },
+        {
+          "title": "Расчет транспортного налога на электромобили 2026: 30-минутная мощность",
+          "url": "https://moitok.ru/articles/raschet-transportnogo-naloga-na-elektromobili/",
+          "snippet": "30-минутная мощность = пиковая мощность × 0,45. Примеры: 100 л.с. → 45 л.с.; 200 л.с. → 90 л.с.; 925 л.с. → 416 л.с. Важно: эта методика не \"отменяет\" старые способы. Она используется только тогда, когда подтвердить 30-минутную мощность иначе невозможно. Это ключевой момент."
+        },
+        {
+          "title": "30-минутная мощность электрокара: справочник моделей 2026",
+          "url": "https://flipexport.ru/blog/30-minutnaya-moschnost-elektromobiley-i-gibridov-tablitsa-dlya-rascheta-utilsbor",
+          "snippet": "Технический мануал: как рассчитать налоговую базу электрокара в 2026 году. Узнайте разницу между пиковой и 30-минутной мощностью, формулу пересчета кВт в л.с. и правила суммирования моторов."
+        },
+        {
+          "title": "Как СЭП считает 30-минутную мощность гибридов и электромобилей в 2026 ...",
+          "url": "https://kad-autoconsult.ru/statyi/formula-30-minutnoy-moshchnosti-gibridy-elektro.html",
+          "snippet": "Если подтвердить нечем, с февраля 2026 года в таможенной практике применяют формулу: 30-минутная мощность (кВт) = пиковая × 0,45. У машины с пиком 180 л.с. это 81 л.с. — и льгота сгорает."
+        },
+        {
+          "title": "Утильсбор на электромобили и гибриды 2026: расчёт",
+          "url": "https://flipexport.ru/blog/utilsbor-na-elektromobili-i-gibridy-2026",
+          "snippet": "С февраля 2026 года СЭП в ряде случаев определяет 30-минутную мощность гибридов и электромобилей по формуле «пиковая мощность × 0,45» — разбираем, когда это применяется и как это влияет на утильсбор."
+        }
+      ],
+      "searched_at": "2026-10-03"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как проверить 30-минутную мощность электромобиля из Китая до депозита в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Электромобили И Гибриды: 30-минутная Мощность, Калькулятор | Wersum",
+          "url": "https://www.wersum.ru/uslugi/tamozhennyy-kalkulyator",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка электромобиля из Китая: чек-лист 2026",
+          "url": "[REDACTED]/2026/07/25/rastamozhka-elektromobilya-iz-kitaya-2026/",
+          "snippet": "Калькулятор помогает предварительно рассчитать таможенные платежи и подобрать 30-минутную мощность по данным WERSUM об автомобилях, которые уже прошли лабораторную проверку после таможенного оформления. Мощность ДВС и 30-минутную мощность популярных моделей по годам выпуска можно заранее посмотреть в каталоге моделей из Китая."
+        },
+        {
+          "title": "Растаможка электромобиля из Китая: полный гид по платежам, документам и ...",
+          "url": "https://dvbr.ru/stati/post/rastamozhka-elektromobilya-iz-kitaya-v-2026-godu-polnyj-gid-po-platezham-dokumentam-i-proverke-pered-pokupkoj",
+          "snippet": "Сделайте: запросите расчёт именно как для электромобиля, с 30-минутной мощностью. Не делайте: копировать чужой скрин калькулятора - в выдаче такие таблицы часто устаревают."
+        },
+        {
+          "title": "Как СЭП считает 30-минутную мощность гибридов и электромобилей в 2026 ...",
+          "url": "https://kad-autoconsult.ru/statyi/formula-30-minutnoy-moshchnosti-gibridy-elektro.html",
+          "snippet": "Ниже разберём, какие документы запросить до оплаты, из чего складываются платежи, когда доступен льготный утильсбор и какие характеристики способны резко изменить итоговую сумму."
+        },
+        {
+          "title": "Растаможка электромобиля и гибрида из Китая: как считается в 2026",
+          "url": "https://chinaautozone.ru/rastamozhka-elektromobilya-iz-kitaya/",
+          "snippet": "С февраля 2026 года СЭП в ряде случаев определяет 30-минутную мощность гибридов и электромобилей по формуле «пиковая мощность × 0,45» — разбираем, когда это применяется и как это влияет на утильсбор."
+        },
+        {
+          "title": "30-минутная мощность автомобиля: где взять цифру для таможни | Азия Авто",
+          "url": "https://aa-dv.ru/30-minutnaya-moshchnost.html",
+          "snippet": "В расчёт утилизационного сбора и акциза идёт другая величина: 30-минутная мощность, то есть та, которую мотор держит длительно. Она заметно ниже пиковой."
+        }
+      ],
+      "searched_at": "2026-10-03"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://revocars.ru/blog/utilsbor-2026-formula-045-30-min-moshchnost.html",
+      "title": "Новый расчёт утильсбора 2026: 30-минутная мощность ×0,45 (Москва ...",
+      "from_query": "30 минутная мощность 2026"
+    },
+    {
+      "url": "https://flipexport.ru/blog/30-minutnaya-moschnost-elektromobiley-i-gibridov-tablitsa-dlya-rascheta-utilsbor",
+      "title": "30-минутная мощность электрокара: справочник моделей 2026",
+      "from_query": "30 минутная мощность 2026"
+    },
+    {
+      "url": "https://kad-autoconsult.ru/statyi/formula-30-minutnoy-moshchnosti-gibridy-elektro.html",
+      "title": "Как СЭП считает 30-минутную мощность гибридов и электромобилей в 2026 ...",
+      "from_query": "30 минутная мощность 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/b/743698670985181717/",
+      "title": "30-минутная мощность электромобиля и гибрида в 2026 году: почему важны ...",
+      "from_query": "30 минутная мощность 2026"
+    },
+    {
+      "url": "https://auto-dealer-online.ru/article/raschet-moshhnosti-jelektromobilja-dlja-pts-formula-i-primery/",
+      "title": "Расчет 30 минутной мощности электромобиля формула и примеры",
+      "from_query": "30 минутная мощность 2026"
+    },
+    {
+      "url": "https://www.wersum.ru/uslugi/tamozhennyy-kalkulyator/30-minutnaya-moshchnost",
+      "title": "30-минутная Мощность — Таблица По Моделям 2026 | Wersum",
+      "from_query": "30 минутная мощность 2026"
+    },
+    {
+      "url": "https://aa-dv.ru/30-minutnaya-moshchnost.html",
+      "title": "30-минутная мощность автомобиля: где взять цифру для таможни | Азия Авто",
+      "from_query": "30 минутная мощность новости 2026"
+    },
+    {
+      "url": "https://github.com/LysenkoL/ihk-ap2/blob/main/AUDIT-AP2-2026-10-02.md",
+      "title": "ihk-ap2/AUDIT-AP2-2026-10-02.md at main - GitHub",
+      "from_query": "site:github.com 30 минутная мощность 2026"
+    },
+    {
+      "url": "https://github.com/aurateam2026/AURA/blob/main/mascot2.png",
+      "title": "AURA/mascot2.png at main · aurateam2026/AURA · GitHub",
+      "from_query": "site:github.com 30 минутная мощность 2026"
+    },
+    {
+      "url": "https://gist.github.com/v-kolesnikov/d0b67ba9abe9103dfc85",
+      "title": "clock_angle.md · GitHub",
+      "from_query": "site:github.com 30 минутная мощность 2026"
+    },
+    {
+      "url": "https://gist.github.com/csh1668/33933bca353f70f9b3b4212669e6551d",
+      "title": "RimWorld AutoTranslation Cache - Russian / Русский (Yandex)",
+      "from_query": "site:github.com 30 минутная мощность 2026"
+    },
+    {
+      "url": "https://github.com/SonyCSLParis/codicodec/blob/main/architecture.png",
+      "title": "codicodec/architecture.png at main · SonyCSLParis/codicodec",
+      "from_query": "site:github.com 30 минутная мощность 2026"
+    },
+    {
+      "url": "https://github.com/YifanZhang07/Awesome-LongTailed-Learning/blob/main/resources/Fig2.png",
+      "title": "Awesome-LongTailed-Learning/resources/Fig2.png at main · YifanZhang07 ...",
+      "from_query": "site:github.com 30 минутная мощность 2026"
+    },
+    {
+      "url": "https://www.docs.google.com/",
+      "title": "Google Docs",
+      "from_query": "30 минутная мощность official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/b/712213056012175353/",
+      "title": "⚡ Что такое 30-минутная мощность и зачем она нужна при растаможке ...",
+      "from_query": "30 минутная мощность forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.reddit.com/r/electricvehicles/comments/1b0qugl/does_max_30minute_power_of_evs_mean_they_cannot/",
+      "title": "Does max 30-minute power of EVs mean they cannot maintain ... - Reddit",
+      "from_query": "30 минутная мощность forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/30-ti-minutnaia-moshchnost-avtomobilia-dlia-chego-ona_8cf9d870-91f3-4dab-bc06-740324dde902/",
+      "title": "30-ти минутная мощность автомобиля. Для чего она?",
+      "from_query": "30 минутная мощность forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://moitok.ru/articles/raschet-transportnogo-naloga-na-elektromobili/",
+      "title": "Расчет транспортного налога на электромобили 2026: 30-минутная мощность",
+      "from_query": "30 минутная мощность электромобилей 2026"
+    },
+    {
+      "url": "https://autodi.ru/sravnenie-30-minut-ev-auto",
+      "title": "Сравнение 30-минутной мощности популярных электромобилей",
+      "from_query": "30 минутная мощность электромобилей 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/kitajskie-avto/skolko-stoit-rastamozhka-elektromobilya-iz-kitaya-2026/",
+      "title": "Растаможка электромобиля из Китая 2026: цена, калькулятор",
+      "from_query": "растаможка электромобиля из китая 2026"
+    },
+    {
+      "url": "https://auto.mail.ru/article/98273-rastamozhka-ehlektromobilya/",
+      "title": "Растаможка электромобиля в 2026 году: как растаможить электромобиль в ...",
+      "from_query": "растаможка электромобиля из китая 2026"
+    },
+    {
+      "url": "https://importdare.ru/blog/rastamozhka-elektromobilya-iz-kitaya-2026",
+      "title": "Растаможка электромобиля из Китая в 2026: цена | ДАРЭ",
+      "from_query": "растаможка электромобиля из китая 2026"
+    },
+    {
+      "url": "https://ivan-auto.ru/blog/kitajskie-brendy/elektro/elektromobili-iz-kitaya-2026/",
+      "title": "Как привезти электромобиль из Китая 2026: растаможка и ЭПТС",
+      "from_query": "растаможка электромобиля из китая 2026"
+    },
+    {
+      "url": "https://silenkoautocratia.ru/blog/rastamozhka-avto-iz-kitaya-2026/",
+      "title": "Растаможка авто из Китая в 2026 году: пошлины, утильсбор, льгота на ...",
+      "from_query": "растаможка электромобиля из китая 2026"
+    },
+    {
+      "url": "https://amgamma.ru/knowledge-base/blog/elektromobili-iz-kitaya-2026",
+      "title": "Электромобили из Китая 2026: растаможка, пошлина, утильсбор",
+      "from_query": "растаможка электромобиля из китая 2026"
+    },
+    {
+      "url": "https://www.wersum.ru/30-minutnaya-moshchnost/byd-seal",
+      "title": "30-минутная Мощность Byd Seal — Растаможка 2026 | Wersum",
+      "from_query": "30 минутная мощность byd 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/byd/seagull/554475/",
+      "title": "BYD Seagull 30 kWh Dynamic (05.2026 - н.в ... - Дром",
+      "from_query": "30 минутная мощность byd 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/byd/seagull/byd-seagull-30-minutnaia-moshchnost-25-kvt_5bb54d87-c96c-4b26-ace5-7a03090f0e91/",
+      "title": "BYD Seagull: 30-минутная мощность 25 кВт - Авто.ру",
+      "from_query": "30 минутная мощность byd 2026"
+    },
+    {
+      "url": "https://whitebrokerdv.ru/articles/elektromobili-pod-lgotnyj-utilizacionnyj-sbor-2026",
+      "title": "Электромобили под льготный утильсбор 2026: список моделей",
+      "from_query": "30 минутная мощность byd 2026"
+    },
+    {
+      "url": "https://flipexport.ru/blog/utilsbor-na-elektromobili-i-gibridy-2026",
+      "title": "Утильсбор на электромобили и гибриды 2026: расчёт",
+      "from_query": "расчет 30 минутной мощности 2026"
+    },
+    {
+      "url": "https://www.wersum.ru/uslugi/tamozhennyy-kalkulyator",
+      "title": "Электромобили И Гибриды: 30-минутная Мощность, Калькулятор | Wersum",
+      "from_query": "Как проверить 30-минутную мощность электромобиля из Китая до депозита в 2026 2026"
+    },
+    {
+      "url": "[REDACTED]/2026/07/25/rastamozhka-elektromobilya-iz-kitaya-2026/",
+      "title": "Растаможка электромобиля из Китая: чек-лист 2026",
+      "from_query": "Как проверить 30-минутную мощность электромобиля из Китая до депозита в 2026 2026"
+    },
+    {
+      "url": "https://dvbr.ru/stati/post/rastamozhka-elektromobilya-iz-kitaya-v-2026-godu-polnyj-gid-po-platezham-dokumentam-i-proverke-pered-pokupkoj",
+      "title": "Растаможка электромобиля из Китая: полный гид по платежам, документам и ...",
+      "from_query": "Как проверить 30-минутную мощность электромобиля из Китая до депозита в 2026 2026"
+    },
+    {
+      "url": "https://chinaautozone.ru/rastamozhka-elektromobilya-iz-kitaya/",
+      "title": "Растаможка электромобиля и гибрида из Китая: как считается в 2026",
+      "from_query": "Как проверить 30-минутную мощность электромобиля из Китая до депозита в 2026 2026"
+    }
+  ]
+}

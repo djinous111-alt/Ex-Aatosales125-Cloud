@@ -32,7 +32,44 @@ PUBLISH_ENV_KEYS = {
     "SSH_PASSWORD",
     "SSH_ROOT",
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
 }
+
+CTA_PLACEHOLDERS = {
+    "[CATALOG_URL]": "CATALOG_URL",
+    "[TELEGRAM_URL]": "TELEGRAM_URL",
+    "[MAX_URL]": "MAX_URL",
+    "<CATALOG_URL>": "CATALOG_URL",
+    "<TELEGRAM_URL>": "TELEGRAM_URL",
+    "<MAX_URL>": "MAX_URL",
+}
+
+
+def expand_publish_placeholders(text: str, env: dict[str, str]) -> tuple[str, list[str]]:
+    """Expand CTA/site placeholders in-memory for WP payload only (never write back)."""
+    if not text:
+        return text, []
+    out = text
+    expanded: list[str] = []
+    for token, key in CTA_PLACEHOLDERS.items():
+        live = (env.get(key) or os.environ.get(key) or "").strip()
+        if token in out and live.startswith(("http://", "https://")):
+            out = out.replace(token, live)
+            expanded.append(key)
+    # Schema often stores host as [REDACTED] after git hygiene.
+    public = (
+        env.get("PUBLIC_SITE_URL")
+        or env.get("WP_HOME")
+        or env.get("WP_SITE_URL")
+        or os.environ.get("PUBLIC_SITE_URL")
+        or ""
+    ).strip().rstrip("/")
+    if public.startswith(("http://", "https://")) and "[REDACTED]" in out:
+        out = out.replace("[REDACTED]", public)
+        expanded.append("PUBLIC_SITE_URL")
+    return out, expanded
 
 
 def _read_env_file(path: Path) -> dict[str, str]:
@@ -168,7 +205,7 @@ def normalize_cover_png(cover_path: Path, registry_path: Path, root: Path) -> di
     return evidence
 
 
-def load_article(article_dir: Path) -> dict:
+def load_article(article_dir: Path, env: dict[str, str] | None = None) -> dict:
     meta_path = article_dir / "article.meta.json"
     html_path = article_dir / "article.html"
     if not meta_path.is_file() or not html_path.is_file():
@@ -191,6 +228,10 @@ def load_article(article_dir: Path) -> dict:
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
         cover_alt = cover_alt or reg.get("cover_alt_text", "")
+
+    env = env or {}
+    content, cta_expanded = expand_publish_placeholders(content, env)
+    schema_raw, schema_expanded = expand_publish_placeholders(schema_raw, env)
 
     import re
     img_srcs = re.findall(r'<img\s+[^>]*src=["\']([^"\']+)["\']', content)
@@ -239,6 +280,7 @@ def load_article(article_dir: Path) -> dict:
         "schema_jsonld": schema_raw,
         "topic_id": meta.get("topic_id", ""),
         "inline_images": inline_images,
+        "cta_expanded": sorted(set(cta_expanded + schema_expanded)),
     }
 
 
@@ -451,21 +493,46 @@ def upload_bootstrap_ssh(env: dict[str, str], remote: str, data: bytes) -> str:
 
 
 def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | None = None) -> None:
+    """Delete remote bootstrap PHP with retry on transient SSH banner/EOF errors."""
+    import time
+
     import paramiko
 
     host, port, user, password = _ssh_creds(env)
     remote_path = remote_path or ssh_remote_path(env, remote)
-    transport = paramiko.Transport((host, port))
-    transport.connect(username=user, password=password)
-    ssh_transfer = getattr(paramiko, "S" + "FT" + "PClient").from_transport(transport)
-    try:
-        ssh_transfer.remove(remote_path)
-    except OSError:
-        pass
-    finally:
-        ssh_transfer.close()
-        transport.close()
-
+    last_error: Exception | None = None
+    for attempt in range(1, 4):
+        transport = None
+        ssh_transfer = None
+        try:
+            transport = paramiko.Transport((host, port))
+            transport.connect(username=user, password=password)
+            ssh_transfer = getattr(paramiko, "S" + "FT" + "PClient").from_transport(transport)
+            try:
+                ssh_transfer.remove(remote_path)
+            except OSError:
+                # Already gone — treat as success.
+                pass
+            return
+        except Exception as exc:  # noqa: BLE001 — retry transient SSH banner/EOF
+            last_error = exc
+            print(
+                f"WARN cleanup attempt {attempt}/3 failed for {remote_path}: {type(exc).__name__}: {exc}",
+                file=sys.stderr,
+            )
+            time.sleep(1.5 * attempt)
+        finally:
+            try:
+                if ssh_transfer is not None:
+                    ssh_transfer.close()
+            except Exception:  # noqa: BLE001
+                pass
+            try:
+                if transport is not None:
+                    transport.close()
+            except Exception:  # noqa: BLE001
+                pass
+    raise RuntimeError(f"SSH cleanup failed after retries for {remote_path}: {last_error}")
 
 def trigger_bootstrap_http(url: str, root: Path) -> str:
     try:
@@ -568,15 +635,31 @@ def main() -> int:
         return 2
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
-    payload = load_article(article_dir)
+    env = load_env(root)
+    # Also merge CATALOG/TELEGRAM from process env for placeholder expand.
+    for key in ("CATALOG_URL", "TELEGRAM_URL", "MAX_URL", "PUBLIC_SITE_URL", "WP_HOME", "WP_SITE_URL"):
+        value = os.environ.get(key)
+        if value:
+            env[key] = value
+    payload = load_article(article_dir, env=env)
     php = build_php(payload)
 
     if args.dry_run:
-        print(json.dumps({"dry_run": True, "slug": payload["slug"], "title": payload["title"]}, ensure_ascii=False, indent=2))
+        print(
+            json.dumps(
+                {
+                    "dry_run": True,
+                    "slug": payload["slug"],
+                    "title": payload["title"],
+                    "cta_expanded": payload.get("cta_expanded") or [],
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1

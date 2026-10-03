@@ -44,3 +44,15 @@ memory/blog/articles/<topic_id>-<slug>/article.meta.json
 - объём вне диапазона после 1 правки
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`
+
+
+## Git commit hygiene
+
+Before `git commit` / `git push` in Cloud Agent:
+
+```bash
+source scripts/sanitize_cloud_secret_names.sh
+```
+
+This filters URL-as-name entries out of `CLOUD_AGENT_*_SECRET_NAMES` so pre-commit hooks do not fail with `invalid variable name`.
+Keep CTA placeholders (`[CATALOG_URL]`, `[TELEGRAM_URL]`) in `article.html` for git; publish expands them in memory.

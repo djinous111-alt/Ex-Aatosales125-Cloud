@@ -47,8 +47,14 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>" --slug "<candidate-slug>"
 ```
+Helper сверяет не только Bxx-карточки в `blog-topics.md`, но и:
+- slug-колонку `shared/published-articles.md`
+- durable blocklist `shared/known-wp-slugs.md` (переживает сброс ledger)
+- slug'и из `memory/blog/articles/*/article.meta.json`
+
+Дополнительно вручную сверь кандидатов с automation memory `publish-patterns.md` / live WP search, если ledger недавно чистили.
 Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
 
 ### Шаг 5 — Сборка карточки темы (Utility-Only)

@@ -41,10 +41,29 @@
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
 
-## Scout
-
-- Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
-
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- LLMs generator CLI: только `--blog-dir` / `--out-dir` / `--site-base`. Флага `--blog-path` нет (doctor проверяет `--blog-dir`).
+
+## Scout
+
+- Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- `--check-query` обязан учитывать `shared/known-wp-slugs.md` + ledger slugs + article dirs; ledger reset ≠ «можно повторить старый WP slug». Передавай `--slug`.
+
+## Research
+
+- `research_start` редact'ит site/catalog URL в `research-serp.json` перед записью.
+- Tech gate: word-boundary маркеры по topic card, не substring `ai`/`ии` внутри `reader_pain`.
+- `publication.pravo.gov.ru` 5xx → сразу URL из WebSearch/SERP, research не блокировать.
+
+## Secrets / git
+
+- Перед commit: `source scripts/sanitize_cloud_secret_names.sh` (URL-as-secret-name ломает `${!NAME}`).
+- `git push` 401 / `Invalid username or token` / `gh auth status` invalid → **env/auth needs-human** (обновить Cloud GitHub credentials). Repo docs не чинят токен.
+
+## Cover / Publish
+
+- Hero host: catbox → 0x0 → SSH WP uploads; stale winter-cars/blueprint URL = re-host face lock.
+- Publish expands `[CATALOG_URL]`/`[TELEGRAM_URL]`/`[REDACTED]` in memory only; SSH bootstrap cleanup retries banner/EOF.
+- `paramiko` должен быть в install/requirements.

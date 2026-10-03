@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+> 2026-10-03 fixer: 10 fixed, 2 needs-human (git push auth). See Fixer resolution on each INC.
+
+
 ## INC-20261003-1335-indexer-llms-blog-path-cli-mismatch
-status: open
+status: fixed
 run_date: 2026-10-03
 role: excalibur-blog-indexer
 topic_id: B01
@@ -39,10 +42,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- Doctor now asserts `--blog-dir`/`--out-dir` and warns if obsolete `--blog-path` appears in help.
+- Indexer agent/skill examples drop `--blog-path`; pitfalls document real CLI.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `python3 scripts/excalibur_blog_llms_generator.py --help`
+commit: pending-parent-commit
 
 ## INC-20261003-1333-cover-git-push-auth
-status: open
+status: needs-human
 run_date: 2026-10-03
 role: excalibur-blog-cover
 topic_id: B01
@@ -70,11 +88,19 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: needs-human
+reason:
+- GitHub HTTPS/`gh` token invalid in Cloud Agent environment; cannot be repaired from repo code.
+needed_decision_or_secret:
+- Refresh Cloud Agent git credentials / GH_TOKEN / x-access-token for origin push.
+- Until then: local commits OK; Director/`open_git_pr` after auth repair.
+docs_updated:
+- `CLOUD-AUTOMATION.md`
+- `shared/agent-pipeline-pitfalls.md`
+recorded_at: 2026-10-03
 
 ## INC-20261003-1327-schema-git-push-auth
-status: open
+status: needs-human
 run_date: 2026-10-03
 role: excalibur-blog-schema
 topic_id: B01
@@ -103,10 +129,18 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+reason:
+- Same class as cover: invalid GitHub token / password auth not supported on `git push`.
+needed_decision_or_secret:
+- Update Cursor Cloud git credential injection for this repo environment.
+docs_updated:
+- `CLOUD-AUTOMATION.md`
+- `shared/agent-pipeline-pitfalls.md`
+recorded_at: 2026-10-03
 
 ## INC-20261003-1326-cover-hero-host-catbox-fail
-status: open
+status: fixed
 run_date: 2026-10-03
 role: excalibur-blog-cover
 topic_id: B01
@@ -136,11 +170,22 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- `hero_reference_url.py` auto fallback: catbox → 0x0 → SSH/WP uploads.
+- Stale winter-cars/blueprint URLs force re-host of face-lock PNG; store site-relative path when possible.
+files_changed:
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
+commit: pending-parent-commit
 
 ## INC-20261003-1318-writer-commit-secret-name-filter
-status: open
+status: fixed
 run_date: 2026-10-03
 role: excalibur-blog-writer
 topic_id: B01
@@ -171,7 +216,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- Restored `scripts/sanitize_cloud_secret_names.sh`; doctor asserts it exists.
+- Writer/publish skills document `source` before commit.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- sanitize smoke: URL token stripped from CLOUD_AGENT_*_SECRET_NAMES
+- doctor OK sanitize script exists
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -364,7 +423,6 @@ checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
 commit: pending-parent-commit
 
-
 ## INC-20260616-2042-publish-ssh-root-dot
 status: fixed
 run_date: 2026-06-16
@@ -419,7 +477,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20261003-1315-research-serp-public-site-url
-status: open
+status: fixed
 run_date: 2026-10-03
 role: excalibur-blog-research
 topic_id: B01
@@ -448,10 +506,22 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- `research_start` redacts PUBLIC_SITE_URL/CATALOG_URL/NAP URLs in research-serp.json before write.
+- Research skill documents commit scan + sanitize.
+files_changed:
+- `scripts/excalibur_blog_research_start.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit redact_site_urls with fake PUBLIC_SITE_URL/CATALOG_URL
+commit: pending-parent-commit
 
 ## INC-20261003-1312-research-tech-marker-false-positive
-status: open
+status: fixed
 run_date: 2026-10-03
 role: excalibur-blog-research
 topic_id: B01
@@ -482,10 +552,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- TECH_MARKERS use word-boundary regex; technical detect scans topic card + headings only (not reader_pain prose).
+- Auto/EV topic no longer forced to github_urls>=3.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- is_technical_topic(auto EV)=False; is_technical_topic(MCP/Cursor)=True
+commit: pending-parent-commit
 
 ## INC-20261003-1311-research-pravo-fetch-timeout
-status: open
+status: fixed
 run_date: 2026-10-03
 role: excalibur-blog-research
 topic_id: B01
@@ -512,10 +594,22 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- Research skill: on pravo.gov.ru 5xx immediately use WebSearch/SERP URL; do not block.
+- Fact-bank records ПП 1291/1713 canonical doc id.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `memory/brief/fact-bank.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg Official regulation sources in research skills
+commit: pending-parent-commit
 
 ## INC-20261003-1305-scout-wp-slug-blind-spot
-status: open
+status: fixed
 run_date: 2026-10-03
 role: excalibur-blog-scout
 topic_id: B01
@@ -545,10 +639,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- `scout_helper --check-query` also loads ledger slugs + `shared/known-wp-slugs.md` + article dir slugs; supports `--slug`.
+- Korea slug now CRITICAL overlap even with empty B-pool mindset.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/known-wp-slugs.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- Korea query/slug → OVERLAP exit 1
+- B01 published slug → OVERLAP exit 1
+commit: pending-parent-commit
 
 ## INC-20261003-1323-geo-qa-utility-policy-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-03
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -579,10 +689,25 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- editorial-policy.json keeps pain/outcome lists; utility_gate skip-empty warning path retained.
+- Doctor regression: requires non-empty pain_markers_ru/outcome_markers_ru.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor OK editorial-policy markers
+- json parse editorial-policy.json
+commit: pending-parent-commit
 
 ## INC-20261003-1323-geo-qa-link-verify-cta-placeholders
-status: open
+status: fixed
 run_date: 2026-10-03
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -612,10 +737,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- link_verify already expands CTA placeholders; publish now expands same tokens + schema [REDACTED] in memory only.
+- GEO QA / publish skills document placeholder contract.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- B01 publish --dry-run shows cta_expanded CATALOG_URL/TELEGRAM_URL/PUBLIC_SITE_URL
+commit: pending-parent-commit
 
 ## INC-20261003-1340-publish-ssh-cleanup-banner
-status: open
+status: fixed
 run_date: 2026-10-03
 role: excalibur-blog-publish
 topic_id: B01
@@ -652,7 +792,25 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-03
+fix_summary:
+- `delete_bootstrap_ssh` retries 3× with backoff on banner/EOF.
+- Publish auto-expands CTA/schema placeholders in payload; paramiko in cloud-agent-install + requirements.
+- Git push auth remains needs-human (cross-link 1327/1333); sanitize script restored.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `scripts/sanitize_cloud_secret_names.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- doctor OK paramiko available
+- B01 dry-run cta_expanded
+commit: pending-parent-commit
 
 ## Fixed incidents
 

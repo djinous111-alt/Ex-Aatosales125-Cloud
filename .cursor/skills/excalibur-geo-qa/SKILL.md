@@ -55,3 +55,11 @@ python scripts/excalibur_blog_human_voice_gate.py \
 **Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.
 
 Schema и cover — **не** твоя зона (отдельные субагенты после PASS).
+
+
+## CTA placeholders in link-verify
+
+- Writer keeps `[CATALOG_URL]` / `[TELEGRAM_URL]` in git (secret-scan safe).
+- `excalibur_blog_link_verify.py` expands them from env and redacts live URLs in JSON to `${CATALOG_URL}` / `${TELEGRAM_URL}`.
+- Do not treat unresolved placeholders as site-relative paths.
+- `editorial-policy.json` must keep non-empty `pain_markers_ru` / `outcome_markers_ru` (doctor checks this).

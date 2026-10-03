@@ -633,11 +633,13 @@ category: publish
 - Confirmed `OK post=3955`, featured/inline/schema lines, live HEAD 200.
 - Retried SFTP remove of `./excalibur-blog-publish-once.php` successfully.
 - Expanded CTA/schema only for payload; restored placeholders before commit; ledger/result redacted.
+- Local commit `6763578` ok after filtering invalid `CLOUD_AGENT_*_SECRET_NAMES` entry; `git push` BLOCKED_AUTH (`gh` token invalid) — same class as cover/schema/indexer.
 
 ### Durable fix needed before next run
 - Retry/backoff in `delete_bootstrap_ssh` on banner/EOF errors; never leave bootstrap PHP if cleanup fails (second attempt or warn louder).
 - Auto-expand CTA + schema host tokens inside `excalibur_blog_wp_publish.py` from env (do not write expanded URLs back to article files).
 - Ensure `paramiko` is installed by `.cursor/cloud-agent-install.sh` / requirements so publish does not fail cold.
+- Restore `scripts/sanitize_cloud_secret_names.sh`; refresh Cloud git credentials so push works after publish.
 
 ### Suggested files to inspect/change
 - `scripts/excalibur_blog_wp_publish.py`

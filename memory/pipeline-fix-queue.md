@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261003-1327-schema-git-push-auth
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026
+severity: high
+category: env
+
+### What went wrong
+- Local commit of `schema.jsonld` succeeded after secret-name filter (see INC-20261003-1318).
+- `git push` to `origin` failed 4 times: `Invalid username or token` / password auth not supported.
+- `gh auth status` reports invalid token in hosts.yml; no usable `GH_TOKEN`/`GITHUB_TOKEN` in env.
+
+### How the agent recovered this run
+- Left schema artifact committed locally on branch tip; fragment written with PASS for schema content.
+- Could not publish commit to remote from this role.
+
+### Durable fix needed before next run
+- Refresh Cloud Agent GitHub push credentials / x-access-token for the repo remote.
+- Ensure schema/cover roles can push after local commit, or document Director-owned push step.
+
+### Suggested files to inspect/change
+- Cloud Agent git credential injection
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261003-1326-cover-hero-host-catbox-fail
 status: open
 run_date: 2026-10-03

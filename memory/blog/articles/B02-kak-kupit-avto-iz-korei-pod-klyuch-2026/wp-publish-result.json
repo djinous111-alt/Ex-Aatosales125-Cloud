@@ -1,0 +1,39 @@
+{
+  "slug": "kak-kupit-avto-iz-korei-pod-klyuch-2026",
+  "topic_id": "B02",
+  "permalink": "https://avtosales125.ru/2026/10/03/kak-kupit-avto-iz-korei-pod-klyuch-2026/",
+  "post_id": 3967,
+  "featured_image": 3968,
+  "inline_images": [
+    {
+      "id": 3969,
+      "src": "cover/inline-01.png",
+      "url": "https://avtosales125.ru/wp-content/uploads/2026/10/kak-kupit-avto-iz-korei-pod-klyuch-2026-inline-01.png"
+    },
+    {
+      "id": 3970,
+      "src": "cover/inline-02.png",
+      "url": "https://avtosales125.ru/wp-content/uploads/2026/10/kak-kupit-avto-iz-korei-pod-klyuch-2026-inline-02.png"
+    },
+    {
+      "id": 3971,
+      "src": "cover/inline-03.png",
+      "url": "https://avtosales125.ru/wp-content/uploads/2026/10/kak-kupit-avto-iz-korei-pod-klyuch-2026-inline-03.png"
+    }
+  ],
+  "schema_meta": 1,
+  "publish_method": "ssh",
+  "http_trigger": "504_gateway_timeout_php_completed",
+  "cover_evidence": {
+    "path": "cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true
+  },
+  "raw_output": "OK post=3967 slug=kak-kupit-avto-iz-korei-pod-klyuch-2026\nOK featured_image=3968\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3969 src=cover/inline-01.png url=https://avtosales125.ru/wp-content/uploads/2026/10/kak-kupit-avto-iz-korei-pod-klyuch-2026-inline-01.png\nOK inline_image_upload=3970 src=cover/inline-02.png url=https://avtosales125.ru/wp-content/uploads/2026/10/kak-kupit-avto-iz-korei-pod-klyuch-2026-inline-02.png\nOK inline_image_upload=3971 src=cover/inline-03.png url=https://avtosales125.ru/wp-content/uploads/2026/10/kak-kupit-avto-iz-korei-pod-klyuch-2026-inline-03.png\npermalink=https://avtosales125.ru/2026/10/03/kak-kupit-avto-iz-korei-pod-klyuch-2026/\n",
+  "verdict": "pass",
+  "protected_posts_untouched": [
+    3955,
+    3949,
+    3778
+  ]
+}

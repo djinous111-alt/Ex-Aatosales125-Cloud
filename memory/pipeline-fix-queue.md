@@ -642,3 +642,71 @@ category: publish
 
 ### Fixer resolution
 - pending
+
+
+## INC-20261003-1820-publish-paramiko-missing
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-publish
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-kupit-avto-iz-korei-pod-klyuch-2026
+severity: high
+category: env
+
+### What went wrong
+- First publish attempt failed with `ModuleNotFoundError: No module named 'paramiko'` despite `paramiko` listed in `requirements.txt`.
+- Cloud env install did not leave paramiko available to system `python3` (PEP 668 externally-managed).
+
+### How the agent recovered this run
+- Installed with `pip3 install --break-system-packages paramiko` (got 5.0.0) and retried publish.
+
+### Durable fix needed before next run
+- Ensure `.cursor/cloud-agent-install.sh` / environment build installs `paramiko` into the runtime Python used by publish scripts.
+- Document `--break-system-packages` or venv path in publish skill preflight.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/environment.json`
+- `requirements.txt`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261003-1820-publish-http-504-webfetch-timeout
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-publish
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-kupit-avto-iz-korei-pod-klyuch-2026
+severity: medium
+category: publish
+
+### What went wrong
+- SSH bootstrap upload succeeded (~7MB PHP). Local HTTP trigger returned `504 Gateway Time-out`.
+- Script entered Cloud WebFetch Fallback and waited 120s for `memory/webfetch-response.txt`, then raised timeout because the agent was blocked on the same process and could not WebFetch in parallel.
+- Despite 504, WordPress already had the new post (id 3967) with featured + 3 inlines; bootstrap file cleaned up (404).
+
+### How the agent recovered this run
+- Verified live REST/HEAD: post 3967 published; featured 3968; inlines 3969–3971; protected posts 3955/3949/3778 untouched (3778 is different slug `kak-zakazat-...`).
+- Wrote `wp-publish-result.json` from live verification, updated ledger to `published`, logs, promotion Live URL, handoff.
+
+### Durable fix needed before next run
+- Publish skill: start HTTP trigger / fallback WebFetch in a parallel watcher while `wp_publish.py` waits; or increase gateway/PHP time and return early status.
+- Optionally make script treat post-create success detectable via WP REST slug poll after 504 as pass.
+- Prefer longer HTTP timeout or async bootstrap ACK for large media payloads.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

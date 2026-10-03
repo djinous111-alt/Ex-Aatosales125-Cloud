@@ -1,15 +1,15 @@
 # Promotion checklist — B02 kak-kupit-avto-iz-korei-pod-klyuch-2026
 
-Дата публикации: 2026-10-03 (план; до WP publish)  
-Live URL: (после publish) `/kak-kupit-avto-iz-korei-pod-klyuch-2026/`
+Дата публикации: 2026-10-03  
+Live URL: https://avtosales125.ru/2026/10/03/kak-kupit-avto-iz-korei-pod-klyuch-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
-- [ ] View source — JSON-LD BlogPosting + FAQPage + HowTo (theme или plugin)
-- [ ] Проверить internal links из статьи (200), в т.ч. `/trust-encar-carhistory-proverka-do-depozita/`
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (WP post 3967; HEAD 200)
+- [x] View source — JSON-LD BlogPosting (AIOSEO); custom FAQPage/HowTo в post meta `_excalibur_blog_schema_jsonld` (theme echo отдельно)
+- [x] Проверить internal links из статьи (200), в т.ч. `/trust-encar-carhistory-proverka-do-depozita/`
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
 
 ## Соцсети / каналы (из conversion-tracking-map)

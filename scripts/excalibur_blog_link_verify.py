@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import ssl
 import sys
@@ -105,6 +106,8 @@ def _get_fallback(
 
 
 def classify_link(href: str, site_base: str | None) -> str:
+    if re.fullmatch(r"\[[A-Z][A-Z0-9_]+\]", href):
+        return "unresolved_placeholder"
     if href.startswith("/"):
         return "internal_relative"
     parsed = urlparse(href)
@@ -130,6 +133,34 @@ def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
     return any(token in error for token in ("timed out", "timeout", "ssl", "network"))
 
 
+def resolve_cta_placeholders(html: str) -> tuple[str, list[str]]:
+    """Resolve [CATALOG_URL]/[TELEGRAM_URL] from process env for verify-only checks."""
+    mapping = {
+        "[CATALOG_URL]": os.environ.get("CATALOG_URL", "").strip(),
+        "[TELEGRAM_URL]": os.environ.get("TELEGRAM_URL", "").strip(),
+        "[MAX_URL]": os.environ.get("MAX_URL", "").strip(),
+    }
+    # Also load site.env.local if present
+    root = Path(__file__).resolve().parents[1]
+    env_path = root / "memory" / "site.env.local"
+    if env_path.is_file():
+        for line in env_path.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if "=" in line and not line.startswith("#"):
+                k, v = line.split("=", 1)
+                k, v = k.strip(), v.strip()
+                token = f"[{k}]"
+                if token in mapping and v and v not in {"[REDACTED]", "REDACTED"}:
+                    mapping[token] = v
+    expanded: list[str] = []
+    out = html
+    for token, value in mapping.items():
+        if token in out and value and value not in {"[REDACTED]", "REDACTED"}:
+            out = out.replace(token, value)
+            expanded.append(token)
+    return out, expanded
+
+
 def verify_article(
     html_path: Path,
     *,
@@ -138,11 +169,29 @@ def verify_article(
     skip_external: bool = False,
 ) -> dict[str, Any]:
     html = html_path.read_text(encoding="utf-8")
+    html, cta_expanded = resolve_cta_placeholders(html)
     links = extract_links(html)
     user_agent = "ExcaliburBlogLinkVerify/1.0"
     results: list[dict[str, Any]] = []
     for href in links:
         kind = classify_link(href, site_base)
+        if kind == "unresolved_placeholder":
+            results.append(
+                {
+                    "url": href,
+                    "kind": kind,
+                    "status": None,
+                    "ok": False,
+                    "skipped": False,
+                    "method": None,
+                    "error": (
+                        "unresolved CTA placeholder — set CATALOG_URL/TELEGRAM_URL in "
+                        "memory/site.env.local (or env) from conversion-map; do not leave "
+                        "literal [CATALOG_URL] as an href for HTTP checks"
+                    ),
+                }
+            )
+            continue
         if skip_external and kind == "external":
             results.append(
                 {
@@ -189,6 +238,7 @@ def verify_article(
         "total_links": len(results),
         "failed_count": len(failed),
         "verdict": "pass" if not failed else "fail",
+        "cta_expanded": cta_expanded,
         "links": results,
     }
 

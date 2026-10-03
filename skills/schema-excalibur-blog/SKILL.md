@@ -22,3 +22,13 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+## Pre-commit (Cloud)
+
+Перед `git commit`:
+
+```bash
+source scripts/sanitize_cloud_secret_names.sh
+```
+
+Иначе pre-commit.cursor падает на `invalid variable name`, если в `CLOUD_AGENT_*_SECRET_NAMES` есть non-identifier (URL и т.п.).

@@ -81,3 +81,23 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
 * Выдумывание цифр спроса без вызова Wordstat API.
+
+## Pre-commit (Cloud)
+
+Перед `git commit`:
+
+```bash
+source scripts/sanitize_cloud_secret_names.sh
+```
+
+Иначе pre-commit.cursor падает на `invalid variable name`, если в `CLOUD_AGENT_*_SECRET_NAMES` есть non-identifier (URL и т.п.).
+
+## known-wp-slugs + helper
+
+```bash
+python3 scripts/excalibur_blog_scout_helper.py --suggest-next
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<primary>"
+python3 scripts/excalibur_blog_scout_helper.py --check-slug "<slug>"
+```
+
+Helper учитывает `shared/known-wp-slugs.md` + ledger + article dirs (не предлагай занятый B0x / live slug).

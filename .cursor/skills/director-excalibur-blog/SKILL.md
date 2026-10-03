@@ -228,3 +228,21 @@ qa:
 publish:
 incident_queue:
 ```
+
+## GEO QA Task type
+
+Если Cloud отвергает `excalibur-blog-geo-qa` как Task type — сразу `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` + skill. Не трать ретраи на typed enum.
+
+## Pre-commit sanitize
+
+Любая роль перед commit: `source scripts/sanitize_cloud_secret_names.sh`.
+
+## Pre-commit (Cloud)
+
+Перед `git commit`:
+
+```bash
+source scripts/sanitize_cloud_secret_names.sh
+```
+
+Иначе pre-commit.cursor падает на `invalid variable name`, если в `CLOUD_AGENT_*_SECRET_NAMES` есть non-identifier (URL и т.п.).

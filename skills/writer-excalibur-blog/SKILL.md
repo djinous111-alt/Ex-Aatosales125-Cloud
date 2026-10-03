@@ -44,3 +44,19 @@ memory/blog/articles/<topic_id>-<slug>/article.meta.json
 - объём вне диапазона после 1 правки
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`
+
+## Pre-commit (Cloud)
+
+Перед `git commit`:
+
+```bash
+source scripts/sanitize_cloud_secret_names.sh
+```
+
+Иначе pre-commit.cursor падает на `invalid variable name`, если в `CLOUD_AGENT_*_SECRET_NAMES` есть non-identifier (URL и т.п.).
+
+## CTA href
+
+- В `article.html` используй токены `[CATALOG_URL]` / `[TELEGRAM_URL]` (лимиты из `memory/brief/conversion-map.md`) **или** финальные URL, если их можно коммитить.
+- Не оставляй плейсхолдеры без квадратных скобок — `link-verify` сочтёт их relative path → 404.
+- Раскрытие токенов: `CATALOG_URL`/`TELEGRAM_URL` в `memory/site.env.local` / Cloud Secrets (publish + link-verify).

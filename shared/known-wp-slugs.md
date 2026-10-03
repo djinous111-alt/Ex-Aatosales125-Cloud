@@ -1,5 +1,9 @@
 # Known WordPress slugs (Excalibur BLOG)
 
+Живые slug/post_id, которые нельзя переиспользовать даже после ledger reset.
+Scout: `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` / `--check-slug` / `--check-query` читают этот файл.
+Publish: после успешной публикации допиши строку.
+
 | post_id | slug | topic_id | date |
 | --- | --- | --- | --- |
 | 3955 | kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026 | B01 | 2026-10-03 |

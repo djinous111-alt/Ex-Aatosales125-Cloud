@@ -251,6 +251,38 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261003-1315-research-serp-public-site-url
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026
+severity: medium
+category: publish
+
+### What went wrong
+- `research_start` SERP JSON содержал URL собственного сайта (`PUBLIC_SITE_URL`) в результатах поиска.
+- Pre-commit secret scanner блокировал commit, пока значение не заменили на `[REDACTED]`.
+- Дополнительно `CLOUD_AGENT_INJECTED_SECRET_NAMES` содержал URL как «имя секрета», из-за чего `${!SECRET_NAME}` падал с `invalid variable name` до фильтрации.
+
+### How the agent recovered this run
+- Заменил вхождения site URL в `research-serp.json` на `[REDACTED]`.
+- Для commit временно отфильтровал невалидные имена из `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+
+### Durable fix needed before next run
+- В `excalibur_blog_research_start.py` пост-процессить SERP: редact `PUBLIC_SITE_URL` / `CATALOG_URL` / NAP URLs в сохранённом JSON.
+- Документировать в research skill: перед commit проверять research-serp на site secrets.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_start.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261003-1312-research-tech-marker-false-positive
 status: open
 run_date: 2026-10-03

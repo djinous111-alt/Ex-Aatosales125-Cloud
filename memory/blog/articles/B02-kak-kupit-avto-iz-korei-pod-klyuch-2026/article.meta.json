@@ -12,7 +12,7 @@
     "заказ авто из кореи под ключ",
     "пригон авто из кореи под ключ"
   ],
-  "char_count": 9159,
+  "char_count": 9267,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -29,8 +29,8 @@
     "description_aeo": "Купить авто из Кореи под ключ: бюджет по строкам, Encar и Carhistory до депозита, логистика Пусан–Владивосток, таможня, СБКТС, ЭПТС, сроки 30–55 дней."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 90,
+    "verdict": "PASS",
     "date": "2026-10-03"
   },
   "cover_family": "brand_collage"

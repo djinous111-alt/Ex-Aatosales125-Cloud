@@ -1,0 +1,73 @@
+{
+  "article": "memory/blog/articles/B02-kak-kupit-avto-iz-korei-pod-klyuch-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 9,
+  "verified_facts_count": 4,
+  "unverified_facts_count": 5,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "акомому куратору в Telegram. Так теряют деньги: в 2026 по одной крупной схеме с \"авто из Кореи\" заявили о",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "ть глаза на срочность и красивое видео – в схемах 2025–2026 VIN часто оставался в Корее. Избегайте крупн",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "55 дней",
+      "kind": "metric_or_duration",
+      "context": "– без них на учёт не поставить. Ориентир цикла 30–55 дней; точный расчёт – в каталоге. Мы в Авто-Сейлс во В",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 лет",
+      "kind": "metric_or_duration",
+      "context": ".0 л, льготный утиль по мощности, возраст около 3–5 лет. Обещание \"привезём 3,5 л вопреки запрету\" – стоп",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "14 дней",
+      "kind": "metric_or_duration",
+      "context": "опии. Дождитесь партии – иногда это добавляет до ~14 дней к морю. Отслеживайте прибытие во Владивосток (пор",
+      "verified": true,
+      "reason": "Numerical value '14' matched in fact-bank context"
+    },
+    {
+      "fact": "12 месяцев",
+      "kind": "metric_or_duration",
+      "context": "ия: мощность/объём, машина для себя и без продажи 12 месяцев. В реальном проекте быстрый перепродаж \"на льготе",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "250",
+      "kind": "large_number",
+      "context": "\"авто из Кореи\" заявили о возможном обмане более 250 человек, ущерб свыше 1 млрд ₽, а типичный триггер",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "3400",
+      "kind": "large_number",
+      "context": ", утильсбор – отдельно. Льготный утиль (ориентиры 3400/5200 ₽) завязан на условия: мощность/объём, машин",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5200",
+      "kind": "large_number",
+      "context": "льсбор – отдельно. Льготный утиль (ориентиры 3400/5200 ₽) завязан на условия: мощность/объём, машина для",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

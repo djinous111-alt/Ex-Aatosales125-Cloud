@@ -381,3 +381,70 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261003-1755-geo-qa-utility-policy-pain-outcome-missing
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-geo-qa
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-kupit-avto-iz-korei-pod-klyuch-2026
+severity: high
+category: qa
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always enforces `min_pain_markers` (default 2) and `min_outcome_markers` (default 3).
+- `memory/brief/editorial-policy.json` lacked `pain_markers_ru` / `outcome_markers_ru` and the matching min keys, so marker counts stayed 0 and every article failed utility gate (including previously PASS AS09 on re-run).
+
+### How the agent recovered this run
+- Added `pain_markers_ru`, `outcome_markers_ru`, `min_pain_markers`, `min_outcome_markers` to `memory/brief/editorial-policy.json`.
+- Strengthened B02 article action/pain/outcome wording in a QA FIX cycle; utility gate PASS.
+
+### Durable fix needed before next run
+- Keep policy lists in sync with `scripts/excalibur_blog_utility_gate.py` (or skip checks when marker lists are empty).
+- Document required pain/outcome markers in writer + GEO QA skills / `shared/editorial-utility-only.md`.
+- Optionally align human-voice and utility marker vocabularies.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/editorial-utility-only.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261003-1755-geo-qa-writer-cta-placeholders
+status: open
+run_date: 2026-10-03
+role: excalibur-blog-geo-qa
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-kupit-avto-iz-korei-pod-klyuch-2026
+severity: medium
+category: qa
+
+### What went wrong
+- Writer left literal `[CATALOG_URL]` and `[TELEGRAM_URL]` placeholders in `article.html`.
+- `excalibur_blog_link_verify.py` treated them as site-relative paths → 404 and link-verify FAIL.
+
+### How the agent recovered this run
+- Resolved placeholders from `memory/brief/conversion-map.md` to live catalog and Telegram URLs; link-verify PASS (3/3).
+
+### Durable fix needed before next run
+- Writer skill/contract must require final CTA hrefs from conversion-map (no unresolved placeholders) before handoff to GEO QA.
+- Optionally teach link-verify to fail fast with a clear "unresolved placeholder" error instead of HTTP 404.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_link_verify.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

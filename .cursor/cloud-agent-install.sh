@@ -13,4 +13,10 @@ python3 -m pip install --break-system-packages --quiet \
 mkdir -p .cursor/excalibur-blog-fragments
 touch .cursor/excalibur-blog-handoff.md
 
+if [[ -f scripts/sanitize_cloud_secret_names.sh ]]; then
+  # shellcheck disable=SC1091
+  source scripts/sanitize_cloud_secret_names.sh || true
+  echo "[excalibur-cloud] sanitized CLOUD_AGENT_*_SECRET_NAMES"
+fi
+
 echo "[excalibur-cloud] install ok"

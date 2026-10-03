@@ -2,9 +2,10 @@
 
 ## Cloud / Task
 
-- Cloud не принимает `excalibur-blog-*` как Task types → fallback `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path.
+- Typed `excalibur-blog-*` (включая geo-qa) в Cloud enum обычно недоступны → **нормальный путь** `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill; копируй промпт из `shared/pipeline-task-map.md`.
 - Parent-agent сам пишет статью вместо `excalibur-blog-writer` → **блокер**, перезапуск writer Task.
 - Объединение cover+schema в один Task → запрещено; только параллельные отдельные Task.
+- Перед `git commit`: `source scripts/sanitize_cloud_secret_names.sh` — иначе pre-commit падает на `invalid variable name`, если в `CLOUD_AGENT_*_SECRET_NAMES` попали URL/`[REDACTED]`.
 
 ## Handoff / fragments
 
@@ -22,6 +23,11 @@
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
 - Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
 - SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
+- CTA в git: `[CATALOG_URL]` / `[TELEGRAM_URL]`; publish и link-verify резолвят из env. Не коммить живые значения этих secrets.
+
+## Research
+
+- `regulation.gov.ru` часто отдаёт 5xx — это soft failure. Fallback: `publication.pravo.gov.ru` + официальные operator pages + новости с id проекта regulation; не блокируй research на одном 503.
 
 ## Writer / Fact Check Box
 
@@ -38,6 +44,12 @@
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- Outfit героя = погода/тема из `scene_hint` + `blog-hero.json` outfit_rule; не hardcode white hoodie. Угол обложки: `avto-sales125.ru`, не Telegram.
+
+## Indexer / doctor
+
+- llms generator CLI: `--blog-dir` + `--out-dir` (флага `--blog-path` нет). Doctor проверяет актуальные флаги.
+- `editorial-policy.json` обязан содержать непустые `pain_markers_ru` / `outcome_markers_ru`; иначе utility gate CONFIG ERROR.
 
 ## Scout
 

@@ -14,22 +14,26 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Word/token markers only — never bare substrings like "ai"/"ии" that false-positive
+# inside reader_pain / Russian morphology (e.g. «комплектации»).
 TECH_MARKERS = (
-    "ai",
-    "ии",
-    "agent",
-    "агент",
-    "mcp",
-    "api",
-    "cursor",
-    "make",
-    "n8n",
-    "github",
-    "docker",
-    "rag",
-    "workflow",
-    "автоматизац",
-    "нейросет",
+    r"\bai\b",
+    r"\bии\b",
+    r"\bagent\b",
+    r"\bагент\b",
+    r"\bmcp\b",
+    r"\bapi\b",
+    r"\bcursor\b",
+    r"\bmake\b",
+    r"\bn8n\b",
+    r"\bgithub\b",
+    r"\bdocker\b",
+    r"\brag\b",
+    r"\bworkflow\b",
+    r"автоматизац",
+    r"нейросет",
+    r"\bllm\b",
+    r"\bdevops\b",
 )
 
 
@@ -74,13 +78,20 @@ def has_wordstat(text_lower: str) -> bool:
 
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech/dev topics from topic card + title-ish notes only.
+
+    Do NOT scan required prose fields like reader_pain / pain_solution_map —
+    short markers historically false-positive on auto-import and EV topics.
+    """
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
-        for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
+        for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug", "title")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Only scan early structural headings from notes (not full body prose).
+    heading_bits = re.findall(r"^#+\s+(.+)$", notes[:1500], flags=re.M)
+    blob += " " + " ".join(heading_bits).lower()
+    return any(re.search(marker, blob, flags=re.I) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:

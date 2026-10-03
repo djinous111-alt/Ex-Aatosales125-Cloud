@@ -86,6 +86,15 @@ agent worker start --pool --pool-name excalibur-blog --idle-release-timeout 600
 
 Не коммитить: `memory/site.env.local`, реальные ключи MCP.
 
+## Git push / GitHub auth
+
+Если `git push` падает с `Invalid username or token` / password auth not supported, а `gh auth status` показывает invalid token:
+
+1. Это **Cloud environment credentials**, не баг статьи.
+2. Обновите GitHub HTTPS / `GH_TOKEN` / `x-access-token` в Cursor Cloud Agent secrets / environment git injection.
+3. До восстановления push агенты оставляют commits local (`ahead of origin`); `open_git_pr` / Director push после ремонта auth.
+4. Перед commit всегда: `source scripts/sanitize_cloud_secret_names.sh`.
+
 ## Automation schedule
 
 **Авто-Сейлс / Владивосток:** 4 запуска в день в окне **09:00–22:00** (Asia/Vladivostok, UTC+10).

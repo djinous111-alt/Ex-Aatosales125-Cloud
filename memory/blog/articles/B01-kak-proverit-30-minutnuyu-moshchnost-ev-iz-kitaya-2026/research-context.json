@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-03",
+    "today_ru": "03.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-05",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-03 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026",
+    "h1": "Как проверить 30-минутную мощность электромобиля из Китая до депозита в 2026",
+    "primary_query": "30 минутная мощность",
+    "secondary_queries": [
+      "30 минутная мощность электромобилей",
+      "растаможка электромобиля из китая",
+      "30 минутная мощность byd",
+      "расчет 30 минутной мощности"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "30 минутная мощность 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "30 минутная мощность октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "30 минутная мощность новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com 30 минутная мощность 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "30 минутная мощность official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "30 минутная мощность forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "30 минутная мощность электромобилей 2026",
+      "purpose": "вторичный запрос: 30 минутная мощность электромобилей"
+    },
+    {
+      "id": "secondary_2",
+      "query": "растаможка электромобиля из китая 2026",
+      "purpose": "вторичный запрос: растаможка электромобиля из китая"
+    },
+    {
+      "id": "secondary_3",
+      "query": "30 минутная мощность byd 2026",
+      "purpose": "вторичный запрос: 30 минутная мощность byd"
+    },
+    {
+      "id": "secondary_4",
+      "query": "расчет 30 минутной мощности 2026",
+      "purpose": "вторичный запрос: расчет 30 минутной мощности"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как проверить 30-минутную мощность электромобиля из Китая до депозита в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

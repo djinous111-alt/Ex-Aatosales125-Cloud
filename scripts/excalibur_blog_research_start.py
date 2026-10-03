@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 import time
@@ -24,6 +25,50 @@ from excalibur_repo_paths import repo_relative
 USER_AGENT = "ExcaliburBlogResearch/1.0 (+research-start)"
 DDG_HTML = "https://html.duckduckgo.com/html/"
 DEFAULT_TZ = "Europe/Moscow"
+
+# Site/marketing URLs often appear in SERP hits and trip pre-commit secret scanners
+# when written into research-serp.json. Redact to placeholders before save.
+SERP_REDACT_ENV_KEYS = (
+    "PUBLIC_SITE_URL",
+    "WP_SITE_URL",
+    "WP_HOME",
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
+)
+
+
+def _serp_redaction_map() -> dict[str, str]:
+    mapping: dict[str, str] = {}
+    for key in SERP_REDACT_ENV_KEYS:
+        raw = (os.environ.get(key) or "").strip().rstrip("/")
+        if raw.startswith(("http://", "https://")):
+            mapping[raw] = f"[REDACTED:{key}]"
+            # Also redact without scheme variants occasionally seen in titles.
+            for prefix in ("http://", "https://"):
+                if raw.startswith(prefix):
+                    hostish = raw[len(prefix) :]
+                    if hostish:
+                        mapping[hostish] = f"[REDACTED:{key}]"
+    return dict(sorted(mapping.items(), key=lambda kv: len(kv[0]), reverse=True))
+
+
+def redact_site_urls(obj: Any, mapping: dict[str, str] | None = None) -> Any:
+    """Replace live site/catalog URLs with placeholders for safe git commits."""
+    mapping = mapping if mapping is not None else _serp_redaction_map()
+    if not mapping:
+        return obj
+    if isinstance(obj, str):
+        out = obj
+        for value, placeholder in mapping.items():
+            if value and value in out:
+                out = out.replace(value, placeholder)
+        return out
+    if isinstance(obj, list):
+        return [redact_site_urls(item, mapping) for item in obj]
+    if isinstance(obj, dict):
+        return {k: redact_site_urls(v, mapping) for k, v in obj.items()}
+    return obj
 
 
 def project_root() -> Path:
@@ -369,6 +414,8 @@ def run_research_start(
         "errors": errors,
         "unique_urls": _unique_urls(serp_runs),
     }
+    # Never persist live site/catalog URLs into research-serp.json (secret-scan).
+    payload_serp = redact_site_urls(payload_serp)
 
     context_path = out_dir / "research-context.json"
     serp_path = out_dir / "research-serp.json"

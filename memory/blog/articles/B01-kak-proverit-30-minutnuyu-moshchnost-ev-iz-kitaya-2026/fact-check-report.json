@@ -1,0 +1,80 @@
+{
+  "article": "memory/blog/articles/B01-kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 10,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 9,
+  "facts": [
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "– \"длительная\" цифра системы электротяги. С 01.12.2025 льготный утильсбор физлица по EV и последовательны",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ска, если подтверждённых данных ещё нет С февраля 2026 в практике СЭП для моделей без истории встречается",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "30 минут",
+      "kind": "metric_or_duration",
+      "context": "нера. Схема до депозита: Карточка модели → Пик vs 30 минут → Прецедент/документы завода → Вилка риска (если",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "991 200 ₽). Льготные ориентиры: около 3 400 ₽ (до 3 лет) и около 5 200 ₽ (старше 3 лет) – только при усло",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "овек выбирает красивый китайский EV с пиком около 180 л.с., считает утильсбор \"как у всех\" по картинке п",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "175",
+      "kind": "large_number",
+      "context": ". Сюрприз границы: разница в 5 пиковых \"лошадей\" (175 против 180) в примерах рынка даёт разный режим ути",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 400",
+      "kind": "large_number",
+      "context": "имерах рынка даёт разный режим утильсбора – около 3 400 ₽ против почти 991 200 ₽. Росстандарт прямо сказа",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "991 200",
+      "kind": "large_number",
+      "context": "ный режим утильсбора – около 3 400 ₽ против почти 991 200 ₽. Росстандарт прямо сказал: опубликованного ГОСТ",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 200",
+      "kind": "large_number",
+      "context": "отные ориентиры: около 3 400 ₽ (до 3 лет) и около 5 200 ₽ (старше 3 лет) – только при условиях льготы. Ин",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "из Японии, Кореи и Китая). Достоверность: ПП РФ № 1713 (утильсбор с 01.12.2025), решение Коллегии ЕЭК №",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

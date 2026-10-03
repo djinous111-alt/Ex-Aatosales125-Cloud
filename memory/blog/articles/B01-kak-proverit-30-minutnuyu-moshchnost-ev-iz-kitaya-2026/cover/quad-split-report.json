@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2736,
+      1536
+    ],
+    "panel_size_px": [
+      1372,
+      766
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 766,
+        "end": 806
+      },
+      "v_gutter_px": {
+        "start": 1372,
+        "end": 1381
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 5,
+          "top": 0,
+          "right": 1367,
+          "bottom": 766
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1372,
+          "bottom": 766
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у смартфона с цифрой мощности EV и документами, китайский кроссовер и порт Владивостока, плашка до депозита",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1381,
+          "top": 0,
+          "right": 2736,
+          "bottom": 766
+        },
+        "raw_box_px": {
+          "left": 1381,
+          "top": 0,
+          "right": 2736,
+          "bottom": 766
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: проверки 30-минутной мощности до депозита против риска после прихода",
+        "h2_anchor": "Зафиксируйте правило: сначала 30-минутная мощность, потом депозит"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 37,
+          "top": 806,
+          "right": 1335,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 806,
+          "right": 1372,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Инфографика: пиковая мощность в рекламе против 30-минутной цифры для утильсбора",
+        "h2_anchor": "Отличите пиковую мощность в рекламе от цифры для утильсбора"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1409,
+          "top": 806,
+          "right": 2707,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 1381,
+          "top": 806,
+          "right": 2736,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема источников цифры мощности: завод, прецедент, СБКТС, ЭПТС",
+        "h2_anchor": "Найдите, откуда законно берётся цифра для ЭПТС и СБКТС"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте правило: сначала 30-минутная мощность, потом депозит",
+    "injected inline_2 after H2 — Отличите пиковую мощность в рекламе от цифры для утильсбора",
+    "injected inline_3 after H2 — Найдите, откуда законно берётся цифра для ЭПТС и СБКТС"
+  ]
+}

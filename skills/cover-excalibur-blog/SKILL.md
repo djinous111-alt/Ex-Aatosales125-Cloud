@@ -199,3 +199,12 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 ## Эталон (B01)
 
 `memory/blog/articles/B01-primer-seo-stati/cover/` — reference implementation после design code v1.
+
+
+## Hero reference hosting fallback
+
+`excalibur_blog_hero_reference_url.py` order (auto): catbox → 0x0 → **SSH/WP uploads** (`wp-content/uploads/excalibur/blog-hero-reference.png`).
+
+- Stale blueprint URLs (e.g. winter-cars PNGs) are detected and re-hosted.
+- Stored value may be site-relative; expand with `PUBLIC_SITE_URL` at MCP/Kie call time.
+- Prefer face-lock file `memory/cover/assets/blog-hero-reference.png`, never a random article image.

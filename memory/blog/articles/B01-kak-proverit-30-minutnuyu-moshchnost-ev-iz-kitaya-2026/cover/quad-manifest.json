@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит без 30-минутной мощности — лотерея утильсбора?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у смартфона с цифрой мощности EV и документами, китайский кроссовер и порт Владивостока, плашка до депозита",
+      "scene_hint": "reference FACE + glasses ONLY; outfit = smart casual light navy blazer over white oxford shirt (NOT white tank top from reference), no cap no hood; cool cloudy Vladivostok port day; hero holds phone showing fake EV power card with Cyrillic '30 мин' and 'кВт'; Chinese modern EV crossover behind him; torn paper collage with customs checklist sticky note, highlighter on word 'депозит'; shocked meme reaction cutout; huge Cyrillic hook plaque; tiny corner brand avto-sales125.ru catalog (NOT Telegram); no Wordstat no Metrika",
+      "meme_caption_ru": "Сначала 30 минут!"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте правило: сначала 30-минутная мощность, потом депозит",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean 16:9 UI comparison table NO hero face: columns «до депозита» vs «после прихода» — rows: 30-мин мощность, ЭПТС, утильсбор, риск стопа; green check vs red X; small sticky note «правило №1»; Cyrillic labels only",
+      "alt": "Таблица: проверки 30-минутной мощности до депозита против риска после прихода"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Отличите пиковую мощность в рекламе от цифры для утильсбора",
+      "visual_type": "infographic_card",
+      "scene_hint": "Infographic card NO hero: left pill «пик кВт реклама» with warning icon, right pill «30 мин для утильсбора» with document stamp; arrow between them; threshold badge «~80 л.с.»; tape corner; Cyrillic only",
+      "alt": "Инфографика: пиковая мощность в рекламе против 30-минутной цифры для утильсбора"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Найдите, откуда законно берётся цифра для ЭПТС и СБКТС",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram NO hero: 4 steps with arrows — заводской лист → прецедент оформления → СБКТС → ЭПТС; each step a paper card with tape; small catalog card inset avto-sales125.ru; Cyrillic labels",
+      "alt": "Схема источников цифры мощности: завод, прецедент, СБКТС, ЭПТС"
+    }
+  }
+}

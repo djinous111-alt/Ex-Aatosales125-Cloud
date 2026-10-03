@@ -6,3 +6,4 @@
 | 2026-07-17 | AS09 | trust-encar-carhistory-proverka-do-depozita | https://avtosales125.ru/2026/07/17/trust-encar-carhistory-proverka-do-depozita/ | published |
 
 > Ledger сброшен при перенастройке под AVTO SALES (2026-07-17).
+| 2026-10-03 | B01 | era-glonass-pri-vvoze-avto-2026-nuzhna-li | memory/blog/articles/B01-era-glonass-pri-vvoze-avto-2026-nuzhna-li | in_progress |

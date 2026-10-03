@@ -1,0 +1,66 @@
+{
+  "article": "memory/blog/articles/B01-era-glonass-pri-vvoze-avto-2026-nuzhna-li/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 8,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 6,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "е. Боль знакомая: сайты кричат \"с апреля/сентября 2026 всем обязательно\", а ваш статус неясен. Ниже – чек",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2027",
+      "kind": "date_or_year",
+      "context": "енно не проводится – мораторий действует до 31.12.2027, пока не принято новое постановление. Для юрлица",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2022",
+      "kind": "date_or_year",
+      "context": "Для юрлица и ИП установка обязательна уже с 01.10.2022. Решает не дата аукциона, а статус ввоза и дата о",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2024",
+      "kind": "date_or_year",
+      "context": "не приняли – мораторий для личного ввоза жив. За 2024–2025 физлица ввезли без УВЭОС более 780 тыс. маши",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "риняли – мораторий для личного ввоза жив. За 2024–2025 физлица ввезли без УВЭОС более 780 тыс. машин, дол",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 минут",
+      "kind": "metric_or_duration",
+      "context": "ательно\", а ваш статус неясен. Ниже – чек-лист на 10 минут: кто вы в документах, жив ли мораторий на дату ЭП",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "780",
+      "kind": "large_number",
+      "context": "жив. За 2024–2025 физлица ввезли без УВЭОС более 780 тыс. машин, доля парка с кнопкой – около 23%. Мы в",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "855",
+      "kind": "large_number",
+      "context": "ойти, поэтому дата именно здесь критична. ПП РФ № 855 и продление ПП № 76: рамка до 31.12.2027. Для физл",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

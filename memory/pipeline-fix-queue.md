@@ -286,6 +286,70 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20261003-2126-research-serp-public-site-url-leak
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_start.py` wrote own-site URLs from `PUBLIC_SITE_URL` into `research-serp.json`.
+- Commit was blocked by Cursor secret scanner (`PUBLIC_SITE_URL` value in staged SERP artifact).
+
+### How the agent recovered this run
+- Replaced live site origin with placeholder `[PUBLIC_SITE_URL]` in `research-serp.json` (2 occurrences), then re-committed without exposing the secret.
+
+### Durable fix needed before next run
+- Teach `excalibur_blog_research_start.py` (and any SERP writer) to redact `PUBLIC_SITE_URL` / catalog host to a placeholder when writing research artifacts to git.
+- Add a preflight/sanitize step or .gitattributes/checklist so SERP dumps never store live site origin secrets.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_start.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261003-2125-research-gate-github-tech-false-positive
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marks the topic `technical_topic=true` because `TECH_MARKERS` includes the substring `github`, while every research brief is required to have a `## github_evidence` section (often with github.com URLs).
+- Non-tech auto-import topic B01 therefore got WARN `technical topic has no obvious official docs/developer documentation URL` even after PASS.
+- Secondary: WebFetch of `publication.pravo.gov.ru` for ПП РФ №1713 returned HTTP 504; recovered via ppt.ru + Consultant/Alta mirrors.
+
+### How the agent recovered this run
+- Kept `github_evidence` as required; cleared warning by adding a beginner `.../help/...` URL (VBR ЭПТС) and accepted PASS with residual risk until script fix.
+- Used ppt.ru / alta.ru / consultant.ru instead of pravo.gov primary HTML.
+
+### Durable fix needed before next run
+- Remove bare `github` from `TECH_MARKERS` in `scripts/excalibur_blog_research_notes_gate.py`, or only treat topic as technical when primary_query/h1 matches tech markers (not when notes merely cite GitHub evidence).
+- Optionally treat official legal docs (consultant/pravo/alta tamdoc) as satisfying the "official docs" warning for non-SaaS niches.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261003-2120-scout-precommit-secret-names
 status: open
 run_date: 2026-10-04

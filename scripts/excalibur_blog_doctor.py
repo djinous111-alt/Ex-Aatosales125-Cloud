@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import os
 import subprocess
 import sys
@@ -132,7 +133,32 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check(
+        "--blog-path" not in llms_help.stdout,
+        "llms generator does not advertise stale --blog-path",
+        errors,
+        warnings,
+    )
+
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    policy_ok = False
+    pain_ok = False
+    outcome_ok = False
+    if policy_path.is_file():
+        try:
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+            policy_ok = True
+            pain = policy.get("pain_markers_ru") if policy_ok else None
+            outcome = policy.get("outcome_markers_ru") if policy_ok else None
+            pain_ok = isinstance(pain, list) and len(pain) > 0
+            outcome_ok = isinstance(outcome, list) and len(outcome) > 0
+        except Exception:
+            policy_ok = False
+    check(policy_ok, "editorial-policy.json parseable", errors, warnings)
+    check(pain_ok, "editorial-policy.json has non-empty pain_markers_ru", errors, warnings)
+    check(outcome_ok, "editorial-policy.json has non-empty outcome_markers_ru", errors, warnings)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

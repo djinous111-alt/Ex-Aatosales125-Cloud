@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-02",
+    "today_ru": "02.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-04",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-02 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "kak-rusifitsirovat-avto-iz-kitaya-2026",
+    "h1": "Как русифицировать авто из Китая: чек-лист до выдачи в 2026",
+    "primary_query": "русификация авто из китая",
+    "secondary_queries": [
+      "русификация китайских автомобилей",
+      "сколько стоит русификация авто из китая",
+      "русификация авто из китая своими руками",
+      "программа для русификации китайских автомобилей"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "русификация авто из китая 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "русификация авто из китая октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "русификация авто из китая новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com русификация авто из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "русификация авто из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "русификация авто из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "русификация китайских автомобилей 2026",
+      "purpose": "вторичный запрос: русификация китайских автомобилей"
+    },
+    {
+      "id": "secondary_2",
+      "query": "сколько стоит русификация авто из китая 2026",
+      "purpose": "вторичный запрос: сколько стоит русификация авто из китая"
+    },
+    {
+      "id": "secondary_3",
+      "query": "русификация авто из китая своими руками 2026",
+      "purpose": "вторичный запрос: русификация авто из китая своими руками"
+    },
+    {
+      "id": "secondary_4",
+      "query": "программа для русификации китайских автомобилей 2026",
+      "purpose": "вторичный запрос: программа для русификации китайских автомобилей"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как русифицировать авто из Китая: чек-лист до выдачи в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-kak-rusifitsirovat-avto-iz-kitaya-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

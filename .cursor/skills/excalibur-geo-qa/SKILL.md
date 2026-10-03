@@ -20,10 +20,12 @@ python scripts/excalibur_blog_fact_checker.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/fact-check-report.json
 
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/link-verify.json \
-  --site-base https://YOUR_SITE
+  --site-base "$PUBLIC_SITE_URL"
+# Default --redact-env-urls replaces CATALOG_URL/TELEGRAM_URL/PUBLIC_SITE_URL values
+# with ${ENV_NAME} in link-verify.json so Cloud pre-commit secret scan can commit the report.
 
 python scripts/excalibur_blog_html_linter.py \
   memory/blog/articles/<dir>/article.html \

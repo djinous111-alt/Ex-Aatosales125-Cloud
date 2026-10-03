@@ -1,0 +1,23 @@
+{
+  "slug": "kak-rusifitsirovat-avto-iz-kitaya-2026",
+  "topic_id": "B01",
+  "permalink": "[REDACTED]/2026/10/02/kak-rusifitsirovat-avto-iz-kitaya-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-kak-rusifitsirovat-avto-iz-kitaya-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1304224,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3919 slug=kak-rusifitsirovat-avto-iz-kitaya-2026\nOK featured_image=3920\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3921 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/10/kak-rusifitsirovat-avto-iz-kitaya-2026-inline-01.png\nOK inline_image_upload=3922 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/10/kak-rusifitsirovat-avto-iz-kitaya-2026-inline-02.png\nOK inline_image_upload=3923 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/10/kak-rusifitsirovat-avto-iz-kitaya-2026-inline-03.png\npermalink=[REDACTED]/2026/10/02/kak-rusifitsirovat-avto-iz-kitaya-2026/\n",
+  "verdict": "pass",
+  "post_id": 3919,
+  "featured_image_id": 3920,
+  "inline_image_ids": [
+    3921,
+    3922,
+    3923
+  ],
+  "schema_meta": "ok"
+}

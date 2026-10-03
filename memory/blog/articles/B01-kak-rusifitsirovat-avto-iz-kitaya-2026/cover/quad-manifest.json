@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Русский экран — а приборка на иероглифах?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у планшета мультимедиа китайского кроссовера: иероглифы на экране и плашка «меню на русском», бокс Владивосток, угол avto-sales125.ru",
+      "scene_hint": "Photoreal action selfie: EXACT face+glasses from reference ONLY. OUTFIT CHANGE: dark navy softshell jacket over light gray henley (indoor car-delivery box / cool Vladivostok autumn) — NOT reference hoodie/tank. Pose: leaning into modern Chinese crossover cabin, pointing at large center tablet showing Chinese hieroglyph UI with sticky overlay plaque «меню на русском». Background: clean Vladivostok delivery bay / light gray box, modern crossover dash. Collage layers: torn paper + clear tape; fake phone screenshot of rusification checklist (Меню / Приборка / Карты РФ / CarPlay); yellow sticky «до депозита»; shocked cat meme cutout; yellow highlighter on word «иероглифах». Huge Cyrillic hook plaque. Corner footer tiny: avto-sales125.ru. NO toxic slang (no лох), NO Telegram, NO Wordstat/Metrika, NO cap/hood.",
+      "meme_caption_ru": "Экран русский — щиток нет?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте слои русификации до звонка продавцу",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean 16:9 UI mock comparison table in Russian: columns Слой | Что проверить | Сюрприз; rows Меню ГУ, Приборка/HUD, Карты РФ, CarPlay. Soft sticky note «список до звонка» + tape corner. NO person/face/hero. Navy/paper collage, readable Cyrillic only.",
+      "alt": "Таблица слоёв русификации: меню, приборка, карты РФ, CarPlay — что проверить до звонка продавцу"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Спросите продавца до депозита: язык, карты, CarPlay, OTA",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Horizontal workflow diagram Cyrillic arrows: Список слоёв → Вопросы продавцу → Видео VIN → Смета → Депозит → Приёмка. Mini fake chat bubble «есть видео этой VIN?». Small tape/sticky human touch. NO person/face/hero. Utility diagram aesthetic.",
+      "alt": "Схема вопросов до депозита: язык, карты, CarPlay, OTA и видео VIN"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Выберите глубину работ и заложите бюджет без сюрпризов",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable checklist board Cyrillic: глубина работ + бюджетные строки (меню, карты РФ, модуль CarPlay 15–40 тыс., правила OTA). Checkboxes, marker ticks, torn paper edge. NO person/face/hero. Catalog-style card inset optional.",
+      "alt": "Чек-лист глубины русификации и бюджета без сюрпризов при выдаче"
+    }
+  }
+}

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import ssl
 import sys
@@ -13,6 +14,45 @@ from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
+
+# Public marketing/site URLs often live in Cloud Secrets; writing them into
+# link-verify.json trips the pre-commit secret scanner. Redact to ${ENV_NAME}.
+REDACT_ENV_KEYS = (
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
+    "PUBLIC_SITE_URL",
+    "WP_SITE_URL",
+    "WP_HOME",
+)
+
+
+def env_url_redaction_map() -> dict[str, str]:
+    mapping: dict[str, str] = {}
+    for key in REDACT_ENV_KEYS:
+        raw = (os.environ.get(key) or "").strip().rstrip("/")
+        if raw.startswith(("http://", "https://")):
+            # Store without trailing slash so "/path" remains after replace.
+            mapping[raw] = f"${{{key}}}"
+    # Longer URLs first so https://a.com/path wins over https://a.com
+    return dict(sorted(mapping.items(), key=lambda kv: len(kv[0]), reverse=True))
+
+
+def redact_env_urls_in_obj(obj: Any, mapping: dict[str, str] | None = None) -> Any:
+    mapping = mapping if mapping is not None else env_url_redaction_map()
+    if not mapping:
+        return obj
+    if isinstance(obj, str):
+        out = obj
+        for value, placeholder in mapping.items():
+            if value in out:
+                out = out.replace(value, placeholder)
+        return out
+    if isinstance(obj, list):
+        return [redact_env_urls_in_obj(item, mapping) for item in obj]
+    if isinstance(obj, dict):
+        return {k: redact_env_urls_in_obj(v, mapping) for k, v in obj.items()}
+    return obj
 
 
 class LinkExtractor(HTMLParser):
@@ -200,6 +240,12 @@ def main() -> int:
     ap.add_argument("--site-base", type=str, default=None, help="e.g. https://example.com")
     ap.add_argument("--timeout", type=float, default=15.0)
     ap.add_argument("--skip-external", action="store_true")
+    ap.add_argument(
+        "--redact-env-urls",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Replace known Cloud Secret URL values with ${ENV_NAME} in JSON output (default: on)",
+    )
     args = ap.parse_args()
 
     if not args.html.is_file():
@@ -212,6 +258,8 @@ def main() -> int:
         timeout=args.timeout,
         skip_external=args.skip_external,
     )
+    if args.redact_env_urls:
+        report = redact_env_urls_in_obj(report)
     text = json.dumps(report, ensure_ascii=False, indent=2)
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)

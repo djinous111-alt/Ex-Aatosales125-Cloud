@@ -413,3 +413,73 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261003-2135-geo-qa-typed-task-missing
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026
+severity: medium
+category: api
+
+### What went wrong
+- Cloud Task API does not accept typed Task `excalibur-blog-geo-qa` (not in Cloud Task enum).
+- Director had to launch GEO QA via fallback `Task(generalPurpose)` with agent/skill paths, which adds prompt drift risk and extra tokens every run.
+
+### How the agent recovered this run
+- Executed the role via generalPurpose fallback using `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+- Completed full QA script suite and wrote `article-qa.md` + handoff block.
+
+### Durable fix needed before next run
+- Register `excalibur-blog-geo-qa` (and sibling Excalibur roles) in Cloud Task enum / automation Task type allowlist, OR document a single canonical fallback matrix in agents/docs so Director does not rediscover missing types each run.
+- Align `AGENTS.md` / `CLOUD-AUTOMATION.md` / `.cursor/agents/*` with the actual Cloud API Task catalog.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `shared/pipeline-task-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261003-2135-geo-qa-cta-redacted-href
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026
+severity: high
+category: qa
+
+### What went wrong
+- Writer left three CTA anchors with literal `href="[REDACTED]"` in `article.html` (catalog×2 + Telegram×1).
+- `excalibur_blog_link_verify.py` classifies bare `[REDACTED]` as `internal_relative`, joins `--site-base`, and returns HTTP 404 → hard GEO QA FAIL.
+- Likely confusion between Cursor secret-scan redaction token and real CTA URLs from `memory/brief/conversion-map.md` / env `CATALOG_URL` / `TELEGRAM_URL`.
+
+### How the agent recovered this run
+- Did not edit article text (GEO QA zone).
+- Confirmed env CTA URLs verify PASS in a temp copy; wrote FAIL `article-qa.md` with FIX list for Writer; logged incident.
+
+### Durable fix needed before next run
+- Writer contract: never write literal `[REDACTED]` into `href`; always copy catalog/Telegram URLs from conversion-map or `CATALOG_URL`/`TELEGRAM_URL`.
+- Optional preflight in writer or GEO QA that fails fast if any `href` equals `[REDACTED]` / lacks `http` scheme for CTA slots.
+- Clarify in pitfalls that secret redaction applies to commit artifacts, not to live CTA links inside `article.html`.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/brief/conversion-map.md`
+- `scripts/excalibur_blog_link_verify.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

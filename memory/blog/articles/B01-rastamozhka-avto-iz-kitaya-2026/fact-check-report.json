@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "тапы растаможки авто из Китая через Владивосток в 2026, чек-лист документов до оплаты и карта пути до уч",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "/налоги для личного ТС и утильсбор (ФТС). С 01.12.2025 в расчёт утильсбора легковых добавлена мощность. Д",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "12 месяцев",
+      "kind": "metric_or_duration",
+      "context": "словиях: не больше одного авто в год, без продажи 12 месяцев, объём в лимите. Например, \"почти 160\" в чате при",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "25 дней",
+      "kind": "metric_or_duration",
+      "context": "логистикой и лабораторией – неделями. \"Всегда 20–25 дней\" как константа – плохой ориентир. Шаг 1: после вы",
+      "verified": true,
+      "reason": "Numerical value '25' matched in fact-bank context"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "ока всплыли инвойс ниже рынка, мощность чуть выше 160 л.с. и просьба подтвердить личное пользование. На",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "вания), приказом Минфина № 178н, обзорами ПП РФ № 1713 (утильсбор с 01.12.2025) и VLADIVOSTOK1 от 14.06.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

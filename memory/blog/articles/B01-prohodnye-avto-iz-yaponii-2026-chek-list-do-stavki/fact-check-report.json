@@ -1,0 +1,157 @@
+{
+  "article": "memory/blog/articles/B01-prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 21,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 19,
+  "facts": [
+    {
+      "fact": "2021 год",
+      "kind": "date_or_year",
+      "context": "Honda Fit \"2021 год\", оценка 4.5 – и рука уже тянется к ставке. Знако",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "5 лет. Ниже – чек-лист проходных авто из Японии в 2026: месяц по кузову, объём, мощность и запас на паро",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2021",
+      "kind": "date_or_year",
+      "context": "летки на срок парохода. Сосед чуть не купил такой 2021-й без пробивки – ставку сняли вовремя, потому что",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "бенно внимательно смотрите 2021 (граница 5 лет) и 2023 (граница 3 лет); 2022 обычно целиком в окне 3–5.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2022",
+      "kind": "date_or_year",
+      "context": "рите 2021 (граница 5 лет) и 2023 (граница 3 лет); 2022 обычно целиком в окне 3–5. Делать: писать две даты",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "ощность и льготный утильсбор физлица. С 1 декабря 2025 ориентир рынка: до 160 л.с., объём до 3 л, личный",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2024",
+      "kind": "date_or_year",
+      "context": "EV – не прямой путь; mild hybrid после уточнений 2024 часто доступны – лот лучше сверить с менеджером. Д",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 лет",
+      "kind": "metric_or_duration",
+      "context": ", а не выпуск, и к таможне машина вышла из окна 3–5 лет. Ниже – чек-лист проходных авто из Японии в 2026:",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "в ПТС. Так рынок называет машины в корзине \"более 3 лет, но не более 5 лет\". Для физлица там единые ставк",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "12 месяцев",
+      "kind": "metric_or_duration",
+      "context": "ный ввоз, не чаще одного авто в год и без продажи 12 месяцев. Суммы утиля в универсальный прайс не превращаем.",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "зов → месяц выпуска → запас 3–4 месяца → объём → ≤160 л.с. → фильтр прямого вывоза. Мы в Авто-Сейлс во В",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1000",
+      "kind": "large_number",
+      "context": "Ориентиры ЕЭК № 107 (проверка 4 октября 2026): до 1000 см³ – 1,5 €/см³; 1001–1500 – 1,7; 1501–1800 – 2,5;",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1001",
+      "kind": "large_number",
+      "context": "роверка 4 октября 2026): до 1000 см³ – 1,5 €/см³; 1001–1500 – 1,7; 1501–1800 – 2,5; 1801–2300 – 2,7; 230",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1500",
+      "kind": "large_number",
+      "context": "ка 4 октября 2026): до 1000 см³ – 1,5 €/см³; 1001–1500 – 1,7; 1501–1800 – 2,5; 1801–2300 – 2,7; 2301–300",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1501",
+      "kind": "large_number",
+      "context": "2026): до 1000 см³ – 1,5 €/см³; 1001–1500 – 1,7; 1501–1800 – 2,5; 1801–2300 – 2,7; 2301–3000 – 3,0; свы",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1800",
+      "kind": "large_number",
+      "context": "): до 1000 см³ – 1,5 €/см³; 1001–1500 – 1,7; 1501–1800 – 2,5; 1801–2300 – 2,7; 2301–3000 – 3,0; свыше 30",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1801",
+      "kind": "large_number",
+      "context": "м³ – 1,5 €/см³; 1001–1500 – 1,7; 1501–1800 – 2,5; 1801–2300 – 2,7; 2301–3000 – 3,0; свыше 3000 – 3,6. Ст",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2300",
+      "kind": "large_number",
+      "context": "1,5 €/см³; 1001–1500 – 1,7; 1501–1800 – 2,5; 1801–2300 – 2,7; 2301–3000 – 3,0; свыше 3000 – 3,6. Старше",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2301",
+      "kind": "large_number",
+      "context": "001–1500 – 1,7; 1501–1800 – 2,5; 1801–2300 – 2,7; 2301–3000 – 3,0; свыше 3000 – 3,6. Старше 5 лет дороже",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3000",
+      "kind": "large_number",
+      "context": "500 – 1,7; 1501–1800 – 2,5; 1801–2300 – 2,7; 2301–3000 – 3,0; свыше 3000 – 3,6. Старше 5 лет дороже: нап",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "161",
+      "kind": "large_number",
+      "context": "ть) и объём в см³. Не делать: игнорировать \"всего 161 л.с.\". На практике один лишний конь выкидывает из",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

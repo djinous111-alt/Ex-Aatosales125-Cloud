@@ -24,11 +24,15 @@ category: qa
 - Добавил `pain_markers_ru` / `outcome_markers_ru` (+ min в `article_required_signals`) в `memory/brief/editorial-policy.json`, выровняв с маркерами `excalibur_blog_human_voice_gate.py`.
 - Усилил `scripts/excalibur_blog_utility_gate.py`: при пустых списках маркеров — warning + skip, не hard BLOCK.
 - Перезапустил utility gate статьи → PASS.
+- `link-verify.json` содержал точные CATALOG_URL/TELEGRAM_URL → pre-commit secret scan BLOCK; в коммит ушёл redacted report (verdict/status сохранены), live hrefs остаются в `article.html` с pragma.
+- Pre-commit также требовал sanitize `CLOUD_AGENT_INJECTED_SECRET_NAMES` (invalid `[REDACTED]` token) — сессионный workaround, см. INC-20261004-1405.
 
 ### Durable fix needed before next run
 - Зафиксировать в `shared/agent-pipeline-pitfalls.md` и writer/geo-qa skill: utility gate требует pain/outcome маркеры из policy.
 - Проверить, что шаблон policy в docs/skills не расходится со скриптом.
 - Fixer: закрыть incident после ревью policy+script (уже частично применено в этом run).
+- link_verify / publish: redacted report mode или pragma для JSON; не коммитить raw CATALOG_URL/TELEGRAM_URL из Cloud secrets.
+- Sanitize `CLOUD_AGENT_INJECTED_SECRET_NAMES` до pre-commit (общий с writer INC-1405).
 
 ### Suggested files to inspect/change
 - `memory/brief/editorial-policy.json`

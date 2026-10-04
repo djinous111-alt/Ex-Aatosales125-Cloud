@@ -119,3 +119,33 @@ blockers:
 - Генерировать cover/schema с нуля
 - Пропускать dry-run
 - Завершать пайплайн без записи в `published-articles.md` при успешном publish
+
+## Deps / paramiko
+
+`paramiko` обязателен для SSH publish. Ставится в `.cursor/cloud-agent-install.sh`.
+Если `ModuleNotFoundError: paramiko`:
+
+```bash
+pip3 install --break-system-packages paramiko
+```
+
+## HTTP 504 / WebFetch
+
+Большой bootstrap (~cover+inlines) часто даёт HTTP 504, пока PHP уже создал пост.
+Скрипт:
+
+1. поллит WP REST по slug;
+2. если не нашёл — печатает `FALLBACK_TRIGGER_URL` и ждёт `memory/webfetch-response.txt` (~45s).
+
+Агент **обязан** WebFetch URL **параллельно** ожиданию (не после timeout).
+CTA `[CATALOG_URL]`/`[TELEGRAM_URL]` раскрываются из env при dry-run/publish (`cta_expanded` в dry-run JSON).
+
+## Pre-commit (Cloud)
+
+Перед `git commit`:
+
+```bash
+source scripts/sanitize_cloud_secret_names.sh
+```
+
+Иначе pre-commit.cursor падает на `invalid variable name`, если в `CLOUD_AGENT_*_SECRET_NAMES` есть non-identifier (URL и т.п.).

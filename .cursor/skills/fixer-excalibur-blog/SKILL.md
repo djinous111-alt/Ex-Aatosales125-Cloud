@@ -6,6 +6,16 @@
 
 Fixer не является частью article production path. Это post-run контур улучшения пайплайна.
 
+## Git / Cloud secrets
+
+Перед любым `git commit` в Cloud:
+
+```bash
+source scripts/sanitize_cloud_secret_names.sh
+```
+
+Скрипт вычищает non-identifier токены из `CLOUD_AGENT_*_SECRET_NAMES` (URL, `[REDACTED]`), иначе pre-commit падает на `${!SECRET_NAME}`.
+
 ## Вход
 
 - `memory/pipeline-fix-queue.md`

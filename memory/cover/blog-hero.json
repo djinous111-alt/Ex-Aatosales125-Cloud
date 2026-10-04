@@ -48,5 +48,7 @@
   "cover_prompt_example_ru": "Дизайнерский фотореалистичный баннер/обложка для Avto-Sales: привоз авто из Китая, Кореи, Японии; герой с первого референса — лицо то же, одежду сменить под погоду и тему; в углу обложки сайт каталога avto-sales125.ru (не Telegram); без кепки; смешной и стильный; красивые шрифты.",
   "reference_url_hosted": "http://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
   "reference_url_source": "avtosales125.ru",
-  "reference_url_updated_at": "2026-07-17T00:00:00+00:00"
+  "reference_url_updated_at": "2026-07-17T00:00:00+00:00",
+  "reference_url_hosted_note": "WP media filename looks like winter-cars collage, but bytes match memory/cover/assets/blog-hero-reference.png (face lock only). Prefer rehost via scripts/excalibur_blog_hero_reference_url.py (catbox→0x0→ssh/wp uploads) to wp-content/uploads/excalibur/blog-hero-reference.png when catbox/0x0 fail.",
+  "reference_is_face_lock": true
 }

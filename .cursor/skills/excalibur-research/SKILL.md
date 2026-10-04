@@ -68,3 +68,21 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+
+## Official regulation sources (pravo.gov.ru)
+
+- `WebFetch` to `publication.pravo.gov.ru` often returns **5xx / gateway timeout**.
+- Fallback: immediately take the canonical document URL from `WebSearch` / SERP hit and continue; do **not** block research on pravo fetch failures.
+- Prefer secondary explainers only after the official URL is recorded with `accessed_at`.
+- Canonical ids for util-sbor updates live in `memory/brief/fact-bank.md` (ПП 1291 / 1713).
+
+## research-serp.json and secrets
+
+- `excalibur_blog_research_start.py` redacts `PUBLIC_SITE_URL` / `CATALOG_URL` / NAP URLs in saved SERP JSON.
+- Before commit: still scan `research-serp.json` for live site host leftovers and replace with `[REDACTED]`.
+- Before any git commit in Cloud: `source scripts/sanitize_cloud_secret_names.sh`.
+
+## Technical evidence gate
+
+- `research_notes_gate` uses **word-boundary** tech markers on topic card fields (not full `reader_pain` prose).
+- Auto-import / EV / util-sbor topics are usually **non-technical**: docs/community evidence is enough; do not force GitHub URLs.

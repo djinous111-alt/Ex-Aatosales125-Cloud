@@ -22,3 +22,23 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+## Pre-commit (Cloud)
+
+Перед `git commit`:
+
+```bash
+source scripts/sanitize_cloud_secret_names.sh
+```
+
+Иначе pre-commit.cursor падает на `invalid variable name`, если в `CLOUD_AGENT_*_SECRET_NAMES` есть non-identifier (URL и т.п.).
+
+### Brand URL allowlist
+
+`schema.jsonld` обязан содержать абсолютные brand URL (`PUBLIC_SITE_URL`, catalog/Telegram/MAX из `sameAs`), но эти значения часто лежат в Cloud Secrets. На строках с такими URL добавляй соседнее поле:
+
+```json
+"_excalibur_scan": "pragma: allowlist secret"
+```
+
+Не используй `--no-verify`.

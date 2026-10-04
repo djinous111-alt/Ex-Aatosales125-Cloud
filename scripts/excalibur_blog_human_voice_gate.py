@@ -100,7 +100,9 @@ CONCRETE_MARKERS = (
     "из практики",
 )
 
-PAIN_MARKERS = (
+# Defaults only — canonical lists live in memory/brief/editorial-policy.json
+# (pain_markers_ru / outcome_markers_ru). Keep in sync with utility_gate.
+PAIN_MARKERS_DEFAULT = (
     "боль",
     "проблем",
     "ошиб",
@@ -115,7 +117,7 @@ PAIN_MARKERS = (
     "сложно",
 )
 
-OUTCOME_MARKERS = (
+OUTCOME_MARKERS_DEFAULT = (
     "результат",
     "получите",
     "сможете",
@@ -127,6 +129,24 @@ OUTCOME_MARKERS = (
     "исправьте",
     "выберите",
 )
+
+# Back-compat aliases for imports/tests.
+PAIN_MARKERS = PAIN_MARKERS_DEFAULT
+OUTCOME_MARKERS = OUTCOME_MARKERS_DEFAULT
+
+
+def load_voice_markers(root: Path) -> tuple[tuple[str, ...], tuple[str, ...]]:
+    """Prefer editorial-policy.json lists; fall back to hardcoded defaults."""
+    path = root / "memory" / "brief" / "editorial-policy.json"
+    if not path.is_file():
+        return PAIN_MARKERS_DEFAULT, OUTCOME_MARKERS_DEFAULT
+    try:
+        policy = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return PAIN_MARKERS_DEFAULT, OUTCOME_MARKERS_DEFAULT
+    pain = tuple(str(x) for x in (policy.get("pain_markers_ru") or []) if str(x).strip())
+    outcome = tuple(str(x) for x in (policy.get("outcome_markers_ru") or []) if str(x).strip())
+    return (pain or PAIN_MARKERS_DEFAULT, outcome or OUTCOME_MARKERS_DEFAULT)
 
 AI_OPENERS = (
     "в современном мире",
@@ -247,8 +267,9 @@ def analyze_human_voice(article_dir: Path) -> dict[str, Any]:
     success_overlap = keyword_overlap(success_criteria, text) if success_criteria else []
     angle_overlap = keyword_overlap(voice_angle, text) if voice_angle else []
     surprising_overlap = keyword_overlap(surprising_fact, text) if surprising_fact else []
-    pain_hits = [marker for marker in PAIN_MARKERS if marker in text_lower]
-    outcome_hits = [marker for marker in OUTCOME_MARKERS if marker in text_lower]
+    pain_markers, outcome_markers = load_voice_markers(root)
+    pain_hits = [marker for marker in pain_markers if marker in text_lower]
+    outcome_hits = [marker for marker in outcome_markers if marker in text_lower]
 
     if ai_opening_hits:
         errors.append(f"AI-style opening phrases near lead: {ai_opening_hits}")

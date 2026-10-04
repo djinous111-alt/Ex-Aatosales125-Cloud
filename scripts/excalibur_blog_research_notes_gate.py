@@ -14,22 +14,27 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Word/token markers only — never bare substrings like "ai"/"ии" that false-positive
+# inside reader_pain / Russian morphology (e.g. «комплектации»).
+# Do NOT include bare "workflow": editorial search_intent often says "how-to workflow"
+# for auto-import guides that are not code/automation topics.
 TECH_MARKERS = (
-    "ai",
-    "ии",
-    "agent",
-    "агент",
-    "mcp",
-    "api",
-    "cursor",
-    "make",
-    "n8n",
-    "github",
-    "docker",
-    "rag",
-    "workflow",
-    "автоматизац",
-    "нейросет",
+    r"\bai\b",
+    r"\bии\b",
+    r"\bagent\b",
+    r"\bагент\b",
+    r"\bmcp\b",
+    r"\bapi\b",
+    r"\bcursor\b",
+    r"\bmake\b",
+    r"\bn8n\b",
+    r"\bgithub\b",
+    r"\bdocker\b",
+    r"\brag\b",
+    r"автоматизац",
+    r"нейросет",
+    r"\bllm\b",
+    r"\bdevops\b",
 )
 
 
@@ -74,13 +79,35 @@ def has_wordstat(text_lower: str) -> bool:
 
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech/dev topics from topic card + title-ish notes only.
+
+    Do NOT scan required prose fields like reader_pain / pain_solution_map —
+    short markers historically false-positive on auto-import and EV topics.
+    Do NOT use editorial `search_intent` alone (values like "how-to workflow").
+    """
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
-        for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
+        for key in ("h1", "primary_query", "secondary_queries", "slug", "title")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Only scan early structural headings from notes (not full body prose).
+    heading_bits = re.findall(r"^#+\s+(.+)$", notes[:1500], flags=re.M)
+    blob += " " + " ".join(heading_bits).lower()
+    return any(re.search(marker, blob, flags=re.I) for marker in TECH_MARKERS)
+
+
+def count_accessed_dates(text: str) -> int:
+    """Count source access evidence: explicit accessed_at: keys OR ISO dates in URL table rows."""
+    explicit = len(re.findall(r"\baccessed_at\b\s*:", text, flags=re.I))
+    table_iso = 0
+    for line in text.splitlines():
+        if not re.match(r"^\s*\|", line):
+            continue
+        if not re.search(r"https?://", line, flags=re.I):
+            continue
+        if re.search(r"\b20\d{2}-\d{2}-\d{2}\b", line):
+            table_iso += 1
+    return max(explicit, table_iso)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,7 +157,7 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_dates(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
     pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
     action_items = count_action_items(text)

@@ -6,8 +6,26 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None for run 2026-10-04 B01 after fixer._
+
+## Recently fixed (2026-10-04 B01)
+
 ## INC-20261004-0945-publish-http-504-reconstruct
-status: open
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- `excalibur_blog_wp_publish.py` polls WP REST by slug after HTTP timeout/504 and writes synthetic OK/permalink before WebFetch wait; also polls during wait.
+- Publish skill documents REST-poll reconstruct + parallel WebFetch duty.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `rg` for `poll_wp_rest_by_slug` / `recover=wp_rest_poll`
+commit: pending-parent-commit
+
 run_date: 2026-10-04
 role: excalibur-blog-publish
 topic_id: B01
@@ -40,10 +58,39 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- `excalibur_blog_wp_publish.py` polls WP REST by slug after HTTP timeout/504 and writes synthetic OK/permalink before WebFetch wait; also polls during wait.
+- Publish skill documents REST-poll reconstruct + parallel WebFetch duty.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `rg` for `poll_wp_rest_by_slug` / `recover=wp_rest_poll`
+commit: pending-parent-commit
 
 ## INC-20261004-0938-indexer-llms-blog-path-stale
-status: open
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Doctor asserts `--blog-dir` / `--out-dir` (not `--blog-path`).
+- Indexer agent/skill CLI aligned; llms generator supports `--relative-urls` for secret-safe commits.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `rg` no durable `--blog-path` CLI examples
+commit: pending-parent-commit
+
 run_date: 2026-10-04
 role: excalibur-blog-indexer
 topic_id: B01
@@ -75,11 +122,40 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Doctor asserts `--blog-dir` / `--out-dir` (not `--blog-path`).
+- Indexer agent/skill CLI aligned; llms generator supports `--relative-urls` for secret-safe commits.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `rg` no durable `--blog-path` CLI examples
+commit: pending-parent-commit
 
 
 ## INC-20261004-0935-cover-hero-rehost-fallback
-status: open
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Hero hoster chain: catbox → 0x0 → SSH/WP uploads (`blog-hero-reference.png`); stale winter-cars URLs trigger rehost.
+- `blog-hero.json` documents that current WP filename is face-lock bytes despite winter-cars name.
+files_changed:
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `memory/cover/blog-hero.json`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
+- `--help` shows providers catbox/0x0/ssh/auto
+commit: pending-parent-commit
+
 run_date: 2026-10-04
 role: excalibur-blog-cover
 topic_id: B01
@@ -109,11 +185,39 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Hero hoster chain: catbox → 0x0 → SSH/WP uploads (`blog-hero-reference.png`); stale winter-cars URLs trigger rehost.
+- `blog-hero.json` documents that current WP filename is face-lock bytes despite winter-cars name.
+files_changed:
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `memory/cover/blog-hero.json`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
+- `--help` shows providers catbox/0x0/ssh/auto
+commit: pending-parent-commit
 
 
 ## INC-20261004-0940-schema-precommit-brand-urls
-status: open
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Restored `scripts/sanitize_cloud_secret_names.sh`; schema skill documents `_excalibur_scan` allowlist for brand URLs.
+- Pitfalls + cloud-agent-install wire sanitize before commit.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/cloud-agent-install.sh`
+checks_run:
+- `bash -n scripts/sanitize_cloud_secret_names.sh`
+- sanitize strips `[REDACTED]`/URL tokens from CLOUD_AGENT_*_SECRET_NAMES
+commit: pending-parent-commit
+
 run_date: 2026-10-04
 role: excalibur-blog-schema
 topic_id: B01
@@ -145,11 +249,41 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Restored `scripts/sanitize_cloud_secret_names.sh`; schema skill documents `_excalibur_scan` allowlist for brand URLs.
+- Pitfalls + cloud-agent-install wire sanitize before commit.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/cloud-agent-install.sh`
+checks_run:
+- `bash -n scripts/sanitize_cloud_secret_names.sh`
+- sanitize strips `[REDACTED]`/URL tokens from CLOUD_AGENT_*_SECRET_NAMES
+commit: pending-parent-commit
 
 
 ## INC-20261004-0935-geo-qa-generalpurpose-fallback
-status: open
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Director skill: explicit geo-qa generalPurpose fallback contract (human-voice PASS, no cover/schema).
+- link-verify `--redact-secrets` for commit-safe CTA URLs; geo-qa skill documents sanitize + redact.
+files_changed:
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/pipeline-task-map.md`
+- `AGENTS.md`
+checks_run:
+- `python3 scripts/excalibur_blog_link_verify.py --help` shows `--redact-secrets`
+commit: pending-parent-commit
+
 run_date: 2026-10-04
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -184,10 +318,40 @@ category: handoff
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Director skill: explicit geo-qa generalPurpose fallback contract (human-voice PASS, no cover/schema).
+- link-verify `--redact-secrets` for commit-safe CTA URLs; geo-qa skill documents sanitize + redact.
+files_changed:
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/pipeline-task-map.md`
+- `AGENTS.md`
+checks_run:
+- `python3 scripts/excalibur_blog_link_verify.py --help` shows `--redact-secrets`
+commit: pending-parent-commit
 
 ## INC-20261004-0930-writer-utility-pain-markers-missing
-status: open
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- `editorial-policy.json` keeps canonical `pain_markers_ru`/`outcome_markers_ru`; utility_gate warns (not false BLOCK) if lists empty.
+- human_voice_gate loads markers from policy (defaults as fallback); writer skill documents CTA allowlist pragma.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+checks_run:
+- utility gate PASS + human-voice PASS on B01 article
+commit: pending-parent-commit
+
 run_date: 2026-10-04
 role: excalibur-blog-writer
 topic_id: B01
@@ -221,10 +385,38 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- `editorial-policy.json` keeps canonical `pain_markers_ru`/`outcome_markers_ru`; utility_gate warns (not false BLOCK) if lists empty.
+- human_voice_gate loads markers from policy (defaults as fallback); writer skill documents CTA allowlist pragma.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+checks_run:
+- utility gate PASS + human-voice PASS on B01 article
+commit: pending-parent-commit
 
 ## INC-20261004-0920-research-workflow-tech-marker
-status: open
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Removed bare `workflow` from TECH_MARKERS; `search_intent` no longer drives technical detection.
+- `accessed_at` counts ISO dates in source_table URL rows; research_start redacts PUBLIC_SITE_URL/CTA before writing research-serp.json.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `scripts/excalibur_blog_research_start.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+checks_run:
+- research-notes gate PASS on B01; technical_topic=False for how-to workflow intent
+- unit smoke for count_accessed_dates + is_technical_topic
+commit: pending-parent-commit
+
 run_date: 2026-10-04
 role: excalibur-blog-research
 topic_id: B01
@@ -257,10 +449,38 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Removed bare `workflow` from TECH_MARKERS; `search_intent` no longer drives technical detection.
+- `accessed_at` counts ISO dates in source_table URL rows; research_start redacts PUBLIC_SITE_URL/CTA before writing research-serp.json.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `scripts/excalibur_blog_research_start.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+checks_run:
+- research-notes gate PASS on B01; technical_topic=False for how-to workflow intent
+- unit smoke for count_accessed_dates + is_technical_topic
+commit: pending-parent-commit
 
 ## INC-20261004-0915-scout-precommit-secret-names
-status: open
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Restored `scripts/sanitize_cloud_secret_names.sh`; scout/director/fixer skills + pitfalls document `source` before commit.
+- cloud-agent-install references sanitize path.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/fixer-excalibur-blog/SKILL.md`
+- `.cursor/skills/fixer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- sanitize dry-run keeps only bash identifiers
+commit: pending-parent-commit
+
 run_date: 2026-10-04
 role: excalibur-blog-scout
 topic_id: B01
@@ -291,7 +511,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Restored `scripts/sanitize_cloud_secret_names.sh`; scout/director/fixer skills + pitfalls document `source` before commit.
+- cloud-agent-install references sanitize path.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/fixer-excalibur-blog/SKILL.md`
+- `.cursor/skills/fixer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- sanitize dry-run keeps only bash identifiers
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

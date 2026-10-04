@@ -20,10 +20,11 @@ python scripts/excalibur_blog_fact_checker.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/fact-check-report.json
 
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/link-verify.json \
-  --site-base https://YOUR_SITE
+  --site-base https://YOUR_SITE \
+  --redact-secrets
 
 python scripts/excalibur_blog_html_linter.py \
   memory/blog/articles/<dir>/article.html \
@@ -55,3 +56,18 @@ python scripts/excalibur_blog_human_voice_gate.py \
 **Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.
 
 Schema и cover — **не** твоя зона (отдельные субагенты после PASS).
+
+## Utility policy markers
+
+Перед utility gate убедись, что `memory/brief/editorial-policy.json` содержит `pain_markers_ru` / `outcome_markers_ru`.
+CTA placeholders: link-verify раскрывает `[CATALOG_URL]`/`[TELEGRAM_URL]` из env; иначе FAIL с явной ошибкой unresolved placeholder.
+
+## Pre-commit (Cloud)
+
+```bash
+source scripts/sanitize_cloud_secret_names.sh
+```
+
+После link-verify перед commit: в `link-verify.json` замени живые CTA URL (`CATALOG_URL`/`TELEGRAM_URL`/`PUBLIC_SITE_URL`) на `[REDACTED]` или `https://SITE.example/...` — иначе secret-scan блокирует commit. Скрипт пишет redacted report при `--redact-secrets`.
+
+Cover/schema **не** запускать из GEO QA Task — только после `human-voice-report.json` PASS директором.

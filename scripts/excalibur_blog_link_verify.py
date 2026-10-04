@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import ssl
 import sys
@@ -105,6 +106,8 @@ def _get_fallback(
 
 
 def classify_link(href: str, site_base: str | None) -> str:
+    if re.fullmatch(r"\[[A-Z][A-Z0-9_]+\]", href):
+        return "unresolved_placeholder"
     if href.startswith("/"):
         return "internal_relative"
     parsed = urlparse(href)
@@ -130,6 +133,83 @@ def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
     return any(token in error for token in ("timed out", "timeout", "ssl", "network"))
 
 
+SECRET_URL_ENV_KEYS = (
+    "PUBLIC_SITE_URL",
+    "WP_SITE_URL",
+    "WP_HOME",
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
+)
+
+
+def _load_site_env() -> dict[str, str]:
+    env: dict[str, str] = {}
+    root = Path(__file__).resolve().parents[1]
+    env_path = root / "memory" / "site.env.local"
+    if env_path.is_file():
+        for line in env_path.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if "=" in line and not line.startswith("#"):
+                k, v = line.split("=", 1)
+                env[k.strip()] = v.strip()
+    for key in SECRET_URL_ENV_KEYS:
+        value = os.environ.get(key)
+        if value:
+            env[key] = value
+    return env
+
+
+def resolve_cta_placeholders(html: str) -> tuple[str, list[str]]:
+    """Resolve [CATALOG_URL]/[TELEGRAM_URL] from process env for verify-only checks."""
+    site_env = _load_site_env()
+    mapping = {
+        "[CATALOG_URL]": site_env.get("CATALOG_URL", "").strip(),
+        "[TELEGRAM_URL]": site_env.get("TELEGRAM_URL", "").strip(),
+        "[MAX_URL]": site_env.get("MAX_URL", "").strip(),
+    }
+    expanded: list[str] = []
+    out = html
+    for token, value in mapping.items():
+        if token in out and value and value not in {"[REDACTED]", "REDACTED"}:
+            out = out.replace(token, value)
+            expanded.append(token)
+    return out, expanded
+
+
+def redact_secret_urls(obj: Any) -> Any:
+    """Replace live site/CTA URLs with placeholders so link-verify.json is safe to commit."""
+    site_env = _load_site_env()
+    mapping: dict[str, str] = {}
+    for key in SECRET_URL_ENV_KEYS:
+        raw = (site_env.get(key) or "").strip().rstrip("/")
+        if raw.startswith(("http://", "https://")):
+            mapping[raw] = f"[REDACTED:{key}]"
+            for prefix in ("http://", "https://"):
+                if raw.startswith(prefix):
+                    hostish = raw[len(prefix) :]
+                    if hostish:
+                        mapping[hostish] = f"[REDACTED:{key}]"
+    if not mapping:
+        return obj
+    ordered = sorted(mapping.items(), key=lambda kv: len(kv[0]), reverse=True)
+
+    def _walk(value: Any) -> Any:
+        if isinstance(value, str):
+            out = value
+            for needle, placeholder in ordered:
+                if needle and needle in out:
+                    out = out.replace(needle, placeholder)
+            return out
+        if isinstance(value, list):
+            return [_walk(item) for item in value]
+        if isinstance(value, dict):
+            return {k: _walk(v) for k, v in value.items()}
+        return value
+
+    return _walk(obj)
+
+
 def verify_article(
     html_path: Path,
     *,
@@ -138,11 +218,29 @@ def verify_article(
     skip_external: bool = False,
 ) -> dict[str, Any]:
     html = html_path.read_text(encoding="utf-8")
+    html, cta_expanded = resolve_cta_placeholders(html)
     links = extract_links(html)
     user_agent = "ExcaliburBlogLinkVerify/1.0"
     results: list[dict[str, Any]] = []
     for href in links:
         kind = classify_link(href, site_base)
+        if kind == "unresolved_placeholder":
+            results.append(
+                {
+                    "url": href,
+                    "kind": kind,
+                    "status": None,
+                    "ok": False,
+                    "skipped": False,
+                    "method": None,
+                    "error": (
+                        "unresolved CTA placeholder — set CATALOG_URL/TELEGRAM_URL in "
+                        "memory/site.env.local (or env) from conversion-map; do not leave "
+                        "literal [CATALOG_URL] as an href for HTTP checks"
+                    ),
+                }
+            )
+            continue
         if skip_external and kind == "external":
             results.append(
                 {
@@ -189,6 +287,7 @@ def verify_article(
         "total_links": len(results),
         "failed_count": len(failed),
         "verdict": "pass" if not failed else "fail",
+        "cta_expanded": cta_expanded,
         "links": results,
     }
 
@@ -200,6 +299,11 @@ def main() -> int:
     ap.add_argument("--site-base", type=str, default=None, help="e.g. https://example.com")
     ap.add_argument("--timeout", type=float, default=15.0)
     ap.add_argument("--skip-external", action="store_true")
+    ap.add_argument(
+        "--redact-secrets",
+        action="store_true",
+        help="Redact PUBLIC_SITE_URL/CATALOG_URL/TELEGRAM_URL values in written JSON (safe for git commit)",
+    )
     args = ap.parse_args()
 
     if not args.html.is_file():
@@ -212,7 +316,8 @@ def main() -> int:
         timeout=args.timeout,
         skip_external=args.skip_external,
     )
-    text = json.dumps(report, ensure_ascii=False, indent=2)
+    output_report = redact_secret_urls(report) if args.redact_secrets else report
+    text = json.dumps(output_report, ensure_ascii=False, indent=2)
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(text + "\n", encoding="utf-8")

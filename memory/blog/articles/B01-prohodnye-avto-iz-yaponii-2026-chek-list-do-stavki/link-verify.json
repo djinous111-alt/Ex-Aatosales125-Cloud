@@ -3,11 +3,9 @@
   "total_links": 2,
   "failed_count": 0,
   "verdict": "pass",
-  "urls_redacted_in_report": true,
-  "note": "Live HEAD verify passed 2/2 against catalog + Telegram CTA. Exact URLs omitted here because CATALOG_URL/TELEGRAM_URL are Cloud secrets; live hrefs remain in article.html with pragma allowlist.",
   "links": [
     {
-      "url": "external:catalog-cta",
+      "url": "[CATALOG_URL]",
       "status": 200,
       "ok": true,
       "method": "HEAD",
@@ -16,7 +14,7 @@
       "skipped": false
     },
     {
-      "url": "external:telegram-cta",
+      "url": "[TELEGRAM_URL]",
       "status": 200,
       "ok": true,
       "method": "HEAD",

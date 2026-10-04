@@ -6,6 +6,46 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261004-1350-publish-http-timeout-soft-success
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki
+severity: medium
+category: publish
+
+### What went wrong
+- First SSH upload attempt failed with transient `SSHException: Error reading SSH protocol banner` (TCP banner OK on retry; paramiko without banner_timeout flaky).
+- Large PHP payload (~7.5MB) caused local HTTP trigger `TimeoutError` at 120s; Cloud WebFetch also timed out; script fallback wait only 120s, then raised RuntimeError and cleaned up bootstrap while curl was still running.
+- curl `--max-time 300` later returned HTTP 200 with `OK post=3991` (~84s), but after the script had already exited; overlapping triggers produced orphan media variants (cover/inline `-1`/`-2` suffixes).
+- Live featured_media settled on 4001 while curl body reported featured_image=3997.
+
+### How the agent recovered this run
+- Retried SSH with `banner_timeout=60`; upload OK with `SSH_ROOT=.`.
+- Parallel curl long trigger + WP REST poll by slug; soft-success when REST showed post 3991 / slug `prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki` published (HEAD 200).
+- Verified schema meta via one-shot SSH PHP (`BlogPosting`+`FAQPage`+`HowTo`, skip_theme_faq=1).
+- Reconstructed `wp-publish-result.json` verdict=pass; updated ledger/log/promotion/handoff. Did not touch longread. Avoid-list check: not post 3837.
+
+### Durable fix needed before next run
+- In `excalibur_blog_wp_publish.py`: increase HTTP timeout and/or fallback wait for ~7MB payloads; set paramiko `banner_timeout`; on fallback timeout auto-poll WP REST by slug and treat as soft-success when post+featured+schema exist.
+- Document soft-success path in publish skill/contract; prefer single trigger (mutex / do not double WebFetch+curl while first still active) to avoid orphan media.
+- Ensure Cloud Secrets include `SSH_ROOT=.` (login cwd has `wp-load.php`).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261004-1342-indexer-precommit-secret-names
 status: open
 run_date: 2026-10-04

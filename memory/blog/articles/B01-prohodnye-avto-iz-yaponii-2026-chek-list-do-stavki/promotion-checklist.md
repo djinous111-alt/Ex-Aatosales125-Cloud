@@ -1,7 +1,7 @@
 # Promotion checklist — B01 prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki
 
 Дата публикации: 2026-10-04 (planned)  
-Live URL: https://avtosales125.ru/blog/prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki/ <!-- pragma: allowlist secret -->
+Live URL: https://avtosales125.ru/2026/10/04/prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki/ <!-- pragma: allowlist secret -->
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

@@ -6,4 +6,4 @@
 | 2026-07-17 | AS09 | trust-encar-carhistory-proverka-do-depozita | https://avtosales125.ru/2026/07/17/trust-encar-carhistory-proverka-do-depozita/ | published |
 
 > Ledger сброшен при перенастройке под AVTO SALES (2026-07-17).
-| 2026-10-04 | B01 | prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki | memory/blog/articles/B01-prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki | in_progress |
+| 2026-10-04 | B01 | prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki | [PUBLIC_SITE_URL]/2026/10/04/prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki/ | published |

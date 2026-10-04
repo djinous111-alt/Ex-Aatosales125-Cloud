@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261004-1722-writer-precommit-secret-names
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-writer
+topic_id: B02
+article_dir: memory/blog/articles/B02-postanovka-na-uchet-avto-iz-yaponii-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` article.html/meta упал в `pre-commit.cursor`: в `CLOUD_AGENT_INJECTED_SECRET_NAMES` снова оказался URL (значение вместо имени) → bash `${!SECRET_NAME}` → `invalid variable name`.
+- Повтор INC-20261004-1713 (sanitize нужен вручную перед каждым commit).
+
+### How the agent recovered this run
+- Перед commit: `source scripts/sanitize_cloud_secret_names.sh`, затем повторный `git commit` и `git push` успешны (`401de0d`).
+
+### Durable fix needed before next run
+- Автоматически вызывать sanitize в shell profile / git wrapper до pre-commit, либо починить Dashboard secret names (только bash-identifiers).
+- Не полагаться на ручной `source` в каждом агенте.
+
+### Suggested files to inspect/change
+- `scripts/sanitize_cloud_secret_names.sh`
+- `.cursor/environment.json` / cloud install hooks
+- Cursor Dashboard secret name list
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261004-1718-research-notes-gate-ai-substring
 status: open
 run_date: 2026-10-04

@@ -37,6 +37,18 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## CTA / secret scan
+
+CTA hrefs (catalog / Telegram / MAX) должны быть **живыми URL**, не `[REDACTED]`. Перед `git commit`:
+
+```bash
+source scripts/sanitize_cloud_secret_names.sh
+```
+
+На строках CTA с live URL добавь `<!-- pragma: allowlist secret -->` (HTML-комментарий рядом с `<a href=…>`), иначе Cloud secret-scan блокирует commit публичных маркетинговых URL из secrets.
+
+Utility gate читает `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json` — в lead/H2 держи маркеры боли и результата из policy.
+
 ## Blockers
 
 - нет research-notes.md

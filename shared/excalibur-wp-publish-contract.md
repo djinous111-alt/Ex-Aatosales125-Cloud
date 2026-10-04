@@ -65,6 +65,16 @@ if ($schema) {
 }
 ```
 
+## Timeouts / soft-success
+
+- SSH upload uses paramiko `banner_timeout=60` (banner flakiness).
+- Prefer Cloud Secret `SSH_ROOT=.` when login cwd has `wp-load.php`.
+- Local HTTP trigger timeout is **300s** (large ~7MB PHP payloads).
+- WebFetch / curl fallback wait is **300s**.
+- **Single trigger rule:** after local HTTP timeout use **either** WebFetch **or** `curl --max-time 300`, never both overlapping (orphan media variants).
+- If both local HTTP and fallback timed out, script polls WP REST by slug and may return **soft-success** when the post is already published.
+- Commit-only `x-excalibur-scan` keys in `schema.jsonld` are stripped before writing post meta.
+
 ## Blockers
 
 - `❌ PUBLISH BLOCKER` — QA не PASS, link-verify fail, нет credentials

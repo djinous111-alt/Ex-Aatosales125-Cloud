@@ -61,15 +61,17 @@ python scripts/excalibur_blog_wp_publish.py \
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
 - пишет post meta `_excalibur_blog_schema_jsonld`.
 
-### 4. Cloud WebFetch Fallback
+### 4. Cloud WebFetch Fallback + soft-success
 
 Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
 
 1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+2. Cloud-агент открывает URL **одним** способом: WebFetch **или** `curl --max-time 300` — не оба сразу (overlapping triggers → orphan media `-1`/`-2`).
+3. Ответ пишется в `memory/webfetch-response.txt`; скрипт ждёт до ~300s.
+4. Если fallback тоже timed out, скрипт сам poll'ит WP REST ` /wp-json/wp/v2/posts?slug=…` и при published post возвращает **soft-success** (`OK post=…`, `soft_success: true` в `wp-publish-result.json`).
 
-**Не останавливайся** на первом timeout — используй fallback.
+Таймауты скрипта: HTTP trigger 300s, WebFetch wait 300s, SSH `banner_timeout=60`, REST soft-success poll ~180s.  
+Cloud Secret `SSH_ROOT=.` обязателен, если login cwd содержит `wp-load.php`.
 
 ### 5. Post-publish артефакты
 

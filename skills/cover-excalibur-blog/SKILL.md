@@ -90,11 +90,12 @@ inject <figure> after H2 in article.html
 ### Шаг 1 — reference URL
 
 ```bash
-python scripts/excalibur_blog_hero_reference_url.py
+python3 scripts/excalibur_blog_hero_reference_url.py
 ```
 
 Проверить `memory/cover/blog-hero.json` → `reference_url_hosted`.  
-Fallback env: `BLOG_HERO_REFERENCE_URL`.
+Fallback order: env `BLOG_HERO_REFERENCE_URL` → catbox → 0x0 → **existing hosted URL** (WP/CDN).  
+catbox HTTP 412 / 0x0 HTTP 503 при `--force` — ожидаемый soft-fail: если валидный `reference_url_hosted` уже есть, Cover **не** блокируется (скрипт оставляет URL, при необходимости поднимает http→https).
 
 ### Шаг 2 — manifest
 

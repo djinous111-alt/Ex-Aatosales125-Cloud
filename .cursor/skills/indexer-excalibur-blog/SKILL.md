@@ -12,14 +12,21 @@ description: Excalibur BLOG Indexer — interlink между статьями + 
 ```bash
 python3 scripts/excalibur_blog_interlinker.py --apply \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --site-base https://avtosales125.ru
+  --site-base [REDACTED]
 
 python3 scripts/excalibur_blog_llms_generator.py \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru \
-  --blog-path / \
+  --site-base [REDACTED] \
   --out-dir memory/blog
 ```
+
+Флаг только `--blog-dir` (не `--blog-path`). Перед `git commit`:
+
+```bash
+source scripts/sanitize_cloud_secret_names.sh
+```
+
+Если в `llms.txt` / `promotion-checklist.md` есть live `PUBLIC_SITE_URL`, на тех строках нужен `<!-- pragma: allowlist secret -->` (генератор добавляет pragma сам при live `--site-base`).
 
 ## Выход
 

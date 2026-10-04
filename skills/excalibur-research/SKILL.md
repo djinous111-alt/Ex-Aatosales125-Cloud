@@ -61,6 +61,8 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
+8. В `source_table` держи колонку `accessed_at` с ISO-датами (≥5 строк с URL+датой). Gate считает и литералы `accessed_at:`, и ISO-даты в markdown-строках таблицы с URL.
+9. Секция `github_evidence` сама по себе **не** делает тему technical; `technical_topic` включается только при AI/MCP/API/agent маркерах в topic fields. Official PDF/legal docs (ЕЭК и т.п.) засчитываются как official docs.
 
 ## Blockers
 

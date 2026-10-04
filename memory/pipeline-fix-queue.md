@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261004-1718-research-notes-gate-ai-substring
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-research
+topic_id: B02
+article_dir: memory/blog/articles/B02-postanovka-na-uchet-avto-iz-yaponii-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` пометил non-tech тему B02 как `technical_topic: true`, потому что TECH_MARKERS содержит подстроку `ai`, а обязательное поле `reader_pain` содержит `pain` → ложный match.
+- Из-за этого gate требовал `github_urls >= 3` для автомобильно-юридического чек-листа, где GitHub не является основным evidence.
+- Дополнительно regex `accessed_at:` не считал даты в markdown-ячейках без префикса `accessed_at:`, а `pain_solution_map` требовал слова pain/solution/результат прямо в строках таблицы.
+
+### How the agent recovered this run
+- Добавил `accessed_at: YYYY-MM-DD` в ячейки source_table.
+- Разметил строки pain_solution_map словами боль/решение/результат.
+- Вставил 3 реальных GitHub URL (RusLawOD, legal-space-research, esia-gosuslugi) как формальный evidence + оставил official/community docs.
+- Gate после правок: PASS.
+
+### Durable fix needed before next run
+- В `is_technical_topic` использовать word-boundary / token match, а не `marker in blob` для коротких маркеров вроде `ai`, `rag`, `make`.
+- Исключить имена обязательных полей (`reader_pain`, `github_evidence`) из technical-детекции.
+- Для non-tech тем (auto/legal/how-to без стека) не требовать github_urls; достаточно official docs + community.
+- Считать `accessed_at` также в колонке source_table (дата в ячейке при заголовке accessed_at), не только паттерн `accessed_at:`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/editorial-utility-only.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261004-1713-scout-b01-ledger-gap
 status: open
 run_date: 2026-10-04

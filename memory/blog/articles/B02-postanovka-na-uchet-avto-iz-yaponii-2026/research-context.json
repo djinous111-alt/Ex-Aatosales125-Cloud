@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-04",
+    "today_ru": "04.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-06",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-04 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B02",
+    "priority": "P0",
+    "slug": "postanovka-na-uchet-avto-iz-yaponii-2026",
+    "h1": "Как поставить на учёт авто из Японии в 2026: чек-лист документов до ГИБДД",
+    "primary_query": "постановка на учет авто из японии",
+    "secondary_queries": [
+      "регистрация авто из японии",
+      "документы для регистрации авто из японии",
+      "регистрация авто из японии в гибдд",
+      "госуслуги регистрация авто из японии"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B02",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "постановка на учет авто из японии 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "постановка на учет авто из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "постановка на учет авто из японии новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com постановка на учет авто из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "постановка на учет авто из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "постановка на учет авто из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "регистрация авто из японии 2026",
+      "purpose": "вторичный запрос: регистрация авто из японии"
+    },
+    {
+      "id": "secondary_2",
+      "query": "документы для регистрации авто из японии 2026",
+      "purpose": "вторичный запрос: документы для регистрации авто из японии"
+    },
+    {
+      "id": "secondary_3",
+      "query": "регистрация авто из японии в гибдд 2026",
+      "purpose": "вторичный запрос: регистрация авто из японии в гибдд"
+    },
+    {
+      "id": "secondary_4",
+      "query": "госуслуги регистрация авто из японии 2026",
+      "purpose": "вторичный запрос: госуслуги регистрация авто из японии"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как поставить на учёт авто из Японии в 2026: чек-лист документов до ГИБДД 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B02-postanovka-na-uchet-avto-iz-yaponii-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

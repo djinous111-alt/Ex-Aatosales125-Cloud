@@ -61,7 +61,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - unit checks for soft-success synthesize + placeholder expand
-commit: pending-parent-commit
+commit: dd469d3
 
 
 
@@ -115,7 +115,7 @@ files_changed:
 checks_run:
 - sanitize filter dry-run (drops URL-as-name)
 - doctor PASS
-commit: pending-parent-commit
+commit: dd469d3
 
 
 ## INC-20261004-1733-cover-precommit-secret-names
@@ -158,7 +158,7 @@ files_changed:
 - `.cursor/skills/cover-excalibur-blog/SKILL.md`
 checks_run:
 - sanitize dry-run; doctor PASS
-commit: pending-parent-commit
+commit: dd469d3
 
 
 ## INC-20261004-1728-schema-precommit-secret-scan
@@ -209,7 +209,7 @@ files_changed:
 - `.cursor/cloud-agent-install.sh`
 checks_run:
 - placeholder expand unit; sanitize dry-run
-commit: pending-parent-commit
+commit: dd469d3
 
 
 ## INC-20261004-1725-geo-qa-utility-policy-markers-missing
@@ -260,7 +260,7 @@ files_changed:
 - `.cursor/skills/excalibur-geo-qa/SKILL.md`
 checks_run:
 - doctor PASS (policy markers OK)
-commit: pending-parent-commit
+commit: dd469d3
 
 
 ## INC-20261004-1725-geo-qa-link-verify-cta-redacted
@@ -306,7 +306,7 @@ files_changed:
 - `.cursor/skills/writer-excalibur-blog/SKILL.md`
 checks_run:
 - expand/redact unit checks
-commit: pending-parent-commit
+commit: dd469d3
 
 
 ## INC-20261004-1722-writer-precommit-secret-names
@@ -350,7 +350,7 @@ files_changed:
 - `.cursor/skills/writer-excalibur-blog/SKILL.md`
 checks_run:
 - sanitize dry-run
-commit: pending-parent-commit
+commit: dd469d3
 
 
 
@@ -404,7 +404,7 @@ files_changed:
 checks_run:
 - unit checks (auto topic technical=False; table accessed_at; pain map rows)
 - B02 research-notes-gate PASS with technical_topic=false
-commit: pending-parent-commit
+commit: dd469d3
 
 
 ## INC-20261004-1713-scout-b01-ledger-gap
@@ -462,7 +462,7 @@ files_changed:
 - `.cursor/agents/excalibur-blog-scout.md`
 checks_run:
 - scout helper suggests B03 with reserved B01/B02
-commit: pending-parent-commit
+commit: dd469d3
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch

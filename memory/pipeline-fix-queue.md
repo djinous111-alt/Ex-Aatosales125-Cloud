@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261004-2139-indexer-llms-blog-path
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer agent/skill docs показывают `excalibur_blog_llms_generator.py ... --blog-path /`, но CLI скрипта принимает только `--blog-dir` (нет `--blog-path`).
+- Первый вызов Indexer упал: `unrecognized arguments: --blog-path /`.
+- `excalibur_blog_doctor.py` всё ещё проверяет наличие `--blog-path` в help llms generator → doctor `errors=1` (уже отмечено в handoff preflight).
+
+### How the agent recovered this run
+- Повторный запуск без `--blog-path`: `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog`.
+- B01 появился в `memory/blog/llms.txt` и `llms-full.txt` (3 articles).
+
+### Durable fix needed before next run
+- Убрать `--blog-path /` из indexer agent/skill (оба дерева `agents/` / `.cursor/agents/`, `skills/` / `.cursor/skills/`).
+- В `shared/agent-pipeline-pitfalls.md` Indexer: явно «llms generator = `--blog-dir`, не `--blog-path`».
+- Починить doctor: проверять `--blog-dir`, не `--blog-path`, либо добавить alias в скрипт.
+
+### Suggested files to inspect/change
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261005-2135-schema-secret-scan-allowlist
 status: open
 run_date: 2026-10-05

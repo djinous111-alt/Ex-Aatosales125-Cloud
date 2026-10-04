@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-04",
+    "today_ru": "04.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-06",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-04 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki",
+    "h1": "Проходные авто из Японии в 2026: как проверить год и объём до ставки",
+    "primary_query": "проходные авто из японии",
+    "secondary_queries": [
+      "проходные авто из японии в 2026",
+      "проходной год для авто из японии",
+      "какие авто из японии проходные",
+      "проходные авто в 2026 году"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "проходные авто из японии 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "проходные авто из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "проходные авто из японии новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com проходные авто из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "проходные авто из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "проходные авто из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "проходные авто из японии в 2026 2026",
+      "purpose": "вторичный запрос: проходные авто из японии в 2026"
+    },
+    {
+      "id": "secondary_2",
+      "query": "проходной год для авто из японии 2026",
+      "purpose": "вторичный запрос: проходной год для авто из японии"
+    },
+    {
+      "id": "secondary_3",
+      "query": "какие авто из японии проходные 2026",
+      "purpose": "вторичный запрос: какие авто из японии проходные"
+    },
+    {
+      "id": "secondary_4",
+      "query": "проходные авто в 2026 году 2026",
+      "purpose": "вторичный запрос: проходные авто в 2026 году"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Проходные авто из Японии в 2026: как проверить год и объём до ставки 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

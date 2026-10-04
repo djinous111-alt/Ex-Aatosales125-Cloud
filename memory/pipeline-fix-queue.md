@@ -314,6 +314,40 @@ category: env
 ### Fixer resolution
 - pending
 
+## INC-20261004-1345-research-notes-gate-accessed-at-colon
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki
+severity: medium
+category: script
+
+### What went wrong
+- Первый прогон `excalibur_blog_research_notes_gate.py` дал BLOCK: `accessed_at=1 < 5`, хотя в `source_table` было 20+ дат в колонке таблицы.
+- Gate считает только литералы вида `accessed_at:` (с двоеточием), а не даты в markdown-таблице.
+- Из-за слова `github` в секции `github_evidence` тема авто-чеклиста помечается `technical_topic: true` и сыпется warning про отсутствие `/docs|developer` URL (для ЕЭК PDF не подходит).
+
+### How the agent recovered this run
+- Добавлены явные строки `accessed_at: 2026-10-04 (...)` над `source_table`; gate перезапущен → PASS.
+- Official ЕЭК PDF оставлен в source_table; warning не блокирует.
+
+### Durable fix needed before next run
+- В gate считать `accessed_at` и в колонках markdown-таблиц, либо явно описать требование `accessed_at:` ×5 в skill/format template.
+- Исключить ложный `technical_topic` для авто-ниши: не считать маркер `github` достаточным без AI/MCP/API контекста; или принимать official legal/docs PDF как official_doc_urls.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

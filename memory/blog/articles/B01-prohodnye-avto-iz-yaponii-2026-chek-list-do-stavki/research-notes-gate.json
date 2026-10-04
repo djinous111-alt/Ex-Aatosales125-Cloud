@@ -1,0 +1,24 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki",
+  "notes": "memory/blog/articles/B01-prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki/research-notes.md",
+  "context": "memory/blog/articles/B01-prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki/research-context.json",
+  "errors": [],
+  "warnings": [
+    "technical topic has no obvious official docs/developer documentation URL"
+  ],
+  "metrics": {
+    "today_iso": "2026-10-04",
+    "prefer_sources_after": "2026-07-06",
+    "source_urls": 42,
+    "source_domains": 18,
+    "source_table_rows": 36,
+    "accessed_at": 7,
+    "github_urls": 4,
+    "official_doc_urls": 0,
+    "action_outline_items": 22,
+    "pain_solution_rows": 6,
+    "technical_topic": true
+  }
+}

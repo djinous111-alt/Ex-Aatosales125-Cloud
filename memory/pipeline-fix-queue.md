@@ -251,6 +251,39 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261004-1318-scout-wp-live-slug-blindspot
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_scout_helper.py --check-query` и ledger `shared/published-articles.md` не видят live WP slug’и после сброса ledger.
+- Первый кандидат Scout (СБКТС/ЭПТС) уже есть на live (`sbkts-i-epts-vo-vladivostoke-kak-poluchit-na-avto-iz-azii` в `memory/blog/published-live-avtosales125.json`), helper вернул NO CANNIBALIZATION.
+
+### How the agent recovered this run
+- Сверил кандидатов с user avoid-list + `memory/blog/published-live-avtosales125.json` + AS-пулом.
+- Выбрал другую P0-тему: проходные авто из Японии (уникальный slug, Wordstat ~817, utility gate PASS).
+
+### Durable fix needed before next run
+- Расширить `--check-query`: читать `memory/blog/published-live-*.json` и/или known WP slug list, не только `blog-topics.md` + ledger.
+- В scout skill явно требовать WP live slug audit при пустом/частичном ledger.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

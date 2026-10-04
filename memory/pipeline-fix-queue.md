@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None for run 2026-10-04 after fixer._
+
+## Recently fixed (2026-10-04)
+
 ## INC-20261004-1740-publish-http-timeout-soft-success
-status: open
+status: fixed
 run_date: 2026-10-04
 role: excalibur-blog-publish
 topic_id: B02
@@ -40,11 +44,29 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- `excalibur_blog_wp_publish.py` on HTTP 504/timeout waits longer for WebFetch fallback (~180s), then polls WP REST by slug; fresh `modified` + `featured_media` → soft-success result/ledger without second bootstrap.
+- Publish expands `[REDACTED]`/`[CATALOG_URL]`/`[TELEGRAM_URL]`/`[PUBLIC_SITE_URL]` from env before upload.
+- Documented in publish skill + `shared/excalibur-wp-publish-contract.md`; warn against parallel re-trigger (orphan media).
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-publish.md`
+- `.cursor/agents/excalibur-blog-publish.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- unit checks for soft-success synthesize + placeholder expand
+commit: pending-parent-commit
+
 
 
 ## INC-20261004-1735-indexer-precommit-secret-scan
-status: open
+status: fixed
 run_date: 2026-10-04
 role: excalibur-blog-indexer
 topic_id: B02
@@ -76,10 +98,28 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Cloud install auto-sources `sanitize_cloud_secret_names.sh` and hooks shell rc; added `scripts/excalibur_git.sh` wrapper.
+- Indexer skill documents redact-for-git / restore-for-publish for llms/interlink/promotion.
+- Doctor asserts sanitize script present.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `scripts/excalibur_git.sh`
+- `.cursor/cloud-agent-install.sh`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- sanitize filter dry-run (drops URL-as-name)
+- doctor PASS
+commit: pending-parent-commit
+
 
 ## INC-20261004-1733-cover-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-10-04
 role: excalibur-blog-cover
 topic_id: B02
@@ -107,10 +147,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Auto-sanitize secret names via cloud install + `excalibur_git.sh`; cover skill notes commit hygiene.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_git.sh`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+checks_run:
+- sanitize dry-run; doctor PASS
+commit: pending-parent-commit
+
 
 ## INC-20261004-1728-schema-precommit-secret-scan
-status: open
+status: fixed
 run_date: 2026-10-04
 role: excalibur-blog-schema
 topic_id: B02
@@ -144,10 +196,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Schema skill: redact-for-git / restore-for-publish; publish expands placeholders automatically.
+- Auto-sanitize secret names before pre-commit.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_git.sh`
+- `.cursor/cloud-agent-install.sh`
+checks_run:
+- placeholder expand unit; sanitize dry-run
+commit: pending-parent-commit
+
 
 ## INC-20261004-1725-geo-qa-utility-policy-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-04
 role: excalibur-blog-geo-qa
 topic_id: B02
@@ -180,10 +246,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Kept non-empty `pain_markers_ru`/`outcome_markers_ru` + min_* in editorial-policy.json.
+- Doctor fails if lists empty; utility gate keeps skip-empty warning path; documented in editorial-utility-only + GEO QA skill.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/editorial-utility-only.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+checks_run:
+- doctor PASS (policy markers OK)
+commit: pending-parent-commit
+
 
 ## INC-20261004-1725-geo-qa-link-verify-cta-redacted
-status: open
+status: fixed
 run_date: 2026-10-04
 role: excalibur-blog-geo-qa
 topic_id: B02
@@ -212,10 +293,24 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- `excalibur_blog_link_verify.py` expands `[CATALOG_URL]`/`[TELEGRAM_URL]`/`[REDACTED]` from env before HTTP checks and redacts URLs in the report.
+- Writer/GEO QA skills document stable CTA tokens.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+checks_run:
+- expand/redact unit checks
+commit: pending-parent-commit
+
 
 ## INC-20261004-1722-writer-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-10-04
 role: excalibur-blog-writer
 topic_id: B02
@@ -243,11 +338,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Auto-sanitize in cloud install/shell rc + `excalibur_git.sh`; writer skill requires sanitize before commit.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_git.sh`
+- `scripts/sanitize_cloud_secret_names.sh`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+checks_run:
+- sanitize dry-run
+commit: pending-parent-commit
+
 
 
 ## INC-20261004-1718-research-notes-gate-ai-substring
-status: open
+status: fixed
 run_date: 2026-10-04
 role: excalibur-blog-research
 topic_id: B02
@@ -282,10 +390,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- `is_technical_topic` uses word-boundary for short markers and strips required field-name noise (`reader_pain` no longer trips on `ai`).
+- Non-tech topics no longer require github_urls≥3; `accessed_at` counts source_table column dates; pain_solution_map counts section rows.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/editorial-utility-only.md`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit checks (auto topic technical=False; table accessed_at; pain map rows)
+- B02 research-notes-gate PASS with technical_topic=false
+commit: pending-parent-commit
+
 
 ## INC-20261004-1713-scout-b01-ledger-gap
-status: open
+status: fixed
 run_date: 2026-10-04
 role: excalibur-blog-scout
 topic_id: B02
@@ -322,7 +445,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- `--suggest-next` max Bxx includes ledger + active article dirs; skips reserved IDs.
+- Restored B01 ledger row; today.py prints LIVE_AUDIT_NOTE preferring recent WP over stale live JSON.
+- sanitize script kept; scout skill/agent updated.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `shared/published-articles.md`
+- `scripts/sanitize_cloud_secret_names.sh`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+checks_run:
+- scout helper suggests B03 with reserved B01/B02
+commit: pending-parent-commit
+
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

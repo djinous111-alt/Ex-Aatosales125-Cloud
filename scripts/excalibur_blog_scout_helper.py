@@ -130,18 +130,29 @@ def main() -> int:
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
+        # Max Bxx must include ledger/in_progress/active dirs, not only cards in
+        # blog-topics.md. Empty pool + missing ledger row previously suggested B01
+        # even when B01 was already live (INC-20261004-1713).
         max_num = 0
         for t in existing:
             m = re.match(r"B(\d+)", t["topic_id"])
             if m:
                 max_num = max(max_num, int(m.group(1)))
-        
-        next_id = f"B{max_num + 1:02d}"
+        for tid in reserved:
+            m = re.match(r"B(\d+)", tid)
+            if m:
+                max_num = max(max_num, int(m.group(1)))
+
+        next_num = max_num + 1
+        while f"B{next_num:02d}" in reserved:
+            next_num += 1
+        next_id = f"B{next_num:02d}"
         print(f"Next available topic ID: {next_id}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")
+        print(f"Reserved topic IDs (ledger+dirs): {sorted(reserved)}")
         print(f"Active article dirs: {sorted(active)}")
-        
+
         unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
         print(f"Unwritten topic IDs in pool: {unwritten}")
         return 0

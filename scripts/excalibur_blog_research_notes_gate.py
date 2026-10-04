@@ -14,22 +14,35 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
-    "ai",
-    "ии",
+# Short tokens need word-boundary match ("ai" must not match inside "pain").
+SHORT_TECH_MARKERS = ("ai", "ии", "rag", "api", "mcp", "make")
+LONG_TECH_MARKERS = (
     "agent",
     "агент",
-    "mcp",
-    "api",
     "cursor",
-    "make",
     "n8n",
     "github",
     "docker",
-    "rag",
     "workflow",
     "автоматизац",
     "нейросет",
+)
+
+# Required field names / headings must not trigger technical_topic.
+FIELD_NAME_NOISE = (
+    "reader_pain",
+    "reader_outcome",
+    "github_evidence",
+    "pain_solution_map",
+    "success_criteria",
+    "voice_angle",
+    "reader_story",
+    "surprising_fact",
+    "action_outline",
+    "accessed_at",
+    "research_date",
+    "utility_verdict",
+    "source_table",
 )
 
 
@@ -73,14 +86,39 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _strip_field_name_noise(blob: str) -> str:
+    cleaned = blob
+    for name in FIELD_NAME_NOISE:
+        cleaned = re.sub(re.escape(name).replace("_", r"[_\s-]"), " ", cleaned, flags=re.I)
+    return cleaned
+
+
+def _marker_hits(blob: str) -> list[str]:
+    hits: list[str] = []
+    for marker in SHORT_TECH_MARKERS:
+        if re.search(rf"(?<![a-zа-яё0-9_]){re.escape(marker)}(?![a-zа-яё0-9_])", blob, flags=re.I):
+            hits.append(marker)
+    for marker in LONG_TECH_MARKERS:
+        if marker in blob:
+            hits.append(marker)
+    return hits
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech stack topics from topic card + notes body.
+
+    Uses word-boundary matching for short markers and ignores required research
+    field names so `reader_pain` does not trip on substring `ai`.
+    """
     topic = context.get("topic") or {}
-    blob = " ".join(
+    topic_blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Prefer topic card signals; notes body is secondary and stripped of field names.
+    notes_blob = _strip_field_name_noise(notes[:2000].lower())
+    blob = f"{topic_blob} {notes_blob}".strip()
+    return bool(_marker_hits(blob))
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -91,6 +129,73 @@ def field_present(text_lower: str, field: str) -> bool:
         return bool(re.search(rf"^\s*##\s*\d*\.?\s*{field_pattern}\b", text_lower, flags=re.I | re.M))
     field_pattern = re.escape(field).replace("_", r"[_\s-]")
     return bool(re.search(rf"\b{field_pattern}\b\s*:", text_lower, flags=re.I))
+
+
+def count_accessed_at(text: str) -> int:
+    """Count source access dates from labeled fields and source_table columns."""
+    text_lower = text.lower()
+    labeled = len(re.findall(r"\baccessed_at\b\s*:\s*\d{4}-\d{2}-\d{2}", text_lower))
+    # Also accept bare ISO dates under an accessed_at table column.
+    table_dates = 0
+    lines = text.splitlines()
+    for index, line in enumerate(lines):
+        if "|" not in line or "accessed" not in line.lower():
+            continue
+        headers = [cell.strip().lower() for cell in line.strip().strip("|").split("|")]
+        col = next((j for j, header in enumerate(headers) if "accessed" in header), None)
+        if col is None:
+            continue
+        for row in lines[index + 1 :]:
+            stripped = row.strip()
+            if not stripped.startswith("|"):
+                break
+            if re.match(r"^\|?\s*[-:| ]+\|", stripped):
+                continue
+            cells = [cell.strip() for cell in stripped.strip("|").split("|")]
+            if col < len(cells) and re.search(r"\d{4}-\d{2}-\d{2}", cells[col]):
+                table_dates += 1
+    return max(labeled, table_dates)
+
+
+def count_pain_map_rows(text: str) -> int:
+    """Count data rows under ## pain_solution_map (not whole-file keyword rows)."""
+    match = re.search(
+        r"##\s*\d*\.?\s*pain[_\s-]*solution[_\s-]*map\b([\s\S]*?)(?=\n##\s|\Z)",
+        text,
+        flags=re.I,
+    )
+    section = match.group(1) if match else ""
+    if not section:
+        # Fallback: legacy keyword rows anywhere (kept for older notes).
+        return len(
+            re.findall(
+                r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*",
+                text.lower(),
+                flags=re.M,
+            )
+        )
+
+    rows = 0
+    for line in section.splitlines():
+        stripped = line.strip()
+        if not stripped.startswith("|"):
+            continue
+        if re.match(r"^\|?\s*[-:| ]+\|", stripped):
+            continue
+        cells = [cell.strip() for cell in stripped.strip("|").split("|")]
+        joined = " ".join(cells).lower()
+        # Skip markdown header row.
+        if any(token in joined for token in ("reader_pain", "pain", "боль")) and any(
+            token in joined for token in ("solution", "решение", "proof", "reader_result")
+        ):
+            # Header-like if first cell is a column title, not a sentence.
+            if cells and len(cells[0].split()) <= 3 and not cells[0].endswith("."):
+                header_tokens = {"pain", "боль", "reader_pain", "проблема"}
+                if cells[0].lower().replace("_", " ") in header_tokens or cells[0].lower() in header_tokens:
+                    continue
+        if len(cells) >= 2 and any(cells):
+            rows += 1
+    return rows
 
 
 def validate_research_notes(article_dir: Path) -> dict[str, Any]:
@@ -130,9 +235,9 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    pain_map_rows = count_pain_map_rows(text)
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:
@@ -163,6 +268,10 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         errors.append(f"technical topic requires GitHub evidence: github_urls={len(github_urls)} < 3")
     if technical and not official_doc_urls:
         warnings.append("technical topic has no obvious official docs/developer documentation URL")
+    if not technical and len(github_urls) < 3:
+        warnings.append(
+            "non-technical topic: GitHub evidence optional; official docs + community sources are enough"
+        )
 
     if year and year not in text:
         warnings.append(f"current year {year} is not visible in research notes")

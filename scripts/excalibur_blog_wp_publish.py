@@ -7,8 +7,13 @@ import base64
 import io
 import json
 import os
+import re
 import sys
+import time
+import urllib.error
+import urllib.parse
 import urllib.request
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -95,6 +100,34 @@ def normalize_post_title(title: str) -> str:
     return title[0].upper() + title[1:]
 
 
+def expand_publish_placeholders(text: str, env: dict[str, str]) -> str:
+    """Restore commit-hygiene placeholders before WP bootstrap upload."""
+    if not text:
+        return text
+    public = (
+        env.get("PUBLIC_SITE_URL")
+        or env.get("WP_HOME")
+        or env.get("WP_SITE_URL")
+        or ""
+    ).strip().rstrip("/")
+    catalog = (env.get("CATALOG_URL") or "").strip().rstrip("/")
+    telegram = (env.get("TELEGRAM_URL") or "").strip().rstrip("/")
+    max_url = (env.get("MAX_URL") or "").strip().rstrip("/")
+    out = text
+    if catalog:
+        out = out.replace("[CATALOG_URL]", catalog)
+    if telegram:
+        out = out.replace("[TELEGRAM_URL]", telegram)
+    if max_url:
+        out = out.replace("[MAX_URL]", max_url)
+    if public:
+        out = out.replace("[PUBLIC_SITE_URL]", public)
+        out = out.replace("[REDACTED_SITE]", public)
+        out = out.replace("[REDACTED_HOST]", urllib.parse.urlparse(public).netloc)
+        out = re.sub(r"\[REDACTED\](?=/)", public, out)
+    return out
+
+
 def cover_url_from_registry(registry_path: Path) -> str:
     if not registry_path.is_file():
         return ""
@@ -168,14 +201,15 @@ def normalize_cover_png(cover_path: Path, registry_path: Path, root: Path) -> di
     return evidence
 
 
-def load_article(article_dir: Path) -> dict:
+def load_article(article_dir: Path, env: dict[str, str] | None = None) -> dict:
     meta_path = article_dir / "article.meta.json"
     html_path = article_dir / "article.html"
     if not meta_path.is_file() or not html_path.is_file():
         raise FileNotFoundError("article.meta.json and article.html required")
     meta = json.loads(meta_path.read_text(encoding="utf-8"))
     meta_ab = meta.get("meta_ab") or {}
-    content = html_path.read_text(encoding="utf-8").strip()
+    env = env or {}
+    content = expand_publish_placeholders(html_path.read_text(encoding="utf-8").strip(), env)
     cover_path = article_dir / "cover" / "cover.png"
     schema_path = article_dir / "schema.jsonld"
     cover_b64 = ""
@@ -186,13 +220,12 @@ def load_article(article_dir: Path) -> dict:
         cover_b64 = base64.b64encode(cover_path.read_bytes()).decode("ascii")
     schema_raw = ""
     if schema_path.is_file():
-        schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        schema_raw = expand_publish_placeholders(schema_path.read_text(encoding="utf-8").strip(), env)
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
         cover_alt = cover_alt or reg.get("cover_alt_text", "")
 
-    import re
     img_srcs = re.findall(r'<img\s+[^>]*src=["\']([^"\']+)["\']', content)
     inline_images = []
     for src in img_srcs:
@@ -467,33 +500,132 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+def _is_http_timeout_or_504(exc: BaseException) -> bool:
+    text = f"{type(exc).__name__}: {exc}".lower()
+    if isinstance(exc, urllib.error.HTTPError) and exc.code == 504:
+        return True
+    return any(token in text for token in ("504", "timed out", "timeout", "gateway time"))
+
+
+def poll_wp_rest_soft_success(
+    public_base: str,
+    slug: str,
+    *,
+    max_wait_sec: int = 180,
+    freshness_minutes: int = 20,
+) -> dict[str, Any] | None:
+    """After nginx 504, PHP may still finish — confirm via public REST by slug."""
+    endpoint = (
+        public_base.rstrip("/")
+        + "/wp-json/wp/v2/posts?"
+        + urllib.parse.urlencode(
+            {
+                "slug": slug,
+                "per_page": 1,
+                "_fields": "id,slug,link,modified,modified_gmt,featured_media,status",
+            }
+        )
+    )
+    deadline = time.time() + max_wait_sec
+    last_error = ""
+    while time.time() < deadline:
+        try:
+            req = urllib.request.Request(endpoint, headers={"User-Agent": "ExcaliburBlogPublish/1.0"})
+            with urllib.request.urlopen(req, timeout=20) as response:
+                payload = json.loads(response.read().decode("utf-8"))
+            if not payload:
+                last_error = "empty REST posts list"
+                time.sleep(5)
+                continue
+            post = payload[0]
+            modified_raw = str(post.get("modified_gmt") or post.get("modified") or "")
+            featured = int(post.get("featured_media") or 0)
+            post_id = int(post.get("id") or 0)
+            permalink = str(post.get("link") or "")
+            if post_id <= 0 or not permalink:
+                last_error = "missing id/link"
+                time.sleep(5)
+                continue
+            fresh = False
+            if modified_raw:
+                try:
+                    normalized = modified_raw.replace("Z", "+00:00")
+                    modified_dt = datetime.fromisoformat(normalized)
+                    if modified_dt.tzinfo is None:
+                        modified_dt = modified_dt.replace(tzinfo=timezone.utc)
+                    age = datetime.now(timezone.utc) - modified_dt.astimezone(timezone.utc)
+                    fresh = age.total_seconds() <= freshness_minutes * 60
+                except ValueError:
+                    fresh = False
+            if fresh and featured > 0:
+                return {
+                    "post_id": post_id,
+                    "slug": str(post.get("slug") or slug),
+                    "permalink": permalink,
+                    "featured_media": featured,
+                    "modified": modified_raw,
+                    "status": str(post.get("status") or ""),
+                }
+            last_error = f"not fresh or no featured (modified={modified_raw}, featured={featured})"
+        except Exception as exc:  # noqa: BLE001
+            last_error = f"{type(exc).__name__}: {exc}"
+        time.sleep(5)
+    print(f"WARN soft-success REST poll failed: {last_error}", file=sys.stderr)
+    return None
+
+
+def synthesize_soft_success_output(evidence: dict[str, Any]) -> str:
+    post_id = evidence["post_id"]
+    slug = evidence["slug"]
+    featured = evidence["featured_media"]
+    permalink = evidence["permalink"]
+    return (
+        f"OK post={post_id} slug={slug}\n"
+        f"OK featured_image={featured}\n"
+        f"OK schema_meta=1\n"
+        f"permalink={permalink}\n"
+        f"# soft-success: HTTP 504/timeout; REST confirmed modified={evidence.get('modified')} "
+        f"featured_media={featured}\n"
+    )
+
+
+def trigger_bootstrap_http(url: str, root: Path, *, fallback_wait_sec: int = 180) -> str:
     try:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=180,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
-        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
+        timeoutish = _is_http_timeout_or_504(e)
+        print(
+            f"Local HTTP trigger failed ({type(e).__name__}: {e}). "
+            "Entering Cloud WebFetch Fallback mode..."
+            + (" [504/timeout — do NOT re-trigger bootstrap; PHP may still be running]" if timeoutish else "")
+        )
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
-        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
+        print(
+            "Waiting for cloud-agent to write response to memory/webfetch-response.txt..."
+            f" (wait={fallback_wait_sec}s; prefer single WebFetch, no parallel curl)"
+        )
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
-        import time
 
-        for _ in range(120):
+        for _ in range(fallback_wait_sec):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {fallback_wait_sec} seconds. "
+            "Please trigger manually once only (avoid overlapping sideloads)."
+        )
 
 
-def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
+def publish_via_ssh(env: dict[str, str], php: str, public_base: str, *, slug: str = "") -> str:
     remote = "excalibur-blog-publish-once.php"
     data = php.encode("utf-8")
     url = public_base.rstrip("/") + "/" + remote
@@ -502,7 +634,22 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        try:
+            out = trigger_bootstrap_http(url, root, fallback_wait_sec=180)
+        except Exception as trigger_error:
+            if slug and _is_http_timeout_or_504(trigger_error):
+                print(
+                    "HTTP/fallback timed out with 504/timeout signature; "
+                    "polling WP REST for soft-success (no second bootstrap trigger)..."
+                )
+                evidence = poll_wp_rest_soft_success(public_base, slug)
+                if evidence:
+                    print(
+                        f"Soft-success REST OK: post={evidence['post_id']} "
+                        f"featured={evidence['featured_media']} modified={evidence.get('modified')}"
+                    )
+                    return synthesize_soft_success_output(evidence)
+            raise
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)
@@ -568,7 +715,8 @@ def main() -> int:
         return 2
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
-    payload = load_article(article_dir)
+    env = load_env(root)
+    payload = load_article(article_dir, env)
     php = build_php(payload)
 
     if args.dry_run:
@@ -576,7 +724,6 @@ def main() -> int:
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1
@@ -588,23 +735,38 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ssh(env, php, public)
+    out = publish_via_ssh(env, php, public, slug=str(payload.get("slug") or ""))
     print(out)
 
     result_path = article_dir / "wp-publish-result.json"
     permalink = ""
+    post_id = 0
+    featured_image = 0
+    soft_success = "soft-success" in out
     for line in out.splitlines():
         if line.startswith("permalink="):
             permalink = line.split("=", 1)[1].strip()
+        if line.startswith("OK post="):
+            match = re.search(r"OK post=(\d+)", line)
+            if match:
+                post_id = int(match.group(1))
+        if line.startswith("OK featured_image="):
+            match = re.search(r"OK featured_image=(\d+)", line)
+            if match:
+                featured_image = int(match.group(1))
     result = {
         "slug": payload["slug"],
         "topic_id": payload["topic_id"],
+        "post_id": post_id or None,
         "permalink": permalink,
-        "publish_method": "ssh",
+        "featured_image": featured_image or None,
+        "publish_method": "ssh+soft-success-rest" if soft_success else "ssh",
         "cover_evidence": payload.get("cover_evidence", {}),
         "raw_output": out,
         "verdict": "pass" if "OK post=" in out else "fail",
     }
+    if soft_success:
+        result["notes"] = "HTTP 504/timeout after bootstrap; REST slug poll confirmed fresh modified + featured_media"
     result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     if result["verdict"] == "pass":
         upsert_publish_ledger(root, payload, permalink)

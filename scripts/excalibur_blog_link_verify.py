@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import ssl
 import sys
@@ -13,6 +14,22 @@ from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
+
+# Commit-hygiene placeholders that must expand before live HTTP checks.
+CTA_TOKEN_ENV = {
+    "[CATALOG_URL]": ("CATALOG_URL",),
+    "[TELEGRAM_URL]": ("TELEGRAM_URL",),
+    "[MAX_URL]": ("MAX_URL",),
+    "[PUBLIC_SITE_URL]": ("PUBLIC_SITE_URL", "WP_HOME", "WP_SITE_URL"),
+    "[REDACTED_SITE]": ("PUBLIC_SITE_URL", "WP_HOME", "WP_SITE_URL"),
+}
+
+BARE_REDACTED_ENV_ORDER = (
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
+    "PUBLIC_SITE_URL",
+)
 
 
 class LinkExtractor(HTMLParser):
@@ -117,6 +134,62 @@ def classify_link(href: str, site_base: str | None) -> str:
     return "external"
 
 
+def _env_url(name: str) -> str:
+    return (os.environ.get(name) or "").strip().rstrip("/")
+
+
+def expand_cta_href(href: str, *, bare_redacted_index: list[int]) -> tuple[str, str]:
+    """Expand commit-hygiene CTA placeholders from env; return (check_url, report_url)."""
+    raw = href.strip()
+    report_url = raw
+
+    for token, env_names in CTA_TOKEN_ENV.items():
+        if raw == token or raw.startswith(token + "/"):
+            base = ""
+            for name in env_names:
+                base = _env_url(name)
+                if base:
+                    break
+            if not base:
+                return raw, report_url
+            suffix = raw[len(token) :]
+            return f"{base}{suffix}", report_url
+
+    # Bare [REDACTED] used for multiple CTAs — map in stable env order.
+    if raw == "[REDACTED]" or raw.startswith("[REDACTED]/"):
+        if raw.startswith("[REDACTED]/"):
+            base = _env_url("PUBLIC_SITE_URL") or _env_url("WP_HOME") or _env_url("WP_SITE_URL")
+            if base:
+                return f"{base}{raw[len('[REDACTED]'):]}", report_url
+            return raw, report_url
+        idx = bare_redacted_index[0]
+        bare_redacted_index[0] = idx + 1
+        candidates = [_env_url(name) for name in BARE_REDACTED_ENV_ORDER]
+        candidates = [url for url in candidates if url]
+        if idx < len(candidates):
+            return candidates[idx], report_url
+        return raw, report_url
+
+    return raw, report_url
+
+
+def redact_url_for_report(url: str) -> str:
+    """Keep link-verify.json free of live secret-scanned public URLs."""
+    public = _env_url("PUBLIC_SITE_URL") or _env_url("WP_HOME") or _env_url("WP_SITE_URL")
+    out = url
+    for env_name, token in (
+        ("CATALOG_URL", "[CATALOG_URL]"),
+        ("TELEGRAM_URL", "[TELEGRAM_URL]"),
+        ("MAX_URL", "[MAX_URL]"),
+    ):
+        value = _env_url(env_name)
+        if value and value in out:
+            out = out.replace(value, token)
+    if public and public in out:
+        out = out.replace(public, "[REDACTED]")
+    return out
+
+
 def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
     """Treat flaky social profile timeouts as warnings, not publish blockers."""
     parsed = urlparse(href)
@@ -141,44 +214,57 @@ def verify_article(
     links = extract_links(html)
     user_agent = "ExcaliburBlogLinkVerify/1.0"
     results: list[dict[str, Any]] = []
+    bare_redacted_index = [0]
     for href in links:
-        kind = classify_link(href, site_base)
+        expanded, report_href = expand_cta_href(href, bare_redacted_index=bare_redacted_index)
+        kind = classify_link(expanded, site_base)
         if skip_external and kind == "external":
             results.append(
                 {
-                    "url": href,
+                    "url": redact_url_for_report(report_href),
                     "kind": kind,
                     "status": None,
                     "ok": True,
                     "skipped": True,
                     "method": None,
                     "error": None,
+                    "expanded_from_placeholder": expanded != href,
                 }
             )
             continue
-        check_target = href
+        check_target = expanded
         if kind == "internal_relative" and site_base:
             base = site_base.rstrip("/")
-            check_target = f"{base}{href if href.startswith('/') else '/' + href}"
+            check_target = f"{base}{expanded if expanded.startswith('/') else '/' + expanded}"
         elif kind == "internal_relative":
+            # Unexpanded [REDACTED]/token without env still looks relative — skip with hint.
+            err = "relative link; pass --site-base to verify"
+            if href.strip().startswith("["):
+                err = (
+                    "CTA placeholder not expanded; set CATALOG_URL/TELEGRAM_URL/"
+                    "PUBLIC_SITE_URL (or use [CATALOG_URL]/[TELEGRAM_URL] tokens)"
+                )
             results.append(
                 {
-                    "url": href,
+                    "url": redact_url_for_report(report_href),
                     "kind": kind,
                     "status": None,
                     "ok": True,
                     "skipped": True,
                     "method": None,
-                    "error": "relative link; pass --site-base to verify",
+                    "error": err,
+                    "expanded_from_placeholder": expanded != href,
                 }
             )
             continue
         r = check_url(check_target, timeout, user_agent)
         r["kind"] = kind
         r["skipped"] = False
-        if kind == "internal_relative":
-            r["checked_url"] = check_target
-        if kind == "external" and is_soft_external_failure(href, r):
+        r["url"] = redact_url_for_report(report_href)
+        r["expanded_from_placeholder"] = expanded != href
+        if kind == "internal_relative" or expanded != href:
+            r["checked_url"] = redact_url_for_report(check_target)
+        if kind == "external" and is_soft_external_failure(expanded, r):
             r["ok"] = True
             r["warning"] = "soft external social timeout; verify manually if needed"
         results.append(r)

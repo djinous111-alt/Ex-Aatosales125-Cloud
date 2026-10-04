@@ -145,6 +145,11 @@ def main() -> None:
         else:
             compact = [f"{p['date']}|{p['slug']}|{p['title']}" for p in posts]
             print("EXCALIBUR_RECENT_WP_POSTS=" + json.dumps(compact, ensure_ascii=False))
+            print(
+                "EXCALIBUR_LIVE_AUDIT_NOTE="
+                "prefer EXCALIBUR_RECENT_WP_POSTS over stale memory/blog/published-live-*.json "
+                "for cannibalization/dedupe (live JSON can lag)"
+            )
     else:
         print("EXCALIBUR_RECENT_WP_POSTS=")
         print("EXCALIBUR_RECENT_WP_POSTS_NOTE=set PUBLIC_SITE_URL for live dedupe")

@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import os
 import subprocess
 import sys
@@ -132,7 +133,31 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+
+    sanitize = root / "scripts/sanitize_cloud_secret_names.sh"
+    check(sanitize.is_file(), "sanitize_cloud_secret_names.sh present", errors, warnings)
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    policy_ok = False
+    policy_label = "editorial-policy.json has non-empty pain/outcome markers"
+    if policy_path.is_file():
+        try:
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+            pain = policy.get("pain_markers_ru") or []
+            outcome = policy.get("outcome_markers_ru") or []
+            req = policy.get("article_required_signals") or {}
+            policy_ok = (
+                isinstance(pain, list)
+                and isinstance(outcome, list)
+                and len(pain) >= 3
+                and len(outcome) >= 3
+                and int(req.get("min_pain_markers") or 0) >= 1
+                and int(req.get("min_outcome_markers") or 0) >= 1
+            )
+        except (json.JSONDecodeError, TypeError, ValueError):
+            policy_ok = False
+    check(policy_ok, policy_label, errors, warnings)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

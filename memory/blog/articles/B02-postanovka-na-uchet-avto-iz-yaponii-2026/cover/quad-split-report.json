@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B02-postanovka-na-uchet-avto-iz-yaponii-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2736,
+      1536
+    ],
+    "panel_size_px": [
+      1367,
+      769
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 769,
+        "end": 797
+      },
+      "v_gutter_px": {
+        "start": 1367,
+        "end": 1400
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1367,
+          "bottom": 769
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1367,
+          "bottom": 769
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у окна ГИБДД с папкой документов и ключами от японского седана, плашка «на учёт»",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1400,
+          "top": 8,
+          "right": 2736,
+          "bottom": 760
+        },
+        "raw_box_px": {
+          "left": 1400,
+          "top": 0,
+          "right": 2736,
+          "bottom": 769
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица готовности: когда можно ехать в ГИБДД после растаможки японского авто",
+        "h2_anchor": "Когда можно ехать в ГИБДД после растаможки"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 26,
+          "top": 797,
+          "right": 1340,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 797,
+          "right": 1367,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист проверки статуса ЭПТС действующий перед постановкой на учёт",
+        "h2_anchor": "Как проверить, что ЭПТС уже \"действующий\""
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1411,
+          "top": 797,
+          "right": 2725,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 1400,
+          "top": 797,
+          "right": 2736,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема пакета документов для регистрации авто из Японии: что зачем и где взять",
+        "h2_anchor": "Соберите пакет: что зачем и где взять"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Когда можно ехать в ГИБДД после растаможки",
+    "injected inline_2 after H2 — Как проверить, что ЭПТС уже \"действующий\"",
+    "injected inline_3 after H2 — Соберите пакет: что зачем и где взять"
+  ]
+}

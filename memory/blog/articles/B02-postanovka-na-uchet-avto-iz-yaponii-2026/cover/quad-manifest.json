@@ -1,0 +1,42 @@
+{
+  "topic_id": "B02",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "ЭПТС распечатали — а в МРЭО разворот?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у окна ГИБДД с папкой документов и ключами от японского седана, плашка «на учёт»",
+      "scene_hint": "Герой у окна ГИБДД/МРЭО Владивосток: EXACT face+glasses from reference; outfit SMART CASUAL — светлая рубашка и тонкий пиджак (офис/документы), БЕЗ худи/кепки/капюшона; в руках толстая папка с чек-листом документов и ключи от современного японского седана на фоне; fake UI: выписка ЭПТС со статусом, стикер «на учёт», скотч, рваная бумага; мем facepalm/shocked; угол avto-sales125.ru; без Wordstat/Метрики",
+      "meme_caption_ru": "На учёт без второго круга"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Когда можно ехать в ГИБДД после растаможки",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "UI-таблица «можно ехать / рано ехать»: колонки СБКТС, ЭПТС действующий, ПТД/ТПО, ОСАГО — зелёные/серые статусы; лёгкий скотч и стикер «после растаможки»; без лица героя",
+      "alt": "Таблица готовности: когда можно ехать в ГИБДД после растаможки японского авто"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как проверить, что ЭПТС уже \"действующий\"",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист-борд проверки ЭПТС: portal.elpts.ru, статус «действующий», утильсбор учтён, сверка VIN/FRAME; sticky note «до визита»; без лица героя",
+      "alt": "Чеклист проверки статуса ЭПТС действующий перед постановкой на учёт"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Соберите пакет: что зачем и где взять",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема пакета документов: паспорт → СБКТС → ЭПТС → ПТД/ТПО → ОСАГО → Госуслуги → МРЭО; стрелки «где взять»; мини-карточки бумаг; без лица героя",
+      "alt": "Схема пакета документов для регистрации авто из Японии: что зачем и где взять"
+    }
+  }
+}

@@ -19,20 +19,24 @@ category: script
 - `excalibur_blog_scout_helper.py --suggest-next` вернул `B01`, потому что в `blog-topics.md` не было карточек `## Bxx`, а в `shared/published-articles.md` отсутствовал уже опубликованный B01 (WP 3991, slug `prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki`).
 - `memory/blog/published-live-avtosales125.json` (fetched_at 2026-10-03) не содержал свежие slug из `EXCALIBUR_RECENT_WP_POSTS` за 2026-10-01..04, поэтому live-audit без сверки с today.py мог бы пропустить каннибализацию.
 - Wordstat MCP для фразы `ролкер авто` вернул пустой `{}` (не totalCount-only); для узких запросов иногда приходит только `totalCount` без top phrases.
+- `git commit` падал в `pre-commit.cursor`: в `CLOUD_AGENT_ALL_SECRET_NAMES` попал URL сайта как "имя" секрета (не bash-identifier) → `invalid variable name`. Скрипт `scripts/sanitize_cloud_secret_names.sh` отсутствовал в ветке.
 
 ### How the agent recovered this run
 - Взял следующий свободный id `B02`, чтобы не коллизировать topic_id с опубликованным B01.
 - Сверил gap со свежим `EXCALIBUR_RECENT_WP_POSTS` + live JSON + AS-карточками; check-query до append был clean.
 - Для Wordstat использовал широкие parent-кластеры с полным top-list; узкий totalCount-only не считал fatal.
+- Восстановил `scripts/sanitize_cloud_secret_names.sh` и перед commit делал `source` этого скрипта.
 
 ### Durable fix needed before next run
 - `scout_helper --suggest-next` должен учитывать topic_id из ledger (`published`/`in_progress`) и/или recent WP, а не только max `Bxx` в пуле.
 - После publish B-серии карточка или хотя бы строка ledger с topic_id должна оставаться, чтобы scout не предлагал повтор id.
 - Обновлять `published-live-*.json` в preflight/today или явно требовать audit по `EXCALIBUR_RECENT_WP_POSTS`.
+- Держать `scripts/sanitize_cloud_secret_names.sh` в репо; убрать URL/не-identifier из Dashboard secret names.
 
 ### Suggested files to inspect/change
 - `scripts/excalibur_blog_scout_helper.py`
 - `scripts/excalibur_blog_today.py`
+- `scripts/sanitize_cloud_secret_names.sh`
 - `shared/published-articles.md`
 - `.cursor/skills/scout-excalibur-blog/SKILL.md`
 

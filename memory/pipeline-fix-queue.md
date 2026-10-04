@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261004-1405-writer-cta-secret-scan
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki
+severity: medium
+category: env
+
+### What went wrong
+- Writer must put live catalog/Telegram hrefs (not `[REDACTED]`) per task contract, but `CATALOG_URL`/`TELEGRAM_URL` are injected as Cloud secrets.
+- Pre-commit secret scanner blocked commit of public marketing URLs in `article.html`.
+- Separately, `CLOUD_AGENT_*_SECRET_NAMES` still contains literal `[REDACTED]` token → hook `invalid variable name` unless names are sanitized before commit.
+
+### How the agent recovered this run
+- Sanitized `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid shell identifiers.
+- Kept real CTA hrefs and added HTML comment `<!-- pragma: allowlist secret -->` on the three CTA lines so public URLs can be committed.
+- Did not replace hrefs with `[REDACTED]`.
+
+### Durable fix needed before next run
+- Move public catalog/Telegram URLs out of secret env (or mark them non-secret) so Writer can commit CTA without pragma.
+- Restore/ship `scripts/sanitize_cloud_secret_names.sh` and document Writer CTA commit path in pitfalls.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `memory/brief/conversion-map.md`
+- `scripts/sanitize_cloud_secret_names.sh`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

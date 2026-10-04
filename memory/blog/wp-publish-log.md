@@ -31,3 +31,16 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-04 — B01 kak-zakazat-avto-iz-yaponii-pod-klyuch-2026
+
+- verdict: PASS (reconstructed after HTTP 504)
+- post_id: 3837
+- permalink: [PUBLIC_SITE_URL]/2026/09/30/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/
+- featured_image: 3986
+- inline_images: 3987, 3988, 3989
+- schema_meta: 1 (FAQPage+HowTo in post meta; theme JSON-LD still own BlogPosting graph)
+- skip_theme_faq_meta: 1
+- live_HEAD: 200
+- notes: local urllib timeout → WebFetch/curl also 504; PHP completed; verified via WP REST + SSH meta-check
+- duplicate media from double-trigger: 3980–3983 (partial first run; live uses 3986–3989)

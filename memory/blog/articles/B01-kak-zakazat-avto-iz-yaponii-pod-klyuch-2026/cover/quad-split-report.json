@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2736,
+      1536
+    ],
+    "panel_size_px": [
+      1337,
+      769
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 769,
+        "end": 807
+      },
+      "v_gutter_px": {
+        "start": 1337,
+        "end": 1367
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 8,
+          "right": 1337,
+          "bottom": 760
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1337,
+          "bottom": 769
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у порта Владивостока рядом с японским седаном и ролкером, плашка «под заказ»",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1367,
+          "top": 0,
+          "right": 2736,
+          "bottom": 769
+        },
+        "raw_box_px": {
+          "left": 1367,
+          "top": 0,
+          "right": 2736,
+          "bottom": 769
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица-мокап: рамка заказа до выбора лота — бюджет, кузов, год, пробег, доставка",
+        "h2_anchor": "Зафиксируйте рамку заказа до выбора конкретного лота"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 20,
+          "top": 807,
+          "right": 1316,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 807,
+          "right": 1337,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Скриншот карточки лота на аукционе: что проверить до депозита",
+        "h2_anchor": "Как выбрать лот на аукционе до оплаты депозита"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1403,
+          "top": 807,
+          "right": 2699,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 1367,
+          "top": 807,
+          "right": 2736,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема этапов после ставки: выкуп, ролкер, СВХ и выдача",
+        "h2_anchor": "Пройдите этапы после ставки: выкуп, ролкер, СВХ"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте рамку заказа до выбора конкретного лота",
+    "injected inline_2 after H2 — Как выбрать лот на аукционе до оплаты депозита",
+    "injected inline_3 after H2 — Пройдите этапы после ставки: выкуп, ролкер, СВХ"
+  ]
+}

@@ -24,7 +24,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
 - `rg` --blog-path only in intentional docs/warnings
-commit: pending-parent-commit
+commit: f68c648
 
 
 ## INC-20261005-2135-schema-secret-scan-allowlist
@@ -41,7 +41,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - docs rg for pragma allowlist secret in schema skills
-commit: pending-parent-commit
+commit: f68c648
 
 
 
@@ -63,7 +63,7 @@ files_changed:
 checks_run:
 - CTA placeholder unit → fail kind=cta_placeholder
 - `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
-commit: pending-parent-commit
+commit: f68c648
 
 
 ## INC-20261005-2135-writer-utility-pain-markers-missing
@@ -79,7 +79,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - doctor OK editorial-policy pain/outcome markers
-commit: pending-parent-commit
+commit: f68c648
 
 
 ## INC-20261005-2125-research-pain-map-tech-false-positive
@@ -96,7 +96,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - PYTHONPATH=scripts pain-map rows=3 + auto topic not technical
-commit: pending-parent-commit
+commit: f68c648
 
 
 ## INC-20261004-2120-scout-precommit-redacted-secret-name
@@ -115,7 +115,7 @@ files_changed:
 checks_run:
 - `bash -n scripts/excalibur_git.sh`
 - doctor OK excalibur_git.sh exists
-commit: pending-parent-commit
+commit: f68c648
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -168,7 +168,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: f68c648
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -219,7 +219,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: f68c648
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -260,7 +260,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: f68c648
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -307,7 +307,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: f68c648
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -361,7 +361,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: f68c648
 
 
 ## INC-20261005-2147-publish-http-timeout-soft-success
@@ -379,7 +379,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - cover_alt preference on B01 registry
-commit: pending-parent-commit
+commit: f68c648
 
 
 
@@ -425,7 +425,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_today.py` → TOPIC_SELECTION=ready SUGGESTED=AS01
 - scout helper Active article dirs includes AS08/AS09/B01
-commit: pending-parent-commit
+commit: f68c648
 
 ## INC-20261005-2151-wp-slug-live-dedupe
 status: fixed
@@ -470,7 +470,7 @@ files_changed:
 checks_run:
 - research_start helpers present (lookup_live_wp_slug / seed_meta_wp_post_id)
 - today compact WP posts include id|date|slug|title
-commit: pending-parent-commit
+commit: f68c648
 
 
 ## Fixed incidents

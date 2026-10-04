@@ -25,6 +25,7 @@ category: script
 - Разметил строки pain_solution_map словами боль/решение/результат.
 - Вставил 3 реальных GitHub URL (RusLawOD, legal-space-research, esia-gosuslugi) как формальный evidence + оставил official/community docs.
 - Gate после правок: PASS.
+- Commit hook заблокировал `research-serp.json` из-за `PUBLIC_SITE_URL` в SERP URL своего сайта; значения заменены на `[REDACTED_SITE]` / `[REDACTED_HOST]` перед повторным commit.
 
 ### Durable fix needed before next run
 - В `is_technical_topic` использовать word-boundary / token match, а не `marker in blob` для коротких маркеров вроде `ai`, `rag`, `make`.

@@ -51,7 +51,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
 - `rg` confirms doctor asserts `--blog-dir`
-commit: pending-parent-commit
+commit: da1325e
 
 
 ## INC-20261004-1350-publish-http-timeout-soft-success
@@ -106,7 +106,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - unit: sanitize_schema + timeout constants
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check`
-commit: pending-parent-commit
+commit: da1325e
 
 
 ## INC-20261004-1342-indexer-precommit-secret-names
@@ -160,7 +160,7 @@ files_changed:
 checks_run:
 - sourced sanitize script with dirty SECRET_NAMES → only valid identifiers remain
 - llms pragma unit assert
-commit: pending-parent-commit
+commit: da1325e
 
 ## INC-20261004-1338-cover-hero-rehost-fallback
 status: fixed
@@ -205,7 +205,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
-commit: pending-parent-commit
+commit: da1325e
 
 ## INC-20261004-1335-schema-secret-scan-jsonld
 status: fixed
@@ -255,7 +255,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - schema sanitize unit assert
-commit: pending-parent-commit
+commit: da1325e
 
 
 ## INC-20261004-1330-geo-qa-utility-pain-markers-missing
@@ -312,7 +312,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - utility gate on B01 → PASS
-commit: pending-parent-commit
+commit: da1325e
 
 
 ## INC-20261004-1405-writer-cta-secret-scan
@@ -359,7 +359,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - sanitize script identifier filter assert
-commit: pending-parent-commit
+commit: da1325e
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -654,7 +654,7 @@ checks_run:
 - `--suggest-next` reports Live WP slugs loaded: 100
 - `--check-slug sbkts-i-epts-...` → OVERLAP exit 1
 - unique slug → exit 0
-commit: pending-parent-commit
+commit: da1325e
 
 ## INC-20261004-1320-scout-precommit-secret-names
 status: fixed
@@ -695,7 +695,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - sanitize script filters `[REDACTED]` and bare URLs from SECRET_NAMES
-commit: pending-parent-commit
+commit: da1325e
 
 ## INC-20261004-1345-research-notes-gate-accessed-at-colon
 status: fixed
@@ -743,7 +743,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - research notes gate B01 PASS; accessed_at=30; technical_topic=False
-commit: pending-parent-commit
+commit: da1325e
 
 ## Fixed incidents
 

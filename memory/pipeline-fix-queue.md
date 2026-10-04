@@ -6,8 +6,56 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None for run 2026-10-04 after fixer._
+
+
+## INC-20261004-1314-director-doctor-llms-blog-path
+status: fixed
+run_date: 2026-10-04
+role: excalibur-blog-director
+topic_id: B01
+article_dir: memory/blog/articles/B01-prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki
+severity: medium
+category: script
+
+### What went wrong
+- `python3 scripts/excalibur_blog_doctor.py` FAIL: asserts llms generator supports `--blog-path`.
+- Actual CLI uses `--blog-dir` (aligned with pitfalls/memory). Doctor check is stale and causes false preflight error.
+
+### How the agent recovered this run
+- Continued pipeline; Indexer used `--blog-dir` successfully.
+
+### Durable fix needed before next run
+- Update doctor to assert `--blog-dir` (not `--blog-path`), matching `excalibur_blog_llms_generator.py` and `shared/agent-pipeline-pitfalls.md`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Doctor now asserts llms generator `--blog-dir` (removed stale `--blog-path` check).
+- Indexer agent/skill examples aligned to `--blog-dir` only.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
+- `rg` confirms doctor asserts `--blog-dir`
+commit: pending-parent-commit
+
+
 ## INC-20261004-1350-publish-http-timeout-soft-success
-status: open
+status: fixed
 run_date: 2026-10-04
 role: excalibur-blog-publish
 topic_id: B01
@@ -43,11 +91,26 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Publish script: paramiko `banner_timeout=60`, HTTP trigger 300s, WebFetch wait 300s, REST soft-success poll by slug, strip `x-excalibur-scan` from schema before meta.
+- Skills/contract document single-trigger rule and soft-success path; `SSH_ROOT=.` called out.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- unit: sanitize_schema + timeout constants
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check`
+commit: pending-parent-commit
 
 
 ## INC-20261004-1342-indexer-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-10-04
 role: excalibur-blog-indexer
 topic_id: B01
@@ -83,10 +146,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Shipped `scripts/sanitize_cloud_secret_names.sh`; indexer skill documents source-before-commit + llms pragma.
+- llms generator emits `pragma: allowlist secret` on live URL lines.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- sourced sanitize script with dirty SECRET_NAMES → only valid identifiers remain
+- llms pragma unit assert
+commit: pending-parent-commit
 
 ## INC-20261004-1338-cover-hero-rehost-fallback
-status: open
+status: fixed
 run_date: 2026-10-04
 role: excalibur-blog-cover
 topic_id: B01
@@ -116,10 +193,22 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- `hero_reference_url.py --force`: on catbox/0x0 failure keeps existing hosted URL (http→https); no COVER HERO BLOCKER when URL already valid.
+- Cover skill documents fallback order.
+files_changed:
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
+commit: pending-parent-commit
 
 ## INC-20261004-1335-schema-secret-scan-jsonld
-status: open
+status: fixed
 run_date: 2026-10-04
 role: excalibur-blog-schema
 topic_id: B01
@@ -153,11 +242,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Schema skill documents sanitize + pragma/`x-excalibur-scan` allowlist pattern.
+- Publish strips `x-excalibur-scan` before writing post meta; sanitize script shipped.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/sanitize_cloud_secret_names.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- schema sanitize unit assert
+commit: pending-parent-commit
 
 
 ## INC-20261004-1330-geo-qa-utility-pain-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-04
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -195,11 +297,26 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Confirmed `editorial-policy.json` has pain/outcome markers; utility_gate soft-skips empty lists.
+- Documented in pitfalls + writer/geo-qa skills; secret-scan sanitize for link-verify commits.
+files_changed:
+- `memory/brief/editorial-policy.json` (already present; verified)
+- `scripts/excalibur_blog_utility_gate.py` (already soft-skip; verified)
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- utility gate on B01 → PASS
+commit: pending-parent-commit
 
 
 ## INC-20261004-1405-writer-cta-secret-scan
-status: open
+status: fixed
 run_date: 2026-10-04
 role: excalibur-blog-writer
 topic_id: B01
@@ -231,7 +348,18 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Writer skill documents live CTA + HTML pragma allowlist + sanitize_cloud_secret_names.sh before commit.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- sanitize script identifier filter assert
+commit: pending-parent-commit
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -480,7 +608,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20261004-1318-scout-wp-live-slug-blindspot
-status: open
+status: fixed
 run_date: 2026-10-04
 role: excalibur-blog-scout
 topic_id: B01
@@ -510,10 +638,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- scout_helper loads `memory/blog/published-live-*.json`; `--check-query` overlaps live titles; `--check-slug` exact/high-overlap against live slugs.
+- Scout agent/skill require live slug audit when ledger incomplete.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `--suggest-next` reports Live WP slugs loaded: 100
+- `--check-slug sbkts-i-epts-...` → OVERLAP exit 1
+- unique slug → exit 0
+commit: pending-parent-commit
 
 ## INC-20261004-1320-scout-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-10-04
 role: excalibur-blog-scout
 topic_id: B01
@@ -540,10 +684,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Restored `scripts/sanitize_cloud_secret_names.sh`; documented in Scout skill + pitfalls.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- sanitize script filters `[REDACTED]` and bare URLs from SECRET_NAMES
+commit: pending-parent-commit
 
 ## INC-20261004-1345-research-notes-gate-accessed-at-colon
-status: open
+status: fixed
 run_date: 2026-10-04
 role: excalibur-blog-research
 topic_id: B01
@@ -574,7 +729,21 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-04
+fix_summary:
+- Gate counts ISO dates in markdown source-table URL rows, not only `accessed_at:` literals.
+- `technical_topic` uses word-boundary markers; bare github/make in notes no longer force technical; official PDF/legal URLs count as docs.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `agents/excalibur-blog-research.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- research notes gate B01 PASS; accessed_at=30; technical_topic=False
+commit: pending-parent-commit
 
 ## Fixed incidents
 

@@ -24,7 +24,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `rg` for `poll_wp_rest_by_slug` / `recover=wp_rest_poll`
-commit: pending-parent-commit
+commit: f9ae0f68b3521f12022368fc9926ed37de92f2c3
 
 run_date: 2026-10-04
 role: excalibur-blog-publish
@@ -71,7 +71,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `rg` for `poll_wp_rest_by_slug` / `recover=wp_rest_poll`
-commit: pending-parent-commit
+commit: f9ae0f68b3521f12022368fc9926ed37de92f2c3
 
 ## INC-20261004-0938-indexer-llms-blog-path-stale
 status: fixed
@@ -89,7 +89,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `rg` no durable `--blog-path` CLI examples
-commit: pending-parent-commit
+commit: f9ae0f68b3521f12022368fc9926ed37de92f2c3
 
 run_date: 2026-10-04
 role: excalibur-blog-indexer
@@ -137,7 +137,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `rg` no durable `--blog-path` CLI examples
-commit: pending-parent-commit
+commit: f9ae0f68b3521f12022368fc9926ed37de92f2c3
 
 
 ## INC-20261004-0935-cover-hero-rehost-fallback
@@ -154,7 +154,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
 - `--help` shows providers catbox/0x0/ssh/auto
-commit: pending-parent-commit
+commit: f9ae0f68b3521f12022368fc9926ed37de92f2c3
 
 run_date: 2026-10-04
 role: excalibur-blog-cover
@@ -198,7 +198,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
 - `--help` shows providers catbox/0x0/ssh/auto
-commit: pending-parent-commit
+commit: f9ae0f68b3521f12022368fc9926ed37de92f2c3
 
 
 ## INC-20261004-0940-schema-precommit-brand-urls
@@ -216,7 +216,7 @@ files_changed:
 checks_run:
 - `bash -n scripts/sanitize_cloud_secret_names.sh`
 - sanitize strips `[REDACTED]`/URL tokens from CLOUD_AGENT_*_SECRET_NAMES
-commit: pending-parent-commit
+commit: f9ae0f68b3521f12022368fc9926ed37de92f2c3
 
 run_date: 2026-10-04
 role: excalibur-blog-schema
@@ -263,7 +263,7 @@ files_changed:
 checks_run:
 - `bash -n scripts/sanitize_cloud_secret_names.sh`
 - sanitize strips `[REDACTED]`/URL tokens from CLOUD_AGENT_*_SECRET_NAMES
-commit: pending-parent-commit
+commit: f9ae0f68b3521f12022368fc9926ed37de92f2c3
 
 
 ## INC-20261004-0935-geo-qa-generalpurpose-fallback
@@ -282,7 +282,7 @@ files_changed:
 - `AGENTS.md`
 checks_run:
 - `python3 scripts/excalibur_blog_link_verify.py --help` shows `--redact-secrets`
-commit: pending-parent-commit
+commit: f9ae0f68b3521f12022368fc9926ed37de92f2c3
 
 run_date: 2026-10-04
 role: excalibur-blog-geo-qa
@@ -333,7 +333,7 @@ files_changed:
 - `AGENTS.md`
 checks_run:
 - `python3 scripts/excalibur_blog_link_verify.py --help` shows `--redact-secrets`
-commit: pending-parent-commit
+commit: f9ae0f68b3521f12022368fc9926ed37de92f2c3
 
 ## INC-20261004-0930-writer-utility-pain-markers-missing
 status: fixed
@@ -350,7 +350,7 @@ files_changed:
 - `shared/editorial-utility-only.md`
 checks_run:
 - utility gate PASS + human-voice PASS on B01 article
-commit: pending-parent-commit
+commit: f9ae0f68b3521f12022368fc9926ed37de92f2c3
 
 run_date: 2026-10-04
 role: excalibur-blog-writer
@@ -399,7 +399,7 @@ files_changed:
 - `shared/editorial-utility-only.md`
 checks_run:
 - utility gate PASS + human-voice PASS on B01 article
-commit: pending-parent-commit
+commit: f9ae0f68b3521f12022368fc9926ed37de92f2c3
 
 ## INC-20261004-0920-research-workflow-tech-marker
 status: fixed
@@ -415,7 +415,7 @@ files_changed:
 checks_run:
 - research-notes gate PASS on B01; technical_topic=False for how-to workflow intent
 - unit smoke for count_accessed_dates + is_technical_topic
-commit: pending-parent-commit
+commit: f9ae0f68b3521f12022368fc9926ed37de92f2c3
 
 run_date: 2026-10-04
 role: excalibur-blog-research
@@ -462,7 +462,7 @@ files_changed:
 checks_run:
 - research-notes gate PASS on B01; technical_topic=False for how-to workflow intent
 - unit smoke for count_accessed_dates + is_technical_topic
-commit: pending-parent-commit
+commit: f9ae0f68b3521f12022368fc9926ed37de92f2c3
 
 ## INC-20261004-0915-scout-precommit-secret-names
 status: fixed
@@ -479,7 +479,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - sanitize dry-run keeps only bash identifiers
-commit: pending-parent-commit
+commit: f9ae0f68b3521f12022368fc9926ed37de92f2c3
 
 run_date: 2026-10-04
 role: excalibur-blog-scout
@@ -525,7 +525,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - sanitize dry-run keeps only bash identifiers
-commit: pending-parent-commit
+commit: f9ae0f68b3521f12022368fc9926ed37de92f2c3
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

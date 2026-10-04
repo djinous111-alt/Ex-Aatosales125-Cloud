@@ -1,7 +1,7 @@
 # Promotion checklist — B01 rastamozhka-avto-iz-kitaya-2026
 
-Дата публикации: (pending publish)  
-Live URL: https://avtosales125.ru/blog/rastamozhka-avto-iz-kitaya-2026/ // pragma: allowlist secret
+Дата публикации: 2026-10-05  
+Live URL: https://avtosales125.ru/2026/07/22/rastamozhka-avto-iz-kitaya-2026/ // pragma: allowlist secret
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Три платежа государству ≠ «цена под ключ»
 • «Растаможили» без ЭПТС — ещё рано на учёт
 
-Читать: https://avtosales125.ru/blog/rastamozhka-avto-iz-kitaya-2026/ // pragma: allowlist secret
+Читать: https://avtosales125.ru/2026/07/22/rastamozhka-avto-iz-kitaya-2026/ // pragma: allowlist secret
 ```
 
 ## Перелинковка

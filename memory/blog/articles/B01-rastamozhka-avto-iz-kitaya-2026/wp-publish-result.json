@@ -1,0 +1,18 @@
+{
+  "slug": "rastamozhka-avto-iz-kitaya-2026",
+  "topic_id": "B01",
+  "permalink": "[PUBLIC_SITE_URL]/2026/07/22/rastamozhka-avto-iz-kitaya-2026/",
+  "post_id": 3601,
+  "featured_image": 4023,
+  "inline_images": [
+    4025,
+    4026,
+    4028
+  ],
+  "schema_meta": true,
+  "publish_method": "ssh+curl-fallback-soft-success",
+  "cover_evidence": {},
+  "raw_output": "OK post=3601 slug=rastamozhka-avto-iz-kitaya-2026\nOK featured_image=4023\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4025 src=cover/inline-01.png url=[PUBLIC_SITE_URL]/wp-content/uploads/2026/07/rastamozhka-avto-iz-kitaya-2026-inline-01-3.png\nOK inline_image_upload=4026 src=cover/inline-02.png url=[PUBLIC_SITE_URL]/wp-content/uploads/2026/07/rastamozhka-avto-iz-kitaya-2026-inline-02-3.png\nOK inline_image_upload=4028 src=cover/inline-03.png url=[PUBLIC_SITE_URL]/wp-content/uploads/2026/07/rastamozhka-avto-iz-kitaya-2026-inline-03-3.png\npermalink=[PUBLIC_SITE_URL]/2026/07/22/rastamozhka-avto-iz-kitaya-2026/\n",
+  "verdict": "pass",
+  "notes": "Primary urllib timeout 120s; curl fallback HTTP 200 in ~109s; publish script fallback wait expired before file write — reconstructed from curl body + REST confirm"
+}

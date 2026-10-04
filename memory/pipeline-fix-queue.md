@@ -464,6 +464,47 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+
+## INC-20261005-2147-publish-http-timeout-soft-success
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026
+severity: medium
+category: publish
+
+### What went wrong
+- Local urllib HTTP trigger of `excalibur-blog-publish-once.php` hit TimeoutError at 120s while PHP continued (7MB payload).
+- Script Cloud WebFetch Fallback wait is only 120s; curl `--max-time 300` returned full OK body in ~109s after fallback start, but the Python wait loop already expired → `RuntimeError: Cloud WebFetch Fallback timed out`.
+- Overlapping first HTTP + curl re-trigger created orphan media with `-2` suffixes (4021/4022/4024/4027) before final `-3` set (4023/4025/4026/4028).
+- `article.meta.json` `cover_alt` was stale vs `cover-registry.json` `alt`; publish script prefers meta/`cover_alt_text` and does not read registry `alt`.
+
+### How the agent recovered this run
+- Parallel curl fallback + WP REST poll by slug; curl HTTP 200 with full OK lines.
+- Soft-success: reconstructed `wp-publish-result.json`, updated ledger, live HEAD 200, SSH schema meta-check (schema_len≈12863).
+- Patched featured alt 4023 from registry; synced meta `cover_alt`.
+- Did not create a new post — updated existing slug post 3601 (correct for this slug).
+
+### Durable fix needed before next run
+- Increase fallback wait beyond 120s (or stream curl into `memory/webfetch-response.txt` from skill before wait expires).
+- Prefer REST soft-success path inside `excalibur_blog_wp_publish.py` when slug/`OK` evidence appears, to avoid second bootstrap trigger/orphans.
+- Make payload `cover_alt` fall back to `cover-registry.json` key `alt` when meta `cover_alt`/`cover_alt_text` empty or diverge.
+- Document: for existing WP slug, publish updates the same post_id (here 3601); do not treat as accidental republish of unrelated IDs.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

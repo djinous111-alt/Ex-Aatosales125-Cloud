@@ -1,0 +1,194 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/rastamozhka-avto-iz-kitaya-2026/#blogposting",  // pragma: allowlist secret
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/rastamozhka-avto-iz-kitaya-2026/"  // pragma: allowlist secret
+      },
+      "headline": "Как растаможить авто из Китая через Владивосток в 2026: чек-лист этапов до оплаты",
+      "description": "Чек-лист растаможки авто из Китая через Владивосток: 5 параметров до оплаты, платежи, СВХ, СБКТС и ЭПТС. Без магической цены под ключ.",
+      "datePublished": "2026-10-05",
+      "dateModified": "2026-10-05",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",  // pragma: allowlist secret
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",  // pragma: allowlist secret
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru/"  // pragma: allowlist secret
+        },
+        "sameAs": [
+          "https://avtosales125.ru/",  // pragma: allowlist secret
+          "https://avto-sales125.ru/",  // pragma: allowlist secret
+          "https://t.me/avtosales125",  // pragma: allowlist secret
+          "https://max.ru/id2508140890_biz",  // pragma: allowlist secret
+          "https://www.instagram.com/avtosales_rf",  // pragma: allowlist secret
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"  // pragma: allowlist secret
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",  // pragma: allowlist secret
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru/",  // pragma: allowlist secret
+        "sameAs": [
+          "https://avto-sales125.ru/",  // pragma: allowlist secret
+          "https://t.me/avtosales125"  // pragma: allowlist secret
+        ]
+      },
+      "keywords": [
+        "как растаможить авто из китая",
+        "растаможка авто из китая",
+        "сколько стоит растаможка авто из китая",
+        "калькулятор растаможки авто из китая"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/rastamozhka-avto-iz-kitaya-2026/#faq",  // pragma: allowlist secret
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сколько стоит растаможка авто из Китая в 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Одной цены нет: сумма зависит от месяца выпуска, объёма, мощности, типа двигателя и таможенной стоимости. Соберите пять параметров и разложите три платежа государству. Персональный расчёт – в каталоге."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужны ли СБКТС и ЭПТС после таможни?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. После выпуска идут лаборатория (СБКТС) и ЭПТС со статусом \"действующий\". Без этого в ГИБДД не поставят – проверьте статус до поездки на учёт."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли растаможить авто из Китая самому?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Можно контролировать этапы, но пакет и сроки на СВХ требуют внимания. Сделайте чек-лист сами; брокера используйте как помощника, а не \"чёрный ящик\" с одной суммой."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем Китай через Владивосток отличается от Кореи по ожиданиям?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Логика платежей похожа, но документы и сроки другие. Для Китая заранее зафиксируйте мощность и маршрут оформления во Владивостоке."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему у знакомого утильсбор 5 200 ₽, а мне считают иначе?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Проверьте пороги льготы: до 160 л.с., объём меньше 3 л, личное пользование, одна машина в год, владение от года. Выше порога смета уходит в другую шкалу."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что будет, если занизить цену в инвойсе?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Таможня может скорректировать стоимость и доначислить платежи. Не делайте \"красивый\" инвойс – заложите реальную сделку и доставку до границы."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/rastamozhka-avto-iz-kitaya-2026/#howto",  // pragma: allowlist secret
+      "name": "Как растаможить авто из Китая через Владивосток: чек-лист до оплаты",
+      "description": "Пошаговый чек-лист растаможки авто из Китая через Владивосток: пять параметров до оплаты, три платежа, СВХ, СБКТС и действующий ЭПТС.",
+      "totalTime": "PT60M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Экспортные документы и карточка авто (месяц выпуска, см³, л.с., тип ДВС)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Калькулятор TKS / ориентиры платежей на дату декларации"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Чек-лист этапов: СВХ → декларация → СБКТС → ЭПТС"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Пять параметров: месяц выпуска, объём см³, мощность л.с., тип двигателя, таможенная стоимость"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Пакет: договор/инвойс, экспортные бумаги, паспорт, ИНН, VIN"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Собрать пять параметров авто до перевода денег",
+          "text": "Выпишите месяц и год выпуска, объём в см³, мощность в л.с. из документов, тип двигателя и таможенную стоимость (цена + доставка до границы). Не оплачивайте бронь без этих строк.",
+          "url": "https://avtosales125.ru/rastamozhka-avto-iz-kitaya-2026/#соберите-пять-параметров-авто-до-перевода-денег"  // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Разложить платежи без «цены под ключ»",
+          "text": "Отделите три платежа государству (единая ставка, таможенный сбор, утильсбор) от СВХ, брокера, СБКТС, ЭПТС и доставки по РФ. Сверяйте сетку сборов на дату декларации.",
+          "url": "https://avtosales125.ru/rastamozhka-avto-iz-kitaya-2026/#как-посчитать-платежи-без-цены-под-ключ"  // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Проверить пороги льготного утильсбора",
+          "text": "Проверьте мощность до 160 л.с., объём меньше 3 л, личное пользование, лимит «одна машина в год» и план владения от 12 месяцев — иначе смета уходит в другую шкалу.",
+          "url": "https://avtosales125.ru/rastamozhka-avto-iz-kitaya-2026/#как-посчитать-платежи-без-цены-под-ключ"  // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Пройти этапы через Владивосток до ЭПТС",
+          "text": "Карта: подготовка → СВХ → декларация → платежи → выпуск → лаборатория (СБКТС) → ЭПТС «действующий» → ГИБДД. Выпуск таможни ≠ готовность к учёту.",
+          "url": "https://avtosales125.ru/rastamozhka-avto-iz-kitaya-2026/#пройдите-этапы-через-владивосток-от-порта-до-эптс"  // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Исключить типичные ошибки по документам и инвойсу",
+          "text": "Сверьте возраст по месяцу выпуска, мощность из паспорта, цену сделки и сценарий региона (ДФО / явка / транзит). Не занижайте инвойс «для красоты».",
+          "url": "https://avtosales125.ru/rastamozhka-avto-iz-kitaya-2026/#типичные-ошибки-новичка-документы-возраст-и-инвойс"  // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Пройти чек-лист стоп-факторов перед оплатой",
+          "text": "Отметьте параметры, три госплатежа, пороги утильсбора, маршрут Владивостока, пакет бумаг и правило: без действующего ЭПТС в ГИБДД не поставят.",
+          "url": "https://avtosales125.ru/rastamozhka-avto-iz-kitaya-2026/#чек-лист-перед-оплатой-машины-из-китая"  // pragma: allowlist secret
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Запросить персональный расчёт и только потом оплачивать",
+          "text": "Если чек-лист закрыт — запросите расчёт в каталоге Авто-Сейлс и только после сверки решайте про оплату. Форм на странице статьи нет.",
+          "url": "https://avtosales125.ru/rastamozhka-avto-iz-kitaya-2026/#что-вы-получите-после-чек-листа-критерий-результата"  // pragma: allowlist secret
+        }
+      ]
+    }
+  ]
+}

@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261004-1342-indexer-precommit-secret-names
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki
+severity: medium
+category: env
+
+### What went wrong
+- First `git commit` of indexer artifacts failed: pre-commit hook `invalid variable name` because `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a bare URL token (not a valid shell identifier).
+- Regenerated `llms.txt` / `llms-full.txt` / `promotion-checklist.md` contain `PUBLIC_SITE_URL` on new lines → secret scan blocks without `pragma: allowlist secret`.
+- Skill/agent docs still show `llms_generator --blog-path /`, but the script only accepts `--blog-dir` (related to doctor stale check).
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_*_SECRET_NAMES` to valid shell identifiers for the commit session.
+- Added `pragma: allowlist secret` on lines with live site URLs in llms + promotion-checklist; redacted `site_base` in `interlink-report.json` to path-only `/blog`.
+- Ran llms generator with `--blog-dir` only (no `--blog-path`).
+- Commit/push succeeded (`413dcbc`).
+
+### Durable fix needed before next run
+- Ship `scripts/sanitize_cloud_secret_names.sh` and document Indexer commit path (llms/promotion pragma) in pitfalls + indexer skill.
+- Align doctor/skill with actual `excalibur_blog_llms_generator.py` flags (`--blog-dir`, no `--blog-path`).
+- Optionally teach llms generator to emit pragma on URL lines when site-base is secret-scanned.
+
+### Suggested files to inspect/change
+- `scripts/sanitize_cloud_secret_names.sh`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261004-1338-cover-hero-rehost-fallback
 status: open
 run_date: 2026-10-04

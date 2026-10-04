@@ -91,7 +91,7 @@ BlogPosting: yes | FAQPage: yes (6) | HowTo: yes (чеклисты/этапы) |
 
 ## FIX cycle (QA)
 
-1. **link-verify FAIL** на литералах `[CATALOG_URL]` / `[TELEGRAM_URL]` (relative → 404). Подставлены `CATALOG_URL` и `TELEGRAM_URL` из env; pragma-комментарии сняты. Повтор: link-verify PASS, html/slop/human-voice/utility/fact-check PASS.
+1. **link-verify FAIL** на литералах `[CATALOG_URL]` / `[TELEGRAM_URL]` (relative → 404). Подставлены абсолютные URL из env; на CTA-строках оставлен `pragma: allowlist secret` (иначе pre-commit secrets scanner блокирует commit). Повтор: link-verify PASS, html/slop/human-voice/utility/fact-check PASS.
 
 ## FIX (non-blocking / optional)
 

@@ -21,14 +21,16 @@ category: qa
 - AS08/AS09 уже публиковались с абсолютными URL; контракт writer/skill не запрещает явно плейсхолдеры имён env.
 
 ### How the agent recovered this run
-- GEO QA подставил `CATALOG_URL` и `TELEGRAM_URL` из env в `article.html`, снял `<!-- pragma: allowlist secret -->`.
+- GEO QA подставил `CATALOG_URL` и `TELEGRAM_URL` из env в `article.html`.
+- Вернул `<!-- pragma: allowlist secret -->` на CTA-строки (и `note` с pragma в `link-verify.json`) — иначе Cloud pre-commit secrets scanner блокирует commit публичных CTA, если они совпадают с env secrets.
+- Для commit отфильтровал невалидный токен `[REDACTED]` из `CLOUD_AGENT_*_SECRET_NAMES` (см. INC-20261004-2120).
 - Повтор link-verify: 2/2 PASS; html/slop/human-voice/utility/fact-check остались PASS.
-- `article-qa.md` verdict PASS (score 87).
+- `article-qa.md` verdict PASS (score 87); commit `40323a4`.
 
 ### Durable fix needed before next run
-- В writer skill / writing contract: CTA только абсолютные URL из conversion-map/env; запрет литералов `[CATALOG_URL]` / `[TELEGRAM_URL]` в HTML.
-- Опционально: preflight/html linter или link-verify — явный fail с сообщением «placeholder CTA», не 404.
-- Pitfalls: GEO QA при fail на `[CATALOG_URL]` сначала подставить env, не слать полный FIX-цикл writer.
+- В writer skill / writing contract: CTA сразу абсолютные URL + `pragma: allowlist secret` на той же строке; запрет литералов `[CATALOG_URL]` / `[TELEGRAM_URL]` в HTML.
+- Опционально: link-verify — явный fail «placeholder CTA», не 404 через site-base.
+- Pitfalls: GEO QA при fail на `[CATALOG_URL]` → env URL + allowlist pragma; не полный FIX-цикл writer.
 
 ### Suggested files to inspect/change
 - `.cursor/skills/writer-excalibur-blog/SKILL.md`

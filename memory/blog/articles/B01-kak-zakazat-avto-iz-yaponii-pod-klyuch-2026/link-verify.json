@@ -5,7 +5,7 @@
   "verdict": "pass",
   "links": [
     {
-      "url": "https://CATALOG.example/",
+      "url": "https://avto-sales125.ru/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
@@ -14,7 +14,7 @@
       "skipped": false
     },
     {
-      "url": "https://t.me/TELEGRAM.example",
+      "url": "https://t.me/avtosales125",
       "status": 200,
       "ok": true,
       "method": "HEAD",
@@ -22,6 +22,5 @@
       "kind": "external",
       "skipped": false
     }
-  ],
-  "note": "CTA URLs redacted for secret-scan; live verify already PASS against real endpoints"
+  ]
 }

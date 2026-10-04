@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261004-0945-publish-http-504-reconstruct
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-yaponii-pod-klyuch-2026
+severity: medium
+category: publish
+
+### What went wrong
+- SSH upload OK (~7MB PHP bootstrap), but local urllib HTTP trigger hit TimeoutError (~120s).
+- Cloud WebFetch/curl fallback also returned nginx 504 while PHP continued on server.
+- Publish script raised RuntimeError (fallback wait) before writing `wp-publish-result.json`, even though WP post/media completed.
+
+### How the agent recovered this run
+- Polled WP REST by slug: post 3837 updated; featured 3986; inline media 3987/3988/3989; content src → WP uploads.
+- SSH one-shot meta-check confirmed `_excalibur_blog_schema_jsonld` + `_excalibur_blog_skip_theme_faq`.
+- Reconstructed `wp-publish-result.json` (verdict pass); updated ledger/log/promotion/handoff.
+- Note: double-trigger left orphan media 3980–3983 from first partial run.
+
+### Durable fix needed before next run
+- Teach `excalibur_blog_wp_publish.py` to treat HTTP 504 + successful WP REST poll (slug/post/media) as soft success and write result JSON.
+- Optionally increase trigger timeout / stream progress; avoid second trigger while first PHP still running (lock file or PID).
+- Document REST-poll reconstruct path in publish skill (already in lessons; make script-native).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261004-0938-indexer-llms-blog-path-stale
 status: open
 run_date: 2026-10-04

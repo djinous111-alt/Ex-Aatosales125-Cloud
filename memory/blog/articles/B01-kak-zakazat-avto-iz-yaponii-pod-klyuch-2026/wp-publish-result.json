@@ -1,0 +1,25 @@
+{
+  "slug": "kak-zakazat-avto-iz-yaponii-pod-klyuch-2026",
+  "topic_id": "B01",
+  "post_id": 3837,
+  "permalink": "https://avtosales125.ru/2026/09/30/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/",
+  "featured_image": 3986,
+  "inline_images": [
+    3987,
+    3988,
+    3989
+  ],
+  "schema_meta": 1,
+  "skip_theme_faq_meta": 1,
+  "publish_method": "ssh",
+  "reconstructed_after": "http_504_timeout",
+  "cover_evidence": {
+    "path": "cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true
+  },
+  "raw_output": "OK post=3837 slug=kak-zakazat-avto-iz-yaponii-pod-klyuch-2026\nOK featured_image=3986\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=3987 src=cover/inline-01.png\nOK inline_image_upload=3988 src=cover/inline-02.png\nOK inline_image_upload=3989 src=cover/inline-03.png\npermalink=https://avtosales125.ru/2026/09/30/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/\nNOTE reconstructed_after_http_504 via WP REST + SSH meta-check\n",
+  "verdict": "pass",
+  "live_head": 200,
+  "publish_date": "2026-10-04"
+}

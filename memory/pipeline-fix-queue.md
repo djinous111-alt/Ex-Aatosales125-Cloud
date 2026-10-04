@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261004-1338-cover-hero-rehost-fallback
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki
+severity: medium
+category: api
+
+### What went wrong
+- `excalibur_blog_hero_reference_url.py --force` failed: catbox HTTP 412, then 0x0 HTTP 503.
+- Fresh rehost of `memory/cover/assets/blog-hero-reference.png` was unavailable during cover run.
+
+### How the agent recovered this run
+- Kept existing WP-hosted reference (byte size matches local PNG) and switched URL to https for Kie `input_urls`.
+- Generated quad canvas via Kie API (`excalibur_blog_kie_gpt_image2_api.py`) ONE i2i job; split+inject PASS.
+
+### Durable fix needed before next run
+- Document hero rehost fallback order in cover skill: catbox → 0x0 → existing WP/SSH upload; treat catbox 412/0x0 503 as expected soft-fail, not COVER HERO BLOCKER when a valid hosted URL already exists.
+- Optionally add SSH/WP upload provider to `excalibur_blog_hero_reference_url.py` when public paste hosts fail.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261004-1335-schema-secret-scan-jsonld
 status: open
 run_date: 2026-10-04

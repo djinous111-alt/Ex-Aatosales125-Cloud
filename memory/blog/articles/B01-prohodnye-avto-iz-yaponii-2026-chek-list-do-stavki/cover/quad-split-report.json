@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki/cover/canvas-quad.png",
+    "source_size_px": [
+      2736,
+      1536
+    ],
+    "panel_size_px": [
+      1372,
+      769
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 769,
+        "end": 810
+      },
+      "v_gutter_px": {
+        "start": 1372,
+        "end": 1424
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1372,
+          "bottom": 769
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1372,
+          "bottom": 769
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у японского авто с чек-листом год объём ставка, плашка до ставки, Владивосток",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1424,
+          "top": 15,
+          "right": 2736,
+          "bottom": 753
+        },
+        "raw_box_px": {
+          "left": 1424,
+          "top": 0,
+          "right": 2736,
+          "bottom": 769
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: проходное vs непроходное авто из Японии простыми словами",
+        "h2_anchor": "Разберите, что значит \"проходное\" авто без жаргона брокеров"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 40,
+          "top": 810,
+          "right": 1331,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 810,
+          "right": 1372,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: кузов → месяц выпуска → дата таможни → запас на логистику до ставки",
+        "h2_anchor": "Как посчитать возраст и месяц выпуска до ставки"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1434,
+          "top": 810,
+          "right": 2725,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 1424,
+          "top": 810,
+          "right": 2736,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Инфографика порогов 2026: объём двигателя и мощность до 160 л.с.",
+        "h2_anchor": "Сверьте объём двигателя и мощность: пороги 2026"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разберите, что значит \"проходное\" авто без жаргона брокеров",
+    "injected inline_2 after H2 — Как посчитать возраст и месяц выпуска до ставки",
+    "injected inline_3 after H2 — Сверьте объём двигателя и мощность: пороги 2026"
+  ]
+}

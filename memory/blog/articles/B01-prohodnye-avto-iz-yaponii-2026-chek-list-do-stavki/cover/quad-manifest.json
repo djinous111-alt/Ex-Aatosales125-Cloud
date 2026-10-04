@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Ставка без месяца — лотерея",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у японского авто с чек-листом год объём ставка, плашка до ставки, Владивосток",
+      "scene_hint": "WEATHER: cool windy Vladivostok port daylight, grey sea mist; OUTFIT: navy technical field jacket over charcoal knit sweater (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie holding phone + paper checklist strips «год / объём / ставка»; background modern Japanese sedan/crossover near ro-ro ship hint; torn paper Cyrillic hook plaque «Ставка без месяца — лотерея» with yellow highlighter on «лотерея»; sticky note «до ставки»; shocked meme cutout + cat reaction sticker (different formats); DIY zine collage with auction sheet mock + customs age checklist scrap taped; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics",
+      "meme_caption_ru": "До ставки проверь"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разберите, что значит \"проходное\" авто без жаргона брокеров",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns Проходное | Непроходное | что это значит; rows возраст 3–5 лет на таможню, месяц выпуска, полная пошлина vs сюрприз; yellow highlight key row; pink sticky «без жаргона»; scotch tape corner; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица: проходное vs непроходное авто из Японии простыми словами"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как посчитать возраст и месяц выпуска до ставки",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 5 steps with arrows: 1) кузов/аукционный лист 2) месяц выпуска 3) дата таможни 4) запас на пароход 5) ок/стоп до ставки; handwritten arrow «не год из заголовка»; mini auction sheet inset with tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема: кузов → месяц выпуска → дата таможни → запас на логистику до ставки"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сверьте объём двигателя и мощность: пороги 2026",
+      "visual_type": "infographic_card",
+      "scene_hint": "RU infographic card: big numbers см³ and 160 л.с. thresholds for 2026 Japan import; checklist ticks объём / мощность / комплектация; sticky «порог»; catalog mini card corner; NO hero face; NO Wordstat/Metrika; no toxic text",
+      "alt": "Инфографика порогов 2026: объём двигателя и мощность до 160 л.с."
+    }
+  }
+}

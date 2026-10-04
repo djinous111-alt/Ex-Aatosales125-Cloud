@@ -141,6 +141,23 @@ def main() -> int:
             last_error = exc
             print(f"WARN upload via {provider} failed: {exc}", file=sys.stderr)
 
+    # Soft-fail: catbox 412 / 0x0 503 are expected. Keep an already-hosted URL
+    # (WP/SSH/CDN) so Cover can continue without a fresh rehost.
+    if existing.startswith(("http://", "https://")):
+        kept = existing
+        if kept.startswith("http://"):
+            kept = "https://" + kept[len("http://") :]
+            hero["reference_url_hosted"] = kept
+            hero["reference_url_source"] = hero.get("reference_url_source") or "existing-https-fallback"
+            hero["reference_url_updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+            save_json(hero_path, hero)
+        print(
+            f"WARN rehost failed ({last_error}); keeping existing reference_url_hosted={kept}",
+            file=sys.stderr,
+        )
+        print(f"OK reference_url_hosted={kept} (existing-fallback)")
+        return 0
+
     print(f"❌ HERO BLOCKER: could not host reference: {last_error}", file=sys.stderr)
     return 1
 

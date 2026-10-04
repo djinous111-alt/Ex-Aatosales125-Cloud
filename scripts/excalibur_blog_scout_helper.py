@@ -66,6 +66,34 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
         })
     return topics
 
+
+def load_live_wp_posts(root: Path) -> list[dict[str, str]]:
+    """Load live WP slug/title snapshots so Scout sees posts after ledger reset."""
+    blog_dir = root / "memory" / "blog"
+    if not blog_dir.is_dir():
+        return []
+    posts: list[dict[str, str]] = []
+    seen_slugs: set[str] = set()
+    for path in sorted(blog_dir.glob("published-live-*.json")):
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        for item in data.get("posts") or []:
+            slug = str(item.get("slug") or "").strip().lower()
+            title = str(item.get("title") or "").strip()
+            if not slug or slug in seen_slugs:
+                continue
+            seen_slugs.add(slug)
+            posts.append({
+                "slug": slug,
+                "title": title,
+                "source": path.name,
+                "topic_id": f"LIVE:{slug[:24]}",
+                "primary_query": title or slug,
+            })
+    return posts
+
 def normalize_and_tokenize(text: str) -> set[str]:
     text = text.lower()
     text = re.sub(r"[^\w\s\-]", " ", text)
@@ -91,6 +119,8 @@ def check_overlap(new_query: str, existing_topics: list[dict[str, str]], reserve
         similarity = intersection / union
         
         status = "reserved" if t["topic_id"] in reserved_ids else "in_pool"
+        if str(t.get("topic_id", "")).startswith("LIVE:"):
+            status = "live_wp"
         
         if t["primary_query"].strip().lower() == new_query.strip().lower():
             warnings.append({
@@ -110,10 +140,58 @@ def check_overlap(new_query: str, existing_topics: list[dict[str, str]], reserve
             })
     return warnings
 
+
+def check_live_slug(slug: str, live_posts: list[dict[str, str]]) -> list[dict[str, Any]]:
+    slug_norm = slug.strip().lower().strip("/")
+    if not slug_norm:
+        return []
+    warnings: list[dict[str, Any]] = []
+    for post in live_posts:
+        live_slug = post["slug"]
+        if live_slug == slug_norm:
+            warnings.append({
+                "severity": "CRITICAL",
+                "topic_id": post["topic_id"],
+                "similarity": 1.0,
+                "status": "live_wp",
+                "message": (
+                    f"EXACT live WP slug match: '{live_slug}' "
+                    f"(source={post.get('source')}, title='{post.get('title')}')"
+                ),
+            })
+            continue
+        # Token overlap on slug fragments (sbkts-i-epts vs sbkts epts ...)
+        sim_tokens_a = normalize_and_tokenize(slug_norm.replace("-", " "))
+        sim_tokens_b = normalize_and_tokenize(live_slug.replace("-", " "))
+        if not sim_tokens_a or not sim_tokens_b:
+            continue
+        intersection = len(sim_tokens_a.intersection(sim_tokens_b))
+        union = len(sim_tokens_a.union(sim_tokens_b))
+        similarity = intersection / union if union else 0.0
+        if similarity >= 0.55:
+            warnings.append({
+                "severity": "WARNING",
+                "topic_id": post["topic_id"],
+                "similarity": round(similarity, 2),
+                "status": "live_wp",
+                "message": (
+                    f"High slug overlap ({round(similarity * 100)}%) with live WP "
+                    f"'{live_slug}' (source={post.get('source')})"
+                ),
+            })
+    return warnings
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Helper for Excalibur BLOG Scout Agent")
     ap.add_argument("--suggest-next", action="store_true", help="Print next available Topic ID and summary")
     ap.add_argument("--check-query", type=str, default="", help="Check new primary query for overlaps")
+    ap.add_argument(
+        "--check-slug",
+        type=str,
+        default="",
+        help="Check proposed slug against memory/blog/published-live-*.json",
+    )
     args = ap.parse_args()
     
     # Reconfigure stdout for utf-8 on Windows
@@ -127,6 +205,17 @@ def main() -> int:
     active = load_active_article_topics(root)
     reserved = published | active
     existing = load_existing_topics(root)
+    live_posts = load_live_wp_posts(root)
+    # Treat live titles as extra overlap targets for --check-query
+    existing_with_live = existing + [
+        {
+            "topic_id": p["topic_id"],
+            "primary_query": p["title"] or p["slug"],
+            "slug": p["slug"],
+            "priority": "live",
+        }
+        for p in live_posts
+    ]
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
@@ -140,21 +229,35 @@ def main() -> int:
         print(f"Next available topic ID: {next_id}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")
+        print(f"Live WP slugs loaded: {len(live_posts)} (memory/blog/published-live-*.json)")
         print(f"Active article dirs: {sorted(active)}")
         
         unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
         print(f"Unwritten topic IDs in pool: {unwritten}")
         return 0
         
-    if args.check_query:
-        warnings = check_overlap(args.check_query, existing, reserved)
+    if args.check_query or args.check_slug:
+        warnings: list[dict[str, Any]] = []
+        if args.check_query:
+            warnings.extend(check_overlap(args.check_query, existing_with_live, reserved))
+        if args.check_slug:
+            warnings.extend(check_live_slug(args.check_slug, live_posts))
+        elif args.check_query:
+            # Derive a slug-ish form from the query for live slug audit when --check-slug omitted
+            approx_slug = re.sub(r"[^\w\s-]", "", args.check_query.lower())
+            approx_slug = re.sub(r"[\s_]+", "-", approx_slug).strip("-")
+            if approx_slug:
+                warnings.extend(check_live_slug(approx_slug, live_posts))
         if warnings:
             print("❌ OVERLAP DETECTED:")
             for w in warnings:
                 print(f"  [{w['severity']}] Similarity: {w['similarity']} | Topic: {w['topic_id']} ({w['status']})")
                 print(f"  Message: {w['message']}")
             return 1
-        print("✅ NO CANNIBALIZATION RISK: Query is clean and unique.")
+        print(
+            f"✅ NO CANNIBALIZATION RISK: Query/slug is clean "
+            f"(checked pool + {len(live_posts)} live WP slugs)."
+        )
         return 0
 
     ap.print_help()

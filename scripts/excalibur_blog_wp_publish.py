@@ -8,6 +8,7 @@ import io
 import json
 import os
 import sys
+import urllib.parse
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -168,6 +169,33 @@ def normalize_cover_png(cover_path: Path, registry_path: Path, root: Path) -> di
     return evidence
 
 
+# Large PHP payloads (~7MB with cover+inline base64) often exceed 120s.
+HTTP_TRIGGER_TIMEOUT_SEC = 300
+WEBFETCH_FALLBACK_WAIT_SEC = 300
+SSH_BANNER_TIMEOUT_SEC = 60
+REST_SOFT_SUCCESS_POLL_SEC = 180
+REST_SOFT_SUCCESS_INTERVAL_SEC = 5
+
+
+def sanitize_schema_jsonld_for_publish(schema_raw: str) -> str:
+    """Strip commit-only scan markers (x-excalibur-scan) before WP post meta."""
+    if not schema_raw:
+        return schema_raw
+    try:
+        data = json.loads(schema_raw)
+    except json.JSONDecodeError:
+        return schema_raw
+
+    def _strip(obj: Any) -> Any:
+        if isinstance(obj, dict):
+            return {k: _strip(v) for k, v in obj.items() if k != "x-excalibur-scan"}
+        if isinstance(obj, list):
+            return [_strip(x) for x in obj]
+        return obj
+
+    return json.dumps(_strip(data), ensure_ascii=False)
+
+
 def load_article(article_dir: Path) -> dict:
     meta_path = article_dir / "article.meta.json"
     html_path = article_dir / "article.html"
@@ -186,7 +214,9 @@ def load_article(article_dir: Path) -> dict:
         cover_b64 = base64.b64encode(cover_path.read_bytes()).decode("ascii")
     schema_raw = ""
     if schema_path.is_file():
-        schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        schema_raw = sanitize_schema_jsonld_for_publish(
+            schema_path.read_text(encoding="utf-8").strip()
+        )
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
@@ -414,12 +444,21 @@ def is_missing_remote_path_error(exc: OSError) -> bool:
     return "no such file" in text or "enoent" in text
 
 
-def upload_bootstrap_ssh(env: dict[str, str], remote: str, data: bytes) -> str:
+def _ssh_transport(env: dict[str, str]):
     import paramiko
 
     host, port, user, password = _ssh_creds(env)
     transport = paramiko.Transport((host, port))
+    # Transient "Error reading SSH protocol banner" is common without this.
+    transport.banner_timeout = SSH_BANNER_TIMEOUT_SEC
     transport.connect(username=user, password=password)
+    return transport
+
+
+def upload_bootstrap_ssh(env: dict[str, str], remote: str, data: bytes) -> str:
+    import paramiko
+
+    transport = _ssh_transport(env)
     ssh_transfer = getattr(paramiko, "S" + "FT" + "PClient").from_transport(transport)
     try:
         candidates = ssh_root_candidates(env)
@@ -453,10 +492,8 @@ def upload_bootstrap_ssh(env: dict[str, str], remote: str, data: bytes) -> str:
 def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | None = None) -> None:
     import paramiko
 
-    host, port, user, password = _ssh_creds(env)
     remote_path = remote_path or ssh_remote_path(env, remote)
-    transport = paramiko.Transport((host, port))
-    transport.connect(username=user, password=password)
+    transport = _ssh_transport(env)
     ssh_transfer = getattr(paramiko, "S" + "FT" + "PClient").from_transport(transport)
     try:
         ssh_transfer.remove(remote_path)
@@ -467,33 +504,101 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+def poll_wp_rest_soft_success(public_base: str, slug: str) -> str | None:
+    """If HTTP/WebFetch timed out but WP already published, return synthetic OK output."""
+    import time
+
+    slug = (slug or "").strip()
+    if not slug or not public_base:
+        return None
+    api = public_base.rstrip("/") + "/wp-json/wp/v2/posts?slug=" + urllib.parse.quote(slug)
+    deadline = time.time() + REST_SOFT_SUCCESS_POLL_SEC
+    print(f"Soft-success: polling WP REST for slug={slug} (up to {REST_SOFT_SUCCESS_POLL_SEC}s)...")
+    while time.time() < deadline:
+        try:
+            with urllib.request.urlopen(
+                urllib.request.Request(api, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
+                timeout=30,
+            ) as response:
+                payload = json.loads(response.read().decode("utf-8", errors="replace"))
+        except Exception as exc:  # noqa: BLE001
+            print(f"WARN REST poll: {type(exc).__name__}: {exc}", file=sys.stderr)
+            time.sleep(REST_SOFT_SUCCESS_INTERVAL_SEC)
+            continue
+        if isinstance(payload, list) and payload:
+            post = payload[0]
+            post_id = post.get("id")
+            link = post.get("link") or ""
+            featured = post.get("featured_media") or 0
+            status = post.get("status") or ""
+            if post_id and status in {"publish", "future", "private"}:
+                lines = [
+                    f"OK post={post_id} slug={slug}",
+                    f"OK featured_image={featured}" if featured else "WARN featured_image=0",
+                    "OK schema_meta=soft_success_unverified",
+                    f"permalink={link}",
+                    "",
+                    "# soft-success notes",
+                    "# HTTP/WebFetch trigger timed out; post confirmed via WP REST by slug",
+                    "# Prefer a single trigger next time (do not overlap WebFetch+curl)",
+                ]
+                print("Soft-success: WP REST confirmed published post.")
+                return "\n".join(lines) + "\n"
+        time.sleep(REST_SOFT_SUCCESS_INTERVAL_SEC)
+    return None
+
+
+def trigger_bootstrap_http(
+    url: str,
+    root: Path,
+    *,
+    public_base: str = "",
+    slug: str = "",
+) -> str:
+    import time
+
     try:
-        print(f"Triggering HTTP publish on {url}...")
+        print(
+            f"Triggering HTTP publish on {url} "
+            f"(timeout={HTTP_TRIGGER_TIMEOUT_SEC}s for large payloads)..."
+        )
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=HTTP_TRIGGER_TIMEOUT_SEC,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
         print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
-        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
+        print(
+            "SINGLE TRIGGER RULE: use ONE of WebFetch OR long curl --max-time 300, "
+            "not both overlapping (orphan media risk)."
+        )
+        print(
+            f"Waiting up to {WEBFETCH_FALLBACK_WAIT_SEC}s for memory/webfetch-response.txt ..."
+        )
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
-        import time
 
-        for _ in range(120):
+        for _ in range(WEBFETCH_FALLBACK_WAIT_SEC):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+
+        soft = poll_wp_rest_soft_success(public_base, slug)
+        if soft:
+            return soft
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {WEBFETCH_FALLBACK_WAIT_SEC}s "
+            "and WP REST soft-success poll found no published post. "
+            "Trigger once manually (single curl/WebFetch), then re-check REST by slug."
+        )
 
 
-def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
+def publish_via_ssh(env: dict[str, str], php: str, public_base: str, slug: str = "") -> str:
     remote = "excalibur-blog-publish-once.php"
     data = php.encode("utf-8")
     url = public_base.rstrip("/") + "/" + remote
@@ -502,7 +607,7 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        out = trigger_bootstrap_http(url, root, public_base=public_base, slug=slug)
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)
@@ -588,7 +693,7 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ssh(env, php, public)
+    out = publish_via_ssh(env, php, public, slug=str(payload.get("slug") or ""))
     print(out)
 
     result_path = article_dir / "wp-publish-result.json"
@@ -596,11 +701,13 @@ def main() -> int:
     for line in out.splitlines():
         if line.startswith("permalink="):
             permalink = line.split("=", 1)[1].strip()
+    soft_success = "soft-success" in out.lower() or "soft_success" in out.lower()
     result = {
         "slug": payload["slug"],
         "topic_id": payload["topic_id"],
         "permalink": permalink,
-        "publish_method": "ssh",
+        "publish_method": "ssh+rest_soft_success" if soft_success else "ssh",
+        "soft_success": soft_success,
         "cover_evidence": payload.get("cover_evidence", {}),
         "raw_output": out,
         "verdict": "pass" if "OK post=" in out else "fail",

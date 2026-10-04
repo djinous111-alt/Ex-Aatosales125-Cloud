@@ -14,7 +14,10 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Strong tech markers for AI/automation niches. Bare "github" / "make" in
+# notes (e.g. github_evidence section of an auto checklist) must NOT flip
+# technical_topic on by themselves — that caused false BLOCK/WARN for B01.
+TECH_MARKERS_STRONG = (
     "ai",
     "ии",
     "agent",
@@ -22,14 +25,16 @@ TECH_MARKERS = (
     "mcp",
     "api",
     "cursor",
-    "make",
     "n8n",
-    "github",
     "docker",
     "rag",
     "workflow",
     "автоматизац",
     "нейросет",
+)
+TECH_MARKERS_WEAK = (
+    "github",
+    "make",
 )
 
 
@@ -73,14 +78,44 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_present(blob: str, marker: str) -> bool:
+    """Substring match with word-ish boundaries so 'ии'≠'японии' and 'ai'≠'pain'."""
+    if len(marker) <= 3:
+        return bool(re.search(rf"(?<![a-zа-яё0-9_]){re.escape(marker)}(?![a-zа-яё0-9_])", blob, flags=re.I))
+    return marker in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """True only for AI/automation/dev topics, not auto/legal niches with a github_evidence section."""
     topic = context.get("topic") or {}
-    blob = " ".join(
+    topic_blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    notes_head = notes[:2000].lower()
+    if any(_marker_present(topic_blob, marker) for marker in TECH_MARKERS_STRONG):
+        return True
+    if any(_marker_present(notes_head, marker) for marker in TECH_MARKERS_STRONG):
+        return True
+    # Weak markers count only when they appear in topic fields (not just notes boilerplate)
+    return any(_marker_present(topic_blob, marker) for marker in TECH_MARKERS_WEAK)
+
+
+def count_accessed_at(text: str) -> int:
+    """Count access dates from `accessed_at:` labels AND ISO dates in source-table URL rows."""
+    text_lower = text.lower()
+    literal = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    # Markdown table rows that contain a URL and an ISO date (typical source_table)
+    table_dates = len(
+        re.findall(
+            r"^\s*\|[^\n]*https?://[^\n]*\b(20\d{2}-\d{2}-\d{2})\b",
+            text,
+            flags=re.M,
+        )
+    )
+    # Also count ISO dates in a dedicated accessed_at column even if URL is in another cell
+    # (row with | date | but no http — rare). Prefer max so either style passes.
+    return max(literal, table_dates)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -128,9 +163,24 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     official_doc_urls = [
         url
         for url in urls
-        if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
+        if any(
+            token in url.lower()
+            for token in (
+                "/docs",
+                "developers.",
+                "developer.",
+                "help.",
+                "learn.",
+                ".pdf",
+                "eaeunion",
+                "consultant.ru",
+                "garant.ru",
+                "pravo.gov",
+                "publication.pravo",
+            )
+        )
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
     pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
     action_items = count_action_items(text)

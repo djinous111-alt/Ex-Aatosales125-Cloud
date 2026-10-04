@@ -284,6 +284,36 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20261004-1320-scout-precommit-secret-names
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed: pre-commit hook `invalid variable name` because `CLOUD_AGENT_*_SECRET_NAMES` contained literal `[REDACTED]`.
+- `scripts/sanitize_cloud_secret_names.sh` отсутствует в репозитории (memory ссылается на него).
+
+### How the agent recovered this run
+- Отфильтровал SECRET_NAMES до валидных shell identifiers и повторил commit/push (`141f8e4`).
+
+### Durable fix needed before next run
+- Восстановить `scripts/sanitize_cloud_secret_names.sh` и/или починить pre-commit, чтобы игнорировать non-identifier token names.
+
+### Suggested files to inspect/change
+- `scripts/sanitize_cloud_secret_names.sh`
+- `.cursor/hooks` / pre-commit cloud hook docs
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

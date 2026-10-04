@@ -6,24 +6,18 @@
 _sanitize_name_list() {
   local raw="$1"
   local tok
-  local -a out
-  out=()
-  local IFS=','
-  # shellcheck disable=SC2086
-  set -- ${raw}
-  for tok in "$@"; do
-    # trim whitespace
+  local -a out=()
+  local -a parts=()
+  local OLDIFS="$IFS"
+  IFS=','
+  read -ra parts <<< "$raw"
+  IFS="$OLDIFS"
+  for tok in "${parts[@]}"; do
     tok="${tok#"${tok%%[![:space:]]*}"}"
     tok="${tok%"${tok##*[![:space:]]}"}"
-    case "$tok" in
-      '' ) continue ;;
-      [A-Za-z_][A-Za-z0-9_]* )
-        # reject if any remaining char is not identifier-safe
-        if [[ "$tok" =~ ^[A-Za-z_][A-Za-z0-9_]*$ ]]; then
-          out+=("$tok")
-        fi
-        ;;
-    esac
+    if [[ "$tok" =~ ^[A-Za-z_][A-Za-z0-9_]*$ ]]; then
+      out+=("$tok")
+    fi
   done
   local IFS=','
   printf '%s' "${out[*]}"

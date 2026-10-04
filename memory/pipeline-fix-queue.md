@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261004-0938-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-yaponii-pod-klyuch-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Doctor и контракты indexer всё ещё требуют `--blog-path` у `excalibur_blog_llms_generator.py`, но CLI скрипта принимает только `--blog-dir` / `--site-base` / `--out-dir` (флага `--blog-path` нет).
+- Слепое копирование команды из agent/skill с `--blog-path /` падает argparse; doctor даёт false-positive error.
+
+### How the agent recovered this run
+- Запустил llms generator по `python3 … --help`: без `--blog-path`, с `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog`.
+- `llms.txt` и `llms-full.txt` сгенерированы успешно (3 articles).
+
+### Durable fix needed before next run
+- Убрать `--blog-path` из agent/skill shell examples ИЛИ вернуть флаг в скрипт, если путь блога на сайте всё ещё нужен.
+- Поправить `scripts/excalibur_blog_doctor.py`: не требовать `--blog-path`, если CLI его не экспортирует.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261004-0935-cover-hero-rehost-fallback
 status: open
 run_date: 2026-10-04

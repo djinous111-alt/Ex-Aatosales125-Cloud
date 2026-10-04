@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261005-2135-writer-utility-pain-markers-missing
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` снова пришёл без `pain_markers_ru` / `outcome_markers_ru` и без `min_pain_markers` / `min_outcome_markers` в `article_required_signals`.
+- `scripts/excalibur_blog_utility_gate.py` снова считал пустые списки как `0 < min` (false BLOCK), вместо skip-when-empty из прежних durable-fix.
+
+### How the agent recovered this run
+- Восстановил словари pain/outcome (синхрон с human-voice gate) и пороги в policy.
+- Вернул в utility gate ветку skip-when-empty + warning при пустых списках.
+- Статья B01 написана; локально html_linter / human-voice / utility = PASS.
+
+### Durable fix needed before next run
+- Защитить policy-маркеры от вымывания (doctor check + тест на непустые списки).
+- Не откатывать skip-when-empty в `excalibur_blog_utility_gate.py`.
+- Зафиксировать в pitfalls: Writer/GEO QA при пустых markers сначала restore policy, не переписывать статью вслепую.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261005-2125-research-pain-map-tech-false-positive
 status: open
 run_date: 2026-10-05

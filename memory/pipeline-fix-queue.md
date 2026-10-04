@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261004-0935-cover-hero-rehost-fallback
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-yaponii-pod-klyuch-2026
+severity: low
+category: api
+
+### What went wrong
+- `excalibur_blog_hero_reference_url.py --force` не смог перезалить локальный face PNG: catbox → HTTP 412, 0x0 → SSL handshake timeout.
+- Существующий `reference_url_hosted` на WP совпадает по размеру/байтам с `blog-hero-reference.png`, но имя файла на сервере вводит в заблуждение (`best-winter-cars-top-...`).
+
+### How the agent recovered this run
+- Сверил локальный PNG и hosted URL (одинаковый size/bytes), перевёл URL на https.
+- Генерацию quad сделал через `scripts/excalibur_blog_kie_gpt_image2_api.py` (async i2i), не sync MCP.
+- Split + inject прошли PASS.
+
+### Durable fix needed before next run
+- Добавить запасной хостер (или WP media upload) в `excalibur_blog_hero_reference_url.py` при catbox/0x0 fail.
+- В blog-hero.json явно пометить, что WP URL = face reference (не winter-cars коллаж).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `memory/cover/blog-hero.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261004-0940-schema-precommit-brand-urls
 status: open
 run_date: 2026-10-04

@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261004-1713-scout-b01-ledger-gap
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-scout
+topic_id: B02
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_scout_helper.py --suggest-next` вернул `B01`, потому что в `blog-topics.md` не было карточек `## Bxx`, а в `shared/published-articles.md` отсутствовал уже опубликованный B01 (WP 3991, slug `prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki`).
+- `memory/blog/published-live-avtosales125.json` (fetched_at 2026-10-03) не содержал свежие slug из `EXCALIBUR_RECENT_WP_POSTS` за 2026-10-01..04, поэтому live-audit без сверки с today.py мог бы пропустить каннибализацию.
+- Wordstat MCP для фразы `ролкер авто` вернул пустой `{}` (не totalCount-only); для узких запросов иногда приходит только `totalCount` без top phrases.
+
+### How the agent recovered this run
+- Взял следующий свободный id `B02`, чтобы не коллизировать topic_id с опубликованным B01.
+- Сверил gap со свежим `EXCALIBUR_RECENT_WP_POSTS` + live JSON + AS-карточками; check-query до append был clean.
+- Для Wordstat использовал широкие parent-кластеры с полным top-list; узкий totalCount-only не считал fatal.
+
+### Durable fix needed before next run
+- `scout_helper --suggest-next` должен учитывать topic_id из ledger (`published`/`in_progress`) и/или recent WP, а не только max `Bxx` в пуле.
+- После publish B-серии карточка или хотя бы строка ledger с topic_id должна оставаться, чтобы scout не предлагал повтор id.
+- Обновлять `published-live-*.json` в preflight/today или явно требовать audit по `EXCALIBUR_RECENT_WP_POSTS`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `shared/published-articles.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

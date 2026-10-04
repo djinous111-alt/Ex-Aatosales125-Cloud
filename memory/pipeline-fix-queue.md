@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261004-1728-schema-precommit-secret-scan
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-schema
+topic_id: B02
+article_dir: memory/blog/articles/B02-postanovka-na-uchet-avto-iz-yaponii-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` `schema.jsonld` сначала упал на `CLOUD_AGENT_*_SECRET_NAMES` с URL/не-identifier → `invalid variable name` (повтор INC-20261004-1722).
+- После sanitize commit снова blocked secret-scan: `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` в absolute URLs / author sameAs (повтор INC-20261002-1755 B05).
+- JSON-LD нельзя пометить `// pragma: allowlist secret`.
+
+### How the agent recovered this run
+- `source scripts/sanitize_cloud_secret_names.sh`.
+- Для git: redacted `[REDACTED]` bases в `schema.jsonld`; полный runtime сохранён отдельно и восстановлен после push для publish.
+- Fragment фиксирует redact/restore.
+
+### Durable fix needed before next run
+- Убрать публичные brand URL из Cloud secret-scan values ИЛИ expand `[REDACTED]` в publish.
+- Авто-sanitize secret names до pre-commit.
+- Обновить schema skill: redact-for-git / restore-for-publish.
+
+### Suggested files to inspect/change
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/sanitize_cloud_secret_names.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- Cursor Dashboard Cloud Secrets (public URL values)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261004-1725-geo-qa-utility-policy-markers-missing
 status: open
 run_date: 2026-10-04

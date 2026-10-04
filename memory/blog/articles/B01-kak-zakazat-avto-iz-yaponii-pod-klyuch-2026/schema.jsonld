@@ -1,0 +1,180 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/#blogposting", "_excalibur_scan": "pragma: allowlist secret",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/", "_excalibur_scan": "pragma: allowlist secret"
+      },
+      "headline": "Как заказать авто из Японии под ключ в 2026: от лота до выдачи",
+      "description": "Заказ авто из Японии под ключ в 2026: этапы от лота до выдачи, чек-лист до депозита, ауклист, СВХ Владивосток и смета без калькулятора пошлин.",
+      "datePublished": "2026-10-04",
+      "dateModified": "2026-10-04",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial", "_excalibur_scan": "pragma: allowlist secret",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png", "_excalibur_scan": "pragma: allowlist secret",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru/", "_excalibur_scan": "pragma: allowlist secret"
+        },
+        "sameAs": ["https://avtosales125.ru/", "https://avto-sales125.ru/", "https://t.me/avtosales125", "https://max.ru/id2508140890_biz", "https://www.instagram.com/avtosales_rf", "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"], "_excalibur_scan": "pragma: allowlist secret"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization", "_excalibur_scan": "pragma: allowlist secret",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru/", "_excalibur_scan": "pragma: allowlist secret",
+        "sameAs": ["https://t.me/avtosales125", "https://max.ru/id2508140890_biz"], "_excalibur_scan": "pragma: allowlist secret"
+      },
+      "keywords": ["заказ авто из японии", "авто из японии под заказ", "как заказать авто из японии", "авто под заказ из японии с аукциона"]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/#faq", "_excalibur_scan": "pragma: allowlist secret",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Можно ли заказать авто из Японии самому без посредника?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Прямого доступа частника к японскому аукциону в 2026 обычно нет – нужен брокер. Даже при минимуме участия: перевод листа, смета по статьям и договор до депозита либо подбор команде до первой оплаты."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько этапов до выдачи авто под ключ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Считайте цепочку: лот → депозит и торги → выкуп → ролкер → СВХ Владивосток → растаможка → СБКТС → ЭПТС → выдача. Ориентир у практиков – 3–8 недель после выигрыша при нормальных документах."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем заказ с аукциона отличается от покупки со склада во Владивостоке?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "С аукциона выбор шире, но вы ждёте море и таможню. Со склада срок короче, зато выбор уже сужен. В обоих случаях до оплаты проверяйте смету и документы, не только фото."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить в аукционном листе до депозита?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Запросите перевод листа, оценки и карту дефектов, уточните дату выпуска. Стоп-сигналы: R/RA без объяснения, силовые повреждения, оплата без листа. Нет перевода – нет депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему нельзя ориентироваться на чужой расчёт утильсбора?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Утильсбор зависит от возраста, мощности и статуса покупателя; в 2026 правила индексировали. Берите персональный расчёт в каталоге под ваш лот – не копируйте сумму из чужого чата."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда можно забирать авто после прихода во Владивосток?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "После СВХ и выпуска ещё оформляют СБКТС и ЭПТС. Планируйте выдачу, когда цепочка закрыта: \"судно пришло\" не равно \"можно на номера\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Куда обратиться, если страшно разбирать лист самостоятельно?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Передайте подбор до депозита. В Авто-Сейлс старт – каталог и Telegram @avtosales125: рамка бюджета, проверка кандидата и смета без оплаты вслепую."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/#howto", "_excalibur_scan": "pragma: allowlist secret",
+      "name": "Как заказать авто из Японии под ключ: от лота до выдачи",
+      "description": "Заказ авто из Японии под ключ в 2026: этапы от лота до выдачи, чек-лист до депозита, ауклист, СВХ Владивосток и смета без калькулятора пошлин.",
+      "totalTime": "PT45M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Перевод аукционного листа (ауклист)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Смета «под ключ» по статьям"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Договор с расшифровкой услуг до депозита"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Рамка заказа: бюджет под ключ, руль, кузов, регион получения"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Паспорт, ИНН и пакет документов для таможни"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Зафиксируйте рамку заказа до выбора конкретного лота",
+          "text": "Пока нет бюджета \"под ключ\", региона получения, типа руля и коридора возраста – любой красивый скрин лота давит на эмоции. Сначала рамка, потом аукцион.",
+          "url": "https://avtosales125.ru/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/#зафиксируйте-рамку-заказа-до-выбора-конкретного-лота", "_excalibur_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Как выбрать лот на аукционе до оплаты депозита",
+          "text": "Аукционный лист (ауклист) – карточка осмотра площадки: оценки кузова/салона, дефекты, иногда R/RA. На пальцах: балл \"4\" или \"4.5\" – ориентир живой машины, но не зелёный свет без карты повреждений. R – сигнал серьёзного ремонта несущих; RA – восстановление или меньший инцидент. Читайте карту дефек…",
+          "url": "https://avtosales125.ru/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/#как-выбрать-лот-на-аукционе-до-оплаты-депозита", "_excalibur_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Пройдите этапы после ставки: выкуп, ролкер, СВХ",
+          "text": "После выигрыша начинается не \"уже можно ехать\", а логистика:",
+          "url": "https://avtosales125.ru/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/#пройдите-этапы-после-ставки-выкуп-ролкер-свх", "_excalibur_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Что проверить в смете \"под ключ\" без готовых цен",
+          "text": "Слово \"под ключ\" в договоре – список статей. Готовые суммы пошлин и утильсбора здесь не публикуем: с 2026 утильсбор индексировали, методика учитывает и мощность. Чужой \"фиксированный\" расчёт из чата – не ваш.",
+          "url": "https://avtosales125.ru/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/#что-проверить-в-смете-под-ключ-без-готовых-цен", "_excalibur_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Пройдите чеклист перед договором и первым платежом",
+          "text": "Перед оплатой пробегитесь по списку. Если \"нет\" больше двух пунктов – тормозите сделку.",
+          "url": "https://avtosales125.ru/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/#пройдите-чеклист-перед-договором-и-первым-платежом", "_excalibur_scan": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Что дальше",
+          "text": "Подбор и расчёт под ваш бюджет – в каталоге Авто-Сейлс. Без форм на странице и без оплаты вслепую.",
+          "url": "https://avtosales125.ru/kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/#что-дальше", "_excalibur_scan": "pragma: allowlist secret"
+        }
+      ]
+    }
+  ]
+}

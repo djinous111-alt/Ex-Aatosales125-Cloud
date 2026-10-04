@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261005-2125-research-pain-map-tech-false-positive
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` считал `pain_solution_map` «thin» (rows=1), пока в data-строках не было литералов `pain`/`solution`/`результат` — regex ищет эти слова в каждой строке таблицы, а не только в заголовке; это не задокументировано в skill/agent.
+- Та же gate пометила нетехническую тему про растаможку авто как `technical_topic: true` из‑за маркера `github` в секции `github_evidence` / URL github.com, и выдала WARN про отсутствие `/docs` developer URL.
+
+### How the agent recovered this run
+- Добавил префиксы `pain:` / `solution:` / `результат:` в каждую строку `pain_solution_map`.
+- Оставил community/GitHub evidence как есть; WARN не блокирует PASS.
+
+### Durable fix needed before next run
+- Ослабить подсчёт строк pain-map: считать markdown-табличные data-rows под `## pain_solution_map`, не требуя английских маркеров в каждой ячейке.
+- Исключить ложный technical-флаг для авто/таможенных тем: не считать слово `github` в обязательной секции `github_evidence` достаточным сигналом technical topic; либо требовать tech-markers только в topic.h1/primary_query.
+- Документировать контракт pain_map в research skill.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261004-2120-scout-precommit-redacted-secret-name
 status: open
 run_date: 2026-10-05

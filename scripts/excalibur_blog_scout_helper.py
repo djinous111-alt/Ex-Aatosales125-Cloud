@@ -10,6 +10,12 @@ import sys
 from pathlib import Path
 from typing import Any
 
+TOPIC_DIR_RE = re.compile(r"^((?:AS|B)\d+)-", flags=re.IGNORECASE)
+TOPIC_CARD_RE = re.compile(
+    r"##\s+((?:AS|B)\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)",
+    re.DOTALL | re.IGNORECASE,
+)
+
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
@@ -34,7 +40,7 @@ def load_active_article_topics(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = TOPIC_DIR_RE.match(path.name)
         if match:
             active.add(match.group(1).upper())
     return active
@@ -46,7 +52,7 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
     if not topics_path.is_file():
         return topics
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in TOPIC_CARD_RE.finditer(text):
         topic_id = match.group(1).upper()
         block = match.group(2)
         
@@ -132,12 +138,13 @@ def main() -> int:
         print("=== EXCALIBUR SCOUT HELPER ===")
         max_num = 0
         for t in existing:
-            m = re.match(r"B(\d+)", t["topic_id"])
+            m = re.match(r"B(\d+)", t["topic_id"], flags=re.IGNORECASE)
             if m:
                 max_num = max(max_num, int(m.group(1)))
         
         next_id = f"B{max_num + 1:02d}"
         print(f"Next available topic ID: {next_id}")
+        print("Note: new scout cards use B## series; AS## legacy cards are counted in pool/overlap.")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")
         print(f"Active article dirs: {sorted(active)}")

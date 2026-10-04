@@ -30,7 +30,7 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 ### 1. Preflight publish
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
   --site-base https://avtosales125.ru
@@ -41,7 +41,7 @@ Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
@@ -51,7 +51,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
@@ -66,10 +66,13 @@ python scripts/excalibur_blog_wp_publish.py \
 Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
 
 1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+2. Cloud-агент открывает URL через WebFetch **или** `curl --max-time 300` и пишет **полный** ответ в `memory/webfetch-response.txt`.
+3. Скрипт ждёт файл до **300s** и параллельно Poll WP REST по slug (soft-success без второго trigger).
+4. **Не** запускай параллельный повторный HTTP/curl trigger того же bootstrap — это создаёт orphan media (`-2` suffixes).
 
-**Не останавливайся** на первом timeout — используй fallback.
+Если slug уже был на сайте (do-not-republish / `EXCALIBUR_RECENT_WP_POSTS` / meta `wp_post_id`): publish **обновляет** тот же post — это ожидаемо, не «случайный republish другого ID».
+
+Cover alt: скрипт предпочитает `cover/cover-registry.json` ключ `alt`, если meta `cover_alt` пустой или расходится.
 
 ### 5. Post-publish артефакты
 
@@ -84,7 +87,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 6. Post-publish (рекомендуется)
 
 ```bash
-python scripts/excalibur_blog_interlinker.py --apply \
+python3 scripts/excalibur_blog_interlinker.py --apply \
   --blog-dir memory/blog/articles \
   --site-base https://avtosales125.ru
 ```

@@ -30,9 +30,11 @@ Append new Topic Card to blog-topics.md
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Запомни следующий `topic_id` (серия **B##** для новых карточек; **AS##** тоже учитываются в pool/overlap/active dirs).
+* Прочитай `EXCALIBUR_RECENT_WP_POSTS` из `python3 scripts/excalibur_blog_today.py`. Новый slug **не должен** совпадать с live WP slug из этого списка (и с do-not-republish post ids). Если slug уже live — либо другая тема, либо явно планируй update того же post_id.
+* Commit topic card через `scripts/excalibur_git.sh commit …` (sanitize `CLOUD_AGENT_*_SECRET_NAMES`).
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:

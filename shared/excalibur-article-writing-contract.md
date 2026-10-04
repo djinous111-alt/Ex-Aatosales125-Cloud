@@ -232,12 +232,18 @@ Excalibur BLOG следует этому контракту для каждой 
 
 ### Блок 4: Мягкий CTA бренда (внутри одной секции блока 3)
 
-2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-tracking-map.md` / `offers-map.md`.  
+2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-map.md` / `offers-map.md`.  
 Не больше **3** упоминаний основного офера/CTA на статью (включая баннер и «что дальше»).
+
+**CTA URL (обязательно):**
+- В `href` сразу абсолютные URL (`https://…`), подставленные из env `CATALOG_URL` / `TELEGRAM_URL` (или значения из conversion-map).
+- **Запрещено** оставлять литералы `href="[CATALOG_URL]"`, `href="[TELEGRAM_URL]"` и любые `[ENV_NAME]`-токены в production `article.html`.
+- На строках CTA, где URL совпадает с Cloud secret value, добавляй `<!-- pragma: allowlist secret -->` в той же строке/комментарии рядом.
+- `excalibur_blog_link_verify.py` классифицирует такие токены как `cta_placeholder` (явный fail), а не как internal 404.
 
 ### Блок 5: Inline-баннер (опционально)
 
-**Только если** в `conversion-tracking-map.md` есть `excalibur_inline_banner: yes` и `banner_image_url` + `banner_link_url`.
+**Только если** в `conversion-map.md` есть `excalibur_inline_banner: yes` и `banner_image_url` + `banner_link_url`.
 
 Один раз после 3–4-й секции. **До баннера** в статье не должно быть других `<img>` (обложка — featured image в WP, не в body).
 

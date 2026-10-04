@@ -8,6 +8,7 @@ import io
 import json
 import os
 import sys
+import urllib.parse
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -190,7 +191,12 @@ def load_article(article_dir: Path) -> dict:
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
-        cover_alt = cover_alt or reg.get("cover_alt_text", "")
+        # Prefer cover-registry `alt` (cover agent source of truth) over stale meta.
+        reg_alt = (reg.get("alt") or reg.get("cover_alt_text") or "").strip()
+        if reg_alt and (not cover_alt or cover_alt.strip() != reg_alt):
+            cover_alt = reg_alt
+        else:
+            cover_alt = cover_alt or reg.get("cover_alt_text", "")
 
     import re
     img_srcs = re.findall(r'<img\s+[^>]*src=["\']([^"\']+)["\']', content)
@@ -467,33 +473,96 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+def try_rest_soft_success(public_base: str, slug: str) -> str | None:
+    """If WP already has the post (HTTP trigger slow/timeout), synthesize OK output.
+
+    Avoids a second bootstrap HTTP trigger that creates orphan media attachments.
+    """
+    if not public_base or not slug:
+        return None
+    endpoint = (
+        public_base.rstrip("/")
+        + f"/wp-json/wp/v2/posts?slug={urllib.parse.quote(slug)}&per_page=1"
+        "&_fields=id,slug,link"
+    )
+    try:
+        req = urllib.request.Request(
+            endpoint,
+            headers={"User-Agent": "ExcaliburBlogPublish/1.0"},
+        )
+        with urllib.request.urlopen(req, timeout=30) as response:
+            payload = json.loads(response.read().decode("utf-8", errors="replace"))
+    except Exception as exc:  # noqa: BLE001
+        print(f"WARN REST soft-success probe failed: {type(exc).__name__}: {exc}", file=sys.stderr)
+        return None
+    if not isinstance(payload, list) or not payload:
+        return None
+    post = payload[0]
+    post_id = post.get("id")
+    link = post.get("link") or ""
+    if not post_id or not link:
+        return None
+    return (
+        f"OK post={post_id} slug={slug}\n"
+        f"permalink={link}\n"
+        "soft_success=rest_after_timeout\n"
+        "note=existing slug updated or publish finished after HTTP timeout; do not re-trigger bootstrap\n"
+    )
+
+
+def trigger_bootstrap_http(
+    url: str,
+    root: Path,
+    *,
+    slug: str = "",
+    public_base: str = "",
+    http_timeout: int = 300,
+    fallback_wait_sec: int = 300,
+) -> str:
     try:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=http_timeout,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
         print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
-        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
+        print(
+            "Waiting for cloud-agent to write response to memory/webfetch-response.txt "
+            f"(up to {fallback_wait_sec}s). Prefer curl/WebFetch into that file; "
+            "do NOT start a second bootstrap trigger if REST already shows the slug."
+        )
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        for elapsed in range(fallback_wait_sec):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
+            # Poll WP REST periodically instead of re-firing HTTP (avoids orphan media).
+            if slug and public_base and elapsed > 0 and elapsed % 20 == 0:
+                soft = try_rest_soft_success(public_base, slug)
+                if soft and "OK post=" in soft:
+                    print("WP REST soft-success while waiting for fallback file (no second trigger).")
+                    return soft
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        if slug and public_base:
+            soft = try_rest_soft_success(public_base, slug)
+            if soft and "OK post=" in soft:
+                print("WP REST soft-success after fallback wait expired.")
+                return soft
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {fallback_wait_sec} seconds. "
+            "Write curl/WebFetch body to memory/webfetch-response.txt or confirm slug via WP REST."
+        )
 
 
-def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
+def publish_via_ssh(env: dict[str, str], php: str, public_base: str, *, slug: str = "") -> str:
     remote = "excalibur-blog-publish-once.php"
     data = php.encode("utf-8")
     url = public_base.rstrip("/") + "/" + remote
@@ -502,7 +571,7 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        out = trigger_bootstrap_http(url, root, slug=slug, public_base=public_base)
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)
@@ -588,7 +657,7 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ssh(env, php, public)
+    out = publish_via_ssh(env, php, public, slug=str(payload.get("slug") or ""))
     print(out)
 
     result_path = article_dir / "wp-publish-result.json"

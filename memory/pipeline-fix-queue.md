@@ -6,218 +6,117 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None — fixer closed current-run opens on 2026-10-05._
+
 ## INC-20261004-2139-indexer-llms-blog-path
-status: open
-run_date: 2026-10-05
-role: excalibur-blog-indexer
-topic_id: B01
-article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026
-severity: medium
-category: docs
-
-### What went wrong
-- Indexer agent/skill docs показывают `excalibur_blog_llms_generator.py ... --blog-path /`, но CLI скрипта принимает только `--blog-dir` (нет `--blog-path`).
-- Первый вызов Indexer упал: `unrecognized arguments: --blog-path /`.
-- `excalibur_blog_doctor.py` всё ещё проверяет наличие `--blog-path` в help llms generator → doctor `errors=1` (уже отмечено в handoff preflight).
-
-### How the agent recovered this run
-- Повторный запуск без `--blog-path`: `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog`.
-- B01 появился в `memory/blog/llms.txt` и `llms-full.txt` (3 articles).
-- Commit blocked on `PUBLIC_SITE_URL` in llms/checklist → добавлен `// pragma: allowlist secret` на URL-строки; filtered invalid `CLOUD_AGENT_*_SECRET_NAMES` token (INC-20261004-2120).
-
-### Durable fix needed before next run
-- Убрать `--blog-path /` из indexer agent/skill (оба дерева `agents/` / `.cursor/agents/`, `skills/` / `.cursor/skills/`).
-- В `shared/agent-pipeline-pitfalls.md` Indexer: явно «llms generator = `--blog-dir`, не `--blog-path`»; после генерации — allowlist pragma на URL-строках перед commit.
-- Починить doctor: проверять `--blog-dir`, не `--blog-path`, либо добавить alias в скрипт.
-- Опционально: llms generator пишет pragma сразу на URL-строках.
-
-### Suggested files to inspect/change
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Doctor checks `--blog-dir` (not `--blog-path`); indexer agent/skill docs drop stale `--blog-path /`.
+- Pitfalls: llms generator = `--blog-dir` only; allowlist pragma on URL lines before commit.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
 - `agents/excalibur-blog-indexer.md`
 - `.cursor/agents/excalibur-blog-indexer.md`
 - `skills/indexer-excalibur-blog/SKILL.md`
 - `.cursor/skills/indexer-excalibur-blog/SKILL.md`
-- `scripts/excalibur_blog_doctor.py`
 - `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
+- `rg` --blog-path only in intentional docs/warnings
+commit: pending-parent-commit
 
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
 
 ## INC-20261005-2135-schema-secret-scan-allowlist
-status: open
-run_date: 2026-10-05
-role: excalibur-blog-schema
-topic_id: B01
-article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026
-severity: medium
-category: env
-
-### What went wrong
-- `schema.jsonld` with real `PUBLIC_SITE_URL` / CTA `sameAs` values is blocked by Cloud pre-commit secret scanner.
-- Schema skill/agent docs do not mention the required `// pragma: allowlist secret` line suffix used by prior successful schema commits.
-- Separately, commit still needs the `CLOUD_AGENT_*_SECRET_NAMES` invalid-identifier filter from INC-20261004-2120 before the scanner even runs.
-
-### How the agent recovered this run
-- Filtered non-identifier entries from `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `CLOUD_AGENT_ALL_SECRET_NAMES` for the commit command.
-- Regenerated `schema.jsonld` with `// pragma: allowlist secret` on every line containing site/CTA/avatar secret values (JSONC style matching prior B01 schema commits).
-- Validated JSON by stripping pragma comments; committed `af1fb35` and pushed.
-
-### Durable fix needed before next run
-- Document in `skills/schema-excalibur-blog/SKILL.md` and `.cursor/skills/schema-excalibur-blog/SKILL.md`: after building BlogPosting/FAQPage/HowTo, append `// pragma: allowlist secret` on lines with `PUBLIC_SITE_URL` / registry `sameAs` / avatar URLs before `git commit`.
-- Cross-link the secret-name filter workaround from INC-20261004-2120 in `shared/agent-pipeline-pitfalls.md`.
-- Optionally add a small helper script that writes schema + pragmas and validates via comment-stripping `json.loads`.
-
-### Suggested files to inspect/change
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Schema skill/agent document `// pragma: allowlist secret` on PUBLIC_SITE_URL/sameAs/avatar lines + validate via comment-strip json.loads.
+- Cross-link `scripts/excalibur_git.sh` for CLOUD_AGENT_*_SECRET_NAMES filter.
+files_changed:
 - `skills/schema-excalibur-blog/SKILL.md`
 - `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
+- `.cursor/agents/excalibur-blog-schema.md`
 - `shared/agent-pipeline-pitfalls.md`
-- `agents/excalibur-blog-schema.md` / `.cursor/agents/excalibur-blog-schema.md`
+checks_run:
+- docs rg for pragma allowlist secret in schema skills
+commit: pending-parent-commit
 
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
 
 
 ## INC-20261005-2131-geo-qa-cta-placeholders
-status: open
-run_date: 2026-10-05
-role: excalibur-blog-geo-qa
-topic_id: B01
-article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026
-severity: medium
-category: qa
-
-### What went wrong
-- Writer оставил в `article.html` литералы `href="[CATALOG_URL]"` / `href="[TELEGRAM_URL]"` вместо абсолютных CTA URL.
-- `excalibur_blog_link_verify.py` классифицировал их как `internal_relative` и при `--site-base` проверял `PUBLIC_SITE_URL/[CATALOG_URL]` → HTTP 404 → verdict fail.
-- AS08/AS09 уже публиковались с абсолютными URL; контракт writer/skill не запрещает явно плейсхолдеры имён env.
-
-### How the agent recovered this run
-- GEO QA подставил `CATALOG_URL` и `TELEGRAM_URL` из env в `article.html`.
-- Вернул `<!-- pragma: allowlist secret -->` на CTA-строки (и `note` с pragma в `link-verify.json`) — иначе Cloud pre-commit secrets scanner блокирует commit публичных CTA, если они совпадают с env secrets.
-- Для commit отфильтровал невалидный токен `[REDACTED]` из `CLOUD_AGENT_*_SECRET_NAMES` (см. INC-20261004-2120).
-- Повтор link-verify: 2/2 PASS; html/slop/human-voice/utility/fact-check остались PASS.
-- `article-qa.md` verdict PASS (score 87); commit `40323a4`.
-
-### Durable fix needed before next run
-- В writer skill / writing contract: CTA сразу абсолютные URL + `pragma: allowlist secret` на той же строке; запрет литералов `[CATALOG_URL]` / `[TELEGRAM_URL]` в HTML.
-- Опционально: link-verify — явный fail «placeholder CTA», не 404 через site-base.
-- Pitfalls: GEO QA при fail на `[CATALOG_URL]` → env URL + allowlist pragma; не полный FIX-цикл writer.
-
-### Suggested files to inspect/change
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Writer skill + writing contract forbid `[CATALOG_URL]`/`[TELEGRAM_URL]` literals; require absolute CTA + HTML allowlist pragma.
+- `link_verify` classifies placeholders as `cta_placeholder` hard-fail; optional `--expand-cta-env`.
+- GEO QA skill: expand env + pragma on fail, no full writer rewrite.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/writer-excalibur-blog/SKILL.md`
 - `.cursor/skills/writer-excalibur-blog/SKILL.md`
 - `shared/excalibur-article-writing-contract.md`
-- `scripts/excalibur_blog_link_verify.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
 - `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- CTA placeholder unit → fail kind=cta_placeholder
+- `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
+commit: pending-parent-commit
 
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
 
 ## INC-20261005-2135-writer-utility-pain-markers-missing
-status: open
-run_date: 2026-10-05
-role: excalibur-blog-writer
-topic_id: B01
-article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026
-severity: medium
-category: docs
-
-### What went wrong
-- `memory/brief/editorial-policy.json` снова пришёл без `pain_markers_ru` / `outcome_markers_ru` и без `min_pain_markers` / `min_outcome_markers` в `article_required_signals`.
-- `scripts/excalibur_blog_utility_gate.py` снова считал пустые списки как `0 < min` (false BLOCK), вместо skip-when-empty из прежних durable-fix.
-
-### How the agent recovered this run
-- Восстановил словари pain/outcome (синхрон с human-voice gate) и пороги в policy.
-- Вернул в utility gate ветку skip-when-empty + warning при пустых списках.
-- Статья B01 написана; локально html_linter / human-voice / utility = PASS.
-
-### Durable fix needed before next run
-- Защитить policy-маркеры от вымывания (doctor check + тест на непустые списки).
-- Не откатывать skip-when-empty в `excalibur_blog_utility_gate.py`.
-- Зафиксировать в pitfalls: Writer/GEO QA при пустых markers сначала restore policy, не переписывать статью вслепую.
-
-### Suggested files to inspect/change
-- `memory/brief/editorial-policy.json`
-- `scripts/excalibur_blog_utility_gate.py`
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Kept skip-when-empty in utility_gate; doctor now requires non-empty pain/outcome markers + min thresholds in editorial-policy.json.
+- Pitfalls: restore policy before rewriting article.
+files_changed:
 - `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_utility_gate.py` (verified skip-when-empty retained)
+- `memory/brief/editorial-policy.json` (markers present)
 - `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor OK editorial-policy pain/outcome markers
+commit: pending-parent-commit
 
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
 
 ## INC-20261005-2125-research-pain-map-tech-false-positive
-status: open
-run_date: 2026-10-05
-role: excalibur-blog-research
-topic_id: B01
-article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026
-severity: low
-category: script
-
-### What went wrong
-- `excalibur_blog_research_notes_gate.py` считал `pain_solution_map` «thin» (rows=1), пока в data-строках не было литералов `pain`/`solution`/`результат` — regex ищет эти слова в каждой строке таблицы, а не только в заголовке; это не задокументировано в skill/agent.
-- Та же gate пометила нетехническую тему про растаможку авто как `technical_topic: true` из‑за маркера `github` в секции `github_evidence` / URL github.com, и выдала WARN про отсутствие `/docs` developer URL.
-
-### How the agent recovered this run
-- Добавил префиксы `pain:` / `solution:` / `результат:` в каждую строку `pain_solution_map`.
-- Оставил community/GitHub evidence как есть; WARN не блокирует PASS.
-
-### Durable fix needed before next run
-- Ослабить подсчёт строк pain-map: считать markdown-табличные data-rows под `## pain_solution_map`, не требуя английских маркеров в каждой ячейке.
-- Исключить ложный technical-флаг для авто/таможенных тем: не считать слово `github` в обязательной секции `github_evidence` достаточным сигналом technical topic; либо требовать tech-markers только в topic.h1/primary_query.
-- Документировать контракт pain_map в research skill.
-
-### Suggested files to inspect/change
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- pain_solution_map counts markdown table data-rows under the section (no per-cell English markers).
+- technical_topic uses topic card fields only (not notes/github_evidence body).
+- Research skill documents the contract.
+files_changed:
 - `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
 - `.cursor/skills/excalibur-research/SKILL.md`
 - `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- PYTHONPATH=scripts pain-map rows=3 + auto topic not technical
+commit: pending-parent-commit
 
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
 
 ## INC-20261004-2120-scout-precommit-redacted-secret-name
-status: open
-run_date: 2026-10-05
-role: excalibur-blog-scout
-topic_id: B01
-article_dir: n/a
-severity: medium
-category: env
-
-### What went wrong
-- `git commit` failed in Cloud Agent pre-commit secrets scanner: `pre-commit.cursor` expands `CLOUD_AGENT_INJECTED_SECRET_NAMES` and hits bash error `invalid variable name` on a placeholder entry `[REDACTED]`.
-- The redacted token is not a valid bash identifier, so `${!SECRET_NAME}` aborts the hook before scanning staged files.
-
-### How the agent recovered this run
-- Filtered `[REDACTED]` out of `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `CLOUD_AGENT_ALL_SECRET_NAMES` for the commit command only, then committed and pushed the B01 topic card.
-
-### Durable fix needed before next run
-- Ensure Cloud secret-name injection never writes non-identifier placeholders into `CLOUD_AGENT_*_SECRET_NAMES`, or harden `pre-commit.cursor` to skip names that fail `^[A-Za-z_][A-Za-z0-9_]*$`.
-- Document the filter workaround in `shared/agent-pipeline-pitfalls.md` until the hook is fixed.
-
-### Suggested files to inspect/change
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Added `scripts/excalibur_git.sh` to filter non-identifier entries from CLOUD_AGENT_*_SECRET_NAMES before git.
+- Hardened live Cloud pre-commit.cursor to skip invalid names; documented workaround in pitfalls.
+- Scout skill prefers excalibur_git.sh for commits.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
 - `shared/agent-pipeline-pitfalls.md`
-- Cloud Agent hooks / secret injection (pre-commit.cursor)
-- `scripts/` git helper if restored for sanitize+commit
+checks_run:
+- `bash -n scripts/excalibur_git.sh`
+- doctor OK excalibur_git.sh exists
+commit: pending-parent-commit
 
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -466,7 +365,71 @@ commit: pending-parent-commit
 
 
 ## INC-20261005-2147-publish-http-timeout-soft-success
-status: open
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- HTTP trigger + fallback wait raised to 300s; REST soft-success polls by slug during wait (no second bootstrap trigger).
+- cover_alt prefers cover-registry.json `alt` when meta empty/diverges.
+- Publish skill documents curl→webfetch-response.txt and existing-slug update semantics.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- cover_alt preference on B01 registry
+commit: pending-parent-commit
+
+
+
+
+## INC-20261005-2150-today-as-topic-ids
+status: fixed
+fixed_at: 2026-10-05
+run_date: 2026-10-05
+role: excalibur-blog-scout
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_today.py` / scout_helper counted only `B\d+`, ignoring AS* P0 cards → false `needs_scout`.
+
+### How the agent recovered this run
+- Scout appended B01 manually; AS pool still invisible to today.py.
+
+### Durable fix needed before next run
+- Expand topic regex to `(?:AS|B)\d+` for pool/active/P0 selection; new scout IDs remain B## series.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- today.py + scout_helper recognize AS## and B##; suggest-next still emits next B##.
+- today now returns ready AS01 when AS P0 unwritten (was needs_scout).
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_today.py` → TOPIC_SELECTION=ready SUGGESTED=AS01
+- scout helper Active article dirs includes AS08/AS09/B01
+commit: pending-parent-commit
+
+## INC-20261005-2151-wp-slug-live-dedupe
+status: fixed
+fixed_at: 2026-10-05
 run_date: 2026-10-05
 role: excalibur-blog-publish
 topic_id: B01
@@ -475,34 +438,39 @@ severity: medium
 category: publish
 
 ### What went wrong
-- Local urllib HTTP trigger of `excalibur-blog-publish-once.php` hit TimeoutError at 120s while PHP continued (7MB payload).
-- Script Cloud WebFetch Fallback wait is only 120s; curl `--max-time 300` returned full OK body in ~109s after fallback start, but the Python wait loop already expired → `RuntimeError: Cloud WebFetch Fallback timed out`.
-- Overlapping first HTTP + curl re-trigger created orphan media with `-2` suffixes (4021/4022/4024/4027) before final `-3` set (4023/4025/4026/4028).
-- `article.meta.json` `cover_alt` was stale vs `cover-registry.json` `alt`; publish script prefers meta/`cover_alt_text` and does not read registry `alt`.
+- Publish updated existing WP 3601 by slug while memory listed do-not-republish 3601; scout/research_start did not seed live post_id from EXCALIBUR_RECENT_WP_POSTS.
 
 ### How the agent recovered this run
-- Parallel curl fallback + WP REST poll by slug; curl HTTP 200 with full OK lines.
-- Soft-success: reconstructed `wp-publish-result.json`, updated ledger, live HEAD 200, SSH schema meta-check (schema_len≈12863).
-- Patched featured alt 4023 from registry; synced meta `cover_alt`.
-- Did not create a new post — updated existing slug post 3601 (correct for this slug).
+- Soft-success kept same post_id 3601 (correct for slug); documented after the fact.
 
 ### Durable fix needed before next run
-- Increase fallback wait beyond 120s (or stream curl into `memory/webfetch-response.txt` from skill before wait expires).
-- Prefer REST soft-success path inside `excalibur_blog_wp_publish.py` when slug/`OK` evidence appears, to avoid second bootstrap trigger/orphans.
-- Make payload `cover_alt` fall back to `cover-registry.json` key `alt` when meta `cover_alt`/`cover_alt_text` empty or diverge.
-- Document: for existing WP slug, publish updates the same post_id (here 3601); do not treat as accidental republish of unrelated IDs.
+- today prints EXCALIBUR_SLUG_LIVE_HIT; research_start looks up live slug, warns, seeds wp_post_id into article.meta.json; scout checks recent WP posts before proposing slug.
 
 ### Suggested files to inspect/change
-- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_research_start.py`
+- `skills/scout-excalibur-blog/SKILL.md`
 - `skills/publish-excalibur-blog/SKILL.md`
-- `.cursor/skills/publish-excalibur-blog/SKILL.md`
-- `shared/agent-pipeline-pitfalls.md`
 
 ### Secrets
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- today emits EXCALIBUR_SLUG_LIVE_HIT when suggested slug is live; research_start stores live_wp_slug + seeds meta wp_post_id.
+- Scout/publish skills document live slug dedupe and update-same-post semantics.
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_research_start.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- research_start helpers present (lookup_live_wp_slug / seed_meta_wp_post_id)
+- today compact WP posts include id|date|slug|title
+commit: pending-parent-commit
 
 
 ## Fixed incidents

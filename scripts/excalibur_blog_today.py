@@ -21,6 +21,13 @@ LEDGER_PATHS = (
 DEFAULT_SITE_URL = ""
 
 
+TOPIC_DIR_RE = re.compile(r"^((?:AS|B)\d+)-", flags=re.IGNORECASE)
+TOPIC_CARD_RE = re.compile(
+    r"##\s+((?:AS|B)\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)",
+    re.DOTALL | re.IGNORECASE,
+)
+
+
 def project_root() -> Path:
     env_root = os.environ.get("EXCALIBUR_PROJECT_ROOT", "").strip()
     if env_root:
@@ -60,7 +67,7 @@ def active_article_topic_ids(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = TOPIC_DIR_RE.match(path.name)
         if match:
             active.add(match.group(1).upper())
     return active
@@ -78,7 +85,7 @@ def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
     }
     used.update(active_article_topic_ids(root))
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in TOPIC_CARD_RE.finditer(text):
         topic_id = match.group(1).upper()
         block = match.group(2)
         if "priority:** P0" not in block and "**priority:** P0" not in block:
@@ -93,7 +100,7 @@ def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
 def fetch_recent_wp_posts(site_url: str, limit: int = 12) -> tuple[list[dict[str, str]], str | None]:
     endpoint = urljoin(
         site_url.rstrip("/") + "/",
-        f"wp-json/wp/v2/posts?per_page={limit}&orderby=date&order=desc&_fields=date,link,slug,title",
+        f"wp-json/wp/v2/posts?per_page={limit}&orderby=date&order=desc&_fields=id,date,link,slug,title",
     )
     request = Request(endpoint, headers={"User-Agent": "ExcaliburBlogAutomation/1.0"})
     try:
@@ -108,6 +115,7 @@ def fetch_recent_wp_posts(site_url: str, limit: int = 12) -> tuple[list[dict[str
         title = re.sub(r"<[^>]+>", "", title)
         pages.append(
             {
+                "id": str(item.get("id", "")),
                 "date": str(item.get("date", ""))[:10],
                 "slug": str(item.get("slug", "")),
                 "title": unescape(title).strip(),
@@ -115,6 +123,20 @@ def fetch_recent_wp_posts(site_url: str, limit: int = 12) -> tuple[list[dict[str
             }
         )
     return pages, None
+
+
+def topic_slug_from_pool(root: Path, topic_id: str) -> str:
+    topics_path = root / "memory/topics/blog-topics.md"
+    if not topics_path.is_file() or not topic_id:
+        return ""
+    text = topics_path.read_text(encoding="utf-8")
+    for match in TOPIC_CARD_RE.finditer(text):
+        if match.group(1).upper() != topic_id.upper():
+            continue
+        block = match.group(2)
+        m = re.search(r"-\s*\*\*slug:\*\*\s*(\S+)", block)
+        return m.group(1).strip() if m else ""
+    return ""
 
 
 def main() -> None:
@@ -138,16 +160,36 @@ def main() -> None:
     )
 
     site_url = os.environ.get("PUBLIC_SITE_URL") or os.environ.get("WP_SITE_URL") or DEFAULT_SITE_URL
+    live_posts: list[dict[str, str]] = []
     if site_url:
         posts, error = fetch_recent_wp_posts(site_url)
+        live_posts = posts
         if error:
             print(f"EXCALIBUR_RECENT_WP_POSTS_ERROR={error}")
         else:
-            compact = [f"{p['date']}|{p['slug']}|{p['title']}" for p in posts]
+            compact = [f"{p.get('id', '')}|{p['date']}|{p['slug']}|{p['title']}" for p in posts]
             print("EXCALIBUR_RECENT_WP_POSTS=" + json.dumps(compact, ensure_ascii=False))
     else:
         print("EXCALIBUR_RECENT_WP_POSTS=")
         print("EXCALIBUR_RECENT_WP_POSTS_NOTE=set PUBLIC_SITE_URL for live dedupe")
+
+    suggested_slug = topic_slug_from_pool(root, topic_id)
+    if suggested_slug and live_posts:
+        hit = next((p for p in live_posts if p.get("slug") == suggested_slug), None)
+        if hit:
+            print(
+                "EXCALIBUR_SLUG_LIVE_HIT="
+                + json.dumps(
+                    {
+                        "topic_id": topic_id,
+                        "slug": suggested_slug,
+                        "wp_post_id": hit.get("id"),
+                        "link": hit.get("link"),
+                        "note": "slug already live — publish will UPDATE same post; do not treat as new",
+                    },
+                    ensure_ascii=False,
+                )
+            )
 
 
 if __name__ == "__main__":

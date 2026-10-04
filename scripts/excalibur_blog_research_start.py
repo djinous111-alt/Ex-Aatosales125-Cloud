@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 import time
@@ -256,6 +257,67 @@ def article_dir(root: Path, topic: dict[str, Any]) -> Path:
     return root / "memory" / "blog" / "articles" / f"{topic['topic_id']}-{slug}"
 
 
+def lookup_live_wp_slug(slug: str) -> dict[str, Any] | None:
+    """Match topic slug against live WP REST recent/exact slug lookup."""
+    if not slug:
+        return None
+    site_url = (
+        os.environ.get("PUBLIC_SITE_URL")
+        or os.environ.get("WP_SITE_URL")
+        or os.environ.get("WP_HOME")
+        or ""
+    ).strip()
+    if not site_url:
+        return None
+    endpoint = (
+        site_url.rstrip("/")
+        + f"/wp-json/wp/v2/posts?slug={urllib.parse.quote(slug)}&per_page=1"
+        "&_fields=id,slug,link,status"
+    )
+    try:
+        req = urllib.request.Request(endpoint, headers={"User-Agent": USER_AGENT})
+        with urllib.request.urlopen(req, timeout=12) as response:
+            payload = json.loads(response.read().decode("utf-8", errors="replace"))
+    except Exception:  # noqa: BLE001
+        return None
+    if not isinstance(payload, list) or not payload:
+        return None
+    post = payload[0]
+    return {
+        "wp_post_id": post.get("id"),
+        "slug": post.get("slug"),
+        "link": post.get("link"),
+        "status": post.get("status"),
+        "note": "slug already live — publish updates the same post_id; do not create a parallel post",
+    }
+
+
+def seed_meta_wp_post_id(out_dir: Path, topic: dict[str, Any], live_hit: dict[str, Any]) -> None:
+    """Persist known live post_id so publish updates instead of guessing."""
+    meta_path = out_dir / "article.meta.json"
+    meta: dict[str, Any]
+    if meta_path.is_file():
+        try:
+            meta = json.loads(meta_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            meta = {}
+    else:
+        meta = {
+            "topic_id": topic.get("topic_id"),
+            "slug": topic.get("slug"),
+            "h1": topic.get("h1"),
+        }
+    post_id = live_hit.get("wp_post_id")
+    if post_id and not meta.get("wp_post_id") and not meta.get("post_id"):
+        meta["wp_post_id"] = int(post_id)
+        meta["live_slug_dedupe"] = {
+            "matched": True,
+            "link": live_hit.get("link"),
+            "note": live_hit.get("note"),
+        }
+        meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
 def reserve_topic_in_ledger(root: Path, topic: dict[str, Any], ctx: dict[str, Any], out_dir: Path) -> bool:
     """Mark a topic as in_progress as soon as Step 0 starts.
 
@@ -318,6 +380,15 @@ def run_research_start(
     out_dir = output_dir or article_dir(project_root(), topic)
     out_dir.mkdir(parents=True, exist_ok=True)
 
+    live_slug_hit = None if dry_run else lookup_live_wp_slug(str(topic.get("slug") or ""))
+    if live_slug_hit:
+        print(
+            "WARN live WP slug already exists: "
+            f"id={live_slug_hit.get('wp_post_id')} slug={live_slug_hit.get('slug')} "
+            f"— publish will UPDATE the same post",
+            file=sys.stderr,
+        )
+
     serp_runs: list[dict[str, Any]] = []
     errors: list[str] = []
 
@@ -357,6 +428,7 @@ def run_research_start(
         "topic": topic,
         "utility_gate": utility_report,
         "search_queries": queries,
+        "live_wp_slug": live_slug_hit,
         "output_dir": repo_relative(out_dir, project_root()),
         "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md",
     }
@@ -378,6 +450,8 @@ def run_research_start(
         serp_path.write_text(json.dumps(payload_serp, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         save_utility = out_dir / "utility-gate-topic.json"
         save_utility.write_text(json.dumps(utility_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        if live_slug_hit:
+            seed_meta_wp_post_id(out_dir, topic, live_slug_hit)
         ledger_reserved = reserve_topic_in_ledger(project_root(), topic, ctx, out_dir)
     else:
         ledger_reserved = False
@@ -388,6 +462,7 @@ def run_research_start(
         "context": payload_context,
         "serp": payload_serp,
         "ledger_reserved": ledger_reserved,
+        "live_wp_slug": live_slug_hit,
         "dry_run": dry_run,
     }
 
@@ -439,6 +514,9 @@ def main() -> int:
     print(f"OK date={ctx['today_ru']} year={ctx['year']} tz={ctx['timezone']}")
     print(f"topic={result['context']['topic']['topic_id']} slug={result['context']['topic'].get('slug')}")
     print(f"queries={len(result['context']['search_queries'])}")
+    if result.get("live_wp_slug"):
+        hit = result["live_wp_slug"]
+        print(f"live_wp_slug_hit=id={hit.get('wp_post_id')} slug={hit.get('slug')}")
     if args.dry_run:
         print(json.dumps(result["context"], ensure_ascii=False, indent=2))
         return 0

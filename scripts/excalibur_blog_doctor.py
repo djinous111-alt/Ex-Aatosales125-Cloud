@@ -132,7 +132,50 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check(
+        "--blog-path" not in llms_help.stdout or "--blog-dir" in llms_help.stdout,
+        "llms generator docs use --blog-dir (not --blog-path)",
+        errors,
+        warnings,
+        warn=True,
+    )
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    if policy_path.is_file():
+        try:
+            import json
+
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+            pain = policy.get("pain_markers_ru") or []
+            outcome = policy.get("outcome_markers_ru") or []
+            signals = policy.get("article_required_signals") or {}
+            check(isinstance(pain, list) and len(pain) >= 3, "editorial-policy pain_markers_ru non-empty", errors, warnings)
+            check(
+                isinstance(outcome, list) and len(outcome) >= 3,
+                "editorial-policy outcome_markers_ru non-empty",
+                errors,
+                warnings,
+            )
+            check(
+                int(signals.get("min_pain_markers") or 0) >= 1,
+                "editorial-policy min_pain_markers set",
+                errors,
+                warnings,
+            )
+            check(
+                int(signals.get("min_outcome_markers") or 0) >= 1,
+                "editorial-policy min_outcome_markers set",
+                errors,
+                warnings,
+            )
+        except (json.JSONDecodeError, TypeError, ValueError) as exc:
+            check(False, f"editorial-policy.json parseable ({type(exc).__name__})", errors, warnings)
+    else:
+        check(False, "editorial-policy.json exists", errors, warnings)
+
+    git_helper = root / "scripts/excalibur_git.sh"
+    check(git_helper.is_file(), "scripts/excalibur_git.sh exists (secret-name sanitize)", errors, warnings, warn=True)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

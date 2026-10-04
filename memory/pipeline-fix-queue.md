@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261004-2120-scout-precommit-redacted-secret-name
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in Cloud Agent pre-commit secrets scanner: `pre-commit.cursor` expands `CLOUD_AGENT_INJECTED_SECRET_NAMES` and hits bash error `invalid variable name` on a placeholder entry `[REDACTED]`.
+- The redacted token is not a valid bash identifier, so `${!SECRET_NAME}` aborts the hook before scanning staged files.
+
+### How the agent recovered this run
+- Filtered `[REDACTED]` out of `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `CLOUD_AGENT_ALL_SECRET_NAMES` for the commit command only, then committed and pushed the B01 topic card.
+
+### Durable fix needed before next run
+- Ensure Cloud secret-name injection never writes non-identifier placeholders into `CLOUD_AGENT_*_SECRET_NAMES`, or harden `pre-commit.cursor` to skip names that fail `^[A-Za-z_][A-Za-z0-9_]*$`.
+- Document the filter workaround in `shared/agent-pipeline-pitfalls.md` until the hook is fixed.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- Cloud Agent hooks / secret injection (pre-commit.cursor)
+- `scripts/` git helper if restored for sanitize+commit
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

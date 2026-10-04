@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Красивая цена из чата — а смета во Владивостоке?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у порта Владивостока с папкой документов и стикером «сначала цифры», плашка про смету растаможки",
+      "scene_hint": "reference face + glasses ONLY; CHANGE outfit to rain-jacket / waterproof navy coat for foggy Vladivostok port weather (NOT reference t-shirt); NO cap NO hood; action selfie at container port with Chinese crossover silhouette; fake phone screenshot of customs checklist (мощность л.с., объём см³, месяц выпуска) + torn paper sticky «сначала цифры» and «до депозита»; shocked meme reaction cutout; huge Cyrillic hook with yellow highlight on «смета»; handwritten arrow to folder of docs; corner brand avto-sales125.ru; NO toxic words, NO Wordstat, NO Metrika, NO Telegram handle",
+      "meme_caption_ru": "Сначала цифры — потом деньги"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Соберите пять параметров авто до перевода денег",
+      "visual_type": "checklist_board",
+      "scene_hint": "Clipboard checklist UI: 5 строк — месяц выпуска, объём см³, мощность л.с., тип двигателя, таможенная стоимость; red pen checkmarks; pink sticky «до депозита»; scotch tape corner; NO host face",
+      "alt": "Чеклист пяти параметров авто до перевода денег: выпуск, объём, мощность, двигатель, стоимость"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как посчитать платежи без \"цены под ключ\"",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean table mockup: Единая ставка / Таможенный сбор / Утильсбор / Вне калькулятора — колонки «статья / ловушка»; sticky note «три платежа государству»; tape; NO host face, NO Wordstat",
+      "alt": "Таблица платежей растаможки: пошлина, сбор, утильсбор и ловушки цены под ключ"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Пройдите этапы через Владивосток: от порта до ЭПТС",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Horizontal workflow: Подготовка → СВХ → Декларация → Платежи → Выпуск → СБКТС → ЭПТС → ГИБДД; numbered arrows; mini sticky «выпуск ≠ номера»; port icon vibe; NO host face",
+      "alt": "Схема этапов через Владивосток: от порта и СВХ до СБКТС, ЭПТС и ГИБДД"
+    }
+  }
+}

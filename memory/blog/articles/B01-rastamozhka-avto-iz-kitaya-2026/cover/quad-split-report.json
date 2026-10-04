@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2736,
+      1536
+    ],
+    "panel_size_px": [
+      1365,
+      770
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 770,
+        "end": 807
+      },
+      "v_gutter_px": {
+        "start": 1365,
+        "end": 1432
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1365,
+          "bottom": 770
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1365,
+          "bottom": 770
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у порта Владивостока с папкой документов и стикером «сначала цифры», плашка про смету растаможки",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1432,
+          "top": 18,
+          "right": 2736,
+          "bottom": 752
+        },
+        "raw_box_px": {
+          "left": 1432,
+          "top": 0,
+          "right": 2736,
+          "bottom": 770
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист пяти параметров авто до перевода денег: выпуск, объём, мощность, двигатель, стоимость",
+        "h2_anchor": "Соберите пять параметров авто до перевода денег"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 34,
+          "top": 807,
+          "right": 1330,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 807,
+          "right": 1365,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица платежей растаможки: пошлина, сбор, утильсбор и ловушки цены под ключ",
+        "h2_anchor": "Как посчитать платежи без \"цены под ключ\""
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1436,
+          "top": 807,
+          "right": 2732,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 1432,
+          "top": 807,
+          "right": 2736,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема этапов через Владивосток: от порта и СВХ до СБКТС, ЭПТС и ГИБДД",
+        "h2_anchor": "Пройдите этапы через Владивосток: от порта до ЭПТС"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Соберите пять параметров авто до перевода денег",
+    "injected inline_2 after H2 — Как посчитать платежи без \"цены под ключ\"",
+    "injected inline_3 after H2 — Пройдите этапы через Владивосток: от порта до ЭПТС"
+  ]
+}

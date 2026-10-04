@@ -1,0 +1,34 @@
+{
+  "slug": "postanovka-na-uchet-avto-iz-yaponii-2026",
+  "topic_id": "B02",
+  "post_id": 3589,
+  "permalink": "[PUBLIC_SITE_URL]/2026/07/21/postanovka-na-uchet-avto-iz-yaponii-2026/",
+  "featured_image": 4014,
+  "inline_images": [
+    {
+      "id": 4011,
+      "file": "inline-01.png"
+    },
+    {
+      "id": 4012,
+      "file": "inline-02.png"
+    },
+    {
+      "id": 4013,
+      "file": "inline-03.png"
+    }
+  ],
+  "orphan_media_ids": [
+    4010,
+    4015,
+    4016,
+    4017
+  ],
+  "schema_meta": 1,
+  "skip_theme_faq_meta": 1,
+  "publish_method": "ssh+soft-success-rest",
+  "live_head": 200,
+  "raw_output": "OK post=3589 slug=postanovka-na-uchet-avto-iz-yaponii-2026\nOK featured_image=4014\nOK inline_image_upload=4011 src=cover/inline-01.png\nOK inline_image_upload=4012 src=cover/inline-02.png\nOK inline_image_upload=4013 src=cover/inline-03.png\nOK schema_meta=1\npermalink=[PUBLIC_SITE_URL]/2026/07/21/postanovka-na-uchet-avto-iz-yaponii-2026/\n# soft-success: local HTTP 504 + curl 504; PHP completed; REST+SSH meta-check confirmed\n",
+  "verdict": "pass",
+  "notes": "HTTP/curl 504 after bootstrap; REST showed update post=3589 featured=4014 modified=2026-10-04T20:40:23; SSH meta-check schema_meta=1; content inline ids 4011/4012/4013; do not confuse with B01 3991"
+}

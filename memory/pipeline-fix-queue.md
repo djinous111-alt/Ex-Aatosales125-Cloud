@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261004-1740-publish-http-timeout-soft-success
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-publish
+topic_id: B02
+article_dir: memory/blog/articles/B02-postanovka-na-uchet-avto-iz-yaponii-2026
+severity: medium
+category: publish
+
+### What went wrong
+- SSH bootstrap (~7.7MB PHP) uploaded OK, but local HTTP trigger and curl `--max-time 300` both returned nginx **504** (~120s) while PHP continued on server.
+- `excalibur_blog_wp_publish.py` WebFetch fallback wait (120s) expired before a usable OK body arrived; script exited without writing `wp-publish-result.json` / ledger.
+- Overlapping/retry media sideloads left orphan attachments with `-2`/`-3` suffixes (4010, 4015–4017) while content kept inline 4011–4013 and featured 4014.
+
+### How the agent recovered this run
+- Parallel WP REST poll by slug during curl confirmed post **3589** update (`featured_media=4014`, `modified=2026-10-04T20:40:23`, live HEAD 200).
+- Tiny SSH one-shot meta-check confirmed `schema_meta=1`, `skip_theme_faq=1`, featured 4014.
+- Reconstructed `wp-publish-result.json`, ledger, publish log, promotion Live URL (soft-success). Did not republish unrelated posts (3991 etc.).
+
+### Durable fix needed before next run
+- Extend publish fallback: on HTTP 504, do not treat as hard fail if REST slug poll shows fresh `modified` + `featured_media` within N minutes; auto-write soft-success result.
+- Prefer starting curl immediately and/or increase fallback wait beyond 120s for large payloads; avoid double-trigger of bootstrap while first PHP still running.
+- Document soft-success reconstruction fields in publish skill/contract.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261004-1735-indexer-precommit-secret-scan
 status: open
 run_date: 2026-10-04

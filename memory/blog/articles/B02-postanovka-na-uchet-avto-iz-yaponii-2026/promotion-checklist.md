@@ -1,7 +1,7 @@
 # Promotion checklist — B02 postanovka-na-uchet-avto-iz-yaponii-2026
 
-Дата публикации: 2026-10-04 (ожидается после publish)  
-Live URL: [REDACTED]blog/postanovka-na-uchet-avto-iz-yaponii-2026/
+Дата публикации: 2026-10-04  
+Live URL: [PUBLIC_SITE_URL]/2026/07/21/postanovka-na-uchet-avto-iz-yaponii-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • СБКТС + ПТД/ТПО + ОСАГО с реальной датой начала
 • Госуслуги и осмотр — один визит до СТС и номеров
 
-Читать: [REDACTED]blog/postanovka-na-uchet-avto-iz-yaponii-2026/
+Читать: [PUBLIC_SITE_URL]/blog/postanovka-na-uchet-avto-iz-yaponii-2026/
 ```
 
 ## Перелинковка

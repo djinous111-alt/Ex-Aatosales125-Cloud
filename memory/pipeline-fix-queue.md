@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261004-0915-scout-precommit-secret-names
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in Cloud pre-commit secret scanner: `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `CLOUD_AGENT_ALL_SECRET_NAMES` contain a non-identifier token that bash cannot expand via `${!SECRET_NAME}` (line ~270 of pre-commit.cursor).
+- Repo no longer has `scripts/sanitize_cloud_secret_names.sh` (referenced in automation memory), so the documented sanitize path is missing.
+
+### How the agent recovered this run
+- Filtered secret-name lists to identifier-only comma-separated names in the current shell, then committed and pushed the B01 topic card successfully.
+- Did not use `--no-verify`.
+
+### Durable fix needed before next run
+- Restore or add `scripts/sanitize_cloud_secret_names.sh` that strips non-identifier tokens from `CLOUD_AGENT_*_SECRET_NAMES` before commit.
+- Document the sanitize step in scout/director/fixer skills and `shared/agent-pipeline-pitfalls.md`.
+- Prefer fixing Cloud secret metadata so invalid names never appear in the injected list.
+
+### Suggested files to inspect/change
+- `scripts/sanitize_cloud_secret_names.sh` (restore)
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/fixer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

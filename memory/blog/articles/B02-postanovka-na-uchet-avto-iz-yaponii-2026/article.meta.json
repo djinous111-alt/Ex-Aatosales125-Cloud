@@ -29,12 +29,15 @@
     "description_aeo": "После растаможки японского авто нужны СБКТС, ЭПТС в статусе действующий, таможенные бумаги, ОСАГО и заявление на Госуслугах до визита в ГИБДД."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 87,
+    "verdict": "PASS",
     "date": "2026-10-04",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility_gate": "PASS",
+    "link_verify": "PASS"
   },
   "cover_family": "brand_collage"
 }

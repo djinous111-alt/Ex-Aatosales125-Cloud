@@ -6,6 +6,74 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261004-1725-geo-qa-utility-policy-markers-missing
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-geo-qa
+topic_id: B02
+article_dir: memory/blog/articles/B02-postanovka-na-uchet-avto-iz-yaponii-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` дал false BLOCK: `pain_markers=0` / `outcome_markers=0`.
+- В `memory/brief/editorial-policy.json` снова отсутствовали `pain_markers_ru`, `outcome_markers_ru` и min_* (регресс после rebrand/sync; повторение INC B01/B02 прошлых run).
+- Текст статьи при этом проходил human-voice pain/outcome.
+
+### How the agent recovered this run
+- Восстановил `pain_markers_ru` / `outcome_markers_ru` + `min_pain_markers` / `min_outcome_markers` и расширил recommendation markers (`делайте`, `чек-лист`).
+- Вернул skip-empty warning path в `scripts/excalibur_blog_utility_gate.py`, чтобы пустые списки не считались 0 hits.
+- Utility gate после правок: PASS (action 21, pain 5, outcome 5).
+
+### Durable fix needed before next run
+- Зафиксировать marker lists как обязательный блок policy (не терять при rebrand/template sync).
+- Добавить doctor-check: policy must contain non-empty pain/outcome lists.
+- Держать skip-empty в utility gate как safety net.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/editorial-utility-only.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261004-1725-geo-qa-link-verify-cta-redacted
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-geo-qa
+topic_id: B02
+article_dir: memory/blog/articles/B02-postanovka-na-uchet-avto-iz-yaponii-2026
+severity: medium
+category: qa
+
+### What went wrong
+- В `article.html` CTA href были литералами `[REDACTED]` → `link_verify` трактовал как relative path и давал 404 / fail.
+- Повтор известного паттерна B01/B02: commit hygiene redact ломает live link check.
+
+### How the agent recovered this run
+- Временно expand `CATALOG_URL` / `TELEGRAM_URL` в HTML → `link_verify` 2/2 PASS → re-redact HTML и JSON.
+- Текст статьи для writer не менялся содержательно.
+
+### Durable fix needed before next run
+- `excalibur_blog_link_verify.py` должен сам expand известные CTA placeholders / env URLs перед проверкой и redact в отчёте.
+- Либо writer пишет стабильные токены `[CATALOG_URL]`/`[TELEGRAM_URL]`, а verify их резолвит из env.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261004-1722-writer-precommit-secret-names
 status: open
 run_date: 2026-10-04

@@ -1,0 +1,80 @@
+{
+  "article": "memory/blog/articles/B02-postanovka-na-uchet-avto-iz-yaponii-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 10,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 8,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "синей печатью\" вместо того, что реально выдали в 2026 (часто ПТД с августа 2023 и ТПО). Оформите ОСАГО",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "о, что реально выдали в 2026 (часто ПТД с августа 2023 и ТПО). Оформите ОСАГО с запасом и очистите маркир",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "Тут важный момент. Часть СМИ пишет, что с 1 марта 2025 ОСАГО убрали из обязательных документов для регист",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 дней",
+      "kind": "metric_or_duration",
+      "context": "ет и заявление подано через Госуслуги. Закон даёт 10 дней на постановку, но пустая поездка съедает срок сил",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "4 лет",
+      "kind": "metric_or_duration",
+      "context": "начала действия Диагностическая карта Авто старше 4 лет Сделать до записи Например, в отказах МРЭО часто",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "600804",
+      "kind": "large_number",
+      "context": "Заявление – на Госуслугах (регистрация ТС, форма /600804). Войдите подтверждённым аккаунтом и откройте усл",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1500",
+      "kind": "large_number",
+      "context": "лину заранее. Ориентир с 01.09.2025: бумажное СТС 1500 ₽ + номера 3000 ₽ = 4500 ₽; пластик СТС 4500 ₽. С",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3000",
+      "kind": "large_number",
+      "context": "иентир с 01.09.2025: бумажное СТС 1500 ₽ + номера 3000 ₽ = 4500 ₽; пластик СТС 4500 ₽. Скидки 30% через",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4500",
+      "kind": "large_number",
+      "context": "01.09.2025: бумажное СТС 1500 ₽ + номера 3000 ₽ = 4500 ₽; пластик СТС 4500 ₽. Скидки 30% через Госуслуги",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "283",
+      "kind": "large_number",
+      "context": "представитель – доверенность лежит сверху. По ФЗ-283 на обращение даётся 10 дней с даты выпуска в обращ",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

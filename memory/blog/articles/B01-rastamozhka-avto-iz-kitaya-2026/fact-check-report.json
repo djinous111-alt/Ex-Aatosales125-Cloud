@@ -1,0 +1,73 @@
+{
+  "article": "memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 9,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 7,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "Пошлина физлица \"для себя\" Калькулятор TKS, гайды 2026 Путать с ценой из чата Таможенный сбор Плата за де",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "12 месяцев",
+      "kind": "metric_or_duration",
+      "context": "и, лимите \"одна машина в год\" и плане владения от 12 месяцев. Цифры сверяйте на дату оформления. Выше порога п",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "тип двигателя и таможенную стоимость. Порог около 160 л.с. часто ломает смету утильсбора. Готовый прайс",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "186",
+      "kind": "large_number",
+      "context": "объявлению в Telegram, а потом узнал: в паспорте 186 л.с., а не \"около 150\". Утильсбор прыгает из тысяч",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1498",
+      "kind": "large_number",
+      "context": "и\". Зафиксируйте объём двигателя в см³ (например, 1498, а не \"1.5\"). Проверьте мощность в л.с. в докумен",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1291",
+      "kind": "large_number",
+      "context": "бор Льготный и коммерческий – разные миры ПП РФ № 1291 (ред. 06.02.2026) Игнорировать порог ~160 л.с. и",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "20 000",
+      "kind": "large_number",
+      "context": "иентир льготного утильсбора физлица на 2026: база 20 000 ₽ × 0,17 или 0,26 даёт порядка 3 400 ₽ или 5 200",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 400",
+      "kind": "large_number",
+      "context": "2026: база 20 000 ₽ × 0,17 или 0,26 даёт порядка 3 400 ₽ или 5 200 ₽ – при мощности до 160 л.с., объёме",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 200",
+      "kind": "large_number",
+      "context": "20 000 ₽ × 0,17 или 0,26 даёт порядка 3 400 ₽ или 5 200 ₽ – при мощности до 160 л.с., объёме меньше 3 л,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

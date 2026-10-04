@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261005-2131-geo-qa-cta-placeholders
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-2026
+severity: medium
+category: qa
+
+### What went wrong
+- Writer оставил в `article.html` литералы `href="[CATALOG_URL]"` / `href="[TELEGRAM_URL]"` вместо абсолютных CTA URL.
+- `excalibur_blog_link_verify.py` классифицировал их как `internal_relative` и при `--site-base` проверял `PUBLIC_SITE_URL/[CATALOG_URL]` → HTTP 404 → verdict fail.
+- AS08/AS09 уже публиковались с абсолютными URL; контракт writer/skill не запрещает явно плейсхолдеры имён env.
+
+### How the agent recovered this run
+- GEO QA подставил `CATALOG_URL` и `TELEGRAM_URL` из env в `article.html`, снял `<!-- pragma: allowlist secret -->`.
+- Повтор link-verify: 2/2 PASS; html/slop/human-voice/utility/fact-check остались PASS.
+- `article-qa.md` verdict PASS (score 87).
+
+### Durable fix needed before next run
+- В writer skill / writing contract: CTA только абсолютные URL из conversion-map/env; запрет литералов `[CATALOG_URL]` / `[TELEGRAM_URL]` в HTML.
+- Опционально: preflight/html linter или link-verify — явный fail с сообщением «placeholder CTA», не 404.
+- Pitfalls: GEO QA при fail на `[CATALOG_URL]` сначала подставить env, не слать полный FIX-цикл writer.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261005-2135-writer-utility-pain-markers-missing
 status: open
 run_date: 2026-10-05

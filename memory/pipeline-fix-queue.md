@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261004-0935-geo-qa-generalpurpose-fallback
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-yaponii-pod-klyuch-2026
+severity: medium
+category: handoff
+
+### What went wrong
+- Typed Task `excalibur-blog-geo-qa` недоступен в Cloud API; директор вынужден запускать роль через `Task(generalPurpose)` fallback.
+- Риск: родитель/субагент без явного контракта может пропустить human-voice / utility gates или сделать cover/schema до PASS.
+- Pre-commit secret scanner падает на `CLOUD_AGENT_INJECTED_SECRET_NAMES`, если в списке есть невалидный bash identifier (placeholder `[REDACTED]`), а `link-verify.json` содержит живые CTA URL из Cloud Secrets.
+
+### How the agent recovered this run
+- Выполнен полный GEO QA по `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+- Все обязательные gates PASS; `article-qa.md` verdict PASS (score 87); cover/schema/publish не запускались.
+- Перед commit редкатировал CTA URL в `link-verify.json` (CATALOG_URL/TELEGRAM_URL попадают в Cloud Secrets scanner).
+
+### Durable fix needed before next run
+- Зарегистрировать typed Task `excalibur-blog-geo-qa` в Cloud Task types / automation map, чтобы не полагаться на generalPurpose.
+- В director skill явно держать fallback-контракт: входные файлы, запрет cover/schema, обязательный `human-voice-report.json` PASS.
+- В geo-qa skill: после link-verify редкатить CTA URL в `link-verify.json` перед commit (как для research-serp).
+- Pre-commit / Cloud Secrets: не допускать невалидные имена в `CLOUD_AGENT_INJECTED_SECRET_NAMES`; scanner должен skip non-identifiers.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/pipeline-task-map.md`
+- `CLOUD-AUTOMATION.md`
+- `AGENTS.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261004-0930-writer-utility-pain-markers-missing
 status: open
 run_date: 2026-10-04

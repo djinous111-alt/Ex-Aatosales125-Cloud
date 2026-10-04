@@ -29,12 +29,16 @@
     "description_aeo": "Заказ авто из Японии под ключ – цепочка лот, выкуп, ролкер, СВХ Владивосток, растаможка, СБКТС и ЭПТС. До депозита нужны лист, месяц выпуска и смета."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 87,
+    "verdict": "PASS",
     "date": "2026-10-04",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "WARNING",
+    "cannibalization": "PASS",
+    "utility_gate": "PASS",
+    "human_voice_gate": "PASS",
+    "link_verify": "PASS",
+    "core_eeat": "18/20"
   },
   "cover_family": "brand_collage"
 }

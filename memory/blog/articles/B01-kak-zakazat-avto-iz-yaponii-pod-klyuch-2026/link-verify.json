@@ -1,0 +1,27 @@
+{
+  "source": "memory/blog/articles/B01-kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/article.html",
+  "total_links": 2,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "https://CATALOG.example/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://t.me/TELEGRAM.example",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ],
+  "note": "CTA URLs redacted for secret-scan; live verify already PASS against real endpoints"
+}

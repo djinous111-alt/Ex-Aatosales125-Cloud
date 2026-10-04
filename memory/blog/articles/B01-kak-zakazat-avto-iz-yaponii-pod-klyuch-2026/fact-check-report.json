@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B01-kak-zakazat-avto-iz-yaponii-pod-klyuch-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ходного. Знакомо? Заказ авто из Японии под ключ в 2026 – это не \"кнопка купить\", а цепочка: лот → выкуп",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "5 лет",
+      "kind": "metric_or_duration",
+      "context": "кузов. Задайте ориентир возраста: коридор около 3–5 лет для физлица обсуждают часто, но критичен месяц вы",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "8 недель",
+      "kind": "metric_or_duration",
+      "context": "и документы Срок до выдачи Ориентир у практиков 3–8 недель после выигрыша Короче, если авто уже прошло часть",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "льготного утильсбора для физлица (ориентир около 160 л.с. для ДВС) – выше часто другая шкала. Зафиксиру",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

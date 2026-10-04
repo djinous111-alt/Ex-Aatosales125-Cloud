@@ -1,0 +1,28 @@
+{
+  "source": "memory/blog/articles/B01-prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki/article.html",
+  "total_links": 2,
+  "failed_count": 0,
+  "verdict": "pass",
+  "urls_redacted_in_report": true,
+  "note": "Live HEAD verify passed 2/2 against catalog + Telegram CTA. Exact URLs omitted here because CATALOG_URL/TELEGRAM_URL are Cloud secrets; live hrefs remain in article.html with pragma allowlist.",
+  "links": [
+    {
+      "url": "external:catalog-cta",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "external:telegram-cta",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

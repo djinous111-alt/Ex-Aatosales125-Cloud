@@ -39,9 +39,10 @@
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
 
-## Scout
+## Research / notes gate
 
-- Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- В `pain_solution_map` gate считает только строки с литералами `pain`/`solution`/`результат`/`result` — до фикса скрипта пиши префиксы в data-rows.
+- Секция `github_evidence` с URL github.com может ложно пометить авто-тему как technical; WARN про `/docs` не блокирует PASS.
 
 ## Indexer
 

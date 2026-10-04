@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261004-1733-cover-precommit-secret-names
+status: open
+run_date: 2026-10-04
+role: excalibur-blog-cover
+topic_id: B02
+article_dir: memory/blog/articles/B02-postanovka-na-uchet-avto-iz-yaponii-2026
+severity: medium
+category: env
+
+### What went wrong
+- Первый `git commit` cover-артефактов упал в `pre-commit.cursor`: `CLOUD_AGENT_*_SECRET_NAMES` содержит URL/не-identifier → bash `invalid variable name` (повтор INC-20261004-1722 / schema INC-20261004-1728).
+
+### How the agent recovered this run
+- Перед повторным commit: `source scripts/sanitize_cloud_secret_names.sh`.
+- Cover PNG/JSON закоммичены без redact; schema не трогали.
+
+### Durable fix needed before next run
+- Авто-sanitize secret names в shell profile / git wrapper до любого pre-commit.
+- В Dashboard secret names — только bash-identifiers (без URL как «имени»).
+
+### Suggested files to inspect/change
+- `scripts/sanitize_cloud_secret_names.sh`
+- Cursor Dashboard Cloud Secrets naming
+- `.cursor/skills/cover-excalibur-blog/SKILL.md` (commit note)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261004-1728-schema-precommit-secret-scan
 status: open
 run_date: 2026-10-04

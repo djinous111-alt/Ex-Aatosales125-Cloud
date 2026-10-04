@@ -28,11 +28,13 @@ Append new Topic Card to blog-topics.md
 
 ### Шаг 1 — Анализ прошлого и получение ID
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
+* Сверь gap также с `EXCALIBUR_RECENT_WP_POSTS` из `python3 scripts/excalibur_blog_today.py` (live JSON `published-live-*.json` может отставать).
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Helper учитывает **ledger + active article dirs**, не только карточки в пуле. Запомни следующий `topic_id` и список reserved IDs.
+* Wordstat: сначала широкий parent-кластер, потом узкий how-to. Ответ только с `totalCount` без top phrases — low-result signal, не fatal.
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
@@ -81,3 +83,8 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
 * Выдумывание цифр спроса без вызова Wordstat API.
+* Повтор уже опубликованного `topic_id` / slug из ledger или recent WP.
+
+## Git commit
+
+Перед `git commit`: `source scripts/sanitize_cloud_secret_names.sh` или `bash scripts/excalibur_git.sh commit ...`.

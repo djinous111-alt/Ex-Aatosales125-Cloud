@@ -6,6 +6,8 @@
 
 Параллельно с `excalibur-blog-schema`. **Не** править schema и body longread.
 
+**Git:** перед commit `source scripts/sanitize_cloud_secret_names.sh` или `bash scripts/excalibur_git.sh commit ...` (URL-as-secret-name ломает pre-commit).
+
 ---
 
 ## Архитектура (зафиксировано)

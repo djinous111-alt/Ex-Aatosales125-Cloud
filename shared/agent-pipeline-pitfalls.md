@@ -42,7 +42,31 @@
 ## Scout
 
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- `--suggest-next` учитывает ledger (`published`/`in_progress`) + `memory/blog/articles/Bxx-*`, не только карточки в `blog-topics.md`. После publish B-серии строка ledger обязательна.
+- Cannibalization/dedupe: предпочитай `EXCALIBUR_RECENT_WP_POSTS` из today.py; `published-live-*.json` может отставать.
+
+## Research notes gate
+
+- `technical_topic` определяется word-boundary маркерами по topic card; имена полей вроде `reader_pain` / `github_evidence` не делают тему technical.
+- Для non-tech (auto/legal/how-to без стека) GitHub ≥3 не обязателен; достаточно official docs + community.
+- `accessed_at` считается и из колонки source_table, не только из `accessed_at:`.
+
+## Secret scan / git commit
+
+- Перед commit: `source scripts/sanitize_cloud_secret_names.sh` или `bash scripts/excalibur_git.sh commit ...` (install хукает shell rc).
+- В Dashboard secret *names* — только bash-identifiers; URL как «имя» ломает pre-commit (`invalid variable name`).
+- Публичные brand URL в артефактах для git: `[REDACTED]` / `[CATALOG_URL]` / `[TELEGRAM_URL]`; publish и link_verify сами expand из env.
+
+## GEO QA / utility policy
+
+- `memory/brief/editorial-policy.json` обязан содержать непустые `pain_markers_ru`, `outcome_markers_ru` и `min_*` (doctor проверяет). Не вычищать при rebrand/sync.
+- CTA в HTML лучше писать токенами `[CATALOG_URL]`/`[TELEGRAM_URL]`; `link_verify` expand-ит env и redact-ит отчёт.
+
+## Publish
+
+- HTTP/nginx **504** после большого bootstrap ≠ hard fail: скрипт ждёт fallback дольше и делает REST soft-success по slug (`modified` свежий + `featured_media`). Не запускай второй bootstrap/curl параллельно — будут orphan media `-2`/`-3`.
 
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms/interlink/promotion: redact site base для git, restore/expand перед publish.

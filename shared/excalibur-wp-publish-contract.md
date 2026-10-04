@@ -49,6 +49,17 @@ if ($skip_theme_faq === '1') {
 
 Publish-скрипт выставляет meta `_excalibur_blog_skip_theme_faq` автоматически при каждой публикации.
 
+## Soft-success после HTTP 504
+
+Большой bootstrap (~7MB+) может получить nginx **504**, пока PHP ещё пишет post/media. Скрипт:
+
+1. Не считает 504 мгновенным hard-fail; ждёт WebFetch fallback дольше (≈180s).
+2. **Не** перезапускает bootstrap параллельно (иначе orphan media `-2`/`-3`).
+3. Если fallback тоже timeout — polling `wp-json/wp/v2/posts?slug=...`: свежий `modified` + `featured_media > 0` → soft-success.
+4. Пишет `wp-publish-result.json` с `publish_method: ssh+soft-success-rest`, `verdict: pass`, `post_id`, `featured_image`, `permalink`, `notes`.
+
+Commit-hygiene placeholders (`[REDACTED]`, `[CATALOG_URL]`, `[TELEGRAM_URL]`, `[PUBLIC_SITE_URL]`) в HTML/schema **expand** из env при publish.
+
 ## Артефакты после publish
 
 ```text

@@ -33,8 +33,8 @@ is_background: false
 1. **Preflight:** link-verify с `--site-base` из `PUBLIC_SITE_URL`.
 2. **Dry-run:** `excalibur_blog_wp_publish.py --dry-run`.
 3. **Publish:** `excalibur_blog_wp_publish.py` без dry-run.
-4. **Fallback:** при timeout HTTP-триггера — WebFetch URL из `FALLBACK_TRIGGER_URL` → `memory/webfetch-response.txt`.
-5. **Ledger:** обновить `shared/published-articles.md`.
+4. **Fallback / soft-success:** при timeout или nginx **504** — один WebFetch в `memory/webfetch-response.txt`; **не** запускай второй bootstrap/curl параллельно. Если ответ не пришёл, скрипт сам polling REST по slug и может вернуть soft-success (`ssh+soft-success-rest`).
+5. **Ledger:** обновить `shared/published-articles.md` (включая soft-success PASS).
 6. **Logs:** дописать `memory/blog/wp-publish-log.md`.
 7. **Promotion:** Live URL в `promotion-checklist.md`.
 8. **Handoff:** блок `=== EXCALIBUR BLOG PUBLISH ===` + permalink в `=== EXCALIBUR BLOG (PIPELINE DONE) ===`.

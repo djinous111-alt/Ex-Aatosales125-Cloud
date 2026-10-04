@@ -22,3 +22,9 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+## Redact-for-git / restore-for-publish
+
+- В коммите `schema.jsonld` site/brand URL → `[REDACTED]` / `[PUBLIC_SITE_URL]` / `[CATALOG_URL]` (JSON-LD нельзя пометить `pragma: allowlist secret`).
+- Перед publish скрипт `excalibur_blog_wp_publish.py` сам expand placeholders из env.
+- Перед commit: `source scripts/sanitize_cloud_secret_names.sh` или `bash scripts/excalibur_git.sh commit ...`.

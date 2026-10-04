@@ -37,6 +37,12 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## CTA и commit hygiene
+
+- CTA href пиши токенами `[CATALOG_URL]` / `[TELEGRAM_URL]` (не голый live URL и не безымянный `[REDACTED]`, если можно избежать).
+- Перед `git commit`: `source scripts/sanitize_cloud_secret_names.sh` или `bash scripts/excalibur_git.sh commit ...`.
+- Writer стартует только после `research-notes-gate.json` PASS.
+
 ## Blockers
 
 - нет research-notes.md

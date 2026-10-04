@@ -26,3 +26,9 @@ python3 scripts/excalibur_blog_llms_generator.py \
 - обновлённый `article.html` (контекстные ссылки)
 - `memory/blog/llms.txt`, `memory/blog/llms-full.txt`
 - `promotion-checklist.md` из `skills/excalibur/references/promotion-checklist-template.md`
+
+## Redact-for-git / restore-for-publish
+
+- В `llms.txt` / `llms-full.txt` / `interlink-suggestions.json` / `promotion-checklist.md` для git заменяй live site base на `[REDACTED]` (secret-scan ловит `PUBLIC_SITE_URL`).
+- Перед publish/deploy восстанови runtime URL из env (или положись на expand в publish path).
+- Перед commit: `source scripts/sanitize_cloud_secret_names.sh` или `bash scripts/excalibur_git.sh commit ...`.

@@ -40,14 +40,16 @@ Research-агент **отклоняет** угол без практики. В 
 
 - `utility_verdict: PASS`
 - `research_date` совпадает с `research-context.json` → `today_iso`
-- `source_table` с URL и `accessed_at`
-- `github_evidence` для технических тем
+- `source_table` с URL и `accessed_at` (дата может быть в колонке `accessed_at`, не только `accessed_at:`)
+- `github_evidence` **обязателен (≥3 GitHub URL) только для technical_topic** (AI/agent/API/Cursor/n8n/Make и т.п. по topic card). Для auto/legal/how-to без стека достаточно official docs + community; секция `github_evidence` может быть явной пометкой «n/a».
 - `reader_pain`: конкретная боль/риск/затык читателя
 - `reader_outcome`: одно предложение — какой первый результат сможет сделать новичок
 - `success_criteria`: как новичок поймёт, что проблема решена
 - `voice_angle`, `reader_story`, `surprising_fact`: материал для человеческого lead/H2
-- `pain_solution_map`: таблица pain → solution → proof/source → reader_result
+- `pain_solution_map`: таблица pain → solution → proof/source → reader_result (≥3 data rows)
 - `action_outline`: 5–9 шагов или чеклист-пунктов
+
+**Policy markers (не терять при rebrand):** в `memory/brief/editorial-policy.json` обязательны непустые `pain_markers_ru`, `outcome_markers_ru` и `article_required_signals.min_pain_markers` / `min_outcome_markers`. Doctor падает, если списки пустые.
 
 Машинный gate:
 

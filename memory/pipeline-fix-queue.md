@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261005-1742-writer-utility-gate-empty-pain-markers
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-writer
+topic_id: B02
+article_dir: memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` считает `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json`.
+- В policy этих списков нет → маркеры = [], счётчики всегда 0 → article gate BLOCK даже при живом тексте про боль и результат.
+- Тот же BLOCK воспроизводится на уже опубликованной AS09, значит это не дефект статьи B02.
+
+### How the agent recovered this run
+- В `article.html` заложены маркеры из human-voice gate (`боль`, `ошиб`, `проблем`, `хаос`, `результат`, `сможете`, `получите`, `проверьте`, `соберите`).
+- CTA взяты из env `CATALOG_URL` / `TELEGRAM_URL` (не `[REDACTED]` в href).
+- HTML linter PASS; char_count в диапазоне 8500–9500.
+
+### Durable fix needed before next run
+- Добавить в `editorial-policy.json` списки `pain_markers_ru` и `outcome_markers_ru`, синхронные с `PAIN_MARKERS` / `OUTCOME_MARKERS` в `excalibur_blog_human_voice_gate.py`.
+- Либо в utility_gate fallback на те же константы, если policy-списки пустые.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261005-1738-research-tech-markers-false-ai
 status: open
 run_date: 2026-10-05

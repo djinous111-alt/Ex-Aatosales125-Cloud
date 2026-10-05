@@ -1,13 +1,13 @@
 # Promotion checklist — B02 dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026
 
-Дата публикации: 2026-10-05 (ожидаемая; publish pending)  
-Live URL: (после publish) `/blog/dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026/`
+Дата публикации: 2026-10-05  
+Live URL: `[PUBLIC_SITE_URL]/2026/10/05/dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026/` (post_id=4049)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • До оплаты: фотоакт крыши, ярус, страховка груза
 • Default Владивосток–Москва: автовоз с договором
 
-Читать: [URL после publish]
+Читать: [PUBLIC_SITE_URL]/2026/10/05/dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026/
 ```
 
 ## Перелинковка
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir ... --site-base $PUBLIC_SITE_URL` — opportunities_found=0; report `memory/blog/interlink-suggestions.json`.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (3 articles; B02 в индексе). CLI: `--blog-dir` (без `--blog-path`).
-- Publish: pending (Indexer не publish).
+- Publish: PASS (post=4049; featured=4050; inlines=4051/4052/4053; schema_meta ok).

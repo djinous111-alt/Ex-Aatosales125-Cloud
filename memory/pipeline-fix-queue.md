@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261005-1800-publish-paramiko-missing
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-publish
+topic_id: B02
+article_dir: memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026
+severity: medium
+category: env
+
+### What went wrong
+- First live publish attempt failed: `ModuleNotFoundError: No module named 'paramiko'`.
+- `paramiko` is listed in `requirements.txt` but not installed in Cloud runtime / missing from `.cursor/cloud-agent-install.sh`.
+- `memory/site.env.local` was also missing at start of publish (Cloud Secrets were in process env only).
+
+### How the agent recovered this run
+- Installed `paramiko` via `pip3 install --break-system-packages paramiko`.
+- Wrote gitignored `memory/site.env.local` from Cloud Secrets with unquoted KEY=value and `SSH_ROOT=.`.
+- Re-ran SSH publish successfully (post 4049) without WebFetch fallback.
+
+### Durable fix needed before next run
+- Ensure `paramiko` is installed in `.cursor/cloud-agent-install.sh` (and/or environment build) so publish does not depend on ad-hoc pip.
+- Document or automate creating `memory/site.env.local` from Cloud Secrets before publish (unquoted values; do not bash-source if password has shell metacharacters).
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/environment.json`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py` (early import/check for paramiko)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261005-1756-indexer-commit-secret-scan
 status: open
 run_date: 2026-10-05

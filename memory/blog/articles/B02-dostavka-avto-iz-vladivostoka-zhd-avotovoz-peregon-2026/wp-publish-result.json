@@ -1,0 +1,15 @@
+{
+  "slug": "dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026",
+  "topic_id": "B02",
+  "permalink": "[PUBLIC_SITE_URL]/2026/10/05/dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1307502,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=4049 slug=dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026\nOK featured_image=4050\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4051 src=cover/inline-01.png url=[PUBLIC_SITE_URL]/wp-content/uploads/2026/10/dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026-inline-01.png\nOK inline_image_upload=4052 src=cover/inline-02.png url=[PUBLIC_SITE_URL]/wp-content/uploads/2026/10/dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026-inline-02.png\nOK inline_image_upload=4053 src=cover/inline-03.png url=[PUBLIC_SITE_URL]/wp-content/uploads/2026/10/dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026-inline-03.png\npermalink=[PUBLIC_SITE_URL]/2026/10/05/dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026/\n",
+  "verdict": "pass"
+}

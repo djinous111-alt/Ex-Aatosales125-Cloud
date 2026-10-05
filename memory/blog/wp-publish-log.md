@@ -31,3 +31,17 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-05 — B02 dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026
+
+- **verdict:** PASS
+- **post_id:** 4049
+- **permalink:** [PUBLIC_SITE_URL]/2026/10/05/dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026/
+- **featured_image:** 4050
+- **inline_images:** 4051 (`inline-01.png`), 4052 (`inline-02.png`), 4053 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH bootstrap + HTTP trigger (completed within 120s; no WebFetch fallback)
+- **live_HEAD:** 200
+- **note:** runtime missing `paramiko` until `pip3 install --break-system-packages paramiko`; `memory/site.env.local` recreated from Cloud Secrets with `SSH_ROOT=.`
+- **result:** `memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026/wp-publish-result.json`

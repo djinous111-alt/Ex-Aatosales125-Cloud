@@ -28,12 +28,16 @@
     "description_aeo": "Растаможка авто из Китая через Владивосток – цепочка порт → СВХ → ПТД → выпуск → СБКТС → ЭПТС. До оплаты проверьте правило 180 дней и мощность."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
-    "date": null,
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "score": 79,
+    "verdict": "FAIL",
+    "date": "2026-10-05",
+    "html_linter": "pass",
+    "slop_score": "warning",
+    "cannibalization": "pass",
+    "human_voice": "pass",
+    "utility_gate": "pass",
+    "link_verify": "fail",
+    "retry": "after_fix_cycle_1"
   },
   "cover_family": "brand_collage"
 }

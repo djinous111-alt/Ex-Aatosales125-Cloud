@@ -3,16 +3,14 @@
   "status": "PASS",
   "article_dir": "memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-vladivostok-2026",
   "errors": [],
-  "warnings": [
-    "multiple exactly-5-step lists detected; vary list size when editorially possible"
-  ],
+  "warnings": [],
   "metrics": {
     "h2_count": 7,
     "repeated_h2_openers": [],
     "textbook_h2_count": 0,
     "paragraph_count": 26,
-    "paragraph_avg_words": 31.2,
-    "paragraph_variance_ratio": 0.43,
+    "paragraph_avg_words": 33.4,
+    "paragraph_variance_ratio": 0.36,
     "concrete_markers": [
       "например",
       "на практике",
@@ -74,8 +72,7 @@
       "отправке",
       "пошлин",
       "расчёт",
-      "сбктс",
-      "чек-лист"
+      "сбктс"
     ],
     "success_criteria_overlap": [
       "ветку",
@@ -93,7 +90,6 @@
       "сбктс",
       "только",
       "транзит",
-      "чек-лист",
       "этапов"
     ],
     "voice_angle_overlap": [
@@ -125,7 +121,6 @@
       "разные",
       "регистрации",
       "российскую",
-      "сервиса",
       "таможню",
       "ужесточения",
       "утильсбора",
@@ -134,7 +129,7 @@
       "экспортную",
       "января"
     ],
-    "exactly_five_lists": 2,
+    "exactly_five_lists": 1,
     "fact_check_template_blocks": 0
   }
 }

@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261005-1335-geo-qa-cta-href-redacted-placeholder
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-vladivostok-2026
+severity: high
+category: qa
+
+### What went wrong
+- После Writer FIX cycle 1 в `article.html` три CTA имеют буквальный `href="[REDACTED]"` (каталог×2 + Telegram×1).
+- v1 (до FIX) содержал рабочие brand URL (`https://avto-sales125.ru/`, `https://t.me/avtosales125`); FIX заменил их на placeholder, совпадающий с redacted строками в `memory/brief/fact-bank.md` / `site-brief.md`.
+- `link-verify` строит `PUBLIC_SITE_URL/[REDACTED]` → HTTP 404 → verdict fail; elpts soft-pass при этом уже работает.
+- Utility gate / human-voice / research-notes после Fixer+FIX — PASS; QA снова FAIL только из-за CTA placeholders.
+
+### How the agent recovered this run
+- Не правил статью (зона Writer). Зафиксировал FAIL в `article-qa.md` + FIX cycle 2 с каноническими CTA AS09/brand.
+- Добавил этот incident для durable запрета копировать `[REDACTED]` в href.
+
+### Durable fix needed before next run
+- Writer skill / writing contract: явные CTA `https://avto-sales125.ru/` и `https://t.me/avtosales125`; запрет вставлять `[REDACTED]` / значения secret env (`PUBLIC_SITE_URL`) в `article.html`.
+- Brief/fact-bank: рядом с redacted catalog_url дать non-secret brand examples для статей (как в site-brief угол `avto-sales125.ru`).
+- Optional: preflight grep `href="\[REDACTED\]"` в article.html перед GEO QA.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/brief/fact-bank.md`
+- `memory/brief/site-brief.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261005-1327-writer-article-html-silent-revert
 status: open
 run_date: 2026-10-05

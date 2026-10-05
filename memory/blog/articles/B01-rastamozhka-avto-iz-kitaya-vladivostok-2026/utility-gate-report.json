@@ -1,28 +1,24 @@
 {
   "policy_id": "utility_only_v1",
-  "overall": "BLOCK",
+  "overall": "PASS",
   "reports": [
     {
       "gate": "article",
       "article_dir": "memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-vladivostok-2026",
-      "status": "BLOCK",
+      "status": "PASS",
       "metrics": {
-        "numbered_list_items": 14,
+        "numbered_list_items": 10,
         "h2_sections": 7,
         "faq_h3": 6,
         "tables": 2,
         "blockquotes": 4,
         "ul_lists": 1,
-        "action_markers": 3,
-        "pain_markers": 0,
-        "outcome_markers": 0,
+        "action_markers": 34,
+        "pain_markers": 6,
+        "outcome_markers": 13,
         "water_hits": []
       },
-      "errors": [
-        "мало action-маркеров в тексте: 3 < 8",
-        "слабо раскрыта боль читателя: pain_markers=0 < 2",
-        "слабо раскрыта польза/результат: outcome_markers=0 < 3"
-      ],
+      "errors": [],
       "warnings": []
     }
   ]

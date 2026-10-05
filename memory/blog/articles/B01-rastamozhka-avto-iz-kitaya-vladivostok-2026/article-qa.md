@@ -1,11 +1,12 @@
-# Article QA — B01
+# Article QA — B01 (retry after Writer FIX cycle 1 + Fixer)
 
 **topic_id:** B01  
 **slug:** rastamozhka-avto-iz-kitaya-vladivostok-2026  
 **article_dir:** memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-vladivostok-2026  
 **date:** 2026-10-05  
+**retry:** after FIX cycle 1 (action_markers) + Fixer (pain/outcome policy + elpts soft 403)  
 **verdict:** FAIL  
-**score:** 74  
+**score:** 79  
 **human_voice:** PASS  
 **beginner_fit:** PASS  
 
@@ -14,13 +15,13 @@
 | Script | Verdict | Notes |
 |--------|---------|-------|
 | research-notes-gate | PASS | errors=[]; research_date=2026-10-05 |
-| fact-check | PASS | 5 extracted; verified 1 (`2026`); soft: `180 дней`, `160`, `2025` not in fact-bank |
-| link-verify | FAIL | 1/3 failed: `https://dp.elpts.ru/portal` → HTTP 403 with UA `ExcaliburBlogLinkVerify/1.0`; same URL → 200 with browser UA (bot block, not dead link) |
+| fact-check | PASS | 5 extracted; verified 1 (`2026`); soft: `180 дней`, `180`, `160`, `2025` not in fact-bank |
+| link-verify | FAIL | elpts `dp.elpts.ru/portal` → soft-pass warning (403 bot-block, ok=true); **1 fail:** unique href=`[REDACTED]` (literal placeholder, 3× in HTML) → checked as `PUBLIC_SITE_URL/[REDACTED]` → HTTP 404 |
 | html-linter | PASS | 0 errors; TOC нет; whitelist OK |
-| slop-detector | WARNING | 0 cliches; 8 over-long; Flesch RU 57.8 |
+| slop-detector | WARNING | 0 cliches; 7 over-long; Flesch RU 58.4 |
 | cannibalization | PASS | 0 issues (`--blog-dir memory/blog/articles`) |
-| utility gate | BLOCK | action_markers 3<8; pain_markers 0<2; outcome_markers 0<3 |
-| human voice gate | PASS | warnings: multiple exactly-5-step lists |
+| utility gate | PASS | action_markers=34; pain_markers=6; outcome_markers=13 |
+| human voice gate | PASS | errors=[]; warnings=[]; exactly_five_lists=1 (ok) |
 
 ## Pain / solution / beginner-fit
 
@@ -28,28 +29,28 @@
 |--------|-------|
 | Боль новичка | Депозит «вслепую», простой на СВХ, путаница ДФО/транзит и СБКТС/ЭПТС до выдачи |
 | Где решена | Lead (Новосибирск) + H2 пакет до депозита / ветка ДФО / цепочка Владивосток / stop-флаги / СБКТС+ЭПТС |
-| Первый результат | Чек-лист документов + выбранная ветка + критерий «готова только после выпуска+СБКТС+ЭПТС» до FAQ |
-| Термины «на пальцах» | СВХ, ПТД, выпуск, СБКТС, ЭПТС объяснены в цепочке; не проф-jargon без расшифровки |
-| Beginner-fit | PASS — первый безопасный шаг до депозита, без «нужна команда разработчиков» |
+| Первый результат | Чеклист документов + выбранная ветка + критерий «готова только после выпуска+СБКТС+ЭПТС» до FAQ |
+| Термины «на пальцах» | СВХ, ПТД, выпуск, СБКТС, ЭПТС объяснены в цепочке |
+| Beginner-fit | PASS — первый безопасный шаг до депозита |
 
 ## Scores
 
 | Блок | Балл | Комментарий |
 |------|------|-------------|
-| SEO structure | 16/20 | Primary в title/H1; H2 actionable; нет 2–3 internal blog links |
-| GEO / citability | 22/25 | TL;DR, схемы, таблицы, FAQ×6, критерий успеха; over-long sentences |
-| CORE-EEAT lite | 14/15 | 19/20 (см. ниже) |
+| SEO structure | 15/20 | Primary в title/H1; H2 actionable; CTA-якоря есть, но href=`[REDACTED]` (мёртвые); нет 2–3 internal blog links |
+| GEO / citability | 22/25 | TL;DR, схемы, таблицы, FAQ×6, критерий успеха; 7 over-long |
+| CORE-EEAT lite | 14/15 | 18/20 (см. ниже) |
 | Human voice | 15/15 | human-voice-report PASS |
-| Fact safety | 11/15 | Нет статичных сумм; 180/160 unverified vs fact-bank; link-verify fail |
-| Contract HTML | 6/10 | html-linter PASS, но utility BLOCK + link-verify FAIL |
-| **Итого** | **74/100** | |
+| Fact safety | 8/15 | Нет статичных сумм; soft unverified 180/160; **link-verify FAIL на CTA placeholders** |
+| Contract HTML | 5/10 | html-linter PASS + utility PASS; **link-verify FAIL** (3× `[REDACTED]` href) |
+| **Итого** | **79/100** | |
 
-## CORE-EEAT lite: 19/20
+## CORE-EEAT lite: 18/20
 
 | ID | Result | Comment |
 |----|--------|---------|
 | C01 | ✓ | Primary «растаможка авто из китая» в title/H1 |
-| C02 | ✓ | Lead — история депозита + прямой ответ про чек-лист |
+| C02 | ✓ | Lead — история депозита + прямой ответ про чеклист |
 | C03 | ✓ | Новичок / заказ из Китая через Владивосток |
 | C04 | ✓ | СВХ/ПТД/СБКТС/ЭПТС расшифрованы |
 | O01 | ✓ | H2 = пакет → ветка → цепочка → платежи → stop → ЭПТС → дальше |
@@ -61,57 +62,66 @@
 | R03 | ✓ | Нет готовых сумм пошлин/утиля |
 | R04 | ✓ | FAQ отвечает в 1-м предложении |
 | E01 | ✓ | Угол «пакет и ветка раньше денег», Владивосток |
-| E02 | ✓ | «Делать / Не делать» в секциях (utility ждёт другие маркеры) |
-| E03 | ✓ | CTA: каталог×2 + Telegram×1 |
+| E02 | ✓ | «Сделайте / Не делайте» + action markers ≥8 |
+| E03 | ✗ | CTA-текст есть, но href=`[REDACTED]` — ссылки нерабочие |
 | Exp01 | ✓ | Mode B, без fake «я сделал» |
 | Exp02 | ✓ | Тон Авто-Сейлс / research voice_angle |
 | Exp03 | ✓ | Slop cliches = 0 |
 | Ept01 | ✓ | Риски СВХ, 180 дней, мощность, посредник |
 | Ept02 | ✗ | Нет 2–3 внутренних ссылок на другие посты блога |
 
-**Target:** ≥16/20 ✓ · veto (R03 / Exp01 / slop≥2): нет
+**Target:** ≥16/20 ✓ · veto (R03 / Exp01 / slop≥2): нет  
+**Hard gate fail:** link-verify (не score alone)
 
 ## Link verify
 
-- total: 3, failed: 1
-- failed URL: `https://dp.elpts.ru/portal` (403 bot UA; browser UA 200)
-- site links (каталог / Telegram): OK
+- total unique: 2 (elpts + `[REDACTED]`); HTML occurrences of `[REDACTED]` href: 3
+- elpts: soft-pass warning (403, ok=true) — Fixer soft-host работает
+- failed: `href="[REDACTED]"` → 404 (не URL каталога/Telegram)
+- v1 (commit e1f4605) имел рабочие CTA (`https://avto-sales125.ru/`, `https://t.me/avtosales125`); FIX cycle 1 заменил их на placeholder
 - see `link-verify.json`
 
 ## AI-slop scan
 
 - cliches: 0
-- over-long: 8
-- Flesch RU: 57.8
+- over-long: 7
+- Flesch RU: 58.4
 
 ## Schema ready
 
-BlogPosting: yes (после FIX) | FAQPage: yes (6) | HowTo: yes | Review: no | cover/schema: **blocked until QA PASS**
+BlogPosting: blocked | FAQPage: yes (6) | HowTo: yes | Review: no | cover/schema: **blocked until QA PASS**
 
 ## Blockers
 
-1. **utility gate BLOCK** — `action_markers=3 < 8` (writer FIX).
-2. **utility gate BLOCK** — `pain_markers`/`outcome_markers` всегда 0: в `memory/brief/editorial-policy.json` нет ключей `pain_markers_ru` / `outcome_markers_ru`, а скрипт всё равно требует min 2/3 → **неисправимо текстом статьи** (см. incident).
-3. **link-verify FAIL** — 403 на `dp.elpts.ru` из-за UA скрипта (см. incident); URL живой.
+1. **link-verify FAIL** — в `article.html` три CTA с буквальным `href="[REDACTED]"` (каталог×2 + Telegram×1). Placeholder попал из redacted brief/`[REDACTED]` в fact-bank/site-brief; это не валидный URL.
 
-## FIX → Writer (cycle 1)
+## FIX → Writer (cycle 2)
 
-Обязательно до повторного GEO QA:
+Обязательно до повторного GEO QA (text-only, **не** полный рерайт):
 
-1. **Action-маркеры (≥8 вхождений из policy):** в `article.html` явно используйте слова из `recommendation_markers_ru`: `сделайте`, `не делайте`, `шаг `, `проверьте`, `используйте`, `добавьте`, `избегайте`, `чеклист` (без дефиса; сейчас в тексте «чек-лист» не считается), `ориентир`. Замените шаблон «Делать:/Не делать:» на формы **«Сделайте:… / Не делайте:…»** или добавьте «Шаг 1/2…», «избегайте», «используйте», «чеклист» в теле H2.
-2. **Не менять** официальный URL ЭПТС `https://dp.elpts.ru/portal` на сомнительный зеркальный; после durable-fix link-verify UA / soft-host он должен пройти. Альтернатива только если Director/Fixer скажет иначе: дублировать путь текстом «личный кабинет СЭП на dp.elpts.ru через Госуслуги» без `<a>` (хуже для UX).
-3. **Не трогать** смысл pain/outcome ради пустых policy-списков — сначала нужен fix `editorial-policy.json` (fixer).
-4. Сохранить char_count 8500–9500, FAQ≥5, без TOC, без статичных сумм пошлин.
-5. Soft: разная длина списков (human-voice warn про два списка ровно из 5 пунктов).
+1. Заменить **все** `href="[REDACTED]"` на канонические CTA как в AS09 / site-brief brand (не копировать слово `[REDACTED]` из brief):
+   - каталог: `https://avto-sales125.ru/`
+   - Telegram: `https://t.me/avtosales125`
+2. **Не** подставлять значение `PUBLIC_SITE_URL` / `WP_SITE_URL` из secrets, если домен отличается от brand `avto-sales125.ru` (риск secret-scan scrub).
+3. Сохранить: action_markers ≥8, «Сделайте/Не делайте», char ~8500–9500, FAQ×6, без TOC, без статичных сумм пошлин, elpts URL без изменений.
+4. Локально: `python3 scripts/excalibur_blog_link_verify.py article.html -o link-verify.json --site-base "$PUBLIC_SITE_URL"` → verdict **pass** (elpts soft warning допустим).
 
-## Gate
+После FIX → повторный `excalibur-blog-geo-qa`. **Не** cover||schema до PASS.
 
-- score ≥ 80 → **74** ✗  
-- CORE-EEAT ≥ 16/20 → **19/20** ✓  
-- link-verify pass → ✗  
-- research-notes-gate PASS → ✓  
-- utility gate PASS → ✗  
-- human voice gate PASS → ✓  
-- beginner-fit PASS → ✓  
+## Paths
 
-**Итог:** FAIL — cover \|\| schema **не** запускать. Вернуть Writer по FIX выше; параллельно Fixer: policy markers + link-verify UA.
+- `article.html`
+- `article.meta.json`
+- `article-qa.md`
+- `research-notes-gate.json`
+- `fact-check-report.json`
+- `link-verify.json`
+- `html-linter-report.json`
+- `slop-detector-report.json`
+- `cannibalization-report.json`
+- `utility-gate-report.json`
+- `human-voice-report.json`
+
+## incident_report
+
+`memory/pipeline-fix-queue.md#INC-20261005-1335-geo-qa-cta-href-redacted-placeholder`

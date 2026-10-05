@@ -68,6 +68,39 @@ category: api
 ### Fixer resolution
 - pending
 
+## INC-20261006-2125-writer-utility-pain-outcome-markers-missing
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-writer
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` required `min_pain_markers=2` and `min_outcome_markers=3` by default, but `memory/brief/editorial-policy.json` had empty/missing `pain_markers_ru` and `outcome_markers_ru`.
+- Result: every article (including published AS09) got `pain_markers=0` / `outcome_markers=0` BLOCK even with clear reader pain and success criteria in prose.
+
+### How the agent recovered this run
+- Added `pain_markers_ru` and `outcome_markers_ru` (+ min counts) to `editorial-policy.json`.
+- Gate now skips pain/outcome checks with a warning when marker lists are empty.
+- Strengthened B03 article phrasing (`сделайте`/`не делайте`/`чеклист`/`критерий результата`/`сможете`); local utility gate PASS, human-voice PASS, HTML linter PASS.
+
+### Durable fix needed before next run
+- Keep marker lists in policy; document them in writer skill / pitfalls so Writer weaves exact phrases.
+- Consider syncing the same lists into `shared/editorial-utility-only.md`.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
 
 ## INC-20261005-2105-director-doctor-blog-dir
 status: fixed

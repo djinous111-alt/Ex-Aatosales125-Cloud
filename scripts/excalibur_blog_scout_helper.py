@@ -135,12 +135,19 @@ def main() -> int:
             m = re.match(r"B(\d+)", t["topic_id"])
             if m:
                 max_num = max(max_num, int(m.group(1)))
+        # Also advance past reserved/published/active Bxx even if missing from pool
+        # (ledger gap / LIVE publish without local topic card).
+        for rid in reserved:
+            m = re.match(r"B(\d+)$", rid.upper())
+            if m:
+                max_num = max(max_num, int(m.group(1)))
         
         next_id = f"B{max_num + 1:02d}"
         print(f"Next available topic ID: {next_id}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")
         print(f"Active article dirs: {sorted(active)}")
+        print(f"Reserved topic IDs: {sorted(reserved)}")
         
         unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
         print(f"Unwritten topic IDs in pool: {unwritten}")

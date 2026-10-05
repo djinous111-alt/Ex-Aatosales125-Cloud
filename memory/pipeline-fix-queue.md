@@ -6,6 +6,69 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261006-2115-research-tech-markers-false-positive
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-research
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marked beginner auto-import topic B03 as `technical_topic=true`.
+- Cause: substring markers `ai` and `ии` match inside required field `reader_pain` and ordinary Russian words like «аккредитации».
+- Gate then required `github_urls >= 3` and warned about missing `/docs` URLs for a non-dev how-to.
+
+### How the agent recovered this run
+- Added relevant GitHub evidence (hptsu-mcp, avto-dev validator, AutoWay) plus `https://help.elpts.ru/` and `https://hpt.su/api/v1/docs/`.
+- Kept beginner angle; GitHub used only as registry/VIN signals, not as developer tutorial.
+
+### Durable fix needed before next run
+- Change `TECH_MARKERS` matching to word-boundary / token match, or exclude required research field names from the scan.
+- Remove or narrow ultra-short markers `ai` and `ии` that false-positive on Russian prose.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261006-2116-research-wordstat-totalcount-only
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-research
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026
+severity: low
+category: api
+
+### What went wrong
+- `wordstat_get_top_requests` for narrow phrase «оформление СБКТС Владивосток» returned `{"totalCount":"15"}` without top phrases list.
+- Same class of payload already documented for Scout; Research hit it again on a geo-narrow query.
+
+### How the agent recovered this run
+- Used parent cluster «СБКТС Владивосток» (171) and broader «оформление СБКТС» / «СБКТС и ЭПТС»; recorded totalCount-only row explicitly without inventing a phrase top.
+
+### Durable fix needed before next run
+- Research skill/pitfalls: cluster-first for geo+how-to combos; treat totalCount-only as low-result signal (already partly in Scout docs — mirror into Research).
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261005-2105-director-doctor-blog-dir
 status: fixed
 run_date: 2026-10-06

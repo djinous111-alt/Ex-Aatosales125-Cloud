@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-06",
+    "today_ru": "06.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-08",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-06 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B03",
+    "priority": "P0",
+    "slug": "kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026",
+    "h1": "Как оформить СБКТС и ЭПТС при ввозе авто из Японии, Кореи и Китая в 2026",
+    "primary_query": "как оформить СБКТС и ЭПТС",
+    "secondary_queries": [
+      "СБКТС и ЭПТС оформление",
+      "СБКТС Владивосток",
+      "сколько стоит СБКТС и ЭПТС",
+      "получить СБКТС и ЭПТС"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B03",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "как оформить СБКТС и ЭПТС 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "как оформить СБКТС и ЭПТС октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "как оформить СБКТС и ЭПТС новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com как оформить СБКТС и ЭПТС 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "как оформить СБКТС и ЭПТС official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "как оформить СБКТС и ЭПТС forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "СБКТС и ЭПТС оформление 2026",
+      "purpose": "вторичный запрос: СБКТС и ЭПТС оформление"
+    },
+    {
+      "id": "secondary_2",
+      "query": "СБКТС Владивосток 2026",
+      "purpose": "вторичный запрос: СБКТС Владивосток"
+    },
+    {
+      "id": "secondary_3",
+      "query": "сколько стоит СБКТС и ЭПТС 2026",
+      "purpose": "вторичный запрос: сколько стоит СБКТС и ЭПТС"
+    },
+    {
+      "id": "secondary_4",
+      "query": "получить СБКТС и ЭПТС 2026",
+      "purpose": "вторичный запрос: получить СБКТС и ЭПТС"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как оформить СБКТС и ЭПТС при ввозе авто из Японии, Кореи и Китая в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B03-kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

@@ -6,6 +6,35 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261005-1327-writer-article-html-silent-revert
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-vladivostok-2026
+severity: medium
+category: env
+
+### What went wrong
+- During FIX cycle 1, `article.html` was rewritten via the editor Write tool (action-markers, чеклист, Сделайте/Не делайте), then further StrReplace trims applied; shortly after, the working tree silently matched HEAD again (old «Делать:/Не делать:», «чек-лист»), while `article.meta.json` char_count update remained.
+- Likely concurrent agent/sandbox sync overwrite of the unstaged article body.
+
+### How the agent recovered this run
+- Rewrote `article.html` via Python `Path.write_text`, verified markers/char_count, immediately `git add` both html+meta, then committed.
+
+### Durable fix needed before next run
+- Writer/FIX agents should verify `article.html` content after write (grep action markers) and stage promptly; document concurrent-run risk when Fixer and Writer touch the same article_dir.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-vladivostok-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "мой. Растаможка авто из Китая через Владивосток в 2026 – это не \"одна пошлина по картинке\", а чек-лист э",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "ном проекте заказчик из чата прислал \"калькулятор 2025\" и ошибся по мощности на одну комплектацию – пере",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180 дней",
+      "kind": "metric_or_duration",
+      "context": "е VIN, мощность, дату регистрации в КНР и правило 180 дней. Во Владивостоке цепочка такая: порт → СВХ → ПТД",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "е VIN, мощность, дату регистрации в КНР и правило 180 дней. Во Владивостоке цепочка такая: порт → СВХ →",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "асто связывают с порогом мощности (ориентир около 160 л.с. и рядом условий: одно авто в год, объём, без",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

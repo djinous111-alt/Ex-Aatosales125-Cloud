@@ -437,3 +437,72 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261005-1322-geo-qa-utility-pain-outcome-policy-missing
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-vladivostok-2026
+severity: blocker
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требует `pain_markers >= 2` и `outcome_markers >= 3` (defaults), но в `memory/brief/editorial-policy.json` нет ключей `pain_markers_ru` / `outcome_markers_ru` и нет `min_pain_markers` / `min_outcome_markers` в `article_required_signals`.
+- При пустых списках маркеров счётчики всегда 0 → utility gate BLOCK для любой статьи (в т.ч. ранее PASS AS09 теперь тоже BLOCK).
+- Отдельно B01 имеет реальный пробел `action_markers=3 < 8` (writer FIX), но pain/outcome writer исправить не может.
+
+### How the agent recovered this run
+- Не правил `article.html` (запрет GEO QA).
+- Зафиксировал FAIL в `article-qa.md` + FIX writer только по action-маркерам.
+- Пометил pain/outcome как policy/script blocker для Fixer; cover/schema не запускать.
+
+### Durable fix needed before next run
+- Добавить в `memory/brief/editorial-policy.json` списки `pain_markers_ru` / `outcome_markers_ru` (согласовать с human-voice gate: боль/ошиб/проблем… и результат/получите/сможете/проверьте…).
+- Явно задать `min_pain_markers` / `min_outcome_markers` в `article_required_signals` или не применять defaults, если ключи маркеров отсутствуют.
+- Документировать маркеры в writer skill / editorial-utility-only, включая `чеклист` vs `чек-лист`.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261005-1322-geo-qa-link-verify-elpts-ua-403
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-vladivostok-2026
+severity: medium
+category: qa
+
+### What went wrong
+- `excalibur_blog_link_verify.py` пометил `https://dp.elpts.ru/portal` как fail (HTTP 403) с User-Agent `ExcaliburBlogLinkVerify/1.0`.
+- Тот же URL отвечает 200 с обычным browser User-Agent — бот-фильтр портала СЭП, не битая ссылка.
+- Soft-fail сейчас только для t.me/telegram.me/wa.me/vk.com timeout, не для gov/ЭПТС 403.
+
+### How the agent recovered this run
+- Не удалял официальную ссылку ЭПТС из статьи.
+- В `article-qa.md` зафиксировал link-verify FAIL + рекомендацию Writer не менять URL; durable fix — скрипт/UA/soft-host.
+
+### Durable fix needed before next run
+- Для link-verify: browser-like UA и/или soft-pass на 403 для известных gov/ЭПТС хостов (`dp.elpts.ru`) после GET fallback.
+- Задокументировать в GEO QA skill, что 403 bot-block ≠ обязательно мёртвая ссылка.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

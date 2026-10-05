@@ -61,7 +61,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_doctor.py scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` → paramiko_available=true
-commit: pending-fixer-commit
+commit: 2b11533
 
 
 
@@ -116,7 +116,7 @@ files_changed:
 checks_run:
 - `bash scripts/excalibur_git.sh status` with URL-shaped injected secret name → skipped, no crash
 - `python3 scripts/excalibur_blog_llms_generator.py --help` shows `--blog-dir` + `--blog-path` alias
-commit: pending-fixer-commit
+commit: 2b11533
 
 
 ## INC-20261005-1754-cover-toxic-words-in-prompt
@@ -163,7 +163,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - unit assert: good prompt OK; prompt containing `лох` raises ValueError
 - `rg` confirms no `words like лох` in prompt builder
-commit: pending-fixer-commit
+commit: 2b11533
 
 
 ## INC-20261005-1745-geo-qa-typed-task-missing
@@ -210,7 +210,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` confirms geo-qa generalPurpose fallback guidance in director skill / pitfalls
-commit: pending-fixer-commit
+commit: 2b11533
 
 
 
@@ -300,7 +300,7 @@ files_changed:
 checks_run:
 - delivery notes with `reader_pain`/`компенсации` → technical_topic=False
 - AI/MCP/Cursor notes → technical_topic=True
-commit: pending-fixer-commit
+commit: 2b11533
 
 
 ## INC-20261005-1740-research-serp-public-site-url
@@ -346,7 +346,7 @@ files_changed:
 checks_run:
 - unit scrub of nested SERP payload
 - `python3 -m py_compile scripts/excalibur_blog_research_start.py`
-commit: pending-fixer-commit
+commit: 2b11533
 
 
 ## INC-20261005-1726-scout-suggest-next-live-gap
@@ -397,7 +397,7 @@ files_changed:
 checks_run:
 - `--suggest-next` → B03 with Reserved including B01/B02
 - `--check-slug rastamozhka-avto-iz-kitaya-vladivostok-2026` → LEDGER collision exit 1
-commit: pending-fixer-commit
+commit: 2b11533
 
 
 ## INC-20261005-1724-scout-precommit-secret-name-url
@@ -442,7 +442,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - wrapper with `https://…` secret name → skip + successful `git status`
-commit: pending-fixer-commit
+commit: 2b11533
 
 
 ## INC-20261005-1708-doctor-llms-blog-path
@@ -494,7 +494,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → OK llms generator supports --blog-dir, errors=0
 - `rg` no `--blog-path /` in indexer docs
-commit: pending-fixer-commit
+commit: 2b11533
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -794,7 +794,7 @@ checks_run:
 - schema `--expand-env` stdout expands PUBLIC_SITE_URL
 - publish `expand_schema_placeholders` unit
 - `python3 -m py_compile scripts/excalibur_blog_schema_build.py`
-commit: pending-fixer-commit
+commit: 2b11533
 
 
 ## Fixed incidents

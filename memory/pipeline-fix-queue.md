@@ -67,7 +67,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_restore_cta.py scripts/excalibur_blog_link_verify.py`
 - `restore_cta --dry-run on B01`
 - `cta_placeholder unit asserts`
-commit: pending-parent-commit
+commit: 927711d
 
 ## INC-20261005-1327-writer-article-html-silent-revert
 status: fixed
@@ -107,7 +107,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg Writer sync / git add guidance in writer skill`
-commit: pending-parent-commit
+commit: 927711d
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -159,7 +159,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: 927711d
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -210,7 +210,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: 927711d
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -251,7 +251,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: 927711d
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -298,7 +298,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: 927711d
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -352,7 +352,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: 927711d
 
 ## Fixed incidents
 
@@ -404,7 +404,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` — запрет Cursor/n8n/Make как ниша; поисковые примеры Авто-Сейлс
-commit: pending-parent-commit
+commit: 927711d
 
 ## INC-20261005-1308-director-doctor-blog-path
 status: fixed
@@ -443,7 +443,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0 warnings=0
-commit: pending-parent-commit
+commit: 927711d
 
 ## INC-20261005-1312-scout-precommit-secret-names
 status: fixed
@@ -489,7 +489,7 @@ files_changed:
 checks_run:
 - `doctor errors=0`
 - `sanitize filters [REDACTED] from CLOUD_AGENT_*_SECRET_NAMES`
-commit: pending-parent-commit
+commit: 927711d
 
 ## INC-20261005-1312-scout-b01-id-reuse-after-live
 status: fixed
@@ -538,7 +538,7 @@ files_changed:
 checks_run:
 - `scout_helper --suggest-next → B02; reserved includes B01; live-used B01`
 - `unit suggest_next_b_id`
-commit: pending-parent-commit
+commit: 927711d
 
 ## INC-20261005-1330-research-fts-cars-504
 status: fixed
@@ -578,7 +578,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg customs.gov.ru soft-fail in research skill`
-commit: pending-parent-commit
+commit: 927711d
 
 ## INC-20261005-1330-research-tech-markers-github-false-positive
 status: fixed
@@ -620,7 +620,7 @@ files_changed:
 checks_run:
 - `research_notes_gate B01 → technical_topic False PASS`
 - `unit is_technical_topic github notes false-positive`
-commit: pending-parent-commit
+commit: 927711d
 
 ## INC-20261005-1322-geo-qa-utility-pain-outcome-policy-missing
 status: fixed
@@ -674,7 +674,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
 - `python3 -m json.tool memory/brief/editorial-policy.json`
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir …/B01-…` → pain/outcome OK; only action_markers left
-commit: pending-parent-commit
+commit: 927711d
 
 ## INC-20261005-1322-geo-qa-link-verify-elpts-ua-403
 status: fixed
@@ -722,7 +722,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
 - soft_bot_block unit check on https://dp.elpts.ru/portal
 - `python3 scripts/excalibur_blog_link_verify.py …/B01-…/article.html` → verdict pass
-commit: pending-parent-commit
+commit: 927711d
 ## INC-20261005-1340-director-cta-redacted-literal-href
 status: fixed
 run_date: 2026-10-05
@@ -764,7 +764,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `restore_cta dry-run; link_verify cta_placeholder`
-commit: pending-parent-commit
+commit: 927711d
 
 ## INC-20261005-1345-schema-url-from-env
 status: fixed
@@ -813,7 +813,7 @@ files_changed:
 checks_run:
 - `schema_validate --expand-env B01 PASS`
 - `unit REDACTED fails / https PASS`
-commit: pending-parent-commit
+commit: 927711d
 
 ## INC-20261005-1345-cover-hero-force-upload-hosts
 status: fixed
@@ -860,7 +860,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `py_compile hero_reference_url; --help shows providers`
-commit: pending-parent-commit
+commit: 927711d
 
 ## INC-20261005-1350-indexer-llms-blog-path-stale
 status: fixed
@@ -909,4 +909,4 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `doctor errors=0; rg blog-path indexer contracts`
-commit: pending-parent-commit
+commit: 927711d

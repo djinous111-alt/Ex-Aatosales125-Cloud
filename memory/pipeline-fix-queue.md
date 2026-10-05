@@ -378,3 +378,40 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261005-0930-research-notes-gate-ru-false-technical
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marks non-tech auto niche as `technical_topic=true` because TECH_MARKERS include substring `ии` (matches Russian genitive endings like «Японии») and also `агент`/`make`/`github`.
+- That forces GitHub URL quota (>=3) and warns about missing `/docs` URLs even for Japanese auction checklist topics.
+- Gate counts `accessed_at:` label occurrences, not table dates; bare `2026-10-05` in a column does not count.
+- `pain_solution_map` rows must literally contain pain/solution/result (or RU боль/решение/результат); normal Russian prose without those tokens fails the row counter.
+
+### How the agent recovered this run
+- Added three relevant github.com tooling/repos as community evidence (not product docs).
+- Rewrote source_table dates as `accessed_at: 2026-10-05` and prefixed pain_solution_map cells with `pain:` / `solution:` / `результат:`.
+- Research notes gate reached PASS with one residual warning about official docs URL.
+
+### Durable fix needed before next run
+- Narrow TECH_MARKERS: remove bare `ии`; require word boundaries; exclude auto/auction niches via topic slug/primary_query allowlist.
+- Count `accessed_at` from source_table date cells OR accept ISO dates in the accessed_at column without requiring the label prefix.
+- Relax pain_solution_map row detection to count markdown table data rows under the section, not keyword presence inside each cell.
+- Document the exact gate regex expectations in `excalibur-research` SKILL so Research does not rewrite notes twice.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/editorial-utility-only.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

@@ -1,0 +1,596 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-05",
+    "today_ru": "05.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-07",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-05 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026",
+    "h1": "Как сделать первую ставку на японском аукционе: чек-лист до депозита в 2026",
+    "primary_query": "как купить авто на японском аукционе",
+    "secondary_queries": [
+      "японский аукцион авто",
+      "купить авто на японском аукционе",
+      "японский аукцион",
+      "как купить авто на японском аукционе самому"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как купить авто на японском аукционе 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как купить машину на японском аукционе в 2026 году: пошаговая инструкция",
+          "url": "https://pravovoi.center/avtoyurist/oformlenie-prava-sobstvennosti/kuplya-prodazha-avto/pokupka-a/na-yaponskom-auktsione.html",
+          "snippet": ""
+        },
+        {
+          "title": "Как купить авто с японского аукциона в 2026 году: полное руководство ...",
+          "url": "https://abcars.ru/sovety/kak-kupit-avto-s-yaponskogo-aukcziona-v-2026-godu-polnoe-rukovodstvo-dlya-novichkov/",
+          "snippet": "Подробная инструкция по покупке автомобиля на японском аукционе: структура площадок, схемы участия через посредников, пошаговый алгоритм, документы и растаможка."
+        },
+        {
+          "title": "Как заказать авто с аукциона Японии в 2026 году: схема, сроки и расходы ...",
+          "url": "https://roadres.com/kak-zakazat-avto-s-auktsiona-yaponii-v-2026-godu/",
+          "snippet": "На фоне ухода европейских и корейских брендов японские аукционы стали для многих россиян главным источником качественных подержанных автомобилей."
+        },
+        {
+          "title": "Как купить авто с аукциона в Японии: Полное руководство",
+          "url": "https://wiki-lifehacker.ru/avto/kak-kupit-avto-s-auktsiona-v-yaponii-polnoe-rukovodstvo/",
+          "snippet": "Как заказать авто с аукциона Японии в 2026 году: этапы покупки, сроки доставки, состав расходов и стоимость услуг посредника."
+        },
+        {
+          "title": "Как заказать автомобиль с аукциона Японии в 2026 году: этапы, сроки и ...",
+          "url": "https://classicretrocar.ru/poleznoe/kak-zakazat-avtomobil-s-auktsiona-yaponii-v-2026-godu-etapy-sroki-i-rashody.html",
+          "snippet": "Однако, прежде чем погружаться в мир японских аукционов, стоит разобраться в том, как купить авто с аукциона в Японии, какие есть нюансы и куда ставить ставку в этом процессе."
+        },
+        {
+          "title": "Как купить машину на японском аукционе самостоятельно: пошагово — Авто Гид",
+          "url": "https://avto-gid.vercel.app/articles/k/ka/kak-kupit-mashinu-na-yaponskom-auktsione-samostoyatelno.html",
+          "snippet": "Как заказать автомобиль с аукциона Японии в 2026 году: этапы покупки, сроки доставки, состав расходов и услуги посредника."
+        }
+      ],
+      "searched_at": "2026-10-05"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как купить авто на японском аукционе октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как купить машину на японском аукционе в 2026 году: пошаговая инструкция",
+          "url": "https://pravovoi.center/avtoyurist/oformlenie-prava-sobstvennosti/kuplya-prodazha-avto/pokupka-a/na-yaponskom-auktsione.html",
+          "snippet": ""
+        },
+        {
+          "title": "Как купить авто с японского аукциона в 2026 году: полное руководство ...",
+          "url": "https://abcars.ru/sovety/kak-kupit-avto-s-yaponskogo-aukcziona-v-2026-godu-polnoe-rukovodstvo-dlya-novichkov/",
+          "snippet": "Подробная инструкция по покупке автомобиля на японском аукционе: структура площадок, схемы участия через посредников, пошаговый алгоритм, документы и растаможка."
+        },
+        {
+          "title": "Как купить авто с аукциона в Японии: Полное руководство",
+          "url": "https://wiki-lifehacker.ru/avto/kak-kupit-avto-s-auktsiona-v-yaponii-polnoe-rukovodstvo/",
+          "snippet": "На фоне ухода европейских и корейских брендов японские аукционы стали для многих россиян главным источником качественных подержанных автомобилей."
+        },
+        {
+          "title": "Как заказать авто с аукциона Японии в 2026 году: схема, сроки и расходы ...",
+          "url": "https://roadres.com/kak-zakazat-avto-s-auktsiona-yaponii-v-2026-godu/",
+          "snippet": "Как самому купить машину с аукциона в Японии без посредников? Для самостоятельной покупки нужно зарегистрироваться на аукционном сайте, выбрать авто, сделать ставку и следить за процессом ..."
+        },
+        {
+          "title": "Как купить авто с аукциона Японии: пошаговая инструкция 2026",
+          "url": "https://4ringcars.ru/01-kak-kupit-avto-s-aukciona/",
+          "snippet": "Как заказать авто с аукциона Японии в 2026 году: этапы покупки, сроки доставки, состав расходов и стоимость услуг посредника."
+        },
+        {
+          "title": "Как купить машину на японском аукционе самостоятельно: пошагово — Авто Гид",
+          "url": "https://avto-gid.vercel.app/articles/k/ka/kak-kupit-mashinu-na-yaponskom-auktsione-samostoyatelno.html",
+          "snippet": "Полное руководство по покупке автомобиля с японских аукционов: от выбора площадки до доставки во Владивосток. Пошаговая инструкция для новичков 2026."
+        }
+      ],
+      "searched_at": "2026-10-05"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как купить авто на японском аукционе новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как купить машину на японском аукционе в 2026 году: пошаговая инструкция",
+          "url": "https://pravovoi.center/avtoyurist/oformlenie-prava-sobstvennosti/kuplya-prodazha-avto/pokupka-a/na-yaponskom-auktsione.html",
+          "snippet": ""
+        },
+        {
+          "title": "Как купить авто с японского аукциона в 2026 году: полное руководство ...",
+          "url": "https://abcars.ru/sovety/kak-kupit-avto-s-yaponskogo-aukcziona-v-2026-godu-polnoe-rukovodstvo-dlya-novichkov/",
+          "snippet": "Подробная инструкция по покупке автомобиля на японском аукционе: структура площадок, схемы участия через посредников, пошаговый алгоритм, документы и растаможка."
+        },
+        {
+          "title": "Как заказать авто с аукциона Японии в 2026 году: схема, сроки и расходы ...",
+          "url": "https://roadres.com/kak-zakazat-avto-s-auktsiona-yaponii-v-2026-godu/",
+          "snippet": "На фоне ухода европейских и корейских брендов японские аукционы стали для многих россиян главным источником качественных подержанных автомобилей."
+        },
+        {
+          "title": "Как купить авто с аукциона в Японии: Полное руководство",
+          "url": "https://wiki-lifehacker.ru/avto/kak-kupit-avto-s-auktsiona-v-yaponii-polnoe-rukovodstvo/",
+          "snippet": "Как заказать авто с аукциона Японии в 2026 году: этапы покупки, сроки доставки, состав расходов и стоимость услуг посредника."
+        },
+        {
+          "title": "Как заказать автомобиль с аукциона Японии в 2026 году: этапы, сроки и ...",
+          "url": "https://classicretrocar.ru/poleznoe/kak-zakazat-avtomobil-s-auktsiona-yaponii-v-2026-godu-etapy-sroki-i-rashody.html",
+          "snippet": "Однако, прежде чем погружаться в мир японских аукционов, стоит разобраться в том, как купить авто с аукциона в Японии, какие есть нюансы и куда ставить ставку в этом процессе."
+        },
+        {
+          "title": "Как купить авто с аукциона Японии: пошаговая инструкция 2026",
+          "url": "https://4ringcars.ru/01-kak-kupit-avto-s-aukciona/",
+          "snippet": "Как заказать автомобиль с аукциона Японии в 2026 году: этапы покупки, сроки доставки, состав расходов и услуги посредника."
+        }
+      ],
+      "searched_at": "2026-10-05"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как купить авто на японском аукционе 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - yazolga/kanji-to-text-2026",
+          "url": "https://github.com/yazolga/kanji-to-text-2026",
+          "snippet": ""
+        },
+        {
+          "title": "GitHub - Meleniness/Funtime-Auction: Best Auction Plugin!",
+          "url": "https://github.com/Meleniness/Funtime-Auction",
+          "snippet": "Распознай японский текст с изображения! Web-приложение для распознавания текста на японском языке с изображения. Используются библиотеки: Для распознавания изображений используется нейронная сеть Manga OCR. Подробности о модели на GiHub. Ссылка на развернутое приложение."
+        },
+        {
+          "title": "GitHub - GOTTA5786/Stalcraft-trader-bot",
+          "url": "https://github.com/GOTTA5786/Stalcraft-trader-bot",
+          "snippet": "Contribute to Meleniness/Funtime-Auction development by creating an account on GitHub."
+        },
+        {
+          "title": "coursera-ddp-shiny/corpora/ru_50k.txt at master - GitHub",
+          "url": "https://github.com/spujadas/coursera-ddp-shiny/blob/master/corpora/ru_50k.txt",
+          "snippet": "В игре есть разные способы заработка, и одним из наиболее прибыльных является перепродажа вещей на аукционе. Именно идея автоматизации этого процесса и легла в основу проекта."
+        },
+        {
+          "title": "GitHub - therega/RegaMine: RegaMine - Кастомизированный плагин на авто ...",
+          "url": "https://github.com/therega/RegaMine",
+          "snippet": "Coursera Developing Data Products Week 4 Peer-graded Assignment: Shiny - spujadas/coursera-ddp-shiny"
+        },
+        {
+          "title": "GitHub - sVPyle/JoinAuction: Плагин для Minecraft-серверов на аукцион",
+          "url": "https://github.com/sVPyle/JoinAuction",
+          "snippet": "RegaMine - это полностью кастомизированный плагин на авто-шахту. Подойдет для каждого сервера, т.к. можно настроить любую функцию под себя. Настройка выпдачи денег, ресурсов, опыта. Настройка сообщений, лимитв для привилегий и scoreboard."
+        }
+      ],
+      "searched_at": "2026-10-05"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как купить авто на японском аукционе official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как купить машину на японском аукционе самостоятельно: пошагово — Авто Гид",
+          "url": "https://avto-gid.vercel.app/articles/k/ka/kak-kupit-mashinu-na-yaponskom-auktsione-samostoyatelno.html",
+          "snippet": ""
+        },
+        {
+          "title": "Как купить авто с аукциона в Японии: Полное руководство",
+          "url": "https://wiki-lifehacker.ru/avto/kak-kupit-avto-s-auktsiona-v-yaponii-polnoe-rukovodstvo/",
+          "snippet": "В этой статье мы разберём весь процесс шаг за шагом: как выбрать надёжный аукцион, проверить историю автомобиля, участвовать в торгах и оформить доставку."
+        },
+        {
+          "title": "Как купить машину на японском аукционе в 2026 году: пошаговая инструкция",
+          "url": "https://pravovoi.center/avtoyurist/oformlenie-prava-sobstvennosti/kuplya-prodazha-avto/pokupka-a/na-yaponskom-auktsione.html",
+          "snippet": "Однако, прежде чем погружаться в мир японских аукционов, стоит разобраться в том, как купить авто с аукциона в Японии, какие есть нюансы и куда ставить ставку в этом процессе."
+        },
+        {
+          "title": "Как купить авто с японского аукциона в 2026 году: полное руководство ...",
+          "url": "https://abcars.ru/sovety/kak-kupit-avto-s-yaponskogo-aukcziona-v-2026-godu-polnoe-rukovodstvo-dlya-novichkov/",
+          "snippet": "Подробная инструкция по покупке автомобиля на японском аукционе: структура площадок, схемы участия через посредников, пошаговый алгоритм, документы и растаможка."
+        },
+        {
+          "title": "Купить авто из Японии в 2026 году — пошаговая схема от аукциона до ...",
+          "url": "https://vc.ru/money/2909067-kupit-avto-iz-yaponii-poshagovaya-shema",
+          "snippet": "Но процесс покупки на японском аукционе — это не просто «зашёл, выбрал, купил». Это система со своими правилами, рисками и подводными камнями."
+        },
+        {
+          "title": "Как купить авто с аукциона Японии: пошаговая инструкция 2026",
+          "url": "https://4ringcars.ru/01-kak-kupit-avto-s-aukciona/",
+          "snippet": "Покупка авто из Японии в 2026 году — это не «выбрал лот и через две недели катаешься». Это последовательность из 8-10 этапов, в каждом из которых может застрять и сделка, и деньги."
+        }
+      ],
+      "searched_at": "2026-10-05"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как купить авто на японском аукционе forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как купить машину на японском аукционе в 2026 году: пошаговая инструкция",
+          "url": "https://pravovoi.center/avtoyurist/oformlenie-prava-sobstvennosti/kuplya-prodazha-avto/pokupka-a/na-yaponskom-auktsione.html",
+          "snippet": ""
+        },
+        {
+          "title": "Как купить машину на японском аукционе самостоятельно: пошагово — Авто Гид",
+          "url": "https://avto-gid.vercel.app/articles/k/ka/kak-kupit-mashinu-na-yaponskom-auktsione-samostoyatelno.html",
+          "snippet": "Разберём подробно, как устроены японские аукционы, какие схемы покупки существуют и как безопасно приобрести автомобиль через посредников."
+        },
+        {
+          "title": "Купить авто из Японии в 2026 году — пошаговая схема от аукциона до ...",
+          "url": "https://vc.ru/money/2909067-kupit-avto-iz-yaponii-poshagovaya-shema",
+          "snippet": "Полное руководство по покупке авто с японских аукционов без посредников: от регистрации до доставки. Разбираем риски, цены и юридические нюансы."
+        },
+        {
+          "title": "Как купить авто с аукциона в Японии: Полное руководство",
+          "url": "https://wiki-lifehacker.ru/avto/kak-kupit-avto-s-auktsiona-v-yaponii-polnoe-rukovodstvo/",
+          "snippet": "Покупка авто из Японии в 2026 году — это не «выбрал лот и через две недели катаешься». Это последовательность из 8-10 этапов, в каждом из которых может застрять и сделка, и деньги."
+        },
+        {
+          "title": "Как пригнать авто из Японии: гайд 2026",
+          "url": "https://asia-pod-klyuch.ru/blog/kak-prignat-avto-iz-yaponii",
+          "snippet": "Однако, прежде чем погружаться в мир японских аукционов, стоит разобраться в том, как купить авто с аукциона в Японии, какие есть нюансы и куда ставить ставку в этом процессе."
+        },
+        {
+          "title": "Как покупают авто на аукционе в Японии",
+          "url": "https://abcars.ru/spravochnik/kak-pokupayut-avto-na-aukczione-v-yaponii/",
+          "snippet": "Как пригнать авто из Японии в 2026 году: аукционы, шакен, таможня и проходные годы. Пошаговая схема, реальные цифры, расходы и подводные камни от практиков."
+        }
+      ],
+      "searched_at": "2026-10-05"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "японский аукцион авто 2026",
+      "purpose": "вторичный запрос: японский аукцион авто",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "ТОП-8 Лучших аукционов в Японии для покупки авто в 2026 - Рейтинг ...",
+          "url": "https://vc.ru/transport/2866987-luchshie-auktsiony-v-yaponii-dlya-pokupki-avto",
+          "snippet": ""
+        },
+        {
+          "title": "Как заказать авто с аукциона Японии в 2026 году: схема, сроки и расходы ...",
+          "url": "https://roadres.com/kak-zakazat-avto-s-auktsiona-yaponii-v-2026-godu/",
+          "snippet": "Покупка авто из Японии - это всегда история про предвкушение. Тот самый момент, когда ты впервые открываешь дверь своей машины в порту и понимаешь: «Да, она стоила каждого дня ожидания»."
+        },
+        {
+          "title": "Как купить авто с японского аукциона в 2026 году: полное руководство ...",
+          "url": "https://abcars.ru/sovety/kak-kupit-avto-s-yaponskogo-aukcziona-v-2026-godu-polnoe-rukovodstvo-dlya-novichkov/",
+          "snippet": "Как заказать авто с аукциона Японии в 2026 году: этапы покупки, сроки доставки, состав расходов и стоимость услуг посредника."
+        },
+        {
+          "title": "Какой аукцион в Японии самый лучший — рейтинг 2026 года",
+          "url": "https://top-autoimport.ru/ratings/luchshie-aukciony-yaponii-po-prodazhe-avtomobiley",
+          "snippet": "Интерес к покупке автомобилей с японских аукционов в России бьёт рекорды. Запросы вроде «японский аукцион авто», «аукцион япония авто» и «аукционы японии» взлетели до сверхпопулярности."
+        },
+        {
+          "title": "Как заказать автомобиль с аукциона Японии в 2026 году: этапы, сроки и ...",
+          "url": "https://classicretrocar.ru/poleznoe/kak-zakazat-avtomobil-s-auktsiona-yaponii-v-2026-godu-etapy-sroki-i-rashody.html",
+          "snippet": "Откройте для себя лучшие аукционы Японии 2026 года! Узнайте, где найти уникальные лоты и сделать выгодные покупки. Наш рейтинг поможет вам выбрать идеальный аукцион."
+        },
+        {
+          "title": "Японские автоаукционы on-line (онлайн)",
+          "url": "https://carwin.ru/japanauc/",
+          "snippet": "Как заказать автомобиль с аукциона Японии в 2026 году: этапы покупки, сроки доставки, состав расходов и услуги посредника."
+        }
+      ],
+      "searched_at": "2026-10-05"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "купить авто на японском аукционе 2026",
+      "purpose": "вторичный запрос: купить авто на японском аукционе",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как купить машину на японском аукционе в 2026 году: пошаговая инструкция",
+          "url": "https://pravovoi.center/avtoyurist/oformlenie-prava-sobstvennosti/kuplya-prodazha-avto/pokupka-a/na-yaponskom-auktsione.html",
+          "snippet": ""
+        },
+        {
+          "title": "Как купить авто с японского аукциона в 2026 году: полное руководство ...",
+          "url": "https://abcars.ru/sovety/kak-kupit-avto-s-yaponskogo-aukcziona-v-2026-godu-polnoe-rukovodstvo-dlya-novichkov/",
+          "snippet": "Подробная инструкция по покупке автомобиля на японском аукционе: структура площадок, схемы участия через посредников, пошаговый алгоритм, документы и растаможка."
+        },
+        {
+          "title": "Как заказать авто с аукциона Японии в 2026 году: схема, сроки и расходы ...",
+          "url": "https://roadres.com/kak-zakazat-avto-s-auktsiona-yaponii-v-2026-godu/",
+          "snippet": "На фоне ухода европейских и корейских брендов японские аукционы стали для многих россиян главным источником качественных подержанных автомобилей."
+        },
+        {
+          "title": "Как купить авто с аукциона в Японии: Полное руководство",
+          "url": "https://wiki-lifehacker.ru/avto/kak-kupit-avto-s-auktsiona-v-yaponii-polnoe-rukovodstvo/",
+          "snippet": "Как заказать авто с аукциона Японии в 2026 году: этапы покупки, сроки доставки, состав расходов и стоимость услуг посредника."
+        },
+        {
+          "title": "Как купить авто из Японии: полное руководство 2026",
+          "url": "https://carfinance-msk.ru/blog/kak-kupit-avto-iz-yaponii-rukovodstvo-2026/",
+          "snippet": "Однако, прежде чем погружаться в мир японских аукционов, стоит разобраться в том, как купить авто с аукциона в Японии, какие есть нюансы и куда ставить ставку в этом процессе."
+        },
+        {
+          "title": "Как заказать авто из Японии в 2026 году — пошаговая инструкция",
+          "url": "https://tempa-cars.ru/blog/kak-zakazat-avto-iz-yaponii-v-2026-godu.html",
+          "snippet": "Полная инструкция по покупке авто с японских аукционов: выбор лота, проверка, торги, доставка и растаможка. Опыт сотен сделок. | CarFinance блог"
+        }
+      ],
+      "searched_at": "2026-10-05"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "японский аукцион 2026",
+      "purpose": "вторичный запрос: японский аукцион",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Японские автоаукционы on-line (онлайн)",
+          "url": "https://carwin.ru/japanauc/",
+          "snippet": ""
+        },
+        {
+          "title": "Какой аукцион в Японии самый лучший — рейтинг 2026 года",
+          "url": "https://top-autoimport.ru/ratings/luchshie-aukciony-yaponii-po-prodazhe-avtomobiley",
+          "snippet": "Японские автоаукционы онлайн позволят Вам ознакомиться с актуальными предложениями на ближайших торгах. Аукцион автомобилей в Японии - это прекрасная возможность купить подержанное авто в отличном состоянии! Еженедельно выставляется более 140 тыс. новых предложений по авто."
+        },
+        {
+          "title": "ТОП-8 Лучших аукционов в Японии для покупки авто в 2026 - Рейтинг ...",
+          "url": "https://vc.ru/transport/2866987-luchshie-auktsiony-v-yaponii-dlya-pokupki-avto",
+          "snippet": "Откройте для себя лучшие аукционы Японии 2026 года! Узнайте, где найти уникальные лоты и сделать выгодные покупки. Наш рейтинг поможет вам выбрать идеальный аукцион."
+        },
+        {
+          "title": "Купить авто с аукционов Японии компания Japan Expert",
+          "url": "https://japanexpert.ru/auction/",
+          "snippet": "Мы выбираем строгие аукционы из нашего списка ниже именно потому, что в этом 20-секундном безумии нам нужен твердый фундамент - честная оценка инспектора, которой можно доверять."
+        },
+        {
+          "title": "Как купить авто с японского аукциона в 2026 году: полное руководство ...",
+          "url": "https://abcars.ru/sovety/kak-kupit-avto-s-yaponskogo-aukcziona-v-2026-godu-polnoe-rukovodstvo-dlya-novichkov/",
+          "snippet": "Онлайн аукционы Японии: USS, TAA, ARAI, CAA, Honda, AUCNET, JU, NAA, LUM с ценами, аукционным листом, фото и описанием на русском языке."
+        },
+        {
+          "title": "Как заказать автомобиль с аукциона Японии в 2026 году: этапы, сроки и ...",
+          "url": "https://classicretrocar.ru/poleznoe/kak-zakazat-avtomobil-s-auktsiona-yaponii-v-2026-godu-etapy-sroki-i-rashody.html",
+          "snippet": "Интерес к покупке автомобилей с японских аукционов в России бьёт рекорды. Запросы вроде «японский аукцион авто», «аукцион япония авто» и «аукционы японии» взлетели до сверхпопулярности."
+        }
+      ],
+      "searched_at": "2026-10-05"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "как купить авто на японском аукционе самому 2026",
+      "purpose": "вторичный запрос: как купить авто на японском аукционе самому",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как купить машину на японском аукционе в 2026 году: пошаговая инструкция",
+          "url": "https://pravovoi.center/avtoyurist/oformlenie-prava-sobstvennosti/kuplya-prodazha-avto/pokupka-a/na-yaponskom-auktsione.html",
+          "snippet": ""
+        },
+        {
+          "title": "Как купить авто с аукциона в Японии: Полное руководство",
+          "url": "https://wiki-lifehacker.ru/avto/kak-kupit-avto-s-auktsiona-v-yaponii-polnoe-rukovodstvo/",
+          "snippet": "Подробная инструкция по покупке автомобиля на японском аукционе: структура площадок, схемы участия через посредников, пошаговый алгоритм, документы и растаможка."
+        },
+        {
+          "title": "Как купить авто с японского аукциона в 2026 году: полное руководство ...",
+          "url": "https://abcars.ru/sovety/kak-kupit-avto-s-yaponskogo-aukcziona-v-2026-godu-polnoe-rukovodstvo-dlya-novichkov/",
+          "snippet": "Как самому купить машину с аукциона в Японии без посредников? Для самостоятельной покупки нужно зарегистрироваться на аукционном сайте, выбрать авто, сделать ставку и следить за ..."
+        },
+        {
+          "title": "Как заказать авто с аукциона Японии в 2026 году: схема, сроки и расходы ...",
+          "url": "https://roadres.com/kak-zakazat-avto-s-auktsiona-yaponii-v-2026-godu/",
+          "snippet": "На фоне ухода европейских и корейских брендов японские аукционы стали для многих россиян главным источником качественных подержанных автомобилей."
+        },
+        {
+          "title": "Как купить машину на японском аукционе самостоятельно: пошагово — Авто Гид",
+          "url": "https://avto-gid.vercel.app/articles/k/ka/kak-kupit-mashinu-na-yaponskom-auktsione-samostoyatelno.html",
+          "snippet": "Как заказать авто с аукциона Японии в 2026 году: этапы покупки, сроки доставки, состав расходов и стоимость услуг посредника."
+        },
+        {
+          "title": "Как купить авто с аукциона Японии: пошаговая инструкция 2026",
+          "url": "https://4ringcars.ru/01-kak-kupit-avto-s-aukciona/",
+          "snippet": "Полное руководство по покупке авто с японских аукционов без посредников: от регистрации до доставки. Разбираем риски, цены и юридические нюансы."
+        }
+      ],
+      "searched_at": "2026-10-05"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как сделать первую ставку на японском аукционе: чек-лист до депозита в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Растаможка авто из Японии: обновлённый чек-лист на 2026",
+          "url": "https://dzen.ru/a/alu1-jRgISluMYaN",
+          "snippet": ""
+        },
+        {
+          "title": "Как купить машину на японском аукционе самостоятельно: пошагово",
+          "url": "https://avto-gid.vercel.app/articles/k/ka/kak-kupit-mashinu-na-yaponskom-auktsione-samostoyatelno.html",
+          "snippet": "Сделайте: в чек-лист до депозита внесите мощность и честный сценарий владения. Не делайте: путать чужие примеры \"3400/5200\" с машиной мощнее порога - это разные миры бюджета."
+        },
+        {
+          "title": "Как читать японский аукционный лист: оценки до ставки",
+          "url": "https://avtosales125.ru/2026/07/23/auktsionnyy-list-yaponiya-kak-chitat-2026/",
+          "snippet": "В этой статье мы разберём весь процесс шаг за шагом: как выбрать надёжный аукцион, проверить историю автомобиля, участвовать в торгах и оформить доставку."
+        },
+        {
+          "title": "Как купить машину на японском аукционе в 2026 году: пошаговая инструкция",
+          "url": "https://pravovoi.center/avtoyurist/oformlenie-prava-sobstvennosti/kuplya-prodazha-avto/pokupka-a/na-yaponskom-auktsione.html",
+          "snippet": "Как читать аукционный лист Японии до ставки: оценки 4 и 4.5, схема A/U/W/X/XX, R vs RA, чек-лист из пяти зон. Подбор - в каталоге Авто-Сейлс."
+        },
+        {
+          "title": "Ставка и депозит на японском аукционе: как это работает",
+          "url": "https://atletauto.ru/blog/stavka-i-depozit-na-aukcione.html",
+          "snippet": "Разберём подробно, как устроены японские аукционы, какие схемы покупки существуют и как безопасно приобрести автомобиль через посредников."
+        },
+        {
+          "title": "Как самому сделать ставку на японском аукционе",
+          "url": "https://megavtogal.com/lajfhaki/kak-samomu-sdelat-stavku-na-yaponskom-aukcione.html",
+          "snippet": "Как устроены ставки на японском аукционе: депозит, шаг торгов, резервная цена, комиссия площадки и что происходит, если отказаться от выигранного лота."
+        }
+      ],
+      "searched_at": "2026-10-05"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://pravovoi.center/avtoyurist/oformlenie-prava-sobstvennosti/kuplya-prodazha-avto/pokupka-a/na-yaponskom-auktsione.html",
+      "title": "Как купить машину на японском аукционе в 2026 году: пошаговая инструкция",
+      "from_query": "как купить авто на японском аукционе 2026"
+    },
+    {
+      "url": "https://abcars.ru/sovety/kak-kupit-avto-s-yaponskogo-aukcziona-v-2026-godu-polnoe-rukovodstvo-dlya-novichkov/",
+      "title": "Как купить авто с японского аукциона в 2026 году: полное руководство ...",
+      "from_query": "как купить авто на японском аукционе 2026"
+    },
+    {
+      "url": "https://roadres.com/kak-zakazat-avto-s-auktsiona-yaponii-v-2026-godu/",
+      "title": "Как заказать авто с аукциона Японии в 2026 году: схема, сроки и расходы ...",
+      "from_query": "как купить авто на японском аукционе 2026"
+    },
+    {
+      "url": "https://wiki-lifehacker.ru/avto/kak-kupit-avto-s-auktsiona-v-yaponii-polnoe-rukovodstvo/",
+      "title": "Как купить авто с аукциона в Японии: Полное руководство",
+      "from_query": "как купить авто на японском аукционе 2026"
+    },
+    {
+      "url": "https://classicretrocar.ru/poleznoe/kak-zakazat-avtomobil-s-auktsiona-yaponii-v-2026-godu-etapy-sroki-i-rashody.html",
+      "title": "Как заказать автомобиль с аукциона Японии в 2026 году: этапы, сроки и ...",
+      "from_query": "как купить авто на японском аукционе 2026"
+    },
+    {
+      "url": "https://avto-gid.vercel.app/articles/k/ka/kak-kupit-mashinu-na-yaponskom-auktsione-samostoyatelno.html",
+      "title": "Как купить машину на японском аукционе самостоятельно: пошагово — Авто Гид",
+      "from_query": "как купить авто на японском аукционе 2026"
+    },
+    {
+      "url": "https://4ringcars.ru/01-kak-kupit-avto-s-aukciona/",
+      "title": "Как купить авто с аукциона Японии: пошаговая инструкция 2026",
+      "from_query": "как купить авто на японском аукционе октябрь 2026"
+    },
+    {
+      "url": "https://github.com/yazolga/kanji-to-text-2026",
+      "title": "GitHub - yazolga/kanji-to-text-2026",
+      "from_query": "site:github.com как купить авто на японском аукционе 2026"
+    },
+    {
+      "url": "https://github.com/Meleniness/Funtime-Auction",
+      "title": "GitHub - Meleniness/Funtime-Auction: Best Auction Plugin!",
+      "from_query": "site:github.com как купить авто на японском аукционе 2026"
+    },
+    {
+      "url": "https://github.com/GOTTA5786/Stalcraft-trader-bot",
+      "title": "GitHub - GOTTA5786/Stalcraft-trader-bot",
+      "from_query": "site:github.com как купить авто на японском аукционе 2026"
+    },
+    {
+      "url": "https://github.com/spujadas/coursera-ddp-shiny/blob/master/corpora/ru_50k.txt",
+      "title": "coursera-ddp-shiny/corpora/ru_50k.txt at master - GitHub",
+      "from_query": "site:github.com как купить авто на японском аукционе 2026"
+    },
+    {
+      "url": "https://github.com/therega/RegaMine",
+      "title": "GitHub - therega/RegaMine: RegaMine - Кастомизированный плагин на авто ...",
+      "from_query": "site:github.com как купить авто на японском аукционе 2026"
+    },
+    {
+      "url": "https://github.com/sVPyle/JoinAuction",
+      "title": "GitHub - sVPyle/JoinAuction: Плагин для Minecraft-серверов на аукцион",
+      "from_query": "site:github.com как купить авто на японском аукционе 2026"
+    },
+    {
+      "url": "https://vc.ru/money/2909067-kupit-avto-iz-yaponii-poshagovaya-shema",
+      "title": "Купить авто из Японии в 2026 году — пошаговая схема от аукциона до ...",
+      "from_query": "как купить авто на японском аукционе official docs documentation 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/kak-prignat-avto-iz-yaponii",
+      "title": "Как пригнать авто из Японии: гайд 2026",
+      "from_query": "как купить авто на японском аукционе forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://abcars.ru/spravochnik/kak-pokupayut-avto-na-aukczione-v-yaponii/",
+      "title": "Как покупают авто на аукционе в Японии",
+      "from_query": "как купить авто на японском аукционе forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://vc.ru/transport/2866987-luchshie-auktsiony-v-yaponii-dlya-pokupki-avto",
+      "title": "ТОП-8 Лучших аукционов в Японии для покупки авто в 2026 - Рейтинг ...",
+      "from_query": "японский аукцион авто 2026"
+    },
+    {
+      "url": "https://top-autoimport.ru/ratings/luchshie-aukciony-yaponii-po-prodazhe-avtomobiley",
+      "title": "Какой аукцион в Японии самый лучший — рейтинг 2026 года",
+      "from_query": "японский аукцион авто 2026"
+    },
+    {
+      "url": "https://carwin.ru/japanauc/",
+      "title": "Японские автоаукционы on-line (онлайн)",
+      "from_query": "японский аукцион авто 2026"
+    },
+    {
+      "url": "https://carfinance-msk.ru/blog/kak-kupit-avto-iz-yaponii-rukovodstvo-2026/",
+      "title": "Как купить авто из Японии: полное руководство 2026",
+      "from_query": "купить авто на японском аукционе 2026"
+    },
+    {
+      "url": "https://tempa-cars.ru/blog/kak-zakazat-avto-iz-yaponii-v-2026-godu.html",
+      "title": "Как заказать авто из Японии в 2026 году — пошаговая инструкция",
+      "from_query": "купить авто на японском аукционе 2026"
+    },
+    {
+      "url": "https://japanexpert.ru/auction/",
+      "title": "Купить авто с аукционов Японии компания Japan Expert",
+      "from_query": "японский аукцион 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/alu1-jRgISluMYaN",
+      "title": "Растаможка авто из Японии: обновлённый чек-лист на 2026",
+      "from_query": "Как сделать первую ставку на японском аукционе: чек-лист до депозита в 2026 2026"
+    },
+    {
+      "url": "https://avtosales125.ru/2026/07/23/auktsionnyy-list-yaponiya-kak-chitat-2026/",
+      "title": "Как читать японский аукционный лист: оценки до ставки",
+      "from_query": "Как сделать первую ставку на японском аукционе: чек-лист до депозита в 2026 2026"
+    },
+    {
+      "url": "https://atletauto.ru/blog/stavka-i-depozit-na-aukcione.html",
+      "title": "Ставка и депозит на японском аукционе: как это работает",
+      "from_query": "Как сделать первую ставку на японском аукционе: чек-лист до депозита в 2026 2026"
+    },
+    {
+      "url": "https://megavtogal.com/lajfhaki/kak-samomu-sdelat-stavku-na-yaponskom-aukcione.html",
+      "title": "Как самому сделать ставку на японском аукционе",
+      "from_query": "Как сделать первую ставку на японском аукционе: чек-лист до депозита в 2026 2026"
+    }
+  ]
+}

@@ -301,7 +301,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next`
 - `python3 scripts/excalibur_blog_today.py`
-commit: pending-parent-commit
+commit: ab272a8
 
 
 ## INC-20261005-0917-director-doctor-blog-path
@@ -338,7 +338,7 @@ files_changed:
 - `scripts/excalibur_blog_doctor.py`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
-commit: pending-parent-commit
+commit: ab272a8
 
 
 ## INC-20261005-0920-scout-niche-cursor-vs-avtosales
@@ -386,7 +386,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` Авто-Сейлс present; Cursor AI niche removed from scout agents
-commit: pending-parent-commit
+commit: ab272a8
 
 
 ## INC-20261005-0922-scout-precommit-hook-fail
@@ -426,7 +426,7 @@ files_changed:
 checks_run:
 - sanitize filter drops `[REDACTED]` / `bad-name`
 - doctor warns if helper missing
-commit: pending-parent-commit
+commit: ab272a8
 
 
 ## INC-20261005-0930-research-notes-gate-ru-false-technical
@@ -477,7 +477,7 @@ files_changed:
 - `.cursor/skills/excalibur-research/SKILL.md`
 checks_run:
 - research-notes gate on B01 → PASS, technical_topic=false
-commit: pending-parent-commit
+commit: ab272a8
 
 
 ## INC-20261005-0945-writer-utility-pain-markers-missing
@@ -530,7 +530,7 @@ files_changed:
 checks_run:
 - doctor editorial-policy markers OK
 - py_compile human_voice_gate
-commit: pending-parent-commit
+commit: ab272a8
 
 
 ## INC-20261005-0936-schema-precommit-hook-fail
@@ -568,7 +568,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - sanitize filter unit check
-commit: pending-parent-commit
+commit: ab272a8
 
 
 ## INC-20261005-0940-cover-mcp-timeout-kie-fallback
@@ -616,7 +616,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` kie_gpt_image2 / Kie async in cover contracts
-commit: pending-parent-commit
+commit: ab272a8
 
 
 ## INC-20261005-0948-indexer-precommit-hook-fail
@@ -654,7 +654,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - sanitize filter unit check
-commit: pending-parent-commit
+commit: ab272a8
 
 
 ## INC-20261005-0955-publish-http-timeout-double-trigger
@@ -706,5 +706,5 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `rg` try_rest_soft_success / http_timeout=300
-commit: pending-parent-commit
+commit: ab272a8
 

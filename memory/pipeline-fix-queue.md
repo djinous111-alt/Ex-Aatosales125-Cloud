@@ -85,6 +85,7 @@ category: script
 - Added `pain_markers_ru` and `outcome_markers_ru` (+ min counts) to `editorial-policy.json`.
 - Gate now skips pain/outcome checks with a warning when marker lists are empty.
 - Strengthened B03 article phrasing (`сделайте`/`не делайте`/`чеклист`/`критерий результата`/`сможете`); local utility gate PASS, human-voice PASS, HTML linter PASS.
+- Pre-commit: filtered invalid name `[REDACTED]` out of `CLOUD_AGENT_INJECTED_SECRET_NAMES` before `git commit` (platform redaction breaks `${!SECRET_NAME}`).
 
 ### Durable fix needed before next run
 - Keep marker lists in policy; document them in writer skill / pitfalls so Writer weaves exact phrases.

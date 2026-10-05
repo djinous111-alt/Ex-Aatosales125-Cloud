@@ -480,3 +480,38 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261005-0940-cover-mcp-timeout-kie-fallback
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` (ONE i2i quad canvas) вернул `MCP error -32001: Request timed out` до URL в ответе клиента.
+- Sync MCP для 2K i2i не client-timeout-safe (~76s+ на Kie backend).
+
+### How the agent recovered this run
+- Не ретраил sync MCP (избежать duplicate job).
+- Использовал preferred flow из `quad-mcp-batch.json`: `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir ...` (createTask → poll → URL).
+- `quad_apply.py --inject-html` → split PASS, 3 figure inject.
+
+### Durable fix needed before next run
+- Cover skill/agent: default к Kie async script на Cloud, MCP sync только fallback.
+- Или async MCP create/status, чтобы не зависеть от HTTP client timeout.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `scripts/excalibur_blog_cover_quad_prompt.py` (timeout_policy already documents preferred_image_flow)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

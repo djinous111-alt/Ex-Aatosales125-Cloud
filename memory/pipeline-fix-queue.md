@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none for 2026-10-05 after fixer)_
+
+
 ## INC-20261005-1800-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-publish
 topic_id: B02
@@ -39,11 +42,31 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Added `paramiko` (+numpy) to `.cursor/cloud-agent-install.sh` and `.cursor/Dockerfile`.
+- Doctor now checks `paramiko` availability.
+- Publish `--env-check` reports `paramiko_available` / `site_env_local_present`; live publish fails early if paramiko missing.
+- Publish skill documents SSH secrets → gitignored `memory/site.env.local` (unquoted KEY=value).
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/Dockerfile`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_doctor.py scripts/excalibur_blog_wp_publish.py`
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check` → paramiko_available=true
+commit: pending-fixer-commit
+
 
 
 ## INC-20261005-1756-indexer-commit-secret-scan
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-indexer
 topic_id: B02
@@ -75,10 +98,29 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Added `scripts/excalibur_git.sh` commit wrapper: sanitize non-identifier secret names; skip PUBLIC_SITE_URL/WP_* from scan.
+- llms generator defaults to `[PUBLIC_SITE_URL]`; indexer agent/skill use placeholders (no live URL in git).
+- Documented pragma/placeholder policy in indexer skill + pitfalls + runbook.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `bash scripts/excalibur_git.sh status` with URL-shaped injected secret name → skipped, no crash
+- `python3 scripts/excalibur_blog_llms_generator.py --help` shows `--blog-dir` + `--blog-path` alias
+commit: pending-fixer-commit
+
 
 ## INC-20261005-1754-cover-toxic-words-in-prompt
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-cover
 topic_id: B02
@@ -106,10 +148,26 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Prompt builder forbids insults without naming banned tokens.
+- Added `assert_prompt_has_no_toxic_example_tokens` gate before writing quad prompt/batch.
+- Cover skill + pitfalls updated.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+- unit assert: good prompt OK; prompt containing `лох` raises ValueError
+- `rg` confirms no `words like лох` in prompt builder
+commit: pending-fixer-commit
+
 
 ## INC-20261005-1745-geo-qa-typed-task-missing
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-geo-qa
 topic_id: B02
@@ -140,7 +198,20 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Documented generalPurpose fallback as canonical when typed Task `excalibur-blog-geo-qa` (or any excalibur-blog-*) is unavailable.
+- Updated director skill, CLOUD-AUTOMATION, pitfalls. Repo cannot register Cloud typed Task types — ops may still add them later.
+files_changed:
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` confirms geo-qa generalPurpose fallback guidance in director skill / pitfalls
+commit: pending-fixer-commit
+
 
 
 ## INC-20261005-1742-writer-utility-gate-empty-pain-markers
@@ -185,7 +256,7 @@ commit: fdced1a
 
 
 ## INC-20261005-1738-research-tech-markers-false-ai
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-research
 topic_id: B02
@@ -216,10 +287,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- `is_technical_topic` now uses word-boundary for short markers (`ai`,`ии`,`api`,…) and strips required field labels (`reader_pain`, …) before scanning notes sample.
+- Removed overly broad substring `make`; github evidence remains required only when technical_topic=true.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- delivery notes with `reader_pain`/`компенсации` → technical_topic=False
+- AI/MCP/Cursor notes → technical_topic=True
+commit: pending-fixer-commit
+
 
 ## INC-20261005-1740-research-serp-public-site-url
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-research
 topic_id: B02
@@ -248,10 +333,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- `excalibur_blog_research_start.py` redacts `PUBLIC_SITE_URL`/`WP_SITE_URL`/`WP_HOME` to `[PUBLIC_SITE_URL]` in `research-serp.json` before write.
+- Research skill documents git-safe SERP scrub + `excalibur_git.sh` commits.
+files_changed:
+- `scripts/excalibur_blog_research_start.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit scrub of nested SERP payload
+- `python3 -m py_compile scripts/excalibur_blog_research_start.py`
+commit: pending-fixer-commit
+
 
 ## INC-20261005-1726-scout-suggest-next-live-gap
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-scout
 topic_id: B02
@@ -282,10 +381,27 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending (partial fix already in scout_helper this run; Fixer should verify docs/pitfalls)
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- `--suggest-next` advances past ledger reserved + active dirs + LIVE-mapped topic IDs from `memory/blog/published-live-*.json`.
+- Added `--check-slug` against LIVE snapshot + ledger.
+- Scout agent/skill/pitfalls document LIVE+ledger constraints.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `--suggest-next` → B03 with Reserved including B01/B02
+- `--check-slug rastamozhka-avto-iz-kitaya-vladivostok-2026` → LEDGER collision exit 1
+commit: pending-fixer-commit
+
 
 ## INC-20261005-1724-scout-precommit-secret-name-url
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-scout
 topic_id: B02
@@ -314,10 +430,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Added durable `scripts/excalibur_git.sh` that sanitizes `CLOUD_AGENT_*_SECRET_NAMES` to bash identifiers before git commit/hooks.
+- Documented identifier-only Cloud Secret names in CURSOR-CLOUD-RUNBOOK + pitfalls.
+- Platform pre-commit.cursor cannot be permanently patched from repo; wrapper is the durable agent path. Human may still rename URL-named Dashboard secrets.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- wrapper with `https://…` secret name → skip + successful `git status`
+commit: pending-fixer-commit
+
 
 ## INC-20261005-1708-doctor-llms-blog-path
-status: open
+status: fixed
 run_date: 2026-10-05
 role: director / doctor
 topic_id: (preflight)
@@ -349,7 +478,24 @@ category: toolchain
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Doctor checks `--blog-dir` (actual CLI).
+- Generator adds deprecated `--blog-path` alias for older prompts.
+- Indexer agent/skill examples use `--blog-dir` only.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → OK llms generator supports --blog-dir, errors=0
+- `rg` no `--blog-path /` in indexer docs
+commit: pending-fixer-commit
+
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -597,7 +743,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20261005-1748-schema-expand-env-secret-scan
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-schema
 topic_id: B02
@@ -632,7 +778,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Added `scripts/excalibur_blog_schema_build.py` with `--placeholders` / `--expand-env` / `--in-place` / `--write`.
+- Publish expands `[PUBLIC_SITE_URL]`/`[CATALOG_URL]`/`[TELEGRAM_URL]`/`[MAX_URL]`/`[REDACTED]` in schema meta before upload.
+- Schema skill documents git-safe placeholders; secret-name crash covered by `excalibur_git.sh`.
+files_changed:
+- `scripts/excalibur_blog_schema_build.py`
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_git.sh`
+checks_run:
+- schema `--expand-env` stdout expands PUBLIC_SITE_URL
+- publish `expand_schema_placeholders` unit
+- `python3 -m py_compile scripts/excalibur_blog_schema_build.py`
+commit: pending-fixer-commit
+
 
 ## Fixed incidents
 

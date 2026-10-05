@@ -161,6 +161,11 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 
 ---
 
+
+## Non-toxic prompt rule
+
+`excalibur_blog_cover_quad_prompt.py` must forbid insults/humiliating slang **without naming banned tokens** in the generation prompt (listing `лох`/`лохов` risks the image model rendering them). Post-generation QA may still treat those words as blockers if they appear on the finished image.
+
 ## QA перед ✅
 
 - [ ] 1 MCP, не 4

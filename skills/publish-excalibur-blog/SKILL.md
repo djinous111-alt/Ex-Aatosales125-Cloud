@@ -20,10 +20,29 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | `memory/site.env.local` or Cloud Secrets: `SSH_*`, `PUBLIC_SITE_URL`, `paramiko` installed |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
+
+
+## Credentials / env (SSH)
+
+Publish transport: **SSH + paramiko** (не legacy FTP aliases).
+
+1. Cloud Secrets / process env must include `SSH_*`, `PUBLIC_SITE_URL`, `EXCALIBUR_BLOG_ALLOW_PUBLISH`.
+2. `paramiko` must be installed (`requirements.txt` + `.cursor/cloud-agent-install.sh` / Dockerfile). Doctor checks it.
+3. Before publish, ensure `memory/site.env.local` exists (gitignored). If Cloud Secrets are only in process env, write unquoted `KEY=value` lines (do **not** bash-source if password has shell metacharacters). Prefer `SSH_ROOT=.`.
+4. Preflight:
+
+```bash
+python3 scripts/excalibur_blog_doctor.py --publish
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+`--env-check` reports `paramiko_available` and `site_env_local_present` without printing secret values.
+
+Schema placeholders (`[PUBLIC_SITE_URL]`, `[CATALOG_URL]`, `[TELEGRAM_URL]`, `[MAX_URL]`, `[REDACTED]`) are expanded automatically before WP schema meta upload.
 
 ## Алгоритм
 

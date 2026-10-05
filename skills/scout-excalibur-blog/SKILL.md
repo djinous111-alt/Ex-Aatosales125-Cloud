@@ -30,9 +30,17 @@ Append new Topic Card to blog-topics.md
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
   Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+
+### LIVE WP + ledger constraints
+* `--suggest-next` advances past reserved IDs from: ledger (`published`/`in_progress`/`draft_ready`), active `memory/blog/articles/Bxx-*`, and LIVE-mapped topic IDs from `memory/blog/published-live-*.json` slugs.
+* Before appending a new topic card, also check slug:
+  ```bash
+  python3 scripts/excalibur_blog_scout_helper.py --check-slug "<slug>"
+  ```
+* Keep `shared/published-articles.md` in sync after LIVE publish so the next Scout run cannot reuse B01/B02/…
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
@@ -47,7 +55,7 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
 Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
 

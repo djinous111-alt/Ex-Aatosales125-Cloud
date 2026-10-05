@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 import time
@@ -24,6 +25,35 @@ from excalibur_repo_paths import repo_relative
 USER_AGENT = "ExcaliburBlogResearch/1.0 (+research-start)"
 DDG_HTML = "https://html.duckduckgo.com/html/"
 DEFAULT_TZ = "Europe/Moscow"
+PUBLIC_SITE_PLACEHOLDER = "[PUBLIC_SITE_URL]"
+
+
+def _public_site_bases() -> list[str]:
+    """Absolute own-site bases that must not land in committed SERP artifacts."""
+    bases: list[str] = []
+    for key in ("PUBLIC_SITE_URL", "WP_SITE_URL", "WP_HOME"):
+        raw = (os.environ.get(key) or "").strip().rstrip("/")
+        if raw and raw not in bases:
+            bases.append(raw)
+    return bases
+
+
+def scrub_public_site_urls(obj: Any, bases: list[str] | None = None) -> Any:
+    """Replace absolute PUBLIC_SITE_URL values with a git-safe placeholder."""
+    bases = bases if bases is not None else _public_site_bases()
+    if not bases:
+        return obj
+    if isinstance(obj, str):
+        out = obj
+        for base in bases:
+            if base and base in out:
+                out = out.replace(base, PUBLIC_SITE_PLACEHOLDER)
+        return out
+    if isinstance(obj, list):
+        return [scrub_public_site_urls(item, bases) for item in obj]
+    if isinstance(obj, dict):
+        return {key: scrub_public_site_urls(value, bases) for key, value in obj.items()}
+    return obj
 
 
 def project_root() -> Path:
@@ -369,6 +399,8 @@ def run_research_start(
         "errors": errors,
         "unique_urls": _unique_urls(serp_runs),
     }
+    # Keep committed SERP git-safe: never embed absolute PUBLIC_SITE_URL values.
+    payload_serp = scrub_public_site_urls(payload_serp)
 
     context_path = out_dir / "research-context.json"
     serp_path = out_dir / "research-serp.json"

@@ -69,6 +69,21 @@ def validate_prompt_budget(prompt: str) -> bool:
     return False
 
 
+# Never put these tokens into the generation prompt (even as negative examples).
+# Post-generation QA may still scan finished images for them.
+FORBIDDEN_PROMPT_TOXIC_TOKENS = ("лох", "лохов", "для лохов")
+
+
+def assert_prompt_has_no_toxic_example_tokens(prompt: str) -> None:
+    lowered = prompt.lower()
+    hits = [token for token in FORBIDDEN_PROMPT_TOXIC_TOKENS if token in lowered]
+    if hits:
+        raise ValueError(
+            "cover prompt must forbid insults without naming banned tokens; "
+            f"found example tokens in prompt: {', '.join(hits)}"
+        )
+
+
 def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, design_code: dict) -> str:
     slots = manifest.get("slots") or {}
 
@@ -84,7 +99,7 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         "",
         "ALL panels keep a clean pure white #FFFFFF base; scraps/cards may cast light shadows but no beige, gray, gradient, grunge, paper-tint, or colored full-panel background.",
         "",
-        "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
+        "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating slang, no mocking nicknames, no demeaning labels aimed at the reader.",
         "",
         "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
         "",
@@ -137,6 +152,11 @@ def main() -> int:
         return 1
 
     prompt = build_prompt(manifest, style, hero, types_catalog, design_code)
+    try:
+        assert_prompt_has_no_toxic_example_tokens(prompt)
+    except ValueError as exc:
+        print(f"❌ PROMPT BLOCKER: {exc}", file=sys.stderr)
+        return 1
     if not validate_prompt_budget(prompt):
         return 1
     prompt_path = article_dir / "cover" / "quad-mcp-prompt.txt"

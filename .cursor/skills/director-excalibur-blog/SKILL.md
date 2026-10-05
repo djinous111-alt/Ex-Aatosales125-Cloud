@@ -54,6 +54,13 @@ Task(generalPurpose):
 
 См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
 
+**Канон при отсутствии typed Task:** если Cloud API не принимает `excalibur-blog-geo-qa` (или любую другую `excalibur-blog-*` роль), сразу запускай отдельный `Task(generalPurpose)` с путями:
+
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+Это не workaround «на потом», а штатный fallback до появления typed Task в Cloud. Один Task = одна роль; cover||schema — два Task.
+
 ## Preflight (shell, директор)
 
 ```bash

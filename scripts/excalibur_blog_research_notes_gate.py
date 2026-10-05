@@ -14,22 +14,40 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short markers need word-boundary match to avoid false positives:
+# "ai" inside "reader_pain", "ии" inside "компенсации", etc.
+TECH_MARKERS_WORD = (
     "ai",
     "ии",
-    "agent",
-    "агент",
     "mcp",
     "api",
-    "cursor",
-    "make",
+    "rag",
     "n8n",
+)
+TECH_MARKERS_SUBSTRING = (
+    "agent",
+    "агент",
+    "cursor",
     "github",
     "docker",
-    "rag",
     "workflow",
     "автоматизац",
     "нейросет",
+)
+# Field labels / keys that must not trigger technical_topic detection.
+TECH_SCAN_EXCLUDE_LABELS = (
+    "reader_pain",
+    "reader_outcome",
+    "success_criteria",
+    "pain_solution_map",
+    "voice_angle",
+    "reader_story",
+    "surprising_fact",
+    "github_evidence",
+    "action_outline",
+    "accessed_at",
+    "research_date",
+    "utility_verdict",
 )
 
 
@@ -73,14 +91,36 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _word_boundary_hit(blob: str, marker: str) -> bool:
+    # Treat Latin/Cyrillic letters, digits and underscore as word chars.
+    return bool(
+        re.search(
+            rf"(?<![0-9A-Za-zА-Яа-яЁё_]){re.escape(marker)}(?![0-9A-Za-zА-Яа-яЁё_])",
+            blob,
+            flags=re.IGNORECASE,
+        )
+    )
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech niches that require GitHub evidence.
+
+    Uses topic card fields + a notes sample, but:
+    - strips required field labels so keys like ``reader_pain`` do not match ``ai``;
+    - matches short markers (``ai``, ``ии``, ``api``) with word boundaries only.
+    """
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    notes_sample = notes[:2000].lower()
+    for label in TECH_SCAN_EXCLUDE_LABELS:
+        notes_sample = re.sub(rf"\b{re.escape(label)}\b", " ", notes_sample, flags=re.IGNORECASE)
+    blob = f"{blob} {notes_sample}"
+    if any(_word_boundary_hit(blob, marker) for marker in TECH_MARKERS_WORD):
+        return True
+    return any(marker in blob for marker in TECH_MARKERS_SUBSTRING)
 
 
 def field_present(text_lower: str, field: str) -> bool:

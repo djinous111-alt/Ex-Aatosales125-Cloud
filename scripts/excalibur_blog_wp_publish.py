@@ -73,9 +73,18 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
 
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
     root_label = ssh_root_label(env)
+    try:
+        import paramiko  # noqa: F401
+
+        paramiko_ok = True
+    except ImportError:
+        paramiko_ok = False
+    site_env_local = (project_root() / "memory/site.env.local").is_file()
     return {
         "allow_publish": env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes",
         "public_site_url_configured": bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")),
+        "paramiko_available": paramiko_ok,
+        "site_env_local_present": site_env_local,
         "ssh": {
             "host_configured": bool(env.get("SSH_HOST")),
             "user_configured": bool(env.get("SSH_USER")),
@@ -168,7 +177,24 @@ def normalize_cover_png(cover_path: Path, registry_path: Path, root: Path) -> di
     return evidence
 
 
-def load_article(article_dir: Path) -> dict:
+def expand_schema_placeholders(schema_raw: str, env: dict[str, str], public_base: str = "") -> str:
+    """Expand git-safe placeholders before uploading schema meta to WordPress."""
+    public = (public_base or env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL") or "").rstrip("/")
+    mapping = {
+        "[PUBLIC_SITE_URL]": public,
+        "[REDACTED]": public,
+        "[CATALOG_URL]": (env.get("CATALOG_URL") or "").rstrip("/"),
+        "[TELEGRAM_URL]": (env.get("TELEGRAM_URL") or "").rstrip("/"),
+        "[MAX_URL]": (env.get("MAX_URL") or "").rstrip("/"),
+    }
+    out = schema_raw
+    for needle, value in mapping.items():
+        if value:
+            out = out.replace(needle, value)
+    return out
+
+
+def load_article(article_dir: Path, env: dict[str, str] | None = None, public_base: str = "") -> dict:
     meta_path = article_dir / "article.meta.json"
     html_path = article_dir / "article.html"
     if not meta_path.is_file() or not html_path.is_file():
@@ -187,6 +213,7 @@ def load_article(article_dir: Path) -> dict:
     schema_raw = ""
     if schema_path.is_file():
         schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        schema_raw = expand_schema_placeholders(schema_raw, env or {}, public_base=public_base)
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
@@ -568,7 +595,30 @@ def main() -> int:
         return 2
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
-    payload = load_article(article_dir)
+    env = load_env(root)
+    if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes" and not args.dry_run:
+        print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
+        return 1
+    missing = validate_publish_env(env) if not args.dry_run else []
+    if missing:
+        print(f"BLOCKER: missing publish env: {', '.join(missing)}", file=sys.stderr)
+        return 2
+    try:
+        import paramiko  # noqa: F401
+    except ImportError:
+        if not args.dry_run:
+            print(
+                "BLOCKER: paramiko is not installed. "
+                "Run: python3 -m pip install --break-system-packages paramiko "
+                "(should be in .cursor/cloud-agent-install.sh / requirements.txt)",
+                file=sys.stderr,
+            )
+            return 2
+    public = args.public_base or env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL") or ""
+    if not public and not args.dry_run:
+        print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
+        return 2
+    payload = load_article(article_dir, env=env, public_base=public)
     php = build_php(payload)
 
     if args.dry_run:
@@ -576,18 +626,6 @@ def main() -> int:
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
-    if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
-        print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
-        return 1
-    missing = validate_publish_env(env)
-    if missing:
-        print(f"BLOCKER: missing publish env: {', '.join(missing)}", file=sys.stderr)
-        return 2
-    public = args.public_base or env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL") or ""
-    if not public:
-        print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
-        return 2
     out = publish_via_ssh(env, php, public)
     print(out)
 

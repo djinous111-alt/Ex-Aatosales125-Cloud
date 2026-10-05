@@ -10,7 +10,7 @@ description: Excalibur BLOG Research — topic research перед статьё�
 **Шаг 0 (скрипт, обязательно):** перед любым research — зафиксировать дату и собрать свежий SERP.
 
 ```bash
-python scripts/excalibur_blog_research_start.py --topic-id B01
+python3 scripts/excalibur_blog_research_start.py --topic-id B01
 ```
 
 Создаёт в папке статьи:
@@ -68,3 +68,11 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+## Git-safe SERP / own-site URLs
+
+`excalibur_blog_research_start.py` автоматически заменяет абсолютные значения `PUBLIC_SITE_URL`/`WP_SITE_URL`/`WP_HOME` на `[PUBLIC_SITE_URL]` в `research-serp.json`.
+Перед commit дополнительно проверь, что notes/serp не содержат live own-site URL. Коммиты: `bash scripts/excalibur_git.sh commit ...`.
+
+## technical_topic / GitHub evidence
+
+Gate `excalibur_blog_research_notes_gate.py` помечает тему technical только по topic fields + notes sample с word-boundary для коротких маркеров (`ai`, `ии`, `api`). Поля вроде `reader_pain` не должны сами по себе включать technical. Для non-tech ниш (автологистика) github evidence optional.

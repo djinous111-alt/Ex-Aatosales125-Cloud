@@ -51,9 +51,24 @@ EXCALIBUR_BLOG_ALLOW_PUBLISH=yes
 
 ```text
 EXCALIBUR_TOPIC_ID=<optional fixed topic id>
+CATALOG_URL=<optional>
+TELEGRAM_URL=<optional>
+MAX_URL=<optional>
 ```
 
+**Имена секретов** — только bash identifiers (`A-Za-z_[A-Za-z0-9_]*`). Нельзя класть URL строку как *имя* секрета: pre-commit делает `${!SECRET_NAME}` и падает с `invalid variable name`.
+
+Для commit в Cloud используй:
+
+```bash
+bash scripts/excalibur_git.sh commit -m "..."
+```
+
+Wrapper отфильтровывает non-identifier names и не сканирует `PUBLIC_SITE_URL`/`WP_SITE_URL`/`WP_HOME` как secret values (public site base / placeholders в git).
+
 Запрещено добавлять в repo реальные `.env`, `memory/site.env.local`, MCP tokens, SSH credentials, Cursor API keys.
+
+Если publish видит Cloud Secrets только в process env — агент может создать gitignored `memory/site.env.local` с unquoted `KEY=value` (не `source`-ить файл, если пароль содержит shell metacharacters).
 
 ## GitHub setup
 

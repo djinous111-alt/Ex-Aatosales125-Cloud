@@ -11,7 +11,7 @@
     "repeated_h2_openers": [],
     "textbook_h2_count": 0,
     "paragraph_count": 27,
-    "paragraph_avg_words": 31.4,
+    "paragraph_avg_words": 31.3,
     "paragraph_variance_ratio": 0.35,
     "concrete_markers": [
       "например",
@@ -70,7 +70,6 @@
     ],
     "reader_outcome_overlap": [
       "elpts",
-      "portal",
       "аккредитованную",
       "владивостоке",
       "гибдд",

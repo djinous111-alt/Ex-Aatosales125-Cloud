@@ -29,14 +29,14 @@
     "description_aeo": "СБКТС и ЭПТС при ввозе авто оформляют после таможни: аккредитованная лаборатория, СБКТС, ЭПТС со статусом Действующий, затем ОСАГО и ГИБДД."
   },
   "geo_qa": {
-    "score": 76,
-    "verdict": "FAIL",
+    "score": 92,
+    "verdict": "PASS",
     "date": "2026-10-06",
     "human_voice": "PASS",
-    "link_verify": "FAIL",
-    "fix_cycle": 1,
+    "link_verify": "PASS",
+    "fix_cycle": 2,
     "writer_fix": "applied_cycle_1",
-    "writer_fix_notes": "CTA env URLs; TL;DR label removed; elpts→elpts.ru/elpts-info; FSA href demoted to plain text"
+    "writer_fix_notes": "CTA env URLs; TL;DR label removed; elpts→elpts.ru/elpts-info; FSA href demoted to plain text; cycle 2 QA re-run PASS"
   },
   "cover_family": "brand_collage"
 }

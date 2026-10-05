@@ -1,25 +1,25 @@
-# Article QA — B03
+# Article QA — B03 (cycle 2)
 
 **topic_id:** B03  
 **slug:** kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026  
 **article_dir:** memory/blog/articles/B03-kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026  
 **date:** 2026-10-06  
-**verdict:** FAIL  
-**score:** 76  
-**fix_cycle:** 1/2 → вернуть Writer
+**verdict:** PASS  
+**score:** 92  
+**fix_cycle:** 2/2 — Writer FIX cycle 1 принят
 
 ## Scripts
 
 | Script | Verdict | Notes |
 |--------|---------|-------|
 | research-notes-gate | PASS | `research-notes-gate.json`; research_date=2026-10-06 |
-| fact-check | PASS | 7 stats; verified 2; unverified 5 (ГОСТ 33670-2015, ТР ТС 018/2011, 2025, 2027) — в research-notes |
-| link-verify | FAIL | failed_count=5/8: 3× literal `href="[REDACTED]"` (404); `pub.fsa.gov.ru` SSL timeout; `portal.elpts.ru` DNS NXDOMAIN; `dp.elpts.ru`/`help.elpts.ru` 403/redirect |
-| html-linter | PASS | 0 errors; TOC нет; whitelist OK |
-| slop-detector | PASS | 0 клише; 4 over-long (склейка table/ol парсером); Flesch RU 66.0 |
-| cannibalization | PASS | 0 issues (3 article meta в blog-dir) |
+| fact-check | PASS | 7 stats; verified 2; unverified 5 (ГОСТ 33670-2015, ТР ТС 018/2011, годы/пошлина) — в research-notes |
+| link-verify | PASS | failed_count=0/8; CTA catalog×2 + Telegram×1 → 200; elpts.ru + elpts-info×2 → 200; internal×3 → 200 |
+| html-linter | PASS | 0 errors; TOC нет; whitelist OK; ярлыка TL;DR нет |
+| slop-detector | PASS | 0 клише; 4 over-long (склейка table/ol парсером); Flesch RU 64.2 |
+| cannibalization | PASS | 0 issues (`--blog-dir memory/blog/articles`) |
 | utility gate | PASS | action_markers 23; pain 4; outcome 13; FAQ×6; table×1 |
-| human-voice gate | PASS | `human-voice-report.json`; warn: 2× exactly-5-step lists |
+| human-voice gate | PASS | `human-voice-report.json`; warn: 2× exactly-5-step lists (мягко) |
 
 ## Pain / solution / beginner-fit
 
@@ -29,21 +29,21 @@
 | Где решение | H2: порядок → пакет → РАЛ → ЭПТС «Действующий» → ЭРА отдельно → чек-лист |
 | Первый результат | Чек-лист + номер лаборатории в РАЛ + статус ЭПТС «Действующий» до ГИБДД |
 | Термины «на пальцах» | СБКТС, ЭПТС, ОТТС, РАЛ, СЭП, ИЛ, ЭРА объяснены в lead/H2 |
-| Beginner-fit | PASS — не профи-тон; есть безопасный первый шаг без команды разработчиков |
+| Beginner-fit | PASS — не профи-тон; безопасный первый шаг без команды разработчиков |
 
 ## Scores
 
 | Блок | Балл | Комментарий |
 |------|------|-------------|
-| SEO structure | 17/20 | Primary в title/H1; H2 how-to; internal blog links OK; CTA href сломаны |
-| GEO / citability | 21/25 | Схема/таблица/FAQ×6/чеклист; инсайт с ярлыком `TL;DR / Быстрый инсайт` (запрет skill) |
-| CORE-EEAT lite | 13/15 | 18/20 (E03 CTA URL broken) |
+| SEO structure | 19/20 | Primary в title/H1; H2 how-to; internal blog + рабочие CTA |
+| GEO / citability | 23/25 | Схема/таблица/FAQ×6/чеклист; инсайт без запрещённого ярлыка |
+| CORE-EEAT lite | 15/15 | 20/20 (E03 CTA URL восстановлены) |
 | Human voice | 14/15 | 0 slop; warn ровно-5 шагов ×2 |
-| Fact safety | 12/15 | Ориентиры цен/пошлин с пометкой; unverified годы норм в notes |
-| Contract HTML | 0/10 | 3× literal `[REDACTED]` в href CTA; link-verify FAIL |
-| **Итого** | **76/100** | |
+| Fact safety | 13/15 | Ориентиры цен/пошлин с пометкой; unverified годы норм в notes |
+| Contract HTML | 10/10 | CTA href рабочие; TL;DR убран; FSA plain text; elpts→elpts.ru |
+| **Итого** | **92/100** | |
 
-## CORE-EEAT lite: 18/20
+## CORE-EEAT lite: 20/20
 
 | ID | Result | Comment |
 |----|--------|---------|
@@ -55,13 +55,13 @@
 | O02 | ✓ | Логичный порядок до FAQ |
 | O03 | ✓ | FAQ 6 |
 | O04 | ✓ | ol/ul + table + blockquote, mode B |
-| R01 | ✓ | Инсайт/схема/чеклист/FAQ (ярлык TL;DR — отдельный FIX) |
+| R01 | ✓ | Инсайт «Коротко по цепочке» / схема / чеклист / FAQ |
 | R02 | ✓ | ГОСТ 33670, РАЛ, elpts, ориентиры цен в notes |
 | R03 | ✓ | Нет цен лотов; сметы — ориентиры |
 | R04 | ✓ | FAQ отвечает в 1-м предложении |
 | E01 | ✓ | Угол after-customs Vladivostok; конфликт «по фото» vs очный осмотр |
 | E02 | ✓ | «Сделайте / Не делайте» по секциям |
-| E03 | ✗ | CTA каталог×2 + Telegram×1 есть текстом, но `href="[REDACTED]"` |
+| E03 | ✓ | CTA каталог×2 + Telegram×1 с рабочими URL (env CATALOG/TELEGRAM) |
 | Exp01 | ✓ | Mode B, без fake «я сделал» |
 | Exp02 | ✓ | Тон research / Авто-Сейлс |
 | Exp03 | ✓ | Slop hits = 0 |
@@ -69,55 +69,51 @@
 | Ept02 | ✓ | Internal: ЭРА LIVE + таможня + растаможка CN |
 
 **Target:** ≥16/20 ✓ · veto (R03 / Exp01 / slop≥2): нет  
-**Hard gate link-verify:** FAIL → overall FAIL
+**Hard gate link-verify:** PASS
 
 ## Link verify
 
-- total: 8, failed: 5
+- total unique checked: 8, failed: 0
 - see `link-verify.json`
-- Working: 3 internal blog posts (200)
-- Broken CTA: 3× literal `[REDACTED]` → 404 as site-relative
-- Externals flaky from Cloud: FSA SSL timeout; portal.elpts.ru NXDOMAIN; dp/help bot/redirect issues (dp отвечает 200 с browser UA)
+- Internals: 3 blog posts → 200
+- CTA: catalog×2 + Telegram×1 → 200 (из env; в Cloud UI могут отображаться как `[REDACTED]`)
+- Externals: elpts.ru, elpts-info×2 → 200
+- FSA РАЛ: plain text `pub.fsa.gov.ru/ral` (без href) — осознанный FIX cycle 1 из-за SSL timeout
 
 ## AI-slop scan
 
 - cliches: 0
 - over-long: 4 (артефакт table/list)
-- Flesch RU: 66.0
+- Flesch RU: 64.2
 
 ## Schema ready
 
-BlogPosting: pending (после PASS) | FAQPage: yes (6) | HowTo: yes (чеклисты) | cover/schema: **не стартовать** до PASS
+BlogPosting: ready for schema agent | FAQPage: yes (6) | HowTo: yes (чеклисты) | cover/schema: **можно** стартовать после Director handoff PASS
 
-## Blockers
+## Writer FIX cycle 1 — verification
 
-1. **link-verify FAIL** — обязательный gate.
-2. **CTA href = literal `[REDACTED]`** (3 места: каталог в H2 РАЛ + каталог/Telegram в «Что дальше»).
-3. **Инсайт-блок** начинается с `TL;DR / Быстрый инсайт` — запрет GEO QA skill.
+| FIX item | Status |
+|----------|--------|
+| CTA href из CATALOG_URL/TELEGRAM_URL | ✓ link-verify 200 |
+| Убран ярлык TL;DR / Быстрый инсайт | ✓ «Коротко по цепочке» |
+| portal.elpts.ru → elpts.ru (+ elpts-info guides) | ✓ 200 |
+| FSA RAL plain text | ✓ нет битого href |
+| char_count ~9352 | ✓ meta 9352 |
 
-## FIX для Writer (обязательно, cycle 1)
+## Soft notes (non-blocking)
 
-1. **CTA URLs:** заменить все `href="[REDACTED]"` на рабочие URL из `memory/brief/conversion-map.md` / `site-brief.md` (как в AS09): каталог `https://avto-sales125.ru/` (×2), Telegram `https://t.me/avtosales125` (×1). Не оставлять плейсхолдер `[REDACTED]` в HTML.
-2. **Инсайт-блок:** убрать ярлык `TL;DR` / `Быстрый инсайт`; оставить смысл цепочки в `<blockquote>` без шаблонного префикса.
-3. **Внешние порталы (проверить вручную / альтернативы):**
-   - `https://portal.elpts.ru/` — с этой среды DNS NXDOMAIN; подтвердить актуальный URL СЭП (рабочий якорь `https://elpts.ru/` отвечает 200) или оставить как текст+один рабочий URL.
-   - `https://help.elpts.ru/` — redirect loop / 403 для бота; сверить актуальный help URL или формулировку «заявка через оформителя».
-   - `https://pub.fsa.gov.ru/ral` — SSL handshake timeout из Cloud; URL канонический, оставить, но после фикса CTA перепроверить link-verify (возможен soft/env incident).
-4. **Human-voice warn (мягко):** два списка ровно по 5 пунктов — варьировать длину (4/6/7), если правите соседние блоки.
-
-## FIX (non-blocking / optional)
-
-1. **fact-check soft:** дописать в fact-bank ГОСТ 33670-2015, ТР ТС 018/2011, ориентир пошлины 600 ₽.
-2. **slop over-long:** артефакт парсера table/ol — не критично.
+1. **human-voice warn:** два списка ровно по 5 пунктов — варьировать 4/6/7 при следующем редактировании.
+2. **fact-check soft:** дописать в fact-bank ГОСТ 33670-2015, ТР ТС 018/2011, ориентир пошлины 600 ₽.
+3. **slop over-long:** артефакт парсера table/ol — не критично.
 
 ## Gate
 
-- score ≥ 80 → **76** ✗  
-- CORE-EEAT ≥ 16/20 → **18/20** ✓  
-- link-verify pass → ✗  
+- score ≥ 80 → **92** ✓  
+- CORE-EEAT ≥ 16/20 → **20/20** ✓  
+- link-verify pass → ✓  
 - research-notes-gate PASS ✓  
 - utility gate PASS ✓  
 - human-voice gate PASS ✓  
 - beginner-fit PASS ✓  
 
-**Итог:** FAIL — cover || schema **не** запускать. Вернуть Writer с FIX выше, затем GEO QA cycle 2.
+**Итог:** PASS — Director может запускать cover || schema. FIX list для writer не требуется.

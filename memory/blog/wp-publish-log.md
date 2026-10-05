@@ -31,3 +31,18 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-06 — B03 kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026
+
+- **verdict:** PASS
+- **post_id:** 4055
+- **permalink:** [PUBLIC_SITE_URL]/2026/10/06/kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026/
+- **featured_image:** 4062
+- **inline_images:** 4057 (`inline-01.png`), 4058 (`inline-02.png`), 4059 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`, len≈13146)
+- **skip_theme_faq_meta:** ok (`_excalibur_blog_skip_theme_faq=1`)
+- **method:** SSH upload + HTTP trigger timeout 120s → REST soft-success + `memory/webfetch-response.txt`; parallel curl race created orphan media 4056/4063/4064 and temporarily left `cover/inline-*.png` in content — repaired via `wp post update` to WP media URLs
+- **live_HEAD:** 200
+- **result:** `memory/blog/articles/B03-kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026/wp-publish-result.json`
+- **incident:** `memory/pipeline-fix-queue.md#INC-20261006-2155-publish-http-timeout-curl-race`
+

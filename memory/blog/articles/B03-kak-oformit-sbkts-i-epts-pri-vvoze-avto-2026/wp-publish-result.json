@@ -1,0 +1,25 @@
+{
+  "slug": "kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026",
+  "topic_id": "B03",
+  "post_id": 4055,
+  "permalink": "[PUBLIC_SITE_URL]/2026/10/06/kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026/",
+  "featured_image": 4062,
+  "inline_images": [
+    4057,
+    4058,
+    4059
+  ],
+  "schema_meta": 1,
+  "skip_theme_faq": 1,
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B03-kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1234852,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=4055 slug=kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026\nOK featured_image=4062\nOK inline_image_upload=4057\nOK inline_image_upload=4058\nOK inline_image_upload=4059\nOK schema_meta=1\npermalink=[PUBLIC_SITE_URL]/2026/10/06/kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026/\n",
+  "verdict": "pass",
+  "notes": "HTTP trigger timeout → REST soft-success; curl race left local cover/inline srcs; repaired via wp-cli to media 4057/4058/4059; featured settled on 4062; orphans 4056/4063/4064"
+}

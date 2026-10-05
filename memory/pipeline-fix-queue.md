@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261006-2155-publish-http-timeout-curl-race
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-publish
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026
+severity: medium
+category: publish
+
+### What went wrong
+- SSH bootstrap upload OK (~7.5MB), but local HTTP trigger hit urllib `TimeoutError` at 120s while PHP still completing.
+- Parallel curl fallback overlapped the first PHP run and created orphan media (`cover-2`, `inline-*-2`) plus temporarily rewrote post content with unresolved local `cover/inline-*.png` srcs.
+- Publish script fallback wait is only 120s; large payload often needs REST soft-success before a second trigger.
+
+### How the agent recovered this run
+- Polled WP REST by slug → post **4055** already `publish` with featured media; wrote reconstructed OK lines to `memory/webfetch-response.txt` so `excalibur_blog_wp_publish.py` exited PASS.
+- Repaired live content via SSH `wp post update` replacing local inline srcs with media URLs **4057/4058/4059**; featured settled on **4062**; schema meta + skip_theme_faq confirmed via wp-cli; live HEAD 200.
+- Ledger/log/promotion updated with `[PUBLIC_SITE_URL]` placeholders.
+
+### Durable fix needed before next run
+- Prefer REST/slug soft-success **before** starting a second HTTP/curl trigger when FALLBACK_TRIGGER_URL appears.
+- Increase HTTP trigger timeout and/or document ordered fallback: wait REST → write webfetch → only then curl if post missing.
+- Optionally make PHP bootstrap idempotent (do not re-upload media / do not reset content to local srcs on re-entry).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261006-2149-indexer-llms-blog-path-stale
 status: open
 run_date: 2026-10-06

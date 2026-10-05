@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2736,
+      1536
+    ],
+    "panel_size_px": [
+      1375,
+      781
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 781,
+        "end": 801
+      },
+      "v_gutter_px": {
+        "start": 1375,
+        "end": 1426
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 4,
+          "right": 1375,
+          "bottom": 777
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1375,
+          "bottom": 781
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у автовоза во Владивостоке, кроссовер на погрузке, плашка ж/д автовоз перегон",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1426,
+          "top": 22,
+          "right": 2736,
+          "bottom": 759
+        },
+        "raw_box_px": {
+          "left": 1426,
+          "top": 0,
+          "right": 2736,
+          "bottom": 781
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист документов на СВХ до звонка перевозчику: выпуск, ЭПТС, ДКП, ОСАГО",
+        "h2_anchor": "Проверьте готовность на СВХ до звонка перевозчику"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 34,
+          "top": 801,
+          "right": 1341,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 801,
+          "right": 1375,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения ж/д, автовоза и перегона: срок и риск кузова",
+        "h2_anchor": "Сравните ж/д, автовоз и перегон по сроку и риску кузова"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1426,
+          "top": 801,
+          "right": 2736,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 1426,
+          "top": 801,
+          "right": 2736,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема выбора способа доставки под Москву и регионы: КП, страховка, ярус",
+        "h2_anchor": "Как выбрать способ под Москву и регионы"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Проверьте готовность на СВХ до звонка перевозчику",
+    "injected inline_2 after H2 — Сравните ж/д, автовоз и перегон по сроку и риску кузова",
+    "injected inline_3 after H2 — Как выбрать способ под Москву и регионы"
+  ]
+}

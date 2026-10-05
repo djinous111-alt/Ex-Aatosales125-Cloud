@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261005-1754-cover-toxic-words-in-prompt
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-cover
+topic_id: B02
+article_dir: memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026
+severity: low
+category: prompt
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` embeds forbidden Russian insult examples (`лох`, `лохов`, `для лохов`) into the generation prompt as a negative list.
+- User/cover policy: text on images must not contain toxic labels; listing the words in the prompt risks the image model rendering them.
+
+### How the agent recovered this run
+- After `--write-batch`, surgically replaced the negative line in `quad-mcp-prompt.txt` and `quad-mcp-batch.json` with a paraphrase that forbids insults without naming the toxic tokens.
+- Proceeded with ONE Kie API i2i job; cover/inline captions were non-toxic.
+
+### Durable fix needed before next run
+- Change the non-toxic instruction in `build_prompt()` to forbid insults/humiliating slang without enumerating the banned tokens.
+- Optionally add a unit/smoke assert that prompt must not contain those tokens even as negative examples.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261005-1745-geo-qa-typed-task-missing
 status: open
 run_date: 2026-10-05

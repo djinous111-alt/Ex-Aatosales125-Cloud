@@ -1,0 +1,42 @@
+{
+  "topic_id": "B02",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Три прайса на СВХ — а кузов кто спасёт?",
+  "mcp_note": "ONE gpt-image-2 / Kie API call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у автовоза во Владивостоке, кроссовер на погрузке, плашка ж/д автовоз перегон",
+      "scene_hint": "Hyper-realistic action selfie: EXACT face+glasses from reference; CHANGE outfit to Vladivostok port weather — waterproof work jacket over hoodie, no cap no hood; standing at car carrier / rail loading platform in Vladivostok; modern crossover being loaded onto open car transporter; Cyrillic plaque «ж/д / автовоз / перегон»; fake UI scraps: delivery quote card with days+tier, sticky photo-act checklist, torn paper price strip; shocked meme reaction sticker; yellow highlight on «кузов»; corner brand avto-sales125.ru; NO Wordstat NO Metrika NO Telegram handle",
+      "meme_caption_ru": "Дешёвый рейс — сколы?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Проверьте готовность на СВХ до звонка перевозчику",
+      "visual_type": "checklist_board",
+      "scene_hint": "Clean printable checklist board UI (NO hero face): items ТД/ТПО выпуск, ЭПТС Действующий, ДКП+утильсбор, ОСАГО для перегона; sticky note «до звонка ТК»; tape corner; Vladivostok warehouse vibe; Cyrillic only",
+      "alt": "Чеклист документов на СВХ до звонка перевозчику: выпуск, ЭПТС, ДКП, ОСАГО"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните ж/д, автовоз и перегон по сроку и риску кузова",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "UI comparison table 3 columns: Ж/д | Автовоз | Перегон; rows Срок до Москвы, Риск кузова, Когда выбирать; subtle tape+highlighter; NO people faces; Cyrillic labels only",
+      "alt": "Таблица сравнения ж/д, автовоза и перегона: срок и риск кузова"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Как выбрать способ под Москву и регионы",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram 4 steps: Габариты→КП 2–3 ТК→Страховка+ярус→До двери/терминал; icons for Moscow/SPb vs hub cities; mini sticky «полное время сдачи→выдачи»; NO hero; Cyrillic",
+      "alt": "Схема выбора способа доставки под Москву и регионы: КП, страховка, ярус"
+    }
+  }
+}

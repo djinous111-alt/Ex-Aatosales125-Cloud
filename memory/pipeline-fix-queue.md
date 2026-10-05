@@ -487,6 +487,44 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261005-1748-schema-expand-env-secret-scan
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-schema
+topic_id: B02
+article_dir: memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026
+severity: medium
+category: script
+
+### What went wrong
+- Промпт schema ожидает `--expand-env`, но отдельного schema-скрипта с этим флагом в `scripts/` нет.
+- Pre-commit secret-scan падает на любом commit: в `CLOUD_AGENT_INJECTED_SECRET_NAMES` есть имя секрета вида URL (`http…`), а хук делает `${!SECRET_NAME}` (валидны только bash identifiers).
+- Даже после git-safe плейсхолдеров в `schema.jsonld` commit без `--no-verify` не проходит из-за broken hook, не из-за содержимого файла.
+
+### How the agent recovered this run
+- Переписал `schema.jsonld` с git-safe плейсхолдерами `[PUBLIC_SITE_URL]` / `[REDACTED]` (как AS08/AS09 и ledger B01).
+- FAQ сверены с HTML; типы: BlogPosting + FAQPage + HowTo + Review.
+- Fragment записан в `.cursor/excalibur-blog-fragments/schema.md`.
+
+### Durable fix needed before next run
+- Добавить `scripts/excalibur_blog_schema_build.py` с `--article-dir` и `--expand-env` / `--placeholders`.
+- Документировать в schema skill: в git — плейсхолдеры; перед WP meta — expand.
+- Publish-скрипт должен expand-ить `[PUBLIC_SITE_URL]`/`[CATALOG_URL]`/`[TELEGRAM_URL]`/`[MAX_URL]` в schema meta перед upload.
+- Cloud Secrets: переименовать secret, чьё имя = URL, в валидный identifier (см. уже известный pitfalls про bash identifiers).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_schema_build.py` (new)
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/authors-registry.json` (placeholder policy)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

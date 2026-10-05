@@ -117,10 +117,29 @@ def classify_link(href: str, site_base: str | None) -> str:
     return "external"
 
 
+# Browser-like UA: many gov/ЭПТС portals return 403 to custom bot UAs.
+DEFAULT_USER_AGENT = (
+    "Mozilla/5.0 (compatible; ExcaliburBlogLinkVerify/1.1; +https://example.invalid) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+)
+
+# Hosts known to bot-block HEAD/GET with non-browser UA; 403 after GET ≠ dead link.
+SOFT_BOT_BLOCK_HOSTS = {
+    "dp.elpts.ru",
+    "elpts.ru",
+    "www.elpts.ru",
+    "elpts-info.ru",
+    "www.elpts-info.ru",
+}
+
+
+def _host(href: str) -> str:
+    return urlparse(href).netloc.lower()
+
+
 def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
     """Treat flaky social profile timeouts as warnings, not publish blockers."""
-    parsed = urlparse(href)
-    host = parsed.netloc.lower()
+    host = _host(href)
     soft_hosts = {"t.me", "telegram.me", "wa.me", "vk.com"}
     if host not in soft_hosts:
         return False
@@ -130,16 +149,27 @@ def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
     return any(token in error for token in ("timed out", "timeout", "ssl", "network"))
 
 
+def is_soft_bot_block_403(href: str, result: dict[str, Any]) -> bool:
+    """Gov/ЭПТС portals often 403 custom bot UAs while browser UA gets 200."""
+    if result.get("status") != 403:
+        return False
+    host = _host(href)
+    if host in SOFT_BOT_BLOCK_HOSTS:
+        return True
+    # Broader hint: official customs/EPTS domains that bot-filter aggressively.
+    return host.endswith(".elpts.ru") or host.endswith(".elpts-info.ru")
+
+
 def verify_article(
     html_path: Path,
     *,
     site_base: str | None = None,
     timeout: float = 15.0,
     skip_external: bool = False,
+    user_agent: str = DEFAULT_USER_AGENT,
 ) -> dict[str, Any]:
     html = html_path.read_text(encoding="utf-8")
     links = extract_links(html)
-    user_agent = "ExcaliburBlogLinkVerify/1.0"
     results: list[dict[str, Any]] = []
     for href in links:
         kind = classify_link(href, site_base)
@@ -181,6 +211,11 @@ def verify_article(
         if kind == "external" and is_soft_external_failure(href, r):
             r["ok"] = True
             r["warning"] = "soft external social timeout; verify manually if needed"
+        elif kind == "external" and is_soft_bot_block_403(href, r):
+            r["ok"] = True
+            r["warning"] = (
+                "soft bot-block 403 on known gov/ЭПТС host; browser UA usually 200 — not a dead link"
+            )
         results.append(r)
 
     failed = [r for r in results if not r.get("ok")]

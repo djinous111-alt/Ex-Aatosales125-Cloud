@@ -69,6 +69,10 @@ python scripts/excalibur_blog_research_notes_gate.py \
 - Lead называет боль, H2 закрывают боли из `pain_solution_map`, до FAQ есть понятный критерий результата.
 - Beginner-fit: сложный термин объяснён сразу, нет тона «для профи», есть первый безопасный шаг без команды разработчиков.
 - Human voice gate PASS: нет шаблонных H2, есть живые примеры, разный ритм абзацев
+- Маркеры из `memory/brief/editorial-policy.json` (utility gate считает вхождения):
+  - action/recommendation: `сделайте`, `проверьте`, `чеклист` **и** `чек-лист`, …
+  - pain (`pain_markers_ru`, min 2): `боль`, `проблем`, `ошиб`, `сложно`, `боюсь`, …
+  - outcome (`outcome_markers_ru`, min 3): `результат`, `получите`, `сможете`, `проверьте`, `соберите`, …
 
 ## Gate 4 — GEO QA
 

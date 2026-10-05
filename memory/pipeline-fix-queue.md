@@ -256,7 +256,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261005-1308-director-scout-niche-regression
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-director
 topic_id: n/a
@@ -286,10 +286,25 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Scout agent/skill (agents + .cursor) переписаны под Авто-Сейлс JP/KR/CN с явным niche gate на site-brief.md.
+- pipeline-task-map Scout-промпт больше не предлагает Cursor/n8n/Make.
+- pitfalls: канон ниши Авто-Сейлс.
+files_changed:
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/pipeline-task-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` — запрет Cursor/n8n/Make как ниша; поисковые примеры Авто-Сейлс
+commit: pending-parent-commit
 
 ## INC-20261005-1308-director-doctor-blog-path
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-director
 topic_id: n/a
@@ -315,7 +330,17 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Doctor check обновлён на `--blog-dir` (соответствует llms generator CLI).
+- pitfalls документирует флаг.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 warnings=0
+commit: pending-parent-commit
 
 ## INC-20261005-1312-scout-precommit-secret-names
 status: open
@@ -439,7 +464,7 @@ category: script
 - pending
 
 ## INC-20261005-1322-geo-qa-utility-pain-outcome-policy-missing
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -472,10 +497,28 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- В editorial-policy.json добавлены pain_markers_ru / outcome_markers_ru (синхрон с human-voice) и min_pain/outcome в article_required_signals; recommendation_markers включает чек-лист.
+- utility_gate больше не применяет пороги 2/3 при пустых списках маркеров.
+- Writer skill + editorial-utility-only документируют маркеры.
+- Re-check B01: pain=6 outcome=11 (pain/outcome unblock); остаётся writer FIX action_markers 7<8.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
+- `python3 -m json.tool memory/brief/editorial-policy.json`
+- `python3 scripts/excalibur_blog_utility_gate.py --article-dir …/B01-…` → pain/outcome OK; only action_markers left
+commit: pending-parent-commit
 
 ## INC-20261005-1322-geo-qa-link-verify-elpts-ua-403
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -505,4 +548,19 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- link_verify: browser-like DEFAULT_USER_AGENT + soft-pass 403 для dp.elpts.ru / *.elpts.ru / elpts-info.
+- GEO QA skill и pitfalls документируют bot-block ≠ dead link.
+- B01 link-verify verdict=pass (elpts soft warning).
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
+- soft_bot_block unit check on https://dp.elpts.ru/portal
+- `python3 scripts/excalibur_blog_link_verify.py …/B01-…/article.html` → verdict pass
+commit: pending-parent-commit

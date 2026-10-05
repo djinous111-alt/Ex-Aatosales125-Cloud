@@ -34,6 +34,13 @@
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
+- Utility gate требует `pain_markers_ru` / `outcome_markers_ru` в `memory/brief/editorial-policy.json` (синхрон с human-voice). Без списков маркеров пороги 2/3 не применяются; с пустыми списками раньше всегда был BLOCK.
+- Link-verify: 403 на `dp.elpts.ru` / `*.elpts.ru` с bot UA — soft-pass (bot-block ≠ мёртвая ссылка). Скрипт использует browser-like UA.
+- Doctor проверяет у llms generator флаг `--blog-dir` (не `--blog-path`).
+
+## Scout / niche
+
+- Ниша канонична: `memory/brief/site-brief.md` → Авто-Сейлс JP/KR/CN. Scout не ищет Cursor/n8n/Make.
 
 ## Cover
 

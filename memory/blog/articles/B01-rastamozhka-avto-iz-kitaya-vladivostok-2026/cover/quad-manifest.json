@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит без пакета — простой на СВХ",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у СВХ Владивостока с чек-листом и китайским кроссовером: крючок про депозит без пакета",
+      "scene_hint": "WEATHER: foggy rainy Vladivostok port morning, grey sea mist; OUTFIT: matte charcoal waterproof rain jacket over navy smart-casual shirt (NOT reference tank/t-shirt/shearling), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie at container yard / СВХ fence with modern Chinese crossover blurred behind; layered fake UI: customs document checklist scrap (VIN / инвойс / дата регистрации / 180 дней) + catalog card mock taped with scotch; torn paper Cyrillic hook plaque «Депозит без пакета — простой на СВХ» with yellow highlighter on «СВХ»; sticky note «сначала пакет»; shocked meme cutout + facepalm sticker (different formats); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics",
+      "meme_caption_ru": "Сначала пакет"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Соберите пакет до депозита: VIN, инвойс и дата регистрации",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake RU phone/desktop UI of customs document pack before deposit: fields VIN, инвойс, мощность, дата регистрации в КНР, экспортная лицензия; red stop badge «нет ясности — нет аванса»; pink sticky «до депозита»; scotch tape corner; NO hero face; NO Wordstat/Metrika",
+      "alt": "Мокап пакета документов до депозита: VIN, инвойс и дата регистрации в Китае"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Выберите ветку: ДФО или таможенный транзит",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns ДФО-регистрация | Таможенный транзит; rows где оформлять, прописка, логистика до поста, риск простоя; yellow highlight row «выбрать до оплаты доставки»; tape corner mini catalog inset; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица: ветка ДФО vs таможенный транзит — что выбрать до логистики"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Пройдите цепочку Владивосток: порт, СВХ, ПТД, выпуск",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Horizontal RU workflow diagram with numbered nodes: Порт → СВХ → ПТД → проверки → оплата → выпуск; arrow stickers; sticky «не в день прихода»; subtle tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема цепочки Владивосток: порт, СВХ, ПТД и выпуск"
+    }
+  }
+}

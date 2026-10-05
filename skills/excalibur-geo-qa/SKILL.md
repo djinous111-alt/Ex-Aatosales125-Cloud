@@ -20,12 +20,18 @@ python scripts/excalibur_blog_fact_checker.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/fact-check-report.json
 
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/link-verify.json \
   --site-base https://YOUR_SITE
 
-python scripts/excalibur_blog_html_linter.py \
+# 403 на dp.elpts.ru / *.elpts.ru после GET — soft-pass (bot-block ≠ мёртвая ссылка).
+# Скрипт шлёт browser-like UA; warning в link-verify.json допустим при verdict=pass.
+# kind=cta_placeholder / href="[REDACTED]" / [CATALOG_URL] → FAIL. Не гоняй полный Writer FIX:
+#   python3 scripts/excalibur_blog_restore_cta.py --article-dir memory/blog/articles/<dir>
+# Затем перезапусти link-verify. Никогда не копируй masked `[REDACTED]` из tool output в HTML.
+
+python3 scripts/excalibur_blog_html_linter.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/html-linter-report.json
 ```

@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-vladivostok-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2736,
+      1536
+    ],
+    "panel_size_px": [
+      1372,
+      774
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 774,
+        "end": 811
+      },
+      "v_gutter_px": {
+        "start": 1372,
+        "end": 1408
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1372,
+          "bottom": 774
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1372,
+          "bottom": 774
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у СВХ Владивостока с чек-листом и китайским кроссовером: крючок про депозит без пакета",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1408,
+          "top": 13,
+          "right": 2736,
+          "bottom": 760
+        },
+        "raw_box_px": {
+          "left": 1408,
+          "top": 0,
+          "right": 2736,
+          "bottom": 774
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап пакета документов до депозита: VIN, инвойс и дата регистрации в Китае",
+        "h2_anchor": "Соберите пакет до депозита: VIN, инвойс и дата регистрации"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 41,
+          "top": 811,
+          "right": 1330,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 811,
+          "right": 1372,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: ветка ДФО vs таможенный транзит — что выбрать до логистики",
+        "h2_anchor": "Выберите ветку: ДФО или таможенный транзит"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1427,
+          "top": 811,
+          "right": 2716,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 1408,
+          "top": 811,
+          "right": 2736,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема цепочки Владивосток: порт, СВХ, ПТД и выпуск",
+        "h2_anchor": "Пройдите цепочку Владивосток: порт, СВХ, ПТД, выпуск"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Соберите пакет до депозита: VIN, инвойс и дата регистрации",
+    "injected inline_2 after H2 — Выберите ветку: ДФО или таможенный транзит",
+    "injected inline_3 after H2 — Пройдите цепочку Владивосток: порт, СВХ, ПТД, выпуск"
+  ]
+}

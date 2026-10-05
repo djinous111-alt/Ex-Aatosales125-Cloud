@@ -96,6 +96,12 @@ python scripts/excalibur_blog_hero_reference_url.py
 Проверить `memory/cover/blog-hero.json` → `reference_url_hosted`.  
 Fallback env: `BLOG_HERO_REFERENCE_URL`.
 
+Если `python3 scripts/excalibur_blog_hero_reference_url.py --force` падает (catbox 412 / 0x0 timeout / litterbox 500 / transfer.sh SSL):
+1. **Не** объявляй COVER HERO BLOCKER сразу.
+2. Скрипт сам пробует providers: catbox → 0x0 → litterbox → transfer.
+3. При провале всех upload сверь SHA256 existing `reference_url_hosted` vs `memory/cover/assets/blog-hero-reference.png` (скрипт делает это по умолчанию) и **reuse** URL, даже если WP filename выглядит «не про героя».
+4. Blind MCP retry без hash-check запрещён.
+
 ### Шаг 2 — manifest
 
 ```bash

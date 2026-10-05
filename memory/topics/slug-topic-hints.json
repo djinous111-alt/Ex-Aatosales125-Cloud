@@ -1,0 +1,9 @@
+{
+  "_comment": "Historical LIVE WP slug → topic_id hints. Scout helper seeds reserved IDs from this map when slug still exists on LIVE. Append on publish; never reuse a topic_id while its slug is live.",
+  "slugs": {
+    "kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026": "B01",
+    "rastamozhka-avto-iz-kitaya-vladivostok-2026": "B01",
+    "samye-komfortnye-avto-myagkaya-podveska-2026": "AS08",
+    "trust-encar-carhistory-proverka-do-depozita": "AS09"
+  }
+}

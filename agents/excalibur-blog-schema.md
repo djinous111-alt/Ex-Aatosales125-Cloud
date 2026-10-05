@@ -25,7 +25,8 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 1. Прочитать article.html, article.meta.json, research-notes, authors-registry.
 2. Собрать `schema.jsonld`: BlogPosting + FAQPage (+ HowTo если нужно).
 3. datePublished из research-context (today).
-4. Fragment `.cursor/excalibur-blog-fragments/schema.md`:
+4. URL только из env (`PUBLIC_SITE_URL` / `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL`) + authors-registry `sameAs`. **Запрещён** литерал `[REDACTED]` в JSON-LD. Проверка: `python3 scripts/excalibur_blog_schema_validate.py --article-dir <dir>`.
+5. Fragment `.cursor/excalibur-blog-fragments/schema.md`:
 
 ```text
 === EXCALIBUR BLOG SCHEMA ===

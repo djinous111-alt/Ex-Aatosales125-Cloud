@@ -34,6 +34,13 @@
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
+- Utility gate требует `pain_markers_ru` / `outcome_markers_ru` в `memory/brief/editorial-policy.json` (синхрон с human-voice). Без списков маркеров пороги 2/3 не применяются; с пустыми списками раньше всегда был BLOCK.
+- Link-verify: 403 на `dp.elpts.ru` / `*.elpts.ru` с bot UA — soft-pass (bot-block ≠ мёртвая ссылка). Скрипт использует browser-like UA.
+- Doctor проверяет у llms generator флаг `--blog-dir` (не `--blog-path`).
+
+## Scout / niche
+
+- Ниша канонична: `memory/brief/site-brief.md` → Авто-Сейлс JP/KR/CN. Scout не ищет Cursor/n8n/Make.
 
 ## Cover
 
@@ -46,3 +53,29 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator CLI: **`--blog-dir`** + `--out-dir`, **без** `--blog-path` (флага нет). Doctor проверяет `--blog-dir`.
+
+## CTA / [REDACTED]
+
+- Cloud redaction маскирует brand URL в tool output как `[REDACTED]`. **Запрещено** писать `href="[REDACTED]"` / `[CATALOG_URL]` в `article.html` или `schema.jsonld`.
+- CTA: env или Python-чтение `conversion-map.md` с диска; ремонт — `scripts/excalibur_blog_restore_cta.py`.
+- Schema URL: env + authors-registry; validate — `scripts/excalibur_blog_schema_validate.py`.
+
+## Scout / topic IDs / git
+
+- `--suggest-next` сидирует max B## из pool + ledger + article dirs + wp-publish-log + LIVE WP slug hints (`memory/topics/slug-topic-hints.json`). Не переиспользуй B##, пока slug жив на WP.
+- Коммиты в Cloud: `bash scripts/excalibur_git.sh commit …` (sanitize `CLOUD_AGENT_*_SECRET_NAMES`, иначе `[REDACTED]` ломает pre-commit).
+
+## Writer sync risk
+
+- После FIX/write сразу verify markers + `git add` article.html/meta. Параллельный Fixer+Writer на одном article_dir может silent-revert unstaged body.
+
+## Research
+
+- Technical topic = только topic card fields; `github_evidence` ≠ technical auto.
+- `customs.gov.ru` 504/timeout → зеркала (elpts-info, tks, consultant), official URL как unverified-fetch.
+
+## Cover hero host
+
+- `--force` upload: catbox → 0x0 → litterbox → transfer; при провале — SHA256 match existing `reference_url_hosted` vs local PNG, затем reuse (не BLOCKER по «странному» WP filename).
+

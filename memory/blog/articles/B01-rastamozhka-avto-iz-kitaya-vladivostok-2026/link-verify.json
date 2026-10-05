@@ -1,0 +1,36 @@
+{
+  "source": "memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-vladivostok-2026/article.html",
+  "total_links": 3,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "https://dp.elpts.ru/portal",
+      "status": 403,
+      "ok": true,
+      "method": "GET",
+      "error": "HTTP Error 403: Forbidden",
+      "kind": "external",
+      "skipped": false,
+      "warning": "soft bot-block 403 on known gov/ЭПТС host; browser UA usually 200 — not a dead link"
+    },
+    {
+      "url": "[CATALOG_URL]/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "[TELEGRAM_URL]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

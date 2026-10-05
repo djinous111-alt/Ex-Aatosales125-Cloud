@@ -2,6 +2,8 @@
 
 Проверенные факты для статей. Не выдумывать цены лотов и VIN.
 
+> Brand/catalog/Telegram URL в таблице могут отображаться агенту как `[REDACTED]`. В статьи вставляй абсолютные https через env / `scripts/excalibur_blog_restore_cta.py`, не литерал `[REDACTED]`. Non-secret примеры анкоров: «каталог Авто-Сейлс», Telegram `@avtosales125`, Instagram `avtosales_rf`.
+
 | Факт | Источник / примечание | Дата | Для статей |
 | --- | --- | --- | --- |
 | Компания Авто-Сейлс (Avto-Sales) занимается привозом автомобилей под заказ из Японии, Кореи и Китая | brief / blueprint Make | 2026-07 | да |

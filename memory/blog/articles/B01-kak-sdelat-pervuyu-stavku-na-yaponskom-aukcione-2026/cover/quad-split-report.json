@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2736,
+      1536
+    ],
+    "panel_size_px": [
+      1348,
+      769
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 769,
+        "end": 802
+      },
+      "v_gutter_px": {
+        "start": 1348,
+        "end": 1366
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 5,
+          "right": 1348,
+          "bottom": 763
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1348,
+          "bottom": 769
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой у ноутбука с карточкой японского аукциона и плашкой «до депозита», намёк на порт Владивостока",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1366,
+          "top": 0,
+          "right": 2736,
+          "bottom": 769
+        },
+        "raw_box_px": {
+          "left": 1366,
+          "top": 0,
+          "right": 2736,
+          "bottom": 769
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения: ставка на аукционе и бюджет под ключ до Владивостока",
+        "h2_anchor": "Соберите бюджет и документы до любой ставки"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 21,
+          "top": 802,
+          "right": 1326,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 802,
+          "right": 1348,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап аукционного листа и терминала ставки японского аукциона",
+        "h2_anchor": "Поймите, как устроен японский аукцион простыми словами"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1398,
+          "top": 802,
+          "right": 2703,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 1366,
+          "top": 802,
+          "right": 2736,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист проверки лота и договора до перевода депозита",
+        "h2_anchor": "Проверьте лот по чек-листу до депозита"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Соберите бюджет и документы до любой ставки",
+    "injected inline_2 after H2 — Поймите, как устроен японский аукцион простыми словами",
+    "injected inline_3 after H2 — Проверьте лот по чек-листу до депозита"
+  ]
+}

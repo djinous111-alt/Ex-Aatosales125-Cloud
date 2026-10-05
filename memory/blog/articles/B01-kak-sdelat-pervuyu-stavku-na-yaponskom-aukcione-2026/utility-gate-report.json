@@ -1,0 +1,25 @@
+{
+  "policy_id": "utility_only_v1",
+  "overall": "PASS",
+  "reports": [
+    {
+      "gate": "article",
+      "article_dir": "memory/blog/articles/B01-kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026",
+      "status": "PASS",
+      "metrics": {
+        "numbered_list_items": 6,
+        "h2_sections": 7,
+        "faq_h3": 7,
+        "tables": 1,
+        "blockquotes": 3,
+        "ul_lists": 4,
+        "action_markers": 25,
+        "pain_markers": 6,
+        "outcome_markers": 7,
+        "water_hits": []
+      },
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

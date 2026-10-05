@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-05",
+    "today_ru": "05.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-07",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-05 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026",
+    "h1": "Как сделать первую ставку на японском аукционе: чек-лист до депозита в 2026",
+    "primary_query": "как купить авто на японском аукционе",
+    "secondary_queries": [
+      "японский аукцион авто",
+      "купить авто на японском аукционе",
+      "японский аукцион",
+      "как купить авто на японском аукционе самому"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "как купить авто на японском аукционе 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "как купить авто на японском аукционе октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "как купить авто на японском аукционе новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com как купить авто на японском аукционе 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "как купить авто на японском аукционе official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "как купить авто на японском аукционе forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "японский аукцион авто 2026",
+      "purpose": "вторичный запрос: японский аукцион авто"
+    },
+    {
+      "id": "secondary_2",
+      "query": "купить авто на японском аукционе 2026",
+      "purpose": "вторичный запрос: купить авто на японском аукционе"
+    },
+    {
+      "id": "secondary_3",
+      "query": "японский аукцион 2026",
+      "purpose": "вторичный запрос: японский аукцион"
+    },
+    {
+      "id": "secondary_4",
+      "query": "как купить авто на японском аукционе самому 2026",
+      "purpose": "вторичный запрос: как купить авто на японском аукционе самому"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как сделать первую ставку на японском аукционе: чек-лист до депозита в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

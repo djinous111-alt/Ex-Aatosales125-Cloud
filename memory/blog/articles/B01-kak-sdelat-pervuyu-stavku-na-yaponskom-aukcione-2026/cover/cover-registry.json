@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой у ноутбука с карточкой японского аукциона и плашкой «до депозита», намёк на порт Владивостока",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-05T09:40:42+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой у ноутбука с карточкой японского аукциона и плашкой «до депозита», намёк на порт Владивостока",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сравнения: ставка на аукционе и бюджет под ключ до Владивостока",
+      "h2_anchor": "Соберите бюджет и документы до любой ставки",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Мокап аукционного листа и терминала ставки японского аукциона",
+      "h2_anchor": "Поймите, как устроен японский аукцион простыми словами",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист проверки лота и договора до перевода депозита",
+      "h2_anchor": "Проверьте лот по чек-листу до депозита",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

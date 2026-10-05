@@ -21,6 +21,13 @@ LEDGER_PATHS = (
 DEFAULT_SITE_URL = ""
 
 
+TOPIC_DIR_RE = re.compile(r"^((?:AS|B)\d+)-", flags=re.IGNORECASE)
+TOPIC_CARD_RE = re.compile(
+    r"##\s+((?:AS|B)\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)",
+    re.DOTALL | re.IGNORECASE,
+)
+
+
 def project_root() -> Path:
     env_root = os.environ.get("EXCALIBUR_PROJECT_ROOT", "").strip()
     if env_root:
@@ -60,13 +67,46 @@ def active_article_topic_ids(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = TOPIC_DIR_RE.match(path.name)
         if match:
             active.add(match.group(1).upper())
     return active
 
 
-def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
+def pool_topic_slugs(root: Path) -> dict[str, str]:
+    """Map topic_id -> slug for AS##|B## cards in blog-topics.md."""
+    topics_path = root / "memory/topics/blog-topics.md"
+    if not topics_path.is_file():
+        return {}
+    mapping: dict[str, str] = {}
+    text = topics_path.read_text(encoding="utf-8")
+    for match in TOPIC_CARD_RE.finditer(text):
+        topic_id = match.group(1).upper()
+        block = match.group(2)
+        m = re.search(r"-\s*\*\*slug:\*\*\s*(\S+)", block)
+        if m:
+            mapping[topic_id] = m.group(1).strip().lower()
+    return mapping
+
+
+def live_used_topic_ids(root: Path, live_posts: list[dict[str, str]]) -> set[str]:
+    """Topic IDs whose pool slug already exists on live WP."""
+    if not live_posts:
+        return set()
+    live_slugs = {p.get("slug", "").strip().lower() for p in live_posts if p.get("slug")}
+    used: set[str] = set()
+    for topic_id, slug in pool_topic_slugs(root).items():
+        if slug and slug in live_slugs:
+            used.add(topic_id)
+    return used
+
+
+def next_p0_topic(
+    root: Path,
+    published: list[dict[str, str]],
+    *,
+    extra_used: set[str] | None = None,
+) -> str:
     topics_path = root / "memory/topics/blog-topics.md"
     if not topics_path.is_file():
         return ""
@@ -77,8 +117,10 @@ def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
         if r["status"] in {"published", "in_progress", "draft_ready"}
     }
     used.update(active_article_topic_ids(root))
+    if extra_used:
+        used.update(extra_used)
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in TOPIC_CARD_RE.finditer(text):
         topic_id = match.group(1).upper()
         block = match.group(2)
         if "priority:** P0" not in block and "**priority:** P0" not in block:
@@ -90,10 +132,10 @@ def next_p0_topic(root: Path, published: list[dict[str, str]]) -> str:
     return ""
 
 
-def fetch_recent_wp_posts(site_url: str, limit: int = 12) -> tuple[list[dict[str, str]], str | None]:
+def fetch_recent_wp_posts(site_url: str, limit: int = 100) -> tuple[list[dict[str, str]], str | None]:
     endpoint = urljoin(
         site_url.rstrip("/") + "/",
-        f"wp-json/wp/v2/posts?per_page={limit}&orderby=date&order=desc&_fields=date,link,slug,title",
+        f"wp-json/wp/v2/posts?per_page={limit}&orderby=date&order=desc&_fields=id,date,link,slug,title",
     )
     request = Request(endpoint, headers={"User-Agent": "ExcaliburBlogAutomation/1.0"})
     try:
@@ -108,6 +150,7 @@ def fetch_recent_wp_posts(site_url: str, limit: int = 12) -> tuple[list[dict[str
         title = re.sub(r"<[^>]+>", "", title)
         pages.append(
             {
+                "id": str(item.get("id", "")),
                 "date": str(item.get("date", ""))[:10],
                 "slug": str(item.get("slug", "")),
                 "title": unescape(title).strip(),
@@ -117,6 +160,20 @@ def fetch_recent_wp_posts(site_url: str, limit: int = 12) -> tuple[list[dict[str
     return pages, None
 
 
+def topic_slug_from_pool(root: Path, topic_id: str) -> str:
+    topics_path = root / "memory/topics/blog-topics.md"
+    if not topics_path.is_file() or not topic_id:
+        return ""
+    text = topics_path.read_text(encoding="utf-8")
+    for match in TOPIC_CARD_RE.finditer(text):
+        if match.group(1).upper() != topic_id.upper():
+            continue
+        block = match.group(2)
+        m = re.search(r"-\s*\*\*slug:\*\*\s*(\S+)", block)
+        return m.group(1).strip() if m else ""
+    return ""
+
+
 def main() -> None:
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
@@ -124,7 +181,18 @@ def main() -> None:
     root = project_root()
     now = datetime.now(TZ)
     published = parse_published_slugs(root)
-    topic_id = os.environ.get("EXCALIBUR_TOPIC_ID", "").strip().upper() or next_p0_topic(root, published)
+
+    site_url = os.environ.get("PUBLIC_SITE_URL") or os.environ.get("WP_SITE_URL") or DEFAULT_SITE_URL
+    live_posts: list[dict[str, str]] = []
+    live_error: str | None = None
+    if site_url:
+        live_posts, live_error = fetch_recent_wp_posts(site_url)
+
+    live_used = live_used_topic_ids(root, live_posts)
+    topic_id = (
+        os.environ.get("EXCALIBUR_TOPIC_ID", "").strip().upper()
+        or next_p0_topic(root, published, extra_used=live_used)
+    )
 
     print(f"EXCALIBUR_RUN_DATE={now:%Y-%m-%d}")
     print(f"EXCALIBUR_RUN_DATETIME={now:%Y-%m-%d %H:%M:%S %Z}")
@@ -136,18 +204,39 @@ def main() -> None:
         "EXCALIBUR_PUBLISHED_ARTICLES="
         + json.dumps(published[-10:], ensure_ascii=False)
     )
+    if live_used:
+        print(
+            "EXCALIBUR_LIVE_USED_TOPIC_IDS="
+            + json.dumps(sorted(live_used), ensure_ascii=False)
+        )
 
-    site_url = os.environ.get("PUBLIC_SITE_URL") or os.environ.get("WP_SITE_URL") or DEFAULT_SITE_URL
     if site_url:
-        posts, error = fetch_recent_wp_posts(site_url)
-        if error:
-            print(f"EXCALIBUR_RECENT_WP_POSTS_ERROR={error}")
+        if live_error:
+            print(f"EXCALIBUR_RECENT_WP_POSTS_ERROR={live_error}")
         else:
-            compact = [f"{p['date']}|{p['slug']}|{p['title']}" for p in posts]
+            compact = [f"{p.get('id', '')}|{p['date']}|{p['slug']}|{p['title']}" for p in live_posts[:12]]
             print("EXCALIBUR_RECENT_WP_POSTS=" + json.dumps(compact, ensure_ascii=False))
     else:
         print("EXCALIBUR_RECENT_WP_POSTS=")
         print("EXCALIBUR_RECENT_WP_POSTS_NOTE=set PUBLIC_SITE_URL for live dedupe")
+
+    suggested_slug = topic_slug_from_pool(root, topic_id)
+    if suggested_slug and live_posts:
+        hit = next((p for p in live_posts if p.get("slug") == suggested_slug), None)
+        if hit:
+            print(
+                "EXCALIBUR_SLUG_LIVE_HIT="
+                + json.dumps(
+                    {
+                        "topic_id": topic_id,
+                        "slug": suggested_slug,
+                        "wp_post_id": hit.get("id"),
+                        "link": hit.get("link"),
+                        "note": "slug already live — publish will UPDATE same post; do not treat as new",
+                    },
+                    ensure_ascii=False,
+                )
+            )
 
 
 if __name__ == "__main__":

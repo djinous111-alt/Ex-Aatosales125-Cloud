@@ -14,22 +14,26 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Strong tech markers for AI/automation niches. Bare "github" / "make" in
+# notes (e.g. github_evidence section of an auto checklist) must NOT flip
+# technical_topic on by themselves — that caused false BLOCK/WARN for B01.
+TECH_MARKERS_STRONG = (
     "ai",
-    "ии",
     "agent",
     "агент",
     "mcp",
     "api",
     "cursor",
-    "make",
     "n8n",
-    "github",
     "docker",
     "rag",
     "workflow",
     "автоматизац",
     "нейросет",
+)
+TECH_MARKERS_WEAK = (
+    "github",
+    "make",
 )
 
 
@@ -73,14 +77,106 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
-def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+def _marker_present(blob: str, marker: str) -> bool:
+    """Substring match with word-ish boundaries so 'ии'≠'японии' and 'ai'≠'pain'."""
+    if len(marker) <= 3:
+        return bool(re.search(rf"(?<![a-zа-яё0-9_]){re.escape(marker)}(?![a-zа-яё0-9_])", blob, flags=re.I))
+    return marker in blob
+
+
+AUTO_NICHE_MARKERS = (
+    "аукцион",
+    "auction",
+    "растамож",
+    "customs",
+    "encar",
+    "утильсбор",
+    "свх",
+    "эптс",
+    "владивосток",
+    "япони",
+    "коре",
+    "кита",
+    "авто из",
+    "ставк",
+    "бид",
+    "депозит",
+)
+
+
+def is_technical_topic(context: dict[str, Any], notes: str = "") -> bool:
+    """True only for AI/automation/dev topics from the topic card.
+
+    Do not scan research-notes body: github_evidence / github.com URLs would
+    falsely mark auto/customs articles as technical. Bare substring "ии"
+    is not a marker (matches Russian genitives like «Японии»).
+    """
+    del notes  # kept for call-site compatibility
     topic = context.get("topic") or {}
-    blob = " ".join(
+    topic_blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    if any(marker in topic_blob for marker in AUTO_NICHE_MARKERS):
+        return False
+    if any(_marker_present(topic_blob, marker) for marker in TECH_MARKERS_STRONG):
+        return True
+    return any(_marker_present(topic_blob, marker) for marker in TECH_MARKERS_WEAK)
+
+
+def count_accessed_at(text: str) -> int:
+    """Count access dates from `accessed_at:` labels AND ISO dates in source-table URL rows."""
+    text_lower = text.lower()
+    literal = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    # Markdown table rows that contain a URL and an ISO date (typical source_table)
+    table_dates = len(
+        re.findall(
+            r"^\s*\|[^\n]*https?://[^\n]*\b(20\d{2}-\d{2}-\d{2})\b",
+            text,
+            flags=re.M,
+        )
+    )
+    # Also count ISO dates in a dedicated accessed_at column even if URL is in another cell
+    # (row with | date | but no http — rare). Prefer max so either style passes.
+    return max(literal, table_dates)
+
+
+def count_pain_solution_rows(text: str) -> int:
+    """Count markdown table data-rows under ## pain_solution_map.
+
+    Header/separator rows are ignored. Cell text does not need English
+    pain/solution markers — any non-empty data row counts.
+    """
+    match = re.search(
+        r"##\s*\d*\.?\s*pain[_\s-]*solution[_\s-]*map\b([\s\S]*?)(?=\n##\s|\Z)",
+        text,
+        flags=re.I,
+    )
+    if not match:
+        return 0
+    section = match.group(1)
+    data_rows = 0
+    header_seen = False
+    for line in section.splitlines():
+        stripped = line.strip()
+        if not stripped.startswith("|"):
+            continue
+        if re.match(r"^\|[\s\-:|]+\|$", stripped):
+            continue
+        cells = [c.strip() for c in stripped.strip("|").split("|")]
+        if not any(cells):
+            continue
+        joined = " ".join(cells).lower()
+        if not header_seen and any(
+            token in joined
+            for token in ("pain", "боль", "solution", "решение", "result", "результат", "outcome")
+        ):
+            # Likely header row (column titles).
+            header_seen = True
+            continue
+        header_seen = True
+        data_rows += 1
+    return data_rows
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -128,11 +224,26 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     official_doc_urls = [
         url
         for url in urls
-        if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
+        if any(
+            token in url.lower()
+            for token in (
+                "/docs",
+                "developers.",
+                "developer.",
+                "help.",
+                "learn.",
+                ".pdf",
+                "eaeunion",
+                "consultant.ru",
+                "garant.ru",
+                "pravo.gov",
+                "publication.pravo",
+            )
+        )
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    pain_map_rows = count_pain_solution_rows(text)
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:

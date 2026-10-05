@@ -185,8 +185,18 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     if marker_count < min_rec:
         errors.append(f"мало action-маркеров в тексте: {marker_count} < {min_rec}")
 
-    pain_markers = policy.get("pain_markers_ru") or []
-    outcome_markers = policy.get("outcome_markers_ru") or []
+    # Fallback to human-voice canon when policy lists are missing/empty
+    # (keeps article gate usable if editorial-policy.json lags).
+    DEFAULT_PAIN_MARKERS = (
+        "боль", "проблем", "ошиб", "ломает", "не работает", "теряет",
+        "дорого", "долго", "рутин", "хаос", "застр", "сложно",
+    )
+    DEFAULT_OUTCOME_MARKERS = (
+        "результат", "получите", "сможете", "сэконом", "проверьте",
+        "запустите", "соберите", "настройте", "исправьте", "выберите",
+    )
+    pain_markers = policy.get("pain_markers_ru") or list(DEFAULT_PAIN_MARKERS)
+    outcome_markers = policy.get("outcome_markers_ru") or list(DEFAULT_OUTCOME_MARKERS)
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 

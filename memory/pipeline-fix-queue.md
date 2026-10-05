@@ -543,3 +543,42 @@ category: env
 
 ### Fixer resolution
 - pending
+
+
+## INC-20261005-0955-publish-http-timeout-double-trigger
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026
+severity: medium
+category: publish
+
+### What went wrong
+- Local HTTP trigger of `excalibur-blog-publish-once.php` hit urllib 120s timeout while PHP continued (large ~7MB payload).
+- Fallback curl `--max-time 300` re-triggered the same bootstrap before cleanup, causing a media race: orphan attachments and content rewrite to `-1` inline suffixes.
+- Script fallback wait (120s for `memory/webfetch-response.txt`) is shorter than typical PHP+nginx completion; required REST soft-success reconstruction.
+
+### How the agent recovered this run
+- Polled WP REST by slug during timeout; confirmed new post 4031 (slug free; did not touch 3601/3991/3967/3837).
+- Wrote reconstructed OK body to `memory/webfetch-response.txt` so publish script could finish (EXIT 0, verdict pass).
+- Verified final live state: featured 4036, inlines 4038/4040/4041, schema_len=13424 via `wp post meta get`, live HEAD 200.
+- Updated ledger, wp-publish-log, promotion-checklist, handoff.
+
+### Durable fix needed before next run
+- Increase HTTP trigger timeout / fallback wait to ~300s and document soft-success path in publish script.
+- Prevent double-trigger: if REST already shows post+featured+3 inlines, skip curl re-hit or delete/lock bootstrap before second trigger.
+- Optionally make bootstrap single-flight (token/lock file) so overlapping HTTP clients cannot re-run uploads.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`trigger_bootstrap_http` timeout=120; fallback wait 120)
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

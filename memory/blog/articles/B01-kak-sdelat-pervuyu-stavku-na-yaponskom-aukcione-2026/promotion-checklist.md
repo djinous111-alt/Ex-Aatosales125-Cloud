@@ -1,6 +1,6 @@
 # Promotion checklist — B01 kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026
 
-Дата публикации: 2026-10-05 (planned; publish ещё не выполнен)  
+Дата публикации: 2026-10-05  
 Live URL: https://avtosales125.ru/blog/kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
@@ -47,4 +47,8 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir …/B01-… --site-base` — 0 links applied (opportunities_found=0).
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (site-name «Авто-Сейлс», 3 articles).
-- Publish: не выполнялся (зона Indexer).
+- Publish: PASS post=4031 featured=4036 inlines=4038/4040/4041 schema_meta ok live HEAD 200.
+
+## Live URL (publish)
+
+`[REDACTED]/2026/10/05/kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026/`

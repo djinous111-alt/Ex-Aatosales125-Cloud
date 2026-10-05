@@ -1,0 +1,41 @@
+{
+  "slug": "kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026",
+  "topic_id": "B01",
+  "post_id": 4031,
+  "permalink": "[PUBLIC_SITE_URL]/2026/10/05/kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026/",
+  "featured_image": 4036,
+  "inline_images": [
+    4038,
+    4040,
+    4041
+  ],
+  "schema_meta": {
+    "ok": true,
+    "len": 13424,
+    "types": [
+      "BlogPosting",
+      "FAQPage",
+      "HowTo"
+    ]
+  },
+  "skip_theme_faq": "1",
+  "publish_method": "ssh",
+  "soft_success": true,
+  "live_head": 200,
+  "orphan_media": [
+    4032,
+    4033,
+    4034,
+    4037
+  ],
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1136112,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=4031\nOK featured_image=4036\nOK schema_meta=1\nOK inline_image_upload=4033\nOK inline_image_upload=4034\nOK inline_image_upload=4037\npermalink=[PUBLIC_SITE_URL]/2026/10/05/kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026/\nsoft_success=rest+ssh_pending\n",
+  "verdict": "pass",
+  "notes": "HTTP trigger timeout 120s; WebFetch/curl fallback; REST soft-success; second curl race rewrote inlines to -1 suffixes; final featured=4036 inlines=4038/4040/4041; schema_len=13424 via wp-cli"
+}

@@ -6,6 +6,47 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261006-2149-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-indexer
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer agent/skill still document `excalibur_blog_llms_generator.py ... --blog-path /`.
+- Actual CLI only accepts `--blog-dir` (doctor INC-20261005-2105 already fixed the doctor check, but indexer contracts were not updated).
+- First indexer invoke failed: `unrecognized arguments: --blog-path /`.
+- Generator writes live `$PUBLIC_SITE_URL` into `memory/blog/llms*.txt` / `interlink-suggestions.json`, which pre-commit secret-scan blocks.
+
+### How the agent recovered this run
+- Re-ran without `--blog-path`: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog --site-name Авто-Сейлс` → PASS (B03 in llms.txt / llms-full.txt).
+- Before commit: replaced live site base with `[PUBLIC_SITE_URL]` placeholder (ledger/schema pattern).
+- Filtered invalid names from `CLOUD_AGENT_INJECTED_SECRET_NAMES` so pre-commit `${!SECRET_NAME}` does not break.
+
+### Durable fix needed before next run
+- Remove `--blog-path /` from indexer agent + skill Shell blocks.
+- Align examples with real argparse: `--blog-dir`, `--site-base`, `--out-dir` (optional `--site-name`).
+- llms/interlink scripts should emit `[PUBLIC_SITE_URL]` (or expand-on-publish), not raw secret values.
+- Document secret-names filter + placeholder sanitize in indexer skill / pitfalls.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261006-2145-cover-mcp-timeout-kie-fallback
 status: open
 run_date: 2026-10-06

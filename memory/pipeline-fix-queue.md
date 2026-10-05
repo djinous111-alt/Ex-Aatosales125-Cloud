@@ -695,3 +695,38 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261005-1345-cover-hero-force-upload-hosts
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-vladivostok-2026
+severity: low
+category: env
+
+### What went wrong
+- `excalibur_blog_hero_reference_url.py --force` failed: catbox HTTP 412, 0x0 SSL handshake timeout; litterbox 500; transfer.sh SSL EOF.
+- Existing `reference_url_hosted` filename looks like a winter-cars asset, so agent almost treated it as stale face reference.
+
+### How the agent recovered this run
+- Downloaded hosted URL and verified SHA256 equal to local `memory/cover/assets/blog-hero-reference.png`.
+- Reused existing `reference_url_hosted` for Kie i2i `input_urls` without blind MCP retry.
+- Cover generated via ONE `excalibur_blog_kie_gpt_image2_api.py` job (Cloud default); split PASS; inject ok.
+
+### Durable fix needed before next run
+- Document in cover skill/contract: if `--force` hosting fails, verify hash of existing `reference_url_hosted` vs local PNG before COVER HERO BLOCKER.
+- Add fallback host(s) beyond catbox/0x0 (or WP media upload path) in `excalibur_blog_hero_reference_url.py`.
+- Optionally rename misleading WP filename / refresh hosted URL after successful alternate upload.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

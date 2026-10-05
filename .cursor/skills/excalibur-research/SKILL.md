@@ -62,6 +62,13 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
 
+
+## Wordstat cluster-first (обязательно)
+
+- Сначала широкий parent-кластер (например «СБКТС Владивосток»), затем узкий how-to / geo combo.
+- Ответ вида `{"totalCount":"N"}` **без** списка фраз = low-result signal, не fatal API error. Не выдумывай top-phrases; запиши totalCount-only row и опирайся на широкий кластер + LSI.
+- Узкие geo+how-to запросы часто дают totalCount-only — это ожидаемо (тот же класс, что у Scout).
+
 ## Blockers
 
 - `❌ RESEARCH BLOCKER` — тема не найдена и не создана из запроса пользователя

@@ -37,6 +37,20 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+
+
+## CTA URLs (критично)
+
+- Бери каталог/Telegram CTA **только** из env `CATALOG_URL` / `TELEGRAM_URL` или из **сырых байт** `memory/brief/conversion-map.md` на диске (не из Read-tool UI).
+- Read/secret-scan может показать `[REDACTED]` — это **не** значение для `href`. Literal `href="[REDACTED]"` = blocker (html linter FAIL, link-verify 404).
+- Перед handoff: `rg -n 'href=.*REDACTED' article.html` должен быть пуст.
+- Публичные CTA-хосты лучше не держать в Cloud Secrets (иначе pre-commit secret-scan блокирует commit и провоцирует `--no-verify`).
+
+## Utility pain/outcome markers
+
+Сверяйся с `memory/brief/editorial-policy.json` → `pain_markers_ru` / `outcome_markers_ru`.
+Вплетай в lead/H2/до FAQ живые фразы из этих списков (и синонимы), иначе `excalibur_blog_utility_gate.py` может BLOCK при непустых списках.
+
 ## Blockers
 
 - нет research-notes.md

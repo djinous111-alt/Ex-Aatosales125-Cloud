@@ -14,22 +14,25 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Token markers only (word-boundary). Ultra-short substrings like "ai"/"ии" false-positive
+# inside Russian prose («аккредитации») and English field names («reader_pain»).
 TECH_MARKERS = (
-    "ai",
-    "ии",
     "agent",
     "агент",
     "mcp",
     "api",
     "cursor",
-    "make",
     "n8n",
     "github",
     "docker",
     "rag",
+    "llm",
+    "gpt",
     "workflow",
     "автоматизац",
     "нейросет",
+    "self-hosted",
+    "векторн",
 )
 
 
@@ -73,14 +76,27 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_matches(blob: str, marker: str) -> bool:
+    """Match tech markers as tokens, not accidental substrings."""
+    marker = marker.lower().strip()
+    if not marker:
+        return False
+    # Prefix stems (Russian) keep suffix flexibility: автоматизац* / нейросет* / векторн*
+    if marker.endswith(("ац", "ет", "н")) and not marker.isascii():
+        return marker in blob
+    if re.search(r"[^\w]", marker, flags=re.UNICODE):
+        return marker in blob
+    return bool(re.search(rf"(?<![\w]){re.escape(marker)}(?![\w])", blob, flags=re.IGNORECASE | re.UNICODE))
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
+    # Scan topic card fields only — not research body field names (reader_pain, etc.).
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    return any(_marker_matches(blob, marker) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:

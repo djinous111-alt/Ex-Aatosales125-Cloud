@@ -8,6 +8,7 @@ import io
 import json
 import os
 import sys
+import urllib.parse
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -467,33 +468,104 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+HTTP_TRIGGER_TIMEOUT_SEC = 300
+REST_SOFT_POLL_ATTEMPTS = 36
+REST_SOFT_POLL_INTERVAL_SEC = 5
+WEBFETCH_WAIT_SEC = 180
+
+
+def poll_wp_rest_by_slug(public_base: str, slug: str) -> dict[str, Any] | None:
+    """Return WP REST post payload if a published/draft post for slug already exists."""
+    import time
+
+    base = public_base.rstrip("/")
+    endpoint = f"{base}/wp-json/wp/v2/posts?slug={urllib.parse.quote(slug)}&status=publish,draft,future,private"
+    for attempt in range(1, REST_SOFT_POLL_ATTEMPTS + 1):
+        try:
+            req = urllib.request.Request(
+                endpoint,
+                headers={"User-Agent": "ExcaliburBlogPublish/1.0"},
+            )
+            with urllib.request.urlopen(req, timeout=30) as response:
+                payload = json.loads(response.read().decode("utf-8", errors="replace"))
+            if isinstance(payload, list) and payload:
+                post = payload[0]
+                if isinstance(post, dict) and post.get("id"):
+                    print(
+                        f"REST soft-success: found post id={post.get('id')} "
+                        f"status={post.get('status')} (poll {attempt}/{REST_SOFT_POLL_ATTEMPTS})"
+                    )
+                    return post
+        except Exception as exc:  # noqa: BLE001
+            print(f"WARN REST soft-poll {attempt}/{REST_SOFT_POLL_ATTEMPTS}: {type(exc).__name__}: {exc}")
+        time.sleep(REST_SOFT_POLL_INTERVAL_SEC)
+    return None
+
+
+def reconstruct_ok_lines_from_rest(post: dict[str, Any], slug: str) -> str:
+    """Build minimal OK lines so the publish script can PASS without a second HTTP trigger."""
+    post_id = post.get("id")
+    permalink = str(post.get("link") or "").strip()
+    featured = post.get("featured_media") or 0
+    lines = [
+        f"OK post={post_id} slug={slug}",
+        f"permalink={permalink}" if permalink else "",
+        f"OK featured_media={featured}" if featured else "",
+        "OK rest_soft_success=1",
+    ]
+    return "\n".join(line for line in lines if line) + "\n"
+
+
+def wait_webfetch_response(root: Path, url: str, wait_sec: int = WEBFETCH_WAIT_SEC) -> str:
+    import time
+
+    print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
+    print(
+        "Ordered fallback: do NOT curl/re-trigger while the first PHP run may still be writing media. "
+        "Prefer REST soft-success or a single WebFetch of the same URL, then write memory/webfetch-response.txt."
+    )
+    print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
+    fallback_file = root / "memory" / "webfetch-response.txt"
+    fallback_file.unlink(missing_ok=True)
+    for _ in range(wait_sec):
+        if fallback_file.is_file():
+            out = fallback_file.read_text(encoding="utf-8")
+            fallback_file.unlink()
+            print("Cloud response detected successfully!")
+            return out
+        time.sleep(1)
+    raise RuntimeError(
+        f"Cloud WebFetch Fallback timed out after {wait_sec} seconds. "
+        "Poll WP REST by slug before any second HTTP/curl trigger."
+    )
+
+
+def trigger_bootstrap_http(url: str, root: Path, *, public_base: str, slug: str) -> str:
     try:
-        print(f"Triggering HTTP publish on {url}...")
+        print(f"Triggering HTTP publish on {url} (timeout={HTTP_TRIGGER_TIMEOUT_SEC}s)...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=HTTP_TRIGGER_TIMEOUT_SEC,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
-        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
-        print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
-        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
-        fallback_file = root / "memory" / "webfetch-response.txt"
-        fallback_file.unlink(missing_ok=True)
-        import time
+        print(
+            f"Local HTTP trigger failed ({type(e).__name__}: {e}). "
+            "Checking WP REST soft-success before any second trigger..."
+        )
+        rest_post = poll_wp_rest_by_slug(public_base, slug)
+        if rest_post is not None:
+            out = reconstruct_ok_lines_from_rest(rest_post, slug)
+            fallback_file = root / "memory" / "webfetch-response.txt"
+            fallback_file.parent.mkdir(parents=True, exist_ok=True)
+            fallback_file.write_text(out, encoding="utf-8")
+            print("REST soft-success written to memory/webfetch-response.txt; skipping second HTTP/curl trigger.")
+            return out
+        print("REST soft-success miss. Entering Cloud WebFetch Fallback mode...")
+        return wait_webfetch_response(root, url)
 
-        for _ in range(120):
-            if fallback_file.is_file():
-                out = fallback_file.read_text(encoding="utf-8")
-                fallback_file.unlink()
-                print("Cloud response detected successfully!")
-                return out
-            time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
 
-
-def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
+def publish_via_ssh(env: dict[str, str], php: str, public_base: str, slug: str) -> str:
     remote = "excalibur-blog-publish-once.php"
     data = php.encode("utf-8")
     url = public_base.rstrip("/") + "/" + remote
@@ -502,7 +574,7 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        out = trigger_bootstrap_http(url, root, public_base=public_base, slug=slug)
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)
@@ -588,7 +660,7 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ssh(env, php, public)
+    out = publish_via_ssh(env, php, public, str(payload.get("slug") or ""))
     print(out)
 
     result_path = article_dir / "wp-publish-result.json"

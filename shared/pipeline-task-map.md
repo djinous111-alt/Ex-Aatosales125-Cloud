@@ -2,6 +2,8 @@
 
 Директор **не** Task. Все роли ниже — `Task(<name>)`.
 
+> **Cloud note:** если typed Task names недоступны в enum, используй `Task(generalPurpose)` на каждую роль (это поддерживаемый путь, не временный костыль). Пути: `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`.
+
 ## Схема
 
 ```text

@@ -85,11 +85,11 @@ def pick_visual_type(h2: str, types_catalog: dict, used: set[str]) -> str:
 
 def scene_hint_for_type(type_id: str, h2: str) -> str:
     hints = {
-        "comparison_table_ui": f"Таблица SEO vs GEO: критерии, цели, человек vs AI — «{h2}»",
-        "workflow_diagram": f"6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «{h2}»",
-        "checklist_board": f"Printable чеклист перед публикацией — «{h2}»",
+        "comparison_table_ui": f"Таблица сравнения критериев и выбора — «{h2}»",
+        "workflow_diagram": f"Пошаговая схема процесса — «{h2}»",
+        "checklist_board": f"Printable чеклист перед действием — «{h2}»",
         "schema_faq_ui": f"FAQ accordion + JSON-LD schema UI — «{h2}»",
-        "tool_screenshot": f"Скрин SEO-инструмента — «{h2}»",
+        "tool_screenshot": f"Скрин рабочего инструмента/портала по теме — «{h2}»",
         "infographic_card": f"Карточка фактов — «{h2}»",
     }
     return hints.get(type_id, f"Полезная иллюстрация — «{h2}»")
@@ -98,6 +98,38 @@ def scene_hint_for_type(type_id: str, h2: str) -> str:
 def alt_for_type(type_id: str, h2: str, types_catalog: dict) -> str:
     label = ((types_catalog.get("types") or {}).get(type_id) or {}).get("label_ru") or type_id
     return f"{label}: {h2}"
+
+
+def default_cover_hook(meta: dict[str, Any], article_topic: str) -> str:
+    primary = str(meta.get("primary_query") or "").strip()
+    if primary:
+        compact = re.sub(r"\s+", " ", primary)
+        if len(compact) > 90:
+            compact = compact[:87].rstrip() + "…"
+        return compact
+    title = str(meta.get("h1") or article_topic or "").strip()
+    title = re.sub(r"\s+", " ", title)
+    if len(title) > 90:
+        title = title[:87].rstrip() + "…"
+    return title or "Практический гайд без воды"
+
+
+def default_cover_scene(meta: dict[str, Any], article_topic: str) -> str:
+    niche = str(meta.get("primary_query") or meta.get("h1") or article_topic or "тема статьи")
+    return (
+        f"reference-лицо; одежда по погоде и сцене статьи (без hoodie/hood lock); "
+        f"реквизит и фон под нишу «{niche[:120]}»; без наушников/headset/earbuds; "
+        f"без Wordstat/Метрики/SEO-дашбордов"
+    )
+
+
+def default_meme_caption(meta: dict[str, Any]) -> str:
+    primary = str(meta.get("primary_query") or meta.get("h1") or "").strip()
+    if not primary:
+        return "Сделай шаг — без сюрпризов"
+    words = re.findall(r"[A-Za-zА-Яа-яЁё0-9]+", primary)
+    short = " ".join(words[:4]).strip()
+    return (short[:40] if short else "Сделай шаг — без сюрпризов")
 
 
 def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict[str, Any]:
@@ -113,9 +145,8 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
         "quadrant": "top_left",
         "role": "cover_meme_hero",
         "alt": old_cover.get("alt") or f"Обложка: {article_topic}",
-        "scene_hint": old_cover.get("scene_hint")
-        or "reference-лицо, белое плотное худи из толстой ткани, новая поза/жест/ракурс под крючок, без наушников/headset/earbuds, шок/ирония SEOшника, Wordstat + ноутбук",
-        "meme_caption_ru": old_cover.get("meme_caption_ru") or "15k ключей — 0 прочтений?",
+        "scene_hint": old_cover.get("scene_hint") or default_cover_scene(meta, article_topic),
+        "meme_caption_ru": old_cover.get("meme_caption_ru") or default_meme_caption(meta),
     }
 
     used: set[str] = set()
@@ -133,7 +164,7 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
             "alt": alt_for_type(visual_type, old.get("h2_anchor") or h2, types_catalog),
         }
 
-    cover_hook = (preserve or {}).get("cover_hook") or "SEO-текст, который люди дочитают — миф или workflow?"
+    cover_hook = (preserve or {}).get("cover_hook") or default_cover_hook(meta, article_topic)
 
     return {
         "topic_id": topic_id,

@@ -46,3 +46,38 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+
+
+## Publish HTTP timeout
+
+- После SSH upload большой payload часто превышает HTTP wait. Скрипт: REST soft-success по slug **до** второго HTTP/curl.
+- Параллельный curl во время первого PHP run → orphan media (`cover-2`) и local `cover/inline-*.png` srcs в контенте. Запрещено.
+
+## Indexer / llms
+
+- `excalibur_blog_llms_generator.py` принимает `--blog-dir`, не `--blog-path`.
+- В `llms*.txt` / interlink report пиши `[PUBLIC_SITE_URL]`, не live secret URL (scripts rewrite http(s) bases).
+
+## Cover image flow
+
+- Default: Kie async (`excalibur_blog_kie_gpt_image2_api.py`). Sync MCP `gpt-image-2` — legacy (часто `-32001`).
+- Prompt builder: без toxic example tokens и без hardcoded hoodie outfit; outfit из `scene_hint` + design code.
+- Auto manifest hooks — из `primary_query`/H1 ниши, не SEO demo strings.
+
+## Writer CTA / utility
+
+- CTA из env `CATALOG_URL`/`TELEGRAM_URL` или unredacted conversion-map; запрещён `href="[REDACTED]"`.
+- `pain_markers_ru` / `outcome_markers_ru` в editorial-policy обязательны для utility gate.
+
+## Link-verify gov egress
+
+- Soft-fail для FSA/elpts/gosuslugi/customs flake; канонический ЭПТС entrypoint из Cloud: `https://elpts.ru/`.
+
+## Research gates
+
+- `TECH_MARKERS` — token match по topic card; ultra-short `ai`/`ии` убраны (false-positive на «pain»/«аккредитации»).
+- Wordstat: cluster-first; `totalCount`-only = low-result signal (как у Scout).
+
+## Cloud Task enum
+
+- Typed `excalibur-blog-*` часто нет в enum → `Task(generalPurpose)` per role = supported path.

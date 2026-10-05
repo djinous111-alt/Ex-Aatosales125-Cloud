@@ -50,9 +50,17 @@ Task(generalPurpose):
 
 Директор переносит оба блока в handoff после завершения пары Task.
 
-## Cloud Task fallback
+## Cloud Task fallback (supported path)
 
-См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
+Cursor Cloud Task enum often **does not** accept typed `excalibur-blog-*` names (research/writer/geo-qa/cover/schema/indexer/publish/fixer).
+
+**Supported orchestration:** separate `Task(generalPurpose)` per role with:
+- `.cursor/agents/<role>.md`
+- `.cursor/skills/<skill>/SKILL.md`
+- короткий контракт: входные файлы, маркер результата, запреты
+
+Typed `Task(excalibur-blog-*)` — optional optimization when the enum is registered; do not block the pipeline waiting for typed names.
+См. также `AGENTS.md`, `CLOUD-AUTOMATION.md`, `shared/pipeline-task-map.md`.
 
 ## Preflight (shell, директор)
 

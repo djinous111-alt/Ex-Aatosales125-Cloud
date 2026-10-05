@@ -17,6 +17,16 @@ def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
 
+def commit_safe_site_base(site_base: str) -> str:
+    """Never write live PUBLIC_SITE_URL into committed llms/interlink artifacts."""
+    sb = (site_base or "").strip()
+    if not sb or sb in {"[REDACTED]", "[PUBLIC_SITE_URL]"}:
+        return "[PUBLIC_SITE_URL]"
+    if sb.startswith("http://") or sb.startswith("https://"):
+        return "[PUBLIC_SITE_URL]"
+    return sb
+
+
 def strip_html(html: str) -> str:
     # Remove script and style tags completely
     html = re.sub(r"<(script|style)[^>]*>[\s\S]*?</\1>", "", html, flags=re.IGNORECASE)
@@ -121,11 +131,15 @@ def main() -> int:
     if not out_dir.is_absolute():
         out_dir = root / out_dir
 
+    site_base = commit_safe_site_base(args.site_base)
+    if (args.site_base or "").startswith(("http://", "https://")):
+        print("NOTE: live --site-base rewritten to [PUBLIC_SITE_URL] for secret-scan-safe artifacts.")
+
     articles = load_articles(blog_dir)
     print(f"Loaded {len(articles)} articles to index for LLMs.")
 
-    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, args.site_base)
-    llms_full_txt = build_llms_full_txt(args.site_name, articles, args.site_base)
+    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, site_base)
+    llms_full_txt = build_llms_full_txt(args.site_name, articles, site_base)
 
     llms_path = out_dir / "llms.txt"
     llms_full_path = out_dir / "llms-full.txt"

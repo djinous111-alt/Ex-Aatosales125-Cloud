@@ -96,3 +96,10 @@ python scripts/excalibur_blog_utility_gate.py \
 - `skills/excalibur/references/article-archetypes.md` — скелет B
 - `skills/excalibur/references/ai-slop-blocklist.md` — вода/штампы
 - `shared/quality-blog.md` — blockers
+
+## Pain / outcome markers (Writer)
+
+Списки `pain_markers_ru` и `outcome_markers_ru` живут в `memory/brief/editorial-policy.json`.
+Writer обязан вплетать эти (или близкие) формулировки в lead / H2 / критерий результата до FAQ.
+`excalibur_blog_utility_gate.py` пропускает проверку с warning, только если списки в policy **пусты**; при заполненных списках пустые совпадения = BLOCK.
+

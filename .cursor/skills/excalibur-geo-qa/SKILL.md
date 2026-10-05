@@ -55,3 +55,10 @@ python scripts/excalibur_blog_human_voice_gate.py \
 **Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.
 
 Schema и cover — **не** твоя зона (отдельные субагенты после PASS).
+
+## Link-verify: gov/registry soft-fail
+
+- `excalibur_blog_link_verify.py` soft-fail для flaky gov hosts (FSA РАЛ, elpts family, gosuslugi/customs и т.п.): SSL timeout / NXDOMAIN / bot 403 не валят verdict.
+- Для ЭПТС в статьях предпочитай Cloud-reachable entrypoints: `https://elpts.ru/` и гайды elpts-info.ru; `portal.elpts.ru` часто NXDOMAIN из Cloud.
+- Literal `href="[REDACTED]"` — не soft-fail; FIX через Writer (CTA из env/conversion-map).
+

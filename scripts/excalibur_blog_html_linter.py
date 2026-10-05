@@ -15,6 +15,20 @@ from pathlib import Path
 from typing import Any
 
 
+def detect_redacted_hrefs(html: str) -> list[str]:
+    """Fail if CTA/links were polluted by secret-scan placeholders."""
+    errors: list[str] = []
+    for match in re.finditer(r"""href\s*=\s*["']([^"']*)["']""", html, flags=re.IGNORECASE):
+        href = match.group(1).strip()
+        if "[REDACTED]" in href or href.upper() == "REDACTED":
+            errors.append(
+                "Forbidden placeholder href in article.html: "
+                f'href="{href}". Restore CTA from env CATALOG_URL/TELEGRAM_URL '
+                "or unredacted conversion-map; never commit Read-tool redaction literals."
+            )
+    return errors
+
+
 def detect_anchor_toc(html: str) -> list[str]:
     """Fail if article contains in-body table of contents (anchor link list)."""
     errors: list[str] = []
@@ -122,6 +136,7 @@ def lint_html_file(html_path: Path, whitelist: set[str]) -> dict[str, Any]:
     linter.check_unclosed_tags()
     linter.errors.extend(detect_anchor_toc(html_content))
     linter.errors.extend(detect_duplicate_faq_sections(html_content))
+    linter.errors.extend(detect_redacted_hrefs(html_content))
 
     return {
         "file": str(html_path.name),

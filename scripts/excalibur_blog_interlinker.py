@@ -13,6 +13,16 @@ from pathlib import Path
 from typing import Any
 
 
+def commit_safe_site_base(site_base: str) -> str:
+    """Never write live PUBLIC_SITE_URL into committed interlink reports."""
+    sb = (site_base or "").strip()
+    if not sb or sb in {"[REDACTED]", "[PUBLIC_SITE_URL]"}:
+        return "[PUBLIC_SITE_URL]"
+    if sb.startswith("http://") or sb.startswith("https://"):
+        return "[PUBLIC_SITE_URL]"
+    return sb
+
+
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
@@ -216,7 +226,13 @@ def main() -> int:
     articles = load_all_articles(blog_dir)
     print(f"Loaded {len(articles)} articles from memory.")
 
-    suggestions = find_linking_opportunities(articles, args.site_base)
+    # Apply uses relative /blog/<slug>/ hrefs; report stores placeholder site_base for secret-scan.
+    live_site_base = args.site_base
+    report_site_base = commit_safe_site_base(args.site_base)
+    if (args.site_base or "").startswith(("http://", "https://")):
+        print("NOTE: live --site-base rewritten to [PUBLIC_SITE_URL] in interlink report JSON.")
+
+    suggestions = find_linking_opportunities(articles, live_site_base)
     article_dir = args.article_dir
     if article_dir and not article_dir.is_absolute():
         article_dir = root / article_dir
@@ -224,7 +240,7 @@ def main() -> int:
     print(f"Found {len(suggestions)} internal linking opportunities.")
 
     report = {
-        "site_base": args.site_base,
+        "site_base": report_site_base,
         "total_articles": len(articles),
         "opportunities_found": len(suggestions),
         "suggestions": [

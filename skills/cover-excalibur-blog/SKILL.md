@@ -122,12 +122,17 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image job (default: Kie async)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+**Default for Cursor Cloud:** direct Kie async via batch `preferred_image_flow`:
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py   --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+Sync MCP `gpt-image-2` is **legacy fallback only** — 2K i2i often hits client `-32001` timeout with no recoverable URL/task_id.
+
+If you still use MCP once: args = `jobs[0].mcp_args`. On `-32001` without URL/task_id → switch to Kie script (same mcp_args). Do not start a second duplicate job while a URL/task_id exists.
 
 ### Шаг 5 — apply
 

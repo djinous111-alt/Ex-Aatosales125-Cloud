@@ -4,7 +4,7 @@ Cover-агент работает **после** `article.html` + GEO QA PASS.
 
 ## Главное правило
 
-**Один** вызов MCP `gpt-image-2` → один холст `2048×1152` (2×2, каждая панель 16:9) → split в `cover.png` + `inline-01..03.png`.
+**Один** image job (default: Kie async `excalibur_blog_kie_gpt_image2_api.py`; sync MCP `gpt-image-2` — legacy) → один холст `2048×1152` (2×2, каждая панель 16:9) → split в `cover.png` + `inline-01..03.png`.
 
 | Панель | Роль | Герой |
 |--------|------|-------|
@@ -25,7 +25,8 @@ python scripts/excalibur_blog_quad_manifest.py \
 python scripts/excalibur_blog_cover_quad_prompt.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> --write-batch
 
-# 4. ONE CallMcpTool gpt-image-2 по cover/quad-mcp-batch.json
+# 4. DEFAULT: python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir <dir>
+#    (sync MCP gpt-image-2 = legacy; 2K i2i часто -32001)
 #    input_urls: [reference_url_hosted] — обязательно
 
 # 5. Скачать canvas + split

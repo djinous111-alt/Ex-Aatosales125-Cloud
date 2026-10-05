@@ -61,15 +61,18 @@ python scripts/excalibur_blog_wp_publish.py \
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
 - пишет post meta `_excalibur_blog_schema_jsonld`.
 
-### 4. Cloud WebFetch Fallback
+### 4. HTTP timeout → REST soft-success → WebFetch (ordered)
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Large payloads often exceed the first HTTP wait while PHP is still uploading media.
 
-1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+Ordered recovery (idempotent — do **not** race a second trigger):
 
-**Не останавливайся** на первом timeout — используй fallback.
+1. Local HTTP trigger timeout is ~300s. On failure the script **polls WP REST by slug** first.
+2. If the post already exists → REST soft-success OK lines are written and publish continues. **Do not curl** the bootstrap URL again (second run creates orphan `cover-2` / `inline-*-2` and can reset content to local `cover/inline-*.png` srcs).
+3. Only if REST miss: script prints `=== FALLBACK_TRIGGER_URL ===`. Prefer a **single** WebFetch of that URL (or wait for PHP to finish), then write the response to `memory/webfetch-response.txt`.
+4. Curl/re-trigger is last resort **only when REST shows the post is still missing**.
+
+**Не останавливайся** на первом timeout — но и не запускай параллельный второй HTTP trigger.
 
 ### 5. Post-publish артефакты
 

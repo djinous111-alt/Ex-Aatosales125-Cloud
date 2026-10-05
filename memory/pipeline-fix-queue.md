@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_none — B03 fixer pass closed the 2026-10-06 open set._
+
+
 ## INC-20261006-2155-publish-http-timeout-curl-race
-status: open
+status: fixed
+fixed_at: 2026-10-06
 run_date: 2026-10-06
 role: excalibur-blog-publish
 topic_id: B03
@@ -40,10 +44,25 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-06
+fix_summary:
+- HTTP trigger timeout raised to 300s; on failure script polls WP REST by slug before any second trigger.
+- REST soft-success reconstructs OK lines and skips curl/re-trigger (prevents orphan cover-2/inline-*-2).
+- Publish skill documents ordered fallback: REST → WebFetch → curl only if post missing.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `python3 scripts/excalibur_blog_doctor.py` (errors=0)
+commit: pending-parent-commit
+
 
 ## INC-20261006-2149-indexer-llms-blog-path-stale
-status: open
+status: fixed
+fixed_at: 2026-10-06
 run_date: 2026-10-06
 role: excalibur-blog-indexer
 topic_id: B03
@@ -81,10 +100,28 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-06
+fix_summary:
+- Removed stale `--blog-path` from indexer agent/skill Shell blocks; CLI examples use `--blog-dir` + `--site-base '[PUBLIC_SITE_URL]'`.
+- llms generator and interlinker rewrite live http(s) site-base to `[PUBLIC_SITE_URL]` in committed artifacts.
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_llms_generator.py --help` (blog-dir only)
+- `rg --blog-path` (only negation notes remain)
+- doctor llms `--blog-dir` check PASS
+commit: pending-parent-commit
+
 
 ## INC-20261006-2145-cover-mcp-timeout-kie-fallback
-status: open
+status: fixed
+fixed_at: 2026-10-06
 run_date: 2026-10-06
 role: excalibur-blog-cover
 topic_id: B03
@@ -113,10 +150,23 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-06
+fix_summary:
+- Cover skill + quad canvas contract default to Kie async script; sync MCP gpt-image-2 marked legacy.
+- Batch timeout_policy already preferred Kie; docs now match Cloud reality (-32001).
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/blog-cover-quad-canvas-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` preferred Kie / legacy MCP wording in cover skill
+commit: pending-parent-commit
+
 
 ## INC-20261006-2140-cover-toxic-tokens-in-quad-prompt-template
-status: open
+status: fixed
+fixed_at: 2026-10-06
 run_date: 2026-10-06
 role: excalibur-blog-cover
 topic_id: B03
@@ -147,10 +197,24 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-06
+fix_summary:
+- Prompt builder no longer injects toxic RU example tokens; outfit follows scene_hint/design code (no hoodie lock).
+- Quad manifest seeds cover_hook/meme_caption/scene from article primary_query/H1 niche, not SEO demo strings.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `memory/cover/quad-style-digital-meme-collage-ru.json`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile` cover prompt + quad_manifest
+- `rg` confirms no `лох` / hoodie lock in prompt builder
+commit: pending-parent-commit
+
 
 ## INC-20261006-2135-writer-fix-cta-env-and-elpts-fallbacks
-status: open
+status: fixed
+fixed_at: 2026-10-06
 run_date: 2026-10-06
 role: excalibur-blog-writer
 topic_id: B03
@@ -186,10 +250,27 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-06
+fix_summary:
+- Writer skill + writing contract: CTA only from env CATALOG_URL/TELEGRAM_URL or on-disk conversion-map; reject href=[REDACTED].
+- HTML linter blocks REDACTED hrefs; link-verify soft-fails flaky gov/elpts hosts; pitfalls document elpts.ru entrypoint.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_html_linter.py`
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- redacted href unit
+- gov soft-fail unit
+- py_compile html_linter + link_verify
+commit: pending-parent-commit
+
 
 ## INC-20261006-2128-geo-qa-typed-task-missing
-status: open
+status: fixed
+fixed_at: 2026-10-06
 run_date: 2026-10-06
 role: excalibur-blog-geo-qa
 topic_id: B03
@@ -218,10 +299,24 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-06
+fix_summary:
+- Documented Task(generalPurpose) per role as the supported Cloud orchestration path (not a one-off workaround).
+- Updated director skill, pipeline-task-map, CLOUD-AUTOMATION.
+files_changed:
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/pipeline-task-map.md`
+- `CLOUD-AUTOMATION.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` supported generalPurpose path in director/task-map
+commit: pending-parent-commit
+
 
 ## INC-20261006-2129-geo-qa-cta-redacted-href
-status: open
+status: fixed
+fixed_at: 2026-10-06
 run_date: 2026-10-06
 role: excalibur-blog-geo-qa
 topic_id: B03
@@ -252,10 +347,25 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-06
+fix_summary:
+- Writer CTA hygiene + HTML linter guard for literal href=[REDACTED]; GEO QA skill notes FIX path via Writer/env.
+files_changed:
+- `scripts/excalibur_blog_html_linter.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- detect_redacted_hrefs unit PASS
+commit: pending-parent-commit
+
 
 ## INC-20261006-2130-geo-qa-link-verify-gov-egress
-status: open
+status: fixed
+fixed_at: 2026-10-06
 run_date: 2026-10-06
 role: excalibur-blog-geo-qa
 topic_id: B03
@@ -288,10 +398,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-06
+fix_summary:
+- Extended soft-fail for gov/registry hosts (FSA, elpts family, gosuslugi, customs) with browser UA + longer timeout.
+- Documented Cloud-reachable elpts.ru entrypoint in GEO QA skill and pitfalls.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- gov soft-fail unit PASS
+- py_compile link_verify
+commit: pending-parent-commit
+
 
 ## INC-20261006-2115-research-tech-markers-false-positive
-status: open
+status: fixed
+fixed_at: 2026-10-06
 run_date: 2026-10-06
 role: excalibur-blog-research
 topic_id: B03
@@ -321,10 +445,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-06
+fix_summary:
+- Removed ultra-short TECH_MARKERS `ai`/`ии`; matching is token-boundary on topic card fields only (not research body/field names).
+- B03 now evaluates technical_topic=False.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- B03 is_technical_topic False
+- unit asserts аккредитации/reader_pain not technical; MCP/Cursor is
+commit: pending-parent-commit
+
 
 ## INC-20261006-2116-research-wordstat-totalcount-only
-status: open
+status: fixed
+fixed_at: 2026-10-06
 run_date: 2026-10-06
 role: excalibur-blog-research
 topic_id: B03
@@ -350,10 +486,21 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-06
+fix_summary:
+- Research skill now mirrors Scout cluster-first Wordstat guidance; totalCount-only documented as low-result signal.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` totalCount/cluster-first in research skills
+commit: pending-parent-commit
+
 
 ## INC-20261006-2125-writer-utility-pain-outcome-markers-missing
-status: open
+status: fixed
+fixed_at: 2026-10-06
 run_date: 2026-10-06
 role: excalibur-blog-writer
 topic_id: B03
@@ -385,7 +532,21 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-06
+fix_summary:
+- Kept non-empty pain/outcome marker lists in editorial-policy; utility gate skips only when lists empty.
+- Documented markers in writer skill, editorial-utility-only, pitfalls.
+files_changed:
+- `memory/brief/editorial-policy.json` (lists retained)
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- JSON parse editorial-policy
+- py_compile utility_gate
+commit: pending-parent-commit
+
 
 ## INC-20261005-2105-director-doctor-blog-dir
 status: fixed
@@ -417,6 +578,10 @@ category: script
 
 ### Fixer resolution
 - Director applied one-line doctor fix in this run; status closed as fixed.
+
+### Fixer confirmation (2026-10-06)
+- Re-verified `excalibur_blog_doctor.py` checks `--blog-dir` (not `--blog-path`); doctor SUMMARY errors=0.
+- Indexer docs aligned in INC-2149; no regression.
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch

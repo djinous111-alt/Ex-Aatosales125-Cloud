@@ -232,6 +232,8 @@ Excalibur BLOG следует этому контракту для каждой 
 
 ### Блок 4: Мягкий CTA бренда (внутри одной секции блока 3)
 
+**CTA href hygiene:** URL каталога/Telegram бери из env `CATALOG_URL`/`TELEGRAM_URL` или из файла `memory/brief/conversion-map.md` на диске. Никогда не вставляй literal `href="[REDACTED]"` (Read-tool/secret-scan redaction ≠ on-disk value). HTML linter блокирует такие href.
+
 2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-tracking-map.md` / `offers-map.md`.  
 Не больше **3** упоминаний основного офера/CTA на статью (включая баннер и «что дальше»).
 

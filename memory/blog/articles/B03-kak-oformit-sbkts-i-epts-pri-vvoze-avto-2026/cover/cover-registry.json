@@ -1,0 +1,50 @@
+{
+  "topic_id": "B03",
+  "slug": "kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс с планшетом у лаборатории во Владивостоке: крючок про СБКТС и ЭПТС после таможни",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-05T21:47:12+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс с планшетом у лаборатории во Владивостоке: крючок про СБКТС и ЭПТС после таможни",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Схема порядка после таможни: СБКТС, ЭПТС, затем ГИБДД",
+      "h2_anchor": "Разложите порядок после таможни: СБКТС → ЭПТС → ГИБДД",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Чеклист документов до записи в лабораторию на СБКТС",
+      "h2_anchor": "Соберите пакет документов до записи в лабораторию",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Мокап проверки лаборатории в реестре РАЛ: статус Действует",
+      "h2_anchor": "Проверьте лабораторию во Владивостоке в реестре РАЛ",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

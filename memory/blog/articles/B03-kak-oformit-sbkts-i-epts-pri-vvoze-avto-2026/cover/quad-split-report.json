@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B03-kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1016,
+      569
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 569,
+        "end": 591
+      },
+      "v_gutter_px": {
+        "start": 1016,
+        "end": 1043
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1016,
+          "bottom": 569
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1016,
+          "bottom": 569
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс с планшетом у лаборатории во Владивостоке: крючок про СБКТС и ЭПТС после таможни",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1043,
+          "top": 2,
+          "right": 2048,
+          "bottom": 567
+        },
+        "raw_box_px": {
+          "left": 1043,
+          "top": 0,
+          "right": 2048,
+          "bottom": 569
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема порядка после таможни: СБКТС, ЭПТС, затем ГИБДД",
+        "h2_anchor": "Разложите порядок после таможни: СБКТС → ЭПТС → ГИБДД"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 9,
+          "top": 591,
+          "right": 1006,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 591,
+          "right": 1016,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист документов до записи в лабораторию на СБКТС",
+        "h2_anchor": "Соберите пакет документов до записи в лабораторию"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1047,
+          "top": 591,
+          "right": 2044,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1043,
+          "top": 591,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап проверки лаборатории в реестре РАЛ: статус Действует",
+        "h2_anchor": "Проверьте лабораторию во Владивостоке в реестре РАЛ"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разложите порядок после таможни: СБКТС → ЭПТС → ГИБДД",
+    "injected inline_2 after H2 — Соберите пакет документов до записи в лабораторию",
+    "injected inline_3 after H2 — Проверьте лабораторию во Владивостоке в реестре РАЛ"
+  ]
+}

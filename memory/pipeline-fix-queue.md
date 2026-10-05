@@ -6,6 +6,72 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261006-2145-cover-mcp-timeout-kie-fallback
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-cover
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` returned HTTP `-32001` Request timed out on 2K i2i quad canvas.
+- No result URL/task_id appeared in MCP/agent logs after ~75s poll; no async status MCP tool exposed.
+
+### How the agent recovered this run
+- Followed batch `preferred_image_flow`: `scripts/excalibur_blog_kie_gpt_image2_api.py` with same `quad-mcp-batch.json` mcp_args (1 job, input_urls).
+- Kie createTask → poll → success URL; then `excalibur_blog_quad_apply.py --inject-html`.
+
+### Durable fix needed before next run
+- Cover Cloud runbook: default to Kie async script; treat sync MCP as legacy.
+- Or expose async MCP create/status tools so late URLs are recoverable without second provider path.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py` (timeout_policy already prefers Kie)
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/blog-cover-quad-canvas-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261006-2140-cover-toxic-tokens-in-quad-prompt-template
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-cover
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` injects example toxic RU words (`лох` / `лохов`) into the MCP prompt as a negative list, which violates the cover rule "без toxic tokens".
+- Same template also hard-locks cover outfit to "thick heavyweight white hoodie", conflicting with design code (no hood) and per-article `scene_hint` weather/topic outfit.
+- Auto `quad_manifest.py` seed hooks still speak SEO (Wordstat/прочтения) for auto-niche topic B03 (СБКТС/ЭПТС).
+
+### How the agent recovered this run
+- Rewrote `cover/quad-manifest.json` with B03 hooks/scene_hints (lab/customs, no SEO).
+- Sanitized `quad-mcp-prompt.txt` + `quad-mcp-batch.json` before MCP: removed toxic examples; replaced hoodie lock with scene-driven outfit.
+
+### Durable fix needed before next run
+- Remove toxic example tokens from prompt builder; keep only abstract "non-insulting" wording.
+- Drop hardcoded hoodie outfit lock; defer to `slots.cover.scene_hint` + design code.
+- Seed default cover_hook/meme_caption from article primary_query / niche, not SEO demo strings.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `memory/cover/quad-style-digital-meme-collage-ru.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261006-2135-writer-fix-cta-env-and-elpts-fallbacks
 status: open
 run_date: 2026-10-06

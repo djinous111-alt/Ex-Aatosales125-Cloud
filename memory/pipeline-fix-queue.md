@@ -57,7 +57,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_doctor.py` (errors=0)
-commit: pending-parent-commit
+commit: 7289d1c
 
 
 ## INC-20261006-2149-indexer-llms-blog-path-stale
@@ -116,7 +116,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_llms_generator.py --help` (blog-dir only)
 - `rg --blog-path` (only negation notes remain)
 - doctor llms `--blog-dir` check PASS
-commit: pending-parent-commit
+commit: 7289d1c
 
 
 ## INC-20261006-2145-cover-mcp-timeout-kie-fallback
@@ -161,7 +161,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` preferred Kie / legacy MCP wording in cover skill
-commit: pending-parent-commit
+commit: 7289d1c
 
 
 ## INC-20261006-2140-cover-toxic-tokens-in-quad-prompt-template
@@ -209,7 +209,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile` cover prompt + quad_manifest
 - `rg` confirms no `лох` / hoodie lock in prompt builder
-commit: pending-parent-commit
+commit: 7289d1c
 
 
 ## INC-20261006-2135-writer-fix-cta-env-and-elpts-fallbacks
@@ -265,7 +265,7 @@ checks_run:
 - redacted href unit
 - gov soft-fail unit
 - py_compile html_linter + link_verify
-commit: pending-parent-commit
+commit: 7289d1c
 
 
 ## INC-20261006-2128-geo-qa-typed-task-missing
@@ -311,7 +311,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` supported generalPurpose path in director/task-map
-commit: pending-parent-commit
+commit: 7289d1c
 
 
 ## INC-20261006-2129-geo-qa-cta-redacted-href
@@ -360,7 +360,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - detect_redacted_hrefs unit PASS
-commit: pending-parent-commit
+commit: 7289d1c
 
 
 ## INC-20261006-2130-geo-qa-link-verify-gov-egress
@@ -410,7 +410,7 @@ files_changed:
 checks_run:
 - gov soft-fail unit PASS
 - py_compile link_verify
-commit: pending-parent-commit
+commit: 7289d1c
 
 
 ## INC-20261006-2115-research-tech-markers-false-positive
@@ -455,7 +455,7 @@ files_changed:
 checks_run:
 - B03 is_technical_topic False
 - unit asserts аккредитации/reader_pain not technical; MCP/Cursor is
-commit: pending-parent-commit
+commit: 7289d1c
 
 
 ## INC-20261006-2116-research-wordstat-totalcount-only
@@ -495,7 +495,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` totalCount/cluster-first in research skills
-commit: pending-parent-commit
+commit: 7289d1c
 
 
 ## INC-20261006-2125-writer-utility-pain-outcome-markers-missing
@@ -545,7 +545,7 @@ files_changed:
 checks_run:
 - JSON parse editorial-policy
 - py_compile utility_gate
-commit: pending-parent-commit
+commit: 7289d1c
 
 
 ## INC-20261005-2105-director-doctor-blog-dir

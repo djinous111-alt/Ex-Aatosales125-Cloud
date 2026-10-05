@@ -261,17 +261,24 @@ category: toolchain
 ### How the agent recovered this run
 - Continued pipeline after confirming llms generator `--help` works with `--blog-dir`.
 - Did not change doctor mid-run; deferred durable fix to Fixer.
+- Indexer (B02): first call with skill/agent example `--blog-path /` failed (`unrecognized arguments`); reran without `--blog-path`, success → `memory/blog/llms.txt` + `llms-full.txt`.
 
 ### Durable fix needed before next run
 - Align doctor check with actual CLI (`--blog-dir`) OR restore `--blog-path` as alias in llms generator; update indexer skill examples if needed.
+- Remove `--blog-path` from indexer agent/skill shell examples (keep `--blog-dir` + `--blog-path /` only if generator adds alias).
 
 ### Suggested files to inspect/change
 - `scripts/excalibur_blog_doctor.py`
 - `scripts/excalibur_blog_llms_generator.py`
 - `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
 
 ### Secrets
 - none recorded
+
+### Fixer resolution
+- pending
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

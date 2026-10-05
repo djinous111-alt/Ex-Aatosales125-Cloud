@@ -6,11 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261005-1726-scout-suggest-next-live-gap
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-scout
+topic_id: B02
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_scout_helper.py --suggest-next` returned **B01** because local `blog-topics.md` had no B* cards and ledger missed LIVE-published B01 (`rastamozhka-avto-iz-kitaya-vladivostok-2026`).
+- Suggest-next used only max(B*) from the topics pool and ignored reserved/published IDs, so a fresh Scout run would reuse B01.
+
+### How the agent recovered this run
+- Renamed the new delivery topic card from B01 to **B02**.
+- Restored B01 china-customs row in `shared/published-articles.md` with `[PUBLIC_SITE_URL]` placeholder.
+- Patched `--suggest-next` to advance past reserved/published/active Bxx IDs.
+
+### Durable fix needed before next run
+- Keep ledger in sync with LIVE WP topic_ids after publish (or seed a reserved-id list for LIVE slugs).
+- Scout must treat LIVE WP slug list + ledger reserved IDs as hard constraints before choosing next Bxx.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/published-articles.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (partial fix already in scout_helper this run; Fixer should verify docs/pitfalls)
+
 ## INC-20261005-1724-scout-precommit-secret-name-url
 status: open
 run_date: 2026-10-05
 role: excalibur-blog-scout
-topic_id: B01
+topic_id: B02
 article_dir: n/a
 severity: medium
 category: env

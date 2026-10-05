@@ -187,7 +187,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
-## B01 — Доставка авто из Владивостока
+## B02 — Доставка авто из Владивостока
 
 - **priority:** P0
 - **slug:** dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026
@@ -208,4 +208,4 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram @avtosales125
 - **cover_scene_hint:** герой Авто-Сейлс у автовоза или ж/д платформы во Владивостоке, современный кроссовер на погрузке, плашка «ж/д / автовоз / перегон», угол avto-sales125.ru
 - **metrika_signal:** Дзен #19 логистика 156 PV; parent Wordstat «доставка авто из владивостока» ~4225; LIVE WP без статьи про inland-доставку
-- **scout_notes:** 2026-10-05; LIVE gap vs rastamozhka/SVH/таможня; AS05 = СВХ (хранение), не inland delivery
+- **scout_notes:** 2026-10-05; ID B02 (B01 уже LIVE rastamozhka-avto-iz-kitaya); LIVE gap vs rastamozhka/SVH/таможня; AS05 = СВХ (хранение), не inland delivery

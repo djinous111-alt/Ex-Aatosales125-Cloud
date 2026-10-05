@@ -6,6 +6,108 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261006-2128-geo-qa-typed-task-missing
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-geo-qa
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026
+severity: medium
+category: api
+
+### What went wrong
+- Cloud Task enum does not accept typed `excalibur-blog-geo-qa` (and sibling blog roles).
+- Director had to launch GEO QA as `Task(generalPurpose)` fallback with agent/skill paths.
+
+### How the agent recovered this run
+- Ran GEO QA via generalPurpose contract: `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+- Executed full QA script set and wrote `article-qa.md` / handoff block.
+
+### Durable fix needed before next run
+- Register typed Task names (`excalibur-blog-research|writer|geo-qa|cover|schema|indexer|publish|fixer`) in Cloud Task enum, or document generalPurpose-only orchestration as the supported path in director skill / CLOUD-AUTOMATION.
+
+### Suggested files to inspect/change
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+- `shared/pipeline-task-map.md`
+- `.cursor/agents/excalibur-blog-director.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261006-2129-geo-qa-cta-redacted-href
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-geo-qa
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026
+severity: high
+category: qa
+
+### What went wrong
+- `article.html` contains three CTA anchors with literal `href="[REDACTED]"` (catalog ×2, Telegram ×1).
+- `excalibur_blog_link_verify.py` treats them as site-relative paths → HTTP 404; link-verify verdict FAIL; GEO QA cannot PASS.
+
+### How the agent recovered this run
+- Did not rewrite article body (Writer FIX cycle).
+- Documented exact FIX in `article-qa.md`: restore URLs from `memory/brief/conversion-map.md` (`avto-sales125.ru/`, `t.me/avtosales125`) as in AS09.
+- Logged FAIL handoff; cover/schema not started.
+
+### Durable fix needed before next run
+- Writer skill / secret hygiene: never write placeholder `[REDACTED]` into committed `article.html` hrefs; pull CTA from conversion-map.
+- Pre-publish or writer self-check: reject literal `[REDACTED]` inside `href=`.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_html_linter.py` (optional guard)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261006-2130-geo-qa-link-verify-gov-egress
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-geo-qa
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026
+severity: medium
+category: env
+
+### What went wrong
+- Official portals used in B03 fail link-verify from Cloud agent egress even with retries:
+  - `pub.fsa.gov.ru/ral` — SSL handshake timeout
+  - `portal.elpts.ru` — DNS NXDOMAIN
+  - `help.elpts.ru` — 403 / redirect loop depending on UA
+  - `dp.elpts.ru` — 403 with script UA, 200 with browser UA
+- Soft-fail whitelist in `excalibur_blog_link_verify.py` covers only social hosts (`t.me` etc.), not gov/registry portals.
+
+### How the agent recovered this run
+- Retried with browser UA / longer timeout; recorded which hosts are env-flaky vs broken CTA.
+- Kept URLs in FIX notes for Writer; did not mark overall PASS while CTA literals remain broken.
+
+### Durable fix needed before next run
+- Extend soft-fail / manual-verify policy for known gov hosts (FSA РАЛ, elpts family) or use browser-like UA + accept 403-after-GET as soft warning for those hosts.
+- Document canonical elpts entrypoints that resolve from Cloud (`elpts.ru` 200 observed).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261006-2115-research-tech-markers-false-positive
 status: open
 run_date: 2026-10-06

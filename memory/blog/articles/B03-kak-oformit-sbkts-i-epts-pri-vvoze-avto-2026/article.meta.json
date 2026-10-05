@@ -29,9 +29,12 @@
     "description_aeo": "СБКТС и ЭПТС при ввозе авто оформляют после таможни: аккредитованная лаборатория, СБКТС, ЭПТС со статусом Действующий, затем ОСАГО и ГИБДД."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
-    "date": "2026-10-06"
+    "score": 76,
+    "verdict": "FAIL",
+    "date": "2026-10-06",
+    "human_voice": "PASS",
+    "link_verify": "FAIL",
+    "fix_cycle": 1
   },
   "cover_family": "brand_collage"
 }

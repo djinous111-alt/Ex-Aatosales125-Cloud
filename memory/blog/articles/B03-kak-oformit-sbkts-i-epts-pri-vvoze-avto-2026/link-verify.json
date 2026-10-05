@@ -1,0 +1,84 @@
+{
+  "source": "memory/blog/articles/B03-kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026/article.html",
+  "total_links": 8,
+  "failed_count": 5,
+  "verdict": "fail",
+  "links": [
+    {
+      "url": "[REDACTED]/era-glonass-pri-vvoze-avto-2026-nuzhna-li/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "[REDACTED]/era-glonass-pri-vvoze-avto-2026-nuzhna-li/"
+    },
+    {
+      "url": "https://pub.fsa.gov.ru/ral",
+      "status": null,
+      "ok": false,
+      "method": "GET",
+      "error": "<urlopen error _ssl.c:983: The handshake operation timed out>",
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://portal.elpts.ru/",
+      "status": null,
+      "ok": false,
+      "method": "GET",
+      "error": "<urlopen error [Errno -5] No address associated with hostname>",
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "[REDACTED]/kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "[REDACTED]/kak-vybrat-tamozhnyu-ussuriysk-ili-vladivostok-2026/"
+    },
+    {
+      "url": "[REDACTED]/rastamozhka-avto-iz-kitaya-vladivostok-2026/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "[REDACTED]/rastamozhka-avto-iz-kitaya-vladivostok-2026/"
+    },
+    {
+      "url": "[REDACTED]/[REDACTED]",
+      "status": 404,
+      "ok": false,
+      "method": "HEAD",
+      "error": "HTTP Error 404: Not Found",
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "[REDACTED]/[REDACTED]"
+    },
+    {
+      "url": "https://dp.elpts.ru/",
+      "status": 403,
+      "ok": false,
+      "method": "GET",
+      "error": "HTTP Error 403: Forbidden",
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://help.elpts.ru/",
+      "status": 403,
+      "ok": false,
+      "method": "GET",
+      "error": "HTTP Error 403: Forbidden",
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

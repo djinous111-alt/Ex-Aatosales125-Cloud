@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261005-1756-indexer-commit-secret-scan
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-indexer
+topic_id: B02
+article_dir: memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secrets scanner failed twice on Indexer commit:
+  1) `CLOUD_AGENT_INJECTED_SECRET_NAMES` included a raw public URL as a "secret name" → bash `${!name}` → `invalid variable name` (blocks all commits).
+  2) `PUBLIC_SITE_URL` value is treated as a secret, but `llms.txt` / `llms-full.txt` intentionally embed the public site base (already present in HEAD).
+
+### How the agent recovered this run
+- Filtered non-identifier entries out of `CLOUD_AGENT_INJECTED_SECRET_NAMES` for the commit shell.
+- Added `<!-- pragma: allowlist secret -->` only on the new B02 URL lines in `llms.txt` and `llms-full.txt`.
+- Commit + push succeeded.
+
+### Durable fix needed before next run
+- Remove URL-as-name from Cloud injected secret names (names must be env var identifiers only).
+- Exclude `PUBLIC_SITE_URL` from commit secret scan OR document pragma/placeholder policy for `memory/blog/llms*.txt` in indexer skill.
+- Prefer generator flag to emit placeholder site-base for git and expand at publish (align with schema placeholder pattern).
+
+### Suggested files to inspect/change
+- Cursor Cloud secrets / injected secret names config
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_llms_generator.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261005-1754-cover-toxic-words-in-prompt
 status: open
 run_date: 2026-10-05

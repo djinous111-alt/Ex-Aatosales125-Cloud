@@ -1,0 +1,17 @@
+{
+  "article": "memory/blog/articles/B01-kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 1,
+  "verified_facts_count": 0,
+  "unverified_facts_count": 1,
+  "facts": [
+    {
+      "fact": "100",
+      "kind": "large_number",
+      "context": "Ориентир рынка у ряда компаний: депозит часто 50–100 тыс. руб. – это не прайс Авто-Сейлс, а сигнал \"ден",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

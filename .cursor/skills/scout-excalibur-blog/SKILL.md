@@ -43,7 +43,10 @@ Append new Topic Card to blog-topics.md
   ```bash
   python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
+  Helper сидирует next B## из **max(pool, ledger, article dirs, wp-publish-log, LIVE slug hints)** (`memory/topics/slug-topic-hints.json`). **Не** переиспользуй topic_id, если ID/slug ещё жив на LIVE, даже при пустом pool.
   Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+* Git commit после правок тем: `bash scripts/excalibur_git.sh commit -m "…"` (sanitize `CLOUD_AGENT_*_SECRET_NAMES`; иначе pre-commit падает на `[REDACTED]`).
+* После publish нового slug — допиши пару slug→topic_id в `memory/topics/slug-topic-hints.json`.
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по нише Авто-Сейлс:

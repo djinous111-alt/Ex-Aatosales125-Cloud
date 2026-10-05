@@ -45,7 +45,7 @@ Scout-агент ищет горячие и свежие инфоповоды п
 ## Твои задачи
 
 1. **Анализ написанного:** Прочитать `shared/published-articles.md`, активные папки `memory/blog/articles/*` и существующий пул тем в `memory/topics/blog-topics.md`. Учесть `EXCALIBUR_RECENT_WP_POSTS` / LIVE slugs — не дублировать.
-2. **Определение следующего ID:** Запустить скрипт `scripts/excalibur_blog_scout_helper.py --suggest-next` для определения следующего номера темы (например, `B02`).
+2. **Определение следующего ID:** `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` (сид: pool+ledger+article dirs+wp-log+LIVE slug hints в `memory/topics/slug-topic-hints.json`; не reuse B## пока slug live). Коммит: `bash scripts/excalibur_git.sh commit …`.
 3. **Поиск трендов (WebSearch):** Выполнить глубинный поиск через `WebSearch` по нише Авто-Сейлс: растаможка авто из Китая/Кореи/Японии 2026, ЭПТС/СБКТС, проверка Encar, СВХ Владивосток, утильсбор, типичные ошибки при заказе авто из Азии. Найти свежие how-to/чеклист темы для новичков.
 4. **Валидация спроса (Yandex Wordstat):** 
    - Сначала вызвать `wordstat_get_top_requests` сервера `user-mcp-kv` для широкого parent-кластера (например, `растаможка авто`, `авто из китая`, `encar проверка`), затем для узкого how-to запроса.

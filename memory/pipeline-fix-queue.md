@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None for run 2026-10-05 after fixer loop._
+
+
 ## INC-20261005-1335-geo-qa-cta-href-redacted-placeholder
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -41,10 +44,33 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Writer/GEO QA/writing-contract: запрет литерала [REDACTED]/[CATALOG_URL] в href.
+- Добавлен scripts/excalibur_blog_restore_cta.py (env + conversion-map с диска).
+- link_verify классифицирует cta_placeholder как fail.
+- conversion-map/fact-bank/site-brief: заметки агентам не копировать masked URL.
+files_changed:
+- `scripts/excalibur_blog_restore_cta.py`
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `memory/brief/conversion-map.md`
+- `memory/brief/fact-bank.md`
+- `memory/brief/site-brief.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_restore_cta.py scripts/excalibur_blog_link_verify.py`
+- `restore_cta --dry-run on B01`
+- `cta_placeholder unit asserts`
+commit: pending-parent-commit
 
 ## INC-20261005-1327-writer-article-html-silent-revert
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-writer
 topic_id: B01
@@ -70,7 +96,18 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Writer skill: после write — verify markers + git add html/meta; риск параллельного Fixer+Writer.
+- pitfalls: Writer sync risk.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg Writer sync / git add guidance in writer skill`
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -409,7 +446,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20261005-1312-scout-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-scout
 topic_id: B01
@@ -437,10 +474,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Восстановлены scripts/excalibur_git.sh + sanitize_cloud_secret_names.sh.
+- Doctor warn-check на наличие файлов; scout skill/agent напоминают commit через wrapper.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/sanitize_cloud_secret_names.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `doctor errors=0`
+- `sanitize filters [REDACTED] from CLOUD_AGENT_*_SECRET_NAMES`
+commit: pending-parent-commit
 
 ## INC-20261005-1312-scout-b01-id-reuse-after-live
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-scout
 topic_id: B01
@@ -469,10 +521,27 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- scout_helper --suggest-next сидирует max B## из pool+ledger+article dirs+wp-log+LIVE slug hints.
+- Добавлен memory/topics/slug-topic-hints.json (исторический B01 live slug).
+- Next ID после B01 → B02.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `memory/topics/slug-topic-hints.json`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `scout_helper --suggest-next → B02; reserved includes B01; live-used B01`
+- `unit suggest_next_b_id`
+commit: pending-parent-commit
 
 ## INC-20261005-1330-research-fts-cars-504
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-research
 topic_id: B01
@@ -498,10 +567,21 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Research skill: soft-fail customs.gov.ru 504/timeout → зеркала elpts-info/tks/consultant; official URL as unverified-fetch.
+- pitfalls Research пункт.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg customs.gov.ru soft-fail in research skill`
+commit: pending-parent-commit
 
 ## INC-20261005-1330-research-tech-markers-github-false-positive
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-research
 topic_id: B01
@@ -527,7 +607,20 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- research_notes_gate: technical_topic только по topic card; github убран из TECH_MARKERS; notes body не сканируется.
+- B01 re-check technical_topic=false PASS.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `research_notes_gate B01 → technical_topic False PASS`
+- `unit is_technical_topic github notes false-positive`
+commit: pending-parent-commit
 
 ## INC-20261005-1322-geo-qa-utility-pain-outcome-policy-missing
 status: fixed
@@ -631,7 +724,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_link_verify.py …/B01-…/article.html` → verdict pass
 commit: pending-parent-commit
 ## INC-20261005-1340-director-cta-redacted-literal-href
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-director
 topic_id: B01
@@ -660,10 +753,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Тот же durable контур, что INC-1335: restore_cta + запрет [REDACTED] в writer/geo-qa/contract/pitfalls.
+files_changed:
+- `scripts/excalibur_blog_restore_cta.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `restore_cta dry-run; link_verify cta_placeholder`
+commit: pending-parent-commit
 
 ## INC-20261005-1345-schema-url-from-env
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-schema
 topic_id: B01
@@ -694,10 +798,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Schema skill/agent: URL из env + authors-registry; запрет [REDACTED].
+- scripts/excalibur_blog_schema_validate.py (+ --expand-env для secret-scan копий).
+files_changed:
+- `scripts/excalibur_blog_schema_validate.py`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `schema_validate --expand-env B01 PASS`
+- `unit REDACTED fails / https PASS`
+commit: pending-parent-commit
 
 ## INC-20261005-1345-cover-hero-force-upload-hosts
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-cover
 topic_id: B01
@@ -729,10 +848,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- hero_reference_url: providers catbox→0x0→litterbox→transfer; --force fail → SHA256 match existing URL reuse.
+- Cover skill документирует hash-check до COVER HERO BLOCKER.
+files_changed:
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `py_compile hero_reference_url; --help shows providers`
+commit: pending-parent-commit
 
 ## INC-20261005-1350-indexer-llms-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-indexer
 topic_id: B01
@@ -764,4 +895,18 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Indexer skill/agent (repo+.cursor): убран --blog-path; только --blog-dir + --out-dir.
+- Doctor check: llms help has no --blog-path.
+files_changed:
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `doctor errors=0; rg blog-path indexer contracts`
+commit: pending-parent-commit

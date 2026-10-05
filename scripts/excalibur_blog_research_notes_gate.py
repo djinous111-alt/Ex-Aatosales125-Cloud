@@ -14,6 +14,8 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Applied only to topic-card fields (h1/primary_query/…). Do NOT include
+# "github" — the mandatory github_evidence section would false-positive.
 TECH_MARKERS = (
     "ai",
     "ии",
@@ -24,7 +26,6 @@ TECH_MARKERS = (
     "cursor",
     "make",
     "n8n",
-    "github",
     "docker",
     "rag",
     "workflow",
@@ -73,13 +74,18 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
-def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+def is_technical_topic(context: dict[str, Any], notes: str = "") -> bool:
+    """Detect technical topics from the topic card only.
+
+    Do not scan research-notes body: the mandatory `github_evidence` section /
+    github.com URLs would falsely mark auto/customs articles as technical.
+    """
+    del notes  # kept for call-site compatibility
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
     return any(marker in blob for marker in TECH_MARKERS)
 
 

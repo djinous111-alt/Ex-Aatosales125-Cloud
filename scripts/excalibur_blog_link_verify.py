@@ -104,7 +104,20 @@ def _get_fallback(
         }
 
 
+CTA_PLACEHOLDER_RE = re.compile(r"^\[([A-Z][A-Z0-9_]*)\]$")
+REDACTED_HREF_RE = re.compile(r"^\[REDACTED\]$", re.I)
+
+
+def is_cta_placeholder(href: str) -> bool:
+    value = href.strip()
+    if REDACTED_HREF_RE.fullmatch(value):
+        return True
+    return bool(CTA_PLACEHOLDER_RE.fullmatch(value))
+
+
 def classify_link(href: str, site_base: str | None) -> str:
+    if is_cta_placeholder(href):
+        return "cta_placeholder"
     if href.startswith("/"):
         return "internal_relative"
     parsed = urlparse(href)
@@ -173,6 +186,22 @@ def verify_article(
     results: list[dict[str, Any]] = []
     for href in links:
         kind = classify_link(href, site_base)
+        if kind == "cta_placeholder":
+            results.append(
+                {
+                    "url": href,
+                    "kind": kind,
+                    "status": None,
+                    "ok": False,
+                    "skipped": False,
+                    "method": None,
+                    "error": (
+                        "CTA placeholder in href — restore absolute URL via "
+                        "scripts/excalibur_blog_restore_cta.py (never copy [REDACTED] from tool output)"
+                    ),
+                }
+            )
+            continue
         if skip_external and kind == "external":
             results.append(
                 {

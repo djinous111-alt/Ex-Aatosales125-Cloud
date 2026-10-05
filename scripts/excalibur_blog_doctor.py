@@ -133,6 +133,17 @@ def main() -> int:
         check=False,
     )
     check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check(
+        "--blog-path" not in llms_help.stdout,
+        "llms generator has no --blog-path (use --blog-dir)",
+        errors,
+        warnings,
+    )
+
+    git_helper = root / "scripts/excalibur_git.sh"
+    sanitize = root / "scripts/sanitize_cloud_secret_names.sh"
+    check(git_helper.is_file(), "scripts/excalibur_git.sh exists (secret-name sanitize)", errors, warnings, warn=True)
+    check(sanitize.is_file(), "scripts/sanitize_cloud_secret_names.sh exists", errors, warnings, warn=True)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

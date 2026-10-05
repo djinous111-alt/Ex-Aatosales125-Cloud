@@ -61,6 +61,8 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
+8. Technical-topic check в `research_notes_gate` смотрит **только** topic card (h1/primary_query/slug/…), не тело notes. Секция `github_evidence` / URL `github.com` **сами по себе** не делают авто/таможенную тему technical.
+9. **Гос-сайты / ФТС soft-fail:** при timeout/504 на `customs.gov.ru` (и похожих) не блокируй research. Используй зеркала: elpts-info resources, consultant/rulaws, tks.ru, РИА; в source_table помечай official URL как `unverified-fetch` / note про 504. 1–2 retry с backoff для gov-доменов допустимы, затем зеркало.
 
 ## Blockers
 

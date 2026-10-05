@@ -4,6 +4,8 @@ Excalibur BLOG читает этот файл для метаданных сай
 
 ## Сайт
 
+> **URL:** tool output может показать `[REDACTED]`. Для schema/CTA используй env `PUBLIC_SITE_URL`/`CATALOG_URL`/`TELEGRAM_URL` или Python-чтение файла с диска — не копируй литерал в артефакты.
+
 - **site_name:** Авто-Сейлс
 - **brand:** AVTO SALES / Avto-Sales
 - **site_url:** https://avtosales125.ru

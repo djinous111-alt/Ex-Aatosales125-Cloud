@@ -232,8 +232,14 @@ Excalibur BLOG следует этому контракту для каждой 
 
 ### Блок 4: Мягкий CTA бренда (внутри одной секции блока 3)
 
-2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-tracking-map.md` / `offers-map.md`.  
+2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-map.md` / `offers-map.md`.  
 Не больше **3** упоминаний основного офера/CTA на статью (включая баннер и «что дальше»).
+
+**CTA URL (обязательно):**
+- В `href` сразу абсолютные URL (`https://…`), подставленные из env `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL` или Python-чтения `memory/brief/conversion-map.md` **с диска**.
+- **Запрещено** оставлять литералы `href="[REDACTED]"`, `href="[CATALOG_URL]"`, `href="[TELEGRAM_URL]"` и любые `[ENV_NAME]`-токены в production `article.html`.
+- Cloud tool redaction часто показывает brand URL как `[REDACTED]` в Read/ Grep — **не копируй** это в HTML. Восстановление: `python3 scripts/excalibur_blog_restore_cta.py --article-dir <dir>`.
+- `excalibur_blog_link_verify.py` классифицирует такие токены как `cta_placeholder` (явный fail), а не как internal 404.
 
 ### Блок 5: Inline-баннер (опционально)
 

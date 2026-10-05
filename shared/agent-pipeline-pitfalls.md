@@ -53,3 +53,29 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator CLI: **`--blog-dir`** + `--out-dir`, **без** `--blog-path` (флага нет). Doctor проверяет `--blog-dir`.
+
+## CTA / [REDACTED]
+
+- Cloud redaction маскирует brand URL в tool output как `[REDACTED]`. **Запрещено** писать `href="[REDACTED]"` / `[CATALOG_URL]` в `article.html` или `schema.jsonld`.
+- CTA: env или Python-чтение `conversion-map.md` с диска; ремонт — `scripts/excalibur_blog_restore_cta.py`.
+- Schema URL: env + authors-registry; validate — `scripts/excalibur_blog_schema_validate.py`.
+
+## Scout / topic IDs / git
+
+- `--suggest-next` сидирует max B## из pool + ledger + article dirs + wp-publish-log + LIVE WP slug hints (`memory/topics/slug-topic-hints.json`). Не переиспользуй B##, пока slug жив на WP.
+- Коммиты в Cloud: `bash scripts/excalibur_git.sh commit …` (sanitize `CLOUD_AGENT_*_SECRET_NAMES`, иначе `[REDACTED]` ломает pre-commit).
+
+## Writer sync risk
+
+- После FIX/write сразу verify markers + `git add` article.html/meta. Параллельный Fixer+Writer на одном article_dir может silent-revert unstaged body.
+
+## Research
+
+- Technical topic = только topic card fields; `github_evidence` ≠ technical auto.
+- `customs.gov.ru` 504/timeout → зеркала (elpts-info, tks, consultant), official URL как unverified-fetch.
+
+## Cover hero host
+
+- `--force` upload: catbox → 0x0 → litterbox → transfer; при провале — SHA256 match existing `reference_url_hosted` vs local PNG, затем reuse (не BLOCKER по «странному» WP filename).
+

@@ -1,5 +1,6 @@
 # Conversion map — Excalibur BLOG (Авто-Сейлс)
 
+> **Агентам:** Cloud tool output может показать URL как `[REDACTED]`. **Не копируй** этот литерал в `article.html` / schema. Бери CTA через env (`CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`) или `python3 scripts/excalibur_blog_restore_cta.py --article-dir …` (читает этот файл с диска).
 
 | CTA | URL / action | Max mentions per article | Notes |
 | --- | --- | --- | --- |

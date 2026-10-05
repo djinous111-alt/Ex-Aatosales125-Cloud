@@ -254,3 +254,65 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261005-1308-director-scout-niche-regression
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: high
+category: prompt
+
+### What went wrong
+- `.cursor/agents/excalibur-blog-scout.md` и `.cursor/skills/scout-excalibur-blog/SKILL.md` снова описывают нишу Cursor/n8n/Make, хотя `memory/brief/site-brief.md` и durable memory фиксируют нишу Авто-Сейлс (JP/KR/CN).
+- `pipeline-task-map.md` Scout-промпт тоже предлагает поиск по Cursor/n8n/Make.
+
+### How the agent recovered this run
+- Директор явно переопределил Scout-промпт: только Авто-Сейлс JP/KR/CN; запрет Cursor/n8n/Make; дедуп по EXCALIBUR_RECENT_WP_POSTS.
+
+### Durable fix needed before next run
+- Переписать scout agent/skill/task-map под Авто-Сейлс и убрать AI-automation примеры запросов.
+- Добавить явный niche gate: site-brief.niche обязателен.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `shared/pipeline-task-map.md`
+- `agents/excalibur-blog-scout.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261005-1308-director-doctor-blog-path
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` проверяет `--blog-path` в llms generator help, а `excalibur_blog_llms_generator.py` принимает только `--blog-dir`. Doctor: errors=1 при рабочей инфраструктуре.
+
+### How the agent recovered this run
+- Продолжили пайплайн; ошибка doctor не блокирует research_start. Зафиксировано для fixer.
+
+### Durable fix needed before next run
+- Обновить doctor check на `--blog-dir` (или добавить alias `--blog-path`).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

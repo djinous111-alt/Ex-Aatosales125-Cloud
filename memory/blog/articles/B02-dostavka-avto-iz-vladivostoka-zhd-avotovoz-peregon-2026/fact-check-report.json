@@ -1,0 +1,73 @@
+{
+  "article": "memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 9,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 6,
+  "facts": [
+    {
+      "fact": "2026 год",
+      "kind": "date_or_year",
+      "context": "вку. Ниже – сравнение ж/д, автовоза и перегона на 2026 год и чек-лист, после которого останется один способ",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "он своим ходом / частник Срок до Москвы (ориентир 2026) Контейнер: полный цикл часто 16–40+ дней; закрыт",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "7 дней",
+      "kind": "metric_or_duration",
+      "context": "цикл часто 16–40+ дней; закрытый вагон РЖД около 7 дней, но дороже 18–22 дня в пути + ожидание погрузки (",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 недель",
+      "kind": "metric_or_duration",
+      "context": "погрузки (в сезон 3–7 дней, без брони бывает до 2–3 недель) 7–14 дней активной езды, если всё гладко Риск ку",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "14 дней",
+      "kind": "metric_or_duration",
+      "context": "сезон 3–7 дней, без брони бывает до 2–3 недель) 7–14 дней активной езды, если всё гладко Риск кузова Контей",
+      "verified": true,
+      "reason": "Numerical value '14' matched in fact-bank context"
+    },
+    {
+      "fact": "9 000",
+      "kind": "large_number",
+      "context": "е: за дни, за закрытый кузов или за чужой руль на 9 000 км. Типичная ошибка новичка – взять самый дешёвый",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "9 100",
+      "kind": "large_number",
+      "context": "ожится на владельца. Например, расстояние порядка 9 100–9 300 км. При 400–500 км в сутки автовоз как раз",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "9 300",
+      "kind": "large_number",
+      "context": "на владельца. Например, расстояние порядка 9 100–9 300 км. При 400–500 км в сутки автовоз как раз выходит",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "500",
+      "kind": "large_number",
+      "context": "ример, расстояние порядка 9 100–9 300 км. При 400–500 км в сутки автовоз как раз выходит на 19–22 дня в",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

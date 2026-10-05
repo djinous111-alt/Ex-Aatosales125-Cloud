@@ -6,8 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
-## INC-20261005-1742-writer-utility-gate-empty-pain-markers
+## INC-20261005-1745-geo-qa-typed-task-missing
 status: open
+run_date: 2026-10-05
+role: excalibur-blog-geo-qa
+topic_id: B02
+article_dir: memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud API не принимает typed Task `excalibur-blog-geo-qa`.
+- Директор вынужден запускать роль через `Task(generalPurpose)` fallback с путями `.cursor/agents/excalibur-blog-geo-qa.md` и `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Выполнил полный GEO QA контракт в generalPurpose fallback: все скрипты + `article-qa.md` + handoff marker.
+- Не выполнял cover/schema/publish (вне зоны).
+
+### Durable fix needed before next run
+- Зарегистрировать typed Task `excalibur-blog-geo-qa` в Cloud Agent / environment config, либо явно задокументировать generalPurpose fallback как канон в director skill / CLOUD-AUTOMATION.
+- Проверить, что остальные роли pipeline тоже имеют typed Task или единый fallback-паттерн.
+
+### Suggested files to inspect/change
+- `.cursor/environment.json`
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+- `AGENTS.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261005-1742-writer-utility-gate-empty-pain-markers
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-writer
 topic_id: B02
@@ -21,13 +56,12 @@ category: script
 - Тот же BLOCK воспроизводится на уже опубликованной AS09, значит это не дефект статьи B02.
 
 ### How the agent recovered this run
-- В `article.html` заложены маркеры из human-voice gate (`боль`, `ошиб`, `проблем`, `хаос`, `результат`, `сможете`, `получите`, `проверьте`, `соберите`).
-- CTA взяты из env `CATALOG_URL` / `TELEGRAM_URL` (не `[REDACTED]` в href).
-- HTML linter PASS; char_count в диапазоне 8500–9500.
+- Writer: в `article.html` заложены маркеры из human-voice gate; CTA из env.
+- GEO QA: добавил `pain_markers_ru` / `outcome_markers_ru` в `editorial-policy.json` (канон human-voice) и fallback в `excalibur_blog_utility_gate.py` при пустых списках.
+- После фикса utility gate B02: PASS (pain=10, outcome=8).
 
 ### Durable fix needed before next run
-- Добавить в `editorial-policy.json` списки `pain_markers_ru` и `outcome_markers_ru`, синхронные с `PAIN_MARKERS` / `OUTCOME_MARKERS` в `excalibur_blog_human_voice_gate.py`.
-- Либо в utility_gate fallback на те же константы, если policy-списки пустые.
+- done in this run (policy lists + script fallback).
 
 ### Suggested files to inspect/change
 - `memory/brief/editorial-policy.json`
@@ -38,7 +72,14 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Restored `pain_markers_ru` / `outcome_markers_ru` in editorial-policy from human-voice canon.
+- Added utility_gate fallback when policy lists are empty.
+checks_run:
+- `python3 scripts/excalibur_blog_utility_gate.py --article-dir memory/blog/articles/B02-dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026 --output utility-gate-report.json` → PASS
+commit: fdced1a
 
 
 ## INC-20261005-1738-research-tech-markers-false-ai

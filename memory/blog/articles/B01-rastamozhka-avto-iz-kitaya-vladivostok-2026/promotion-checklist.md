@@ -1,7 +1,7 @@
 # Promotion checklist — B01 rastamozhka-avto-iz-kitaya-vladivostok-2026
 
 Дата публикации: 2026-10-05  
-Live URL: (заполнить после publish) /blog/rastamozhka-avto-iz-kitaya-vladivostok-2026/
+Live URL: [PUBLIC_SITE_URL]/2026/10/05/rastamozhka-avto-iz-kitaya-vladivostok-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Выберите ветку: ДФО или таможенный транзит
 • Цепочка Владивосток: порт → СВХ → ПТД → выпуск → СБКТС → ЭПТС
 
-Читать: [URL после publish]
+Читать: [PUBLIC_SITE_URL]/2026/10/05/rastamozhka-avto-iz-kitaya-vladivostok-2026/
 ```
 
 ## Перелинковка
@@ -46,4 +46,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 ## Notes
 
 - llms.txt / llms-full.txt обновлены в memory/blog/
-- Cover + schema готовы; publish следующий шаг
+- Published: post_id=4043; featured=4044; inline=4045/4046/4047; schema_meta ok; live HEAD 200

@@ -29,6 +29,9 @@
     - **ЗАПРЕЩЕНО:** интерактивное оглавление — `<ol>` или `<ul>` с `<a href="#...">` на заголовки H2/H3 сразу после TL;DR. После blockquote TL;DR идёт контекстный `<p>`, затем первый `<h2>`.
     - Атрибут `id` у `<h2>` — только если нужен для внешней перелинковки; не создавай оглавление в теле статьи.
     - В конце статьи (перед FAQ) вставляй блок верификации (**Fact Check Box**) через `<blockquote>` от редакции Авто-Сейлс. **Не** упоминай Wordstat и Метрику в тексте статьи.
+13. **CTA URL (критично):** в `href` сразу абсолютные URL из env / `memory/brief/conversion-map.md` (`CATALOG_URL`, `TELEGRAM_URL`). **Запрещены** литералы `[CATALOG_URL]` / `[TELEGRAM_URL]` в HTML. На CTA-строках с secret-совпадающими URL добавь `<!-- pragma: allowlist secret -->`.
+14. Перед локальными gates убедись, что `memory/brief/editorial-policy.json` содержит непустые `pain_markers_ru` / `outcome_markers_ru` (иначе utility/human-voice skip или ложный BLOCK).
+15. `excalibur_blog_human_voice_gate.py -o human-voice-report.json` — путь `-o` относительный к `--article-dir` (не передавай repo-relative `memory/blog/...`, иначе nested duplicate).
 
 ## Выход
 
@@ -42,5 +45,6 @@ memory/blog/articles/<topic_id>-<slug>/article.meta.json
 - нет research-notes.md
 - utility-only нарушен (вода, нет шагов)
 - объём вне диапазона после 1 правки
+- CTA-плейсхолдеры `[CATALOG_URL]` / `[TELEGRAM_URL]` в article.html
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`

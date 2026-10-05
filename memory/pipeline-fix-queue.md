@@ -256,7 +256,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261005-0917-director-as-topic-selection
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-director
 topic_id: n/a
@@ -288,10 +288,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- `today.py` / `scout_helper.py` parse `AS##|B##` topic cards and article dirs.
+- Live WP slugs (up to 100 recent posts) seed `used` topic IDs before suggestion; scout `--check-slug` denylist.
+- New scout cards stay on B## series; AS## counted in pool/overlap/live.
+files_changed:
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next`
+- `python3 scripts/excalibur_blog_today.py`
+commit: pending-parent-commit
+
 
 ## INC-20261005-0917-director-doctor-blog-path
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-director
 topic_id: n/a
@@ -316,10 +330,19 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Doctor asserts `--blog-dir` (not `--blog-path`) and warns if stale `--blog-path` appears without `--blog-dir`.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+commit: pending-parent-commit
+
 
 ## INC-20261005-0920-scout-niche-cursor-vs-avtosales
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-scout
 topic_id: B01
@@ -350,10 +373,24 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Scout agent/skill rewritten for Авто-Сейлс (JP/KR/CN); Cursor/n8n/Make topics forbidden without Director override.
+- WebSearch/Wordstat examples switched to auction/Encar/customs/СВХ clusters.
+files_changed:
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` Авто-Сейлс present; Cursor AI niche removed from scout agents
+commit: pending-parent-commit
+
 
 ## INC-20261005-0922-scout-precommit-hook-fail
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-scout
 topic_id: B01
@@ -377,10 +414,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Added `scripts/excalibur_git.sh` to filter `CLOUD_AGENT_*_SECRET_NAMES` to bash identifiers before git hooks.
+- Documented prefer `bash scripts/excalibur_git.sh commit` in pitfalls; `--no-verify` only emergency.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- sanitize filter drops `[REDACTED]` / `bad-name`
+- doctor warns if helper missing
+commit: pending-parent-commit
+
 
 ## INC-20261005-0930-research-notes-gate-ru-false-technical
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-research
 topic_id: B01
@@ -414,10 +464,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Removed bare `ии` marker; word-boundary short markers; auto-niche allowlist disables technical_topic.
+- `accessed_at` counts labels or ISO dates in source_table URL rows.
+- `pain_solution_map` counts markdown data-rows (no pain/solution cell tokens required).
+- Research skill documents gate expectations.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+checks_run:
+- research-notes gate on B01 → PASS, technical_topic=false
+commit: pending-parent-commit
+
 
 ## INC-20261005-0945-writer-utility-pain-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-writer
 topic_id: B01
@@ -451,10 +515,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Kept/asserted `pain_markers_ru` / `outcome_markers_ru` + mins in editorial-policy; doctor checks non-empty.
+- Synced human-voice PAIN_MARKERS (`страшн`/`риск`); fixed `exactly_five_lists` to per-`<ol>` exact count.
+- Writer skill documents relative `-o human-voice-report.json` under `--article-dir`.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+checks_run:
+- doctor editorial-policy markers OK
+- py_compile human_voice_gate
+commit: pending-parent-commit
+
 
 ## INC-20261005-0936-schema-precommit-hook-fail
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-schema
 topic_id: B01
@@ -479,10 +559,20 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Same root cause as scout pre-commit: use `scripts/excalibur_git.sh` for commits.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- sanitize filter unit check
+commit: pending-parent-commit
+
 
 ## INC-20261005-0940-cover-mcp-timeout-kie-fallback
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-cover
 topic_id: B01
@@ -513,11 +603,24 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Cover agent/skill default to Kie async (`excalibur_blog_kie_gpt_image2_api.py`); sync MCP gpt-image-2 is legacy fallback.
+- Explicit: after MCP `-32001` do not blind-retry; switch to Kie.
+files_changed:
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` kie_gpt_image2 / Kie async in cover contracts
+commit: pending-parent-commit
 
 
 ## INC-20261005-0948-indexer-precommit-hook-fail
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-indexer
 topic_id: B01
@@ -542,11 +645,20 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- Same pre-commit root cause; durable path is `scripts/excalibur_git.sh`.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- sanitize filter unit check
+commit: pending-parent-commit
 
 
 ## INC-20261005-0955-publish-http-timeout-double-trigger
-status: open
+status: fixed
 run_date: 2026-10-05
 role: excalibur-blog-publish
 topic_id: B01
@@ -580,5 +692,19 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-05
+fix_summary:
+- HTTP trigger timeout and fallback wait raised to 300s.
+- REST soft-success by slug during fallback wait; skips second bootstrap trigger / orphan media race.
+- Publish skill documents soft-success path.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `rg` try_rest_soft_success / http_timeout=300
+commit: pending-parent-commit
 

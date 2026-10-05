@@ -5,13 +5,49 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from pathlib import Path
 from typing import Any
+from urllib.parse import urljoin
+from urllib.request import Request, urlopen
+
+TOPIC_DIR_RE = re.compile(r"^((?:AS|B)\d+)-", flags=re.IGNORECASE)
+TOPIC_CARD_RE = re.compile(
+    r"##\s+((?:AS|B)\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)",
+    re.DOTALL | re.IGNORECASE,
+)
 
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
+
+
+def fetch_live_wp_slugs(limit: int = 100) -> tuple[set[str], str | None]:
+    site_url = (os.environ.get("PUBLIC_SITE_URL") or os.environ.get("WP_SITE_URL") or "").strip()
+    if not site_url:
+        return set(), "PUBLIC_SITE_URL/WP_SITE_URL not set"
+    endpoint = urljoin(
+        site_url.rstrip("/") + "/",
+        f"wp-json/wp/v2/posts?per_page={limit}&orderby=date&order=desc&_fields=slug",
+    )
+    try:
+        req = Request(endpoint, headers={"User-Agent": "ExcaliburBlogScoutHelper/1.0"})
+        with urlopen(req, timeout=12) as response:
+            payload = json.loads(response.read().decode("utf-8"))
+    except Exception as exc:  # noqa: BLE001
+        return set(), f"{type(exc).__name__}: {exc}"
+    slugs = {str(item.get("slug") or "").strip().lower() for item in payload if item.get("slug")}
+    return slugs, None
+
+
+def live_used_topic_ids(existing: list[dict[str, str]], live_slugs: set[str]) -> set[str]:
+    used: set[str] = set()
+    for topic in existing:
+        slug = (topic.get("slug") or "").strip().lower()
+        if slug and slug in live_slugs:
+            used.add(topic["topic_id"].upper())
+    return used
 
 def load_published_topics(root: Path) -> set[str]:
     ledger_path = root / "shared/published-articles.md"
@@ -34,7 +70,7 @@ def load_active_article_topics(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = TOPIC_DIR_RE.match(path.name)
         if match:
             active.add(match.group(1).upper())
     return active
@@ -46,7 +82,7 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
     if not topics_path.is_file():
         return topics
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in TOPIC_CARD_RE.finditer(text):
         topic_id = match.group(1).upper()
         block = match.group(2)
         
@@ -114,6 +150,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Helper for Excalibur BLOG Scout Agent")
     ap.add_argument("--suggest-next", action="store_true", help="Print next available Topic ID and summary")
     ap.add_argument("--check-query", type=str, default="", help="Check new primary query for overlaps")
+    ap.add_argument("--check-slug", type=str, default="", help="Check proposed slug against live WP + pool")
     args = ap.parse_args()
     
     # Reconfigure stdout for utf-8 on Windows
@@ -125,25 +162,51 @@ def main() -> int:
     root = project_root()
     published = load_published_topics(root)
     active = load_active_article_topics(root)
-    reserved = published | active
     existing = load_existing_topics(root)
+    live_slugs, live_err = fetch_live_wp_slugs()
+    live_used = live_used_topic_ids(existing, live_slugs)
+    reserved = published | active | live_used
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
         max_num = 0
         for t in existing:
-            m = re.match(r"B(\d+)", t["topic_id"])
+            m = re.match(r"B(\d+)", t["topic_id"], flags=re.IGNORECASE)
             if m:
                 max_num = max(max_num, int(m.group(1)))
         
         next_id = f"B{max_num + 1:02d}"
         print(f"Next available topic ID: {next_id}")
+        print("Note: new scout cards use B## series; AS## legacy cards are counted in pool/overlap.")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
-        print(f"Total articles written/in_progress: {len(reserved)}")
+        print(f"Total articles written/in_progress/live: {len(reserved)}")
         print(f"Active article dirs: {sorted(active)}")
+        if live_err:
+            print(f"Live WP slug note: {live_err}")
+        else:
+            print(f"Live WP slugs loaded: {len(live_slugs)}")
+            print(f"Live-used topic IDs (pool slug match): {sorted(live_used)}")
         
         unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
         print(f"Unwritten topic IDs in pool: {unwritten}")
+        return 0
+
+    if args.check_slug:
+        slug = args.check_slug.strip().lower().strip("/")
+        hits = []
+        if slug in live_slugs:
+            hits.append(f"CRITICAL live WP slug exact match: {slug}")
+        for t in existing:
+            if (t.get("slug") or "").strip().lower() == slug:
+                hits.append(f"CRITICAL pool slug match with {t['topic_id']}")
+        if hits:
+            print("❌ SLUG COLLISION:")
+            for h in hits:
+                print(f"  {h}")
+            return 1
+        if live_err:
+            print(f"⚠️ live WP check skipped: {live_err}")
+        print("✅ SLUG FREE: not in live WP snapshot or topic pool.")
         return 0
         
     if args.check_query:

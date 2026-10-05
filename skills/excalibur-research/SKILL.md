@@ -62,6 +62,21 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
 
+## Research notes gate
+
+```bash
+python3 scripts/excalibur_blog_research_notes_gate.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  -o research-notes-gate.json
+```
+
+- `pain_solution_map`: markdown-таблица ≥3 data-rows под `## pain_solution_map`. Gate считает строки таблицы; префиксы `pain:`/`solution:` в ячейках **не обязательны**.
+- Auto-niche (аукцион/растаможка/Encar/Япония/Корея/Китай) **не** technical даже при github_evidence.
+- `technical_topic` — только по topic card / стеку (AI, agent, API, Cursor, n8n, Make…); имена полей `reader_pain` / `github_evidence` **не** делают тему technical.
+- Non-tech (auto/legal/checklist без стека): GitHub ≥3 **не** обязателен; official docs + community достаточно. Секция `github_evidence` может явно сказать `n/a`.
+- В `source_table` даты `accessed_at` можно класть в колонку (ISO date); префикс `accessed_at:` не обязателен в каждой ячейке.
+- Для git: публичный site URL в SERP → `[REDACTED_SITE]` / `[REDACTED_HOST]`; перед commit `source scripts/sanitize_cloud_secret_names.sh`.
+
 ## Blockers
 
 - `❌ RESEARCH BLOCKER` — тема не найдена и не создана из запроса пользователя

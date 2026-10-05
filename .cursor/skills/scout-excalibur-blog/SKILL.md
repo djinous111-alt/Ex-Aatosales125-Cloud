@@ -27,17 +27,19 @@ Append new Topic Card to blog-topics.md
 ## Подробный алгоритм действий
 
 ### Шаг 1 — Анализ прошлого и получение ID
-* Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
-* Вызови helper-скрипт:
+* Считай `shared/published-articles.md`, `memory/blog/articles/Bxx-*` и пул `memory/topics/blog-topics.md`.
+* Ниша только из `memory/brief/site-brief.md` (Авто-Сейлс). Не предлагай Cursor/n8n/Make/нейросети.
+* Вызови helper:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
+  # при необходимости: --min-id B03
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Helper пропускает занятые B-id из ledger + article dirs. Запомни `Next available topic ID`.
 
-### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
-Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
-* Поисковые запросы: *«новые ИИ инструменты автоматизации 2026»*, *«how to automate business Claude Cursor»*, *«лучшие сценарии n8n Make автоматизация»*, *«как настроить ИИ-агента инструкция»*.
-* Найди свежие, практические боли пользователей, по которым не хватает качественных гайдов.
+### Шаг 2 — Поиск горячих трендов (WebSearch)
+2–3 запроса `WebSearch` по авто-нише:
+* *«аукционный лист япония как читать 2026»*, *«encar проверка авто корея»*, *«растаможка авто владивосток утильсбор»*, *«авто из китая документы»*, *«корея vs япония авто под заказ»*.
+* Ищи практические боли новичка импорта без готового гайда.
 
 ### Шаг 3 — Валидация спроса (Yandex Wordstat)
 Для 2-3 отобранных вариантов тем вызови инструмент `wordstat_get_top_requests` сервера `user-mcp-kv`.
@@ -47,7 +49,7 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
 Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
 

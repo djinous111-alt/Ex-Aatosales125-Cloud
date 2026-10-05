@@ -730,3 +730,38 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261005-1350-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-kitaya-vladivostok-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Skill/agent indexer всё ещё требуют флаг `--blog-path /` для `excalibur_blog_llms_generator.py`.
+- Актуальный CLI принимает только `--blog-dir` (нет `--blog-path`); вызов по skill упал бы на argparse.
+- Doctor/pitfalls уже поправлены (INC-20261005-1308 fixed), но контракты indexer не синхронизированы.
+
+### How the agent recovered this run
+- Запустил generator с `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` без `--blog-path`.
+- llms.txt и llms-full.txt сгенерированы успешно (3 articles).
+
+### Durable fix needed before next run
+- Убрать `--blog-path /` из indexer skill/agent (repo + .cursor копии).
+- В pitfalls/skill явно: llms generator = `--blog-dir` + `--out-dir`, без `--blog-path`.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

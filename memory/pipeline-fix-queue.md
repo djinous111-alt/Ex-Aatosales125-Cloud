@@ -6,6 +6,66 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261005-1724-scout-precommit-secret-name-url
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- Cloud Agent pre-commit secret scanner failed with bash `invalid variable name` during `git commit`.
+- `CLOUD_AGENT_ALL_SECRET_NAMES` / `CLOUD_AGENT_INJECTED_SECRET_NAMES` included a URL-shaped entry (len=25, contains `://`), which cannot be used with bash indirect expansion `${!SECRET_NAME}`.
+
+### How the agent recovered this run
+- Filtered non-identifier secret names out of the Cloud Agent secret-name env lists for the commit session.
+- Re-ran commit so the scanner still checks valid-named secrets; did not use `--no-verify`.
+
+### Durable fix needed before next run
+- Ensure Cloud Secrets / injected secret names are bash identifiers only (A-Za-z_[A-Za-z0-9_]*); move URL values into a proper named secret (e.g. `PUBLIC_SITE_URL`) instead of using the URL string as the secret name.
+- Harden pre-commit.cursor to skip or sanitize non-identifier names instead of crashing the commit.
+
+### Suggested files to inspect/change
+- Cursor Dashboard Cloud Secrets naming
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (platform) or local docs noting the constraint
+- `CURSOR-CLOUD-RUNBOOK.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261005-1708-doctor-llms-blog-path
+status: open
+run_date: 2026-10-05
+role: director / doctor
+topic_id: (preflight)
+article_dir: n/a
+severity: medium
+category: toolchain
+
+### What went wrong
+- `excalibur_blog_doctor.py` checks that `excalibur_blog_llms_generator.py --help` contains `--blog-path`.
+- Generator CLI actually exposes `--blog-dir` (and `--out-dir`), so doctor SUMMARY errors=1 even when tooling is healthy.
+
+### How the agent recovered this run
+- Continued pipeline after confirming llms generator `--help` works with `--blog-dir`.
+- Did not change doctor mid-run; deferred durable fix to Fixer.
+
+### Durable fix needed before next run
+- Align doctor check with actual CLI (`--blog-dir`) OR restore `--blog-path` as alias in llms generator; update indexer skill examples if needed.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

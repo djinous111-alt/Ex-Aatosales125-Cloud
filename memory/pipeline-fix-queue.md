@@ -254,3 +254,100 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261005-0917-director-as-topic-selection
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_today.py` and `excalibur_blog_scout_helper.py` only match `## B\d+` topic cards; pool is `AS01`–`AS09`, so today returns `needs_scout` even with unused AS cards in file.
+- `active_article_topic_ids` also only matches `B\d+-` article dirs, ignoring `AS##-*`.
+- Local ledger `shared/published-articles.md` only lists AS08/AS09, while live WP already has AS01–AS07 (+ China customs slug as post 3601). Without live-slug seeding, a run could re-pick already-published slugs.
+
+### How the agent recovered this run
+- Verified AS01–AS09 slugs via WP REST; all live → forced Scout for a fresh B## utility topic in Авто-Сейлс niche.
+- Documented forbidden re-publish IDs in handoff.
+
+### Durable fix needed before next run
+- Teach today/scout_helper to parse `AS\d+|B\d+` topic IDs and article dirs.
+- Seed/sync ledger from live WP slugs (or EXCALIBUR_RECENT_WP_POSTS) before topic selection so published AS/B slugs are `used`.
+- Keep niche filter: Авто-Сейлс JP/KR/CN only.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/published-articles.md` sync path / publish soft-success seeding
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261005-0917-director-doctor-blog-path
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` reports `FAIL llms generator supports --blog-path` while canonical CLI is `--blog-dir` (per pitfalls/memory). Preflight `errors=1` blocks clean doctor green.
+
+### How the agent recovered this run
+- Continued pipeline; treated check as stale false positive.
+
+### Durable fix needed before next run
+- Align doctor check with llms generator actual argparse (`--blog-dir`), or update generator if `--blog-path` was intentionally renamed.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261005-0920-scout-niche-cursor-vs-avtosales
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: prompt
+
+### What went wrong
+- `.cursor/agents/excalibur-blog-scout.md` and `.cursor/skills/scout-excalibur-blog/SKILL.md` still prioritize Cursor/n8n/Make/AI-automation niches and beginner-automation audience.
+- Live channel niche is Авто-Сейлс (JP/KR/CN import). Without an explicit Director override, Scout would generate wrong-niche P0 topics and waste a run.
+
+### How the agent recovered this run
+- Followed Director/handoff niche override: only Авто-Сейлс how-to; skipped Cursor/automation queries.
+- Validated demand via Wordstat parent→narrow on Japan auction / customs broker clusters; chose free live slug after WP REST check.
+
+### Durable fix needed before next run
+- Rewrite Scout agent + skill thematic priority and WebSearch examples under Авто-Сейлс (растаможка, Encar, аукционы, утильсбор, СВХ, ЭПТС, Владивосток, проверка до депозита).
+- Explicitly forbid Cursor/n8n/Make/AI marketing topics for this channel.
+- Optionally teach `excalibur_blog_scout_helper.py` to recognize `AS##` IDs and live WP slug denylist.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_scout_helper.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

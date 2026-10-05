@@ -415,3 +415,39 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261005-0945-writer-utility-pain-markers-missing
+status: open
+run_date: 2026-10-05
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` reads `pain_markers_ru` / `outcome_markers_ru` from `memory/brief/editorial-policy.json`, but those lists were missing.
+- Empty lists + default `min_pain_markers=2` / `min_outcome_markers=3` made utility gate fail every article (`pain_markers=0`).
+- `excalibur_blog_human_voice_gate.py -o <relative-path>` writes under `article_dir/`, so a repo-relative `-o memory/blog/.../human-voice-report.json` nests a duplicate tree (same class of bug as research-notes-gate `-o`).
+- Human-voice `exactly_five_lists` regex matches `ol` with ≥5 `<li>` and can also span across subsequent lists; false WARN when multiple numbered blocks exist.
+
+### How the agent recovered this run
+- Added `pain_markers_ru` / `outcome_markers_ru` (aligned with human-voice markers) and `min_pain_markers` / `min_outcome_markers` into `editorial-policy.json`.
+- Wrote article with pain/outcome language; kept a single 6-step `<ol>` plus checklists; cleaned nested report path; gates PASS.
+
+### Durable fix needed before next run
+- Keep pain/outcome marker lists in editorial-policy in sync with `excalibur_blog_human_voice_gate.py` constants (or import one source of truth).
+- Document that human-voice `-o human-voice-report.json` is relative to `--article-dir`.
+- Fix `exactly_five_lists` to count exact list sizes without cross-list spans.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

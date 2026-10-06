@@ -55,7 +55,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` (errors=0)
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (paramiko_available=true)
-commit: pending-fixer-commit
+commit: 54d4b53
 
 ## INC-20261006-1740-indexer-llms-blog-path-stale
 status: fixed
@@ -107,7 +107,7 @@ files_changed:
 checks_run:
 - doctor OK llms `--blog-dir`
 - `rg` confirms no instructional `--blog-path` CLI examples remain
-commit: pending-fixer-commit
+commit: 54d4b53
 
 ## INC-20261006-1736-schema-secret-scan-blocks-jsonld-commit
 status: fixed
@@ -154,7 +154,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - docs `rg` for Commit / secret-scan section
-commit: pending-fixer-commit
+commit: 54d4b53
 
 ## INC-20261006-1730-geo-qa-utility-pain-outcome-markers
 status: fixed
@@ -491,7 +491,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - pitfalls section "Cloud secret-scan / pre-commit" present
-commit: pending-fixer-commit
+commit: 54d4b53
 
 ## INC-20261006-1723-research-tech-markers-false-positive
 status: fixed
@@ -536,7 +536,7 @@ files_changed:
 checks_run:
 - unit asserts auto vs cursor/mcp topics
 - research gate B02 PASS technical=False
-commit: pending-fixer-commit
+commit: 54d4b53
 
 ## INC-20261006-1717-scout-stale-niche-docs
 status: fixed
@@ -589,7 +589,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `scout_helper --suggest-next` → B03; ledger includes B01; live slug sample printed
-commit: pending-fixer-commit
+commit: 54d4b53
 
 ## INC-20261006-1738-cover-quad-manifest-seo-defaults
 status: fixed
@@ -627,4 +627,4 @@ files_changed:
 checks_run:
 - dry-run B02 → niche=auto_import, cover_hook without SEO-текст
 - py_compile
-commit: pending-fixer-commit
+commit: 54d4b53

@@ -6,11 +6,31 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Incidents (current run)
 
-> Open count: **3** (schema/indexer secret-names URL; cover MCP sync timeout → Kie async).
+> Open count: **0** (post-publish fixer closed schema/indexer SECRET_NAMES, cover Kie-primary, publish REST soft-success).
 
 
 ## INC-20261006-0952-indexer-secret-names-url-recurrence
-status: open
+status: fixed
+fixed_at: 2026-10-06
+fix_summary:
+- Restored `scripts/sanitize_cloud_secret_names.sh` + `scripts/excalibur_git.sh` + Python `--check/--print-export`.
+- Doctor preflight asserts sanitize scripts exist and warns on dirty SECRET_NAMES.
+- Cloud install sources sanitize into shell rc.
+- Indexer skill/agent: commit via `excalibur_git.sh`; llms `--site-base [REDACTED]`.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_sanitize_secret_names.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/cloud-agent-install.sh`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_sanitize_secret_names.py --check` (dirty→1, clean→0)
+- `python3 scripts/excalibur_blog_doctor.py` → PASS
+commit: 4be05f4/b77d731/b8ca48c
+
 run_date: 2026-10-06
 role: excalibur-blog-indexer
 topic_id: B01
@@ -40,10 +60,28 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+See status/fix_summary/files_changed above.
 
 ## INC-20261006-0948-cover-mcp-sync-timeout-kie-async
-status: open
+status: fixed
+fixed_at: 2026-10-06
+fix_summary:
+- Cover skill/agent: Cloud primary = Kie async (`excalibur_blog_kie_gpt_image2_api.py`); sync MCP legacy only.
+- `-32001` ≠ immediate COVER BLOCKER; no blind second sync create.
+- `preferred_image_flow.script` uses `python3`; pitfalls + mcp-image-async-contract updated.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `shared/mcp-image-async-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` Kie primary / -32001 guidance in cover skill+agent
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+commit: 4be05f4/b77d731/b8ca48c
+
 run_date: 2026-10-06
 role: excalibur-blog-cover
 topic_id: B01
@@ -74,10 +112,27 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+See status/fix_summary/files_changed above.
 
 ## INC-20261006-0946-schema-secret-names-url-recurrence
-status: open
+status: fixed
+fixed_at: 2026-10-06
+fix_summary:
+- Same sanitize stack as INC-0952 (script + git wrapper + doctor + install hook).
+- Schema skill/agent: placeholders + commit via `excalibur_git.sh` / sanitize source.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_sanitize_secret_names.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- sanitize dirty/clean exit codes
+- doctor PASS (sanitize present)
+commit: 4be05f4/b77d731/b8ca48c
+
 run_date: 2026-10-06
 role: excalibur-blog-schema
 topic_id: B01
@@ -108,7 +163,7 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+See status/fix_summary/files_changed above.
 
 
 ## INC-20261006-0927-geo-qa-utility-pain-outcome-markers-missing
@@ -398,7 +453,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: 4be05f4/b77d731/b8ca48c
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -598,7 +653,25 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261006-1000-publish-http-timeout-rest-soft-success
-status: open
+status: fixed
+fixed_at: 2026-10-06
+fix_summary:
+- `excalibur_blog_wp_publish.py`: HTTP timeout 300s; on timeout/504 immediately poll WP REST by slug → soft-success; during WebFetch wait re-poll every 15s; never auto second bootstrap.
+- `publish_method: ssh+soft-success-rest` when soft path used.
+- Publish skill/agent + pitfalls document REST-first / no curl race.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-publish.md`
+- `.cursor/agents/excalibur-blog-publish.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- import smoke: `_is_http_timeout_or_504` + `try_rest_soft_success('', …) is None`
+- `rg` soft_success / REST guidance in publish skill
+commit: pending-parent-commit
+
 run_date: 2026-10-06
 role: excalibur-blog-publish
 topic_id: B01
@@ -630,5 +703,5 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+See status/fix_summary/files_changed above.
 

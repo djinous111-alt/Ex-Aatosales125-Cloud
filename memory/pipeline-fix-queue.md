@@ -4,10 +4,35 @@ Durable incident memory for repeated pipeline problems.
 
 Contract: `shared/pipeline-incident-fix-contract.md`
 
-## Open incidents
+## Incidents (current run)
+
+> Open count after fixer: **0**. Entries below may show status: fixed.
+
 
 ## INC-20261006-0927-geo-qa-utility-pain-outcome-markers-missing
-status: open
+status: fixed
+fixed_at: 2026-10-06
+fix_summary:
+- Добавлены `pain_markers_ru` / `outcome_markers_ru` в `memory/brief/editorial-policy.json` (согласованы с `excalibur_blog_human_voice_gate.py`) + `min_pain_markers`/`min_outcome_markers` в `article_required_signals`.
+- `excalibur_blog_utility_gate.py`: если списки маркеров пусты — warn + skip pain/outcome checks (не hard-BLOCK любой статьи).
+- Writer skill/contract: явные outcome ≥3 и CTA `pragma: allowlist secret`.
+- Pitfalls: policy markers + doctor `--blog-dir`.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m json.tool memory/brief/editorial-policy.json`
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
+- `python3 scripts/excalibur_blog_utility_gate.py --article-dir memory/blog/articles/B01-kak-rasschitat-utilsbor-pri-vvoze-avto-2026` → PASS (pain=10, outcome=10)
+- empty-markers regression → PASS with warnings
+- `python3 scripts/excalibur_blog_doctor.py` → PASS (`--blog-dir`)
+commit: pending-parent-commit
+
 run_date: 2026-10-06
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -40,11 +65,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+See status/fix_summary/files_changed above.
+
 
 
 ## INC-20261006-0926-writer-cta-secret-scan-allowlist
-status: open
+status: fixed
+fixed_at: 2026-10-06
+fix_summary:
+- Writer skill + writing contract: публичные CTA href из env; same-line `<!-- pragma: allowlist secret -->` когда URL в Cloud Secrets.
+- Pitfalls: commit hygiene для CTA/secret-scan.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` pragma/CTA guidance in writer skill and writing contract
+commit: pending-parent-commit
+
 run_date: 2026-10-06
 role: excalibur-blog-writer
 topic_id: B01
@@ -73,10 +112,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+See status/fix_summary/files_changed above.
+
 
 ## INC-20261006-0920-research-wordstat-top-requests-format
-status: open
+status: fixed
+fixed_at: 2026-10-06
+fix_summary:
+- Research skill: `totalCount`-only / non-list Wordstat payload → low-result quirk; immediate fallback to parent/cluster phrase; no invented impressions; cluster-first.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+checks_run:
+- `rg` Wordstat totalCount/fallback guidance in research skills
+commit: pending-parent-commit
+
 run_date: 2026-10-06
 role: excalibur-blog-research
 topic_id: B01
@@ -103,10 +153,23 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+See status/fix_summary/files_changed above.
+
 
 ## INC-20261006-0921-research-notes-gate-tech-false-positive
-status: open
+status: fixed
+fixed_at: 2026-10-06
+fix_summary:
+- `is_technical_topic` scans topic-card fields only (not research-notes body).
+- Short TECH_MARKERS (≤3 chars: `ai`/`ии`/`api`/…) use word-boundary token match — no false positive on `pain` / `Японии`.
+- B01 recheck: `technical_topic=false`, research-notes gate PASS.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+- `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir memory/blog/articles/B01-kak-rasschitat-utilsbor-pri-vvoze-avto-2026` → PASS, technical_topic=false
+commit: pending-parent-commit
+
 run_date: 2026-10-06
 role: excalibur-blog-research
 topic_id: B01
@@ -133,10 +196,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+See status/fix_summary/files_changed above.
+
 
 ## INC-20261006-0915-scout-secret-names-url
-status: open
+status: fixed
+fixed_at: 2026-10-06
+fix_summary:
+- Scout/director skills + pitfalls: sanitize `CLOUD_AGENT_INJECTED_SECRET_NAMES` to comma-separated bash identifiers only (drop URLs / non-identifiers); space-separated breaks pre-commit.
+files_changed:
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` CLOUD_AGENT_INJECTED_SECRET_NAMES guidance in scout/director/pitfalls
+commit: pending-parent-commit
+
 run_date: 2026-10-06
 role: excalibur-blog-scout
 topic_id: B01
@@ -166,7 +243,8 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+See status/fix_summary/files_changed above.
+
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

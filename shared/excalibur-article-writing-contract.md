@@ -235,6 +235,8 @@ Excalibur BLOG следует этому контракту для каждой 
 2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-tracking-map.md` / `offers-map.md`.  
 Не больше **3** упоминаний основного офера/CTA на статью (включая баннер и «что дальше»).
 
+Публичные CTA URL из env (`CATALOG_URL` / `TELEGRAM_URL`) пиши как реальные `href` (не `[REDACTED]`). Если эти URL также зарегистрированы как Cloud Secrets — на той же строке CTA добавляй `<!-- pragma: allowlist secret -->`, иначе pre-commit secret-scan блокирует commit.
+
 ### Блок 5: Inline-баннер (опционально)
 
 **Только если** в `conversion-tracking-map.md` есть `excalibur_inline_banner: yes` и `banner_image_url` + `banner_link_url`.

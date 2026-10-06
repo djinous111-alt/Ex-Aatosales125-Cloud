@@ -34,6 +34,13 @@
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
+- `editorial-policy.json` обязан содержать `pain_markers_ru` и `outcome_markers_ru` (согласованы с `excalibur_blog_human_voice_gate.py`). Пустые списки больше не hard-BLOCK, но без маркеров utility/human-voice не ловят боль/результат.
+- Doctor preflight проверяет llms CLI `--blog-dir` (не `--blog-path`); indexer/llms generator не принимают `--blog-path`.
+
+## Commit / Cloud Secrets
+
+- Перед `git commit` санитизируй `CLOUD_AGENT_INJECTED_SECRET_NAMES` до **comma-separated** bash-идентификаторов (`[A-Za-z_][A-Za-z0-9_]*`): выкидывай URL и non-identifier токены. Space-separated список ломает `${!SECRET_NAME}` в pre-commit.
+- Публичные CTA (`CATALOG_URL` / `TELEGRAM_URL`) в `article.html` оставляй реальными href; на той же строке CTA добавляй `<!-- pragma: allowlist secret -->`, иначе Cloud secret-scan блокирует commit.
 
 ## Cover
 

@@ -81,3 +81,8 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
 * Выдумывание цифр спроса без вызова Wordstat API.
+
+## Commit hygiene (Cloud)
+
+- Перед `git commit` санитизируй `CLOUD_AGENT_INJECTED_SECRET_NAMES` до **comma-separated** bash-идентификаторов (`[A-Za-z_][A-Za-z0-9_]*`): удаляй URL и non-identifier токены.
+- Space-separated список ломает `${!SECRET_NAME}` в pre-commit.cursor.

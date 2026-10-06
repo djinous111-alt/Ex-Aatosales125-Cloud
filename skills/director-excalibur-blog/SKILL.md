@@ -228,3 +228,7 @@ qa:
 publish:
 incident_queue:
 ```
+
+## Commit / secret-scan
+
+Перед commit любого агента: `CLOUD_AGENT_INJECTED_SECRET_NAMES` = только comma-separated валидные bash identifiers (без URL). Иначе pre-commit падает на `${!SECRET_NAME}`.

@@ -33,6 +33,11 @@ topic_id:
 verdict: PASS | BLOCKER
 ```
 
+## Commit hygiene
+
+Committed `schema.jsonld` — плейсхолдеры `[PUBLIC_SITE_URL]` / `[REDACTED]`, не live host.
+Перед commit: `source scripts/sanitize_cloud_secret_names.sh` или `bash scripts/excalibur_git.sh commit …`.
+
 ## Не твоя зона
 
 - cover MCP, правка longread, publish.

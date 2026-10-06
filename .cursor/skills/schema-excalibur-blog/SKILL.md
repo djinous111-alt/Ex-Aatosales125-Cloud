@@ -17,6 +17,25 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 2. FAQPage из FAQ секции статьи.
 3. HowTo / Review — только если архетип требует.
 
+## Commit hygiene (Cloud)
+
+В committed `schema.jsonld` используй плейсхолдеры, не live URL:
+
+- `[PUBLIC_SITE_URL]` / `[REDACTED]`
+- `[CATALOG_URL]` / `[TELEGRAM_URL]` / `[MAX_URL]`
+
+Перед `git commit`:
+
+```bash
+source scripts/sanitize_cloud_secret_names.sh
+# или:
+bash scripts/excalibur_git.sh commit -m "schema: ..."
+# preflight:
+python3 scripts/excalibur_blog_sanitize_secret_names.py --check
+```
+
+`CLOUD_AGENT_INJECTED_SECRET_NAMES` должен быть **comma-separated** bash-идентификаторами; URL-токен в списке → `invalid variable name` в pre-commit.
+
 ## Выход
 
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`

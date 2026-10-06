@@ -134,6 +134,28 @@ def main() -> int:
     )
     check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
 
+    sanitize_sh = root / "scripts/sanitize_cloud_secret_names.sh"
+    sanitize_py = root / "scripts/excalibur_blog_sanitize_secret_names.py"
+    git_wrap = root / "scripts/excalibur_git.sh"
+    check(sanitize_sh.is_file(), "sanitize_cloud_secret_names.sh present", errors, warnings)
+    check(sanitize_py.is_file(), "excalibur_blog_sanitize_secret_names.py present", errors, warnings)
+    check(git_wrap.is_file(), "excalibur_git.sh present", errors, warnings)
+    if sanitize_py.is_file():
+        sanitize_proc = subprocess.run(
+            [sys.executable, str(sanitize_py), "--check"],
+            cwd=root,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        check(
+            sanitize_proc.returncode == 0,
+            "CLOUD_AGENT_*_SECRET_NAMES are bash identifiers only",
+            errors,
+            warnings,
+            warn=True,
+        )
+
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))
     check(has_public, "PUBLIC_SITE_URL/WP_SITE_URL configured", errors, warnings, warn=not args.publish)

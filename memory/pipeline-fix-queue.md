@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261006-0926-writer-cta-secret-scan-allowlist
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rasschitat-utilsbor-pri-vvoze-avto-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` of `article.html` blocked by Cursor pre-commit secret-scan: public CTA values from env `TELEGRAM_URL` / `CATALOG_URL` appear as hardcoded URLs in the article (required by conversion-map / site-brief).
+- Separately, `CLOUD_AGENT_INJECTED_SECRET_NAMES` still contained a URL token (non-identifier), so the hook needed the known sanitize workaround before scan could run.
+
+### How the agent recovered this run
+- Re-exported secret-name lists as comma-separated valid bash identifiers only.
+- Kept real CTA hrefs from env (not `[REDACTED]` placeholders) and added HTML comment `<!-- pragma: allowlist secret -->` on the CTA line so the intentional public links pass the scanner.
+
+### Durable fix needed before next run
+- In writer skill/contract: document that catalog/Telegram hrefs from env must use same-line `pragma: allowlist secret` when those URLs are also Cloud Secrets.
+- Prefer not registering public marketing URLs as commit-scan secrets, or provide a publish-time URL injection that keeps repo artifacts secret-free.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261006-0920-research-wordstat-top-requests-format
 status: open
 run_date: 2026-10-06

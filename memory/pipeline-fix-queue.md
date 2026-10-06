@@ -6,6 +6,55 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261006-1730-geo-qa-utility-pain-outcome-markers
+status: fixed
+run_date: 2026-10-06
+role: excalibur-blog-geo-qa
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требовал `min_pain_markers` (default 2) и `min_outcome_markers` (default 3), но в `memory/brief/editorial-policy.json` не было `pain_markers_ru` / `outcome_markers_ru`.
+- Пустой список маркеров давал count=0 → utility gate BLOCK на любой статье (в т.ч. ранее PASS AS09).
+- Параллельно B02 имел только 6 action-маркеров при пороге 8; инсайт-блок начинался с шаблонного `TL;DR / Быстрый инсайт`.
+
+### How the agent recovered this run
+- Добавил `pain_markers_ru` / `outcome_markers_ru` (+ min в `article_required_signals`) в editorial-policy, выровняв с human_voice gate.
+- В utility_gate: при пустом списке маркеров — warning + skip, а не hard BLOCK.
+- В article.html: action/outcome формулировки; инсайт → «Суть до ставки»; пересчёт char_count.
+- Повтор всех QA-скриптов → PASS.
+
+### Durable fix needed before next run
+- Синхронизировать writer skill / writing-contract: пример инсайта без обязательного ярлыка `TL;DR / Быстрый инсайт` (GEO skill уже запрещает).
+- Добавить в pitfalls: utility gate читает pain/outcome из policy; пустые списки не должны валить gate.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-06
+fix_summary:
+- Policy + utility_gate hardened in GEO QA FIX-цикле; article B02 PASS.
+- Docs/pitfalls sync остаётся желательным follow-up для writer contract (TL;DR label).
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `memory/blog/articles/B02-kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026/article.html`
+- `memory/blog/articles/B02-kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026/article.meta.json`
+checks_run:
+- full GEO QA script suite PASS for B02
+commit: pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

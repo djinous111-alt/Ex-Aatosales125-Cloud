@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261006-1736-schema-secret-scan-blocks-jsonld-commit
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-schema
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026
+severity: medium
+category: env
+
+### What went wrong
+- `schema.jsonld` собран корректно (BlogPosting + FAQPage + HowTo), но `git commit` блокируется Cursor secret scan: в JSON-LD нужны абсолютные URL сайта/каталога/Telegram/MAX из `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` и `sameAs` реестра авторов.
+- Эти значения уже есть в tracked `shared/authors-registry.json` и в HEAD `article.html`, но новый commit schema всё равно режется хуком.
+- Дополнительно: в `CLOUD_AGENT_INJECTED_SECRET_NAMES` попадает сырой URL (не идентификатор) → pre-commit падает на `${!SECRET_NAME}` с `invalid variable name` до фильтрации имён.
+
+### How the agent recovered this run
+- Оставил валидный `schema.jsonld` на диске для publish (не коммитил).
+- Fragment schema PASS + `incident_report` на этот INC.
+- Не ослаблял JSON-LD плейсхолдерами: publish читает абсолютные URL из файла.
+
+### Durable fix needed before next run
+- Вынести публичные site/catalog/telegram/MAX URL из Cloud «secrets» в обычные env (или allowlist для `memory/blog/**/schema.jsonld` / authors-registry).
+- Исправить список `CLOUD_AGENT_INJECTED_SECRET_NAMES`: только валидные bash-идентификаторы, без сырых URL.
+- Зафиксировать в pitfalls: schema commit может блокироваться secret scan; артефакт валиден на диске, commit — после allowlist/env fix.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/authors-registry.json`
+- Cursor Dashboard Secrets / env naming for site URLs
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261006-1730-geo-qa-utility-pain-outcome-markers
 status: fixed
 run_date: 2026-10-06

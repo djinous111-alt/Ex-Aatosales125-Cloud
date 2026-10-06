@@ -73,14 +73,34 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _tech_marker_match(blob: str, marker: str) -> bool:
+    """Token/word-boundary match for short markers; substring for longer stems.
+
+    Avoids false positives like ``ai`` inside ``pain`` / ``reader_pain`` or
+    ``ии`` inside ``Японии`` when scanning topic-card fields only.
+    """
+    m = marker.lower()
+    if len(m) <= 3:
+        return bool(
+            re.search(
+                rf"(?<![0-9a-zA-Zа-яА-ЯёЁ_]){re.escape(m)}(?![0-9a-zA-Zа-яА-ЯёЁ_])",
+                blob,
+                flags=re.IGNORECASE,
+            )
+        )
+    return m in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    # Scan topic card only — research-notes field names (reader_pain, …)
+    # and country names must not flip beginner auto/customs topics to technical.
+    del notes  # API kept for callers; body intentionally not scanned
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    return any(_tech_marker_match(blob, marker) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:

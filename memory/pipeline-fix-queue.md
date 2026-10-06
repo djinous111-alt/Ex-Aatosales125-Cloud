@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261006-0915-scout-secret-names-url
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` blocked by Cursor pre-commit secret-scan: `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a URL value (not an env var name), so bash `${!SECRET_NAME}` failed with `invalid variable name`.
+- Filtering only the display token `[REDACTED]` is insufficient: the live value is a URL that tools redact in logs.
+
+### How the agent recovered this run
+- Re-exported `CLOUD_AGENT_INJECTED_SECRET_NAMES` keeping only tokens matching `[A-Za-z_][A-Za-z0-9_]*`, then committed and pushed B01 topic card.
+
+### Durable fix needed before next run
+- Document in scout/director/pitfalls: before commit, sanitize `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid bash identifiers (drop URLs and non-identifier tokens), not only literal `[REDACTED]`.
+- Optionally harden Cloud Secrets injection so values never appear in the names list.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

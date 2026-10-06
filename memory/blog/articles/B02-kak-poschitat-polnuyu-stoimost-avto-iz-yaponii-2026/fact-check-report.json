@@ -1,0 +1,73 @@
+{
+  "article": "memory/blog/articles/B02-kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 9,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 7,
+  "facts": [
+    {
+      "fact": "2026 год",
+      "kind": "date_or_year",
+      "context": "ыла только цена аукциона. Ниже – рабочая схема на 2026 год: строки сметы, данные из аукционного листа, три т",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ка новичка. Удобная картинка из открытых разборов 2026 – \"четыре кассы\": Заплатили в Японии (лот, аукцио",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2018",
+      "kind": "date_or_year",
+      "context": "й сверки документов. На практике новичок смотрит \"2018\" в листе и думает, что возрастная корзина уже ясн",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 лет",
+      "kind": "metric_or_duration",
+      "context": ". Снимите объём двигателя в см³ (cc) – для авто 3–5 лет пошлина физлица обычно от объёма, не от цены моло",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "крытых разборах 2026: порядка 3 400 ₽ для авто до 3 лет и 5 200 ₽ для более возрастных – при соблюдении у",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "700 000",
+      "kind": "large_number",
+      "context": "Андрей из Новосибирска увидел Toyota за 700 000 йен, перевёл \"по курсу с телефона\" и решил, что ул",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "ую смету, запас на курс и проверку мощности около 160 л.с. Хаб логистики для японского потока – Владивос",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 400",
+      "kind": "large_number",
+      "context": "риентиры льготы в открытых разборах 2026: порядка 3 400 ₽ для авто до 3 лет и 5 200 ₽ для более возрастны",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 200",
+      "kind": "large_number",
+      "context": "азборах 2026: порядка 3 400 ₽ для авто до 3 лет и 5 200 ₽ для более возрастных – при соблюдении условий.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

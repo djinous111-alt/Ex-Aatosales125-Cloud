@@ -1,0 +1,23 @@
+{
+  "slug": "kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026",
+  "topic_id": "B02",
+  "permalink": "[PUBLIC_SITE_URL]/2026/10/06/kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B02-kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1273168,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=4080 slug=kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026\nOK featured_image=4081\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4082 src=cover/inline-01.png url=[PUBLIC_SITE_URL]/wp-content/uploads/2026/10/kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026-inline-01.png\nOK inline_image_upload=4083 src=cover/inline-02.png url=[PUBLIC_SITE_URL]/wp-content/uploads/2026/10/kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026-inline-02.png\nOK inline_image_upload=4084 src=cover/inline-03.png url=[PUBLIC_SITE_URL]/wp-content/uploads/2026/10/kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026-inline-03.png\npermalink=[PUBLIC_SITE_URL]/2026/10/06/kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026/\n",
+  "verdict": "pass",
+  "post_id": 4080,
+  "featured_image": 4081,
+  "inline_images": [
+    4082,
+    4083,
+    4084
+  ],
+  "schema_meta": 1
+}

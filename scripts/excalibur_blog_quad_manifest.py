@@ -27,6 +27,36 @@ DEFAULT_SLOT_MAP = {
     "inline_3": "bottom_right",
 }
 
+AUTO_NICHE_MARKERS = (
+    "авто",
+    "машин",
+    "япони",
+    "коре",
+    "кита",
+    "растамож",
+    "encar",
+    "аукцион",
+    "владивосток",
+    "утильсбор",
+    "vin",
+    "эптс",
+    "свх",
+    "таможн",
+    "авто-сейлс",
+    "avto-sales",
+    "avtosales",
+)
+SEO_NICHE_MARKERS = (
+    "seo",
+    "geo",
+    "wordstat",
+    "llms.txt",
+    "cursor ai",
+    "mcp",
+    "нейросет",
+    "ai-агент",
+)
+
 
 def project_root() -> Path:
     env_root = os.environ.get("EXCALIBUR_PROJECT_ROOT", "").strip()
@@ -83,21 +113,92 @@ def pick_visual_type(h2: str, types_catalog: dict, used: set[str]) -> str:
     return TYPE_PRIORITY[0]
 
 
-def scene_hint_for_type(type_id: str, h2: str) -> str:
-    hints = {
-        "comparison_table_ui": f"Таблица SEO vs GEO: критерии, цели, человек vs AI — «{h2}»",
-        "workflow_diagram": f"6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «{h2}»",
-        "checklist_board": f"Printable чеклист перед публикацией — «{h2}»",
-        "schema_faq_ui": f"FAQ accordion + JSON-LD schema UI — «{h2}»",
-        "tool_screenshot": f"Скрин SEO-инструмента — «{h2}»",
-        "infographic_card": f"Карточка фактов — «{h2}»",
-    }
+def detect_niche(meta: dict[str, Any], root: Path, article_topic: str, h2s: list[str]) -> str:
+    parts = [
+        str(meta.get("h1") or ""),
+        str(meta.get("primary_query") or ""),
+        str(meta.get("slug") or ""),
+        str(meta.get("cover_alt") or ""),
+        article_topic,
+        " ".join(h2s[:4]),
+    ]
+    brief = root / "memory/brief/site-brief.md"
+    if brief.is_file():
+        parts.append(brief.read_text(encoding="utf-8")[:1200])
+    blob = " ".join(parts).lower()
+    auto_hits = sum(1 for m in AUTO_NICHE_MARKERS if m in blob)
+    seo_hits = sum(1 for m in SEO_NICHE_MARKERS if m in blob)
+    if auto_hits >= seo_hits and auto_hits > 0:
+        return "auto_import"
+    if seo_hits > auto_hits:
+        return "seo"
+    # Current channel default: Авто-Сейлс JP/KR/CN
+    return "auto_import"
+
+
+def scene_hint_for_type(type_id: str, h2: str, niche: str) -> str:
+    if niche == "auto_import":
+        hints = {
+            "comparison_table_ui": (
+                f"Чистая RU-таблица сравнения строк сметы (лот / логистика / таможня / РФ) — «{h2}»; "
+                "без Wordstat/Metrika/SEO; без конкретных сумм"
+            ),
+            "workflow_diagram": (
+                f"Схема 4 блоков со стрелками: Япония/Корея/Китай → море/порт → таможня → СБКТС/ЭПТС — «{h2}»; "
+                "без Wordstat/Metrika"
+            ),
+            "checklist_board": (
+                f"Printable чеклист до ставки/депозита (VIN, лист, курс, строки сметы) — «{h2}»; "
+                "без Wordstat/Metrika"
+            ),
+            "schema_faq_ui": f"FAQ accordion про импорт авто / растаможку — «{h2}»; без SEO-аналитики",
+            "tool_screenshot": (
+                f"Fake UI: аукционный лист / Encar / каталог карточка — «{h2}»; "
+                "NEVER Wordstat NEVER Metrika; суммы размыты"
+            ),
+            "infographic_card": f"Карточка фактов по импорту авто JP/KR/CN — «{h2}»; без SEO-инструментов",
+        }
+    else:
+        hints = {
+            "comparison_table_ui": f"Таблица SEO vs GEO: критерии, цели, человек vs AI — «{h2}»",
+            "workflow_diagram": f"6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «{h2}»",
+            "checklist_board": f"Printable чеклист перед публикацией — «{h2}»",
+            "schema_faq_ui": f"FAQ accordion + JSON-LD schema UI — «{h2}»",
+            "tool_screenshot": f"Скрин SEO-инструмента — «{h2}»",
+            "infographic_card": f"Карточка фактов — «{h2}»",
+        }
     return hints.get(type_id, f"Полезная иллюстрация — «{h2}»")
 
 
 def alt_for_type(type_id: str, h2: str, types_catalog: dict) -> str:
     label = ((types_catalog.get("types") or {}).get(type_id) or {}).get("label_ru") or type_id
     return f"{label}: {h2}"
+
+
+def default_cover_for_niche(niche: str, article_topic: str) -> dict[str, str]:
+    if niche == "auto_import":
+        return {
+            "alt": f"Обложка Авто-Сейлс: {article_topic}",
+            "scene_hint": (
+                "reference EXACT face likeness; outfit under Vladivostok/port weather "
+                "(NOT reference tank/t-shirt), NO cap NO hood, glasses on; "
+                "auction sheet / Encar card / calculator props; torn-paper Cyrillic hook; "
+                "DIY zine collage; corner footer ONLY avto-sales125.ru catalog site "
+                "(NOT Telegram); NEVER Wordstat NEVER Metrika NEVER SEO analytics; "
+                "NO concrete money amounts on image"
+            ),
+            "meme_caption_ru": "Цена лота — ещё не итог",
+            "cover_hook": "Полная смета до ставки: лот ≠ итог под ключ",
+        }
+    return {
+        "alt": f"Обложка: {article_topic}",
+        "scene_hint": (
+            "reference-лицо, белое плотное худи из толстой ткани, новая поза/жест/ракурс под крючок, "
+            "без наушников/headset/earbuds, шок/ирония SEOшника, Wordstat + ноутбук"
+        ),
+        "meme_caption_ru": "15k ключей — 0 прочтений?",
+        "cover_hook": "SEO-текст, который люди дочитают — миф или workflow?",
+    }
 
 
 def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict[str, Any]:
@@ -107,15 +208,16 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
     h2s = extract_h2_titles(article_dir / "article.html")
     topic_id = meta.get("topic_id") or article_dir.name.split("-")[0]
     article_topic = meta.get("h1") or article_dir.name
+    niche = detect_niche(meta, root, str(article_topic), h2s)
+    niche_defaults = default_cover_for_niche(niche, str(article_topic))
 
     old_cover = ((preserve or {}).get("slots") or {}).get("cover") or {}
     cover = {
         "quadrant": "top_left",
         "role": "cover_meme_hero",
-        "alt": old_cover.get("alt") or f"Обложка: {article_topic}",
-        "scene_hint": old_cover.get("scene_hint")
-        or "reference-лицо, белое плотное худи из толстой ткани, новая поза/жест/ракурс под крючок, без наушников/headset/earbuds, шок/ирония SEOшника, Wordstat + ноутбук",
-        "meme_caption_ru": old_cover.get("meme_caption_ru") or "15k ключей — 0 прочтений?",
+        "alt": old_cover.get("alt") or niche_defaults["alt"],
+        "scene_hint": old_cover.get("scene_hint") or niche_defaults["scene_hint"],
+        "meme_caption_ru": old_cover.get("meme_caption_ru") or niche_defaults["meme_caption_ru"],
     }
 
     used: set[str] = set()
@@ -129,14 +231,15 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
             "quadrant": DEFAULT_SLOT_MAP[slot_key],
             "h2_anchor": old.get("h2_anchor") or h2,
             "visual_type": visual_type,
-            "scene_hint": scene_hint_for_type(visual_type, old.get("h2_anchor") or h2),
+            "scene_hint": scene_hint_for_type(visual_type, old.get("h2_anchor") or h2, niche),
             "alt": alt_for_type(visual_type, old.get("h2_anchor") or h2, types_catalog),
         }
 
-    cover_hook = (preserve or {}).get("cover_hook") or "SEO-текст, который люди дочитают — миф или workflow?"
+    cover_hook = (preserve or {}).get("cover_hook") or niche_defaults["cover_hook"]
 
     return {
         "topic_id": topic_id,
+        "niche": niche,
         "canvas_file": "cover/canvas-quad.png",
         "layout": "2x2",
         "pipeline": "quad_canvas_1x_mcp",
@@ -170,7 +273,7 @@ def main() -> int:
     manifest = build_manifest(article_dir, root, preserve)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     save_json(out_path, manifest)
-    print(f"OK manifest={out_path}")
+    print(f"OK manifest={out_path} niche={manifest.get('niche')}")
     for key in ("inline_1", "inline_2", "inline_3"):
         s = manifest["slots"][key]
         print(f"  {key}: {s['visual_type']} -> {s['h2_anchor']}")

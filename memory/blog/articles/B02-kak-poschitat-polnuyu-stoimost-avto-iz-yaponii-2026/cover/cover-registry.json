@@ -1,0 +1,50 @@
+{
+  "topic_id": "B02",
+  "slug": "kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у стола с аукционным листом и калькулятором на фоне порта Владивостока: плашка «считай до ставки»",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-06T17:38:13+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у стола с аукционным листом и калькулятором на фоне порта Владивостока: плашка «считай до ставки»",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица: полная смета до ставки против сюрпризов после выкупа",
+      "h2_anchor": "Зачем считать полную смету до ставки, а не после выкупа",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема четырёх блоков полной сметы под ключ: Япония, море, таможня, документы РФ",
+      "h2_anchor": "Выпишите строки полной сметы под ключ",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Мокап аукционного листа: выпуск, объём, мощность и рама до расчёта сметы",
+      "h2_anchor": "Снимите данные из аукционного листа до расчёта",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

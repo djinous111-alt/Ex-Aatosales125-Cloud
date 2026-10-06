@@ -31,7 +31,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir memory/blog/articles/B01-kak-rasschitat-utilsbor-pri-vvoze-avto-2026` → PASS (pain=10, outcome=10)
 - empty-markers regression → PASS with warnings
 - `python3 scripts/excalibur_blog_doctor.py` → PASS (`--blog-dir`)
-commit: pending-parent-commit
+commit: d745054 / 593776b
 
 run_date: 2026-10-06
 role: excalibur-blog-geo-qa
@@ -82,7 +82,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` pragma/CTA guidance in writer skill and writing contract
-commit: pending-parent-commit
+commit: d745054 / 593776b
 
 run_date: 2026-10-06
 role: excalibur-blog-writer
@@ -125,7 +125,7 @@ files_changed:
 - `.cursor/skills/excalibur-research/SKILL.md`
 checks_run:
 - `rg` Wordstat totalCount/fallback guidance in research skills
-commit: pending-parent-commit
+commit: d745054 / 593776b
 
 run_date: 2026-10-06
 role: excalibur-blog-research
@@ -168,7 +168,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
 - `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir memory/blog/articles/B01-kak-rasschitat-utilsbor-pri-vvoze-avto-2026` → PASS, technical_topic=false
-commit: pending-parent-commit
+commit: d745054 / 593776b
 
 run_date: 2026-10-06
 role: excalibur-blog-research
@@ -212,7 +212,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` CLOUD_AGENT_INJECTED_SECRET_NAMES guidance in scout/director/pitfalls
-commit: pending-parent-commit
+commit: d745054 / 593776b
 
 run_date: 2026-10-06
 role: excalibur-blog-scout

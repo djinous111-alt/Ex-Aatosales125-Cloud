@@ -254,3 +254,40 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261006-1717-scout-stale-niche-docs
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-scout
+topic_id: B02
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- Контракты scout всё ещё описывают нишу Cursor/ИИ/Make/n8n и audience «новички в автоматизации», хотя текущий канал — Авто-Сейлс (JP/KR/CN импорт, растаможка, Владивосток).
+- Helper `--suggest-next` вернул B01 при пустом B*-пуле, хотя live WP уже имеет slug учёта B01 (`kak-postavit-na-uchet-avto-iz-yaponii-korei-kitaya-2026`, ~4074); ledger `shared/published-articles.md` неполный и не защищает от повторного выбора.
+
+### How the agent recovered this run
+- Проигнорировал Cursor/ИИ-приоритет в agent/skill; выбрал тему только по Авто-Сейлс.
+- Ориентировался на `EXCALIBUR_RECENT_WP_POSTS` + `wordpress_search_posts`, а не на устаревший `published-live-avtosales125.json` и неполный ledger.
+- Взял свободный **B02** вместо занятого B01; карточка utility-only про полную смету авто из Японии.
+
+### Durable fix needed before next run
+- Переписать `.cursor/agents/excalibur-blog-scout.md` и `.cursor/skills/scout-excalibur-blog/SKILL.md` (и зеркала в `agents/`/`skills/` при наличии) под нишу Авто-Сейлс; убрать Cursor/n8n/Make/ИИ из приоритетов и примеров WebSearch.
+- Обновить `shared/editorial-utility-only.md` beginner-фильтр под авто-импорт (или сделать niche-aware).
+- Научить scout helper учитывать recent WP slugs / live inventory при `--suggest-next`, чтобы не предлагать уже опубликованный B01/slug.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/published-articles.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

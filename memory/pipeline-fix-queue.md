@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261006-0927-geo-qa-utility-pain-outcome-markers-missing
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rasschitat-utilsbor-pri-vvoze-avto-2026
+severity: blocker
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` считает `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json` и по умолчанию требует min 2 / 3.
+- В policy этих ключей нет → списки пустые → счётчики всегда 0 → utility gate BLOCK на любой статье (B01: pain=0, outcome=0), независимо от текста.
+- Параллельно human-voice gate BLOCK на B01: outcome markers в тексте только «результат» и «соберите» (<3) — это уже контентный FIX для Writer.
+
+### How the agent recovered this run
+- Не правил article.html (контракт GEO QA: при FAIL вернуть blockers Writer).
+- Зафиксировал FIX в article-qa.md; cover/schema не запускались.
+- Открыл durable incident для policy/script.
+
+### Durable fix needed before next run
+- Добавить в `memory/brief/editorial-policy.json` согласованные `pain_markers_ru` и `outcome_markers_ru` (+ опционально `min_pain_markers` / `min_outcome_markers` в `article_required_signals`), согласовав со списками в `excalibur_blog_human_voice_gate.py`.
+- Либо в utility gate: пропускать pain/outcome min-checks, если соответствующие списки в policy пусты.
+- Обновить writer skill: явные outcome-маркеры ≥3 (`получите`/`сможете`/`проверьте`/`выберите`/…).
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261006-0926-writer-cta-secret-scan-allowlist
 status: open
 run_date: 2026-10-06

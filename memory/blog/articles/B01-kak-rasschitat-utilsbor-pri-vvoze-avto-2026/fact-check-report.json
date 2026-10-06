@@ -1,0 +1,129 @@
+{
+  "article": "memory/blog/articles/B01-kak-rasschitat-utilsbor-pri-vvoze-avto-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 17,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 14,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ческие коэффициенты индексируют, льготные суммы в 2026–2027 держат, а правила жёсткие: все пункты сразу.",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2027",
+      "kind": "date_or_year",
+      "context": "е коэффициенты индексируют, льготные суммы в 2026–2027 держат, а правила жёсткие: все пункты сразу. Собер",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026 года",
+      "kind": "date_or_year",
+      "context": "отраслевые ориентиры коммерческого утиля с начала 2026 года – порядка сотен тысяч (встречается ориентир около",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "1 в редакции изменений (в т.ч. ПП № 1713 от 01.11.2025). Делать: сравнивать страны по лоту и логистике.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "фициент. Льгота физлица даёт ориентир 3 400 ₽ (до 3 лет) или 5 200 ₽ (старше 3 лет) – только если одновре",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "12 месяцев",
+      "kind": "metric_or_duration",
+      "context": "д перепродажу Частота льготы ≤ 1 льготное авто за 12 месяцев от даты ТПО Второе льготное авто в том же окне По",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "3 400",
+      "kind": "large_number",
+      "context": "аукционе и мысленно заложили льготный утильсбор в 3 400 ₽? Одна лишняя \"лошадь\" или неправильно прочитанн",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "20 000",
+      "kind": "large_number",
+      "context": "ыстрый инсайт: Утильсбор для легковых считают как 20 000 ₽ × коэффициент. Льгота физлица даёт ориентир 3 4",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 200",
+      "kind": "large_number",
+      "context": "гота физлица даёт ориентир 3 400 ₽ (до 3 лет) или 5 200 ₽ (старше 3 лет) – только если одновременно закры",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "таревшей таблице. Типичная картина: в объявлении \"160 л.с.\", в голове уже льготная сумма, а в техданных",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "118",
+      "kind": "large_number",
+      "context": "в голове уже льготная сумма, а в техданных лота – 118 кВт. Это чуть выше порога 117,68 кВт, и льгота уже",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "190",
+      "kind": "large_number",
+      "context": "калу. Например, для нового авто около 2,0 л и 160–190 л.с. отраслевые ориентиры коммерческого утиля с на",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "900 000",
+      "kind": "large_number",
+      "context": "– порядка сотен тысяч (встречается ориентир около 900 000 ₽); точную цифру подтверждает расчёт под ваш лот.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 000",
+      "kind": "large_number",
+      "context": "лельный гибрид) ≤ 117,68 кВт (160 л.с.) и объём ≤ 3 000 см³ 117,69 кВт или 3 001 см³ Электро / последовате",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 001",
+      "kind": "large_number",
+      "context": "кВт (160 л.с.) и объём ≤ 3 000 см³ 117,69 кВт или 3 001 см³ Электро / последовательный гибрид 30-минутная",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1291",
+      "kind": "large_number",
+      "context": "Владивосток. Утиль считают по правилам РФ – ПП № 1291 в редакции изменений (в т.ч. ПП № 1713 от 01.11.20",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "РФ – ПП № 1291 в редакции изменений (в т.ч. ПП № 1713 от 01.11.2025). Делать: сравнивать страны по лоту",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

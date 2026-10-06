@@ -9,12 +9,12 @@
   "metrics": {
     "today_iso": "2026-10-06",
     "prefer_sources_after": "2026-07-08",
-    "source_urls": 36,
-    "source_domains": 14,
-    "source_table_rows": 36,
+    "source_urls": 37,
+    "source_domains": 15,
+    "source_table_rows": 37,
     "accessed_at": 7,
     "github_urls": 4,
-    "official_doc_urls": 1,
+    "official_doc_urls": 2,
     "action_outline_items": 8,
     "pain_solution_rows": 3,
     "technical_topic": true

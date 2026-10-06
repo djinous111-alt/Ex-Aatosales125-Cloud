@@ -670,7 +670,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - import smoke: `_is_http_timeout_or_504` + `try_rest_soft_success('', …) is None`
 - `rg` soft_success / REST guidance in publish skill
-commit: pending-parent-commit
+commit: 4be05f4/b77d731/b8ca48c/d5fabad
 
 run_date: 2026-10-06
 role: excalibur-blog-publish

@@ -6,8 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Incidents (current run)
 
-> Open count: **2** (schema secret-names URL; cover MCP sync timeout → Kie async).
+> Open count: **3** (schema/indexer secret-names URL; cover MCP sync timeout → Kie async).
 
+
+## INC-20261006-0952-indexer-secret-names-url-recurrence
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rasschitat-utilsbor-pri-vvoze-avto-2026
+severity: medium
+category: env
+
+### What went wrong
+- First `git commit` of sanitized `llms.txt` / `llms-full.txt` / promotion checklist failed in pre-commit secret-scan: `CLOUD_AGENT_INJECTED_SECRET_NAMES` again contained one URL token (not a bash identifier), so `${!SECRET_NAME}` → `invalid variable name`.
+- Same root cause as INC-20261006-0915 / INC-20261006-0946; Indexer skill did not yet call out the commit-time sanitize step.
+
+### How the agent recovered this run
+- Re-exported `CLOUD_AGENT_INJECTED_SECRET_NAMES` keeping only `[A-Za-z_][A-Za-z0-9_]*` (comma-separated; dropped 1 URL-shaped token), then commit succeeded.
+- llms artifacts already had live `PUBLIC_SITE_URL` replaced with literal `[REDACTED]` before staging (prior publish secret-scan lesson).
+
+### Durable fix needed before next run
+- Same as INC-20261006-0946: harden Cloud Secrets names injection; add doctor/preflight sanitize script.
+- Indexer skill/agent: document commit hygiene — sanitize secret-names list before git commit; keep committed llms URLs as `[REDACTED]`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
 
 ## INC-20261006-0948-cover-mcp-sync-timeout-kie-async
 status: open

@@ -324,6 +324,41 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20261006-1330-writer-utility-pain-markers-missing
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-postavit-na-uchet-avto-iz-yaponii-korei-kitaya-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `scripts/excalibur_blog_utility_gate.py` читает `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json`.
+- В policy списки отсутствовали (`[]` по умолчанию), поэтому `pain_markers=0` и `outcome_markers=0` на любой статье при дефолтах `min_pain_markers=2` / `min_outcome_markers=3`.
+- Human-voice gate при этом использует собственные `PAIN_MARKERS` / `OUTCOME_MARKERS` в скрипте и мог быть PASS при BLOCK utility gate.
+
+### How the agent recovered this run
+- Добавил в `memory/brief/editorial-policy.json` списки маркеров (синхрон с human-voice gate) и явные `min_pain_markers` / `min_outcome_markers` в `article_required_signals`.
+- Повторный utility gate по B01: PASS; human-voice: PASS; html linter: PASS.
+
+### Durable fix needed before next run
+- Зафиксировать в writer/QA skill, что utility gate и human-voice должны делить один набор pain/outcome маркеров (policy или общий модуль), чтобы списки снова не разъехались.
+- Опционально: если маркеры пустые – warning вместо hard BLOCK, либо fail-fast doctor check на наличие ключей в policy.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

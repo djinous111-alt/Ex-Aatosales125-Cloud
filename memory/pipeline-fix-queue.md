@@ -533,3 +533,36 @@ category: docs
 
 ### Fixer resolution
 - pending
+
+## INC-20261006-1347-publish-paramiko-missing
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-postavit-na-uchet-avto-iz-yaponii-korei-kitaya-2026
+severity: medium
+category: env
+
+### What went wrong
+- `import paramiko` failed in cloud runtime before SSH publish (`ModuleNotFoundError`).
+- `.cursor/cloud-agent-install.sh` does not install paramiko (confirmed absent).
+
+### How the agent recovered this run
+- Ran `pip3 install --break-system-packages paramiko` then published successfully (post 4074).
+- Created `memory/site.env.local` from Cloud Secrets with `SSH_ROOT=.` (file was missing).
+
+### Durable fix needed before next run
+- Add `paramiko` to `.cursor/cloud-agent-install.sh` (and keep in `requirements.txt`).
+- Document `SSH_ROOT=.` + unquoted `site.env.local` in publish preflight.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

@@ -1,7 +1,7 @@
 # Promotion checklist — B01 kak-postavit-na-uchet-avto-iz-yaponii-korei-kitaya-2026
 
-Дата публикации: 2026-10-06 (planned; publish pending)  
-Live URL: https://avtosales125.ru/blog/kak-postavit-na-uchet-avto-iz-yaponii-korei-kitaya-2026/
+Дата публикации: 2026-10-06
+Live URL: [PUBLIC_SITE_URL]/2026/10/06/kak-postavit-na-uchet-avto-iz-yaponii-korei-kitaya-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • ОСАГО с 01.03.2025 для регистрации не нужен, но ехать без полиса нельзя
 • Срок постановки — 10 дней; финиш: СТС и номера
 
-Читать: https://avtosales125.ru/blog/kak-postavit-na-uchet-avto-iz-yaponii-korei-kitaya-2026/
+Читать: [PUBLIC_SITE_URL]/2026/10/06/kak-postavit-na-uchet-avto-iz-yaponii-korei-kitaya-2026/
 ```
 
 ## Перелинковка
@@ -45,6 +45,6 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 ## Notes
 
-- Indexer: interlinker `--apply --article-dir …/B01-… --site-base https://avtosales125.ru` — opportunities_found=0.
+- Indexer: interlinker `--apply --article-dir …/B01-… --site-base [PUBLIC_SITE_URL]` — opportunities_found=0.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` через `--blog-dir memory/blog/articles` (без `--blog-path`; CLI флаг отсутствует).
 - Publish: pending (Indexer DONE, не публиковалось).

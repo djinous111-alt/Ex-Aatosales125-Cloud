@@ -466,3 +466,35 @@ category: env
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261006-1341-cover-stale-b01-prompts
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-postavit-na-uchet-avto-iz-yaponii-korei-kitaya-2026
+severity: low
+category: docs
+
+### What went wrong
+- После `excalibur_blog_quad_manifest.py --merge` в `cover/quad-manifest.json` попали SEO-дефолты (hook про Wordstat/прочтения, scene_hint с Wordstat+ноутбук) от устаревшей карточки B01 `primer-seo-stati`.
+- `memory/cover/cover-prompts.json` topics.B01 всё ещё указывает на slug `primer-seo-stati` и SEO scene, а актуальная B01 — постановка на учёт ГИБДД (`kak-postavit-na-uchet-avto-iz-yaponii-korei-kitaya-2026`).
+
+### How the agent recovered this run
+- Вручную переписал `cover/quad-manifest.json` под ГИБДД/ЭПТС/МРЭО (hook, meme_caption_ru, outfit smart casual, inline visual hints) по `cover_scene_hint` из `memory/topics/blog-topics.md`.
+- Сгенерировал batch + Kie async i2i → split PASS → inject 3 figures; токсичных ярлыков на кадре нет.
+
+### Durable fix needed before next run
+- Обновить `memory/cover/cover-prompts.json` topics.B01 под актуальную тему ГИБДД (или удалить stale B01, чтобы merge брал только article.meta + H2).
+- В `excalibur_blog_quad_manifest.py` не подмешивать SEO Wordstat defaults, если primary_query/article_dir про авто/ГИБДД; либо ключ topic_id+slug must match.
+
+### Suggested files to inspect/change
+- `memory/cover/cover-prompts.json`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

@@ -122,19 +122,25 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image (Cloud: Kie primary)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+**Cursor Cloud primary** (когда есть `KIE_API_KEY`): async Kie из `cover/quad-mcp-batch.json` → `preferred_image_flow`:
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+`createTask → poll recordInfo`, один job, тот же `mcp_args` / i2i reference.
+
+**Legacy fallback only:** sync MCP `gpt-image-2`. Если `-32001 Request timed out` — это **не** немедленный COVER BLOCKER: не создавай второй sync job; ищи URL/task_id в логах или сразу переходи на Kie script. Blind second sync create = duplicate billed generations.
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --url "<result url from Kie or MCP>" \
   --inject-html
 ```
 

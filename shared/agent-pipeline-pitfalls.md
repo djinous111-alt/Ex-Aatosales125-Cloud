@@ -22,6 +22,7 @@
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
 - Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
 - SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
+- HTTP/nginx **504**/urllib timeout после большого bootstrap ≠ hard fail: скрипт сразу polling REST by slug (`ssh+soft-success-rest`). **Не** запускай второй bootstrap/curl параллельно — orphan media.
 
 ## Writer / Fact Check Box
 
@@ -39,12 +40,15 @@
 
 ## Commit / Cloud Secrets
 
-- Перед `git commit` санитизируй `CLOUD_AGENT_INJECTED_SECRET_NAMES` до **comma-separated** bash-идентификаторов (`[A-Za-z_][A-Za-z0-9_]*`): выкидывай URL и non-identifier токены. Space-separated список ломает `${!SECRET_NAME}` в pre-commit.
+- Перед `git commit`: `source scripts/sanitize_cloud_secret_names.sh` или `bash scripts/excalibur_git.sh commit …`. Doctor: `python3 scripts/excalibur_blog_sanitize_secret_names.py --check`.
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` = только **comma-separated** bash-идентификаторы (`[A-Za-z_][A-Za-z0-9_]*`): выкидывай URL и non-identifier токены. Space-separated список ломает `${!SECRET_NAME}` в pre-commit.
+- Schema/llms/ledger для git: `[REDACTED]` / `[PUBLIC_SITE_URL]`, не live host.
 - Публичные CTA (`CATALOG_URL` / `TELEGRAM_URL`) в `article.html` оставляй реальными href; на той же строке CTA добавляй `<!-- pragma: allowlist secret -->`, иначе Cloud secret-scan блокирует commit.
 
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- Cloud cover: при `KIE_API_KEY` — **Kie async primary** (`excalibur_blog_kie_gpt_image2_api.py`). Sync MCP `-32001` ≠ immediate blocker; не blind-retry sync create.
 
 ## Scout
 

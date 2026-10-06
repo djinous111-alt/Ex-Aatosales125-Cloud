@@ -158,7 +158,7 @@ def main() -> int:
             "preferred_image_flow": {
                 "provider": "kie.ai",
                 "model": KIE_IMAGE_MODEL,
-                "script": "python scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir <article_dir>",
+                "script": "python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir <article_dir>",
                 "api_key_env": "KIE_API_KEY",
                 "result_path": "cover/quad-mcp-result.json",
                 "apply_script": "python scripts/excalibur_blog_quad_apply.py --article-dir <article_dir> --inject-html",

@@ -1,14 +1,14 @@
 # Promotion checklist — B01 kak-rasschitat-utilsbor-pri-vvoze-avto-2026
 
-Дата публикации: 2026-10-06 (pending publish)  
-Live URL: [REDACTED]/blog/kak-rasschitat-utilsbor-pri-vvoze-avto-2026/
+Дата публикации: 2026-10-06 (published, post_id=4068)  
+Live URL: [REDACTED]/2026/10/06/kak-rasschitat-utilsbor-pri-vvoze-avto-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
-- [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200; featured 4069; 3 WP inline imgs)
+- [x] View source — JSON-LD BlogPosting + FAQPage (post meta `_excalibur_blog_schema_jsonld` len≈10986)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Льгота физлица 3400/5200 ₽ — только при ≤117,68 кВт и полном чек-листе
 • Соберите 5 вводных по лоту до депозита
 
-Читать: [REDACTED]/blog/kak-rasschitat-utilsbor-pri-vvoze-avto-2026/
+Читать: [REDACTED]/2026/10/06/kak-rasschitat-utilsbor-pri-vvoze-avto-2026/
 ```
 
 ## Перелинковка

@@ -596,3 +596,39 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261006-1000-publish-http-timeout-rest-soft-success
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rasschitat-utilsbor-pri-vvoze-avto-2026
+severity: medium
+category: publish
+
+### What went wrong
+- Local HTTP trigger of `excalibur-blog-publish-once.php` hit urllib `TimeoutError` at 120s while PHP still completed the large (~7.1MB) payload.
+- Re-triggering via WebFetch/curl would race and create orphan media (prior lessons).
+
+### How the agent recovered this run
+- Did **not** re-HIT the bootstrap URL.
+- Polled WP REST by slug immediately; found NEW post `4068`, featured `4069`, inlines `4070/4071/4072`.
+- Wrote reconstructed OK lines to `memory/webfetch-response.txt` so the waiting publish script could finish with verdict pass.
+- Verified live HEAD 200, schema meta via wp-cli, skip_theme_faq=1, bootstrap file cleaned.
+
+### Durable fix needed before next run
+- Extend publish script fallback: on HTTP timeout, auto-poll WP REST by slug and reconstruct OK output before waiting on WebFetch; never auto-curl the bootstrap a second time while first PHP may still run.
+- Optionally raise urllib timeout for large image payloads or stream progress.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

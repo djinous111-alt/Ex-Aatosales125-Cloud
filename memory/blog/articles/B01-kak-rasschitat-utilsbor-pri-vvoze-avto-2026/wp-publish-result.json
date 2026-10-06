@@ -1,0 +1,15 @@
+{
+  "slug": "kak-rasschitat-utilsbor-pri-vvoze-avto-2026",
+  "topic_id": "B01",
+  "permalink": "[REDACTED]/2026/10/06/kak-rasschitat-utilsbor-pri-vvoze-avto-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-kak-rasschitat-utilsbor-pri-vvoze-avto-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1328544,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=4068\nOK featured_image=4069\nOK schema_meta=1\nOK inline_image_upload=4070,4071,4072\npermalink=[REDACTED]/2026/10/06/kak-rasschitat-utilsbor-pri-vvoze-avto-2026/\n",
+  "verdict": "pass"
+}

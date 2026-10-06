@@ -51,14 +51,21 @@
     {
       "fact": "3 400",
       "kind": "large_number",
-      "context": "аукционе и мысленно заложили льготный утильсбор в 3 400 ₽? Одна лишняя \"лошадь\" или неправильно прочитанн",
+      "context": "Боитесь, что льготный утильсбор в 3 400 ₽ сорвётся на одной \"лошади\" или гибриде – и полу",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "аете, с каких цифр считать? Риск реален: ловушка \"160 л.с.\" ломает смету ошибкой в кВт. Ниже – спокойный",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
     },
     {
       "fact": "20 000",
       "kind": "large_number",
-      "context": "ыстрый инсайт: Утильсбор для легковых считают как 20 000 ₽ × коэффициент. Льгота физлица даёт ориентир 3 4",
+      "context": "рину с форума. Утильсбор для легковых считают как 20 000 ₽ × коэффициент. Льгота физлица даёт ориентир 3 4",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
     },
@@ -66,13 +73,6 @@
       "fact": "5 200",
       "kind": "large_number",
       "context": "гота физлица даёт ориентир 3 400 ₽ (до 3 лет) или 5 200 ₽ (старше 3 лет) – только если одновременно закры",
-      "verified": false,
-      "reason": "No matching fact or number found in fact-bank"
-    },
-    {
-      "fact": "160",
-      "kind": "large_number",
-      "context": "таревшей таблице. Типичная картина: в объявлении \"160 л.с.\", в голове уже льготная сумма, а в техданных",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
     },

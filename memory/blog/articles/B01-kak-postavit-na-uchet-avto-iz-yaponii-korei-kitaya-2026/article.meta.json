@@ -11,7 +11,7 @@
     "документы для постановки авто на учет",
     "документы для постановки на учет ввезенного авто"
   ],
-  "char_count": 9451,
+  "char_count": 9436,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -28,12 +28,17 @@
     "description_aeo": "Постановка на учёт авто из Японии, Кореи и Китая в 2026: нужен ЭПТС со статусом действующий, пакет документов для ГИБДД и осмотр в МРЭО."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 87,
+    "verdict": "PASS",
     "date": "2026-10-06",
     "html_linter": "PASS",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "slop_score": 0,
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility_gate": "PASS",
+    "link_verify": "PASS",
+    "core_eeat": "19/20",
+    "article_qa": "memory/blog/articles/B01-kak-postavit-na-uchet-avto-iz-yaponii-korei-kitaya-2026/article-qa.md"
   },
   "cover_family": "brand_collage"
 }

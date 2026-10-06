@@ -359,6 +359,75 @@ category: docs
 ### Fixer resolution
 - pending
 
+## INC-20261006-1332-geo-qa-redacted-cta-hrefs
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-postavit-na-uchet-avto-iz-yaponii-korei-kitaya-2026
+severity: medium
+category: qa
+
+### What went wrong
+- Writer `article.html` содержал литералы `href="[REDACTED]"` на всех CTA (каталог×2, Telegram×1).
+- `excalibur_blog_link_verify.py` классифицировал их как `internal_relative` и при `--site-base` проверял `PUBLIC_SITE_URL/[REDACTED]` → HTTP 404 → verdict fail (блокер PASS).
+- Инсайт-блок начинался с запрещённого ярлыка `TL;DR / Быстрый инсайт` (контракт GEO QA skill).
+
+### How the agent recovered this run
+- Точечный FIX: подставил runtime `CATALOG_URL` и `TELEGRAM_URL` в три `<a href>`; ярлык инсайта заменён на `Коротко:`.
+- Повтор link-verify: PASS (2/2 HTTP 200); html-linter / human-voice / utility / research-notes-gate остались PASS.
+- Полный рерайт статьи не делался.
+
+### Durable fix needed before next run
+- Writer skill/contract: запретить литерал `[REDACTED]` в `href`; CTA только из `CATALOG_URL` / `TELEGRAM_URL` (или явный абсолютный URL как в AS09).
+- Preflight writer/self-check: fail, если в `article.html` есть `href="[REDACTED]"` или relative CTA без scheme.
+- Опционально: doctor/lint шаг на placeholder URLs перед GEO QA.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_html_linter.py` (или отдельный CTA check)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261006-1332-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-postavit-na-uchet-avto-iz-yaponii-korei-kitaya-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Cloud API не принял typed Task `excalibur-blog-geo-qa`; роль выполнена через fallback `Task(generalPurpose)` с путями `.cursor/agents/excalibur-blog-geo-qa.md` и `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+- Тот же паттерн уже используется для research/writer в этом run — риск, что Director/docs всё ещё предполагают typed names как primary.
+
+### How the agent recovered this run
+- Отработал полный GEO QA контракт в generalPurpose: все скрипты, FIX CTA, `article-qa.md` PASS, handoff-маркер.
+
+### Durable fix needed before next run
+- Добавить `excalibur-blog-geo-qa` (и соседние blog roles) в available Cloud Task types / environment docs, либо явно канонизировать generalPurpose fallback в Director skill как основной путь без «ошибки».
+- Синхронизировать `CLOUD-AUTOMATION.md`, `.cursor/agents/*`, `AGENTS.md` с фактическим списком Task types.
+
+### Suggested files to inspect/change
+- `CLOUD-AUTOMATION.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `AGENTS.md`
+- `.cursor/environment.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

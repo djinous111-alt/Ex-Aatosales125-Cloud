@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B02-kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026",
+  "notes": "memory/blog/articles/B02-kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026/research-notes.md",
+  "context": "memory/blog/articles/B02-kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-10-06",
+    "prefer_sources_after": "2026-07-08",
+    "source_urls": 50,
+    "source_domains": 12,
+    "source_table_rows": 43,
+    "accessed_at": 11,
+    "github_urls": 6,
+    "official_doc_urls": 1,
+    "action_outline_items": 19,
+    "pain_solution_rows": 8,
+    "technical_topic": true
+  }
+}

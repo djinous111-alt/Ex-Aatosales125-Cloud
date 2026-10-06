@@ -255,6 +255,39 @@ commit: pending-parent-commit
 
 Handled above; commit is pending Director review.
 
+## INC-20261006-1723-research-tech-markers-false-positive
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-research
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` помечает non-tech авто-тему как `technical_topic=true`, потому что `TECH_MARKERS` ищет подстроки: `ai` внутри обязательного поля `reader_pain` (`...pain...`) и `ии` внутри обычных русских слов (например «версии»).
+- Из-за ложного technical-флага gate требует ≥3 `github.com` URL даже для чек-листа сметы авто из Японии; research вынужден подтягивать нерелевантные GitHub-репозитории ради PASS.
+
+### How the agent recovered this run
+- Добавил ≥3 github.com URL (TKS/customs-related) и лишний community evidence; gate стал PASS.
+- Сохранил beginner/auto niche angle; GitHub использован только как evidence для gate, не как угол статьи.
+
+### Durable fix needed before next run
+- В `is_technical_topic` / `TECH_MARKERS` использовать word-boundary или token match, а не raw substring (`ai` ≠ часть `pain`; `ии` ≠ любой русский суффикс).
+- Для non-tech ниш (Авто-Сейлс) не требовать GitHub evidence; принимать community/docs/calculator URLs.
+- Исключить имена обязательных research-полей (`reader_pain`, `pain_solution_map`) из blob для TECH_MARKERS.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/editorial-utility-only.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261006-1717-scout-stale-niche-docs
 status: open
 run_date: 2026-10-06

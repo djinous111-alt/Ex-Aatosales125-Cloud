@@ -269,6 +269,7 @@ category: docs
 - Сверил кандидатов с `memory/blog/published-live-avtosales125.json` и явным списком live slug из прогона.
 - Отбросил AS*-оверлапы; выбрал gap-тему B01 про постановку на учёт (Wordstat niche JP ~911 / CN ~847 / parent docs ~8037).
 - Low-detail Wordstat на узких фразах использовал как signal, не как blocker.
+- Pre-commit падал: в `CLOUD_AGENT_INJECTED_SECRET_NAMES` попал URL сайта как "имя" секрета; перед commit отфильтровал только валидные bash identifiers.
 
 ### Durable fix needed before next run
 - Scout helper `--check-query` должен учитывать `memory/blog/published-live-avtosales125.json` (или актуальный live snapshot), а не только ledger + blog-topics.

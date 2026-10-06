@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261006-1740-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-indexer
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Контракты Indexer всё ещё передают `excalibur_blog_llms_generator.py … --blog-path /`, хотя CLI принимает только `--blog-dir` / `--site-base` / `--out-dir` (argparse error при `--blog-path`).
+- `scripts/excalibur_blog_doctor.py` проверяет наличие `--blog-path` в help llms generator → ложный FAIL/шум при актуальном CLI.
+- Директор вынужден явно предупреждать Indexer: использовать `--blog-dir`, не `--blog-path`.
+
+### How the agent recovered this run
+- Запустил generator только с `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog`.
+- B02 попал в `memory/blog/llms.txt` и `memory/blog/llms-full.txt` (3 articles indexed).
+
+### Durable fix needed before next run
+- Убрать `--blog-path` из shell-примеров Indexer (agents + skills, cloud + plugin).
+- В doctor: проверять `--blog-dir` (и при необходимости `--out-dir`), не `--blog-path`.
+- Добавить строку в pitfalls: llms generator = `--blog-dir`, doctor не должен требовать `--blog-path`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261006-1736-schema-secret-scan-blocks-jsonld-commit
 status: open
 run_date: 2026-10-06

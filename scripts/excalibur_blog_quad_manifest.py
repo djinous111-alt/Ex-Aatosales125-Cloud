@@ -27,6 +27,32 @@ DEFAULT_SLOT_MAP = {
     "inline_3": "bottom_right",
 }
 
+# Generic SEO defaults — only when article is clearly SEO/content-marketing niche.
+SEO_DEFAULT_SCENE = (
+    "reference-лицо, белое плотное худи из толстой ткани, новая поза/жест/ракурс под крючок, "
+    "без наушников/headset/earbuds, шок/ирония SEOшника, Wordstat + ноутбук"
+)
+SEO_DEFAULT_CAPTION = "15k ключей — 0 прочтений?"
+SEO_DEFAULT_HOOK = "SEO-текст, который люди дочитают — миф или workflow?"
+
+AUTO_NICHE_MARKERS = (
+    "гибдд",
+    "мрэо",
+    "эптс",
+    "учёт",
+    "учет",
+    "растамож",
+    "таможн",
+    "авто ",
+    "авто-",
+    "машин",
+    "encar",
+    "ввоз",
+    "япони",
+    "коре",
+    "кита",
+)
+
 
 def project_root() -> Path:
     env_root = os.environ.get("EXCALIBUR_PROJECT_ROOT", "").strip()
@@ -83,15 +109,37 @@ def pick_visual_type(h2: str, types_catalog: dict, used: set[str]) -> str:
     return TYPE_PRIORITY[0]
 
 
-def scene_hint_for_type(type_id: str, h2: str) -> str:
-    hints = {
-        "comparison_table_ui": f"Таблица SEO vs GEO: критерии, цели, человек vs AI — «{h2}»",
-        "workflow_diagram": f"6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «{h2}»",
-        "checklist_board": f"Printable чеклист перед публикацией — «{h2}»",
-        "schema_faq_ui": f"FAQ accordion + JSON-LD schema UI — «{h2}»",
-        "tool_screenshot": f"Скрин SEO-инструмента — «{h2}»",
-        "infographic_card": f"Карточка фактов — «{h2}»",
-    }
+def is_auto_niche(meta: dict[str, Any], article_dir: Path) -> bool:
+    blob = " ".join(
+        [
+            str(meta.get("h1") or ""),
+            str(meta.get("slug") or ""),
+            str(meta.get("primary_query") or ""),
+            article_dir.name,
+        ]
+    ).lower()
+    return any(marker in blob for marker in AUTO_NICHE_MARKERS)
+
+
+def scene_hint_for_type(type_id: str, h2: str, *, auto_niche: bool) -> str:
+    if auto_niche:
+        hints = {
+            "comparison_table_ui": f"Таблица сравнения документов/этапов — «{h2}»",
+            "workflow_diagram": f"Пошаговый путь документов → МРЭО — «{h2}»",
+            "checklist_board": f"Чеклист перед записью в ГИБДД — «{h2}»",
+            "schema_faq_ui": f"FAQ карточки по учёту авто — «{h2}»",
+            "tool_screenshot": f"Экран Госуслуг / ЭПТС статус — «{h2}»",
+            "infographic_card": f"Карточка фактов по документам — «{h2}»",
+        }
+    else:
+        hints = {
+            "comparison_table_ui": f"Таблица SEO vs GEO: критерии, цели, человек vs AI — «{h2}»",
+            "workflow_diagram": f"6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «{h2}»",
+            "checklist_board": f"Printable чеклист перед публикацией — «{h2}»",
+            "schema_faq_ui": f"FAQ accordion + JSON-LD schema UI — «{h2}»",
+            "tool_screenshot": f"Скрин SEO-инструмента — «{h2}»",
+            "infographic_card": f"Карточка фактов — «{h2}»",
+        }
     return hints.get(type_id, f"Полезная иллюстрация — «{h2}»")
 
 
@@ -100,23 +148,67 @@ def alt_for_type(type_id: str, h2: str, types_catalog: dict) -> str:
     return f"{label}: {h2}"
 
 
+def load_matching_cover_prompt(root: Path, topic_id: str, slug: str) -> dict[str, Any] | None:
+    """Use cover-prompts.json only when topic_id+slug match current article (avoid stale B01 SEO)."""
+    path = root / "memory/cover/cover-prompts.json"
+    if not path.is_file() or not topic_id:
+        return None
+    try:
+        data = load_json(path)
+    except (OSError, json.JSONDecodeError):
+        return None
+    entry = (data.get("topics") or {}).get(topic_id) or (data.get("topics") or {}).get(str(topic_id).upper())
+    if not isinstance(entry, dict):
+        return None
+    entry_slug = str(entry.get("slug") or "").strip()
+    if slug and entry_slug and entry_slug != slug:
+        return None
+    return entry
+
+
+def default_cover_for_article(meta: dict[str, Any], article_dir: Path, old_cover: dict) -> dict[str, Any]:
+    article_topic = meta.get("h1") or article_dir.name
+    auto = is_auto_niche(meta, article_dir)
+    if auto:
+        scene = (
+            old_cover.get("scene_hint")
+            or meta.get("cover_alt")
+            or "герой у окна МРЭО/ГИБДД с папкой документов и ключами, современный кроссовер, плашка про учёт"
+        )
+        caption = old_cover.get("meme_caption_ru") or "ЭПТС «готов», а в МРЭО разворот?"
+        alt = old_cover.get("alt") or meta.get("cover_alt") or f"Обложка: {article_topic}"
+    else:
+        scene = old_cover.get("scene_hint") or SEO_DEFAULT_SCENE
+        caption = old_cover.get("meme_caption_ru") or SEO_DEFAULT_CAPTION
+        alt = old_cover.get("alt") or f"Обложка: {article_topic}"
+    return {
+        "quadrant": "top_left",
+        "role": "cover_meme_hero",
+        "alt": alt,
+        "scene_hint": scene,
+        "meme_caption_ru": caption,
+    }
+
+
 def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict[str, Any]:
     meta_path = article_dir / "article.meta.json"
     meta = load_json(meta_path) if meta_path.is_file() else {}
     types_catalog = load_json(root / "memory/cover/inline-visual-types.json")
     h2s = extract_h2_titles(article_dir / "article.html")
-    topic_id = meta.get("topic_id") or article_dir.name.split("-")[0]
-    article_topic = meta.get("h1") or article_dir.name
+    topic_id = str(meta.get("topic_id") or article_dir.name.split("-")[0])
+    slug = str(meta.get("slug") or "")
+    if not slug and "-" in article_dir.name:
+        slug = article_dir.name.split("-", 1)[1]
+    auto_niche = is_auto_niche(meta, article_dir)
 
+    prompt = load_matching_cover_prompt(root, topic_id, slug)
     old_cover = ((preserve or {}).get("slots") or {}).get("cover") or {}
-    cover = {
-        "quadrant": "top_left",
-        "role": "cover_meme_hero",
-        "alt": old_cover.get("alt") or f"Обложка: {article_topic}",
-        "scene_hint": old_cover.get("scene_hint")
-        or "reference-лицо, белое плотное худи из толстой ткани, новая поза/жест/ракурс под крючок, без наушников/headset/earbuds, шок/ирония SEOшника, Wordstat + ноутбук",
-        "meme_caption_ru": old_cover.get("meme_caption_ru") or "15k ключей — 0 прочтений?",
-    }
+    cover = default_cover_for_article(meta, article_dir, old_cover)
+    if prompt:
+        if prompt.get("topic_scene_descriptor"):
+            cover["scene_hint"] = prompt["topic_scene_descriptor"]
+        if prompt.get("cover_alt_text"):
+            cover["alt"] = prompt["cover_alt_text"]
 
     used: set[str] = set()
     slots: dict[str, Any] = {"cover": cover}
@@ -125,18 +217,27 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
         visual_type = pick_visual_type(h2, types_catalog, used)
         used.add(visual_type)
         old = ((preserve or {}).get("slots") or {}).get(slot_key) or {}
+        anchor = old.get("h2_anchor") or h2
         slots[slot_key] = {
             "quadrant": DEFAULT_SLOT_MAP[slot_key],
-            "h2_anchor": old.get("h2_anchor") or h2,
+            "h2_anchor": anchor,
             "visual_type": visual_type,
-            "scene_hint": scene_hint_for_type(visual_type, old.get("h2_anchor") or h2),
-            "alt": alt_for_type(visual_type, old.get("h2_anchor") or h2, types_catalog),
+            "scene_hint": scene_hint_for_type(visual_type, anchor, auto_niche=auto_niche),
+            "alt": alt_for_type(visual_type, anchor, types_catalog),
         }
 
-    cover_hook = (preserve or {}).get("cover_hook") or "SEO-текст, который люди дочитают — миф или workflow?"
+    if auto_niche:
+        default_hook = f"{meta.get('h1') or 'Чек-лист'} — без отказа в МРЭО"
+    else:
+        default_hook = SEO_DEFAULT_HOOK
+    cover_hook = (preserve or {}).get("cover_hook") or default_hook
+    # Drop stale SEO hooks when current article is auto niche
+    if auto_niche and isinstance(cover_hook, str) and re.search(r"seo|wordstat|прочтен", cover_hook, flags=re.I):
+        cover_hook = default_hook
 
     return {
         "topic_id": topic_id,
+        "slug": slug,
         "canvas_file": "cover/canvas-quad.png",
         "layout": "2x2",
         "pipeline": "quad_canvas_1x_mcp",
@@ -167,6 +268,15 @@ def main() -> int:
         out_path = article_dir / out_path
 
     preserve = load_json(out_path) if args.merge and out_path.is_file() else None
+    # Ignore preserve from a different slug (stale B01 SEO artifact)
+    if preserve:
+        meta_path = article_dir / "article.meta.json"
+        meta = load_json(meta_path) if meta_path.is_file() else {}
+        current_slug = str(meta.get("slug") or "")
+        preserved_slug = str(preserve.get("slug") or "")
+        if current_slug and preserved_slug and preserved_slug != current_slug:
+            preserve = None
+
     manifest = build_manifest(article_dir, root, preserve)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     save_json(out_path, manifest)

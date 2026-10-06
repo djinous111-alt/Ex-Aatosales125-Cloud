@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "kak-postavit-na-uchet-avto-iz-yaponii-korei-kitaya-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у окна МРЭО с папкой документов и ключами, кроссовер на фоне, плашка «на учёт без отказа»",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-06T13:39:26+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у окна МРЭО с папкой документов и ключами, кроссовер на фоне, плашка «на учёт без отказа»",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Чеклист статуса ЭПТС: можно ли уже ехать в ГИБДД",
+      "h2_anchor": "Проверьте статус ЭПТС: можно ли уже ехать в ГИБДД",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Скрин чек-листа документов для учёта ввезённого авто",
+      "h2_anchor": "Соберите чек-лист документов для учёта ввезённого авто",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Сравнительная таблица: что одинаково для Японии, Кореи и Китая при учёте",
+      "h2_anchor": "Сравните: что одинаково для Японии, Кореи и Китая",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

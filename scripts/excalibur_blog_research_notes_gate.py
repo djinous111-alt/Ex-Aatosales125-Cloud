@@ -14,22 +14,30 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
-    "ai",
-    "ии",
-    "agent",
+# Short tokens must use word-boundary matching. Never use bare "ии" as substring:
+# it false-positives inside normal Russian endings (...ции / ...ии).
+TECH_MARKERS_SUBSTRING = (
     "агент",
-    "mcp",
-    "api",
     "cursor",
-    "make",
     "n8n",
     "github",
     "docker",
-    "rag",
     "workflow",
     "автоматизац",
     "нейросет",
+    "искусственн",
+    "llm",
+    "mcp",
+)
+
+# Latin / whole-word style markers (Cyrillic word boundary via lookaround).
+TECH_MARKERS_WORD = (
+    r"\bai\b",
+    r"(?<![а-яёa-z0-9])ии(?![а-яёa-z0-9])",
+    r"\bagent\b",
+    r"\bapi\b",
+    r"\bmake\b",
+    r"\brag\b",
 )
 
 
@@ -80,7 +88,9 @@ def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
     blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    if any(marker in blob for marker in TECH_MARKERS_SUBSTRING):
+        return True
+    return any(re.search(pattern, blob, flags=re.I) for pattern in TECH_MARKERS_WORD)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,7 +140,13 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
+    # Prefer explicit accessed_at labels; also accept table cells "accessed_at YYYY-MM-DD".
     accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    if accessed_count < 5:
+        accessed_count = max(
+            accessed_count,
+            len(re.findall(r"\baccessed_at\b\s*[:|]?\s*\d{4}-\d{2}-\d{2}", text_lower)),
+        )
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
     pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
     action_items = count_action_items(text)

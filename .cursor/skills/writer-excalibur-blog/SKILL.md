@@ -37,10 +37,23 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## CTA href (критично)
+
+- В `article.html` **запрещён** литерал `href="[REDACTED]"` и другие placeholder CTA.
+- Бери абсолютные URL из runtime env / conversion map: `CATALOG_URL`, `TELEGRAM_URL` (как в успешных AS* статьях).
+- Self-check перед сдачей: `rg 'href="\[REDACTED\]"' article.html` → должно быть пусто; html-linter тоже BLOCK на placeholder.
+
+## Utility / human-voice маркеры
+
+- `pain_markers_ru` / `outcome_markers_ru` живут в `memory/brief/editorial-policy.json`.
+- Utility gate и human-voice gate читают **один** policy-набор (не разъезжай списки).
+
 ## Blockers
 
 - нет research-notes.md
 - utility-only нарушен (вода, нет шагов)
 - объём вне диапазона после 1 правки
+- CTA с `[REDACTED]` в href
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`
+

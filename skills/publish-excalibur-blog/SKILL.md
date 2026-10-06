@@ -20,10 +20,15 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | `memory/site.env.local` (или Cloud Secrets): `SSH_*`, `PUBLIC_SITE_URL` |
+| SSH root | предпочтительно `SSH_ROOT=.` (unquoted в `site.env.local`) |
+| Python deps | `paramiko` (ставится `.cursor/cloud-agent-install.sh` / `requirements.txt`) |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
+
+Если `import paramiko` падает: `pip3 install --break-system-packages paramiko`, затем убедись что install script содержит paramiko (не silent skip publish).
+Перед commit schema/publish артефактов с публичными URL: `source scripts/sanitize_cloud_secret_names.sh` или `scripts/excalibur_git.sh commit`.
 
 ## Алгоритм
 

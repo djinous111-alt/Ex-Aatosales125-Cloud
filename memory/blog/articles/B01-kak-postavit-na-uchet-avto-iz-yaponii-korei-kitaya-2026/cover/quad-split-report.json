@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-kak-postavit-na-uchet-avto-iz-yaponii-korei-kitaya-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1028,
+      580
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 580,
+        "end": 594
+      },
+      "v_gutter_px": {
+        "start": 1028,
+        "end": 1057
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1028,
+          "bottom": 580
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1028,
+          "bottom": 580
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у окна МРЭО с папкой документов и ключами, кроссовер на фоне, плашка «на учёт без отказа»",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1057,
+          "top": 11,
+          "right": 2048,
+          "bottom": 568
+        },
+        "raw_box_px": {
+          "left": 1057,
+          "top": 0,
+          "right": 2048,
+          "bottom": 580
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист статуса ЭПТС: можно ли уже ехать в ГИБДД",
+        "h2_anchor": "Проверьте статус ЭПТС: можно ли уже ехать в ГИБДД"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 18,
+          "top": 594,
+          "right": 1010,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 594,
+          "right": 1028,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Скрин чек-листа документов для учёта ввезённого авто",
+        "h2_anchor": "Соберите чек-лист документов для учёта ввезённого авто"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1057,
+          "top": 594,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1057,
+          "top": 594,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Сравнительная таблица: что одинаково для Японии, Кореи и Китая при учёте",
+        "h2_anchor": "Сравните: что одинаково для Японии, Кореи и Китая"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Проверьте статус ЭПТС: можно ли уже ехать в ГИБДД",
+    "injected inline_2 after H2 — Соберите чек-лист документов для учёта ввезённого авто",
+    "injected inline_3 after H2 — Сравните: что одинаково для Японии, Кореи и Китая"
+  ]
+}

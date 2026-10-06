@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-kak-postavit-na-uchet-avto-iz-yaponii-korei-kitaya-2026",
+  "notes": "memory/blog/articles/B01-kak-postavit-na-uchet-avto-iz-yaponii-korei-kitaya-2026/research-notes.md",
+  "context": "memory/blog/articles/B01-kak-postavit-na-uchet-avto-iz-yaponii-korei-kitaya-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-10-06",
+    "prefer_sources_after": "2026-07-08",
+    "source_urls": 50,
+    "source_domains": 15,
+    "source_table_rows": 45,
+    "accessed_at": 34,
+    "github_urls": 3,
+    "official_doc_urls": 4,
+    "action_outline_items": 9,
+    "pain_solution_rows": 3,
+    "technical_topic": true
+  }
+}

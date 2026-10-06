@@ -50,9 +50,18 @@ Task(generalPurpose):
 
 Директор переносит оба блока в handoff после завершения пары Task.
 
-## Cloud Task fallback
+## Cloud Task fallback (ожидаемый путь)
 
-См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
+На многих Cloud runs typed Task `excalibur-blog-*` (включая `excalibur-blog-geo-qa`) **недоступны** — это не ошибка окружения и не повод останавливать пайплайн.
+
+Канон: сразу отдельный `Task(generalPurpose)` на **каждую** роль с:
+
+- `.cursor/agents/excalibur-blog-<role>.md`
+- `.cursor/skills/<skill>/SKILL.md`
+- короткий контракт: входные файлы, маркер результата, запреты
+
+Один Task = одна роль. Параллель `cover || schema` = два Task в одном сообщении.
+Не добавляй новые typed Task types в environment без явного решения владельца Cloud — документируй fallback здесь и в `AGENTS.md`.
 
 ## Preflight (shell, директор)
 

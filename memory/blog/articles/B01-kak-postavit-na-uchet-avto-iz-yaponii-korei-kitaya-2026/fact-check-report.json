@@ -1,0 +1,87 @@
+{
+  "article": "memory/blog/articles/B01-kak-postavit-na-uchet-avto-iz-yaponii-korei-kitaya-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 11,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 9,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "т вроде есть, а ехать рано. Ниже – чек-лист учёта 2026: что проверить до записи и какие документы брать.",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "о после статуса ЭПТС \"действующий\". ОСАГО с 01.03.2025 для регистрации не нужен, но ехать без полиса свои",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2027",
+      "kind": "date_or_year",
+      "context": "оим ходом нельзя. Для физлиц ЭРА-ГЛОНАСС до 31.12.2027 не обязательна. Срок постановки – 10 дней; ориенти",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2023 года",
+      "kind": "date_or_year",
+      "context": "пакетом. Скидки 30% на пошлину через портал нет с 2023 года. Войдите в Госуслуги и откройте услугу регистраци",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2000",
+      "kind": "date_or_year",
+      "context": "акт приёма-передачи. Просрочка для граждан – 1500–2000 ₽. Защита – готовый пакет, а не запись \"на авось\"",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 дней",
+      "kind": "metric_or_duration",
+      "context": "С до 31.12.2027 не обязательна. Срок постановки – 10 дней; ориентир госпошлины: номера около 3000 ₽ плюс СТ",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "4 лет",
+      "kind": "metric_or_duration",
+      "context": "квитанция об оплате госпошлины; если авто старше 4 лет (включая год изготовления) – действующая диагност",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3000",
+      "kind": "large_number",
+      "context": "овки – 10 дней; ориентир госпошлины: номера около 3000 ₽ плюс СТС 1500 ₽ (бумага) или 4500 ₽ (пластик).",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1500",
+      "kind": "large_number",
+      "context": "ориентир госпошлины: номера около 3000 ₽ плюс СТС 1500 ₽ (бумага) или 4500 ₽ (пластик). Финиш: СТС и ном",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4500",
+      "kind": "large_number",
+      "context": "номера около 3000 ₽ плюс СТС 1500 ₽ (бумага) или 4500 ₽ (пластик). Финиш: СТС и номера на руках. Мы в А",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "large_number",
+      "context": "пакетом. Скидки 30% на пошлину через портал нет с 2023 года. Войдите в Госуслуги и откройте услугу регист",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

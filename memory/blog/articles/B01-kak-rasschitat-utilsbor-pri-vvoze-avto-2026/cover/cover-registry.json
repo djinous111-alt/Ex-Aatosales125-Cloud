@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "kak-rasschitat-utilsbor-pri-vvoze-avto-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс с документами у порта Владивостока, кроссовер из Азии, плашка утильсбор 2026",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-06T09:50:14+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс с документами у порта Владивостока, кроссовер из Азии, плашка утильсбор 2026",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Инфографика: пять вводных по лоту для расчёта утильсбора",
+      "h2_anchor": "Соберите 5 вводных по лоту до любой цифры",
+      "visual_type": "infographic_card",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Чек-лист: льгота физлица или коммерческий утильсбор",
+      "h2_anchor": "Пройдите чек-лист: льгота физлица или коммерческая сетка",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Таблица: лошади из объявления против кВт в документах",
+      "h2_anchor": "Сверьте мощность в кВт – не \"лошадей\" из объявления",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-kak-rasschitat-utilsbor-pri-vvoze-avto-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1025,
+      578
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 578,
+        "end": 616
+      },
+      "v_gutter_px": {
+        "start": 1025,
+        "end": 1061
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1025,
+          "bottom": 578
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1025,
+          "bottom": 578
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс с документами у порта Владивостока, кроссовер из Азии, плашка утильсбор 2026",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1061,
+          "top": 11,
+          "right": 2048,
+          "bottom": 566
+        },
+        "raw_box_px": {
+          "left": 1061,
+          "top": 0,
+          "right": 2048,
+          "bottom": 578
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Инфографика: пять вводных по лоту для расчёта утильсбора",
+        "h2_anchor": "Соберите 5 вводных по лоту до любой цифры"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 36,
+          "top": 616,
+          "right": 989,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 616,
+          "right": 1025,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чек-лист: льгота физлица или коммерческий утильсбор",
+        "h2_anchor": "Пройдите чек-лист: льгота физлица или коммерческая сетка"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1078,
+          "top": 616,
+          "right": 2031,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1061,
+          "top": 616,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: лошади из объявления против кВт в документах",
+        "h2_anchor": "Сверьте мощность в кВт – не \"лошадей\" из объявления"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Соберите 5 вводных по лоту до любой цифры",
+    "injected inline_2 after H2 — Пройдите чек-лист: льгота физлица или коммерческая сетка",
+    "injected inline_3 after H2 — Сверьте мощность в кВт – не \"лошадей\" из объявления"
+  ]
+}

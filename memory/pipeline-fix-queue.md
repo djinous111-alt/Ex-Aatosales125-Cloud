@@ -6,8 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Incidents (current run)
 
-> Open count: **1** (schema recurrence of secret-names URL injection).
+> Open count: **2** (schema secret-names URL; cover MCP sync timeout → Kie async).
 
+
+## INC-20261006-0948-cover-mcp-sync-timeout-kie-async
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rasschitat-utilsbor-pri-vvoze-avto-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` (MCP-KV) with 2K i2i + `input_urls` returned `HTTP MCP error -32001: Request timed out`.
+- No recoverable image URL/task_id appeared in available MCP/client logs after the client timeout.
+- Blind second sync MCP create would risk duplicate billed generations.
+
+### How the agent recovered this run
+- Used documented preferred path from `cover/quad-mcp-batch.json` → `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir ...` (Kie createTask → recordInfo poll).
+- Got `task_id` + result URL, wrote `cover/quad-mcp-result.json`, then `excalibur_blog_quad_apply.py --inject-html` → split PASS + 3 figures injected.
+
+### Durable fix needed before next run
+- Cover skill/agent should prefer Kie async script on Cloud when `KIE_API_KEY` is set, and treat sync MCP as legacy fallback only.
+- Keep timeout_policy: never mark -32001 as immediate COVER BLOCKER; do not start a second sync job without URL/task_id confirmation.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `scripts/excalibur_blog_cover_quad_prompt.py` (batch preferred_image_flow already documents Kie)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
 
 ## INC-20261006-0946-schema-secret-names-url-recurrence
 status: open

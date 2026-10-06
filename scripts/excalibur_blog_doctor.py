@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import os
 import subprocess
 import sys
@@ -132,7 +133,27 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check(module_available("paramiko"), "paramiko available (SSH publish)", errors, warnings, warn=True)
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    if policy_path.is_file():
+        try:
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            policy = {}
+            check(False, "editorial-policy.json is valid JSON", errors, warnings)
+        pain = policy.get("pain_markers_ru") or []
+        outcome = policy.get("outcome_markers_ru") or []
+        check(isinstance(pain, list) and len(pain) >= 3, "editorial-policy pain_markers_ru non-empty", errors, warnings)
+        check(
+            isinstance(outcome, list) and len(outcome) >= 3,
+            "editorial-policy outcome_markers_ru non-empty",
+            errors,
+            warnings,
+        )
+    else:
+        check(False, "memory/brief/editorial-policy.json exists", errors, warnings)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

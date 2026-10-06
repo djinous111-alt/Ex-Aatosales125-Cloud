@@ -36,9 +36,9 @@ is_background: false
 
 Cover и Schema **не пишут** напрямую в handoff — только во фрагменты. Директор переносит блоки после обоих Task.
 
-## Cloud Task fallback
+## Cloud Task fallback (ожидаемый путь)
 
-Если Cloud не принимает `excalibur-blog-`* как Task types → **отдельный `Task(generalPurpose)` на каждую роль** с `.cursor/agents/<role>.md` + skill path.
+Typed `excalibur-blog-*` (включая `excalibur-blog-geo-qa`) часто недоступны в Cloud API — это нормально. Сразу **отдельный `Task(generalPurpose)` на каждую роль** с `.cursor/agents/<role>.md` + skill path. Не блокируй пайплайн попыткой добавить Task type.
 
 Если недоступен даже `generalPurpose`:
 

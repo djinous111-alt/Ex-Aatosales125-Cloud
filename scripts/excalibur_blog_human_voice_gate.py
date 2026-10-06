@@ -100,7 +100,9 @@ CONCRETE_MARKERS = (
     "из практики",
 )
 
-PAIN_MARKERS = (
+# Fallback defaults — canonical source is memory/brief/editorial-policy.json
+# (pain_markers_ru / outcome_markers_ru). Keep lists in sync with utility_gate.
+DEFAULT_PAIN_MARKERS = (
     "боль",
     "проблем",
     "ошиб",
@@ -115,7 +117,7 @@ PAIN_MARKERS = (
     "сложно",
 )
 
-OUTCOME_MARKERS = (
+DEFAULT_OUTCOME_MARKERS = (
     "результат",
     "получите",
     "сможете",
@@ -127,6 +129,19 @@ OUTCOME_MARKERS = (
     "исправьте",
     "выберите",
 )
+
+
+def load_policy_markers(root: Path) -> tuple[tuple[str, ...], tuple[str, ...]]:
+    path = root / "memory" / "brief" / "editorial-policy.json"
+    if not path.is_file():
+        return DEFAULT_PAIN_MARKERS, DEFAULT_OUTCOME_MARKERS
+    try:
+        policy = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return DEFAULT_PAIN_MARKERS, DEFAULT_OUTCOME_MARKERS
+    pain = tuple(policy.get("pain_markers_ru") or ()) or DEFAULT_PAIN_MARKERS
+    outcome = tuple(policy.get("outcome_markers_ru") or ()) or DEFAULT_OUTCOME_MARKERS
+    return pain, outcome
 
 AI_OPENERS = (
     "в современном мире",
@@ -247,8 +262,9 @@ def analyze_human_voice(article_dir: Path) -> dict[str, Any]:
     success_overlap = keyword_overlap(success_criteria, text) if success_criteria else []
     angle_overlap = keyword_overlap(voice_angle, text) if voice_angle else []
     surprising_overlap = keyword_overlap(surprising_fact, text) if surprising_fact else []
-    pain_hits = [marker for marker in PAIN_MARKERS if marker in text_lower]
-    outcome_hits = [marker for marker in OUTCOME_MARKERS if marker in text_lower]
+    pain_markers, outcome_markers = load_policy_markers(root)
+    pain_hits = [marker for marker in pain_markers if marker in text_lower]
+    outcome_hits = [marker for marker in outcome_markers if marker in text_lower]
 
     if ai_opening_hits:
         errors.append(f"AI-style opening phrases near lead: {ai_opening_hits}")

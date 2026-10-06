@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None open after 2026-10-06 fixer run (B01 post 4074)._
+
+
 ## INC-20261006-1343-indexer-llms-blog-path-doctor-mismatch
-status: open
+status: fixed
 run_date: 2026-10-06
 role: excalibur-blog-indexer
 topic_id: B01
@@ -39,7 +42,20 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-06
+fix_summary:
+- Doctor now checks `--blog-dir` (actual llms generator CLI), not `--blog-path`.
+- Indexer skill examples dropped `--blog-path /`; pitfalls note updated.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` (OK llms generator supports --blog-dir)
+- `rg` no `--blog-path` in indexer skills / doctor
+commit: 115442e
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -287,7 +303,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20261006-1312-scout-as-pool-live-overlap
-status: open
+status: fixed
 run_date: 2026-10-06
 role: excalibur-blog-scout
 topic_id: B01
@@ -322,10 +338,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-06
+fix_summary:
+- Scout helper loads AS*/B* cards and `memory/blog/published-live*.json`; `--check-query` / `--suggest-next` mark live overlaps as `live_published`.
+- Scout agent/skill require live-snapshot check; AS* in pool ≠ free when live slug/title overlaps.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` (AS01–AS07 live)
+- `--check-query "растаможка авто из кореи"` → OVERLAP live_published
+commit: 115442e
 
 ## INC-20261006-1319-research-tech-marker-ii-false-positive
-status: open
+status: fixed
 run_date: 2026-10-06
 role: excalibur-blog-research
 topic_id: B01
@@ -357,10 +388,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-06
+fix_summary:
+- Removed bare substring marker `ии`; short tech tokens use word-boundary regex.
+- Non-tech legal/auto topics no longer forced to github_urls>=3; research skill documents `accessed_at: YYYY-MM-DD` in cells.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- gate on B01 → technical_topic=false, PASS
+- unit check: registration/...ции not technical; MCP/agent is technical
+commit: 115442e
 
 ## INC-20261006-1330-writer-utility-pain-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-06
 role: excalibur-blog-writer
 topic_id: B01
@@ -392,10 +436,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-06
+fix_summary:
+- Confirmed `pain_markers_ru` / `outcome_markers_ru` already present in editorial-policy.json (morning fix).
+- Utility gate warns+skips when lists empty (no silent 0-hit BLOCK); human-voice loads same policy lists; doctor fails if empty.
+files_changed:
+- `memory/brief/editorial-policy.json` (verified non-empty)
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor OK pain/outcome markers non-empty
+- JSON parse editorial-policy.json
+commit: 115442e
 
 ## INC-20261006-1332-geo-qa-redacted-cta-hrefs
-status: open
+status: fixed
 run_date: 2026-10-06
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -428,10 +488,22 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-06
+fix_summary:
+- HTML linter blocks `href="[REDACTED]"` / placeholder CTA; writer skill + writing contract forbid placeholder hrefs.
+files_changed:
+- `scripts/excalibur_blog_html_linter.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `detect_redacted_cta_hrefs` unit check on [REDACTED] vs https URL
+commit: 115442e
 
 ## INC-20261006-1332-geo-qa-typed-task-unavailable
-status: open
+status: fixed
 run_date: 2026-10-06
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -461,10 +533,24 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-06
+fix_summary:
+- Documented typed Task unavailability (incl. geo-qa) as expected Cloud mode; generalPurpose per role is canonical fallback in Director/AGENTS/CLOUD-AUTOMATION/pitfalls.
+files_changed:
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- `agents/excalibur-blog-director.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` generalPurpose / geo-qa fallback wording in Director + AGENTS
+commit: 115442e
 
 ## INC-20261006-1336-schema-secret-scan-allowlist
-status: open
+status: fixed
 run_date: 2026-10-06
 role: excalibur-blog-schema
 topic_id: B01
@@ -496,14 +582,26 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-06
+fix_summary:
+- Added `scripts/sanitize_cloud_secret_names.sh` + `scripts/excalibur_git.sh`; schema skill documents compact `@graph` nodes with `x-excalibur-scan`.
+files_changed:
+- `scripts/sanitize_cloud_secret_names.sh`
+- `scripts/excalibur_git.sh`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- sanitize filters non-bash secret "names" (URL dropped, SSH_HOST kept)
+commit: 115442e
 
 ## Fixed incidents
 
-Handled above; commit is pending Director review.
+2026-10-06 fixer closed all open B01-run incidents; see Fixer resolution blocks on each INC.
 
 ## INC-20261006-1341-cover-stale-b01-prompts
-status: open
+status: fixed
 run_date: 2026-10-06
 role: excalibur-blog-cover
 topic_id: B01
@@ -532,10 +630,20 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-06
+fix_summary:
+- Updated `cover-prompts.json` B01 to GIBDD slug/scene; quad_manifest applies prompts only on topic_id+slug match, ignores stale merge slug, skips SEO Wordstat defaults for auto niche.
+files_changed:
+- `memory/cover/cover-prompts.json`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- dry-run manifest for B01: GIBDD scene, no Wordstat SEO hook
+commit: 115442e
 
 ## INC-20261006-1347-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-10-06
 role: excalibur-blog-publish
 topic_id: B01
@@ -564,5 +672,19 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-06
+fix_summary:
+- Added `paramiko` (+ numpy) to `.cursor/cloud-agent-install.sh`; kept in requirements.txt; publish skill documents SSH_ROOT=. and paramiko preflight.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor OK paramiko available
+- `rg paramiko` in install script + requirements
+commit: 115442e
 

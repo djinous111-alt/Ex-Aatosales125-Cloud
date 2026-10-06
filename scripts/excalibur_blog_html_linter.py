@@ -35,6 +35,36 @@ def detect_anchor_toc(html: str) -> list[str]:
     return errors
 
 
+def detect_redacted_cta_hrefs(html: str) -> list[str]:
+    """Fail if CTA/links use placeholder [REDACTED] or other non-URL href stubs."""
+    errors: list[str] = []
+    for match in re.finditer(r"""href\s*=\s*["']([^"']+)["']""", html, flags=re.I):
+        href = match.group(1).strip()
+        lower = href.lower()
+        if "[redacted]" in lower or href in {"REDACTED", "TODO", "TBD", "#TODO"}:
+            errors.append(
+                f'Forbidden placeholder CTA href="{href}". '
+                "Use real CATALOG_URL / TELEGRAM_URL (or absolute https://…) from conversion map / env; "
+                "never commit literal [REDACTED] in article.html href."
+            )
+        elif lower.startswith("http://") or lower.startswith("https://") or lower.startswith("mailto:"):
+            continue
+        elif lower.startswith("#"):
+            continue
+        elif lower.startswith("/") and "[redacted]" not in lower:
+            continue
+        elif lower in {"", "#"}:
+            errors.append('Empty or "#" href is not allowed for CTA links.')
+    # Deduplicate while preserving order
+    seen: set[str] = set()
+    unique: list[str] = []
+    for err in errors:
+        if err not in seen:
+            seen.add(err)
+            unique.append(err)
+    return unique
+
+
 def detect_duplicate_faq_sections(html: str) -> list[str]:
     """Fail if article has more than one FAQ heading block."""
     errors: list[str] = []
@@ -122,6 +152,7 @@ def lint_html_file(html_path: Path, whitelist: set[str]) -> dict[str, Any]:
     linter.check_unclosed_tags()
     linter.errors.extend(detect_anchor_toc(html_content))
     linter.errors.extend(detect_duplicate_faq_sections(html_content))
+    linter.errors.extend(detect_redacted_cta_hrefs(html_content))
 
     return {
         "file": str(html_path.name),

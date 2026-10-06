@@ -1,0 +1,42 @@
+{
+  "topic_id": "B02",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Цена лота — ещё не итог",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у стола с аукционным листом и калькулятором на фоне порта Владивостока: плашка «считай до ставки»",
+      "scene_hint": "WEATHER: cool overcast Vladivostok port day, grey-blue sea mist; OUTFIT: navy waterproof work jacket over grey hoodie (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie at desk with printed Japan auction sheet + calculator (NO concrete ruble/yen totals visible — blank or blurred numbers only); Vladivostok port cranes soft background; torn-paper Cyrillic hook plaque «Цена лота — ещё не итог» with yellow highlighter on «ещё не итог»; big plaque sticker «считай до ставки»; pink sticky «сначала смета»; shocked meme cutout + cat meme sticker (different formats, non-toxic — NEVER лох/лохов); DIY zine collage with scotch tape; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; NO specific money amounts on image",
+      "meme_caption_ru": "Считай до ставки"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зачем считать полную смету до ставки, а не после выкупа",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns «до ставки» | «после выкупа»; rows бюджет / курс / отмена / сюрпризы; red stamp «после — поздно»; yellow highlight row «потолок в рублях»; pink sticky «жиза»; scotch tape corner; NO hero face; NO Wordstat/Metrika; NO concrete money amounts",
+      "alt": "Таблица: полная смета до ставки против сюрпризов после выкупа"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Выпишите строки полной сметы под ключ",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 4 numbered blocks with arrows: 1 Япония (лот+сбор) → 2 море/порт → 3 таможня → 4 СБКТС/ЭПТС/РФ; torn-paper strips; marker arrows; sticky «не только пошлина»; NO hero face; NO Wordstat/Metrika; NO concrete sums",
+      "alt": "Схема четырёх блоков полной сметы под ключ: Япония, море, таможня, документы РФ"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Снимите данные из аукционного листа до расчёта",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake Japan auction sheet screenshot mock: fields highlighted with marker — месяц/год выпуска, объём cc, мощность л.с., рама/VIN (blurred); sticky «сними до расчёта»; tape corner; educational UI; NO hero face; NO Wordstat/Metrika; NO concrete price totals",
+      "alt": "Мокап аукционного листа: выпуск, объём, мощность и рама до расчёта сметы"
+    }
+  }
+}

@@ -439,3 +439,32 @@ category: docs
 
 ### Fixer resolution
 - pending
+
+## INC-20261006-1738-cover-quad-manifest-seo-defaults
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-cover
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_quad_manifest.py --merge` filled B02 cover slots with SEO niche defaults (Wordstat, «SEO-текст», «SEOшника»), not auto-import hooks for Япония/смета.
+
+### How the agent recovered this run
+- Manually overwrote `cover/quad-manifest.json` with auto-niche hook/scene_hints (лот ≠ итог, аукционный лист, порт Владивостока) before prompt/batch/Kie.
+
+### Durable fix needed before next run
+- Manifest generator should pick niche defaults from site-brief / article_mode / primary_query (Авто-Сейлс JP/KR/CN), not Cursor/SEO templates.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_quad_manifest.py`
+- `memory/cover/cover-design-code.json` (if SEO examples leak into defaults)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B02-kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1017,
+      572
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 572,
+        "end": 586
+      },
+      "v_gutter_px": {
+        "start": 1017,
+        "end": 1028
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1017,
+          "bottom": 572
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1017,
+          "bottom": 572
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у стола с аукционным листом и калькулятором на фоне порта Владивостока: плашка «считай до ставки»",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1028,
+          "top": 0,
+          "right": 2048,
+          "bottom": 572
+        },
+        "raw_box_px": {
+          "left": 1028,
+          "top": 0,
+          "right": 2048,
+          "bottom": 572
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: полная смета до ставки против сюрпризов после выкупа",
+        "h2_anchor": "Зачем считать полную смету до ставки, а не после выкупа"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 5,
+          "top": 586,
+          "right": 1011,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 586,
+          "right": 1017,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема четырёх блоков полной сметы под ключ: Япония, море, таможня, документы РФ",
+        "h2_anchor": "Выпишите строки полной сметы под ключ"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1035,
+          "top": 586,
+          "right": 2041,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1028,
+          "top": 586,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап аукционного листа: выпуск, объём, мощность и рама до расчёта сметы",
+        "h2_anchor": "Снимите данные из аукционного листа до расчёта"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зачем считать полную смету до ставки, а не после выкупа",
+    "injected inline_2 after H2 — Выпишите строки полной сметы под ключ",
+    "injected inline_3 after H2 — Снимите данные из аукционного листа до расчёта"
+  ]
+}

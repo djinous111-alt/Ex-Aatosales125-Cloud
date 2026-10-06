@@ -55,7 +55,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` (OK llms generator supports --blog-dir)
 - `rg` no `--blog-path` in indexer skills / doctor
-commit: 115442e
+commit: a84fa45
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -353,7 +353,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` (AS01–AS07 live)
 - `--check-query "растаможка авто из кореи"` → OVERLAP live_published
-commit: 115442e
+commit: a84fa45
 
 ## INC-20261006-1319-research-tech-marker-ii-false-positive
 status: fixed
@@ -401,7 +401,7 @@ files_changed:
 checks_run:
 - gate on B01 → technical_topic=false, PASS
 - unit check: registration/...ции not technical; MCP/agent is technical
-commit: 115442e
+commit: a84fa45
 
 ## INC-20261006-1330-writer-utility-pain-markers-missing
 status: fixed
@@ -452,7 +452,7 @@ files_changed:
 checks_run:
 - doctor OK pain/outcome markers non-empty
 - JSON parse editorial-policy.json
-commit: 115442e
+commit: a84fa45
 
 ## INC-20261006-1332-geo-qa-redacted-cta-hrefs
 status: fixed
@@ -500,7 +500,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `detect_redacted_cta_hrefs` unit check on [REDACTED] vs https URL
-commit: 115442e
+commit: a84fa45
 
 ## INC-20261006-1332-geo-qa-typed-task-unavailable
 status: fixed
@@ -547,7 +547,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` generalPurpose / geo-qa fallback wording in Director + AGENTS
-commit: 115442e
+commit: a84fa45
 
 ## INC-20261006-1336-schema-secret-scan-allowlist
 status: fixed
@@ -594,7 +594,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - sanitize filters non-bash secret "names" (URL dropped, SSH_HOST kept)
-commit: 115442e
+commit: a84fa45
 
 ## Fixed incidents
 
@@ -640,7 +640,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - dry-run manifest for B01: GIBDD scene, no Wordstat SEO hook
-commit: 115442e
+commit: a84fa45
 
 ## INC-20261006-1347-publish-paramiko-missing
 status: fixed
@@ -686,5 +686,5 @@ files_changed:
 checks_run:
 - doctor OK paramiko available
 - `rg paramiko` in install script + requirements
-commit: 115442e
+commit: a84fa45
 

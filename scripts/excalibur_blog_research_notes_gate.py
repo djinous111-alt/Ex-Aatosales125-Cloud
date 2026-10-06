@@ -14,22 +14,39 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Word/token markers only — never raw substring (avoids "ai" in "pain", "ии" in "версии").
 TECH_MARKERS = (
-    "ai",
-    "ии",
-    "agent",
-    "агент",
-    "mcp",
-    "api",
-    "cursor",
-    "make",
-    "n8n",
-    "github",
-    "docker",
-    "rag",
-    "workflow",
-    "автоматизац",
-    "нейросет",
+    r"\bai\b",
+    r"(?<![а-яёa-z])ии(?![а-яёa-z])",
+    r"\bagents?\b",
+    r"(?<![а-яё])агент(?:ы|ов|а|у|ом|е)?(?![а-яё])",
+    r"\bmcp\b",
+    r"\bapis?\b",
+    r"\bcursor\b",
+    r"\bmake\.com\b",
+    r"\bn8n\b",
+    r"\bgithub\b",
+    r"\bdocker\b",
+    r"\brag\b",
+    r"\bworkflows?\b",
+    r"автоматизац",
+    r"нейросет",
+)
+
+# Field names that contain tech-looking substrings and must not trigger technical_topic.
+TECH_BLOB_NOISE_FIELDS = (
+    "reader_pain",
+    "pain_solution_map",
+    "github_evidence",
+    "success_criteria",
+    "reader_outcome",
+    "voice_angle",
+    "reader_story",
+    "surprising_fact",
+    "action_outline",
+    "utility_verdict",
+    "research_date",
+    "accessed_at",
 )
 
 
@@ -73,14 +90,23 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _strip_research_field_noise(text: str) -> str:
+    cleaned = text
+    for field in TECH_BLOB_NOISE_FIELDS:
+        pattern = re.escape(field).replace("_", r"[_\s-]")
+        cleaned = re.sub(pattern, " ", cleaned, flags=re.I)
+    return cleaned
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Prefer topic/meta signals; scan only the lead of notes after stripping required field labels.
+    blob += " " + _strip_research_field_noise(notes[:2000].lower())
+    return any(re.search(marker, blob, flags=re.I) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:

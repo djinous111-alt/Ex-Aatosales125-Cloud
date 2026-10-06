@@ -84,6 +84,7 @@ category: env
 
 ### Durable fix needed before next run
 - Document in scout/director/pitfalls: before commit, sanitize `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid bash identifiers (drop URLs and non-identifier tokens), not only literal `[REDACTED]`.
+- Keep the sanitized list **comma-separated** (`IFS=','` in pre-commit.cursor). Space-separated list becomes one invalid `${!SECRET_NAME}` and blocks commit again (reproduced 2026-10-06 research).
 - Optionally harden Cloud Secrets injection so values never appear in the names list.
 
 ### Suggested files to inspect/change

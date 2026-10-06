@@ -251,6 +251,43 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261006-1312-scout-as-pool-live-overlap
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- `shared/published-articles.md` содержал только AS08/AS09, а `scripts/excalibur_blog_scout_helper.py --check-query` не видел live WP.
+- Кандидаты AS01/AS02/AS03/AS05/AS07 из брифа уже опубликованы на live (slug в `memory/blog/published-live-avtosales125.json`), при этом helper вернул clean.
+- Часть вызовов Wordstat вернула пустой `{}` или только `totalCount` без top phrases (не fatal, но без live-снимка легко выбрать каннибал).
+
+### How the agent recovered this run
+- Сверил кандидатов с `memory/blog/published-live-avtosales125.json` и явным списком live slug из прогона.
+- Отбросил AS*-оверлапы; выбрал gap-тему B01 про постановку на учёт (Wordstat niche JP ~911 / CN ~847 / parent docs ~8037).
+- Low-detail Wordstat на узких фразах использовал как signal, не как blocker.
+
+### Durable fix needed before next run
+- Scout helper `--check-query` должен учитывать `memory/blog/published-live-avtosales125.json` (или актуальный live snapshot), а не только ledger + blog-topics.
+- В scout skill/agent явно: AS* в blog-topics.md != свободно для B*; сверять live slug до карточки.
+- Обновлять live-snapshot перед needs_scout, если ledger неполный.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/blog/published-live-avtosales125.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

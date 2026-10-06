@@ -53,7 +53,7 @@ files_changed:
 - `memory/blog/articles/B02-kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026/article.meta.json`
 checks_run:
 - full GEO QA script suite PASS for B02
-commit: pending
+commit: 56b5e93
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

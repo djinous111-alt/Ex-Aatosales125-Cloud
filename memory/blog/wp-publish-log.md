@@ -31,3 +31,17 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-06 — B02 kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026
+
+- **verdict:** PASS
+- **post_id:** 4080
+- **permalink:** [PUBLIC_SITE_URL]/2026/10/06/kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026/
+- **featured_image:** 4081
+- **inline_images:** 4082 (cover/inline-01.png), 4083 (cover/inline-02.png), 4084 (cover/inline-03.png)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH upload (`SSH_ROOT=.`) + HTTP trigger (~142s, no fallback)
+- **note:** first attempt failed — missing `paramiko` (pip install); env-check PASS; dry-run PHP ~6.8MB; live HEAD 200
+- **result:** `memory/blog/articles/B02-kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026/wp-publish-result.json`
+

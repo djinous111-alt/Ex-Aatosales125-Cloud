@@ -1,13 +1,13 @@
 # Promotion checklist — B02 kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026
 
 Дата публикации: 2026-10-06 (ожидается после WP publish)  
-Live URL: [REDACTED]/blog/kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026/
+Live URL: [PUBLIC_SITE_URL]/2026/10/06/kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL (HEAD 200) — title, excerpt, featured image, FAQ
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • До ставки: лот + Япония + фрахт + таможня + утильсбор + СБКТС/ЭПТС + доставка по РФ
 • Чек-лист из 10 пунктов и запас на курс / порог ~160 л.с.
 
-Читать: [REDACTED]/blog/kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026/
+Читать: [PUBLIC_SITE_URL]/2026/10/06/kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026/
 ```
 
 ## Перелинковка

@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261006-1745-publish-paramiko-missing
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-publish
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-poschitat-polnuyu-stoimost-avto-iz-yaponii-2026
+severity: high
+category: env
+
+### What went wrong
+- First publish attempt crashed: `ModuleNotFoundError: No module named 'paramiko'`.
+- `requirements.txt` lists `paramiko`, but `.cursor/cloud-agent-install.sh` only installs `requests pillow python-dotenv`.
+- Same class of failure as prior Cloud publish runs (memory: INC-20261006-1347 pattern).
+
+### How the agent recovered this run
+- `pip3 install --break-system-packages paramiko` then re-ran SSH publish successfully (post 4080).
+- Used `SSH_ROOT=.`; HTTP trigger completed without WebFetch fallback (~142s).
+
+### Durable fix needed before next run
+- Add `paramiko` to `.cursor/cloud-agent-install.sh` pip install list (both fallbacks).
+- Keep `paramiko` in `requirements.txt` (already present).
+- Optional: `excalibur_blog_doctor.py` / `--env-check` should warn if paramiko import fails before publish.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `scripts/excalibur_blog_wp_publish.py` (`--env-check`)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261006-1740-indexer-llms-blog-path-stale
 status: open
 run_date: 2026-10-06

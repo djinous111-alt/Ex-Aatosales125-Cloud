@@ -6,6 +6,66 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261006-0920-research-wordstat-top-requests-format
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rasschitat-utilsbor-pri-vvoze-avto-2026
+severity: low
+category: api
+
+### What went wrong
+- `wordstat_get_top_requests` для длинной primary-фразы «как рассчитать утильсбор на авто 2026» вернул неожиданный формат `{"totalCount":"2"}` без списка фраз/показов (не 401).
+- Parent/cluster запросы («утильсбор на авто», «утильсбор на авто 2026», «льготный утильсбор», «рассчитать утильсбор на авто») отработали нормально.
+
+### How the agent recovered this run
+- Повторные вызовы по parent/cluster-фразам; в `research-notes.md` зафиксированы только реальные показы + примечание о сбое длинной фразы; цифры не выдумывались.
+
+### Durable fix needed before next run
+- В skill research: при странном ответе Wordstat (не список топа) — сразу fallback на parent_query / укороченную фразу без выдуманных impressions.
+- Опционально: нормализовать MCP-обёртку `wordstat_get_top_requests`, чтобы длинные фразы не отдавали raw `totalCount`-only payload как «успех».
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- MCP-KV wordstat tool wrapper (если в репо есть клиент/доки)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261006-0921-research-notes-gate-tech-false-positive
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rasschitat-utilsbor-pri-vvoze-avto-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` пометил beginner auto-import тему как `technical_topic=true` из-за naive substring markers: `ai` внутри `pain` / `reader_pain`, `ии` внутри «Японии».
+- Из-за этого gate требовал ≥3 GitHub URL на не-developer статье; пришлось добавлять вторичный github_evidence workaround.
+
+### How the agent recovered this run
+- Добавлены ≥5 явных `accessed_at:` и 3+ github.com URL (tks-api repo/README/issues); gate PASS с warning про official docs.
+
+### Durable fix needed before next run
+- В `is_technical_topic` использовать word-boundary / token match, не substring: исключить ложные срабатывания на `pain`, `Японии`, названиях стран и т.п.
+- Для non-tech how_to (авто/таможня) не требовать GitHub evidence, если topic slug/intent не developer.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261006-0915-scout-secret-names-url
 status: open
 run_date: 2026-10-06

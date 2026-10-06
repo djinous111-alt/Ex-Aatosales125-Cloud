@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-06",
+    "today_ru": "06.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-08",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-06 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "kak-rasschitat-utilsbor-pri-vvoze-avto-2026",
+    "h1": "Как рассчитать утильсбор при ввозе авто из Японии, Кореи и Китая в 2026",
+    "primary_query": "как рассчитать утильсбор на авто 2026",
+    "secondary_queries": [
+      "утильсбор на авто 2026",
+      "рассчитать утильсбор на авто 2026",
+      "расчет утильсбора на авто 2026",
+      "льготный утильсбор"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "как рассчитать утильсбор на авто 2026 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "как рассчитать утильсбор на авто 2026 октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "как рассчитать утильсбор на авто 2026 новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com как рассчитать утильсбор на авто 2026 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "как рассчитать утильсбор на авто 2026 official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "как рассчитать утильсбор на авто 2026 forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "утильсбор на авто 2026 2026",
+      "purpose": "вторичный запрос: утильсбор на авто 2026"
+    },
+    {
+      "id": "secondary_2",
+      "query": "рассчитать утильсбор на авто 2026 2026",
+      "purpose": "вторичный запрос: рассчитать утильсбор на авто 2026"
+    },
+    {
+      "id": "secondary_3",
+      "query": "расчет утильсбора на авто 2026 2026",
+      "purpose": "вторичный запрос: расчет утильсбора на авто 2026"
+    },
+    {
+      "id": "secondary_4",
+      "query": "льготный утильсбор 2026",
+      "purpose": "вторичный запрос: льготный утильсбор"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как рассчитать утильсбор при ввозе авто из Японии, Кореи и Китая в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-kak-rasschitat-utilsbor-pri-vvoze-avto-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

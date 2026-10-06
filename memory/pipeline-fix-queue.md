@@ -6,7 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Incidents (current run)
 
-> Open count after fixer: **0**. Entries below may show status: fixed.
+> Open count: **1** (schema recurrence of secret-names URL injection).
+
+
+## INC-20261006-0946-schema-secret-names-url-recurrence
+status: open
+run_date: 2026-10-06
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rasschitat-utilsbor-pri-vvoze-avto-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` of `schema.jsonld` blocked by pre-commit secret-scan: `CLOUD_AGENT_INJECTED_SECRET_NAMES` again contained a URL token (not a bash identifier), so `${!SECRET_NAME}` failed with `invalid variable name`.
+- Recurrence of INC-20261006-0915 despite docs/skills already updated — Cloud env still injects a URL into the names list at runtime.
+
+### How the agent recovered this run
+- Re-exported `CLOUD_AGENT_INJECTED_SECRET_NAMES` keeping only `[A-Za-z_][A-Za-z0-9_]*` tokens (comma-separated), then committed/pushed schema.
+- Verified staged `schema.jsonld` has no live `PUBLIC_SITE_URL` / host leak (uses `[REDACTED]` placeholder).
+
+### Durable fix needed before next run
+- Harden Cloud Secrets injection so values never appear in `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+- Optionally add a tiny preflight script (`scripts/excalibur_blog_sanitize_secret_names.py` or doctor check) that fails early with a clear message before commit.
+- Keep schema/publish skills pointing at `[REDACTED]` / `${PUBLIC_SITE_URL}` placeholders for committed artifacts.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- Cursor Dashboard Cloud Secrets injection (names list only; no secret values recorded here)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
 
 
 ## INC-20261006-0927-geo-qa-utility-pain-outcome-markers-missing

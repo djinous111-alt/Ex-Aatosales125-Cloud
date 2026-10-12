@@ -1,0 +1,42 @@
+{
+  "topic_id": "B07",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Льготы нет — узнаете на таможне?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у порта Владивостока с чек-листом льготного утильсбора и плашкой про сюрприз на таможне",
+      "scene_hint": "WEATHER: cool overcast Vladivostok port fog, grey sea air; OUTFIT: smart-casual olive field jacket over cream button shirt (NOT white hoodie, NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie holding paper customs checklist + phone with fake Encar card showing кВт vs «160 л.с.»; torn paper hook plaque Cyrillic «Льготы нет — узнаете на таможне?» with yellow highlighter on «таможне»; sticky note «сначала кВт»; shocked meme cutout + cat meme sticker (different formats, no Drake overload); DIY zine collage with tape; modern crossover hintergrund near port; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; NO toxic/aggressive stickers",
+      "meme_caption_ru": "Сначала кВт"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Проверьте льготу до ставки на аукционе или Encar",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake Encar listing UI screenshot: model/year/engine type row + power in кВт highlighted in yellow vs ad line «около 160 сил» crossed out red; sticky «до ставки»; scotch tape corner; NO hero face; NO Wordstat/Metrika; RU labels only",
+      "alt": "Мокап Encar: мощность в кВт сверяют до ставки, а не по фразе про 160 сил"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сверьте условия льготного утильсбора для физлица в 2026",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns Условие | Ориентир | Проверить; rows физлицо, ДВС до ~117,68 кВт, электро ~58,84 кВт, 1 авто / 12 мес. от ТПО, без продажи раньше срока; pink sticky «все сразу»; tape corner; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица условий льготного утильсбора для физлица 2026: мощность, частота, запрет продажи"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Как посчитать мощность в киловаттах до депозита",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 6 steps with arrows: комплектация → кВт из документов → объём см³ → порог 117,68/58,84 → сверка СБКТС/ЭПТС → статус проходит/нет; yellow highlight on «кВт из документов»; mini sticky «не из объявления»; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема: как посчитать мощность в кВт по документам до депозита"
+    }
+  }
+}

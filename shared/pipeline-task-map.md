@@ -118,17 +118,12 @@
 Прочитай agents/excalibur-blog-cover.md + skills/cover-excalibur-blog/SKILL.md + shared/blog-cover-quad-canvas-contract.md.
 1) excalibur_blog_hero_reference_url.py
 2) excalibur_blog_quad_manifest.py --merge
-3) правка cover/quad-manifest.json (hook, scene_hint, outfit агента)
+3) правка cover/quad-manifest.json (hook, scene_hint, outfit из topic cover_scene_hint; НЕ white hoodie / НЕ SEO Wordstat defaults)
 4) excalibur_blog_cover_quad_prompt.py --write-batch
-5) ONE Cursor MCP tool call: выбрать gpt-image-2 в Available Tools (server user-mcp-kv), arguments = jobs[0].mcp_args из quad-mcp-batch.json (input_urls обязателен)
-   Если HTTP MCP вернул -32001 Request timed out: это не blocker с первой попытки.
-   Не искать URL в cover/*: он появится там только после ручной записи quad-mcp-result.json.
-   Проверить MCP tool log / expanded tool response / Cursor MCP Logs.
-   Если generated URL уже виден — записать cover/quad-mcp-result.json вручную или передать URL сразу в apply.
-   Если URL ещё нет — проверять MCP log короткими polling-проверками каждые 15–30 секунд, максимум 5 минут; не запускать длинное shell-ожидание одной командой.
-   Повторять ONE quad request через MCP tool gpt-image-2 только если лог доступен и подтверждает, что URL не появился.
-   Если MCP log недоступен агенту — COVER MCP RECOVERY NEEDED, нужен URL из лога; не retry вслепую.
-   Максимум 2 попытки / общий бюджет 10 минут. Без URL не делать apply/split.
+5) PRIMARY (Cloud): python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir <article_dir>
+   (createTask → recordInfo; пишет cover/quad-mcp-result.json). Один job, без дублей.
+   Legacy sync MCP gpt-image-2 — только если KIE_API_KEY недоступен.
+   Если sync MCP вернул -32001 и URL нет в MCP log — сразу Kie async, НЕ blind retry sync MCP.
 6) excalibur_blog_quad_apply.py --url ... --inject-html
 Fragment .cursor/excalibur-blog-fragments/cover.md (=== EXCALIBUR BLOG COVER ===). Не 4 MCP. Не трогай schema.
 ```

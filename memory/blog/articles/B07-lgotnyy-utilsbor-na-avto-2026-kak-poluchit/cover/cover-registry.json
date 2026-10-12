@@ -1,0 +1,50 @@
+{
+  "topic_id": "B07",
+  "slug": "lgotnyy-utilsbor-na-avto-2026-kak-poluchit",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у порта Владивостока с чек-листом льготного утильсбора и плашкой про сюрприз на таможне",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-01T13:39:23+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у порта Владивостока с чек-листом льготного утильсбора и плашкой про сюрприз на таможне",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Мокап Encar: мощность в кВт сверяют до ставки, а не по фразе про 160 сил",
+      "h2_anchor": "Проверьте льготу до ставки на аукционе или Encar",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица условий льготного утильсбора для физлица 2026: мощность, частота, запрет продажи",
+      "h2_anchor": "Сверьте условия льготного утильсбора для физлица в 2026",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема: как посчитать мощность в кВт по документам до депозита",
+      "h2_anchor": "Как посчитать мощность в киловаттах до депозита",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

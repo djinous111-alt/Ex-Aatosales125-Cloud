@@ -20,10 +20,13 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | `memory/site.env.local` или Cloud Secrets: `SSH_HOST`, `SSH_USER`, `SSH_PASSWORD`/`SSH_PASS`, `SSH_ROOT` (часто `.`), `PUBLIC_SITE_URL` |
+| Deps | `paramiko` (см. `requirements.txt` + `.cursor/cloud-agent-install.sh`) |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
+
+Перед publish: `python3 scripts/excalibur_blog_wp_publish.py --env-check`. Если нет `memory/site.env.local` — создай gitignored файл из Cloud Secrets; для этого хоста типичен `SSH_ROOT=.`.
 
 ## Алгоритм
 

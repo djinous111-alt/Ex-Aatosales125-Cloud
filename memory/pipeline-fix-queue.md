@@ -18,18 +18,22 @@ category: env
 ### What went wrong
 - MCP-KV `wordpress_get_posts` / `wordpress_search_posts` вернули посты с другого сайта (tamopro.ru), а не live блог Авто-Сейлс.
 - Для анти-каннибализации это ложный сигнал: recent slugs Авто-Сейлс из брифа Cron не видны через MCP WP.
+- Pre-commit secret scanner падал: в `CLOUD_AGENT_INJECTED_SECRET_NAMES` есть имя, невалидное как bash identifier (`${!SECRET_NAME}` → invalid variable name). Скрипт `scripts/excalibur_blog_filter_secret_names.py` в этом workspace отсутствует.
 
 ### How the agent recovered this run
 - Анти-каннибализацию строил по списку live WP slugs из контекста прогона + `memory/topics/blog-topics.md` + ledger, без доверия к MCP WP как к источнику истины для Авто-Сейлс.
 - Тему выбрал вне списка: `avto-iz-korei-ili-kitaya-2026` / primary `авто из кореи или китая`.
+- Перед commit отфильтровал SECRET_NAMES до `^[A-Za-z_][A-Za-z0-9_]*$` через локальный python one-liner.
 
 ### Durable fix needed before next run
 - Привязать MCP WordPress к PUBLIC_SITE_URL Авто-Сейлс либо явно документировать в scout skill: при mismatch домена WP MCP игнорировать MCP WP и использовать бриф/ledger/live slug list.
 - Добавить в scout helper опциональный `--deny-slugs` / чтение deny-list из brief, чтобы helper ловил overlap с live WP даже при сброшенном ledger.
+- Восстановить `scripts/excalibur_blog_filter_secret_names.py --export` в репо и/или почистить Dashboard secret names до валидных identifiers.
 
 ### Suggested files to inspect/change
 - `.cursor/skills/scout-excalibur-blog/SKILL.md`
 - `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_filter_secret_names.py` (missing)
 - Cursor Dashboard MCP / WordPress credentials for Авто-Сейлс
 
 ### Secrets

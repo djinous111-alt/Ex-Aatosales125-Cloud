@@ -9,19 +9,22 @@
     "repeated_h2_openers": [],
     "textbook_h2_count": 0,
     "paragraph_count": 25,
-    "paragraph_avg_words": 35.6,
-    "paragraph_variance_ratio": 0.42,
+    "paragraph_avg_words": 35.7,
+    "paragraph_variance_ratio": 0.43,
     "concrete_markers": [
       "например",
       "на практике",
       "типичная ошибка"
     ],
     "pain_markers": [
+      "проблем",
       "ошиб",
       "ломает"
     ],
     "outcome_markers": [
       "результат",
+      "получите",
+      "сможете",
       "проверьте",
       "соберите"
     ],
@@ -54,7 +57,6 @@
       "миллион",
       "мотором",
       "отличает",
-      "перевести",
       "рамок",
       "сметы",
       "смотрит",
@@ -74,6 +76,7 @@
       "правый",
       "работу",
       "сказать",
+      "сможет",
       "японии"
     ],
     "success_criteria_overlap": [

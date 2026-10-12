@@ -340,3 +340,37 @@ category: docs
 
 ### Fixer resolution
 - pending
+
+## INC-20261012-1352-publish-paramiko-missing
+status: fixed
+run_date: 2026-10-12
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-levyj-rul-iz-korei-kak-vybrat-2026
+severity: medium
+category: env
+fixed_at: 2026-10-12
+
+### What went wrong
+- Cloud runtime lacked `paramiko` despite `requirements.txt` listing it.
+- `.cursor/cloud-agent-install.sh` installed only `requests pillow python-dotenv`.
+- Publish SSH transport cannot start without paramiko.
+
+### How the agent recovered this run
+- `pip3 install --break-system-packages paramiko`.
+- Wrote `memory/site.env.local` from Cloud Secrets with `SSH_ROOT=.`.
+- Publish succeeded: post 4092, featured 4093, inline 4094/4095/4096.
+
+### Durable fix needed before next run
+- Add `paramiko` to `.cursor/cloud-agent-install.sh` pip install list (done this run).
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt` (already has paramiko)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- fixed in-publish: install script now includes paramiko
+

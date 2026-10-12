@@ -4,18 +4,19 @@
 **slug:** levyj-rul-iz-korei-kak-vybrat-2026  
 **article_dir:** memory/blog/articles/B01-levyj-rul-iz-korei-kak-vybrat-2026  
 **date:** 2026-10-12  
-**verdict:** FAIL  
-**score:** 74  
-**writer_fix:** yes  
+**verdict:** PASS  
+**score:** 92  
+**writer_fix:** no  
 **human_voice:** PASS  
 **beginner_fit:** PASS  
+**re_run:** after Writer FIX cycle 1 + Fixer (utility policy)
 
 ## Beginner-fit / pain→solution
 
 | Вопрос | Ответ |
 |--------|--------|
 | Какая боль новичка решена? | Путает цену Encar со сметой под ключ, давит «платите сегодня», нет решения «беру / мимо» до депозита |
-| Где показано решение? | H2: Корея vs Япония → потолок бюджета → чеклист Encar (ol×6) → мотор/утиль → цепочка → чеклист 12 пунктов до FAQ |
+| Где показано решение? | H2: Корея vs Япония → потолок бюджета → чеклист Encar (Шаг 1–6) → мотор/утиль → цепочка → чеклист 12 пунктов до FAQ |
 | Какой первый результат? | По одному лоту сказать «беру в работу / мимо» до перевода; пакет VIN + схема + осмотр |
 | Термины «на пальцах» | LHD/RHD, Encar, Performance Check (X/W), Carhistory, СВХ, СБКТС, ЭПТС — объяснены в теле |
 
@@ -24,25 +25,25 @@
 | Script | Verdict | Notes |
 |--------|---------|-------|
 | research-notes-gate | PASS | status PASS; research_date 2026-10-12 |
-| utility gate | **BLOCK** | action_markers 6&lt;8; pain_markers 0&lt;2; outcome_markers 0&lt;3 |
-| human-voice | PASS | human-voice-report.json; concrete + story overlap OK |
+| utility gate | PASS | action=17, pain=3, outcome=6; water_hits=[] |
+| human-voice | PASS | concrete + story/pain/outcome overlap OK |
 | html-linter | PASS | whitelist OK; TOC нет |
 | link-verify | PASS | 3/3 OK (внутренний пост 2026-10-03, каталог, Telegram) |
 | cannibalization | PASS | 0 issues |
 | fact-check | PASS | 9 stats; 2 verified / 7 unverified vs fact-bank (есть в research-notes) |
-| slop-detector | WARNING | 0 клише; 9 over-long (таблица/схемы/чеклист); Flesch RU 66.9 |
+| slop-detector | WARNING | 0 клише; 9 over-long (таблица/схемы/чеклист); Flesch RU 66.5 |
 
 ## Scores
 
 | Блок | Балл | Комментарий |
 |------|------|-------------|
 | SEO structure | 16/20 | primary в H1/title; H2 actionable; 1 blog internal + CTA |
-| GEO / citability | 22/25 | insight, table, workflow→, FAQ×6, чеклист |
+| GEO / citability | 22/25 | insight «Коротко», table, workflow→, FAQ×6, чеклист |
 | CORE-EEAT lite | 17/20 | см. ниже |
 | Human voice | 15/15 | gate PASS |
 | Fact safety | 12/15 | факты в research; часть не в fact-bank |
-| Contract HTML | 8/10 | whitelist PASS; **utility BLOCK** (−2) |
-| **Итого** | **74/100** | ниже порога 80 из‑за utility |
+| Contract HTML | 10/10 | whitelist PASS; utility PASS |
+| **Итого** | **92/100** | ≥80 ✓ |
 
 ## CORE-EEAT lite: 17/20
 
@@ -61,17 +62,15 @@
 | R03 | ✓ | Нет калькулятора пошлин в теле; расчёт → каталог |
 | R04 | ✓ | FAQ с «Действие:» в 1-м предложении |
 | E01 | ✓ | Угол LHD (не дубль «под ключ») |
-| E02 | ✓ | «Делать / Не делать» в секциях (см. FIX: gate ждёт «сделайте») |
+| E02 | ✓ | «Сделайте/Избегайте/Используйте/Не делайте» + «Шаг N:» |
 | E03 | ✓ | CTA каталог ≤3 + Telegram ≤2 |
 | Exp01 | ✓ | Mode B, без fake first-person |
 | Exp02 | ✓ | Тон Авто-Сейлс / Владивосток |
 | Exp03 | ✓ | Slop hits = 0 |
 | Ept01 | ✓ | Лимиты экспорта 2,0 л, X/W, утиль |
 | Ept02 | ✗ | Мало внутренних blog-links (1 live post + каталог) |
-| — | ✗ | Utility action/pain/outcome markers fail (см. FIX) |
-| — | ✗ | Policy gap: pain/outcome lists missing (incident) |
 
-**Target:** ≥16/20 ✓ · veto (R03 / Exp01 / slop≥2): нет · **utility gate: BLOCK → overall FAIL**
+**Target:** ≥16/20 ✓ · veto (R03 / Exp01 / slop≥2): нет · **utility gate: PASS**
 
 ## Link verify
 
@@ -82,32 +81,25 @@
 
 - cliches: 0
 - over-long: 9 (артефакт table/blockquote/ul)
-- Flesch RU: 66.9
+- Flesch RU: 66.5
 
 ## Schema ready
 
-BlogPosting: pending cover/schema | FAQPage: yes (6) | HowTo: yes | Review: no  
-**Не запускать cover||schema** до повторного QA PASS.
+BlogPosting: ready for cover/schema | FAQPage: yes (6) | HowTo: yes | Review: no  
+**Можно запускать cover||schema** (GEO QA PASS).
 
 ## Blockers
 
-1. **UTILITY ARTICLE BLOCKER** — `utility-gate-report.json`
-2. Policy gap: `pain_markers_ru` / `outcome_markers_ru` отсутствуют в `memory/brief/editorial-policy.json`, при этом скрипт требует min 2 / 3 → всегда 0 hits (см. incident)
-
-## FIX (writer) — цикл 1
-
-1. **action_markers 6 → ≥8** (`recommendation_markers_ru` в editorial-policy): сейчас считаются только точные подстроки. «Делать/Не делать» **не** входят в список. Добавить ≥2 из: `сделайте`, `не делайте`, `шаг ` (с пробелом, напр. «Шаг 1:» в ol), `проверьте`, `используйте`, `добавьте`, `уберите`, `избегайте`, `ориентир`, `чеклист`, `workflow`. Рекомендация: пронумеровать ol как «Шаг 1:…»…«Шаг 6:…» и/или в 1–2 H2 вставить «избегайте» / «сделайте» / «используйте».
-2. **pain_markers / outcome_markers:** после того как Fixer/Директор добавит списки в policy (INC ниже), перепроверьте utility gate. Если списки выровнены с human-voice (`ошиб`/`ломает`/`проблем`… и `результат`/`проверьте`/`соберите`/`получите`/`сможете`…), усилить lead/H2 явными словами при необходимости; сейчас human-voice уже видит pain/outcome hits в тексте.
-3. **Не трогать** структуру pain→H2→чеклист до FAQ и FAQ «Действие:» — они ок.
-4. Soft (не blocker gate): ярлык insight `TL;DR / Быстрый инсайт` — skill просит без шаблонного ярлыка; html-linter/human-voice сейчас PASS, можно заменить на нейтральный «Коротко:».
+none
 
 ## Gate
 
-- score ≥ 80 → **74** ✗  
+- score ≥ 80 → **92** ✓  
 - CORE-EEAT ≥ 16/20 → **17/20** ✓  
 - link-verify pass ✓  
 - research-notes-gate PASS ✓  
 - human-voice PASS ✓  
-- utility gate PASS ✗  
+- utility gate PASS ✓  
+- beginner-fit PASS ✓  
 
-**Итог:** FAIL — вернуть Writer (FIX выше). Cover||schema не стартовать. Директору: открыть Fixer по INC utility-policy до/параллельно с writer retry.
+**Итог:** PASS — cover||schema можно стартовать.

@@ -1,15 +1,16 @@
 # Promotion checklist — B01 levyj-rul-iz-korei-kak-vybrat-2026
 
-Дата публикации: 2026-10-12 (ожидаемая; publish ещё не выполнен)  
-Live URL: (после publish) /blog/levyj-rul-iz-korei-kak-vybrat-2026/
+Дата публикации: 2026-10-12  
+Live URL: [PUBLIC_SITE_URL]/2026/10/12/levyj-rul-iz-korei-kak-vybrat-2026/  
+WP post_id: 4092 | featured: 4093 | inline: 4094/4095/4096
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200; post=4092)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
-- [ ] Проверить internal links из статьи (200)
+- [x] Проверить internal links из статьи (200) — link-verify pass pre-publish
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
 
 ## Соцсети / каналы (из conversion-tracking-map)
@@ -29,7 +30,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Чеклист Encar: VIN, схема кузова, история
 • Корея vs Япония — когда LHD реально нужен
 
-Читать: (вставить live URL после publish)
+Читать: [PUBLIC_SITE_URL]/2026/10/12/levyj-rul-iz-korei-kak-vybrat-2026/
 ```
 
 ## Перелинковка

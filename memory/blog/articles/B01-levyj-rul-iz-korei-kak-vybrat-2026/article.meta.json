@@ -28,17 +28,17 @@
     "description_aeo": "Левый руль из Кореи выбирают ради LHD и VIN. До депозита нужны смета под ключ, проверка лота Encar и рамки объёма/мощности."
   },
   "geo_qa": {
-    "score": 74,
-    "verdict": "FAIL",
+    "score": 92,
+    "verdict": "PASS",
     "date": "2026-10-12",
     "html_linter": "PASS",
     "slop_score": "WARNING",
     "cannibalization": "PASS",
     "human_voice": "PASS",
-    "utility_gate": "BLOCK",
-    "writer_fix": true,
+    "utility_gate": "PASS",
+    "writer_fix": false,
     "writer_fix_cycle": 1,
-    "writer_fix_note": "action_markers 6→17; TL;DR→Коротко; pain/outcome wording; re-run GEO QA"
+    "writer_fix_note": "re-QA after FIX cycle 1 + Fixer: utility action=17 pain=3 outcome=6; score 92 PASS"
   },
   "cover_family": "brand_collage"
 }

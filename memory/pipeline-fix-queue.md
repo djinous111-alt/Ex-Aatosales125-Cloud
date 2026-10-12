@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261013-2145-writer-editorial-policy-pain-outcome-missing
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-writer
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026
+severity: high
+category: docs
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требует `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json` (min 2 / 3).
+- В каноническом `editorial-policy.json` этих списков не было → utility gate BLOCK на любой статье (`pain_markers=0`, `outcome_markers=0`), хотя human-voice gate уже находит боль/результат в тексте.
+- Ранее GEO QA / Fixer уже чинили это (см. automation memory b01-writer / b02-geo-qa), но списки снова отсутствовали в repo.
+
+### How the agent recovered this run
+- Writer восстановил `pain_markers_ru`, `outcome_markers_ru` и `min_pain_markers` / `min_outcome_markers` в `memory/brief/editorial-policy.json`.
+- После правки utility gate по B02 → PASS; article.html не переписывался ради маркеров policy.
+
+### Durable fix needed before next run
+- Зафиксировать списки pain/outcome в editorial-policy как обязательные поля контракта.
+- Добавить doctor/assert: если utility gate читает эти ключи, а их нет – fail preflight.
+- Не вычищать списки при rebrand/sync.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/editorial-utility-only.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261013-2115-research-accessed-at-count
 status: open
 run_date: 2026-10-13

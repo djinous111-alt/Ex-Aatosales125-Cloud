@@ -1,0 +1,197 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026/"
+      },
+      "headline": "Как подобрать запчасти на китайское авто по VIN в 2026: чек-лист до заказа",
+      "description": "Запчасти на китайские автомобили по VIN: сверка номера, OEM из каталога, оригинал vs аналог, красные флаги маркетплейсов и чек-лист из 10 пунктов до оплаты.",
+      "datePublished": "2026-10-13",
+      "dateModified": "2026-10-13",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru/"
+        },
+        "sameAs": [
+          "https://avtosales125.ru/",
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru/",
+        "sameAs": [
+          "https://avtosales125.ru/",
+          "https://avto-sales125.ru/"
+        ]
+      },
+      "keywords": [
+        "запчасти на китайские автомобили",
+        "запчасти на китайские автомобили по вин",
+        "где купить запчасти на китайские автомобили",
+        "каталог запчастей на китайские автомобили"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Где купить запчасти на китайские автомобили в 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сделайте цепочку: дилер или сеть с VIN-подбором и актом → магазин с возвратом до установки → разбор для кузова → прямой Китай только с OEM и фото до отправки. Избегайте самого дешёвого лота без письменной применяемости по VIN."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли подобрать запчасти по VIN из Китая?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да: введите 17-значный VIN в EPC, выпишите OEM и ищите на 1688/Taobao по артикулу. Без OEM поиск почти наугад. Начните с мелкой позиции – возврат из карго почти невозможен."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем оригинал отличается от аналога?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Оригинал несёт заводской номер под марку. Аналог – деталь другого бренда с кроссом на тот же OEM. Для ТО допустим проверенный бренд; для тормозов не делайте ставку на безымянный комплект без кросса."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если VIN не бьётся с каталогом?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Проверьте, что VIN с таблички, а не из объявления. Сфотографируйте старую деталь, уточните сторону L/R. Используйте план B: разбор с фото для кузова или запрос нескольким магазинам с одним OEM."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли полный VIN для фильтров и щёток?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Часто хватает марки, мотора и года, но VIN всё равно сохраните. Для колодок, подвески, оптики и датчиков полный VIN обязателен – иначе рискуете повторить ошибку с \"колодками как у всех\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как не нарваться на подделку на маркетплейсе?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сравните цену с 2–3 источниками, проверьте QR бренда после получения, берите продавца с возвратом до установки. Цена \"в разы ниже\" – стоп. На гарантии приоритет дилера или сети с актом."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026/#howto",
+      "name": "Как подобрать запчасти на китайское авто по VIN до оплаты",
+      "description": "Пошаговый подбор запчасти на Haval, Geely или Changan: сверка VIN, OEM из каталога, выбор канала и чек-лист из 10 пунктов до оплаты.",
+      "totalTime": "PT45M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "VIN-каталог / EPC (дилерский, GOODVIN, Autopiter, Hot-parts)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Фото таблички VIN и старой детали"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Полный 17-значный VIN с таблички"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "OEM-артикул и чек-лист из 10 пунктов до оплаты"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Определить, нужен ли полный VIN",
+          "text": "Для фильтров и свечей часто хватает марки, мотора и года, но VIN сохраните. Для колодок, подвески, оптики, кузова и датчиков используйте полный 17-значный VIN и OEM.",
+          "url": "https://avtosales125.ru/kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Сверить VIN с таблички, ПТС и договора",
+          "text": "Сфотографируйте табличку VIN в проёме двери или под лобовым и сверьте 17 знаков с ПТС и договором. Расхождение — стоп до выяснения.",
+          "url": "https://avtosales125.ru/kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Выписать OEM из каталога по VIN",
+          "text": "Введите VIN в дилерский EPC, GOODVIN, Autopiter, Hot-parts или отправьте менеджеру. Выпишите OEM-артикул со схемы, а не только название модели.",
+          "url": "https://avtosales125.ru/kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Снять фото старой детали",
+          "text": "Сфотографируйте маркировку, сторону лево/право и крепёж. Попросите письменно подтвердить применяемость по этому VIN до оплаты.",
+          "url": "https://avtosales125.ru/kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Выбрать оригинал, аналог или разбор",
+          "text": "На гарантии приоритет дилера или сети с актом. Для тормозов — оригинал или аналог с OEM-кроссом; для кузова часто разбор с фото донора.",
+          "url": "https://avtosales125.ru/kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Сравнить каналы покупки без ловушек цены",
+          "text": "Сравните 2–3 продавца по OEM, сроку, возврату до установки и акту. Цена «в разы ниже рынка» и отказ подтвердить применяемость по VIN — красные флаги.",
+          "url": "https://avtosales125.ru/kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Пройти чек-лист из 10 пунктов до оплаты",
+          "text": "Закройте VIN в трёх местах, OEM, письменную применяемость, сторону, тип детали, срок/возврат, цену, план проверки QR, акт сервиса и скрины. Только потом оплачивайте.",
+          "url": "https://avtosales125.ru/kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Собрать аптечку расходников на год",
+          "text": "Заранее выпишите по своему VIN базовые фильтры, щётки, предохранители и колодки с проверенными OEM, не копируя чужие артикулы из отзывов.",
+          "url": "https://avtosales125.ru/kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026/"
+        }
+      ]
+    }
+  ]
+}

@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261013-2127-schema-fragment-write-gitignore
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-schema
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026
+severity: low
+category: env
+
+### What went wrong
+- Cursor Write tool reported success for `.cursor/excalibur-blog-fragments/schema.md`, but the file was absent on disk (`FileNotFoundError` on immediate read).
+- Path is gitignored via `.gitignore` rule `.cursor/excalibur-blog-fragments/`.
+
+### How the agent recovered this run
+- Recreated the fragment with `mkdir -p` + shell redirect; verified file contents on disk.
+- `schema.jsonld` itself was written normally under `memory/blog/articles/...` and validated.
+
+### Durable fix needed before next run
+- Document in schema/cover agent skills: write runtime fragments via shell (or verify with immediate read) because Write may no-op on gitignored `.cursor/excalibur-blog-fragments/`.
+- Optionally add a tiny helper script `scripts/excalibur_blog_write_fragment.py` that writes fragment and asserts existence.
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261013-2145-writer-editorial-policy-pain-outcome-missing
 status: open
 run_date: 2026-10-13

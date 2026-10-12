@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Красивая цена Encar — ещё не смета под ключ",
+  "mcp_note": "ONE gpt-image-2 / Kie async i2i with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Корейский седан с левым рулём, герой Авто-Сейлс у открытой двери, Владивосток, плашка левый руль",
+      "meme_caption_ru": "Левый руль — проверь!",
+      "scene_hint": "Hyper-realistic action selfie: Avto-Sales blog host EXACT face+glasses from reference; CHANGE outfit to Vladivostok cool coastal weather — navy softshell jacket over light knit, NO cap NO hood NO reference t-shirt; pose at open driver door of modern Korean sedan/crossover (Hyundai/Kia/Genesis style), LEFT-HAND steering wheel clearly visible in cabin; port/city Vladivostok soft daylight behind; Cyrillic plaque «левый руль» with yellow highlight on «левый»; fake UI scraps: Encar-style car card + sticky note «до депозита»; torn paper + scotch tape; one shocked meme reaction cutout; corner footer avto-sales125.ru; NO Wordstat/Metrika/SEO; NO toxic stickers (лох/для лохов forbidden); 16:9 collage"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Решите, нужен ли вам левый руль из Кореи или спокойнее Япония",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean comparison_table_ui mockup: two columns «Корея LHD» vs «Япония RHD» with rows: руль, VIN, привычка езды РФ, ассортимент Hyundai/Kia, японцы в Корее; Cyrillic labels only; sticky note «сначала задача»; NO hero face; light tape corner; 16:9 utility UI",
+      "alt": "Таблица сравнения: левый руль из Кореи против правого руля из Японии"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Зафиксируйте потолок бюджета под ключ, а не цену карточки Encar",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "tool_screenshot: phone/laptop mock of Encar-style listing price vs handwritten budget sheet «под ключ до Владивостока» with line items (лот, логистика, утиль, услуги); red marker arrow «не цена карточки»; NO hero face; tape + sticky «потолок»; 16:9",
+      "alt": "Скрин карточки Encar рядом со сметой под ключ до Владивостока"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте карточку Encar до депозита: VIN, схема кузова, история",
+      "visual_type": "checklist_board",
+      "scene_hint": "checklist_board printable: items VIN, схема кузова/Performance Check, страховая история, осмотр до депозита, LHD подтверждён; green/red checkboxes; small Encar card inset; NO hero face; marker underline «до депозита»; 16:9",
+      "alt": "Чеклист проверки карточки Encar: VIN, схема кузова, история до депозита"
+    }
+  }
+}

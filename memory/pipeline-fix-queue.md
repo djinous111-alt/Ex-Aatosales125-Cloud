@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261012-1704-scout-wp-mcp-wrong-site
+status: open
+run_date: 2026-10-12
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- MCP-KV `wordpress_get_posts` / `wordpress_search_posts` вернули посты с другого сайта (tamopro.ru), а не live блог Авто-Сейлс.
+- Для анти-каннибализации это ложный сигнал: recent slugs Авто-Сейлс из брифа Cron не видны через MCP WP.
+
+### How the agent recovered this run
+- Анти-каннибализацию строил по списку live WP slugs из контекста прогона + `memory/topics/blog-topics.md` + ledger, без доверия к MCP WP как к источнику истины для Авто-Сейлс.
+- Тему выбрал вне списка: `avto-iz-korei-ili-kitaya-2026` / primary `авто из кореи или китая`.
+
+### Durable fix needed before next run
+- Привязать MCP WordPress к PUBLIC_SITE_URL Авто-Сейлс либо явно документировать в scout skill: при mismatch домена WP MCP игнорировать MCP WP и использовать бриф/ledger/live slug list.
+- Добавить в scout helper опциональный `--deny-slugs` / чтение deny-list из brief, чтобы helper ловил overlap с live WP даже при сброшенном ledger.
+
+### Suggested files to inspect/change
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_scout_helper.py`
+- Cursor Dashboard MCP / WordPress credentials for Авто-Сейлс
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

@@ -560,3 +560,37 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261012-1738-publish-http-remotedisconnect-rest-soft-success
+status: open
+run_date: 2026-10-12
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: publish
+
+### What went wrong
+- Local HTTP trigger of `excalibur-blog-publish-once.php` failed with `RemoteDisconnected` after SSH upload (~7MB payload).
+- Script entered Cloud WebFetch Fallback 120s wait; a second bootstrap trigger would risk orphan media.
+
+### How the agent recovered this run
+- Polled public WP REST by slug immediately; post upsert already completed (id 3707, featured 4099, inlines 4100–4102, local `cover/*` srcs gone).
+- Wrote reconstructed OK lines to `memory/webfetch-response.txt` (no second curl).
+- Confirmed schema meta via SSH `wp post meta get` (len=11846) and `skip_theme_faq=1`; live HEAD 200.
+
+### Durable fix needed before next run
+- Increase HTTP trigger timeout and/or auto REST soft-success inside `excalibur_blog_wp_publish.py` before webfetch wait expires.
+- Document that refresh of existing slug keeps original date permalink path (`/2026/07/24/...` vs schema `/2026/10/12/...`).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

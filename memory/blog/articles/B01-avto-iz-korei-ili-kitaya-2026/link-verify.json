@@ -5,17 +5,17 @@
   "verdict": "pass",
   "links": [
     {
-      "url": "OWN_SITE/2026/10/05/rastamozhka-avto-iz-kitaya-vladivostok-2026/",
+      "url": "[PUBLIC_SITE_URL]/2026/10/05/rastamozhka-avto-iz-kitaya-vladivostok-2026/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "internal_relative",
       "skipped": false,
-      "checked_url": "OWN_SITE/2026/10/05/rastamozhka-avto-iz-kitaya-vladivostok-2026/"
+      "checked_url": "[PUBLIC_SITE_URL]/2026/10/05/rastamozhka-avto-iz-kitaya-vladivostok-2026/"
     },
     {
-      "url": "CATALOG_URL",
+      "url": "https://avto-sales125.ru/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
@@ -24,7 +24,7 @@
       "skipped": false
     },
     {
-      "url": "TELEGRAM_URL",
+      "url": "https://t.me/avtosales125",
       "status": 200,
       "ok": true,
       "method": "HEAD",

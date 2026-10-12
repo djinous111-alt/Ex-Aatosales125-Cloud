@@ -1,13 +1,13 @@
 # Promotion checklist — B01 avto-iz-korei-ili-kitaya-2026
 
 Дата публикации: 2026-10-12  
-Live URL: https://avtosales125.ru/2026/10/12/avto-iz-korei-ili-kitaya-2026/
+Live URL: [PUBLIC_SITE_URL]/2026/07/24/avto-iz-korei-ili-kitaya-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200; title+inlines OK; post 3707)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • До оплаты: VIN, мощность ≤160 л.с., пакет проверок
 • Сравнивайте две сметы под ключ, не ценник площадки
 
-Читать: https://avtosales125.ru/2026/10/12/avto-iz-korei-ili-kitaya-2026/
+Читать: [PUBLIC_SITE_URL]/2026/07/24/avto-iz-korei-ili-kitaya-2026/
 ```
 
 ## Перелинковка

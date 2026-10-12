@@ -1,0 +1,636 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-13",
+    "today_ru": "13.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-15",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-13 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B02",
+    "priority": "P0",
+    "slug": "kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026",
+    "h1": "Как подобрать запчасти на китайское авто по VIN в 2026: чек-лист до заказа",
+    "primary_query": "запчасти на китайские автомобили",
+    "secondary_queries": [
+      "запчасти на китайские автомобили по вин",
+      "где купить запчасти на китайские автомобили",
+      "каталог запчастей на китайские автомобили",
+      "подбор запчастей на китайские автомобили"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "запчасти на китайские автомобили 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Проблемы с запчастями на китайские автомобили в 2026 году: где искать и ...",
+          "url": "https://content.renins.ru/osago/zapchasti-na-kitajskie-avtomobili/",
+          "snippet": ""
+        },
+        {
+          "title": "Запчасти на китайские автомобили в России в 2026 году: где покупать и ...",
+          "url": "https://freshauto.ru/blog/sovety/zapchasti-na-kitayskie-avtomobili-v-rossii-v-2026-godu-gde-pokupat-i-kak-ne-narvatsya-na-poddelku/",
+          "snippet": "Выясняем вместе с экспертами — владельцами сервисов и автоблогерами — что происходит на рынке, актуален ли вопрос запчастей в 2026-м и где все-таки их брать. Владельцы «китайцев» всё чаще жалуются на долгий ремонт из‑за ожидания запчастей."
+        },
+        {
+          "title": "Запчасти на китайские авто 2026: где заказывать дешево и надежно",
+          "url": "https://avtoservis.online/articles/zapchasti-na-kitajtsev-v-2026-gde-zakazyvat-chtoby-ne-razoritsya/",
+          "snippet": "Приобрести большую часть деталей для китайских автомобилей сложно - приходится ждать поставки. На региональных складах имеются только наиболее востребованные позиции для проведения обслуживания, причем такие детали (свечи, фильтры) унифицированы и подходят на автомобили многих брендов."
+        },
+        {
+          "title": "Запчасти на китайские авто. Где искать в 2026 году?",
+          "url": "https://dzen.ru/a/aa-06NamUBjEV7CQ",
+          "snippet": "Где купить запчасти на Chery, Geely, Haval, Changan, Jetour, Tank, Omoda в 2026 году: 1688, Taobao, Alibaba, русскоязычные магазины. Экономия в 2-5 раз без потери качества - полный гид для России, СНГ и русскоязычных стран."
+        },
+        {
+          "title": "Китайские машины в 2026: сколько реально стоят запчасти и где их искать ...",
+          "url": "https://dzen.ru/a/amtTv1BErRgaXGok",
+          "snippet": "В 2026 году запчасти на китайцев есть везде. Главное - использовать VIN-реестры для проверки совместимости и не лениться проверять рейтинг китайских заводов при прямых закупках."
+        },
+        {
+          "title": "Китайские маркетплейсы и «доноры» из такси: где брать запчасти в 2026 ...",
+          "url": "https://verticalauto.ru/articles/gde-iskat-zapcasti-na-kitaiskie-i-evropeiskie-avto-v-2026-cek-list-i-analogi",
+          "snippet": "Особенно с запчастями. Давайте разбираться, что на самом деле происходит с ценами и где искать детали, чтобы не разориться. За последний год цены на запчасти для китайских машин выросли на 9%."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "запчасти на китайские автомобили октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Запчасти на китайские автомобили в России в 2026 году: где покупать и ...",
+          "url": "https://freshauto.ru/blog/sovety/zapchasti-na-kitayskie-avtomobili-v-rossii-v-2026-godu-gde-pokupat-i-kak-ne-narvatsya-na-poddelku/",
+          "snippet": ""
+        },
+        {
+          "title": "Запчасти на китайские авто 2026: где заказывать дешево и надежно",
+          "url": "https://avtoservis.online/articles/zapchasti-na-kitajtsev-v-2026-gde-zakazyvat-chtoby-ne-razoritsya/",
+          "snippet": "За последние 4 года автомобильный рынок в РФ оказался во власти китайских брендов. При этом ситуация с запасными частями остается сложной - отсутствие четких каталогов усложняет подбор деталей, на региональных складах имеются далеко не все комплектующие."
+        },
+        {
+          "title": "Проблемы с запчастями на китайские автомобили в 2026 году: где искать и ...",
+          "url": "https://content.renins.ru/osago/zapchasti-na-kitajskie-avtomobili/",
+          "snippet": "Где купить запчасти на Chery, Geely, Haval, Changan, Jetour, Tank, Omoda в 2026 году: 1688, Taobao, Alibaba, русскоязычные магазины. Экономия в 2-5 раз без потери качества - полный гид для России, СНГ и русскоязычных стран."
+        },
+        {
+          "title": "Где искать запчасти на китайские и европейские авто в 2026: чек-лист и ...",
+          "url": "https://verticalauto.ru/articles/gde-iskat-zapcasti-na-kitaiskie-i-evropeiskie-avto-v-2026-cek-list-i-analogi",
+          "snippet": "Выясняем вместе с экспертами — владельцами сервисов и автоблогерами — что происходит на рынке, актуален ли вопрос запчастей в 2026-м и где все-таки их брать. Владельцы «китайцев» всё чаще жалуются на долгий ремонт из‑за ожидания запчастей."
+        },
+        {
+          "title": "Китайские автомобильные запчасти 2026: цены и заводы",
+          "url": "https://www.liangkaitrade.com/news/%D0%BA%D0%B8%D1%82%D0%B0%D0%B9%D1%81%D0%BA%D0%B8%D0%B5-%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5-%D0%B7%D0%B0%D0%BF%D1%87%D0%B0%D1%81%D1%82%D0%B8-2026-%D1%86-2/",
+          "snippet": "В этом материале — как устроен серый импорт, где искать дубликаты деталей, как не нарваться на подделку и чек-лист по заказу запчастей в 2026 году."
+        },
+        {
+          "title": "Запчасти для китайских авто в 2026 году: где покупать оригинал недорого ...",
+          "url": "https://zakazautovplus.ru/2026/04/29/zapchasti-dlya-kitajskih-avto-v-2026-godu-gde-pokupat-original-nedorogo-skolko-zhdat-i-kak-ne-narvatsya-na-poddelku-v-moskve-i-kazahstane/",
+          "snippet": "Если вы прямо сейчас ищете, где купить китайские автомобильные запчасти с гарантией совместимости для сурового русского климата 2026 года, а не просто дешевый контрафакт, который ..."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "запчасти на китайские автомобили новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Названы подорожавшие запчасти для китайских авто: Новости | Motor.ru",
+          "url": "https://motor.ru/news/nazvany-podorozhavshie-zapchasti-dlya-kitaiskikh-avto-17-09-2026.htm",
+          "snippet": ""
+        },
+        {
+          "title": "Запчасти на китайские автомобили в России в 2026 году: где покупать и ...",
+          "url": "https://freshauto.ru/blog/sovety/zapchasti-na-kitayskie-avtomobili-v-rossii-v-2026-godu-gde-pokupat-i-kak-ne-narvatsya-na-poddelku/",
+          "snippet": "В первую очередь рост цен обусловлен нехваткой локального производства запчастей в России. Детали по-прежнему импортируются, поэтому их стоимость зависит от логистики и курса валют."
+        },
+        {
+          "title": "Проблемы с запчастями на китайские автомобили в 2026 году: где искать и ...",
+          "url": "https://content.renins.ru/osago/zapchasti-na-kitajskie-avtomobili/",
+          "snippet": "За последние 4 года автомобильный рынок в РФ оказался во власти китайских брендов. При этом ситуация с запасными частями остается сложной - отсутствие четких каталогов усложняет подбор деталей, на региональных складах имеются далеко не все комплектующие."
+        },
+        {
+          "title": "Некоторые запчасти для китайских авто подорожали в России на треть и ...",
+          "url": "https://lenta.ru/news/2026/09/17/nekotorye-zapchasti-dlya-kitayskih-avto-podorozhali-v-rossii-na-tret-i-bolee/",
+          "snippet": "Выясняем вместе с экспертами — владельцами сервисов и автоблогерами — что происходит на рынке, актуален ли вопрос запчастей в 2026-м и где все-таки их брать. Владельцы «китайцев» всё чаще жалуются на долгий ремонт из‑за ожидания запчастей."
+        },
+        {
+          "title": "Запчасти для китайских авто подорожали на 9%: решетка, подушка и диски ...",
+          "url": "https://motor.ru/news/pochti-vse-podorozhali-nazvany-novye-ceny-na-zapchasti-k-kitaiskim-avto-15-07-2026.htm",
+          "snippet": "Средняя цена оригинальных запчастей для китайских авто выросла в России за год на 11,4 процента, а некоторые детали подорожали на треть и более. Об этом пишет «База»."
+        },
+        {
+          "title": "Китайские автозапчасти в России подорожали на 26% в 2026 году",
+          "url": "https://fb.ru/post/cars/2026/3/1/420424",
+          "snippet": "В России резко подорожали колеса и решетки для китайских машин. На эти детали за прошедший год цены выросли наиболее значительно, подсчитало маркетинговое агентство НАПИ. В среднем запчасти для китайских автомобилей подорожали за год на 9%."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com запчасти на китайские автомобили 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - rin-nas/Evolute-I-Space: Автомобиль Evolute I-Space PHEV ...",
+          "url": "https://github.com/rin-nas/Evolute-I-Space",
+          "snippet": ""
+        },
+        {
+          "title": "forumnick/ArzMarketV3/items.json at main - GitHub",
+          "url": "https://github.com/FREYM1337/forumnick/blob/main/ArzMarketV3/items.json",
+          "snippet": "Обновлённый российский гибридный кроссовер на 5 или 7 мест. Это последовательный гибрид. Автомобиль приводит в движение электромотор, бензиновый мотор работает как генератор: отдаёт энергию на электромотор и заряжает тяговую батарею. Сделан китайским автомобильным концерном Dongfeng и Seres."
+        },
+        {
+          "title": "gist:30b824af2668ba9ff58eb12f4a7d341f · GitHub",
+          "url": "https://gist.github.com/yanisheuski-ctrl/30b824af2668ba9ff58eb12f4a7d341f",
+          "snippet": "Contribute to FREYM1337/forumnick development by creating an account on GitHub."
+        },
+        {
+          "title": "pastiera/dict_backup/ru_base.json at main - GitHub",
+          "url": "https://github.com/palsoftware/pastiera/blob/main/dict_backup/ru_base.json",
+          "snippet": "Имею минимальный базовый опыт работы инженером-конструктором (2 года опыта) в проектировании базовых приспособлений и деталей авиационной техники (распишу ниже), но я очень слабый в области материаловедения и слабый в области нормирования точности (я не разбираюсь в допусках, отклонениях, квалитетах, посадках (раньше делал по шаблону с других готовых чертежей из архива прошлых лет предприятия и прошлых конструкторов и советы и исходя из рекомендации коллег), слабый в проектировании тех вещей и изделий я которые я не проектировал до этого, но при имении примера или совета я могу научиться и получить опыт."
+        },
+        {
+          "title": "agentic-project-template/setup/DESIGN.md at master - GitHub",
+          "url": "https://github.com/cerber-m1ke/agentic-project-template/blob/master/setup/DESIGN.md",
+          "snippet": "Expanded dictionary files for multiple languages, adding new entries … {\"w\":\"я\",\"f\":5081568}, {\"w\":\"не\",\"f\":4334804}, {\"w\":\"что\",\"f\":3552532}, {\"w\":\"в\",\"f\":2953981}, {\"w\":\"и\",\"f\":2917112}, {\"w\":\"ты\",\"f\":2723798}, {\"w\":\"это\",\"f\":2640455}, {\"w\":\"на\",\"f\":1655351}, {\"w\":\"с\",\"f\":1509844}, {\"w\":\"он\",\"f\":1283590}, {\"w\":\"мы\",\"f\":1214875},"
+        },
+        {
+          "title": "peregovori-lct/docs/model-bakeoff.md at master - GitHub",
+          "url": "https://github.com/SuperMoose2006/peregovori-lct/blob/master/docs/model-bakeoff.md",
+          "snippet": "1. Назначение и границы Agentic Project — рабочая среда, в которой Агент комфортно работает над всеми Ресурсами проекта."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "запчасти на китайские автомобили official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Доставка автозапчастей из Китая в 2026: документы, бренд и таможня",
+          "url": "https://mttkplus.ru/blog/dostavka-avtozapchastey-iz-kitaya-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Запчасти на китайские автомобили в России в 2026 году: где покупать и ...",
+          "url": "https://freshauto.ru/blog/sovety/zapchasti-na-kitayskie-avtomobili-v-rossii-v-2026-godu-gde-pokupat-i-kak-ne-narvatsya-na-poddelku/",
+          "snippet": "Редакция сверяет требования с официальными источниками и практикой сопровождения поставок. Итоговый маршрут и документы всегда проверяются по характеристикам конкретного товара."
+        },
+        {
+          "title": "Проблемы с запчастями на китайские автомобили в 2026 году: где искать и ...",
+          "url": "https://content.renins.ru/osago/zapchasti-na-kitajskie-avtomobili/",
+          "snippet": "Приобрести большую часть деталей для китайских автомобилей сложно - приходится ждать поставки. На региональных складах имеются только наиболее востребованные позиции для проведения обслуживания, причем такие детали (свечи, фильтры) унифицированы и подходят на автомобили многих брендов."
+        },
+        {
+          "title": "Запчасти на китайские авто. Где искать в 2026 году?",
+          "url": "https://dzen.ru/a/aa-06NamUBjEV7CQ",
+          "snippet": "Выясняем вместе с экспертами — владельцами сервисов и автоблогерами — что происходит на рынке, актуален ли вопрос запчастей в 2026-м и где все-таки их брать. Владельцы «китайцев» всё чаще жалуются на долгий ремонт из‑за ожидания запчастей."
+        },
+        {
+          "title": "Где искать запчасти на китайские и европейские авто в 2026: чек-лист и ...",
+          "url": "https://verticalauto.ru/articles/gde-iskat-zapcasti-na-kitaiskie-i-evropeiskie-avto-v-2026-cek-list-i-analogi",
+          "snippet": "Главное изменение 2026 года - планируемый полноценный запуск Единого государственного реестра автозапчастей. Он жестко привязан к VIN-коду и Одобрению типа транспортного средства (ОТТС). В реестр будут интегрированы данные всех официальных брендов."
+        },
+        {
+          "title": "Запчасти Для Китайских Автомобилей — Поиск По Vin | Китайавто",
+          "url": "https://www.китайавто.рус/",
+          "snippet": "В этом материале — как устроен серый импорт, где искать дубликаты деталей, как не нарваться на подделку и чек-лист по заказу запчастей в 2026 году."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "запчасти на китайские автомобили forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Проблемы с запчастями на китайские автомобили в 2026 году: где искать и ...",
+          "url": "https://content.renins.ru/osago/zapchasti-na-kitajskie-avtomobili/",
+          "snippet": ""
+        },
+        {
+          "title": "Есть ли проблемы с запчастями в 2026 году для китайских автомобилей",
+          "url": "https://www.drive2.ru/b/736755255055760741/",
+          "snippet": "Выясняем вместе с экспертами — владельцами сервисов и автоблогерами — что происходит на рынке, актуален ли вопрос запчастей в 2026-м и где все-таки их брать. Владельцы «китайцев» всё чаще жалуются на долгий ремонт из‑за ожидания запчастей."
+        },
+        {
+          "title": "Ошибки перевода и рост цен: почему сложно купить запчасти для китайских ...",
+          "url": "https://strana.life/life/oshibki-perevoda-i-rost-tsen-pochemu-slozhno-kupit-zapchasti-dlya-kitayskikh-mashin-v-2026-godu",
+          "snippet": "Проблемы с запчастями для китайских автомобилей в 2026 году остаются. Но сегодня это уже не универсальный приговор для всей категории, а вопрос конкретной машины и ее сервисной ..."
+        },
+        {
+          "title": "Запчасти на китайские авто. Где искать в 2026 году?",
+          "url": "https://dzen.ru/a/aa-06NamUBjEV7CQ",
+          "snippet": "Узнайте, почему сложно найти запчасти для китайских автомобилей в 2026 году: ошибки перевода («водные устройства», «пятка в сборе»), рост цен на 20-40 %, проблемы с логистикой."
+        },
+        {
+          "title": "Китайские маркетплейсы и «доноры» из такси: где брать запчасти в 2026 ...",
+          "url": "https://verticalauto.ru/articles/gde-iskat-zapcasti-na-kitaiskie-i-evropeiskie-avto-v-2026-cek-list-i-analogi",
+          "snippet": "В 2026 году владение китайским автомобилем перестало быть лотереей, но превратилось в цифровой квест. Если раньше владельцы Chery, Geely или Haval месяцами ждали тот самый рычаг, то сегодня проблема сменилась другой - как среди сотен предложений найти качество и не переплатить."
+        },
+        {
+          "title": "Почему запчасти на китайские авто везут месяцами — склады, сроки ...",
+          "url": "https://www.pro-avto-forum.ru/viewtopic.php?t=1745",
+          "snippet": "В этом материале — как устроен серый импорт, где искать дубликаты деталей, как не нарваться на подделку и чек-лист по заказу запчастей в 2026 году. В 2026 году ситуация с запчастями достигла абсурда. Дилеры завышают цены в 2-4 раза по сравнению с закупочными."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "запчасти на китайские автомобили по вин 2026",
+      "purpose": "вторичный запрос: запчасти на китайские автомобили по вин",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Запчасти на китайские автомобили в России в 2026 году: где покупать и ...",
+          "url": "https://freshauto.ru/blog/sovety/zapchasti-na-kitayskie-avtomobili-v-rossii-v-2026-godu-gde-pokupat-i-kak-ne-narvatsya-na-poddelku/",
+          "snippet": ""
+        },
+        {
+          "title": "Где искать запчасти на китайские и европейские авто в 2026: чек-лист и ...",
+          "url": "https://verticalauto.ru/articles/gde-iskat-zapcasti-na-kitaiskie-i-evropeiskie-avto-v-2026-cek-list-i-analogi",
+          "snippet": "Приобрести большую часть деталей для китайских автомобилей сложно - приходится ждать поставки. На региональных складах имеются только наиболее востребованные позиции для проведения обслуживания, причем такие детали (свечи, фильтры) унифицированы и подходят на автомобили многих брендов."
+        },
+        {
+          "title": "Запчасти на китайские авто 2026: где заказывать дешево и надежно",
+          "url": "https://avtoservis.online/articles/zapchasti-na-kitajtsev-v-2026-gde-zakazyvat-chtoby-ne-razoritsya/",
+          "snippet": "В 2026 году владельцы автомобилей столкнулись с новой реальностью: оригинальные запчасти на европейские авто стали безумно дорогими или исчезли из продажи, а каталоги для китайских машин работают криво даже по VIN-номеру. Дилеры завышают цены в 2-4 раза, а ждать деталь из Европы можно месяцами."
+        },
+        {
+          "title": "Проблемы с запчастями на китайские автомобили в 2026 году: где искать и ...",
+          "url": "https://content.renins.ru/osago/zapchasti-na-kitajskie-avtomobili/",
+          "snippet": "Где купить запчасти на Chery, Geely, Haval, Changan, Jetour, Tank, Omoda в 2026 году: 1688, Taobao, Alibaba, русскоязычные магазины. Экономия в 2-5 раз без потери качества - полный гид для России, СНГ и русскоязычных стран."
+        },
+        {
+          "title": "Запчасти на китайские авто. Где искать в 2026 году?",
+          "url": "https://dzen.ru/a/aa-06NamUBjEV7CQ",
+          "snippet": "Выясняем вместе с экспертами — владельцами сервисов и автоблогерами — что происходит на рынке, актуален ли вопрос запчастей в 2026-м и где все-таки их брать. Владельцы «китайцев» всё чаще жалуются на долгий ремонт из‑за ожидания запчастей."
+        },
+        {
+          "title": "Запчасти Для Китайских Автомобилей — Поиск По Vin | Китайавто",
+          "url": "https://www.китайавто.рус/",
+          "snippet": "В 2026 году запчасти на китайцев есть везде. Главное - использовать VIN-реестры для проверки совместимости и не лениться проверять рейтинг китайских заводов при прямых закупках."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "где купить запчасти на китайские автомобили 2026",
+      "purpose": "вторичный запрос: где купить запчасти на китайские автомобили",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Запчасти на китайские авто 2026: где заказывать дешево и надежно",
+          "url": "https://avtoservis.online/articles/zapchasti-na-kitajtsev-v-2026-gde-zakazyvat-chtoby-ne-razoritsya/",
+          "snippet": ""
+        },
+        {
+          "title": "Запчасти на китайские автомобили в России в 2026 году: где покупать и ...",
+          "url": "https://freshauto.ru/blog/sovety/zapchasti-na-kitayskie-avtomobili-v-rossii-v-2026-godu-gde-pokupat-i-kak-ne-narvatsya-na-poddelku/",
+          "snippet": "Где купить запчасти на Chery, Geely, Haval, Changan, Jetour, Tank, Omoda в 2026 году: 1688, Taobao, Alibaba, русскоязычные магазины. Экономия в 2-5 раз без потери качества - полный гид для России, СНГ и русскоязычных стран."
+        },
+        {
+          "title": "Проблемы с запчастями на китайские автомобили в 2026 году: где искать и ...",
+          "url": "https://content.renins.ru/osago/zapchasti-na-kitajskie-avtomobili/",
+          "snippet": "Приобретать детали нужно у официальных дилеров либо в сетевых магазинах автомобильных запчастей, а все работы по замене проводить в сервисе с официальным оформлением."
+        },
+        {
+          "title": "Где искать запчасти на китайские и европейские авто в 2026: чек-лист и ...",
+          "url": "https://verticalauto.ru/articles/gde-iskat-zapcasti-na-kitaiskie-i-evropeiskie-avto-v-2026-cek-list-i-analogi",
+          "snippet": "Выясняем вместе с экспертами — владельцами сервисов и автоблогерами — что происходит на рынке, актуален ли вопрос запчастей в 2026-м и где все-таки их брать. Владельцы «китайцев» всё чаще жалуются на долгий ремонт из‑за ожидания запчастей."
+        },
+        {
+          "title": "Где и как купить и заказать запчасти для авто из Китая в 2026",
+          "url": "https://raketacn.ru/journal/kak-zakazat-zapchasti-iz-kitaya-samostoyatelno",
+          "snippet": "В этом материале — как устроен серый импорт, где искать дубликаты деталей, как не нарваться на подделку и чек-лист по заказу запчастей в 2026 году."
+        },
+        {
+          "title": "Запчасти на китайские авто: где брать и сколько ждать",
+          "url": "https://importdare.ru/blog/zapchasti-na-kitayskie-avto-gde-brat",
+          "snippet": "Разбираем рабочую схему заказа автозапчастей из Китая самостоятельно и без посредников: где искать детали, как проверить совместимость и каким способом доставить в РФ."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "каталог запчастей на китайские автомобили 2026",
+      "purpose": "вторичный запрос: каталог запчастей на китайские автомобили",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Запчасти на китайские автомобили в России в 2026 году: где покупать и ...",
+          "url": "https://freshauto.ru/blog/sovety/zapchasti-na-kitayskie-avtomobili-v-rossii-v-2026-godu-gde-pokupat-i-kak-ne-narvatsya-na-poddelku/",
+          "snippet": ""
+        },
+        {
+          "title": "КАТАЛОГ ПОДБОРА ЗАПЧАСТЕЙ ДЛЯ КИТАЙСКИХ АВТОМОБИЛЕЙ",
+          "url": "https://opt.euroauto.ru/news/catalog-of-spare-parts-for-chinese-cars/",
+          "snippet": "За последние 4 года автомобильный рынок в РФ оказался во власти китайских брендов. При этом ситуация с запасными частями остается сложной - отсутствие четких каталогов усложняет подбор деталей, на региональных складах имеются далеко не все комплектующие."
+        },
+        {
+          "title": "Каталог запчастей для китайских автомобилей — купить автозапчасти из ...",
+          "url": "https://china-parts.ru/catalog/categories/",
+          "snippet": "Подбирайте запчасти на автомобили китайского производства с новым каталогом: В каталоге уже 41 марка легкового и грузового сегмента. Доступен подбор по марке, модели и модификации."
+        },
+        {
+          "title": "Запчасти Для Китайских Автомобилей — Поиск По Vin | Китайавто",
+          "url": "https://www.китайавто.рус/",
+          "snippet": "В каталог запчастей для китайских автомобилей входят как оригинальные товары, так и их аналоги. Это позволяет получить качественную продукцию на выгодных условиях. В наличии автозапчасти для популярных марок: Changan, Chery, Exeed, FAW, Geely, Haval, Lifan, Omoda и других производителей."
+        },
+        {
+          "title": "Запчасти для китайских автомобилей | Chinaspare",
+          "url": "https://chinaspare.ru/",
+          "snippet": "КитайАвто — интернет-магазин запчастей и электронные каталоги китайских автомобилей. Здесь можно начать поиск с VIN-кода, названия детали или известного артикула. Не знаете заводской номер? Найдите свой автомобиль, укажите, какая запчасть нужна, и уточните её в каталоге."
+        },
+        {
+          "title": "Запчасти для китайских автомобилей - купить по отличной цене",
+          "url": "https://armtek.ru/catalog/chinese-cars",
+          "snippet": "Компания Chinaspare предлагает аксессуары и запчасти для китайских автомобилей: Geely, Great Wall, Chery, FAW, Haima, Lifan, Lixiang, Zeekr, Evolute, Dongfeng, Foton, Omoda, Tank, Jetour, Changan и другие."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "подбор запчастей на китайские автомобили 2026",
+      "purpose": "вторичный запрос: подбор запчастей на китайские автомобили",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Проблемы с запчастями на китайские автомобили в 2026 году: где искать и ...",
+          "url": "https://content.renins.ru/osago/zapchasti-na-kitajskie-avtomobili/",
+          "snippet": ""
+        },
+        {
+          "title": "Запчасти на китайские автомобили в России в 2026 году: где покупать и ...",
+          "url": "https://freshauto.ru/blog/sovety/zapchasti-na-kitayskie-avtomobili-v-rossii-v-2026-godu-gde-pokupat-i-kak-ne-narvatsya-na-poddelku/",
+          "snippet": "Выясняем вместе с экспертами — владельцами сервисов и автоблогерами — что происходит на рынке, актуален ли вопрос запчастей в 2026-м и где все-таки их брать. Владельцы «китайцев» всё чаще жалуются на долгий ремонт из‑за ожидания запчастей."
+        },
+        {
+          "title": "Где искать запчасти на китайские и европейские авто в 2026: чек-лист и ...",
+          "url": "https://verticalauto.ru/articles/gde-iskat-zapcasti-na-kitaiskie-i-evropeiskie-avto-v-2026-cek-list-i-analogi",
+          "snippet": "Приобретать детали нужно у официальных дилеров либо в сетевых магазинах автомобильных запчастей, а все работы по замене проводить в сервисе с официальным оформлением."
+        },
+        {
+          "title": "Запчасти для китайских автомобилей | Chinaspare",
+          "url": "https://chinaspare.ru/",
+          "snippet": "В этом материале — как устроен серый импорт, где искать дубликаты деталей, как не нарваться на подделку и чек-лист по заказу запчастей в 2026 году."
+        },
+        {
+          "title": "КАТАЛОГ ПОДБОРА ЗАПЧАСТЕЙ ДЛЯ КИТАЙСКИХ АВТОМОБИЛЕЙ",
+          "url": "https://opt.euroauto.ru/news/catalog-of-spare-parts-for-chinese-cars/",
+          "snippet": "Компания Chinaspare предлагает аксессуары и запчасти для китайских автомобилей: Geely, Great Wall, Chery, FAW, Haima, Lifan, Lixiang, Zeekr, Evolute, Dongfeng, Foton, Omoda, Tank, Jetour, Changan и другие."
+        },
+        {
+          "title": "Китайские запчасти для автомобиля — купить с доставкой по России ...",
+          "url": "https://china-parts.ru/",
+          "snippet": "Подбирайте запчасти на автомобили китайского производства с новым каталогом: В каталоге уже 41 марка легкового и грузового сегмента. Доступен подбор по марке, модели и модификации."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как подобрать запчасти на китайское авто по VIN в 2026: чек-лист до заказа 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как Подобрать Запчасти Для Китайских Авто По Vin",
+          "url": "https://usedcars.ru/articles/115222",
+          "snippet": ""
+        },
+        {
+          "title": "Где искать запчасти на китайские и европейские авто в 2026: чек-лист и ...",
+          "url": "https://verticalauto.ru/articles/gde-iskat-zapcasti-na-kitaiskie-i-evropeiskie-avto-v-2026-cek-list-i-analogi",
+          "snippet": "Узнайте, как точно выбрать детали для китайских автомобилей по VIN-коду и организовать заказ из Китая. Практические советы помогут избежать ошибок и сэкономить время."
+        },
+        {
+          "title": "Как Заказать Автозапчасти По Vin-коду: Пошаговая Инструкция 2026",
+          "url": "https://auto-praktis.vercel.app/articles/k/ka/kak-zakazyvat-zapchasti-po-vin-kodu-avtomobilya.html",
+          "snippet": "В этом материале — как устроен серый импорт, где искать дубликаты деталей, как не нарваться на подделку и чек-лист по заказу запчастей в 2026 году."
+        },
+        {
+          "title": "Как Подобрать Автодеталь По Vin-коду: Пошаговая Инструкция 2026",
+          "url": "https://auto-praktis.vercel.app/articles/p/po/podobrat-detal-po-vin.html",
+          "snippet": "Узнайте, как правильно подобрать и заказать оригинальные запчасти по VIN-коду автомобиля. Пошаговый гайд с примерами, сервисами и лайфхаками для точного поиска."
+        },
+        {
+          "title": "Китайские авто в автосервисе: чек-лист по запчастям и учёту",
+          "url": "https://gipix-lite.ru/blog/kitajskie-avtomobili-v-avtoservise/",
+          "snippet": "В этой статье разберём пошаговый алгоритм — от определения VIN до проверки совместимости запчастей с учётом рестайлингов и модификаций."
+        },
+        {
+          "title": "Запчасти на китайские авто: где брать и сколько ждать",
+          "url": "https://importdare.ru/blog/zapchasti-na-kitayskie-avto-gde-brat",
+          "snippet": "15-пунктовый чек-лист для СТО: как принять китайский автомобиль, подобрать запчасти, выставить нормо-часы и правильно оформить заказ-наряд без потерь."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://content.renins.ru/osago/zapchasti-na-kitajskie-avtomobili/",
+      "title": "Проблемы с запчастями на китайские автомобили в 2026 году: где искать и ...",
+      "from_query": "запчасти на китайские автомобили 2026"
+    },
+    {
+      "url": "https://freshauto.ru/blog/sovety/zapchasti-na-kitayskie-avtomobili-v-rossii-v-2026-godu-gde-pokupat-i-kak-ne-narvatsya-na-poddelku/",
+      "title": "Запчасти на китайские автомобили в России в 2026 году: где покупать и ...",
+      "from_query": "запчасти на китайские автомобили 2026"
+    },
+    {
+      "url": "https://avtoservis.online/articles/zapchasti-na-kitajtsev-v-2026-gde-zakazyvat-chtoby-ne-razoritsya/",
+      "title": "Запчасти на китайские авто 2026: где заказывать дешево и надежно",
+      "from_query": "запчасти на китайские автомобили 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/aa-06NamUBjEV7CQ",
+      "title": "Запчасти на китайские авто. Где искать в 2026 году?",
+      "from_query": "запчасти на китайские автомобили 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/amtTv1BErRgaXGok",
+      "title": "Китайские машины в 2026: сколько реально стоят запчасти и где их искать ...",
+      "from_query": "запчасти на китайские автомобили 2026"
+    },
+    {
+      "url": "https://verticalauto.ru/articles/gde-iskat-zapcasti-na-kitaiskie-i-evropeiskie-avto-v-2026-cek-list-i-analogi",
+      "title": "Китайские маркетплейсы и «доноры» из такси: где брать запчасти в 2026 ...",
+      "from_query": "запчасти на китайские автомобили 2026"
+    },
+    {
+      "url": "https://www.liangkaitrade.com/news/%D0%BA%D0%B8%D1%82%D0%B0%D0%B9%D1%81%D0%BA%D0%B8%D0%B5-%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5-%D0%B7%D0%B0%D0%BF%D1%87%D0%B0%D1%81%D1%82%D0%B8-2026-%D1%86-2/",
+      "title": "Китайские автомобильные запчасти 2026: цены и заводы",
+      "from_query": "запчасти на китайские автомобили октябрь 2026"
+    },
+    {
+      "url": "https://zakazautovplus.ru/2026/04/29/zapchasti-dlya-kitajskih-avto-v-2026-godu-gde-pokupat-original-nedorogo-skolko-zhdat-i-kak-ne-narvatsya-na-poddelku-v-moskve-i-kazahstane/",
+      "title": "Запчасти для китайских авто в 2026 году: где покупать оригинал недорого ...",
+      "from_query": "запчасти на китайские автомобили октябрь 2026"
+    },
+    {
+      "url": "https://motor.ru/news/nazvany-podorozhavshie-zapchasti-dlya-kitaiskikh-avto-17-09-2026.htm",
+      "title": "Названы подорожавшие запчасти для китайских авто: Новости | Motor.ru",
+      "from_query": "запчасти на китайские автомобили новости 2026"
+    },
+    {
+      "url": "https://lenta.ru/news/2026/09/17/nekotorye-zapchasti-dlya-kitayskih-avto-podorozhali-v-rossii-na-tret-i-bolee/",
+      "title": "Некоторые запчасти для китайских авто подорожали в России на треть и ...",
+      "from_query": "запчасти на китайские автомобили новости 2026"
+    },
+    {
+      "url": "https://motor.ru/news/pochti-vse-podorozhali-nazvany-novye-ceny-na-zapchasti-k-kitaiskim-avto-15-07-2026.htm",
+      "title": "Запчасти для китайских авто подорожали на 9%: решетка, подушка и диски ...",
+      "from_query": "запчасти на китайские автомобили новости 2026"
+    },
+    {
+      "url": "https://fb.ru/post/cars/2026/3/1/420424",
+      "title": "Китайские автозапчасти в России подорожали на 26% в 2026 году",
+      "from_query": "запчасти на китайские автомобили новости 2026"
+    },
+    {
+      "url": "https://github.com/rin-nas/Evolute-I-Space",
+      "title": "GitHub - rin-nas/Evolute-I-Space: Автомобиль Evolute I-Space PHEV ...",
+      "from_query": "site:github.com запчасти на китайские автомобили 2026"
+    },
+    {
+      "url": "https://github.com/FREYM1337/forumnick/blob/main/ArzMarketV3/items.json",
+      "title": "forumnick/ArzMarketV3/items.json at main - GitHub",
+      "from_query": "site:github.com запчасти на китайские автомобили 2026"
+    },
+    {
+      "url": "https://gist.github.com/yanisheuski-ctrl/30b824af2668ba9ff58eb12f4a7d341f",
+      "title": "gist:30b824af2668ba9ff58eb12f4a7d341f · GitHub",
+      "from_query": "site:github.com запчасти на китайские автомобили 2026"
+    },
+    {
+      "url": "https://github.com/palsoftware/pastiera/blob/main/dict_backup/ru_base.json",
+      "title": "pastiera/dict_backup/ru_base.json at main - GitHub",
+      "from_query": "site:github.com запчасти на китайские автомобили 2026"
+    },
+    {
+      "url": "https://github.com/cerber-m1ke/agentic-project-template/blob/master/setup/DESIGN.md",
+      "title": "agentic-project-template/setup/DESIGN.md at master - GitHub",
+      "from_query": "site:github.com запчасти на китайские автомобили 2026"
+    },
+    {
+      "url": "https://github.com/SuperMoose2006/peregovori-lct/blob/master/docs/model-bakeoff.md",
+      "title": "peregovori-lct/docs/model-bakeoff.md at master - GitHub",
+      "from_query": "site:github.com запчасти на китайские автомобили 2026"
+    },
+    {
+      "url": "https://mttkplus.ru/blog/dostavka-avtozapchastey-iz-kitaya-2026/",
+      "title": "Доставка автозапчастей из Китая в 2026: документы, бренд и таможня",
+      "from_query": "запчасти на китайские автомобили official docs documentation 2026"
+    },
+    {
+      "url": "https://www.китайавто.рус/",
+      "title": "Запчасти Для Китайских Автомобилей — Поиск По Vin | Китайавто",
+      "from_query": "запчасти на китайские автомобили official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/b/736755255055760741/",
+      "title": "Есть ли проблемы с запчастями в 2026 году для китайских автомобилей",
+      "from_query": "запчасти на китайские автомобили forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://strana.life/life/oshibki-perevoda-i-rost-tsen-pochemu-slozhno-kupit-zapchasti-dlya-kitayskikh-mashin-v-2026-godu",
+      "title": "Ошибки перевода и рост цен: почему сложно купить запчасти для китайских ...",
+      "from_query": "запчасти на китайские автомобили forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.pro-avto-forum.ru/viewtopic.php?t=1745",
+      "title": "Почему запчасти на китайские авто везут месяцами — склады, сроки ...",
+      "from_query": "запчасти на китайские автомобили forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://raketacn.ru/journal/kak-zakazat-zapchasti-iz-kitaya-samostoyatelno",
+      "title": "Где и как купить и заказать запчасти для авто из Китая в 2026",
+      "from_query": "где купить запчасти на китайские автомобили 2026"
+    },
+    {
+      "url": "https://importdare.ru/blog/zapchasti-na-kitayskie-avto-gde-brat",
+      "title": "Запчасти на китайские авто: где брать и сколько ждать",
+      "from_query": "где купить запчасти на китайские автомобили 2026"
+    },
+    {
+      "url": "https://opt.euroauto.ru/news/catalog-of-spare-parts-for-chinese-cars/",
+      "title": "КАТАЛОГ ПОДБОРА ЗАПЧАСТЕЙ ДЛЯ КИТАЙСКИХ АВТОМОБИЛЕЙ",
+      "from_query": "каталог запчастей на китайские автомобили 2026"
+    },
+    {
+      "url": "https://china-parts.ru/catalog/categories/",
+      "title": "Каталог запчастей для китайских автомобилей — купить автозапчасти из ...",
+      "from_query": "каталог запчастей на китайские автомобили 2026"
+    },
+    {
+      "url": "https://chinaspare.ru/",
+      "title": "Запчасти для китайских автомобилей | Chinaspare",
+      "from_query": "каталог запчастей на китайские автомобили 2026"
+    },
+    {
+      "url": "https://armtek.ru/catalog/chinese-cars",
+      "title": "Запчасти для китайских автомобилей - купить по отличной цене",
+      "from_query": "каталог запчастей на китайские автомобили 2026"
+    },
+    {
+      "url": "https://china-parts.ru/",
+      "title": "Китайские запчасти для автомобиля — купить с доставкой по России ...",
+      "from_query": "подбор запчастей на китайские автомобили 2026"
+    },
+    {
+      "url": "https://usedcars.ru/articles/115222",
+      "title": "Как Подобрать Запчасти Для Китайских Авто По Vin",
+      "from_query": "Как подобрать запчасти на китайское авто по VIN в 2026: чек-лист до заказа 2026"
+    },
+    {
+      "url": "https://auto-praktis.vercel.app/articles/k/ka/kak-zakazyvat-zapchasti-po-vin-kodu-avtomobilya.html",
+      "title": "Как Заказать Автозапчасти По Vin-коду: Пошаговая Инструкция 2026",
+      "from_query": "Как подобрать запчасти на китайское авто по VIN в 2026: чек-лист до заказа 2026"
+    },
+    {
+      "url": "https://auto-praktis.vercel.app/articles/p/po/podobrat-detal-po-vin.html",
+      "title": "Как Подобрать Автодеталь По Vin-коду: Пошаговая Инструкция 2026",
+      "from_query": "Как подобрать запчасти на китайское авто по VIN в 2026: чек-лист до заказа 2026"
+    },
+    {
+      "url": "https://gipix-lite.ru/blog/kitajskie-avtomobili-v-avtoservise/",
+      "title": "Китайские авто в автосервисе: чек-лист по запчастям и учёту",
+      "from_query": "Как подобрать запчасти на китайское авто по VIN в 2026: чек-лист до заказа 2026"
+    }
+  ]
+}

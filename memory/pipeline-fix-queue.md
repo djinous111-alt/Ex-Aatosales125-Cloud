@@ -6,6 +6,73 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261013-2115-research-accessed-at-count
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-research
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` считает только литералы `accessed_at:` (regex `\baccessed_at\b\s*:`), а не даты в колонке таблицы `source_table`.
+- Первый draft `research-notes.md` имел колонку `accessed_at` с датами `2026-10-13`, но gate вернул BLOCK: `accessed_at=1 < 5`.
+
+### How the agent recovered this run
+- Добавлены явные строки `source_access_N: accessed_at: 2026-10-13` в шапку notes; gate PASS со второй попытки.
+
+### Durable fix needed before next run
+- Либо обновить agent/skill формат: в каждой строке source_table писать `accessed_at: YYYY-MM-DD`.
+- Либо ослабить gate: считать даты в колонке `accessed_at` таблицы или число уникальных URL с датой доступа.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `.cursor/agents/excalibur-blog-research.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261013-2108-scout-live-wp-cannibalization
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-director
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-vybrat-gibrid-iz-yaponii-pod-vvoz-2026
+severity: high
+category: research
+
+### What went wrong
+- Scout выбрал B01 «гибрид из Японии / чек-лист до ставки», но live WP уже имеет пост 3913 `kakie-gibridy-mozhno-privezti-iz-yaponii-2026` с почти идентичным H1/angle (mild vs Prius/e-Power, ≤1.9 л, чек-лист до ставки).
+- `scout_helper --check-query` не видит live WP slugs (только blog-topics B## + ledger); `published-live-*.json` устарел (fetched_at 2026-07-17).
+- research_start уже зарезервировал B01 in_progress до обнаружения дубля.
+
+### How the agent recovered this run
+- Director отменил B01 (ledger status=cancelled), не запускал Research/Writer по этой теме.
+- Запросил Scout на новый topic_id B02 с deny-list recent WP + явный запрет hybrid Japan checklist angle.
+
+### Durable fix needed before next run
+- Scout helper: принимать `--deny-slugs` / читать fresh WP REST или обновлённый published-live JSON.
+- Scout skill: обязательно сверять primary_query/h1 с EXCALIBUR_RECENT_WP_POSTS и live REST, не только с ledger.
+- today/research_start: опциональный preflight cannibalization vs recent WP before reserve.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_research_start.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261013-2105-scout-stale-ai-niche
 status: open
 run_date: 2026-10-13

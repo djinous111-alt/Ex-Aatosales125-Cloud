@@ -37,6 +37,13 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## Cloud commit: CTA URLs
+
+- В body ставь реальные catalog/Telegram href из `memory/brief/conversion-map.md` / env (`CATALOG_URL`, `TELEGRAM_URL`).
+- На CTA-строках с секретоподобными URL добавь `<!-- pragma: allowlist secret -->`.
+- `internal_links`: только латинские dated paths с live WP REST, не кириллица.
+- Перед commit: `eval "$(python3 scripts/excalibur_blog_filter_secret_names.py --export)"` если pre-commit падает на `invalid variable name`.
+
 ## Blockers
 
 - нет research-notes.md

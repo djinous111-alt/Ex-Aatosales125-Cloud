@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None — 2026-10-12 fixer closed all open incidents as fixed._
+
+
 ## INC-20261012-0945-publish-http-timeout-webfetch-race
-status: open
+status: fixed
 run_date: 2026-10-12
 role: excalibur-blog-publish
 topic_id: B01
@@ -45,10 +48,25 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-12
+fix_summary:
+- `trigger_bootstrap_http` timeout 180s; during WebFetch wait polls WP REST by slug and auto-writes soft-success OK lines when post+featured(+inlines) ready.
+- Never requires a second bootstrap curl; documents ordered recovery in publish skill.
+- `paramiko` added to `.cursor/cloud-agent-install.sh`; doctor warns if missing.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/cloud-agent-install.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- doctor SUMMARY errors=0
+commit: pending-fixer-commit
 
 ## INC-20261012-0936-indexer-llms-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-10-12
 role: excalibur-blog-indexer
 topic_id: B01
@@ -84,10 +102,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-12
+fix_summary:
+- Doctor checks `--blog-dir`/`--out-dir` instead of stale `--blog-path`.
+- Indexer agent/skill shell examples use `--blog-dir` + `--out-dir` only; pragma note for llms site URL commits.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- rg: no CLI `--blog-path` in indexer agent examples
+commit: pending-fixer-commit
 
 ## INC-20261012-0930-schema-secret-scan-pragma
-status: open
+status: fixed
 run_date: 2026-10-12
 role: excalibur-blog-schema
 topic_id: B01
@@ -120,10 +153,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-12
+fix_summary:
+- Schema/writer/Cloud docs: real public URLs + `pragma: allowlist secret` on commit lines.
+- New `scripts/excalibur_blog_filter_secret_names.py` drops non-bash-identifier tokens from `CLOUD_AGENT_INJECTED_SECRET_NAMES` before commit.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_filter_secret_names.py`
+- `CURSOR-CLOUD-AGENT-PIPELINE-FROM-SCRATCH.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter script drops URL-like tokens; keeps PUBLIC_SITE_URL/CATALOG_URL
+commit: pending-fixer-commit
 
 ## INC-20261012-0926-geo-qa-typed-task-unavailable
-status: open
+status: fixed
 run_date: 2026-10-12
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -151,10 +198,22 @@ category: other
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-12
+fix_summary:
+- Documented that typed `excalibur-blog-geo-qa` often unavailable; Director/skill treat `Task(generalPurpose)` + geo-qa agent/skill as standard path, not a blocker.
+files_changed:
+- `agents/excalibur-blog-director.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg guidance present in director + pitfalls
+commit: pending-fixer-commit
 
 ## INC-20261012-0926-geo-qa-utility-policy-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-12
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -187,10 +246,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-12
+fix_summary:
+- Kept non-empty `pain_markers_ru` / `outcome_markers_ru` / expanded `recommendation_markers_ru` in editorial-policy.json.
+- Doctor preflight fails if pain/outcome marker lists are empty; utility gate already WARNs instead of hard-fail when empty at runtime.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor OK editorial-policy markers non-empty
+- JSON parse policy
+commit: pending-fixer-commit
 
 ## INC-20261012-0926-geo-qa-link-verify-cyrillic-paths
-status: open
+status: fixed
 run_date: 2026-10-12
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -222,10 +294,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-12
+fix_summary:
+- Kept `encode_check_url()` in link_verify; B01 topic card `internal_links` switched to live latin dated paths.
+- Writer/scout/writing-contract forbid Cyrillic path guesses; require live WP latin slugs.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `memory/topics/blog-topics.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- encode_check_url percent-encodes Cyrillic path unit test
+commit: pending-fixer-commit
 
 ## INC-20261012-0926-geo-qa-live-near-duplicate-warning
-status: open
+status: fixed
 run_date: 2026-10-12
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -256,10 +342,25 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-12
+fix_summary:
+- Scout helper `--check-live-wp` queries WP REST; title Jaccard + significant stem overlap + paired latin-slug intents.
+- Scout agent/skill require local `--check-query` AND live check before claiming gap.
+- Verified query «как читать аукционный лист» flags 3 live near-duplicates.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- live WP check returns 3 CRITICAL for auction-sheet query
+commit: pending-fixer-commit
 
 ## INC-20261012-0920-writer-cta-secret-scan
-status: open
+status: fixed
 run_date: 2026-10-12
 role: excalibur-blog-writer
 topic_id: B01
@@ -293,10 +394,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-12
+fix_summary:
+- Writing contract + writer skill: real CTA URLs + HTML `pragma: allowlist secret`; filter_secret_names before commit.
+files_changed:
+- `shared/excalibur-article-writing-contract.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_filter_secret_names.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter_secret_names export/unit
+commit: pending-fixer-commit
 
 ## INC-20261012-0915-research-tech-marker-false-positive
-status: open
+status: fixed
 run_date: 2026-10-12
 role: excalibur-blog-research
 topic_id: B01
@@ -329,10 +442,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-12
+fix_summary:
+- Removed bare `ai`/`ии` substring markers; word-boundary TECH_MARKERS; AUTO_NICHE skips GitHub×3 for auction/Encar/customs topics.
+- B01 research gate: PASS with `technical_topic=false`.
+- Secret-name filter covers pre-commit invalid identifier issue.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `scripts/excalibur_blog_filter_secret_names.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: auto niche not technical; MCP/Cursor topic is technical
+- B01 research_notes_gate PASS technical_topic=False
+commit: pending-fixer-commit
 
 ## INC-20261012-0905-scout-stale-cursor-niche
-status: open
+status: fixed
 run_date: 2026-10-12
 role: excalibur-blog-scout
 topic_id: B01
@@ -364,7 +492,20 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-12
+fix_summary:
+- Rewrote scout agent/skill for Авто-Сейлс niche from site-brief; editorial-utility-only no longer prioritizes Cursor/Make/AI-agents.
+files_changed:
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg: stale Cursor AI beginner priority removed from scout sources
+commit: pending-fixer-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

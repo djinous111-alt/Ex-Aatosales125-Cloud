@@ -232,8 +232,23 @@ Excalibur BLOG следует этому контракту для каждой 
 
 ### Блок 4: Мягкий CTA бренда (внутри одной секции блока 3)
 
-2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-tracking-map.md` / `offers-map.md`.  
+2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-map.md` / conversion-tracking / offers map.  
 Не больше **3** упоминаний основного офера/CTA на статью (включая баннер и «что дальше»).
+
+**Cloud secret scanner (CTA / schema / llms):** `CATALOG_URL`, `TELEGRAM_URL`, `PUBLIC_SITE_URL` и др. marketing URL часто лежат в Cloud Secrets. В `article.html` / `schema.jsonld` нужны **реальные** публичные CTA/sameAs URL (не `href=[REDACTED]` в runtime артефакте). Перед commit на каждой строке с такими URL добавь allowlist-маркер:
+
+- HTML: `<!-- pragma: allowlist secret -->` рядом с CTA `<a href="...">`
+- JSON-LD: поле вроде `"excaliburCommitPragma": "pragma: allowlist secret"` на том же объекте/строке, где URL
+
+Если `CLOUD_AGENT_INJECTED_SECRET_NAMES` содержит не-bash-идентификатор (URL-like token), перед `git commit` прогони:
+
+```bash
+eval "$(python3 scripts/excalibur_blog_filter_secret_names.py --export)"
+```
+
+Не используй `--no-verify`.
+
+**Internal links:** только латинские live WP paths (`/2026/10/04/latin-slug/`). Кириллические path-догадки из topic card запрещены — link-verify/HTTP падают или 404.
 
 ### Блок 5: Inline-баннер (опционально)
 

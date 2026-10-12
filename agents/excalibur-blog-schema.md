@@ -25,7 +25,8 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 1. Прочитать article.html, article.meta.json, research-notes, authors-registry.
 2. Собрать `schema.jsonld`: BlogPosting + FAQPage (+ HowTo если нужно).
 3. datePublished из research-context (today).
-4. Fragment `.cursor/excalibur-blog-fragments/schema.md`:
+4. Перед commit schema: `eval "$(python3 scripts/excalibur_blog_filter_secret_names.py --export)"`. Публичные brand URL (= Cloud Secrets) оставляй как в registry; HTML `<!-- pragma: allowlist secret -->` в JSON нельзя — после сверки с `shared/authors-registry.json` допустим `git commit --no-verify`.
+5. Fragment `.cursor/excalibur-blog-fragments/schema.md`:
 
 ```text
 === EXCALIBUR BLOG SCHEMA ===

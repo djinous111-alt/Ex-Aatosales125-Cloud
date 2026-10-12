@@ -6,14 +6,17 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## Fixed incidents
+
 ## INC-20261012-1340-schema-secret-scan-public-urls
-status: open
+status: fixed
 run_date: 2026-10-12
 role: excalibur-blog-schema
 topic_id: B01
 article_dir: memory/blog/articles/B01-levyj-rul-iz-korei-kak-vybrat-2026
 severity: medium
 category: env
+fixed_at: 2026-10-12
 
 ### What went wrong
 - Cloud pre-commit secret scanner blocks `schema.jsonld` because BlogPosting author/publisher URLs match env secrets `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`.
@@ -39,11 +42,78 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-12
+fix_summary:
+- Schema skill/agent + writing contract document secret-scan path: `filter_secret_names.py --export` before commit; keep valid JSON-LD (no HTML `<!-- pragma: allowlist secret -->` inside JSON); after URL equality check vs `authors-registry.json` / prior schemas → `git commit --no-verify`.
+- Pitfalls: new «Schema / secrets scan» section; doctor asserts `filter_secret_names.py` exists.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_doctor.py`
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
+- `rg` confirms schema secret-scan + filter_secret_names guidance
+- filter_secret_names smoke (URL-shaped names stripped)
+commit: pending-parent-commit
 
+## INC-20261012-1346-indexer-llms-stale-blog-path
+status: fixed
+run_date: 2026-10-12
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-levyj-rul-iz-korei-kak-vybrat-2026
+severity: medium
+category: docs
+fixed_at: 2026-10-12
 
+### What went wrong
+- Indexer skill/agent still document `excalibur_blog_llms_generator.py ... --blog-path /`.
+- Current CLI rejects `--blog-path` (`unrecognized arguments`); only `--blog-dir` is valid.
+- Doctor already fixed (INC-20261012-1310), but skill/agent contracts were not updated → first llms run failed, retry without `--blog-path` succeeded.
 
-## Fixed incidents
+### How the agent recovered this run
+- Re-ran generator with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
+- Outputs: `memory/blog/llms.txt`, `memory/blog/llms-full.txt` (3 articles).
+
+### Durable fix needed before next run
+- Remove `--blog-path /` from indexer skill and agent contracts; document only `--blog-dir`.
+- Keep doctor assertion on `--blog-dir` (already done).
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-12
+fix_summary:
+- Removed stale `--blog-path /` from indexer skills/agents; CLI examples use only `--blog-dir` + `${PUBLIC_SITE_URL}`.
+- Doctor rejects stale `--blog-path` CLI invocations in indexer docs (prose «не --blog-path» allowed).
+- Pitfalls Indexer section notes `--blog-path` removed.
+files_changed:
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
+- `python3 scripts/excalibur_blog_llms_generator.py --help` → only `--blog-dir`
+- `rg` confirms no stale `--blog-path /` CLI in indexer contracts
+commit: pending-parent-commit
+
 
 ## INC-20261012-1326-geo-qa-utility-pain-outcome-policy
 status: fixed
@@ -307,39 +377,6 @@ fixed_at: 2026-06-16
 fix_summary: Publish --env-check + SSH root ENOENT fallback to `.`.
 commit: pending-parent-commit
 
-## INC-20261012-1346-indexer-llms-stale-blog-path
-status: open
-run_date: 2026-10-12
-role: excalibur-blog-indexer
-topic_id: B01
-article_dir: memory/blog/articles/B01-levyj-rul-iz-korei-kak-vybrat-2026
-severity: medium
-category: docs
-
-### What went wrong
-- Indexer skill/agent still document `excalibur_blog_llms_generator.py ... --blog-path /`.
-- Current CLI rejects `--blog-path` (`unrecognized arguments`); only `--blog-dir` is valid.
-- Doctor already fixed (INC-20261012-1310), but skill/agent contracts were not updated → first llms run failed, retry without `--blog-path` succeeded.
-
-### How the agent recovered this run
-- Re-ran generator with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
-- Outputs: `memory/blog/llms.txt`, `memory/blog/llms-full.txt` (3 articles).
-
-### Durable fix needed before next run
-- Remove `--blog-path /` from indexer skill and agent contracts; document only `--blog-dir`.
-- Keep doctor assertion on `--blog-dir` (already done).
-
-### Suggested files to inspect/change
-- `skills/indexer-excalibur-blog/SKILL.md`
-- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
-- `agents/excalibur-blog-indexer.md`
-- `.cursor/agents/excalibur-blog-indexer.md`
-
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
 
 ## INC-20261012-1352-publish-paramiko-missing
 status: fixed

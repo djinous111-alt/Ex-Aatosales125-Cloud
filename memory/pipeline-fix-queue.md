@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none)_
+
 ## INC-20261012-1732-indexer-secret-scan-no-verify
-status: open
+status: fixed
+fixed_at: 2026-10-12
 run_date: 2026-10-12
 role: excalibur-blog-indexer
 topic_id: B01
@@ -36,11 +39,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-12
+fix_summary:
+- Restored `scripts/excalibur_blog_filter_secret_names.py --export` + `sanitize_cloud_secret_names.sh` + `excalibur_git.sh`.
+- Indexer skill documents filter-before-commit; `--no-verify` only after staged-path check; llms CLI `--blog-dir` only.
+files_changed:
+- `scripts/excalibur_blog_filter_secret_names.py`
+- `scripts/sanitize_cloud_secret_names.sh`
+- `scripts/excalibur_git.sh`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_filter_secret_names.py --help`
+- `python3 scripts/excalibur_blog_doctor.py` (errors=0)
+commit: 403036e
 
 
 ## INC-20261012-1725-schema-secret-scan-no-verify
-status: open
+status: fixed
+fixed_at: 2026-10-12
 run_date: 2026-10-12
 role: excalibur-blog-schema
 topic_id: B01
@@ -71,11 +88,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-12
+fix_summary:
+- Restored secret-name filter/--export; schema skill: live URLs OK, no HTML pragma, filter before commit, `--no-verify` only if hook still broken.
+files_changed:
+- `scripts/excalibur_blog_filter_secret_names.py`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+checks_run:
+- doctor errors=0
+commit: 403036e
 
 
 ## INC-20261012-1723-geo-qa-link-verify-secret-scan
-status: open
+status: fixed
+fixed_at: 2026-10-12
 run_date: 2026-10-12
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -104,10 +131,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-12
+fix_summary:
+- `link_verify.py` redacts PUBLIC_SITE_URL/CTA to OWN_SITE/CATALOG_URL/TELEGRAM_URL in JSON; `--redact-secrets` default.
+- Restored `filter_secret_names.py --export`.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `scripts/excalibur_blog_filter_secret_names.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+checks_run:
+- py_compile link_verify; redact unit assert
+commit: 403036e
 
 ## INC-20261012-1722-geo-qa-typed-task-unavailable
-status: open
+status: fixed
+fixed_at: 2026-10-12
 run_date: 2026-10-12
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -134,10 +173,24 @@ category: other
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-12
+fix_summary:
+- Documented `Task(generalPurpose)` as default Cloud path (not an incident) in AGENTS.md, director agent/skill, CLOUD-AUTOMATION, pitfalls.
+files_changed:
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- `agents/excalibur-blog-director.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg for "Cloud Task fallback (default)"
+commit: 403036e
 
 ## INC-20261012-1722-geo-qa-skill-tldr-vs-contract
-status: open
+status: fixed
+fixed_at: 2026-10-12
 run_date: 2026-10-12
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -165,10 +218,20 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-12
+fix_summary:
+- GEO QA skill aligned with writing-contract: canonical `<blockquote><b>TL;DR / Быстрый инсайт:</b>…` is allowed, not FAIL.
+files_changed:
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg confirms old TL;DR false-fail wording removed
+commit: 403036e
 
 ## INC-20261012-1718-writer-utility-policy-markers
-status: open
+status: fixed
+fixed_at: 2026-10-12
 run_date: 2026-10-12
 role: excalibur-blog-writer
 topic_id: B01
@@ -202,10 +265,21 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-12
+fix_summary:
+- editorial-policy keeps pain/outcome markers; added recommendation synonyms делать/не делать; writer skill + writing-contract canonicalize Сделайте/Не делайте; Fact Check без Wordstat.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+checks_run:
+- JSON parse editorial-policy.json
+commit: 403036e
 
 ## INC-20261012-1715-research-notes-gate-false-tech
-status: open
+status: fixed
+fixed_at: 2026-10-12
 run_date: 2026-10-12
 role: excalibur-blog-research
 topic_id: B01
@@ -242,10 +316,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-12
+fix_summary:
+- Word-boundary short markers + notes lead cut before first ## (avoids github_evidence FP); ISO dates in URL rows count as accessed_at; research_start scrubs OWN_SITE; regression tests added.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `scripts/excalibur_blog_research_start.py`
+- `scripts/test_excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+checks_run:
+- `python3 scripts/test_excalibur_blog_research_notes_gate.py` OK
+commit: 403036e
 
 ## INC-20261012-1706-director-doctor-blog-path
-status: open
+status: fixed
+fixed_at: 2026-10-12
 run_date: 2026-10-12
 role: excalibur-blog-director
 topic_id: B01
@@ -273,11 +359,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-12
+fix_summary:
+- doctor asserts llms `--blog-dir` (not `--blog-path`); indexer agent/skill CLI cleaned; doctor also checks filter_secret_names presence/--export.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` SUMMARY errors=0 warnings=0
+commit: 403036e
 
 
 ## INC-20261012-1704-scout-wp-mcp-wrong-site
-status: open
+status: fixed
+fixed_at: 2026-10-12
 run_date: 2026-10-12
 role: excalibur-blog-scout
 topic_id: B01
@@ -310,7 +408,19 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-12
+fix_summary:
+- Scout skill: ignore MCP WP when domain ≠ PUBLIC_SITE_URL; use ledger + published-live-*.json + `--deny-slugs`/`--check-slug`.
+- Restored filter_secret_names.py for pre-commit.
+- Optional human follow-up: rebind MCP WordPress credentials to Авто-Сейлс (not blocking next run).
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_filter_secret_names.py`
+checks_run:
+- scout helper --suggest-next; --check-slug against live snapshot
+commit: 403036e
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -559,10 +669,11 @@ commit: pending-parent-commit
 
 ## Fixed incidents
 
-Handled above; commit is pending Director review.
+B01 2026-10-12 open set closed by fixer commit `403036e` (doctor errors=0).
 
 ## INC-20261012-1738-publish-http-remotedisconnect-rest-soft-success
-status: open
+status: fixed
+fixed_at: 2026-10-12
 run_date: 2026-10-12
 role: excalibur-blog-publish
 topic_id: B01
@@ -592,5 +703,16 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-12
+fix_summary:
+- wp_publish polls WP REST soft-success on RemoteDisconnected/504 before/after webfetch wait; no second bootstrap curl; docs note original date permalink on refresh.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- py_compile wp_publish; RemoteDisconnected detector unit assert
+commit: 403036e
 

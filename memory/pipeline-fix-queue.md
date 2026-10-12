@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261013-2105-scout-stale-ai-niche
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- `.cursor/skills/scout-excalibur-blog/SKILL.md` и audience-first блок в agent.md всё ещё задают нишу Cursor AI / Make.com / нейросети / автопостинг.
+- Актуальный `memory/brief/site-brief.md` и задача Director задают только Авто-Сейлс: авто из Японии/Кореи/Китая, растаможка, СВХ, Encar, аукционы.
+- Без явного override от Director scout рискует сгенерировать чужую P0-тему и каннибализировать не тот кластер.
+
+### How the agent recovered this run
+- Проигнорировал AI-запросы из skill; следовал site-brief + brief Director.
+- WebSearch и Wordstat только по авто-нише; выбрана B01 про гибриды из Японии.
+
+### Durable fix needed before next run
+- Переписать scout skill / `.cursor/agents/excalibur-blog-scout.md`: примеры WebSearch и audience-first под AVTO SALES.
+- Убрать Cursor/Make/нейросети из дефолтных поисковых ниш scout.
+
+### Suggested files to inspect/change
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `agents/excalibur-blog-scout.md` (если есть)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

@@ -1,0 +1,87 @@
+{
+  "article": "memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 11,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 10,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "росив полную смету до Владивостока. На практике в 2026 машина на 170 л.с. с более низкой ценой на площадк",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "1996 года",
+      "kind": "date_or_year",
+      "context": "есть бесплатный flood-check по затоплению. База с 1996 года: ремонт без страхового обращения может не отобраз",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180 дней",
+      "kind": "metric_or_duration",
+      "context": "1.2026 для экспорта авто с регистрацией не дольше 180 дней нужно подтверждение послепродажного обслуживания",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "83 дней",
+      "kind": "metric_or_duration",
+      "context": "я часто длиннее обещаний: встречаются кейсы около 83 дней и задержки больше пяти месяцев. Корея тоже не маг",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "нник площадки. До депозита – VIN, мощность (порог 160 л.с.) и пакет проверок. Нет пакета – нет перевода.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "170",
+      "kind": "large_number",
+      "context": "ету до Владивостока. На практике в 2026 машина на 170 л.с. с более низкой ценой на площадке часто выходи",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "155",
+      "kind": "large_number",
+      "context": "адке часто выходит дороже под ключ, чем аналог на 155 л.с. – льготный утильсбор для физлица держится тол",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2200",
+      "kind": "large_number",
+      "context": "ыплаты\"). Платный отчёт на официальной странице – 2200 вон с НДС; есть бесплатный flood-check по затоплен",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1996",
+      "kind": "large_number",
+      "context": "есть бесплатный flood-check по затоплению. База с 1996 года: ремонт без страхового обращения может не ото",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "1.2026 для экспорта авто с регистрацией не дольше 180 дней нужно подтверждение послепродажного обслужива",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "рены с официальным Carhistory, публикацией ПП РФ №1713, правилом экспорта КНР (180 дней), практикой зака",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

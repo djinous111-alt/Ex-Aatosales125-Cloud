@@ -22,7 +22,9 @@ python scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/B01-slug
 ```
 
-`--dry-run` — проверка payload без FTP.
+`--dry-run` — проверка payload без FTP/SSH.
+
+При HTTP `RemoteDisconnected`/504 на bootstrap trigger скрипт поллит public WP REST by slug (soft-success) и **не** делает второй curl. Refresh существующего slug сохраняет исходный date permalink path.
 
 ## Что делает publish
 

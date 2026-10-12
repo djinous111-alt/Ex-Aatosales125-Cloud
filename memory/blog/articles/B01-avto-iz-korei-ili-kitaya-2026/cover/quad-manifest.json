@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Корея или Китай — депозит без фильтра?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс между корейским седаном и китайским кроссовером у порта Владивостока, плашка Корея или Китай",
+      "scene_hint": "WEATHER: cool foggy Vladivostok port morning, grey sea mist; OUTFIT: dark olive field jacket over charcoal hoodie layer + jeans (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie standing BETWEEN modern Korean sedan (left) and modern Chinese crossover (right) at port with ro-ro ship blur; torn paper Cyrillic hook plaque «Корея или Китай — депозит без фильтра?» yellow highlighter on «без фильтра»; sticky note «сначала задача»; shocked cat meme cutout + facepalm sticker (different formats); fake catalog card scrap taped with scotch; DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics",
+      "meme_caption_ru": "Сначала фильтр"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Отфильтруйте страну под задачу: когда Корея, когда Китай",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns Корея | Китай | задача; rows б/у с историей / новое EV / семья / бюджет под ключ; yellow highlight row «б/у с историей → Корея»; pink sticky «фильтр задачи»; scotch tape corner; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица: когда выбирать Корею, когда Китай — по задаче покупателя"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните руль, сервис и комплектации без иллюзий",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 4 nodes with arrows: руль/возраст парка → комплектации → сервис в РФ → итог без иллюзий; icons of steering wheel and wrench; sticky «не только цена»; light tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема: руль, сервис и комплектации при выборе Кореи или Китая"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Что проверить до депозита: Encar против китайских площадок",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Split fake UI screenshot: left Encar Performance Check + Insurance History card; right Chinese marketplace listing with VIN/docs checklist gaps; Cyrillic labels «до депозита» and red stamp «без отчёта — стоп»; sticky «Encar vs площадки»; NO hero face; NO Wordstat/Metrika",
+      "alt": "Мокап: проверка Encar против китайских площадок до внесения депозита"
+    }
+  }
+}

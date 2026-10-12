@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1022,
+      575
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 575,
+        "end": 609
+      },
+      "v_gutter_px": {
+        "start": 1022,
+        "end": 1051
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1022,
+          "bottom": 575
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1022,
+          "bottom": 575
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс между корейским седаном и китайским кроссовером у порта Владивостока, плашка Корея или Китай",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1051,
+          "top": 7,
+          "right": 2048,
+          "bottom": 568
+        },
+        "raw_box_px": {
+          "left": 1051,
+          "top": 0,
+          "right": 2048,
+          "bottom": 575
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: когда выбирать Корею, когда Китай — по задаче покупателя",
+        "h2_anchor": "Отфильтруйте страну под задачу: когда Корея, когда Китай"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 28,
+          "top": 609,
+          "right": 993,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 609,
+          "right": 1022,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: руль, сервис и комплектации при выборе Кореи или Китая",
+        "h2_anchor": "Сравните руль, сервис и комплектации без иллюзий"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1067,
+          "top": 609,
+          "right": 2032,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1051,
+          "top": 609,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап: проверка Encar против китайских площадок до внесения депозита",
+        "h2_anchor": "Что проверить до депозита: Encar против китайских площадок"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Отфильтруйте страну под задачу: когда Корея, когда Китай",
+    "injected inline_2 after H2 — Сравните руль, сервис и комплектации без иллюзий",
+    "injected inline_3 after H2 — Что проверить до депозита: Encar против китайских площадок"
+  ]
+}

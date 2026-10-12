@@ -132,7 +132,26 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+
+    filter_py = root / "scripts/excalibur_blog_filter_secret_names.py"
+    sanitize_sh = root / "scripts/sanitize_cloud_secret_names.sh"
+    check(filter_py.is_file(), "excalibur_blog_filter_secret_names.py present", errors, warnings)
+    check(sanitize_sh.is_file(), "sanitize_cloud_secret_names.sh present", errors, warnings)
+    if filter_py.is_file():
+        filter_help = subprocess.run(
+            [sys.executable, str(filter_py), "--help"],
+            cwd=root,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        check(
+            "--export" in filter_help.stdout,
+            "filter_secret_names supports --export",
+            errors,
+            warnings,
+        )
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

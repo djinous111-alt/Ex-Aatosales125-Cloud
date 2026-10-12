@@ -10,3 +10,5 @@ description: Alias для publish-excalibur-blog — публикация ста
 Используй его для всех шагов publish (preflight, dry-run, publish, fallback, ledger, handoff).
 
 Контракт: `shared/excalibur-wp-publish-contract.md`
+
+REST soft-success / RemoteDisconnected: см. `skills/publish-excalibur-blog/SKILL.md` § Cloud WebFetch Fallback.

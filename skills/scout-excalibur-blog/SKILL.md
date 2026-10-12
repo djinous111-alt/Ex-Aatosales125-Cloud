@@ -30,7 +30,7 @@ Append new Topic Card to blog-topics.md
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
   Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
 
@@ -47,7 +47,7 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
 Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
 
@@ -76,6 +76,18 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 Допиши (append) карточку в конец `memory/topics/blog-topics.md`.
 
 ---
+
+
+## Анти-каннибализация и MCP WP
+
+- Если MCP-KV `wordpress_*` возвращает посты **другого** домена (не `PUBLIC_SITE_URL` Авто-Сейлс) — **игнорируй MCP WP** как источник истины.
+- Для deny-list используй: `shared/published-articles.md`, `memory/topics/blog-topics.md`, Cron live slug list, `memory/blog/published-live-*.json`.
+- Helper:
+  ```bash
+  python3 scripts/excalibur_blog_scout_helper.py --check-query "<query>"
+  python3 scripts/excalibur_blog_scout_helper.py --check-slug "<slug>" --deny-slugs "slug-a,slug-b"
+  ```
+- Перед commit: `eval "$(python3 scripts/excalibur_blog_filter_secret_names.py --export)"`.
 
 ## Блокеры скаута
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.

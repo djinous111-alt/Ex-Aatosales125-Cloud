@@ -73,14 +73,33 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_in_blob(blob: str, marker: str) -> bool:
+    """Substring match for long markers; word-boundary for short ones.
+
+    Short Latin/Cyrillic tokens like ``ai`` / ``ии`` otherwise false-positive inside
+    required fields (``reader_pain``) and normal Russian words (``Азии``, ``технологии``).
+    """
+    if len(marker) <= 3:
+        return bool(
+            re.search(
+                rf"(?<![a-z0-9а-яё]){re.escape(marker)}(?![a-z0-9а-яё])",
+                blob,
+                flags=re.I,
+            )
+        )
+    return marker in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Prefer topic card signals; scan only the lead of notes (angle/pain), not the
+    # whole brief — later sections always contain words like github_evidence.
+    blob += " " + notes[:1200].lower()
+    return any(_marker_in_blob(blob, marker) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:

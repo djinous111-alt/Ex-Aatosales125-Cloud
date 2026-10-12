@@ -6,6 +6,78 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261012-1715-research-notes-gate-false-tech
+status: open
+run_date: 2026-10-12
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` помечал non-tech авто-тему как `technical_topic=true` и требовал 3 GitHub URL.
+- Причина: substring-match коротких маркеров (`ai`, `ии`) внутри обязательного поля `reader_pain` и обычных русских слов.
+- Дополнительно gate считал только литералы `accessed_at:` и падал, если в `source_table` даты были без префикса ключа.
+
+### How the agent recovered this run
+- Починил `is_technical_topic`: word-boundary для маркеров длиной ≤3; скан lead notes укорочен, чтобы не цеплять секцию `github_evidence`.
+- В `research-notes.md` проставил `accessed_at: 2026-10-12` в строках `source_table`.
+- Повторный gate: PASS; `technical_topic=false`.
+- Перед commit заменил `PUBLIC_SITE_URL` в `research-serp.json` на `OWN_SITE/...` (pre-commit secret scanner).
+- Для pre-commit отфильтровал невалидные имена из `CLOUD_AGENT_INJECTED_SECRET_NAMES` (тот же класс проблемы, что у Scout).
+
+### Durable fix needed before next run
+- Закрепить word-boundary логику в gate + короткий regression-тест (fixture с `reader_pain` / авто-нишей без GitHub).
+- В skill/research template явно писать даты source_table как `accessed_at: YYYY-MM-DD` либо научить gate считать колонку дат.
+- `research_start` / serp writer должен сразу писать own-site как `OWN_SITE/...`, не полный `PUBLIC_SITE_URL`.
+- Восстановить `scripts/excalibur_blog_filter_secret_names.py` (см. INC Scout).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `scripts/excalibur_blog_research_start.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `agents/excalibur-blog-research.md`
+- `scripts/excalibur_blog_filter_secret_names.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261012-1706-director-doctor-blog-path
+status: open
+run_date: 2026-10-12
+role: excalibur-blog-director
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: script
+
+### What went wrong
+- `python3 scripts/excalibur_blog_doctor.py` SUMMARY errors=1: FAIL «llms generator supports --blog-path».
+- Actual CLI `scripts/excalibur_blog_llms_generator.py --help` exposes `--blog-dir` only (intentional after INC-1346 lineage).
+
+### How the agent recovered this run
+- Continued pipeline: Scout → utility gate PASS → research_start reserved B01; doctor stale check treated as non-blocking for article work; deferred durable fix to fixer.
+
+### Durable fix needed before next run
+- Update `scripts/excalibur_blog_doctor.py` to assert `--blog-dir` in llms generator help (not `--blog-path`).
+- Ensure doctor/docs/skills stay aligned with indexer CLI.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261012-1704-scout-wp-mcp-wrong-site
 status: open
 run_date: 2026-10-12

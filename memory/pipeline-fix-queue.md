@@ -73,7 +73,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 warnings=0
 - `python3 -m py_compile scripts/excalibur_blog_llms_generator.py`
 - `rg` no stale `--blog-path /` in indexer contracts
-commit: pending-parent-commit
+commit: e8b152c
 
 ## INC-20261013-2127-schema-fragment-write-gitignore
 status: fixed
@@ -125,7 +125,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_write_fragment.py --name schema.md --text ...` → OK + file exists
-commit: pending-parent-commit
+commit: e8b152c
 
 ## INC-20261013-2145-writer-editorial-policy-pain-outcome-missing
 status: fixed
@@ -174,7 +174,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` pain/outcome checks OK
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir .../B02-...` → PASS
-commit: pending-parent-commit
+commit: e8b152c
 
 ## INC-20261013-2115-research-accessed-at-count
 status: fixed
@@ -220,7 +220,7 @@ files_changed:
 checks_run:
 - table-only sample count_accessed_at >= 5
 - `research_notes_gate.py` on B02 → PASS accessed_at=21
-commit: pending-parent-commit
+commit: e8b152c
 
 ## INC-20261013-2108-scout-live-wp-cannibalization
 status: fixed
@@ -271,7 +271,7 @@ files_changed:
 checks_run:
 - `--help` shows --deny-slugs / --proposed-slug / --recent-wp-json
 - deny-slugs dry-run vs hybrid Japan slug → OVERLAP CRITICAL (deny_list + live_wp)
-commit: pending-parent-commit
+commit: e8b152c
 
 ## INC-20261013-2105-scout-stale-ai-niche
 status: fixed
@@ -321,7 +321,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` no stale Cursor AI niche defaults in scout contracts
-commit: pending-parent-commit
+commit: e8b152c
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -373,7 +373,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: e8b152c
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -424,7 +424,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: e8b152c
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -465,7 +465,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: e8b152c
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -512,7 +512,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: e8b152c
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -566,7 +566,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: e8b152c
 
 ## Fixed incidents
 

@@ -679,17 +679,14 @@ Required env:
 - `API_TOKEN`
 ```
 
-Если Cursor secret scanner считает `PUBLIC_SITE_URL` secret, то в committed artifacts используйте:
+Если Cursor secret scanner считает `PUBLIC_SITE_URL` / `CATALOG_URL` / `TELEGRAM_URL` secret:
 
-```text
-[REDACTED]
-```
-
-или env placeholder:
-
-```text
-${PUBLIC_SITE_URL}
-```
+- В **runtime** article.html / schema.jsonld нужны реальные публичные URL (CTA, sameAs).
+- Перед commit на строках с этими URL добавь `pragma: allowlist secret`
+  (HTML comment или JSON-LD `excaliburCommitPragma`).
+- Для индексов/логов без необходимости живого URL допустимы `[REDACTED]` или `${PUBLIC_SITE_URL}`.
+- Если pre-commit падает на `invalid variable name` из `CLOUD_AGENT_INJECTED_SECRET_NAMES`:
+  `eval "$(python3 scripts/excalibur_blog_filter_secret_names.py --export)"`.
 
 ---
 

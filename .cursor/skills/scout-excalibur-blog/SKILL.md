@@ -4,6 +4,17 @@
 
 Запускается по запросу пользователя для расширения пула тем или перед началом нового цикла написания статьи, когда старые темы в `blog-topics.md` исчерпаны.
 
+## Ниша (обязательно)
+
+Только **Авто-Сейлс** из `memory/brief/site-brief.md`:
+
+- авто под заказ из Японии / Кореи / Китая;
+- аукционы и аукционный лист, Encar / Trust / Carhistory;
+- растаможка, утильсбор, СВХ Владивосток, доставка по РФ;
+- доверие: VIN, ДТП, перекупы; сравнение стран под бюджет.
+
+**Запрещено** подменять нишу на Cursor AI, n8n, Make.com, «ИИ-агенты / нейросети» — это stale examples из старых прогонов, не текущий сайт.
+
 ---
 
 ## Архитектура работы
@@ -13,11 +24,13 @@ published-articles.md + blog-topics.md (Audit)
               ↓
 excalibur_blog_scout_helper.py --suggest-next (Get next ID)
               ↓
-WebSearch (Cursor native trend scouting for 2026)
+WebSearch (тренды ниши Авто-Сейлс, 2026)
               ↓
-wordstat_get_top_requests (Yandex Wordstat API demand verify)
+wordstat_get_top_requests (cluster-first → narrow how-to)
               ↓
-excalibur_blog_scout_helper.py --check-query (Cannibalization Guard)
+excalibur_blog_scout_helper.py --check-query (local pool)
+              ↓
+excalibur_blog_scout_helper.py --check-live-wp (live WP REST)
               ↓
 Append new Topic Card to blog-topics.md
 ```
@@ -27,40 +40,45 @@ Append new Topic Card to blog-topics.md
 ## Подробный алгоритм действий
 
 ### Шаг 1 — Анализ прошлого и получение ID
-* Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
-* Вызови helper-скрипт:
+* Считай `shared/published-articles.md` и `memory/topics/blog-topics.md`.
+* Вызови:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+* Учти `EXCALIBUR_RECENT_WP_POSTS` из `python3 scripts/excalibur_blog_today.py` — live уже может закрывать «gap».
 
-### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
-Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
-* Поисковые запросы: *«новые ИИ инструменты автоматизации 2026»*, *«how to automate business Claude Cursor»*, *«лучшие сценарии n8n Make автоматизация»*, *«как настроить ИИ-агента инструкция»*.
-* Найди свежие, практические боли пользователей, по которым не хватает качественных гайдов.
+### Шаг 2 — Поиск горячих трендов (WebSearch)
+2–3 запроса по нише, например:
+* «как читать аукционный лист Япония 2026»
+* «проверка авто Encar Trust Carhistory чек-лист»
+* «растаможка авто Владивосток утильсбор 2026»
+* «СВХ Владивосток что проверить до выдачи»
+
+Найди практические боли, по которым мало качественных гайдов **на live-сайте**.
 
 ### Шаг 3 — Валидация спроса (Yandex Wordstat)
-Для 2-3 отобранных вариантов тем вызови инструмент `wordstat_get_top_requests` сервера `user-mcp-kv`.
-* **Цель:** Найти ключевой запрос (primary query) с живым спросом в Яндексе и выписать 3–5 связанных поисковых вопросов для FAQ и secondary queries.
-* **Фильтр:** Если тема имеет микро-спрос (меньше 10 показов в месяц) и нет смежных тем — отложи её и возьми другую, более востребованную.
+* Сначала широкий parent-кластер, потом узкий how-to.
+* `totalCount`-only на узком = low-result signal; бери semantic tail из широкого ответа.
+* Микро-спрос (&lt;10 показов) без хвоста — отложи тему.
 
-### Шаг 4 — Тест на каннибализацию ключевых слов
-Перед созданием темы запусти:
+### Шаг 4 — Каннибализация: local + live WP
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-live-wp "<выбранный_запрос>"
 ```
-Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
+* Local `OVERLAP DETECTED` → переформулируй или другая тема.
+* Live near-duplicate (похожий title/slug на PUBLIC_SITE) → **не** пиши «на сайте нет гайда»; либо refresh существующего URL, либо другая тема.
+* Не полагайся только на local `memory/blog/articles` и ledger — они могут отставать от WP.
 
 ### Шаг 5 — Сборка карточки темы (Utility-Only)
-Сформируй карточку темы по шаблону:
 ```markdown
 ## {ID} — Короткое название темы
 
 - **priority:** P0 (если высокий спрос) | P1
-- **slug:** {kebab-case-slug}
-- **h1:** {Заголовок с глаголом действия: Как / Чек-лист / Инструкция}
+- **slug:** {kebab-case-latin-slug}
+- **h1:** {Заголовок с глаголом: Как / Чек-лист / Инструкция}
 - **primary_query:** {главный запрос из Вордстата}
-- **secondary_queries:** {2-3 сопутствующих запроса из Вордстата}
+- **secondary_queries:** {2-3 сопутствующих}
 - **search_intent:** how_to | checklist | comparison | troubleshooting | workflow | parent_guide
 - **article_mode:** B
 - **h2_outline:**
@@ -68,16 +86,19 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
   2. {Действие 2}
   3. {Действие 3}
   4. {Чек-лист/Сравнение}
-- **faq_hints:** {2-3 вопроса-подсказки из хвоста Вордстата}
-- **internal_links:** /
-- **cover_scene_hint:** {Краткое ТЗ для картинки - обстановка, элементы DIY-коллажа}
+- **faq_hints:** {2-3 вопроса из хвоста Вордстата}
+- **internal_links:** {латинские dated paths с live WP, не кириллица}
+- **cover_scene_hint:** {сцена для героя Авто-Сейлс + плашка}
 ```
+
+`internal_links`: только ASCII/latin permalink paths из WP REST (пример: `/2026/10/04/prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki/`). Кириллические path-догадки ломают link-verify и 404 на live.
 
 Допиши (append) карточку в конец `memory/topics/blog-topics.md`.
 
 ---
 
 ## Блокеры скаута
-* Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
-* Игнорирование проверки на каннибализацию ключей.
-* Выдумывание цифр спроса без вызова Wordstat API.
+* Создание темы с `article_mode: A` — разрешён только **B**.
+* Игнорирование local или live cannibalization.
+* Выдуманный спрос без Wordstat.
+* Stale Cursor/AI/n8n/Make ниша вместо Авто-Сейлс.

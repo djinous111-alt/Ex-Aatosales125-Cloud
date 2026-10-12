@@ -5,10 +5,15 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
+from html import unescape
 from pathlib import Path
 from typing import Any
+from urllib.parse import urljoin
+from urllib.request import Request, urlopen
+
 
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
@@ -110,10 +115,125 @@ def check_overlap(new_query: str, existing_topics: list[dict[str, str]], reserve
             })
     return warnings
 
+
+def fetch_live_wp_posts(site_url: str, limit: int = 40) -> tuple[list[dict[str, str]], str | None]:
+    endpoint = urljoin(
+        site_url.rstrip("/") + "/",
+        f"wp-json/wp/v2/posts?per_page={limit}&orderby=date&order=desc&_fields=date,link,slug,title",
+    )
+    request = Request(endpoint, headers={"User-Agent": "ExcaliburBlogScout/1.0"})
+    try:
+        with urlopen(request, timeout=15) as response:
+            payload = json.loads(response.read().decode("utf-8"))
+    except Exception as exc:  # noqa: BLE001
+        return [], f"{type(exc).__name__}: {exc}"
+
+    posts: list[dict[str, str]] = []
+    for item in payload:
+        title = item.get("title", {}).get("rendered", "") if isinstance(item.get("title"), dict) else ""
+        title = re.sub(r"<[^>]+>", "", title)
+        posts.append(
+            {
+                "date": str(item.get("date", ""))[:10],
+                "slug": str(item.get("slug", "")),
+                "title": unescape(title).strip(),
+                "link": str(item.get("link", "")),
+            }
+        )
+    return posts, None
+
+
+def check_live_wp_overlap(query: str, posts: list[dict[str, str]], threshold: float = 0.35) -> list[dict[str, Any]]:
+    """Compare query tokens against live WP titles/slugs (not only local memory).
+
+    Uses title-focused Jaccard (slug tokens are Latin and dilute RU queries) plus
+    a significant-stem overlap rule: ≥2 stems of length≥4 shared with the title
+    counts as near-duplicate for how-to topics.
+    """
+    query_tokens = normalize_and_tokenize(query)
+    if not query_tokens:
+        return []
+    # Generic niche tokens match almost every post title — exclude from stem rule.
+    weak_stems = {
+        "авто",
+        "машин",
+        "год",
+        "2026",
+        "2025",
+        "чекли",
+        "чек-л",
+        "под",
+        "заказ",
+        "из",
+        "при",
+        "для",
+    }
+    significant = {t for t in query_tokens if len(t) >= 4 and t not in weak_stems}
+    warnings: list[dict[str, Any]] = []
+    for post in posts:
+        title = post.get("title", "")
+        slug = post.get("slug", "")
+        title_tokens = normalize_and_tokenize(title)
+        slug_tokens = normalize_and_tokenize(slug.replace("-", " "))
+        if not title_tokens and not slug_tokens:
+            continue
+
+        # Title-only Jaccard — primary signal for RU how-to queries.
+        inter_title = query_tokens.intersection(title_tokens)
+        union_title = query_tokens.union(title_tokens) if title_tokens else set()
+        similarity = (len(inter_title) / len(union_title)) if union_title else 0.0
+
+        stem_hits = significant.intersection(title_tokens)
+        stem_hit = len(stem_hits) >= 2
+
+        slug_l = slug.lower()
+        query_l = query.lower()
+        # Paired RU-intent ↔ latin-slug signals (avoid single-token false positives).
+        latin_pairs = (
+            (("читать", "аукцион"), ("chitat", "aukcion")),
+            (("читать", "аукцион"), ("chitat", "auktsion")),
+            (("аукционн", "лист"), ("aukcion", "list")),
+            (("аукционн", "лист"), ("auktsion", "list")),
+            (("encar",), ("encar",)),
+            (("растамож",), ("rastamozh",)),
+            (("утильсбор",), ("utilsbor",)),
+        )
+        latin_hit = False
+        for ru_parts, lat_parts in latin_pairs:
+            if all(part in query_l for part in ru_parts) and all(part in slug_l for part in lat_parts):
+                latin_hit = True
+                break
+
+        if similarity >= threshold or stem_hit or latin_hit:
+            severity = "CRITICAL" if similarity >= 0.5 or stem_hit or latin_hit else "WARNING"
+            warnings.append(
+                {
+                    "severity": severity,
+                    "similarity": round(similarity, 2),
+                    "slug": slug,
+                    "title": title,
+                    "link": post.get("link", ""),
+                    "message": (
+                        f"Live WP near-duplicate: slug={slug!r} title={title!r} "
+                        f"(title_jaccard={round(similarity * 100)}%, stem_hits={sorted(stem_hits)}). "
+                        "Prefer update/refresh, not a new gap claim."
+                    ),
+                }
+            )
+    return warnings
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Helper for Excalibur BLOG Scout Agent")
     ap.add_argument("--suggest-next", action="store_true", help="Print next available Topic ID and summary")
     ap.add_argument("--check-query", type=str, default="", help="Check new primary query for overlaps")
+    ap.add_argument(
+        "--check-live-wp",
+        type=str,
+        default="",
+        help="Check query against live WP REST titles/slugs (requires PUBLIC_SITE_URL)",
+    )
+    ap.add_argument("--site-base", type=str, default="", help="Override PUBLIC_SITE_URL for --check-live-wp")
     args = ap.parse_args()
     
     # Reconfigure stdout for utf-8 on Windows
@@ -155,6 +275,29 @@ def main() -> int:
                 print(f"  Message: {w['message']}")
             return 1
         print("✅ NO CANNIBALIZATION RISK: Query is clean and unique.")
+        return 0
+
+    if args.check_live_wp:
+        site = (
+            args.site_base.strip()
+            or os.environ.get("PUBLIC_SITE_URL", "").strip()
+            or os.environ.get("WP_SITE_URL", "").strip()
+        )
+        if not site:
+            print("WARN: PUBLIC_SITE_URL/WP_SITE_URL missing — cannot check live WP", file=sys.stderr)
+            return 2
+        posts, error = fetch_live_wp_posts(site)
+        if error:
+            print(f"WARN: live WP fetch failed: {error}", file=sys.stderr)
+            return 2
+        warnings = check_live_wp_overlap(args.check_live_wp, posts)
+        if warnings:
+            print("❌ LIVE WP NEAR-DUPLICATE DETECTED:")
+            for w in warnings:
+                print(f"  [{w['severity']}] Similarity: {w['similarity']} | slug={w['slug']}")
+                print(f"  Message: {w['message']}")
+            return 1
+        print(f"✅ LIVE WP CLEAN: no near-duplicate among {len(posts)} recent posts.")
         return 0
 
     ap.print_help()

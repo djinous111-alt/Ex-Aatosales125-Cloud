@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "kak-chitat-aukcionnyj-list-yaponiya-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс с распечаткой аукционного листа и схемой кузова, японский седан, плашка до ставки",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-12T09:31:48+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс с распечаткой аукционного листа и схемой кузова, японский седан, плашка до ставки",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Мокап: карточка лота и аукционный лист — читать до ставки, не после выкупа",
+      "h2_anchor": "Почему читать лист до ставки, а не после выкупа",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица порядка чтения аукционного листа: от кузова к заметкам",
+      "h2_anchor": "Пройдите порядок чтения: от кузова к заметкам",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема: шкала оценок S–4 отдельно от оси R/RA на аукционном листе",
+      "h2_anchor": "Разведите шкалу S–4 и ось R / RA",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

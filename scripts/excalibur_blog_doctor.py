@@ -132,7 +132,30 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check("--out-dir" in llms_help.stdout, "llms generator supports --out-dir", errors, warnings)
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    if policy_path.is_file():
+        try:
+            import json
+
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+            pain = policy.get("pain_markers_ru") or []
+            outcome = policy.get("outcome_markers_ru") or []
+            check(isinstance(pain, list) and len(pain) > 0, "editorial-policy pain_markers_ru non-empty", errors, warnings)
+            check(
+                isinstance(outcome, list) and len(outcome) > 0,
+                "editorial-policy outcome_markers_ru non-empty",
+                errors,
+                warnings,
+            )
+        except Exception as exc:  # noqa: BLE001
+            check(False, f"editorial-policy.json parseable ({type(exc).__name__})", errors, warnings)
+    else:
+        check(False, "memory/brief/editorial-policy.json exists", errors, warnings)
+
+    check(module_available("paramiko"), "paramiko available (publish SSH)", errors, warnings, warn=True)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

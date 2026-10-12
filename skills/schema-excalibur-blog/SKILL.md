@@ -22,3 +22,20 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+
+## Cloud commit: public URLs in JSON-LD
+
+`schema.jsonld` обязан содержать абсолютные `sameAs` / site URL из registry + `PUBLIC_SITE_URL`.
+Cloud secret scanner может блокировать commit этих строк. На объектах/строках с URL добавь:
+
+```json
+"excaliburCommitPragma": "pragma: allowlist secret"
+```
+
+Перед commit при ошибке `invalid variable name` в pre-commit:
+
+```bash
+eval "$(python3 scripts/excalibur_blog_filter_secret_names.py --export)"
+```
+

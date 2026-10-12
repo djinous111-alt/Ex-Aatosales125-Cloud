@@ -14,22 +14,46 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Word/phrase markers only. Never use bare "ai"/"ии": they false-positive on
+# field names like reader_pain ("ai" in "pain") and words like «критерии».
 TECH_MARKERS = (
-    "ai",
-    "ии",
-    "agent",
-    "агент",
     "mcp",
-    "api",
+    "cursor ai",
     "cursor",
-    "make",
+    "make.com",
     "n8n",
     "github",
     "docker",
     "rag",
+    "llm",
+    "чат-бот",
+    "chatbot",
     "workflow",
     "автоматизац",
     "нейросет",
+    "ai-агент",
+    "ии-агент",
+    "агентн",
+)
+
+# Auto-import niche topics must NOT require GitHub evidence.
+AUTO_NICHE_MARKERS = (
+    "аукцион",
+    "аукционный лист",
+    "encar",
+    "растамож",
+    "свх",
+    "утильсбор",
+    "утиль сбор",
+    "япони",
+    "коре",
+    "кита",
+    "владивосток",
+    "пробег",
+    "vin",
+    "авто из",
+    "автоподбор",
+    "авто под заказ",
 )
 
 
@@ -73,14 +97,49 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
-def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+def _topic_blob(context: dict[str, Any]) -> str:
     topic = context.get("topic") or {}
-    blob = " ".join(
+    return " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+
+
+def is_auto_niche_topic(context: dict[str, Any]) -> bool:
+    """JP/KR/CN import topics: official auction/PDF docs beat GitHub scrapers."""
+    return any(marker in _topic_blob(context) for marker in AUTO_NICHE_MARKERS)
+
+
+def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """True only for real tech/automation topics that need GitHub evidence.
+
+    Scans topic-card fields plus a narrow notes window, but never treats
+    auto-import niche cards as technical. Short markers use word boundaries.
+    """
+    if is_auto_niche_topic(context):
+        return False
+
+    blob = _topic_blob(context)
+    # Avoid scanning required field names (reader_pain, success_criteria, …).
+    # Prefer action_outline / voice_angle snippets if present.
+    notes_lower = notes.lower()
+    for section in ("action_outline", "voice_angle", "surprising_fact"):
+        match = re.search(
+            rf"##\s*\d*\.?\s*{section}\b([\s\S]*?)(?=\n##\s|\Z)",
+            notes_lower,
+            flags=re.I,
+        )
+        if match:
+            blob += " " + match.group(1)[:800]
+
+    for marker in TECH_MARKERS:
+        if " " in marker or "-" in marker or "." in marker:
+            if marker in blob:
+                return True
+            continue
+        if re.search(rf"(?<![a-zа-яё0-9_]){re.escape(marker)}(?![a-zа-яё0-9_])", blob, flags=re.I):
+            return True
+    return False
 
 
 def field_present(text_lower: str, field: str) -> bool:

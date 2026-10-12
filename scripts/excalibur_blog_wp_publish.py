@@ -467,33 +467,153 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+def _wp_rest_posts_by_slug(public_base: str, slug: str) -> list[dict[str, Any]]:
+    """Fetch post(s) by slug from public WP REST (no auth)."""
+    from urllib.parse import quote
+
+    endpoint = (
+        public_base.rstrip("/")
+        + "/wp-json/wp/v2/posts?slug="
+        + quote(slug, safe="")
+        + "&_fields=id,slug,link,featured_media,content"
+    )
+    request = urllib.request.Request(endpoint, headers={"User-Agent": "ExcaliburBlogPublish/1.0"})
+    with urllib.request.urlopen(request, timeout=20) as response:
+        payload = json.loads(response.read().decode("utf-8"))
+    return payload if isinstance(payload, list) else []
+
+
+def try_rest_soft_success(
+    public_base: str,
+    slug: str,
+    *,
+    expect_featured: bool = True,
+    min_inline_uploads: int = 0,
+) -> str | None:
+    """If PHP finished but HTTP/WebFetch raced, reconstruct OK lines from REST.
+
+    Soft-success requires: post exists, featured_media set (when expected),
+    and content no longer references local cover/ relative asset paths.
+    Never triggers a second bootstrap curl.
+    """
+    if not public_base or not slug:
+        return None
+    try:
+        posts = _wp_rest_posts_by_slug(public_base, slug)
+    except Exception as exc:  # noqa: BLE001
+        print(f"REST soft-success poll: {type(exc).__name__}: {exc}", file=sys.stderr)
+        return None
+    if not posts:
+        return None
+    post = posts[0]
+    post_id = int(post.get("id") or 0)
+    permalink = str(post.get("link") or "")
+    featured = int(post.get("featured_media") or 0)
+    content = ""
+    content_obj = post.get("content")
+    if isinstance(content_obj, dict):
+        content = str(content_obj.get("rendered") or "")
+    else:
+        content = str(content_obj or "")
+
+    if post_id <= 0 or not permalink:
+        return None
+    if expect_featured and featured <= 0:
+        return None
+    # Local relative assets mean PHP/media rewrite not finished yet.
+    if "cover/" in content or 'src="images/' in content or "src='images/" in content:
+        return None
+
+    lines = [
+        f"OK post={post_id} slug={slug}",
+        f"OK featured_image={featured}" if featured else "OK featured_image=0",
+        f"permalink={permalink}",
+        "OK soft_success=rest_poll",
+    ]
+    if min_inline_uploads > 0:
+        # Count WP uploads media URLs that replaced local inlines; best-effort.
+        media_hits = content.count("/wp-content/uploads/")
+        if media_hits < min_inline_uploads:
+            return None
+        lines.insert(-2, f"OK inline_images_rest_count={media_hits}")
+    print("REST soft-success: publish completed on server; reconstructed OK lines (no second curl).")
+    return "\n".join(lines) + "\n"
+
+
+def trigger_bootstrap_http(
+    url: str,
+    root: Path,
+    *,
+    public_base: str = "",
+    slug: str = "",
+    expect_featured: bool = True,
+    min_inline_uploads: int = 0,
+    http_timeout: int = 180,
+    fallback_wait_s: int = 180,
+) -> str:
     try:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=http_timeout,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
         print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
-        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
+        print(
+            "Waiting for cloud-agent webfetch-response.txt AND/OR WP REST soft-success by slug "
+            f"(timeout={fallback_wait_s}s). Do NOT re-curl bootstrap while PHP may still run."
+        )
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        for _ in range(fallback_wait_s):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
+            soft = try_rest_soft_success(
+                public_base,
+                slug,
+                expect_featured=expect_featured,
+                min_inline_uploads=min_inline_uploads,
+            )
+            if soft:
+                # Persist for operators; script already has the body.
+                try:
+                    fallback_file.write_text(soft, encoding="utf-8")
+                except OSError:
+                    pass
+                return soft
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        # Final REST attempt before failing hard.
+        soft = try_rest_soft_success(
+            public_base,
+            slug,
+            expect_featured=expect_featured,
+            min_inline_uploads=min_inline_uploads,
+        )
+        if soft:
+            return soft
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {fallback_wait_s} seconds "
+            "and WP REST soft-success was not ready. Poll REST by slug manually; "
+            "do not fire a second bootstrap curl."
+        )
 
 
-def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
+def publish_via_ssh(
+    env: dict[str, str],
+    php: str,
+    public_base: str,
+    *,
+    slug: str = "",
+    expect_featured: bool = True,
+    min_inline_uploads: int = 0,
+) -> str:
     remote = "excalibur-blog-publish-once.php"
     data = php.encode("utf-8")
     url = public_base.rstrip("/") + "/" + remote
@@ -502,7 +622,14 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        out = trigger_bootstrap_http(
+            url,
+            root,
+            public_base=public_base,
+            slug=slug,
+            expect_featured=expect_featured,
+            min_inline_uploads=min_inline_uploads,
+        )
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)
@@ -588,7 +715,14 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ssh(env, php, public)
+    out = publish_via_ssh(
+        env,
+        php,
+        public,
+        slug=str(payload.get("slug") or ""),
+        expect_featured=bool(payload.get("cover_b64")),
+        min_inline_uploads=len(payload.get("inline_images") or []),
+    )
     print(out)
 
     result_path = article_dir / "wp-publish-result.json"

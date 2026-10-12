@@ -61,15 +61,22 @@ python scripts/excalibur_blog_wp_publish.py \
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
 - пишет post meta `_excalibur_blog_schema_jsonld`.
 
-### 4. Cloud WebFetch Fallback
+### 4. Cloud WebFetch Fallback + REST soft-success
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Если локальный HTTP-триггер bootstrap упал (timeout на большом ~6MB payload / WinError 10060):
 
 1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+2. Параллельно ждёт `memory/webfetch-response.txt` **и** поллит WP REST by slug.
+3. Если post + featured (+ inlines) уже на live, а HTTP/WebFetch ещё не вернули body — скрипт сам пишет soft-success OK lines (`OK soft_success=rest_poll`) и продолжает ledger.
+4. Cloud-агент может открыть URL через WebFetch и записать ответ в `memory/webfetch-response.txt`.
 
-**Не останавливайся** на первом timeout — используй fallback.
+**Порядок recovery (обязательно):**
+1. REST by slug / reconstruct OK lines — **первый** путь.
+2. WebFetch → `webfetch-response.txt`.
+3. **Никогда** не делай второй curl/bootstrap, пока PHP bootstrap ещё может выполняться (иначе orphan media).
+4. `paramiko` нужен для SSH upload; Cloud install: `.cursor/cloud-agent-install.sh` (есть в `requirements.txt`).
+
+**Не останавливайся** на первом timeout — используй fallback/REST, не второй publish-триггер.
 
 ### 5. Post-publish артефакты
 
@@ -84,7 +91,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 6. Post-publish (рекомендуется)
 
 ```bash
-python scripts/excalibur_blog_interlinker.py --apply \
+python3 scripts/excalibur_blog_interlinker.py --apply \
   --blog-dir memory/blog/articles \
   --site-base https://avtosales125.ru
 ```

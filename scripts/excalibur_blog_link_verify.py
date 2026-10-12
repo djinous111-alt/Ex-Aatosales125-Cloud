@@ -12,7 +12,7 @@ import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import quote, urlsplit, urlunsplit, urlparse
 
 
 class LinkExtractor(HTMLParser):
@@ -117,6 +117,14 @@ def classify_link(href: str, site_base: str | None) -> str:
     return "external"
 
 
+def encode_check_url(url: str) -> str:
+    """Percent-encode non-ASCII path segments so urllib can request Cyrillic slugs."""
+    parts = urlsplit(url)
+    # Keep already-encoded sequences; encode raw unicode path chars.
+    path = quote(parts.path, safe="/%")
+    return urlunsplit((parts.scheme, parts.netloc, path, parts.query, parts.fragment))
+
+
 def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
     """Treat flaky social profile timeouts as warnings, not publish blockers."""
     parsed = urlparse(href)
@@ -173,6 +181,7 @@ def verify_article(
                 }
             )
             continue
+        check_target = encode_check_url(check_target)
         r = check_url(check_target, timeout, user_agent)
         r["kind"] = kind
         r["skipped"] = False

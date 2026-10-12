@@ -55,7 +55,7 @@ files_changed:
 checks_run:
 - `python3 -m json.tool memory/brief/editorial-policy.json`
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir memory/blog/articles/B01-levyj-rul-iz-korei-kak-vybrat-2026 --output …` → PASS (pain=3, outcome=6, action=17)
-commit: pending-parent-commit
+commit: 03be8ee
 
 ## INC-20261012-1310-doctor-llms-blog-path
 status: fixed
@@ -81,7 +81,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 warnings=0
 - `rg` confirms no `--blog-path` in doctor
-commit: pending-parent-commit
+commit: 03be8ee
 
 ## INC-20261012-1305-scout-as-topics-blind-check
 status: fixed
@@ -114,7 +114,7 @@ checks_run:
 - `--check-query "авто из кореи или японии"` → CRITICAL exact match AS03
 - `--suggest-next` → Next B02; B* pool=1; total pool=10
 - filter_secret_names smoke on mixed URL/valid names
-commit: pending-parent-commit
+commit: 03be8ee
 
 ## INC-20261012-1320-research-gate-ai-false-technical
 status: fixed
@@ -143,7 +143,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - research-notes gate on B01 → PASS, `technical_topic=False`
-commit: pending-parent-commit
+commit: 03be8ee
 
 ## INC-20261012-1321-research-webfetch-timeouts
 status: fixed
@@ -169,7 +169,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` / skill text review for WebFetch 504 guidance
-commit: pending-parent-commit
+commit: 03be8ee
 
 ## INC-20261012-1345-writer-cta-pragma-allowlist
 status: fixed
@@ -200,7 +200,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_filter_secret_names.py`
 - filter_secret_names smoke test
-commit: pending-parent-commit
+commit: 03be8ee
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

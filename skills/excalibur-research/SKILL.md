@@ -68,3 +68,11 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+
+## GitHub evidence / technical_topic
+
+`research_notes_gate` помечает `technical_topic=true` только для реальных tech/automation тем (word-boundary маркеры: MCP, n8n, Docker, RAG, …).
+
+Темы авто-ниши Авто-Сейлс (аукционный лист, Encar, растаможка, СВХ, VIN, JP/KR/CN) **не** требуют `github_urls >= 3`. Для них достаточно official PDF / auction-house / customs docs в `source_table`.
+Не раздувай `github_evidence` scrapers ради PASS на beginner auto-темах.
+

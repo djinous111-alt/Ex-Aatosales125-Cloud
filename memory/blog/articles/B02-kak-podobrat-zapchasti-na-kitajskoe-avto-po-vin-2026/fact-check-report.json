@@ -1,0 +1,59 @@
+{
+  "article": "memory/blog/articles/B02-kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 7,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 6,
+  "facts": [
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "трый инсайт: Не покупайте расходник \"как у Jolion 2023\" – внутри одного года завод менял колодки и стойк",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2022",
+      "kind": "date_or_year",
+      "context": "тая. Кажется, что для фильтра хватит \"Geely Atlas 2022\". Для унифицированных расходников ТО часто так и",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "запчасти в РФ: каталоги, дилеры и красные флаги В 2026 на складах чаще лежат унифицированные расходники;",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "5 минут",
+      "kind": "metric_or_duration",
+      "context": "рите с таблички. Например, владелец Jolion мог за 5 минут собрать VIN + OEM + фото колодок и не оплачивать",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1688",
+      "kind": "large_number",
+      "context": "VIN-подбором, маркетплейс, разбор, прямой Китай (1688/Taobao + карго). Прямой Китай без OEM почти науга",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3779",
+      "kind": "large_number",
+      "context": "Alliance ChinaID / 17vin по VIN и стандартами ISO 3779 / GB 16735 (структура 17-значного VIN). Цены лото",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "16735",
+      "kind": "large_number",
+      "context": "hinaID / 17vin по VIN и стандартами ISO 3779 / GB 16735 (структура 17-значного VIN). Цены лотов в статье",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

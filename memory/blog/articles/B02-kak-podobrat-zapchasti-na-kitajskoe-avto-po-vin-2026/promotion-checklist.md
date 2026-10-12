@@ -1,7 +1,7 @@
 # Promotion checklist — B02 kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026
 
 Дата публикации: 2026-10-13  
-Live URL: https://avtosales125.ru/blog/kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026/ <!-- pragma: allowlist secret -->
+Live URL: https://avtosales125.ru/2026/10/13/kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026/ <!-- pragma: allowlist secret -->
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

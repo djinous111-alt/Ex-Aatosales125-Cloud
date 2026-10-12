@@ -63,7 +63,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - doctor SUMMARY errors=0
-commit: pending-fixer-commit
+commit: 9777588
 
 ## INC-20261012-0936-indexer-llms-blog-path-stale
 status: fixed
@@ -117,7 +117,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - rg: no CLI `--blog-path` in indexer agent examples
-commit: pending-fixer-commit
+commit: 16e9bbe
 
 ## INC-20261012-0930-schema-secret-scan-pragma
 status: fixed
@@ -167,7 +167,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - filter script drops URL-like tokens; keeps PUBLIC_SITE_URL/CATALOG_URL
-commit: pending-fixer-commit
+commit: ee12cab
 
 ## INC-20261012-0926-geo-qa-typed-task-unavailable
 status: fixed
@@ -210,7 +210,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg guidance present in director + pitfalls
-commit: pending-fixer-commit
+commit: ee12cab
 
 ## INC-20261012-0926-geo-qa-utility-policy-markers-missing
 status: fixed
@@ -259,7 +259,7 @@ files_changed:
 checks_run:
 - doctor OK editorial-policy markers non-empty
 - JSON parse policy
-commit: pending-fixer-commit
+commit: 16e9bbe
 
 ## INC-20261012-0926-geo-qa-link-verify-cyrillic-paths
 status: fixed
@@ -308,7 +308,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - encode_check_url percent-encodes Cyrillic path unit test
-commit: pending-fixer-commit
+commit: e074d69
 
 ## INC-20261012-0926-geo-qa-live-near-duplicate-warning
 status: fixed
@@ -357,7 +357,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - live WP check returns 3 CRITICAL for auction-sheet query
-commit: pending-fixer-commit
+commit: e074d69
 
 ## INC-20261012-0920-writer-cta-secret-scan
 status: fixed
@@ -406,7 +406,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - filter_secret_names export/unit
-commit: pending-fixer-commit
+commit: ee12cab
 
 ## INC-20261012-0915-research-tech-marker-false-positive
 status: fixed
@@ -457,7 +457,7 @@ files_changed:
 checks_run:
 - unit: auto niche not technical; MCP/Cursor topic is technical
 - B01 research_notes_gate PASS technical_topic=False
-commit: pending-fixer-commit
+commit: 16e9bbe
 
 ## INC-20261012-0905-scout-stale-cursor-niche
 status: fixed
@@ -505,7 +505,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg: stale Cursor AI beginner priority removed from scout sources
-commit: pending-fixer-commit
+commit: e074d69
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

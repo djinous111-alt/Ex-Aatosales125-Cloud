@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import importlib.util
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -132,7 +133,32 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check("--blog-path" not in llms_help.stdout, "llms generator has no stale --blog-path", errors, warnings)
+
+    # Stale CLI invocations only (--blog-path / or --blog-path=...); prose
+    # "не `--blog-path`" in skills is allowed as a guardrail note.
+    stale_blog_path = re.compile(r"--blog-path(?:\s|/|=)")
+    indexer_docs = [
+        root / "skills/indexer-excalibur-blog/SKILL.md",
+        root / ".cursor/skills/indexer-excalibur-blog/SKILL.md",
+        root / "agents/excalibur-blog-indexer.md",
+        root / ".cursor/agents/excalibur-blog-indexer.md",
+    ]
+    for doc in indexer_docs:
+        if not doc.is_file():
+            check(False, f"indexer doc exists: {doc.relative_to(root)}", errors, warnings)
+            continue
+        body = doc.read_text(encoding="utf-8")
+        check(
+            stale_blog_path.search(body) is None,
+            f"indexer docs have no stale --blog-path CLI ({doc.relative_to(root)})",
+            errors,
+            warnings,
+        )
+
+    filter_secret = root / "scripts/excalibur_blog_filter_secret_names.py"
+    check(filter_secret.is_file(), "filter_secret_names.py exists", errors, warnings)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

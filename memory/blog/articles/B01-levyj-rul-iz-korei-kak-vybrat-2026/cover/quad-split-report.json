@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-levyj-rul-iz-korei-kak-vybrat-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2736,
+      1536
+    ],
+    "panel_size_px": [
+      1368,
+      769
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 769,
+        "end": 813
+      },
+      "v_gutter_px": {
+        "start": 1368,
+        "end": 1395
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1368,
+          "bottom": 769
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1368,
+          "bottom": 769
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Корейский седан с левым рулём, герой Авто-Сейлс у открытой двери, Владивосток, плашка левый руль",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1395,
+          "top": 7,
+          "right": 2736,
+          "bottom": 761
+        },
+        "raw_box_px": {
+          "left": 1395,
+          "top": 0,
+          "right": 2736,
+          "bottom": 769
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения: левый руль из Кореи против правого руля из Японии",
+        "h2_anchor": "Решите, нужен ли вам левый руль из Кореи или спокойнее Япония"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 41,
+          "top": 813,
+          "right": 1326,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 813,
+          "right": 1368,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Скрин карточки Encar рядом со сметой под ключ до Владивостока",
+        "h2_anchor": "Зафиксируйте потолок бюджета под ключ, а не цену карточки Encar"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1423,
+          "top": 813,
+          "right": 2708,
+          "bottom": 1536
+        },
+        "raw_box_px": {
+          "left": 1395,
+          "top": 813,
+          "right": 2736,
+          "bottom": 1536
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист проверки карточки Encar: VIN, схема кузова, история до депозита",
+        "h2_anchor": "Проверьте карточку Encar до депозита: VIN, схема кузова, история"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Решите, нужен ли вам левый руль из Кореи или спокойнее Япония",
+    "injected inline_2 after H2 — Зафиксируйте потолок бюджета под ключ, а не цену карточки Encar",
+    "injected inline_3 after H2 — Проверьте карточку Encar до депозита: VIN, схема кузова, история"
+  ]
+}

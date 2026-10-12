@@ -41,12 +41,22 @@ def load_active_article_topics(root: Path) -> set[str]:
 
 
 def load_existing_topics(root: Path) -> list[dict[str, str]]:
+    """Load all topic cards (B*, AS*, other PREFIX+digits) for cannibalization checks.
+
+    `--suggest-next` still computes the next id from B* only; this loader must
+    see AS* (and any other letter-prefix ids) so `--check-query` cannot miss them.
+    """
     topics_path = root / "memory/topics/blog-topics.md"
     topics = []
     if not topics_path.is_file():
         return topics
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    # Match any PREFIX+digits card (B01, AS03, …); stop at --- or next such heading.
+    card_re = re.compile(
+        r"##\s+([A-Za-z]+\d+)\s+[—\-–][^\n]*\n(.*?)(?=\n---|\n##\s+[A-Za-z]+\d+\b|\Z)",
+        re.DOTALL,
+    )
+    for match in card_re.finditer(text):
         topic_id = match.group(1).upper()
         block = match.group(2)
         
@@ -130,8 +140,10 @@ def main() -> int:
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
+        # Next blog pipeline id stays on B* only; AS* are niche/history cards.
+        b_topics = [t for t in existing if re.match(r"B\d+$", t["topic_id"])]
         max_num = 0
-        for t in existing:
+        for t in b_topics:
             m = re.match(r"B(\d+)", t["topic_id"])
             if m:
                 max_num = max(max_num, int(m.group(1)))
@@ -139,11 +151,12 @@ def main() -> int:
         next_id = f"B{max_num + 1:02d}"
         print(f"Next available topic ID: {next_id}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
+        print(f"B* topics in pool: {len(b_topics)}")
         print(f"Total articles written/in_progress: {len(reserved)}")
         print(f"Active article dirs: {sorted(active)}")
         
-        unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
-        print(f"Unwritten topic IDs in pool: {unwritten}")
+        unwritten = [t["topic_id"] for t in b_topics if t["topic_id"] not in reserved]
+        print(f"Unwritten B* topic IDs in pool: {unwritten}")
         return 0
         
     if args.check_query:

@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261012-0936-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-10-12
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-chitat-aukcionnyj-list-yaponiya-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `scripts/excalibur_blog_llms_generator.py` принимает только `--blog-dir` (нет `--blog-path`).
+- Agent/skill shell examples всё ещё передают `--blog-path /` рядом с `--blog-dir`.
+- `scripts/excalibur_blog_doctor.py` проверяет `"--blog-path" in llms_help.stdout` → ложный FAIL на preflight (уже отмечен в handoff).
+
+### How the agent recovered this run
+- Запустил llms generator с `--blog-dir memory/blog/articles` без `--blog-path` (по явному контракту Director).
+- Получил `memory/blog/llms.txt` и `memory/blog/llms-full.txt` (3 articles).
+- Commit: отфильтровал невалидный token в `CLOUD_AGENT_INJECTED_SECRET_NAMES`; на новых строках с `PUBLIC_SITE_URL` в llms/interlink добавил `pragma: allowlist secret` (публичный site URL нужен AI crawlers).
+
+### Durable fix needed before next run
+- Убрать `--blog-path` из Indexer agent/skill shell examples; оставить `--blog-dir` + `--out-dir`.
+- В doctor заменить check `--blog-path` на `--blog-dir` (или добавить alias в generator, если нужен WP path prefix — тогда документировать отдельно).
+- Добавить строку в `shared/agent-pipeline-pitfalls.md` Indexer: llms CLI = `--blog-dir`, не `--blog-path`.
+
+### Suggested files to inspect/change
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261012-0930-schema-secret-scan-pragma
 status: open
 run_date: 2026-10-12

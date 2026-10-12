@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261012-1723-geo-qa-link-verify-secret-scan
+status: open
+run_date: 2026-10-12
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_link_verify.py` пишет в `link-verify.json` абсолютные `PUBLIC_SITE_URL` / `CATALOG_URL` / `TELEGRAM_URL`.
+- Pre-commit secret scanner блокирует коммит этих значений; плюс `CLOUD_AGENT_INJECTED_SECRET_NAMES` содержит невалидный bash identifier (скрипт filter отсутствует).
+
+### How the agent recovered this run
+- Перед commit отфильтровал невалидные secret names в env.
+- В `link-verify.json` заменил URL на плейсхолдеры `OWN_SITE/...`, `CATALOG_URL`, `TELEGRAM_URL` (runtime-проверка уже была PASS).
+
+### Durable fix needed before next run
+- Научить `link_verify.py` писать redacted placeholders в JSON (или `--redact-secrets`).
+- Восстановить `scripts/excalibur_blog_filter_secret_names.py --export`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `scripts/excalibur_blog_filter_secret_names.py`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261012-1722-geo-qa-typed-task-unavailable
 status: open
 run_date: 2026-10-12

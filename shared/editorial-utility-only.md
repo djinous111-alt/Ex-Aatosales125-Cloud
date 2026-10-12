@@ -61,7 +61,8 @@ python scripts/excalibur_blog_research_notes_gate.py \
 
 Контракт: `shared/excalibur-article-writing-contract.md`
 
-- Каждый H2 = подзадача + **рекомендация** (делать / не делать)
+- Каждый H2 = подзадача + **рекомендация** с точными маркерами из `editorial-policy.json` → `recommendation_markers_ru` (`сделайте`, `не делайте`, `проверьте`, …). «Делать/Не делать» utility gate не считает.
+- Lead/body должны содержать `pain_markers_ru` (≥ `min_pain_markers`) и `outcome_markers_ru` (≥ `min_outcome_markers`) — те же списки, что `PAIN_MARKERS` / `OUTCOME_MARKERS` в `excalibur_blog_human_voice_gate.py`.
 - Минимум **5** нумерованных шагов ИЛИ чеклист 10+ пунктов
 - Workflow-схема (`→`) или таблица (comparison)
 - FAQ — короткие **ответы-действия**, не пересказ
@@ -69,6 +70,7 @@ python scripts/excalibur_blog_research_notes_gate.py \
 - Lead называет боль, H2 закрывают боли из `pain_solution_map`, до FAQ есть понятный критерий результата.
 - Beginner-fit: сложный термин объяснён сразу, нет тона «для профи», есть первый безопасный шаг без команды разработчиков.
 - Human voice gate PASS: нет шаблонных H2, есть живые примеры, разный ритм абзацев
+- Публичные CTA URL из Cloud Secrets: same-line `<!-- pragma: allowlist secret -->`
 
 ## Gate 4 — GEO QA
 

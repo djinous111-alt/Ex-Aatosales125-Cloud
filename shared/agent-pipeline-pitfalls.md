@@ -42,6 +42,24 @@
 ## Scout
 
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- `excalibur_blog_scout_helper.py --check-query` обязан видеть карточки `AS*` (и другие PREFIX+digits) в `blog-topics.md`; `--suggest-next` продолжает выдавать только следующий `B*`.
+- Перед commit: `eval "$(python3 scripts/excalibur_blog_filter_secret_names.py --export)"` — отфильтровать URL-shaped/invalid имена из `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+
+## Research
+
+- `research_notes_gate` TECH_MARKERS: короткие токены (`ai`, `api`, …) матчятся по word boundary — иначе `ai` ⊂ `reader_pain` даёт ложный `technical_topic` и GitHub×3.
+- Авто-ниша JP/KR/CN (Encar, растаможка, левый руль, …) не требует GitHub×3.
+- WebFetch 504 / anti-bot stub → ≥2 alternate primary sources + запись в `notes_on_fetch_errors`; не блокировать research из‑за одного мёртвого URL.
+
+## Utility / GEO QA
+
+- `memory/brief/editorial-policy.json` обязан содержать `pain_markers_ru`, `outcome_markers_ru` и явные `min_pain_markers` / `min_outcome_markers` (выравнивать с `PAIN_MARKERS` / `OUTCOME_MARKERS` в `excalibur_blog_human_voice_gate.py`).
+- Action-маркеры в тексте — точные подстроки из `recommendation_markers_ru` (`сделайте` / `не делайте`), не только «Делать/Не делать».
+- Doctor проверяет llms CLI флаг `--blog-dir` (не `--blog-path`).
+
+## Writer / secrets scan
+
+- Публичные CTA/site URL, которые одновременно лежат в Cloud Secrets: на той же HTML-строке `<!-- pragma: allowlist secret -->`, либо пиши `OWN_SITE/...` в research notes.
 
 ## Indexer
 

@@ -374,6 +374,40 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20261012-1345-writer-cta-pragma-allowlist
+status: open
+run_date: 2026-10-12
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-levyj-rul-iz-korei-kak-vybrat-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secrets scanner treats public marketing URLs (`PUBLIC_SITE_URL`, `TELEGRAM_URL`, catalog) as commit-blocking secrets when they appear in `article.html` CTA/internal links.
+- Separately, `CLOUD_AGENT_INJECTED_SECRET_NAMES` may be space-separated while the hook splits on commas; invalid/URL-shaped names also break `${!SECRET_NAME}` expansion.
+
+### How the agent recovered this run
+- Filtered secret names to valid bash identifiers and comma-joined them for the hook.
+- Added HTML comment `<!-- pragma: allowlist secret -->` on each article line that embeds intentional public CTA/site URLs (per scanner guidance and task note).
+
+### Durable fix needed before next run
+- Document in writer skill/contract that public CTA URLs from env must use same-line `pragma: allowlist secret` (HTML comment) when those URLs are also Cloud Secrets.
+- Restore/port `scripts/excalibur_blog_filter_secret_names.py` and normalize `CLOUD_AGENT_INJECTED_SECRET_NAMES` to comma-separated valid identifiers before pre-commit.
+- Optionally keep a non-secret `PUBLIC_CTA_URLS` allowlist for blog CTAs so marketing links are not scanned as secrets.
+
+### Suggested files to inspect/change
+- `skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_filter_secret_names.py` (missing on branch)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

@@ -11,7 +11,7 @@
     "левый руль из кореи купить",
     "авто из кореи левый руль купить"
   ],
-  "char_count": 9393,
+  "char_count": 9445,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -36,7 +36,9 @@
     "cannibalization": "PASS",
     "human_voice": "PASS",
     "utility_gate": "BLOCK",
-    "writer_fix": true
+    "writer_fix": true,
+    "writer_fix_cycle": 1,
+    "writer_fix_note": "action_markers 6→17; TL;DR→Коротко; pain/outcome wording; re-run GEO QA"
   },
   "cover_family": "brand_collage"
 }

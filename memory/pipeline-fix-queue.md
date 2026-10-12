@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261013-2132-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-indexer
+topic_id: B02
+article_dir: memory/blog/articles/B02-kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer contracts still pass `--blog-path /` to `excalibur_blog_llms_generator.py`.
+- Actual CLI (`--help`) accepts only `--blog-dir`, `--site-name`, `--site-desc`, `--site-base`, `--out-dir` — no `--blog-path`.
+- `scripts/excalibur_blog_doctor.py` still asserts `"--blog-path" in llms_help.stdout`, so doctor and contracts diverge from the script.
+
+### How the agent recovered this run
+- Ran `python3 scripts/excalibur_blog_llms_generator.py --help` first.
+- Generated llms files with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
+- Outputs: `memory/blog/llms.txt`, `memory/blog/llms-full.txt` (3 articles indexed).
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent/skill shell examples (repo + `.cursor/` copies).
+- Align `excalibur_blog_doctor.py` check with real CLI (drop `--blog-path` assertion, or re-add the flag if intended).
+- Note in pitfalls: llms generator uses `--blog-dir`, not `--blog-path`.
+
+### Suggested files to inspect/change
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261013-2127-schema-fragment-write-gitignore
 status: open
 run_date: 2026-10-13

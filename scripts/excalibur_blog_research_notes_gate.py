@@ -90,15 +90,25 @@ def _marker_in_blob(blob: str, marker: str) -> bool:
     return marker in blob
 
 
+def _notes_lead_for_tech_scan(notes: str) -> str:
+    """Lead fields only — never scan ## github_evidence / action_outline bodies.
+
+    Even a 1200-char window false-positives on required heading ``github_evidence``.
+    """
+    # Cut at the first markdown H2 so section titles cannot trigger TECH_MARKERS.
+    cut = re.search(r"^##\s", notes, flags=re.M)
+    lead = notes[: cut.start()] if cut else notes[:800]
+    return lead.lower()
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    # Prefer topic card signals; scan only the lead of notes (angle/pain), not the
-    # whole brief — later sections always contain words like github_evidence.
-    blob += " " + notes[:1200].lower()
+    # Prefer topic card signals; notes lead only (angle/pain), not section headers.
+    blob += " " + _notes_lead_for_tech_scan(notes)
     return any(_marker_in_blob(blob, marker) for marker in TECH_MARKERS)
 
 
@@ -149,8 +159,18 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    # Prefer explicit accessed_at: keys; also accept ISO dates in source-table rows
+    # that already contain a URL (agents sometimes omit the key prefix).
+    accessed_keyed = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
+    iso_in_url_rows = len(
+        re.findall(
+            r"^\s*\|[^\n]*https?://[^\n]*\b20\d{2}-\d{2}-\d{2}\b",
+            text,
+            flags=re.M,
+        )
+    )
+    accessed_count = max(accessed_keyed, iso_in_url_rows)
     pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
     action_items = count_action_items(text)
 

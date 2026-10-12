@@ -61,15 +61,15 @@ python scripts/excalibur_blog_wp_publish.py \
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
 - пишет post meta `_excalibur_blog_schema_jsonld`.
 
-### 4. Cloud WebFetch Fallback
+### 4. Cloud WebFetch Fallback + REST soft-success
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Если локальный HTTP-триггер bootstrap упал (timeout / RemoteDisconnected / 504):
 
-1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+1. Скрипт **сначала** поллит public WP REST by slug (soft-success). При свежем `modified` + `featured_media` — PASS без второго curl.
+2. Иначе печатает `=== FALLBACK_TRIGGER_URL ===`; Cloud-агент один раз открывает URL через WebFetch → `memory/webfetch-response.txt`.
+3. **Не** запускай второй bootstrap trigger параллельно — риск orphan media.
 
-**Не останавливайся** на первом timeout — используй fallback.
+Refresh существующего slug сохраняет **исходный** date permalink path (например `/2026/07/24/...`), даже если контент обновлён сегодня.
 
 ### 5. Post-publish артефакты
 

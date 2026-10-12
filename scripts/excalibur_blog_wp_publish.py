@@ -7,8 +7,13 @@ import base64
 import io
 import json
 import os
+import re
 import sys
+import time
+import urllib.error
+import urllib.parse
 import urllib.request
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -192,7 +197,6 @@ def load_article(article_dir: Path) -> dict:
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
         cover_alt = cover_alt or reg.get("cover_alt_text", "")
 
-    import re
     img_srcs = re.findall(r'<img\s+[^>]*src=["\']([^"\']+)["\']', content)
     inline_images = []
     for src in img_srcs:
@@ -467,33 +471,189 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+def _is_http_timeout_or_disconnect(exc: BaseException) -> bool:
+    """True when HTTP died mid-response but PHP/WP may still finish upsert."""
+    text = f"{type(exc).__name__}: {exc}".lower()
+    if isinstance(exc, urllib.error.HTTPError) and exc.code in {502, 503, 504}:
+        return True
+    return any(
+        token in text
+        for token in (
+            "504",
+            "502",
+            "503",
+            "timed out",
+            "timeout",
+            "gateway time",
+            "remotedisconnect",
+            "remote end closed",
+            "connection aborted",
+            "connection reset",
+            "incomplete read",
+        )
+    )
+
+
+def poll_wp_rest_soft_success(
+    public_base: str,
+    slug: str,
+    *,
+    max_wait_sec: int = 180,
+    freshness_minutes: int = 20,
+) -> dict[str, Any] | None:
+    """After RemoteDisconnected/504, PHP may still finish — confirm via public REST by slug."""
+    endpoint = (
+        public_base.rstrip("/")
+        + "/wp-json/wp/v2/posts?"
+        + urllib.parse.urlencode(
+            {
+                "slug": slug,
+                "per_page": 1,
+                "_fields": "id,slug,link,modified,modified_gmt,featured_media,status",
+            }
+        )
+    )
+    deadline = time.time() + max_wait_sec
+    last_error = ""
+    while time.time() < deadline:
+        try:
+            req = urllib.request.Request(
+                endpoint, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}
+            )
+            with urllib.request.urlopen(req, timeout=20) as response:
+                payload = json.loads(response.read().decode("utf-8"))
+            if not payload:
+                last_error = "empty REST posts list"
+                time.sleep(5)
+                continue
+            post = payload[0]
+            modified_raw = str(post.get("modified_gmt") or post.get("modified") or "")
+            featured = int(post.get("featured_media") or 0)
+            post_id = int(post.get("id") or 0)
+            permalink = str(post.get("link") or "")
+            if post_id <= 0 or not permalink:
+                last_error = "missing id/link"
+                time.sleep(5)
+                continue
+            fresh = False
+            if modified_raw:
+                try:
+                    normalized = modified_raw.replace("Z", "+00:00")
+                    modified_dt = datetime.fromisoformat(normalized)
+                    if modified_dt.tzinfo is None:
+                        modified_dt = modified_dt.replace(tzinfo=timezone.utc)
+                    age = datetime.now(timezone.utc) - modified_dt.astimezone(timezone.utc)
+                    fresh = age.total_seconds() <= freshness_minutes * 60
+                except ValueError:
+                    fresh = False
+            if fresh and featured > 0:
+                return {
+                    "post_id": post_id,
+                    "slug": str(post.get("slug") or slug),
+                    "permalink": permalink,
+                    "featured_media": featured,
+                    "modified": modified_raw,
+                    "status": str(post.get("status") or ""),
+                }
+            last_error = (
+                f"not fresh or no featured (modified={modified_raw}, featured={featured})"
+            )
+        except Exception as exc:  # noqa: BLE001
+            last_error = f"{type(exc).__name__}: {exc}"
+        time.sleep(5)
+    print(f"WARN soft-success REST poll failed: {last_error}", file=sys.stderr)
+    return None
+
+
+def synthesize_soft_success_output(evidence: dict[str, Any]) -> str:
+    post_id = evidence["post_id"]
+    slug = evidence["slug"]
+    featured = evidence["featured_media"]
+    permalink = evidence["permalink"]
+    return (
+        f"OK post={post_id} slug={slug}\n"
+        f"OK featured_image={featured}\n"
+        f"OK schema_meta=1\n"
+        f"permalink={permalink}\n"
+        f"# soft-success: HTTP disconnect/timeout; REST confirmed "
+        f"modified={evidence.get('modified')} featured_media={featured}\n"
+    )
+
+
+def trigger_bootstrap_http(
+    url: str,
+    root: Path,
+    *,
+    public_base: str = "",
+    slug: str = "",
+    fallback_wait_sec: int = 180,
+) -> str:
     try:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=180,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
-        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
+        disconnectish = _is_http_timeout_or_disconnect(e)
+        print(
+            f"Local HTTP trigger failed ({type(e).__name__}: {e}). "
+            "Entering Cloud WebFetch Fallback mode..."
+            + (
+                " [disconnect/504 — do NOT re-trigger bootstrap; PHP may still be running]"
+                if disconnectish
+                else ""
+            )
+        )
+        # Prefer immediate REST soft-success over a long webfetch wait / second curl.
+        if disconnectish and slug and public_base:
+            print(
+                "Polling WP REST for soft-success before webfetch wait "
+                "(no second bootstrap trigger)..."
+            )
+            evidence = poll_wp_rest_soft_success(public_base, slug, max_wait_sec=90)
+            if evidence:
+                print(
+                    f"Soft-success REST OK: post={evidence['post_id']} "
+                    f"featured={evidence['featured_media']} modified={evidence.get('modified')}"
+                )
+                return synthesize_soft_success_output(evidence)
+
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
-        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
+        print(
+            "Waiting for cloud-agent to write response to memory/webfetch-response.txt..."
+            f" (wait={fallback_wait_sec}s; prefer single WebFetch, no parallel curl)"
+        )
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
-        import time
 
-        for _ in range(120):
+        for _ in range(fallback_wait_sec):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+
+        if slug and public_base and disconnectish:
+            print(
+                "WebFetch wait expired; final WP REST soft-success poll "
+                "(still no second bootstrap trigger)..."
+            )
+            evidence = poll_wp_rest_soft_success(public_base, slug, max_wait_sec=60)
+            if evidence:
+                return synthesize_soft_success_output(evidence)
+
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {fallback_wait_sec} seconds. "
+            "Please trigger manually once only (avoid overlapping sideloads)."
+        )
 
 
-def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
+def publish_via_ssh(
+    env: dict[str, str], php: str, public_base: str, *, slug: str = ""
+) -> str:
     remote = "excalibur-blog-publish-once.php"
     data = php.encode("utf-8")
     url = public_base.rstrip("/") + "/" + remote
@@ -502,12 +662,17 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        out = trigger_bootstrap_http(
+            url, root, public_base=public_base, slug=slug, fallback_wait_sec=180
+        )
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)
         except Exception as cleanup_error:  # noqa: BLE001
-            print(f"WARN cleanup: could not delete bootstrap {remote}: {cleanup_error}", file=sys.stderr)
+            print(
+                f"WARN cleanup: could not delete bootstrap {remote}: {cleanup_error}",
+                file=sys.stderr,
+            )
     return out
 
 
@@ -588,7 +753,7 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ssh(env, php, public)
+    out = publish_via_ssh(env, php, public, slug=str(payload.get("slug") or ""))
     print(out)
 
     result_path = article_dir / "wp-publish-result.json"

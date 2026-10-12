@@ -68,3 +68,9 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+## Source table / gate
+
+- В `source_table` пиши даты как `accessed_at: YYYY-MM-DD` (или ISO-дату в той же строке, что URL).
+- `research_start` пишет own-site URL в SERP как `OWN_SITE/...` (не полный `PUBLIC_SITE_URL`).
+- Non-tech авто-ниши не требуют 3 GitHub URL: gate использует word-boundary для коротких маркеров (`ai`/`ии`).
+- Перед commit: `eval "$(python3 scripts/excalibur_blog_filter_secret_names.py --export)"`.

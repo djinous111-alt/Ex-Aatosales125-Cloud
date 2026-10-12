@@ -1,0 +1,73 @@
+{
+  "article": "memory/blog/articles/B01-levyj-rul-iz-korei-kak-vybrat-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 9,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 7,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ас уже есть – как купить авто из Кореи под ключ в 2026 . Здесь угол уже: именно левый руль, выбор страны",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2024",
+      "kind": "date_or_year",
+      "context": "те лот по мотору и утилю до разговора о деньгах С 2024 Корея ограничила экспорт авто с мотором от 2,0 л.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "ова в каталоге, не в статье-калькуляторе. С 01.12.2025 правила менялись (ПП РФ №1713); льготный коэффицие",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "12 месяцев",
+      "kind": "metric_or_duration",
+      "context": "3400 ₽ / 5200 ₽ при своей рамке, а продажа раньше 12 месяцев грозит доначислением. Точный расчёт под ваш VIN –",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "55 дней",
+      "kind": "metric_or_duration",
+      "context": "риентир цикла до документов и выдачи – порядка 30–55 дней; море часто оценивают около 5–14 суток плюс сбор",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3400",
+      "kind": "large_number",
+      "context": "зан на мощность и объём; ориентиры льготы порядка 3400 ₽ / 5200 ₽ при своей рамке, а продажа раньше 12 м",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5200",
+      "kind": "large_number",
+      "context": "щность и объём; ориентиры льготы порядка 3400 ₽ / 5200 ₽ при своей рамке, а продажа раньше 12 месяцев гр",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "лькуляторе. С 01.12.2025 правила менялись (ПП РФ №1713); льготный коэффициент для граждан до 160 л.с. со",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "ПП РФ №1713); льготный коэффициент для граждан до 160 л.с. сохраняют. Важнее заранее отфильтровать лот:",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

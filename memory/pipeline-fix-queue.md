@@ -408,6 +408,44 @@ category: env
 ### Fixer resolution
 - pending
 
+## INC-20261012-1326-geo-qa-utility-pain-outcome-policy
+status: open
+run_date: 2026-10-12
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-levyj-rul-iz-korei-kak-vybrat-2026
+severity: blocker
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always counts `pain_markers_ru` / `outcome_markers_ru` from `memory/brief/editorial-policy.json` and defaults `min_pain_markers=2`, `min_outcome_markers=3`.
+- Current policy file has neither key → marker lists are empty → every article gets `pain_markers=0` and `outcome_markers=0` → permanent `UTILITY ARTICLE BLOCKER`, even when human-voice gate already finds pain/outcome hits via its hardcoded lists.
+- B01 additionally has a real content gap: `action_markers=6 < 8` (writer used «Делать/Не делать», while gate counts «сделайте/не делайте» and peers).
+
+### How the agent recovered this run
+- Did not edit `article.html` (GEO QA contract: FIX → writer).
+- Wrote `article-qa.md` verdict FAIL + writer FIX for action markers.
+- Recorded this incident for Fixer; cover||schema not started.
+
+### Durable fix needed before next run
+- Add `pain_markers_ru` and `outcome_markers_ru` to `memory/brief/editorial-policy.json` (align with `PAIN_MARKERS` / `OUTCOME_MARKERS` in `scripts/excalibur_blog_human_voice_gate.py`, or document a single shared list).
+- Add `min_pain_markers` / `min_outcome_markers` explicitly under `article_required_signals`.
+- Document in writer skill/contract that recommendation markers must use exact substrings from `recommendation_markers_ru` («сделайте», not only «Делать»).
+- Optionally: if policy lists missing, utility gate should warn/skip pain-outcome checks instead of hard-blocking with zeros.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/editorial-utility-only.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

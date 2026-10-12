@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261012-0915-research-tech-marker-false-positive
+status: open
+run_date: 2026-10-12
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-chitat-aukcionnyj-list-yaponiya-2026
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_research_notes_gate.py` пометил beginner-тему про аукционный лист как `technical_topic=true`.
+- Причина: substring-маркеры в `TECH_MARKERS` – `ai` срабатывает на обязательном поле `reader_pain` (подстрока `pain`), `ии` – на слове «критерии».
+- Gate потребовал `github_urls >= 3` для нетехнической автомобильной темы; пришлось добавлять смежные Yahoo Auctions scrapers только ради PASS.
+
+### How the agent recovered this run
+- Добавил 3 релевантных-по-нише `github.com` URL в `github_evidence` + help-док Aleado.
+- Повторил gate до PASS; факты статьи опираются на USS/JU/AFTC PDF и RU/EN buyer guides, не на scrapers.
+
+### Durable fix needed before next run
+- В `is_technical_topic()` использовать word-boundary / allowlist обязательных полей (`reader_pain`, `success_criteria`) или убрать слишком короткие маркеры `ai`/`ии`.
+- Для авто-ниши (аукционный лист, Encar, растаможка) не требовать GitHub evidence; принимать official PDF / auction-house docs.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261012-0905-scout-stale-cursor-niche
 status: open
 run_date: 2026-10-12

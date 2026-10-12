@@ -268,10 +268,12 @@ category: script
 ### How the agent recovered this run
 - Manually compared candidate queries to AS01–AS09 and live WP themes; rejected `авто из китая под заказ` (0.50 vs AS07) and chose `левый руль из кореи` (max 0.33 vs AS*).
 - Appended B01 card with Wordstat parent/narrow signals and gap note vs live WP.
+- Pre-commit secrets scanner failed: `CLOUD_AGENT_INJECTED_SECRET_NAMES` included a bare URL (invalid bash identifier). Recovered by filtering names to `[A-Za-z_][A-Za-z0-9_]*` for the commit (scanner still ran on valid secrets). Durable helper `scripts/excalibur_blog_filter_secret_names.py` is missing on this branch.
 
 ### Durable fix needed before next run
 - Extend `load_existing_topics` (and overlap check) to include `AS\d+` (and any non-B topic ids) while keeping `--suggest-next` next-id logic on `B\d+` only.
-- Optionally feed live WP slug/title denylist into check-query for Авто-Сейлс.
+- Add live WP slug/title denylist into check-query (or restore `--check-live-wp` from prior fixer lineage).
+- Restore/port `scripts/excalibur_blog_filter_secret_names.py` so pre-commit does not die on URL-shaped injected names.
 
 ### Suggested files to inspect/change
 - `scripts/excalibur_blog_scout_helper.py`

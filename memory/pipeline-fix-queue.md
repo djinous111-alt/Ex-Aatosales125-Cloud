@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261012-1718-writer-utility-policy-markers
+status: open
+run_date: 2026-10-12
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: docs
+
+### What went wrong
+- После черновика `article.html` utility gate падал: `мало action-маркеров` и `pain_markers=0` / `outcome_markers=0`.
+- В `memory/brief/editorial-policy.json` не было ключей `pain_markers_ru` и `outcome_markers_ru`, хотя `excalibur_blog_utility_gate.py` уже требует `min_pain_markers` / `min_outcome_markers`.
+- Формулировки рекомендаций "Делать / Не делать" (как в AS09) не совпадают с `recommendation_markers_ru` ("сделайте" / "не делайте"), из-за чего action-маркеры недосчитывались.
+
+### How the agent recovered this run
+- Переписал рекомендации на "Сделайте / Не делайте", добавил "Шаг N", "проверьте", "избегайте", "используйте", "чеклист".
+- В `editorial-policy.json` добавил `pain_markers_ru` и `outcome_markers_ru` (выровнял с human-voice gate) и маркер `чек-лист`.
+- Повторный utility gate + human-voice + html linter: PASS; `char_count` в диапазоне 8500–9500.
+
+### Durable fix needed before next run
+- Зафиксировать в writer skill / writing-contract канон маркеров: "Сделайте/Не делайте" (или расширить policy синонимами "делать/не делать").
+- Не допускать пустых `pain_markers_ru` / `outcome_markers_ru` при ненулевых min_* в gate; добавить regression-тест policy↔script.
+- В шаблоне Fact Check не требовать Wordstat в тексте статьи (только внутренний research).
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261012-1715-research-notes-gate-false-tech
 status: open
 run_date: 2026-10-12

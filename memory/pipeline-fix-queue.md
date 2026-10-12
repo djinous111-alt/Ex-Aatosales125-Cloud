@@ -60,7 +60,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
 - `rg` confirms schema secret-scan + filter_secret_names guidance
 - filter_secret_names smoke (URL-shaped names stripped)
-commit: pending-parent-commit
+commit: a574e17
 
 ## INC-20261012-1346-indexer-llms-stale-blog-path
 status: fixed
@@ -112,7 +112,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
 - `python3 scripts/excalibur_blog_llms_generator.py --help` → only `--blog-dir`
 - `rg` confirms no stale `--blog-path /` CLI in indexer contracts
-commit: pending-parent-commit
+commit: a574e17
 
 
 ## INC-20261012-1326-geo-qa-utility-pain-outcome-policy

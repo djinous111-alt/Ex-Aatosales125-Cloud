@@ -306,3 +306,37 @@ category: publish
 fixed_at: 2026-06-16
 fix_summary: Publish --env-check + SSH root ENOENT fallback to `.`.
 commit: pending-parent-commit
+
+## INC-20261012-1346-indexer-llms-stale-blog-path
+status: open
+run_date: 2026-10-12
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-levyj-rul-iz-korei-kak-vybrat-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer skill/agent still document `excalibur_blog_llms_generator.py ... --blog-path /`.
+- Current CLI rejects `--blog-path` (`unrecognized arguments`); only `--blog-dir` is valid.
+- Doctor already fixed (INC-20261012-1310), but skill/agent contracts were not updated → first llms run failed, retry without `--blog-path` succeeded.
+
+### How the agent recovered this run
+- Re-ran generator with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
+- Outputs: `memory/blog/llms.txt`, `memory/blog/llms-full.txt` (3 articles).
+
+### Durable fix needed before next run
+- Remove `--blog-path /` from indexer skill and agent contracts; document only `--blog-dir`.
+- Keep doctor assertion on `--blog-dir` (already done).
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

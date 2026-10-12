@@ -143,6 +143,8 @@ python scripts/excalibur_blog_quad_apply.py \
 ### Шаг 6 — fragment
 
 `.cursor/excalibur-blog-fragments/cover.md` — шаблон в `agents/excalibur-blog-cover.md`.
+Путь gitignored: Cursor Write может no-op. Используй
+`python3 scripts/excalibur_blog_write_fragment.py --name cover.md ...` или shell redirect, затем `test -f`.
 
 ---
 

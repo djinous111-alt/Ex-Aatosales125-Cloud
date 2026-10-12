@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None for run 2026-10-13 after fixer._
+
+## Recently fixed (2026-10-13)
+
 ## INC-20261013-2132-indexer-llms-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-indexer
 topic_id: B02
@@ -46,11 +50,33 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Indexer agent/skill examples now use `--blog-dir` only (removed stale `--blog-path /`).
+- Doctor asserts `--blog-dir` (not `--blog-path`).
+- Restored `excalibur_git.sh` + `filter_secret_names` (.sh/.py --export) for Cloud secret-name sanitize.
+- llms generator appends `<!-- pragma: allowlist secret -->` on live site URL lines.
+- Pitfalls note: llms CLI is `--blog-dir` only.
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `scripts/excalibur_blog_filter_secret_names.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 warnings=0
+- `python3 -m py_compile scripts/excalibur_blog_llms_generator.py`
+- `rg` no stale `--blog-path /` in indexer contracts
+commit: pending-parent-commit
 
 ## INC-20261013-2127-schema-fragment-write-gitignore
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-schema
 topic_id: B02
@@ -80,11 +106,29 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Added `scripts/excalibur_blog_write_fragment.py` that mkdir+writes+asserts fragment exists.
+- Schema/cover agents and skills document: do not trust Cursor Write on gitignored fragments; use helper/shell + `test -f`.
+- Pitfalls updated.
+files_changed:
+- `scripts/excalibur_blog_write_fragment.py`
+- `agents/excalibur-blog-schema.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_write_fragment.py --name schema.md --text ...` → OK + file exists
+commit: pending-parent-commit
 
 ## INC-20261013-2145-writer-editorial-policy-pain-outcome-missing
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-writer
 topic_id: B02
@@ -116,10 +160,24 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Kept/verified `pain_markers_ru` + `outcome_markers_ru` + min_* in `memory/brief/editorial-policy.json`.
+- Doctor now FAIL if pain/outcome lists or min_* missing.
+- Documented as required fields in `shared/editorial-utility-only.md` and pitfalls.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` pain/outcome checks OK
+- `python3 scripts/excalibur_blog_utility_gate.py --article-dir .../B02-...` → PASS
+commit: pending-parent-commit
 
 ## INC-20261013-2115-research-accessed-at-count
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-research
 topic_id: B02
@@ -147,10 +205,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Gate `count_accessed_at()` accepts literal `accessed_at:` and ISO dates in source_table URL rows (max of both).
+- Research agent/skill note: put ISO dates in each source_table row.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `agents/excalibur-blog-research.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- table-only sample count_accessed_at >= 5
+- `research_notes_gate.py` on B02 → PASS accessed_at=21
+commit: pending-parent-commit
 
 ## INC-20261013-2108-scout-live-wp-cannibalization
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-director
 topic_id: B01
@@ -182,11 +255,26 @@ category: research
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Restored scout helper live WP path: REST / EXCALIBUR_RECENT_WP_POSTS / published-live-*.json during `--check-query`.
+- Added `--deny-slugs` (comma list or file) + `--proposed-slug`.
+- Scout agent/skill require WP + deny-list check before append.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `--help` shows --deny-slugs / --proposed-slug / --recent-wp-json
+- deny-slugs dry-run vs hybrid Japan slug → OVERLAP CRITICAL (deny_list + live_wp)
+commit: pending-parent-commit
 
 ## INC-20261013-2105-scout-stale-ai-niche
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-scout
 topic_id: B01
@@ -218,7 +306,22 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Scout agent/skill rewritten for Авто-Сейлс JP/KR/CN niche from site-brief.
+- Removed Cursor AI / Make.com / нейросети default search niches (except explicit ban).
+- editorial-utility-only.md beginner filter aligned to auto-import niche.
+files_changed:
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` no stale Cursor AI niche defaults in scout contracts
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

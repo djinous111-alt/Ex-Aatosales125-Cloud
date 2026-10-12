@@ -10,11 +10,13 @@
 
 - Параллельные `cover` и `schema` пишут в `.cursor/excalibur-blog-fragments/cover.md` и `schema.md`, директор переносит в handoff.
 - Не коммитить `.cursor/excalibur-blog-handoff.md` и fragments.
+- Cursor Write на gitignored `.cursor/excalibur-blog-fragments/` может вернуть success без файла на диске → пиши через `python3 scripts/excalibur_blog_write_fragment.py` (или shell redirect) и сразу `test -f`.
 
 ## Research / дата
 
 - Перед пайплайном: `python3 scripts/excalibur_blog_today.py` и `python3 scripts/excalibur_blog_research_start.py --topic-id …`.
 - Если `EXCALIBUR_RUN_DATE` нет в выводе today.py — старая ветка/код, **блокер**.
+- Research notes gate считает `accessed_at` и как литералы `accessed_at:`, и как ISO-даты в URL-строках `source_table`.
 
 ## Publish
 
@@ -27,6 +29,7 @@
 
 - Fact Check Box **не копирует** пример из `shared/excalibur-article-writing-contract.md`. Автор — только из `shared/authors-registry.json` по `author_id` в `article.meta.json`.
 - Запрещены legacy-имена вне реестра (в т.ч. «Елена Ковалева»). Human voice gate блокирует несовпадение автора и generic-шаблон «все статистические показатели…».
+- `memory/brief/editorial-policy.json` обязан содержать непустые `pain_markers_ru` / `outcome_markers_ru` и `min_*` в `article_required_signals` (doctor FAIL без них). Не вычищать при rebrand/sync.
 
 ## QA
 
@@ -41,8 +44,12 @@
 
 ## Scout
 
+- Ниша канала: **Авто-Сейлс** (JP/KR/CN import из `memory/brief/site-brief.md`). Запрещены Cursor/n8n/Make/AI-automation темы без явного Director override.
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- Каннибализация: `--check-query` + `--proposed-slug` + `--deny-slugs`; helper смотрит live WP REST / `EXCALIBUR_RECENT_WP_POSTS` / `published-live-*.json`, не только ledger. `published-live-*.json` может быть устаревшим — предпочитай fresh REST/env.
 
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator CLI: только `--blog-dir` (не `--blog-path`). Doctor проверяет `--blog-dir`.
+- Перед commit: `bash scripts/excalibur_git.sh commit …` или `eval "$(python3 scripts/excalibur_blog_filter_secret_names.py --export)"` — Cloud иногда кладёт raw URL в `CLOUD_AGENT_INJECTED_SECRET_NAMES`.

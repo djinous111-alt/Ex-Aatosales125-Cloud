@@ -21,4 +21,8 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
+Fragment для Директора: `.cursor/excalibur-blog-fragments/schema.md`.
+Путь gitignored — Cursor Write может вернуть success без файла на диске.
+Пиши через `python3 scripts/excalibur_blog_write_fragment.py --name schema.md ...` (или shell redirect) и сразу `test -f`.
+
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).

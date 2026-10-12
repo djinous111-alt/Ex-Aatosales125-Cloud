@@ -60,6 +60,8 @@ surprising_fact: неожиданный факт или конфликт мне�
 ## source_table
 | source | url | accessed_at | why_it_matters |
 
+В каждой строке `source_table` держи ISO-дату доступа (`YYYY-MM-DD`) рядом с URL — gate принимает и литералы `accessed_at:`, и даты в URL-строках таблицы (≥5).
+
 ## wordstat
 | phrase | impressions |
 

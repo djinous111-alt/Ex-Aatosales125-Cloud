@@ -144,9 +144,12 @@ Cover panel:
 
 ## Fragment (обязательно)
 
-Записать `.cursor/excalibur-blog-fragments/cover.md`:
+Записать `.cursor/excalibur-blog-fragments/cover.md`.
+**Не полагайся на Cursor Write** для gitignored path (может no-op). Используй shell / helper и сразу `test -f`:
 
-```markdown
+```bash
+mkdir -p .cursor/excalibur-blog-fragments
+python3 scripts/excalibur_blog_write_fragment.py --name cover.md --text "$(cat <<'EOF'
 === EXCALIBUR BLOG COVER ===
 topic_id: {ID}
 status: ✅ | ❌
@@ -161,6 +164,10 @@ registry: cover/cover-registry.json
 inject_html: ok | skip
 blockers: none | ...
 summary: ...
+incident_report: none
+EOF
+)"
+test -f .cursor/excalibur-blog-fragments/cover.md
 ```
 
 ---

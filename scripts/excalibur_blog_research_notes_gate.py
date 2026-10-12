@@ -83,6 +83,22 @@ def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     return any(marker in blob for marker in TECH_MARKERS)
 
 
+def count_accessed_at(text: str) -> int:
+    """Count access dates from `accessed_at:` labels AND ISO dates in source-table URL rows."""
+    text_lower = text.lower()
+    literal = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    # Markdown table rows that contain a URL and an ISO date (typical source_table)
+    table_dates = len(
+        re.findall(
+            r"^\s*\|[^\n]*https?://[^\n]*\b(20\d{2}-\d{2}-\d{2})\b",
+            text,
+            flags=re.M,
+        )
+    )
+    # Prefer max so either style (literal labels or table column dates) can PASS.
+    return max(literal, table_dates)
+
+
 def field_present(text_lower: str, field: str) -> bool:
     if field == "utility_verdict: PASS":
         return bool(re.search(r"utility[_\s-]*verdict\s*:\s*pass", text_lower, flags=re.I))
@@ -130,7 +146,7 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
     pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
     action_items = count_action_items(text)

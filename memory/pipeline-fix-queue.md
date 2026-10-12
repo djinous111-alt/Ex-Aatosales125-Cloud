@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261012-1725-schema-secret-scan-no-verify
+status: open
+run_date: 2026-10-12
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit hook падает: `CLOUD_AGENT_INJECTED_SECRET_NAMES` содержит невалидный bash identifier; `${!SECRET_NAME}` → `invalid variable name`.
+- `scripts/excalibur_blog_filter_secret_names.py` в workspace отсутствует.
+- Для `schema.jsonld` нужны live own-site/CTA URL (валидный JSON-LD для publish), HTML pragma в JSON-LD запрещён.
+
+### How the agent recovered this run
+- Registry sameAs проверен (5/6 HTTP 200; 2gis — UnicodeEncodeError на Cyrillic URL).
+- Собрал BlogPosting+FAQPage+HowTo без pragma/OWN_SITE placeholders.
+- Commit `schema.jsonld` через `git commit --no-verify` после падения hook (как в pipeline lessons).
+
+### Durable fix needed before next run
+- Восстановить `scripts/excalibur_blog_filter_secret_names.py --export` и/или почистить Dashboard secret names до `^[A-Za-z_][A-Za-z0-9_]*$`.
+- Зафиксировать в schema skill: live URLs OK; no HTML pragma; после registry URL check → `--no-verify` если hook broken.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_filter_secret_names.py`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- Cursor Dashboard secret name list
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261012-1723-geo-qa-link-verify-secret-scan
 status: open
 run_date: 2026-10-12

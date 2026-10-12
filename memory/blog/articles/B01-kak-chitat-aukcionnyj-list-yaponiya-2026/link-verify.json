@@ -5,27 +5,27 @@
   "verdict": "pass",
   "links": [
     {
-      "url": "[REDACTED]/2026/10/04/prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki/",
+      "url": "[PUBLIC_SITE_URL]/2026/10/04/prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "internal_relative",
       "skipped": false,
-      "checked_url": "[REDACTED]/2026/10/04/prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki/"
+      "checked_url": "[PUBLIC_SITE_URL]/2026/10/04/prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki/"
     },
     {
-      "url": "[REDACTED]/2026/10/05/kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026/",
+      "url": "[PUBLIC_SITE_URL]/2026/10/05/kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "internal_relative",
       "skipped": false,
-      "checked_url": "[REDACTED]/2026/10/05/kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026/"
+      "checked_url": "[PUBLIC_SITE_URL]/2026/10/05/kak-sdelat-pervuyu-stavku-na-yaponskom-aukcione-2026/"
     },
     {
-      "url": "[REDACTED]",
+      "url": "[CATALOG_URL]",
       "status": 200,
       "ok": true,
       "method": "HEAD",
@@ -34,7 +34,7 @@
       "skipped": false
     },
     {
-      "url": "[REDACTED]",
+      "url": "[TELEGRAM_URL]",
       "status": 200,
       "ok": true,
       "method": "HEAD",

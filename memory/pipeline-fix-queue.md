@@ -6,6 +6,47 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261012-0945-publish-http-timeout-webfetch-race
+status: open
+run_date: 2026-10-12
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-chitat-aukcionnyj-list-yaponiya-2026
+severity: medium
+category: publish
+
+### What went wrong
+- `paramiko` missing in Cloud runtime until `pip3 install --break-system-packages paramiko`.
+- `memory/site.env.local` absent (Cloud Secrets only in process env); created unquoted KEY=value from env for script.
+- HTTP trigger of ~6.2MB bootstrap hit urllib `TimeoutError` at 120s while PHP still completed (post 4086 + featured/inlines + schema).
+- Script entered WebFetch fallback (120s wait for `memory/webfetch-response.txt`), but REST soft-success file was written after the wait already expired → `RuntimeError: Cloud WebFetch Fallback timed out` despite live publish success.
+- Second curl of bootstrap was correctly avoided (would create orphan media).
+
+### How the agent recovered this run
+- Installed paramiko; wrote gitignored `memory/site.env.local`; SSH_ROOT=`.` already set.
+- After timeout: polled WP REST by slug (no second curl); waited until content `cover/` → WP media URLs and media ids 4087–4090.
+- Verified schema meta via wp-cli (`_excalibur_blog_schema_jsonld` len=11233, `_excalibur_blog_skip_theme_faq=1`).
+- Wrote reconstructed OK lines to `webfetch-response.txt` (too late for script); manually wrote `wp-publish-result.json` verdict=pass; updated ledger/log/promotion; live HEAD/GET 200.
+
+### Durable fix needed before next run
+- In `trigger_bootstrap_http` fallback: poll WP REST by slug in parallel with webfetch wait; auto-write soft-success when post+featured+inlines ready (before 120s expires).
+- Ensure `paramiko` in `.cursor/cloud-agent-install.sh` / environment install (already in requirements.txt).
+- Document ordered recovery in publish skill: REST reconstruct first, never second curl while PHP may still run.
+- Optionally increase HTTP timeout or stream/read with longer deadline for large payloads.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/cloud-agent-install.sh`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261012-0936-indexer-llms-blog-path-stale
 status: open
 run_date: 2026-10-12

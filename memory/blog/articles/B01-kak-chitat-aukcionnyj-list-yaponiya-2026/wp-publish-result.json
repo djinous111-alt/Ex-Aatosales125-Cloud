@@ -1,0 +1,18 @@
+{
+  "slug": "kak-chitat-aukcionnyj-list-yaponiya-2026",
+  "topic_id": "B01",
+  "permalink": "[PUBLIC_SITE_URL]/2026/10/12/kak-chitat-aukcionnyj-list-yaponiya-2026/",
+  "publish_method": "ssh",
+  "post_id": 4086,
+  "featured_image": 4087,
+  "inline_images": [
+    4088,
+    4089,
+    4090
+  ],
+  "schema_meta": true,
+  "soft_success": true,
+  "soft_success_reason": "HTTP TimeoutError + webfetch wait expired; REST+wp-cli reconstructed before second curl",
+  "raw_output": "OK post=4086 slug=kak-chitat-aukcionnyj-list-yaponiya-2026\nOK featured_image=4087\nOK schema_meta=1\nOK inline_image_upload=4088 src=cover/inline-01.png url=[PUBLIC_SITE_URL]/wp-content/uploads/2026/10/kak-chitat-aukcionnyj-list-yaponiya-2026-inline-01.png\nOK inline_image_upload=4089 src=cover/inline-02.png url=[PUBLIC_SITE_URL]/wp-content/uploads/2026/10/kak-chitat-aukcionnyj-list-yaponiya-2026-inline-02.png\nOK inline_image_upload=4090 src=cover/inline-03.png url=[PUBLIC_SITE_URL]/wp-content/uploads/2026/10/kak-chitat-aukcionnyj-list-yaponiya-2026-inline-03.png\npermalink=[PUBLIC_SITE_URL]/2026/10/12/kak-chitat-aukcionnyj-list-yaponiya-2026/\n# soft-success: reconstructed after HTTP TimeoutError; REST+wp-cli verified; no second curl\n",
+  "verdict": "pass"
+}

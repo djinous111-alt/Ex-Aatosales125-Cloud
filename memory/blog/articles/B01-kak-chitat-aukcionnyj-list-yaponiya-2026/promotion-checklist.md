@@ -1,13 +1,13 @@
 # Promotion checklist — B01 kak-chitat-aukcionnyj-list-yaponiya-2026
 
 Дата публикации: 2026-10-12 (после WP publish)  
-Live URL: (заполнить после publish) /blog/kak-chitat-aukcionnyj-list-yaponiya-2026/
+Live URL: [PUBLIC_SITE_URL]/2026/10/12/kak-chitat-aukcionnyj-list-yaponiya-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL (HEAD 200) — title, excerpt, featured image, FAQ
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)

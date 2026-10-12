@@ -251,6 +251,39 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261012-1305-scout-as-topics-blind-check
+status: open
+run_date: 2026-10-12
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py` parses only `## B\d+` cards in `memory/topics/blog-topics.md`, so `--suggest-next` reports pool size 0 and `--check-query` ignores all `AS*` primary queries.
+- On niche Авто-Сейлс the pool is AS01–AS09; helper returned `NO CANNIBALIZATION RISK` even for a query that is an exact match of AS03 (`авто из кореи или японии`).
+- Scout had to manually score overlap against AS* + live WP titles to avoid cannibalization.
+
+### How the agent recovered this run
+- Manually compared candidate queries to AS01–AS09 and live WP themes; rejected `авто из китая под заказ` (0.50 vs AS07) and chose `левый руль из кореи` (max 0.33 vs AS*).
+- Appended B01 card with Wordstat parent/narrow signals and gap note vs live WP.
+
+### Durable fix needed before next run
+- Extend `load_existing_topics` (and overlap check) to include `AS\d+` (and any non-B topic ids) while keeping `--suggest-next` next-id logic on `B\d+` only.
+- Optionally feed live WP slug/title denylist into check-query for Авто-Сейлс.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

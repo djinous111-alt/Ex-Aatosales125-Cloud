@@ -1,0 +1,540 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-12",
+    "today_ru": "12.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-14",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-12 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "levyj-rul-iz-korei-kak-vybrat-2026",
+    "h1": "Как выбрать и заказать авто с левым рулём из Кореи в 2026",
+    "primary_query": "левый руль из кореи",
+    "secondary_queries": [
+      "авто из кореи левый руль",
+      "левый руль из кореи купить",
+      "авто из кореи левый руль купить"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "левый руль из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как купить авто с левым рулем из Кореи в 2026: чек-лист до депозита",
+          "url": "OWN_SITE/2026/07/22/levyj-rul-iz-korei-2026-kak-kupit/",
+          "snippet": ""
+        },
+        {
+          "title": "Электромобили из Кореи 2026: цены под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/elektromobili-iz-korei-2026",
+          "snippet": "Ниже - чеклист покупки левого руля до депозита; глубокий разбор кодов отчётов - в отдельном гайде про Trust Encar и Carhistory."
+        },
+        {
+          "title": "Машины из Кореи в 2026 — что реально выгодно везти кроме японцев",
+          "url": "https://dzen.ru/a/agWB4CCMUGqowBsR",
+          "snippet": "Электромобили из Кореи в 2026: пять живых лотов от 974 000 ₽ под ключ — Kona Electric, Niro EV, Soul EV и SM3 ZE. Левый руль, 15-25 дней, платежи в цене."
+        },
+        {
+          "title": "Как в 2026 привезти левый руль из Кореи и Китая без скрытых косяков ...",
+          "url": "https://gocars.pro/page-2",
+          "snippet": "Левый руль, премиальная сборка, свежие комплектации с гарантией от первого владельца. Но Корея — не Япония. Здесь другая логистика, другие модели, другая ценовая ниша."
+        },
+        {
+          "title": "Доступный Левый руль! Цены сентябрь 2026! | ЯПОНИЯ-ТРЕЙД. АВТО ИЗ ...",
+          "url": "https://dzen.ru/video/watch/6a9a279c466ba66194ac563d",
+          "snippet": "Если ты сейчас рассчитываешь привезти свежий кроссовер с левым рулём за 900 тысяч рублей — у меня для тебя плохие новости. Потому что нормальный автомобиль из Кореи или Китая с доставкой, таможней и всеми расходами — это обычно бюджет от 1,5-2 млн рублей и выше!"
+        },
+        {
+          "title": "Доступный Левый руль! Цены сентябрь 2026!",
+          "url": "https://rutube.ru/video/91ee02e36a06671cf5736f5114e7bc7b/",
+          "snippet": "АВТО ИЗ ЯПОНИИ, КОРЕИ, КИТАЯ» в Дзене 🎦: Доступные и качественные авто из Кореи и Китая. Новые и почти новые б/у. Народный выбор с актуальными ценами!"
+        }
+      ],
+      "searched_at": "2026-10-12"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "левый руль из кореи октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как купить авто с левым рулем из Кореи в 2026: чек-лист до депозита",
+          "url": "OWN_SITE/2026/07/22/levyj-rul-iz-korei-2026-kak-kupit/",
+          "snippet": ""
+        },
+        {
+          "title": "Электромобили из Кореи 2026: цены под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/elektromobili-iz-korei-2026",
+          "snippet": "Левый руль из Кореи - не магия, а чеклист до депозита: руль, VIN, схема кузова, Carhistory и договор с юрлицом. После гайда скажете \"да/нет\" по лоту до перевода."
+        },
+        {
+          "title": "Как в 2026 привезти левый руль из Кореи и Китая без скрытых косяков ...",
+          "url": "https://gocars.pro/page-2",
+          "snippet": "Электромобили из Кореи в 2026: пять живых лотов от 974 000 ₽ под ключ — Kona Electric, Niro EV, Soul EV и SM3 ZE. Левый руль, 15-25 дней, платежи в цене."
+        },
+        {
+          "title": "Что с ценами на левый руль в 2026 году? - Rutube",
+          "url": "https://rutube.ru/video/14d85b40a8aa580498a8470a1cca05cb/",
+          "snippet": "Если ты сейчас рассчитываешь привезти свежий кроссовер с левым рулём за 900 тысяч рублей — у меня для тебя плохие новости. Потому что нормальный автомобиль из Кореи или Китая с доставкой, таможней и всеми расходами — это обычно бюджет от 1,5-2 млн рублей и выше!"
+        },
+        {
+          "title": "Как в 2026 привезти левый руль из Кореи и Китая без скрытых косяков ...",
+          "url": "https://gocars.pro/page-4",
+          "snippet": "Смотрите видео онлайн «Что с ценами на левый руль в 2026 году?» на канале «Авто из Японии, Китая и Кореи | Япония Транзит» в хорошем качестве и бесплатно, опубликованное 21 июня 2026 года в 6:19, длительностью 00:23:01, на видеохостинге RUTUBE."
+        },
+        {
+          "title": "Машины из Кореи в 2026 — что реально выгодно везти кроме японцев",
+          "url": "https://dzen.ru/a/agWB4CCMUGqowBsR",
+          "snippet": "Мы привозим автомобили уже больше 8 лет. За это время через нас прошли сотни машин: от обычных семейных кроссоверов до свежих премиальных моделей из Кореи и Китая."
+        }
+      ],
+      "searched_at": "2026-10-12"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "левый руль из кореи новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как купить авто с левым рулем из Кореи в 2026: чек-лист до депозита",
+          "url": "OWN_SITE/2026/07/22/levyj-rul-iz-korei-2026-kak-kupit/",
+          "snippet": ""
+        },
+        {
+          "title": "Доступный Левый руль! Цены сентябрь 2026!",
+          "url": "https://rutube.ru/video/91ee02e36a06671cf5736f5114e7bc7b/",
+          "snippet": "Левый руль из Кореи - не магия, а чеклист до депозита: руль, VIN, схема кузова, Carhistory и договор с юрлицом. После гайда скажете \"да/нет\" по лоту до перевода."
+        },
+        {
+          "title": "Корея. Левый Руль - Япония-трейд | Vk Видео",
+          "url": "https://vkvideo.ru/playlist/-60071002_7",
+          "snippet": "Доступные и качественные авто из Кореи и Китая. Новые и почти новые б/у. Народный выбор с актуальными ценами!"
+        },
+        {
+          "title": "Электромобили из Кореи 2026: цены под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/elektromobili-iz-korei-2026",
+          "snippet": "Доступные и качественные авто из Кореи и Китая. Новые и почти новые б/у. Народный выбор с актуальными ценами!"
+        },
+        {
+          "title": "Как в 2026 привезти левый руль из Кореи и Китая без скрытых косяков ...",
+          "url": "https://gocars.pro/page-2",
+          "snippet": "Электромобили из Кореи в 2026: пять живых лотов от 974 000 ₽ под ключ — Kona Electric, Niro EV, Soul EV и SM3 ZE. Левый руль, 15-25 дней, платежи в цене."
+        },
+        {
+          "title": "Доступный Левый руль! Цены сентябрь 2026! | ЯПОНИЯ-ТРЕЙД. АВТО ИЗ ...",
+          "url": "https://dzen.ru/video/watch/6a9a279c466ba66194ac563d",
+          "snippet": "Если ты сейчас рассчитываешь привезти свежий кроссовер с левым рулём за 900 тысяч рублей — у меня для тебя плохие новости. Потому что нормальный автомобиль из Кореи или Китая с доставкой, таможней и всеми расходами — это обычно бюджет от 1,5-2 млн рублей и выше!"
+        }
+      ],
+      "searched_at": "2026-10-12"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com левый руль из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "agentfield/assets/UI.png at main · Agent-Field/agentfield",
+          "url": "https://github.com/Agent-Field/agentfield/blob/main/assets/UI.png",
+          "snippet": ""
+        },
+        {
+          "title": "TensorSharp/imgs/banner_1.png at main · zhongkaifu/TensorSharp",
+          "url": "https://github.com/zhongkaifu/TensorSharp/blob/main/imgs/banner_1.png",
+          "snippet": "Build, run and scale AI agents like API and microservices - Agent-Field/agentfield"
+        },
+        {
+          "title": "Deep-Hashing-with-Semantic-Hash-Centers-for-Image-Retrieval/save ...",
+          "url": "https://github.com/Ryuge-Kisaki/Deep-Hashing-with-Semantic-Hash-Centers-for-Image-Retrieval/blob/main/save_figures/CIFAR-100/PR_bit_64.png",
+          "snippet": "A native .NET LLM inference engine and agent runtime for GGUF models. TensorSharp provides a console application, a web-based chatbot interface, iPhone App, and Ollama/OpenAI-compatible HTTP APIs for programmatic access. It supports Windows/MacOS/iOS/Linux with full GPU capability - TensorSharp/imgs/banner_1.png at main · zhongkaifu/TensorSharp."
+        },
+        {
+          "title": "LifeOS/images/lifeos-logo-full.png at main · danielmiessler/LifeOS",
+          "url": "https://github.com/danielmiessler/LifeOS/blob/main/images/lifeos-logo-full.png",
+          "snippet": "This this the source code for Deep Hashing with Semantic Hash Centers for Image Retrieval - Ryuge-Kisaki/Deep-Hashing-with-Semantic-Hash-Centers-for-Image-Retrieval"
+        },
+        {
+          "title": "mutsu/HISTORY-pass.svg at main · tokuhirom/mutsu · GitHub",
+          "url": "https://github.com/tokuhirom/mutsu/blob/main/HISTORY-pass.svg",
+          "snippet": "⛰️ LifeOS — The universal AI Harness designed to move you from Current to Ideal state in both life and work. - LifeOS/images/lifeos-logo-full.png at main · danielmiessler/LifeOS."
+        },
+        {
+          "title": "cpp-practice/images/set_thumb.svg at main - GitHub",
+          "url": "https://github.com/va1da5/cpp-practice/blob/main/images/set_thumb.svg",
+          "snippet": "Contribute to tokuhirom/mutsu development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-12"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "левый руль из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как купить авто с левым рулем из Кореи в 2026: чек-лист до депозита",
+          "url": "OWN_SITE/2026/07/22/levyj-rul-iz-korei-2026-kak-kupit/",
+          "snippet": ""
+        },
+        {
+          "title": "Как в 2026 привезти левый руль из Кореи и Китая без скрытых косяков ...",
+          "url": "https://gocars.pro/page-1",
+          "snippet": "Левый руль из Кореи - не магия, а чеклист до депозита: руль, VIN, схема кузова, Carhistory и договор с юрлицом. После гайда скажете \"да/нет\" по лоту до перевода."
+        },
+        {
+          "title": "Как в 2026 привезти левый руль из Кореи и Китая без скрытых косяков ...",
+          "url": "https://gocars.pro/page-2",
+          "snippet": "Как привезти левый руль из Кореи и Китая и не купить проблемное авто? Ты уже наверняка пролистал сотни объявлений о продаже авто на Авито."
+        },
+        {
+          "title": "Как в 2026 привезти левый руль из Кореи и Китая без скрытых косяков ...",
+          "url": "https://gocars.pro/page-3",
+          "snippet": "Если ты сейчас рассчитываешь привезти свежий кроссовер с левым рулём за 900 тысяч рублей — у меня для тебя плохие новости. Потому что нормальный автомобиль из Кореи или Китая с доставкой, таможней и всеми расходами — это обычно бюджет от 1,5-2 млн рублей и выше!"
+        },
+        {
+          "title": "Как в 2026 привезти левый руль из Кореи и Китая без скрытых косяков ...",
+          "url": "https://gocars.pro/page-4",
+          "snippet": "Поэтому осмотр автомобиля — это самый важный этап покупки. И нужно не просто посмотреть документы и пару фоток, а копнуть глубже. Например, если на бампере есть повторный окрас — это не значит, что вариант следует тут же забраковать. Куда важнее понять, откуда он появился."
+        },
+        {
+          "title": "Как в 2026 привезти левый руль из Кореи и Китая без скрытых косяков ...",
+          "url": "https://gocars.pro/page-5",
+          "snippet": "Мы привозим автомобили уже больше 8 лет. За это время через нас прошли сотни машин: от обычных семейных кроссоверов до свежих премиальных моделей из Кореи и Китая."
+        }
+      ],
+      "searched_at": "2026-10-12"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "левый руль из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-12"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "авто из кореи левый руль 2026",
+      "purpose": "вторичный запрос: авто из кореи левый руль",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Электромобили из Кореи 2026: цены под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/elektromobili-iz-korei-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Корея или Япония — где покупать авто в 2026 — EncarRus",
+          "url": "https://encarrus.ru/news/korea-vs-yaponiya-avto-2026/",
+          "snippet": "Электромобили из Кореи в 2026: пять живых лотов от 974 000 ₽ под ключ — Kona Electric, Niro EV, Soul EV и SM3 ZE. Левый руль, 15-25 дней, платежи в цене."
+        },
+        {
+          "title": "Авто из Кореи или Японии 2026 — откуда выгоднее",
+          "url": "https://carto-auto.ru/blog/avto-iz-korei-ili-yaponii-chto-vygodnee-2026/",
+          "snippet": "Но они принципиально разные: в Японии почти все правый руль, в Корее — левый. Это меняет маршруты, стоимость оформления, выбор моделей и регионы, где авто уместно использовать."
+        },
+        {
+          "title": "Лучшие авто из Кореи 2026: топ моделей под ключ | ДАРЭ",
+          "url": "https://importdare.ru/blog/luchshie-avto-iz-korei-2026",
+          "snippet": "Из Кореи или Японии выгоднее везти авто в 2026: сравнение цен, пробегов, руля, сроков и рисков. Какие машины откуда брать — с примерами под ключ."
+        },
+        {
+          "title": "Стоит ли покупать машину из Кореи в 2026 | Статья компании Tonari Japan",
+          "url": "https://tonari-japan.ru/informatsiya/plyusy-i-minusy-korejskih-avtomobilej",
+          "snippet": "Лучшие авто из Кореи 2026: подборка топ-моделей, цены под ключ в рублях, растаможка и сроки 45-55 дней. Что везти выгодно — разбор ДАРЭ."
+        },
+        {
+          "title": "Авто из Кореи под заказ в 2026 году: 13 реальных цен и проверка перед ...",
+          "url": "https://azway.ru/blog/avto-iz-korei-pod-zakaz-2026",
+          "snippet": "Разбираем плюсы и минусы автомобилей из Кореи: реальный пробег, богатые комплектации, левый руль, цена и риски. Стоит ли пригонять авто в 2026 году и как избежать проблем."
+        }
+      ],
+      "searched_at": "2026-10-12"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "левый руль из кореи купить 2026",
+      "purpose": "вторичный запрос: левый руль из кореи купить",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как купить авто с левым рулем из Кореи в 2026: чек-лист до депозита",
+          "url": "OWN_SITE/2026/07/22/levyj-rul-iz-korei-2026-kak-kupit/",
+          "snippet": ""
+        },
+        {
+          "title": "Как в 2026 привезти левый руль из Кореи и Китая без скрытых косяков ...",
+          "url": "https://gocars.pro/page-1",
+          "snippet": "Ниже - чеклист покупки левого руля до депозита; глубокий разбор кодов отчётов - в отдельном гайде про Trust Encar и Carhistory."
+        },
+        {
+          "title": "Электромобили из Кореи 2026: цены под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/elektromobili-iz-korei-2026",
+          "snippet": "Как привезти левый руль из Кореи и Китая и не купить проблемное авто? Ты уже наверняка пролистал сотни объявлений о продаже авто на Авито."
+        },
+        {
+          "title": "Авто из Кореи под заказ — пригон с растаможкой в 2026 году — Рули Авто",
+          "url": "https://ruliauto-zakaz.ru/avto-iz-korei",
+          "snippet": "Электромобили из Кореи в 2026: пять живых лотов от 974 000 ₽ под ключ — Kona Electric, Niro EV, Soul EV и SM3 ZE. Левый руль, 15-25 дней, платежи в цене."
+        },
+        {
+          "title": "Как в 2026 привезти левый руль из Кореи и Китая без скрытых косяков ...",
+          "url": "https://gocars.pro/page-2",
+          "snippet": "Авто из Кореи под заказ в 2026 году: Hyundai, KIA, Genesis с растаможкой под ключ. Корейские аукционы и площадки, проверка состояния, цена в договоре, доставка по России."
+        },
+        {
+          "title": "Что с ценами на левый руль в 2026 году? - Rutube",
+          "url": "https://rutube.ru/video/14d85b40a8aa580498a8470a1cca05cb/",
+          "snippet": "Если ты сейчас рассчитываешь привезти свежий кроссовер с левым рулём за 900 тысяч рублей — у меня для тебя плохие новости. Потому что нормальный автомобиль из Кореи или Китая с доставкой, таможней и всеми расходами — это обычно бюджет от 1,5-2 млн рублей и выше!"
+        }
+      ],
+      "searched_at": "2026-10-12"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "авто из кореи левый руль купить 2026",
+      "purpose": "вторичный запрос: авто из кореи левый руль купить",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как купить авто с левым рулем из Кореи в 2026: чек-лист до депозита",
+          "url": "OWN_SITE/2026/07/22/levyj-rul-iz-korei-2026-kak-kupit/",
+          "snippet": ""
+        },
+        {
+          "title": "Как купить авто из Кореи в 2026 — цены, сроки, растаможка | Sakura Auto ...",
+          "url": "https://satauto.ru/blog/100-kak-kupit-avtomobil-iz-korei.html",
+          "snippet": "Ниже - чеклист покупки левого руля до депозита; глубокий разбор кодов отчётов - в отдельном гайде про Trust Encar и Carhistory."
+        },
+        {
+          "title": "Как заказать авто из Кореи в 2026 году: пошаговая инструкция",
+          "url": "https://www.asiapk.ru/blog/kak-zakazat-avto-iz-korei-2026",
+          "snippet": "Хотите узнать точную стоимость конкретной машины из Кореи под ключ? Оставьте заявку — подберём варианты под ваш бюджет и рассчитаем всё заранее, без обязательств."
+        },
+        {
+          "title": "Авто 2026 из Кореи купить с доставкой по России | EncarRus",
+          "url": "https://encarrus.ru/korea/avtomobili-2026/",
+          "snippet": "Полное руководство по покупке автомобиля из Южной Кореи в 2026: как выбрать, проверить, рассчитать стоимость под ключ, сроки доставки и растаможки. Пошагово и без сюрпризов."
+        },
+        {
+          "title": "Авто из Кореи под заказ — пригон с растаможкой в 2026 году — Рули Авто",
+          "url": "https://ruliauto-zakaz.ru/avto-iz-korei",
+          "snippet": "Автомобили 2026 из Кореи доставим по России. Цены и полный каталог смотрите на сайте."
+        },
+        {
+          "title": "Лучшие авто из Кореи 2026: топ моделей под ключ | ДАРЭ",
+          "url": "https://importdare.ru/blog/luchshie-avto-iz-korei-2026",
+          "snippet": "Авто из Кореи под заказ в 2026 году: Hyundai, KIA, Genesis с растаможкой под ключ. Корейские аукционы и площадки, проверка состояния, цена в договоре, доставка по России."
+        }
+      ],
+      "searched_at": "2026-10-12"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать и заказать авто с левым рулём из Кореи в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как купить авто из Кореи в 2026 году. Ответы на популярные вопросы - Дром",
+          "url": "https://www.drom.ru/world/korea/faq/",
+          "snippet": ""
+        },
+        {
+          "title": "Как купить авто с левым рулем из Кореи в 2026: чек-лист до депозита",
+          "url": "OWN_SITE/2026/07/22/levyj-rul-iz-korei-2026-kak-kupit/",
+          "snippet": "Как купить б/у или новый автомобиль из Кореи в 2026 году? Ответы на популярные вопросы и особенности доставки авто из Кореи в Россию."
+        },
+        {
+          "title": "Авто из Кореи под заказ в 2026 году: 13 реальных цен и проверка перед ...",
+          "url": "https://azway.ru/blog/avto-iz-korei-pod-zakaz-2026",
+          "snippet": "Закажите живой осмотр в Корее (запуск, толщиномер) - до согласия на депозит. Получите предварительный расчёт под ключ и сверьте мощность с порогом льготы по утильсбору."
+        },
+        {
+          "title": "Как заказать авто из Кореи в 2026: гайд после реформы утильсбора",
+          "url": "https://vc.ru/transport/2943047-kak-zakazat-avto-iz-korei",
+          "snippet": "Реальные цены на Kia и Hyundai из Кореи до Владивостока, разбор Encar, страховой истории, бензиновых, газовых, дизельных и гибридных версий."
+        },
+        {
+          "title": "Как заказать авто из Кореи в 2026 году: пошаговая инструкция",
+          "url": "https://www.asiapk.ru/blog/kak-zakazat-avto-iz-korei-2026",
+          "snippet": "Это гайд для тех, у кого бюджет 1.5-5 млн ₽ и кто хочет понять: какие модели сейчас имеет смысл везти, сколько стоит под ключ в Москву, как платить корейцу из-под санкций и стоит ли лезть в это самостоятельно."
+        },
+        {
+          "title": "Как купить авто из Кореи в 2026 — цены, сроки, растаможка | Sakura Auto ...",
+          "url": "https://satauto.ru/blog/100-kak-kupit-avtomobil-iz-korei.html",
+          "snippet": "Полное руководство по покупке автомобиля из Южной Кореи в 2026: как выбрать, проверить, рассчитать стоимость под ключ, сроки доставки и растаможки. Пошагово и без сюрпризов."
+        }
+      ],
+      "searched_at": "2026-10-12"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "OWN_SITE/2026/07/22/levyj-rul-iz-korei-2026-kak-kupit/",
+      "title": "Как купить авто с левым рулем из Кореи в 2026: чек-лист до депозита",
+      "from_query": "левый руль из кореи 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/elektromobili-iz-korei-2026",
+      "title": "Электромобили из Кореи 2026: цены под ключ",
+      "from_query": "левый руль из кореи 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/agWB4CCMUGqowBsR",
+      "title": "Машины из Кореи в 2026 — что реально выгодно везти кроме японцев",
+      "from_query": "левый руль из кореи 2026"
+    },
+    {
+      "url": "https://gocars.pro/page-2",
+      "title": "Как в 2026 привезти левый руль из Кореи и Китая без скрытых косяков ...",
+      "from_query": "левый руль из кореи 2026"
+    },
+    {
+      "url": "https://dzen.ru/video/watch/6a9a279c466ba66194ac563d",
+      "title": "Доступный Левый руль! Цены сентябрь 2026! | ЯПОНИЯ-ТРЕЙД. АВТО ИЗ ...",
+      "from_query": "левый руль из кореи 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/91ee02e36a06671cf5736f5114e7bc7b/",
+      "title": "Доступный Левый руль! Цены сентябрь 2026!",
+      "from_query": "левый руль из кореи 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/14d85b40a8aa580498a8470a1cca05cb/",
+      "title": "Что с ценами на левый руль в 2026 году? - Rutube",
+      "from_query": "левый руль из кореи октябрь 2026"
+    },
+    {
+      "url": "https://gocars.pro/page-4",
+      "title": "Как в 2026 привезти левый руль из Кореи и Китая без скрытых косяков ...",
+      "from_query": "левый руль из кореи октябрь 2026"
+    },
+    {
+      "url": "https://vkvideo.ru/playlist/-60071002_7",
+      "title": "Корея. Левый Руль - Япония-трейд | Vk Видео",
+      "from_query": "левый руль из кореи новости 2026"
+    },
+    {
+      "url": "https://github.com/Agent-Field/agentfield/blob/main/assets/UI.png",
+      "title": "agentfield/assets/UI.png at main · Agent-Field/agentfield",
+      "from_query": "site:github.com левый руль из кореи 2026"
+    },
+    {
+      "url": "https://github.com/zhongkaifu/TensorSharp/blob/main/imgs/banner_1.png",
+      "title": "TensorSharp/imgs/banner_1.png at main · zhongkaifu/TensorSharp",
+      "from_query": "site:github.com левый руль из кореи 2026"
+    },
+    {
+      "url": "https://github.com/Ryuge-Kisaki/Deep-Hashing-with-Semantic-Hash-Centers-for-Image-Retrieval/blob/main/save_figures/CIFAR-100/PR_bit_64.png",
+      "title": "Deep-Hashing-with-Semantic-Hash-Centers-for-Image-Retrieval/save ...",
+      "from_query": "site:github.com левый руль из кореи 2026"
+    },
+    {
+      "url": "https://github.com/danielmiessler/LifeOS/blob/main/images/lifeos-logo-full.png",
+      "title": "LifeOS/images/lifeos-logo-full.png at main · danielmiessler/LifeOS",
+      "from_query": "site:github.com левый руль из кореи 2026"
+    },
+    {
+      "url": "https://github.com/tokuhirom/mutsu/blob/main/HISTORY-pass.svg",
+      "title": "mutsu/HISTORY-pass.svg at main · tokuhirom/mutsu · GitHub",
+      "from_query": "site:github.com левый руль из кореи 2026"
+    },
+    {
+      "url": "https://github.com/va1da5/cpp-practice/blob/main/images/set_thumb.svg",
+      "title": "cpp-practice/images/set_thumb.svg at main - GitHub",
+      "from_query": "site:github.com левый руль из кореи 2026"
+    },
+    {
+      "url": "https://gocars.pro/page-1",
+      "title": "Как в 2026 привезти левый руль из Кореи и Китая без скрытых косяков ...",
+      "from_query": "левый руль из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://gocars.pro/page-3",
+      "title": "Как в 2026 привезти левый руль из Кореи и Китая без скрытых косяков ...",
+      "from_query": "левый руль из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://gocars.pro/page-5",
+      "title": "Как в 2026 привезти левый руль из Кореи и Китая без скрытых косяков ...",
+      "from_query": "левый руль из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://encarrus.ru/news/korea-vs-yaponiya-avto-2026/",
+      "title": "Корея или Япония — где покупать авто в 2026 — EncarRus",
+      "from_query": "авто из кореи левый руль 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/avto-iz-korei-ili-yaponii-chto-vygodnee-2026/",
+      "title": "Авто из Кореи или Японии 2026 — откуда выгоднее",
+      "from_query": "авто из кореи левый руль 2026"
+    },
+    {
+      "url": "https://importdare.ru/blog/luchshie-avto-iz-korei-2026",
+      "title": "Лучшие авто из Кореи 2026: топ моделей под ключ | ДАРЭ",
+      "from_query": "авто из кореи левый руль 2026"
+    },
+    {
+      "url": "https://tonari-japan.ru/informatsiya/plyusy-i-minusy-korejskih-avtomobilej",
+      "title": "Стоит ли покупать машину из Кореи в 2026 | Статья компании Tonari Japan",
+      "from_query": "авто из кореи левый руль 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/avto-iz-korei-pod-zakaz-2026",
+      "title": "Авто из Кореи под заказ в 2026 году: 13 реальных цен и проверка перед ...",
+      "from_query": "авто из кореи левый руль 2026"
+    },
+    {
+      "url": "https://ruliauto-zakaz.ru/avto-iz-korei",
+      "title": "Авто из Кореи под заказ — пригон с растаможкой в 2026 году — Рули Авто",
+      "from_query": "левый руль из кореи купить 2026"
+    },
+    {
+      "url": "https://satauto.ru/blog/100-kak-kupit-avtomobil-iz-korei.html",
+      "title": "Как купить авто из Кореи в 2026 — цены, сроки, растаможка | Sakura Auto ...",
+      "from_query": "авто из кореи левый руль купить 2026"
+    },
+    {
+      "url": "https://www.asiapk.ru/blog/kak-zakazat-avto-iz-korei-2026",
+      "title": "Как заказать авто из Кореи в 2026 году: пошаговая инструкция",
+      "from_query": "авто из кореи левый руль купить 2026"
+    },
+    {
+      "url": "https://encarrus.ru/korea/avtomobili-2026/",
+      "title": "Авто 2026 из Кореи купить с доставкой по России | EncarRus",
+      "from_query": "авто из кореи левый руль купить 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/korea/faq/",
+      "title": "Как купить авто из Кореи в 2026 году. Ответы на популярные вопросы - Дром",
+      "from_query": "Как выбрать и заказать авто с левым рулём из Кореи в 2026 2026"
+    },
+    {
+      "url": "https://vc.ru/transport/2943047-kak-zakazat-avto-iz-korei",
+      "title": "Как заказать авто из Кореи в 2026: гайд после реформы утильсбора",
+      "from_query": "Как выбрать и заказать авто с левым рулём из Кореи в 2026 2026"
+    }
+  ]
+}

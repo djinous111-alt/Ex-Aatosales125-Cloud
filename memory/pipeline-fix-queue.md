@@ -24,11 +24,15 @@ category: docs
 - Ran `python3 scripts/excalibur_blog_llms_generator.py --help` first.
 - Generated llms files with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
 - Outputs: `memory/blog/llms.txt`, `memory/blog/llms-full.txt` (3 articles indexed).
+- Pre-commit secret scanner blocked commit because `PUBLIC_SITE_URL` appears in llms/promotion files; added `<!-- pragma: allowlist secret -->` on URL lines (same pattern as article.html CTAs).
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained one invalid entry (raw URL, not an env name) that crashed the hook via `${!SECRET_NAME}`; filtered to valid identifiers before commit.
 
 ### Durable fix needed before next run
 - Remove `--blog-path` from indexer agent/skill shell examples (repo + `.cursor/` copies).
 - Align `excalibur_blog_doctor.py` check with real CLI (drop `--blog-path` assertion, or re-add the flag if intended).
 - Note in pitfalls: llms generator uses `--blog-dir`, not `--blog-path`.
+- Make llms generator / indexer emit `pragma: allowlist secret` on lines with `PUBLIC_SITE_URL`, or document that agents must add it before commit.
+- Fix Cloud secret injection so `CLOUD_AGENT_INJECTED_SECRET_NAMES` never includes raw URL values.
 
 ### Suggested files to inspect/change
 - `agents/excalibur-blog-indexer.md`

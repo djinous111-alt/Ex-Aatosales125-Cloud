@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-13",
+    "today_ru": "13.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-15",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-13 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B02",
+    "priority": "P0",
+    "slug": "kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026",
+    "h1": "Как подобрать запчасти на китайское авто по VIN в 2026: чек-лист до заказа",
+    "primary_query": "запчасти на китайские автомобили",
+    "secondary_queries": [
+      "запчасти на китайские автомобили по вин",
+      "где купить запчасти на китайские автомобили",
+      "каталог запчастей на китайские автомобили",
+      "подбор запчастей на китайские автомобили"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B02",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "запчасти на китайские автомобили 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "запчасти на китайские автомобили октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "запчасти на китайские автомобили новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com запчасти на китайские автомобили 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "запчасти на китайские автомобили official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "запчасти на китайские автомобили forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "запчасти на китайские автомобили по вин 2026",
+      "purpose": "вторичный запрос: запчасти на китайские автомобили по вин"
+    },
+    {
+      "id": "secondary_2",
+      "query": "где купить запчасти на китайские автомобили 2026",
+      "purpose": "вторичный запрос: где купить запчасти на китайские автомобили"
+    },
+    {
+      "id": "secondary_3",
+      "query": "каталог запчастей на китайские автомобили 2026",
+      "purpose": "вторичный запрос: каталог запчастей на китайские автомобили"
+    },
+    {
+      "id": "secondary_4",
+      "query": "подбор запчастей на китайские автомобили 2026",
+      "purpose": "вторичный запрос: подбор запчастей на китайские автомобили"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как подобрать запчасти на китайское авто по VIN в 2026: чек-лист до заказа 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B02-kak-podobrat-zapchasti-na-kitajskoe-avto-po-vin-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

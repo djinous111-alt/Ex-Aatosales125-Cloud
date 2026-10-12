@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261012-0905-scout-stale-cursor-niche
+status: open
+run_date: 2026-10-12
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: prompt
+
+### What went wrong
+- `.cursor/agents/excalibur-blog-scout.md` и `.cursor/skills/scout-excalibur-blog/SKILL.md` всё ещё описывают нишу Cursor AI / n8n / Make / ИИ-агенты.
+- `shared/editorial-utility-only.md` тоже тянет beginner-angle «автоматизация / AI-агенты / Cursor AI».
+- Фактическая ниша сайта (site-brief + run context) — Авто-Сейлс: JP/KR/CN import, Владивосток, растаможка, аукционы, Encar.
+
+### How the agent recovered this run
+- Проигнорировал stale Cursor/AI niche в scout skill/agent.
+- Искал тренды и Wordstat только по Авто-Сейлс; добавил P0 тему B01 про аукционный лист Японии.
+
+### Durable fix needed before next run
+- Переписать scout agent/skill под нишу Авто-Сейлс (аукционы, Encar, растаможка, СВХ, утиль, доставка).
+- Убрать из editorial-utility-only примеры Cursor/Make как обязательный приоритет канала; оставить общий utility-only канон + niche из site-brief.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-scout.md`
+- `agents/excalibur-blog-scout.md` (если есть зеркало)
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

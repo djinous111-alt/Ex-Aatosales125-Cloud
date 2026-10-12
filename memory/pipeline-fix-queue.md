@@ -29,6 +29,7 @@ category: docs
 - Убрать `--blog-path` из Indexer agent/skill shell examples; оставить `--blog-dir` + `--out-dir`.
 - В doctor заменить check `--blog-path` на `--blog-dir` (или добавить alias в generator, если нужен WP path prefix — тогда документировать отдельно).
 - Добавить строку в `shared/agent-pipeline-pitfalls.md` Indexer: llms CLI = `--blog-dir`, не `--blog-path`.
+- Document Indexer commit policy: public `PUBLIC_SITE_URL` in `llms*.txt` needs `pragma: allowlist secret` (or generator emits it); filter non-identifier tokens in `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
 
 ### Suggested files to inspect/change
 - `agents/excalibur-blog-indexer.md`

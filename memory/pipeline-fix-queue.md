@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None — B01 2026-10-14 fixer closed all listed open incidents._
+
+## Recently fixed (2026-10-14)
+
 ## INC-20261014-0001-director-doctor-blog-dir
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-director
 topic_id: n/a
@@ -32,10 +36,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Doctor checks `--blog-dir` and asserts llms CLI has no `--blog-path`.
+- Pitfalls/indexer docs aligned on `--blog-dir` only.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
+- `rg` for stale `--blog-path` CLI examples
+commit: pending-parent-commit
 
 ## INC-20261014-0002-director-scout-niche-mismatch
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-director
 topic_id: n/a
@@ -63,10 +82,27 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Scout agent/skill rewritten for Авто-Сейлс niche from site-brief (not AI/Cursor).
+- `today.py` and `scout_helper.py` accept both `AS*` and `B*` topic IDs; today suggests unused P0 AS01 when available.
+files_changed:
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/pipeline-task-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` (AS+B pool)
+- `python3 scripts/excalibur_blog_today.py` → SUGGESTED_TOPIC_ID=AS01
+commit: pending-parent-commit
 
 ## INC-20261014-2105-scout-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-scout
 topic_id: B01
@@ -91,10 +127,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Added `scripts/excalibur_git.sh` that filters `CLOUD_AGENT_*_SECRET_NAMES` to valid bash identifiers (comma-separated) before invoking git/pre-commit.
+- Documented in pitfalls, schema/indexer/research skills.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+checks_run:
+- filter smoke: invalid tokens dropped; `PUBLIC_SITE_URL,CATALOG_URL` kept
+- `bash scripts/excalibur_git.sh status -sb`
+commit: pending-parent-commit
 
 ## INC-20261014-0013-research-webfetch-chest-import-504
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-research
 topic_id: B01
@@ -123,7 +171,18 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Research skill: WebFetch 5xx/504 → WebSearch highlights + ≥2 independent sources; not a notes blocker.
+- Internal site URLs as relative/`[PUBLIC_SITE_URL]`; prefer `scripts/excalibur_git.sh` for commits.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` for WebFetch 5xx guidance in research skills
+commit: pending-parent-commit
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -373,7 +432,7 @@ commit: pending-parent-commit
 
 
 ## INC-20261014-2119-geo-qa-typed-task-missing
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -402,10 +461,24 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Docs default path: typed `excalibur-blog-*` (incl. geo-qa) often missing → immediately `Task(generalPurpose)` + agent/skill + short contract; no enum discovery loops.
+files_changed:
+- `AGENTS.md`
+- `shared/pipeline-task-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+checks_run:
+- `rg` for generalPurpose/geo-qa default guidance
+commit: pending-parent-commit
 
 ## INC-20261014-2120-geo-qa-utility-markers-regression
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -437,10 +510,25 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Kept non-empty `pain_markers_ru`/`outcome_markers_ru` in editorial-policy.
+- utility_gate: empty marker lists → WARN/skip (not BLOCK).
+- doctor FAIL if marker lists missing/empty (<3).
+files_changed:
+- `memory/brief/editorial-policy.json` (verified present)
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → pain/outcome marker checks OK
+commit: pending-parent-commit
 
 ## INC-20261014-2121-geo-qa-catalog-503-softpass
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -468,14 +556,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- `link_verify`: catalog CTA HTTP 5xx when href matches `CATALOG_URL` (or same host) → soft-pass + warning.
+- Report URLs redacted to `${CATALOG_URL}`/`${PUBLIC_SITE_URL}` for secret-scan safety.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+checks_run:
+- unit: `is_soft_catalog_failure` + `redact_report_urls`
+commit: pending-parent-commit
 
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
 
 ## INC-20261014-2124-schema-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-schema
 topic_id: B01
@@ -507,10 +607,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Same `scripts/excalibur_git.sh` wrapper as INC-2105.
+- Schema skill requires `[REDACTED]` for live site/catalog/telegram/max URLs in committed schema.jsonld.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- secret-name filter smoke test
+commit: pending-parent-commit
 
 ## INC-20261014-2131-indexer-llms-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-indexer
 topic_id: B01
@@ -546,10 +658,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Removed `--blog-path` from indexer agent/skill examples.
+- llms generator + interlinker redact live site base to `[REDACTED]` in committed artifacts.
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- doctor: no stale `--blog-path` flag
+- `redact_site_base_for_commit` unit
+commit: pending-parent-commit
 
 ## INC-20261014-2134-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-publish
 topic_id: B01
@@ -576,5 +704,19 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- `.cursor/cloud-agent-install.sh` installs `requirements.txt` including paramiko with `--break-system-packages` and verifies import.
+- doctor warns/fails on missing paramiko depending on `--publish`.
+- Documented in CURSOR-CLOUD-RUNBOOK / pitfalls.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt` (already listed paramiko)
+- `scripts/excalibur_blog_doctor.py`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → paramiko available OK
+commit: pending-parent-commit
 

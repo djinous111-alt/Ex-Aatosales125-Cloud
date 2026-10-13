@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261013-0908-scout-wordstat-500
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: api
+
+### What went wrong
+- `wordstat_get_top_requests` и `wordstat_get_dynamics` (MCP-KV / Yandex Cloud Search API) стабильно возвращали HTTP 500 `{"code":13,"message":"Internal"}` на фразах parent и how-to.
+- `wordstat_get_user_info` и `wordstat_get_regions_tree` отвечали успешно; `wordstat_get_regions` дал 404.
+- Без top phrases нельзя было зафиксировать quantitive Wordstat signal для узкого запроса.
+
+### How the agent recovered this run
+- Retry 4+ раз с разными фразами/devices; quantitive Wordstat не получен.
+- Demand signal собран fallback: live WP REST gap (токен «аккредитив» = 0 из 1174), WebSearch 2026 (банковская оплата Encar/импортёров), parent Korea-кластер из `memory/topics/zen-topics-from-metrika.json`.
+- Тема выбрана по уникальному gap + utility checklist; `check-query` PASS; Jaccard vs live WP без уникального пересечения по «аккредитив».
+
+### Durable fix needed before next run
+- Проверить квоты/стабильность Yandex Cloud Wordstat topRequests в MCP-KV; добавить retry/backoff и явный low-result fallback в scout skill.
+- Зафиксировать в scout skill: при Wordstat 500 не блокировать P0, если live WP gap + parent-кластер + WebSearch подтверждают спрос; писать `scout_signal` в карточку.
+
+### Suggested files to inspect/change
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- MCP-KV Wordstat connector / Yandex Cloud API config (no secrets in repo)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

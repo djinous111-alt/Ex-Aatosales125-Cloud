@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261013-1712-research-webfetch-504
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026
+severity: low
+category: api
+
+### What went wrong
+- Cursor WebFetch к конкуренту chest-import.com вернул 504 Gateway Timeout.
+- research-notes gate считает только литералы `accessed_at:` (не даты в колонке таблицы), из-за чего первый прогон дал BLOCK при полном source_table.
+
+### How the agent recovered this run
+- Опёрся на WebSearch snippets + calc-страницу того же домена и альтернативные источники (ДАРЭ, AZWAY, Export Motors, GARANT).
+- Проставил `accessed_at: 2026-10-13` в ячейках source_table; gate PASS со второго прогона.
+
+### Durable fix needed before next run
+- В research skill явно: минимум 5 строк вида `accessed_at: YYYY-MM-DD`, одной колонки с датой недостаточно.
+- При WebFetch 504 не блокировать research: фиксировать URL + SERP/альтернативный fetch.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261013-1705-scout-wp-mcp-wrong-site
 status: open
 run_date: 2026-10-13

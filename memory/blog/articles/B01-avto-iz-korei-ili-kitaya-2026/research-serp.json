@@ -1,0 +1,462 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-13",
+    "today_ru": "13.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-15",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-13 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "avto-iz-korei-ili-kitaya-2026",
+    "h1": "Авто из Кореи или Китая: как выбрать выгоднее под заказ в 2026",
+    "primary_query": "авто из кореи и китая",
+    "secondary_queries": [
+      "авто из китая и кореи под заказ",
+      "авто из японии кореи и китая",
+      "привоз авто из китая и кореи"
+    ],
+    "search_intent": "comparison",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "авто из кореи и китая 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "авто из кореи и китая октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "авто из кореи и китая новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Корея или Китай — какой авто брать в 2026 — авто из Кореи и Китая ...",
+          "url": "https://encarrus.ru/news/korea-vs-kitay-avto-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Топ-5 выгодных автомобилей из Китая и Кореи в 2026 году",
+          "url": "https://auto.ru/logbook/top-5-vygodnykh-avtomobiley-iz-kitaia-i-korei-v-2026-godu_d58e403b-10b3-462e-9107-d59c9ceb559c/",
+          "snippet": "Два самых популярных источника авто для России в 2026 году. В Китае — новые машины с гарантией, в Корее — проверенные б/у с прозрачной историей. Это разные предложения для разных задач. Разбираем по честным критериям."
+        },
+        {
+          "title": "Параллельный импорт авто 2026: почему выгоднее везти из Кореи и Китая",
+          "url": "https://www.km.ru/avto/922958-parallelnyi-import-avto-2026-pochemu-vygodnee-vezti-iz-korei-i-kitaya",
+          "snippet": "Китай и Южная Корея уверенно удерживают позиции главных поставщиков доступных, хорошо оснащённых и ликвидных машин. Мы отобрали пять моделей, которые в 2026 году выглядят особенно привлекательно по соотношению цены, оснащения и надежности."
+        },
+        {
+          "title": "Авто из Кореи или Китая: что выбрать в 2026 году",
+          "url": "https://export-motors.com/blog/koreya-vs-kitay",
+          "snippet": "Разбираем на цифрах, почему пригон авто из Кореи и Китая в 2026 дешевле дилера на 800 тысяч-1,5 млн. Сроки, схемы, риски и как не нарваться на мошенников."
+        },
+        {
+          "title": "Автомобиль из Китая, Японии или Кореи в 2026 году: почему это всё ещё ...",
+          "url": "https://vc.ru/money/2868219-pokupka-avtomobilya-iz-kitaya-yaponii-ili-korei",
+          "snippet": "Авто из Кореи или Китая в 2026: сравнение цены, надёжности, остаточной стоимости и запчастей. Где Китай выигрывает, а где проигрывает — честный разбор."
+        },
+        {
+          "title": "Топ-10 авто из Кореи 2026 — что популярно и почём — авто из Кореи и ...",
+          "url": "https://encarrus.ru/news/top-10-koreyskikh-avto-2026/",
+          "snippet": "Тем не менее покупка автомобиля напрямую из Китая, Японии или Кореи по-прежнему остаётся реальной возможностью сэкономить — если знать как это работает сейчас."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com авто из кореи и китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "AVTOFULL/avto-full.m3u at main · Vitaliy-MAR/AVTOFULL",
+          "url": "https://github.com/Vitaliy-MAR/AVTOFULL/blob/main/avto-full.m3u",
+          "snippet": ""
+        },
+        {
+          "title": "new_problem_solutions/problems/shumeng/CSP202605E/sample-tree ... - GitHub",
+          "url": "https://github.com/rainboyOJ/new_problem_solutions/blob/master/problems/shumeng/CSP202605E/sample-tree.svg",
+          "snippet": "Contribute to Vitaliy-MAR/AVTOFULL development by creating an account on GitHub."
+        },
+        {
+          "title": "ViralScope Bot v2 - SMM Audit · GitHub",
+          "url": "https://gist.github.com/perspektiva24vdk-stack/4da3db8a4ee602232a5c6540089f6c0f",
+          "snippet": "Contribute to rainboyOJ/new_problem_solutions development by creating an account on GitHub."
+        },
+        {
+          "title": "gist:30b824af2668ba9ff58eb12f4a7d341f · GitHub",
+          "url": "https://gist.github.com/yanisheuski-ctrl/30b824af2668ba9ff58eb12f4a7d341f",
+          "snippet": "- Какие видео провалились и почему - Средний engagement rate и как он соотносится с бенчмарками (для каналов такого размера норма: <1K подписчиков — 8%+, 1K-10K — 5%+, 10K-100K — 3%+, 100K+ — 2%+)"
+        },
+        {
+          "title": "GitHub - smeyanoff/car-number-detection: Car's plate detection and car ...",
+          "url": "https://github.com/smeyanoff/car-number-detection",
+          "snippet": "Мне нравится метаирония и шутить, в том плане, что нести полную хуйню, абсурднейшие или противоречивые вещи с серьезным лицом, даже если это как-то дискредитирует или унижает меня самого."
+        },
+        {
+          "title": "was-node-suite-comfyui/image/exposure_example.jpg at main · RituCodeWeb ...",
+          "url": "https://github.com/RituCodeWeb/was-node-suite-comfyui/blob/main/image/exposure_example.jpg",
+          "snippet": "Чтобы запустить проект локально, необходимо: Для распознавания автомобиля по типам и номерного знака на изображении была дообучена YOLOv5. Пайплайн выглядит следующим образом:"
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "авто из кореи и китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Постановка на учёт авто из-за границы: пошагово 2026",
+          "url": "https://importdare.ru/blog/postanovka-na-uchet-avto-iz-za-granicy-2026",
+          "snippet": ""
+        },
+        {
+          "title": "ПТС и документы на авто из Китая 2026: полный список",
+          "url": "https://160drive.ru/pts-na-kitayskoe-avto-2026/",
+          "snippet": "Как поставить импортное авто на учёт в 2026: 6 шагов, документы, сроки 10 дней, смета от 15-30 тыс за СБКТС и ЭПТС. Утильсбор, ОСАГО, нюансы Кореи и Китая."
+        },
+        {
+          "title": "Как привезти авто из Китая в 2026: документы и расчёт",
+          "url": "https://azway.ru/blog/import-avto-iz-kitaya-2026",
+          "snippet": "Но у большинства тех, кто везёт авто из Китая самостоятельно или через посредника, вопросы остаются те же: какие документы должны оказаться на руках к моменту постановки на учёт в ГИБДД, кто их оформляет, сколько это стоит и в каком порядке всё происходит. Ниже — полный практический список для 2026 года, без воды."
+        },
+        {
+          "title": "Документы для ввоза авто в 2026: полный список | ДАРЭ",
+          "url": "https://importdare.ru/blog/dokumenty-vvoz-avto-2026",
+          "snippet": "Пошаговый импорт автомобиля из Китая в Россию в 2026 году: правило 180 дней без мифов, документы, состав цены, утильсбор и проверка до оплаты."
+        },
+        {
+          "title": "Авто под заказ из Китая, Кореи и Японии: цены и этапы 2026",
+          "url": "https://azway.ru/blog/avto-pod-zakaz-iz-azii-2026",
+          "snippet": "Какие документы нужны для ввоза авто в 2026: ЭПТС, СБКТС, учёт в ГИБДД. Реальная смета под ключ и сроки от 4 недель — без скрытых платежей."
+        },
+        {
+          "title": "Документы для ввоза авто из Китая 2026: полный список",
+          "url": "https://ezzhev.ru/how-buy-car/dokumenty-dlya-vvoza-avto-iz-kitaya/",
+          "snippet": "Как заказать авто из Китая, Кореи или Японии под ключ в 2026 году: выбор страны, проверка машины, договор, сроки, полная смета и документы."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "авто из кореи и китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Автофорум привоза авто из Китая, Кореи и Европы — калькулятор ...",
+          "url": "https://forum-autoimport.ru/",
+          "snippet": ""
+        },
+        {
+          "title": "Авто из Кореи: отзывы и реальный опыт 2026 | ДАРЭ",
+          "url": "https://importdare.ru/blog/avto-iz-korei-otzyvy-realnyj-opyt",
+          "snippet": "АвтоИмпорт — это русскоязычный автофорум для тех, кто привозит машины из Китая, Кореи, Европы и ОАЭ. Здесь обсуждают растаможку, утильсбор, выбор брокера, проверку VIN и реальную стоимость «под ключ» — без рекламы дилеров и навязчивых посредников."
+        },
+        {
+          "title": "Параллельный импорт авто 2026: почему выгоднее везти из Кореи и Китая",
+          "url": "https://www.km.ru/avto/922958-parallelnyi-import-avto-2026-pochemu-vygodnee-vezti-iz-korei-i-kitaya",
+          "snippet": "Реальные отзывы о покупке авто из Кореи 2026: плюсы, риски и честная смета под ключ с растаможкой и утилём. Сроки 45-55 дней и как не попасть на мошенника."
+        },
+        {
+          "title": "Покупка автомобиля из Кореи. Личный опыт. — Peugeot 308 (3G) дизель, 1 ...",
+          "url": "https://www.drive2.ru/l/744101916874641061/",
+          "snippet": "Разбираем на цифрах, почему пригон авто из Кореи и Китая в 2026 дешевле дилера на 800 тысяч-1,5 млн. Сроки, схемы, риски и как не нарваться на мошенников."
+        },
+        {
+          "title": "Наценка до 80%: сколько реально стоит импорт авто из Китая и Кореи ...",
+          "url": "https://pddaa.ru/info/import-avto-2026",
+          "snippet": "Я долго искал компанию, которая привезет мне автомобиль: перечитал кучу отзывов, со многими созванивался и обсуждал условия."
+        },
+        {
+          "title": "Авто под заказ из Китая, Кореи и Японии: цены и этапы 2026",
+          "url": "https://azway.ru/blog/avto-pod-zakaz-iz-azii-2026",
+          "snippet": "Какие автомобили выгоднее всего везти при импорте из Кореи или Китая? Наиболее выгодны автомобили возрастом 3-5 лет — для них пошлины ниже, чем для новых, и они уже потеряли часть стоимости."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "авто из китая и кореи под заказ 2026",
+      "purpose": "вторичный запрос: авто из китая и кореи под заказ",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Авто под заказ из Китая, Кореи и Японии: цены и этапы 2026",
+          "url": "https://azway.ru/blog/avto-pod-zakaz-iz-azii-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Авто Под Заказ Из Китая, Японии И Кореи Под Ключ | Azway",
+          "url": "https://azway.ru/",
+          "snippet": "Как заказать авто из Китая, Кореи или Японии под ключ в 2026 году: выбор страны, проверка машины, договор, сроки, полная смета и документы."
+        },
+        {
+          "title": "Авто из Японии, Кореи и Китая под заказ 2026 | YamatoCar",
+          "url": "https://yamato-car.ru/",
+          "snippet": "Авто под заказ из Китая, Японии и Кореи под ключ: подбор, аукцион, доставка, растаможка, СБКТС, ЭПТС. Более 1000 доставленных машин. Расчёт онлайн."
+        },
+        {
+          "title": "Limcars - Подбор И Доставка Авто Из Кореи И Китая",
+          "url": "https://limcars.ru/",
+          "snippet": "Заказ авто из Японии, Кореи, Китая с аукционов в 2026. Полное сопровождение: поиск, проверка, доставка, растаможка. Toyota, Hyundai, BYD под ключ. Прозрачные цены, экономия до 30%. Рассчитать →"
+        },
+        {
+          "title": "Автомобили под заказ из Китая, Южной Кореи и аукционов Японии — Red ...",
+          "url": "https://redpandamotors.ru/",
+          "snippet": "Подбор и доставка авто из Кореи и Китая под ключ: каталог, расчет, проверка, доставка и оформление."
+        },
+        {
+          "title": "Авто под заказ из Японии, Кореи, Китая - подбор, доставка, растаможка",
+          "url": "https://gpcar-auto.ru/",
+          "snippet": "Подбор, покупка и привоз автомобилей из Китая, Кореи и Японии под заказ. Выгода до 30%. Авто от дилера и с пробегом. Прямой экспорт, проверенные аукционы, страхование и доставка по всей России."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "авто из японии кореи и китая 2026",
+      "purpose": "вторичный запрос: авто из японии кореи и китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Сравнение: привоз авто из Японии, Кореи или Китая — что выгоднее в 2026 ...",
+          "url": "https://onlyjpcars.ru/blog/yaponiya-koreya-kitay-chto-vygodnee-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Авто под заказ из Китая, Кореи и Японии: цены и этапы 2026",
+          "url": "https://azway.ru/blog/avto-pod-zakaz-iz-azii-2026",
+          "snippet": "Япония, Корея или Китай — откуда выгоднее везти авто в 2026? Сравниваем бюджеты, расположение руля, утильсбор и выбор моделей."
+        },
+        {
+          "title": "Китай, Корея или Япония: откуда выгоднее везти авто в Россию в 2026 году",
+          "url": "https://asiaexpressauto.ru/blog/kitay-koreya-yaponiya-otkuda-vygodnee-vezti-avto-2026/",
+          "snippet": "Как заказать авто из Китая, Кореи или Японии под ключ в 2026 году: выбор страны, проверка машины, договор, сроки, полная смета и документы."
+        },
+        {
+          "title": "Откуда выгоднее привезти авто в 2026 году: Япония, Корея или Китай?",
+          "url": "https://silacar.ru/articles/article_9.html",
+          "snippet": "Сравниваем авто из Китая, Кореи и Японии в 2026 году: цены, сроки, комплектации, утильсбор, риски, ликвидность и подбор под ключ. Разбираем, откуда выгоднее везти авто в Россию."
+        },
+        {
+          "title": "Япония, Корея или Китай: откуда в 2026 выгоднее везти авто, если один ...",
+          "url": "https://vc.ru/decoded/3087070-otkuda-vygodnee-vezt-avto",
+          "snippet": "Сравнение рынков Японии, Кореи и Китая в 2026 году: где выгоднее купить авто с пробегом? Разбираем цены, качество, способы продажи и сроки доставки."
+        },
+        {
+          "title": "Япония, Корея или Китай. Откуда выгоднее привезти авто в Россию в 2026 ...",
+          "url": "https://autohubexport.com/article/yaponia-korea-kitai-otkuda-vigodnee0privezti-avto-v-2026/",
+          "snippet": "Выгоднее везти авто из Японии, Кореи или Китая, пошлины, утильсбор, медианы цен, особенности выбора, бюджет и доступные модели"
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "привоз авто из китая и кореи 2026",
+      "purpose": "вторичный запрос: привоз авто из китая и кореи",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Авто из Кореи или Китая: как выбрать выгоднее под заказ в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-13"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://encarrus.ru/news/korea-vs-kitay-avto-2026/",
+      "title": "Корея или Китай — какой авто брать в 2026 — авто из Кореи и Китая ...",
+      "from_query": "авто из кореи и китая новости 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/top-5-vygodnykh-avtomobiley-iz-kitaia-i-korei-v-2026-godu_d58e403b-10b3-462e-9107-d59c9ceb559c/",
+      "title": "Топ-5 выгодных автомобилей из Китая и Кореи в 2026 году",
+      "from_query": "авто из кореи и китая новости 2026"
+    },
+    {
+      "url": "https://www.km.ru/avto/922958-parallelnyi-import-avto-2026-pochemu-vygodnee-vezti-iz-korei-i-kitaya",
+      "title": "Параллельный импорт авто 2026: почему выгоднее везти из Кореи и Китая",
+      "from_query": "авто из кореи и китая новости 2026"
+    },
+    {
+      "url": "https://export-motors.com/blog/koreya-vs-kitay",
+      "title": "Авто из Кореи или Китая: что выбрать в 2026 году",
+      "from_query": "авто из кореи и китая новости 2026"
+    },
+    {
+      "url": "https://vc.ru/money/2868219-pokupka-avtomobilya-iz-kitaya-yaponii-ili-korei",
+      "title": "Автомобиль из Китая, Японии или Кореи в 2026 году: почему это всё ещё ...",
+      "from_query": "авто из кореи и китая новости 2026"
+    },
+    {
+      "url": "https://encarrus.ru/news/top-10-koreyskikh-avto-2026/",
+      "title": "Топ-10 авто из Кореи 2026 — что популярно и почём — авто из Кореи и ...",
+      "from_query": "авто из кореи и китая новости 2026"
+    },
+    {
+      "url": "https://github.com/Vitaliy-MAR/AVTOFULL/blob/main/avto-full.m3u",
+      "title": "AVTOFULL/avto-full.m3u at main · Vitaliy-MAR/AVTOFULL",
+      "from_query": "site:github.com авто из кореи и китая 2026"
+    },
+    {
+      "url": "https://github.com/rainboyOJ/new_problem_solutions/blob/master/problems/shumeng/CSP202605E/sample-tree.svg",
+      "title": "new_problem_solutions/problems/shumeng/CSP202605E/sample-tree ... - GitHub",
+      "from_query": "site:github.com авто из кореи и китая 2026"
+    },
+    {
+      "url": "https://gist.github.com/perspektiva24vdk-stack/4da3db8a4ee602232a5c6540089f6c0f",
+      "title": "ViralScope Bot v2 - SMM Audit · GitHub",
+      "from_query": "site:github.com авто из кореи и китая 2026"
+    },
+    {
+      "url": "https://gist.github.com/yanisheuski-ctrl/30b824af2668ba9ff58eb12f4a7d341f",
+      "title": "gist:30b824af2668ba9ff58eb12f4a7d341f · GitHub",
+      "from_query": "site:github.com авто из кореи и китая 2026"
+    },
+    {
+      "url": "https://github.com/smeyanoff/car-number-detection",
+      "title": "GitHub - smeyanoff/car-number-detection: Car's plate detection and car ...",
+      "from_query": "site:github.com авто из кореи и китая 2026"
+    },
+    {
+      "url": "https://github.com/RituCodeWeb/was-node-suite-comfyui/blob/main/image/exposure_example.jpg",
+      "title": "was-node-suite-comfyui/image/exposure_example.jpg at main · RituCodeWeb ...",
+      "from_query": "site:github.com авто из кореи и китая 2026"
+    },
+    {
+      "url": "https://importdare.ru/blog/postanovka-na-uchet-avto-iz-za-granicy-2026",
+      "title": "Постановка на учёт авто из-за границы: пошагово 2026",
+      "from_query": "авто из кореи и китая official docs documentation 2026"
+    },
+    {
+      "url": "https://160drive.ru/pts-na-kitayskoe-avto-2026/",
+      "title": "ПТС и документы на авто из Китая 2026: полный список",
+      "from_query": "авто из кореи и китая official docs documentation 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/import-avto-iz-kitaya-2026",
+      "title": "Как привезти авто из Китая в 2026: документы и расчёт",
+      "from_query": "авто из кореи и китая official docs documentation 2026"
+    },
+    {
+      "url": "https://importdare.ru/blog/dokumenty-vvoz-avto-2026",
+      "title": "Документы для ввоза авто в 2026: полный список | ДАРЭ",
+      "from_query": "авто из кореи и китая official docs documentation 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/avto-pod-zakaz-iz-azii-2026",
+      "title": "Авто под заказ из Китая, Кореи и Японии: цены и этапы 2026",
+      "from_query": "авто из кореи и китая official docs documentation 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/how-buy-car/dokumenty-dlya-vvoza-avto-iz-kitaya/",
+      "title": "Документы для ввоза авто из Китая 2026: полный список",
+      "from_query": "авто из кореи и китая official docs documentation 2026"
+    },
+    {
+      "url": "https://forum-autoimport.ru/",
+      "title": "Автофорум привоза авто из Китая, Кореи и Европы — калькулятор ...",
+      "from_query": "авто из кореи и китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://importdare.ru/blog/avto-iz-korei-otzyvy-realnyj-opyt",
+      "title": "Авто из Кореи: отзывы и реальный опыт 2026 | ДАРЭ",
+      "from_query": "авто из кореи и китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/l/744101916874641061/",
+      "title": "Покупка автомобиля из Кореи. Личный опыт. — Peugeot 308 (3G) дизель, 1 ...",
+      "from_query": "авто из кореи и китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://pddaa.ru/info/import-avto-2026",
+      "title": "Наценка до 80%: сколько реально стоит импорт авто из Китая и Кореи ...",
+      "from_query": "авто из кореи и китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://azway.ru/",
+      "title": "Авто Под Заказ Из Китая, Японии И Кореи Под Ключ | Azway",
+      "from_query": "авто из китая и кореи под заказ 2026"
+    },
+    {
+      "url": "https://yamato-car.ru/",
+      "title": "Авто из Японии, Кореи и Китая под заказ 2026 | YamatoCar",
+      "from_query": "авто из китая и кореи под заказ 2026"
+    },
+    {
+      "url": "https://limcars.ru/",
+      "title": "Limcars - Подбор И Доставка Авто Из Кореи И Китая",
+      "from_query": "авто из китая и кореи под заказ 2026"
+    },
+    {
+      "url": "https://redpandamotors.ru/",
+      "title": "Автомобили под заказ из Китая, Южной Кореи и аукционов Японии — Red ...",
+      "from_query": "авто из китая и кореи под заказ 2026"
+    },
+    {
+      "url": "https://gpcar-auto.ru/",
+      "title": "Авто под заказ из Японии, Кореи, Китая - подбор, доставка, растаможка",
+      "from_query": "авто из китая и кореи под заказ 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/yaponiya-koreya-kitay-chto-vygodnee-2026",
+      "title": "Сравнение: привоз авто из Японии, Кореи или Китая — что выгоднее в 2026 ...",
+      "from_query": "авто из японии кореи и китая 2026"
+    },
+    {
+      "url": "https://asiaexpressauto.ru/blog/kitay-koreya-yaponiya-otkuda-vygodnee-vezti-avto-2026/",
+      "title": "Китай, Корея или Япония: откуда выгоднее везти авто в Россию в 2026 году",
+      "from_query": "авто из японии кореи и китая 2026"
+    },
+    {
+      "url": "https://silacar.ru/articles/article_9.html",
+      "title": "Откуда выгоднее привезти авто в 2026 году: Япония, Корея или Китай?",
+      "from_query": "авто из японии кореи и китая 2026"
+    },
+    {
+      "url": "https://vc.ru/decoded/3087070-otkuda-vygodnee-vezt-avto",
+      "title": "Япония, Корея или Китай: откуда в 2026 выгоднее везти авто, если один ...",
+      "from_query": "авто из японии кореи и китая 2026"
+    },
+    {
+      "url": "https://autohubexport.com/article/yaponia-korea-kitai-otkuda-vigodnee0privezti-avto-v-2026/",
+      "title": "Япония, Корея или Китай. Откуда выгоднее привезти авто в Россию в 2026 ...",
+      "from_query": "авто из японии кореи и китая 2026"
+    }
+  ]
+}

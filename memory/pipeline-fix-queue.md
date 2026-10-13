@@ -6,6 +6,71 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261013-1335-geo-qa-typed-task-missing
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-korei-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud Task enum does not accept typed `excalibur-blog-geo-qa` (expected fallback for this run).
+- Director launched role via `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` + skill path.
+
+### How the agent recovered this run
+- Executed GEO QA as generalPurpose subagent with full skill contract; did not collapse into single-agent pipeline.
+
+### Durable fix needed before next run
+- Register `excalibur-blog-geo-qa` (and sibling excalibur-blog-* roles) in Cloud Task type enum, or document generalPurpose fallback as the supported Cloud path in runbook so every Director run does not rediscover the mismatch.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `AGENTS.md`
+- `shared/pipeline-task-map.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261013-1336-geo-qa-cta-href-redacted
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-korei-2026
+severity: blocker
+category: qa
+
+### What went wrong
+- `article.html` commit contains three CTA anchors with literal `href="[REDACTED]"` (git blob confirmed; not a display filter).
+- `excalibur_blog_link_verify.py` dedupes to one unique href, classifies as `internal_relative`, checks `{PUBLIC_SITE_URL}/[REDACTED]` → HTTP 404 → link-verify FAIL.
+- AS09 in the same repo still has live `https://` catalog + Telegram hrefs; B01 broke the CTA contract.
+
+### How the agent recovered this run
+- Did not rewrite article.html (GEO QA zone). Wrote `article-qa.md` verdict FAIL + concrete FIX list for writer loop (restore conversion-map CTA URLs; remove TL;DR label).
+- Cover/schema not started.
+
+### Durable fix needed before next run
+- Writer contract / pitfalls: public marketing CTA URLs (catalog, Telegram) must remain real absolute URLs in `article.html`; never substitute `[REDACTED]` to satisfy secret-scan.
+- Optional preflight: fail writer self-check if any `href` equals `[REDACTED]` or lacks `http`.
+
+### Suggested files to inspect/change
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `memory/brief/conversion-map.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261013-1330-writer-utility-pain-markers-missing
 status: open
 run_date: 2026-10-13

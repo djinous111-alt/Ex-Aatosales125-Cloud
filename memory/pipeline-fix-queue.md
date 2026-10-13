@@ -64,7 +64,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
 - `python3 scripts/excalibur_blog_llms_generator.py --help` contains `--blog-dir`
-commit: pending-parent-commit
+commit: a2cd863
 
 ## INC-20261013-0945-schema-secret-scan-placeholders
 status: fixed
@@ -119,7 +119,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_schema_build.py scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_schema_build.py --article-dir …/B01-… --placeholders` (stdout OK)
 - unit expand_schema_placeholders
-commit: pending-parent-commit
+commit: a2cd863
 
 ## INC-20261013-0931-geo-qa-utility-markers-missing
 status: fixed
@@ -173,7 +173,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → editorial-policy OK
 - `rg` TL;DR ban in human_voice_gate
-commit: pending-parent-commit
+commit: a2cd863
 
 ## INC-20261013-0931-geo-qa-catalog-503-soft
 status: fixed
@@ -217,7 +217,7 @@ files_changed:
 checks_run:
 - `rg` soft brand catalog 5xx in link_verify.py
 - doctor errors=0
-commit: pending-parent-commit
+commit: a2cd863
 note: Catalog origin 503 (if still occurring) is ops/human via Cloud Secrets host — not a code blocker.
 
 ## INC-20261013-0920-research-wordstat-500
@@ -269,7 +269,7 @@ files_changed:
 checks_run:
 - B01 research-notes-gate → PASS, technical_topic=False
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
-commit: pending-parent-commit
+commit: a2cd863
 
 ## INC-20261013-0908-scout-wordstat-500
 status: fixed
@@ -328,7 +328,7 @@ files_changed:
 checks_run:
 - doctor errors=0; filter_secret_names --export OK
 - `rg` Авто-Сейлс niche in scout agent
-commit: pending-parent-commit
+commit: a2cd863
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -628,7 +628,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_filter_secret_names.py --export`
 - doctor warns/OK for git helper presence
-commit: pending-parent-commit
+commit: a2cd863
 
 ## INC-20261013-1010-publish-paramiko-http504-sshcli
 status: fixed
@@ -682,5 +682,5 @@ files_changed:
 checks_run:
 - doctor: OK paramiko available; errors=0
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
-commit: pending-parent-commit (partial in-run: install + SSH CLI fallback already patched; fixer should sync skills/pitfalls and close)
+commit: a2cd863 (partial in-run: install + SSH CLI fallback already patched; fixer should sync skills/pitfalls and close)
 

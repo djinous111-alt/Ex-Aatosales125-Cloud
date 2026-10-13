@@ -22,6 +22,7 @@ category: api
 ### How the agent recovered this run
 - Documented `⚠️ WORDSTAT API WARNING` in `research-notes.md`; used scout historical fallback ≈4223 with explicit non-live label; completed SERP via WebSearch + official/community sources; research-notes-gate PASS.
 - Did not invent live Wordstat counts.
+- Pre-commit: filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid bash identifiers; redacted `PUBLIC_SITE_URL` values from `research-serp.json` (and ledger URL cells) before commit.
 
 ### Durable fix needed before next run
 - Shared Wordstat-500 runbook for research+scout (retry/backoff, alternate devices/regions, historical fallback labeling) so each role does not rediscover the same 500 path.

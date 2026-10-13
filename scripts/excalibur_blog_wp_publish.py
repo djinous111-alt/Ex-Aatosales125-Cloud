@@ -486,11 +486,71 @@ def trigger_bootstrap_http(url: str, root: Path) -> str:
         for _ in range(120):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
-                fallback_file.unlink()
-                print("Cloud response detected successfully!")
-                return out
+                # Accept only successful publish output, not nginx 504 HTML from WebFetch/curl.
+                if "OK post=" in out:
+                    fallback_file.unlink()
+                    print("Cloud response detected successfully!")
+                    return out
+                print(
+                    "WARN Cloud WebFetch response is not a successful publish payload "
+                    "(missing OK post=); continuing wait / SSH CLI fallback.",
+                    file=sys.stderr,
+                )
             time.sleep(1)
         raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+
+
+def trigger_bootstrap_ssh_cli(env: dict[str, str], remote_path: str) -> str:
+    """Run uploaded bootstrap via remote PHP CLI (bypasses nginx gateway timeouts)."""
+    import shlex
+    import time
+
+    import paramiko
+
+    host, port, user, password = _ssh_creds(env)
+    remote_dir = remote_path.rsplit("/", 1)[0] if "/" in remote_path else "."
+    remote_file = remote_path.rsplit("/", 1)[-1]
+    php_bins = [
+        "/usr/local/bin/php8.3",
+        "/usr/local/bin/php8.2",
+        "/usr/local/bin/php8.1",
+        "/usr/local/bin/php8.0",
+        "php",
+    ]
+    client = paramiko.SSHClient()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    client.connect(hostname=host, port=port, username=user, password=password, timeout=30, banner_timeout=60)
+    try:
+        last_err = ""
+        for php_bin in php_bins:
+            cmd = (
+                f"cd {shlex.quote(remote_dir)} && "
+                f"{shlex.quote(php_bin)} -d memory_limit=512M -d max_execution_time=900 "
+                f"{shlex.quote(remote_file)}"
+            )
+            print(f"SSH CLI trigger via {php_bin}...")
+            _stdin, stdout, stderr = client.exec_command(cmd, timeout=900)
+            channel = stdout.channel
+            started = time.time()
+            while not channel.exit_status_ready():
+                if time.time() - started > 900:
+                    channel.close()
+                    raise RuntimeError("SSH CLI php bootstrap timed out after 900 seconds")
+                time.sleep(1)
+            out = stdout.read().decode("utf-8", errors="replace")
+            err = stderr.read().decode("utf-8", errors="replace")
+            code = channel.recv_exit_status()
+            if "OK post=" in out:
+                print(f"SSH CLI publish OK via {php_bin}")
+                return out
+            last_err = f"exit={code}; stderr={err[:400]}; stdout={out[:400]}"
+            # Try next PHP binary if this one missing/broken.
+            if code == 127 or "No such file" in err or "not found" in err.lower():
+                continue
+            break
+        raise RuntimeError(f"SSH CLI php bootstrap failed: {last_err}")
+    finally:
+        client.close()
 
 
 def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
@@ -502,7 +562,14 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        try:
+            out = trigger_bootstrap_http(url, root)
+        except Exception as http_exc:  # noqa: BLE001
+            print(
+                f"HTTP/WebFetch trigger failed ({type(http_exc).__name__}: {http_exc}). "
+                "Falling back to SSH CLI php execution..."
+            )
+            out = trigger_bootstrap_ssh_cli(env, uploaded_remote_path)
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)

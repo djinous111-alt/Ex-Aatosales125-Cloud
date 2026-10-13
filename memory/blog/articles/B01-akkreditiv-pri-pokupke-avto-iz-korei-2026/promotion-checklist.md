@@ -1,7 +1,7 @@
 # Promotion checklist — B01 akkreditiv-pri-pokupke-avto-iz-korei-2026
 
 Дата публикации: 2026-10-13  
-Live URL: [PUBLIC_SITE_URL]/blog/akkreditiv-pri-pokupke-avto-iz-korei-2026/
+Live URL: [REDACTED]/2026/10/13/akkreditiv-pri-pokupke-avto-iz-korei-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Депозит и таможня во Владивостоке — отдельные этапы
 • Нет юрлица, договора и условий раскрытия — нет перевода
 
-Читать: [PUBLIC_SITE_URL]/blog/akkreditiv-pri-pokupke-avto-iz-korei-2026/
+[REDACTED]/2026/10/13/akkreditiv-pri-pokupke-avto-iz-korei-2026/
 ```
 
 ## Перелинковка

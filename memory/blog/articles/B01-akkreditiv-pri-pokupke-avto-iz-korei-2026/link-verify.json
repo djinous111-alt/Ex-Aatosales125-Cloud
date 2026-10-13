@@ -5,7 +5,7 @@
   "verdict": "pass",
   "links": [
     {
-      "url": "https://CATALOG.example/",
+      "url": "[REDACTED]",
       "status": 503,
       "ok": true,
       "method": "HEAD",
@@ -15,7 +15,7 @@
       "warning": "soft brand catalog 5xx; verify manually if needed"
     },
     {
-      "url": "https://t.me/EXAMPLE",
+      "url": "[REDACTED]",
       "status": 200,
       "ok": true,
       "method": "HEAD",

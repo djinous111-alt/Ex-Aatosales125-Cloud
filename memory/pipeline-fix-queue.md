@@ -512,3 +512,41 @@ category: env
 ### Fixer resolution
 - pending
 
+## INC-20261013-1010-publish-paramiko-http504-sshcli
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-akkreditiv-pri-pokupke-avto-iz-korei-2026
+severity: high
+category: env
+
+### What went wrong
+- `memory/site.env.local` absent; Cloud env secrets were sufficient (`EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`, SSH + PUBLIC_SITE_URL).
+- `ModuleNotFoundError: paramiko` — `.cursor/cloud-agent-install.sh` installed requests/pillow/dotenv but not `paramiko` from `requirements.txt`.
+- After SSH upload of ~7MB bootstrap, HTTP trigger hit nginx **504 Gateway Time-out** (~120s); WebFetch/curl also returned 504 HTML, so WebFetch fallback alone cannot finish heavy publish.
+
+### How the agent recovered this run
+- Installed `paramiko` with `pip --break-system-packages` for this run.
+- Re-uploaded bootstrap, killed timed-out waiter before cleanup deleted the file, then executed bootstrap via SSH CLI `/usr/local/bin/php8.3` (Beget multi-PHP).
+- Publish succeeded: post=4110, featured=4138, inline=4140/4141/4142, schema_meta=1; live HEAD 200.
+- Updated ledger/log/promotion/result; patched install script to include paramiko/numpy; added SSH CLI fallback in `excalibur_blog_wp_publish.py` for next runs.
+
+### Durable fix needed before next run
+- Keep `paramiko` (and `numpy` if required elsewhere) in `.cursor/cloud-agent-install.sh` aligned with `requirements.txt`.
+- Prefer SSH CLI php trigger (or raise nginx/fastcgi timeouts) when bootstrap payload is multi-MB with cover+inline base64.
+- Document SSH CLI fallback + 504 pattern in publish skill / pitfalls; reject WebFetch 504 HTML as success.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (partial in-run: install + SSH CLI fallback already patched; fixer should sync skills/pitfalls and close)
+

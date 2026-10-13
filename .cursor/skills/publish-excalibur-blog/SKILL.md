@@ -71,6 +71,15 @@ python scripts/excalibur_blog_wp_publish.py \
 
 **Не останавливайся** на первом timeout — используй fallback.
 
+
+### 4b. SSH CLI fallback (heavy bootstrap)
+
+If HTTP and WebFetch both fail (nginx **504** / timeout on multi-MB bootstrap with cover+inline base64),
+`excalibur_blog_wp_publish.py` runs the uploaded `excalibur-blog-publish-once.php` via SSH CLI
+(`/usr/local/bin/php8.3` … `php`) with `max_execution_time=900`, then deletes the bootstrap.
+Treat WebFetch/curl **504 HTML** as failure (must contain `OK post=`).
+Cloud install must include `paramiko` (see `.cursor/cloud-agent-install.sh`).
+
 ### 5. Post-publish артефакты
 
 | Файл | Действие |

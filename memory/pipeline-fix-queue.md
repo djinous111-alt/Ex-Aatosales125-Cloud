@@ -6,6 +6,94 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261014-0001-director-doctor-blog-dir
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` still checked llms generator for `--blog-path`, while CLI only exposes `--blog-dir` (pitfalls/memory already say `--blog-dir` only). Preflight SUMMARY errors=1.
+
+### How the agent recovered this run
+- One-line doctor check updated to `--blog-dir`; doctor now SUMMARY errors=0.
+
+### Durable fix needed before next run
+- Confirm doctor/pitfalls/skills stay aligned on `--blog-dir`; close after verify.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261014-0002-director-scout-niche-mismatch
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- Scout agent/skill still describe AI/automation/Cursor niche, while `memory/brief/site-brief.md` and live WP blog are Авто-Сейлс (import from Japan/Korea/China). `blog-topics.md` has AS* cards but today/scout helpers only accept `B\d+`, so selection becomes needs_scout even with AS P0 topics present.
+
+### How the agent recovered this run
+- Director instructs Scout Task to follow site-brief Avto-Sales niche and avoid cannibalization with EXCALIBUR_RECENT_WP_POSTS + AS pool; not following outdated AI scout prompts.
+
+### Durable fix needed before next run
+- Rewrite scout agent/skill prompts for Авто-Сейлс niche OR dual-mode from site-brief; optionally teach helpers to recognize AS* topic IDs or migrate AS→B cards.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261014-2105-scout-precommit-secret-names
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: low
+category: env
+
+### What went wrong
+- `git commit` failed in Cloud pre-commit secrets scanner: `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a non-identifier token that breaks `${!SECRET_NAME}` (invalid variable name).
+
+### How the agent recovered this run
+- Filtered injected/all secret-name lists to valid bash identifiers only for the commit environment, then re-ran commit+push. Hook still scanned remaining secrets; commit was not `--no-verify`.
+
+### Durable fix needed before next run
+- Ensure Cloud secret-name injection never emits non-identifier placeholders into `CLOUD_AGENT_*_SECRET_NAMES`, or harden pre-commit to skip invalid names.
+
+### Suggested files to inspect/change
+- Cloud Agent secrets injection / pre-commit.cursor hook
+- optional local wrapper docs in `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

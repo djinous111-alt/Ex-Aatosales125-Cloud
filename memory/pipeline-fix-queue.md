@@ -23,14 +23,17 @@ category: docs
 ### How the agent recovered this run
 - Запустил llms generator с `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` без `--blog-path`.
 - Получил `memory/blog/llms.txt` и `memory/blog/llms-full.txt` (3 статьи, включая B01).
+- Pre-commit secret-scan блокировал commit из‑за значения `PUBLIC_SITE_URL` в llms/checklist; для git переписал на `[PUBLIC_SITE_URL]` (runtime expand при publish/deploy).
 
 ### Durable fix needed before next run
 - В doctor: проверять `--blog-dir` (не `--blog-path`) в help llms generator.
 - Убрать `--blog-path /` из agent/skill примеров indexer; оставить `--blog-dir` + `--out-dir`.
 - Добавить в pitfalls: llms generator CLI = `--blog-dir`, не `--blog-path`.
+- Indexer/llms generator: режим `--placeholders` или post-step redact `PUBLIC_SITE_URL` → `[PUBLIC_SITE_URL]` перед commit; expand при upload llms.
 
 ### Suggested files to inspect/change
 - `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
 - `skills/indexer-excalibur-blog/SKILL.md`
 - `.cursor/skills/indexer-excalibur-blog/SKILL.md`
 - `agents/excalibur-blog-indexer.md`

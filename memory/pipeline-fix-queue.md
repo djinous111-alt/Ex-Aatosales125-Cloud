@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261013-0950-indexer-doctor-llms-blog-path
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-akkreditiv-pri-pokupke-avto-iz-korei-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `scripts/excalibur_blog_doctor.py` проверяет `"--blog-path" in llms_help.stdout` → FAIL «llms generator supports --blog-path».
+- Реальный CLI `excalibur_blog_llms_generator.py` принимает только `--blog-dir` (плюс `--site-base`, `--out-dir`, site-name/desc); флага `--blog-path` нет.
+- Agent/skill shell-примеры всё ещё передают `--blog-path /`, что при буквальном следовании даёт argparse error.
+
+### How the agent recovered this run
+- Запустил llms generator с `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` без `--blog-path`.
+- Получил `memory/blog/llms.txt` и `memory/blog/llms-full.txt` (3 статьи, включая B01).
+
+### Durable fix needed before next run
+- В doctor: проверять `--blog-dir` (не `--blog-path`) в help llms generator.
+- Убрать `--blog-path /` из agent/skill примеров indexer; оставить `--blog-dir` + `--out-dir`.
+- Добавить в pitfalls: llms generator CLI = `--blog-dir`, не `--blog-path`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261013-0945-schema-secret-scan-placeholders
 status: open
 run_date: 2026-10-13

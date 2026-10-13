@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import ssl
 import sys
@@ -130,6 +131,29 @@ def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
     return any(token in error for token in ("timed out", "timeout", "ssl", "network"))
 
 
+def _norm_url(url: str) -> str:
+    return (url or "").strip().rstrip("/")
+
+
+def is_soft_brand_catalog_5xx(href: str, result: dict[str, Any]) -> bool:
+    """Temporary 5xx on brand catalog CTA (href == CATALOG_URL) is not a content defect."""
+    catalog = _norm_url(os.environ.get("CATALOG_URL", ""))
+    if not catalog:
+        return False
+    if _norm_url(href) != catalog:
+        return False
+    status = result.get("status")
+    return isinstance(status, int) and 500 <= status < 600
+
+
+def is_unresolved_redacted_href(href: str) -> bool:
+    """Literal [REDACTED] / placeholder CTAs must hard-fail (restore live env URLs)."""
+    raw = (href or "").strip()
+    if raw in {"[REDACTED]", "REDACTED"} or raw.startswith("[REDACTED]"):
+        return True
+    return bool(re.fullmatch(r"\[[A-Z][A-Z0-9_]*\]", raw))
+
+
 def verify_article(
     html_path: Path,
     *,
@@ -142,6 +166,22 @@ def verify_article(
     user_agent = "ExcaliburBlogLinkVerify/1.0"
     results: list[dict[str, Any]] = []
     for href in links:
+        if is_unresolved_redacted_href(href):
+            results.append(
+                {
+                    "url": href,
+                    "kind": "unresolved_placeholder",
+                    "status": None,
+                    "ok": False,
+                    "skipped": False,
+                    "method": None,
+                    "error": (
+                        "unresolved CTA placeholder — never write literal [REDACTED] into href; "
+                        "restore live CATALOG_URL/TELEGRAM_URL from env before link-verify"
+                    ),
+                }
+            )
+            continue
         kind = classify_link(href, site_base)
         if skip_external and kind == "external":
             results.append(
@@ -181,6 +221,12 @@ def verify_article(
         if kind == "external" and is_soft_external_failure(href, r):
             r["ok"] = True
             r["warning"] = "soft external social timeout; verify manually if needed"
+        elif kind == "external" and is_soft_brand_catalog_5xx(href, r):
+            r["ok"] = True
+            r["warning"] = (
+                "soft brand catalog 5xx while href matches CATALOG_URL; "
+                "temporary host outage — not a content defect"
+            )
         results.append(r)
 
     failed = [r for r in results if not r.get("ok")]

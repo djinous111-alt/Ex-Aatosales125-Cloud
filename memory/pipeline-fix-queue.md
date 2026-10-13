@@ -575,7 +575,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20261013-1748-schema-git-wrapper-undocumented
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-schema
 topic_id: B01
@@ -603,7 +603,20 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Schema agent + skill (и Cloud-зеркала) требуют `bash scripts/excalibur_git.sh …` для `schema.jsonld`.
+- Pitfalls: Schema наравне с Writer — не голый `git commit`.
+files_changed:
+- `agents/excalibur-blog-schema.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` excalibur_git.sh in schema agent/skill
+commit: pending-parent-commit
 
 ## Fixed incidents
 
@@ -611,7 +624,7 @@ Handled above; commit is pending Director review.
 
 
 ## INC-20261013-1752-indexer-llms-cli-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-indexer
 topic_id: B01
@@ -639,10 +652,24 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Удалён stale `--blog-path /` из indexer agent/skill (и Cloud-зеркал); оставлена явная пометка «только --blog-dir».
+- Doctor проверяет отсутствие CLI-shaped `--blog-path <value>` в indexer docs.
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- `rg` no `--blog-path <value>` in indexer docs
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+commit: pending-parent-commit
 
 ## INC-20261013-1800-publish-http-webfetch-timeout
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-publish
 topic_id: B01
@@ -673,5 +700,27 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- `excalibur_blog_wp_publish.py`: HTTP (180s) → print FALLBACK_TRIGGER_URL → SSH CLI php (`php8.3`…`php`, 900s) → WebFetch wait (требует `OK post=`).
+- `paramiko` добавлен в `.cursor/cloud-agent-install.sh`; doctor WARN если нет.
+- Publish/director skills + pitfalls документируют параллельный WebFetch.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/cloud-agent-install.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-publish.md`
+- `.cursor/agents/excalibur-blog-publish.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/pipeline-task-map.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- wait_webfetch helper tests (OK body + reject 504 HTML)
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+commit: pending-parent-commit
 

@@ -148,7 +148,7 @@ files_changed:
 - `memory/blog/articles/B01-rastamozhka-avto-iz-korei-2026/article.meta.json`
 checks_run:
 - python href equals_catalog/tg; is_literal_redacted=False; git show HEAD check after commit
-commit: pending-writer-fix-commit
+commit: e0e39c1
 
 ## INC-20261013-1330-writer-utility-pain-markers-missing
 status: open

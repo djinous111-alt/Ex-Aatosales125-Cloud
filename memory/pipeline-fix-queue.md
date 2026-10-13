@@ -490,6 +490,7 @@ category: env
 ### How the agent recovered this run
 - Scrubbed site/catalog secret values in `schema.jsonld` to `[REDACTED]` (AS08/AS09 pattern) before commit.
 - Re-exported `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `CLOUD_AGENT_ALL_SECRET_NAMES` filtered to `^[A-Za-z_][A-Za-z0-9_]*$` for the commit process only; secret scan still ran for valid names.
+- **cover (same run):** hit identical pre-commit abort (`https:/` / `[REDACTED]` token in `CLOUD_AGENT_*_SECRET_NAMES`); recovered with the same identifier filter before `feat(cover)` commit `0dd39ed`. Cover pipeline itself had no image retry/blocker.
 
 ### Durable fix needed before next run
 - Ensure Cloud Agent secret-name injection never appends redacted/non-identifier tokens to `CLOUD_AGENT_*_SECRET_NAMES`.

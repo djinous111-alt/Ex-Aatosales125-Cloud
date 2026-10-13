@@ -39,6 +39,36 @@ category: api
 ### Fixer resolution
 - pending
 
+## INC-20261013-1310-scout-git-secret-names
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: low
+category: env
+
+### What went wrong
+- `scripts/excalibur_git.sh` missing on this branch; memory claimed it was restored, but path absent → plain `git commit`.
+- Pre-commit failed: `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a non-identifier URL fragment (`https:/…`), so bash `${!SECRET_NAME}` / `invalid variable name` aborted the hook.
+
+### How the agent recovered this run
+- Filtered SECRET_NAMES to valid bash identifiers (`[A-Za-z_][A-Za-z0-9_]*`) before commit; pushed branch successfully.
+
+### Durable fix needed before next run
+- Restore `scripts/excalibur_git.sh` (or document plain-git fallback) and filter invalid SECRET_NAMES at cloud-install / pre-commit entry.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh`
+- `.cursor/environment.json` / cloud-install
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

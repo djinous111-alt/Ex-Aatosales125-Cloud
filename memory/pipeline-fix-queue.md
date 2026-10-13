@@ -50,7 +50,7 @@ checks_run:
 - bash -n scripts/excalibur_git.sh
 - sanitize smoke (non-identifier + CTA names skipped)
 - python3 scripts/excalibur_blog_doctor.py → errors=0
-commit: pending-fixer-commit
+commit: 00f6966
 
 ## INC-20261013-1356-schema-git-secret-names
 status: fixed
@@ -91,7 +91,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - bash -n scripts/excalibur_git.sh; doctor errors=0
-commit: pending-fixer-commit
+commit: 00f6966
 
 ## INC-20261013-1345-writer-fix-cta-commit-scan
 status: fixed
@@ -140,7 +140,7 @@ files_changed:
 checks_run:
 - link_verify unit: redacted href → fail
 - sanitize smoke excludes CATALOG_URL/TELEGRAM_URL
-commit: pending-fixer-commit
+commit: 00f6966
 
 ## INC-20261013-1345-writer-fix-catalog-503
 status: fixed
@@ -180,7 +180,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - unit: catalog 503 → verdict pass + soft_pass_applied
-commit: pending-fixer-commit
+commit: 00f6966
 
 ## INC-20261013-1348-geo-qa-catalog-503-softpass
 status: fixed
@@ -225,7 +225,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - unit catalog soft-pass; doctor errors=0
-commit: pending-fixer-commit
+commit: 00f6966
 
 ## INC-20261013-1335-geo-qa-typed-task-missing
 status: fixed
@@ -269,7 +269,7 @@ files_changed:
 - `.cursor/agents/excalibur-blog-geo-qa.md`
 checks_run:
 - rg generalPurpose fallback guidance present
-commit: pending-fixer-commit
+commit: 00f6966
 
 ## INC-20261013-1336-geo-qa-cta-href-redacted
 status: fixed
@@ -318,7 +318,7 @@ files_changed:
 - `shared/excalibur-article-writing-contract.md`
 checks_run:
 - redacted href unit fail; CTA allowlist in git.sh
-commit: pending-fixer-commit
+commit: 00f6966
 
 ## INC-20261013-1330-writer-utility-pain-markers-missing
 status: fixed
@@ -362,7 +362,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - editorial_policy markers present; py_compile utility_gate
-commit: pending-fixer-commit
+commit: 00f6966
 
 ## INC-20261013-1316-research-wordstat-500
 status: fixed
@@ -408,7 +408,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg WORDSTAT API WARNING / HTTP 500 guidance
-commit: pending-fixer-commit
+commit: 00f6966
 
 ## INC-20261013-1313-director-doctor-llms-blog-path
 status: fixed
@@ -447,7 +447,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - python3 scripts/excalibur_blog_doctor.py → errors=0
-commit: pending-fixer-commit
+commit: 00f6966
 
 ## INC-20261013-1309-scout-wordstat-500
 status: fixed
@@ -490,7 +490,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg HTTP 500 guidance in scout skill
-commit: pending-fixer-commit
+commit: 00f6966
 
 ## INC-20261013-1310-scout-git-secret-names
 status: fixed
@@ -530,7 +530,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - bash -n; sanitize smoke; doctor errors=0
-commit: pending-fixer-commit
+commit: 00f6966
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -822,7 +822,7 @@ files_changed:
 - `scripts/excalibur_blog_doctor.py`
 checks_run:
 - rg no `--blog-path /` in source docs; doctor errors=0
-commit: pending-fixer-commit
+commit: 00f6966
 
 ## INC-20261013-1411-publish-catalog-503-softpass
 status: fixed
@@ -864,7 +864,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - unit catalog soft-pass
-commit: pending-fixer-commit
+commit: 00f6966
 
 ## INC-20261013-1411-publish-env-paramiko-siteenv
 status: fixed
@@ -913,7 +913,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - bash -n .cursor/cloud-agent-install.sh; rg paramiko in install
-commit: pending-fixer-commit
+commit: 00f6966
 
 
 ## Fixed incidents

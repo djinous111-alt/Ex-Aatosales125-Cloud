@@ -28,11 +28,15 @@ category: api
 ### Durable fix needed before next run
 - Проверить квоты/стабильность Yandex Cloud Wordstat topRequests в MCP-KV; добавить retry/backoff и явный low-result fallback в scout skill.
 - Зафиксировать в scout skill: при Wordstat 500 не блокировать P0, если live WP gap + parent-кластер + WebSearch подтверждают спрос; писать `scout_signal` в карточку.
+- В `CLOUD_AGENT_INJECTED_SECRET_NAMES` иногда попадает URL сайта вместо идентификатора переменной; pre-commit падает на `${!SECRET_NAME}`. Нужен filter-скрипт / `excalibur_git.sh` (или sanitize в hook), который оставляет только `[A-Za-z_][A-Za-z0-9_]*`.
 
 ### Suggested files to inspect/change
 - `.cursor/skills/scout-excalibur-blog/SKILL.md`
 - `skills/scout-excalibur-blog/SKILL.md`
 - MCP-KV Wordstat connector / Yandex Cloud API config (no secrets in repo)
+- `scripts/excalibur_blog_filter_secret_names.py` (restore if missing)
+- `scripts/excalibur_git.sh` (restore if missing)
+- `shared/agent-pipeline-pitfalls.md`
 
 ### Secrets
 - none recorded

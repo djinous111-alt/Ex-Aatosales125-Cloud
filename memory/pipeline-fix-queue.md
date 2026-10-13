@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261013-1309-scout-wordstat-500
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: api
+
+### What went wrong
+- MCP-KV `wordstat_get_top_requests` returned Yandex Search API HTTP 500 (`code:13 Internal`) for parent phrases `растаможка авто из кореи`, `encar`, `свх владивосток`.
+- Live Wordstat top-phrases / totalCount unavailable for demand scoring this cron run.
+
+### How the agent recovered this run
+- Applied documented fallback: WP gap vs recent forbid-slugs + zen parent (rank#1 Korea customs, historical ~4223) + WebSearch 2026 evidence (ДВТУ сроки, ПТД после СВХ) + `scout_signal` on topic card.
+- Confirmed `check-query` clean for `растаможка авто из кореи`; appended utility-only `## B01` to `memory/topics/blog-topics.md`.
+
+### Durable fix needed before next run
+- Document or script a scout Wordstat-500 fallback checklist (parent → narrow → WP gap → zen → WebSearch → `scout_signal`) in scout skill/agent so cron does not treat 500 as fatal.
+- Optionally add retry/backoff + alternate Wordstat endpoint/device params; alert when parent clusters all 500.
+
+### Suggested files to inspect/change
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

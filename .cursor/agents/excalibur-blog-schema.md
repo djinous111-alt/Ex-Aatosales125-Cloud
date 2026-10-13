@@ -25,12 +25,18 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 1. Прочитать article.html, article.meta.json, research-notes, authors-registry.
 2. Собрать `schema.jsonld`: BlogPosting + FAQPage (+ HowTo если нужно).
 3. datePublished из research-context (today).
-4. Fragment `.cursor/excalibur-blog-fragments/schema.md`:
+4. Fragment `.cursor/excalibur-blog-fragments/schema.md` — **не полагайся на Cursor Write** для gitignored path (может вернуть success без файла на диске). Пиши через shell или helper и сразу перечитай:
 
-```text
+```bash
+mkdir -p .cursor/excalibur-blog-fragments
+python3 scripts/excalibur_blog_write_fragment.py --name schema.md --text "$(cat <<'EOF'
 === EXCALIBUR BLOG SCHEMA ===
 topic_id:
 verdict: PASS | BLOCKER
+incident_report: none
+EOF
+)"
+test -f .cursor/excalibur-blog-fragments/schema.md
 ```
 
 ## Не твоя зона

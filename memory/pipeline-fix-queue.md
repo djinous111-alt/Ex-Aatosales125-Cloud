@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_none for run 2026-10-13 B01 — see Fixed below / inline resolutions._
+
+
 ## INC-20261013-0950-indexer-doctor-llms-blog-path
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-indexer
 topic_id: B01
@@ -44,10 +47,27 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Doctor checks `--blog-dir` (not `--blog-path`); editorial-policy pain/outcome markers required.
+- Indexer agent/skill CLI examples use `--blog-dir` + `--out-dir` only; pitfalls updated.
+- llms generator adds pragma allowlist suffix for live site-base lines; commits via `excalibur_git.sh`.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
+- `python3 scripts/excalibur_blog_llms_generator.py --help` contains `--blog-dir`
+commit: pending-parent-commit
 
 ## INC-20261013-0945-schema-secret-scan-placeholders
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-schema
 topic_id: B01
@@ -81,10 +101,28 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Restored `scripts/excalibur_blog_schema_build.py` (`--placeholders` / `--expand-env` / `--in-place --write`).
+- `excalibur_blog_wp_publish.py` expands `[PUBLIC_SITE_URL]`/`[CATALOG_URL]`/`[TELEGRAM_URL]`/`[MAX_URL]`/`[REDACTED]` before WP meta.
+- Schema skill documents git-safe placeholders + publish expand.
+files_changed:
+- `scripts/excalibur_blog_schema_build.py`
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_schema_build.py scripts/excalibur_blog_wp_publish.py`
+- `python3 scripts/excalibur_blog_schema_build.py --article-dir …/B01-… --placeholders` (stdout OK)
+- unit expand_schema_placeholders
+commit: pending-parent-commit
 
 ## INC-20261013-0931-geo-qa-utility-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -118,10 +156,27 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Doctor FAIL if `pain_markers_ru`/`outcome_markers_ru` empty or `min_*` missing.
+- editorial-policy markers kept; recommendation markers include «не делать»/«чек-лист».
+- Utility gate skips empty marker lists with config warning; human-voice TL;DR ban present; writer skill forbids TL;DR labels and `<pre>/<code>`.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → editorial-policy OK
+- `rg` TL;DR ban in human_voice_gate
+commit: pending-parent-commit
 
 ## INC-20261013-0931-geo-qa-catalog-503-soft
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -150,10 +205,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Durable soft-pass 502/503/504 for brand hosts from `CATALOG_URL`/`PUBLIC_SITE_URL` already in `link_verify.py` (warning `soft brand catalog 5xx`).
+- Documented in pitfalls: do not rewrite article domain; origin 503 remains ops/Cloud Secrets if warnings persist.
+- Repo cannot repair remote catalog origin; soft-pass prevents false GEO QA BLOCK.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` soft brand catalog 5xx in link_verify.py
+- doctor errors=0
+commit: pending-parent-commit
+note: Catalog origin 503 (if still occurring) is ops/human via Cloud Secrets host — not a code blocker.
 
 ## INC-20261013-0920-research-wordstat-500
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-research
 topic_id: B01
@@ -187,10 +255,24 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Research skill: Wordstat 500 → retry/backoff + WP/zen/WebSearch fallback; no invented impressions.
+- Research notes gate: word-boundary TECH_MARKERS; AUTO_IMPORT_MARKERS (incl. akkreditiv) skip GitHub×3; `count_accessed_at` table ISO dates.
+- Pitfalls updated. Yandex API stability itself is external (MCP-KV).
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- B01 research-notes-gate → PASS, technical_topic=False
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+commit: pending-parent-commit
 
 ## INC-20261013-0908-scout-wordstat-500
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-scout
 topic_id: B01
@@ -225,7 +307,28 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Scout agent/skill restored to Авто-Сейлс JP/KR/CN niche (not Cursor/AI).
+- Wordstat 500: retry + `scout_signal: wordstat_unavailable_fallback` with WP gap/zen/WebSearch; no invented shows.
+- Restored `filter_secret_names.py/.sh` + `excalibur_git.sh` (skip non-idents and public CTA secret names).
+- scout_helper deny-slugs / live WP restored.
+files_changed:
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_filter_secret_names.py`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/pipeline-task-map.md`
+checks_run:
+- doctor errors=0; filter_secret_names --export OK
+- `rg` Авто-Сейлс niche in scout agent
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -477,7 +580,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261013-0925-writer-secret-scan-cta
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-writer
 topic_id: B01
@@ -510,10 +613,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Restored secret-name sanitize helpers; `excalibur_git.sh` also skips CATALOG_URL/TELEGRAM_URL/MAX_URL/PUBLIC_SITE_URL from scan list.
+- Writer skill documents `<!-- pragma: allowlist secret -->` for intentional public CTA URLs.
+files_changed:
+- `scripts/excalibur_blog_filter_secret_names.py`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `scripts/excalibur_git.sh`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_filter_secret_names.py --export`
+- doctor warns/OK for git helper presence
+commit: pending-parent-commit
 
 ## INC-20261013-1010-publish-paramiko-http504-sshcli
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-publish
 topic_id: B01
@@ -548,5 +666,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending (partial in-run: install + SSH CLI fallback already patched; fixer should sync skills/pitfalls and close)
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- `.cursor/cloud-agent-install.sh` installs paramiko/numpy; doctor checks paramiko module.
+- SSH CLI php fallback + reject WebFetch 504 HTML already in `wp_publish.py`; publish skill documents 4b/4c (SSH CLI + schema expand).
+- Pitfalls: paramiko + 504 pattern.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor: OK paramiko available; errors=0
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+commit: pending-parent-commit (partial in-run: install + SSH CLI fallback already patched; fixer should sync skills/pitfalls and close)
 

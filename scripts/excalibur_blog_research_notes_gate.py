@@ -32,6 +32,30 @@ TECH_MARKERS = (
     "нейросет",
 )
 
+# Short tokens that also appear inside required field names (e.g. "ai" ⊂ "reader_pain").
+TECH_MARKERS_WORD_BOUNDARY = frozenset({"ai", "ии", "api", "rag", "mcp", "make"})
+
+# Auto-import niche: GitHub×3 evidence is not required even if notes mention tools.
+AUTO_IMPORT_MARKERS = (
+    "encar",
+    "растамож",
+    "левый руль",
+    "утильсбор",
+    "аккредит",
+    "akkreditiv",
+    "авто из кореи",
+    "авто из японии",
+    "авто из китая",
+    "из кореи",
+    "из японии",
+    "из китая",
+    "carhistory",
+    "trust encar",
+    "свх",
+    "владивосток",
+    "аукционн",
+)
+
 
 REQUIRED_FIELDS = (
     "research_date",
@@ -73,14 +97,53 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
-def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+def _topic_blob(context: dict[str, Any], notes: str, notes_limit: int = 2000) -> str:
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    blob += " " + notes[:notes_limit].lower()
+    return blob
+
+
+def _marker_in_blob(blob: str, marker: str) -> bool:
+    marker_l = marker.lower()
+    if marker_l in TECH_MARKERS_WORD_BOUNDARY:
+        return bool(
+            re.search(
+                rf"(?<![a-zа-яё0-9_]){re.escape(marker_l)}(?![a-zа-яё0-9_])",
+                blob,
+                flags=re.IGNORECASE,
+            )
+        )
+    return marker_l in blob
+
+
+def is_auto_import_niche(context: dict[str, Any], notes: str) -> bool:
+    blob = _topic_blob(context, notes, notes_limit=4000)
+    return any(marker in blob for marker in AUTO_IMPORT_MARKERS)
+
+
+def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    if is_auto_import_niche(context, notes):
+        return False
+    blob = _topic_blob(context, notes)
+    return any(_marker_in_blob(blob, marker) for marker in TECH_MARKERS)
+
+
+def count_accessed_at(text: str) -> int:
+    """Count access dates from `accessed_at:` labels AND ISO dates in source-table URL rows."""
+    text_lower = text.lower()
+    literal = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    table_dates = len(
+        re.findall(
+            r"^\s*\|[^\n]*https?://[^\n]*\b(20\d{2}-\d{2}-\d{2})\b",
+            text,
+            flags=re.M,
+        )
+    )
+    return max(literal, table_dates)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,7 +193,7 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
     pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
     action_items = count_action_items(text)

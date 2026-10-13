@@ -27,29 +27,41 @@ Append new Topic Card to blog-topics.md
 ## Подробный алгоритм действий
 
 ### Шаг 1 — Анализ прошлого и получение ID
-* Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
-* Вызови helper-скрипт:
+* Считай `shared/published-articles.md`, `memory/blog/articles/Bxx-*` и пул `memory/topics/blog-topics.md`.
+* Ниша только из `memory/brief/site-brief.md` (Авто-Сейлс). Не предлагай Cursor/n8n/Make/нейросети.
+* Вызови helper:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
+  # при необходимости: --min-id B03
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Helper пропускает занятые B-id из ledger + article dirs. Запомни `Next available topic ID`.
 
-### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
-Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
-* Поисковые запросы: *«новые ИИ инструменты автоматизации 2026»*, *«how to automate business Claude Cursor»*, *«лучшие сценарии n8n Make автоматизация»*, *«как настроить ИИ-агента инструкция»*.
-* Найди свежие, практические боли пользователей, по которым не хватает качественных гайдов.
+### Шаг 2 — Поиск горячих трендов (WebSearch)
+2–3 запроса `WebSearch` по авто-нише:
+* *«аукционный лист япония как читать 2026»*, *«encar проверка авто корея»*, *«растаможка авто владивосток утильсбор»*, *«авто из китая документы»*, *«корея vs япония авто под заказ»*.
+* Ищи практические боли новичка импорта без готового гайда.
 
 ### Шаг 3 — Валидация спроса (Yandex Wordstat)
-Для 2-3 отобранных вариантов тем вызови инструмент `wordstat_get_top_requests` сервера `user-mcp-kv`.
+Для 2-3 отобранных вариантов тем вызови инструмент `wordstat_get_top_requests` сервера `user-mcp-kv` (cluster-first: широкий parent → узкий how-to).
 * **Цель:** Найти ключевой запрос (primary query) с живым спросом в Яндексе и выписать 3–5 связанных поисковых вопросов для FAQ и secondary queries.
 * **Фильтр:** Если тема имеет микро-спрос (меньше 10 показов в месяц) и нет смежных тем — отложи её и возьми другую, более востребованную.
+* **Retry:** при HTTP 500 / `code:13 Internal` — 2–4 retry с backoff и другой phrasing/device; не крутить бесконечно.
+* **Fallback (не блокер P0):** если live Wordstat topRequests недоступен, но есть (a) live WP REST gap по уникальному токену, (b) parent-кластер из `memory/topics/zen-topics-from-metrika.json` / cached Wordstat, (c) WebSearch 2026 подтверждающий боль — зафиксируй `scout_signal: wordstat_unavailable_fallback` в карточке, live impressions = `n/a`, **не выдумывай** показы.
 
-### Шаг 4 — Тест на каннибализацию ключевых слов
-Перед созданием темы запусти:
+### Шаг 4 — Тест на каннибализацию (ledger + live WP + deny-list)
+Перед созданием темы сверь primary_query/h1/slug с:
+1. `shared/published-articles.md` + pool (делает helper);
+2. live WP: `PUBLIC_SITE_URL` REST или `EXCALIBUR_RECENT_WP_POSTS` из `today.py` (helper подтягивает сам; `published-live-*.json` может быть устаревшим);
+3. явный deny-list свежих WP slug’ов от Director.
+
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>" \
+  --proposed-slug "<kebab-slug>" \
+  --deny-slugs "slug-a,slug-b"
+# или файл: --deny-slugs memory/blog/deny-slugs.txt
 ```
-Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
+
+Если `OVERLAP DETECTED` / WP source=`unavailable` без env — не append карточку. Не полагайся только на ledger.
 
 ### Шаг 5 — Сборка карточки темы (Utility-Only)
 Сформируй карточку темы по шаблону:
@@ -80,4 +92,5 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 ## Блокеры скаута
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
-* Выдумывание цифр спроса без вызова Wordstat API.
+* Выдумывание цифр спроса без вызова Wordstat API (или без явного `scout_signal: wordstat_unavailable_fallback` + WP/WebSearch evidence).
+* Темы вне ниши Авто-Сейлс (Cursor/n8n/Make/AI) без явного Director override.

@@ -660,6 +660,39 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261013-1403-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-korei-2026
+severity: low
+category: docs
+
+### What went wrong
+- Indexer agent/skill shell examples still include `--blog-path /` for `excalibur_blog_llms_generator.py`.
+- Actual CLI accepts only `--blog-dir` (no `--blog-path`); passing the stale flag would fail argparse.
+- Related open incident: INC-20261013-1313-director-doctor-llms-blog-path (doctor check).
+
+### How the agent recovered this run
+- Ran generator with `--blog-dir memory/blog/articles` only (per user contract override); success → `memory/blog/llms.txt` + `memory/blog/llms-full.txt`.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent/skill examples; align with CLI `--blog-dir`.
+- Keep doctor/pitfalls fix from related INC.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md` (if present)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

@@ -329,3 +329,40 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261013-0925-writer-secret-scan-cta
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-akkreditiv-pri-pokupke-avto-iz-korei-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secret-scan blocked `article.html` because public CTA values `CATALOG_URL` / `TELEGRAM_URL` are listed in `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+- Same env list also contained a non-identifier fragment (`https:/`), so `${!SECRET_NAME}` crashed the hook before scanning until names were filtered to `[A-Za-z_][A-Za-z0-9_]*`.
+
+### How the agent recovered this run
+- Filtered injected secret names to valid shell identifiers for the commit.
+- Added `<!-- pragma: allowlist secret -->` on CTA lines that intentionally embed public catalog/Telegram URLs (hook-supported allowlist).
+- Did not use `--no-verify`.
+
+### Durable fix needed before next run
+- Remove public marketing URLs (`CATALOG_URL`, `TELEGRAM_URL`, `PUBLIC_SITE_URL`, `MAX_URL`) from Cloud secret-scan name list, or document writer CTA allowlist pragma in writer skill/pitfalls.
+- Restore `scripts/excalibur_blog_filter_secret_names.py` / `scripts/excalibur_git.sh` (or sanitize hook input) so invalid `SECRET_NAMES` entries cannot crash pre-commit.
+
+### Suggested files to inspect/change
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_filter_secret_names.py`
+- `scripts/excalibur_git.sh`
+- Cursor Dashboard Cloud Secrets name list (no values)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "akkreditiv-pri-pokupke-avto-iz-korei-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у ноутбука с банковским экраном и карточкой Encar: крючок про оплату авто из Кореи через аккредитив до перевода",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-13T09:44:47+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у ноутбука с банковским экраном и карточкой Encar: крючок про оплату авто из Кореи через аккредитив до перевода",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица: карта vs депозит vs аккредитив vs таможня — кто держит деньги и когда они уходят",
+      "h2_anchor": "Объясните себе, зачем аккредитив, а не перевод \"на карту\"",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Чеклист: договор, ИНН, смета и условия раскрытия до открытия аккредитива",
+      "h2_anchor": "Проверьте договор и смету до открытия аккредитива",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема: от лота Encar и договора до раскрытия аккредитива и таможни во Владивостоке",
+      "h2_anchor": "Пройдите пошагово: от лота Encar до раскрытия денег",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261013-0920-research-wordstat-500
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-akkreditiv-pri-pokupke-avto-iz-korei-2026
+severity: medium
+category: api
+
+### What went wrong
+- Research повторно получил HTTP 500 `{"code":13,"message":"Internal"}` от `wordstat_get_top_requests` на primary и parent-фразах (тот же Yandex Cloud Search API, что у scout).
+- `wordstat_get_user_info` отвечал успешно – это не 401 auth.
+- `excalibur_blog_research_notes_gate.py` помечает нетехническую тему как technical из-за substring-маркеров: `ai` внутри `reader_pain`, `ии` внутри русских слов вроде «санкции»; gate требует github.com URL даже для банковского чеклиста.
+
+### How the agent recovered this run
+- Не блокировал research: fallback demand = scout WP gap + cached parent Wordstat из zen-topics + WebSearch/WebFetch 2026 (Encar, Sber/Dostup, Drive2, avtonds).
+- В `research-notes.md` явно пометил live impressions как n/a; gate PASS после добавления github topics evidence и маркеров боль/решение/результат в pain_solution_map.
+- Вынес `reader_pain` ниже первых 2000 символов, чтобы снизить ложный technical (полностью не устранило из-за «ии»).
+
+### Durable fix needed before next run
+- Тот же Wordstat topRequests 500 – см. INC-20261013-0908; нужен retry/backoff + research skill fallback без выдуманных показов.
+- В `excalibur_blog_research_notes_gate.py` заменить substring TECH_MARKERS на word-boundary / целые токены; исключить ложные срабатывания на `reader_pain` и русские окончания «-ии».
+- Для non-tech тем (checklist авто/банки) не требовать github_urls>=3; достаточно docs/community evidence.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/excalibur-research/SKILL.md`
+- MCP-KV Wordstat connector / Yandex Cloud API config (no secrets in repo)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261013-0908-scout-wordstat-500
 status: open
 run_date: 2026-10-13

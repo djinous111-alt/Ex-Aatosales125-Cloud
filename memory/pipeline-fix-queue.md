@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261013-1356-schema-git-secret-names
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-korei-2026
+severity: low
+category: env
+
+### What went wrong
+- First `git commit` of `schema.jsonld` failed in pre-commit secret-scan: `CLOUD_AGENT_INJECTED_SECRET_NAMES` still contains a non-identifier URL fragment (`https:/…`), so bash `${!SECRET_NAME}` aborts with `invalid variable name`.
+- Same class as `#INC-20261013-1310-scout-git-secret-names`; durable filter/`excalibur_git.sh` not restored yet.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid bash identifiers before retry commit; schema content already used `[REDACTED]` URL placeholders (publish expand).
+- Commit `d97f15a` pushed; fragment written with this incident_report.
+
+### Durable fix needed before next run
+- Restore `scripts/excalibur_git.sh` (or cloud pre-commit wrapper) that strips non-identifier tokens from `CLOUD_AGENT_INJECTED_SECRET_NAMES` before `${!SECRET_NAME}`.
+- Keep schema contract: commit placeholders; expand at publish.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261013-1345-writer-fix-cta-commit-scan
 status: open
 run_date: 2026-10-13

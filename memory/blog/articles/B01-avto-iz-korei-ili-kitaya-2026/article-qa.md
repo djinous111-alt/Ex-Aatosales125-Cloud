@@ -4,9 +4,9 @@
 **slug:** avto-iz-korei-ili-kitaya-2026  
 **article_dir:** memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026  
 **date:** 2026-10-13  
-**verdict:** FAIL  
-**score:** 80  
-**COVER_SCHEMA_ALLOWED:** no
+**verdict:** PASS  
+**score:** 90  
+**COVER_SCHEMA_ALLOWED:** yes
 
 ## Scripts
 
@@ -14,12 +14,12 @@
 |--------|---------|-------|
 | research-notes gate | PASS | `research-notes-gate.json`; warn: нет official docs URL (не блокер для non-dev темы) |
 | fact-check | PASS | 10 stats; 1 verified / 9 unverified vs fact-bank (цифры есть в research-notes: 160 л.с., 3400/5200, ПП 1713, сроки) |
-| link-verify | PASS (soft) | CLI raw fail: catalog host 503 HEAD/GET; **soft-pass** — href = абсолютный `CATALOG_URL` (паттерн automation memory / prior B01 GEO); Telegram 200; `PUBLIC_SITE_URL` host 200 |
+| link-verify | PASS (soft) | catalog host 503 HEAD → soft-pass (`href` matches `CATALOG_URL`); Telegram 200; `failed_count=0` |
 | html-linter | PASS | 0 errors; TOC в теле нет; whitelist OK |
 | slop-detector | WARNING | 0 клише; 8 over-long (склейка таблиц/схем парсером); Flesch RU 67.8 |
 | cannibalization | PASS | 0 issues (`--blog-dir memory/blog/articles`) |
-| utility gate | BLOCK | `pain_markers=0 < 2`, `outcome_markers=0 < 3` — **ложный блокер**: в `editorial-policy.json` нет `pain_markers_ru` / `outcome_markers_ru`, а скрипт жёстко требует min 2/3. AS09 на той же policy тоже BLOCK |
-| human voice gate | PASS | `human-voice-report.json`; warn: Fact Check template + два списка ровно по 5 пунктов |
+| utility gate | PASS | `pain_markers=2`, `outcome_markers=3`, action=11; errors=[] |
+| human voice gate | PASS | warn: Fact Check template + два списка ровно по 5 пунктов |
 
 ## Beginner-fit
 
@@ -39,13 +39,13 @@
 | Блок | Балл | Комментарий |
 |------|------|-------------|
 | SEO structure | 16/20 | Primary в title/H1; actionable H2; CTA×3; мало blog-internal |
-| GEO / citability | 22/25 | Инсайт-блок, таблицы, схемы →, FAQ×6, чеклист; ярлык «TL;DR / Быстрый инсайт» — soft FIX |
+| GEO / citability | 22/25 | Инсайт-блок, таблицы, схемы →, FAQ×6, чеклист; ярлык «TL;DR / Быстрый инсайт» — soft note |
 | CORE-EEAT lite | 14/15 | 18/20 (см. ниже) |
 | Human voice | 15/15 | gate PASS, 0 AI-openers |
 | Fact safety | 13/15 | fact-check PASS; unverified vs fact-bank; catalog 503 soft-pass |
-| Contract HTML | 10/10 | whitelist PASS, ~9479 символов, FAQ, CTA, без форм |
-| Utility / gates | 0/10 | utility BLOCK (ложный) → вето на PASS |
-| **Итого** | **80/100** | |
+| Contract HTML | 10/10 | whitelist PASS, FAQ, CTA, без форм |
+| Utility / gates | 10/10 | research + utility + human-voice PASS |
+| **Итого** | **90/100** | |
 
 ## CORE-EEAT lite: 18/20
 
@@ -76,10 +76,9 @@
 
 ## Link verify
 
-- total: 2; CLI failed_count: 1 (catalog 503)  
-- **QA soft-pass:** catalog href == `CATALOG_URL` absolute → brand 5xx не блокер (см. automation memory)  
+- total: 2; failed_count: 0  
+- catalog: HTTP 503 → soft-pass (href matches `CATALOG_URL`)  
 - Telegram: 200  
-- `PUBLIC_SITE_URL` host: 200  
 
 ## AI-slop scan
 
@@ -89,30 +88,22 @@
 
 ## Schema ready
 
-BlogPosting: pending | FAQPage: yes (6) | HowTo: yes (чеклисты) | cover/schema: **не запускать** до PASS
+BlogPosting: pending | FAQPage: yes (6) | HowTo: yes (чеклисты) | cover/schema: **разрешены** (`COVER_SCHEMA_ALLOWED=yes`)
 
-## Blockers (почему FAIL)
+## Soft notes (не блокер)
 
-1. **utility gate BLOCK** — ложный: пустые списки маркеров в policy + hardcoded `min_pain_markers=2` / `min_outcome_markers=3` в `excalibur_blog_utility_gate.py`. Human-voice при этом PASS (pain/outcome маркеры в тексте есть). Writer не может «дописать маркеры», пока списки в policy пустые. → Fixer / INC ниже.
-
-## FIX cycle (Writer) — только если после Fixer utility снова BLOCK по тексту
-
-Сейчас **не слать Writer** только ради utility pain/outcome: gate сломан для всех статей.
-
-Soft FIX (после разблокировки gate, по желанию):
-
-1. Убрать шаблонный ярлык `TL;DR / Быстрый инсайт:` из первого `<blockquote>` (оставить смысл инсайта).
-2. По возможности разнообразить длину списков (сейчас два ol ровно по 5).
-3. После появления URL соседних постов — 2–3 internal links с `anchor_variants`.
+1. Инсайт-блок начинается с ярлыка `TL;DR / Быстрый инсайт:` — желательно убрать ярлык при следующем Writer-цикле (gates PASS, article.html не трогаем).
+2. Два списка ровно по 5 пунктов + шаблон Fact Check — human-voice WARN.
+3. После появления URL соседних постов — 2–3 internal links (`Ept02`).
 
 ## Gate checklist
 
-- score ≥ 80 → **80** ✓  
+- score ≥ 80 → **90** ✓  
 - CORE-EEAT ≥ 16/20 → **18/20** ✓  
 - link-verify pass → ✓ (soft catalog 503)  
 - research-notes gate PASS → ✓  
-- utility gate PASS → ✗  
+- utility gate PASS → ✓  
 - human voice gate PASS → ✓  
 - beginner-fit PASS → ✓  
 
-**Итог:** FAIL — cover \|\| schema **запрещены** (`COVER_SCHEMA_ALLOWED=no`). Сначала Fixer (utility policy/script) → повтор GEO QA.
+**Итог:** PASS — cover \|\| schema **разрешены** (`COVER_SCHEMA_ALLOWED=yes`).

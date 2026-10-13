@@ -508,3 +508,35 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261014-2131-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-privezti-elektromobil-iz-kitaya-2026
+severity: low
+category: docs
+
+### What went wrong
+- First llms generator call used `--blog-path /` from `.cursor/agents/excalibur-blog-indexer.md` and skill CLI example.
+- `scripts/excalibur_blog_llms_generator.py` rejects `--blog-path` (`unrecognized arguments`).
+
+### How the agent recovered this run
+- Retried without `--blog-path`: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` → PASS; B01 present in llms.txt / llms-full.txt.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent/skill CLI examples; document only flags accepted by the script.
+- Align `.cursor/agents/excalibur-blog-indexer.md` task list with actual argparse.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

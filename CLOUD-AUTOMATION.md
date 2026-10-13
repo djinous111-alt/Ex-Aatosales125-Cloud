@@ -142,6 +142,7 @@ Windows Планировщик: `scripts/install_excalibur_windows_cron.ps1`
 Fallback: если Task types недоступны — generalPurpose per role (см. AGENTS.md).
 
 Запрещено: single-agent pipeline, cover до QA PASS, секреты в handoff.
+CTA и угол обложки: Telegram @Djinous (https://t.me/Djinous). Каталог avto-sales125 не упоминать и не ставить на обложку.
 
 Финальный ответ: article_dir + QA verdict + publish URL или блокер.
 ```

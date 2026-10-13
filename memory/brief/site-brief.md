@@ -8,7 +8,8 @@ Excalibur BLOG читает этот файл для метаданных сай
 - **brand:** AVTO SALES / Avto-Sales
 - **site_url:** https://avtosales125.ru
 - **blog_path:** /
-- **catalog_url:** https://avto-sales125.ru/
+- **catalog_url:** https://t.me/Djinous
+- **catalog_mention:** Telegram @Djinous (каталог avto-sales125 больше не упоминать)
 - **language:** ru
 - **geo:** Владивосток, Дальний Восток, РФ
 - **niche:** автомобили под заказ из Японии, Кореи и Китая; растаможка, СВХ Владивосток, доставка по России
@@ -22,7 +23,7 @@ Excalibur BLOG читает этот файл для метаданных сай
 - **Instagram:** https://www.instagram.com/avtosales_rf
 - **отзывы 2GIS:** https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417/131.924668%2C43.140033/tab/reviews
 - **оффер:** привоз автомобилей под заказ из Китая, Кореи, Японии; короткие сроки; сопровождение от подбора до выдачи
-- **скрытая цель статей:** мягкая конверсия в каталог и Telegram @avtosales125 (без форм на странице статьи)
+- **скрытая цель статей:** мягкая конверсия в Telegram @Djinous и Telegram @avtosales125 (без форм на странице статьи)
 
 ## Аналитика тем (Дзен)
 
@@ -43,11 +44,11 @@ Excalibur BLOG читает этот файл для метаданных сай
 2. **Корея:** Encar, Trust Encar, Carhistory, модели Kia/Hyundai
 3. **Китай:** документы, электромобили, кроссоверы (Haval, Changan, Geely)
 4. **Логистика Владивосток:** СВХ, ролкеры, ж/д, автовоз, перегон
-5. **Пошлины и утильсбор 2026:** без готовых сумм-примеров; расчёт — в каталоге
+5. **Пошлины и утильсбор 2026:** без готовых сумм-примеров; расчёт — в Telegram @Djinous
 6. **Доверие:** VIN, скрытые ДТП, типичные схемы перекупов
 7. **Сравнение стран:** Корея vs Япония vs Китай под один бюджет
 
-**Формат статей:** utility-only how-to, чеклисты, comparison, troubleshooting. Каждая статья ведёт к каталогу / Telegram.
+**Формат статей:** utility-only how-to, чеклисты, comparison, troubleshooting. Каждая статья ведёт в Telegram @Djinous и Telegram @avtosales125.
 
 ## Ниша и редакция
 
@@ -64,17 +65,17 @@ Excalibur BLOG читает этот файл для метаданных сай
 - **reference:** `memory/cover/assets/blog-hero-reference.png`
 - **style refs:** `memory/cover/assets/style-ref-cover-01.jpg`, `memory/cover/assets/style-ref-cover-02.jpg`
 - **lock:** `memory/cover/blog-hero.json`
-- **правило:** лицо с reference; **одежду менять под погоду сцены и тему статьи** (не копировать майку с reference); без кепки/капюшона; стильные очки; **угол обложки — каталог `avto-sales125.ru`** (не Telegram)
+- **правило:** лицо с reference; **одежду менять под погоду сцены и тему статьи** (не копировать майку с reference); без кепки/капюшона; стильные очки; **угол обложки — Telegram `@Djinous`**
 
 - **обложка:** hyper-realistic action selfie / meme-collage 16:9; короткий русский заголовок на плашке
 
 ## Офферы и CTA
 
-См. `conversion-map.md`. Кратко: каталог avto-sales125.ru, Telegram @avtosales125, MAX, отзывы 2GIS.
+См. `conversion-map.md`. Кратко: Telegram @Djinous, Telegram @avtosales125, MAX, отзывы 2GIS.
 
 ## Запреты
 
-- Формы захвата лида на странице статьи (все формы — только в каталоге)
+- Формы захвата лида на странице статьи (расчёт и подбор — в Telegram @Djinous)
 - Статичные калькуляторы пошлин и таблицы с конкретными ценами авто
 - Выдуманные VIN, номера лотов, фейковые отзывы
 - Эмодзи в тексте статей
@@ -86,4 +87,4 @@ Excalibur BLOG читает этот файл для метаданных сай
 
 - **preferred_cover_family:** brand_collage / action_selfie
 - **brand_colors:** #0B1F3A, #E8F1FF, #C8102E
-- **visual_notes:** 16:9; референсы из blueprint; в углу обложки каталог `avto-sales125.ru` (не Telegram)
+- **visual_notes:** 16:9; референсы из blueprint; в углу обложки Telegram `@Djinous`

@@ -227,7 +227,7 @@ Design Guardian / Excalibur run log проверяет:
 
 **Family:** `brand_collage` + human hook collage (quad 2×2)
 
-- Fixed: navy `#0B1F3A`, red `#C8102E`, light `#E8F1FF`; corner brand `avto-sales125.ru` (каталог, не Telegram)
+- Fixed: navy `#0B1F3A`, red `#C8102E`, light `#E8F1FF`; corner brand `Telegram @Djinous`
 - Variable: JP/KR/CN cars, Encar/auction cards, customs checklist, 2GIS reviews, weather-matched hero outfit
 - Collage: face+glasses locked from hero reference; **не** копировать майку reference; NO Wordstat/Metrika UI
 

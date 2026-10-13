@@ -127,7 +127,7 @@ SSH_ROOT=/avtosales125/public_html
 FTP_HOST=djinoum7.beget.tech
 FTP_ROOT=/
 EXCALIBUR_BLOG_ALLOW_PUBLISH=no
-CATALOG_URL=https://avto-sales125.ru/
+CATALOG_URL=https://t.me/Djinous
 TELEGRAM_URL=https://t.me/avtosales125
 """
         env_example_path.write_text(example_content, encoding="utf-8")

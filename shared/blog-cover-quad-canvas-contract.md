@@ -64,7 +64,7 @@ Split-скрипт **не режет механически 50/50**: ищет б
 
 `memory/cover/cover-design-code.json` — human hook collage для cover panel:
 
-- fake скрины (Telegram @avtosales125, отзывы 2GIS, Encar/аукцион, чеклист) — **без Wordstat и без Метрики**
+- fake скрины (Telegram @Djinous, отзывы 2GIS, Encar/аукцион, чеклист) — **без Wordstat и без Метрики**; угол обложки: `@Djinous`, не каталог avto-sales125.ru
 - рваная бумага, скотч, розовые стикеры, маркер
 - разные мем-реакции (не один Drake на весь холст)
 - 16:9 widescreen, **не** vertical carousel

@@ -9,7 +9,7 @@
   "secondary_cover_families": ["action_selfie"],
   "prompt_assembly_mode": "prefix_scene_suffix",
   "global_prompt_prefix": "Photorealistic AVTO SALES cover, blog host from reference, Japan Korea China car import, Cyrillic headline plaque, Vladivostok/Asia logistics vibe,",
-  "global_prompt_suffix": "16:9, hero outfit MUST match scene weather and article topic (not reference t-shirt), no cap no hood, subtle corner brand avto-sales125.ru catalog site (NOT Telegram handle), modern cars only, high detail",
+  "global_prompt_suffix": "16:9, hero outfit MUST match scene weather and article topic (not reference t-shirt), no cap no hood, subtle corner brand Telegram @Djinous (NOT catalog site avto-sales125.ru), modern cars only, high detail",
   "global_negative_prompt": "English text, Latin letters, watermark, blurry face, cartoon, illustration, cap, hoodie, vintage yellow filter, sepia, fake lot numbers, unrelated tech-blog branding, Wordstat, Vordstat, Metrika, Metrica, Yandex Metrika UI, SEO analytics dashboard",
   "composition_lock": {
     "aspect_ratio": "16:9",

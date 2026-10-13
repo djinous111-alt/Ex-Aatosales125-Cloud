@@ -13,7 +13,7 @@ Machine-readable: `cover-concept.json`
 ## Fixed
 
 - `cover_family`, color_lock, composition 16:9
-- Угол обложки: каталог `avto-sales125.ru` (не Telegram)
+- Угол обложки: Telegram `@Djinous`
 - Без кепки/капюшона у героя
 
 ## Variable

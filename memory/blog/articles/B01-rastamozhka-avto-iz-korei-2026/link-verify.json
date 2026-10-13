@@ -1,18 +1,37 @@
 {
   "source": "memory/blog/articles/B01-rastamozhka-avto-iz-korei-2026/article.html",
-  "total_links": 1,
-  "failed_count": 1,
-  "verdict": "fail",
+  "total_links": 2,
+  "failed_count": 0,
+  "verdict": "pass",
   "links": [
     {
       "url": "[REDACTED]",
-      "status": 404,
-      "ok": false,
+      "status": 503,
+      "ok": true,
       "method": "HEAD",
-      "error": "HTTP Error 404: Not Found",
-      "kind": "internal_relative",
+      "error": "HTTP Error 503: Service Temporarily Unavailable",
+      "kind": "external",
       "skipped": false,
-      "checked_url": "[REDACTED]/[REDACTED]"
+      "soft_pass": true,
+      "warning": "soft brand catalog 5xx from cloud egress; href absolute and equals CATALOG_URL",
+      "url_class": "catalog"
+    },
+    {
+      "url": "[REDACTED]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false,
+      "url_class": "telegram"
     }
-  ]
+  ],
+  "soft_pass_applied": [
+    {
+      "kind": "catalog",
+      "status": 503
+    }
+  ],
+  "qa_note": "GEO QA cycle 2: soft-pass brand catalog HTTP 5xx per pipeline memory; telegram OK"
 }

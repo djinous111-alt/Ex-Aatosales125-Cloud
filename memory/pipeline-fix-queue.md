@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261013-0945-schema-secret-scan-placeholders
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-akkreditiv-pri-pokupke-avto-iz-korei-2026
+severity: medium
+category: publish
+
+### What went wrong
+- Pre-commit secret-scan блокирует commit `schema.jsonld` с реальными `PUBLIC_SITE_URL` / `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL` из registry.
+- `scripts/excalibur_blog_schema_build.py` с `--expand-env` / `--placeholders` по-прежнему отсутствует (см. INC-20261005-1748).
+- `excalibur_blog_wp_publish.py` читает schema as-is и не раскрывает `[REDACTED]` перед post meta.
+
+### How the agent recovered this run
+- Собрал полный BlogPosting+FAQPage+HowTo, затем переписал URL на git-safe `[REDACTED]` для commit `87498a3`.
+- Локально снова expand из env/registry для publish readiness (working tree dirty, не в git).
+- Fragment: `.cursor/excalibur-blog-fragments/schema.md`.
+
+### Durable fix needed before next run
+- Добавить `scripts/excalibur_blog_schema_build.py` (`--placeholders` для git, `--expand-env` для publish).
+- Publish: expand `[REDACTED]`/`[PUBLIC_SITE_URL]` в schema meta перед upload.
+- Документировать в schema skill: в git — плейсхолдеры; runtime — expand.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_schema_build.py` (new)
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261013-0931-geo-qa-utility-markers-missing
 status: open
 run_date: 2026-10-13

@@ -609,3 +609,34 @@ category: docs
 
 Handled above; commit is pending Director review.
 
+
+## INC-20261013-1752-indexer-llms-cli-blog-path-stale
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer agent/skill still document `excalibur_blog_llms_generator.py ... --blog-path /`, but the script CLI only accepts `--blog-dir` (no `--blog-path`). Following the agent prompt literally would fail argparse.
+- Handoff `doctor_note` earlier flagged the mismatch; pitfalls already say «только --blog-dir», yet agent/skill shell blocks were not cleaned.
+
+### How the agent recovered this run
+- Ran llms generator with actual CLI: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`). PASS: `memory/blog/llms.txt`, `memory/blog/llms-full.txt`.
+
+### Durable fix needed before next run
+- Remove `--blog-path /` from indexer agent + skill shell examples in both `agents/` / `skills/` and `.cursor/` mirrors; align with script help and `shared/agent-pipeline-pitfalls.md`.
+
+### Suggested files to inspect/change
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

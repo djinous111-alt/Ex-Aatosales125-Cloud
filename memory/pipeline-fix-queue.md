@@ -39,6 +39,37 @@ category: env
 ### Fixer resolution
 - pending
 
+## INC-20261013-1706-scout-git-secret-names-hook
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `git commit` упал в pre-commit: `CLOUD_AGENT_INJECTED_SECRET_NAMES` с пробелами даёт `invalid variable name`.
+- `scripts/excalibur_git.sh` (sanitize + allowlist) отсутствует в дереве, хотя memory ссылается на него как на стандартный путь коммита.
+
+### How the agent recovered this run
+- Нормализовал env в comma-separated bash identifiers через python3, затем повторил commit успешно.
+
+### Durable fix needed before next run
+- Восстановить `scripts/excalibur_git.sh` с нормализацией SECRET_NAMES и allowlist публичных CTA/site URL.
+- Зафиксировать workaround в scout/director pitfalls, если скрипт ещё не в repo.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

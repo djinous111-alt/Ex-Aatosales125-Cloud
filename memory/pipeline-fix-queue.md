@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261013-1705-scout-wp-mcp-wrong-site
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- MCP `wordpress_get_posts` вернул публикации чужого сайта (tamopro.ru: таможня/СБКТС/ЭПТС), а не блог Авто-Сейлс.
+- Ledger `shared/published-articles.md` после rebrand неполный (только AS08/AS09), поэтому Scout не может опереться только на WP MCP или ledger для denylist slug.
+
+### How the agent recovered this run
+- Использовал denylist slug/post_id из automation memory + явный список live WP из задания cron (не republish 3505 и соседние посты).
+- Выбрал новую comparison-тему B01 вне denylist и вне AS01–AS09 primary intent.
+
+### Durable fix needed before next run
+- Привязать MCP WordPress к сайту Авто-Сейлс (или отдельный namespace) и синхронизировать ledger со live WP после rebrand.
+- Документировать для Scout: при неполном ledger обязателен denylist из memory/automation, а не слепой wordpress_get_posts.
+
+### Suggested files to inspect/change
+- MCP WordPress credentials / site URL (Dashboard Secrets)
+- `shared/published-articles.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

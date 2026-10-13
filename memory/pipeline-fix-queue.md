@@ -515,24 +515,31 @@ run_date: 2026-10-14
 role: excalibur-blog-indexer
 topic_id: B01
 article_dir: memory/blog/articles/B01-kak-privezti-elektromobil-iz-kitaya-2026
-severity: low
+severity: medium
 category: docs
 
 ### What went wrong
 - First llms generator call used `--blog-path /` from `.cursor/agents/excalibur-blog-indexer.md` and skill CLI example.
 - `scripts/excalibur_blog_llms_generator.py` rejects `--blog-path` (`unrecognized arguments`).
+- After successful generate, pre-commit secret-scan blocked commit: live `PUBLIC_SITE_URL` written into `memory/blog/llms.txt` and `llms-full.txt` (also `interlink-suggestions.json` site_base).
+- Separately, space-joined filtered `CLOUD_AGENT_*_SECRET_NAMES` broke the hook (IFS=`,` expects commas) — same family as INC-2124.
 
 ### How the agent recovered this run
-- Retried without `--blog-path`: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` → PASS; B01 present in llms.txt / llms-full.txt.
+- Retried llms without `--blog-path`: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` → PASS; B01 present.
+- Scrubbed live site/catalog/telegram/max URLs to `[REDACTED]` in llms + interlink-suggestions before commit.
+- Re-exported secret-name lists as comma-separated valid identifiers only.
 
 ### Durable fix needed before next run
 - Remove `--blog-path` from indexer agent/skill CLI examples; document only flags accepted by the script.
-- Align `.cursor/agents/excalibur-blog-indexer.md` task list with actual argparse.
+- `excalibur_blog_llms_generator.py` / interlinker: write `[REDACTED]` (or `${PUBLIC_SITE_URL}`) in committed artifacts, not live site base.
+- Indexer skill: explicit post-generate scrub + comma filter for `CLOUD_AGENT_*_SECRET_NAMES` before commit.
 
 ### Suggested files to inspect/change
 - `.cursor/agents/excalibur-blog-indexer.md`
 - `.cursor/skills/indexer-excalibur-blog/SKILL.md`
 - `skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
 - `shared/agent-pipeline-pitfalls.md`
 
 ### Secrets
@@ -540,3 +547,34 @@ category: docs
 
 ### Fixer resolution
 - pending
+
+## INC-20261014-2134-publish-paramiko-missing
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-privezti-elektromobil-iz-kitaya-2026
+severity: blocker
+category: env
+
+### What went wrong
+- `ModuleNotFoundError: No module named 'paramiko'` during SSH bootstrap upload in `excalibur_blog_wp_publish.py`.
+- `requirements.txt` lists paramiko, but Cloud runtime python did not have it installed (PEP 668 blocked plain pip).
+
+### How the agent recovered this run
+- Installed with `python3 -m pip install --break-system-packages paramiko` and retried publish.
+
+### Durable fix needed before next run
+- Ensure `.cursor/cloud-agent-install.sh` installs paramiko with `--break-system-packages` and environment build includes it so publish agents boot ready.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `.cursor/environment.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

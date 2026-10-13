@@ -1,0 +1,36 @@
+{
+  "slug": "kak-privezti-elektromobil-iz-kitaya-2026",
+  "topic_id": "B01",
+  "permalink": "[REDACTED]/2026/10/14/kak-privezti-elektromobil-iz-kitaya-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-kak-privezti-elektromobil-iz-kitaya-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1373121,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=4162 slug=kak-privezti-elektromobil-iz-kitaya-2026\nOK featured_image=4163\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4164 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/10/kak-privezti-elektromobil-iz-kitaya-2026-inline-01.png\nOK inline_image_upload=4165 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/10/kak-privezti-elektromobil-iz-kitaya-2026-inline-02.png\nOK inline_image_upload=4166 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/10/kak-privezti-elektromobil-iz-kitaya-2026-inline-03.png\npermalink=[REDACTED]/2026/10/14/kak-privezti-elektromobil-iz-kitaya-2026/\n",
+  "verdict": "pass",
+  "post_id": 4162,
+  "featured_image": 4163,
+  "inline_images": [
+    {
+      "id": 4164,
+      "src": "cover/inline-01.png",
+      "url": "[REDACTED]/wp-content/uploads/2026/10/kak-privezti-elektromobil-iz-kitaya-2026-inline-01.png"
+    },
+    {
+      "id": 4165,
+      "src": "cover/inline-02.png",
+      "url": "[REDACTED]/wp-content/uploads/2026/10/kak-privezti-elektromobil-iz-kitaya-2026-inline-02.png"
+    },
+    {
+      "id": 4166,
+      "src": "cover/inline-03.png",
+      "url": "[REDACTED]/wp-content/uploads/2026/10/kak-privezti-elektromobil-iz-kitaya-2026-inline-03.png"
+    }
+  ],
+  "schema_meta": true,
+  "skip_theme_faq_meta": true
+}

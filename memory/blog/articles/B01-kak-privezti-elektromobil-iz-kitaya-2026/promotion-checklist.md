@@ -1,7 +1,7 @@
 # Promotion checklist — B01 kak-privezti-elektromobil-iz-kitaya-2026
 
 Дата публикации: 2026-10-14  
-Live URL: [REDACTED]/2026/10/14/kak-privezti-elektromobil-iz-kitaya-2026/ (после publish)
+Live URL: [REDACTED]/2026/10/14/kak-privezti-elektromobil-iz-kitaya-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir …/B01-… --site-base $PUBLIC_SITE_URL` — 0 links applied (3 articles loaded).
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (B01 в индексе; CLI без `--blog-path`).
-- Publish: pending после Indexer.
+- Publish: PASS post_id=4162; featured=4163; inline=[4164, 4165, 4166]; schema_meta=ok; method=SSH+HTTP.

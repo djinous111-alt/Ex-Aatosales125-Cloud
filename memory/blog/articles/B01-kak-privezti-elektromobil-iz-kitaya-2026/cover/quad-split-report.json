@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-kak-privezti-elektromobil-iz-kitaya-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1283,
+      738
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 738,
+        "end": 774
+      },
+      "v_gutter_px": {
+        "start": 1283,
+        "end": 1309
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 8,
+          "right": 1283,
+          "bottom": 730
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1283,
+          "bottom": 738
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у китайского EV в порту Владивостока с планшетом VIN и плашкой «до депозита»",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1309,
+          "top": 17,
+          "right": 2560,
+          "bottom": 721
+        },
+        "raw_box_px": {
+          "left": 1309,
+          "top": 0,
+          "right": 2560,
+          "bottom": 738
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица UI: город, бюджет, зарядка и зима до поиска лота EV из Китая",
+        "h2_anchor": "Зафиксируйте задачу до поиска лота"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 49,
+          "top": 774,
+          "right": 1233,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 774,
+          "right": 1283,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: от пика с баннера к 30-минутной мощности в документах",
+        "h2_anchor": "Как найти 30-минутную мощность – не пик с баннера"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1342,
+          "top": 774,
+          "right": 2526,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1309,
+          "top": 774,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист льготного утильсбора без готовых сумм в статье",
+        "h2_anchor": "Проверьте льготный утильсбор без калькулятора в статье"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте задачу до поиска лота",
+    "injected inline_2 after H2 — Как найти 30-минутную мощность – не пик с баннера",
+    "injected inline_3 after H2 — Проверьте льготный утильсбор без калькулятора в статье"
+  ]
+}

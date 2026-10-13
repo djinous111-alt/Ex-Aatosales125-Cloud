@@ -53,7 +53,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - docs/rg review
-commit: pending-parent-commit
+commit: c33098a
 
 ## INC-20261013-1728-geo-qa-typed-task-fallback
 status: fixed
@@ -98,7 +98,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` generalPurpose / geo-qa fallback wording
-commit: pending-parent-commit
+commit: c33098a
 
 ## INC-20261013-1729-geo-qa-utility-pain-markers-empty
 status: fixed
@@ -152,7 +152,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir …/AS09-…` → PASS
 - empty-markers skip WARN helper test PASS
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
-commit: pending-parent-commit
+commit: c33098a
 
 ## INC-20261013-1730-geo-qa-catalog-link-503
 status: fixed
@@ -199,7 +199,7 @@ files_changed:
 checks_run:
 - catalog soft-pass integrate helper test PASS
 - redacted hard-fail helper test PASS
-commit: pending-parent-commit
+commit: c33098a
 
 ## INC-20261013-1712-research-webfetch-504
 status: fixed
@@ -241,7 +241,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` accessed_at / WebFetch 504 guidance
-commit: pending-parent-commit
+commit: c33098a
 
 ## INC-20261013-1706-scout-git-secret-names-hook
 status: fixed
@@ -283,7 +283,7 @@ files_changed:
 - `skills/scout-excalibur-blog/SKILL.md`
 checks_run:
 - `bash scripts/excalibur_git.sh status` with dirty SECRET_NAMES → skips non-identifiers + public CTA names
-commit: pending-parent-commit
+commit: c33098a
 
 ## INC-20261013-1720-writer-git-secret-scan-cta
 status: fixed
@@ -327,7 +327,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - sanitize dry-run skips public CTA/site names
-commit: pending-parent-commit
+commit: c33098a
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

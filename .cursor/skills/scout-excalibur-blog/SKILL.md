@@ -43,6 +43,7 @@ Append new Topic Card to blog-topics.md
 Для 2-3 отобранных вариантов тем вызови инструмент `wordstat_get_top_requests` сервера `user-mcp-kv`.
 * **Цель:** Найти ключевой запрос (primary query) с живым спросом в Яндексе и выписать 3–5 связанных поисковых вопросов для FAQ и secondary queries.
 * **Фильтр:** Если тема имеет микро-спрос (меньше 10 показов в месяц) и нет смежных тем — отложи её и возьми другую, более востребованную.
+* **HTTP 500 / code:13:** не fatal. Retry 1–2× → parent cluster → narrow → WP gap vs forbid-slugs → zen/historical → WebSearch 2026 evidence → `scout_signal` на карточке. Пиши `⚠️ WORDSTAT API WARNING`; не выдумывай live-показы.
 
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:

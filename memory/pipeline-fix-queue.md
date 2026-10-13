@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None open after 2026-10-13 B01 fixer loop._
+
+
 ## INC-20261013-1400-cover-git-secret-names
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-cover
 topic_id: B01
@@ -35,10 +38,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Restored `scripts/excalibur_git.sh`: sanitize SECRET_NAMES to bash identifiers; exclude PUBLIC_SITE_URL/WP_*/CATALOG_URL/TELEGRAM_URL from secret-scan.
+- Documented in pitfalls; agents should commit via `bash scripts/excalibur_git.sh`.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- bash -n scripts/excalibur_git.sh
+- sanitize smoke (non-identifier + CTA names skipped)
+- python3 scripts/excalibur_blog_doctor.py → errors=0
+commit: pending-fixer-commit
 
 ## INC-20261013-1356-schema-git-secret-names
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-schema
 topic_id: B01
@@ -67,10 +82,19 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Same durable fix as cover/scout SECRET_NAMES: `scripts/excalibur_git.sh` restored with identifier filter + public URL allowlist.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- bash -n scripts/excalibur_git.sh; doctor errors=0
+commit: pending-fixer-commit
 
 ## INC-20261013-1345-writer-fix-cta-commit-scan
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-writer
 topic_id: B01
@@ -101,10 +125,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- `excalibur_git.sh` excludes CATALOG_URL/TELEGRAM_URL from secret-scan so live CTA hrefs can commit.
+- Writer skill + writing contract forbid literal `[REDACTED]` CTA hrefs; link_verify hard-fails them.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- link_verify unit: redacted href → fail
+- sanitize smoke excludes CATALOG_URL/TELEGRAM_URL
+commit: pending-fixer-commit
 
 ## INC-20261013-1345-writer-fix-catalog-503
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-writer
 topic_id: B01
@@ -132,10 +171,19 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- `excalibur_blog_link_verify.py`: soft-pass brand catalog 5xx/egress when href == env CATALOG_URL; soft_pass_applied flag.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: catalog 503 → verdict pass + soft_pass_applied
+commit: pending-fixer-commit
 
 ## INC-20261013-1348-geo-qa-catalog-503-softpass
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -166,10 +214,21 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Durable catalog 5xx soft-pass in link_verify; GEO QA skill documents soft-pass vs `[REDACTED]` hard fail.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit catalog soft-pass; doctor errors=0
+commit: pending-fixer-commit
 
 ## INC-20261013-1335-geo-qa-typed-task-missing
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -197,10 +256,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Documented generalPurpose fallback as supported Cloud path in pipeline-task-map, CURSOR-CLOUD-RUNBOOK, pitfalls, geo-qa agent.
+- Typed Task enum registration remains platform-side; repo contract no longer rediscovers the mismatch each run.
+files_changed:
+- `shared/pipeline-task-map.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `agents/excalibur-blog-geo-qa.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+checks_run:
+- rg generalPurpose fallback guidance present
+commit: pending-fixer-commit
 
 ## INC-20261013-1336-geo-qa-cta-href-redacted
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -238,17 +310,18 @@ category: qa
 status: fixed
 fixed_at: 2026-10-13
 fix_summary:
-- Writer FIX loop restored live CTA hrefs from env and removed TL;DR label; commit uses SECRET_NAMES filter excluding CATALOG_URL/TELEGRAM_URL.
-- Follow-up durable allowlist still tracked under INC-20261013-1345-writer-fix-cta-commit-scan.
+- Article CTA restored in-run (writer FIX). Durable: excalibur_git.sh allowlist + writer/geo-qa contracts + link_verify hard-fail on literal `[REDACTED]`.
 files_changed:
-- `memory/blog/articles/B01-rastamozhka-avto-iz-korei-2026/article.html`
-- `memory/blog/articles/B01-rastamozhka-avto-iz-korei-2026/article.meta.json`
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
 checks_run:
-- python href equals_catalog/tg; is_literal_redacted=False; git show HEAD check after commit
-commit: e0e39c1
+- redacted href unit fail; CTA allowlist in git.sh
+commit: pending-fixer-commit
 
 ## INC-20261013-1330-writer-utility-pain-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-writer
 topic_id: B01
@@ -281,15 +354,18 @@ category: script
 status: fixed
 fixed_at: 2026-10-13
 fix_summary:
-- Added pain/outcome marker lists to editorial-policy; B01 utility language already present.
+- `pain_markers_ru` / `outcome_markers_ru` present in editorial-policy.json.
+- utility_gate WARNs (not eternal BLOCK) when arrays missing; still ERRORs when arrays exist but counts low.
 files_changed:
 - `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
 checks_run:
-- `python3 scripts/excalibur_blog_utility_gate.py --article-dir memory/blog/articles/B01-rastamozhka-avto-iz-korei-2026`
-commit: pending-writer-commit
+- editorial_policy markers present; py_compile utility_gate
+commit: pending-fixer-commit
 
 ## INC-20261013-1316-research-wordstat-500
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-research
 topic_id: B01
@@ -320,10 +396,22 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Shared Wordstat-500 runbook in research+scout skills and pitfalls (retry → historical/non-live label → WebSearch; never invent live counts).
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg WORDSTAT API WARNING / HTTP 500 guidance
+commit: pending-fixer-commit
 
 ## INC-20261013-1313-director-doctor-llms-blog-path
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-director
 topic_id: B01
@@ -350,10 +438,19 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Doctor now checks llms generator for `--blog-dir` (CLI has no `--blog-path`).
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- python3 scripts/excalibur_blog_doctor.py → errors=0
+commit: pending-fixer-commit
 
 ## INC-20261013-1309-scout-wordstat-500
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-scout
 topic_id: B01
@@ -383,10 +480,20 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Scout Wordstat-500 checklist documented (parent→narrow→WP gap→zen→WebSearch→scout_signal); shared with research runbook.
+files_changed:
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg HTTP 500 guidance in scout skill
+commit: pending-fixer-commit
 
 ## INC-20261013-1310-scout-git-secret-names
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-scout
 topic_id: B01
@@ -413,7 +520,17 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Restored `scripts/excalibur_git.sh` with SECRET_NAMES sanitize; documented in pitfalls/runbook.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- bash -n; sanitize smoke; doctor errors=0
+commit: pending-fixer-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -661,7 +778,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20261013-1403-indexer-llms-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-indexer
 topic_id: B01
@@ -693,11 +810,22 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Removed stale `--blog-path` from indexer agent/skill examples; doctor aligned to `--blog-dir`.
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- rg no `--blog-path /` in source docs; doctor errors=0
+commit: pending-fixer-commit
 
 ## INC-20261013-1411-publish-catalog-503-softpass
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-publish
 topic_id: B01
@@ -725,10 +853,21 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Same link_verify brand-catalog 5xx soft-pass; publish skill documents soft-pass vs REDACTED hard fail.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit catalog soft-pass
+commit: pending-fixer-commit
 
 ## INC-20261013-1411-publish-env-paramiko-siteenv
-status: open
+status: fixed
 run_date: 2026-10-13
 role: excalibur-blog-publish
 topic_id: B01
@@ -761,8 +900,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- cloud-agent-install.sh installs paramiko and bootstraps gitignored memory/site.env.local from env (SSH_ROOT=. default).
+- Publish skill documents env-check / paramiko / SSH_ROOT=.
+- Optional: set SSH_ROOT=. in Cloud Secrets (documented; not a code blocker).
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- bash -n .cursor/cloud-agent-install.sh; rg paramiko in install
+commit: pending-fixer-commit
+
 
 ## Fixed incidents
 
-Handled above; commit is pending Director review.
+Closed by fixer 2026-10-13 (B01 rastamozhka); commit hash filled after push.

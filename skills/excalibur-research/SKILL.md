@@ -43,6 +43,10 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
   - Если вызов вернул `401 Unauthorized` (токен устарел):
     - Запиши в `research-notes.md` предупреждение: `⚠️ WORDSTAT AUTH WARNING: Токен Wordstat устарел. Обновите токен через: https://oauth.yandex.ru/authorize?response_type=token&client_id=c654b948515a4a07a4c89648a0831d40`
     - Сделай экспертную оценку семантики, но явно укажи, что точные объемы спроса не получены из-за авторизации.
+  - Если вызов вернул HTTP **500** / `code:13 Internal` (Yandex Search API):
+    - Retry 1–2× с коротким backoff; при устойчивом 500 — **не fatal**.
+    - Запиши `⚠️ WORDSTAT API WARNING` в `research-notes.md`; используй historical/scout fallback с явной меткой **non-live**; добери LSI/SERP через `WebSearch`.
+    - **Не выдумывай** live monthly impressions.
   - Если вызов успешен:
     - Сформируй в `research-notes.md` таблицу спроса: Фраза | Показы в месяц.
     - Выдели сопутствующие LSI-запросы из топа выдачи Вордстата для использования копирайтером.

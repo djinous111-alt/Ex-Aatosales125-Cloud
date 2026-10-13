@@ -8,6 +8,8 @@ is_background: false
 
 **Язык:** русский. **Шаг пайплайна:** ③
 
+Cloud: если typed Task `excalibur-blog-geo-qa` недоступен — запускай как `Task(generalPurpose)` с этим файлом + `.cursor/skills/excalibur-geo-qa/SKILL.md` (штатный fallback, см. `shared/pipeline-task-map.md`).
+
 ## Incident memory (обязательно)
 
 Если во время задачи был blocker, retry, tool/API error, ручной workaround, переписывание артефакта из-за неясного контракта или любое исправление, которое нужно не повторять в следующем run, допиши incident в `memory/pipeline-fix-queue.md` по `shared/pipeline-incident-fix-contract.md`.

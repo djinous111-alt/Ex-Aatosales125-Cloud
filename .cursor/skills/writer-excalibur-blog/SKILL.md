@@ -37,10 +37,18 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## CTA и git commit
+
+- CTA `href` бери из env `CATALOG_URL` / `TELEGRAM_URL` (абсолютные `https://…`).
+- **Запрещено** коммитить literal `href="[REDACTED]"` — это ломает link-verify и GEO QA.
+- Коммиты: `bash scripts/excalibur_git.sh commit -m "…"` (фильтрует non-identifier SECRET_NAMES и исключает public CTA/site URL names из secret-scan).
+- Self-check перед commit: в `article.html` нет `href="[REDACTED]"` и catalog/telegram CTA совпадают с env.
+
 ## Blockers
 
 - нет research-notes.md
 - utility-only нарушен (вода, нет шагов)
 - объём вне диапазона после 1 правки
+- literal `[REDACTED]` в CTA href
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`

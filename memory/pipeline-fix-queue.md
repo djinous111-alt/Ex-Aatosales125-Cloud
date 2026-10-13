@@ -574,6 +574,37 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261013-1748-schema-git-wrapper-undocumented
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026
+severity: low
+category: docs
+
+### What went wrong
+- Plain `git commit` of `schema.jsonld` failed twice: (1) invalid secret name token in `CLOUD_AGENT_INJECTED_SECRET_NAMES` crashed pre-commit; (2) public site/CTA URLs in JSON-LD (`PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`) tripped Cursor secret scan.
+- Schema skill / agent prompt do not mention `scripts/excalibur_git.sh`, unlike Writer skill and `shared/agent-pipeline-pitfalls.md`.
+
+### How the agent recovered this run
+- Committed via `bash scripts/excalibur_git.sh commit` (already fixed for Writer/Scout). Artifact `schema.jsonld` is valid JSON-LD and was committed.
+
+### Durable fix needed before next run
+- Document in schema skill + `.cursor/agents/excalibur-blog-schema.md`: commit only through `bash scripts/excalibur_git.sh …`; do not use bare `git commit` for files containing site/CTA absolute URLs.
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+- `agents/excalibur-blog-schema.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

@@ -1,7 +1,8 @@
 # Promotion checklist — B01 rastamozhka-avto-iz-korei-2026
 
-Дата публикации: 2026-10-13 (pending WP publish)  
-Live URL: (заполнить после publish) `/blog/rastamozhka-avto-iz-korei-2026/`
+Дата публикации: 2026-10-13  
+Live URL: [REDACTED]/2026/07/19/rastamozhka-avto-iz-korei-2026/  
+WP post_id: 3505 | featured: 4145 | inline: 4146/4147/4148
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +30,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Полный цикл Корея → выдача чаще 45–55 дней
 • Чек-лист документов — до прихода судна, не «в день подачи»
 
-Читать: [LIVE_URL]
+Читать: [REDACTED]/2026/07/19/rastamozhka-avto-iz-korei-2026/
 ```
 
 ## Перелинковка
@@ -45,5 +46,6 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 ## Notes
 
-- GEO QA PASS score 88; cover+schema done; publish next.
+- GEO QA PASS score 88; cover+schema+indexer done; publish PASS 2026-10-13.
 - llms.txt / llms-full.txt обновлены Indexer 2026-10-13.
+- Live HEAD 200; schema_meta + skip_theme_faq set; interlinker --apply: 0 inbound opportunities.

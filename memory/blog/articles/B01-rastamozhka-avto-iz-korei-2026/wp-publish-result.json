@@ -1,0 +1,15 @@
+{
+  "slug": "rastamozhka-avto-iz-korei-2026",
+  "topic_id": "B01",
+  "permalink": "https://[REDACTED]/2026/07/19/rastamozhka-avto-iz-korei-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-rastamozhka-avto-iz-korei-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1277282,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=3505 slug=rastamozhka-avto-iz-korei-2026\nOK featured_image=4145\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4146 src=cover/inline-01.png url=https://[REDACTED]/wp-content/uploads/2026/07/rastamozhka-avto-iz-korei-2026-inline-01-2.png\nOK inline_image_upload=4147 src=cover/inline-02.png url=https://[REDACTED]/wp-content/uploads/2026/07/rastamozhka-avto-iz-korei-2026-inline-02-2.png\nOK inline_image_upload=4148 src=cover/inline-03.png url=https://[REDACTED]/wp-content/uploads/2026/07/rastamozhka-avto-iz-korei-2026-inline-03-2.png\npermalink=https://[REDACTED]/2026/07/19/rastamozhka-avto-iz-korei-2026/\n",
+  "verdict": "pass"
+}

@@ -5,7 +5,7 @@
   "verdict": "pass",
   "links": [
     {
-      "url": "[REDACTED]",
+      "url": "https://[REDACTED]/",
       "status": 503,
       "ok": true,
       "method": "HEAD",
@@ -13,25 +13,23 @@
       "kind": "external",
       "skipped": false,
       "soft_pass": true,
-      "warning": "soft brand catalog 5xx from cloud egress; href absolute and equals CATALOG_URL",
-      "url_class": "catalog"
+      "soft_pass_reason": "brand_catalog_5xx_egress"
     },
     {
-      "url": "[REDACTED]",
+      "url": "https://[REDACTED]/avtosales125",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "external",
-      "skipped": false,
-      "url_class": "telegram"
+      "skipped": false
     }
   ],
-  "soft_pass_applied": [
+  "soft_pass_applied": true,
+  "soft_pass": [
     {
-      "kind": "catalog",
+      "url_host": "[REDACTED]",
       "status": 503
     }
-  ],
-  "qa_note": "GEO QA cycle 2: soft-pass brand catalog HTTP 5xx per pipeline memory; telegram OK"
+  ]
 }

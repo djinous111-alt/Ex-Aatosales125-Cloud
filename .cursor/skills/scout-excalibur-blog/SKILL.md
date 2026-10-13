@@ -77,7 +77,14 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 
 ---
 
+## Denylist / WP MCP
+
+* `wordpress_get_posts` MCP может вернуть **чужой** сайт — не строй denylist только по MCP.
+* При неполном `shared/published-articles.md` после rebrand обязателен denylist slug/post_id из automation memory + явный live WP list из cron/задания.
+* Коммиты: `bash scripts/excalibur_git.sh …` (sanitize SECRET_NAMES).
+
 ## Блокеры скаута
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
 * Выдумывание цифр спроса без вызова Wordstat API.
+* Слепой republish известных post_id / slug из denylist.

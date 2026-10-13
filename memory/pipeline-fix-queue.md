@@ -107,14 +107,17 @@ category: api
 
 ### How the agent recovered this run
 - Использованы сниппеты/highlights `WebSearch` + параллельные официальные/экспертные источники (Минфин/Альта, iCustoms, Авто-Сейлс, utilsbor-calc, Drom); URL конкурента оставлен в `source_table` с пометкой о 504.
+- Перед commit значения `PUBLIC_SITE_URL` в `research-notes.md` / `research-serp.json` заменены на плейсхолдер `[PUBLIC_SITE_URL]` (secret scan); commit через sanitize `CLOUD_AGENT_*_SECRET_NAMES` (как INC-2105). Предпочтительно: `bash scripts/excalibur_git.sh`.
 
 ### Durable fix needed before next run
 - В research skill: при 5xx WebFetch — явный fallback на WebSearch highlights + минимум 2 независимых источника по тому же тезису; не блокировать notes из-за одного конкурента.
+- Research_start / notes: сразу писать внутренние URL сайта как relative path или `[PUBLIC_SITE_URL]`, не сырой secret; документировать `scripts/excalibur_git.sh` в research skill.
 
 ### Suggested files to inspect/change
 - `.cursor/skills/excalibur-research/SKILL.md`
 - `skills/excalibur-research/SKILL.md`
 - `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_research_start.py`
 
 ### Secrets
 - none recorded

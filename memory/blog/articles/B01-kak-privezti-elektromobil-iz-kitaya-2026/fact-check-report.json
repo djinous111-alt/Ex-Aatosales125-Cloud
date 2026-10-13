@@ -1,0 +1,94 @@
+{
+  "article": "memory/blog/articles/B01-kak-privezti-elektromobil-iz-kitaya-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 12,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 11,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "Быстрый инсайт: Электромобиль из Китая физлицу в 2026 привезти можно, но депозит – только после папки \"д",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2024",
+      "kind": "date_or_year",
+      "context": "–54% как у бензина\", хотя Минфин (письмо от 12.04.2024 № 03-07-08/34068) и Решение Совета ЕЭК № 107 отно",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2023 года",
+      "kind": "date_or_year",
+      "context": "как список строк к сверке, а не чужой калькулятор 2023 года. Где взять актуальный расчёт без таблицы цен в ст",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "60 дней",
+      "kind": "metric_or_duration",
+      "context": "каталоге. Срок \"под ключ\" часто называют около 50–60 дней как ориентир, не гарантию. Материал проверен: ред",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "Алексей из Тулы увидел китайский кроссовер с \"180 л.с.\" и \"льготным утилем как у всех\", перевёл депо",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "8703 80",
+      "kind": "large_number",
+      "context": "Таможня у EV идёт через совокупный платёж по коду 8703 80, не \"как бензин единой ставкой\". Нет мощности в к",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "34068",
+      "kind": "large_number",
+      "context": "на\", хотя Минфин (письмо от 12.04.2024 № 03-07-08/34068) и Решение Совета ЕЭК № 107 относят электромобили",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "107",
+      "kind": "large_number",
+      "context": ".04.2024 № 03-07-08/34068) и Решение Совета ЕЭК № 107 относят электромобили кода 8703 80 000 к совокупно",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "8703 80 000",
+      "kind": "large_number",
+      "context": "шение Совета ЕЭК № 107 относят электромобили кода 8703 80 000 к совокупному таможенному платежу. Эта статья – зо",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "рог 30-минутной мощности и утильсбора – с ПП РФ № 1713 / шкалой к № 1291 и практикой сопровождения заказ",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1291",
+      "kind": "large_number",
+      "context": "щности и утильсбора – с ПП РФ № 1713 / шкалой к № 1291 и практикой сопровождения заказов во Владивостоке",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "large_number",
+      "context": "как список строк к сверке, а не чужой калькулятор 2023 года. Где взять актуальный расчёт без таблицы цен",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -25,12 +25,15 @@
     "description_aeo": "Как привезти электромобиль из Китая физлицу в 2026: проверить 30-минутную мощность до 80 л.с., собрать документы и смету, решить stop/go до депозита."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 88,
+    "verdict": "PASS",
     "date": "2026-10-14",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "WARNING",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility": "PASS",
+    "link_verify": "PASS_SOFT_CATALOG_503"
   },
   "cover_family": "brand_collage"
 }

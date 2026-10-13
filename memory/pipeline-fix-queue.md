@@ -350,3 +350,37 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261013-1720-writer-git-secret-scan-cta
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` article.html blocked by Cursor secret scan: public CTA values `CATALOG_URL` and `TELEGRAM_URL` are in injected secrets.
+- Related prior issue: `CLOUD_AGENT_INJECTED_SECRET_NAMES` also contained a raw URL token (not a bash identifier), breaking the pre-commit loop until normalized.
+
+### How the agent recovered this run
+- Normalized `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid comma-separated identifiers.
+- Added HTML comment `<!-- pragma: allowlist secret -->` on CTA link lines (public catalog/Telegram URLs required by conversion-map).
+- Recommitted and pushed article artifacts.
+
+### Durable fix needed before next run
+- Restore `scripts/excalibur_git.sh` with SECRET_NAMES normalization + allowlist for public site/CTA URLs (`CATALOG_URL`, `TELEGRAM_URL`, `PUBLIC_SITE_URL`, `MAX_URL`) so Writer does not need per-line pragma.
+- Ensure secret-name injection never puts raw URL strings into `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

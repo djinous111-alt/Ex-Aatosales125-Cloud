@@ -473,3 +473,37 @@ category: script
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261014-2124-schema-precommit-secret-names
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-privezti-elektromobil-iz-kitaya-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secrets scanner failed with `invalid variable name` because `CLOUD_AGENT_INJECTED_SECRET_NAMES` ended with a non-identifier token (displayed/stored as `[REDACTED]`), so `${!SECRET_NAME}` aborted under `set -e`.
+- First `schema.jsonld` draft also contained live `PUBLIC_SITE_URL` / `CATALOG_URL` values copied from `shared/authors-registry.json` (avatar/sameAs), which would fail secret-scan even after the hook bug is fixed.
+
+### How the agent recovered this run
+- Scrubbed site/catalog secret values in `schema.jsonld` to `[REDACTED]` (AS08/AS09 pattern) before commit.
+- Re-exported `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `CLOUD_AGENT_ALL_SECRET_NAMES` filtered to `^[A-Za-z_][A-Za-z0-9_]*$` for the commit process only; secret scan still ran for valid names.
+
+### Durable fix needed before next run
+- Ensure Cloud Agent secret-name injection never appends redacted/non-identifier tokens to `CLOUD_AGENT_*_SECRET_NAMES`.
+- Schema skill/script: always sanitize `PUBLIC_SITE_URL`/`CATALOG_URL`/`TELEGRAM_URL`/`MAX_URL` out of committed `schema.jsonld` (write `[REDACTED]` placeholders) even when reading authors-registry.
+- Prefer a small `scripts/excalibur_git.sh` wrapper that filters secret names + scrubs staged article artifacts.
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_git.sh` (create if missing)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

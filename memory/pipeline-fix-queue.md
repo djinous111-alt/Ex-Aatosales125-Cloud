@@ -676,10 +676,12 @@ category: docs
 
 ### How the agent recovered this run
 - Ran generator with `--blog-dir memory/blog/articles` only (per user contract override); success → `memory/blog/llms.txt` + `memory/blog/llms-full.txt`.
+- First `git commit` hit recurring pre-commit `CLOUD_AGENT_INJECTED_SECRET_NAMES` invalid-identifier abort (same class as `#INC-20261013-1310-scout-git-secret-names`); retried with identifier filter + excluded public site/CTA URL names so llms site-base URLs can commit.
 
 ### Durable fix needed before next run
 - Remove `--blog-path` from indexer agent/skill examples; align with CLI `--blog-dir`.
 - Keep doctor/pitfalls fix from related INC.
+- Restore `scripts/excalibur_git.sh` / pre-commit filter for non-identifier SECRET_NAMES (shared with scout/schema/cover incidents).
 
 ### Suggested files to inspect/change
 - `.cursor/agents/excalibur-blog-indexer.md`

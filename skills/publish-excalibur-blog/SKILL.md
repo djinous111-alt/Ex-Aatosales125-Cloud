@@ -71,6 +71,24 @@ python scripts/excalibur_blog_wp_publish.py \
 
 **Не останавливайся** на первом timeout — используй fallback.
 
+
+### 4b. SSH CLI fallback (heavy bootstrap)
+
+If HTTP and WebFetch both fail (nginx **504** / timeout on multi-MB bootstrap with cover+inline base64),
+`excalibur_blog_wp_publish.py` runs the uploaded `excalibur-blog-publish-once.php` via SSH CLI
+(`/usr/local/bin/php8.3` … `php`) with `max_execution_time=900`, then deletes the bootstrap.
+Treat WebFetch/curl **504 HTML** as failure (must contain `OK post=`).
+Cloud install must include `paramiko` (see `.cursor/cloud-agent-install.sh` + doctor check).
+
+### 4c. Schema placeholders
+
+Committed `schema.jsonld` may contain `[PUBLIC_SITE_URL]` / `[CATALOG_URL]` / `[TELEGRAM_URL]` / `[MAX_URL]` / `[REDACTED]`.
+Publish script expands them from env before WP meta upload. Manual:
+
+```bash
+python3 scripts/excalibur_blog_schema_build.py --article-dir <dir> --in-place --expand-env --write
+```
+
 ### 5. Post-publish артефакты
 
 | Файл | Действие |

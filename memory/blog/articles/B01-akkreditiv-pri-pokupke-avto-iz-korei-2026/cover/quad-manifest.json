@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "На карту до осмотра — стоп",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у ноутбука с банковским экраном и карточкой Encar: крючок про оплату авто из Кореи через аккредитив до перевода",
+      "scene_hint": "WEATHER: cool overcast Vladivostok office window light; OUTFIT: smart-casual navy blazer over light shirt (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie at laptop showing fake bank frozen-sum screen + Encar lot card scrap taped with scotch; torn paper hook plaque Cyrillic «На карту до осмотра — стоп» with yellow highlighter on «стоп»; sticky note «сначала банк»; shocked meme cutout + facepalm sticker (different formats); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; NO toxic slang",
+      "meme_caption_ru": "Сначала аккредитив"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Объясните себе, зачем аккредитив, а не перевод \"на карту\"",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI 16:9: columns Карта физлицу | Депозит | Аккредитив | Таможня; rows кто держит деньги / когда уходят / риск для новичка; red X on card-to-person row; yellow highlight Аккредитив row «банк держит сумму»; tape corner mini catalog card; NO hero face; NO Wordstat/Metrika; NO Telegram",
+      "alt": "Таблица: карта vs депозит vs аккредитив vs таможня — кто держит деньги и когда они уходят"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Проверьте договор и смету до открытия аккредитива",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable checklist board before letter of credit: 1) юрлицо/ИНН 2) договор на ваше имя 3) смета: депозит / аккредитив / Владивосток 4) условия возврата депозита 5) список документов раскрытия; red stamp «без сметы — рано»; pink sticky «до банка»; scotch tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Чеклист: договор, ИНН, смета и условия раскрытия до открытия аккредитива"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Пройдите пошагово: от лота Encar до раскрытия денег",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Horizontal RU workflow diagram 7 steps with arrows: Договор → Депозит → Осмотр/VIN → Условия → Аккредитив → Документы → Владивосток таможня; highlight step Осмотр before money release; sticky «банк ≠ кузов»; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема: от лота Encar и договора до раскрытия аккредитива и таможни во Владивостоке"
+    }
+  }
+}

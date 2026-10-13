@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-akkreditiv-pri-pokupke-avto-iz-korei-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1270,
+      714
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 714,
+        "end": 768
+      },
+      "v_gutter_px": {
+        "start": 1270,
+        "end": 1290
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1270,
+          "bottom": 714
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1270,
+          "bottom": 714
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у ноутбука с банковским экраном и карточкой Encar: крючок про оплату авто из Кореи через аккредитив до перевода",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1290,
+          "top": 0,
+          "right": 2560,
+          "bottom": 714
+        },
+        "raw_box_px": {
+          "left": 1290,
+          "top": 0,
+          "right": 2560,
+          "bottom": 714
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: карта vs депозит vs аккредитив vs таможня — кто держит деньги и когда они уходят",
+        "h2_anchor": "Объясните себе, зачем аккредитив, а не перевод \"на карту\""
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 37,
+          "top": 768,
+          "right": 1232,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 768,
+          "right": 1270,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист: договор, ИНН, смета и условия раскрытия до открытия аккредитива",
+        "h2_anchor": "Проверьте договор и смету до открытия аккредитива"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1327,
+          "top": 768,
+          "right": 2522,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1290,
+          "top": 768,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: от лота Encar и договора до раскрытия аккредитива и таможни во Владивостоке",
+        "h2_anchor": "Пройдите пошагово: от лота Encar до раскрытия денег"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Объясните себе, зачем аккредитив, а не перевод \"на карту\"",
+    "injected inline_2 after H2 — Проверьте договор и смету до открытия аккредитива",
+    "injected inline_3 after H2 — Пройдите пошагово: от лота Encar до раскрытия денег"
+  ]
+}

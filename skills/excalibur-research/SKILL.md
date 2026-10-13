@@ -43,9 +43,14 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
   - Если вызов вернул `401 Unauthorized` (токен устарел):
     - Запиши в `research-notes.md` предупреждение: `⚠️ WORDSTAT AUTH WARNING: Токен Wordstat устарел. Обновите токен через: https://oauth.yandex.ru/authorize?response_type=token&client_id=c654b948515a4a07a4c89648a0831d40`
     - Сделай экспертную оценку семантики, но явно укажи, что точные объемы спроса не получены из-за авторизации.
+  - Если вызов вернул HTTP 500 / `code:13 Internal` (часто при живом `wordstat_get_user_info`):
+    - 2–4 retry с backoff и parent/narrow phrasing; не блокируй research.
+    - Fallback demand: scout WP gap + cached parent Wordstat / zen-topics + WebSearch/WebFetch 2026.
+    - В notes: live impressions = `n/a`, явная пометка Wordstat unavailable; **не выдумывай** показы.
   - Если вызов успешен:
     - Сформируй в `research-notes.md` таблицу спроса: Фраза | Показы в месяц.
     - Выдели сопутствующие LSI-запросы из топа выдачи Вордстата для использования копирайтером.
+  - Для non-tech / auto-import тем (Encar, растаможка, аккредитив, JP/KR/CN) GitHub×3 не обязателен: достаточно docs/community evidence. Gate использует word-boundary TECH_MARKERS и `AUTO_IMPORT_MARKERS`.
 2. **Замена уличных поисковиков (DuckDuckGo) на WebSearch Курсора:**
   Мы **отказываемся** от ненадежных сторонних утилит и парсеров DuckDuckGo («уток»).
   - Агент имеет полноценный доступ в интернет через нативный инструмент `**WebSearch`** (или `WebFetch` для чтения конкретных страниц).

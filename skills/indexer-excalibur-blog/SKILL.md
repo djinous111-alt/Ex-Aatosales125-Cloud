@@ -12,14 +12,17 @@ description: Excalibur BLOG Indexer — interlink между статьями + 
 ```bash
 python3 scripts/excalibur_blog_interlinker.py --apply \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --site-base https://avtosales125.ru
+  --site-base ${PUBLIC_SITE_URL}
 
 python3 scripts/excalibur_blog_llms_generator.py \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru \
-  --blog-path / \
+  --site-base ${PUBLIC_SITE_URL} \
   --out-dir memory/blog
 ```
+
+CLI принимает `--blog-dir` / `--site-base` / `--out-dir`. Флаг `--blog-path` **не существует** — не передавать.
+Перед commit: `bash scripts/excalibur_git.sh commit …` или
+`export CLOUD_AGENT_INJECTED_SECRET_NAMES="$(bash scripts/excalibur_blog_filter_secret_names.sh)"`.
 
 ## Выход
 

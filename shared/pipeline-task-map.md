@@ -2,6 +2,16 @@
 
 Директор **не** Task. Все роли ниже — `Task(<name>)`.
 
+## Cloud typed-Task fallback
+
+Если enum Task tool **не** содержит `excalibur-blog-research` / `excalibur-blog-writer` / `excalibur-blog-geo-qa` / `excalibur-blog-cover` / `excalibur-blog-schema` / `excalibur-blog-indexer` / `excalibur-blog-publish` / `excalibur-blog-fixer` / `excalibur-blog-scout`:
+
+- отдельный `Task(generalPurpose)` на **каждую** роль;
+- в промпт: путь `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md` + короткий контракт (вход, маркер, запреты);
+- параллель cover||schema = **два** generalPurpose Task в одном сообщении.
+
+См. также `AGENTS.md` § Cloud Task fallback.
+
 ## Схема
 
 ```text
@@ -74,12 +84,13 @@
 
 ```text
 Ты excalibur-blog-scout.
-Прочитай agents/excalibur-blog-scout.md + skills/scout-excalibur-blog/SKILL.md + shared/editorial-utility-only.md.
-1) python scripts/excalibur_blog_scout_helper.py --suggest-next
-2) WebSearch Курсора — найди горячие тренды 2026 (ИИ, автоматизация, n8n, Cursor, Make)
-3) Вызови wordstat_get_top_requests в user-mcp-kv для проверки показов в месяц и LSI-ключей
-4) python scripts/excalibur_blog_scout_helper.py --check-query "<запрос>" (защита от каннибализации)
-5) Сделай карточку темы и допиши (append) её в конец memory/topics/blog-topics.md.
+Прочитай agents/excalibur-blog-scout.md + skills/scout-excalibur-blog/SKILL.md + shared/editorial-utility-only.md + memory/brief/site-brief.md.
+Ниша только Авто-Сейлс (JP/KR/CN import), не Cursor/n8n/Make.
+1) python3 scripts/excalibur_blog_scout_helper.py --suggest-next
+2) WebSearch — тренды 2026 по аукционам/Encar/растаможке/СВХ/сравнению стран
+3) wordstat_get_top_requests (cluster-first); при HTTP 500 — fallback WP gap + zen parent + WebSearch, без выдуманных показов
+4) python3 scripts/excalibur_blog_scout_helper.py --check-query "<запрос>" --proposed-slug "<slug>" --deny-slugs "..."
+5) Append utility-only карточку в memory/topics/blog-topics.md.
 ```
 
 ### ① Research
@@ -106,10 +117,12 @@
 
 ```text
 Ты excalibur-blog-geo-qa. topic_id: {ID}.
-Прочитай agents/excalibur-blog-geo-qa.md + skills/excalibur-geo-qa/SKILL.md.
+Прочитай .cursor/agents/excalibur-blog-geo-qa.md + .cursor/skills/excalibur-geo-qa/SKILL.md.
 Запусти все QA-скрипты + excalibur_blog_research_notes_gate.py + excalibur_blog_utility_gate.py + excalibur_blog_human_voice_gate.py. article-qa.md verdict PASS обязателен.
 Блок === EXCALIBUR BLOG GEO QA ===. Не делай cover/schema.
 ```
+
+Если typed Task `excalibur-blog-geo-qa` отсутствует в enum — `Task(generalPurpose)` с теми же путями agent/skill (см. Cloud typed-Task fallback выше).
 
 ### ④a Cover (параллель)
 

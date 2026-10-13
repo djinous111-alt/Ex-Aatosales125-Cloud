@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import ssl
 import sys
@@ -117,14 +118,35 @@ def classify_link(href: str, site_base: str | None) -> str:
     return "external"
 
 
+def _brand_hosts_from_env() -> set[str]:
+    hosts: set[str] = set()
+    for key in ("CATALOG_URL", "PUBLIC_SITE_URL"):
+        raw = (os.environ.get(key) or "").strip()
+        if not raw:
+            continue
+        parsed = urlparse(raw if "://" in raw else f"https://{raw}")
+        host = (parsed.netloc or "").lower()
+        if not host:
+            continue
+        hosts.add(host)
+        if host.startswith("www."):
+            hosts.add(host[4:])
+        else:
+            hosts.add(f"www.{host}")
+    return hosts
+
+
 def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
-    """Treat flaky social profile timeouts as warnings, not publish blockers."""
+    """Treat flaky social timeouts and temporary brand-catalog 5xx as warnings."""
     parsed = urlparse(href)
     host = parsed.netloc.lower()
     soft_hosts = {"t.me", "telegram.me", "wa.me", "vk.com"}
+    status = result.get("status")
+    if host in _brand_hosts_from_env() and status in (502, 503, 504):
+        return True
     if host not in soft_hosts:
         return False
-    if result.get("status") is not None:
+    if status is not None:
         return False
     error = str(result.get("error") or "").lower()
     return any(token in error for token in ("timed out", "timeout", "ssl", "network"))
@@ -180,7 +202,10 @@ def verify_article(
             r["checked_url"] = check_target
         if kind == "external" and is_soft_external_failure(href, r):
             r["ok"] = True
-            r["warning"] = "soft external social timeout; verify manually if needed"
+            if r.get("status") in (502, 503, 504):
+                r["warning"] = "soft brand catalog 5xx; verify manually if needed"
+            else:
+                r["warning"] = "soft external social timeout; verify manually if needed"
         results.append(r)
 
     failed = [r for r in results if not r.get("ok")]

@@ -6,6 +6,69 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261013-1316-research-wordstat-500
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-korei-2026
+severity: medium
+category: api
+
+### What went wrong
+- MCP-KV `wordstat_get_top_requests` returned Yandex Search API HTTP 500 (`code:13 Internal`) for `растаможка авто из кореи`, `растаможка корея владивосток`, `авто из кореи`.
+- Live monthly impressions unavailable for research-notes Wordstat table (same class of failure as INC-20261013-1309-scout-wordstat-500).
+
+### How the agent recovered this run
+- Documented `⚠️ WORDSTAT API WARNING` in `research-notes.md`; used scout historical fallback ≈4223 with explicit non-live label; completed SERP via WebSearch + official/community sources; research-notes-gate PASS.
+- Did not invent live Wordstat counts.
+
+### Durable fix needed before next run
+- Shared Wordstat-500 runbook for research+scout (retry/backoff, alternate devices/regions, historical fallback labeling) so each role does not rediscover the same 500 path.
+- Alert/monitor when parent clusters all return HTTP 500.
+
+### Suggested files to inspect/change
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261013-1313-director-doctor-llms-blog-path
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-director
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-korei-2026
+severity: low
+category: script
+
+### What went wrong
+- `python3 scripts/excalibur_blog_doctor.py` FAIL: `llms generator supports --blog-path`.
+- Actual CLI `scripts/excalibur_blog_llms_generator.py` only accepts `--blog-dir`; doctor still greps for `--blog-path`.
+
+### How the agent recovered this run
+- Continued pipeline (non-blocking for research/writer); noted for fixer after PIPELINE DONE.
+
+### Durable fix needed before next run
+- Align doctor check with `--blog-dir` (or restore dual alias); update pitfalls if needed.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261013-1309-scout-wordstat-500
 status: open
 run_date: 2026-10-13

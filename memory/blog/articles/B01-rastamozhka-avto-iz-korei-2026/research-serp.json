@@ -1,0 +1,438 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-13",
+    "today_ru": "13.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-15",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-13 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "rastamozhka-avto-iz-korei-2026",
+    "h1": "Как растаможить авто из Кореи через Владивосток в 2026: этапы и чек-лист до оплаты",
+    "primary_query": "растаможка авто из кореи",
+    "secondary_queries": [
+      "растаможка корея владивосток",
+      "авто из кореи под заказ",
+      "сроки растаможки авто из кореи"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "растаможка авто из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "растаможка авто из кореи октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Растаможка авто из Кореи в Россию в 2026 году: пошаговая инструкция ...",
+          "url": "https://vc.ru/transport/2947255-rastamozhka-avto-iz-korei-v-rossiyu",
+          "snippet": ""
+        },
+        {
+          "title": "Гайд: растаможка авто из Кореи 2026 — ФОРПОСТ — ФОРПОСТ",
+          "url": "https://vitvetbk.ru/gaydy/gayd-rastamozhka-avto-iz-korei-2026.html",
+          "snippet": "Полный гид по растаможке авто из Кореи в Россию в 2026 году: пошаговая инструкция, реальные ставки таможенных пошлин по сетке возраста и объёма двигателя, утильсбор 2026, расчёт под ..."
+        },
+        {
+          "title": "Калькулятор растаможки авто из Кореи 2026 — таможенный расчёт онлайн",
+          "url": "https://tamozhennygid.ru/korea/",
+          "snippet": "Как рассчитать таможенные платежи на авто из Кореи в 2026 году? Расчёт состоит из четырёх компонентов: таможенная пошлина, НДС 20%, акциз (для автомобилей мощностью свыше 90 л.с.) и ..."
+        },
+        {
+          "title": "Растаможка авто из Кореи: формула расчёта 2026 — Altezza",
+          "url": "https://altezza.team/blog/customs-formula-2026.html",
+          "snippet": "Калькулятор растаможки автомобиля из Южной Кореи в России. Точный расчёт таможенной пошлины, акциза, утилизационного сбора и НДС."
+        },
+        {
+          "title": "Растаможка Авто Из Кореи 2026: Сколько Стоит, Расчёт | Carto Блог",
+          "url": "https://carto-auto.ru/blog/rastamozhka-avto-iz-korei-2026-skolko-stoit-raschet/",
+          "snippet": "Точная формула расчёта растаможки авто из Кореи в 2026 году: пошлина по возрасту и объёму, утильсбор, акциз 22%, НДС, СБКТС. Таблица ставок и 3 примера на реальных авто."
+        },
+        {
+          "title": "Растаможка корейского авто 2026 — пошаговая инструкция",
+          "url": "https://encarrus.ru/news/rastamojka-koreyskogo-avto-2026/",
+          "snippet": "Сколько стоит растаможить машину из Кореи в 2026: пошлина по объёму, утильсбор, СБКТС, логистика через Владивосток. Расчёты на примерах и сроки по этапам."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "растаможка авто из кореи новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com растаможка авто из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 3,
+      "results": [
+        {
+          "title": "Windev-Radinus/CM_graphe-01.svg at main - GitHub",
+          "url": "https://github.com/Fab2bprog/Windev-Radinus/blob/main/CM_graphe-01.svg",
+          "snippet": ""
+        },
+        {
+          "title": "XPASS777/feature_1.svg at main · hsbx520/XPASS777 · GitHub",
+          "url": "https://github.com/hsbx520/XPASS777/blob/main/feature_1.svg",
+          "snippet": "Radinus: Windev Personal finance management software source code [WD28] - Fab2bprog/Windev-Radinus"
+        },
+        {
+          "title": "was-node-suite-comfyui/image/color_balance_node.jpg at main ...",
+          "url": "https://github.com/RituCodeWeb/was-node-suite-comfyui/blob/main/image/color_balance_node.jpg",
+          "snippet": "Contribute to hsbx520/XPASS777 development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "растаможка авто из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "растаможка авто из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Авто из Кореи: отзывы и реальный опыт 2026 | ДАРЭ",
+          "url": "https://importdare.ru/blog/avto-iz-korei-otzyvy-realnyj-opyt",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка авто из Кореи в Россию в 2026 году: пошаговая инструкция ...",
+          "url": "https://vc.ru/transport/2947255-rastamozhka-avto-iz-korei-v-rossiyu",
+          "snippet": "Реальные отзывы о покупке авто из Кореи 2026: плюсы, риски и честная смета под ключ с растаможкой и утилём. Сроки 45-55 дней и как не попасть на мошенника."
+        },
+        {
+          "title": "Гайд: растаможка авто из Кореи 2026 — ФОРПОСТ — ФОРПОСТ",
+          "url": "https://vitvetbk.ru/gaydy/gayd-rastamozhka-avto-iz-korei-2026.html",
+          "snippet": "Сколько стоит растаможить авто из Кореи, риски серых схем и автоматических доначислений ФНС. Все курсы и тарифы — на май 2026."
+        },
+        {
+          "title": "Автофорум привоза авто из Китая, Кореи и Европы — калькулятор растаможки",
+          "url": "https://forum-autoimport.ru/",
+          "snippet": "Как рассчитать таможенные платежи на авто из Кореи в 2026 году? Расчёт состоит из четырёх компонентов: таможенная пошлина, НДС 20%, акциз (для автомобилей мощностью свыше 90 л.с.) и ..."
+        },
+        {
+          "title": "Растаможка авто из Кореи в 2026 году: пошаговая инструкция и расчёт ...",
+          "url": "https://silenkoautocratia.ru/blog/rastamozhka-avto-iz-korei-2026/",
+          "snippet": "АвтоИмпорт — это русскоязычный автофорум для тех, кто привозит машины из Китая, Кореи, Европы и ОАЭ. Здесь обсуждают растаможку, утильсбор, выбор брокера, проверку VIN и реальную стоимость «под ключ» — без рекламы дилеров и навязчивых посредников."
+        },
+        {
+          "title": "Как проходит растаможка авто из Кореи: сроки и этапы 2026",
+          "url": "[REDACTED]/2026/07/19/rastamozhka-avto-iz-korei-2026/",
+          "snippet": "Сколько стоит растаможка авто из Кореи в 2026 году: таблица пошлин по возрасту и объёму двигателя, ставки утильсбора, 7 этапов оформления, сроки доставки и частые ошибки."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "растаможка корея владивосток 2026",
+      "purpose": "вторичный запрос: растаможка корея владивосток",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Авто из Кореи через Владивосток: сроки и растаможка",
+          "url": "https://importdare.ru/blog/avto-iz-korei-cherez-vladivostok-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка авто из Кореи 2026: сроки и стоимость - Авто из Китая выгодно",
+          "url": "https://rv-automobile.ru/rastamozhka-avto-iz-korei-2026/",
+          "snippet": "Сколько реально идёт авто из Кореи через Владивосток в 2026 году и во что обойдётся растаможка: сроки 45-55 дней, цена под ключ на 10-20% ниже рынка."
+        },
+        {
+          "title": "Растаможка авто из Кореи: сроки и этапы через Владивосток в 2026",
+          "url": "[REDACTED]/2026/06/25/rastamozhka-avto-iz-korei-sroki-i-etapy-cherez-vladivostok-v-2026/",
+          "snippet": "Растаможка авто из Кореи в 2026 году: сроки 15-25 дней, из чего складывается стоимость, какие документы нужны и расчёт по этапам."
+        },
+        {
+          "title": "Растаможка Авто Из Кореи 2026: Сколько Стоит, Расчёт | Carto Блог",
+          "url": "https://carto-auto.ru/blog/rastamozhka-avto-iz-korei-2026-skolko-stoit-raschet/",
+          "snippet": "Главное правило 2026 года — прямой запрет на вывоз авто с объемом двигателя более 2.0 литров. Любимые многими Palisade или Mohave легально отправить в РФ больше нельзя."
+        },
+        {
+          "title": "Как проходит растаможка авто из Кореи: сроки и этапы 2026",
+          "url": "[REDACTED]/2026/07/19/rastamozhka-avto-iz-korei-2026/",
+          "snippet": "Сколько стоит растаможить машину из Кореи в 2026: пошлина по объёму, утильсбор, СБКТС, логистика через Владивосток. Расчёты на примерах и сроки по этапам."
+        },
+        {
+          "title": "Растаможка корейского авто 2026 — пошаговая инструкция",
+          "url": "https://encarrus.ru/news/rastamojka-koreyskogo-avto-2026/",
+          "snippet": "Растаможка авто из Кореи через Владивосток: этапы Encar → СВХ → СБКТС → ЭПТС, сроки 2026 и чеклист документов до депозита."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "авто из кореи под заказ 2026",
+      "purpose": "вторичный запрос: авто из кореи под заказ",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Авто из Кореи под заказ в 2026 году: 13 реальных цен и проверка перед ...",
+          "url": "https://azway.ru/blog/avto-iz-korei-pod-zakaz-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Авто из Кореи под заказ в 2026 году: цены, растаможка, сроки",
+          "url": "https://asiaexpressauto.ru/blog/avto-iz-korei-pod-zakaz-2026/",
+          "snippet": "Реальные цены на Kia и Hyundai из Кореи до Владивостока, разбор Encar, страховой истории, бензиновых, газовых, дизельных и гибридных версий."
+        },
+        {
+          "title": "Авто из Кореи под заказ в 2026: что меняется с 2027, цена под ключ и ...",
+          "url": "https://vc.ru/transport/3142679-avto-iz-korei-pod-zakaz",
+          "snippet": "Как заказать авто из Кореи в 2026 году: выбор на Encar, проверка, доставка во Владивосток, растаможка и ЭПТС. Из чего складывается цена под ключ и риски."
+        },
+        {
+          "title": "Авто из Кореи под заказ в 2026 году: ТОП-10 надежных и ликвидных ...",
+          "url": "https://avtoimport1.ru/blog/avto-iz-korei-pod-zakaz-v-2026-godu-top-10-nadezhnyh-i-likvidnyh-modeley-dlya-importa-v-rossiyu/",
+          "snippet": "Все ставки приведены на сентябрь 2026 года, итоговый расчёт делается по параметрам конкретного автомобиля на дату таможенного оформления."
+        },
+        {
+          "title": "Авто из Кореи под заказ 2026: цена под ключ, сроки, растаможка",
+          "url": "https://avadge.com/blog/articles/privoz-avto-iz-korei-iz-chego-skladyvaetsia-tsena/",
+          "snippet": "Мы отобрали модели, которые в 2026 году будут наиболее проходными с точки зрения логистики, таможенного оформления (с учетом прогнозируемых норм) и востребованными на российском рынке."
+        },
+        {
+          "title": "Продажа автомобилей под заказ из Кореи - Авто.ру",
+          "url": "https://auto.ru/cars/vendor-korean/all/for-order/",
+          "snippet": "Привоз автомобиля из Кореи в 2026 году: как идёт подбор, сроки 40-55 дней, из чего складывается цена под ключ, утильсбор по новым ставкам и документы."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "сроки растаможки авто из кореи 2026",
+      "purpose": "вторичный запрос: сроки растаможки авто из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Калькулятор растаможки авто из Кореи 2026 — таможенный расчёт онлайн",
+          "url": "https://tamozhennygid.ru/korea/",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка авто из Кореи 2026: сроки и стоимость - Авто из Китая выгодно",
+          "url": "https://rv-automobile.ru/rastamozhka-avto-iz-korei-2026/",
+          "snippet": "Растаможка авто из Кореи в 2026 году: особенности Из Южной Кореи в основном везут подержанные автомобили возрастом 3-5 лет."
+        },
+        {
+          "title": "Растаможка авто из Кореи в 2026 году: пошаговая инструкция и расчёт ...",
+          "url": "https://silenkoautocratia.ru/blog/rastamozhka-avto-iz-korei-2026/",
+          "snippet": "Растаможка авто из Кореи в 2026 году: сроки 15-25 дней, из чего складывается стоимость, какие документы нужны и расчёт по этапам."
+        },
+        {
+          "title": "Растаможка авто из Кореи в Россию в 2026 году: пошаговая инструкция ...",
+          "url": "https://vc.ru/transport/2947255-rastamozhka-avto-iz-korei-v-rossiyu",
+          "snippet": "Сколько стоит растаможка авто из Кореи в 2026 году: таблица пошлин по возрасту и объёму двигателя, ставки утильсбора, 7 этапов оформления, сроки доставки и частые ошибки."
+        },
+        {
+          "title": "Как проходит растаможка авто из Кореи: сроки и этапы 2026",
+          "url": "[REDACTED]/2026/07/19/rastamozhka-avto-iz-korei-2026/",
+          "snippet": "Полный гид по растаможке авто из Кореи в Россию в 2026 году: пошаговая инструкция, реальные ставки таможенных пошлин по сетке возраста и объёма двигателя, утильсбор 2026, расчёт под ..."
+        },
+        {
+          "title": "Растаможка Авто Из Кореи 2026: Сколько Стоит, Расчёт | Carto Блог",
+          "url": "https://carto-auto.ru/blog/rastamozhka-avto-iz-korei-2026-skolko-stoit-raschet/",
+          "snippet": "Ниже - живой таймлайн 2026: этапы, сроки и чеклист документов до оплаты, чтобы вы не повторили эту историю."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как растаможить авто из Кореи через Владивосток в 2026: этапы и чек-лист до оплаты 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как проходит растаможка авто из Кореи: сроки и этапы 2026",
+          "url": "[REDACTED]/2026/07/19/rastamozhka-avto-iz-korei-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Авто из Кореи через Владивосток: сроки и растаможка",
+          "url": "https://importdare.ru/blog/avto-iz-korei-cherez-vladivostok-2026",
+          "snippet": "Растаможка авто из Кореи через Владивосток: этапы Encar → СВХ → СБКТС → ЭПТС, сроки 2026 и чеклист документов до депозита."
+        },
+        {
+          "title": "Растаможка авто из Кореи: сроки и этапы через Владивосток в 2026",
+          "url": "https://dzen.ru/a/aj027xe30xWLhIkn",
+          "snippet": "Сколько реально идёт авто из Кореи через Владивосток в 2026 году и во что обойдётся растаможка: сроки 45-55 дней, цена под ключ на 10-20% ниже рынка."
+        },
+        {
+          "title": "Растаможка корейского авто 2026 — пошаговая инструкция",
+          "url": "https://encarrus.ru/news/rastamojka-koreyskogo-avto-2026/",
+          "snippet": "Растаможка авто из Кореи — это процесс легализации импортного транспортного средства на территории РФ, включающий уплату таможенных пошлин, утильсбора и оформление электронного ПТС."
+        },
+        {
+          "title": "Доставка авто из Кореи во Владивосток: от поиска до ключей в руках",
+          "url": "https://altezza.team/blog/dostavka-avto-iz-korei-vo-vladivostok.html",
+          "snippet": "Пригнать авто из Кореи — значит пройти пять обязательных этапов: от получения во Владивостоке до постановки на учет в ГИБДД. Разбираем каждый шаг с реальными цифрами и типичными ошибками. Большинство людей думают, что «растаможить» — значит заплатить таможенную пошлину."
+        },
+        {
+          "title": "Растаможка авто из Кореи в Россию в 2026 году: пошаговая инструкция ...",
+          "url": "https://vc.ru/transport/2947255-rastamozhka-avto-iz-korei-v-rossiyu",
+          "snippet": "Полный маршрут корейского авто до российских номеров: как мы выбираем машину на Encar, отправляем её из Инчхона, проводим через Владивостокскую таможню и доставляем на Сахалин."
+        }
+      ],
+      "searched_at": "2026-10-13"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://vc.ru/transport/2947255-rastamozhka-avto-iz-korei-v-rossiyu",
+      "title": "Растаможка авто из Кореи в Россию в 2026 году: пошаговая инструкция ...",
+      "from_query": "растаможка авто из кореи октябрь 2026"
+    },
+    {
+      "url": "https://vitvetbk.ru/gaydy/gayd-rastamozhka-avto-iz-korei-2026.html",
+      "title": "Гайд: растаможка авто из Кореи 2026 — ФОРПОСТ — ФОРПОСТ",
+      "from_query": "растаможка авто из кореи октябрь 2026"
+    },
+    {
+      "url": "https://tamozhennygid.ru/korea/",
+      "title": "Калькулятор растаможки авто из Кореи 2026 — таможенный расчёт онлайн",
+      "from_query": "растаможка авто из кореи октябрь 2026"
+    },
+    {
+      "url": "https://altezza.team/blog/customs-formula-2026.html",
+      "title": "Растаможка авто из Кореи: формула расчёта 2026 — Altezza",
+      "from_query": "растаможка авто из кореи октябрь 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/rastamozhka-avto-iz-korei-2026-skolko-stoit-raschet/",
+      "title": "Растаможка Авто Из Кореи 2026: Сколько Стоит, Расчёт | Carto Блог",
+      "from_query": "растаможка авто из кореи октябрь 2026"
+    },
+    {
+      "url": "https://encarrus.ru/news/rastamojka-koreyskogo-avto-2026/",
+      "title": "Растаможка корейского авто 2026 — пошаговая инструкция",
+      "from_query": "растаможка авто из кореи октябрь 2026"
+    },
+    {
+      "url": "https://github.com/Fab2bprog/Windev-Radinus/blob/main/CM_graphe-01.svg",
+      "title": "Windev-Radinus/CM_graphe-01.svg at main - GitHub",
+      "from_query": "site:github.com растаможка авто из кореи 2026"
+    },
+    {
+      "url": "https://github.com/hsbx520/XPASS777/blob/main/feature_1.svg",
+      "title": "XPASS777/feature_1.svg at main · hsbx520/XPASS777 · GitHub",
+      "from_query": "site:github.com растаможка авто из кореи 2026"
+    },
+    {
+      "url": "https://github.com/RituCodeWeb/was-node-suite-comfyui/blob/main/image/color_balance_node.jpg",
+      "title": "was-node-suite-comfyui/image/color_balance_node.jpg at main ...",
+      "from_query": "site:github.com растаможка авто из кореи 2026"
+    },
+    {
+      "url": "https://importdare.ru/blog/avto-iz-korei-otzyvy-realnyj-opyt",
+      "title": "Авто из Кореи: отзывы и реальный опыт 2026 | ДАРЭ",
+      "from_query": "растаможка авто из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://forum-autoimport.ru/",
+      "title": "Автофорум привоза авто из Китая, Кореи и Европы — калькулятор растаможки",
+      "from_query": "растаможка авто из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://silenkoautocratia.ru/blog/rastamozhka-avto-iz-korei-2026/",
+      "title": "Растаможка авто из Кореи в 2026 году: пошаговая инструкция и расчёт ...",
+      "from_query": "растаможка авто из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "[REDACTED]/2026/07/19/rastamozhka-avto-iz-korei-2026/",
+      "title": "Как проходит растаможка авто из Кореи: сроки и этапы 2026",
+      "from_query": "растаможка авто из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://importdare.ru/blog/avto-iz-korei-cherez-vladivostok-2026",
+      "title": "Авто из Кореи через Владивосток: сроки и растаможка",
+      "from_query": "растаможка корея владивосток 2026"
+    },
+    {
+      "url": "https://rv-automobile.ru/rastamozhka-avto-iz-korei-2026/",
+      "title": "Растаможка авто из Кореи 2026: сроки и стоимость - Авто из Китая выгодно",
+      "from_query": "растаможка корея владивосток 2026"
+    },
+    {
+      "url": "[REDACTED]/2026/06/25/rastamozhka-avto-iz-korei-sroki-i-etapy-cherez-vladivostok-v-2026/",
+      "title": "Растаможка авто из Кореи: сроки и этапы через Владивосток в 2026",
+      "from_query": "растаможка корея владивосток 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/avto-iz-korei-pod-zakaz-2026",
+      "title": "Авто из Кореи под заказ в 2026 году: 13 реальных цен и проверка перед ...",
+      "from_query": "авто из кореи под заказ 2026"
+    },
+    {
+      "url": "https://asiaexpressauto.ru/blog/avto-iz-korei-pod-zakaz-2026/",
+      "title": "Авто из Кореи под заказ в 2026 году: цены, растаможка, сроки",
+      "from_query": "авто из кореи под заказ 2026"
+    },
+    {
+      "url": "https://vc.ru/transport/3142679-avto-iz-korei-pod-zakaz",
+      "title": "Авто из Кореи под заказ в 2026: что меняется с 2027, цена под ключ и ...",
+      "from_query": "авто из кореи под заказ 2026"
+    },
+    {
+      "url": "https://avtoimport1.ru/blog/avto-iz-korei-pod-zakaz-v-2026-godu-top-10-nadezhnyh-i-likvidnyh-modeley-dlya-importa-v-rossiyu/",
+      "title": "Авто из Кореи под заказ в 2026 году: ТОП-10 надежных и ликвидных ...",
+      "from_query": "авто из кореи под заказ 2026"
+    },
+    {
+      "url": "https://avadge.com/blog/articles/privoz-avto-iz-korei-iz-chego-skladyvaetsia-tsena/",
+      "title": "Авто из Кореи под заказ 2026: цена под ключ, сроки, растаможка",
+      "from_query": "авто из кореи под заказ 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/vendor-korean/all/for-order/",
+      "title": "Продажа автомобилей под заказ из Кореи - Авто.ру",
+      "from_query": "авто из кореи под заказ 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/aj027xe30xWLhIkn",
+      "title": "Растаможка авто из Кореи: сроки и этапы через Владивосток в 2026",
+      "from_query": "Как растаможить авто из Кореи через Владивосток в 2026: этапы и чек-лист до оплаты 2026"
+    },
+    {
+      "url": "https://altezza.team/blog/dostavka-avto-iz-korei-vo-vladivostok.html",
+      "title": "Доставка авто из Кореи во Владивосток: от поиска до ключей в руках",
+      "from_query": "Как растаможить авто из Кореи через Владивосток в 2026: этапы и чек-лист до оплаты 2026"
+    }
+  ]
+}

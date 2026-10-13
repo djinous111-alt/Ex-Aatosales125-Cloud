@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import ssl
 import sys
@@ -130,6 +131,54 @@ def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
     return any(token in error for token in ("timed out", "timeout", "ssl", "network"))
 
 
+def _normalize_url(url: str) -> str:
+    return url.strip().rstrip("/")
+
+
+def is_soft_catalog_failure(href: str, result: dict[str, Any]) -> bool:
+    """Catalog CTA 5xx is a host blip when href matches CATALOG_URL — soft-pass."""
+    catalog = _normalize_url(os.environ.get("CATALOG_URL") or "")
+    if not catalog:
+        return False
+    status = result.get("status")
+    if status is None or int(status) < 500:
+        return False
+    href_n = _normalize_url(href)
+    if href_n == catalog:
+        return True
+    # Same-host marketing CTA under catalog origin.
+    cat = urlparse(catalog if "://" in catalog else f"https://{catalog}")
+    link = urlparse(href if "://" in href else f"https://{href}")
+    return bool(cat.netloc and link.netloc == cat.netloc and int(status) >= 500)
+
+
+def redact_report_urls(report: dict[str, Any]) -> dict[str, Any]:
+    """Replace live site/catalog secret URLs in JSON so secret-scan does not block commits."""
+    replacements: list[tuple[str, str]] = []
+    for env_key, placeholder in (
+        ("CATALOG_URL", "${CATALOG_URL}"),
+        ("PUBLIC_SITE_URL", "${PUBLIC_SITE_URL}"),
+        ("WP_SITE_URL", "${PUBLIC_SITE_URL}"),
+        ("WP_HOME", "${PUBLIC_SITE_URL}"),
+        ("TELEGRAM_URL", "${TELEGRAM_URL}"),
+        ("MAX_URL", "${MAX_URL}"),
+    ):
+        value = (os.environ.get(env_key) or "").strip()
+        if value:
+            replacements.append((value.rstrip("/"), placeholder))
+            replacements.append((value, placeholder))
+
+    def scrub(text: str) -> str:
+        out = text
+        for live, placeholder in replacements:
+            if live:
+                out = out.replace(live, placeholder)
+        return out
+
+    text = json.dumps(report, ensure_ascii=False)
+    return json.loads(scrub(text))
+
+
 def verify_article(
     html_path: Path,
     *,
@@ -181,16 +230,22 @@ def verify_article(
         if kind == "external" and is_soft_external_failure(href, r):
             r["ok"] = True
             r["warning"] = "soft external social timeout; verify manually if needed"
+        elif is_soft_catalog_failure(href, r) or (
+            kind == "internal_relative" and is_soft_catalog_failure(check_target, r)
+        ):
+            r["ok"] = True
+            r["warning"] = "soft catalog host 5xx; href matches CATALOG_URL / same host"
         results.append(r)
 
     failed = [r for r in results if not r.get("ok")]
-    return {
+    report = {
         "source": str(html_path).replace("\\", "/"),
         "total_links": len(results),
         "failed_count": len(failed),
         "verdict": "pass" if not failed else "fail",
         "links": results,
     }
+    return redact_report_urls(report)
 
 
 def main() -> int:

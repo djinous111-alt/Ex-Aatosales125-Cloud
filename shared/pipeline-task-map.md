@@ -1,27 +1,29 @@
 # Excalibur BLOG — карта задач и субагентов
 
-Директор **не** Task. Все роли ниже — `Task(<name>)`.
+Директор **не** Task. Роли ниже — отдельные subagent Task.
+
+**Cloud enum:** typed `excalibur-blog-*` (в т.ч. `excalibur-blog-geo-qa`) часто недоступны → **default** = `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill + короткий контракт. Не делать повторный discovery каждый run.
 
 ## Схема
 
 ```text
 [Д] Директор (чат)
   │
-  ├─ 🔍 Task(excalibur-blog-scout)       ← Генерация / подбор свежих тем
+  ├─ 🔍 Task(generalPurpose→scout)       ← Генерация / подбор свежих тем
   │
   ├─ shell: excalibur_blog_today.py
   ├─ shell: excalibur_blog_research_start.py
   │
-  ├─ ① Task(excalibur-blog-research)
-  ├─ ② Task(excalibur-blog-writer)
-  ├─ ③ Task(excalibur-blog-geo-qa)
+  ├─ ① Task(generalPurpose→research)
+  ├─ ② Task(generalPurpose→writer)
+  ├─ ③ Task(generalPurpose→geo-qa)      ← typed geo-qa часто отсутствует в enum
   │
-  ├─ ④a Task(excalibur-blog-cover)  ─┐ параллель
-  ├─ ④b Task(excalibur-blog-schema) ─┘
+  ├─ ④a Task(generalPurpose→cover)  ─┐ параллель
+  ├─ ④b Task(generalPurpose→schema) ─┘
   │
-  ├─ ⑤ Task(excalibur-blog-indexer)
-  ├─ ⑥ Task(excalibur-blog-publish)   ← автоматически после Indexer (skip только publish:no)
-  └─ ⑦ Task(excalibur-blog-fixer)     ← только если memory/pipeline-fix-queue.md содержит open incidents
+  ├─ ⑤ Task(generalPurpose→indexer)
+  ├─ ⑥ Task(generalPurpose→publish)   ← автоматически после Indexer (skip только publish:no)
+  └─ ⑦ Task(generalPurpose→fixer)     ← только если memory/pipeline-fix-queue.md содержит open incidents
 ```
 
 ## Таблица распределения
@@ -73,13 +75,14 @@
 ### 🔍 Scout (Генератор свежих тем)
 
 ```text
-Ты excalibur-blog-scout.
-Прочитай agents/excalibur-blog-scout.md + skills/scout-excalibur-blog/SKILL.md + shared/editorial-utility-only.md.
-1) python scripts/excalibur_blog_scout_helper.py --suggest-next
-2) WebSearch Курсора — найди горячие тренды 2026 (ИИ, автоматизация, n8n, Cursor, Make)
-3) Вызови wordstat_get_top_requests в user-mcp-kv для проверки показов в месяц и LSI-ключей
-4) python scripts/excalibur_blog_scout_helper.py --check-query "<запрос>" (защита от каннибализации)
-5) Сделай карточку темы и допиши (append) её в конец memory/topics/blog-topics.md.
+Ты excalibur-blog-scout (Task generalPurpose fallback OK).
+Прочитай .cursor/agents/excalibur-blog-scout.md + .cursor/skills/scout-excalibur-blog/SKILL.md + memory/brief/site-brief.md + shared/editorial-utility-only.md.
+Ниша: Авто-Сейлс (Япония/Корея/Китай, растаможка, СВХ) — не AI/Cursor.
+1) python3 scripts/excalibur_blog_scout_helper.py --suggest-next  (AS* и B*)
+2) Сначала незанятый P0 из blog-topics.md; иначе WebSearch по авто-импорту 2026
+3) wordstat_get_top_requests: широкий parent → узкий how-to
+4) python3 scripts/excalibur_blog_scout_helper.py --check-query "<запрос>" + live WP denylist
+5) При новой теме — append карточку (Bxx) в memory/topics/blog-topics.md.
 ```
 
 ### ① Research

@@ -52,7 +52,9 @@ Task(generalPurpose):
 
 ## Cloud Task fallback
 
-См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
+См. `AGENTS.md` / `shared/pipeline-task-map.md`.
+
+**Default:** typed `excalibur-blog-*` (особенно `excalibur-blog-geo-qa`) часто отсутствуют в Cloud Task enum → сразу `Task(generalPurpose)` на каждую роль + `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md` + короткий контракт (входы, маркер, запреты). Не делать повторный discovery.
 
 ## Preflight (shell, директор)
 

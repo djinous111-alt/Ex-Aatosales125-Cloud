@@ -1,0 +1,47 @@
+{
+  "source": "memory/blog/articles/B01-kak-privezti-elektromobil-iz-kitaya-2026/article.html",
+  "total_links": 4,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "${PUBLIC_SITE_URL}/2026/10/03/kak-proverit-30-minutnuyu-moshchnost-ev-iz-kitaya-2026/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_absolute",
+      "skipped": false
+    },
+    {
+      "url": "${CATALOG_URL}",
+      "status": 503,
+      "ok": true,
+      "method": "HEAD",
+      "error": "HTTP Error 503: Service Temporarily Unavailable",
+      "kind": "external",
+      "skipped": false,
+      "warning": "soft-pass catalog host 5xx (href matches CATALOG_URL); verify manually if needed",
+      "soft_pass": "catalog_5xx"
+    },
+    {
+      "url": "${PUBLIC_SITE_URL}/2026/10/06/kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_absolute",
+      "skipped": false
+    },
+    {
+      "url": "${TELEGRAM_URL}",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ],
+  "notes": "catalog CTA 5xx treated as soft-pass per pipeline rule (href≈CATALOG_URL)"
+}

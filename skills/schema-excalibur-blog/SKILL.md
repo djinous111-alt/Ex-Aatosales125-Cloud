@@ -22,3 +22,8 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+## Commit hygiene (обязательно)
+
+- В committed `schema.jsonld` **не** оставляй live `PUBLIC_SITE_URL` / `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL` (в т.ч. из `authors-registry.json` avatar/sameAs). Замени на `[REDACTED]`.
+- Commits: `bash scripts/excalibur_git.sh add|commit|…` — wrapper фильтрует invalid tokens в `CLOUD_AGENT_*_SECRET_NAMES`, чтобы pre-commit `${!name}` не падал.

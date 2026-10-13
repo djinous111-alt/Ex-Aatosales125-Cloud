@@ -25,6 +25,12 @@
 
 `install` должен быть идемпотентным: его можно запускать много раз, и он не должен писать секреты или runtime-артефакты в Git.
 
+## Python deps (publish)
+
+`.cursor/cloud-agent-install.sh` ставит `requirements.txt` (`Pillow`, `numpy`, `paramiko`) с `--break-system-packages`. Без `paramiko` SSH publish падает с `ModuleNotFoundError`.
+
+Git commits в Cloud: предпочитай `bash scripts/excalibur_git.sh …` (фильтр invalid `CLOUD_AGENT_*_SECRET_NAMES`).
+
 ## Cursor Secrets
 
 Минимум для dry-run:

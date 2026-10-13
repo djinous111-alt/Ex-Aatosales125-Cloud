@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 from pathlib import Path
 from typing import Any
@@ -223,8 +224,23 @@ def main() -> int:
     suggestions = filter_suggestions_for_article(suggestions, article_dir, articles)
     print(f"Found {len(suggestions)} internal linking opportunities.")
 
+    # Committed report must not store live PUBLIC_SITE_URL (secret-scan).
+    report_site_base = args.site_base
+    for env_key in ("PUBLIC_SITE_URL", "WP_SITE_URL", "WP_HOME"):
+        live = (os.environ.get(env_key) or "").strip().rstrip("/")
+        if live and report_site_base.rstrip("/") == live:
+            report_site_base = "[REDACTED]"
+            break
+    if report_site_base.startswith("http://") or report_site_base.startswith("https://"):
+        if os.environ.get("EXCALIBUR_LLMS_KEEP_LIVE_URL", "").strip().lower() not in {
+            "1",
+            "yes",
+            "true",
+        }:
+            report_site_base = "[REDACTED]"
+
     report = {
-        "site_base": args.site_base,
+        "site_base": report_site_base,
         "total_articles": len(articles),
         "opportunities_found": len(suggestions),
         "suggestions": [

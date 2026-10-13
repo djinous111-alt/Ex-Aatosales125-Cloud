@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261013-1400-cover-git-secret-names
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-korei-2026
+severity: low
+category: env
+
+### What went wrong
+- First `git commit` of cover assets failed in pre-commit secret-scan: `CLOUD_AGENT_INJECTED_SECRET_NAMES` still contains a non-identifier token, so bash `${!SECRET_NAME}` aborts with `invalid variable name`.
+- Same class as `#INC-20261013-1356-schema-git-secret-names` / `#INC-20261013-1310-scout-git-secret-names`.
+
+### How the agent recovered this run
+- Retried commit with `CLOUD_AGENT_INJECTED_SECRET_NAMES` filtered to valid bash identifiers (comma-list cleaned); cover commit `6b1580b` pushed.
+- Cover pipeline itself (Kie i2i → split → inject) had no blocker.
+
+### Durable fix needed before next run
+- Restore `scripts/excalibur_git.sh` (or cloud pre-commit wrapper) that strips non-identifier tokens from `CLOUD_AGENT_INJECTED_SECRET_NAMES` before `${!SECRET_NAME}`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261013-1356-schema-git-secret-names
 status: open
 run_date: 2026-10-13

@@ -6,6 +6,47 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261013-1330-writer-utility-pain-markers-missing
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-rastamozhka-avto-iz-korei-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` requires `min_pain_markers` (2) and `min_outcome_markers` (3), but `memory/brief/editorial-policy.json` has no `pain_markers_ru` / `outcome_markers_ru` arrays.
+- Gate always counts 0 markers → BLOCK for every article (reproduced also on published AS09).
+- Writer article B01 otherwise passes html_linter, human_voice_gate, slop_detector; char_count in range.
+
+### How the agent recovered this run
+- Strengthened pain/outcome language in `article.html` for human-voice markers.
+- Added `pain_markers_ru` / `outcome_markers_ru` to `memory/brief/editorial-policy.json` (aligned with `excalibur_blog_human_voice_gate.py`) so utility_gate can score articles; re-ran gate on B01.
+
+### Durable fix needed before next run
+- Confirm arrays stay in editorial-policy; optionally document in `shared/agent-pipeline-pitfalls.md` that utility_gate min counts require these keys.
+- Optionally harden `excalibur_blog_utility_gate.py` to WARN (not ERROR) when arrays are missing instead of counting 0 forever.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-13
+fix_summary:
+- Added pain/outcome marker lists to editorial-policy; B01 utility language already present.
+files_changed:
+- `memory/brief/editorial-policy.json`
+checks_run:
+- `python3 scripts/excalibur_blog_utility_gate.py --article-dir memory/blog/articles/B01-rastamozhka-avto-iz-korei-2026`
+commit: pending-writer-commit
+
 ## INC-20261013-1316-research-wordstat-500
 status: open
 run_date: 2026-10-13

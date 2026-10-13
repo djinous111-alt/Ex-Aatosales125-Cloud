@@ -10,6 +10,14 @@ import sys
 from pathlib import Path
 from typing import Any
 
+# Canonical topic IDs: AS* (Авто-Сейлс pool) and B* (blog series).
+TOPIC_ID_RE = r"(?:AS|B)\d+"
+TOPIC_HEADING_RE = re.compile(
+    rf"##\s+({TOPIC_ID_RE})\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+(?:AS|B)\d+|\Z)",
+    re.DOTALL | re.IGNORECASE,
+)
+
+
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
@@ -34,7 +42,7 @@ def load_active_article_topics(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
+        match = re.match(rf"({TOPIC_ID_RE})-", path.name, flags=re.IGNORECASE)
         if match:
             active.add(match.group(1).upper())
     return active
@@ -46,7 +54,7 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
     if not topics_path.is_file():
         return topics
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
+    for match in TOPIC_HEADING_RE.finditer(text):
         topic_id = match.group(1).upper()
         block = match.group(2)
         
@@ -130,18 +138,24 @@ def main() -> int:
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
-        max_num = 0
+        max_b = 0
+        max_as = 0
         for t in existing:
-            m = re.match(r"B(\d+)", t["topic_id"])
-            if m:
-                max_num = max(max_num, int(m.group(1)))
-        
-        next_id = f"B{max_num + 1:02d}"
+            m_b = re.match(r"B(\d+)$", t["topic_id"], flags=re.IGNORECASE)
+            m_as = re.match(r"AS(\d+)$", t["topic_id"], flags=re.IGNORECASE)
+            if m_b:
+                max_b = max(max_b, int(m_b.group(1)))
+            if m_as:
+                max_as = max(max_as, int(m_as.group(1)))
+
+        # New scout cards use B* series; AS* remains the legacy Авто-Сейлс pool.
+        next_id = f"B{max_b + 1:02d}"
         print(f"Next available topic ID: {next_id}")
+        print(f"Legacy AS pool next (if appending AS*): AS{max_as + 1:02d}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")
         print(f"Active article dirs: {sorted(active)}")
-        
+
         unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
         print(f"Unwritten topic IDs in pool: {unwritten}")
         return 0

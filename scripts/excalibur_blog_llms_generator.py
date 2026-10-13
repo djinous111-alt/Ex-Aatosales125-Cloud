@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 from pathlib import Path
 from typing import Any
@@ -15,6 +16,25 @@ from typing import Any
 
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
+
+
+def redact_site_base_for_commit(site_base: str) -> str:
+    """Committed llms*.txt must not contain live PUBLIC_SITE_URL secret values."""
+    live_values = [
+        (os.environ.get(k) or "").strip().rstrip("/")
+        for k in ("PUBLIC_SITE_URL", "WP_SITE_URL", "WP_HOME", "CATALOG_URL")
+    ]
+    normalized = site_base.strip().rstrip("/")
+    for live in live_values:
+        if live and (normalized == live or live in normalized):
+            return "[REDACTED]"
+    # Prefer placeholder when caller passed a real-looking URL without env match.
+    if normalized.startswith("http://") or normalized.startswith("https://"):
+        # Keep relative/placeholder defaults; redact absolute live bases for git safety.
+        if os.environ.get("EXCALIBUR_LLMS_KEEP_LIVE_URL", "").strip().lower() in {"1", "yes", "true"}:
+            return site_base
+        return "[REDACTED]"
+    return site_base
 
 
 def strip_html(html: str) -> str:
@@ -124,8 +144,12 @@ def main() -> int:
     articles = load_articles(blog_dir)
     print(f"Loaded {len(articles)} articles to index for LLMs.")
 
-    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, args.site_base)
-    llms_full_txt = build_llms_full_txt(args.site_name, articles, args.site_base)
+    site_base = redact_site_base_for_commit(args.site_base)
+    if site_base != args.site_base.rstrip("/"):
+        print("NOTE: site-base redacted to [REDACTED] for commit-safe llms artifacts")
+
+    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, site_base)
+    llms_full_txt = build_llms_full_txt(args.site_name, articles, site_base)
 
     llms_path = out_dir / "llms.txt"
     llms_full_path = out_dir / "llms-full.txt"

@@ -1,7 +1,8 @@
 {
   "mcpServers": {
     "MCP-KV": {
-      "url": "${env:MCP_KV_TOKEN}"
+      "command": "python3",
+      "args": ["scripts/mcp_kv_stdio_proxy.py"]
     }
   }
 }

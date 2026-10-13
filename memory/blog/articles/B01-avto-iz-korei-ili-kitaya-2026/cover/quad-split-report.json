@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1281,
+      765
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 765,
+        "end": 800
+      },
+      "v_gutter_px": {
+        "start": 1281,
+        "end": 1322
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 22,
+          "right": 1281,
+          "bottom": 743
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1281,
+          "bottom": 765
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс между корейским SUV и китайским кроссовером у порта Владивостока, плашка Корея или Китай",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1322,
+          "top": 34,
+          "right": 2560,
+          "bottom": 730
+        },
+        "raw_box_px": {
+          "left": 1322,
+          "top": 0,
+          "right": 2560,
+          "bottom": 765
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения: для кого Корея, для кого Китай под заказ",
+        "h2_anchor": "Зафиксируйте задачу: для кого Корея, для кого Китай"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 71,
+          "top": 800,
+          "right": 1209,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 800,
+          "right": 1281,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема проверки: руль, возраст парка, тип силовой установки",
+        "h2_anchor": "Сверьте руль, возраст парка и тип силовой установки"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1372,
+          "top": 800,
+          "right": 2510,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1322,
+          "top": 800,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист: порог 160 л.с. до любой оплаты за авто из Азии",
+        "h2_anchor": "Проверьте порог 160 л.с. до любой оплаты"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте задачу: для кого Корея, для кого Китай",
+    "injected inline_2 after H2 — Сверьте руль, возраст парка и тип силовой установки",
+    "injected inline_3 after H2 — Проверьте порог 160 л.с. до любой оплаты"
+  ]
+}

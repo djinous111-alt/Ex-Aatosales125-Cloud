@@ -6,6 +6,107 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261013-1728-geo-qa-typed-task-fallback
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud API не принял typed Task `excalibur-blog-geo-qa`.
+- Роль запущена через `Task(generalPurpose)` fallback с путями `.cursor/agents/excalibur-blog-geo-qa.md` и `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Выполнил GEO QA по контракту агента/skill в generalPurpose Task (один Task = одна роль).
+- Cover/schema/publish не запускал.
+
+### Durable fix needed before next run
+- Зарегистрировать typed Task types `excalibur-blog-*` в Cloud / automation, либо явно документировать generalPurpose fallback как канон в director skill без повторного incident каждый run.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `AGENTS.md`
+- Cursor Cloud Task / automation config
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261013-1729-geo-qa-utility-pain-markers-empty
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026
+severity: blocker
+category: qa
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` считает `pain_markers_ru` / `outcome_markers_ru` из policy и при отсутствии ключей использует `[]`, но всё равно требует `min_pain_markers` default 2 и `min_outcome_markers` default 3.
+- `memory/brief/editorial-policy.json` не содержит этих списков и min-ключей → любой article.html получает BLOCK (`pain_markers=0`, `outcome_markers=0`), включая ранее PASS AS09.
+- Human-voice gate при этом PASS: боль/результат в тексте B01 есть, но utility gate их не видит.
+
+### How the agent recovered this run
+- Не правил `article.html` (ложный блокер не лечится Writer-FIX).
+- Зафиксировал FAIL в `article-qa.md`, `COVER_SCHEMA_ALLOWED=no`.
+- Контрольный прогон AS09 подтвердил тот же BLOCK на текущей policy.
+
+### Durable fix needed before next run
+- Добавить в `editorial-policy.json` согласованные `pain_markers_ru` / `outcome_markers_ru` (и при необходимости `min_pain_markers` / `min_outcome_markers`), **или** в скрипте пропускать pain/outcome checks, если списки маркеров пустые.
+- Выровнять маркеры с `excalibur_blog_human_voice_gate.py`, чтобы два gate не расходились.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/editorial-utility-only.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261013-1730-geo-qa-catalog-link-503
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026
+severity: high
+category: api
+
+### What went wrong
+- `excalibur_blog_link_verify.py` FAIL: CTA каталога (host из `CATALOG_URL`) вернул HTTP 503 на HEAD и GET.
+- Telegram CTA OK; host из `PUBLIC_SITE_URL` отвечает 200.
+- Writer использовал `CATALOG_URL` — это не опечатка в longread.
+
+### How the agent recovered this run
+- Повторил probe HEAD/GET; 503 сохраняется.
+- Не менял URL в `article.html` на другой host без решения по секретам/конверсии.
+- Отразил blocker в `article-qa.md` / handoff.
+
+### Durable fix needed before next run
+- Восстановить доступность catalog host из `CATALOG_URL` либо обновить Cloud Secret `CATALOG_URL` на рабочий host и синхронизировать Writer/conversion-map.
+- Опционально: link-verify soft-fail/retry для временных 503 на brand CTA.
+
+### Suggested files to inspect/change
+- Cursor Dashboard Secrets (`CATALOG_URL` / `PUBLIC_SITE_URL` alignment)
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_link_verify.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261013-1712-research-webfetch-504
 status: open
 run_date: 2026-10-13

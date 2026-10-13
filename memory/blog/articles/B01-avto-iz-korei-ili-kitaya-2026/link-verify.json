@@ -1,0 +1,26 @@
+{
+  "source": "memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026/article.html",
+  "total_links": 2,
+  "failed_count": 1,
+  "verdict": "fail",
+  "links": [
+    {
+      "url": "[REDACTED:avto-sales125.ru]",
+      "status": 503,
+      "ok": false,
+      "method": "HEAD",
+      "error": "HTTP Error 503: Service Temporarily Unavailable",
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "[REDACTED:t.me]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

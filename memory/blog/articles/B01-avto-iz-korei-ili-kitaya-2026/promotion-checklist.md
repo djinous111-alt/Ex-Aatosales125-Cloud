@@ -1,7 +1,7 @@
 # Promotion checklist — B01 avto-iz-korei-ili-kitaya-2026
 
-Дата публикации: 2026-10-13 (pending publish)  
-Live URL: (заполнит Publish; ожидаемый slug `avto-iz-korei-ili-kitaya-2026`)
+Дата публикации: 2026-10-13  
+Live URL: https://avtosales125.ru/2026/07/24/avto-iz-korei-ili-kitaya-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Сначала задача и порог 160 л.с., потом две сметы под ключ
 • Депозит — только после договора и списка статей
 
-Читать: [URL после publish]
+Читать: https://avtosales125.ru/2026/07/24/avto-iz-korei-ili-kitaya-2026/
 ```
 
 ## Перелинковка
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: `interlinker --apply --article-dir memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026` — opportunities_found=0; `article.html` без новых internal links.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (CLI: `--blog-dir`, без `--blog-path`).
-- Cover + schema готовы до Indexer; Publish — следующий шаг.
+- Publish PASS: WP post_id=3707; featured=4157; inline=4158/4159/4160; schema_meta ok.

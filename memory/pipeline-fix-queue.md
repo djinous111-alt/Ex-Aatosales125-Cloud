@@ -640,3 +640,38 @@ category: docs
 
 ### Fixer resolution
 - pending
+
+## INC-20261013-1800-publish-http-webfetch-timeout
+status: open
+run_date: 2026-10-13
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026
+severity: medium
+category: publish
+
+### What went wrong
+- First publish attempt: SSH upload OK (~7MB), local HTTP trigger `RemoteDisconnected` (nginx closed before PHP finished).
+- Script entered Cloud WebFetch Fallback and waited 120s for `memory/webfetch-response.txt`, but no parallel WebFetch was completed in time → RuntimeError timeout; bootstrap deleted in `finally`.
+- Memory/`publish-patterns` claim SSH CLI php fallback exists; current `excalibur_blog_wp_publish.py` only has HTTP + WebFetch wait (no SSH CLI `/usr/local/bin/php8.3` path).
+
+### How the agent recovered this run
+- Retried full publish; second HTTP trigger returned full `OK post=` within ~100s (no WebFetch needed).
+- Confirmed live HEAD 200 and title/H1 for slug `avto-iz-korei-ili-kitaya-2026` (post_id 3707 same-slug update; foreign denylist 3505/4110/4104 not used).
+
+### Durable fix needed before next run
+- Add SSH CLI php fallback after HTTP failure (php8.3…php, 900s) before/alongside WebFetch wait.
+- Or increase HTTP timeout + document that agent must WebFetch in parallel as soon as FALLBACK_TRIGGER_URL is printed (race with 120s waiter).
+- Ensure paramiko is in cloud-agent-install (was missing this run; pip install recovered).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/cloud-agent-install.sh`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

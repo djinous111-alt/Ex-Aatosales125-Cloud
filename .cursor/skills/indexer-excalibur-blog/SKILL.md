@@ -12,14 +12,17 @@ description: Excalibur BLOG Indexer — interlink между статьями + 
 ```bash
 python3 scripts/excalibur_blog_interlinker.py --apply \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --site-base https://avtosales125.ru
+  --site-base [REDACTED]
 
 python3 scripts/excalibur_blog_llms_generator.py \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru \
-  --blog-path / \
+  --site-base [REDACTED] \
   --out-dir memory/blog
 ```
+
+**CLI:** только `--blog-dir`, `--site-base`, `--site-name`, `--site-desc`, `--out-dir`. Флага `--blog-path` **нет**.
+
+**Commit hygiene:** генератор и interlinker пишут `[REDACTED]` вместо live `PUBLIC_SITE_URL` в `llms*.txt` / `interlink-suggestions.json`. Commits: `bash scripts/excalibur_git.sh …`.
 
 ## Выход
 

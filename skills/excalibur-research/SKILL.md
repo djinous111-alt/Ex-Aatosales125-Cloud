@@ -51,6 +51,8 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
   - Агент имеет полноценный доступ в интернет через нативный инструмент `**WebSearch`** (или `WebFetch` для чтения конкретных страниц).
   - Для анализа конкурентов в SERP **всегда используй инструмент `WebSearch`**. Ищи статьи, руководства, гайды по `primary_query` и ключевым словам в Яндексе и Google.
   - Игнорируй сырой `research-serp.json` из шага 0, если он пуст, неполный или нерелевантный. Твой собственный поиск через `WebSearch` — приоритетный источник свежих данных 2026 года.
+  - **WebFetch 5xx / 504 / timeout:** не блокируй research из-за одного конкурента. Fallback: highlights из `WebSearch` + минимум **2 независимых** источника по тому же тезису; в `source_table` оставь URL с пометкой `accessed_at` + `status: 5xx/timeout`. Notes остаются PASS-able.
+  - **Внутренние URL сайта** в notes/serp: пиши relative path (`/blog/...`) или плейсхолдер `[PUBLIC_SITE_URL]`, не сырой secret из env. Commits: `bash scripts/excalibur_git.sh …`.
 
 ## Правила
 
@@ -61,6 +63,7 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
+8. Один недоступный конкурент (WebFetch 5xx) ≠ research blocker, если тезис закрыт другими источниками.
 
 ## Blockers
 

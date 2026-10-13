@@ -1,0 +1,73 @@
+{
+  "article": "memory/blog/articles/B01-rastamozhka-avto-iz-korei-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 9,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 7,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "грузки на СВХ и закрытия транзита. На ДВ в апреле 2026 средний выпуск ТСЛП был 2,9 суток, а полный цикл К",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2000",
+      "kind": "date_or_year",
+      "context": "порт-ДВ\": 7 суток в ставке выгрузки, затем 1000 → 2000 → 5000 ₽/сут для легкового до 3 т. Пакет собирайт",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "55 дней",
+      "kind": "metric_or_duration",
+      "context": "л 2,9 суток, а полный цикл Корея → выдача чаще 45–55 дней. Готовьте пакет и деньги к часу после выгрузки –",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "7 дней",
+      "kind": "metric_or_duration",
+      "context": "ТС). На практике это отдельные шаги, часто плюс 5–7 дней. Этап Ориентир Что контролировать Экспорт / парти",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "14 дней",
+      "kind": "metric_or_duration",
+      "context": "р Что контролировать Экспорт / партия в Корее до ~14 дней Кто готовит экспортные бумаги Море Пусан → Владив",
+      "verified": true,
+      "reason": "Numerical value '14' matched in fact-bank context"
+    },
+    {
+      "fact": "5 дней",
+      "kind": "metric_or_duration",
+      "context": "кспортные бумаги Море Пусан → Владивосток часто 2–5 дней на Ro-Ro; контейнер дольше Тип перевозки и ETA Вы",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "119",
+      "kind": "large_number",
+      "context": "говорит про фактические 2–3 дня после подачи. Ст. 119 ТК ЕАЭС ориентирует на часы с регистрации, с продл",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1000",
+      "kind": "large_number",
+      "context": "\"Автоимпорт-ДВ\": 7 суток в ставке выгрузки, затем 1000 → 2000 → 5000 ₽/сут для легкового до 3 т. Пакет с",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5000",
+      "kind": "large_number",
+      "context": "\": 7 суток в ставке выгрузки, затем 1000 → 2000 → 5000 ₽/сут для легкового до 3 т. Пакет собирайте до пр",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

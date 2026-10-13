@@ -1,6 +1,8 @@
 # Excalibur BLOG — карта задач и субагентов
 
-Директор **не** Task. Все роли ниже — `Task(<name>)`.
+Директор **не** Task. Все роли ниже — ideally `Task(<name>)`.
+
+**Cloud Task enum:** если typed `excalibur-blog-*` (включая `excalibur-blog-geo-qa`) недоступен — **штатный fallback**: отдельный `Task(generalPurpose)` на каждую роль с путями `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`. Не сворачивать pipeline в single-agent. См. `AGENTS.md` / `CURSOR-CLOUD-RUNBOOK.md`.
 
 ## Схема
 

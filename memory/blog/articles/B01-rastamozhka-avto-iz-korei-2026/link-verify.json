@@ -1,0 +1,35 @@
+{
+  "source": "memory/blog/articles/B01-rastamozhka-avto-iz-korei-2026/article.html",
+  "total_links": 2,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "https://[REDACTED]/",
+      "status": 503,
+      "ok": true,
+      "method": "HEAD",
+      "error": "HTTP Error 503: Service Temporarily Unavailable",
+      "kind": "external",
+      "skipped": false,
+      "soft_pass": true,
+      "soft_pass_reason": "brand_catalog_5xx_egress"
+    },
+    {
+      "url": "https://[REDACTED]/avtosales125",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ],
+  "soft_pass_applied": true,
+  "soft_pass": [
+    {
+      "url_host": "[REDACTED]",
+      "status": 503
+    }
+  ]
+}

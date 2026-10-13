@@ -234,6 +234,7 @@ Excalibur BLOG следует этому контракту для каждой 
 
 2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-tracking-map.md` / `offers-map.md`.  
 Не больше **3** упоминаний основного офера/CTA на статью (включая баннер и «что дальше»).
+CTA `href` — live абсолютные URL из env `CATALOG_URL` / `TELEGRAM_URL`. **Запрещено** `href="[REDACTED]"` в коммите; коммить через `bash scripts/excalibur_git.sh` (public CTA names исключены из secret-scan).
 
 ### Блок 5: Inline-баннер (опционально)
 

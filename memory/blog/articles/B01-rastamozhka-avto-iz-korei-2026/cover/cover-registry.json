@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "rastamozhka-avto-iz-korei-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Порт Владивостока, ролкер и корейский седан, герой Авто-Сейлс с плашкой Корея → учёт",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-13T13:58:42+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Порт Владивостока, ролкер и корейский седан, герой Авто-Сейлс с плашкой Корея → учёт",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Скрин маршрута Encar → Пусан → Владивосток → учёт: карточка объявления и этапы пути",
+      "h2_anchor": "Разберите маршрут Encar → Пусан → Владивосток → учёт простыми словами",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица: ошибка подачи ПТД раньше срока против правила после выгрузки на СВХ",
+      "h2_anchor": "Когда подавать ПТД: правило после СВХ и ошибка \"раньше срока\"",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чек-лист документов новичка до прихода судна: паспорт, ИНН, договор, коносамент",
+      "h2_anchor": "Соберите документы до прихода судна: чек-лист новичка",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

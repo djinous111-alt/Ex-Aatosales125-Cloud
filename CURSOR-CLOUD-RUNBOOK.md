@@ -77,6 +77,23 @@ EXCALIBUR_TOPIC_ID=<optional fixed topic id>
 
 Для боевого автопубликационного режима включать `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` только после успешного dry-run.
 
+## Task types / generalPurpose fallback
+
+Cloud API часто **не** принимает typed Task names `excalibur-blog-research`, `excalibur-blog-writer`, `excalibur-blog-geo-qa`, … как enum.
+
+Поддерживаемый путь Директора:
+
+1. Отдельный `Task(generalPurpose)` на **каждую** роль.
+2. В промпте: путь `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md` + короткий контракт (вход, маркер `=== EXCALIBUR BLOG … ===`, запреты).
+3. Параллель cover||schema = **два** generalPurpose Task в одном сообщении.
+4. Single-agent pipeline запрещён.
+
+Это ожидаемый Cloud mode, не разовая авария. Карта ролей: `shared/pipeline-task-map.md`.
+
+## Git commits
+
+Используй `bash scripts/excalibur_git.sh <git-args…>` вместо raw `git commit`: фильтрует non-identifier `CLOUD_AGENT_INJECTED_SECRET_NAMES` и исключает public CTA/site URL names из secret-scan (`CATALOG_URL`, `TELEGRAM_URL`, `PUBLIC_SITE_URL`, …).
+
 ## Acceptance check
 
 Перед включением расписания Cloud Agent должен пройти:

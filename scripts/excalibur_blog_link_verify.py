@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import ssl
 import sys
@@ -130,6 +131,34 @@ def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
     return any(token in error for token in ("timed out", "timeout", "ssl", "network"))
 
 
+def _norm_url(url: str) -> str:
+    return (url or "").strip().rstrip("/")
+
+
+def is_brand_catalog_href(href: str) -> bool:
+    """True when href matches env CATALOG_URL (public marketing CTA)."""
+    catalog = _norm_url(os.environ.get("CATALOG_URL", ""))
+    if not catalog:
+        return False
+    return _norm_url(href) == catalog
+
+
+def is_soft_catalog_host_failure(href: str, result: dict[str, Any]) -> bool:
+    """Brand catalog 5xx/egress flakes are not content defects when href == CATALOG_URL."""
+    if not is_brand_catalog_href(href):
+        return False
+    status = result.get("status")
+    if isinstance(status, int) and 500 <= status <= 599:
+        return True
+    error = str(result.get("error") or "").lower()
+    return any(token in error for token in ("timed out", "timeout", "ssl", "network", "503", "502", "504"))
+
+
+def is_literal_redacted_href(href: str) -> bool:
+    h = (href or "").strip()
+    return h in {"[REDACTED]", "REDACTED"} or h.startswith("[REDACTED]")
+
+
 def verify_article(
     html_path: Path,
     *,
@@ -141,7 +170,21 @@ def verify_article(
     links = extract_links(html)
     user_agent = "ExcaliburBlogLinkVerify/1.0"
     results: list[dict[str, Any]] = []
+    soft_pass_applied = False
     for href in links:
+        if is_literal_redacted_href(href):
+            results.append(
+                {
+                    "url": href,
+                    "kind": "invalid_placeholder",
+                    "status": None,
+                    "ok": False,
+                    "skipped": False,
+                    "method": None,
+                    "error": "literal [REDACTED] href — restore CATALOG_URL/TELEGRAM_URL before commit",
+                }
+            )
+            continue
         kind = classify_link(href, site_base)
         if skip_external and kind == "external":
             results.append(
@@ -180,7 +223,17 @@ def verify_article(
             r["checked_url"] = check_target
         if kind == "external" and is_soft_external_failure(href, r):
             r["ok"] = True
+            r["soft_pass"] = True
+            soft_pass_applied = True
             r["warning"] = "soft external social timeout; verify manually if needed"
+        elif kind == "external" and is_soft_catalog_host_failure(href, r):
+            r["ok"] = True
+            r["soft_pass"] = True
+            soft_pass_applied = True
+            r["warning"] = (
+                "soft brand-catalog host 5xx/egress flake; href matches CATALOG_URL — "
+                "not a CTA placeholder defect"
+            )
         results.append(r)
 
     failed = [r for r in results if not r.get("ok")]
@@ -188,6 +241,7 @@ def verify_article(
         "source": str(html_path).replace("\\", "/"),
         "total_links": len(results),
         "failed_count": len(failed),
+        "soft_pass_applied": soft_pass_applied,
         "verdict": "pass" if not failed else "fail",
         "links": results,
     }

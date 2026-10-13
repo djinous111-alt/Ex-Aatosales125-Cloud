@@ -616,7 +616,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` excalibur_git.sh in schema agent/skill
-commit: pending-parent-commit
+commit: 3eee2ea
 
 ## Fixed incidents
 
@@ -666,7 +666,7 @@ files_changed:
 checks_run:
 - `rg` no `--blog-path <value>` in indexer docs
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
-commit: pending-parent-commit
+commit: 3eee2ea
 
 ## INC-20261013-1800-publish-http-webfetch-timeout
 status: fixed
@@ -722,5 +722,5 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - wait_webfetch helper tests (OK body + reject 504 HTML)
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
-commit: pending-parent-commit
+commit: 3eee2ea
 

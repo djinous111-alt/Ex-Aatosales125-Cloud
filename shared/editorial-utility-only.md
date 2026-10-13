@@ -73,13 +73,15 @@ python scripts/excalibur_blog_research_notes_gate.py \
 ## Gate 4 — GEO QA
 
 ```bash
-python scripts/excalibur_blog_utility_gate.py \
+python3 scripts/excalibur_blog_utility_gate.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
 **Blocker `UTILITY ARTICLE BLOCKER`** — writer правит (FIX), QA не PASS.
 
 Плюс slop-detector (вода/штампы).
+
+Pain/outcome: списки `pain_markers_ru` / `outcome_markers_ru` в `editorial-policy.json` должны совпадать с маркерами `excalibur_blog_human_voice_gate.py`. Если списки в policy пустые — utility gate **не** BLOCK-ует нулями (WARN + skip); это tooling bug → Fixer, не Writer-FIX.
 
 ## Как провернуть без воды (чеклист редактора)
 

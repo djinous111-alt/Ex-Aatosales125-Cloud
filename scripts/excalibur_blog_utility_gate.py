@@ -187,16 +187,30 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
 
     pain_markers = policy.get("pain_markers_ru") or []
     outcome_markers = policy.get("outcome_markers_ru") or []
-    pain_count = count_markers(plain, pain_markers)
-    outcome_count = count_markers(plain, outcome_markers)
+    pain_count = count_markers(plain, pain_markers) if pain_markers else 0
+    outcome_count = count_markers(plain, outcome_markers) if outcome_markers else 0
 
-    min_pain = int(req.get("min_pain_markers") or 2)
-    if pain_count < min_pain:
-        errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
+    # Missing policy lists must not hard-block every article with zeros.
+    # Keep lists aligned with PAIN_MARKERS / OUTCOME_MARKERS in human_voice_gate.
+    if not pain_markers:
+        warnings.append(
+            "policy missing pain_markers_ru — pain check skipped "
+            "(align with PAIN_MARKERS in excalibur_blog_human_voice_gate.py)"
+        )
+    else:
+        min_pain = int(req.get("min_pain_markers") or 2)
+        if pain_count < min_pain:
+            errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
 
-    min_outcome = int(req.get("min_outcome_markers") or 3)
-    if outcome_count < min_outcome:
-        errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
+    if not outcome_markers:
+        warnings.append(
+            "policy missing outcome_markers_ru — outcome check skipped "
+            "(align with OUTCOME_MARKERS in excalibur_blog_human_voice_gate.py)"
+        )
+    else:
+        min_outcome = int(req.get("min_outcome_markers") or 3)
+        if outcome_count < min_outcome:
+            errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
 
     if req.get("requires_workflow_or_table_or_checklist"):
         has_utility_block = bool(tables or blockquotes or ul_lists >= 2 or "→" in html)

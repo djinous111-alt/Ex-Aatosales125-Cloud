@@ -33,6 +33,10 @@ topic_id:
 verdict: PASS | BLOCKER
 ```
 
+## Git
+
+Коммить `schema.jsonld` только через `bash scripts/excalibur_git.sh …` (не голый `git commit`) — в JSON-LD есть site/CTA URL, которые ломают secret-scan.
+
 ## Не твоя зона
 
 - cover MCP, правка longread, publish.

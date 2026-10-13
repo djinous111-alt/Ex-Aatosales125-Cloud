@@ -22,3 +22,8 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+## Git commits
+
+- `schema.jsonld` содержит абсолютные site/CTA URL (`PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`) → коммить **только** через `bash scripts/excalibur_git.sh add|commit|push …`.
+- Не используй голый `git commit`: pre-commit/secret-scan падает на публичных CTA/site именах и на мусорных токенах в `CLOUD_AGENT_INJECTED_SECRET_NAMES`.

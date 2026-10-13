@@ -1,0 +1,80 @@
+{
+  "article": "memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 10,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 9,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "кого Китай Не начинайте с вопроса \"что дешевле в 2026\". Начните с одного предложения: нужен б/у кроссов",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "у не влияют. Зато мощность влияет сильно. С 01.12.2025 по правилам, связанным с ПП РФ № 1713, для физлица",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "Ориентир в открытых обзорах – порядка 3 400 ₽ (до 3 лет) и 5 200 ₽ (старше 3 лет). Это не калькулятор ваш",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "45 дней",
+      "kind": "metric_or_duration",
+      "context": "ссии. Сроки в гайдах расходятся: кому-то Китай 20–45 дней и Корея 4–6 недель, кому-то Корея 45–55 и Китай 5",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "6 недель",
+      "kind": "metric_or_duration",
+      "context": "ах расходятся: кому-то Китай 20–45 дней и Корея 4–6 недель, кому-то Корея 45–55 и Китай 50–60. Это ориентиры",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "8 недель",
+      "kind": "metric_or_duration",
+      "context": "гана \"Китай быстрее\". Заложите ожидание порядка 4–8 недель и спросите актуальный срок по модели. Не сравнива",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "ключ. Ниже – рабочий путь: сначала задача и порог 160 л.с., потом Корея или Китай, затем две сметы по од",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "но. С 01.12.2025 по правилам, связанным с ПП РФ № 1713, для физлица при личном ввозе сохраняется льготны",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 400",
+      "kind": "large_number",
+      "context": "до 160 л.с. Ориентир в открытых обзорах – порядка 3 400 ₽ (до 3 лет) и 5 200 ₽ (старше 3 лет). Это не кал",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 200",
+      "kind": "large_number",
+      "context": "в открытых обзорах – порядка 3 400 ₽ (до 3 лет) и 5 200 ₽ (старше 3 лет). Это не калькулятор вашей машины",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "avto-iz-korei-ili-kitaya-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс между корейским SUV и китайским кроссовером у порта Владивостока, плашка Корея или Китай",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-13T17:49:08+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс между корейским SUV и китайским кроссовером у порта Владивостока, плашка Корея или Китай",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сравнения: для кого Корея, для кого Китай под заказ",
+      "h2_anchor": "Зафиксируйте задачу: для кого Корея, для кого Китай",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема проверки: руль, возраст парка, тип силовой установки",
+      "h2_anchor": "Сверьте руль, возраст парка и тип силовой установки",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист: порог 160 л.с. до любой оплаты за авто из Азии",
+      "h2_anchor": "Проверьте порог 160 л.с. до любой оплаты",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

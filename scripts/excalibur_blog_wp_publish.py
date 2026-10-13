@@ -7,7 +7,9 @@ import base64
 import io
 import json
 import os
+import shlex
 import sys
+import time
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -467,30 +469,139 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+PHP_CLI_CANDIDATES = (
+    "/usr/local/bin/php8.3",
+    "/usr/bin/php8.3",
+    "php8.3",
+    "/usr/local/bin/php8.2",
+    "/usr/bin/php8.2",
+    "php8.2",
+    "/usr/local/bin/php8.1",
+    "/usr/bin/php8.1",
+    "php8.1",
+    "/usr/local/bin/php",
+    "/usr/bin/php",
+    "php",
+)
+
+
+def wait_webfetch_response(root: Path, timeout_sec: int = 120) -> str:
+    fallback_file = root / "memory" / "webfetch-response.txt"
+    fallback_file.unlink(missing_ok=True)
+    print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
+    for _ in range(timeout_sec):
+        if fallback_file.is_file():
+            out = fallback_file.read_text(encoding="utf-8")
+            fallback_file.unlink()
+            if "OK post=" not in out:
+                raise RuntimeError(
+                    "WebFetch response file present but missing 'OK post=' "
+                    "(HTML 504/timeout is not success)."
+                )
+            print("Cloud WebFetch response detected successfully!")
+            return out
+        time.sleep(1)
+    raise RuntimeError(
+        f"Cloud WebFetch Fallback timed out after {timeout_sec} seconds. "
+        "Trigger FALLBACK_TRIGGER_URL in parallel as soon as it is printed."
+    )
+
+
+def trigger_bootstrap_ssh_cli(
+    env: dict[str, str],
+    remote_path: str,
+    timeout_sec: int = 900,
+) -> str:
+    """Run uploaded bootstrap via remote PHP CLI over SSH (avoids nginx HTTP timeout)."""
+    import paramiko
+
+    host, port, user, password = _ssh_creds(env)
+    client = paramiko.SSHClient()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    last_err = "no php binary succeeded"
+    try:
+        client.connect(
+            hostname=host,
+            port=port,
+            username=user,
+            password=password,
+            timeout=30,
+            allow_agent=False,
+            look_for_keys=False,
+        )
+        for php_bin in PHP_CLI_CANDIDATES:
+            cmd = f"{shlex.quote(php_bin)} {shlex.quote(remote_path)}"
+            print(f"SSH CLI php fallback: {cmd} (timeout={timeout_sec}s)...")
+            _stdin, stdout, stderr = client.exec_command(cmd)
+            channel = stdout.channel
+            deadline = time.time() + timeout_sec
+            timed_out = False
+            while not channel.exit_status_ready():
+                if time.time() > deadline:
+                    timed_out = True
+                    try:
+                        channel.close()
+                    except Exception:  # noqa: BLE001
+                        pass
+                    last_err = f"timeout after {timeout_sec}s for {php_bin}"
+                    print(f"WARN {last_err}", file=sys.stderr)
+                    break
+                time.sleep(1)
+            if timed_out:
+                continue
+            exit_status = channel.recv_exit_status()
+            out = stdout.read().decode("utf-8", errors="replace")
+            err = stderr.read().decode("utf-8", errors="replace")
+            if "OK post=" in out:
+                print("SSH CLI php trigger OK")
+                return out
+            combined = (err or out or f"exit={exit_status}").strip()
+            last_err = combined[:500] or f"exit={exit_status}"
+            if exit_status in (126, 127) or "command not found" in combined.lower():
+                continue
+            # PHP ran but did not print OK — try next binary; keep last_err for final raise.
+            continue
+        raise RuntimeError(f"SSH CLI php fallback failed: {last_err}")
+    finally:
+        client.close()
+
+
+def trigger_bootstrap(env: dict[str, str], url: str, remote_path: str, root: Path) -> str:
+    """HTTP first; on failure print FALLBACK URL, then SSH CLI php, then WebFetch wait."""
     try:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=180,
         ) as response:
-            return response.read().decode("utf-8", errors="replace")
+            body = response.read().decode("utf-8", errors="replace")
+            if "OK post=" in body:
+                return body
+            print(
+                "HTTP trigger returned without 'OK post='. "
+                "Entering SSH CLI / WebFetch fallback...",
+                file=sys.stderr,
+            )
     except Exception as e:
-        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
-        print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
-        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
-        fallback_file = root / "memory" / "webfetch-response.txt"
-        fallback_file.unlink(missing_ok=True)
-        import time
+        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}).")
 
-        for _ in range(120):
-            if fallback_file.is_file():
-                out = fallback_file.read_text(encoding="utf-8")
-                fallback_file.unlink()
-                print("Cloud response detected successfully!")
-                return out
-            time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+    # Print early so the agent can WebFetch in parallel while SSH CLI runs.
+    print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
+    print(
+        "Agent: WebFetch FALLBACK_TRIGGER_URL NOW in parallel and write "
+        "memory/webfetch-response.txt if SSH CLI is slow/unavailable."
+    )
+
+    try:
+        return trigger_bootstrap_ssh_cli(env, remote_path, timeout_sec=900)
+    except Exception as ssh_exc:  # noqa: BLE001
+        print(
+            f"SSH CLI php fallback failed ({type(ssh_exc).__name__}: {ssh_exc}). "
+            "Entering Cloud WebFetch Fallback mode...",
+            file=sys.stderr,
+        )
+
+    return wait_webfetch_response(root, timeout_sec=120)
 
 
 def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
@@ -502,7 +613,7 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        out = trigger_bootstrap(env, url, uploaded_remote_path, root)
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)

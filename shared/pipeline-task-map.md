@@ -156,7 +156,7 @@ interlinker --apply + llms generator. Блок === EXCALIBUR BLOG INDEXER === в
 Прочитай agents/excalibur-blog-publish.md + skills/publish-excalibur-blog/SKILL.md + shared/excalibur-wp-publish-contract.md.
 Preflight link-verify → dry-run → publish → обнови shared/published-articles.md + memory/blog/wp-publish-log.md.
 Блок === EXCALIBUR BLOG PUBLISH === + permalink в PIPELINE DONE.
-При HTTP timeout bootstrap — WebFetch fallback (см. skill).
+При HTTP timeout bootstrap — fallback chain: SSH CLI php → WebFetch параллельно (см. publish skill).
 ```
 
 ### ⑦ Fixer (post-run, только если есть open incidents)

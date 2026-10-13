@@ -31,3 +31,16 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-13 — B01 avto-iz-korei-ili-kitaya-2026
+
+- **verdict:** PASS
+- **post_id:** 3707
+- **permalink:** https://avtosales125.ru/2026/07/24/avto-iz-korei-ili-kitaya-2026/
+- **featured_image:** 4157
+- **inline_images:** 4158 (`inline-01.png`), 4159 (`inline-02.png`), 4160 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH upload + HTTP trigger (~100s; first attempt RemoteDisconnected + WebFetch wait timeout 120s; retry OK)
+- **note:** slug-match update of existing WP post 3707 (same slug since 2026-07-24); foreign denylist 3505/4110/4104 not touched; media suffix `-3`
+- **result:** `memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026/wp-publish-result.json`

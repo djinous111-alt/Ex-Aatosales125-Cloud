@@ -52,7 +52,7 @@ Task(generalPurpose):
 
 ## Cloud Task fallback
 
-См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
+См. `AGENTS.md`. Кратко: отсутствие typed `excalibur-blog-*` (включая `excalibur-blog-geo-qa`) → **канонический** `Task(generalPurpose)` per role + `.cursor/agents/` + `.cursor/skills/`. Не пиши incident только из‑за typed→generalPurpose fallback.
 
 ## Preflight (shell, директор)
 
@@ -175,7 +175,7 @@ Task(excalibur-blog-indexer)
 Ты excalibur-blog-publish. topic_id: {ID}. article_dir из handoff.
 Прочитай agents/excalibur-blog-publish.md + skills/publish-excalibur-blog/SKILL.md + shared/excalibur-wp-publish-contract.md.
 Preflight link-verify → dry-run → publish → ledger + handoff === EXCALIBUR BLOG PUBLISH ===.
-При HTTP timeout bootstrap — WebFetch fallback (см. skill).
+При HTTP timeout bootstrap — fallback chain: SSH CLI php → WebFetch параллельно (см. publish skill).
 ```
 
 ```text

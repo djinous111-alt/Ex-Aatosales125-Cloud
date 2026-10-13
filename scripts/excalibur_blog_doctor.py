@@ -5,7 +5,9 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -132,7 +134,55 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check(
+        "--blog-path" not in llms_help.stdout,
+        "llms generator CLI has no --blog-path",
+        errors,
+        warnings,
+    )
+    indexer_doc_paths = [
+        root / "agents/excalibur-blog-indexer.md",
+        root / ".cursor/agents/excalibur-blog-indexer.md",
+        root / "skills/indexer-excalibur-blog/SKILL.md",
+        root / ".cursor/skills/indexer-excalibur-blog/SKILL.md",
+    ]
+    # Flag only CLI-shaped usage (`--blog-path /` / `--blog-path value`), not "do not use --blog-path" notes.
+    stale_blog_path_re = re.compile(r"--blog-path(?:\s*=\s*|\s+)\S+")
+    stale_blog_path = [
+        str(path.relative_to(root))
+        for path in indexer_doc_paths
+        if path.is_file() and stale_blog_path_re.search(path.read_text(encoding="utf-8"))
+    ]
+    check(
+        not stale_blog_path,
+        "indexer agent/skill docs omit stale --blog-path CLI usage"
+        + (f" (found in {', '.join(stale_blog_path)})" if stale_blog_path else ""),
+        errors,
+        warnings,
+    )
+    check(module_available("paramiko"), "paramiko available (SSH publish)", errors, warnings, warn=True)
+    policy_path = root / "memory/brief/editorial-policy.json"
+    if policy_path.is_file():
+        try:
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            check(False, "editorial-policy.json is valid JSON", errors, warnings)
+        else:
+            check(
+                bool(policy.get("pain_markers_ru")),
+                "editorial-policy.json has pain_markers_ru",
+                errors,
+                warnings,
+            )
+            check(
+                bool(policy.get("outcome_markers_ru")),
+                "editorial-policy.json has outcome_markers_ru",
+                errors,
+                warnings,
+            )
+    else:
+        check(False, "editorial-policy.json exists", errors, warnings)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

@@ -93,6 +93,35 @@ category: env
 ### Fixer resolution
 - pending
 
+## INC-20261014-0013-research-webfetch-chest-import-504
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-privezti-elektromobil-iz-kitaya-2026
+severity: low
+category: api
+
+### What went wrong
+- `WebFetch` на конкурента `chest-import.com/stati/elektromobili-iz-kitaya` вернул 504 Gateway Timeout; полный текст страницы в этом run недоступен.
+
+### How the agent recovered this run
+- Использованы сниппеты/highlights `WebSearch` + параллельные официальные/экспертные источники (Минфин/Альта, iCustoms, Авто-Сейлс, utilsbor-calc, Drom); URL конкурента оставлен в `source_table` с пометкой о 504.
+
+### Durable fix needed before next run
+- В research skill: при 5xx WebFetch — явный fallback на WebSearch highlights + минимум 2 независимых источника по тому же тезису; не блокировать notes из-за одного конкурента.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

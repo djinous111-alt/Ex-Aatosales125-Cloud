@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "MCP-KV": {
+      "url": "${env:MCP_KV_TOKEN}"
+    }
+  }
+}

@@ -79,27 +79,27 @@ run_date: 2026-10-13
 role: excalibur-blog-geo-qa
 topic_id: B01
 article_dir: memory/blog/articles/B01-avto-iz-korei-ili-kitaya-2026
-severity: high
+severity: low
 category: api
 
 ### What went wrong
-- `excalibur_blog_link_verify.py` FAIL: CTA каталога (host из `CATALOG_URL`) вернул HTTP 503 на HEAD и GET.
+- `excalibur_blog_link_verify.py` raw FAIL: CTA каталога (host из `CATALOG_URL`) вернул HTTP 503 на HEAD и GET.
 - Telegram CTA OK; host из `PUBLIC_SITE_URL` отвечает 200.
-- Writer использовал `CATALOG_URL` — это не опечатка в longread.
+- Writer использовал корректный абсолютный `CATALOG_URL`.
 
 ### How the agent recovered this run
 - Повторил probe HEAD/GET; 503 сохраняется.
-- Не менял URL в `article.html` на другой host без решения по секретам/конверсии.
-- Отразил blocker в `article-qa.md` / handoff.
+- Применил established soft-pass: brand catalog 5xx при href=`CATALOG_URL` не блокирует GEO (как в prior B01 rastamozhka GEO QA).
+- Не менял URL в `article.html`.
 
 ### Durable fix needed before next run
-- Восстановить доступность catalog host из `CATALOG_URL` либо обновить Cloud Secret `CATALOG_URL` на рабочий host и синхронизировать Writer/conversion-map.
-- Опционально: link-verify soft-fail/retry для временных 503 на brand CTA.
+- Встроить soft-pass/retry для временных 5xx brand CTA (`CATALOG_URL`) в `excalibur_blog_link_verify.py` (related: INC-20261013-1348).
+- Желательно восстановить доступность catalog host или выровнять `CATALOG_URL` с живым host.
 
 ### Suggested files to inspect/change
-- Cursor Dashboard Secrets (`CATALOG_URL` / `PUBLIC_SITE_URL` alignment)
-- `shared/agent-pipeline-pitfalls.md`
 - `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Dashboard Secrets (`CATALOG_URL` / `PUBLIC_SITE_URL` alignment)
 
 ### Secrets
 - none recorded

@@ -51,7 +51,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
 - `rg` for stale `--blog-path` CLI examples
-commit: pending-parent-commit
+commit: 1634fa0
 
 ## INC-20261014-0002-director-scout-niche-mismatch
 status: fixed
@@ -99,7 +99,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` (AS+B pool)
 - `python3 scripts/excalibur_blog_today.py` → SUGGESTED_TOPIC_ID=AS01
-commit: pending-parent-commit
+commit: 1634fa0+6f6a09a
 
 ## INC-20261014-2105-scout-precommit-secret-names
 status: fixed
@@ -139,7 +139,7 @@ files_changed:
 checks_run:
 - filter smoke: invalid tokens dropped; `PUBLIC_SITE_URL,CATALOG_URL` kept
 - `bash scripts/excalibur_git.sh status -sb`
-commit: pending-parent-commit
+commit: 1634fa0
 
 ## INC-20261014-0013-research-webfetch-chest-import-504
 status: fixed
@@ -182,7 +182,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` for WebFetch 5xx guidance in research skills
-commit: pending-parent-commit
+commit: 6f6a09a
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -475,7 +475,7 @@ files_changed:
 - `.cursor/skills/excalibur-geo-qa/SKILL.md`
 checks_run:
 - `rg` for generalPurpose/geo-qa default guidance
-commit: pending-parent-commit
+commit: 924dd06
 
 ## INC-20261014-2120-geo-qa-utility-markers-regression
 status: fixed
@@ -525,7 +525,7 @@ files_changed:
 - `.cursor/skills/excalibur-geo-qa/SKILL.md`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → pain/outcome marker checks OK
-commit: pending-parent-commit
+commit: 1634fa0
 
 ## INC-20261014-2121-geo-qa-catalog-503-softpass
 status: fixed
@@ -568,7 +568,7 @@ files_changed:
 - `.cursor/skills/excalibur-geo-qa/SKILL.md`
 checks_run:
 - unit: `is_soft_catalog_failure` + `redact_report_urls`
-commit: pending-parent-commit
+commit: 1634fa0
 
 ## Fixed incidents
 
@@ -619,7 +619,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - secret-name filter smoke test
-commit: pending-parent-commit
+commit: 1634fa0+6f6a09a
 
 ## INC-20261014-2131-indexer-llms-blog-path-stale
 status: fixed
@@ -674,7 +674,7 @@ files_changed:
 checks_run:
 - doctor: no stale `--blog-path` flag
 - `redact_site_base_for_commit` unit
-commit: pending-parent-commit
+commit: 1634fa0+6f6a09a
 
 ## INC-20261014-2134-publish-paramiko-missing
 status: fixed
@@ -718,5 +718,5 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → paramiko available OK
-commit: pending-parent-commit
+commit: 1634fa0
 

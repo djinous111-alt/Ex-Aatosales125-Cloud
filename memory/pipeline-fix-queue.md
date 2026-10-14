@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261014-1740-cover-hero-force-upload-hosts
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-mozhno-li-privezti-gibrid-iz-yaponii-2026
+severity: low
+category: api
+
+### What went wrong
+- `excalibur_blog_hero_reference_url.py --force` failed: catbox HTTP 412, 0x0 HTTP 503.
+- Agent briefly switched `reference_url_hosted` to litterbox; `excalibur_blog_cover_quad_prompt.py` correctly rejected non-`avtosales125.ru` host.
+
+### How the agent recovered this run
+- Compared SHA of local `blog-hero-reference.png` with existing WP media URL — identical (1 443 352 bytes).
+- Restored stable `http://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png` and continued Kie i2i → split → inject PASS.
+
+### Durable fix needed before next run
+- Before `--force` upload, hash-check local reference vs downloaded hosted URL; skip re-upload when identical.
+- Document that WP filename `best-winter-cars-top-*.png` is the blog-host face (misleading name).
+- Optional: soft-fail force when hosts down if existing URL still serves matching bytes.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261014-1737-schema-precommit-secret-scan-crash
 status: open
 run_date: 2026-10-14

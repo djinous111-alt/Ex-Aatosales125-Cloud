@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Hybrid на шильдике ≠ вывоз",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Японский компакт у причала Владивостока, герой Авто-Сейлс с планшетом и плашкой мягкий vs полный",
+      "scene_hint": "WEATHER: cool grey Vladivostok port morning, light mist over water; OUTFIT: navy softshell jacket + charcoal sweater smart-casual for port/docs (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness of Avto-Sales blog host; action selfie at pier with modern Japanese compact hatchback behind him near cranes/containers; tablet in hand showing fake auction body-code card; torn paper Cyrillic plaque «Hybrid на шильдике ≠ вывоз» with yellow highlighter on «≠ вывоз»; sticky note «мягкий vs полный»; shocked meme cutout + cat reaction sticker (different formats); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT @avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; no toxic/insulting text on image; no war/explosion motifs",
+      "meme_caption_ru": "Сначала код кузова"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разделите мягкий гибрид и полный: от этого зависит вывоз",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI 16:9: columns Мягкий гибрид | Полный / PHEV / e-POWER; rows «едет ли на электро», «прямой вывоз из Японии», «пример кузова»; green check vs red stop; yellow highlight on row вывоз; pink sticky «до депозита»; scotch tape corner; NO hero face; NO Wordstat/Metrika; no toxic text",
+      "alt": "Таблица: мягкий гибрид vs полный/PHEV — что можно вывезти из Японии"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как читать карточку и аукционный лист до депозита",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake Japanese auction sheet / lot card screenshot UI: body code field highlighted (e.g. GP3 vs GB7), engine volume line, hybrid type note; Cyrillic callouts «код кузова», «объём ≤1,9 л»; marker arrow to body code; sticky «сверь до ставки»; NO hero face; NO Wordstat/Metrika; no toxic text",
+      "alt": "Мокап аукционного листа: код кузова и тип гибрида до депозита"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте красные флаги: полный гибрид, PHEV, EV и мотор больше 1,9 л",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable red-flag checklist board: 1) полный гибрид 2) PHEV 3) EV 4) e-POWER 5) ДВС >1,9 л — each with STOP stamp; green line «мягкий + ≤1,9 л — ок сверить»; tape + sticky «стоп до денег»; NO hero face; NO Wordstat/Metrika; no toxic text",
+      "alt": "Чеклист красных флагов: полный гибрид, PHEV, EV, мотор больше 1,9 л"
+    }
+  }
+}

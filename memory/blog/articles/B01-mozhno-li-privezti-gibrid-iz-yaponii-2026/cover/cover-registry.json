@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "mozhno-li-privezti-gibrid-iz-yaponii-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Японский компакт у причала Владивостока, герой Авто-Сейлс с планшетом и плашкой мягкий vs полный",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-14T17:43:31+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Японский компакт у причала Владивостока, герой Авто-Сейлс с планшетом и плашкой мягкий vs полный",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица: мягкий гибрид vs полный/PHEV — что можно вывезти из Японии",
+      "h2_anchor": "Разделите мягкий гибрид и полный: от этого зависит вывоз",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Мокап аукционного листа: код кузова и тип гибрида до депозита",
+      "h2_anchor": "Как читать карточку и аукционный лист до депозита",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист красных флагов: полный гибрид, PHEV, EV, мотор больше 1,9 л",
+      "h2_anchor": "Проверьте красные флаги: полный гибрид, PHEV, EV и мотор больше 1,9 л",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

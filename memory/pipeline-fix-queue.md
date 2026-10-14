@@ -6,6 +6,69 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261014-0915-research-empty-serp-duckduckgo
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026
+severity: medium
+category: script
+
+### What went wrong
+- `research_start.py` wrote `research-serp.json` with `result_count: 0` for every query on 2026-10-14 (DuckDuckGo/HTTP path empty).
+- Research had to ignore step-0 SERP and rebuild competitor/official/community evidence via Cursor WebSearch/WebFetch.
+
+### How the agent recovered this run
+- Used WebSearch/WebFetch as primary SERP; documented `serp_note` in `research-notes.md`.
+- Research-notes gate PASS after live sources + Wordstat MCP.
+
+### Durable fix needed before next run
+- Make `excalibur_blog_research_start.py` fail soft with explicit warning when all SERP queries return 0, or switch default fetch to a working provider.
+- Document in research skill that empty `research-serp.json` is expected fallback to WebSearch (already partially stated).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_start.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261014-0916-research-notes-gate-false-tech
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026
+severity: low
+category: qa
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marked non-tech auto-import topic as `technical_topic: true` because notes contain `github` / `api` evidence URLs (required `github_evidence` section).
+- First gate run BLOCKED on brittle heuristics: `accessed_at` counted only as `accessed_at:` key (table column dates ignored); `pain_solution_map` rows needed English/Russian keyword tokens inside each data row.
+
+### How the agent recovered this run
+- Added explicit `accessed_at:` lines in a source_access_log and prefixed pain/solution/результат in map rows.
+- Gate PASS with leftover WARN about missing `/docs` developer URL (noise for this niche).
+
+### Durable fix needed before next run
+- Exclude `github_evidence` section from tech-topic detection, or require tech markers in topic card fields only.
+- Count `accessed_at` column cells / ISO dates in source_table; treat header+data rows of pain_solution_map as valid without forcing keyword prefixes.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/agents/excalibur-blog-research.md` (example format)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261014-0910-scout-precommit-secret-names
 status: open
 run_date: 2026-10-14

@@ -1,0 +1,177 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-14",
+    "today_ru": "14.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-16",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-14 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "kak-zakazat-avto-iz-kitaya-pod-klyuch-2026",
+    "h1": "Как заказать авто из Китая под ключ: чек-лист до депозита в 2026",
+    "primary_query": "как заказать авто из китая",
+    "secondary_queries": [
+      "авто из китая под заказ",
+      "как самому заказать авто из китая",
+      "как безопасно заказать авто из китая"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как заказать авто из китая 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как заказать авто из китая октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как заказать авто из китая новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как заказать авто из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как заказать авто из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как заказать авто из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "авто из китая под заказ 2026",
+      "purpose": "вторичный запрос: авто из китая под заказ",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "как самому заказать авто из китая 2026",
+      "purpose": "вторичный запрос: как самому заказать авто из китая",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "как безопасно заказать авто из китая 2026",
+      "purpose": "вторичный запрос: как безопасно заказать авто из китая",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как заказать авто из Китая под ключ: чек-лист до депозита в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как заказать авто из Китая в 2026 году: пошаговая инструкция",
+          "url": "https://autoimport.moscow/guides/kak-zakazat-avto-iz-kitaya",
+          "snippet": ""
+        },
+        {
+          "title": "Как заказать авто из Китая в 2026: инструкция и растаможка",
+          "url": "https://shcherbakov-auto.ru/blog/avtoimport-iz-kitaya-2026",
+          "snippet": "Пошаговая схема заказа автомобиля из Китая под ключ: подбор и проверка, договор, выкуп, доставка (30-45 дней), растаможка, СБКТС и ЭПТС, постановка на учёт. Из опыта компании, привезшей 2 ..."
+        },
+        {
+          "title": "Как выбрать надёжную компанию для ввоза авто из Китая: чек-лист 2026",
+          "url": "https://chinaautozone.ru/guides/kak-vybrat-kompaniyu/",
+          "snippet": "Пошаговая схема, как привезти автомобиль из Китая в 2026 году: поиск и проверка машины, договор, доставка, растаможка и утильсбор, сроки и цена под ключ."
+        },
+        {
+          "title": "Авто из Китая 2026: гид по заказу и растаможке",
+          "url": "https://160drive.ru/avto-iz-kitaya-gid-2026/",
+          "snippet": "Честный чек-лист выбора импортёра авто из Китая: как проверить юрлицо, схему оплаты, инспекцию и договор, какие отзывы важны и как не попасть на мошенников. 8 критериев + красные флаги."
+        },
+        {
+          "title": "Покупка авто из Китая 2026: пошаговая инструкция",
+          "url": "https://160drive.ru/pokupka-avto-iz-kitaya-2026/",
+          "snippet": "Полный гид: как заказать, привезти и растаможить авто из Китая в 2026 году. Схема, цены, риски, проверенные компании — всё на одной странице."
+        },
+        {
+          "title": "Как заказать машину из Китая в 2026: пошаговый план",
+          "url": "https://chest-import.com/stati/kak-zakazat-mashinu-iz-kitaya",
+          "snippet": "Как купить авто из Китая в 2026 году: пошаговая инструкция — выбор модели, оплата, доставка, таможня, регистрация. Реальные сроки и стоимость каждого этапа."
+        }
+      ],
+      "searched_at": "2026-10-14"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://autoimport.moscow/guides/kak-zakazat-avto-iz-kitaya",
+      "title": "Как заказать авто из Китая в 2026 году: пошаговая инструкция",
+      "from_query": "Как заказать авто из Китая под ключ: чек-лист до депозита в 2026 2026"
+    },
+    {
+      "url": "https://shcherbakov-auto.ru/blog/avtoimport-iz-kitaya-2026",
+      "title": "Как заказать авто из Китая в 2026: инструкция и растаможка",
+      "from_query": "Как заказать авто из Китая под ключ: чек-лист до депозита в 2026 2026"
+    },
+    {
+      "url": "https://chinaautozone.ru/guides/kak-vybrat-kompaniyu/",
+      "title": "Как выбрать надёжную компанию для ввоза авто из Китая: чек-лист 2026",
+      "from_query": "Как заказать авто из Китая под ключ: чек-лист до депозита в 2026 2026"
+    },
+    {
+      "url": "https://160drive.ru/avto-iz-kitaya-gid-2026/",
+      "title": "Авто из Китая 2026: гид по заказу и растаможке",
+      "from_query": "Как заказать авто из Китая под ключ: чек-лист до депозита в 2026 2026"
+    },
+    {
+      "url": "https://160drive.ru/pokupka-avto-iz-kitaya-2026/",
+      "title": "Покупка авто из Китая 2026: пошаговая инструкция",
+      "from_query": "Как заказать авто из Китая под ключ: чек-лист до депозита в 2026 2026"
+    },
+    {
+      "url": "https://chest-import.com/stati/kak-zakazat-mashinu-iz-kitaya",
+      "title": "Как заказать машину из Китая в 2026: пошаговый план",
+      "from_query": "Как заказать авто из Китая под ключ: чек-лист до депозита в 2026 2026"
+    }
+  ]
+}

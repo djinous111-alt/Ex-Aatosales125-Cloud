@@ -56,7 +56,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: 953fbcc+67356e4
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -107,7 +107,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: 953fbcc+67356e4
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -148,7 +148,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: 953fbcc+67356e4
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -195,7 +195,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: 953fbcc+67356e4
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -249,377 +249,284 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: 953fbcc+67356e4
 
-## Fixed incidents
+## Fixed incidents (2026-10-14 cron 13:00 UTC fixer)
 
-Handled above; commit is pending Director review.
+### Fixer resolution batch 2026-10-14
+
+status: fixed (all open INC-20261014-* from this run)
+fixed_at: 2026-10-14
+doctor: SUMMARY errors=0 warnings=0
+notes: WP 4174/3843/4162/3707 not republished.
 
 ---
 
 ## INC-20261014-001 — doctor llms --blog-path vs --blog-dir
+status: fixed
+run_date: 2026-10-14
+role: excalibur-blog-fixer
+severity: medium
+category: script
 
-- **status:** open
-- **severity:** 2026-10-14
-- **run:** cron 13:00 UTC / cursor/bc-a6d3cf8d-8d61-4d8d-95e5-e9c476de241a-ecff
-- **stage:** preflight/doctor
-- **symptom:** `excalibur_blog_doctor.py` SUMMARY errors=1: checks `"--blog-path" in llms_help` but `excalibur_blog_llms_generator.py` only exposes `--blog-dir`.
-- **expected:** doctor and indexer CLI agree on `--blog-dir` (per durable memory / prior fixer notes).
-- **impact:** false doctor FAIL on every Cloud run; confuses preflight green-light.
-- **proposed_fix:** update `scripts/excalibur_blog_doctor.py` to check `--blog-dir`; align any docs still mentioning `--blog-path`.
-- **files:** scripts/excalibur_blog_doctor.py, scripts/excalibur_blog_llms_generator.py
-- **incident_report:** memory/pipeline-fix-queue.md#INC-20261014-001
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Doctor again asserts `--blog-dir` and fails if stale `--blog-path` appears in llms CLI help.
+- Indexer agent/skill examples no longer pass `--blog-path`.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
+- `rg` / `--help` confirm `--blog-dir` only
+commit: 953fbcc+67356e4
 
 ---
 
 ## INC-20261014-1305-scout-precommit-secret-names
-
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-scout
-topic_id: B01
-article_dir: n/a
 severity: medium
 category: env
 
-### What went wrong
-- Plain `git commit` failed in Cloud pre-commit secrets scanner: one entry in `CLOUD_AGENT_INJECTED_SECRET_NAMES` is not a valid bash identifier (contains `-`/`.`), so `${!SECRET_NAME}` aborts the hook.
-- Durable automation memory mentions `scripts/excalibur_git.sh` as the filter helper, but the file is missing from this repo checkout.
-
-### How the agent recovered this run
-- Filtered invalid names from `CLOUD_AGENT_INJECTED_SECRET_NAMES` for the commit session and successfully committed the B01 topic card.
-- Writer (2026-10-14) hit the same hook failure; recovered by filtering non-identifier tokens (comma-separated) before `git commit` of article.html/meta.
-
-### Durable fix needed before next run
-- Restore or re-add `scripts/excalibur_git.sh` (filter invalid secret-name tokens before commit), and point scout/director prompts at it.
-- Optionally harden Cloud secret-name injection so non-identifier names cannot break pre-commit.
-
-### Suggested files to inspect/change
-- `scripts/excalibur_git.sh` (missing; recreate)
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Restored `scripts/excalibur_git.sh` (filter invalid `CLOUD_AGENT_*_SECRET_NAMES` tokens).
+- Doctor asserts wrapper exists; Scout agents document its use.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-scout.md`
 - `.cursor/agents/excalibur-blog-scout.md`
 - `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `bash scripts/excalibur_git.sh status -sb`
+- doctor OK `scripts/excalibur_git.sh exists`
+commit: 953fbcc+67356e4
 
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
+---
 
 ## INC-20261014-1315-research-accessed-at-labels
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-research
-topic_id: B01
-article_dir: memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026
 severity: low
 category: docs
 
-### What went wrong
-- First `excalibur_blog_research_notes_gate.py` run BLOCK: `accessed_at=1 < 5`.
-- Gate counts only labeled fields matching `accessed_at:`, not dates inside a markdown table column named `accessed_at`.
-- Skill/agent format shows a `source_table` with an `accessed_at` column, which looks sufficient but does not satisfy the gate regex.
-
-### How the agent recovered this run
-- Added explicit `## source_access_log` with multiple `accessed_at: 2026-10-14` lines; re-ran gate → PASS.
-
-### Durable fix needed before next run
-- Document in research skill/agent that gate requires ≥5 literal `accessed_at:` labels (not only a table column of dates).
-- Optionally update `excalibur_blog_research_notes_gate.py` to also count `accessed_at` cells in `source_table` rows.
-
-### Suggested files to inspect/change
-- `.cursor/skills/excalibur-research/SKILL.md`
-- `.cursor/agents/excalibur-blog-research.md`
-- `scripts/excalibur_blog_research_notes_gate.py`
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
 ### Fixer resolution
-- pending
-
-## INC-20261014-1315-research-accessed-at-labels
-status: open
-run_date: 2026-10-14
-role: excalibur-blog-research
-topic_id: B01
-article_dir: memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026
-severity: low
-category: docs
-
-### What went wrong
-- First `excalibur_blog_research_notes_gate.py` run BLOCK: `accessed_at=1 < 5`.
-- Gate counts only labeled fields matching `accessed_at:`, not dates inside a markdown table column named `accessed_at`.
-- Skill/agent format shows a `source_table` with an `accessed_at` column, which looks sufficient but does not satisfy the gate regex.
-
-### How the agent recovered this run
-- Added explicit `## source_access_log` with multiple `accessed_at: 2026-10-14` lines; re-ran gate → PASS.
-
-### Durable fix needed before next run
-- Document in research skill/agent that gate requires ≥5 literal `accessed_at:` labels (not only a table column of dates).
-- Optionally update `excalibur_blog_research_notes_gate.py` to also count `accessed_at` cells in `source_table` rows.
-
-### Suggested files to inspect/change
-- `.cursor/skills/excalibur-research/SKILL.md`
-- `.cursor/agents/excalibur-blog-research.md`
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Gate counts labeled `accessed_at:` **and** ISO dates on URL table rows.
+- Research agent/skill document `## source_access_log` requirement (duplicate open block closed).
+files_changed:
 - `scripts/excalibur_blog_research_notes_gate.py`
+- `agents/excalibur-blog-research.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
 - `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit count: 5 table ISO dates → accessed_count≥5
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+commit: 953fbcc+67356e4
 
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
-
+---
 
 ## INC-20261014-1322-geo-qa-typed-task-missing
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-geo-qa
-topic_id: B01
-article_dir: memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026
 severity: medium
 category: api
 
-### What went wrong
-- Cloud API Task type enum does not accept typed `excalibur-blog-geo-qa`.
-- Pipeline had to fall back to `Task(generalPurpose)` with paths to `.cursor/agents/excalibur-blog-geo-qa.md` and `.cursor/skills/excalibur-geo-qa/SKILL.md`.
-
-### How the agent recovered this run
-- Ran GEO QA via generalPurpose fallback; executed all QA scripts; wrote article-qa.md + handoff marker.
-
-### Durable fix needed before next run
-- Register typed Task `excalibur-blog-geo-qa` in Cloud agent/Task enum (and keep generalPurpose fallback documented until registration lands).
-- Align `.cursor/environment.json` / agent registration docs so Director can launch typed GEO QA without fallback.
-
-### Suggested files to inspect/change
-- `.cursor/environment.json`
-- `.cursor/agents/excalibur-blog-geo-qa.md`
-- `CLOUD-AUTOMATION.md`
-- `shared/agent-pipeline-pitfalls.md`
-- `shared/pipeline-task-map.md`
-
-### Secrets
-- none recorded
-
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Documented durable Cloud path: Director uses `Task(generalPurpose)` + geo-qa agent/skill immediately when typed enum missing (no retry waste).
+- Optional Cloud Dashboard registration of typed Task remains out-of-repo; not a pipeline blocker.
+files_changed:
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/pipeline-task-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` confirms generalPurpose GEO QA guidance in director/geo-qa/pitfalls/task-map
+commit: 953fbcc+67356e4
+
+---
 
 ## INC-20261014-1322-geo-qa-utility-markers-regression
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-geo-qa
-topic_id: B01
-article_dir: memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026
 severity: high
 category: script
 
-### What went wrong
-- `memory/brief/editorial-policy.json` again lacked `pain_markers_ru` / `outcome_markers_ru` and mins, while `excalibur_blog_utility_gate.py` defaulted mins to 2/3 on empty lists → false BLOCK on every article (including prior PASS AS09).
-- Empty-list skip logic from prior fix commit was missing from current `scripts/excalibur_blog_utility_gate.py`.
-
-### How the agent recovered this run
-- Restored marker lists + `min_pain_markers`/`min_outcome_markers` in editorial-policy.json (aligned with human_voice_gate).
-- Restored empty-list WARN+skip in utility_gate.py.
-- Re-ran utility: pain_markers OK; remaining BLOCK is real article gap (action 2&lt;8, outcome 2&lt;3).
-
-### Durable fix needed before next run
-- Pin editorial-policy markers in doctor preflight (FAIL if lists missing/empty).
-- Keep empty-list skip in utility_gate.py; add regression test or doctor assert.
-- Document in pitfalls: do not strip pain/outcome markers on rebrand/sync.
-
-### Suggested files to inspect/change
-- `memory/brief/editorial-policy.json`
-- `scripts/excalibur_blog_utility_gate.py`
-- `scripts/excalibur_blog_doctor.py`
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Kept empty-list WARN+skip in utility_gate; doctor FAIL if editorial-policy marker lists missing/empty; doctor asserts skip string present.
+- Markers present in `memory/brief/editorial-policy.json`; pitfalls warn not to strip on rebrand.
+files_changed:
+- `scripts/excalibur_blog_utility_gate.py` (verified empty-list skip)
+- `scripts/excalibur_blog_doctor.py`
+- `memory/brief/editorial-policy.json` (markers present; unchanged this fix if already restored)
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+checks_run:
+- doctor OK pain/outcome markers ≥3
+- doctor OK utility_gate empty-list skip string
+commit: 953fbcc+67356e4
+
+---
 
 ## INC-20261014-1322-geo-qa-link-verify-catalog-softpass
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-geo-qa
-topic_id: B01
-article_dir: memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026
 severity: medium
 category: script
 
-### What went wrong
-- Brand catalog CTA returned HTTP 503; prior durable soft-pass (`is_soft_brand_catalog_5xx` when href==CATALOG_URL) was missing from current `scripts/excalibur_blog_link_verify.py`.
-- Separately, `https://egrul.nalog.ru/` SSL handshake timed out twice in this environment (canonical URL, not content defect).
-
-### How the agent recovered this run
-- Restored catalog 5xx soft-pass helper in link_verify.py; catalog marked ok with warning.
-- Documented egrul SSL timeout as env flake in article-qa (URL kept); did not rewrite article.html.
-
-### Durable fix needed before next run
-- Ensure catalog soft-pass stays in link_verify (doctor/smoke).
-- Consider soft-pass or longer timeout for known gov registry hosts (egrul.nalog.ru) on SSL handshake timeout.
-
-### Suggested files to inspect/change
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Confirmed `is_soft_brand_catalog_5xx` + `is_soft_gov_registry_ssl_timeout` in link_verify; doctor source asserts both.
+files_changed:
 - `scripts/excalibur_blog_link_verify.py`
 - `scripts/excalibur_blog_doctor.py`
 - `shared/agent-pipeline-pitfalls.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+checks_run:
+- unit soft-pass catalog 503 + egrul SSL timeout
+- doctor OK soft-pass helpers
+commit: 953fbcc+67356e4
 
-### Secrets
-- none recorded
-
-
-### Re-QA update 2026-10-14T13:35
-- After writer FIX, egrul.nalog.ru still SSL handshake timeout in this env.
-- Added `is_soft_gov_registry_ssl_timeout` in `scripts/excalibur_blog_link_verify.py` (canonical gov URL ≠ content defect).
-- Re-QA link-verify PASS; article-qa PASS 88.
-
-### Fixer resolution
-- pending
+---
 
 ## INC-20261014-1339-schema-redacted-vs-live-url
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-schema
-topic_id: B01
-article_dir: memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026
 severity: medium
 category: publish
 
-### What went wrong
-- Building `schema.jsonld` with live `PUBLIC_SITE_URL` / `TELEGRAM_URL` / `CATALOG_URL` / `MAX_URL` (matching working-tree AS08/AS09 + authors-registry) made `git commit` fail with Cursor secret-scan (`CURSOR_SECRET_SCAN_BLOCKED`).
-- Stale guidance conflicted: prior schemas in the working tree keep live hosts, while commit policy requires `[REDACTED]` placeholders for those secret-scanned values.
-
-### How the agent recovered this run
-- Regenerated committed `schema.jsonld` with `[REDACTED]` for secret URL bases/sameAs from env; kept public Instagram/2GIS links.
-- Validated BlogPosting + FAQPage (7) + HowTo (7), `datePublished=2026-10-14`, author `avtosales-editorial`.
-- Publish must expand `[REDACTED]` site/social bases from env before writing WP schema meta.
-
-### Durable fix needed before next run
-- Document in schema + publish skills: commit-time schema uses `[REDACTED]` for secret-scanned URL envs; publish expands before WP meta.
-- Optionally add a tiny `scripts/excalibur_blog_schema_redact.py` / expand helper used by schema and publish.
-- Update `shared/agent-pipeline-pitfalls.md` so schema agents do not re-learn the secret-scan block.
-
-### Suggested files to inspect/change
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Schema + publish skills/agents document commit-time `[REDACTED]` and publish `expand_schema_redacted`.
+- Doctor asserts expand helper present.
+files_changed:
 - `skills/schema-excalibur-blog/SKILL.md`
 - `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
+- `.cursor/agents/excalibur-blog-schema.md`
 - `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
 - `scripts/excalibur_blog_wp_publish.py`
 - `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit `expand_schema_redacted('[REDACTED]/x', …)`
+- doctor OK expand helper
+commit: 953fbcc+67356e4
 
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
+---
 
 ## INC-20261014-1340-cover-hero-host-upload
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-cover
-topic_id: B01
-article_dir: memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026
 severity: medium
 category: api
 
-### What went wrong
-- `excalibur_blog_hero_reference_url.py --force` failed: catbox HTTP 412, 0x0 HTTP 503.
-- Temporary hosts (uguu/tmpfiles) returned direct PNG URLs, but `excalibur_blog_cover_quad_prompt.py` requires stable `[REDACTED]` WordPress media URL and rejected them.
-
-### How the agent recovered this run
-- Kept/updated `reference_url_hosted` to HTTPS WordPress media on [REDACTED] (prompt script validation PASS).
-- Generated ONE Kie API gpt-image-2 i2i via `excalibur_blog_kie_gpt_image2_api.py`; split PASS; inject HTML ok.
-- Manual rewrite of auto SEO stub hooks in `quad-manifest.json` for company-check topic.
-
-### Durable fix needed before next run
-- Document fallback when catbox/0x0 down: do not force-reupload if WP media URL already valid; prefer HTTPS.
-- Optionally allow alternate host only for local debug, not for production batch.
-- Seed topic-specific defaults in `excalibur_blog_quad_manifest.py` so auto cover_hook is not SEO-stub for auto-import topics.
-
-### Suggested files to inspect/change
-- `scripts/excalibur_blog_hero_reference_url.py`
-- `scripts/excalibur_blog_cover_quad_prompt.py`
-- `scripts/excalibur_blog_quad_manifest.py`
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Hero script skips `--force` reupload when stable WP media URL already set (override via `EXCALIBUR_HERO_ALLOW_FORCE_REUPLOAD=yes`).
+- On catbox/0x0 failure, keeps existing WP URL instead of blocker.
+- Cover skill documents the policy.
+files_changed:
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
+commit: 953fbcc+67356e4
 
+---
 
 ## INC-20261014-1349-indexer-llms-secret-scan-redact
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-indexer
-topic_id: B01
-article_dir: memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026
 severity: medium
 category: publish
-
-### What went wrong
-- After `excalibur_blog_llms_generator.py --blog-dir … --site-base $PUBLIC_SITE_URL`, `git commit` of `memory/blog/llms.txt`, `llms-full.txt`, and `interlink-report.json` failed with Cursor secret-scan (`CURSOR_SECRET_SCAN_BLOCKED`) on `PUBLIC_SITE_URL` values in changed lines.
-- Prior HEAD `llms.txt` already contained live site hosts; new B01 lines re-triggered the scanner on the delta.
-
-### How the agent recovered this run
-- Rewrote committed llms artifacts and interlink-report `site_base` with `[REDACTED]` placeholders (same pattern as schema INC-20261014-1339).
-- Interlinker `--apply` completed with 0 opportunities; promotion-checklist written; handoff INDEXER block added.
-- Publish must expand `[REDACTED]` in llms*.txt (and any uploaded index files) from env before deploying to the live site root.
-
-### Durable fix needed before next run
-- Document in indexer + publish skills: generate with live `--site-base`, then redact `PUBLIC_SITE_URL` to `[REDACTED]` before commit; publish expands on deploy.
-- Optionally add `scripts/excalibur_blog_llms_redact.py` / shared URL redact+expand helper used by indexer, schema, and publish.
-- Align doctor/skill: remove stale `--blog-path` checks (also INC-20261014-001).
-
-### Suggested files to inspect/change
-- `skills/indexer-excalibur-blog/SKILL.md`
-- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
-- `.cursor/agents/excalibur-blog-indexer.md`
-- `skills/publish-excalibur-blog/SKILL.md`
-- `scripts/excalibur_blog_doctor.py`
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Restored `redact_site_base_for_commit` in llms generator; doctor asserts it.
+- Indexer/publish skills document redact-on-generate / expand-on-deploy; removed stale `--blog-path`.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+checks_run:
+- doctor OK llms redact helper
+- `python3 scripts/excalibur_blog_llms_generator.py --help` → `--blog-dir` only
+commit: 953fbcc+67356e4
+
+---
 
 ## INC-20261014-1355-publish-http-timeout-lost-stdout
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-publish
-topic_id: B01
-article_dir: memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026
 severity: medium
 category: publish
 
-### What went wrong
-- SSH upload of ~7MB `excalibur-blog-publish-once.php` succeeded, but local HTTP trigger hit 120s `TimeoutError` before stdout with `OK post=` returned.
-- WebFetch/curl fallback against the bootstrap URL also raced the 120s agent wait; after fallback timeout the script deleted the bootstrap in `finally`, so late retries saw WP 404 HTML.
-- Publish script lacked `expand_schema_redacted` despite schema/indexer commit policy using `[REDACTED]` URL bases; cover registry alt key is `alt` not `cover_alt_text`.
-
-### How the agent recovered this run
-- Verified NEW slug live via WP REST: post_id **4174**, featured **4192**, inline **4193/4194/4195**, denylist OK (not 3843/4162/3707).
-- Small SSH repair bootstrap confirmed schema meta already written (FAQPage+HowTo, no REDACTED) and refreshed meta + featured alt.
-- Added `expand_schema_redacted` + denylist guard + registry `alt` fallback + git-safe ledger redaction in `scripts/excalibur_blog_wp_publish.py`.
-- Wrote `wp-publish-result.json`, ledger `published`, wp-publish-log, promotion Live URL.
-
-### Durable fix needed before next run
-- Keep bootstrap file until fallback response with literal `OK post=` is consumed; increase HTTP/fallback wait for ~7MB payloads (or stream progress).
-- On client timeout, REST-verify by slug before declaring FAIL; reconstruct result from REST+meta probe.
-- Document schema `[REDACTED]` expand in publish skill; cover-registry `alt` key in publish payload mapping.
-
-### Suggested files to inspect/change
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- HTTP/fallback waits raised to 180s; REST soft-success by slug during wait; bootstrap deleted only after `OK post=`.
+- Kept `expand_schema_redacted`, cover registry `alt` fallback, denylist, git-safe ledger redaction.
+- Publish skill documents timeout/REST recovery.
+files_changed:
 - `scripts/excalibur_blog_wp_publish.py`
 - `skills/publish-excalibur-blog/SKILL.md`
 - `.cursor/skills/publish-excalibur-blog/SKILL.md`
 - `shared/agent-pipeline-pitfalls.md`
+- `shared/pipeline-task-map.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- doctor OK `try_rest_soft_success`
+- dry unit expand_schema
+commit: 953fbcc+67356e4
 
-### Secrets
-- none recorded
+---
 
-### Fixer resolution
-- pending
+## Open incidents
+
+none (2026-10-14 cron 13:00 UTC run)

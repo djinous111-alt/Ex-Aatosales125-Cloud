@@ -477,3 +477,39 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261014-1339-schema-redacted-vs-live-url
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026
+severity: medium
+category: publish
+
+### What went wrong
+- Building `schema.jsonld` with live `PUBLIC_SITE_URL` / `TELEGRAM_URL` / `CATALOG_URL` / `MAX_URL` (matching working-tree AS08/AS09 + authors-registry) made `git commit` fail with Cursor secret-scan (`CURSOR_SECRET_SCAN_BLOCKED`).
+- Stale guidance conflicted: prior schemas in the working tree keep live hosts, while commit policy requires `[REDACTED]` placeholders for those secret-scanned values.
+
+### How the agent recovered this run
+- Regenerated committed `schema.jsonld` with `[REDACTED]` for secret URL bases/sameAs from env; kept public Instagram/2GIS links.
+- Validated BlogPosting + FAQPage (7) + HowTo (7), `datePublished=2026-10-14`, author `avtosales-editorial`.
+- Publish must expand `[REDACTED]` site/social bases from env before writing WP schema meta.
+
+### Durable fix needed before next run
+- Document in schema + publish skills: commit-time schema uses `[REDACTED]` for secret-scanned URL envs; publish expands before WP meta.
+- Optionally add a tiny `scripts/excalibur_blog_schema_redact.py` / expand helper used by schema and publish.
+- Update `shared/agent-pipeline-pitfalls.md` so schema agents do not re-learn the secret-scan block.
+
+### Suggested files to inspect/change
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

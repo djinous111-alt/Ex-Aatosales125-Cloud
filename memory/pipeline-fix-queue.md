@@ -549,3 +549,40 @@ category: api
 ### Fixer resolution
 - pending
 
+
+## INC-20261014-1349-indexer-llms-secret-scan-redact
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026
+severity: medium
+category: publish
+
+### What went wrong
+- After `excalibur_blog_llms_generator.py --blog-dir … --site-base $PUBLIC_SITE_URL`, `git commit` of `memory/blog/llms.txt`, `llms-full.txt`, and `interlink-report.json` failed with Cursor secret-scan (`CURSOR_SECRET_SCAN_BLOCKED`) on `PUBLIC_SITE_URL` values in changed lines.
+- Prior HEAD `llms.txt` already contained live site hosts; new B01 lines re-triggered the scanner on the delta.
+
+### How the agent recovered this run
+- Rewrote committed llms artifacts and interlink-report `site_base` with `[REDACTED]` placeholders (same pattern as schema INC-20261014-1339).
+- Interlinker `--apply` completed with 0 opportunities; promotion-checklist written; handoff INDEXER block added.
+- Publish must expand `[REDACTED]` in llms*.txt (and any uploaded index files) from env before deploying to the live site root.
+
+### Durable fix needed before next run
+- Document in indexer + publish skills: generate with live `--site-base`, then redact `PUBLIC_SITE_URL` to `[REDACTED]` before commit; publish expands on deploy.
+- Optionally add `scripts/excalibur_blog_llms_redact.py` / shared URL redact+expand helper used by indexer, schema, and publish.
+- Align doctor/skill: remove stale `--blog-path` checks (also INC-20261014-001).
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

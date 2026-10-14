@@ -74,13 +74,63 @@ def has_wordstat(text_lower: str) -> bool:
 
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech niches from topic card fields only.
+
+    Do not scan research-notes body: required github_evidence / API URLs
+    create false positives for auto-import and other non-dev topics.
+    """
+    del notes  # notes intentionally ignored for tech detection
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
-        for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
+        for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug", "angle_note")
     ).lower()
-    blob += " " + notes[:2000].lower()
     return any(marker in blob for marker in TECH_MARKERS)
+
+
+def count_accessed_at(text: str, text_lower: str) -> int:
+    """Count explicit accessed_at keys and ISO dates in markdown table cells."""
+    keyed = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    iso_cells = len(re.findall(r"\|\s*\d{4}-\d{2}-\d{2}\s*\|", text))
+    return max(keyed, iso_cells)
+
+
+def count_pain_solution_rows(text: str) -> int:
+    """Count data rows in ## pain_solution_map without forcing keyword prefixes."""
+    match = re.search(r"##\s*\d*\.?\s*pain[_\s-]*solution[_\s-]*map\b([\s\S]*?)(?=\n##\s|\Z)", text, flags=re.I)
+    section = match.group(1) if match else ""
+    if section:
+        label_tokens = {
+            "#",
+            "n",
+            "боль",
+            "pain",
+            "решение",
+            "solution",
+            "результат",
+            "result",
+            "outcome",
+            "reader_pain",
+            "reader_outcome",
+        }
+        data_rows: list[str] = []
+        for row in re.findall(r"^\s*\|.+\|\s*$", section, flags=re.M):
+            if re.match(r"^\s*\|\s*[-:| ]+\|\s*$", row):
+                continue
+            cells = [c.strip().lower() for c in row.strip().strip("|").split("|")]
+            nonempty = [c for c in cells if c]
+            if nonempty and sum(1 for c in nonempty if c in label_tokens) >= max(2, len(nonempty) - 1):
+                continue
+            data_rows.append(row)
+        if data_rows:
+            return len(data_rows)
+    return len(
+        re.findall(
+            r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*",
+            text.lower(),
+            flags=re.M,
+        )
+    )
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,9 +180,9 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text, text_lower)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    pain_map_rows = count_pain_solution_rows(text)
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:

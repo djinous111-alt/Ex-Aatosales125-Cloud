@@ -37,6 +37,10 @@ verdict: PASS | BLOCKER
 
 - cover MCP, правка longread, publish.
 
+## Commit hygiene
+
+Secret-scanned URL envs → `[REDACTED]` in committed `schema.jsonld`. Publish expands via `expand_schema_redacted`. Use `bash scripts/excalibur_git.sh` for commits.
+
 ## Skill
 
 `skills/schema-excalibur-blog/SKILL.md`

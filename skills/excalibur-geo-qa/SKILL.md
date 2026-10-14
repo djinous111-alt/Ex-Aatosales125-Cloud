@@ -9,10 +9,18 @@ description: Excalibur BLOG GEO QA — fact-check, link verify, linter, slop, ca
 
 После `article.html` + `article.meta.json` от Writer. **До** cover/schema (их делает директор параллельно после PASS).
 
+## Cloud Task
+
+Typed `excalibur-blog-geo-qa` часто отсутствует в Cloud Task enum → Director запускает `Task(generalPurpose)` с `.cursor/agents/excalibur-blog-geo-qa.md` + этот skill. Не блокировать пайплайн на typed name.
+
+Link-verify soft-pass: brand catalog HTTP 5xx when `href == CATALOG_URL`; SSL/handshake timeout on egrul.nalog.ru / kad.arbitr.ru (env flake, not content defect).
+
+Utility gate: `editorial-policy.json` must keep non-empty `pain_markers_ru` / `outcome_markers_ru`; empty lists → WARN+skip (not false BLOCK).
+
 ## Скрипты (обязательно)
 
 ```bash
-python scripts/excalibur_blog_research_notes_gate.py \
+python3 scripts/excalibur_blog_research_notes_gate.py \
   --article-dir memory/blog/articles/<dir> \
   -o research-notes-gate.json
 

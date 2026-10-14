@@ -113,6 +113,20 @@ blockers:
 
 Committed `schema.jsonld` may use `[REDACTED]` for secret-scanned URL bases. `excalibur_blog_wp_publish.py` expands via `expand_schema_redacted` from `PUBLIC_SITE_URL` / `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL` at payload load; disk schema stays redacted.
 
+Cover registry alt key is `alt` (also accepts `cover_alt_text`).
+
+### HTTP timeout / lost stdout (~7MB bootstrap)
+
+Local HTTP trigger may hit TimeoutError before `OK post=` returns. Script behavior:
+
+1. HTTP timeout 180s, then WebFetch fallback wait 180s.
+2. During wait, poll WP REST by slug (`try_rest_soft_success`) — reconstruct OK lines without a second curl.
+3. Bootstrap PHP is deleted only after literal `OK post=`; on hard failure it is kept to avoid late 404.
+
+Agent must not re-curl bootstrap while PHP may still run. On client timeout: REST-verify by slug before FAIL.
+
+`llms*.txt` with `[REDACTED]` bases: expand from env when deploying to the live site root (same secret-scan policy as schema).
+
 ## Blockers
 
 - `❌ PUBLISH BLOCKER` — QA не PASS, link-verify fail, нет cover/schema, credentials, allow flag

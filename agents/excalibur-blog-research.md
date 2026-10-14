@@ -59,6 +59,16 @@ surprising_fact: неожиданный факт или конфликт мне�
 
 ## source_table
 | source | url | accessed_at | why_it_matters |
+| … | https://… | YYYY-MM-DD | … |
+
+## source_access_log
+# Gate counts literal `accessed_at:` labels (≥5) and/or ISO dates on URL table rows.
+# A table column named accessed_at alone is NOT enough without dates in rows or this log.
+accessed_at: YYYY-MM-DD
+accessed_at: YYYY-MM-DD
+accessed_at: YYYY-MM-DD
+accessed_at: YYYY-MM-DD
+accessed_at: YYYY-MM-DD
 
 ## wordstat
 | phrase | impressions |

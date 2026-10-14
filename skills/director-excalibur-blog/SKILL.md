@@ -211,9 +211,9 @@ Task(excalibur-blog-publish)
 
 ## Blockers
 
-Если typed Task `excalibur-blog-*` недоступны:
+Если typed Task `excalibur-blog-*` недоступны (часто `excalibur-blog-geo-qa`):
 
-1. Используй fallback из `AGENTS.md`: отдельный `Task(generalPurpose)` на каждую роль с `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`.
+1. Сразу `Task(generalPurpose)` на каждую роль с `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md` — не тратить retry на typed enum.
 2. Если недоступен даже `generalPurpose`, тогда:
 
 `❌ БЛОКЕР: среда не поддерживает Task/subagents. Single-agent pipeline запрещён.`

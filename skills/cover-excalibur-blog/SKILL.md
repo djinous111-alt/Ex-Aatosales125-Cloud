@@ -90,11 +90,13 @@ inject <figure> after H2 in article.html
 ### Шаг 1 — reference URL
 
 ```bash
-python scripts/excalibur_blog_hero_reference_url.py
+python3 scripts/excalibur_blog_hero_reference_url.py
 ```
 
 Проверить `memory/cover/blog-hero.json` → `reference_url_hosted`.  
 Fallback env: `BLOG_HERO_REFERENCE_URL`.
+
+**Не делай `--force`**, если уже есть стабильный WordPress media URL (`/wp-content/uploads/` или host сайта): catbox/0x0 часто дают 412/503, а prompt builder принимает только WP media. Override только с `EXCALIBUR_HERO_ALLOW_FORCE_REUPLOAD=yes`.
 
 ### Шаг 2 — manifest
 

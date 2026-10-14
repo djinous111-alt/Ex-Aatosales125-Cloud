@@ -55,5 +55,10 @@ Scout-агент ищет горячие и свежие инфоповоды п
 ## Не твоя зона
 - Написание статей (`article.html`), верстка, нарезка картинок или публикация.
 
+## Git commits
+
+Use `bash scripts/excalibur_git.sh …` instead of plain `git` for commit/add/push.
+The wrapper filters `CLOUD_AGENT_*_SECRET_NAMES` to valid bash identifiers (`^[A-Za-z_][A-Za-z0-9_]*$`) so pre-commit `${!SECRET_NAME}` does not abort on names with `-`/`.`.
+
 ## Skill
 `skills/scout-excalibur-blog/SKILL.md` · `shared/editorial-utility-only.md`

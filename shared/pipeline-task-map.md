@@ -33,7 +33,7 @@
 | 0   | **Директор** | — (shell)                 | дата, SERP, **utility gate темы**, article_dir, reserve topic                              | research-context.json, research-serp.json, published-articles.md status=in_progress                       | обновить таблицу статуса                          |
 | ①   | **Research** | `excalibur-blog-research` | deep research на текущую дату, pain_solution_map, Wordstat, GitHub/docs/community evidence | research-notes.md, research-notes-gate.json                                                               | handoff `=== RESEARCH ===`                        |
 | ②   | **Writer**   | `excalibur-blog-writer`   | human longread 8.5–9.5k: боль → решение → результат, FAQ HTML, meta_ab                     | article.html, article.meta.json                                                                           | handoff `=== WRITER ===`                          |
-| ③   | **GEO QA**   | `excalibur-blog-geo-qa`   | QA-скрипты + research gate + utility gate + human voice gate, score ≥80                    | *-report.json, research-notes-gate.json, utility-gate-report.json, human-voice-report.json, article-qa.md | handoff `=== GEO QA ===`                          |
+| ③   | **GEO QA**   | `excalibur-blog-geo-qa` (Cloud: часто `generalPurpose` + agent/skill paths) | QA-скрипты + research gate + utility gate + human voice gate, score ≥80                    | *-report.json, research-notes-gate.json, utility-gate-report.json, human-voice-report.json, article-qa.md | handoff `=== GEO QA ===`                          |
 | ④a  | **Cover**    | `excalibur-blog-cover`    | ONE Kie API quad 2×2 i2i + design code + split → cover + 3 inline                          | canvas-quad.png, cover.png, inline-01..03, registry                                                       | fragment cover.md                                 |
 | ④b  | **Schema**   | `excalibur-blog-schema`   | BlogPosting + FAQPage JSON-LD                                                              | schema.jsonld                                                                                             | fragment schema.md                                |
 | ⑤   | **Indexer**  | `excalibur-blog-indexer`  | interlink --apply, llms.txt                                                                | article.html (links), llms*.txt, promotion-checklist                                                      | handoff `=== INDEXER ===`                         |
@@ -156,8 +156,13 @@ interlinker --apply + llms generator. Блок === EXCALIBUR BLOG INDEXER === в
 Прочитай agents/excalibur-blog-publish.md + skills/publish-excalibur-blog/SKILL.md + shared/excalibur-wp-publish-contract.md.
 Preflight link-verify → dry-run → publish → обнови shared/published-articles.md + memory/blog/wp-publish-log.md.
 Блок === EXCALIBUR BLOG PUBLISH === + permalink в PIPELINE DONE.
-При HTTP timeout bootstrap — WebFetch fallback (см. skill).
+При HTTP timeout bootstrap — WebFetch fallback + REST soft-success by slug (см. skill). Не второй curl bootstrap.
 ```
+
+### Cloud typed Task missing
+
+Если enum не принимает `excalibur-blog-geo-qa` (и другие `excalibur-blog-*`): сразу `Task(generalPurpose)` с `.cursor/agents/<role>.md` + skill path. Не тратить retry на typed name.
+
 
 ### ⑦ Fixer (post-run, только если есть open incidents)
 

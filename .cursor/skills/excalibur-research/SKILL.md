@@ -52,6 +52,14 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
   - Для анализа конкурентов в SERP **всегда используй инструмент `WebSearch`**. Ищи статьи, руководства, гайды по `primary_query` и ключевым словам в Яндексе и Google.
   - Игнорируй сырой `research-serp.json` из шага 0, если он пуст, неполный или нерелевантный. Твой собственный поиск через `WebSearch` — приоритетный источник свежих данных 2026 года.
 
+## Gate: `accessed_at` counts
+
+`excalibur_blog_research_notes_gate.py` requires ≥5 source access dates when `today_iso` is set.
+
+- Counts literal labeled fields matching `accessed_at:` (recommended: `## source_access_log` with ≥5 lines).
+- Also counts ISO `YYYY-MM-DD` dates on markdown table rows that contain a URL (source_table cells).
+- A table **header** column named `accessed_at` without dates in data rows is **not** enough.
+
 ## Правила
 
 1. **Сначала** `excalibur_blog_research_start.py` (шаг 0) — для валидации даты/года и utility-gate темы.

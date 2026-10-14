@@ -371,3 +371,103 @@ category: docs
 ### Fixer resolution
 - pending
 
+
+## INC-20261014-1322-geo-qa-typed-task-missing
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026
+severity: medium
+category: api
+
+### What went wrong
+- Cloud API Task type enum does not accept typed `excalibur-blog-geo-qa`.
+- Pipeline had to fall back to `Task(generalPurpose)` with paths to `.cursor/agents/excalibur-blog-geo-qa.md` and `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Ran GEO QA via generalPurpose fallback; executed all QA scripts; wrote article-qa.md + handoff marker.
+
+### Durable fix needed before next run
+- Register typed Task `excalibur-blog-geo-qa` in Cloud agent/Task enum (and keep generalPurpose fallback documented until registration lands).
+- Align `.cursor/environment.json` / agent registration docs so Director can launch typed GEO QA without fallback.
+
+### Suggested files to inspect/change
+- `.cursor/environment.json`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `CLOUD-AUTOMATION.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/pipeline-task-map.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261014-1322-geo-qa-utility-markers-regression
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026
+severity: high
+category: script
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again lacked `pain_markers_ru` / `outcome_markers_ru` and mins, while `excalibur_blog_utility_gate.py` defaulted mins to 2/3 on empty lists → false BLOCK on every article (including prior PASS AS09).
+- Empty-list skip logic from prior fix commit was missing from current `scripts/excalibur_blog_utility_gate.py`.
+
+### How the agent recovered this run
+- Restored marker lists + `min_pain_markers`/`min_outcome_markers` in editorial-policy.json (aligned with human_voice_gate).
+- Restored empty-list WARN+skip in utility_gate.py.
+- Re-ran utility: pain_markers OK; remaining BLOCK is real article gap (action 2&lt;8, outcome 2&lt;3).
+
+### Durable fix needed before next run
+- Pin editorial-policy markers in doctor preflight (FAIL if lists missing/empty).
+- Keep empty-list skip in utility_gate.py; add regression test or doctor assert.
+- Document in pitfalls: do not strip pain/outcome markers on rebrand/sync.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261014-1322-geo-qa-link-verify-catalog-softpass
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026
+severity: medium
+category: script
+
+### What went wrong
+- Brand catalog CTA returned HTTP 503; prior durable soft-pass (`is_soft_brand_catalog_5xx` when href==CATALOG_URL) was missing from current `scripts/excalibur_blog_link_verify.py`.
+- Separately, `https://egrul.nalog.ru/` SSL handshake timed out twice in this environment (canonical URL, not content defect).
+
+### How the agent recovered this run
+- Restored catalog 5xx soft-pass helper in link_verify.py; catalog marked ok with warning.
+- Documented egrul SSL timeout as env flake in article-qa (URL kept); did not rewrite article.html.
+
+### Durable fix needed before next run
+- Ensure catalog soft-pass stays in link_verify (doctor/smoke).
+- Consider soft-pass or longer timeout for known gov registry hosts (egrul.nalog.ru) on SSL handshake timeout.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

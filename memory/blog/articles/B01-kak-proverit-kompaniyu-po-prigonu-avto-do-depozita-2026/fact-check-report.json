@@ -1,0 +1,59 @@
+{
+  "article": "memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 7,
+  "verified_facts_count": 4,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": ", которые нужно закрыть до перевода. Весной–летом 2026 СМИ описывали крупную аферу краснодарской \"пригонн",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2026 года",
+      "kind": "date_or_year",
+      "context": "kad.arbitr.ru и открытыми разборами схем пригона 2026 года; практика заказов через Владивосток. Дата проверк",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "40 минут",
+      "kind": "metric_or_duration",
+      "context": "карту Андрею\" без договора. Сделайте паузу на 30–40 минут: прогоните ИНН на сайте налоговой, сверьте реквиз",
+      "verified": true,
+      "reason": "Numerical value '40' matched in fact-bank context"
+    },
+    {
+      "fact": "15 минут",
+      "kind": "metric_or_duration",
+      "context": "т только при всех \"да\" Сверьте ИНН и реквизиты за 15 минут Кажется, что проверка \"только для юристов\" – миф.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "150",
+      "kind": "large_number",
+      "context": "оверить фирмы по пригону авто и боитесь отдать 50–150 тысяч \"на карту Андрею\" без договора. Сделайте пау",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "200",
+      "kind": "large_number",
+      "context": "ска нашёл в Telegram \"пригон под ключ из Кореи на 200 тысяч дешевле рынка\". Красивые фото, договор \"посл",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "250",
+      "kind": "large_number",
+      "context": "онной\" фирмы: по публикациям, пострадавших больше 250 человек, ущерб – свыше миллиарда рублей; по VIN ма",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    }
+  ]
+}

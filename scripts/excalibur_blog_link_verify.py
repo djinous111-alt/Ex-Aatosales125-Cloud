@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import json
 import re
 import ssl
@@ -130,6 +131,21 @@ def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
     return any(token in error for token in ("timed out", "timeout", "ssl", "network"))
 
 
+def _norm_url(url: str) -> str:
+    return (url or "").strip().rstrip("/")
+
+
+def is_soft_brand_catalog_5xx(href: str, result: dict[str, Any]) -> bool:
+    """Temporary 5xx on brand catalog CTA (href == CATALOG_URL) is not a content defect."""
+    catalog = _norm_url(os.environ.get("CATALOG_URL", ""))
+    if not catalog:
+        return False
+    if _norm_url(href) != catalog:
+        return False
+    status = result.get("status")
+    return isinstance(status, int) and 500 <= status < 600
+
+
 def verify_article(
     html_path: Path,
     *,
@@ -181,6 +197,9 @@ def verify_article(
         if kind == "external" and is_soft_external_failure(href, r):
             r["ok"] = True
             r["warning"] = "soft external social timeout; verify manually if needed"
+        if kind == "external" and is_soft_brand_catalog_5xx(href, r):
+            r["ok"] = True
+            r["warning"] = "soft brand catalog 5xx; CTA host temporary, not article defect"
         results.append(r)
 
     failed = [r for r in results if not r.get("ok")]

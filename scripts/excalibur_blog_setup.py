@@ -110,6 +110,9 @@ SSH_USER={ssh_user}
 SSH_PASS={ssh_pass}
 SSH_ROOT={ssh_root}
 EXCALIBUR_BLOG_ALLOW_PUBLISH={allow_publish}
+CATALOG_URL=
+TELEGRAM_URL=https://t.me/Djinous
+TELEGRAM_HANDLE=@Djinous
 """
     env_path.write_text(env_content, encoding="utf-8")
     print(f"✅ Файл '{env_path.relative_to(root)}' успешно создан.")
@@ -127,8 +130,9 @@ SSH_ROOT=/avtosales125/public_html
 FTP_HOST=djinoum7.beget.tech
 FTP_ROOT=/
 EXCALIBUR_BLOG_ALLOW_PUBLISH=no
-CATALOG_URL=https://avto-sales125.ru/
-TELEGRAM_URL=https://t.me/avtosales125
+CATALOG_URL=
+TELEGRAM_URL=https://t.me/Djinous
+TELEGRAM_HANDLE=@Djinous
 """
         env_example_path.write_text(example_content, encoding="utf-8")
 

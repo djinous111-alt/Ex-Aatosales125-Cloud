@@ -5,11 +5,11 @@
   "openability_rules": [
     "Первый кадр (cover panel) = pattern interrupt: боль выбора авто / таможни / дороги",
     "Крупный hook-текст с жёлтым/красным highlight на ключевом слове",
-    "Минимум 1 fake UI: карточка каталога/авто, отзыв 2GIS, Encar/аукцион, чеклист документов — «сделал человек»",
+    "Минимум 1 fake UI: карточка авто, отзыв 2GIS, Encar/аукцион, чеклист документов — «сделал человек»",
     "1–2 мем-реакции (разные форматы, не повторять Drake везде)",
     "Handwritten стрелка/стикер «жиза» / «но…» для интриги",
     "Не выглядеть как корпоративный баннер или stock photo",
-    "Угол обложки: мелкий текст каталога avto-sales125.ru (НЕ Telegram / НЕ @avtosales125)",
+    "Угол обложки: мелкий текст @Djinous (или t.me/Djinous)",
     "ЗАПРЕТ на кадре и в тексте на картинке: Wordstat, Вордстат, Metrika, Метрика, analytics dashboard SEO"
   ],
   "visual_motifs": [
@@ -18,12 +18,12 @@
     "sticky notes with marker handwriting",
     "highlighter brush stroke behind 1-2 Cyrillic words",
     "hand-drawn arrows and stars",
-    "phone screenshot UI frames (car catalog card, 2GIS review stars, Encar/auction card mock, customs checklist)",
+    "phone screenshot UI frames (car listing card, 2GIS review stars, Encar/auction card mock, customs checklist)",
     "meme reaction cutouts with rough white outline",
     "grunge paper texture or dark navy auto vibe",
     "black bold condensed Cyrillic headlines",
     "modern cars Japan/Korea/China, Vladivostok port hints",
-    "small corner brand text: avto-sales125.ru"
+    "small corner brand text: @Djinous"
   ],
   "color_palette": {
     "background": "#F5F5F0",
@@ -33,8 +33,8 @@
     "accent_coral": "#C8102E",
     "marker_yellow": "#FFD93D"
   },
-  "cover_panel_prompt_block": "16:9 hook collage panel for AVTO SALES car-import blog: blog host cutout (EXACT face from reference + glasses; CHANGE clothes to match WEATHER of the scene and ARTICLE TOPIC — winter coat/snow, rain jacket/rain, light shirt/summer, smart casual/customs; do NOT copy reference tank top/t-shirt), layered fake screenshots of car catalog cards, 2GIS reviews, Encar/auction card, or customs checklist — NEVER Wordstat, NEVER Metrika, NEVER SEO analytics; corner brand MUST be catalog site avto-sales125.ru (NOT Telegram, NOT @avtosales125); torn paper + tape + sticky note; 1-2 meme reaction faces; huge Cyrillic hook about cars/comfort/customs; handwritten arrow; DIY human-made zine aesthetic NOT corporate ad",
-  "inline_human_touch": "Add subtle human-made layer: small sticky note, tape corner, or mini catalog/checklist inset — still readable utility UI/diagram underneath; no Wordstat/Metrika UI; no Telegram handle on cover corner",
+  "cover_panel_prompt_block": "16:9 hook collage panel for AVTO SALES car-import blog: blog host cutout (EXACT face from reference + glasses; CHANGE clothes to match WEATHER of the scene and ARTICLE TOPIC — winter coat/snow, rain jacket/rain, light shirt/summer, smart casual/customs; do NOT copy reference tank top/t-shirt), layered fake screenshots of car listing cards, 2GIS reviews, Encar/auction card, or customs checklist — NEVER Wordstat, NEVER Metrika, NEVER SEO analytics; corner brand MUST be @Djinous (or t.me/Djinous); torn paper + tape + sticky note; 1-2 meme reaction faces; huge Cyrillic hook about cars/comfort/customs; handwritten arrow; DIY human-made zine aesthetic NOT corporate ad",
+  "inline_human_touch": "Add subtle human-made layer: small sticky note, tape corner, or mini car-card/checklist inset — still readable utility UI/diagram underneath; no Wordstat/Metrika UI; cover corner text is @Djinous only",
   "meme_rotation": [
     "shocked face reaction",
     "facepalm / понятно",

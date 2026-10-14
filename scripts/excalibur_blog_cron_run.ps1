@@ -26,7 +26,7 @@ $payload = @{
 publish: yes
 1) today.py + выбор следующей P0 темы по Метрике/пробелам блога (не дублировать published)
 2) research_start → research → writer → geo-qa → cover||schema → indexer → publish
-3) Без Wordstat/Метрики в тексте и на картинках; угол обложки avto-sales125.ru; одежда героя под погоду и тему.
+3) Без Wordstat/Метрики в тексте и на картинках; угол обложки @Djinous; одежда героя под погоду и тему.
 Финальный ответ: permalink или блокер.
 "@
 } | ConvertTo-Json -Depth 4

@@ -4,15 +4,15 @@
   "cover_family": "brand_collage",
   "design_code": "memory/cover/cover-design-code.json",
   "blog_hero": "memory/cover/blog-hero.json",
-  "global_prompt_prefix": "Russian human-made hook collage for AVTO SALES auto-import blog, zine/trash-design DIY aesthetic adapted to 16:9 widescreen, torn paper strips, scotch tape, sticky notes, marker handwriting, highlighter on key Cyrillic words, fake phone screenshots of car catalog cards, 2GIS reviews, Encar/auction cards, customs checklists — NEVER Wordstat NEVER Metrika NEVER SEO analytics, meme reaction cutouts with rough edges, grunge paper texture, bold condensed Cyrillic headlines about cars Japan Korea China, corner brand avto-sales125.ru NOT Telegram, layered scraps NOT corporate banner,",
+  "global_prompt_prefix": "Russian human-made hook collage for AVTO SALES auto-import blog, zine/trash-design DIY aesthetic adapted to 16:9 widescreen, torn paper strips, scotch tape, sticky notes, marker handwriting, highlighter on key Cyrillic words, fake phone screenshots of car listing cards, 2GIS reviews, Encar/auction cards, customs checklists — NEVER Wordstat NEVER Metrika NEVER SEO analytics, meme reaction cutouts with rough edges, grunge paper texture, bold condensed Cyrillic headlines about cars Japan Korea China, corner brand @Djinous, layered scraps NOT corporate banner,",
   "global_prompt_suffix": "single canvas 2048x1152 pixels, exact 2x2 grid, four equal 16:9 panels (1024x576 each), thin white gutters, high detail collage illustration, each panel feels like a human editor pasted car-import screenshots and memes",
-  "global_negative_prompt": "English text, Latin UI, watermark, logo, generic stock photo, boring corporate infographic, vertical carousel 9:16, instagram story, polished ad, same meme 4 times, unreadable gibberish text, extra fingers, Wordstat, Vordstat, Metrika, Metrica, Yandex Metrika, SEO keyword tool, analytics dashboard, Telegram handle @avtosales125 on cover corner",
+  "global_negative_prompt": "English text, Latin UI, watermark, logo, generic stock photo, boring corporate infographic, vertical carousel 9:16, instagram story, polished ad, same meme 4 times, unreadable gibberish text, extra fingers, Wordstat, Vordstat, Metrika, Metrica, Yandex Metrika, SEO keyword tool, analytics dashboard, unwanted catalog domain on the corner",
   "meme_formats_ru": [
     "реакция шок / facepalm",
     "Drake отвергает/одобряет (макс 1 на холст)",
     "стикер «жиза» / «кринж» маркером",
     "fake скрин отзыва 2GIS ★★★★★ или ★☆☆☆☆",
-    "fake карточка каталога avto-sales125.ru",
+    "fake карточка авто",
     "до/после: жёсткая дорога vs мягкая подвеска"
   ],
   "color_lock": {

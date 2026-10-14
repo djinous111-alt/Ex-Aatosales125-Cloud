@@ -133,8 +133,8 @@ python scripts/excalibur_blog_quad_apply.py \
 
 Cover panel:
 
-- fake карточка каталога / 2GIS отзывы / Encar / чеклист документов
-- **угол обложки:** `avto-sales125.ru` (каталог), не Telegram
+- fake карточка авто / 2GIS отзывы / Encar / чеклист документов
+- **угол обложки:** `@Djinous` (или `t.me/Djinous`)
 - **запрещено:** Wordstat, Метрика, SEO analytics на кадре
 - рваная бумага, скотч, стикеры, маркер
 - **разные** мем-реакции (не один шаблон на весь холст)

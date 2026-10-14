@@ -14,22 +14,42 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short/ambiguous markers need token boundaries (avoid "ai" in "pain", "ии" in "японии").
+AMBIGUOUS_TECH_MARKERS = (
     "ai",
     "ии",
     "agent",
     "агент",
     "mcp",
     "api",
-    "cursor",
     "make",
+    "rag",
+)
+
+# Strong markers: one hit is enough for technical_topic.
+STRONG_TECH_MARKERS = (
+    "cursor",
     "n8n",
     "github",
     "docker",
-    "rag",
     "workflow",
     "автоматизац",
     "нейросет",
+)
+
+# Research field labels that must not themselves trigger tech detection.
+_TECH_FIELD_LABEL_NOISE = (
+    "reader_pain",
+    "reader_outcome",
+    "success_criteria",
+    "voice_angle",
+    "reader_story",
+    "surprising_fact",
+    "pain_solution_map",
+    "github_evidence",
+    "action_outline",
+    "research_date",
+    "accessed_at",
 )
 
 
@@ -73,14 +93,46 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _token_match(blob: str, marker: str) -> bool:
+    """Match marker as a whole token; Unicode-letter aware (RU/EN)."""
+    pattern = rf"(?<![0-9a-zа-яё_]){re.escape(marker)}(?![0-9a-zа-яё_])"
+    return bool(re.search(pattern, blob, flags=re.IGNORECASE))
+
+
+_AUTO_NICHE_MARKERS = (
+    "япони",
+    "коре",
+    "кита",
+    "аукцион",
+    "растамож",
+    "авто из",
+    "владивосток",
+)
+
+
+def _is_auto_niche(blob: str) -> bool:
+    return any(marker in blob for marker in _AUTO_NICHE_MARKERS)
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
-    blob = " ".join(
+    topic_blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    notes_snip = notes[:2000].lower()
+    for label in _TECH_FIELD_LABEL_NOISE:
+        notes_snip = notes_snip.replace(label, " ")
+    blob = topic_blob + " " + notes_snip
+    strong = any(_token_match(blob, marker) for marker in STRONG_TECH_MARKERS)
+    if strong:
+        return True
+    # Auto-import niches (Japan/Korea/China auctions) must not force GitHub evidence
+    # when only ambiguous RU tokens like «агент» appear.
+    if _is_auto_niche(topic_blob):
+        return False
+    ambiguous_hits = sum(1 for marker in AMBIGUOUS_TECH_MARKERS if _token_match(blob, marker))
+    return ambiguous_hits >= 2
 
 
 def field_present(text_lower: str, field: str) -> bool:

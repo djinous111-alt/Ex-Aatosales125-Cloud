@@ -113,6 +113,27 @@ def main() -> int:
 
     check(module_available("PIL"), "Pillow available", errors, warnings)
     check(module_available("numpy"), "numpy available", errors, warnings)
+    check(module_available("paramiko"), "paramiko available", errors, warnings)
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    policy_ok = policy_path.is_file()
+    check(policy_ok, "editorial-policy.json exists", errors, warnings)
+    if policy_ok:
+        try:
+            import json
+
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+            pain = policy.get("pain_markers_ru") or []
+            outcome = policy.get("outcome_markers_ru") or []
+            check(isinstance(pain, list) and len(pain) >= 2, "editorial-policy pain_markers_ru non-empty", errors, warnings)
+            check(
+                isinstance(outcome, list) and len(outcome) >= 2,
+                "editorial-policy outcome_markers_ru non-empty",
+                errors,
+                warnings,
+            )
+        except Exception as exc:  # noqa: BLE001 — doctor must stay resilient
+            check(False, f"editorial-policy.json parseable ({exc})", errors, warnings)
 
     interlinker = root / "scripts/excalibur_blog_interlinker.py"
     help_proc = subprocess.run(
@@ -132,7 +153,8 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check("--blog-path" not in llms_help.stdout, "llms generator has no stale --blog-path", errors, warnings, warn=True)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

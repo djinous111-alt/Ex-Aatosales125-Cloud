@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-2120-writer-cta-secret-scan-pragma
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-kupit-avto-s-auktsiona-yaponii-2026
+severity: medium
+category: env
+
+### What went wrong
+- After filtering invalid names in `CLOUD_AGENT_*_SECRET_NAMES` (see INC-20261015-2106), `git commit` still blocked because public CTA values (`CATALOG_URL`, `TELEGRAM_URL`) matched hrefs in `article.html`.
+- Marketing URLs are stored as Cloud secrets, so the pre-commit secret scan treats normal blog CTAs as leaks.
+
+### How the agent recovered this run
+- Kept real catalog/Telegram hrefs required for publish/link-verify.
+- Added HTML `<!-- pragma: allowlist secret -->` on each CTA line, then recommitted with hooks enabled.
+
+### Durable fix needed before next run
+- Document in writer skill / pitfalls: CTA hrefs that equal `CATALOG_URL` / `TELEGRAM_URL` need `<!-- pragma: allowlist secret -->` on the same line (or stop marking public marketing URLs as secrets).
+- Prefer env-driven substitution at publish time only if articles must stay secret-free in git.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- Cloud secret classification for `CATALOG_URL` / `TELEGRAM_URL`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261015-2115-research-wordstat-truncated-primary
 status: open
 run_date: 2026-10-15

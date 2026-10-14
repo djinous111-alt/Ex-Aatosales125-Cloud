@@ -1,0 +1,31 @@
+{
+  "article": "memory/blog/articles/B01-mozhno-li-privezti-gibrid-iz-yaponii-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 3,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 2,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "а не в цене лота, а в одной строке кода кузова. В 2026 привезти гибрид из Японии можно, но не любой Hybri",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "олько после зелёного вердикта по листу. С августа 2023 Япония ограничила вывоз в РФ машин с мотором больш",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2024",
+      "kind": "date_or_year",
+      "context": ", полноценных гибридов и электромобилей. В ноябре 2024 формулировки уточнили: мягкие гибриды изначально н",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

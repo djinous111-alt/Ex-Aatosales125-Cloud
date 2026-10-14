@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261014-1724-geo-qa-utility-pain-outcome-policy-gap
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-mozhno-li-privezti-gibrid-iz-yaponii-2026
+severity: blocker
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` считает `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json` и требует min 2 / 3.
+- В policy этих ключей нет → списки пустые → `pain_markers=0`, `outcome_markers=0` всегда, даже если в статье боль и результат явно названы.
+- Старые отчёты AS08/AS09 проходили utility без этих метрик; после расширения скрипта policy не синхронизировали.
+- Отдельно B01: action_markers 4<8 (форма «Делать/Не делать» не совпадает с «сделайте/не делайте»); human-voice BLOCK (outcome_hits 2<3); link-verify FAIL из-за литерала `href="[REDACTED]"` после writer secret-redaction.
+
+### How the agent recovered this run
+- GEO QA не правил `article.html` (FAIL + FIX-список Writer).
+- Зафиксировал blocker в `article-qa.md` и handoff; cover/schema не запускались.
+
+### Durable fix needed before next run
+- Добавить в `memory/brief/editorial-policy.json` непустые `pain_markers_ru` и `outcome_markers_ru` (согласовать с маркерами human-voice / editorial-utility-only) и при необходимости `min_pain_markers` / `min_outcome_markers` в `article_required_signals`.
+- В writer skill явно: CTA href только живые URL (каталог + Telegram), не placeholder после secret scrub; action-маркеры = формы из policy (`сделайте`/`не делайте`, не только «Делать»).
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/editorial-utility-only.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261014-1715-research-tech-markers-false-positive
 status: open
 run_date: 2026-10-14

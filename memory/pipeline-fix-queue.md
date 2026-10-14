@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-2135-publish-paramiko-missing-boot
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-kupit-avto-s-auktsiona-yaponii-2026
+severity: high
+category: env
+
+### What went wrong
+- First publish attempt failed immediately: `ModuleNotFoundError: No module named 'paramiko'`.
+- `paramiko` is listed in `requirements.txt` but Cloud boot / `.cursor/cloud-agent-install.sh` does not install it (known repeat: INC-20261014-2134 / INC-20261014-0950 / INC-20261014-1755).
+- `memory/site.env.local` was missing at start (secrets only in process env); SSH_ROOT was unset.
+
+### How the agent recovered this run
+- Installed `paramiko` via `pip3 install --break-system-packages paramiko`.
+- Wrote gitignored `memory/site.env.local` from Cloud Secrets / env; set `SSH_ROOT=.`.
+- Re-ran dry-run then publish: SSH upload + HTTP trigger succeeded without WebFetch fallback.
+- Live HEAD 200; NEW post_id=4203 (denylist avoided).
+
+### Durable fix needed before next run
+- Add `paramiko` to Cloud install script / environment.json install so publish does not fail on cold boot.
+- Optionally document `SSH_ROOT=.` default for this host in publish skill preflight.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/environment.json`
+- `requirements.txt`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261015-2132-indexer-llms-blog-path-cli-drift
 status: open
 run_date: 2026-10-15

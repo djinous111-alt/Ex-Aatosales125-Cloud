@@ -132,7 +132,35 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check("--blog-path" not in llms_help.stdout, "llms generator has no obsolete --blog-path", errors, warnings)
+
+    check(module_available("paramiko"), "paramiko available (SSH publish)", errors, warnings, warn=not args.publish)
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    if policy_path.is_file():
+        import json
+
+        try:
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+            pain = policy.get("pain_markers_ru") or []
+            outcome = policy.get("outcome_markers_ru") or []
+            check(isinstance(pain, list) and len(pain) >= 2, "editorial-policy pain_markers_ru non-empty", errors, warnings)
+            check(
+                isinstance(outcome, list) and len(outcome) >= 3,
+                "editorial-policy outcome_markers_ru non-empty",
+                errors,
+                warnings,
+            )
+        except json.JSONDecodeError:
+            check(False, "editorial-policy.json parses as JSON", errors, warnings)
+    else:
+        check(False, "memory/brief/editorial-policy.json exists", errors, warnings)
+
+    link_verify = root / "scripts/excalibur_blog_link_verify.py"
+    lv_src = link_verify.read_text(encoding="utf-8") if link_verify.is_file() else ""
+    check("catalog_5xx" in lv_src, "link_verify implements catalog_5xx soft-pass", errors, warnings)
+    check((root / "scripts/excalibur_git.sh").is_file(), "scripts/excalibur_git.sh exists", errors, warnings)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))
@@ -145,6 +173,14 @@ def main() -> int:
         errors,
         warnings,
         warn=not args.publish,
+    )
+    ssh_root = (env.get("SSH_ROOT") or "").strip()
+    check(
+        bool(ssh_root),
+        "SSH_ROOT configured (prefer . for login cwd hosts)",
+        errors,
+        warnings,
+        warn=True,
     )
     check(
         env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes",

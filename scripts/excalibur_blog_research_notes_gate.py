@@ -14,22 +14,44 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short markers need word-boundary match (avoid "ai" in "pain", "ии" in "японии").
+TECH_MARKERS_BOUND = (
     "ai",
     "ии",
+    "api",
+    "mcp",
+    "rag",
+    "n8n",
+)
+TECH_MARKERS_SUB = (
     "agent",
     "агент",
-    "mcp",
-    "api",
     "cursor",
-    "make",
-    "n8n",
+    "make.com",
     "github",
     "docker",
-    "rag",
     "workflow",
     "автоматизац",
     "нейросет",
+    "llm",
+    "langchain",
+)
+
+# Auto-import niche (Авто-Сейлс): never force GitHub evidence via tech gate.
+AUTO_NICHE_MARKERS = (
+    "япони",
+    "коре",
+    "кита",
+    "растамож",
+    "encar",
+    "аукцион",
+    "утильсбор",
+    "владивосток",
+    "пригон",
+    "гибрид",
+    "свх",
+    "авто из",
+    "ввоз",
 )
 
 
@@ -73,14 +95,44 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_hit(blob: str, marker: str, *, bound: bool) -> bool:
+    if bound:
+        return bool(
+            re.search(
+                rf"(?<![a-zа-яё0-9_]){re.escape(marker)}(?![a-zа-яё0-9_])",
+                blob,
+                flags=re.IGNORECASE,
+            )
+        )
+    return marker in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect code/automation topics. Auto-import niche must not false-positive."""
     topic = context.get("topic") or {}
-    blob = " ".join(
+    topic_blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    if any(marker in topic_blob for marker in AUTO_NICHE_MARKERS):
+        return False
+
+    notes_clean = notes[:2000].lower()
+    for field in REQUIRED_FIELDS:
+        field_pattern = re.escape(field.lower()).replace("_", r"[_\s-]")
+        notes_clean = re.sub(field_pattern, " ", notes_clean)
+
+    # Prefer topic fields; only use notes if topic alone has no strong signal.
+    blob = topic_blob
+    topic_tech = any(_marker_hit(blob, m, bound=True) for m in TECH_MARKERS_BOUND) or any(
+        _marker_hit(blob, m, bound=False) for m in TECH_MARKERS_SUB
+    )
+    if topic_tech:
+        return True
+    blob = f"{topic_blob} {notes_clean}"
+    return any(_marker_hit(blob, m, bound=True) for m in TECH_MARKERS_BOUND) or any(
+        _marker_hit(blob, m, bound=False) for m in TECH_MARKERS_SUB
+    )
 
 
 def field_present(text_lower: str, field: str) -> bool:

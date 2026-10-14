@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import sys
@@ -26,6 +27,25 @@ def load_json(path: Path) -> dict:
 
 def save_json(path: Path, data: dict) -> None:
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def sha256_bytes(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
+
+
+def download_url_bytes(url: str, timeout: float = 60.0) -> bytes:
+    request = urllib.request.Request(
+        url,
+        headers={"User-Agent": "ExcaliburBlogHero/1.0"},
+        method="GET",
+    )
+    with urllib.request.urlopen(request, timeout=timeout) as response:
+        return response.read()
+
+
+def hashes_match(local_path: Path, url: str) -> bool:
+    remote = download_url_bytes(url)
+    return sha256_bytes(remote) == sha256_bytes(local_path.read_bytes())
 
 
 def upload_catbox(image_path: Path) -> str:
@@ -117,6 +137,17 @@ def main() -> int:
         print(f"OK reference_url_hosted={existing}")
         return 0
 
+    # --force: skip re-upload when local bytes already match the hosted URL
+    # (WP media filenames like best-winter-cars-top-*.png may still be the blog-host face).
+    if existing and args.force:
+        try:
+            if hashes_match(ref_path, existing):
+                print(f"OK reference_url_hosted={existing} (force skipped: hash match)")
+                return 0
+            print("WARN force: local reference differs from hosted URL; re-upload", file=sys.stderr)
+        except Exception as exc:  # noqa: BLE001
+            print(f"WARN force: could not hash-compare existing URL ({exc}); will try re-upload", file=sys.stderr)
+
     env_url = os.environ.get("BLOG_HERO_REFERENCE_URL", "").strip()
     if env_url:
         hero["reference_url_hosted"] = env_url
@@ -137,9 +168,21 @@ def main() -> int:
             save_json(hero_path, hero)
             print(f"OK reference_url_hosted={url}")
             return 0
-        except (urllib.error.URLError, RuntimeError, TimeoutError) as exc:
+        except (urllib.error.URLError, RuntimeError, TimeoutError, OSError) as exc:
             last_error = exc
             print(f"WARN upload via {provider} failed: {exc}", file=sys.stderr)
+
+    # Soft-fail force: keep existing hosted URL when upload hosts are down but bytes still match.
+    if existing:
+        try:
+            if hashes_match(ref_path, existing):
+                print(
+                    f"OK reference_url_hosted={existing} "
+                    f"(force soft-fail: upload hosts down, existing URL hash match)"
+                )
+                return 0
+        except Exception as exc:  # noqa: BLE001
+            print(f"WARN existing URL re-check failed: {exc}", file=sys.stderr)
 
     print(f"❌ HERO BLOCKER: could not host reference: {last_error}", file=sys.stderr)
     return 1

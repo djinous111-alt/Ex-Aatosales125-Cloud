@@ -1,0 +1,80 @@
+{
+  "article": "memory/blog/articles/B01-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 10,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 8,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ены, VIN или жёсткие критерии и схема экспорта. С 2026 у \"свежих\" авто с учётом до 180 дней в КНР часто н",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2026 год",
+      "kind": "date_or_year",
+      "context": "договоре должен совпадать. Тут важный момент про 2026 год. С 1 января для вывоза из Китая авто, с регистрац",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "уведомлением КНР о правиле 180 дней (gov.cn, 商贸函〔2025〕648号), ПП РФ №506 и практикой сопровождения заказ",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180 дней",
+      "kind": "metric_or_duration",
+      "context": "хема экспорта. С 2026 у \"свежих\" авто с учётом до 180 дней в КНР часто нужна справка завода – без неё вывоз",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "37 дней",
+      "kind": "metric_or_duration",
+      "context": "ков без оговорок Ориентир: у части импортёров до ~37 дней, по Китаю часто 20–45 дней после готовности к выв",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "45 дней",
+      "kind": "metric_or_duration",
+      "context": "у части импортёров до ~37 дней, по Китаю часто 20–45 дней после готовности к вывозу; на Drive2 с выкупа нер",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "60 дней",
+      "kind": "metric_or_duration",
+      "context": "отовности к вывозу; на Drive2 с выкупа нередко 35–60 дней. \"Две недели под ключ\" – повод замедлиться. Сдела",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "150",
+      "kind": "large_number",
+      "context": "Игорь из Новосибирска почти перевёл 150 тысяч \"на карту менеджера\" за Haval \"под ключ за 1",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "хема экспорта. С 2026 у \"свежих\" авто с учётом до 180 дней в КНР часто нужна справка завода – без неё вы",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "506",
+      "kind": "large_number",
+      "context": "экспорт. Параллельный импорт опирается на ПП РФ №506 и перечень Минпромторга – легальный каркас, не \"се",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

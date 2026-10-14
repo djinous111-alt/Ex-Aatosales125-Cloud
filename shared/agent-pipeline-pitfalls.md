@@ -46,3 +46,36 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator CLI: только `--blog-dir` (не `--blog-path`). Doctor проверяет `--blog-dir`.
+- Commit-safe llms/schema: `--site-base '[REDACTED]'` или пост-редакция live URL → `[REDACTED]`; publish расширяет schema placeholders из env.
+
+## Link verify / Publish
+
+- `CATALOG_URL` + HTTP 5xx при точном совпадении href → soft-pass (warning), не blocker.
+- Не-ASCII в path (2GIS и т.п.): `excalibur_blog_link_verify.py` percent-encode IRI перед запросом; writer лучше сразу писать percent-encoded href.
+- SSH publish требует `paramiko` в cloud install (`.cursor/cloud-agent-install.sh` / Dockerfile).
+- Committed `schema.jsonld` с `[REDACTED]` — норма; `expand_schema_redacted()` в publish подставляет live URL только в WP meta.
+
+## Research
+
+- Пустой `research-serp.json` (DuckDuckGo/HTML = 0) — soft-fail `research_start` + `empty_serp_fallback=true`. Research обязан идти в Cursor WebSearch/WebFetch.
+- `research_notes_gate`: tech-topic только по полям topic card; `github_evidence` URL в notes не делает тему technical.
+
+## Writer / Utility
+
+- `editorial-policy.json` обязан держать непустые `pain_markers_ru` / `outcome_markers_ru` (doctor FAIL если пусто). Utility gate при пустых списках — WARN, не universal BLOCK.
+- Recommendation markers точные: `чеклист` без дефиса; `чек-лист` не считается.
+
+## Cover
+
+- После `quad_manifest --merge` всегда перезаписывай defaults из `cover_scene_hint` темы + H2; `cover-prompts.json` должен совпадать с текущим slug topic_id.
+- Hero rehost: при fail catbox/0x0 сохраняется existing `reference_url_hosted`; fallback `BLOG_HERO_REFERENCE_URL`.
+
+## Secrets / Git
+
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` — только valid bash identifiers (имена env), не URL.
+- Коммиты: `bash scripts/excalibur_git.sh …`.
+
+## GEO QA
+
+- Ярлык `<b>TL;DR / Быстрый инсайт:</b>` в blockquote — разрешён writing contract; не FAIL.

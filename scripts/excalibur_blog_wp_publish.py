@@ -31,6 +31,10 @@ PUBLISH_ENV_KEYS = {
     "SSH_PASS",
     "SSH_PASSWORD",
     "SSH_ROOT",
+    "SSH_PATH",
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
 }
 
@@ -55,7 +59,29 @@ def load_env(root: Path) -> dict[str, str]:
             env[key] = value
     if not env.get("SSH_PASS") and env.get("SSH_PASSWORD"):
         env["SSH_PASS"] = env["SSH_PASSWORD"]
+    # SSH_PATH is a common Cloud Secrets alias for the WP document root.
+    if not (env.get("SSH_ROOT") or "").strip() and (env.get("SSH_PATH") or "").strip():
+        env["SSH_ROOT"] = env["SSH_PATH"].strip()
     return env
+
+
+def expand_schema_redacted(schema_raw: str, env: dict[str, str]) -> str:
+    """Replace commit-safe [REDACTED] placeholders with live site/catalog URLs for WP meta only."""
+    if not schema_raw or "[REDACTED]" not in schema_raw:
+        return schema_raw
+    public = (env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL") or "").rstrip("/")
+    catalog = (env.get("CATALOG_URL") or "").rstrip("/")
+    telegram = (env.get("TELEGRAM_URL") or "").rstrip("/")
+    max_url = (env.get("MAX_URL") or "").rstrip("/")
+    if not public:
+        return schema_raw
+    text = schema_raw.replace("[REDACTED]/", public + "/")
+    # Bare [REDACTED] leftovers follow authors-registry sameAs order:
+    # author: catalog, telegram, max; publisher: telegram, max.
+    for value in (catalog, telegram, max_url, telegram, max_url):
+        if value and "[REDACTED]" in text:
+            text = text.replace("[REDACTED]", value, 1)
+    return text
 
 
 def validate_publish_env(env: dict[str, str]) -> list[str]:
@@ -168,7 +194,7 @@ def normalize_cover_png(cover_path: Path, registry_path: Path, root: Path) -> di
     return evidence
 
 
-def load_article(article_dir: Path) -> dict:
+def load_article(article_dir: Path, env: dict[str, str] | None = None) -> dict:
     meta_path = article_dir / "article.meta.json"
     html_path = article_dir / "article.html"
     if not meta_path.is_file() or not html_path.is_file():
@@ -187,6 +213,8 @@ def load_article(article_dir: Path) -> dict:
     schema_raw = ""
     if schema_path.is_file():
         schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        if env is not None:
+            schema_raw = expand_schema_redacted(schema_raw, env)
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
@@ -215,6 +243,17 @@ def load_article(article_dir: Path) -> dict:
             wp_post_id = prev.get("post_id")
         except json.JSONDecodeError:
             wp_post_id = None
+
+    # Foreign post denylist: never rewrite known other-slug IDs.
+    foreign_ids = {
+        3505, 4110, 4104, 3913, 4092, 4086, 4080, 4074, 4068, 4055, 4049, 4043,
+        4031, 3601, 3991, 3589, 3837, 3967, 3955, 3949, 3778, 1076, 3296, 3707,
+        4162,  # EV China foreign B01
+    }
+    if wp_post_id and int(wp_post_id) in foreign_ids:
+        raise RuntimeError(
+            f"Refusing to republish foreign WP post_id={wp_post_id} for slug={meta.get('slug')}"
+        )
 
     return {
         "slug": meta["slug"],
@@ -568,15 +607,30 @@ def main() -> int:
         return 2
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
-    payload = load_article(article_dir)
+    env = load_env(root)
+    payload = load_article(article_dir, env)
     php = build_php(payload)
 
     if args.dry_run:
-        print(json.dumps({"dry_run": True, "slug": payload["slug"], "title": payload["title"]}, ensure_ascii=False, indent=2))
+        schema = payload.get("schema_jsonld") or ""
+        print(
+            json.dumps(
+                {
+                    "dry_run": True,
+                    "slug": payload["slug"],
+                    "title": payload["title"],
+                    "post_id": payload.get("post_id") or 0,
+                    "inline_images": len(payload.get("inline_images") or []),
+                    "schema_expanded": "[REDACTED]" not in schema and bool(schema),
+                    "schema_has_placeholder": "[REDACTED]" in schema,
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1
@@ -588,6 +642,10 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
+    if payload.get("post_id"):
+        print(f"Updating existing post_id={payload['post_id']} slug={payload['slug']}")
+    else:
+        print(f"Creating/updating by slug={payload['slug']} (no local post_id)")
     out = publish_via_ssh(env, php, public)
     print(out)
 

@@ -84,15 +84,28 @@ def pick_visual_type(h2: str, types_catalog: dict, used: set[str]) -> str:
 
 
 def scene_hint_for_type(type_id: str, h2: str) -> str:
+    """Topic-neutral defaults; Cover agent must overwrite from cover_scene_hint + article H2."""
     hints = {
-        "comparison_table_ui": f"Таблица SEO vs GEO: критерии, цели, человек vs AI — «{h2}»",
-        "workflow_diagram": f"6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «{h2}»",
-        "checklist_board": f"Printable чеклист перед публикацией — «{h2}»",
-        "schema_faq_ui": f"FAQ accordion + JSON-LD schema UI — «{h2}»",
-        "tool_screenshot": f"Скрин SEO-инструмента — «{h2}»",
-        "infographic_card": f"Карточка фактов — «{h2}»",
+        "comparison_table_ui": f"Таблица сравнения критериев по теме статьи — «{h2}»",
+        "workflow_diagram": f"Пошаговая схема процесса из H2 — «{h2}»",
+        "checklist_board": f"Чеклист перед действием — «{h2}»",
+        "schema_faq_ui": f"FAQ / схема ответов по теме — «{h2}»",
+        "tool_screenshot": f"UI инструмента / экрана по теме — «{h2}»",
+        "infographic_card": f"Карточка фактов по теме — «{h2}»",
     }
     return hints.get(type_id, f"Полезная иллюстрация — «{h2}»")
+
+
+def load_cover_prompt_defaults(root: Path, topic_id: str) -> dict[str, Any]:
+    path = root / "memory/cover/cover-prompts.json"
+    if not path.is_file():
+        return {}
+    try:
+        data = load_json(path)
+    except Exception:  # noqa: BLE001
+        return {}
+    topics = data.get("topics") or {}
+    return topics.get(topic_id) or {}
 
 
 def alt_for_type(type_id: str, h2: str, types_catalog: dict) -> str:
@@ -108,14 +121,19 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
     topic_id = meta.get("topic_id") or article_dir.name.split("-")[0]
     article_topic = meta.get("h1") or article_dir.name
 
+    prompt_defaults = load_cover_prompt_defaults(root, str(topic_id))
     old_cover = ((preserve or {}).get("slots") or {}).get("cover") or {}
+    default_scene = (
+        prompt_defaults.get("topic_scene_descriptor")
+        or "reference-лицо, одежда под погоду/тему статьи, новая поза под крючок, без наушников; сцена из cover_scene_hint темы"
+    )
+    default_alt = prompt_defaults.get("cover_alt_text") or f"Обложка: {article_topic}"
     cover = {
         "quadrant": "top_left",
         "role": "cover_meme_hero",
-        "alt": old_cover.get("alt") or f"Обложка: {article_topic}",
-        "scene_hint": old_cover.get("scene_hint")
-        or "reference-лицо, белое плотное худи из толстой ткани, новая поза/жест/ракурс под крючок, без наушников/headset/earbuds, шок/ирония SEOшника, Wordstat + ноутбук",
-        "meme_caption_ru": old_cover.get("meme_caption_ru") or "15k ключей — 0 прочтений?",
+        "alt": old_cover.get("alt") or default_alt,
+        "scene_hint": old_cover.get("scene_hint") or default_scene,
+        "meme_caption_ru": old_cover.get("meme_caption_ru") or "До оплаты — чеклист, не эмоции",
     }
 
     used: set[str] = set()
@@ -133,7 +151,11 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
             "alt": alt_for_type(visual_type, old.get("h2_anchor") or h2, types_catalog),
         }
 
-    cover_hook = (preserve or {}).get("cover_hook") or "SEO-текст, который люди дочитают — миф или workflow?"
+    cover_hook = (
+        (preserve or {}).get("cover_hook")
+        or prompt_defaults.get("cover_hook")
+        or f"{article_topic}: сначала чеклист, потом деньги"
+    )
 
     return {
         "topic_id": topic_id,

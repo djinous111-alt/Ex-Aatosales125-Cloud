@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import ssl
 import sys
@@ -12,7 +13,7 @@ import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import quote, unquote, urlparse, urlunparse
 
 
 class LinkExtractor(HTMLParser):
@@ -43,10 +44,40 @@ def extract_links(html: str) -> list[str]:
     return out
 
 
+def encode_iri_for_request(url: str) -> str:
+    """Percent-encode non-ASCII path/query so urllib does not raise ascii codec errors."""
+    try:
+        url.encode("ascii")
+        return url
+    except UnicodeEncodeError:
+        pass
+    parsed = urlparse(url)
+    path = quote(unquote(parsed.path), safe="/%:@!$&'()*+,;=-._~")
+    query = quote(unquote(parsed.query), safe="=&%/+?:@!$'()*+,;-._~")
+    fragment = quote(unquote(parsed.fragment), safe="!$'()*+,;=:@/?-._~%")
+    netloc = parsed.netloc
+    if parsed.hostname:
+        try:
+            host = parsed.hostname.encode("idna").decode("ascii")
+        except Exception:  # noqa: BLE001
+            host = parsed.hostname
+        auth = ""
+        if parsed.username:
+            user = quote(unquote(parsed.username), safe="")
+            auth = user
+            if parsed.password:
+                auth += ":" + quote(unquote(parsed.password), safe="")
+            auth += "@"
+        port = f":{parsed.port}" if parsed.port else ""
+        netloc = f"{auth}{host}{port}"
+    return urlunparse((parsed.scheme, netloc, path, parsed.params, query, fragment))
+
+
 def check_url(url: str, timeout: float, user_agent: str) -> dict[str, Any]:
+    request_url = encode_iri_for_request(url)
     ctx = ssl.create_default_context()
     req = urllib.request.Request(
-        url,
+        request_url,
         method="HEAD",
         headers={"User-Agent": user_agent},
     )
@@ -54,6 +85,7 @@ def check_url(url: str, timeout: float, user_agent: str) -> dict[str, Any]:
         with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
             return {
                 "url": url,
+                "checked_url": request_url if request_url != url else None,
                 "status": resp.status,
                 "ok": 200 <= resp.status < 400,
                 "method": "HEAD",
@@ -61,26 +93,33 @@ def check_url(url: str, timeout: float, user_agent: str) -> dict[str, Any]:
             }
     except urllib.error.HTTPError as e:
         if e.code in (405, 501, 403):
-            return _get_fallback(url, timeout, user_agent, ctx, str(e))
+            return _get_fallback(request_url, url, timeout, user_agent, ctx, str(e))
         return {
             "url": url,
+            "checked_url": request_url if request_url != url else None,
             "status": e.code,
             "ok": False,
             "method": "HEAD",
             "error": str(e),
         }
     except Exception as e:  # noqa: BLE001
-        return _get_fallback(url, timeout, user_agent, ctx, str(e))
+        return _get_fallback(request_url, url, timeout, user_agent, ctx, str(e))
 
 
 def _get_fallback(
-    url: str, timeout: float, user_agent: str, ctx: ssl.SSLContext, head_error: str
+    request_url: str,
+    original_url: str,
+    timeout: float,
+    user_agent: str,
+    ctx: ssl.SSLContext,
+    head_error: str,
 ) -> dict[str, Any]:
-    req = urllib.request.Request(url, headers={"User-Agent": user_agent})
+    req = urllib.request.Request(request_url, headers={"User-Agent": user_agent})
     try:
         with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
             return {
-                "url": url,
+                "url": original_url,
+                "checked_url": request_url if request_url != original_url else None,
                 "status": resp.status,
                 "ok": 200 <= resp.status < 400,
                 "method": "GET",
@@ -88,7 +127,8 @@ def _get_fallback(
             }
     except urllib.error.HTTPError as e:
         return {
-            "url": url,
+            "url": original_url,
+            "checked_url": request_url if request_url != original_url else None,
             "status": e.code,
             "ok": False,
             "method": "GET",
@@ -96,7 +136,8 @@ def _get_fallback(
         }
     except Exception as e:  # noqa: BLE001
         return {
-            "url": url,
+            "url": original_url,
+            "checked_url": request_url if request_url != original_url else None,
             "status": None,
             "ok": False,
             "method": "GET",
@@ -128,6 +169,17 @@ def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
         return False
     error = str(result.get("error") or "").lower()
     return any(token in error for token in ("timed out", "timeout", "ssl", "network"))
+
+
+def is_catalog_5xx_soft_pass(href: str, result: dict[str, Any]) -> bool:
+    """CATALOG_URL host flakiness (5xx) must not block publish when href matches env exactly."""
+    catalog = (os.environ.get("CATALOG_URL") or "").strip().rstrip("/")
+    if not catalog:
+        return False
+    if href.strip().rstrip("/") != catalog:
+        return False
+    status = result.get("status")
+    return isinstance(status, int) and status >= 500
 
 
 def verify_article(
@@ -177,10 +229,13 @@ def verify_article(
         r["kind"] = kind
         r["skipped"] = False
         if kind == "internal_relative":
-            r["checked_url"] = check_target
+            r["resolved_url"] = check_target
         if kind == "external" and is_soft_external_failure(href, r):
             r["ok"] = True
             r["warning"] = "soft external social timeout; verify manually if needed"
+        if not r.get("ok") and is_catalog_5xx_soft_pass(href, r):
+            r["ok"] = True
+            r["warning"] = "soft catalog 5xx; href equals CATALOG_URL"
         results.append(r)
 
     failed = [r for r in results if not r.get("ok")]

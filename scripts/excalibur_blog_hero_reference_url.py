@@ -7,6 +7,7 @@ import argparse
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -28,59 +29,61 @@ def save_json(path: Path, data: dict) -> None:
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def upload_catbox(image_path: Path) -> str:
+def _multipart_upload(url: str, fields: list[tuple[str, str]], file_field: str, image_path: Path, timeout: float) -> str:
     boundary = "----ExcaliburHeroBoundary"
-    body_prefix = (
-        f"--{boundary}\r\n"
-        f'Content-Disposition: form-data; name="reqtype"\r\n\r\n'
-        f"fileupload\r\n"
-        f"--{boundary}\r\n"
-        f'Content-Disposition: form-data; name="fileToUpload"; filename="{image_path.name}"\r\n'
-        f"Content-Type: image/png\r\n\r\n"
-    ).encode("utf-8")
-    body_suffix = f"\r\n--{boundary}--\r\n".encode("utf-8")
-    file_bytes = image_path.read_bytes()
-    body = body_prefix + file_bytes + body_suffix
-
+    chunks: list[bytes] = []
+    for name, value in fields:
+        chunks.append(
+            (
+                f"--{boundary}\r\n"
+                f'Content-Disposition: form-data; name="{name}"\r\n\r\n'
+                f"{value}\r\n"
+            ).encode("utf-8")
+        )
+    chunks.append(
+        (
+            f"--{boundary}\r\n"
+            f'Content-Disposition: form-data; name="{file_field}"; filename="{image_path.name}"\r\n'
+            f"Content-Type: image/png\r\n\r\n"
+        ).encode("utf-8")
+    )
+    chunks.append(image_path.read_bytes())
+    chunks.append(f"\r\n--{boundary}--\r\n".encode("utf-8"))
+    body = b"".join(chunks)
     request = urllib.request.Request(
+        url,
+        data=body,
+        headers={
+            "Content-Type": f"multipart/form-data; boundary={boundary}",
+            "User-Agent": "ExcaliburBlogHero/1.0",
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(request, timeout=timeout) as response:
+        result = response.read().decode("utf-8", errors="replace").strip()
+    if not result.startswith("https://"):
+        raise RuntimeError(f"upload to {url} failed: {result[:200]}")
+    return result
+
+
+def upload_catbox(image_path: Path, timeout: float = 180.0) -> str:
+    return _multipart_upload(
         "https://catbox.moe/user/api.php",
-        data=body,
-        headers={
-            "Content-Type": f"multipart/form-data; boundary={boundary}",
-            "User-Agent": "ExcaliburBlogHero/1.0",
-        },
-        method="POST",
+        [("reqtype", "fileupload")],
+        "fileToUpload",
+        image_path,
+        timeout,
     )
-    with urllib.request.urlopen(request, timeout=120) as response:
-        url = response.read().decode("utf-8", errors="replace").strip()
-    if not url.startswith("https://"):
-        raise RuntimeError(f"catbox upload failed: {url[:200]}")
-    return url
 
 
-def upload_0x0(image_path: Path) -> str:
-    boundary = "----ExcaliburHero0x0"
-    body_prefix = (
-        f"--{boundary}\r\n"
-        f'Content-Disposition: form-data; name="file"; filename="{image_path.name}"\r\n'
-        f"Content-Type: image/png\r\n\r\n"
-    ).encode("utf-8")
-    body_suffix = f"\r\n--{boundary}--\r\n".encode("utf-8")
-    body = body_prefix + image_path.read_bytes() + body_suffix
-    request = urllib.request.Request(
+def upload_0x0(image_path: Path, timeout: float = 180.0) -> str:
+    return _multipart_upload(
         "https://0x0.st",
-        data=body,
-        headers={
-            "Content-Type": f"multipart/form-data; boundary={boundary}",
-            "User-Agent": "ExcaliburBlogHero/1.0",
-        },
-        method="POST",
+        [],
+        "file",
+        image_path,
+        timeout,
     )
-    with urllib.request.urlopen(request, timeout=120) as response:
-        url = response.read().decode("utf-8", errors="replace").strip()
-    if not url.startswith("https://"):
-        raise RuntimeError(f"0x0 upload failed: {url[:200]}")
-    return url
 
 
 def resolve_reference_path(root: Path, hero: dict) -> Path:
@@ -89,6 +92,20 @@ def resolve_reference_path(root: Path, hero: dict) -> Path:
     if not path.is_absolute():
         path = root / path
     return path
+
+
+def try_providers(image_path: Path, providers: list[str], retries: int = 2) -> tuple[str, str]:
+    last_error: Exception | None = None
+    for provider in providers:
+        for attempt in range(1, retries + 1):
+            try:
+                url = upload_catbox(image_path) if provider == "catbox" else upload_0x0(image_path)
+                return url, provider
+            except (urllib.error.URLError, RuntimeError, TimeoutError, OSError) as exc:
+                last_error = exc
+                print(f"WARN upload via {provider} attempt {attempt}/{retries} failed: {exc}", file=sys.stderr)
+                time.sleep(1.5 * attempt)
+    raise RuntimeError(str(last_error) if last_error else "all hero host providers failed")
 
 
 def main() -> int:
@@ -127,22 +144,29 @@ def main() -> int:
         return 0
 
     providers = ["catbox", "0x0"] if args.provider == "auto" else [args.provider]
-    last_error: Exception | None = None
-    for provider in providers:
-        try:
-            url = upload_catbox(ref_path) if provider == "catbox" else upload_0x0(ref_path)
-            hero["reference_url_hosted"] = url
-            hero["reference_url_source"] = provider
-            hero["reference_url_updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
-            save_json(hero_path, hero)
-            print(f"OK reference_url_hosted={url}")
+    try:
+        url, provider = try_providers(ref_path, providers, retries=2)
+        hero["reference_url_hosted"] = url
+        hero["reference_url_source"] = provider
+        hero["reference_url_updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+        save_json(hero_path, hero)
+        print(f"OK reference_url_hosted={url}")
+        return 0
+    except RuntimeError as exc:
+        if existing:
+            # Keep prior hosted URL instead of blocking cover when rehost fails.
+            print(
+                f"WARN rehost failed ({exc}); keeping existing reference_url_hosted",
+                file=sys.stderr,
+            )
+            print(f"OK reference_url_hosted={existing}")
             return 0
-        except (urllib.error.URLError, RuntimeError, TimeoutError) as exc:
-            last_error = exc
-            print(f"WARN upload via {provider} failed: {exc}", file=sys.stderr)
-
-    print(f"❌ HERO BLOCKER: could not host reference: {last_error}", file=sys.stderr)
-    return 1
+        print(
+            f"❌ HERO BLOCKER: could not host reference: {exc}. "
+            "Set BLOG_HERO_REFERENCE_URL or upload via WP media and pass the public URL.",
+            file=sys.stderr,
+        )
+        return 1
 
 
 if __name__ == "__main__":

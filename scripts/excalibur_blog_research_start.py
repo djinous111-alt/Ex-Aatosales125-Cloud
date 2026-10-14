@@ -361,14 +361,28 @@ def run_research_start(
         "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md",
     }
 
+    unique_urls = _unique_urls(serp_runs)
+    empty_serp = (not dry_run) and len(unique_urls) == 0
     payload_serp = {
         "agent": "excalibur-blog",
         "date_context": ctx,
         "topic": topic,
         "searches": serp_runs,
         "errors": errors,
-        "unique_urls": _unique_urls(serp_runs),
+        "unique_urls": unique_urls,
+        "empty_serp_fallback": empty_serp,
+        "fallback_note": (
+            "DuckDuckGo/HTML SERP is best-effort. If unique_urls is empty, Research MUST use "
+            "Cursor WebSearch/WebFetch as primary evidence source and record serp_note in research-notes.md."
+            if empty_serp
+            else ""
+        ),
     }
+    if empty_serp:
+        payload_context["next_step"] = (
+            "SERP empty — используй Cursor WebSearch/WebFetch как primary source, "
+            "затем напиши research-notes.md (см. empty_serp_fallback в research-serp.json)"
+        )
 
     context_path = out_dir / "research-context.json"
     serp_path = out_dir / "research-serp.json"
@@ -450,10 +464,15 @@ def main() -> int:
     print(f"ledger_reserved={str(result.get('ledger_reserved')).lower()}")
     if result["serp"].get("errors"):
         print("WARN: some queries failed; see research-serp.json", file=sys.stderr)
-        return 2 if unique == 0 else 0
     if unique == 0:
-        print("BLOCKER: no search results; check network or queries", file=sys.stderr)
-        return 2
+        # Soft-fail: Cloud DDG/HTML often returns 0; Research continues via WebSearch.
+        print(
+            "WARN: empty SERP (result_count=0). Soft-pass research_start; "
+            "Research must use Cursor WebSearch/WebFetch as primary source.",
+            file=sys.stderr,
+        )
+        print("empty_serp_fallback=true")
+        return 0
     return 0
 
 

@@ -38,6 +38,14 @@ python scripts/excalibur_blog_link_verify.py \
 
 Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
 
+Link-verify soft-pass (встроено в `excalibur_blog_link_verify.py`):
+- `href == CATALOG_URL` и HTTP 5xx → warning, не fail;
+- не-ASCII path (например 2GIS) percent-encode перед HTTP-запросом.
+
+Schema: committed `schema.jsonld` может содержать `[REDACTED]`; publish script расширяет placeholders из env (`expand_schema_redacted`) только для WP meta.
+
+SSH: образ/install обязан иметь `paramiko` (см. `.cursor/cloud-agent-install.sh`). Preflight: `python3 scripts/excalibur_blog_wp_publish.py --env-check`.
+
 ### 2. Dry-run
 
 ```bash

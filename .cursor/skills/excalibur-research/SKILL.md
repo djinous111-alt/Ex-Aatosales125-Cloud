@@ -51,6 +51,7 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
   - Агент имеет полноценный доступ в интернет через нативный инструмент `**WebSearch`** (или `WebFetch` для чтения конкретных страниц).
   - Для анализа конкурентов в SERP **всегда используй инструмент `WebSearch`**. Ищи статьи, руководства, гайды по `primary_query` и ключевым словам в Яндексе и Google.
   - Игнорируй сырой `research-serp.json` из шага 0, если он пуст, неполный или нерелевантный. Твой собственный поиск через `WebSearch` — приоритетный источник свежих данных 2026 года.
+  - `research_start.py` при `unique_urls=0` делает **soft-fail** (exit 0) и ставит `empty_serp_fallback=true` в `research-serp.json` — это ожидаемо в Cloud; не останавливай Research, запиши `serp_note` в notes.
 
 ## Правила
 

@@ -53,6 +53,10 @@ EXCALIBUR_BLOG_ALLOW_PUBLISH=yes
 EXCALIBUR_TOPIC_ID=<optional fixed topic id>
 ```
 
+`CLOUD_AGENT_INJECTED_SECRET_NAMES` (платформенный список) должен содержать **только имена env-переменных** (`PUBLIC_SITE_URL`, `SSH_PASS`, …), никогда URL или значения секретов. Иначе pre-commit hook падает с `invalid variable name` на `${!SECRET_NAME}`.
+
+Коммиты из пайплайна: `bash scripts/excalibur_git.sh add|commit|…` — wrapper отфильтровывает невалидные идентификаторы перед вызовом `git`.
+
 Запрещено добавлять в repo реальные `.env`, `memory/site.env.local`, MCP tokens, SSH credentials, Cursor API keys.
 
 ## GitHub setup

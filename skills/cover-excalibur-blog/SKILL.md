@@ -90,27 +90,30 @@ inject <figure> after H2 in article.html
 ### Шаг 1 — reference URL
 
 ```bash
-python scripts/excalibur_blog_hero_reference_url.py
+python3 scripts/excalibur_blog_hero_reference_url.py
+# при необходимости: --force (rehost). Если catbox/0x0 падают, скрипт сохраняет existing URL.
 ```
 
 Проверить `memory/cover/blog-hero.json` → `reference_url_hosted`.  
-Fallback env: `BLOG_HERO_REFERENCE_URL`.
+Fallback env: `BLOG_HERO_REFERENCE_URL`. Если оба хоста недоступны и URL пуст — blocker (залей PNG в WP media / публичный URL вручную).
 
 ### Шаг 2 — manifest
 
 ```bash
-python scripts/excalibur_blog_quad_manifest.py \
+python3 scripts/excalibur_blog_quad_manifest.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --merge
 ```
 
-**Руками** доработать `cover/quad-manifest.json`:
+`--merge` подтягивает defaults из `memory/cover/cover-prompts.json` по `topic_id` (не SEO-primer).  
+**Обязательно** перезаписать merge-defaults из `blog-topics.md` → `cover_scene_hint` + реальные H2 статьи:
 
-- `cover_hook` — провокация
+- `cover_hook` — провокация по теме
 - `slots.cover.meme_caption_ru` — 2–6 слов
-- `slots.cover.scene_hint` — fake скрины + мемы + outfit агента
+- `slots.cover.scene_hint` — сцена темы (не Wordstat/SEO primer)
 - `slots.inline_*.scene_hint` — конкретика H2
 - `alt` — осмысленные, не «seo картинка»
+- обновить `memory/cover/cover-prompts.json` для текущего topic_id/slug перед следующим run
 
 ### Шаг 3 — prompt + batch
 

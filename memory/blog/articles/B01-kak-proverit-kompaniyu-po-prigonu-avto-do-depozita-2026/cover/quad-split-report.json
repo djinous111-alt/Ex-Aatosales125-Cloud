@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1272,
+      731
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 731,
+        "end": 758
+      },
+      "v_gutter_px": {
+        "start": 1272,
+        "end": 1287
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 7,
+          "right": 1272,
+          "bottom": 723
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1272,
+          "bottom": 731
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у порта с договором и смартфоном: проверка компании до депозита",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1287,
+          "top": 7,
+          "right": 2560,
+          "bottom": 723
+        },
+        "raw_box_px": {
+          "left": 1287,
+          "top": 0,
+          "right": 2560,
+          "bottom": 731
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: срочный перевод vs пауза 24 часа перед депозитом",
+        "h2_anchor": "Почему пауза до депозита важнее красивой цены"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 30,
+          "top": 758,
+          "right": 1242,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 758,
+          "right": 1272,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема проверки ИНН: ЕГРЮЛ, арбитраж, сверка расчётного счёта",
+        "h2_anchor": "Сверьте ИНН и реквизиты за 15 минут"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1317,
+          "top": 758,
+          "right": 2529,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1287,
+          "top": 758,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист пунктов договора перед первым переводом депозита",
+        "h2_anchor": "Проверьте договор до первого перевода"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Почему пауза до депозита важнее красивой цены",
+    "injected inline_2 after H2 — Сверьте ИНН и реквизиты за 15 минут",
+    "injected inline_3 after H2 — Проверьте договор до первого перевода"
+  ]
+}

@@ -513,3 +513,39 @@ category: publish
 
 ### Fixer resolution
 - pending
+
+## INC-20261014-1340-cover-hero-host-upload
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026
+severity: medium
+category: api
+
+### What went wrong
+- `excalibur_blog_hero_reference_url.py --force` failed: catbox HTTP 412, 0x0 HTTP 503.
+- Temporary hosts (uguu/tmpfiles) returned direct PNG URLs, but `excalibur_blog_cover_quad_prompt.py` requires stable `avtosales125.ru` WordPress media URL and rejected them.
+
+### How the agent recovered this run
+- Kept/updated `reference_url_hosted` to HTTPS WordPress media on avtosales125.ru (prompt script validation PASS).
+- Generated ONE Kie API gpt-image-2 i2i via `excalibur_blog_kie_gpt_image2_api.py`; split PASS; inject HTML ok.
+- Manual rewrite of auto SEO stub hooks in `quad-manifest.json` for company-check topic.
+
+### Durable fix needed before next run
+- Document fallback when catbox/0x0 down: do not force-reupload if WP media URL already valid; prefer HTTPS.
+- Optionally allow alternate host only for local debug, not for production batch.
+- Seed topic-specific defaults in `excalibur_blog_quad_manifest.py` so auto cover_hook is not SEO-stub for auto-import topics.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

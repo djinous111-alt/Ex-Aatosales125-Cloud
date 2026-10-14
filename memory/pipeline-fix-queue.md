@@ -51,7 +51,7 @@ files_changed:
 checks_run:
 - `python3 -c 'import paramiko'`
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
-commit: pending-parent-commit
+commit: f8c6262,8fe879e,3edad08
 
 
 ## INC-20261014-0950-publish-link-verify-soft-pass-rerun
@@ -93,7 +93,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
 - unit checks encode_iri_for_request + is_catalog_5xx_soft_pass
-commit: pending-parent-commit
+commit: f8c6262,8fe879e,3edad08
 
 
 ## INC-20261014-0950-publish-schema-expand-runtime
@@ -140,7 +140,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `rg expand_schema_redacted skills`
-commit: pending-parent-commit
+commit: f8c6262,8fe879e,3edad08
 
 
 ## INC-20261014-0941-indexer-llms-blog-path-mismatch
@@ -197,7 +197,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `rg --blog-path` only in docs as negative guidance
-commit: pending-parent-commit
+commit: f8c6262,8fe879e,3edad08
 
 
 ## INC-20261014-0930-schema-secret-scan-redaction
@@ -251,7 +251,7 @@ files_changed:
 checks_run:
 - filter unit: URL entry dropped from CLOUD_AGENT_INJECTED_SECRET_NAMES
 - `bash scripts/excalibur_git.sh status` works
-commit: pending-parent-commit
+commit: f8c6262,8fe879e,3edad08
 
 
 ## INC-20261014-0924-geo-qa-link-verify-catalog-5xx-unicode
@@ -300,7 +300,7 @@ files_changed:
 checks_run:
 - unit checks encode_iri_for_request + is_catalog_5xx_soft_pass
 - `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
-commit: pending-parent-commit
+commit: f8c6262,8fe879e,3edad08
 
 ## INC-20261014-0924-geo-qa-tldr-skill-vs-contract
 status: fixed
@@ -341,7 +341,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg 'разрешён' skills/excalibur-geo-qa/SKILL.md`
-commit: pending-parent-commit
+commit: f8c6262,8fe879e,3edad08
 
 
 ## INC-20261014-0920-writer-utility-pain-outcome-policy
@@ -391,7 +391,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → editorial-policy markers OK
 - `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
-commit: pending-parent-commit
+commit: f8c6262,8fe879e,3edad08
 
 ## INC-20261014-0915-research-empty-serp-duckduckgo
 status: fixed
@@ -435,7 +435,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_research_start.py`
-commit: pending-parent-commit
+commit: f8c6262,8fe879e,3edad08
 
 ## INC-20261014-0916-research-notes-gate-false-tech
 status: fixed
@@ -476,7 +476,7 @@ files_changed:
 checks_run:
 - unit: is_technical_topic false for China auto topic with github URLs in notes
 - unit: count_accessed_at / count_pain_solution_rows
-commit: pending-parent-commit
+commit: f8c6262,8fe879e,3edad08
 
 ## INC-20261014-0910-scout-precommit-secret-names
 status: fixed
@@ -520,7 +520,7 @@ files_changed:
 checks_run:
 - filter unit drops URL-like entries
 - `bash scripts/excalibur_git.sh status`
-commit: pending-parent-commit
+commit: f8c6262,8fe879e,3edad08
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -817,7 +817,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py scripts/excalibur_blog_quad_manifest.py`
 - JSON parse cover-prompts.json
-commit: pending-parent-commit
+commit: f8c6262,8fe879e,3edad08
 
 ## Fixed incidents
 

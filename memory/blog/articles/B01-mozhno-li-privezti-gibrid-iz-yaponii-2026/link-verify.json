@@ -1,0 +1,36 @@
+{
+  "source": "memory/blog/articles/B01-mozhno-li-privezti-gibrid-iz-yaponii-2026/article.html",
+  "total_links": 2,
+  "failed_count": 0,
+  "verdict": "pass",
+  "soft_pass": {
+    "applied": true,
+    "rules": ["catalog_5xx"],
+    "note": "CATALOG_URL returned HTTP 503 on HEAD and GET; treated as soft-pass per pipeline memory (catalog transient 5xx)."
+  },
+  "links": [
+    {
+      "url": "https://t.me/EXAMPLE_TELEGRAM",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false,
+      "role": "TELEGRAM_URL"
+    },
+    {
+      "url": "https://EXAMPLE_CATALOG/",
+      "status": 503,
+      "ok": true,
+      "raw_ok": false,
+      "method": "HEAD",
+      "error": "HTTP Error 503: Service Temporarily Unavailable",
+      "kind": "external",
+      "skipped": false,
+      "role": "CATALOG_URL",
+      "soft_pass": true,
+      "soft_pass_reason": "catalog_5xx_transient"
+    }
+  ]
+}

@@ -1,0 +1,601 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-14",
+    "today_ru": "14.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-16",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-14 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "mozhno-li-privezti-gibrid-iz-yaponii-2026",
+    "h1": "Можно ли привезти гибрид из Японии в 2026: чек-лист до заказа",
+    "primary_query": "можно ли привезти гибрид из японии",
+    "secondary_queries": [
+      "гибрид из японии 2026",
+      "какие гибриды можно привезти из японии",
+      "мягкие гибриды из японии список",
+      "как привезти гибрид из японии"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "можно ли привезти гибрид из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Гибриды из Японии 2026: сроки и утильсбор",
+          "url": "https://asia-pod-klyuch.ru/blog/gibridy-iz-yaponii-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Ввоз авто из Японии в 2026 году — правила и ограничения | Карском",
+          "url": "https://carscom.ru/blog/kakie-mashiny-mozhno-vvozit-iz-yaponii-v-rossiyu-v-2025-godu/",
+          "snippet": "Какой японский гибрид привезти в 2026: мягкие едут 25-35 раб. дней, полноценные 2-3 месяца. Разбор по кузовам, ловушка мощности в ПТС, цены от 720 тыс. Под именем Honda Freed из Японии едут два гибрида, и один приходит за 5-7 недель, а второй за три месяца."
+        },
+        {
+          "title": "Запрет на ввоз авто 2026: что нельзя и что можно привезти",
+          "url": "https://amgamma.ru/knowledge-base/blog/ogranicheniya-na-vvoz-avto-2026-chto-mozhno-privezti",
+          "snippet": "Какие машины можно ввозить из Японии в 2026 году: разрешённые объёмы до 1,9 л, запрет на гибриды и электромобили, пошлины и порядок покупки под заказ."
+        },
+        {
+          "title": "Какие гибриды можно привезти из Японии в 2026: чек-лист до ставки",
+          "url": "https://dzen.ru/a/ar6dIYhyeVtz7q5o",
+          "snippet": "С августа 2023 года Япония не отгружает в Россию автомобили с двигателем свыше 1,9 литра (бензин и дизель), полноценные гибриды и электромобили. Правило действует и в 2026 году."
+        },
+        {
+          "title": "Авто из Японии: что можно привезти в 2026 году",
+          "url": "https://moyka63.ru/news/avto-iz-yaponii/",
+          "snippet": "Статья автора «Авто-Сейлс» в Дзене : Какие гибриды можно привезти из Японии в 2026: mild vs Prius/e-Power, код кузова, объём ≤1,9 л и чек-лист из 10 пунктов до депозита без калькулятора сумм."
+        },
+        {
+          "title": "Ввозить гибриды из Японии уже можно или нет? Ответы на главные вопросы",
+          "url": "https://5koleso.ru/articles/novosti/vvozit-gibridy-iz-yaponii-uzhe-mozhno-ili-net-otvety-na-glavnye-voprosy/",
+          "snippet": "Короткий ответ: из Японии сейчас едут бензиновые и дизельные машины с мотором до 1,9 литра. Больше объём, гибрид или электромобиль — вывоз закрыт."
+        }
+      ],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "можно ли привезти гибрид из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Запрет на ввоз авто 2026: что нельзя и что можно привезти",
+          "url": "https://amgamma.ru/knowledge-base/blog/ogranicheniya-na-vvoz-avto-2026-chto-mozhno-privezti",
+          "snippet": ""
+        },
+        {
+          "title": "Ввоз авто из Японии в 2026 году — правила и ограничения | Карском",
+          "url": "https://carscom.ru/blog/kakie-mashiny-mozhno-vvozit-iz-yaponii-v-rossiyu-v-2025-godu/",
+          "snippet": "С августа 2023 года Япония не отгружает в Россию автомобили с двигателем свыше 1,9 литра (бензин и дизель), полноценные гибриды и электромобили. Правило действует и в 2026 году."
+        },
+        {
+          "title": "Гибриды из Японии 2026: сроки и утильсбор",
+          "url": "https://asia-pod-klyuch.ru/blog/gibridy-iz-yaponii-2026",
+          "snippet": "Какие машины можно ввозить из Японии в 2026 году: разрешённые объёмы до 1,9 л, запрет на гибриды и электромобили, пошлины и порядок покупки под заказ."
+        },
+        {
+          "title": "Авто из Японии: что можно привезти в 2026 году",
+          "url": "https://moyka63.ru/news/avto-iz-yaponii/",
+          "snippet": "Мягкие гибриды под ограничения не попадают и приезжают обычными сроками, 25-35 рабочих дней до Владивостока."
+        },
+        {
+          "title": "Ввозить гибриды из Японии уже можно или нет? Ответы на главные вопросы",
+          "url": "https://5koleso.ru/articles/novosti/vvozit-gibridy-iz-yaponii-uzhe-mozhno-ili-net-otvety-na-glavnye-voprosy/",
+          "snippet": "Короткий ответ: из Японии сейчас едут бензиновые и дизельные машины с мотором до 1,9 литра. Больше объём, гибрид или электромобиль — вывоз закрыт."
+        },
+        {
+          "title": "Какие гибриды можно привезти из Японии в 2026: чек-лист до ставки",
+          "url": "https://dzen.ru/a/ar6dIYhyeVtz7q5o",
+          "snippet": "Даны разъяснения по возможности импорта автомобилей с гибридными силовыми установками в Россию. По-прежнему ли они в списке санкционных?"
+        }
+      ],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "можно ли привезти гибрид из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Ввоз авто из Японии в 2026 году — правила и ограничения | Карском",
+          "url": "https://carscom.ru/blog/kakie-mashiny-mozhno-vvozit-iz-yaponii-v-rossiyu-v-2025-godu/",
+          "snippet": ""
+        },
+        {
+          "title": "Гибриды из Японии 2026: сроки и утильсбор",
+          "url": "https://asia-pod-klyuch.ru/blog/gibridy-iz-yaponii-2026",
+          "snippet": "Какие машины можно ввозить из Японии в 2026 году: разрешённые объёмы до 1,9 л, запрет на гибриды и электромобили, пошлины и порядок покупки под заказ."
+        },
+        {
+          "title": "Запрет на ввоз авто 2026: что нельзя и что можно привезти",
+          "url": "https://amgamma.ru/knowledge-base/blog/ogranicheniya-na-vvoz-avto-2026-chto-mozhno-privezti",
+          "snippet": "Мягкие гибриды под ограничения не попадают и приезжают обычными сроками, 25-35 рабочих дней до Владивостока."
+        },
+        {
+          "title": "Авто из Японии: что можно привезти в 2026 году",
+          "url": "https://moyka63.ru/news/avto-iz-yaponii/",
+          "snippet": "С августа 2023 года Япония не отгружает в Россию автомобили с двигателем свыше 1,9 литра (бензин и дизель), полноценные гибриды и электромобили. Правило действует и в 2026 году."
+        },
+        {
+          "title": "САНКЦИИ И УТИЛЬСБОР - ЧТО МОЖНО ПРИВЕЗТИ ИЗ ЯПОНИИ В 2026",
+          "url": "https://www.drive2.ru/b/739203317694992601/",
+          "snippet": "Короткий ответ: из Японии сейчас едут бензиновые и дизельные машины с мотором до 1,9 литра. Больше объём, гибрид или электромобиль — вывоз закрыт."
+        },
+        {
+          "title": "Какие гибриды можно привезти из Японии в 2026: чек-лист до ставки",
+          "url": "https://dzen.ru/a/ar6dIYhyeVtz7q5o",
+          "snippet": "Из гибридов с ноября 24 года в виде исключения можно завезти мягкие - с мощностью до 5 «лошадок», да и то не все, их список то и дело меняется."
+        }
+      ],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com можно ли привезти гибрид из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "was-node-suite-comfyui/image/image_blend_node.jpg at main · RituCodeWeb ...",
+          "url": "https://github.com/RituCodeWeb/was-node-suite-comfyui/blob/main/image/image_blend_node.jpg",
+          "snippet": ""
+        },
+        {
+          "title": "XiaoShiLiu/doc/imgs/2.png at master · ZTMYO/XiaoShiLiu · GitHub",
+          "url": "https://github.com/ZTMYO/XiaoShiLiu/blob/master/doc/imgs/2.png",
+          "snippet": "Contribute to RituCodeWeb/was-node-suite-comfyui development by creating an account on GitHub."
+        },
+        {
+          "title": "Как получить доступ к ChatGPT и OpenAI из России в 2026 — рабочий гайд ...",
+          "url": "https://gist.github.com/evilork/01e4a7fdd2abab9dd24ed11f02e8e6ca",
+          "snippet": "Contribute to ZTMYO/XiaoShiLiu development by creating an account on GitHub."
+        },
+        {
+          "title": "ai-engineering-aneela/site/assets/figures/001-c-agents.svg at main ...",
+          "url": "https://github.com/aneelaaltaf007/ai-engineering-aneela/blob/main/site/assets/figures/001-c-agents.svg",
+          "snippet": "Как получить доступ к ChatGPT и OpenAI из России в 2026 — рабочий гайд по VPN - chatgpt-dostup-iz-rossii-2026.md"
+        },
+        {
+          "title": "mohsinenur/img/php.svg at master - GitHub",
+          "url": "https://github.com/mohsinenur/mohsinenur/blob/master/img/php.svg",
+          "snippet": "Ship it for others. Contribute to aneelaaltaf007/ai-engineering-aneela development by creating an account on GitHub."
+        },
+        {
+          "title": "coralnpu-main-forfpga_20260714/fpga/my_onestep_to_fpga/phine ... - GitHub",
+          "url": "https://github.com/beckybao666/coralnpu-main-forfpga_20260714/blob/main/fpga/my_onestep_to_fpga/phine_vu9p/rtl/vendor/opentitan/hw/ip/otbn/doc/otbn_blockarch.svg",
+          "snippet": "Contribute to mohsinenur/mohsinenur development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "можно ли привезти гибрид из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Ввоз авто из Японии в 2026 году — правила и ограничения | Карском",
+          "url": "https://carscom.ru/blog/kakie-mashiny-mozhno-vvozit-iz-yaponii-v-rossiyu-v-2025-godu/",
+          "snippet": ""
+        },
+        {
+          "title": "Праворульные и гибридные авто больше не ввезут в РФ: что изменилось с 1 ...",
+          "url": "https://dzen.ru/a/aSrZTi5A72IHWv35",
+          "snippet": "Какие машины можно ввозить из Японии в 2026 году: разрешённые объёмы до 1,9 л, запрет на гибриды и электромобили, пошлины и порядок покупки под заказ."
+        },
+        {
+          "title": "Ввозить гибриды из Японии уже можно или нет? Ответы на главные вопросы",
+          "url": "https://5koleso.ru/articles/novosti/vvozit-gibridy-iz-yaponii-uzhe-mozhno-ili-net-otvety-na-glavnye-voprosy/",
+          "snippet": "Согласно этим документам, запрещён ввоз автомобилей, у которых световой пучок фар ориентирован влево — то есть всех праворульных авто из Японии, Великобритании и других стран с левосторонним движением."
+        },
+        {
+          "title": "Запрет на ввоз авто 2026: что нельзя и что можно привезти",
+          "url": "https://amgamma.ru/knowledge-base/blog/ogranicheniya-na-vvoz-avto-2026-chto-mozhno-privezti",
+          "snippet": "Даны разъяснения по возможности импорта автомобилей с гибридными силовыми установками в Россию. По-прежнему ли они в списке санкционных?"
+        },
+        {
+          "title": "Авто из Японии: что можно привезти в 2026 году",
+          "url": "https://moyka63.ru/news/avto-iz-yaponii/",
+          "snippet": "С августа 2023 года Япония не отгружает в Россию автомобили с двигателем свыше 1,9 литра (бензин и дизель), полноценные гибриды и электромобили. Правило действует и в 2026 году."
+        },
+        {
+          "title": "Какие авто нельзя ввозить из Японии в Россию в 2026",
+          "url": "https://nadodetali.ru/blog/kakie-avtomobili-nelzya-vvezti-iz-yaponii-v-rossiyu-iz-za-sanktsiy/",
+          "snippet": "Короткий ответ: из Японии сейчас едут бензиновые и дизельные машины с мотором до 1,9 литра. Больше объём, гибрид или электромобиль — вывоз закрыт."
+        }
+      ],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "можно ли привезти гибрид из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Ввоз авто из Японии в 2026 году — правила и ограничения | Карском",
+          "url": "https://carscom.ru/blog/kakie-mashiny-mozhno-vvozit-iz-yaponii-v-rossiyu-v-2025-godu/",
+          "snippet": ""
+        },
+        {
+          "title": "Запрет на ввоз авто 2026: что нельзя и что можно привезти",
+          "url": "https://amgamma.ru/knowledge-base/blog/ogranicheniya-na-vvoz-avto-2026-chto-mozhno-privezti",
+          "snippet": "Какие машины можно ввозить из Японии в 2026 году: разрешённые объёмы до 1,9 л, запрет на гибриды и электромобили, пошлины и порядок покупки под заказ."
+        },
+        {
+          "title": "Праворульные и гибридные авто больше не ввезут в РФ: что изменилось с 1 ...",
+          "url": "https://dzen.ru/a/aSrZTi5A72IHWv35",
+          "snippet": "С августа 2023 года Япония не отгружает в Россию автомобили с двигателем свыше 1,9 литра (бензин и дизель), полноценные гибриды и электромобили. Правило действует и в 2026 году."
+        },
+        {
+          "title": "Ввозить гибриды из Японии уже можно или нет? Ответы на главные вопросы",
+          "url": "https://5koleso.ru/articles/novosti/vvozit-gibridy-iz-yaponii-uzhe-mozhno-ili-net-otvety-na-glavnye-voprosy/",
+          "snippet": "Вы купили Toyota Noah в Японии — идеальный пробег, гибрид, всего за 1,4 млн ₽. Но в РФ его больше нельзя оформить. Причина — не санкции, а технический регламент, который изменили тихо, но навсегда."
+        },
+        {
+          "title": "САНКЦИИ И УТИЛЬСБОР - ЧТО МОЖНО ПРИВЕЗТИ ИЗ ЯПОНИИ В 2026",
+          "url": "https://www.drive2.ru/b/739203317694992601/",
+          "snippet": "Даны разъяснения по возможности импорта автомобилей с гибридными силовыми установками в Россию. По-прежнему ли они в списке санкционных?"
+        },
+        {
+          "title": "Гибриды снова можно везти из Японии? Новый порядок - что поменялось",
+          "url": "https://dzen.ru/a/ZzIBV9GUlg3tNsyX",
+          "snippet": "Из гибридов с ноября 24 года в виде исключения можно завезти мягкие - с мощностью до 5 «лошадок», да и то не все, их список то и дело меняется."
+        }
+      ],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "гибрид из японии 2026 2026",
+      "purpose": "вторичный запрос: гибрид из японии 2026",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Гибриды из Японии 2026: сроки и утильсбор",
+          "url": "https://asia-pod-klyuch.ru/blog/gibridy-iz-yaponii-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Лучшие японские гибриды для России в 2026 году: покупка, растаможка и ...",
+          "url": "https://peregonpro.ru/poleznoe/top-gibridnyh-avtomobilej-iz-yaponii-dlya-rossii-2026/",
+          "snippet": "Какой японский гибрид привезти в 2026: мягкие едут 25-35 раб. дней, полноценные 2-3 месяца. Разбор по кузовам, ловушка мощности в ПТС, цены от 720 тыс."
+        },
+        {
+          "title": "Японские гибриды с аукционов в 2026 году",
+          "url": "https://onteco.ru/blog/yaponskie-gibridy-s-auktsionov-v-2026-godu-kakie-modeli-vygodno-vezti-s-uchyotom-novogo-utilsbora",
+          "snippet": "В 2026 году покупка гибрида из Японии остаётся выгодным направлением, если правильно подобрать модель, заранее рассчитать растаможку, проверить лот и организовать доставку по России."
+        },
+        {
+          "title": "Гибриды из Японии: выбор, проверка и лучшие модели 2026",
+          "url": "https://sferacar.ru/stati/gibridnye-avto-iz-yaponii.html",
+          "snippet": "В этой статье — честный разбор: какие японские гибриды с аукционов остаются выгодными в 2026 году, а на каких можно переплатить сотни тысяч рублей."
+        },
+        {
+          "title": "Гибриды из Японии в 2026 году - autoskeptic.ru",
+          "url": "https://autoskeptic.ru/interesno/new-entryjpstarru",
+          "snippet": "Как выбрать гибридный авто из Японии? Разбор систем Toyota, Honda, Nissan, проверка HV-батареи, топ-7 моделей с аукциона. Поможем с подбором под ваш сценарий."
+        },
+        {
+          "title": "Как Выбрать Гибридные Авто Из Японии В 2026 | Zma-авто",
+          "url": "https://zmaimport.ru/blog/gibridnye-avto-iz-yaponii",
+          "snippet": "Гибридные автомобили из Японии в 2026 году — один из самых разумных вариантов для российского водителя. Они экономят топливо, плавно едут и редко ломаются."
+        }
+      ],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "какие гибриды можно привезти из японии 2026",
+      "purpose": "вторичный запрос: какие гибриды можно привезти из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Гибриды из Японии 2026: сроки и утильсбор",
+          "url": "https://asia-pod-klyuch.ru/blog/gibridy-iz-yaponii-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Какие гибриды можно привезти из Японии в 2026: чек-лист до ставки",
+          "url": "https://dzen.ru/a/ar6dIYhyeVtz7q5o",
+          "snippet": "Обычной доставкой едут гибриды, чьи кузова входят в список несанкционных. Вот те, что реально встречаются в наших заказах. Список шире: в него входят Suzuki Wagon R, Spacia, Hustler, Ignis, Xbee, Alto и Fronx, а также Mazda Flair и Flair Wagon, Mitsubishi eK X и Delica Mini."
+        },
+        {
+          "title": "Лучшие японские гибриды для России в 2026 году: покупка, растаможка и ...",
+          "url": "https://peregonpro.ru/poleznoe/top-gibridnyh-avtomobilej-iz-yaponii-dlya-rossii-2026/",
+          "snippet": "Статья автора «Авто-Сейлс» в Дзене : Какие гибриды можно привезти из Японии в 2026: mild vs Prius/e-Power, код кузова, объём ≤1,9 л и чек-лист из 10 пунктов до депозита без калькулятора сумм."
+        },
+        {
+          "title": "Японские гибриды с аукционов в 2026 году: какие модели выгодно везти ...",
+          "url": "https://onteco.ru/blog/yaponskie-gibridy-s-auktsionov-v-2026-godu-kakie-modeli-vygodno-vezti-s-uchyotom-novogo-utilsbora",
+          "snippet": "Обзор лучших гибридных автомобилей из Японии для России в 2026 году: Toyota Prius, Aqua, Corolla, Honda Fit, Vezel, Nissan Note e-POWER. Покупка, доставка, растаможка и перегон авто под ключ."
+        },
+        {
+          "title": "Гибриды из Японии: выбор, проверка и лучшие модели 2026",
+          "url": "https://sferacar.ru/stati/gibridnye-avto-iz-yaponii.html",
+          "snippet": "В этой статье — честный разбор: какие японские гибриды с аукционов остаются выгодными в 2026 году, а на каких можно переплатить сотни тысяч рублей."
+        },
+        {
+          "title": "Ввоз авто из Японии в 2026 году — правила и ограничения | Карском",
+          "url": "https://carscom.ru/blog/kakie-mashiny-mozhno-vvozit-iz-yaponii-v-rossiyu-v-2025-godu/",
+          "snippet": "Как выбрать гибридный авто из Японии? Разбор систем Toyota, Honda, Nissan, проверка HV-батареи, топ-7 моделей с аукциона. Поможем с подбором под ваш сценарий."
+        }
+      ],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "мягкие гибриды из японии список 2026",
+      "purpose": "вторичный запрос: мягкие гибриды из японии список",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Гибриды из Японии 2026: сроки и утильсбор",
+          "url": "https://asia-pod-klyuch.ru/blog/gibridy-iz-yaponii-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Авто из Японии до 160 л.с.: какие модели проходят в 2026",
+          "url": "https://asia-pod-klyuch.ru/blog/avto-iz-yaponii-do-160-ls-2026",
+          "snippet": "Смотрите на мягкие гибриды: Honda Insight от 720 тысяч, Mitsubishi Delica D:2 от 792 тысяч. Обе приедут за 25-35 рабочих дней, обе глубоко под порогом льготного утильсбора, обе экономят топливо без санкционных ..."
+        },
+        {
+          "title": "Гибриды из Японии: выбор, проверка и лучшие модели 2026",
+          "url": "https://sferacar.ru/stati/gibridnye-avto-iz-yaponii.html",
+          "snippet": "Ниже — как считается мощность у бензиновой машины, гибрида и электромобиля, чем порог 160 л.с. отличается от санкционной границы 1,9 литра, таблица моделей по нашим разборам с кузовами и моторами, свежие расчёты сентября 2026 года и порядок проверки машины до ставки."
+        },
+        {
+          "title": "Лучшие японские гибриды для России в 2026 году: покупка, растаможка и ...",
+          "url": "https://peregonpro.ru/poleznoe/top-gibridnyh-avtomobilej-iz-yaponii-dlya-rossii-2026/",
+          "snippet": "Как выбрать гибридный авто из Японии? Разбор систем Toyota, Honda, Nissan, проверка HV-батареи, топ-7 моделей с аукциона. Поможем с подбором под ваш сценарий."
+        },
+        {
+          "title": "Мягкие гибриды из Японии какие автомобили привезти из не санкционных ...",
+          "url": "https://vkvideo.ru/video-211720014_456241374",
+          "snippet": "Обзор лучших гибридных автомобилей из Японии для России в 2026 году: Toyota Prius, Aqua, Corolla, Honda Fit, Vezel, Nissan Note e-POWER. Покупка, доставка, растаможка и перегон авто под ключ."
+        },
+        {
+          "title": "♻️ Какие мягкие гибриды можно привезти из Японии? Полный список",
+          "url": "https://dzen.ru/a/aj9zG7s87EC43bFH",
+          "snippet": "Какие мягкие гибриды можно привезти с автоаукционов Японии в 2026 году? В прямом эфире разберём доступные модели Suzuki, Nissan, Mazda и Mitsubishi, посмотрим реальные лоты, цены, комплектации, пробеги и состояние автомобилей."
+        }
+      ],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "как привезти гибрид из японии 2026",
+      "purpose": "вторичный запрос: как привезти гибрид из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Гибриды из Японии 2026: сроки и утильсбор",
+          "url": "https://asia-pod-klyuch.ru/blog/gibridy-iz-yaponii-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Японские гибриды с аукционов в 2026 году",
+          "url": "https://onteco.ru/blog/yaponskie-gibridy-s-auktsionov-v-2026-godu-kakie-modeli-vygodno-vezti-s-uchyotom-novogo-utilsbora",
+          "snippet": "Как проходит весь путь от аукциона до номеров, разобрано в гайде как пригнать авто из Японии. Разница между ними техническая."
+        },
+        {
+          "title": "Как привезти авто из Японии в 2026: этапы, цена, учёт",
+          "url": "https://asia-pod-klyuch.ru/blog/kak-prignat-avto-iz-yaponii",
+          "snippet": "В этой статье — честный разбор: какие японские гибриды с аукционов остаются выгодными в 2026 году, а на каких можно переплатить сотни тысяч рублей."
+        },
+        {
+          "title": "Какие гибриды можно привезти из Японии в 2026: чек-лист до ставки",
+          "url": "https://dzen.ru/a/ar6dIYhyeVtz7q5o",
+          "snippet": "Как привезти авто из Японии в 2026 году: 8 шагов от аукциона до учёта. Сколько стоит под ключ на реальном лоте, какие документы нужны для постановки на учёт."
+        },
+        {
+          "title": "Гибриды из Японии: выбор, проверка и лучшие модели 2026",
+          "url": "https://sferacar.ru/stati/gibridnye-avto-iz-yaponii.html",
+          "snippet": "Статья автора «Авто-Сейлс» в Дзене : Какие гибриды можно привезти из Японии в 2026: mild vs Prius/e-Power, код кузова, объём ≤1,9 л и чек-лист из 10 пунктов до депозита без калькулятора сумм."
+        },
+        {
+          "title": "Гибрид из Японии: стоит ли везти и как обслуживать",
+          "url": "https://dolgov-autoblog.ru/gibrid-iz-yaponii-stoit-li-vezti-i-kak-obsluzhivat/",
+          "snippet": "Как выбрать гибридный авто из Японии? Разбор систем Toyota, Honda, Nissan, проверка HV-батареи, топ-7 моделей с аукциона. Поможем с подбором под ваш сценарий."
+        }
+      ],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Можно ли привезти гибрид из Японии в 2026: чек-лист до заказа 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Ввоз авто из Японии в 2026 году — правила и ограничения | Карском",
+          "url": "https://carscom.ru/blog/kakie-mashiny-mozhno-vvozit-iz-yaponii-v-rossiyu-v-2025-godu/",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка авто из Японии: обновлённый чек-лист на 2026",
+          "url": "[REDACTED_PUBLIC_SITE_URL]/2026/07/18/rastamozhka-avto-iz-yaponii-2026/",
+          "snippet": "Какие машины можно ввозить из Японии в 2026 году: разрешённые объёмы до 1,9 л, запрет на гибриды и электромобили, пошлины и порядок покупки под заказ."
+        },
+        {
+          "title": "Какие гибриды можно привезти из Японии в 2026: чек-лист до ставки",
+          "url": "https://dzen.ru/a/ar6dIYhyeVtz7q5o",
+          "snippet": "Сюрприз для многих: \"дешёвый\" лот часто нельзя даже вывезти. С августа 2023 Япония ограничила экспорт в РФ авто с ДВС больше 1,9 л, полных гибридов и электрокаров."
+        },
+        {
+          "title": "Запрет на ввоз авто 2026: что нельзя и что можно привезти",
+          "url": "https://amgamma.ru/knowledge-base/blog/ogranicheniya-na-vvoz-avto-2026-chto-mozhno-privezti",
+          "snippet": "Статья автора «Авто-Сейлс» в Дзене : Какие гибриды можно привезти из Японии в 2026: mild vs Prius/e-Power, код кузова, объём ≤1,9 л и чек-лист из 10 пунктов до депозита без калькулятора сумм."
+        },
+        {
+          "title": "Гибриды из Японии 2026: сроки и утильсбор",
+          "url": "https://asia-pod-klyuch.ru/blog/gibridy-iz-yaponii-2026",
+          "snippet": "С августа 2023 года Япония не отгружает в Россию автомобили с двигателем свыше 1,9 литра (бензин и дизель), полноценные гибриды и электромобили. Правило действует и в 2026 году. При этом в ноябре 2024-го появилось важное послабление: «мягкие» гибриды (mild hybrid) исключили из ограничений."
+        },
+        {
+          "title": "Авто из Японии: что можно привезти в 2026 году",
+          "url": "https://moyka63.ru/news/avto-iz-yaponii/",
+          "snippet": "Обычной доставкой едут гибриды, чьи кузова входят в список несанкционных. Вот те, что реально встречаются в наших заказах. Список шире: в него входят Suzuki Wagon R, Spacia, Hustler, Ignis, Xbee, Alto и Fronx, а также Mazda Flair и Flair Wagon, Mitsubishi eK X и Delica Mini."
+        }
+      ],
+      "searched_at": "2026-10-14"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/gibridy-iz-yaponii-2026",
+      "title": "Гибриды из Японии 2026: сроки и утильсбор",
+      "from_query": "можно ли привезти гибрид из японии 2026"
+    },
+    {
+      "url": "https://carscom.ru/blog/kakie-mashiny-mozhno-vvozit-iz-yaponii-v-rossiyu-v-2025-godu/",
+      "title": "Ввоз авто из Японии в 2026 году — правила и ограничения | Карском",
+      "from_query": "можно ли привезти гибрид из японии 2026"
+    },
+    {
+      "url": "https://amgamma.ru/knowledge-base/blog/ogranicheniya-na-vvoz-avto-2026-chto-mozhno-privezti",
+      "title": "Запрет на ввоз авто 2026: что нельзя и что можно привезти",
+      "from_query": "можно ли привезти гибрид из японии 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/ar6dIYhyeVtz7q5o",
+      "title": "Какие гибриды можно привезти из Японии в 2026: чек-лист до ставки",
+      "from_query": "можно ли привезти гибрид из японии 2026"
+    },
+    {
+      "url": "https://moyka63.ru/news/avto-iz-yaponii/",
+      "title": "Авто из Японии: что можно привезти в 2026 году",
+      "from_query": "можно ли привезти гибрид из японии 2026"
+    },
+    {
+      "url": "https://5koleso.ru/articles/novosti/vvozit-gibridy-iz-yaponii-uzhe-mozhno-ili-net-otvety-na-glavnye-voprosy/",
+      "title": "Ввозить гибриды из Японии уже можно или нет? Ответы на главные вопросы",
+      "from_query": "можно ли привезти гибрид из японии 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/b/739203317694992601/",
+      "title": "САНКЦИИ И УТИЛЬСБОР - ЧТО МОЖНО ПРИВЕЗТИ ИЗ ЯПОНИИ В 2026",
+      "from_query": "можно ли привезти гибрид из японии новости 2026"
+    },
+    {
+      "url": "https://github.com/RituCodeWeb/was-node-suite-comfyui/blob/main/image/image_blend_node.jpg",
+      "title": "was-node-suite-comfyui/image/image_blend_node.jpg at main · RituCodeWeb ...",
+      "from_query": "site:github.com можно ли привезти гибрид из японии 2026"
+    },
+    {
+      "url": "https://github.com/ZTMYO/XiaoShiLiu/blob/master/doc/imgs/2.png",
+      "title": "XiaoShiLiu/doc/imgs/2.png at master · ZTMYO/XiaoShiLiu · GitHub",
+      "from_query": "site:github.com можно ли привезти гибрид из японии 2026"
+    },
+    {
+      "url": "https://gist.github.com/evilork/01e4a7fdd2abab9dd24ed11f02e8e6ca",
+      "title": "Как получить доступ к ChatGPT и OpenAI из России в 2026 — рабочий гайд ...",
+      "from_query": "site:github.com можно ли привезти гибрид из японии 2026"
+    },
+    {
+      "url": "https://github.com/aneelaaltaf007/ai-engineering-aneela/blob/main/site/assets/figures/001-c-agents.svg",
+      "title": "ai-engineering-aneela/site/assets/figures/001-c-agents.svg at main ...",
+      "from_query": "site:github.com можно ли привезти гибрид из японии 2026"
+    },
+    {
+      "url": "https://github.com/mohsinenur/mohsinenur/blob/master/img/php.svg",
+      "title": "mohsinenur/img/php.svg at master - GitHub",
+      "from_query": "site:github.com можно ли привезти гибрид из японии 2026"
+    },
+    {
+      "url": "https://github.com/beckybao666/coralnpu-main-forfpga_20260714/blob/main/fpga/my_onestep_to_fpga/phine_vu9p/rtl/vendor/opentitan/hw/ip/otbn/doc/otbn_blockarch.svg",
+      "title": "coralnpu-main-forfpga_20260714/fpga/my_onestep_to_fpga/phine ... - GitHub",
+      "from_query": "site:github.com можно ли привезти гибрид из японии 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/aSrZTi5A72IHWv35",
+      "title": "Праворульные и гибридные авто больше не ввезут в РФ: что изменилось с 1 ...",
+      "from_query": "можно ли привезти гибрид из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://nadodetali.ru/blog/kakie-avtomobili-nelzya-vvezti-iz-yaponii-v-rossiyu-iz-za-sanktsiy/",
+      "title": "Какие авто нельзя ввозить из Японии в Россию в 2026",
+      "from_query": "можно ли привезти гибрид из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/ZzIBV9GUlg3tNsyX",
+      "title": "Гибриды снова можно везти из Японии? Новый порядок - что поменялось",
+      "from_query": "можно ли привезти гибрид из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://peregonpro.ru/poleznoe/top-gibridnyh-avtomobilej-iz-yaponii-dlya-rossii-2026/",
+      "title": "Лучшие японские гибриды для России в 2026 году: покупка, растаможка и ...",
+      "from_query": "гибрид из японии 2026 2026"
+    },
+    {
+      "url": "https://onteco.ru/blog/yaponskie-gibridy-s-auktsionov-v-2026-godu-kakie-modeli-vygodno-vezti-s-uchyotom-novogo-utilsbora",
+      "title": "Японские гибриды с аукционов в 2026 году",
+      "from_query": "гибрид из японии 2026 2026"
+    },
+    {
+      "url": "https://sferacar.ru/stati/gibridnye-avto-iz-yaponii.html",
+      "title": "Гибриды из Японии: выбор, проверка и лучшие модели 2026",
+      "from_query": "гибрид из японии 2026 2026"
+    },
+    {
+      "url": "https://autoskeptic.ru/interesno/new-entryjpstarru",
+      "title": "Гибриды из Японии в 2026 году - autoskeptic.ru",
+      "from_query": "гибрид из японии 2026 2026"
+    },
+    {
+      "url": "https://zmaimport.ru/blog/gibridnye-avto-iz-yaponii",
+      "title": "Как Выбрать Гибридные Авто Из Японии В 2026 | Zma-авто",
+      "from_query": "гибрид из японии 2026 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/avto-iz-yaponii-do-160-ls-2026",
+      "title": "Авто из Японии до 160 л.с.: какие модели проходят в 2026",
+      "from_query": "мягкие гибриды из японии список 2026"
+    },
+    {
+      "url": "https://vkvideo.ru/video-211720014_456241374",
+      "title": "Мягкие гибриды из Японии какие автомобили привезти из не санкционных ...",
+      "from_query": "мягкие гибриды из японии список 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/aj9zG7s87EC43bFH",
+      "title": "♻️ Какие мягкие гибриды можно привезти из Японии? Полный список",
+      "from_query": "мягкие гибриды из японии список 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/kak-prignat-avto-iz-yaponii",
+      "title": "Как привезти авто из Японии в 2026: этапы, цена, учёт",
+      "from_query": "как привезти гибрид из японии 2026"
+    },
+    {
+      "url": "https://dolgov-autoblog.ru/gibrid-iz-yaponii-stoit-li-vezti-i-kak-obsluzhivat/",
+      "title": "Гибрид из Японии: стоит ли везти и как обслуживать",
+      "from_query": "как привезти гибрид из японии 2026"
+    },
+    {
+      "url": "[REDACTED_PUBLIC_SITE_URL]/2026/07/18/rastamozhka-avto-iz-yaponii-2026/",
+      "title": "Растаможка авто из Японии: обновлённый чек-лист на 2026",
+      "from_query": "Можно ли привезти гибрид из Японии в 2026: чек-лист до заказа 2026"
+    }
+  ]
+}

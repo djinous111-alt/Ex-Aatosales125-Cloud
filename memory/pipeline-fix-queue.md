@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None — all 2026-10-14 hybrid-Japan incidents closed by fixer._
+
+## Recently fixed (2026-10-14)
+
 ## INC-20261014-1740-cover-hero-force-upload-hosts
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-cover
 topic_id: B01
@@ -37,10 +41,23 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- `excalibur_blog_hero_reference_url.py --force` теперь SHA-сравнивает локальный reference с hosted URL и skip'ает re-upload при совпадении.
+- При down catbox/0x0 soft-fail: сохраняет existing URL, если hash match.
+- Cover skill: не litterbox; WP filename вроде `best-winter-cars-top-*.png` может быть blog-host face.
+files_changed:
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
+commit: pending-fixer-commit
 
 ## INC-20261014-1737-schema-precommit-secret-scan-crash
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-schema
 topic_id: B01
@@ -70,10 +87,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Добавлен `scripts/excalibur_git.sh`: фильтрует `CLOUD_AGENT_INJECTED_SECRET_NAMES` до валидных bash identifiers (URL больше не ломают `${!SECRET_NAME}`).
+- Schema skill: public site URLs в JSON-LD ожидаемы; commit с `[REDACTED]` + wrapper.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_doctor.py` (asserts wrapper exists)
+checks_run:
+- `bash -n scripts/excalibur_git.sh`
+- filter smoke: invalid URL entry skipped
+commit: pending-fixer-commit
 
 ## INC-20261014-1735-geo-qa-link-verify-catalog-5xx-softpass
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -104,10 +135,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- `excalibur_blog_link_verify.py`: soft-pass `catalog_5xx` (catalog host 5xx) и `egrul_ssl`/`egrul_5xx`.
+- GEO QA / publish skills и doctor проверяют наличие soft-pass.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: classify_soft_pass catalog 503 → catalog_5xx; egrul SSL → egrul_ssl
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+commit: pending-fixer-commit
 
 ## INC-20261014-1724-geo-qa-utility-pain-outcome-policy-gap
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -143,10 +189,27 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- `pain_markers_ru` / `outcome_markers_ru` уже восстановлены в `editorial-policy.json` (833db5c); зафиксированы в editorial-utility-only + writer skill (формы «сделайте/не делайте»).
+- Doctor asserts непустые marker lists.
+- CTA/secret + catalog soft-pass закрыты смежными INC-1721/1735.
+files_changed:
+- `memory/brief/editorial-policy.json` (verified non-empty; prior restore)
+- `shared/editorial-utility-only.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- `python3 -m json.tool memory/brief/editorial-policy.json`
+- doctor: pain/outcome markers OK
+commit: pending-fixer-commit
 
 ## INC-20261014-1715-research-tech-markers-false-positive
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-research
 topic_id: B01
@@ -179,10 +242,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- `is_technical_topic()`: word-boundary для коротких маркеров (`ai`/`ии`/`api`), strip имён research-полей, AUTO_NICHE override (Япония/Корея/Китай/растаможка…) → technical=false.
+- Research skill: GitHub не обязателен для авто-ниши при community evidence.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: Japan hybrid → not technical; MCP/Cursor → technical
+commit: pending-fixer-commit
 
 ## INC-20261014-1705-scout-stale-niche-docs
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-scout
 topic_id: B01
@@ -210,7 +285,21 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Scout agent/skill переписаны под Авто-Сейлс (Япония/Корея/Китай, Encar, утильсбор, Владивосток); AI/n8n/Make запрещены как чужая ниша.
+- `editorial-utility-only.md` примеры ниши обновлены.
+files_changed:
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg: scout docs reference Авто-Сейлс; AI niche only as forbidden
+commit: pending-fixer-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -462,7 +551,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261014-1721-writer-precommit-secret-urls
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-writer
 topic_id: B01
@@ -491,11 +580,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Writer skill + writing contract: committed CTA href → `[REDACTED]` при Cloud Secrets; live URL на этапе link-verify/publish; commits via `excalibur_git.sh`.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- docs rg for REDACTED CTA guidance
+- `bash -n scripts/excalibur_git.sh`
+commit: pending-fixer-commit
 
 ## INC-20261014-1747-indexer-doctor-llms-blog-path
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-indexer
 topic_id: B01
@@ -528,10 +629,24 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Doctor проверяет `--blog-dir` и отсутствие obsolete `--blog-path`.
+- Indexer agent/skill examples без `--blog-path /`.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 warnings=0
+- `python3 scripts/excalibur_blog_llms_generator.py --help` contains --blog-dir only
+commit: pending-fixer-commit
 
 ## INC-20261014-1755-publish-env-paramiko-ssh-root-catalog-softpass
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-publish
 topic_id: B01
@@ -565,5 +680,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- `paramiko` добавлен в `.cursor/cloud-agent-install.sh` (+ numpy); doctor checks import.
+- Docs: `SSH_ROOT=.` в Cloud Secrets / site.env.local; publish skill env-check + SSH-only transport.
+- Catalog 5xx soft-pass реализован в link_verify (INC-1735).
+- Human follow-up (non-blocking): подтвердить Cloud Secret `SSH_ROOT=.` в Dashboard, если ещё unset на других env.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt` (paramiko already listed)
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `CURSOR-CLOUD-RUNBOOK.md` (SSH_ROOT=. already documented)
+checks_run:
+- doctor: paramiko OK, SSH_ROOT OK in this env, errors=0
+commit: pending-fixer-commit

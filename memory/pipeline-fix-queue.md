@@ -6,6 +6,73 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261014-0924-geo-qa-link-verify-catalog-5xx-unicode
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_link_verify.py` failed catalog href equal to `CATALOG_URL` with HTTP 503.
+- Same run: 2GIS URL with raw Cyrillic in path failed with `ascii codec can't encode characters` before HTTP check.
+- Soft-pass for catalog 5xx was expected by pipeline notes, but not implemented in the script and not documented in `shared/agent-pipeline-pitfalls.md`.
+
+### How the agent recovered this run
+- Soft-passed catalog when `href == CATALOG_URL` and status 5xx.
+- Rechecked 2GIS after percent-encoding path → HTTP 200; marked soft-pass in `link-verify.json`.
+- Documented both soft-passes in `article-qa.md`; overall GEO QA PASS.
+
+### Durable fix needed before next run
+- Add CATALOG_URL 5xx soft-pass to `excalibur_blog_link_verify.py` and document in pitfalls.
+- Percent-encode non-ASCII URL paths before `urllib.request` in link-verify.
+- Optionally note writer should emit fully percent-encoded external URLs with Cyrillic.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261014-0924-geo-qa-tldr-skill-vs-contract
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026
+severity: low
+category: docs
+
+### What went wrong
+- `.cursor/skills/excalibur-geo-qa/SKILL.md` says insight block must not start with `TL;DR` / `Быстрый инсайт`.
+- `shared/excalibur-article-writing-contract.md` example requires exactly `<b>TL;DR / Быстрый инсайт:</b>`.
+- Writer followed writing contract; human-voice gate PASS. Ambiguous docs waste QA judgment.
+
+### How the agent recovered this run
+- Treated writing contract + human-voice PASS as authoritative; did not FAIL article for TL;DR label.
+
+### Durable fix needed before next run
+- Align GEO QA skill wording with writing contract (allow standard TL;DR label) or update contract + writer if label is banned.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261014-0920-writer-utility-pain-outcome-policy
 status: open
 run_date: 2026-10-14

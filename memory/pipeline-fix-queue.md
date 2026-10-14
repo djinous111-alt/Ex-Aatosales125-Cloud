@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None for run 2026-10-14 after fixer._
+
+
 ## INC-20261014-0950-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-publish
 topic_id: B01
@@ -35,11 +38,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- paramiko добавлен в `.cursor/cloud-agent-install.sh` и `.cursor/Dockerfile` (pip install).
+- doctor WARN-check: module_available(paramiko).
+- requirements.txt уже содержал paramiko.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/Dockerfile`
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- `python3 -c 'import paramiko'`
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+commit: pending-parent-commit
 
 
 ## INC-20261014-0950-publish-link-verify-soft-pass-rerun
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-publish
 topic_id: B01
@@ -64,11 +80,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- В `excalibur_blog_link_verify.py`: CATALOG_URL 5xx soft-pass + IRI percent-encode.
+- Документировано в publish/geo-qa skills и pitfalls.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
+- unit checks encode_iri_for_request + is_catalog_5xx_soft_pass
+commit: pending-parent-commit
 
 
 ## INC-20261014-0950-publish-schema-expand-runtime
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-publish
 topic_id: B01
@@ -97,11 +126,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- `expand_schema_redacted()` уже в wp_publish; задокументирован expand-on-publish в schema/publish skills + pitfalls.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `rg expand_schema_redacted skills`
+commit: pending-parent-commit
 
 
 ## INC-20261014-0941-indexer-llms-blog-path-mismatch
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-indexer
 topic_id: B01
@@ -138,11 +181,27 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- doctor проверяет `--blog-dir` и WARN если есть `--blog-path`.
+- Удалён `--blog-path /` из indexer agent/skill (agents + .cursor).
+- Commit-safe `[REDACTED]` site-base задокументирован.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `rg --blog-path` only in docs as negative guidance
+commit: pending-parent-commit
 
 
 ## INC-20261014-0930-schema-secret-scan-redaction
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-schema
 topic_id: B01
@@ -176,11 +235,27 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Schema skill документирует commit-safe `[REDACTED]` + publish expand.
+- Добавлен `scripts/excalibur_git.sh` — фильтр невалидных имён в CLOUD_AGENT_INJECTED_SECRET_NAMES.
+- CURSOR-CLOUD-RUNBOOK: список injection names = только env identifiers.
+- Dashboard cleanup списка injection names остаётся рекомендуемым (не блокирует коммиты через wrapper).
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_git.sh`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter unit: URL entry dropped from CLOUD_AGENT_INJECTED_SECRET_NAMES
+- `bash scripts/excalibur_git.sh status` works
+commit: pending-parent-commit
 
 
 ## INC-20261014-0924-geo-qa-link-verify-catalog-5xx-unicode
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -212,10 +287,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Durable soft-pass catalog 5xx + Unicode IRI encode в link_verify.py.
+- GEO QA skill + pitfalls обновлены.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit checks encode_iri_for_request + is_catalog_5xx_soft_pass
+- `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
+commit: pending-parent-commit
 
 ## INC-20261014-0924-geo-qa-tldr-skill-vs-contract
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -243,11 +331,21 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- GEO QA skill выровнен с writing contract: стандартный label TL;DR / Быстрый инсайт разрешён.
+files_changed:
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg 'разрешён' skills/excalibur-geo-qa/SKILL.md`
+commit: pending-parent-commit
 
 
 ## INC-20261014-0920-writer-utility-pain-outcome-policy
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-writer
 topic_id: B01
@@ -277,10 +375,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- editorial-policy.json уже содержит pain/outcome lists; doctor FAIL если пусто.
+- utility_gate: пустые списки → WARN (не universal BLOCK).
+- Writer skill документирует exact recommendation markers (чеклист без дефиса).
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → editorial-policy markers OK
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
+commit: pending-parent-commit
 
 ## INC-20261014-0915-research-empty-serp-duckduckgo
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-research
 topic_id: B01
@@ -309,10 +423,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- research_start soft-fail при unique_urls=0: exit 0, empty_serp_fallback=true, WARN + next_step WebSearch.
+- Research skill/pitfalls: empty SERP ожидаем → WebSearch primary.
+files_changed:
+- `scripts/excalibur_blog_research_start.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_research_start.py`
+commit: pending-parent-commit
 
 ## INC-20261014-0916-research-notes-gate-false-tech
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-research
 topic_id: B01
@@ -340,10 +466,20 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- tech-topic detection только по topic card (не body notes / github_evidence).
+- accessed_at считает ISO-даты в table cells; pain_solution_map считает data rows без keyword prefixes.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+checks_run:
+- unit: is_technical_topic false for China auto topic with github URLs in notes
+- unit: count_accessed_at / count_pain_solution_rows
+commit: pending-parent-commit
 
 ## INC-20261014-0910-scout-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-scout
 topic_id: B01
@@ -371,7 +507,20 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- Durable mitigation: `scripts/excalibur_git.sh` фильтрует не-identifier entries перед git/pre-commit.
+- CURSOR-CLOUD-RUNBOOK документирует: injection names = только env var names.
+- Рекомендуется человеку почистить Dashboard list (URL среди имён), но коммиты больше не блокируются wrapper'ом.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter unit drops URL-like entries
+- `bash scripts/excalibur_git.sh status`
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -619,7 +768,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20261014-0938-cover-hero-host-upload
-status: open
+status: fixed
 run_date: 2026-10-14
 role: excalibur-blog-cover
 topic_id: B01
@@ -652,8 +801,24 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-14
+fix_summary:
+- hero_reference_url: retry×2, timeout 180s, keep existing URL если --force rehost fail.
+- cover-prompts.json B01 обновлён под China turnkey slug.
+- quad_manifest defaults topic-neutral + читает cover-prompts; cover skill требует overwrite из cover_scene_hint.
+files_changed:
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `memory/cover/cover-prompts.json`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py scripts/excalibur_blog_quad_manifest.py`
+- JSON parse cover-prompts.json
+commit: pending-parent-commit
 
 ## Fixed incidents
 
-Handled above; commit is pending Director review.
+Fixer 2026-10-14 (B01 turnkey China): all open INC-20261014-* closed below; commit pending.

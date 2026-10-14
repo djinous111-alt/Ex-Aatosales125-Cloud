@@ -6,6 +6,36 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-2130-cover-precommit-secret-name
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-kupit-avto-s-auktsiona-yaponii-2026
+severity: medium
+category: env
+
+### What went wrong
+- First `git commit` of cover artifacts failed in Cloud pre-commit secret scan with `invalid variable name` because `CLOUD_AGENT_*_SECRET_NAMES` contained a non-identifier placeholder (same class as INC-20261015-2106 / INC-20261015-2128).
+- Cover PNG/JSON generation itself succeeded (Kie i2i + split PASS); only the git submit step needed a workaround.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_ALL_SECRET_NAMES` / `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid `[A-Za-z_][A-Za-z0-9_]*` for the commit subprocess, then recommitted with hooks enabled and pushed.
+
+### Durable fix needed before next run
+- Harden Cloud pre-commit hook to skip non-identifier names before `${!SECRET_NAME}` (see INC-20261015-2106).
+- Document cover commit workaround next to scout/schema in `shared/agent-pipeline-pitfalls.md`.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Cloud secret-scan hook / secret-name injection
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261015-2128-schema-precommit-public-url-secrets
 status: open
 run_date: 2026-10-15

@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261014-1705-scout-stale-niche-docs
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- `.cursor/agents/excalibur-blog-scout.md` и skill `scout-excalibur-blog` всё ещё описывают нишу Cursor/n8n/Make/ИИ-агентов, тогда как `memory/brief/site-brief.md` и live-блог – Авто-Сейлс (пригон из Японии/Кореи/Китая).
+- Без явного override Директора scout рискует сгенерировать P0-тему не той ниши и сжечь research/writer цикл.
+
+### How the agent recovered this run
+- Ниша взята из site-brief + EXCALIBUR_RECENT_WP_POSTS override в задаче Директора; тема B01 про гибриды из Японии, без Cursor/Make/ИИ.
+
+### Durable fix needed before next run
+- Переписать scout agent/skill под Авто-Сейлс: кластеры Япония/Корея/Китай, растаможка, Encar, аукционы, утильсбор, Владивосток; убрать AI/automation приоритеты или вынести в отдельный бренд-профиль.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md` (примеры ниши)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

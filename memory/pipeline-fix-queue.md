@@ -254,3 +254,53 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+---
+
+## INC-20261014-001 — doctor llms --blog-path vs --blog-dir
+
+- **status:** open
+- **severity:** 2026-10-14
+- **run:** cron 13:00 UTC / cursor/bc-a6d3cf8d-8d61-4d8d-95e5-e9c476de241a-ecff
+- **stage:** preflight/doctor
+- **symptom:** `excalibur_blog_doctor.py` SUMMARY errors=1: checks `"--blog-path" in llms_help` but `excalibur_blog_llms_generator.py` only exposes `--blog-dir`.
+- **expected:** doctor and indexer CLI agree on `--blog-dir` (per durable memory / prior fixer notes).
+- **impact:** false doctor FAIL on every Cloud run; confuses preflight green-light.
+- **proposed_fix:** update `scripts/excalibur_blog_doctor.py` to check `--blog-dir`; align any docs still mentioning `--blog-path`.
+- **files:** scripts/excalibur_blog_doctor.py, scripts/excalibur_blog_llms_generator.py
+- **incident_report:** memory/pipeline-fix-queue.md#INC-20261014-001
+
+---
+
+## INC-20261014-1305-scout-precommit-secret-names
+
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- Plain `git commit` failed in Cloud pre-commit secrets scanner: one entry in `CLOUD_AGENT_INJECTED_SECRET_NAMES` is not a valid bash identifier (contains `-`/`.`), so `${!SECRET_NAME}` aborts the hook.
+- Durable automation memory mentions `scripts/excalibur_git.sh` as the filter helper, but the file is missing from this repo checkout.
+
+### How the agent recovered this run
+- Filtered invalid names from `CLOUD_AGENT_INJECTED_SECRET_NAMES` for the commit session and successfully committed the B01 topic card.
+
+### Durable fix needed before next run
+- Restore or re-add `scripts/excalibur_git.sh` (filter invalid secret-name tokens before commit), and point scout/director prompts at it.
+- Optionally harden Cloud secret-name injection so non-identifier names cannot break pre-commit.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh` (missing; recreate)
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

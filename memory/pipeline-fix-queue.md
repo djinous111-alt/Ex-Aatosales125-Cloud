@@ -54,7 +54,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
-commit: pending-fixer-commit
+commit: 392c012..0ce74a5
 
 ## INC-20261014-1737-schema-precommit-secret-scan-crash
 status: fixed
@@ -101,7 +101,7 @@ files_changed:
 checks_run:
 - `bash -n scripts/excalibur_git.sh`
 - filter smoke: invalid URL entry skipped
-commit: pending-fixer-commit
+commit: 392c012..0ce74a5
 
 ## INC-20261014-1735-geo-qa-link-verify-catalog-5xx-softpass
 status: fixed
@@ -150,7 +150,7 @@ files_changed:
 checks_run:
 - unit: classify_soft_pass catalog 503 → catalog_5xx; egrul SSL → egrul_ssl
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
-commit: pending-fixer-commit
+commit: 392c012..0ce74a5
 
 ## INC-20261014-1724-geo-qa-utility-pain-outcome-policy-gap
 status: fixed
@@ -206,7 +206,7 @@ files_changed:
 checks_run:
 - `python3 -m json.tool memory/brief/editorial-policy.json`
 - doctor: pain/outcome markers OK
-commit: pending-fixer-commit
+commit: 392c012..0ce74a5
 
 ## INC-20261014-1715-research-tech-markers-false-positive
 status: fixed
@@ -254,7 +254,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - unit: Japan hybrid → not technical; MCP/Cursor → technical
-commit: pending-fixer-commit
+commit: 392c012..0ce74a5
 
 ## INC-20261014-1705-scout-stale-niche-docs
 status: fixed
@@ -299,7 +299,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg: scout docs reference Авто-Сейлс; AI niche only as forbidden
-commit: pending-fixer-commit
+commit: 392c012..0ce74a5
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -593,7 +593,7 @@ files_changed:
 checks_run:
 - docs rg for REDACTED CTA guidance
 - `bash -n scripts/excalibur_git.sh`
-commit: pending-fixer-commit
+commit: 392c012..0ce74a5
 
 ## INC-20261014-1747-indexer-doctor-llms-blog-path
 status: fixed
@@ -643,7 +643,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 warnings=0
 - `python3 scripts/excalibur_blog_llms_generator.py --help` contains --blog-dir only
-commit: pending-fixer-commit
+commit: 392c012..0ce74a5
 
 ## INC-20261014-1755-publish-env-paramiko-ssh-root-catalog-softpass
 status: fixed
@@ -698,4 +698,4 @@ files_changed:
 - `CURSOR-CLOUD-RUNBOOK.md` (SSH_ROOT=. already documented)
 checks_run:
 - doctor: paramiko OK, SSH_ROOT OK in this env, errors=0
-commit: pending-fixer-commit
+commit: 392c012..0ce74a5

@@ -20,23 +20,35 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | Cloud Secrets / `memory/site.env.local`: `SSH_*`, `PUBLIC_SITE_URL` |
+| SSH root | `SSH_ROOT=.` (login cwd); см. `CURSOR-CLOUD-RUNBOOK.md` |
+| Python dep | `paramiko` (cloud-agent-install + requirements.txt) |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
 
+Transport: **только SSH** (+ HTTP trigger bootstrap). Legacy FTP/upload-алиасы не использовать.
+
 ## Алгоритм
+
+### 0. Env check
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+Если `SSH_ROOT` unset — выставь `.` в Cloud Secrets или в gitignored `memory/site.env.local`.
 
 ### 1. Preflight publish
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
-  --site-base https://avtosales125.ru
+  --site-base "$PUBLIC_SITE_URL"
 ```
 
-Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
+Gate: `link-verify.json` → pass. Catalog HTTP 5xx = soft-pass `catalog_5xx` (не blocker), если остальные CTA живые. Иначе FIX или BLOCKER.
 
 ### 2. Dry-run
 

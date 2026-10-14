@@ -232,8 +232,10 @@ Excalibur BLOG следует этому контракту для каждой 
 
 ### Блок 4: Мягкий CTA бренда (внутри одной секции блока 3)
 
-2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-tracking-map.md` / `offers-map.md`.  
+2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `memory/brief/conversion-map.md`.  
 Не больше **3** упоминаний основного офера/CTA на статью (включая баннер и «что дальше»).
+
+**Secret-scan / git:** если `CATALOG_URL` / `TELEGRAM_URL` / `PUBLIC_SITE_URL` лежат в Cloud Secrets, в закоммиченном `article.html` пиши `href="[REDACTED]"` (видимый текст ссылки — живой: каталог / Telegram @avtosales125). Перед `link_verify` и publish подставляй URL из env. Коммит через `bash scripts/excalibur_git.sh`.
 
 ### Блок 5: Inline-баннер (опционально)
 

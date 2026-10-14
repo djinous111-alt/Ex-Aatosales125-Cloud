@@ -22,3 +22,9 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+## Commit / secret-scan
+
+- Публичные URL сайта/каталога в JSON-LD ожидаемы (`PUBLIC_SITE_URL` / authors-registry).
+- Если Cloud Secrets сканируют эти значения: в committed `schema.jsonld` замени base URL на `[REDACTED]`; publish подставит live URL.
+- Коммить через `bash scripts/excalibur_git.sh commit …` — фильтрует невалидные «имена» в `CLOUD_AGENT_INJECTED_SECRET_NAMES` (URL ломают `${!SECRET_NAME}` в pre-commit).

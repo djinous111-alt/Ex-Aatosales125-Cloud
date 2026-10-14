@@ -97,6 +97,8 @@ python3 scripts/excalibur_blog_wp_publish.py --env-check
 Если `--publish` падает из-за секретов, это нормально для dry-run окружения и блокер для боевой публикации.
 Если SSH upload пишет warning про fallback на `.`, обновите Cursor Secret `SSH_ROOT` на `.` или уберите несуществующий panel/root path. Секретные значения не записывать в repo.
 
+`paramiko` ставится через `.cursor/cloud-agent-install.sh` и `requirements.txt` (SSH publish). Коммиты артефактов с Cloud secret-scan: `bash scripts/excalibur_git.sh …`.
+
 ## Optional GitHub Actions preflight
 
 Пример workflow лежит в `shared/cloud-preflight-workflow.yml.example`. Он не включен активным `.github/workflows/*`, потому что GitHub требует у token scope `workflow` для пуша workflow-файлов.

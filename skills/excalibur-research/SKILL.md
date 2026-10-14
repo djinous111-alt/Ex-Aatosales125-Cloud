@@ -55,7 +55,7 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 ## Правила
 
 1. **Сначала** `excalibur_blog_research_start.py` (шаг 0) — для валидации даты/года и utility-gate темы.
-2. Web research 15–25 мин: используй инструмент `**WebSearch`** Курсора для глубинного анализа ТОП-5 конкурентов в реальном времени. GitHub/docs/community нужны для фактов, но итоговый угол обязан быть beginner-first: что новичку нажать, подключить, проверить и как не сломать процесс. Приоритетный источник фактов — `fact-bank.md`.
+2. Web research 15–25 мин: `WebSearch` по ТОП-конкурентам. Для **Авто-Сейлс** (Япония/Корея/Китай, растаможка) приоритет — official customs/docs, Encar/аукционы, community/форумы; **GitHub не обязателен**, если есть community evidence. Gate `technical_topic` использует word-boundary маркеры и auto-niche override — не подкладывай github.com «для галочки». Угол beginner-first: что проверить до депозита. Приоритет фактов — `fact-bank.md`.
 3. Микро-исследование Wordstat через `user-mcp-kv` -> `wordstat_get_top_requests` (см. выше).
 4. Извлеки минимум 10–15 проверенных фактов (цифр/утверждений) с точными URL источников из твоего интернет-поиска.
 5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.

@@ -90,11 +90,16 @@ inject <figure> after H2 in article.html
 ### Шаг 1 — reference URL
 
 ```bash
-python scripts/excalibur_blog_hero_reference_url.py
+python3 scripts/excalibur_blog_hero_reference_url.py
+# --force только если локальный reference реально изменился:
+# скрипт сравнивает SHA с hosted URL и skip'ает upload при совпадении;
+# при down catbox/0x0 оставляет существующий URL, если hash match.
 ```
 
 Проверить `memory/cover/blog-hero.json` → `reference_url_hosted`.  
-Fallback env: `BLOG_HERO_REFERENCE_URL`.
+Fallback env: `BLOG_HERO_REFERENCE_URL`.  
+Допустимы только hosts из allowlist cover prompt (не litterbox).  
+Имя WP media вроде `best-winter-cars-top-*.png` может быть лицом blog-host — смотри hash/байты, не filename.
 
 ### Шаг 2 — manifest
 

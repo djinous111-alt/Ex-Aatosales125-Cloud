@@ -20,12 +20,16 @@ python scripts/excalibur_blog_fact_checker.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/fact-check-report.json
 
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/link-verify.json \
-  --site-base https://YOUR_SITE
+  --site-base "$PUBLIC_SITE_URL"
 
-python scripts/excalibur_blog_html_linter.py \
+# Soft-pass (не blocker): catalog host HTTP 5xx → soft_pass=catalog_5xx;
+# egrul.nalog.ru SSL/5xx → egrul_ssl / egrul_5xx. Telegram 200 обязателен.
+# Перед verify CTA href должны быть живыми URL из env (не литерал [REDACTED]).
+
+python3 scripts/excalibur_blog_html_linter.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/html-linter-report.json
 ```
@@ -41,17 +45,21 @@ python scripts/excalibur_blog_cannibalization_guard.py \
   --blog-dir memory/blog/articles \
   -o memory/blog/articles/<dir>/cannibalization-report.json
 
-python scripts/excalibur_blog_utility_gate.py \
+python3 scripts/excalibur_blog_utility_gate.py \
   --article-dir memory/blog/articles/<dir> \
   --output utility-gate-report.json
 
-python scripts/excalibur_blog_human_voice_gate.py \
+# utility_gate читает pain_markers_ru / outcome_markers_ru из
+# memory/brief/editorial-policy.json (min_pain_markers / min_outcome_markers).
+# Если списки пусты — всегда 0 hits: не «чинить» статью, а восстановить policy.
+
+python3 scripts/excalibur_blog_human_voice_gate.py \
   --article-dir memory/blog/articles/<dir> \
   -o human-voice-report.json
 ```
 
-**Pass:** score ≥ 80, CORE-EEAT ≥ 16/20, link-verify pass, **research notes gate PASS**, **utility gate PASS**, **human voice gate PASS**, **beginner-fit PASS**. В `article-qa.md` отдельно зафиксируй: какая боль новичка решена, где показано решение, какой первый результат получит читатель, какие сложные термины объяснены «на пальцах».
+**Pass:** score ≥ 80, CORE-EEAT ≥ 16/20, link-verify pass (с учётом catalog_5xx soft-pass), **research notes gate PASS**, **utility gate PASS**, **human voice gate PASS**, **beginner-fit PASS**. В `article-qa.md` отдельно зафиксируй: какая боль новичка решена, где показано решение, какой первый результат получит читатель, какие сложные термины объяснены «на пальцах».
 
-**Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.
+**Beginner-fit blocker (Авто-Сейлс):** статья звучит как для перекупов-профи без простого входа покупателя, не объясняет термины (аукционный лист, СВХ, утильсбор, Encar) или не даёт первого безопасного шага до депозита.
 
 Schema и cover — **не** твоя зона (отдельные субагенты после PASS).

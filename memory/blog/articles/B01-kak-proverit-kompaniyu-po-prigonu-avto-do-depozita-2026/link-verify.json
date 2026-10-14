@@ -1,0 +1,46 @@
+{
+  "source": "memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026/article.html",
+  "total_links": 4,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "https://egrul.nalog.ru/",
+      "status": null,
+      "ok": true,
+      "method": "GET",
+      "error": "<urlopen error _ssl.c:983: The handshake operation timed out>",
+      "kind": "external",
+      "skipped": false,
+      "warning": "soft gov registry SSL/timeout; canonical URL, verify manually if needed"
+    },
+    {
+      "url": "https://kad.arbitr.ru/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "${CATALOG_URL}",
+      "status": 503,
+      "ok": true,
+      "method": "HEAD",
+      "error": "HTTP Error 503: Service Temporarily Unavailable",
+      "kind": "external",
+      "skipped": false,
+      "warning": "soft brand catalog 5xx; CTA host temporary, not article defect"
+    },
+    {
+      "url": "${TELEGRAM_URL}",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

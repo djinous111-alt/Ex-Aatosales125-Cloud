@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит «сегодня» — или 15 минут проверки?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у порта с договором и смартфоном: проверка компании до депозита",
+      "scene_hint": "reference face + glasses; outfit: waterproof navy jacket + light hoodie under (Vladivostok port drizzle, cool fog) — NOT reference t-shirt; holds signed paper contract and smartphone with fake EGRUL/status screen; behind: modern Korean sedan near port cranes; torn paper + yellow highlighter on «до депозита»; sticky note «стоп карта»; shocked cat meme cutout; corner brand avto-sales125.ru; no Wordstat no Metrika no Telegram handle",
+      "meme_caption_ru": "Карта Андрею? Стоп"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Почему пауза до депозита важнее красивой цены",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Сравнительная таблица UI 16:9: колонки «Перевод сейчас» vs «Пауза 24ч» — строки ИНН/договор/р/с/отзывы; красный крест vs зелёные галочки; sticky note «лот уйдёт?»; scotch tape; без лица героя",
+      "alt": "Таблица: срочный перевод vs пауза 24 часа перед депозитом"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сверьте ИНН и реквизиты за 15 минут",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow 4 шага стрелками: ИНН → egrul.nalog.ru → kad.arbitr.ru → сверка р/с со счётом; номера 1–4; маркерные стрелки; мини-скрин выписки; без лица героя",
+      "alt": "Схема проверки ИНН: ЕГРЮЛ, арбитраж, сверка расчётного счёта"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте договор до первого перевода",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист-доска договора: предмет, смета по строкам, сроки, возврат аванса, реквизиты = счёт, сторона юрлицо/ИП; красная ручка галочки; стикер «договор потом = стоп»; без лица героя",
+      "alt": "Чеклист пунктов договора перед первым переводом депозита"
+    }
+  }
+}

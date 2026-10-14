@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-14",
+    "today_ru": "14.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-16",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-14 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026",
+    "h1": "Как проверить компанию по пригону авто до депозита: чек-лист на 2026",
+    "primary_query": "компании по пригону авто",
+    "secondary_queries": [
+      "авто пригон отзывы",
+      "проверенные компании по пригону авто",
+      "пригон авто без предоплаты",
+      "рейтинг компаний по пригону авто"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "компании по пригону авто 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "компании по пригону авто октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "компании по пригону авто новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com компании по пригону авто 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "компании по пригону авто official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "компании по пригону авто forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "авто пригон отзывы 2026",
+      "purpose": "вторичный запрос: авто пригон отзывы"
+    },
+    {
+      "id": "secondary_2",
+      "query": "проверенные компании по пригону авто 2026",
+      "purpose": "вторичный запрос: проверенные компании по пригону авто"
+    },
+    {
+      "id": "secondary_3",
+      "query": "пригон авто без предоплаты 2026",
+      "purpose": "вторичный запрос: пригон авто без предоплаты"
+    },
+    {
+      "id": "secondary_4",
+      "query": "рейтинг компаний по пригону авто 2026",
+      "purpose": "вторичный запрос: рейтинг компаний по пригону авто"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как проверить компанию по пригону авто до депозита: чек-лист на 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

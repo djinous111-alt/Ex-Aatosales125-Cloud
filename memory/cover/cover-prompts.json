@@ -2,10 +2,12 @@
   "topics": {
     "B01": {
       "topic_id": "B01",
-      "slug": "primer-seo-stati",
-      "topic_scene_descriptor": "writer at laptop with notebook and coffee, warm editorial light, abstract SEO graph shapes, brand collage layers",
-      "cover_alt_text": "Обложка: автор готовит SEO-статью за ноутбуком",
-      "archetype": "how_to"
+      "slug": "kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026",
+      "topic_scene_descriptor": "blog host at Vladivostok port with signed contract and smartphone showing EGRUL status, modern Korean sedan, drizzle fog, deposit checklist collage",
+      "cover_alt_text": "Герой Авто-Сейлс у порта с договором и смартфоном: проверка компании до депозита",
+      "archetype": "checklist",
+      "cover_hook": "Депозит «сегодня» — или 15 минут проверки?",
+      "meme_caption_ru": "Карта Андрею? Стоп"
     }
   }
 }

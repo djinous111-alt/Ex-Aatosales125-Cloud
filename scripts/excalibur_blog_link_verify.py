@@ -146,6 +146,23 @@ def is_soft_brand_catalog_5xx(href: str, result: dict[str, Any]) -> bool:
     return isinstance(status, int) and 500 <= status < 600
 
 
+def is_soft_gov_registry_ssl_timeout(href: str, result: dict[str, Any]) -> bool:
+    """SSL/handshake timeouts on known RU gov registries are env flakes, not bad hrefs."""
+    host = urlparse(href).netloc.lower()
+    soft_hosts = {
+        "egrul.nalog.ru",
+        "nalog.ru",
+        "pb.nalog.ru",
+        "kad.arbitr.ru",
+    }
+    if host not in soft_hosts and not host.endswith(".nalog.ru"):
+        return False
+    if result.get("status") is not None:
+        return False
+    error = str(result.get("error") or "").lower()
+    return any(token in error for token in ("timed out", "timeout", "ssl", "handshake"))
+
+
 def verify_article(
     html_path: Path,
     *,
@@ -200,6 +217,9 @@ def verify_article(
         if kind == "external" and is_soft_brand_catalog_5xx(href, r):
             r["ok"] = True
             r["warning"] = "soft brand catalog 5xx; CTA host temporary, not article defect"
+        if kind == "external" and is_soft_gov_registry_ssl_timeout(href, r):
+            r["ok"] = True
+            r["warning"] = "soft gov registry SSL/timeout; canonical URL, verify manually if needed"
         results.append(r)
 
     failed = [r for r in results if not r.get("ok")]

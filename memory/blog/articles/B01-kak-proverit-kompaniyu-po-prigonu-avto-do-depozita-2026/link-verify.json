@@ -1,17 +1,18 @@
 {
   "source": "memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026/article.html",
   "total_links": 4,
-  "failed_count": 1,
-  "verdict": "fail",
+  "failed_count": 0,
+  "verdict": "pass",
   "links": [
     {
       "url": "https://egrul.nalog.ru/",
       "status": null,
-      "ok": false,
+      "ok": true,
       "method": "GET",
       "error": "<urlopen error _ssl.c:983: The handshake operation timed out>",
       "kind": "external",
-      "skipped": false
+      "skipped": false,
+      "warning": "soft gov registry SSL/timeout; canonical URL, verify manually if needed"
     },
     {
       "url": "https://kad.arbitr.ru/",

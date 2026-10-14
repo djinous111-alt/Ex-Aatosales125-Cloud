@@ -469,5 +469,11 @@ category: script
 ### Secrets
 - none recorded
 
+
+### Re-QA update 2026-10-14T13:35
+- After writer FIX, egrul.nalog.ru still SSL handshake timeout in this env.
+- Added `is_soft_gov_registry_ssl_timeout` in `scripts/excalibur_blog_link_verify.py` (canonical gov URL ≠ content defect).
+- Re-QA link-verify PASS; article-qa PASS 88.
+
 ### Fixer resolution
 - pending

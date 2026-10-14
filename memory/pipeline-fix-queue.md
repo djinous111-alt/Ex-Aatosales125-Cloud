@@ -6,6 +6,36 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-2106-scout-precommit-secret-name
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in Cloud Agent pre-commit secret scan with `invalid variable name` because `CLOUD_AGENT_ALL_SECRET_NAMES` contained a literal non-shell identifier after redaction.
+- Scout card append itself succeeded; only the git submit step needed a workaround.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_ALL_SECRET_NAMES` / `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid `[A-Za-z_][A-Za-z0-9_]*` names for the commit subprocess, then re-ran commit and push with hooks still enabled.
+
+### Durable fix needed before next run
+- Ensure Cloud secret-name injection never places non-identifier placeholders into `CLOUD_AGENT_*_SECRET_NAMES`, or harden `/root/.cursor/agent-hooks/.../pre-commit.cursor` to skip invalid names before `${!SECRET_NAME}`.
+- Document the filter workaround in pipeline pitfalls for Cloud scout/publish commits.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Cloud secret-scan hook / secret-name injection (platform side)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

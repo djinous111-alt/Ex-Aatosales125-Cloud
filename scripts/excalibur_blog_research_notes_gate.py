@@ -130,7 +130,18 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    # Gate accepts either labeled `accessed_at: YYYY-MM-DD` fields OR ISO dates
+    # in markdown source_table rows that also contain a URL (column dates alone
+    # used to under-count when agents only filled the table).
+    labeled_accessed = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    table_accessed = len(
+        re.findall(
+            r"^\s*\|[^\n]*https?://[^\n]*\b(\d{4}-\d{2}-\d{2})\b[^\n]*\|",
+            text,
+            flags=re.M | re.I,
+        )
+    )
+    accessed_count = labeled_accessed + table_accessed
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
     pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
     action_items = count_action_items(text)

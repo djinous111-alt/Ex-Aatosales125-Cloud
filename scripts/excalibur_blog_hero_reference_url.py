@@ -113,7 +113,27 @@ def main() -> int:
         return 1
 
     existing = (hero.get("reference_url_hosted") or "").strip()
+    stable_wp = bool(existing) and (
+        "/wp-content/uploads/" in existing
+        or "avtosales125.ru" in existing
+    )
+    allow_force_reupload = os.environ.get("EXCALIBUR_HERO_ALLOW_FORCE_REUPLOAD", "").strip().lower() in {
+        "1",
+        "yes",
+        "true",
+    }
+
+    # Production batch: keep a valid WordPress media URL. Temporary hosts
+    # (catbox/0x0) flake often; --force must not discard a working WP URL.
     if existing and not args.force:
+        print(f"OK reference_url_hosted={existing}")
+        return 0
+    if args.force and stable_wp and not allow_force_reupload:
+        print(
+            "NOTE: skipping --force reupload; stable WordPress media URL already set "
+            "(set EXCALIBUR_HERO_ALLOW_FORCE_REUPLOAD=yes to override)",
+            file=sys.stderr,
+        )
         print(f"OK reference_url_hosted={existing}")
         return 0
 
@@ -140,6 +160,14 @@ def main() -> int:
         except (urllib.error.URLError, RuntimeError, TimeoutError) as exc:
             last_error = exc
             print(f"WARN upload via {provider} failed: {exc}", file=sys.stderr)
+
+    if stable_wp:
+        print(
+            f"WARN temporary host upload failed; keeping existing WP media URL ({last_error})",
+            file=sys.stderr,
+        )
+        print(f"OK reference_url_hosted={existing}")
+        return 0
 
     print(f"❌ HERO BLOCKER: could not host reference: {last_error}", file=sys.stderr)
     return 1

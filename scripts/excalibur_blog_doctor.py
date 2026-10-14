@@ -113,6 +113,40 @@ def main() -> int:
 
     check(module_available("PIL"), "Pillow available", errors, warnings)
     check(module_available("numpy"), "numpy available", errors, warnings)
+    check(
+        module_available("paramiko"),
+        "paramiko available (publish SSH)",
+        errors,
+        warnings,
+        warn=not args.publish,
+    )
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    check(policy_path.is_file(), "editorial-policy.json exists", errors, warnings)
+    if policy_path.is_file():
+        try:
+            import json
+
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+            pain = policy.get("pain_markers_ru") or []
+            outcome = policy.get("outcome_markers_ru") or []
+            check(
+                isinstance(pain, list) and len(pain) >= 3,
+                "editorial-policy pain_markers_ru non-empty (≥3)",
+                errors,
+                warnings,
+            )
+            check(
+                isinstance(outcome, list) and len(outcome) >= 3,
+                "editorial-policy outcome_markers_ru non-empty (≥3)",
+                errors,
+                warnings,
+            )
+        except Exception as exc:  # noqa: BLE001
+            check(False, f"editorial-policy.json parseable ({type(exc).__name__})", errors, warnings)
+
+    git_wrapper = root / "scripts/excalibur_git.sh"
+    check(git_wrapper.is_file(), "scripts/excalibur_git.sh exists", errors, warnings)
 
     interlinker = root / "scripts/excalibur_blog_interlinker.py"
     help_proc = subprocess.run(
@@ -132,7 +166,57 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check(
+        "--blog-path" not in llms_help.stdout,
+        "llms generator has no stale --blog-path flag",
+        errors,
+        warnings,
+    )
+
+    link_verify_src = (root / "scripts/excalibur_blog_link_verify.py").read_text(encoding="utf-8")
+    check(
+        "def is_soft_brand_catalog_5xx" in link_verify_src,
+        "link_verify has catalog 5xx soft-pass",
+        errors,
+        warnings,
+    )
+    check(
+        "def is_soft_gov_registry_ssl_timeout" in link_verify_src,
+        "link_verify has gov registry SSL soft-pass",
+        errors,
+        warnings,
+    )
+
+    publish_src = (root / "scripts/excalibur_blog_wp_publish.py").read_text(encoding="utf-8")
+    check(
+        "def expand_schema_redacted" in publish_src,
+        "publish expands schema [REDACTED] URLs",
+        errors,
+        warnings,
+    )
+    check(
+        "def try_rest_soft_success" in publish_src,
+        "publish has REST soft-success on HTTP timeout",
+        errors,
+        warnings,
+    )
+
+    llms_src = (root / "scripts/excalibur_blog_llms_generator.py").read_text(encoding="utf-8")
+    check(
+        "def redact_site_base_for_commit" in llms_src,
+        "llms generator redacts live site-base for commit",
+        errors,
+        warnings,
+    )
+
+    utility_src = (root / "scripts/excalibur_blog_utility_gate.py").read_text(encoding="utf-8")
+    check(
+        "policy missing pain_markers_ru" in utility_src,
+        "utility_gate skips empty pain_markers_ru (no false BLOCK)",
+        errors,
+        warnings,
+    )
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

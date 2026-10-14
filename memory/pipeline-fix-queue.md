@@ -288,6 +288,7 @@ category: env
 
 ### How the agent recovered this run
 - Filtered invalid names from `CLOUD_AGENT_INJECTED_SECRET_NAMES` for the commit session and successfully committed the B01 topic card.
+- Writer (2026-10-14) hit the same hook failure; recovered by filtering non-identifier tokens (comma-separated) before `git commit` of article.html/meta.
 
 ### Durable fix needed before next run
 - Restore or re-add `scripts/excalibur_git.sh` (filter invalid secret-name tokens before commit), and point scout/director prompts at it.

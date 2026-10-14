@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261014-0910-scout-precommit-secret-names
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in Cloud pre-commit secrets scanner: `pre-commit.cursor` line 270 `${!SECRET_NAME}` → `invalid variable name`.
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` is comma-split into names, but one entry is a bare URL (not a valid bash identifier), so indirect expansion aborts the hook before scanning staged files.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid `[A-Za-z_][A-Za-z0-9_]*` identifiers for the commit only; secret scanning still ran for real env secret names.
+- Committed only `memory/topics/blog-topics.md` (B01 card); handoff left untracked/runtime.
+
+### Durable fix needed before next run
+- Ensure Cloud secrets injection lists only env var names (never URL/value payloads) in `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+- Optionally harden `pre-commit.cursor` to skip/ignore non-identifier entries instead of aborting.
+
+### Suggested files to inspect/change
+- Cloud Dashboard Secrets / injection for this environment
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (platform) or local wrapper docs in `CURSOR-CLOUD-RUNBOOK.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

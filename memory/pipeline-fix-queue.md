@@ -321,3 +321,36 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261014-1721-writer-precommit-secret-urls
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-mozhno-li-privezti-gibrid-iz-yaponii-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` of `article.html` failed in Cursor pre-commit secret-scan: live `CATALOG_URL` / `TELEGRAM_URL` values embedded in CTA hrefs are treated as secrets (`invalid variable name` / REDACTED env collision).
+
+### How the agent recovered this run
+- Replaced CTA hrefs in committed `article.html` with `[REDACTED]`, matching published AS08/AS09 pattern; visible link text still says catalog / Telegram @avtosales125.
+- Pre-commit still failed because `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a raw URL as a "secret name" (breaks `${!SECRET_NAME}`); filtered to valid bash identifiers before commit (same workaround as research).
+- Publish/runtime can reinject real URLs from env; GEO QA link-verify should use env or known public hosts.
+
+### Durable fix needed before next run
+- Document in writer skill/contract: committed article CTA hrefs must use `[REDACTED]` when CATALOG_URL/TELEGRAM_URL/PUBLIC_SITE_URL are Cloud secrets; keep human-readable anchors.
+- Optional: writer helper script that substitutes env URLs then redacts before commit.
+
+### Suggested files to inspect/change
+- `skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

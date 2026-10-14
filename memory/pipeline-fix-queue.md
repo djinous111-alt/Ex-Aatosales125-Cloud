@@ -304,3 +304,69 @@ category: env
 ### Fixer resolution
 - pending
 
+## INC-20261014-1315-research-accessed-at-labels
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026
+severity: low
+category: docs
+
+### What went wrong
+- First `excalibur_blog_research_notes_gate.py` run BLOCK: `accessed_at=1 < 5`.
+- Gate counts only labeled fields matching `accessed_at:`, not dates inside a markdown table column named `accessed_at`.
+- Skill/agent format shows a `source_table` with an `accessed_at` column, which looks sufficient but does not satisfy the gate regex.
+
+### How the agent recovered this run
+- Added explicit `## source_access_log` with multiple `accessed_at: 2026-10-14` lines; re-ran gate → PASS.
+
+### Durable fix needed before next run
+- Document in research skill/agent that gate requires ≥5 literal `accessed_at:` labels (not only a table column of dates).
+- Optionally update `excalibur_blog_research_notes_gate.py` to also count `accessed_at` cells in `source_table` rows.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261014-1315-research-accessed-at-labels
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026
+severity: low
+category: docs
+
+### What went wrong
+- First `excalibur_blog_research_notes_gate.py` run BLOCK: `accessed_at=1 < 5`.
+- Gate counts only labeled fields matching `accessed_at:`, not dates inside a markdown table column named `accessed_at`.
+- Skill/agent format shows a `source_table` with an `accessed_at` column, which looks sufficient but does not satisfy the gate regex.
+
+### How the agent recovered this run
+- Added explicit `## source_access_log` with multiple `accessed_at: 2026-10-14` lines; re-ran gate → PASS.
+
+### Durable fix needed before next run
+- Document in research skill/agent that gate requires ≥5 literal `accessed_at:` labels (not only a table column of dates).
+- Optionally update `excalibur_blog_research_notes_gate.py` to also count `accessed_at` cells in `source_table` rows.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

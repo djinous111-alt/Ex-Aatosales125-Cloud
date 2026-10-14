@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "kak-kupit-avto-s-auktsiona-yaponii-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у ноутбука с лотами японского аукциона, порт Владивостока, плашка от лота до порта",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-14T21:28:14+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у ноутбука с лотами японского аукциона, порт Владивостока, плашка от лота до порта",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица: что фиксировать до первого лота — бюджет, год и класс против цены кнопки",
+      "h2_anchor": "Зафиксируйте задачу до первого лота: бюджет, год и класс",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема выбора брокера: договор, депозит, ставка агента, инвойс — не просто чат",
+      "h2_anchor": "Выберите брокера с договором – не \"просто чат\"",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чек-лист ставки: депозит, лимит в иенах, инвойс и сроки до Владивостока",
+      "h2_anchor": "Как проходит ставка: депозит, лимит и инвойс",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

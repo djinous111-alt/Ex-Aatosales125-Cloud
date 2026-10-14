@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261014-1735-geo-qa-link-verify-catalog-5xx-softpass
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-mozhno-li-privezti-gibrid-iz-yaponii-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_link_verify.py` hard-fails when CATALOG_URL returns HTTP 503 (HEAD and GET).
+- Pipeline memory / pitfalls treat catalog 5xx as soft-pass, but the script has no soft-pass rule → raw verdict `fail` even when Telegram CTA is 200 and hrefs are live.
+
+### How the agent recovered this run
+- Confirmed Telegram 200; catalog 503 on HEAD+GET.
+- Annotated `link-verify.json` with soft_pass `catalog_5xx`, `failed_count=0`, `verdict=pass` for GEO QA gate.
+- Documented in `article-qa.md`; cover/schema allowed after PASS.
+
+### Durable fix needed before next run
+- Add soft-pass in `excalibur_blog_link_verify.py` for known catalog host 5xx (and egrul SSL) with explicit `soft_pass` fields in JSON.
+- Mirror rule in doctor / GEO QA skill so next run does not need manual verdict rewrite.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261014-1724-geo-qa-utility-pain-outcome-policy-gap
 status: open
 run_date: 2026-10-14
@@ -25,10 +59,12 @@ category: script
 - GEO QA не правил `article.html` (FAIL + FIX-список Writer).
 - Зафиксировал blocker в `article-qa.md` и handoff; cover/schema не запускались.
 - Перед коммитом отчётов: отфильтровали невалидные имена в `CLOUD_AGENT_INJECTED_SECRET_NAMES`; в `link-verify.json` значение `PUBLIC_SITE_URL` заменено на `https://EXAMPLE_PUBLIC_SITE`.
+- Re-run после Director restore `pain_markers_ru`/`outcome_markers_ru` + Writer FIX: utility PASS (action 21 / pain 10 / outcome 9), human-voice PASS; GEO QA verdict PASS score 88.
 
 ### Durable fix needed before next run
-- Добавить в `memory/brief/editorial-policy.json` непустые `pain_markers_ru` и `outcome_markers_ru` (согласовать с маркерами human-voice / editorial-utility-only) и при необходимости `min_pain_markers` / `min_outcome_markers` в `article_required_signals`.
+- Зафиксировать в policy/templates непустые `pain_markers_ru` и `outcome_markers_ru` (+ min_*), чтобы restore не терялся при sync/reset brief.
 - В writer skill явно: CTA href только живые URL (каталог + Telegram), не placeholder после secret scrub; action-маркеры = формы из policy (`сделайте`/`не делайте`, не только «Делать»).
+- В `excalibur_blog_link_verify.py` (или QA contract) встроить soft-pass catalog 5xx / egrul SSL — сейчас GEO QA вынужден править verdict вручную.
 
 ### Suggested files to inspect/change
 - `memory/brief/editorial-policy.json`

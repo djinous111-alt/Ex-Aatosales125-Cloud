@@ -1,20 +1,16 @@
 {
   "gate": "human-voice",
-  "status": "BLOCK",
+  "status": "PASS",
   "article_dir": "memory/blog/articles/B01-mozhno-li-privezti-gibrid-iz-yaponii-2026",
-  "errors": [
-    "reader outcome is weak or invisible: article must promise and deliver a usable result"
-  ],
-  "warnings": [
-    "multiple exactly-5-step lists detected; vary list size when editorially possible"
-  ],
+  "errors": [],
+  "warnings": [],
   "metrics": {
     "h2_count": 5,
     "repeated_h2_openers": [],
     "textbook_h2_count": 0,
     "paragraph_count": 24,
-    "paragraph_avg_words": 34.1,
-    "paragraph_variance_ratio": 0.42,
+    "paragraph_avg_words": 36.2,
+    "paragraph_variance_ratio": 0.39,
     "concrete_markers": [
       "например",
       "на практике",
@@ -23,11 +19,18 @@
     ],
     "pain_markers": [
       "боль",
-      "ошиб"
+      "проблем",
+      "ошиб",
+      "дорого",
+      "хаос",
+      "сложно"
     ],
     "outcome_markers": [
       "результат",
-      "проверьте"
+      "получите",
+      "сможете",
+      "проверьте",
+      "выберите"
     ],
     "ai_opening_hits": [],
     "reader_story_overlap": [
@@ -35,11 +38,9 @@
       "honda",
       "гибрид",
       "готов",
-      "двора",
       "денег",
       "депозит",
       "залип",
-      "красивый",
       "кузов",
       "кузова",
       "листе",
@@ -47,11 +48,8 @@
       "обычным",
       "одной",
       "полный",
-      "разница",
       "ролкером",
-      "скрине",
-      "соседнего",
-      "строке"
+      "скрине"
     ],
     "reader_pain_overlap": [
       "e-power",
@@ -77,8 +75,7 @@
       "новичок",
       "объём",
       "пунктов",
-      "статьи",
-      "чек-лист"
+      "статьи"
     ],
     "success_criteria_overlap": [
       "внесён",
@@ -103,8 +100,7 @@
       "менеджер",
       "почему",
       "слово",
-      "ставки",
-      "шильдике"
+      "ставки"
     ],
     "surprising_fact_overlap": [
       "hybrid",
@@ -128,7 +124,7 @@
       "электромотор",
       "этого"
     ],
-    "exactly_five_lists": 2,
+    "exactly_five_lists": 1,
     "fact_check_template_blocks": 0
   }
 }

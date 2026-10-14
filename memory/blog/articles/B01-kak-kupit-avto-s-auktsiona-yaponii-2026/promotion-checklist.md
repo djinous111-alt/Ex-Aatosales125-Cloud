@@ -1,7 +1,7 @@
 # Promotion checklist — B01 kak-kupit-avto-s-auktsiona-yaponii-2026
 
-Дата публикации: 2026-10-15 (planned; pre-publish)  
-Live URL: https://avtosales125.ru/blog/kak-kupit-avto-s-auktsiona-yaponii-2026/
+Дата публикации: 2026-10-15  
+Live URL: [REDACTED]/2026/10/15/kak-kupit-avto-s-auktsiona-yaponii-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • После выигрыша — инвойс за 2–5 банковских дней
 • Путь: площадка → порт Японии → ро-ро → Владивосток (часто 3–8 недель)
 
-Читать: https://avtosales125.ru/blog/kak-kupit-avto-s-auktsiona-yaponii-2026/
+Читать: [REDACTED]/2026/10/15/kak-kupit-avto-s-auktsiona-yaponii-2026/
 ```
 
 ## Перелинковка

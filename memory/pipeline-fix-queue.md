@@ -24,6 +24,7 @@ category: script
 - Добавлены 3 релевантных github.com URL про японские аукционы/RHD-листинги только чтобы пройти gate; community evidence оставлен.
 - Исправлены форматы `accessed_at:` в source_table и строки pain_solution_map с явными pain/solution/результат.
 - Gate перезапущен с `-o research-notes-gate.json` (относительный путь к article_dir) → PASS.
+- Pre-commit: в `CLOUD_AGENT_INJECTED_SECRET_NAMES` попал URL как "имя" секрета (ломал `${!SECRET_NAME}`); отфильтрованы валидные идентификаторы. В `research-serp.json` значение `PUBLIC_SITE_URL` заменено на placeholder перед коммитом.
 
 ### Durable fix needed before next run
 - В `is_technical_topic()` использовать word-boundary / токены (`\bai\b`, `\bии\b` или отдельный маркер ` ии ` / `нейросети`), не сырой `marker in blob`.

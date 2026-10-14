@@ -54,4 +54,8 @@ python scripts/excalibur_blog_human_voice_gate.py \
 
 **Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.
 
+**CTA / catalog host:** если CTA из `CATALOG_URL` стабильно HTTP 503 (HEAD+GET, retries), а `PUBLIC_SITE_URL` отвечает 200 — минимально замени catalog href на рабочий публичный host, не печатай secret values, допиши incident. Не блокируй GEO QA PASS на чужой 503 каталога после fallback.
+
+**Utility policy:** `memory/brief/editorial-policy.json` обязан содержать непустые `pain_markers_ru` / `outcome_markers_ru` (doctor + utility gate fail-fast). Не правь маркеры только в runtime article.
+
 Schema и cover — **не** твоя зона (отдельные субагенты после PASS).

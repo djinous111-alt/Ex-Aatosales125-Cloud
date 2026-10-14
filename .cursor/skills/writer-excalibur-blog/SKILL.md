@@ -37,6 +37,19 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## CTA и Cloud secret-scan
+
+- Реальные CTA href из env (`CATALOG_URL`, `TELEGRAM_URL`) обязательны для link-verify/publish.
+- На каждой строке с таким href добавь HTML-комментарий `<!-- pragma: allowlist secret -->` (тот же line), иначе Cloud pre-commit secret scan блокирует commit.
+- Перед `git commit` при `invalid variable name` / ложном leak public URL:
+
+```bash
+eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+git commit ...
+```
+
+- Если `CATALOG_URL` host стабильно отдаёт HTTP 503, а `PUBLIC_SITE_URL` — 200: в CTA используй рабочий публичный host (без печати secret values в отчётах). Зафиксируй incident.
+
 ## Blockers
 
 - нет research-notes.md

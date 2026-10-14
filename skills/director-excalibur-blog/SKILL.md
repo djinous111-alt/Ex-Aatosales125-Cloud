@@ -54,6 +54,14 @@ Task(generalPurpose):
 
 См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
 
+**geo-qa:** typed Task `excalibur-blog-geo-qa` часто отсутствует в Cloud enum. Не трать ретрай на typed — сразу:
+
+```text
+Task(generalPurpose):
+Прочитай .cursor/agents/excalibur-blog-geo-qa.md + .cursor/skills/excalibur-geo-qa/SKILL.md.
+Запусти все QA-скрипты. article-qa.md verdict PASS. Блок === EXCALIBUR BLOG GEO QA ===.
+```
+
 ## Preflight (shell, директор)
 
 ```bash

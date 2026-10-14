@@ -81,3 +81,14 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
 * Выдумывание цифр спроса без вызова Wordstat API.
+
+## Cloud git commit (secret-scan)
+
+Перед `git commit` карточки темы, если pre-commit падает с `invalid variable name` или ложным leak public URL:
+
+```bash
+eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+git commit ...
+```
+
+Wordstat: cluster-first (широкий parent → узкий how-to). Ответ только `{"totalCount":...}` без топа = low-result/partial, не fatal; расширь запрос.

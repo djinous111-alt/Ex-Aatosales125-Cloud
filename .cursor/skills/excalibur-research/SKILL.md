@@ -39,11 +39,14 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 
 1. **Анализ спроса через Wordstat API:**
   Каждый прогон исследования **обязан** задействовать инструмент `wordstat_get_top_requests` сервера `user-mcp-kv` для анализа спроса:
-  - Вызови `wordstat_get_top_requests` для `primary_query` и ключевых `secondary_queries`.
+  - **Cluster-first:** сначала широкий parent (`авто из японии`), затем sibling/короткие seeds, и только потом длинный how-to `primary_query`.
+  - Вызови `wordstat_get_top_requests` для parent + ключевых `secondary_queries` + `primary_query`.
   - Если вызов вернул `401 Unauthorized` (токен устарел):
     - Запиши в `research-notes.md` предупреждение: `⚠️ WORDSTAT AUTH WARNING: Токен Wordstat устарел. Обновите токен через: https://oauth.yandex.ru/authorize?response_type=token&client_id=c654b948515a4a07a4c89648a0831d40`
     - Сделай экспертную оценку семантики, но явно укажи, что точные объемы спроса не получены из-за авторизации.
-  - Если вызов успешен:
+  - Если ответ truncated/`totalCount`-only без списка фраз (не 401): **не invent** primary breakdown. Один retry → зафиксируй `partial` + `totalCount` → заполни таблицу из verified parent/sibling clusters.
+  - Длинные how-to фразы часто дают truncated payload; короткие Wordstat seeds обязательны.
+  - Если вызов успешен (есть top phrases):
     - Сформируй в `research-notes.md` таблицу спроса: Фраза | Показы в месяц.
     - Выдели сопутствующие LSI-запросы из топа выдачи Вордстата для использования копирайтером.
 2. **Замена уличных поисковиков (DuckDuckGo) на WebSearch Курсора:**

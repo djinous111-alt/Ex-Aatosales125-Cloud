@@ -199,3 +199,14 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 ## Эталон (B01)
 
 `memory/blog/articles/B01-primer-seo-stati/cover/` — reference implementation после design code v1.
+
+## Cloud git commit (secret-scan)
+
+Если commit cover PNG/JSON падает на `invalid variable name` в secret-scan:
+
+```bash
+eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+git commit ...
+```
+
+Не отключай hooks; фильтруй `CLOUD_AGENT_*_SECRET_NAMES`.

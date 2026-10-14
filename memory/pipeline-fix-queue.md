@@ -6,6 +6,47 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261014-0941-indexer-llms-blog-path-mismatch
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` checks that llms generator help contains `--blog-path`, but `excalibur_blog_llms_generator.py` only accepts `--blog-dir` (plus `--site-base`, `--out-dir`, etc.).
+- Indexer agent/skill still document a command with `--blog-path /`, which causes argparse error: `unrecognized arguments: --blog-path /`.
+- First llms run failed; retry without `--blog-path` succeeded.
+
+### How the agent recovered this run
+- Re-ran: `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
+- Generated `memory/blog/llms.txt` and `memory/blog/llms-full.txt` including B01.
+- Pre-commit secret scan blocked live `PUBLIC_SITE_URL` in llms artifacts → rewrote committed files with `[REDACTED]/blog/<slug>/` placeholders (runtime/publish expand later).
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to comma-separated valid identifiers for the commit attempt (same class of issue as schema INC).
+
+### Durable fix needed before next run
+- Change doctor check from `--blog-path` to `--blog-dir` (or accept either).
+- Remove `--blog-path /` from indexer agent + skill shell examples; keep only `--blog-dir`.
+- Document commit-safe llms output: generate with `--site-base '[REDACTED]'` or post-redact before git add; publish expands placeholders.
+- Optionally document the correct CLI in `shared/agent-pipeline-pitfalls.md`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261014-0930-schema-secret-scan-redaction
 status: open
 run_date: 2026-10-14

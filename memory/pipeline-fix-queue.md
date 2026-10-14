@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-2132-indexer-llms-blog-path-cli-drift
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-kupit-avto-s-auktsiona-yaponii-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `doctor_preflight` reported errors=1: doctor expects `excalibur_blog_llms_generator.py --help` to contain `--blog-path`.
+- Actual CLI accepts `--blog-dir` / `--site-base` / `--out-dir` and does **not** define `--blog-path`.
+- Agent/skill shell examples still document `--blog-path /`, which would fail argparse if followed blindly.
+
+### How the agent recovered this run
+- Ran `python3 scripts/excalibur_blog_llms_generator.py --help` and invoked without `--blog-path`:
+  `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog`.
+- Generated `memory/blog/llms.txt` and `memory/blog/llms-full.txt` with B01 included (3 articles).
+
+### Durable fix needed before next run
+- Align doctor check with real CLI: assert `--blog-dir` (and/or remove stale `--blog-path` check).
+- Remove `--blog-path` from indexer agent/skill examples; keep `--blog-dir` + `--out-dir`.
+- Optionally add ignored `--blog-path` alias only if backward compat is required — prefer docs/doctor fix.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261015-2130-cover-precommit-secret-name
 status: open
 run_date: 2026-10-15

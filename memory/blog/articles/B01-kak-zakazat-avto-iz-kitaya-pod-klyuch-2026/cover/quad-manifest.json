@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит без сметы — лотерея?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у китайского кроссовера с чек-листом заказа до депозита, порт Владивостока",
+      "scene_hint": "reference face + glasses only; outfit: тёмная непромокаемая куртка smart-casual под туман/порт Владивостока (НЕ майка с reference, без кепки/капюшона); герой у современного китайского кроссовера, смартфон с чек-листом «до депозита», намёк на ролкер/терминал; fake UI: карточка каталога + стикер-чек-лист документов; torn paper + scotch + жёлтый маркер на слове «депозита»; мем shocked face; угол avto-sales125.ru; без Wordstat/Метрики/Telegram",
+      "meme_caption_ru": "До депозита — 12 пунктов"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разложите \"под ключ\" на смету и сроки",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Чистая UI-таблица 16:9 без лица героя: колонки «только авто» vs «под ключ» — строки цена авто / логистика / таможня / СВХ / сроки; sticky note «спроси до депозита»; tape corner; кириллица",
+      "alt": "Таблица сравнения «цена только за авто» и полной сметы под ключ со сроками"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как выбрать модель без ловушки цены только за авто",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow-схема без героя: модель → комплектация → скрытые статьи сметы → итого в рублях; стрелки и цифры этапов; mini screenshot карточки авто; лёгкий стикер «не только цена»; 16:9",
+      "alt": "Схема выбора модели: от цены авто к полной смете без ловушки"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте контрагента и авто до выкупа",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист-борд без героя: пункты фото/видео, история, VIN, договор на р/с, отказ от оплаты на карту; галочки и маркер; mini Encar/аукционный лист mock; scotch tape; 16:9",
+      "alt": "Чеклист проверки контрагента и авто до выкупа: VIN, фото, договор"
+    }
+  }
+}

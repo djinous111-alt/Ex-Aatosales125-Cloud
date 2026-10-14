@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1280,
+      721
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 721,
+        "end": 761
+      },
+      "v_gutter_px": {
+        "start": 1280,
+        "end": 1336
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1280,
+          "bottom": 721
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1280,
+          "bottom": 721
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у китайского кроссовера с чек-листом заказа до депозита, порт Владивостока",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1336,
+          "top": 16,
+          "right": 2560,
+          "bottom": 704
+        },
+        "raw_box_px": {
+          "left": 1336,
+          "top": 0,
+          "right": 2560,
+          "bottom": 721
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения «цена только за авто» и полной сметы под ключ со сроками",
+        "h2_anchor": "Разложите \"под ключ\" на смету и сроки"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 36,
+          "top": 761,
+          "right": 1243,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 761,
+          "right": 1280,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема выбора модели: от цены авто к полной смете без ловушки",
+        "h2_anchor": "Как выбрать модель без ловушки цены только за авто"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1344,
+          "top": 761,
+          "right": 2551,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1336,
+          "top": 761,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист проверки контрагента и авто до выкупа: VIN, фото, договор",
+        "h2_anchor": "Проверьте контрагента и авто до выкупа"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разложите \"под ключ\" на смету и сроки",
+    "injected inline_2 after H2 — Как выбрать модель без ловушки цены только за авто",
+    "injected inline_3 after H2 — Проверьте контрагента и авто до выкупа"
+  ]
+}

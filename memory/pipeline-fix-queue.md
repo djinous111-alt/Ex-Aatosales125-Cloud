@@ -483,6 +483,42 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261014-0938-cover-hero-host-upload
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026
+severity: medium
+category: api
+
+### What went wrong
+- `excalibur_blog_hero_reference_url.py --force` failed: catbox HTTP 412, 0x0 SSL handshake timeout.
+- Existing `reference_url_hosted` on avtosales125.ru was kept for i2i; local `blog-hero-reference.png` was not re-hosted.
+- `excalibur_blog_quad_manifest.py --merge` seeded cover/inline hints from stale SEO primer defaults (`Wordstat`, SEO workflow) while `memory/cover/cover-prompts.json` B01 still points to slug `primer-seo-stati`.
+
+### How the agent recovered this run
+- Proceeded with existing `reference_url_hosted` for ONE Kie `gpt-image-2-image-to-image` job.
+- Manually rewrote `cover/quad-manifest.json` for China turnkey deposit checklist (hook/outfit/inline UI); toxic sticker words avoided.
+- Kie generate → split PASS → inject 3 figures; fragment written.
+
+### Durable fix needed before next run
+- Make hero host script retry/fallback more resilient (second provider, longer timeout, optional WP media upload path when catbox/0x0 fail).
+- Refresh `memory/cover/cover-prompts.json` B01 (and manifest merge defaults) so new B01 China topic does not inherit SEO primer scene/hooks.
+- Document that cover agent must always overwrite merge defaults from `blog-topics` `cover_scene_hint` + article H2.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `memory/cover/cover-prompts.json`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

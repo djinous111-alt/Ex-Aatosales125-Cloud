@@ -12,7 +12,7 @@
     "заказ авто из японии с аукциона",
     "заказать авто из японии с аукциона"
   ],
-  "char_count": 9127,
+  "char_count": 9125,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -29,8 +29,8 @@
     "description_aeo": "Купить авто из Японии с аукциона новичку: через брокера, с депозитом и лимитом ставки. Маршрут лота до Владивостока за 3–8 недель."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 86,
+    "verdict": "PASS",
     "date": "2026-10-15"
   },
   "cover_family": "brand_collage"

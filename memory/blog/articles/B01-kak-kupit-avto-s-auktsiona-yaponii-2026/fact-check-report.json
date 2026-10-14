@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/B01-kak-kupit-avto-s-auktsiona-yaponii-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ии с аукциона\" сверен по Яндекс Wordstat на 15.10.2026. Актуальные расчёты \"под ключ\" – только в каталог",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "8 недель",
+      "kind": "metric_or_duration",
+      "context": "→ ро-ро → Владивосток; ориентир до выдачи часто 3–8 недель. Цена лота – не итоговая сумма в РФ. Честно говор",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "50 дней",
+      "kind": "metric_or_duration",
+      "context": "дачи у импортёров часто 3–8 недель или порядка 35–50 дней – зависит от рейса и оформления. Например, на DRI",
+      "verified": true,
+      "reason": "Numerical value '50' matched in fact-bank context"
+    },
+    {
+      "fact": "200 000",
+      "kind": "large_number",
+      "context": "амерения. У японских агентов часто ориентир около 200 000 ¥ (для лотов до примерно 1 млн ¥); у российских и",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "150",
+      "kind": "large_number",
+      "context": "оссийских импортёров встречается вилка порядка 50–150 тыс. ₽. Точную сумму даёт ваш договор – не чужой с",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

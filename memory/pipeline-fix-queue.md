@@ -6,6 +6,103 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-2125-geo-qa-typed-task-missing
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-kupit-avto-s-auktsiona-yaponii-2026
+severity: medium
+category: other
+
+### What went wrong
+- Cloud API Task type enum не принимает `excalibur-blog-geo-qa` (typed Task отсутствует).
+- Роль запущена только через fallback `Task(generalPurpose)` с путями `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Выполнил полный GEO QA контракт в generalPurpose: все скрипты, `article-qa.md`, handoff-блок.
+
+### Durable fix needed before next run
+- Зарегистрировать typed Task `excalibur-blog-geo-qa` в Cloud Task enum / automation config, либо явно задокументировать generalPurpose-only fallback в director skill и AGENTS.md как постоянный путь (не exception).
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- Cursor Cloud Task type / automation configuration
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261015-2126-geo-qa-utility-pain-outcome-policy-gap
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-kupit-avto-s-auktsiona-yaponii-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требует `min_pain_markers` (default 2) и `min_outcome_markers` (default 3), но `memory/brief/editorial-policy.json` не содержал `pain_markers_ru` / `outcome_markers_ru`.
+- При пустых списках счётчики всегда 0 → utility gate BLOCKER для любой статьи; human-voice gate при этом PASS (свои hardcoded маркеры).
+
+### How the agent recovered this run
+- Добавил в policy те же pain/outcome маркеры и минимумы, что использует `excalibur_blog_human_voice_gate.py`; повтор utility → PASS (pain 3, outcome 3).
+
+### Durable fix needed before next run
+- Зафиксировать единый источник маркеров (policy ↔ human-voice) или fail-fast в utility gate, если списки пусты при min>0.
+- Добавить regression-тест/doctor check на наличие `pain_markers_ru` / `outcome_markers_ru`.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261015-2127-geo-qa-catalog-host-503
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-kupit-avto-s-auktsiona-yaponii-2026
+severity: medium
+category: env
+
+### What went wrong
+- CTA host из `CATALOG_URL` отвечал стабильным HTTP 503 (HEAD и GET, несколько retries).
+- `PUBLIC_SITE_URL` (тот же бренд, без дефиса в host) отвечал 200 → link-verify FAIL блокировал GEO QA PASS.
+
+### How the agent recovered this run
+- Минимально заменил CTA href каталога в `article.html` на `PUBLIC_SITE_URL`; Telegram без изменений; link-verify PASS 2/2.
+
+### Durable fix needed before next run
+- Восстановить/починить host `CATALOG_URL` или выровнять `CATALOG_URL` с рабочим публичным host.
+- В writer/QA: документировать fallback CTA host при 503 каталога; не печатать secret values в отчётах.
+
+### Suggested files to inspect/change
+- Cloud Secrets: `CATALOG_URL` vs `PUBLIC_SITE_URL` host alignment
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261015-2120-writer-cta-secret-scan-pragma
 status: open
 run_date: 2026-10-15

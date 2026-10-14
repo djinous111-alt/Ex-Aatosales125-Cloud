@@ -32,7 +32,49 @@ PUBLISH_ENV_KEYS = {
     "SSH_PASSWORD",
     "SSH_ROOT",
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
 }
+
+
+def expand_schema_redacted(schema_raw: str, env: dict[str, str]) -> str:
+    """Expand commit-safe [REDACTED] URL bases from env before WP schema meta.
+
+    Disk schema stays redacted for secret-scan; live payload must use real URLs.
+    Order for bare [REDACTED] tokens after site-base expansion:
+    CATALOG_URL → TELEGRAM_URL → MAX_URL (repeat if more placeholders remain).
+    """
+    if not schema_raw or "[REDACTED]" not in schema_raw:
+        return schema_raw
+    public = (
+        env.get("PUBLIC_SITE_URL")
+        or env.get("WP_HOME")
+        or env.get("WP_SITE_URL")
+        or ""
+    ).strip().rstrip("/")
+    if not public:
+        raise RuntimeError("Cannot expand [REDACTED] schema: PUBLIC_SITE_URL missing")
+    out = schema_raw.replace("[REDACTED]/", public + "/")
+    bare_replacements = [
+        (env.get("CATALOG_URL") or "").strip(),
+        (env.get("TELEGRAM_URL") or "").strip(),
+        (env.get("MAX_URL") or "").strip(),
+    ]
+    bare_replacements = [u for u in bare_replacements if u]
+    if "[REDACTED]" in out and not bare_replacements:
+        raise RuntimeError(
+            "Cannot expand bare [REDACTED] in schema: need CATALOG_URL/TELEGRAM_URL/MAX_URL"
+        )
+    idx = 0
+    while "[REDACTED]" in out:
+        if not bare_replacements:
+            break
+        out = out.replace("[REDACTED]", bare_replacements[idx % len(bare_replacements)], 1)
+        idx += 1
+    if "[REDACTED]" in out:
+        raise RuntimeError("Unexpanded [REDACTED] remain in schema after env expansion")
+    return out
 
 
 def _read_env_file(path: Path) -> dict[str, str]:
@@ -168,7 +210,7 @@ def normalize_cover_png(cover_path: Path, registry_path: Path, root: Path) -> di
     return evidence
 
 
-def load_article(article_dir: Path) -> dict:
+def load_article(article_dir: Path, env: dict[str, str] | None = None) -> dict:
     meta_path = article_dir / "article.meta.json"
     html_path = article_dir / "article.html"
     if not meta_path.is_file() or not html_path.is_file():
@@ -187,10 +229,22 @@ def load_article(article_dir: Path) -> dict:
     schema_raw = ""
     if schema_path.is_file():
         schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        if env is not None:
+            schema_raw = expand_schema_redacted(schema_raw, env)
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
-        cover_alt = cover_alt or reg.get("cover_alt_text", "")
+        cover_alt = (
+            cover_alt
+            or reg.get("cover_alt_text")
+            or reg.get("alt")
+            or ""
+        )
+        if not cover_alt:
+            for asset in reg.get("assets") or []:
+                if isinstance(asset, dict) and asset.get("role") == "cover" and asset.get("alt"):
+                    cover_alt = str(asset["alt"])
+                    break
 
     import re
     img_srcs = re.findall(r'<img\s+[^>]*src=["\']([^"\']+)["\']', content)
@@ -216,9 +270,22 @@ def load_article(article_dir: Path) -> dict:
         except json.JSONDecodeError:
             wp_post_id = None
 
+    post_id = int(wp_post_id) if wp_post_id else 0
+    # Hard denylist: never overwrite known foreign / prior B01 posts with a new slug.
+    DENYLIST_POST_IDS = {
+        3843, 4162, 3707, 3505, 4110, 4104, 3913, 4092, 4086, 4080, 4074, 4068,
+        4055, 4049, 4043, 4031, 3601, 3991, 3589, 3837, 3967, 3955, 3949, 3778,
+        1076, 3296,
+    }
+    if post_id in DENYLIST_POST_IDS:
+        raise RuntimeError(
+            f"BLOCKER: refusing to update denylist post_id={post_id} "
+            f"for slug={meta.get('slug')!r}"
+        )
+
     return {
         "slug": meta["slug"],
-        "post_id": int(wp_post_id) if wp_post_id else 0,
+        "post_id": post_id,
         "title": normalize_post_title(
             meta.get("title")
             or meta.get("h1")
@@ -528,17 +595,39 @@ def upsert_publish_ledger(root: Path, payload: dict[str, Any], permalink: str) -
 
     topic_id = str(payload.get("topic_id") or "").upper()
     slug = str(payload.get("slug") or "")
-    row = f"| {date.today().isoformat()} | {topic_id} | {slug} | {permalink} | published |"
+    # Prefer pipeline run date; redact secret site base for git-safe ledger.
+    run_date = (os.environ.get("EXCALIBUR_RUN_DATE") or "").strip() or date.today().isoformat()
+    ledger_url = permalink
+    public = (
+        os.environ.get("PUBLIC_SITE_URL")
+        or os.environ.get("WP_HOME")
+        or os.environ.get("WP_SITE_URL")
+        or ""
+    ).strip().rstrip("/")
+    if public and ledger_url.startswith(public):
+        ledger_url = "[REDACTED]" + ledger_url[len(public) :]
+    row = f"| {run_date} | {topic_id} | {slug} | {ledger_url} | published |"
     lines = ledger_path.read_text(encoding="utf-8").splitlines()
     replaced = False
     for index, line in enumerate(lines):
         if not line.startswith("|"):
             continue
         cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
-        if len(cells) >= 2 and cells[1].upper() == topic_id:
+        # Prefer slug match (multiple historical B01 rows may exist); else topic in_progress.
+        if len(cells) >= 3 and cells[2] == slug:
             lines[index] = row
             replaced = True
             break
+        if (
+            not replaced
+            and len(cells) >= 5
+            and cells[1].upper() == topic_id
+            and cells[4] == "in_progress"
+        ):
+            lines[index] = row
+            replaced = True
+            # keep scanning for exact slug match
+            continue
     if not replaced:
         lines.append(row)
     ledger_path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
@@ -568,15 +657,30 @@ def main() -> int:
         return 2
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
-    payload = load_article(article_dir)
+    env = load_env(root)
+    payload = load_article(article_dir, env=env)
     php = build_php(payload)
 
     if args.dry_run:
-        print(json.dumps({"dry_run": True, "slug": payload["slug"], "title": payload["title"]}, ensure_ascii=False, indent=2))
+        schema = str(payload.get("schema_jsonld") or "")
+        print(
+            json.dumps(
+                {
+                    "dry_run": True,
+                    "slug": payload["slug"],
+                    "title": payload["title"],
+                    "post_id": payload.get("post_id", 0),
+                    "inline_images": len(payload.get("inline_images") or []),
+                    "schema_expanded": bool(schema) and "[REDACTED]" not in schema,
+                    "schema_chars": len(schema),
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1

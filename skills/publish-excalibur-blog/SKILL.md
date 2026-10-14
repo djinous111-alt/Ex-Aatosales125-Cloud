@@ -108,6 +108,11 @@ schema_meta: ok|fail
 blockers:
 ```
 
+
+### Schema / URL `[REDACTED]` expand
+
+Committed `schema.jsonld` may use `[REDACTED]` for secret-scanned URL bases. `excalibur_blog_wp_publish.py` expands via `expand_schema_redacted` from `PUBLIC_SITE_URL` / `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL` at payload load; disk schema stays redacted.
+
 ## Blockers
 
 - `❌ PUBLISH BLOCKER` — QA не PASS, link-verify fail, нет cover/schema, credentials, allow flag

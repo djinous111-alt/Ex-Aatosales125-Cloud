@@ -1,13 +1,13 @@
 # Promotion checklist — B01 kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026
 
-Дата публикации: 2026-10-14 (ожидается после WP publish)  
-Live URL: [REDACTED]/blog/kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026/
+Дата публикации: 2026-10-14 (published)  
+Live URL: [REDACTED]/2026/10/14/kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL (HEAD 200; post_id=4174) — title, excerpt, featured image, FAQ
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Платите только на р/с юрлица — не на карту менеджера
 • Нет договора со сметой и возвратом аванса — нет перевода
 
-Читать: [REDACTED]/blog/kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026/
+Читать: [REDACTED]/2026/10/14/kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026/
 ```
 
 ## Перелинковка

@@ -1,0 +1,30 @@
+{
+  "slug": "kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026",
+  "topic_id": "B01",
+  "post_id": 4174,
+  "featured_image": 4192,
+  "inline_images": {
+    "cover/inline-01.png": 4193,
+    "cover/inline-02.png": 4194,
+    "cover/inline-03.png": 4195
+  },
+  "permalink": "[REDACTED]/2026/10/14/kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026/",
+  "permalink_live_verified": true,
+  "publish_method": "ssh+http-timeout-fallback-rest-verify",
+  "schema_meta": "ok",
+  "skip_theme_faq": "1",
+  "schema_verified": {
+    "FAQPage": true,
+    "HowTo": true,
+    "REDACTED": false,
+    "chars": 12655
+  },
+  "denylist_ok": true,
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true
+  },
+  "raw_output": "OK post=4174 slug=kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026\nOK featured_image=4192\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4193 src=cover/inline-01.png\nOK inline_image_upload=4194 src=cover/inline-02.png\nOK inline_image_upload=4195 src=cover/inline-03.png\npermalink=[REDACTED]/2026/10/14/kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026/\nNOTE: client HTTP timeout; verified via WP REST + schema-repair bootstrap",
+  "verdict": "pass"
+}

@@ -525,10 +525,10 @@ category: api
 
 ### What went wrong
 - `excalibur_blog_hero_reference_url.py --force` failed: catbox HTTP 412, 0x0 HTTP 503.
-- Temporary hosts (uguu/tmpfiles) returned direct PNG URLs, but `excalibur_blog_cover_quad_prompt.py` requires stable `avtosales125.ru` WordPress media URL and rejected them.
+- Temporary hosts (uguu/tmpfiles) returned direct PNG URLs, but `excalibur_blog_cover_quad_prompt.py` requires stable `[REDACTED]` WordPress media URL and rejected them.
 
 ### How the agent recovered this run
-- Kept/updated `reference_url_hosted` to HTTPS WordPress media on avtosales125.ru (prompt script validation PASS).
+- Kept/updated `reference_url_hosted` to HTTPS WordPress media on [REDACTED] (prompt script validation PASS).
 - Generated ONE Kie API gpt-image-2 i2i via `excalibur_blog_kie_gpt_image2_api.py`; split PASS; inject HTML ok.
 - Manual rewrite of auto SEO stub hooks in `quad-manifest.json` for company-check topic.
 
@@ -579,6 +579,43 @@ category: publish
 - `.cursor/agents/excalibur-blog-indexer.md`
 - `skills/publish-excalibur-blog/SKILL.md`
 - `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261014-1355-publish-http-timeout-lost-stdout
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-kompaniyu-po-prigonu-avto-do-depozita-2026
+severity: medium
+category: publish
+
+### What went wrong
+- SSH upload of ~7MB `excalibur-blog-publish-once.php` succeeded, but local HTTP trigger hit 120s `TimeoutError` before stdout with `OK post=` returned.
+- WebFetch/curl fallback against the bootstrap URL also raced the 120s agent wait; after fallback timeout the script deleted the bootstrap in `finally`, so late retries saw WP 404 HTML.
+- Publish script lacked `expand_schema_redacted` despite schema/indexer commit policy using `[REDACTED]` URL bases; cover registry alt key is `alt` not `cover_alt_text`.
+
+### How the agent recovered this run
+- Verified NEW slug live via WP REST: post_id **4174**, featured **4192**, inline **4193/4194/4195**, denylist OK (not 3843/4162/3707).
+- Small SSH repair bootstrap confirmed schema meta already written (FAQPage+HowTo, no REDACTED) and refreshed meta + featured alt.
+- Added `expand_schema_redacted` + denylist guard + registry `alt` fallback + git-safe ledger redaction in `scripts/excalibur_blog_wp_publish.py`.
+- Wrote `wp-publish-result.json`, ledger `published`, wp-publish-log, promotion Live URL.
+
+### Durable fix needed before next run
+- Keep bootstrap file until fallback response with literal `OK post=` is consumed; increase HTTP/fallback wait for ~7MB payloads (or stream progress).
+- On client timeout, REST-verify by slug before declaring FAIL; reconstruct result from REST+meta probe.
+- Document schema `[REDACTED]` expand in publish skill; cover-registry `alt` key in publish payload mapping.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
 - `shared/agent-pipeline-pitfalls.md`
 
 ### Secrets

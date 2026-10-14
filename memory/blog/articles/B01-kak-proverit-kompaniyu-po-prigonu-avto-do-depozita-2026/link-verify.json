@@ -24,7 +24,7 @@
       "skipped": false
     },
     {
-      "url": "${CATALOG_URL}",
+      "url": "[REDACTED]",
       "status": 503,
       "ok": true,
       "method": "HEAD",
@@ -34,7 +34,7 @@
       "warning": "soft brand catalog 5xx; CTA host temporary, not article defect"
     },
     {
-      "url": "${TELEGRAM_URL}",
+      "url": "[REDACTED]",
       "status": 200,
       "ok": true,
       "method": "HEAD",

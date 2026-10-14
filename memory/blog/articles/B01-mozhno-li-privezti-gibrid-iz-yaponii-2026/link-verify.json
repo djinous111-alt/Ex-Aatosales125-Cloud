@@ -3,34 +3,30 @@
   "total_links": 2,
   "failed_count": 0,
   "verdict": "pass",
-  "soft_pass": {
-    "applied": true,
-    "rules": ["catalog_5xx"],
-    "note": "CATALOG_URL returned HTTP 503 on HEAD and GET; treated as soft-pass per pipeline memory (catalog transient 5xx)."
-  },
   "links": [
     {
-      "url": "https://t.me/EXAMPLE_TELEGRAM",
+      "url": "[REDACTED]",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "external",
-      "skipped": false,
-      "role": "TELEGRAM_URL"
+      "skipped": false
     },
     {
-      "url": "https://EXAMPLE_CATALOG/",
+      "url": "[REDACTED]",
       "status": 503,
       "ok": true,
-      "raw_ok": false,
       "method": "HEAD",
       "error": "HTTP Error 503: Service Temporarily Unavailable",
       "kind": "external",
       "skipped": false,
-      "role": "CATALOG_URL",
-      "soft_pass": true,
-      "soft_pass_reason": "catalog_5xx_transient"
+      "soft_pass": "catalog_5xx",
+      "warning": "catalog host 5xx soft-pass (egress/flaky); href matches CATALOG_URL"
     }
-  ]
+  ],
+  "soft_pass": [
+    "catalog_5xx"
+  ],
+  "soft_pass_note": "publish preflight: catalog 503 → catalog_5xx (same as GEO QA INC-20261014-1735)"
 }

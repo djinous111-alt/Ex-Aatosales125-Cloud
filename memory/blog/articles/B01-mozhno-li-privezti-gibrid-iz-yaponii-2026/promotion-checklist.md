@@ -1,13 +1,13 @@
 # Promotion checklist — B01 mozhno-li-privezti-gibrid-iz-yaponii-2026
 
-Дата публикации: 2026-10-14 (план; live после publish)  
-Live URL: [REDACTED]/blog/mozhno-li-privezti-gibrid-iz-yaponii-2026/
+Дата публикации: 2026-10-14  
+Live URL: [REDACTED]/2026/10/14/mozhno-li-privezti-gibrid-iz-yaponii-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200; post_id 4197; featured 4198)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -29,7 +29,7 @@ Hybrid на шильдике ≠ разрешение на вывоз
 • Мягкий гибрид до 1,9 л — кандидат; полный / PHEV / EV / e-POWER — стоп
 • Чек-лист из 10 пунктов до депозита через Владивосток
 
-Читать: [REDACTED]/blog/mozhno-li-privezti-gibrid-iz-yaponii-2026/
+Читать: [REDACTED]/2026/10/14/mozhno-li-privezti-gibrid-iz-yaponii-2026/
 ```
 
 ## Перелинковка

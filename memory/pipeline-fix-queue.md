@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261014-0930-schema-secret-scan-redaction
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secret scanner blocked `schema.jsonld` when it contained live `PUBLIC_SITE_URL` / `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL` values required by BlogPosting E-E-A-T `sameAs` and `@id`.
+- Separately, `CLOUD_AGENT_INJECTED_SECRET_NAMES` included a raw URL as a "secret name", which broke the hook with `invalid variable name` until names were filtered to valid bash identifiers.
+- Schema skill/contract do not document the commit-safe `[REDACTED]` pattern already used by recent schema commits (e.g. EV B01).
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid identifiers for the commit attempt only.
+- Rewrote committed `schema.jsonld` with literal `[REDACTED]` placeholders for secret site/catalog/telegram/max URLs (kept Instagram/2GIS), matching prior PASS schema commits.
+- Fragment notes that publish must expand redacted base URLs from env before writing WP schema meta.
+
+### Durable fix needed before next run
+- Document in schema skill + pitfalls: committed `schema.jsonld` uses `[REDACTED]` for secret URL envs; runtime inject before publish.
+- Make `excalibur_blog_wp_publish.py` (or a tiny schema expand helper) replace `[REDACTED]` site/catalog/telegram/max placeholders from env when uploading schema meta.
+- Fix Cloud Secrets list: `CLOUD_AGENT_INJECTED_SECRET_NAMES` must contain only env var names, never URL values.
+
+### Suggested files to inspect/change
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Dashboard Cloud Secrets (`CLOUD_AGENT_INJECTED_SECRET_NAMES` composition only; no values recorded)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261014-0924-geo-qa-link-verify-catalog-5xx-unicode
 status: open
 run_date: 2026-10-14

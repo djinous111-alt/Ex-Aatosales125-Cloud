@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Цена кнопки ≠ цена под ключ",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у ноутбука с лотами японского аукциона, порт Владивостока, плашка от лота до порта",
+      "scene_hint": "EXACT face+glasses from reference; CHANGE outfit to coastal Vladivostok: dark waterproof jacket over hoodie (foggy port weather), NO cap/hood/headphones; action selfie at laptop with fake Japanese auction lot cards on screen (model, grade, yen bid); Vladivostok port cranes/fog behind window; torn paper + scotch tape + yellow sticky note; Cyrillic plaque «от лота до порта» with yellow highlight on «порта»; shocked meme cutout; corner brand avto-sales125.ru; NO Wordstat/Metrika/Telegram handle; no toxic insults",
+      "meme_caption_ru": "от лота до порта"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте задачу до первого лота: бюджет, год и класс",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean 16:9 UI comparison table (NO hero face): columns «Новичок смотрит» vs «Нужно зафиксировать» — rows: цена лота vs бюджет до ключей; год «любой» vs год от–до; модель мечты vs класс+двигатель; ждём 3–8 недель — да/нет; small tape corner + sticky «сначала рамка»; Cyrillic only",
+      "alt": "Таблица: что фиксировать до первого лота — бюджет, год и класс против цены кнопки"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Выберите брокера с договором – не \"просто чат\"",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Horizontal workflow diagram UI (NO hero): 4 steps with arrows — Договор → Депозит → Ставка через агента → Инвойс; side badge «не просто чат»; mini checklist icons: договор да/нет, кто ставит, возврат депозита; tape strip; Cyrillic labels only",
+      "alt": "Схема выбора брокера: договор, депозит, ставка агента, инвойс — не просто чат"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Как проходит ставка: депозит, лимит и инвойс",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable checklist board UI (NO hero): titled «Перед ставкой»; items with checkboxes — депозит на счёте, лимит ставки в иенах, понятен инвойс 2–5 дней, аукционный лист просмотрен, путь до Владивостока 3–8 недель; pink sticky «лимит ≠ итог в РФ»; scotch tape; Cyrillic only",
+      "alt": "Чек-лист ставки: депозит, лимит в иенах, инвойс и сроки до Владивостока"
+    }
+  }
+}

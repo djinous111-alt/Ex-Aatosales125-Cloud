@@ -6,6 +6,100 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261014-0950-publish-paramiko-missing
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026
+severity: medium
+category: env
+
+### What went wrong
+- Boot image / install script did not provide `paramiko`; `excalibur_blog_wp_publish.py` SSH transport failed import until manual install.
+- `apt-get install python3-paramiko` unavailable; needed `pip3 install --break-system-packages paramiko`.
+
+### How the agent recovered this run
+- Installed paramiko 5.0.0 via pip `--break-system-packages` and proceeded with SSH publish.
+
+### Durable fix needed before next run
+- Add `paramiko` to `.cursor/cloud-agent-install.sh` / environment install so publish boots with SSH deps.
+- Keep `paramiko` in `requirements.txt` (already listed) and ensure install script uses it.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/environment.json`
+- `requirements.txt`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261014-0950-publish-link-verify-soft-pass-rerun
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026
+severity: medium
+category: script
+
+### What went wrong
+- Publish preflight re-ran `excalibur_blog_link_verify.py` and got FAIL on CATALOG_URL HTTP 503 and 2GIS Cyrillic path ascii codec — same class as INC-20261014-0924 (soft-pass still not in script).
+
+### How the agent recovered this run
+- Reapplied GEO QA soft-pass rules (catalog 5xx when href==CATALOG_URL; percent-encoded 2GIS recheck 200) into `link-verify.json` and continued publish.
+
+### Durable fix needed before next run
+- Implement durable soft-pass + Unicode path encoding in `scripts/excalibur_blog_link_verify.py` (see INC-20261014-0924).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261014-0950-publish-schema-expand-runtime
+status: open
+run_date: 2026-10-14
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-zakazat-avto-iz-kitaya-pod-klyuch-2026
+severity: low
+category: script
+
+### What went wrong
+- Committed `schema.jsonld` uses `[REDACTED]` placeholders (secret-scan); publish script previously uploaded placeholders into WP meta.
+- Related durable ask already open as INC-20261014-0930.
+
+### How the agent recovered this run
+- Extended `scripts/excalibur_blog_wp_publish.py` with `expand_schema_redacted()` (PUBLIC_SITE_URL/CATALOG_URL/TELEGRAM_URL/MAX_URL) at payload load; disk schema stays redacted.
+
+### Durable fix needed before next run
+- Document expand-on-publish in schema/publish skills + pitfalls; keep runtime expand in publish script (partially done this run).
+- Close or merge with INC-20261014-0930 after docs catch up.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261014-0941-indexer-llms-blog-path-mismatch
 status: open
 run_date: 2026-10-14

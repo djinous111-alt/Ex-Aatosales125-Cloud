@@ -1,13 +1,13 @@
 # Promotion checklist — B01 kak-zakazat-avto-iz-kitaya-pod-klyuch-2026
 
 Дата публикации: 2026-10-14  
-Live URL: [REDACTED]/blog/kak-zakazat-avto-iz-kitaya-pod-klyuch-2026/
+Live URL: [REDACTED]/2026/09/30/kak-zakazat-avto-iz-kitaya-pod-klyuch-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • До перевода: договор на р/с, VIN/критерии, схема экспорта
 • С 2026 у «свежих» авто до 180 дней в КНР часто нужна справка завода
 
-Читать: [REDACTED]/blog/kak-zakazat-avto-iz-kitaya-pod-klyuch-2026/
+Читать: [REDACTED]/2026/09/30/kak-zakazat-avto-iz-kitaya-pod-klyuch-2026/
 ```
 
 ## Перелинковка
@@ -45,6 +45,6 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 ## Notes
 
-- Indexer: interlinker `--apply --article-dir ... --site-base [REDACTED]` — 0 links applied.
-- llms.txt / llms-full.txt обновлены в `memory/blog/` (site-name «Авто-Сейлс»; B01 в индексе).
-- Publish ещё не выполнен — live URL и соцпосты после WP.
+- WP post_id **3843**; featured **4169**; inline **4170/4171/4172**; schema_meta ok; skip_theme_faq=1.
+- Indexer: interlinker `--apply` — 0 links applied (pre-publish).
+- llms.txt / llms-full.txt обновлены в `memory/blog/` (B01 в индексе).

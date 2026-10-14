@@ -24,6 +24,7 @@ category: script
 ### How the agent recovered this run
 - GEO QA не правил `article.html` (FAIL + FIX-список Writer).
 - Зафиксировал blocker в `article-qa.md` и handoff; cover/schema не запускались.
+- Перед коммитом отчётов: отфильтровали невалидные имена в `CLOUD_AGENT_INJECTED_SECRET_NAMES`; в `link-verify.json` значение `PUBLIC_SITE_URL` заменено на `https://EXAMPLE_PUBLIC_SITE`.
 
 ### Durable fix needed before next run
 - Добавить в `memory/brief/editorial-policy.json` непустые `pain_markers_ru` и `outcome_markers_ru` (согласовать с маркерами human-voice / editorial-utility-only) и при необходимости `min_pain_markers` / `min_outcome_markers` в `article_required_signals`.

@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-1712-research-accessed-at-tech-false-positive
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-prokhodnye-avto-iz-yaponii-2026
+severity: low
+category: script
+
+### What went wrong
+- First `excalibur_blog_research_notes_gate.py` run BLOCK: `accessed_at` counted only frontmatter (`accessed_at:`) while markdown table used bare dates in an `accessed_at` column without the `accessed_at:` token.
+- Gate also flagged `technical_topic: true` on a non-tech auto-import topic (false positive from TECH_MARKERS substring `ии` matching ordinary Russian words), producing a misleading official-docs warning.
+
+### How the agent recovered this run
+- Rewrote source_table cells to include literal `accessed_at: 2026-10-15`; gate PASS.
+- Kept GitHub evidence URLs; ignored non-blocking docs warning.
+
+### Durable fix needed before next run
+- Document or auto-normalize: research-notes gate should count table column `accessed_at` dates, or research skill must require `accessed_at:` token in every source row.
+- Narrow `is_technical_topic` markers: drop bare `ии` or require word-boundary / topic-field-only matching so RU auto topics are not marked technical.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py` (`accessed_count`, `TECH_MARKERS`, `is_technical_topic`)
+- `.cursor/skills/excalibur-research/SKILL.md` (source_table format example)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261015-1705-scout-precommit-secret-name
 status: open
 run_date: 2026-10-15

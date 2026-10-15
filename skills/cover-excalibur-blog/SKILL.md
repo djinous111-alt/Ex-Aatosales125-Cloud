@@ -59,7 +59,7 @@ inject <figure> after H2 in article.html
 **Lock (reference i2i):** только лицо и очки с `blog-hero-reference.png`.  
 **Одежда (обязательно менять):** под **погоду** сцены (снег/дождь/жара/туман/ночь) и **тему** статьи (порт, таможня, Encar, салон, ямы/комфорт и т.д.). Майку с reference не копировать.  
 **Запрет:** кепка, капюшон.  
-**Footer / угол обложки:** `@Djinous` (или `t.me/Djinous`).  
+**Footer / угол обложки:** сайт каталога `avto-sales125.ru` (не Telegram).  
 **Стиль:** hyper-realistic action selfie + плашка (blueprint Avto-Sales).
 
 ---
@@ -68,8 +68,8 @@ inject <figure> after H2 in article.html
 
 Из `cover-design-code.json`:
 
-1. Fake UI: карточка авто, отзывы 2GIS, Encar/аукцион, чеклист документов  
-   **Угол обложки:** `@Djinous` (или `t.me/Djinous`)  
+1. Fake UI: карточка каталога, отзывы 2GIS, Encar/аукцион, чеклист документов  
+   **Угол обложки:** `avto-sales125.ru` (каталог), не Telegram  
    **Запрещено на картинках:** Wordstat, Вордстат, Metrika, Метрика, SEO analytics
 2. DIY: torn paper, scotch tape, sticky notes, marker arrows
 3. Highlight: маркер на ключевом слове hook

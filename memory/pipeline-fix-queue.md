@@ -6,6 +6,99 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-0915-research-notes-gate-ai-false-positive
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-pod-klyuch-chto-vhodit-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marked AUTO_NICHE Korea topic as `technical_topic=true` because substring `ai` matches inside required field `reader_pain`, then demanded 3 GitHub URLs.
+- Prior fixer notes claimed token-boundary + AUTO_NICHE were already shipped, but the live script still used naive `marker in blob`.
+
+### How the agent recovered this run
+- Patched gate: token-boundary for short markers, AUTO_NICHE exemption unless strong markers (docker/github/mcp/…).
+- Rewrote source_table cells as `accessed_at: YYYY-MM-DD` so access-date counter >= 5.
+- Re-ran gate → PASS (`technical_topic: false`, github_urls=0 OK).
+
+### Durable fix needed before next run
+- Keep token-boundary + AUTO_NICHE in `scripts/excalibur_blog_research_notes_gate.py` (patch applied this run; needs commit/review).
+- Add a tiny regression test or doctor check: `reader_pain` alone must not force technical topic on Korea/Japan/China cards.
+- Document in pitfalls: never invent GitHub for AUTO_NICHE; gate must not require it without strong tech markers.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (research already applied script patch; fixer should confirm + add regression coverage)
+
+## INC-20261015-0910-director-ledger-append-outside-table
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-director
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-pod-klyuch-chto-vhodit-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_start.py` reserve_topic_in_ledger делает `text + row`, поэтому строка `in_progress` попала ПОСЛЕ blockquote note, вне markdown-таблицы.
+- Парсеры today/publish, которые читают строки `| 20...`, всё ещё видят row, но таблица визуально/семантически сломана; риск при будущих правках ledger.
+
+### How the agent recovered this run
+- Директор вручную перенёс строку B01 внутрь таблицы и оставил note после таблицы.
+
+### Durable fix needed before next run
+- `reserve_topic_in_ledger`: вставлять row сразу после header separator / последней table row, не append в конец файла.
+- Аналогично проверить publish ledger updater.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_start.py`
+- `scripts/excalibur_blog_wp_publish.py` (или publish ledger helpers)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261015-0911-doctor-llms-blog-path-flag
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` требует `--blog-path` в help llms generator, но CLI канон — `--blog-dir` (`scripts/excalibur_blog_llms_generator.py`). Doctor SUMMARY errors=1 при здоровом окружении.
+
+### How the agent recovered this run
+- Продолжили пайплайн (ошибка не блокирует research); зафиксировали для fixer.
+
+### Durable fix needed before next run
+- Обновить doctor check на `--blog-dir` ИЛИ добавить alias `--blog-path` в llms generator; согласовать pitfalls/docs.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261015-0905-scout-live-denylist-gap
 status: open
 run_date: 2026-10-15

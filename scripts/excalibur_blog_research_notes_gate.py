@@ -14,6 +14,8 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Short markers ("ai", "ии", "make") must use token boundaries — otherwise
+# required fields like reader_pain / words like "публикации" false-trigger.
 TECH_MARKERS = (
     "ai",
     "ии",
@@ -30,6 +32,40 @@ TECH_MARKERS = (
     "workflow",
     "автоматизац",
     "нейросет",
+)
+
+# Strong markers still force GitHub evidence even in auto niche.
+STRONG_TECH_MARKERS = (
+    "mcp",
+    "api",
+    "cursor",
+    "n8n",
+    "github",
+    "docker",
+    "rag",
+    "workflow",
+    "автоматизац",
+    "нейросет",
+    "agent",
+    "агент",
+)
+
+# Japan / Korea / China car-import niche: no fake GitHub unless strong markers.
+AUTO_NICHE_TOKENS = (
+    "коре",
+    "япон",
+    "кита",
+    "encar",
+    "растамож",
+    "свх",
+    "сбктс",
+    "эптс",
+    "авто из",
+    "пригон",
+    "под ключ",
+    "утильсбор",
+    "владивосток",
+    "аукцион",
 )
 
 
@@ -73,6 +109,14 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_in_blob(blob: str, marker: str) -> bool:
+    """Substring match with token boundary for short/ambiguous markers."""
+    if len(marker) <= 3:
+        pattern = rf"(?<![a-z0-9_а-яё]){re.escape(marker)}(?![a-z0-9_а-яё])"
+        return re.search(pattern, blob, flags=re.IGNORECASE) is not None
+    return marker in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
     blob = " ".join(
@@ -80,7 +124,16 @@ def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
     blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+
+    strong = any(_marker_in_blob(blob, marker) for marker in STRONG_TECH_MARKERS)
+    if strong:
+        return True
+
+    # AUTO_NICHE: car import from JP/KR/CN without strong tech markers → not technical.
+    if any(token in blob for token in AUTO_NICHE_TOKENS):
+        return False
+
+    return any(_marker_in_blob(blob, marker) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:

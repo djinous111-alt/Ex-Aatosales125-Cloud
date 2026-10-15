@@ -15,6 +15,8 @@
 
 - Перед пайплайном: `python3 scripts/excalibur_blog_today.py` и `python3 scripts/excalibur_blog_research_start.py --topic-id …`.
 - Если `EXCALIBUR_RUN_DATE` нет в выводе today.py — старая ветка/код, **блокер**.
+- Research-notes gate: short tech markers (`ai`, `ии`, `make`) только с token-boundary; AUTO_NICHE (Корея/Япония/Китай, Encar, СВХ…) не требует GitHub, пока нет strong markers (`docker`, `github`, `mcp`, …). Не выдумывать GitHub под авто-нишу.
+- В `source_table` пиши ячейки как `accessed_at: YYYY-MM-DD` (счётчик gate ищет `accessed_at:`), не голую дату.
 
 ## Publish
 
@@ -39,9 +41,9 @@
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
 
-## Scout
+## Scout / Wordstat
 
-- Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal / soft-pass, не fatal.
 
 ## Indexer
 

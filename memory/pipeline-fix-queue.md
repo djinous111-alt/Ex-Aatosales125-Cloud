@@ -90,7 +90,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `python3 scripts/excalibur_blog_llms_generator.py --help` shows --blog-dir/--redact-site-base
 - `rg` no instructional `--blog-path /` in indexer agent/skill shell examples
-commit: pending-parent-commit
+commit: 37ac1bd..28e1592
 
 ## INC-20261015-1340-cover-mcp-32001-kie-recovery
 status: fixed
@@ -138,7 +138,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` Kie-first / -32001 guidance in cover skill + mcp-image-async-contract
-commit: pending-parent-commit
+commit: 37ac1bd..28e1592
 
 ## INC-20261015-1335-schema-public-url-secret-scan-commit
 status: fixed
@@ -184,7 +184,7 @@ files_changed:
 checks_run:
 - filter dry-run drops [REDACTED]/CATALOG_URL/TELEGRAM_URL/PUBLIC_SITE_URL
 - doctor errors=0 (filter script exists)
-commit: pending-parent-commit
+commit: 37ac1bd..28e1592
 
 ## INC-20261015-1331-geo-qa-typed-task-unavailable
 status: fixed
@@ -230,7 +230,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` geo-qa generalPurpose штатный путь in AGENTS.md / pitfalls / director
-commit: pending-parent-commit
+commit: 37ac1bd..28e1592
 
 ## INC-20261015-1331-geo-qa-utility-pain-outcome-markers-missing
 status: fixed
@@ -284,7 +284,7 @@ checks_run:
 - doctor pain/outcome non-empty OK
 - `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
 - JSON parse editorial-policy.json
-commit: pending-parent-commit
+commit: 37ac1bd..28e1592
 
 ## INC-20261015-1321-writer-cta-secret-scan-commit
 status: fixed
@@ -331,7 +331,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - filter dry-run excludes CATALOG_URL/TELEGRAM_URL
-commit: pending-parent-commit
+commit: 37ac1bd..28e1592
 
 
 ## INC-20261015-1315-research-wordstat-empty-payload
@@ -375,7 +375,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` soft-fail / totalCount in research skill + pitfalls
-commit: pending-parent-commit
+commit: 37ac1bd..28e1592
 
 ## INC-20261015-1308-scout-precommit-redacted-secret-name
 status: fixed
@@ -422,7 +422,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - filter dry-run: [REDACTED] dropped, OK_NAME kept
-commit: pending-parent-commit
+commit: 37ac1bd..28e1592
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

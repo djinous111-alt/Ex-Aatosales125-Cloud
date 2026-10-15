@@ -1,0 +1,17 @@
+{
+  "source": "memory/blog/articles/B01-avto-iz-korei-pod-klyuch-chto-vhodit-2026/article.html",
+  "total_links": 1,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "https://t.me/Djinous",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

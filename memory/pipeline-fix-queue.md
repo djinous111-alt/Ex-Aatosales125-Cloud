@@ -6,6 +6,71 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-0922-geo-qa-typed-task-missing
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-pod-klyuch-chto-vhodit-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Cloud Agent Task enum не принимает typed role `excalibur-blog-geo-qa` (и соседние excalibur-blog-* roles) как Task type.
+- Директор вынужден запускать GEO QA через `Task(generalPurpose)` fallback с путями `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Выполнен штатный generalPurpose fallback: контракты прочитаны, все QA-скрипты/gates прогнаны, article-qa.md и handoff-блок `=== EXCALIBUR BLOG GEO QA ===` записаны.
+
+### Durable fix needed before next run
+- Зафиксировать в Cloud/automation docs и director skill, что при отсутствии typed enum штатный путь — отдельный `Task(generalPurpose)` на роль geo-qa (один Task = одна роль), не single-agent pipeline.
+- Если Cloud enum расширят — вернуть typed `excalibur-blog-geo-qa`; до тех пор pitfalls/director должны явно перечислять generalPurpose fallback.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `AGENTS.md` / `CLOUD-AUTOMATION.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261015-0923-geo-qa-utility-pain-outcome-policy-gap
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-pod-klyuch-chto-vhodit-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` считает `pain_markers_ru` / `outcome_markers_ru` из policy и требует min 2 / 3 (defaults), но в `memory/brief/editorial-policy.json` этих ключей нет → списки пустые → count всегда 0 → любая статья получает BLOCK по pain/outcome независимо от текста.
+- Отдельно: recommendation markers не включают «делать»/«не делать» и «чек-лист» (с дефисом), хотя writer-контракт использует именно эти формы → action_markers занижены при живом utility-тексте.
+
+### How the agent recovered this run
+- Не правили article.html (зона writer). Зафиксировали FAIL в article-qa.md + точечный FIX для writer (Fact Check wording + imperative markers). Сообщили директору: cover||schema blocked; utility pain/outcome требует fixer policy patch.
+
+### Durable fix needed before next run
+- Добавить в `editorial-policy.json` `pain_markers_ru` и `outcome_markers_ru` (согласовать с маркерами human-voice gate) + при необходимости `min_pain_markers` / `min_outcome_markers` в `article_required_signals`.
+- Расширить `recommendation_markers_ru`: `чек-лист`, `делать`, `не делать` (или обновить writer skill требовать только «сделайте/не делайте/чеклист»).
+- Регрессия: прогон utility gate на AS09/B01 после patch должен быть достижим без пустых marker lists.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261015-0915-research-notes-gate-ai-false-positive
 status: open
 run_date: 2026-10-15

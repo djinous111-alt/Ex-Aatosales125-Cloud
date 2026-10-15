@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Год в листе ≠ проходной",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у аукционного листа и календаря возраста, японский седан, плашка про год в листе, угол avto-sales125.ru",
+      "scene_hint": "reference face + glasses ONLY; CHANGE outfit to October Vladivostok port weather: dark waterproof rain jacket over hoodie layer, no cap no hood up; action selfie at foggy port with modern Japanese sedan silhouette; fake auction sheet scrap (год/месяц/оценка) taped with scotch; sticky calendar note «дата декларации»; torn paper hook plaque with yellow highlight on «≠»; shocked face meme cutout; small corner brand avto-sales125.ru; NO Wordstat NO Metrika NO toxic slang on image",
+      "meme_caption_ru": "Месяц решает всё"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разведите два смысла слова \"проходной\"",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean 16:9 comparison table UI mock: колонки «Возраст 3–5 лет» vs «Прямой вывоз из Японии» vs «Утиль ~160 л.с.»; rows что проверять / где смотреть; tape corner + mini sticky «два чекбокса»; NO hero face; Cyrillic labels only",
+      "alt": "Таблица двух смыслов «проходной»: возраст, вывоз, утиль"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Посчитайте возраст на дату декларации, а не на день лота",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Horizontal workflow diagram 16:9: ставка → выкуп → море → СВХ Владивосток → декларация; calendar icons show months passing; arrow to «возраст считают здесь»; subtle sticky note «не день лота»; NO hero face",
+      "alt": "Схема: возраст на дату декларации, путь от ставки до Владивостока"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сверьте годы и месяцы на октябрь 2026",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board UI October 2026: 2022 целиком в окне; 2021 и 2023 — проверить месяц; checkboxes кузов/месяц/мощность; auction VIN month tip; tape + yellow marker; NO hero face; Cyrillic only",
+      "alt": "Чеклист годов и месяцев проходных авто на октябрь 2026"
+    }
+  }
+}

@@ -39,6 +39,34 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20261015-0906-scout-precommit-redacted-secret-name
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in pre-commit secrets scanner: `CLOUD_AGENT_INJECTED_SECRET_NAMES` содержал литерал `[REDACTED]` (невалидное bash-имя), из-за чего `${!SECRET_NAME}` падал с `invalid variable name`.
+
+### How the agent recovered this run
+- Перед commit отфильтровал SECRET_NAMES до валидных bash identifiers и повторил commit+push без `--no-verify`.
+
+### Durable fix needed before next run
+- Не инжектить placeholder `[REDACTED]` в `CLOUD_AGENT_INJECTED_SECRET_NAMES`; pre-commit должен skip невалидные имена.
+
+### Suggested files to inspect/change
+- Cloud Secrets / agent env injection
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (platform)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

@@ -35,6 +35,14 @@ PUBLISH_ENV_KEYS = {
 }
 
 
+def _strip_env_value(value: str) -> str:
+    """Strip surrounding quotes so bash-sourceable site.env.local stays Python-safe."""
+    value = value.strip()
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:
+        return value[1:-1]
+    return value
+
+
 def _read_env_file(path: Path) -> dict[str, str]:
     env: dict[str, str] = {}
     if not path.is_file():
@@ -43,11 +51,13 @@ def _read_env_file(path: Path) -> dict[str, str]:
         line = line.strip()
         if "=" in line and not line.startswith("#"):
             k, v = line.split("=", 1)
-            env[k.strip()] = v.strip()
+            env[k.strip()] = _strip_env_value(v)
     return env
 
 
 def load_env(root: Path) -> dict[str, str]:
+    # Prefer process env (Cloud Secrets); site.env.local is optional overlay.
+    # If writing site.env.local for bash `source`, single-quote values with special chars.
     env = _read_env_file(root / "memory/site.env.local")
     for key in PUBLISH_ENV_KEYS:
         value = os.environ.get(key)
@@ -55,6 +65,8 @@ def load_env(root: Path) -> dict[str, str]:
             env[key] = value
     if not env.get("SSH_PASS") and env.get("SSH_PASSWORD"):
         env["SSH_PASS"] = env["SSH_PASSWORD"]
+    if not (env.get("SSH_ROOT") or "").strip():
+        env["SSH_ROOT"] = "."
     return env
 
 

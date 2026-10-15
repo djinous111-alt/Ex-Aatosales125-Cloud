@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None — all 2026-10-15 B01 run incidents closed by fixer._
+
+## Recently fixed (2026-10-15)
+
 ## INC-20261015-1741-publish-paramiko-env-quote
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-publish
 topic_id: B01
@@ -40,10 +44,27 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- paramiko + numpy added to `.cursor/cloud-agent-install.sh` pip install; doctor checks paramiko.
+- Publish/doctor strip surrounding quotes from site.env.local; empty SSH_ROOT defaults to `.`; process env preferred over file.
+- Publish skill/pitfalls document single-quoted env values and SSH_ROOT=`.`.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `bash .cursor/cloud-agent-install.sh`
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 warnings=0
+- unit: `_strip_env_value` quote strip
+commit: pending-parent-commit
 
 ## INC-20261015-1738-indexer-llms-cli-stale-flags
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-indexer
 topic_id: B01
@@ -79,10 +100,29 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- Doctor asserts `--blog-dir` and warns if stale `--blog-path` appears; no longer requires `--blog-path`.
+- Indexer agent/skill CLI examples use `--blog-dir` + `--site-base ""` for llms; interlinker `--redact-site-base` / auto-redact absolute bases in JSON.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `scripts/excalibur_blog_llms_generator.py` (CLI verified)
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py`
+- `python3 scripts/excalibur_blog_llms_generator.py --help`
+- `python3 scripts/excalibur_blog_interlinker.py --help` + redact smoke
+- `rg` no stale `--blog-path` in contracts
+commit: pending-parent-commit
 
 ## INC-20261015-1730-schema-precommit-public-urls
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-schema
 topic_id: B01
@@ -117,11 +157,27 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- Added `scripts/excalibur_blog_filter_commit_secret_env.sh` to drop invalid names + public marketing URL secrets before commit.
+- Cloud install hardens `pre-commit.cursor` to skip non-identifiers and PUBLIC_SITE_URL/CATALOG_URL/TELEGRAM_URL/MAX_URL.
+- Schema/cover skills document filter-before-commit; pitfalls updated.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `.cursor/cloud-agent-install.sh`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"`
+- `bash .cursor/cloud-agent-install.sh` hardened hook marker
+commit: pending-parent-commit
 
 ## INC-20261015-1725-geo-qa-utility-pain-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -152,10 +208,27 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- Utility gate fail-fast when pain/outcome lists empty while mins > 0; still skips min enforce only when lists non-empty.
+- Doctor checks editorial-policy pain/outcome lists non-empty; policy already synced with human-voice markers.
+- Writer contract forbids `href="[REDACTED]"` before link-verify.
+files_changed:
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `memory/brief/editorial-policy.json`
+- `shared/excalibur-article-writing-contract.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` (policy markers OK)
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
+commit: pending-parent-commit
 
 ## INC-20261015-1712-research-accessed-at-tech-false-positive
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-research
 topic_id: B01
@@ -183,10 +256,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- `count_accessed_at` accepts `accessed_at:` tokens OR ISO dates in source-table URL rows.
+- TECH markers: ambiguous tokens need word boundaries; auto-niche (Япония/Корея/Китай) not forced technical; bare `ии` no longer substring-matches ordinary RU words.
+- Research skill documents source_table formats.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir memory/blog/articles/B01-prokhodnye-avto-iz-yaponii-2026` → PASS technical_topic=False
+- unit: is_technical_topic auto-niche False; count_accessed_at bare ISO ≥5
+commit: pending-parent-commit
 
 ## INC-20261015-1705-scout-precommit-secret-name
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-scout
 topic_id: B01
@@ -213,7 +300,19 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- Filter script + install-time harden of pre-commit.cursor skip non-identifier secret names before `${!SECRET_NAME}` expansion.
+- Documented in pitfalls: always eval filter script before git commit in Cloud.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `.cursor/cloud-agent-install.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"`
+- hook contains EXCALIBUR_SECRET_SCAN_HARDENED
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

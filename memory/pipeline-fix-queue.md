@@ -511,3 +511,39 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261015-0946-indexer-llms-site-url-secret-scan
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-pod-klyuch-chto-vhodit-2026
+severity: medium
+category: publish
+
+### What went wrong
+- `excalibur_blog_llms_generator.py --site-base "$PUBLIC_SITE_URL"` embeds the live site base into `memory/blog/llms.txt` and `llms-full.txt`.
+- Cursor pre-commit secret-scan blocks commit when `PUBLIC_SITE_URL` is a configured secret (same class as prior publish/schema redaction).
+- Indexer skill still documents `--site-base ${PUBLIC_SITE_URL}` without a commit-safe redaction step.
+
+### How the agent recovered this run
+- Generated with live `--site-base` for correctness of local/runtime index.
+- Replaced live site base with `[REDACTED]` in `llms.txt`, `llms-full.txt`, and `interlink-suggestions.json` before commit (matches schema/publish repo policy).
+- Also reused known `CLOUD_AGENT_INJECTED_SECRET_NAMES` filter (valid bash ids only) from INC-20261015-0906.
+
+### Durable fix needed before next run
+- Indexer skill: after llms generate, redact site base to `[REDACTED]` for committed copies OR add `--site-base-commit [REDACTED]` / `--redact-site-base` flag to the generator.
+- Document that committed `memory/blog/llms*.txt` must not contain live `PUBLIC_SITE_URL` while secret-scan treats it as secret.
+- Optionally align interlinker report `site_base` the same way.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_llms_generator.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

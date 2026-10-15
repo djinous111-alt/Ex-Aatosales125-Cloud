@@ -25,10 +25,10 @@
           "@type": "Organization",
           "name": "Авто-Сейлс",
           "alternateName": "AVTO SALES",
-          "url": "https://avtosales125.ru/"
+          "url": "https://avto-sales125.ru/"
         },
         "sameAs": [
-          "https://avtosales125.ru/",
+          "https://avto-sales125.ru/",
           "https://avto-sales125.ru/",
           "https://t.me/avtosales125",
           "https://max.ru/id2508140890_biz",
@@ -41,7 +41,7 @@
         "@id": "https://avtosales125.ru/#organization",
         "name": "Авто-Сейлс",
         "alternateName": "AVTO SALES",
-        "url": "https://avtosales125.ru/",
+        "url": "https://avto-sales125.ru/",
         "sameAs": [
           "https://avto-sales125.ru/",
           "https://t.me/avtosales125"
@@ -200,7 +200,7 @@
           "@type": "HowToStep",
           "position": 8,
           "name": "Передать проверку подборщику при отсутствии доступа",
-          "text": "Если нет доступа к корейским базам – уйдите в каталог avto-sales125.ru или Telegram @avtosales125 за проверкой до оплаты, без форм на странице статьи.",
+          "text": "Если нет доступа к корейским базам – уйдите в каталог avto-sales125.ru или Telegram avtosales125 за проверкой до оплаты, без форм на странице статьи.",
           "url": "https://avtosales125.ru/trust-encar-carhistory-proverka-do-depozita/#что-дальше"
         }
       ]

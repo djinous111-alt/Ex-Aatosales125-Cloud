@@ -1,15 +1,16 @@
 # Promotion checklist — B01 otsledit-avto-iz-yaponii-rolker-2026
 
-Дата публикации: 2026-10-15 (план; publish ещё не выполнен)  
-Live URL: /blog/otsledit-avto-iz-yaponii-rolker-2026/
+Дата публикации: 2026-10-15  
+Live URL: [REDACTED]/2026/10/15/otsledit-avto-iz-yaponii-rolker-2026/  
+WP post_id: 4221
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
-- [ ] View source — JSON-LD BlogPosting + FAQPage (+ HowTo)
-- [ ] Проверить internal links из статьи (200)
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200; featured 4222; inline 4223–4225)
+- [ ] View source — JSON-LD BlogPosting + FAQPage (+ HowTo) — schema_meta uploaded; visual check pending
+- [x] Проверить internal links из статьи (200) — preflight link-verify pass
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
 
 ## Соцсети / каналы (из conversion-tracking-map)
@@ -29,7 +30,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Без коносамента кабинет логиста часто пустой — это нормально на этапе
 • Сами сверьте рейс в AIS (MarineTraffic / VesselFinder)
 
-Читать: /blog/otsledit-avto-iz-yaponii-rolker-2026/
+Читать: [REDACTED]/2026/10/15/otsledit-avto-iz-yaponii-rolker-2026/
 ```
 
 ## Перелинковка
@@ -46,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 ## Notes
 
 - Indexer: interlink opportunities_found=0; llms.txt + llms-full.txt regenerated in memory/blog/
-- GEO QA PASS (score 87); cover+schema ready; publish next
+- GEO QA PASS (score 87); published WP 4221; featured 4222; inline 4223/4224/4225; schema_meta ok

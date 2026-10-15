@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-1350-publish-paramiko-missing-boot
+status: fixed
+run_date: 2026-10-15
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-otsledit-avto-iz-yaponii-rolker-2026
+severity: medium
+category: env
+
+### What went wrong
+- Boot environment lacked `paramiko` required by SSH publish transport.
+- `SSH_ROOT` unset in Cloud Secrets (needed `.` for this host login cwd).
+
+### How the agent recovered this run
+- `python3 -m pip install --break-system-packages paramiko`
+- Exported `SSH_ROOT=.` for the publish process; upload OK to `./excalibur-blog-publish-once.php`
+
+### Durable fix needed before next run
+- Ensure `.cursor/cloud-agent-install.sh` / `requirements.txt` install installs `paramiko` on every boot.
+- Set `SSH_ROOT=.` in Cloud Secrets for this site.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `scripts/excalibur_blog_wp_publish.py` (fallback wait already bumped 120→300)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- fixed in-publish: `.cursor/cloud-agent-install.sh` now installs `paramiko`; fallback wait in `excalibur_blog_wp_publish.py` set to 300s. `SSH_ROOT=.` still needs Cloud Secrets (human).
+
 ## INC-20261015-1345-indexer-llms-blog-path-stale-contract
 status: open
 run_date: 2026-10-15

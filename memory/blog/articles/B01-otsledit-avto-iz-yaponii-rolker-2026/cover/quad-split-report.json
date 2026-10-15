@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-otsledit-avto-iz-yaponii-rolker-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1280,
+      715
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 715,
+        "end": 740
+      },
+      "v_gutter_px": {
+        "start": 1280,
+        "end": 1317
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 4,
+          "top": 0,
+          "right": 1275,
+          "bottom": 715
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1280,
+          "bottom": 715
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у ролкера во Владивостоке со смартфоном и треком судна, плашка «отследить авто»",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1317,
+          "top": 8,
+          "right": 2560,
+          "bottom": 707
+        },
+        "raw_box_px": {
+          "left": 1317,
+          "top": 0,
+          "right": 2560,
+          "bottom": 715
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица из 5 полей трека авто: кузов, B/L, судно, порт, ETA до и после погрузки",
+        "h2_anchor": "Соберите 5 полей у посредника до и после погрузки"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 18,
+          "top": 740,
+          "right": 1262,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 740,
+          "right": 1280,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: история авто и трек доставки по кузову — две разные линии",
+        "h2_anchor": "Разведите историю авто и трек доставки по кузову"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1317,
+          "top": 740,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1317,
+          "top": 740,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист: без коносамента B/L статус доставки часто пустой",
+        "h2_anchor": "Дождитесь коносамента: без B/L статус часто пустой"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Соберите 5 полей у посредника до и после погрузки",
+    "injected inline_2 after H2 — Разведите историю авто и трек доставки по кузову",
+    "injected inline_3 after H2 — Дождитесь коносамента: без B/L статус часто пустой"
+  ]
+}

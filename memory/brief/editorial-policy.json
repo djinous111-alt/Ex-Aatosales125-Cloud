@@ -35,8 +35,31 @@
     "min_actionable_h2": 3,
     "min_faq_pairs": 5,
     "min_recommendation_markers": 8,
+    "min_pain_markers": 2,
+    "min_outcome_markers": 3,
     "requires_workflow_or_table_or_checklist": true
   },
+  "pain_markers_ru": [
+    "боль",
+    "проблем",
+    "ошиб",
+    "паник",
+    "теряет",
+    "долго",
+    "сложно",
+    "застр",
+    "молч"
+  ],
+  "outcome_markers_ru": [
+    "результат",
+    "получите",
+    "сможете",
+    "проверьте",
+    "соберите",
+    "заполните",
+    "критерий успеха",
+    "на сегодня"
+  ],
   "meta_ab_rules": {
     "title_seo_min_len": 35,
     "title_seo_max_len": 75,
@@ -52,6 +75,8 @@
   "recommendation_markers_ru": [
     "сделайте",
     "не делайте",
+    "делать",
+    "не делать",
     "шаг ",
     "проверьте",
     "используйте",

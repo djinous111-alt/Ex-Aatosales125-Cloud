@@ -15,7 +15,7 @@
 4. **ОФОРМЛЕНИЕ ТЕКСТА (БЕЗ ДЛИННЫХ ТИРЕ И ЁЛОЧЕК):** Запрещено использовать длинные тире («—») и кавычки-ёлочки (««», «»»). Всегда используй среднее тире («–») или обычный дефис («-»), а вместо кавычек-ёлочек — стандартные прямые двойные кавычки («"`»).
 5. Hook 350–500 символов: боль → ответ → **что сделает читатель**.
 6.  Минимум **5** нумерованных шагов `<ol>` + workflow (`→`) или таблица.
-7. Каждый H2: рекомендация «делать / не делать».
+7. Каждый H2: рекомендация **«Сделайте / Не делайте»** (императив; инфинитив «делать / не делать» допустим, но слабее для utility gate).
 8. Body 8 500–9 500 знаков, FAQ 5–7 пар — **ответы-действия**, **один** блок `<h2>Частые вопросы</h2>` (без второго FAQ).
 9. `article.meta.json`: `article_mode: B`, `char_count`, `meta_ab` с A/B/AEO оптимизацией:
    - `title_seo`: 35–75 симв, точный `primary_query` в начале + триггер.
@@ -36,6 +36,18 @@
 memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
+
+
+## Utility markers + commit
+
+- В каждом H2 предпочитай императив **«Сделайте / Не делайте»** (и «проверьте», «чеклист») — так проходит `min_recommendation_markers` из `memory/brief/editorial-policy.json`. Инфинитив «делать / не делать» тоже матчится, но хуже набирает счётчик.
+- Lead обязан содержать маркеры боли (`pain_markers_ru`); до FAQ — маркеры результата (`outcome_markers_ru`).
+- Public CTA (`CATALOG_URL` / `TELEGRAM_URL`) в HTML — норма. Перед `git commit`:
+  ```bash
+  eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+  git commit ...
+  ```
+  Не добавляй HTML `pragma: allowlist secret` (ломает RSS/Дзен).
 
 ## Blockers
 

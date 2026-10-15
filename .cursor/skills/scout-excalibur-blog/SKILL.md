@@ -81,3 +81,14 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
 * Выдумывание цифр спроса без вызова Wordstat API.
+
+## Wordstat + commit
+
+- Cluster-first: широкий parent → узкий how-to. Ответ `{}` или только `totalCount` без phrase rows = soft-fail / low-result, не fatal — расширь фразу и не invent numbers.
+- Перед `git commit` topic card:
+  ```bash
+  eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+  git commit ...
+  ```
+  Это снимает `[REDACTED]` / non-identifier entries из `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+

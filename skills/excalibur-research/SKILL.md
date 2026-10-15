@@ -52,6 +52,18 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
   - Для анализа конкурентов в SERP **всегда используй инструмент `WebSearch`**. Ищи статьи, руководства, гайды по `primary_query` и ключевым словам в Яндексе и Google.
   - Игнорируй сырой `research-serp.json` из шага 0, если он пуст, неполный или нерелевантный. Твой собственный поиск через `WebSearch` — приоритетный источник свежих данных 2026 года.
 
+
+## Wordstat empty / partial payload (soft-fail)
+
+MCP `wordstat_get_top_requests` иногда возвращает `{}` или `{ "totalCount": "N" }` без строк фраз — особенно на узкий logistics jargon рядом с живым parent cluster.
+
+Правила:
+
+1. Cluster-first: parent → sibling seeds → узкий how-to.
+2. Пустой/`totalCount`-only = soft-fail: один retry sibling/parent; в notes зафиксируй phrase + shape payload.
+3. В таблицу спроса пиши **только** verified impression counts; не invent LSI volumes.
+4. Primary может быть живым при пустых adjacent — это не research blocker, если parent/primary documented.
+
 ## Правила
 
 1. **Сначала** `excalibur_blog_research_start.py` (шаг 0) — для валидации даты/года и utility-gate темы.

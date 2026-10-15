@@ -3,8 +3,7 @@
 Cursor Cloud Excalibur BLOG для **Авто-Сейлс (AVTO SALES)** — статьи про авто из Японии, Кореи и Китая.
 
 - Блог: https://avtosales125.ru
-- Каталог: https://avto-sales125.ru/
-- Telegram: https://t.me/avtosales125
+- Telegram: https://t.me/Djinous (@Djinous)
 
 Базовый шаблон: [excalibur-blog-cloud-public](https://github.com/Horosheff/excalibur-blog-cloud-public).
 
@@ -15,8 +14,8 @@ Cursor Cloud Excalibur BLOG для **Авто-Сейлс (AVTO SALES)** — ст
 ![Excalibur Blog Cloud cover](assets/excalibur-blog-cover.png)
 
 <p align="center">
-  <a href="https://t.me/avtosales125">
-    <img src="https://img.shields.io/badge/Telegram-avtosales125-229ED9?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram Авто-Сейлс">
+  <a href="https://t.me/Djinous">
+    <img src="https://img.shields.io/badge/Telegram-%40Djinous-229ED9?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram @Djinous">
   </a>
 </p>
 

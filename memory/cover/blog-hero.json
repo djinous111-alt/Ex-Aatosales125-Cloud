@@ -28,24 +28,23 @@
     "office_docs_customs": "рубашка / лёгкий пиджак smart casual"
   },
   "topic_outfit_hint": "Сначала определи weather из scene_hint/cover_hook (снег, дождь, солнце, туман, ночь), затем подстрой одежду под тему (порт, аукцион, салон авто, ямы на дороге, семья).",
-  "prompt_fragment": "AVTO SALES blog host from first reference image: keep EXACT face likeness and stylish glasses ONLY; CHANGE full outfit to match scene WEATHER and ARTICLE TOPIC (winter coat in snow, rain jacket in rain, light shirt in summer heat, smart casual for customs/docs, casual for comfort/suspension road scenes); DO NOT copy reference t-shirt; NO cap NO hood; photorealistic action selfie 24mm wide-angle; funny/serious reaction; modern cars from Japan/Korea/China when cars appear; Cyrillic headline plaque; subtle catalog site footer in corner: avto-sales125.ru (NOT Telegram).",
+  "prompt_fragment": "AVTO SALES blog host from first reference image: keep EXACT face likeness and stylish glasses ONLY; CHANGE full outfit to match scene WEATHER and ARTICLE TOPIC (winter coat in snow, rain jacket in rain, light shirt in summer heat, smart casual for customs/docs, casual for comfort/suspension road scenes); DO NOT copy reference t-shirt; NO cap NO hood; photorealistic action selfie 24mm wide-angle; funny/serious reaction; modern cars from Japan/Korea/China when cars appear; Cyrillic headline plaque; subtle corner footer text: @Djinous (or t.me/Djinous).",
   "cover_hook_rules": [
     "Обложка = крючок про боль выбора авто / таможню / Азию",
     "Короткий русский заголовок на красивой плашке (не весь H1)",
-    "Угол обложки (футер): мелкий сайт каталога avto-sales125.ru — НЕ Telegram",
+    "Угол обложки (футер): мелкий текст @Djinous (или t.me/Djinous)",
     "Одежда героя = погода сцены + тема статьи (обязательно менять)",
     "Фон и сцена из категорий blueprint: авторынок vs заказ, путь машины, радость получения, технологии vs реальность",
     "Если на фоне авто — только современный автомобиль",
     "16:9, 8k photoreal, без иллюстраций и латиницы на картинке"
   ],
   "cover_corner_brand": {
-    "type": "catalog_url",
-    "text": "avto-sales125.ru",
-    "url": "https://avto-sales125.ru/",
-    "placement": "corner_footer",
-    "forbidden_on_cover_corner": ["Telegram", "@avtosales125", "t.me"]
+    "type": "telegram",
+    "text": "@Djinous",
+    "url": "https://t.me/Djinous",
+    "placement": "corner_footer"
   },
-  "cover_prompt_example_ru": "Дизайнерский фотореалистичный баннер/обложка для Avto-Sales: привоз авто из Китая, Кореи, Японии; герой с первого референса — лицо то же, одежду сменить под погоду и тему; в углу обложки сайт каталога avto-sales125.ru (не Telegram); без кепки; смешной и стильный; красивые шрифты.",
+  "cover_prompt_example_ru": "Дизайнерский фотореалистичный баннер/обложка для Avto-Sales: привоз авто из Китая, Кореи, Японии; герой с первого референса — лицо то же, одежду сменить под погоду и тему; в углу обложки @Djinous; без кепки; смешной и стильный; красивые шрифты.",
   "reference_url_hosted": "http://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
   "reference_url_source": "avtosales125.ru",
   "reference_url_updated_at": "2026-07-17T00:00:00+00:00"

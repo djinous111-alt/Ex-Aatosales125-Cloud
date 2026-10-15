@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-1308-scout-precommit-redacted-secret-name
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in pre-commit hook with `[REDACTED]: invalid variable name` because `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained the literal token `[REDACTED]` (not a valid shell identifier).
+- Automation memory referenced a filter script / INC-20261015-0906, but neither the script nor that incident block was present in the repo at scout runtime.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to alphanumeric/underscore names only, then re-ran `git commit` successfully for the B01 topic card.
+
+### Durable fix needed before next run
+- Add a repo script (for example `scripts/excalibur_blog_filter_commit_secret_env.sh`) that strips non-identifier entries from `CLOUD_AGENT_INJECTED_SECRET_NAMES` before commit hooks.
+- Document the one-liner filter in Scout/Director preflight and `shared/agent-pipeline-pitfalls.md`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_filter_commit_secret_env.sh` (create)
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

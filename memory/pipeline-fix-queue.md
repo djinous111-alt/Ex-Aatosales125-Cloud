@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-1345-indexer-llms-blog-path-stale-contract
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-otsledit-avto-iz-yaponii-rolker-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Doctor fails: expects `llms generator supports --blog-path`, but `excalibur_blog_llms_generator.py --help` exposes only `--blog-dir` (no `--blog-path`, no `--redact-site-base`).
+- Indexer agent/skill shell examples still pass `--blog-path /`, which would exit with argparse error if followed literally.
+- Preflight already noted the mismatch; Indexer had to omit `--blog-path` and run with `--blog-dir` only.
+
+### How the agent recovered this run
+- Ran `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base "$PUBLIC_SITE_URL" --out-dir memory/blog` without `--blog-path`.
+- Interlinker and llms generation completed; promotion checklist written.
+
+### Durable fix needed before next run
+- Align doctor check to actual CLI: assert `--blog-dir` (remove or invert the `--blog-path` expectation).
+- Strip `--blog-path /` from indexer agent + skill shell examples; document `--blog-dir` + `--out-dir` only.
+- Optionally add `--blog-path` as a no-op/deprecated alias if callers still need it — prefer docs/doctor fix over dead flag.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261015-1340-cover-mcp-32001-kie-recovery
 status: open
 run_date: 2026-10-15

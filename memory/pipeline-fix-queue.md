@@ -6,6 +6,136 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-2104-scout-stale-ai-niche-prompt
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: high
+category: prompt
+
+### What went wrong
+- `.cursor/agents/excalibur-blog-scout.md` и `.cursor/skills/scout-excalibur-blog/SKILL.md` всё ещё задают нишу Cursor/Make/n8n/AI-агентов, тогда как `memory/brief/site-brief.md` канонически описывает Авто-Сейлс (пригон/растаможка/азия).
+- Без явного override в задаче Scout рискует генерировать P0 вне ниши сайта.
+
+### How the agent recovered this run
+- Следовал `site-brief.md` и явному запрету на AI-темы в задаче Director; сгенерировал B01 про доставку из Владивостока.
+
+### Durable fix needed before next run
+- Переписать scout agent + skill под нишу Авто-Сейлс: кластеры Япония/Корея/Китай, СВХ, утиль, документы, логистика Владивосток; убрать AI/Cursor/Make приоритеты.
+- В WebSearch/Wordstat примерах skill указать автомобильные parent/how-to запросы.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md` (если зеркало)
+- `shared/editorial-utility-only.md` (аудитория новичка в нише Авто-Сейлс)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261015-2104-scout-helper-as-ids-blind
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py` парсит пул тем только regex `##\s+(B\d+)`, поэтому AS01–AS09 в `blog-topics.md` невидимы: `--suggest-next` печатает `Total topics in pool: 0`, `--check-query` не ловит overlap с AS*.
+- Каннибализация против live denylist и AS-карточек пришлось проверять вручную.
+
+### How the agent recovered this run
+- Сверил кандидата с live WP denylist и AS01–AS09 вручную; `--check-query` использовал как доп. сигнал только для B*-пула.
+
+### Durable fix needed before next run
+- Расширить парсер topic_id до `(AS|B)\d+` (или общий `[A-Z]+\d+`) для load/check/suggest.
+- В `--check-query` учитывать primary_query/slug из AS-пула и опционально slug из `shared/published-articles.md`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261015-2104-scout-wordstat-fetch-retry
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: low
+category: api
+
+### What went wrong
+- Первый параллельный вызов MCP-KV `wordstat_get_top_requests` для «доставка авто из владивостока» и «эптс на авто» вернул `HTTP MCP tool execution failed: fetch failed`.
+- Повторный вызов тех же/смежных фраз прошёл успешно.
+
+### How the agent recovered this run
+- Retry тех же parent-запросов; узкий «доставка авто из владивостока жд или автовоз» дал low-result `totalCount=1` без списка фраз — использован parent-хвост (не fatal).
+
+### Durable fix needed before next run
+- В scout skill зафиксировать: при fetch failed — один retry; low-result на узком how-to = signal, не blocker.
+- Опционально: backoff/сериализация Wordstat-вызовов вместо параллельного burst.
+
+### Suggested files to inspect/change
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261015-2102-director-doctor-llms-flag
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `python3 scripts/excalibur_blog_doctor.py` returned SUMMARY errors=1: `FAIL llms generator supports --blog-path`.
+- Actual CLI of `scripts/excalibur_blog_llms_generator.py` exposes `--blog-dir`, not `--blog-path`.
+- Doctor check at `scripts/excalibur_blog_doctor.py` still asserts `"--blog-path" in llms_help.stdout`, so every Cloud run starts with a false-positive doctor error.
+
+### How the agent recovered this run
+- Continued pipeline after confirming generator `--help` lists `--blog-dir` and publish/SSH env are OK.
+- Logged incident for fixer; did not invent `--blog-path` alias in this preflight step.
+
+### Durable fix needed before next run
+- Align doctor check with actual CLI: assert `--blog-dir` (or support both flags in generator and document one canonical name).
+- Keep indexer/docs on the same flag name to avoid Cloud argparse mismatches.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

@@ -57,3 +57,7 @@ Scout-агент ищет горячие и свежие инфоповоды п
 
 ## Skill
 `skills/scout-excalibur-blog/SKILL.md` · `shared/editorial-utility-only.md`
+
+## Pre-commit
+
+Перед `git commit`: `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"` — снимает `[REDACTED]`/non-identifier из `CLOUD_AGENT_*_SECRET_NAMES`.

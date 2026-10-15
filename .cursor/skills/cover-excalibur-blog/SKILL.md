@@ -17,7 +17,7 @@ quad-manifest.json (agent fills hooks + scene_hint)
        ↓
 quad-mcp-batch.json (1 job, input_urls)
        ↓
-ONE MCP gpt-image-2 i2i → canvas-quad.png 2048×1152
+ONE image job (Kie async preferred; sync MCP only if async tools exist) → canvas-quad.png 2048×1152
        ↓
 split → cover.png + inline-01..03.png (1200×675)
        ↓
@@ -122,12 +122,35 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — image generation (Cloud: Kie-first)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+**Preferred (Cursor Cloud):** direct Kie async API — avoids sync MCP client timeout `-32001` on 2K i2i.
+
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+Requires `KIE_API_KEY`. Writes `cover/quad-mcp-result.json` (compatible with apply).
+
+**Legacy / only if async MCP start+status tools exist:** one sync `gpt-image-2` call max.
+
+Если sync MCP вернул HTTP `-32001` Request timed out:
+
+1. Не создавай второй image job вслепую (no blind retry sync create).
+2. Проверь expanded MCP/Cloud logs на URL или task_id; если URL есть — сохрани в `cover/quad-mcp-result.json` и иди в apply.
+3. Если URL/task_id нет — **сразу** Kie async script выше (тот же `quad-mcp-batch.json`).
+4. Blocker только если и async Kie недоступен / нет `KIE_API_KEY`.
 
 Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+
+### Cloud git commit (secret-scan)
+
+```bash
+eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+# or: eval "$(bash scripts/excalibur_blog_sanitize_secret_names.sh --export)"
+git commit ...
+```
 
 ### Шаг 5 — apply
 
@@ -163,7 +186,7 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 
 ## QA перед ✅
 
-- [ ] 1 MCP, не 4
+- [ ] 1 image job (Kie или MCP), не 4
 - [ ] input_urls в MCP
 - [ ] cover.png + 3 inline существуют
 - [ ] alt в registry для всех 4

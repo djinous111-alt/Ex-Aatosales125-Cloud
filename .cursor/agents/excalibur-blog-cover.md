@@ -10,7 +10,7 @@ is_background: false
 
 ## Роль
 
-Cover-агент генерирует **один** quad-холст 2×2 (MCP `gpt-image-2` + reference i2i), режет на `cover.png` + 3 inline, вставляет `<figure>` в `article.html`.
+Cover-агент генерирует **один** quad-холст 2×2 (Cloud: **Kie async first** via `excalibur_blog_kie_gpt_image2_api.py`; sync MCP `gpt-image-2` только fallback, max 1 попытка, после `-32001` без blind retry), режет на `cover.png` + 3 inline, вставляет `<figure>` в `article.html`.
 
 **Skill (читать первым):** `skills/cover-excalibur-blog/SKILL.md`  
 **Контракт:** `shared/blog-cover-quad-canvas-contract.md`  
@@ -46,7 +46,7 @@ Cover-агент генерирует **один** quad-холст 2×2 (MCP `gp
 
 ## Жёсткие правила
 
-1. **ONE MCP** — один холст 2×2. **Запрещено** 4 отдельных вызова.
+1. **ONE image job** — один холст 2×2 (Kie preferred). **Запрещено** 4 отдельных вызова.
 2. MCP **обязан** иметь `input_urls: [reference_url_hosted]` (Image to Image).
 3. **Cover (top-left):** reference **лицо**; **одежда/поза** — на усмотрение агента в `scene_hint`.
 4. **Design code:** `memory/cover/cover-design-code.json` — fake скрины, стикеры, скотч, мемы, «сделал человек», **16:9**.
@@ -207,3 +207,9 @@ summary: ...
 - `memory/cover/quad-style-digital-meme-collage-ru.json`
 - `shared/blog-visual-pipeline-contract.md` → redirect на quad contract
 
+## Commit
+
+```bash
+eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+git commit ...
+```

@@ -82,7 +82,7 @@ BlogPosting: yes | FAQPage: yes (7) | HowTo: yes (чеклисты) | Review: no
 
 ## FIX (non-blocking / optional)
 
-1. **Ept02:** после URL AS01–AS08 на `avtosales125.ru` — 2–3 internal links с `anchor_variants`.
+1. **Ept02:** после URL AS01–AS08 на опубликованных постах — 2–3 internal links с `anchor_variants`.
 2. **fact-check soft:** KRW 2,200 / 1996 — дописать в fact-bank для verified.
 3. **slop over-long:** артефакт таблицы; правки не критичны.
 

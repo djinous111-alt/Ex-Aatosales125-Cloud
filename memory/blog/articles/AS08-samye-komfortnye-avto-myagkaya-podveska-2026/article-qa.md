@@ -51,7 +51,7 @@
 
 ## FIX (non-blocking / optional for next cycle)
 
-1. **Ept02:** после появления/известных URL AS01–AS07 на `avtosales125.ru` — добавить 2–3 internal links с `anchor_variants` (не блокирует PASS).
+1. **Ept02:** после появления/известных URL AS01–AS07 на опубликованных постах — добавить 2–3 internal links с `anchor_variants` (не блокирует PASS).
 2. **fact-check soft:** клиренс 200/210 мм — уже в research-notes; при желании дописать в fact-bank для полного verified.
 3. **slop WARNING:** over-long в основном артефакт таблиц; правки не критичны.
 

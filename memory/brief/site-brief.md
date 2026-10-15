@@ -6,7 +6,7 @@ Excalibur BLOG читает этот файл для метаданных сай
 
 - **site_name:** Авто-Сейлс
 - **brand:** AVTO SALES / Avto-Sales
-- **site_url:** https://avtosales125.ru
+- **site_url:** хост публикации только в PUBLIC_SITE_URL; в текст, CTA и обложки не копировать
 - **blog_path:** /
 - **catalog_url:** https://avto-sales125.ru/
 - **language:** ru

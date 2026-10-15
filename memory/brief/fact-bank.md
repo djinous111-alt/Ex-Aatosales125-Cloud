@@ -6,7 +6,7 @@
 | --- | --- | --- | --- |
 | Компания Авто-Сейлс (Avto-Sales) занимается привозом автомобилей под заказ из Японии, Кореи и Китая | brief / blueprint Make | 2026-07 | да |
 | Офис: г. Владивосток, Днепровская 40а, строение 4 | NAP / blueprint | 2026-07 | да |
-| Блог: https://avtosales125.ru/ | сайт | 2026-07 | да |
+| Блог публикуется в WordPress через PUBLIC_SITE_URL; домен блога в текст статьи не писать | редакционная политика | 2026-10 | да |
 | Каталог: https://avto-sales125.ru/ | blueprint | 2026-07 | да |
 | Telegram: https://t.me/avtosales125 (Telegram avtosales125) | blueprint | 2026-07 | да |
 | MAX: https://max.ru/id2508140890_biz | blueprint | 2026-07 | да |

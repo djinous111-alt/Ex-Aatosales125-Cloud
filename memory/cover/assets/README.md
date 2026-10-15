@@ -2,7 +2,7 @@
 
 | Файл | Роль | URL источника |
 | --- | --- | --- |
-| blog-hero-reference.png | Герой (лицо lock; одежда = погода + тема) | http://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png |
+| blog-hero-reference.png | Герой (лицо lock; одежда = погода + тема) | `blog-hero.json` → `reference_url_hosted` (медиа WordPress, не текст обложки) |
 | style-ref-cover-01.jpg | Стиль плашки / композиции | https://i.pinimg.com/1200x/9c/52/0e/9c520e71056f936329a0980b52d383ed.jpg |
 | style-ref-cover-02.jpg | Доп. стиль обложки | https://i.pinimg.com/736x/f5/d8/37/f5d837f70cf9a502245348efb3d48773.jpg |
 

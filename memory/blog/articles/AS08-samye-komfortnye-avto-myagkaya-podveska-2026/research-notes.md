@@ -105,7 +105,7 @@
 | 11 | Владелец Toyota Highlander (Drom): пружинная подвеска мягкая, «глотает кочки», хорошо держит убитые дороги даже на 20" дисках; при этом крены заметные | https://www.drom.ru/reviews/toyota/highlander/1454293/ |
 | 12 | Toyota Land Cruiser Prado (офиц. дилер): регулируемая адаптивная подвеска, Multi-terrain Select под тип покрытия | https://toyota-vnukovo.ru/toyota/land-cruiser-prado/about |
 | 13 | Сравнение рынков 2026: Япония – сильна кроссоверами и минивэнами (RAV4, Harrier, Prado, Noah/Alphard); Корея – левый руль, Tucson/Santa Fe/Sorento; Китай – новые кроссоверы Haval/Geely/Changan и сильный EV-сегмент | https://priority-auto.ru/blog/yaponiya-koreya-ili-kitay-otkuda-vezti-avto-vygodnee/ |
-| 14 | Авто-Сейлс: привоз под заказ из Японии/Кореи/Китая; блог https://avtosales125.ru/; каталог https://avto-sales125.ru/; Telegram https://t.me/avtosales125; офис Владивосток, Днепровская 40а стр. 4 | memory/brief/fact-bank.md, site-brief.md |
+| 14 | Авто-Сейлс: привоз под заказ из Японии/Кореи/Китая; каталог https://avto-sales125.ru/; Telegram https://t.me/avtosales125; офис Владивосток, Днепровская 40а стр. 4 | memory/brief/fact-bank.md, site-brief.md |
 | 15 | Тема в топе Дзена по PV (комфортные авто / мягкая подвеска) – сигнал приоритета контента, не прайс | fact-bank.md / Метрика 109566711 |
 
 **Не использовать в статье без перепроверки:** чужие «средние чеки» и суммы доставки из конкурентных блогов; статичные калькуляторы пошлин.

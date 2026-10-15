@@ -6,7 +6,7 @@
     "wordstat_region": 225,
     "zen_feed": "data/zen-feed.xml"
   },
-  "methodology": "Приоритет = доказанный CTR Дзена (Метрика) + спрос Wordstat + пробел по Корее + конверсия в каталог (процесс/доверие/сравнение). Без калькуляторов с суммами и без форм — CTA в avtosales125.ru.",
+  "methodology": "Приоритет = доказанный CTR Дзена (Метрика) + спрос Wordstat + пробел по Корее + конверсия в каталог (процесс/доверие/сравнение). Без калькуляторов с суммами и без форм — CTA в каталог avto-sales125.ru и Telegram https://t.me/avtosales125.",
   "distribution": {
     "korea": 38,
     "china": 32,
@@ -113,6 +113,6 @@
     {"rank": 97, "country": "korea", "priority": "P4", "format": "доверие", "title": "Корейское авто после ДТП: как читаем историю ремонта", "wordstat": 87944, "metrika_signal": "VIN 76 PV", "cta_angle": "экспертиза"},
     {"rank": 98, "country": "china", "priority": "P4", "format": "топ", "title": "Топ-10 китайских кроссоверов с АКПП на 2026", "wordstat": 14102, "metrika_signal": "123 PV топ-10", "cta_angle": "кроссоверы"},
     {"rank": 99, "country": "cross", "priority": "P4", "format": "доверие", "title": "Осмотр авто при получении с автовоза: чек-лист для клиента", "wordstat": 68731, "metrika_signal": "89 PV", "cta_angle": "приёмка"},
-    {"rank": 100, "country": "cross", "priority": "P4", "format": "сценарий", "title": "Авто под заказ без формы на сайте: как работает честная схема AVTO SALES", "wordstat": 87944, "metrika_signal": "доверие/процесс", "cta_angle": "каталог avtosales125.ru"}
+    {"rank": 100, "country": "cross", "priority": "P4", "format": "сценарий", "title": "Авто под заказ без формы на сайте: как работает честная схема AVTO SALES", "wordstat": 87944, "metrika_signal": "доверие/процесс", "cta_angle": "каталог avto-sales125.ru"}
   ]
 }

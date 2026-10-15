@@ -1,7 +1,7 @@
 # Promotion checklist — AS09 trust-encar-carhistory-proverka-do-depozita
 
 Дата публикации: 2026-07-17  
-Live URL: https://avtosales125.ru/2026/07/17/trust-encar-carhistory-proverka-do-depozita/
+Live URL: /2026/07/17/trust-encar-carhistory-proverka-do-depozita/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • До оплаты: VIN + Performance Check + Carhistory + flood + осмотр
 • Нет пакета — нет перевода
 
-Читать: https://avtosales125.ru/2026/07/17/trust-encar-carhistory-proverka-do-depozita/
+Читать: /2026/07/17/trust-encar-carhistory-proverka-do-depozita/
 ```
 
 ## Перелинковка

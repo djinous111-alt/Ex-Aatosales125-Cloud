@@ -36,7 +36,7 @@ python scripts/excalibur_blog_wp_publish.py \
 
 Excalibur кладёт в `post_content` **один** FAQ по теме (`<h2>Частые вопросы</h2>`).
 
-Тема WordPress на avtosales125.ru может **дописывать** после контента глобальные блоки темы — это **не** часть `article.html`. Тематический FAQ пишет только Excalibur Writer.
+Тема WordPress может **дописывать** после контента глобальные блоки темы — это **не** часть `article.html`. Тематический FAQ пишет только Excalibur Writer.
 
 **Исправление в теме WordPress** (`single.php` или фильтр `the_content`):
 

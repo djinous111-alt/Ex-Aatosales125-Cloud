@@ -2,7 +2,6 @@
 
 Cursor Cloud Excalibur BLOG для **Авто-Сейлс (AVTO SALES)** — статьи про авто из Японии, Кореи и Китая.
 
-- Блог: https://avtosales125.ru
 - Каталог: https://avto-sales125.ru/
 - Telegram avtosales125: https://t.me/avtosales125
 

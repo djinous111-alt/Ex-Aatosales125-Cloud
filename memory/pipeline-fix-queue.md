@@ -57,7 +57,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` Kie recovery wording in cover skill + mcp contract
-commit: pending-parent-commit
+commit: 50b5f2c
 
 ## INC-20261015-0922-geo-qa-typed-task-missing
 status: fixed
@@ -102,7 +102,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` generalPurpose/geo-qa fallback wording in AGENTS.md + director skill
-commit: pending-parent-commit
+commit: 50b5f2c
 
 ## INC-20261015-0923-geo-qa-utility-pain-outcome-policy-gap
 status: fixed
@@ -150,7 +150,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` (errors=0)
 - JSON parse editorial-policy.json
-commit: pending-parent-commit
+commit: 50b5f2c
 
 ## INC-20261015-0915-research-notes-gate-ai-false-positive
 status: fixed
@@ -196,7 +196,7 @@ files_changed:
 checks_run:
 - doctor AUTO_NICHE FP check OK
 - inline is_technical_topic assertion
-commit: pending-parent-commit
+commit: 50b5f2c
 
 ## INC-20261015-0910-director-ledger-append-outside-table
 status: fixed
@@ -239,7 +239,7 @@ files_changed:
 checks_run:
 - python unit check insert before blockquote note
 - py_compile
-commit: pending-parent-commit
+commit: 50b5f2c
 
 ## INC-20261015-0911-doctor-llms-blog-path-flag
 status: fixed
@@ -278,7 +278,7 @@ files_changed:
 - `skills/indexer-excalibur-blog/SKILL.md`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` errors=0
-commit: pending-parent-commit
+commit: 50b5f2c
 
 ## INC-20261015-0905-scout-live-denylist-gap
 status: fixed
@@ -326,7 +326,7 @@ files_changed:
 checks_run:
 - check-query exact live slug → CRITICAL OVERLAP exit 1
 - unique query → CLEAN exit 0
-commit: pending-parent-commit
+commit: 50b5f2c
 
 ## INC-20261015-0906-scout-precommit-redacted-secret-name
 status: fixed
@@ -365,7 +365,7 @@ files_changed:
 checks_run:
 - script exists + bash syntax via write
 - pitfalls rg for sanitize/invalid variable
-commit: pending-parent-commit
+commit: 50b5f2c
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -417,7 +417,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: 50b5f2c
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -468,7 +468,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: 50b5f2c
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -509,7 +509,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: 50b5f2c
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -556,7 +556,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: 50b5f2c
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -610,7 +610,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: 50b5f2c
 
 ## Fixed incidents
 
@@ -663,7 +663,7 @@ files_changed:
 checks_run:
 - `--help` shows --blog-dir and --redact-site-base
 - doctor --blog-dir OK
-commit: pending-parent-commit
+commit: 50b5f2c
 
 ## INC-20261015-0954-publish-fallback-wait-timeout
 status: fixed
@@ -714,4 +714,4 @@ files_changed:
 checks_run:
 - `rg` FALLBACK_TRIGGER_URL / 300 in wp_publish.py + publish skill
 - py_compile
-commit: pending-parent-commit
+commit: 50b5f2c

@@ -467,30 +467,49 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
+def _bootstrap_output_ok(out: str) -> bool:
+    return "OK post=" in (out or "")
+
+
 def trigger_bootstrap_http(url: str, root: Path) -> str:
     try:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=180,
         ) as response:
-            return response.read().decode("utf-8", errors="replace")
+            out = response.read().decode("utf-8", errors="replace")
+            if _bootstrap_output_ok(out):
+                return out
+            print(
+                "WARN HTTP trigger returned body without OK post=; "
+                "entering Cloud WebFetch Fallback mode...",
+                file=sys.stderr,
+            )
     except Exception as e:
         print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
-        print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
-        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
-        fallback_file = root / "memory" / "webfetch-response.txt"
-        fallback_file.unlink(missing_ok=True)
-        import time
+    print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
+    print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
+    print("NOTE: nginx 504/HTML is not success — keep retrying until body contains OK post=.")
+    fallback_file = root / "memory" / "webfetch-response.txt"
+    fallback_file.unlink(missing_ok=True)
+    import time
 
-        for _ in range(120):
-            if fallback_file.is_file():
-                out = fallback_file.read_text(encoding="utf-8")
-                fallback_file.unlink()
+    for _ in range(300):
+        if fallback_file.is_file():
+            out = fallback_file.read_text(encoding="utf-8")
+            fallback_file.unlink(missing_ok=True)
+            if _bootstrap_output_ok(out):
                 print("Cloud response detected successfully!")
                 return out
-            time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+            preview = " ".join(out.split())[:160]
+            print(
+                f"WARN fallback body has no OK post= (ignored): {preview!r}. "
+                "Waiting for a valid response...",
+                file=sys.stderr,
+            )
+        time.sleep(1)
+    raise RuntimeError("Cloud WebFetch Fallback timed out after 300 seconds. Please trigger manually.")
 
 
 def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:

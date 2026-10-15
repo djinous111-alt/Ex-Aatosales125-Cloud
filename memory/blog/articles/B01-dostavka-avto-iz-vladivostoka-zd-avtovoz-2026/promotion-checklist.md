@@ -1,7 +1,7 @@
 # Promotion checklist — B01 dostavka-avto-iz-vladivostoka-zd-avtovoz-2026
 
-Дата публикации: 2026-10-16 (planned)  
-Live URL: (после publish) /blog/dostavka-avto-iz-vladivostoka-zd-avtovoz-2026/
+Дата публикации: 2026-10-16  
+Live URL: [REDACTED]/2026/10/16/dostavka-avto-iz-vladivostoka-zd-avtovoz-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • чек-лист сдачи: фотоакт, договор, страховка
 • стоп-правило против «попутного места»
 
-Читать: [URL после publish]
+Читать: [REDACTED]/2026/10/16/dostavka-avto-iz-vladivostoka-zd-avtovoz-2026/
 ```
 
 ## Перелинковка

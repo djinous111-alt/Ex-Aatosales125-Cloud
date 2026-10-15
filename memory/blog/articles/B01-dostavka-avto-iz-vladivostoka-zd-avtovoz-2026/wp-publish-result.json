@@ -1,0 +1,19 @@
+{
+  "slug": "dostavka-avto-iz-vladivostoka-zd-avtovoz-2026",
+  "topic_id": "B01",
+  "permalink": "[REDACTED]/2026/10/16/dostavka-avto-iz-vladivostoka-zd-avtovoz-2026/",
+  "publish_method": "ssh+http-timeout-reconstruct",
+  "post_id": 4233,
+  "featured_image": 4240,
+  "inline_images": [4241, 4242, 4243],
+  "schema_meta": true,
+  "skip_theme_faq_meta": true,
+  "head_status": 200,
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-dostavka-avto-iz-vladivostoka-zd-avtovoz-2026/cover/cover.png",
+    "source": "existing_file"
+  },
+  "raw_output": "OK post=4233 slug=dostavka-avto-iz-vladivostoka-zd-avtovoz-2026\nOK featured_image=4240\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4241 src=cover/inline-01.png\nOK inline_image_upload=4242 src=cover/inline-02.png\nOK inline_image_upload=4243 src=cover/inline-03.png\npermalink=[REDACTED]/2026/10/16/dostavka-avto-iz-vladivostoka-zd-avtovoz-2026/\n",
+  "verdict": "pass",
+  "notes": "Client HTTP trigger timed out; nginx fallback returned 504. Post/media/schema confirmed via WP REST + SSH meta-check. NEW slug — not a republish of denylist IDs 4227/4221/4209/etc. Orphan media 4234-4237 from first partial run left in Media Library."
+}

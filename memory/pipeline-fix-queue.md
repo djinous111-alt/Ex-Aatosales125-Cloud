@@ -655,6 +655,49 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+
+## INC-20261015-2151-publish-http504-reconstruct
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-dostavka-avto-iz-vladivostoka-zd-avtovoz-2026
+severity: medium
+category: publish
+
+### What went wrong
+- SSH bootstrap upload OK (~6.6MB), but local HTTP trigger hit client TimeoutError before `OK post=` body returned.
+- Curl WebFetch fallback against `excalibur-blog-publish-once.php` returned nginx **504 Gateway Time-out** HTML (not success).
+- Publish script process used 120s fallback wait (patch to 300s raced in parallel with process start) and raised RuntimeError; `wp-publish-result.json` was not written by the script.
+- Pipeline `| tee` hid non-zero Python exit (`EXIT=0` from tee).
+- Missing `memory/site.env.local` at boot (Cloud Secrets only in process env); `paramiko` missing until pip install.
+
+### How the agent recovered this run
+- Confirmed NEW slug via WP REST: post **4233**, featured **4240**, content inlines **4241/4242/4243**, HEAD **200**.
+- SSH one-shot meta-check: `_excalibur_blog_schema_jsonld` present (FAQPage+HowTo+BlogPosting), `_excalibur_blog_skip_theme_faq=1`.
+- Reconstructed `wp-publish-result.json`, ledger `published`, wp-publish-log, promotion Live URL, handoff PUBLISH + PIPELINE DONE.
+- Hardened `trigger_bootstrap_http`: primary timeout 180s; fallback wait 300s; ignore 504/HTML without literal `OK post=`.
+
+### Durable fix needed before next run
+- Keep fallback acceptance gated on `OK post=` (done in script this run); add REST slug recovery helper when HTTP/fallback lose the body but post exists.
+- Ensure `paramiko` in cloud install (`.cursor/cloud-agent-install.sh` / requirements).
+- Auto-materialize `memory/site.env.local` from Cloud Secrets at boot (quoted values; `SSH_ROOT=.`).
+- Run publish with `set -o pipefail` (or no `| tee`) so failures are not masked.
+- Theme still emits RankMath BlogPosting JSON-LD on live HTML; confirm `single.php` echoes `_excalibur_blog_schema_jsonld` (FAQPage/HowTo) — meta is stored but theme graph may not include FAQPage.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `skills/publish-excalibur-blog/SKILL.md`
+- theme `single.php` (remote WP)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

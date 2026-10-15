@@ -1,0 +1,143 @@
+{
+  "article": "memory/blog/articles/B01-dostavka-avto-iz-vladivostoka-zd-avtovoz-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "warning",
+  "total_extracted_facts": 19,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 17,
+  "facts": [
+    {
+      "fact": "167 700 руб",
+      "kind": "price_or_currency",
+      "context": "она часто тает: в кейсе Т–Ж весь путь вышел около 167 700 руб. при автовозе около 180 000 руб., плюс почти 9 00",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180 000 руб",
+      "kind": "price_or_currency",
+      "context": "путь вышел около 167 700 руб. при автовозе около 180 000 руб., плюс почти 9 000 км пробега и риск бензинового",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ние трёх способов доставки авто из Владивостока в 2026 и чек-лист до передачи ключей. После чтения выбере",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "30 дней",
+      "kind": "metric_or_duration",
+      "context": "од ключ до Владивостока\", порадовался сроку около 30 дней – и только потом увидел, что до дома ещё две-три",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "40 дней",
+      "kind": "metric_or_duration",
+      "context": "75 тысяч руб. за компакт при общем сроке часто 20–40 дней. К пути добавляют ожидание погрузки и выдачу. Кри",
+      "verified": true,
+      "reason": "Numerical value '40' matched in fact-bank context"
+    },
+    {
+      "fact": "3 недель",
+      "kind": "metric_or_duration",
+      "context": "нер нередко 12–21; общий срок часто 20–40 около 2–3 недель живой езды Цена-ориентир Вл–Москва примерно 145–2",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "15 дней",
+      "kind": "metric_or_duration",
+      "context": "ждать \"как получится\". Ожидание погрузки часто 5–15 дней, иногда от двух недель. В календарь семьи заклады",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "45 дней",
+      "kind": "metric_or_duration",
+      "context": "ель. В календарь семьи закладывайте общий срок 20–45 дней, а не только \"18 дней в пути\". Делать: запрашиват",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "18 дней",
+      "kind": "metric_or_duration",
+      "context": "закладывайте общий срок 20–45 дней, а не только \"18 дней в пути\". Делать: запрашивать дату рейса, страховк",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "200",
+      "kind": "large_number",
+      "context": "увидел, что до дома ещё две-три недели и ещё 150–200 тысяч. Взял дешёвое последнее место на открытом ав",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "167 700",
+      "kind": "large_number",
+      "context": "она часто тает: в кейсе Т–Ж весь путь вышел около 167 700 руб. при автовозе около 180 000 руб., плюс почти 9",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180 000",
+      "kind": "large_number",
+      "context": "путь вышел около 167 700 руб. при автовозе около 180 000 руб., плюс почти 9 000 км пробега и риск бензиново",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "9 000",
+      "kind": "large_number",
+      "context": "руб. при автовозе около 180 000 руб., плюс почти 9 000 км пробега и риск бензинового дефицита лета 2026.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "9 128",
+      "kind": "large_number",
+      "context": "бариты и город). Маршрут Владивосток–Москва около 9 128 км. Автовоз в пути часто 18–22 дня, прайсы часто о",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "145",
+      "kind": "large_number",
+      "context": "в пути часто 18–22 дня, прайсы часто от примерно 145 до 220 тысяч руб. по классу. Ж/д-контейнер у крупн",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "220",
+      "kind": "large_number",
+      "context": "часто 18–22 дня, прайсы часто от примерно 145 до 220 тысяч руб. по классу. Ж/д-контейнер у крупных опер",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "175",
+      "kind": "large_number",
+      "context": "Ж/д-контейнер у крупных операторов – от примерно 175 тысяч руб. за компакт при общем сроке часто 20–40",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "167",
+      "kind": "large_number",
+      "context": "тыс. по габаритам топливо + жильё + время; кейс ~167 тыс. Сохранность кузова открытый – риск сколов; кр",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "255",
+      "kind": "large_number",
+      "context": "026 идут вилками по габаритам (ориентир от 175 до 255 тыс. руб. на Москву) – это рынок, не прайс Авто-Се",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

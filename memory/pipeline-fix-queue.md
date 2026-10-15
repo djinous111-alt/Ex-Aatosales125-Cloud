@@ -6,6 +6,77 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-2125-geo-qa-typed-task-missing-cloud-enum
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-dostavka-avto-iz-vladivostoka-zd-avtovoz-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud Task enum не принимает typed Task `excalibur-blog-geo-qa`.
+- Director вынужден fallback на `Task(generalPurpose)` с путями `.cursor/agents/excalibur-blog-geo-qa.md` + skill.
+
+### How the agent recovered this run
+- GEO QA выполнен через generalPurpose fallback по контракту AGENTS.md / CLOUD-AUTOMATION.
+- Все QA-скрипты, article-qa PASS, human-voice PASS завершены в этом режиме.
+
+### Durable fix needed before next run
+- Добавить `excalibur-blog-geo-qa` (и остальные роли пайплайна) в Cloud Task type enum / automation Task map.
+- Пока enum не расширен: в director skill явно «сразу generalPurpose», без ретрая typed Task.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/pipeline-task-map.md`
+- `CLOUD-AUTOMATION.md`
+- Cursor Cloud / Automation Task type configuration
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261015-2125-geo-qa-utility-pain-outcome-policy-wiped
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-dostavka-avto-iz-vladivostoka-zd-avtovoz-2026
+severity: high
+category: qa
+
+### What went wrong
+- `memory/brief/editorial-policy.json` снова без `pain_markers_ru` / `outcome_markers_ru` (и без min_*).
+- Utility gate считал pain=0 / outcome=0 и BLOCK даже при живой боли/результате в `article.html` (human-voice уже PASS).
+- Ранее фиксилось коммитами restore (Oct 14–15), но списки снова стёрты на текущей ветке (вероятно rebrand/template sync).
+
+### How the agent recovered this run
+- Восстановил `pain_markers_ru` / `outcome_markers_ru` + `min_pain_markers` / `min_outcome_markers` в editorial-policy.
+- Добавил fail-fast в `scripts/excalibur_blog_utility_gate.py`: пустые списки → явная ошибка policy, не silent 0.
+- Повтор utility gate: PASS (pain 19, outcome 14, action 13).
+
+### Durable fix needed before next run
+- Закрепить non-empty pain/outcome lists в policy + doctor check, что списки существуют.
+- Не затирать маркеры при rebrand/template sync; добавить regression test / doctor assert.
+- Pitfalls QA: пустые pain/outcome lists = false BLOCK.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261015-2112-research-wordstat-mcp-empty-tools
 status: open
 run_date: 2026-10-16

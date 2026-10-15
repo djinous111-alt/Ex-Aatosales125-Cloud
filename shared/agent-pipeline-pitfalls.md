@@ -34,6 +34,8 @@
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
+- `memory/brief/editorial-policy.json` обязан содержать непустые `pain_markers_ru` и `outcome_markers_ru` (+ `min_pain_markers` / `min_outcome_markers`). Пустые списки дают false BLOCK utility gate (pain=0/outcome=0) даже при живой статье — не слать writer FIX, сначала восстановить policy.
+- Typed Task `excalibur-blog-geo-qa` может отсутствовать в Cloud enum → сразу `Task(generalPurpose)` с agent+skill путями.
 
 ## Cover
 

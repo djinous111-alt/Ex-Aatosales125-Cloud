@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-1741-publish-paramiko-env-quote
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-prokhodnye-avto-iz-yaponii-2026
+severity: medium
+category: env
+
+### What went wrong
+- `paramiko` missing in Cloud boot image (ModuleNotFoundError) despite publish requiring SSH transport.
+- Writing `memory/site.env.local` with unquoted `SSH_PASSWORD` broke bash `source` (special chars → `command not found`).
+- Doctor/preflight still assume env file may be absent; Cloud Secrets are in process env but publish skill still expects `site.env.local`.
+
+### How the agent recovered this run
+- `python3 -m pip install --break-system-packages paramiko`
+- Rewrote `memory/site.env.local` with single-quoted values; set `SSH_ROOT=.`
+- Publish succeeded via SSH+HTTP without WebFetch fallback; NEW post 4227 (slug empty on pre-search).
+
+### Durable fix needed before next run
+- Add `paramiko` to `.cursor/cloud-agent-install.sh` / environment install deps (already in requirements.txt — ensure install script installs it).
+- Document quoted `site.env.local` generation helper, or have publish script read os.environ without requiring bash-sourceable file.
+- Keep `SSH_ROOT=.` guidance in pitfalls/publish patterns.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261015-1738-indexer-llms-cli-stale-flags
 status: open
 run_date: 2026-10-15

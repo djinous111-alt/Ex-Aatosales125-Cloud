@@ -1,13 +1,13 @@
 # Promotion checklist — B01 prokhodnye-avto-iz-yaponii-2026
 
 Дата публикации: 2026-10-15  
-Live URL: /blog/prokhodnye-avto-iz-yaponii-2026/ (после publish — фактический permalink WP)
+Live URL: [REDACTED]/2026/10/15/prokhodnye-avto-iz-yaponii-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL (HEAD 200) — title, excerpt, featured image, FAQ
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Октябрь 2026: 2022 обычно в полке; 2021 и 2023 — только по месяцу
 • До ставки: кузов → месяц выпуска → запас 1,5–3 мес на путь
 
-Читать: /blog/prokhodnye-avto-iz-yaponii-2026/
+Читать: [REDACTED]/2026/10/15/prokhodnye-avto-iz-yaponii-2026/
 ```
 
 ## Перелинковка

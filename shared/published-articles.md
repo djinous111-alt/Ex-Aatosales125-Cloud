@@ -4,6 +4,6 @@
 | --- | --- | --- | --- | --- |
 | 2026-07-17 | AS08 | samye-komfortnye-avto-myagkaya-podveska-2026 | [REDACTED]/2026/07/17/samye-komfortnye-avto-myagkaya-podveska-2026/ | published |
 | 2026-07-17 | AS09 | trust-encar-carhistory-proverka-do-depozita | [REDACTED]/2026/07/17/trust-encar-carhistory-proverka-do-depozita/ | published |
-| 2026-10-15 | B01 | avto-iz-korei-pod-klyuch-chto-vhodit-2026 | memory/blog/articles/B01-avto-iz-korei-pod-klyuch-chto-vhodit-2026 | in_progress |
+| 2026-10-15 | B01 | avto-iz-korei-pod-klyuch-chto-vhodit-2026 | [REDACTED]/2026/10/15/avto-iz-korei-pod-klyuch-chto-vhodit-2026/ | published |
 
 > Ledger сброшен при перенастройке под AVTO SALES (2026-07-17).

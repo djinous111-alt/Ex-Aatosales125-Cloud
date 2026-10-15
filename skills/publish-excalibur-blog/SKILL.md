@@ -33,7 +33,7 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 python scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
-  --site-base https://avtosales125.ru
+  --site-base [REDACTED]
 ```
 
 Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
@@ -66,8 +66,8 @@ python scripts/excalibur_blog_wp_publish.py \
 Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
 
 1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+2. Cloud-агент сразу открывает URL через WebFetch/curl (`--max-time 300`) и пишет ответ в `memory/webfetch-response.txt`.
+3. Скрипт ждёт файл до **300s** (было 120s — race на ~7MB payload) и продолжает.
 
 **Не останавливайся** на первом timeout — используй fallback.
 
@@ -86,7 +86,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ```bash
 python scripts/excalibur_blog_interlinker.py --apply \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru
+  --site-base [REDACTED]
 ```
 
 Inbound-ссылки из старых статей на новую.

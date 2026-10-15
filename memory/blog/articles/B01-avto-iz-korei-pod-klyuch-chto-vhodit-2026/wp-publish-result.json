@@ -1,0 +1,27 @@
+{
+  "slug": "avto-iz-korei-pod-klyuch-chto-vhodit-2026",
+  "topic_id": "B01",
+  "post_id": 4209,
+  "featured_image": 4216,
+  "inline_images": [
+    4217,
+    4218,
+    4219
+  ],
+  "schema_meta": 1,
+  "skip_theme_faq_meta": 1,
+  "permalink": "[REDACTED]/2026/10/15/avto-iz-korei-pod-klyuch-chto-vhodit-2026/",
+  "publish_method": "ssh+curl_fallback",
+  "cover_evidence": {
+    "source": "cover/cover.png",
+    "featured_image_id": 4216,
+    "inline_ids": [
+      4217,
+      4218,
+      4219
+    ]
+  },
+  "raw_output": "OK post=4209 slug=avto-iz-korei-pod-klyuch-chto-vhodit-2026\nOK featured_image=4216\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4217 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/10/avto-iz-korei-pod-klyuch-chto-vhodit-2026-inline-01-1.png\nOK inline_image_upload=4218 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/10/avto-iz-korei-pod-klyuch-chto-vhodit-2026-inline-02-1.png\nOK inline_image_upload=4219 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/10/avto-iz-korei-pod-klyuch-chto-vhodit-2026-inline-03-1.png\npermalink=[REDACTED]/2026/10/15/avto-iz-korei-pod-klyuch-chto-vhodit-2026/\n",
+  "verdict": "pass",
+  "note": "Local script timed out waiting for webfetch-response.txt (120s); remote WP publish succeeded; result reconstructed from curl OK output + WP REST verify. Foreign post 4203 untouched."
+}

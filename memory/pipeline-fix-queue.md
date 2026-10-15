@@ -547,3 +547,41 @@ category: publish
 
 ### Fixer resolution
 - pending
+
+## INC-20261015-0954-publish-fallback-wait-timeout
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-avto-iz-korei-pod-klyuch-chto-vhodit-2026
+severity: medium
+category: publish
+
+### What went wrong
+- SSH bootstrap upload OK (~7MB). Local HTTP trigger failed with `RemoteDisconnected`.
+- Script entered WebFetch fallback and waited only **120s** for `memory/webfetch-response.txt`.
+- Agent curl fallback (`--max-time 180`) returned full `OK post=4209` in ~114s, but the local process had already raised `RuntimeError: Cloud WebFetch Fallback timed out after 120 seconds` before consuming the file.
+- Remote WordPress publish actually succeeded; local `wp-publish-result.json` / ledger update were missing until manual reconstruction.
+
+### How the agent recovered this run
+- Used curl against `FALLBACK_TRIGGER_URL` with long timeout; captured `OK post=4209`, featured `4216`, inline `4217/4218/4219`, schema_meta=1.
+- Verified live HEAD 200 and WP REST post 4209 slug `avto-iz-korei-pod-klyuch-chto-vhodit-2026`; confirmed foreign post **4203** (Japan auction) untouched.
+- Wrote `wp-publish-result.json`, updated ledger/log/promotion/handoff from verified OK output.
+- Increased fallback wait in `scripts/excalibur_blog_wp_publish.py` from 120s → **300s**.
+
+### Durable fix needed before next run
+- Keep fallback wait ≥300s for large media payloads (done in this run).
+- Publish skill/memory: start curl/WebFetch **immediately** on `FALLBACK_TRIGGER_URL` (do not wait for HTTP 120s to fully expire before preparing fallback).
+- Optionally raise local HTTP `urlopen` timeout above 120s or treat early RemoteDisconnected as instant fallback.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (fallback wait — patched 120→300)
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (partial: wait increased in-script this run)

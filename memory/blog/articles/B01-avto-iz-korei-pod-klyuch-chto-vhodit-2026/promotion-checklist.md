@@ -1,13 +1,13 @@
 # Promotion checklist — B01 avto-iz-korei-pod-klyuch-chto-vhodit-2026
 
-Дата публикации: 2026-10-15 (план; live после publish)  
-Live URL: /blog/avto-iz-korei-pod-klyuch-chto-vhodit-2026/
+Дата публикации: 2026-10-15  
+Live URL: [REDACTED]/2026/10/15/avto-iz-korei-pod-klyuch-chto-vhodit-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200; post 4209)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • До депозита: фрахт, таможня, СВХ, СБКТС/ЭПТС, доставка по РФ
 • Частая дыра: вывоз в лабораторию и дни на СВХ
 
-Читать: /blog/avto-iz-korei-pod-klyuch-chto-vhodit-2026/
+Читать: [REDACTED]/2026/10/15/avto-iz-korei-pod-klyuch-chto-vhodit-2026/
 ```
 
 ## Перелинковка

@@ -483,14 +483,15 @@ def trigger_bootstrap_http(url: str, root: Path) -> str:
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        # Large ~7MB payloads often need 180–300s for media sideload; 120s races curl/WebFetch.
+        for _ in range(300):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError("Cloud WebFetch Fallback timed out after 300 seconds. Please trigger manually.")
 
 
 def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:

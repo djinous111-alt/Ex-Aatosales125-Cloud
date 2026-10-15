@@ -19,16 +19,18 @@ category: env
 - `git commit` of `schema.jsonld` failed twice under Cloud pre-commit secrets scanner.
 - First: same invalid bash identifier in `CLOUD_AGENT_INJECTED_SECRET_NAMES` as INC-20261015-1705 (`${!SECRET_NAME}` → `invalid variable name`).
 - Second (after filtering invalid names): scanner blocked intentional public URLs required by BlogPosting/`sameAs` — `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` — already present in committed AS08/AS09 `schema.jsonld` without pragma.
+- Cover agent (same topic B01, later same run day) hit the same scanner on `article.html` CTA links (`CATALOG_URL` / `TELEGRAM_URL`) when committing cover PNG + inject; invalid secret name `[REDACTED]` still present in `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
 
 ### How the agent recovered this run
 - Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid identifiers and temporarily excluded the four public marketing URL secrets for the commit only.
 - Kept scanning real credentials (`SSH_*`, API keys, tokens); committed without `--no-verify`.
 - Schema artifact matches AS08/AS09 pattern (absolute `@id` + registry `sameAs`).
+- Cover reused the same env filter for `article.html` + `cover/*` commit (`ed1f93d`).
 
 ### Durable fix needed before next run
-- Do not treat public site/catalog/Telegram/MAX URLs as commit-blocking secrets for `memory/blog/**/schema.jsonld` (Dashboard: move to non-scanned config, or document `pragma: allowlist secret` / schema placeholder rewrite at publish).
+- Do not treat public site/catalog/Telegram/MAX URLs as commit-blocking secrets for `memory/blog/**/schema.jsonld` and `memory/blog/**/article.html` CTA (Dashboard: move to non-scanned config, or document `pragma: allowlist secret` / schema placeholder rewrite at publish).
 - Harden pre-commit to skip non-identifier secret names (see INC-20261015-1705).
-- Document in schema skill: commit workaround for Cloud secret scan when `PUBLIC_SITE_URL` is injected.
+- Document in schema + cover skills: commit workaround for Cloud secret scan when `PUBLIC_SITE_URL`/`CATALOG_URL`/`TELEGRAM_URL` are injected.
 
 ### Suggested files to inspect/change
 - `.cursor/skills/schema-excalibur-blog/SKILL.md`

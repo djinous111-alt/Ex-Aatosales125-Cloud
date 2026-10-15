@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-1335-schema-public-url-secret-scan-commit
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-otsledit-avto-iz-yaponii-rolker-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secret scanner blocked `schema.jsonld` because BlogPosting `@id`/`mainEntityOfPage` use `PUBLIC_SITE_URL`, and author `sameAs` from `shared/authors-registry.json` includes catalog/Telegram/MAX URLs that are also injected as secrets (`CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`).
+- Separately, `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a non-identifier URL token → bash `${!SECRET_NAME}` → `invalid variable name` before the scan even ran (same class as INC-20261015-1321 / INC-20261015-1308).
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to identifier-only names and temporarily omitted public site/CTA secret names for the schema commit (values are intentional public NAP/CTA URLs already present in prior article schemas).
+
+### Durable fix needed before next run
+- Document in schema skill + pitfalls: `schema.jsonld` must embed public site URL and registry `sameAs`; commit hook should exclude these public URL secret names (or registry should use non-secret placeholders that publish expands).
+- Ship helper script from INC-20261015-1321 so schema/writer/publish share one sanitize path.
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh` (create)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261015-1331-geo-qa-typed-task-unavailable
 status: open
 run_date: 2026-10-15

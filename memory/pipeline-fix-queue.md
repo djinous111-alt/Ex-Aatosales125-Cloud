@@ -39,7 +39,7 @@ category: env
 - fixed in-publish: `.cursor/cloud-agent-install.sh` now installs `paramiko`; fallback wait in `excalibur_blog_wp_publish.py` set to 300s. `SSH_ROOT=.` still needs Cloud Secrets (human).
 
 ## INC-20261015-1345-indexer-llms-blog-path-stale-contract
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-indexer
 topic_id: B01
@@ -73,10 +73,27 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- Doctor asserts `--blog-dir/--out-dir/--redact-site-base` (not `--blog-path`).
+- llms generator gained `--redact-site-base`; indexer agent/skill examples drop `--blog-path /`.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `python3 scripts/excalibur_blog_llms_generator.py --help` shows --blog-dir/--redact-site-base
+- `rg` no instructional `--blog-path /` in indexer agent/skill shell examples
+commit: pending-parent-commit
 
 ## INC-20261015-1340-cover-mcp-32001-kie-recovery
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-cover
 topic_id: B01
@@ -105,10 +122,26 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- Cover Cloud default documented as Kie-first; sync MCP max one attempt, no blind retry after -32001.
+- mcp-image-async + kie contracts + pipeline-task-map + cover agent/skill updated.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/mcp-image-async-contract.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/pipeline-task-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` Kie-first / -32001 guidance in cover skill + mcp-image-async-contract
+commit: pending-parent-commit
 
 ## INC-20261015-1335-schema-public-url-secret-scan-commit
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-schema
 topic_id: B01
@@ -137,10 +170,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- Added filter_commit_secret_env.sh (identifier-only + exclude public URL secret names).
+- Schema skill documents filter before commit; sameAs/public site URL stay intentional.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_blog_sanitize_secret_names.sh`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter dry-run drops [REDACTED]/CATALOG_URL/TELEGRAM_URL/PUBLIC_SITE_URL
+- doctor errors=0 (filter script exists)
+commit: pending-parent-commit
 
 ## INC-20261015-1331-geo-qa-typed-task-unavailable
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -169,10 +216,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- AGENTS.md + Director agent/skill: immediate generalPurpose per role, no typed enum retry loop.
+- Explicit geo-qa note + role→path table in AGENTS.md.
+files_changed:
+- `AGENTS.md`
+- `agents/excalibur-blog-director.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` geo-qa generalPurpose штатный путь in AGENTS.md / pitfalls / director
+commit: pending-parent-commit
 
 ## INC-20261015-1331-geo-qa-utility-pain-outcome-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -205,10 +266,28 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- Kept non-empty pain/outcome lists in editorial-policy; doctor asserts them.
+- utility_gate fail-fast if lists empty while mins>0; recommendation markers include «делать/не делать».
+- Writer + editorial-utility-only document «Сделайте/Не делайте» preference.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor pain/outcome non-empty OK
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
+- JSON parse editorial-policy.json
+commit: pending-parent-commit
 
 ## INC-20261015-1321-writer-cta-secret-scan-commit
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-writer
 topic_id: B01
@@ -239,11 +318,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- Shared filter/sanitize scripts for commits; writer skill documents CTA URLs + filter path.
+- No HTML pragma required for public CTA commits.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_blog_sanitize_secret_names.sh`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter dry-run excludes CATALOG_URL/TELEGRAM_URL
+commit: pending-parent-commit
 
 
 ## INC-20261015-1315-research-wordstat-empty-payload
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-research
 topic_id: B01
@@ -272,10 +364,21 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- Research skill: empty/{}/totalCount-only Wordstat = soft-fail with sibling retry; no invented counts.
+- Pitfalls note for adjacent logistics jargon empty payloads.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` soft-fail / totalCount in research skill + pitfalls
+commit: pending-parent-commit
 
 ## INC-20261015-1308-scout-precommit-redacted-secret-name
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-scout
 topic_id: B01
@@ -304,7 +407,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- filter_commit_secret_env.sh strips non-identifiers incl. literal [REDACTED].
+- Scout agent/skill + pitfalls document pre-commit eval one-liner.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_blog_sanitize_secret_names.sh`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter dry-run: [REDACTED] dropped, OK_NAME kept
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -553,4 +671,4 @@ commit: pending-parent-commit
 
 ## Fixed incidents
 
-Handled above; commit is pending Director review.
+Handled above; 2026-10-15 B01 rolker fixer closed 8 open incidents; commit pending push.

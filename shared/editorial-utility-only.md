@@ -96,3 +96,14 @@ python scripts/excalibur_blog_utility_gate.py \
 - `skills/excalibur/references/article-archetypes.md` — скелет B
 - `skills/excalibur/references/ai-slop-blocklist.md` — вода/штампы
 - `shared/quality-blog.md` — blockers
+
+## Policy markers (machine gate)
+
+`memory/brief/editorial-policy.json` **обязан** содержать непустые:
+
+- `pain_markers_ru` (≥2) + `article_required_signals.min_pain_markers`
+- `outcome_markers_ru` (≥2) + `article_required_signals.min_outcome_markers`
+- `recommendation_markers_ru` (императивы «сделайте/не делайте»; также «делать/не делать»)
+
+Пустые pain/outcome lists → utility gate fail-fast + doctor FAIL. Writer: предпочитай «Сделайте/Не делайте» в каждом H2.
+

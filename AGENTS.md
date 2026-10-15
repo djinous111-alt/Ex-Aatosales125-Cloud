@@ -23,11 +23,24 @@ shell today + research_start
 
 Если Cloud API не принимает `excalibur-blog-research`, `excalibur-blog-writer`, … как Task types:
 
-- **отдельный `Task(generalPurpose)` на каждую роль**;
+- **сразу** отдельный `Task(generalPurpose)` на каждую роль — **не** ретраить typed enum в цикле;
 - передай путь `.cursor/agents/<role>.md` и `.cursor/skills/<skill>/SKILL.md`;
 - короткий контракт: входные файлы, маркер результата, запреты;
 - один Task = одна роль;
 - параллель `cover || schema` — **два отдельных Task** в одном сообщении.
+
+**Известно постоянно:** typed Task enum часто **не** содержит `excalibur-blog-geo-qa` (и иногда другие роли). Это штатный путь, не exception: сразу `Task(generalPurpose)` с `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+| role | agent | skill |
+|------|-------|-------|
+| research | `.cursor/agents/excalibur-blog-research.md` | `.cursor/skills/excalibur-research/SKILL.md` |
+| writer | `.cursor/agents/excalibur-blog-writer.md` | `.cursor/skills/writer-excalibur-blog/SKILL.md` |
+| geo-qa | `.cursor/agents/excalibur-blog-geo-qa.md` | `.cursor/skills/excalibur-geo-qa/SKILL.md` |
+| cover | `.cursor/agents/excalibur-blog-cover.md` | `.cursor/skills/cover-excalibur-blog/SKILL.md` |
+| schema | `.cursor/agents/excalibur-blog-schema.md` | `.cursor/skills/schema-excalibur-blog/SKILL.md` |
+| indexer | `.cursor/agents/excalibur-blog-indexer.md` | `.cursor/skills/indexer-excalibur-blog/SKILL.md` |
+| publish | `.cursor/agents/excalibur-blog-publish.md` | `.cursor/skills/publish-excalibur-blog/SKILL.md` |
+| fixer | `.cursor/agents/excalibur-blog-fixer.md` | `.cursor/skills/fixer-excalibur-blog/SKILL.md` |
 
 Если недоступен даже `generalPurpose` Task:
 

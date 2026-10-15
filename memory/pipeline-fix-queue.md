@@ -20,6 +20,7 @@ category: docs
 - Директор вынужден запускать GEO QA через `Task(generalPurpose)` fallback с путями `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
 
 ### How the agent recovered this run
+- Director restored pain_markers_ru / outcome_markers_ru + min_* in memory/brief/editorial-policy.json (aligned with human-voice gate; prior fix lost on rebrand).
 - Выполнен штатный generalPurpose fallback: контракты прочитаны, все QA-скрипты/gates прогнаны, article-qa.md и handoff-блок `=== EXCALIBUR BLOG GEO QA ===` записаны.
 
 ### Durable fix needed before next run
@@ -52,6 +53,7 @@ category: script
 - Отдельно: recommendation markers не включают «делать»/«не делать» и «чек-лист» (с дефисом), хотя writer-контракт использует именно эти формы → action_markers занижены при живом utility-тексте.
 
 ### How the agent recovered this run
+- Director restored pain_markers_ru / outcome_markers_ru + min_* in memory/brief/editorial-policy.json (aligned with human-voice; prior fix lost on rebrand 615ee0b).
 - Не правили article.html (зона writer). Зафиксировали FAIL в article-qa.md + точечный FIX для writer (Fact Check wording + imperative markers). Сообщили директору: cover||schema blocked; utility pain/outcome требует fixer policy patch.
 
 ### Durable fix needed before next run

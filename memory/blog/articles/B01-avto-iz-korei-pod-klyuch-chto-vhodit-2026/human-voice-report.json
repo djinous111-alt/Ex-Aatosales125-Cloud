@@ -1,10 +1,8 @@
 {
   "gate": "human-voice",
-  "status": "BLOCK",
+  "status": "PASS",
   "article_dir": "memory/blog/articles/B01-avto-iz-korei-pod-klyuch-chto-vhodit-2026",
-  "errors": [
-    "Fact Check Box missing: need <blockquote> with «Материал проверен» before FAQ"
-  ],
+  "errors": [],
   "warnings": [
     "multiple exactly-5-step lists detected; vary list size when editorially possible"
   ],
@@ -13,19 +11,22 @@
     "repeated_h2_openers": [],
     "textbook_h2_count": 0,
     "paragraph_count": 29,
-    "paragraph_avg_words": 29.5,
-    "paragraph_variance_ratio": 0.35,
+    "paragraph_avg_words": 30.1,
+    "paragraph_variance_ratio": 0.38,
     "concrete_markers": [
       "например",
       "на практике",
       "типичная ошибка",
-      "в реальном проекте"
+      "из практики"
     ],
     "pain_markers": [
       "боль",
       "ошиб"
     ],
     "outcome_markers": [
+      "результат",
+      "получите",
+      "сможете",
       "проверьте",
       "соберите",
       "выберите"
@@ -75,12 +76,12 @@
       "депозита",
       "сметы",
       "список",
-      "строк",
-      "чек-лист"
+      "строк"
     ],
     "success_criteria_overlap": [
       "djinous",
       "депозита",
+      "заполненный",
       "какие",
       "каких",
       "модели",
@@ -90,8 +91,7 @@
       "расчёт",
       "строки",
       "сюрпризов",
-      "таможне",
-      "чек-лист"
+      "таможне"
     ],
     "voice_angle_overlap": [
       "депозита",
@@ -123,7 +123,7 @@
       "часто",
       "юридического"
     ],
-    "exactly_five_lists": 4,
+    "exactly_five_lists": 3,
     "fact_check_template_blocks": 0
   }
 }

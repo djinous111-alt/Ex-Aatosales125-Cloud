@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-prokhodnye-avto-iz-yaponii-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1282,
+      724
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 724,
+        "end": 761
+      },
+      "v_gutter_px": {
+        "start": 1282,
+        "end": 1285
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1282,
+          "bottom": 724
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1282,
+          "bottom": 724
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у аукционного листа и календаря возраста, японский седан, плашка про год в листе, угол avto-sales125.ru",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1285,
+          "top": 3,
+          "right": 2560,
+          "bottom": 720
+        },
+        "raw_box_px": {
+          "left": 1285,
+          "top": 0,
+          "right": 2560,
+          "bottom": 724
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица двух смыслов «проходной»: возраст, вывоз, утиль",
+        "h2_anchor": "Разведите два смысла слова \"проходной\""
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 37,
+          "top": 761,
+          "right": 1244,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 761,
+          "right": 1282,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: возраст на дату декларации, путь от ставки до Владивостока",
+        "h2_anchor": "Посчитайте возраст на дату декларации, а не на день лота"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1319,
+          "top": 761,
+          "right": 2526,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1285,
+          "top": 761,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист годов и месяцев проходных авто на октябрь 2026",
+        "h2_anchor": "Сверьте годы и месяцы на октябрь 2026"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разведите два смысла слова \"проходной\"",
+    "injected inline_2 after H2 — Посчитайте возраст на дату декларации, а не на день лота",
+    "injected inline_3 after H2 — Сверьте годы и месяцы на октябрь 2026"
+  ]
+}

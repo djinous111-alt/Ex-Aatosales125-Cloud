@@ -1,0 +1,178 @@
+{
+  "article": "memory/blog/articles/B01-prokhodnye-avto-iz-yaponii-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 24,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 23,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "В октябре 2026 Иван смотрит Toyota \"почти проходную\" 2023 года, в",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2023 года",
+      "kind": "date_or_year",
+      "context": "ктябре 2026 Иван смотрит Toyota \"почти проходную\" 2023 года, видит год в аукционном листе и уже считает бюдже",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2021",
+      "kind": "date_or_year",
+      "context": "во Владивостоке, не на день ставки. Соседний лот 2021-го без запаса по месяцу вылетает за пять лет. Ниж",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2022",
+      "kind": "date_or_year",
+      "context": "е (ЕЭК №74). В октябре 2026 обычно целиком в окне 2022-й; 2021 и 2023 – переходные по месяцу. Отдельно п",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "октябре 2026 обычно целиком в окне 2022-й; 2021 и 2023 – переходные по месяцу. Отдельно проверьте вывоз",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "эффициенты с 01.01.2026 выросли примерно на 20% к 2025; льгота 0,17/0,26 не менялась. \"Почти 161 л.с.\" в",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 лет",
+      "kind": "metric_or_duration",
+      "context": "как посчитать проходной возраст до ставки: окно 3–5 лет, дата таможни и два смысла слова \"проходной\". TL;",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 мес",
+      "kind": "metric_or_duration",
+      "context": "есяц выпуска (не год листа) → Дата аукциона + 1,5–3 мес запаса → Возраст на эту дату → Полка 3–5 лет? → Д",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "у дату декларации 2023 Окт–дек Ещё могут быть \"до 3 лет\" Не ставить без пересчёта 2021 Янв–сен Часто уже",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4 мес",
+      "kind": "metric_or_duration",
+      "context": "у 2021 Окт–дек Ещё могут быть в 3–5 Нужен запас 3–4 мес на путь Ставки пошлины для полки 3–5 лет (ориенти",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "иды/EV и моторы свыше 1,9 л) и льготный утиль до ~160 л.с. На пальцах: аукционный лист – карточка лота с",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1000",
+      "kind": "large_number",
+      "context": "лет (ориентир ЕЭК №107, не калькулятор итога): до 1000 см³ – 1,5 €/см³; 1001–1500 – 1,7; 1501–1800 – 2,5;",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1001",
+      "kind": "large_number",
+      "context": ", не калькулятор итога): до 1000 см³ – 1,5 €/см³; 1001–1500 – 1,7; 1501–1800 – 2,5; 1801–2300 – 2,7; 230",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1500",
+      "kind": "large_number",
+      "context": "калькулятор итога): до 1000 см³ – 1,5 €/см³; 1001–1500 – 1,7; 1501–1800 – 2,5; 1801–2300 – 2,7; 2301–300",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1501",
+      "kind": "large_number",
+      "context": "итога): до 1000 см³ – 1,5 €/см³; 1001–1500 – 1,7; 1501–1800 – 2,5; 1801–2300 – 2,7; 2301–3000 – 3,0; свы",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1800",
+      "kind": "large_number",
+      "context": "): до 1000 см³ – 1,5 €/см³; 1001–1500 – 1,7; 1501–1800 – 2,5; 1801–2300 – 2,7; 2301–3000 – 3,0; свыше 30",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1801",
+      "kind": "large_number",
+      "context": "м³ – 1,5 €/см³; 1001–1500 – 1,7; 1501–1800 – 2,5; 1801–2300 – 2,7; 2301–3000 – 3,0; свыше 3000 – 3,6. Ст",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2300",
+      "kind": "large_number",
+      "context": "1,5 €/см³; 1001–1500 – 1,7; 1501–1800 – 2,5; 1801–2300 – 2,7; 2301–3000 – 3,0; свыше 3000 – 3,6. Старше",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2301",
+      "kind": "large_number",
+      "context": "001–1500 – 1,7; 1501–1800 – 2,5; 1801–2300 – 2,7; 2301–3000 – 3,0; свыше 3000 – 3,6. Старше пяти лет – п",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3000",
+      "kind": "large_number",
+      "context": "500 – 1,7; 1501–1800 – 2,5; 1801–2300 – 2,7; 2301–3000 – 3,0; свыше 3000 – 3,6. Старше пяти лет – почти",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3400",
+      "kind": "large_number",
+      "context": "влю. Льготный утиль физлица в 2026 ориентировочно 3400 ₽ до трёх лет и 5200 ₽ старше трёх при мощности д",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5200",
+      "kind": "large_number",
+      "context": "излица в 2026 ориентировочно 3400 ₽ до трёх лет и 5200 ₽ старше трёх при мощности до ~160 л.с., объёме д",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "161",
+      "kind": "large_number",
+      "context": "20% к 2025; льгота 0,17/0,26 не менялась. \"Почти 161 л.с.\" возраст не спасёт. Делать: закрыть все девят",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "Reuters 2023; утиль и порог ~160 л.с. – обзоры ПП 1713 и практика заказов. Итог по лоту – только в катало",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

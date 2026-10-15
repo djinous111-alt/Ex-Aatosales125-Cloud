@@ -199,7 +199,12 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Excalibur BLOG Hub-and-Spoke Interlinker")
     ap.add_argument("--blog-dir", type=Path, default=None, help="Path to articles/ directory")
     ap.add_argument("--article-dir", type=Path, default=None, help="Limit suggestions to one article as source or target")
-    ap.add_argument("--site-base", type=str, default="https://avtosales125.ru", help="Base site URL")
+    ap.add_argument("--site-base", type=str, default="[REDACTED]", help="Base site URL")
+    ap.add_argument(
+        "--redact-site-base",
+        action="store_true",
+        help="Force [REDACTED] site_base in JSON report (default also redacts absolute http(s) bases)",
+    )
     ap.add_argument("--apply", action="store_true", help="Directly edit html files to apply links")
     ap.add_argument("--output", type=Path, default=None, help="Output path for JSON suggestions report")
     args = ap.parse_args()
@@ -223,8 +228,20 @@ def main() -> int:
     suggestions = filter_suggestions_for_article(suggestions, article_dir, articles)
     print(f"Found {len(suggestions)} internal linking opportunities.")
 
+    # Committed JSON under memory/ must not embed live PUBLIC_SITE_URL (Cloud secret scan).
+    report_site_base = args.site_base
+    if args.redact_site_base or (
+        report_site_base
+        and report_site_base not in {"", "[REDACTED]"}
+        and not args.site_base.startswith("/")
+        and "://" in args.site_base
+    ):
+        # Default: redact absolute http(s) bases written into memory/ reports.
+        # HTML apply still uses the live args.site_base above when --apply is set.
+        report_site_base = "[REDACTED]"
+
     report = {
-        "site_base": args.site_base,
+        "site_base": report_site_base,
         "total_articles": len(articles),
         "opportunities_found": len(suggestions),
         "suggestions": [

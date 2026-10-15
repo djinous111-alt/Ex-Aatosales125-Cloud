@@ -44,3 +44,7 @@ memory/blog/articles/<topic_id>-<slug>/article.meta.json
 - объём вне диапазона после 1 правки
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`
+
+## CTA URLs
+
+Подставляй реальные `CATALOG_URL` / `TELEGRAM_URL` из env/brief. **Не** оставляй `href="[REDACTED]"` в `article.html` до link-verify.

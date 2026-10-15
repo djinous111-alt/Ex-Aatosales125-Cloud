@@ -68,3 +68,19 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+
+## source_table / accessed_at
+
+В `research-notes.md` таблица источников:
+
+```markdown
+| source | url | accessed_at | why_it_matters |
+| --- | --- | --- | --- |
+| Example | https://example.com/page | 2026-10-15 | ... |
+```
+
+Gate принимает:
+- токен `accessed_at: YYYY-MM-DD` в ячейке или frontmatter;
+- **или** ISO-дату в строке таблицы, где есть URL.
+
+Не оставляй пустую колонку `accessed_at`. Для non-tech auto-тем (авто из Японии/Кореи/Китая) GitHub evidence желателен, но gate не помечает тему technical из-за подстроки «ии».

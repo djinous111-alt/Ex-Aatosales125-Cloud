@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-2107-scout-wp-mcp-wrong-host
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- MCP-KV `wordpress_get_posts` / `wordpress_search_posts` вернули посты с хоста `tamopro.ru`, а не live-блог Авто-Сейлс из denylist Director.
+- Риск ложной каннибализации или ложного «уже live», если Scout доверяет WP MCP без сверки с Director denylist / PUBLIC_SITE_URL.
+
+### How the agent recovered this run
+- Каннибализацию B01 сверил с явным live denylist в задаче и AS01–AS09; WP MCP результаты не использовал как блокировку темы доставки.
+
+### Durable fix needed before next run
+- Привязать MCP WordPress credentials к сайту Авто-Сейлс (тот же хост, что PUBLIC_SITE_URL).
+- В scout skill: denylist Director + ledger первичны; WP MCP только если URL хоста совпадает с сайтом ниши.
+
+### Suggested files to inspect/change
+- Cursor MCP / Cloud Secrets for MCP-KV WordPress
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261015-2106-scout-precommit-hook-redacted-env
 status: open
 run_date: 2026-10-16

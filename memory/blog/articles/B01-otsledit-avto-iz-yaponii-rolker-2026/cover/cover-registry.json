@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "otsledit-avto-iz-yaponii-rolker-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у ролкера во Владивостоке со смартфоном и треком судна, плашка «отследить авто»",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-15T13:40:28+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у ролкера во Владивостоке со смартфоном и треком судна, плашка «отследить авто»",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица из 5 полей трека авто: кузов, B/L, судно, порт, ETA до и после погрузки",
+      "h2_anchor": "Соберите 5 полей у посредника до и после погрузки",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема: история авто и трек доставки по кузову — две разные линии",
+      "h2_anchor": "Разведите историю авто и трек доставки по кузову",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист: без коносамента B/L статус доставки часто пустой",
+      "h2_anchor": "Дождитесь коносамента: без B/L статус часто пустой",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

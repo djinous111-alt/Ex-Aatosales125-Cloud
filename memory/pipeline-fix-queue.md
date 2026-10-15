@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-1340-cover-mcp-32001-kie-recovery
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-otsledit-avto-iz-yaponii-rolker-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` (i2i, 16:9, 2K, with `input_urls`) returned `HTTP MCP error -32001: Request timed out`.
+- Cursor cloud events/MCP log had no recoverable image URL or task_id after the timeout.
+
+### How the agent recovered this run
+- Followed preferred async path: `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir ...` using `KIE_API_KEY`.
+- Wrote `cover/quad-mcp-result.json`, then `excalibur_blog_quad_apply.py --inject-html` → PASS split + 3 inline figures.
+
+### Durable fix needed before next run
+- Cover skill/runbook already prefers Kie after `-32001`; keep Cloud default as Kie-first (or MCP only when async start/status tools exist).
+- Do not blind-retry sync MCP create; one sync attempt max, then Kie.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/mcp-image-async-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261015-1335-schema-public-url-secret-scan-commit
 status: open
 run_date: 2026-10-15

@@ -26,7 +26,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - `rg` Kie-default / -32001 guidance in cover skill
-commit: 8761e11 / 3767c21
+commit: 3dd0762
 
 ### What went wrong
 - Sync MCP `gpt-image-2` (MCP-KV) with 2K i2i timed out: HTTP MCP error `-32001 Request timed out`.
@@ -70,7 +70,7 @@ files_changed:
 checks_run:
 - filter script eval dry-run (keeps SSH_PASS, drops PUBLIC_SITE_URL/`[REDACTED]`)
 - `python3 scripts/excalibur_blog_doctor.py` errors=0
-commit: 8761e11 / 3767c21
+commit: 3dd0762
 
 ### What went wrong
 - First `git commit` of `schema.jsonld` failed in pre-commit.cursor secret-scan: `CLOUD_AGENT_INJECTED_SECRET_NAMES` includes public URL secrets (`PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`) whose values appear in valid BlogPosting/author `sameAs` JSON-LD.
@@ -113,7 +113,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` generalPurpose-default guidance in director skill
-commit: 8761e11 / 3767c21
+commit: 3dd0762
 
 ### What went wrong
 - Cloud Task enum не принимает typed Task `excalibur-blog-geo-qa`.
@@ -152,7 +152,7 @@ files_changed:
 checks_run:
 - JSON assert non-empty pain/outcome lists
 - `python3 scripts/excalibur_blog_doctor.py` errors=0
-commit: 8761e11 / 3767c21
+commit: 3dd0762
 
 ### What went wrong
 - `memory/brief/editorial-policy.json` снова без `pain_markers_ru` / `outcome_markers_ru` (и без min_*).
@@ -190,7 +190,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` empty-tools / Scout fallback in research skill
-commit: 8761e11 / 3767c21
+commit: 3dd0762
 
 ### What went wrong
 - MCP-KV namespace status `ready`, но `tools=[]`; вызов `wordstat_get_top_requests` недоступен.
@@ -226,7 +226,7 @@ files_changed:
 checks_run:
 - unit assert: Vladivostok delivery topic → technical_topic=False; Cursor MCP topic → True
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
-commit: 8761e11 / 3767c21
+commit: 3dd0762
 
 ### What went wrong
 - `excalibur_blog_research_notes_gate.py` помечает бытовую тему доставки авто как `technical_topic=true` из-за substring match без границ слова: `ai` внутри обязательного поля `reader_pain`, `ии` внутри слова «России».
@@ -262,7 +262,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` PUBLIC_SITE_URL host guard in scout skill
-commit: 8761e11 / 3767c21
+commit: 3dd0762
 
 ### What went wrong
 - MCP-KV `wordpress_get_posts` / `wordpress_search_posts` вернули посты с хоста `tamopro.ru`, а не live-блог Авто-Сейлс из denylist Director.
@@ -295,7 +295,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - filter eval: `[REDACTED]` dropped from CLOUD_AGENT_INJECTED_SECRET_NAMES
-commit: 8761e11 / 3767c21
+commit: 3dd0762
 
 ### What went wrong
 - Первый `git commit` упал на Cursor pre-commit hook: `pre-commit.cursor: line 270: [REDACTED]: invalid variable name`.
@@ -331,7 +331,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` confirms AI niche is only mentioned as forbidden
-commit: 8761e11 / 3767c21
+commit: 3dd0762
 
 ### What went wrong
 - `.cursor/agents/excalibur-blog-scout.md` и `.cursor/skills/scout-excalibur-blog/SKILL.md` всё ещё задают нишу Cursor/Make/n8n/AI-агентов, тогда как `memory/brief/site-brief.md` канонически описывает Авто-Сейлс (пригон/растаможка/азия).
@@ -366,7 +366,7 @@ files_changed:
 checks_run:
 - `--suggest-next` shows AS01–AS09 + B01
 - `--check-query "растаможка авто из кореи"` → CRITICAL AS01
-commit: 8761e11 / 3767c21
+commit: 3dd0762
 
 ### What went wrong
 - `scripts/excalibur_blog_scout_helper.py` парсит пул тем только regex `##\s+(B\d+)`, поэтому AS01–AS09 в `blog-topics.md` невидимы: `--suggest-next` печатает `Total topics in pool: 0`, `--check-query` не ловит overlap с AS*.
@@ -399,7 +399,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` fetch-failed retry guidance in scout skill
-commit: 8761e11 / 3767c21
+commit: 3dd0762
 
 ### What went wrong
 - Первый параллельный вызов MCP-KV `wordstat_get_top_requests` для «доставка авто из владивостока» и «эптс на авто» вернул `HTTP MCP tool execution failed: fetch failed`.
@@ -431,7 +431,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `python3 scripts/excalibur_blog_llms_generator.py --help` lists `--blog-dir`
-commit: 8761e11 / 3767c21
+commit: 3dd0762
 
 ### What went wrong
 - `python3 scripts/excalibur_blog_doctor.py` returned SUMMARY errors=1: `FAIL llms generator supports --blog-path`.
@@ -476,7 +476,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - assert `recover_publish_output_via_rest` present
 - `paramiko` importable; doctor errors=0
-commit: 8761e11 / 3767c21
+commit: 3dd0762
 
 ### What went wrong
 - SSH bootstrap upload OK (~6.6MB), but local HTTP trigger hit client TimeoutError before `OK post=` body returned.

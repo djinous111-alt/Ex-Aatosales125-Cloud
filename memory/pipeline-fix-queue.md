@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-2139-cover-mcp-32001-kie-fallback
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-dostavka-avto-iz-vladivostoka-zd-avtovoz-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` (MCP-KV) with 2K i2i timed out: HTTP MCP error `-32001 Request timed out`.
+- After timeout, agent-tools / cloud events had no recoverable `resultUrls` / `task_id` for the sync call.
+- Blind second sync MCP create would risk duplicate Kie jobs; Cloud memory already says prefer Kie async after `-32001`.
+
+### How the agent recovered this run
+- Polled MCP/agent-tools logs (~25s+) — no URL.
+- Switched to preferred Cloud path: `python3 scripts/excalibur_blog_kie_gpt_image2_api.py` using the same `cover/quad-mcp-batch.json` `mcp_args` (HTTPS reference URL).
+- Got `result_url`, ran `excalibur_blog_quad_apply.py --inject-html`; split PASS, 3 `<figure>` injected.
+
+### Durable fix needed before next run
+- Cover Cloud runbook/skill should default to Kie async (`excalibur_blog_kie_gpt_image2_api.py`) and treat sync MCP `gpt-image-2` as optional probe only.
+- If sync MCP remains required for logging, document: after `-32001` do not retry sync; go straight to Kie with the prepared batch.
+- Ideal long-term: async MCP create/status so client timeout cannot orphan a running job without `task_id`.
+
+### Suggested files to inspect/change
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_cover_quad_prompt.py` (batch timeout_policy text)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261015-2135-schema-secret-scan-public-urls
 status: open
 run_date: 2026-10-16

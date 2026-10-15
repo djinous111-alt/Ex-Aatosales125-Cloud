@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Машина уже во Владивостоке — ж/д или автовоз?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Порт Владивостока, автовоз и ж/д платформа с кроссовером, герой Авто-Сейлс, плашка ж/д или автовоз",
+      "scene_hint": "reference face + glasses; rain/fog Vladivostok port weather — waterproof jacket (NO hoodie, NO cap); action selfie at port docks; background: modern crossover on open car-carrier truck AND rail flatcar/container hint; huge Cyrillic plaque «ж/д или автовоз» with yellow highlight on «или»; fake phone UI: delivery price checklist card (NOT Wordstat/Metrika); torn paper + scotch tape + sticky note «до ключей»; shocked meme cutout; corner brand avto-sales125.ru; 16:9 collage",
+      "meme_caption_ru": "ж/д или автовоз"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разделите два этапа: порт и дорога домой",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Clean 16:9 workflow diagram UI: stage 1 «порт / растаможка» → stage 2 «дорога домой»; arrows, two colored boxes, no people faces; subtle tape corner; Cyrillic labels only",
+      "alt": "Схема двух этапов: порт и растаможка, затем дорога домой"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните ж/д, автовоз и перегон в одной таблице",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Readable comparison table UI mock: columns ж/д | автовоз | перегон; rows срок, цена-ориентир, риск кузова; check/cross icons; sticky note «считайте до ключей»; no hero face",
+      "alt": "Таблица сравнения ж/д, автовоза и перегона: срок, цена, риск кузова"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Как выбрать автовоз: открытый или крытый",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board UI: открытый vs крытый автовоз — пункты погода, сколы, цена, срок; mini inset of open vs covered carrier icons; marker checkmarks; no faces",
+      "alt": "Чеклист выбора открытого или крытого автовоза"
+    }
+  }
+}

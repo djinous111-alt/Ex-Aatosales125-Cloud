@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-1725-geo-qa-utility-pain-markers-missing
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-prokhodnye-avto-iz-yaponii-2026
+severity: medium
+category: script
+
+### What went wrong
+- First utility article gate BLOCK: `pain_markers=0` / `outcome_markers=0` because `memory/brief/editorial-policy.json` had no `pain_markers_ru` / `outcome_markers_ru`, while `excalibur_blog_utility_gate.py` still applied default `min_pain_markers=2` and `min_outcome_markers=3` on an empty list (false BLOCK for any article).
+- `article.html` CTA used literal `href="[REDACTED]"` placeholders, so `excalibur_blog_link_verify.py` failed (1 link, 404) until URLs were restored from env `CATALOG_URL` / `TELEGRAM_URL`.
+
+### How the agent recovered this run
+- Added `pain_markers_ru` / `outcome_markers_ru` (+ mins) to `memory/brief/editorial-policy.json` aligned with human-voice markers.
+- Hardened utility gate: enforce pain/outcome mins only when marker lists are non-empty.
+- Restored catalog/Telegram hrefs from env (no longread rewrite); re-ran gates → all PASS; article-qa PASS score 87.
+
+### Durable fix needed before next run
+- Keep policy marker lists and script empty-list guard in sync with human-voice gate; add regression test or doctor check that policy defines markers when mins > 0.
+- Writer/publish contract: never commit `href="[REDACTED]"` into `article.html` before link-verify; inject CTA from env/brief at write time (or document post-redaction restore step for GEO QA).
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md` (CTA URL source)
+- `shared/excalibur-article-writing-contract.md` (no placeholder hrefs pre-QA)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261015-1712-research-accessed-at-tech-false-positive
 status: open
 run_date: 2026-10-15

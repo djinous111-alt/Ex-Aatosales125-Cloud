@@ -28,12 +28,17 @@
     "description_aeo": "Проходные авто из Японии в 2026 – полка более 3, но не более 5 лет на дату декларации. Октябрь: 2022 в окне, 2021 и 2023 – по месяцу."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
-    "date": null,
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "score": 87,
+    "verdict": "PASS",
+    "date": "2026-10-15",
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "utility_gate": "PASS",
+    "human_voice": "PASS",
+    "research_notes_gate": "PASS",
+    "link_verify": "PASS",
+    "core_eeat": "18/20"
   },
   "cover_family": "brand_collage"
 }

@@ -1,0 +1,17 @@
+{
+  "article": "memory/blog/articles/B01-avto-iz-korei-pod-klyuch-chto-vhodit-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 1,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 0,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "брокерской практикой по СВХ/лаборатории на 15.10.2026; готовых сумм пошлин нет – расчёт по модели у мен",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    }
+  ]
+}

@@ -73,14 +73,22 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_as_token(blob: str, marker: str) -> bool:
+    """True only when marker is a standalone token (not a substring inside a word/field)."""
+    # Avoid false positives: "ai" in reader_pain/pain, "ии" in России, etc.
+    pattern = rf"(?<![0-9a-zа-яё_]){re.escape(marker)}(?![0-9a-zа-яё_])"
+    return bool(re.search(pattern, blob, flags=re.IGNORECASE))
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
+    # Topic card fields only — do not scan research-notes body/field labels
+    # (labels like reader_pain contain substring "ai" and cause false positives).
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    return any(_marker_as_token(blob, marker) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:

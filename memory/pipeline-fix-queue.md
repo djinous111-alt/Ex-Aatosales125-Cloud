@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-1738-indexer-llms-cli-stale-flags
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-prokhodnye-avto-iz-yaponii-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer skill/agent contracts still document `excalibur_blog_llms_generator.py --blog-path /`, but the live CLI has no `--blog-path` (only `--blog-dir`, `--site-base`, `--out-dir`, …). Doctor still asserts `--blog-path` support (known preflight FAIL; fixer after PIPELINE DONE).
+- Task prompt mentioned `--redact-site-base`, which also does not exist on the generator.
+- `excalibur_blog_interlinker.py --apply` wrote live `PUBLIC_SITE_URL` into `memory/blog/interlink-suggestions.json`, which would trip the Cloud secret scanner on commit.
+
+### How the agent recovered this run
+- Ran llms generator without `--blog-path`; used `--site-base ""` so committed `llms.txt` / `llms-full.txt` keep relative `/blog/<slug>/` URLs (matches existing repo artifacts).
+- Manually set `site_base` in `interlink-suggestions.json` to `[REDACTED]` before staging.
+- Did not change doctor in this step (per Director note: fixer after PIPELINE DONE).
+
+### Durable fix needed before next run
+- Align indexer skill/agent shell examples with actual argparse: drop `--blog-path`; document `--site-base ""` (or explicit redact policy) for committed llms artifacts.
+- Update `excalibur_blog_doctor.py` check to match current llms generator CLI (remove or replace `--blog-path` assertion).
+- Make interlinker redact `site_base` in JSON report by default when writing under `memory/`, or accept an explicit `--redact-site-base` flag.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `scripts/excalibur_blog_llms_generator.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261015-1730-schema-precommit-public-urls
 status: open
 run_date: 2026-10-15

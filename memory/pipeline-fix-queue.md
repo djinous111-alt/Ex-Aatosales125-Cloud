@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-0905-scout-live-denylist-gap
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- Предпочтительные P0-углы (растаможка Кореи через Владивосток, Encar на русском, СВХ Владивосток) уже есть на live WP в `memory/blog/published-live-avtosales125.json`, но `excalibur_blog_scout_helper.py --check-query` смотрит только B*-карточки в `blog-topics.md` и ledger AS08/AS09 – поэтому возвращает CLEAN на почти-дубли live.
+- Denylist slug из промпта Director/cron не зашит в helper; scout вынужден вручную сверять live JSON.
+
+### How the agent recovered this run
+- Отклонил точные дубли live (rastamozhka-avto-iz-korei-sroki-i-etapy-cherez-vladivostok-v-2026, encar-na-russkom-..., svh-vladivostok-...).
+- Выбрал смежный Korea utility P0: primary_query "авто из кореи под ключ" (Wordstat ~2487), slug `avto-iz-korei-pod-klyuch-chto-vhodit-2026`, checklist до депозита без калькулятора сумм.
+
+### Durable fix needed before next run
+- Расширить `--check-query`: читать slugs/titles из `memory/blog/published-live-*.json` + опциональный denylist-файл; флагить OVERLAP при сходстве с live, не только с B*-пулом.
+- В scout skill явно: ниша Авто-Сейлс из `memory/brief/site-brief.md`, не Cursor/Make/AI из устаревшего agent.md.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `memory/blog/published-live-avtosales125.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

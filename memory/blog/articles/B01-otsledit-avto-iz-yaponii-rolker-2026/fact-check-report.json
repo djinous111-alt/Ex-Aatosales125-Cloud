@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B01-otsledit-avto-iz-yaponii-rolker-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 2,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ивое короткое плечо Тояма – Владивосток в октябре 2026 бывает около двух суток. Путают чистое море, ожида",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "10 дней",
+      "kind": "metric_or_duration",
+      "context": "ыдача дальше по России. Обзоры пишут \"4–6\" или \"7–10 дней моря\", а живое короткое плечо Тояма – Владивосток",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "15 минут",
+      "kind": "metric_or_duration",
+      "context": "уточните СВХ. Не делайте обновление карты каждые 15 минут. Что делать, если ETA пустой или сдвинулся Пустой",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 дней",
+      "kind": "metric_or_duration",
+      "context": "2026 море заняло около недели вместо ожидаемых 4–5 дней после сдвига ETA – потом таможня прошла быстро. Р",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

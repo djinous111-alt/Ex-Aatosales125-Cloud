@@ -6,6 +6,74 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-1331-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-otsledit-avto-iz-yaponii-rolker-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud Task enum did not accept typed role `excalibur-blog-geo-qa`; Director had to launch GEO QA via `Task(generalPurpose)` fallback with agent/skill paths.
+- Same class of gap already documented at high level in `AGENTS.md` Cloud Task fallback, but agents/skills still read as if typed Task names are always available, so runs waste a step rediscovering the fallback.
+
+### How the agent recovered this run
+- Executed GEO QA as generalPurpose worker following `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`; produced `article-qa.md` PASS and handoff block.
+
+### Durable fix needed before next run
+- Add an explicit durable note in `AGENTS.md` and Director agent/skill: if typed `excalibur-blog-*` Task types are missing from Cloud enum, immediately use one `Task(generalPurpose)` per role (do not retry typed names in a loop).
+- Optionally list the exact role→agent/skill path table next to the fallback so Director copy-paste is one step.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261015-1331-geo-qa-utility-pain-outcome-markers-missing
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-otsledit-avto-iz-yaponii-rolker-2026
+severity: high
+category: qa
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` requires `min_pain_markers` (default 2) and `min_outcome_markers` (default 3), but `memory/brief/editorial-policy.json` had no `pain_markers_ru` / `outcome_markers_ru` lists.
+- With empty marker lists every article scored pain=0 / outcome=0 → permanent `UTILITY ARTICLE BLOCKER` until policy was patched mid-run.
+- Writer used «Делать/Не делать», while recommendation markers expect «сделайте/не делайте» — action_markers stayed below 8 until QA FIX.
+
+### How the agent recovered this run
+- Added `pain_markers_ru`, `outcome_markers_ru`, and mins to `memory/brief/editorial-policy.json`.
+- Minimally edited `article.html` (markers, pain/outcome phrasing, removed `TL;DR / Быстрый инсайт` label) and re-ran gates to PASS.
+
+### Durable fix needed before next run
+- Keep policy lists in sync with `excalibur_blog_utility_gate.py` (or skip pain/outcome checks when lists are empty).
+- Document Writer recommendation wording: prefer «Сделайте/Не делайте» (or extend `recommendation_markers_ru` with «делать»/«не делать»).
+- Mirror policy keys into `shared/editorial-utility-only.md` / Writer skill so the gap cannot recur silently.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json` (already patched this run; verify completeness)
+- `scripts/excalibur_blog_utility_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261015-1321-writer-cta-secret-scan-commit
 status: open
 run_date: 2026-10-15

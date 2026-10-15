@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-2135-schema-secret-scan-public-urls
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-dostavka-avto-iz-vladivostoka-zd-avtovoz-2026
+severity: medium
+category: env
+
+### What went wrong
+- First `git commit` of `schema.jsonld` failed in pre-commit.cursor secret-scan: `CLOUD_AGENT_INJECTED_SECRET_NAMES` includes public URL secrets (`PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`) whose values appear in valid BlogPosting/author `sameAs` JSON-LD.
+- The same env list also contained a non-identifier entry (len 25), so the hook crashed with `invalid variable name` on `${!SECRET_NAME}` before a clean scan message.
+- Memory referenced `scripts/excalibur_blog_filter_commit_secret_env.sh`, but that script is missing from the repo in this run.
+
+### How the agent recovered this run
+- Rebuilt `CLOUD_AGENT_INJECTED_SECRET_NAMES` for the commit: keep only shell-safe identifiers and omit the four public URL names.
+- Committed real public URLs in `schema.jsonld` (no literal `[REDACTED]` placeholders).
+- Fragment/handoff remain uncommitted runtime artifacts.
+
+### Durable fix needed before next run
+- Restore or add `scripts/excalibur_blog_filter_commit_secret_env.sh` (or equivalent) and document `eval "$(bash scripts/...)"` before commits that embed public site/CTA URLs.
+- Filter non-identifier tokens out of `CLOUD_AGENT_INJECTED_SECRET_NAMES` in Cloud install/hooks so pre-commit cannot crash on `${!SECRET_NAME}`.
+- Prefer marking public marketing URLs as non-secret in Cloud Secrets, or teach schema/publish skills the omit-list for commit-time scan.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_filter_commit_secret_env.sh` (missing — recreate)
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- Cloud install / pre-commit.cursor secret-name sanitization
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261015-2125-geo-qa-typed-task-missing-cloud-enum
 status: open
 run_date: 2026-10-16

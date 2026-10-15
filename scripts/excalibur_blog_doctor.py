@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import os
 import subprocess
 import sys
@@ -132,7 +133,50 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+
+    # Editorial policy must keep utility pain/outcome markers (INC-20261015-0923).
+    policy_path = root / "memory/brief/editorial-policy.json"
+    try:
+        policy = json.loads(policy_path.read_text(encoding="utf-8")) if policy_path.is_file() else {}
+    except json.JSONDecodeError:
+        policy = {}
+    pain = policy.get("pain_markers_ru") or []
+    outcome = policy.get("outcome_markers_ru") or []
+    check(isinstance(pain, list) and len(pain) >= 5, "editorial-policy pain_markers_ru present", errors, warnings)
+    check(
+        isinstance(outcome, list) and len(outcome) >= 5,
+        "editorial-policy outcome_markers_ru present",
+        errors,
+        warnings,
+    )
+    req = policy.get("article_required_signals") or {}
+    check(
+        int(req.get("min_pain_markers") or 0) >= 1 and int(req.get("min_outcome_markers") or 0) >= 1,
+        "editorial-policy min_pain/min_outcome configured",
+        errors,
+        warnings,
+    )
+
+    # Research-notes gate: reader_pain substring must not force technical_topic on AUTO_NICHE.
+    try:
+        sys.path.insert(0, str(root / "scripts"))
+        from excalibur_blog_research_notes_gate import is_technical_topic
+
+        niche_ctx = {
+            "topic": {
+                "h1": "Авто из Кореи под ключ: что входит",
+                "primary_query": "авто из кореи под ключ",
+                "secondary_queries": "растаможка корея",
+                "search_intent": "checklist",
+                "slug": "avto-iz-korei-pod-klyuch-chto-vhodit-2026",
+            }
+        }
+        niche_notes = "reader_pain: покупатель боится скрытых платежей на этапе депозита\n"
+        tech_ok = is_technical_topic(niche_ctx, niche_notes) is False
+        check(tech_ok, "research-notes-gate AUTO_NICHE ignores reader_pain 'ai' FP", errors, warnings)
+    except Exception as exc:  # noqa: BLE001
+        check(False, f"research-notes-gate AUTO_NICHE self-check ({exc})", errors, warnings)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

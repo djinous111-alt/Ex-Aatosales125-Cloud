@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none for run_date 2026-10-15 after fixer)_
+
+
 ## INC-20261015-0941-cover-mcp-sync-timeout-kie-recovery
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-cover
 topic_id: B01
@@ -40,10 +43,24 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- Cover skill + mcp-image-async-contract: Cloud preferred path = Kie async script when KIE_API_KEY present; after -32001 without URL → Kie recovery, not blind sync retry; COVER MCP ASYNC BLOCKER only if no async MCP and no Kie key.
+- Cover agent contracts note Cloud image recovery.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/mcp-image-async-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` Kie recovery wording in cover skill + mcp contract
+commit: pending-parent-commit
 
 ## INC-20261015-0922-geo-qa-typed-task-missing
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -73,10 +90,22 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- Documented that missing typed excalibur-blog-* Task enum (incl. geo-qa) is the штатный Cloud fallback: separate Task(generalPurpose) per role — not an incident by itself.
+files_changed:
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` generalPurpose/geo-qa fallback wording in AGENTS.md + director skill
+commit: pending-parent-commit
 
 ## INC-20261015-0923-geo-qa-utility-pain-outcome-policy-gap
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -107,10 +136,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- Kept/expanded pain_markers_ru + outcome_markers_ru + min_* in editorial-policy.json; added recommendation markers делать/не делать/чек-лист.
+- utility_gate now errors explicitly if marker lists are empty (policy wipe).
+- doctor asserts non-empty pain/outcome markers and min_* config.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` (errors=0)
+- JSON parse editorial-policy.json
+commit: pending-parent-commit
 
 ## INC-20261015-0915-research-notes-gate-ai-false-positive
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-research
 topic_id: B01
@@ -140,10 +183,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending (research already applied script patch; fixer should confirm + add regression coverage)
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- Confirmed token-boundary + AUTO_NICHE already in research_notes_gate.py.
+- Added doctor self-check: Korea AUTO_NICHE + reader_pain must not force technical_topic.
+- Pitfalls already document no fake GitHub for AUTO_NICHE.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py` (confirmed)
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor AUTO_NICHE FP check OK
+- inline is_technical_topic assertion
+commit: pending-parent-commit
 
 ## INC-20261015-0910-director-ledger-append-outside-table
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-director
 topic_id: B01
@@ -170,10 +226,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- Added excalibur_blog_ledger_table helpers; research_start reserve_topic_in_ledger inserts row after last table row (not EOF after notes).
+- publish upsert_publish_ledger uses replace_or_insert_topic_row (same table-safe insert).
+files_changed:
+- `scripts/excalibur_blog_ledger_table.py`
+- `scripts/excalibur_blog_research_start.py`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- python unit check insert before blockquote note
+- py_compile
+commit: pending-parent-commit
 
 ## INC-20261015-0911-doctor-llms-blog-path-flag
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-director
 topic_id: n/a
@@ -199,11 +268,20 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- Doctor now checks llms generator for --blog-dir (canonical CLI), not --blog-path.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` errors=0
+commit: pending-parent-commit
 
 ## INC-20261015-0905-scout-live-denylist-gap
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-scout
 topic_id: B01
@@ -233,10 +311,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- scout_helper --check-query now loads published-live-*.json + optional denylist; exact/near slug overlap → OVERLAP.
+- Scout agent/skill retargeted to Авто-Сейлс niche from site-brief (not Cursor/AI).
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- check-query exact live slug → CRITICAL OVERLAP exit 1
+- unique query → CLEAN exit 0
+commit: pending-parent-commit
 
 ## INC-20261015-0906-scout-precommit-redacted-secret-name
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-scout
 topic_id: B01
@@ -261,7 +354,18 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- Added scripts/excalibur_blog_sanitize_secret_names.sh + pitfalls guidance to filter CLOUD_AGENT_INJECTED_SECRET_NAMES to valid bash ids before commit.
+- Local agent-hooks pre-commit.cursor skips invalid tokens (env-local; not in git). Durable path is sanitize script + docs.
+files_changed:
+- `scripts/excalibur_blog_sanitize_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- script exists + bash syntax via write
+- pitfalls rg for sanitize/invalid variable
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -513,7 +617,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261015-0946-indexer-llms-site-url-secret-scan
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-indexer
 topic_id: B01
@@ -546,10 +650,23 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- llms_generator: default site-base [REDACTED]; added --redact-site-base; WARN if live base used.
+- Indexer skill documents commit-safe generate (no --blog-path; redact before commit).
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `--help` shows --blog-dir and --redact-site-base
+- doctor --blog-dir OK
+commit: pending-parent-commit
 
 ## INC-20261015-0954-publish-fallback-wait-timeout
-status: open
+status: fixed
 run_date: 2026-10-15
 role: excalibur-blog-publish
 topic_id: B01
@@ -584,4 +701,17 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending (partial: wait increased in-script this run)
+status: fixed
+fixed_at: 2026-10-15
+fix_summary:
+- Confirmed fallback wait 300s; print FALLBACK_TRIGGER_URL immediately; local urlopen timeout 90s so agent can start curl sooner.
+- Publish skill documents immediate curl --max-time 300 into webfetch-response.txt.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` FALLBACK_TRIGGER_URL / 300 in wp_publish.py + publish skill
+- py_compile
+commit: pending-parent-commit

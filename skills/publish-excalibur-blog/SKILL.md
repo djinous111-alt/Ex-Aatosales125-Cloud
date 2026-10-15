@@ -63,13 +63,19 @@ python scripts/excalibur_blog_wp_publish.py \
 
 ### 4. Cloud WebFetch Fallback
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` **сразу** при старте HTTP trigger (до urlopen). На ~7MB bootstrap local HTTP часто даёт `RemoteDisconnected` / hang.
 
-1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент сразу открывает URL через WebFetch/curl (`--max-time 300`) и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт ждёт файл до **300s** (было 120s — race на ~7MB payload) и продолжает.
+**Агент обязан:**
 
-**Не останавливайся** на первом timeout — используй fallback.
+1. Как только увидел `FALLBACK_TRIGGER_URL` — **сразу** (не ждать истечения local timeout) запустить:
+   ```bash
+   curl -fsS --max-time 300 "$FALLBACK_TRIGGER_URL" > memory/webfetch-response.txt
+   ```
+   или WebFetch с тем же URL; ответ `OK post=…` положить в `memory/webfetch-response.txt`.
+2. Скрипт ждёт файл до **300s** (не 120s). Если curl успел раньше local fail — publish продолжается без `RuntimeError`.
+3. Если скрипт всё же упал по timeout, а curl уже вернул `OK post=…` — восстанови `wp-publish-result.json` + ledger из OK-строки (не republish).
+
+**Не останавливайся** на первом local timeout — используй fallback.
 
 ### 5. Post-publish артефакты
 

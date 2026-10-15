@@ -18,13 +18,20 @@
 
 ## Agent rule
 
-Cover agent:
+Cover agent (Cloud order of preference):
 
-- предпочитает async tools, если они есть в Cursor `Available Tools`;
-- sync `gpt-image-2` вызывает только один раз, если async tools недоступны;
-- после `HTTP MCP -32001 Request timed out` не делает blind retry sync create;
-- если нет `url`, `task_id` и status/result tool — возвращает `COVER MCP ASYNC BLOCKER`.
+1. Async MCP tools (`gpt-image-2-create` / `status`), если они есть в Cursor `Available Tools`.
+2. **Preferred Cloud path when async MCP отсутствует:** сразу Kie HTTP async script (не legacy sync MCP):
+   ```bash
+   python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir memory/blog/articles/<topic_id>-<slug>
+   ```
+   Требует `KIE_API_KEY`. Пишет `cover/quad-mcp-result.json` → далее `excalibur_blog_quad_apply.py --inject-html`.
+3. Sync MCP `gpt-image-2` — только один раз, если async MCP и Kie недоступны.
+4. После `MCP error -32001 Request timed out` / HTTP `-32001`:
+   - **не** blind retry sync create;
+   - если в ответе/логе нет URL и Cursor events недоступны → Kie recovery (п.2), если `KIE_API_KEY` есть;
+   - `COVER MCP ASYNC BLOCKER` только если нет async MCP tools **и** нет `KIE_API_KEY` **и** нет recoverable URL.
 
 ## Why
 
-`KIE_IMAGE_MAX_WAIT_SECONDS` и nginx `proxy_read_timeout` не гарантируют, что Cursor MCP client будет держать один tool call так же долго. Async start/status/result убирает зависимость от длинного соединения и позволяет агенту получить URL через время без дублей.
+`KIE_IMAGE_MAX_WAIT_SECONDS` и nginx `proxy_read_timeout` не гарантируют, что Cursor MCP client будет держать один tool call так же долго. Async start/status/result (MCP или Kie HTTP) убирает зависимость от длинного sync соединения и позволяет агенту получить URL через время без дублей.

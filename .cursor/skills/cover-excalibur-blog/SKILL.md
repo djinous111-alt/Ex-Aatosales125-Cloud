@@ -17,7 +17,7 @@ quad-manifest.json (agent fills hooks + scene_hint)
        ↓
 quad-mcp-batch.json (1 job, input_urls)
        ↓
-ONE MCP gpt-image-2 i2i → canvas-quad.png 2048×1152
+ONE image job (Kie async preferred on Cloud / else MCP gpt-image-2) → canvas-quad.png 2048×1152
        ↓
 split → cover.png + inline-01..03.png (1200×675)
        ↓
@@ -122,23 +122,37 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image job (Cloud preference)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+Контракт: `shared/mcp-image-async-contract.md`.
+
+**Порядок (Cloud):**
+
+1. Async MCP create/status — если tool есть в Available Tools.
+2. **Preferred Cloud path:** Kie async HTTP (не ждать legacy sync MCP):
+   ```bash
+   python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+     --article-dir memory/blog/articles/<topic_id>-<slug>
+   ```
+   Нужен `KIE_API_KEY`. Результат → `cover/quad-mcp-result.json`.
+3. Sync MCP `gpt-image-2` — только один раз, если (1) и (2) недоступны. Аргументы = `jobs[0].mcp_args`.
+
+После `MCP error -32001` / timeout **без URL**: не blind retry sync. Если есть `KIE_API_KEY` → Kie recovery (п.2).  
+`COVER MCP ASYNC BLOCKER` — только если нет async MCP, нет Kie key и нет recoverable URL.
 
 Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --url "<result url>" \
   --inject-html
 ```
 
-Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
+Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.  
+Если Kie уже записал `quad-mcp-result.json`, apply читает URL оттуда (см. script help).
 
 ### Шаг 6 — fragment
 

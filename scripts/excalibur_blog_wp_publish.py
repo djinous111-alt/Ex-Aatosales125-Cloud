@@ -468,11 +468,19 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
 
 
 def trigger_bootstrap_http(url: str, root: Path) -> str:
+    # Print fallback URL immediately so the agent can start curl/WebFetch in parallel
+    # while local urlopen may still be racing/disconnecting (INC-20261015-0954).
+    print(f"Triggering HTTP publish on {url}...")
+    print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
+    print(
+        "If local HTTP fails or hangs: curl -fsS --max-time 300 \"$FALLBACK_TRIGGER_URL\" "
+        "> memory/webfetch-response.txt (do not wait for urlopen to fully expire)."
+    )
     try:
-        print(f"Triggering HTTP publish on {url}...")
+        # Keep local timeout shorter so RemoteDisconnected / hang enters fallback sooner.
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=90,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
@@ -515,6 +523,10 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
 def upsert_publish_ledger(root: Path, payload: dict[str, Any], permalink: str) -> None:
     if not permalink:
         return
+    from datetime import date
+
+    from excalibur_blog_ledger_table import replace_or_insert_topic_row
+
     ledger_path = root / "shared" / "published-articles.md"
     ledger_path.parent.mkdir(parents=True, exist_ok=True)
     if not ledger_path.is_file():
@@ -525,24 +537,11 @@ def upsert_publish_ledger(root: Path, payload: dict[str, Any], permalink: str) -
             encoding="utf-8",
         )
 
-    from datetime import date
-
     topic_id = str(payload.get("topic_id") or "").upper()
     slug = str(payload.get("slug") or "")
     row = f"| {date.today().isoformat()} | {topic_id} | {slug} | {permalink} | published |"
-    lines = ledger_path.read_text(encoding="utf-8").splitlines()
-    replaced = False
-    for index, line in enumerate(lines):
-        if not line.startswith("|"):
-            continue
-        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
-        if len(cells) >= 2 and cells[1].upper() == topic_id:
-            lines[index] = row
-            replaced = True
-            break
-    if not replaced:
-        lines.append(row)
-    ledger_path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+    text = ledger_path.read_text(encoding="utf-8")
+    ledger_path.write_text(replace_or_insert_topic_row(text, topic_id, row), encoding="utf-8")
 
 
 def main() -> int:

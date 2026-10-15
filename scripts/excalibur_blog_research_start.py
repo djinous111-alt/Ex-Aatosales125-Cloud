@@ -261,7 +261,12 @@ def reserve_topic_in_ledger(root: Path, topic: dict[str, Any], ctx: dict[str, An
 
     This prevents a later Cloud run from selecting the same P0 topic again
     before the article reaches publish.
+
+    Rows are inserted inside the markdown table (after the last table row),
+    never appended after trailing notes/blockquotes.
     """
+    from excalibur_blog_ledger_table import insert_row_into_markdown_table
+
     ledger_path = root / "shared" / "published-articles.md"
     ledger_path.parent.mkdir(parents=True, exist_ok=True)
     if not ledger_path.is_file():
@@ -280,10 +285,8 @@ def reserve_topic_in_ledger(root: Path, topic: dict[str, Any], ctx: dict[str, An
         return False
 
     url = repo_relative(out_dir, root)
-    row = f"| {ctx['today_iso']} | {topic_id} | {slug} | {url} | in_progress |\n"
-    if not text.endswith("\n"):
-        text += "\n"
-    ledger_path.write_text(text + row, encoding="utf-8")
+    row = f"| {ctx['today_iso']} | {topic_id} | {slug} | {url} | in_progress |"
+    ledger_path.write_text(insert_row_into_markdown_table(text, row), encoding="utf-8")
     return True
 
 

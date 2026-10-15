@@ -6,18 +6,25 @@
 
 ---
 
+## Ниша (обязательно)
+
+Читай `memory/brief/site-brief.md`. Канон: **Авто-Сейлс** — авто из Японии/Кореи/Китая, растаможка, СВХ Владивосток.  
+Не генерируй темы про Cursor AI / Make.com / n8n / нейросети, даже если старый agent prompt это упоминал.
+
+---
+
 ## Архитектура работы
 
 ```text
-published-articles.md + blog-topics.md (Audit)
+published-articles.md + blog-topics.md + published-live-*.json (Audit)
               ↓
 excalibur_blog_scout_helper.py --suggest-next (Get next ID)
               ↓
-WebSearch (Cursor native trend scouting for 2026)
+WebSearch (тренд ниши Авто-Сейлс 2026)
               ↓
 wordstat_get_top_requests (Yandex Wordstat API demand verify)
               ↓
-excalibur_blog_scout_helper.py --check-query (Cannibalization Guard)
+excalibur_blog_scout_helper.py --check-query [--slug] (pool + live + denylist)
               ↓
 Append new Topic Card to blog-topics.md
 ```
@@ -27,57 +34,45 @@ Append new Topic Card to blog-topics.md
 ## Подробный алгоритм действий
 
 ### Шаг 1 — Анализ прошлого и получение ID
-* Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
-* Вызови helper-скрипт:
-  ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
-  ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
 
-### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
-Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
-* Поисковые запросы: *«новые ИИ инструменты автоматизации 2026»*, *«how to automate business Claude Cursor»*, *«лучшие сценарии n8n Make автоматизация»*, *«как настроить ИИ-агента инструкция»*.
-* Найди свежие, практические боли пользователей, по которым не хватает качественных гайдов.
+* Считай ledger, пул тем **и** live mirror `memory/blog/published-live-*.json`.
+* Вызови:
+  ```bash
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
+  ```
+
+### Шаг 2 — Поиск трендов (WebSearch)
+
+Запросы в нише авто-импорта: растаможка Кореи, Encar, под ключ, СВХ, сравнение JP/KR/CN.
 
 ### Шаг 3 — Валидация спроса (Yandex Wordstat)
-Для 2-3 отобранных вариантов тем вызови инструмент `wordstat_get_top_requests` сервера `user-mcp-kv`.
-* **Цель:** Найти ключевой запрос (primary query) с живым спросом в Яндексе и выписать 3–5 связанных поисковых вопросов для FAQ и secondary queries.
-* **Фильтр:** Если тема имеет микро-спрос (меньше 10 показов в месяц) и нет смежных тем — отложи её и возьми другую, более востребованную.
 
-### Шаг 4 — Тест на каннибализацию ключевых слов
-Перед созданием темы запусти:
+Cluster-first: широкий parent → узкий how-to. `totalCount`-only на узкий = soft-pass, не fatal.
+
+### Шаг 4 — Тест на каннибализацию
+
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
-```
-Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
-
-### Шаг 5 — Сборка карточки темы (Utility-Only)
-Сформируй карточку темы по шаблону:
-```markdown
-## {ID} — Короткое название темы
-
-- **priority:** P0 (если высокий спрос) | P1
-- **slug:** {kebab-case-slug}
-- **h1:** {Заголовок с глаголом действия: Как / Чек-лист / Инструкция}
-- **primary_query:** {главный запрос из Вордстата}
-- **secondary_queries:** {2-3 сопутствующих запроса из Вордстата}
-- **search_intent:** how_to | checklist | comparison | troubleshooting | workflow | parent_guide
-- **article_mode:** B
-- **h2_outline:**
-  1. {Действие 1}
-  2. {Действие 2}
-  3. {Действие 3}
-  4. {Чек-лист/Сравнение}
-- **faq_hints:** {2-3 вопроса-подсказки из хвоста Вордстата}
-- **internal_links:** /
-- **cover_scene_hint:** {Краткое ТЗ для картинки - обстановка, элементы DIY-коллажа}
+python3 scripts/excalibur_blog_scout_helper.py \
+  --check-query "<выбранный_запрос>" \
+  --slug "<proposed-kebab-slug>"
 ```
 
-Допиши (append) карточку в конец `memory/topics/blog-topics.md`.
+Helper флагит OVERLAP по:
+
+* B*-карточкам в `blog-topics.md`
+* live WP slugs/titles из `published-live-*.json`
+* optional `memory/blog/scout-denylist.json`
+
+Если OVERLAP — другая формулировка/тема. Не дублируй live статьи (даже если их нет в B*-пуле).
+
+### Шаг 5 — Карточка (Utility-Only)
+
+Append карточку в `memory/topics/blog-topics.md` (режим B, how_to/checklist/comparison).
 
 ---
 
 ## Блокеры скаута
-* Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
-* Игнорирование проверки на каннибализацию ключей.
-* Выдумывание цифр спроса без вызова Wordstat API.
+
+* Нет живого Wordstat-спроса и нет смежного кластера
+* OVERLAP с live/denylist/pool
+* Тема вне ниши Авто-Сейлс

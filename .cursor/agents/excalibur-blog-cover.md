@@ -44,6 +44,11 @@ Cover-агент генерирует **один** quad-холст 2×2 (MCP `gp
 
 ---
 
+## Cloud image recovery
+
+- Preferred: `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir …` when `KIE_API_KEY` is set (see `shared/mcp-image-async-contract.md`).
+- After sync MCP `-32001` without URL: Kie recovery, **not** blind retry; `COVER MCP ASYNC BLOCKER` only if no async MCP and no Kie key.
+
 ## Жёсткие правила
 
 1. **ONE MCP** — один холст 2×2. **Запрещено** 4 отдельных вызова.

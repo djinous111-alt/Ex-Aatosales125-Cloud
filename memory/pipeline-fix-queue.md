@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261015-1315-research-wordstat-empty-payload
+status: open
+run_date: 2026-10-15
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-otsledit-avto-iz-yaponii-rolker-2026
+severity: low
+category: api
+
+### What went wrong
+- MCP-KV `wordstat_get_top_requests` for some adjacent phrases returned unexpected empty/partial payloads (`{}` for `отследить ролкер авто`; `{ "totalCount": "7" }` without phrase rows for `коносамент авто япония`).
+- Primary/parent phrases worked (e.g. `отследить авто из японии` = 203), so research was not blocked, but secondary LSI demand was incomplete.
+
+### How the agent recovered this run
+- Retried with sibling phrases (`как отследить авто из японии`, `сроки доставки авто из японии`, parent `доставка авто из японии`) and recorded only verified impression counts.
+- Documented the API quirk in `research-notes.md` wordstat section without inventing numbers.
+
+### Durable fix needed before next run
+- Harden Wordstat MCP client or research skill: treat empty/`totalCount`-only payloads as soft-fail with explicit retry guidance; optionally log phrase+raw shape for fixer.
+- Add a short pitfall note: adjacent logistics jargon phrases may return empty even when parent cluster has volume.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- MCP-KV Wordstat tool wrapper (if in repo)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261015-1308-scout-precommit-redacted-secret-name
 status: open
 run_date: 2026-10-15

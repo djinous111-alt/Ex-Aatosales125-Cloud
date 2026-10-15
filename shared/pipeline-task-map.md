@@ -74,12 +74,13 @@
 
 ```text
 Ты excalibur-blog-scout.
-Прочитай agents/excalibur-blog-scout.md + skills/scout-excalibur-blog/SKILL.md + shared/editorial-utility-only.md.
-1) python scripts/excalibur_blog_scout_helper.py --suggest-next
-2) WebSearch Курсора — найди горячие тренды 2026 (ИИ, автоматизация, n8n, Cursor, Make)
-3) Вызови wordstat_get_top_requests в user-mcp-kv для проверки показов в месяц и LSI-ключей
-4) python scripts/excalibur_blog_scout_helper.py --check-query "<запрос>" (защита от каннибализации)
-5) Сделай карточку темы и допиши (append) её в конец memory/topics/blog-topics.md.
+Прочитай agents/excalibur-blog-scout.md + skills/scout-excalibur-blog/SKILL.md + shared/editorial-utility-only.md + memory/brief/site-brief.md.
+Ниша: Авто-Сейлс (Япония/Корея/Китай, СВХ, утиль, логистика Владивосток). Не предлагай Cursor/Make/n8n/AI-темы.
+1) python3 scripts/excalibur_blog_scout_helper.py --suggest-next  (AS* и B*)
+2) WebSearch — тренды автологистики/таможни/проверки 2026
+3) wordstat_get_top_requests: parent → how-to; при fetch failed — один retry
+4) python3 scripts/excalibur_blog_scout_helper.py --check-query "<запрос>" + Director denylist; WP MCP только если host = PUBLIC_SITE_URL
+5) Append карточку в memory/topics/blog-topics.md
 ```
 
 ### ① Research

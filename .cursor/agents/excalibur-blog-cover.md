@@ -10,7 +10,9 @@ is_background: false
 
 ## Роль
 
-Cover-агент генерирует **один** quad-холст 2×2 (MCP `gpt-image-2` + reference i2i), режет на `cover.png` + 3 inline, вставляет `<figure>` в `article.html`.
+Cover-агент генерирует **один** quad-холст 2×2 (reference i2i), режет на `cover.png` + 3 inline, вставляет `<figure>` в `article.html`.
+
+**Cloud default image path:** Kie async `python3 scripts/excalibur_blog_kie_gpt_image2_api.py` (`shared/kie-gpt-image-api-contract.md`). Sync MCP `gpt-image-2` — optional probe; после `-32001` не retry sync.
 
 **Skill (читать первым):** `skills/cover-excalibur-blog/SKILL.md`  
 **Контракт:** `shared/blog-cover-quad-canvas-contract.md`  
@@ -55,49 +57,26 @@ Cover-агент генерирует **один** quad-холст 2×2 (MCP `gp
 
 ---
 
-## Пайплайн (shell → MCP → shell)
+## Пайплайн (shell → Kie → shell)
 
 ```bash
-# из корня EXCALIBUR, article_dir из handoff
 ARTICLE="memory/blog/articles/<topic_id>-<slug>"
 
-# 1. Публичный URL эталона лица
-python scripts/excalibur_blog_hero_reference_url.py
+python3 scripts/excalibur_blog_hero_reference_url.py
+python3 scripts/excalibur_blog_quad_manifest.py --article-dir "$ARTICLE" --merge
+# edit cover/quad-manifest.json hooks/scene_hint as needed
+python3 scripts/excalibur_blog_cover_quad_prompt.py --article-dir "$ARTICLE" --write-batch
 
-# 2. Manifest (H2 → visual_type; cover_hook — вручную/merge)
-python scripts/excalibur_blog_quad_manifest.py --article-dir "$ARTICLE" --merge
+# Preferred Cloud path (async, timeout-safe):
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir "$ARTICLE"
 
-# 3. Отредактировать cover/quad-manifest.json при необходимости:
-#    cover_hook, meme_caption_ru, cover.scene_hint, inline scene_hint
+# Optional probe only: sync MCP gpt-image-2 with jobs[0].mcp_args
+# On -32001: do NOT retry sync — run Kie command above.
 
-# 4. Промпт + batch (1 job)
-python scripts/excalibur_blog_cover_quad_prompt.py --article-dir "$ARTICLE" --write-batch
-
-# 5. ONE CallMcpTool user-mcp-kv / gpt-image-2
-#    аргументы из cover/quad-mcp-batch.json → jobs[0].mcp_args
-#    aspect_ratio: 16:9, resolution: 2K, input_urls обязателен
-
-# 6. Скачать + split + inject
-python scripts/excalibur_blog_quad_apply.py \
-  --article-dir "$ARTICLE" \
-  --url "<url из MCP>" \
-  --inject-html
+python3 scripts/excalibur_blog_quad_apply.py --article-dir "$ARTICLE" --inject-html
 ```
 
----
-
-## MCP `gpt-image-2`
-
-```json
-{
-  "prompt": "<из quad-mcp-batch.json jobs[0].mcp_args.prompt>",
-  "input_urls": ["<blog-hero.json reference_url_hosted>"],
-  "aspect_ratio": "16:9",
-  "resolution": "2K"
-}
-```
-
-Перед вызовом: `tools/list` → `gpt-image-2` schema. Без `input_urls` → **❌ COVER HERO BLOCKER**.
+Без `input_urls` в batch → **❌ COVER HERO BLOCKER**.
 
 ---
 

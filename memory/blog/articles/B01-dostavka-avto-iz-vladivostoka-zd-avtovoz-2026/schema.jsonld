@@ -1,0 +1,183 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/dostavka-avto-iz-vladivostoka-zd-avtovoz-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/dostavka-avto-iz-vladivostoka-zd-avtovoz-2026/"
+      },
+      "headline": "Доставка авто из Владивостока: как выбрать ж/д, автовоз или перегон в 2026",
+      "description": "Сравнение ж/д, автовоза и перегона из Владивостока в 2026: сроки, ориентиры цен, чек-лист сдачи и стоп-правила. Выберите способ до передачи ключей.",
+      "datePublished": "2026-10-16",
+      "dateModified": "2026-10-16",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru"
+        },
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru",
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125"
+        ]
+      },
+      "keywords": [
+        "доставка авто из владивостока",
+        "доставка авто автовозом из владивостока",
+        "доставка авто из владивостока в москву",
+        "доставка авто из владивостока по жд"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/dostavka-avto-iz-vladivostoka-zd-avtovoz-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сколько примерно едет автовоз из Владивостока до Москвы?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В пути часто 18–22 дня. Плюс ожидание погрузки (нередко 5–15 дней) и выдача. Общий календарь до ключей дома часто 20–45 дней – закладывайте его, а не только \"дни в рейсе\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что безопаснее для кузова: ж/д или автовоз?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Лучше защита – ж/д-контейнер или крытый автовоз. Открытый автовоз и сетка дешевле, но дают пыль, сколы и зимние реагенты. Для новой или дорогой машины платите за коробку осознанно."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли отследить груз по пути?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, у нормального перевозчика. Для контейнера берите номер пломбы и трек; для автовоза – контакты диспетчера и статус рейса в договоре. Нет трека и договора – не бронируйте."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда перегон своим ходом ещё имеет смысл?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Если хотите именно путешествие, есть опыт дальняка, тёплый сезон и запас по времени и топливу. Если цель – \"сэкономить\" на новой машине зимой, на практике чаще проигрываете пробегу и нервам."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что фотографировать при сдаче авто?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "VIN и документы, кузов по кругу, салон, стёкла, шины, запаску, аккумулятор и комплектацию. Подпишите акт осмотра до отъезда. Без этого спор про скол почти не выиграть."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему срок 18 дней превратился в 40?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Считайте три куска: ожидание погрузки + путь + выдача/довоз. \"18 дней\" часто только про дорогу. В заметках пишите общий срок до города назначения."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/dostavka-avto-iz-vladivostoka-zd-avtovoz-2026/#howto",
+      "name": "Как выбрать доставку авто из Владивостока: ж/д, автовоз или перегон",
+      "description": "Пошаговый выбор способа доставки автомобиля из Владивостока по России: разделить этапы, сравнить ж/д/автовоз/перегон, собрать договор, страховку и фотоакт.",
+      "totalTime": "PT30M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Договор и страховка груза у перевозчика"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Фото и видео 360° кузова и VIN"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Номер пломбы и трек для контейнера"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Чек-лист критериев: ценность авто, сезон, город, готовность ждать"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Опись комплектации вместе с аккумулятором и ключами"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Акт осмотра до отъезда"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Разделить срок до порта и доставку по РФ",
+          "text": "Шаг 1: разделите срок до порта и доставку по РФ.",
+          "url": "https://avtosales125.ru/dostavka-avto-iz-vladivostoka-zd-avtovoz-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Выбрать контейнер/крытый, открытый автовоз/сетку или перегон",
+          "text": "Шаг 2: выберите контейнер/крытый, открытый автовоз/сетку или осознанный перегон.",
+          "url": "https://avtosales125.ru/dostavka-avto-iz-vladivostoka-zd-avtovoz-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Собрать договор, страховку и фотоакт",
+          "text": "Шаг 3: соберите договор, страховку и фотоакт.",
+          "url": "https://avtosales125.ru/dostavka-avto-iz-vladivostoka-zd-avtovoz-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Заложить ожидание погрузки в календарь семьи",
+          "text": "Шаг 4: заложите ожидание погрузки в календарь семьи.",
+          "url": "https://avtosales125.ru/dostavka-avto-iz-vladivostoka-zd-avtovoz-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "При заказе под ключ — каталог и Telegram",
+          "text": "Шаг 5: при заказе под ключ – зайдите на avto-sales125.ru и напишите в Telegram.",
+          "url": "https://avtosales125.ru/dostavka-avto-iz-vladivostoka-zd-avtovoz-2026/"
+        }
+      ]
+    }
+  ]
+}

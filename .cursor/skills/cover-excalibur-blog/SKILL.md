@@ -17,14 +17,17 @@ quad-manifest.json (agent fills hooks + scene_hint)
        ↓
 quad-mcp-batch.json (1 job, input_urls)
        ↓
-ONE MCP gpt-image-2 i2i → canvas-quad.png 2048×1152
+PREFERRED: python3 scripts/excalibur_blog_kie_gpt_image2_api.py  (async Kie)
+optional probe: sync MCP gpt-image-2 (do NOT retry after -32001)
        ↓
-split → cover.png + inline-01..03.png (1200×675)
-       ↓
-inject <figure> after H2 in article.html
+quad_apply --inject-html → cover + 3 inline + figures
 ```
 
-**Запрещено:** 4 отдельных MCP на cover + inline.
+**Cloud default:** Kie async (`shared/kie-gpt-image-api-contract.md`). Sync MCP `gpt-image-2` — optional probe only.
+
+**После MCP `-32001` Request timed out:** не делать второй sync create (риск orphan/duplicate job). Сразу Kie с тем же `jobs[0].mcp_args` из batch.
+
+**Запрещено:** 4 отдельных image create на cover + inline.
 
 ---
 
@@ -122,23 +125,28 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image create (Kie preferred)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+**Предпочтительно (Cloud):**
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+Скрипт читает `cover/quad-mcp-batch.json`, пишет `cover/quad-mcp-result.json`.
+
+**Опциональный probe:** sync MCP `gpt-image-2` с `jobs[0].mcp_args`. Если `-32001` / timeout — **не retry sync**; сразу команда Kie выше.
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
   --inject-html
 ```
 
-Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
+(или `--url "<result url>"` если URL уже известен). Требует Pillow.
 
 ### Шаг 6 — fragment
 
@@ -163,8 +171,8 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 
 ## QA перед ✅
 
-- [ ] 1 MCP, не 4
-- [ ] input_urls в MCP
+- [ ] 1 image create (Kie или один sync probe), не 4
+- [ ] input_urls в batch/mcp_args
 - [ ] cover.png + 3 inline существуют
 - [ ] alt в registry для всех 4
 - [ ] inline привязаны к H2 (`h2_anchor`)

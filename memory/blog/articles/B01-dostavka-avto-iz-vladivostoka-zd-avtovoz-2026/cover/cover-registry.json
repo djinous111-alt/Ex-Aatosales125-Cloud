@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "dostavka-avto-iz-vladivostoka-zd-avtovoz-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Порт Владивостока, автовоз и ж/д платформа с кроссовером, герой Авто-Сейлс, плашка ж/д или автовоз",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-15T21:39:17+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Порт Владивостока, автовоз и ж/д платформа с кроссовером, герой Авто-Сейлс, плашка ж/д или автовоз",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Схема двух этапов: порт и растаможка, затем дорога домой",
+      "h2_anchor": "Разделите два этапа: порт и дорога домой",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица сравнения ж/д, автовоза и перегона: срок, цена, риск кузова",
+      "h2_anchor": "Сравните ж/д, автовоз и перегон в одной таблице",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист выбора открытого или крытого автовоза",
+      "h2_anchor": "Как выбрать автовоз: открытый или крытый",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

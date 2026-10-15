@@ -38,8 +38,12 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 ## Обязательное использование Yandex Wordstat MCP и WebSearch Курсора
 
 1. **Анализ спроса через Wordstat API:**
-  Каждый прогон исследования **обязан** задействовать инструмент `wordstat_get_top_requests` сервера `user-mcp-kv` для анализа спроса:
+  Каждый прогон исследования **обязан** попытаться задействовать `wordstat_get_top_requests` сервера `user-mcp-kv`:
   - Вызови `wordstat_get_top_requests` для `primary_query` и ключевых `secondary_queries`.
+  - Если namespace `ready`, но `tools=[]`, или `mcp_auth` недоступен (desktop-only в Cloud):
+    - Не блокируй utility research.
+    - Возьми цифры/хвост из успешного Scout Wordstat в карточке темы / handoff (без выдуманных impressions).
+    - Запиши `⚠️ WORDSTAT AUTH WARNING: MCP-KV Wordstat tools unavailable (empty tools / desktop-only auth). Using Scout Wordstat figures from topic card.`
   - Если вызов вернул `401 Unauthorized` (токен устарел):
     - Запиши в `research-notes.md` предупреждение: `⚠️ WORDSTAT AUTH WARNING: Токен Wordstat устарел. Обновите токен через: https://oauth.yandex.ru/authorize?response_type=token&client_id=c654b948515a4a07a4c89648a0831d40`
     - Сделай экспертную оценку семантики, но явно укажи, что точные объемы спроса не получены из-за авторизации.

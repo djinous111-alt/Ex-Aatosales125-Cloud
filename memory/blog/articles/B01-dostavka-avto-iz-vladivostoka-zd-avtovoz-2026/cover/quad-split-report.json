@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-dostavka-avto-iz-vladivostoka-zd-avtovoz-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1284,
+      733
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 733,
+        "end": 770
+      },
+      "v_gutter_px": {
+        "start": 1284,
+        "end": 1305
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 5,
+          "right": 1284,
+          "bottom": 727
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1284,
+          "bottom": 733
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Порт Владивостока, автовоз и ж/д платформа с кроссовером, герой Авто-Сейлс, плашка ж/д или автовоз",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1305,
+          "top": 13,
+          "right": 2560,
+          "bottom": 719
+        },
+        "raw_box_px": {
+          "left": 1305,
+          "top": 0,
+          "right": 2560,
+          "bottom": 733
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема двух этапов: порт и растаможка, затем дорога домой",
+        "h2_anchor": "Разделите два этапа: порт и дорога домой"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 46,
+          "top": 770,
+          "right": 1237,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 770,
+          "right": 1284,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения ж/д, автовоза и перегона: срок, цена, риск кузова",
+        "h2_anchor": "Сравните ж/д, автовоз и перегон в одной таблице"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1337,
+          "top": 770,
+          "right": 2528,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1305,
+          "top": 770,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист выбора открытого или крытого автовоза",
+        "h2_anchor": "Как выбрать автовоз: открытый или крытый"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разделите два этапа: порт и дорога домой",
+    "injected inline_2 after H2 — Сравните ж/д, автовоз и перегон в одной таблице",
+    "injected inline_3 after H2 — Как выбрать автовоз: открытый или крытый"
+  ]
+}

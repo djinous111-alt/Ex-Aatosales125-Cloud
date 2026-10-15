@@ -132,7 +132,34 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check(
+        "--blog-dir" in llms_help.stdout,
+        "llms generator supports --blog-dir",
+        errors,
+        warnings,
+    )
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    policy_ok = False
+    if policy_path.is_file():
+        try:
+            import json
+
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+            pain = policy.get("pain_markers_ru") or []
+            outcome = policy.get("outcome_markers_ru") or []
+            policy_ok = isinstance(pain, list) and isinstance(outcome, list) and len(pain) > 0 and len(outcome) > 0
+        except Exception:  # noqa: BLE001
+            policy_ok = False
+    check(
+        policy_ok,
+        "editorial-policy.json has non-empty pain_markers_ru and outcome_markers_ru",
+        errors,
+        warnings,
+    )
+
+    secret_filter = root / "scripts/excalibur_blog_filter_commit_secret_env.sh"
+    check(secret_filter.is_file(), "commit secret-env filter script exists", errors, warnings)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

@@ -50,16 +50,25 @@ python scripts/excalibur_blog_wp_publish.py \
 
 ### 3. Publish
 
+Обязательно с `pipefail`, чтобы `| tee` не скрывал ненулевой exit Python:
+
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
-  --article-dir memory/blog/articles/<topic_id>-<slug>
+set -o pipefail
+python3 scripts/excalibur_blog_wp_publish.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  2>&1 | tee /tmp/excalibur-publish.log
+echo "PUBLISH_EXIT=${PIPESTATUS[0]}"
 ```
+
+Или без `tee`. Preflight: `python3 scripts/excalibur_blog_wp_publish.py --env-check`.
 
 Скрипт:
 - создаёт/обновляет WP post;
 - загружает featured image + alt;
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
 - пишет post meta `_excalibur_blog_schema_jsonld`.
+- HTTP primary timeout 180s; fallback ждёт `OK post=` до 300s; nginx **504/HTML без `OK post=`** — не успех;
+- если HTTP/fallback потеряли body, но пост уже есть — REST recovery по slug.
 
 ### 4. Cloud WebFetch Fallback
 
@@ -67,9 +76,10 @@ python scripts/excalibur_blog_wp_publish.py \
 
 1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
 2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+3. Пиши в файл **только** тело с литералом `OK post=…`. HTML/504 — не успех; повтори WebFetch.
+4. Скрипт игнорирует 504/HTML без `OK post=` и продолжает ждать / REST-recover.
 
-**Не останавливайся** на первом timeout — используй fallback.
+**Не останавливайся** на первом timeout — используй fallback + REST slug check.
 
 ### 5. Post-publish артефакты
 

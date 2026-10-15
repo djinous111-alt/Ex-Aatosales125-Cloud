@@ -61,7 +61,7 @@ checks_run:
 - `bash .cursor/cloud-agent-install.sh`
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 warnings=0
 - unit: `_strip_env_value` quote strip
-commit: pending-parent-commit
+commit: f389a1b
 
 ## INC-20261015-1738-indexer-llms-cli-stale-flags
 status: fixed
@@ -119,7 +119,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_llms_generator.py --help`
 - `python3 scripts/excalibur_blog_interlinker.py --help` + redact smoke
 - `rg` no stale `--blog-path` in contracts
-commit: pending-parent-commit
+commit: f389a1b
 
 ## INC-20261015-1730-schema-precommit-public-urls
 status: fixed
@@ -174,7 +174,7 @@ files_changed:
 checks_run:
 - `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"`
 - `bash .cursor/cloud-agent-install.sh` hardened hook marker
-commit: pending-parent-commit
+commit: f389a1b
 
 ## INC-20261015-1725-geo-qa-utility-pain-markers-missing
 status: fixed
@@ -225,7 +225,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` (policy markers OK)
 - `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
-commit: pending-parent-commit
+commit: f389a1b
 
 ## INC-20261015-1712-research-accessed-at-tech-false-positive
 status: fixed
@@ -270,7 +270,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir memory/blog/articles/B01-prokhodnye-avto-iz-yaponii-2026` → PASS technical_topic=False
 - unit: is_technical_topic auto-niche False; count_accessed_at bare ISO ≥5
-commit: pending-parent-commit
+commit: f389a1b
 
 ## INC-20261015-1705-scout-precommit-secret-name
 status: fixed
@@ -312,7 +312,7 @@ files_changed:
 checks_run:
 - `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"`
 - hook contains EXCALIBUR_SECRET_SCAN_HARDENED
-commit: pending-parent-commit
+commit: f389a1b
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

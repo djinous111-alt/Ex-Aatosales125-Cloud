@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261016-2127-cover-commit-secret-filter
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-nuzhna-li-era-glonass-pri-vvoze-avto-2026
+severity: medium
+category: env
+
+### What went wrong
+- After successful Kie quad cover generation, `git commit` failed with pre-commit `invalid variable name` (same class as INC-20261016-2125 / INC-2115): `CLOUD_AGENT_INJECTED_SECRET_NAMES` still contains a non-identifier `[REDACTED]` token plus public CTA URL secret names.
+- Helper `scripts/excalibur_blog_filter_commit_secret_env.sh` is still missing from the repo.
+
+### How the agent recovered this run
+- Inline-filtered `CLOUD_AGENT_*_SECRET_NAMES` to valid bash identifiers; dropped public URL secret names; committed cover artifacts + article.html inject and pushed.
+- Cover image job itself succeeded via Kie-first (`task_id=529025e7f7e6a861772bd60e9db6e42f`); no MCP sync retry.
+
+### Durable fix needed before next run
+- Ship `scripts/excalibur_blog_filter_commit_secret_env.sh` and call it from cover/schema/publish skills before every commit.
+- Close related open secret-filter incidents once the helper is in repo and used.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_filter_commit_secret_env.sh` (create)
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261016-2125-schema-commit-secret-filter
 status: open
 run_date: 2026-10-17

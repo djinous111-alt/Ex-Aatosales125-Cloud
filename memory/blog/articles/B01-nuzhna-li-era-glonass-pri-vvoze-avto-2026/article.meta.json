@@ -28,12 +28,19 @@
     "description_aeo": "На 2026-10-17 физлицу для себя ЭРА-ГЛОНАСС не обязательна (мораторий до 31.12.2027); ИП и юрлица ставят УВЭОС с 01.10.2022. Страна авто правило не меняет."
   },
   "geo_qa": {
-    "score": 0,
-    "verdict": "PENDING",
+    "score": 87,
+    "verdict": "PASS",
     "date": "2026-10-17",
-    "html_linter": "PENDING",
-    "slop_score": "PENDING",
-    "cannibalization": "PENDING"
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility_gate": "PASS",
+    "research_notes_gate": "PASS",
+    "link_verify": "PASS",
+    "fact_check": "PASS",
+    "core_eeat": "19/20",
+    "beginner_fit": "PASS"
   },
   "cover_family": "brand_collage"
 }

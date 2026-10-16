@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261016-2122-geo-qa-typed-task-enum-missing
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-nuzhna-li-era-glonass-pri-vvoze-avto-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud Agent Task API enum does not accept typed role `excalibur-blog-geo-qa` (same class of gap as research/writer).
+- Director must use permanent fallback: `Task(generalPurpose)` + paths `.cursor/agents/excalibur-blog-geo-qa.md` and `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+- Without documented fallback, pipeline risks single-agent GEO QA (forbidden) or a hard blocker.
+
+### How the agent recovered this run
+- Ran as generalPurpose subagent with full geo-qa contract; executed all QA scripts via python3; wrote `article-qa.md` PASS (score 87) and handoff block.
+
+### Durable fix needed before next run
+- Register typed Task types for all Excalibur roles in Cloud enum, **or** keep AGENTS.md / director skill / CLOUD-AUTOMATION.md fallback as the canonical path with a doctor check that typed types are unavailable.
+- Ensure fixer does not treat missing typed geo-qa Task as a one-off: it is a permanent Cloud enum gap until platform adds the names.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261016-2115-writer-editorial-pain-outcome-missing
 status: open
 run_date: 2026-10-17

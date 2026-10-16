@@ -551,3 +551,36 @@ category: docs
 ### Fixer resolution
 - pending
 
+## INC-20261016-0950-publish-ssh-root-cloud-secret-nondot
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026
+severity: low
+category: env
+
+### What went wrong
+- Cloud Secrets `SSH_ROOT` is still a non-dot path; publish script load_env overlays it over `memory/site.env.local` (`SSH_ROOT=.`), so first SFTP open returned ENOENT.
+- `paramiko` missing from boot image again (pip install required).
+
+### How the agent recovered this run
+- Script WARN + automatic retry at `.` uploaded bootstrap OK; HTTP trigger returned `OK post=4245` without WebFetch fallback.
+- `python3 -m pip install --break-system-packages paramiko` before publish.
+
+### Durable fix needed before next run
+- Set Cloud Secrets `SSH_ROOT=.` (login cwd) so env overlay matches Beget SSH chroot.
+- Ensure `.cursor/cloud-agent-install.sh` / requirements install `paramiko` on every boot.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- Cursor Dashboard Secrets (`SSH_ROOT`)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

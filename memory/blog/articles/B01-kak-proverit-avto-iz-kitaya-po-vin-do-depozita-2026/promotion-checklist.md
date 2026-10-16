@@ -1,13 +1,13 @@
 # Promotion checklist — B01 kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026
 
-Дата публикации: 2026-10-16 (план; live после publish)  
-Live URL: /blog/kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026/
+Дата публикации: 2026-10-16  
+Live URL: [REDACTED]/2026/10/16/kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — HEAD 200 (publish agent)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Пустой ГИБДД до учёта в РФ — норма, не «чистая история»
 • Нет VIN или давят «без проверки» — перевод не отправляете
 
-Читать: /blog/kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026/
+Читать: [REDACTED]/2026/10/16/kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026/
 ```
 
 ## Перелинковка
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir …/B01-… --site-base [REDACTED]` — 0 links applied.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (`--blog-dir memory/blog/articles --site-base "" --out-dir memory/blog`).
-- Publish: ещё не выполнялся (зона publish-агента).
+- Publish: PASS post=4245 featured=4246 inline=4247/4248/4249 schema_meta=ok HEAD 200.

@@ -6,78 +6,6 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
-## INC-20261016-0924-geo-qa-utility-policy-markers-missing
-status: open
-run_date: 2026-10-16
-role: excalibur-blog-geo-qa
-topic_id: B01
-article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026
-severity: blocker
-category: qa
-
-### What went wrong
-- `excalibur_blog_utility_gate.py` считает `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json` и требует min 2 / 3 (дефолты в коде)
-- В `editorial-policy.json` этих ключей нет → списки пустые → `pain_markers=0`, `outcome_markers=0` на **любой** статье
-- Перепроверка AS08/AS09 на текущем gate: оба BLOCK только по pain/outcome (action_markers у AS09 = 13)
-- B01 дополнительно BLOCK по action_markers 1<8 (Writer: «Делать/Не делать» ≠ «сделайте/не делайте»)
-
-### How the agent recovered this run
-- GEO QA не правил article.html (контракт FIX→Writer)
-- Зафиксировал FAIL в article-qa.md + handoff; отделил Writer-FIX от policy-blocker
-- Директору: сначала Fixer (policy markers), затем Writer FIX, затем повтор GEO QA
-
-### Durable fix needed before next run
-- Добавить в `memory/brief/editorial-policy.json` массивы `pain_markers_ru` и `outcome_markers_ru` (согласовать с маркерами `excalibur_blog_human_voice_gate.py` или явным auto-niche списком)
-- Либо в script: если ключ отсутствует — не применять min_pain/min_outcome (fail-open) и warning в report
-- Дописать в writer contract / pitfalls: recommendation markers — точные формы «сделайте/не делайте», не «Делать/Не делать»; CTA URL из conversion-map, никогда литерал `[REDACTED]`
-
-### Suggested files to inspect/change
-- `memory/brief/editorial-policy.json`
-- `scripts/excalibur_blog_utility_gate.py`
-- `shared/excalibur-article-writing-contract.md`
-- `shared/agent-pipeline-pitfalls.md`
-- `.cursor/skills/writer-excalibur-blog/SKILL.md`
-
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
-
-
-## INC-20261016-0921-writer-precommit-secret-names-csv
-status: open
-run_date: 2026-10-16
-role: excalibur-blog-writer
-topic_id: B01
-article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026
-severity: medium
-category: env
-
-### What went wrong
-- Same Cloud pre-commit secrets scanner failure as INC-20261016-0905-scout-precommit-invalid-secret-name
-- `CLOUD_AGENT_INJECTED_SECRET_NAMES` contains a non-identifier (`https:/...`) that breaks `${!SECRET_NAME}`
-- First recovery attempt exported space-separated names; hook uses `IFS=',' read -ra`, so the whole list became one invalid name
-
-### How the agent recovered this run
-- Filtered to valid `[A-Za-z_][A-Za-z0-9_]*` identifiers and re-exported as **comma-separated** list
-- Commit succeeded without `--no-verify`
-
-### Durable fix needed before next run
-- Same as scout INC: harden inject list / pre-commit.cursor
-- Document in pitfalls: sanitize must keep CSV format (`a,b,c`), not spaces
-
-### Suggested files to inspect/change
-- `shared/agent-pipeline-pitfalls.md`
-- Cursor Cloud secrets inject / agent-hooks `pre-commit.cursor` (platform)
-
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
-
-
 ## INC-20261016-0915-research-notes-gate-accessed-at-count
 status: open
 run_date: 2026-10-16
@@ -144,106 +72,130 @@ category: api
 ### Fixer resolution
 - pending
 
-## INC-20261016-0905-scout-precommit-invalid-secret-name
-status: open
+## INC-20261016-0924-geo-qa-utility-policy-markers-missing
+status: fixed
+fixed_at: 2026-10-16
 run_date: 2026-10-16
-role: excalibur-blog-scout
+role: excalibur-blog-geo-qa
 topic_id: B01
-article_dir: n/a
+article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026
+severity: blocker
+category: qa
+
+### What went wrong
+- `pain_markers_ru` / `outcome_markers_ru` отсутствовали в `editorial-policy.json` → false BLOCK на любой статье
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Восстановлены `pain_markers_ru` (12) и `outcome_markers_ru` (10) в sync с `human_voice_gate` PAIN/OUTCOME_MARKERS
+- utility_gate fail-fast при пустых списках; doctor assert non-empty ≥3
+- Writer contract/skill/pitfalls: точные recommendation markers + CTA не `[REDACTED]`
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+checks_run:
+- `utility_gate B01` → PASS
+- `utility_gate AS09` → PASS
+- empty-policy dry-run → BLOCK with fail-fast errors
+- `doctor` → errors=0 warnings=1 (paramiko)
+commit: pending
+
+## INC-20261016-0921-writer-precommit-secret-names-csv
+status: fixed
+fixed_at: 2026-10-16
+run_date: 2026-10-16
+role: excalibur-blog-writer
+topic_id: B01
 severity: medium
 category: env
 
-### What went wrong
-- Cloud Agent pre-commit secrets scanner failed: `RAW_SECRET_VALUE="${!SECRET_NAME}"` with `invalid variable name`
-- `CLOUD_AGENT_INJECTED_SECRET_NAMES` included one non-identifier entry shaped like a URL (`https://...`), which bash cannot expand via nameref
-- Blocked `git commit` of scout topic card until sanitized
-
-### How the agent recovered this run
-- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid `[A-Za-z_][A-Za-z0-9_]*` identifiers only, then recommitted
-- Did not use `--no-verify`
-
-### Durable fix needed before next run
-- Cursor Cloud / secrets inject: exclude non-identifier names from `CLOUD_AGENT_INJECTED_SECRET_NAMES`
-- Or harden `pre-commit.cursor` to skip names that fail bash identifier regex before `${!SECRET_NAME}`
-- Document scout commit workaround in pitfalls if env-side fix lags
-
-### Suggested files to inspect/change
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Восстановлен `scripts/excalibur_blog_filter_commit_secret_env.sh` (CSV, identifier-only, drop marketing URL secret names)
+- Pitfalls: sanitize must stay CSV `a,b,c`
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
 - `shared/agent-pipeline-pitfalls.md`
-- Cursor Cloud secrets inject / agent-hooks `pre-commit.cursor` (platform)
+checks_run:
+- isolated filter: strips `https://…` and `PUBLIC_SITE_URL`
+commit: pending
 
-### Secrets
-- none recorded
+## INC-20261016-0905-scout-precommit-invalid-secret-name
+status: fixed
+fixed_at: 2026-10-16
+run_date: 2026-10-16
+role: excalibur-blog-scout
+topic_id: B01
+severity: medium
+category: env
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Same durable fix as INC-0921: filter script + pitfalls CSV note
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `bash -n` + isolated filter test
+commit: pending
 
 ## INC-20261016-0903-director-doctor-llms-blog-path
-status: open
+status: fixed
+fixed_at: 2026-10-16
 run_date: 2026-10-16
 role: excalibur-blog-director
-topic_id: n/a
-article_dir: n/a
 severity: low
 category: script
 
-### What went wrong
-- `python3 scripts/excalibur_blog_doctor.py` FAIL: `llms generator supports --blog-path`
-- Actual `excalibur_blog_llms_generator.py` accepts `--blog-dir` (and related flags), not `--blog-path`
-- Stale doctor check causes SUMMARY errors=1 on every preflight even when tooling is healthy
-
-### How the agent recovered this run
-- Continued pipeline; known indexer CLI uses `--blog-dir` + `--site-base ""` per pitfalls/memory
-
-### Durable fix needed before next run
-- Update doctor to assert `--blog-dir` (and drop/alias `--blog-path`), or restore `--blog-path` as deprecated alias on llms generator
-- Keep doctor SUMMARY green for healthy Cloud installs
-
-### Suggested files to inspect/change
-- `scripts/excalibur_blog_doctor.py`
-- `scripts/excalibur_blog_llms_generator.py`
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Doctor asserts `--blog-dir` and warns/fails if stale `--blog-path` present
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `doctor` OK llms `--blog-dir`; no stale `--blog-path`
+commit: pending
 
 ## INC-20261016-0903-scout-niche-drift-ai-prompts
-status: open
+status: fixed
+fixed_at: 2026-10-16
 run_date: 2026-10-16
 role: excalibur-blog-scout
-topic_id: n/a
-article_dir: n/a
 severity: medium
 category: docs
 
-### What went wrong
-- `agents/excalibur-blog-scout.md`, `.cursor/agents/excalibur-blog-scout.md`, and scout skills still prioritize Cursor AI / Make / n8n / автопостинг
-- Site niche is Авто-Сейлс (`memory/brief/site-brief.md`); previous fixer claimed niche redirect but AI prompts remain in agent/skill files
-- Risk: Scout generates off-niche topics unless Director overrides in Task prompt
-
-### How the agent recovered this run
-- Director Task prompt for Scout explicitly forces Авто-Сейлс clusters + live slug denylist
-
-### Durable fix needed before next run
-- Rewrite scout agent + skill (both `agents/`/`skills/` and `.cursor/` mirrors) to Авто-Сейлс clusters from site-brief
-- Remove Cursor/Make/n8n priority lists from scout prompts
-- Ensure helper/today see AS*|B* consistently if AS pool should be usable
-
-### Suggested files to inspect/change
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Scout agent/skill (both trees) → Авто-Сейлс clusters from site-brief; AI/Make/n8n priority removed
+- scout_helper + today.py recognize AS*|B*
+files_changed:
 - `agents/excalibur-blog-scout.md`
 - `.cursor/agents/excalibur-blog-scout.md`
 - `skills/scout-excalibur-blog/SKILL.md`
 - `.cursor/skills/scout-excalibur-blog/SKILL.md`
 - `scripts/excalibur_blog_scout_helper.py`
 - `scripts/excalibur_blog_today.py`
-
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `scout_helper --suggest-next` sees AS08/AS09/B01
+- rg: no Cursor AI priority lists in scout prompts (only forbid notes)
+commit: pending
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

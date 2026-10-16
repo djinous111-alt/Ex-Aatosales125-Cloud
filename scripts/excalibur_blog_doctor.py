@@ -154,6 +154,7 @@ def main() -> int:
         check=False,
     )
     check("--article-dir" in help_proc.stdout, "interlinker supports --article-dir", errors, warnings)
+    check("--redact-site-base" in help_proc.stdout, "interlinker supports --redact-site-base", errors, warnings)
 
     llms = root / "scripts/excalibur_blog_llms_generator.py"
     llms_help = subprocess.run(

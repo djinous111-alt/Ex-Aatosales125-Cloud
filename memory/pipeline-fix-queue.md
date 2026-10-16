@@ -4,10 +4,16 @@ Durable incident memory for repeated pipeline problems.
 
 Contract: `shared/pipeline-incident-fix-contract.md`
 
-## Open incidents
+## Open / needs-human
+
+- `INC-20261016-0950-publish-ssh-root-cloud-secret-nondot` → needs-human: set Cloud Secret `SSH_ROOT=.`
+
+## Recently fixed (this fixer run)
+
 
 ## INC-20261016-0943-indexer-redact-site-base-flag-missing
-status: open
+status: fixed
+fixed_at: 2026-10-16
 run_date: 2026-10-16
 role: excalibur-blog-indexer
 topic_id: B01
@@ -15,34 +21,31 @@ article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depo
 severity: low
 category: docs
 
-### What went wrong
-- Промпт Indexer упоминает флаг `--redact-site-base`, но `excalibur_blog_interlinker.py` его не поддерживает (`--help` только `--site-base`)
-- `--apply` пишет реальный `site_base` в `memory/blog/interlink-suggestions.json` даже при 0 opportunities
-
-### How the agent recovered this run
-- Interlinker запущен с `--site-base ${PUBLIC_SITE_URL}` (без несуществующего флага)
-- После прогона вручную заменил `site_base` в `interlink-suggestions.json` на `[REDACTED]`
-- llms generator: `--blog-dir` + `--site-base ""` (без устаревшего `--blog-path`)
-
-### Durable fix needed before next run
-- Либо добавить `--redact-site-base` в interlinker (писать `[REDACTED]` в JSON report), либо убрать флаг из agent/prompt docs
-- В pitfalls/skill: явно «report JSON redact site_base; live links в HTML — из PUBLIC_SITE_URL»
-
-### Suggested files to inspect/change
-- `scripts/excalibur_blog_interlinker.py`
-- `.cursor/agents/excalibur-blog-indexer.md`
-- `agents/excalibur-blog-indexer.md`
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Добавлен `--redact-site-base` в `excalibur_blog_interlinker.py` (JSON report → `[REDACTED]`, HTML apply использует `--site-base`)
+- Indexer agent/skill (оба дерева): обязательный `--redact-site-base`; llms CLI без stale `--blog-path`
+- Doctor assert на `--redact-site-base`; pitfalls обновлены
+files_changed:
+- `scripts/excalibur_blog_interlinker.py`
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `interlinker --help` shows `--redact-site-base`
+- dry-run report site_base=`[REDACTED]` with flag; real URL without flag
+- `doctor` → errors=0 (redact-site-base OK)
+commit: pending
 
 
 ## INC-20261016-0930-writer-cta-env-and-ol-five-regex
-status: open
+status: fixed
+fixed_at: 2026-10-16
 run_date: 2026-10-16
 role: excalibur-blog-writer
 topic_id: B01
@@ -50,37 +53,27 @@ article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depo
 severity: medium
 category: docs
 
-### What went wrong
-- После GEO QA FAIL: CTA в article.html были литералами `[REDACTED]` / невалидный join с site-base → link-verify fail; в `conversion-map.md` URL тоже замаскированы
-- Маркеры «Делать/Не делать» не считаются в `recommendation_markers_ru` (нужны императивы «сделайте/не делайте»)
-- `human_voice_gate` regex `exactly_five_lists` срабатывает на любой `<ol>` с ≥5 `<li>` и на span нескольких списков → ложный warn даже при длинах 4/6/10/7
-
-### How the agent recovered this run
-- Подставил реальные CTA из env `CATALOG_URL` + `TELEGRAM_URL` (каталог×2, Telegram×1)
-- Переписал рекомендации на маркеры policy; добавил outcome «результат/получите/сможете/соберите»
-- Убрал ярлык TL;DR; оставил один `<ol>` (чеклист 10), остальные шаги в `<ul>` с «Шаг N»
-- Локально: human-voice PASS, utility PASS, link-verify pass, char_count 9447
-
-### Durable fix needed before next run
-- В writer skill/contract: при `[REDACTED]` в conversion-map брать CTA из `CATALOG_URL`/`TELEGRAM_URL`, не писать литерал `[REDACTED]` в href
-- Явно: «Делать/Не делать» ≠ маркеры; использовать «сделайте/не делайте/проверьте/чеклист/шаг »
-- Починить regex `exactly_five_lists` в `excalibur_blog_human_voice_gate.py` (считать точное число `<li>` внутри каждого `<ol>`, не `{5}` non-greedy span)
-
-### Suggested files to inspect/change
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- `exactly_five_lists` считает `<li>` внутри каждого `<ol>` и предупреждает только при ровно 5 (не ≥5 span)
+- Writer skill + writing contract: CTA из conversion-map или env `CATALOG_URL`/`TELEGRAM_URL`; не литерал `[REDACTED]`; императивные recommendation markers
+files_changed:
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
 - `.cursor/skills/writer-excalibur-blog/SKILL.md`
 - `shared/excalibur-article-writing-contract.md`
-- `scripts/excalibur_blog_human_voice_gate.py`
 - `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
+checks_run:
+- unit: ol(10)=0, ol(5)=1, two ol(5)=2
+- human_voice B01 → PASS, exactly_five_lists=0
+commit: pending
 
 
 ## INC-20261016-0915-research-notes-gate-accessed-at-count
-status: open
+status: fixed
+fixed_at: 2026-10-16
 run_date: 2026-10-16
 role: excalibur-blog-research
 topic_id: B01
@@ -88,34 +81,29 @@ article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depo
 severity: medium
 category: qa
 
-### What went wrong
-- `excalibur_blog_research_notes_gate.py` BLOCK: `accessed_at=1 < 5` even when `source_table` had many URL rows with date column `accessed_at`
-- Gate counts only literal `accessed_at:` field matches (`\baccessed_at\b\s*:`), not table cells
-- Skill/agent format shows table column `accessed_at` without requiring repeated `accessed_at:` labels
-
-### How the agent recovered this run
-- Added `## sources_accessed` block with 10 explicit `accessed_at: 2026-10-16` lines; gate PASS on retry
-- Also noted: mentioning `github`/`mcp` in notes flips `technical_topic=true` and can demand extra GitHub URLs
-
-### Durable fix needed before next run
-- Document in research skill/agent that gate needs >=5 literal `accessed_at:` labels (table header alone is not enough)
-- Or relax gate to count `accessed_at` dates inside `source_table` rows
-- Optionally exclude research meta words (`mcp`, `github_evidence`) from `TECH_MARKERS` false positives on non-tech topics
-
-### Suggested files to inspect/change
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- `count_accessed_at()` принимает литералы `accessed_at: YYYY-MM-DD` или pipe-row source_table (URL+ISO date)
+- `technical_topic`: strip github_evidence/MCP meta noise; word-boundary для `ai`/`ии`; bare github.com refs stripped
+- Research skill/agent + pitfalls документируют rule
+files_changed:
 - `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
 - `.cursor/skills/excalibur-research/SKILL.md`
+- `agents/excalibur-blog-research.md`
 - `.cursor/agents/excalibur-blog-research.md`
 - `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- table-only fixture accessed_at=5
+- B01 gate PASS, technical_topic=False, accessed_at=16
+commit: pending
 
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
 
 ## INC-20261016-0915-research-gibdd-webfetch-504
-status: open
+status: fixed
+fixed_at: 2026-10-16
 run_date: 2026-10-16
 role: excalibur-blog-research
 topic_id: B01
@@ -123,27 +111,22 @@ article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depo
 severity: low
 category: api
 
-### What went wrong
-- WebFetch to `gibdd.ru/check/auto` and punycode mirror returned HTTP 504 Gateway Timeout
-- Blocked direct confirmation of live GIBDD UI copy during research
-
-### How the agent recovered this run
-- Used ConsultantPlus documented procedure for GIBDD VIN check + Autonews/FNP sources for pledge check
-- Did not invent GIBDD UI text; cited secondary official/legal sources with `accessed_at`
-
-### Durable fix needed before next run
-- Research skill: if official portal times out, allow documented secondary official mirrors (ConsultantPlus, notariat) and record soft-fail
-- Optional retry/backoff note for WebFetch 5xx on government hosts
-
-### Suggested files to inspect/change
-- `.cursor/skills/excalibur-research/SKILL.md`
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Research skill/agent: WebFetch 5xx/timeout на госпортале → retry → soft-fail + вторичные официальные источники (ConsultantPlus/ФНП), без выдуманного UI
+- Pitfalls: тот же soft-fail rule
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `agents/excalibur-blog-research.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg source_soft_fail` in research skill/agent
+commit: pending
+
 
 ## INC-20261016-0924-geo-qa-utility-policy-markers-missing
 status: fixed
@@ -520,7 +503,8 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261016-0936-schema-commit-secret-filter
-status: open
+status: fixed
+fixed_at: 2026-10-16
 run_date: 2026-10-16
 role: excalibur-blog-schema
 topic_id: B01
@@ -528,31 +512,26 @@ article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depo
 severity: medium
 category: docs
 
-### What went wrong
-- `git commit` of `schema.jsonld` failed twice: (1) pre-commit `invalid variable name` from a non-identifier entry in `CLOUD_AGENT_INJECTED_SECRET_NAMES`; (2) secret scanner blocked intentional public marketing URLs (`PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`) that belong in BlogPosting/FAQPage/HowTo JSON-LD.
-- Schema skill/agent docs did not mention `scripts/excalibur_blog_filter_commit_secret_env.sh`, so the agent wasted retries stripping sameAs instead of using the existing filter.
-
-### How the agent recovered this run
-- Restored full author `sameAs` from registry (AS09 pattern).
-- Committed via `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"` then `git commit` with hooks still on.
-
-### Durable fix needed before next run
-- Document in schema skill + agent: before committing `schema.jsonld`, run the filter-commit-secret-env script; do not strip catalog/telegram/site URLs from JSON-LD.
-
-### Suggested files to inspect/change
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Schema skill + agent (оба дерева): перед commit `schema.jsonld` запускать `filter_commit_secret_env.sh`; не вырезать sameAs/CTA URL
+- Pitfalls: schema commit via filter
+files_changed:
 - `skills/schema-excalibur-blog/SKILL.md`
 - `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
 - `.cursor/agents/excalibur-blog-schema.md`
 - `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg filter_commit_secret_env` in schema skill/agent
+commit: pending
 
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
 
 ## INC-20261016-0950-publish-ssh-root-cloud-secret-nondot
-status: open
+status: needs-human
+fixed_at: 2026-10-16
 run_date: 2026-10-16
 role: excalibur-blog-publish
 topic_id: B01
@@ -560,27 +539,23 @@ article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depo
 severity: low
 category: env
 
-### What went wrong
-- Cloud Secrets `SSH_ROOT` is still a non-dot path; publish script load_env overlays it over `memory/site.env.local` (`SSH_ROOT=.`), so first SFTP open returned ENOENT.
-- `paramiko` missing from boot image again (pip install required).
-
-### How the agent recovered this run
-- Script WARN + automatic retry at `.` uploaded bootstrap OK; HTTP trigger returned `OK post=4245` without WebFetch fallback.
-- `python3 -m pip install --break-system-packages paramiko` before publish.
-
-### Durable fix needed before next run
-- Set Cloud Secrets `SSH_ROOT=.` (login cwd) so env overlay matches Beget SSH chroot.
-- Ensure `.cursor/cloud-agent-install.sh` / requirements install `paramiko` on every boot.
-
-### Suggested files to inspect/change
-- `.cursor/cloud-agent-install.sh`
-- `requirements.txt`
-- Cursor Dashboard Secrets (`SSH_ROOT`)
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
 ### Fixer resolution
-- pending
+status: needs-human
+fixed_at: 2026-10-16
+reason:
+- Cloud Secret `SSH_ROOT` нельзя изменить из repo; publish script уже имеет ENOENT→`.` fallback, но env overlay всё равно даёт лишний WARN/retry
+needed_decision_or_secret:
+- В Cursor Dashboard → Cloud Secrets выставить `SSH_ROOT=.` (точка = login cwd Beget SSH). Не panel/absolute path.
+fix_summary_partial_in_repo:
+- `.cursor/cloud-agent-install.sh` теперь ставит `requirements.txt` (включая paramiko) и fail-fast если import paramiko падает
+- Publish skill + pitfalls: явная инструкция `SSH_ROOT=.`
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `bash -n .cursor/cloud-agent-install.sh`
+- `doctor` → paramiko OK
+commit: pending
 

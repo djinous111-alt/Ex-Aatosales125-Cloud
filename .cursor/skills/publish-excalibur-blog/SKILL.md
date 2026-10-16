@@ -119,3 +119,9 @@ blockers:
 - Генерировать cover/schema с нуля
 - Пропускать dry-run
 - Завершать пайплайн без записи в `published-articles.md` при успешном publish
+
+
+## SSH_ROOT и paramiko (Cloud)
+
+- Cloud Secret `SSH_ROOT` должен быть `.` (login cwd Beget SSH). Non-dot path → первый SFTP open ENOENT; скрипт retry на `.`, но secret всё равно обнови вручную в Dashboard.
+- `paramiko` ставится из `requirements.txt` через `.cursor/cloud-agent-install.sh` на каждый boot. Если doctor WARN — `python3 -m pip install --break-system-packages paramiko`.

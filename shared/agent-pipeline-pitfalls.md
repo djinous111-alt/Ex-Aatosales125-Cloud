@@ -21,7 +21,8 @@
 - `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` только в Cloud Secrets, не в git.
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
 - Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
-- SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
+- Cloud Secret `SSH_ROOT` **должен быть `.`** (Beget login cwd). Non-dot path перекрывает `memory/site.env.local` → первый SFTP ENOENT; скрипт retry на `.`, но secret всё равно поставь `.` в Dashboard (repo это не меняет).
+- `paramiko` обязан ставиться на boot через `.cursor/cloud-agent-install.sh` + `requirements.txt`; doctor WARN → `pip install paramiko`.
 
 ## Writer / Fact Check Box
 
@@ -35,7 +36,8 @@
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
 - `memory/brief/editorial-policy.json` обязан содержать непустые `pain_markers_ru` и `outcome_markers_ru` (синхрон с `human_voice_gate`). Пустые списки → false BLOCK на любой статье; doctor FAIL + utility_gate fail-fast.
-- Recommendation markers — точные формы `сделайте` / `не делайте` (не «Делать/Не делать»); CTA URL только из conversion-map, никогда литерал `[REDACTED]`.
+- Recommendation markers — точные формы `сделайте` / `не делайте` (не «Делать/Не делать»); CTA URL из conversion-map, при `[REDACTED]` — из env `CATALOG_URL`/`TELEGRAM_URL`, никогда литерал `[REDACTED]` в href.
+- human-voice `exactly_five_lists`: считает только `<ol>` с **ровно** 5 `<li>`; чеклисты 6–10 не false-positive.
 
 ## Cover
 
@@ -51,9 +53,17 @@
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
 - llms generator CLI: `--blog-dir` (не `--blog-path`); doctor проверяет именно `--blog-dir`.
+- Interlinker: `--redact-site-base` → в JSON report `site_base: [REDACTED]`; live HTML links — из `--site-base` / `PUBLIC_SITE_URL`.
+
+## Research
+
+- Gate `accessed_at`: ≥5 дат из литералов `accessed_at: YYYY-MM-DD` **или** pipe-row `source_table` (URL + ISO date). Заголовок колонки сам по себе не считается.
+- Шаблоны `github_evidence` / упоминания MCP в notes не включают `technical_topic` сами по себе.
+- WebFetch 5xx/timeout на госпортале → soft-fail + вторичные официальные источники (ConsultantPlus/ФНП), без выдуманного UI.
 
 ## Git / secrets pre-commit
 
-- Перед `git commit`: `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"`.
+- Перед `git commit` (в т.ч. schema.jsonld): `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"`.
 - Sanitize `CLOUD_AGENT_INJECTED_SECRET_NAMES` должен оставаться **CSV** (`a,b,c`), не space-separated: hook парсит через `IFS=','`.
 - Невалидные имена (URL-подобные) ломают `${!SECRET_NAME}` → «invalid variable name».
+- Schema: не вырезай sameAs/catalog/telegram URL из JSON-LD ради scanner — сначала filter-скрипт.

@@ -22,6 +22,8 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 
 ## Твои задачи
 
+Перед commit `schema.jsonld`: `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"`. Не вырезай author sameAs / публичные CTA URL из JSON-LD.
+
 1. Прочитать article.html, article.meta.json, research-notes, authors-registry.
 2. Собрать `schema.jsonld`: BlogPosting + FAQPage (+ HowTo если нужно).
 3. datePublished из research-context (today).

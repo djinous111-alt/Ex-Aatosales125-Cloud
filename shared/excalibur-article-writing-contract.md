@@ -55,7 +55,7 @@ Excalibur BLOG следует этому контракту для каждой 
 
 Каждый H2 обязан нести **действие**: что сделать / не делать и почему. Абзац без рекомендации — удалить.
 
-**Utility markers (`editorial-policy.json`):** в теле статьи используй точные формы из `recommendation_markers_ru` (`сделайте`, `не делайте`, …), не «Делать/Не делать». Боль/результат читателя должны попадать под `pain_markers_ru` / `outcome_markers_ru`. CTA URL — только из `conversion-map`, никогда литерал `[REDACTED]`.
+**Utility markers (`editorial-policy.json`):** в теле статьи используй точные формы из `recommendation_markers_ru` (`сделайте`, `не делайте`, `проверьте`, `чеклист`, `шаг ` …), не ярлыки «Делать/Не делать». Боль/результат читателя должны попадать под `pain_markers_ru` / `outcome_markers_ru`. CTA URL — из `conversion-map.md`; если там `[REDACTED]` или пусто — подставь `CATALOG_URL` / `TELEGRAM_URL` из env. Никогда не пиши литерал `[REDACTED]` в `href`.
 
 ## Стиль и доступность (Человеческий язык для всех)
 

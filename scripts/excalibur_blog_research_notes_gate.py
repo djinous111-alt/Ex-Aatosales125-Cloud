@@ -32,6 +32,16 @@ TECH_MARKERS = (
     "нейросет",
 )
 
+# Required research-notes section/field names that must not flip technical_topic=true
+# just because the template mentions github/mcp/api as meta labels.
+TECH_META_NOISE = (
+    r"##\s*\d*\.?\s*github_evidence\b",
+    r"\bgithub_evidence\b\s*:",
+    r"\bmcp\b",  # research process mentions (Wordstat MCP etc.) — strip before topic scan
+    r"user-mcp-kv",
+    r"wordstat_get_top_requests",
+)
+
 
 REQUIRED_FIELDS = (
     "research_date",
@@ -73,14 +83,47 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_hit(blob: str, marker: str) -> bool:
+    """Substring for long tokens; word-boundary for short ambiguous markers (ai/ии)."""
+    if len(marker) <= 2:
+        return bool(re.search(rf"(?<![\wа-яё]){re.escape(marker)}(?![\wа-яё])", blob, flags=re.I))
+    return marker in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    notes_scan = notes[:2000].lower()
+    for pattern in TECH_META_NOISE:
+        notes_scan = re.sub(pattern, " ", notes_scan, flags=re.I)
+    # Drop github.com refs from the scan; github_evidence section is required for all topics.
+    notes_scan = re.sub(r"(?:https?://(?:www\.)?)?github\.com/\S+", " ", notes_scan, flags=re.I)
+    blob += " " + notes_scan
+    return any(_marker_hit(blob, marker) for marker in TECH_MARKERS)
+
+
+def count_accessed_at(text: str) -> int:
+    """Count source access dates from literal labels and source_table date cells.
+
+    Gate needs >=5 access dates. Table header `accessed_at` alone is not enough;
+    each source row with an ISO date in the accessed_at column counts, as do
+    explicit `accessed_at: YYYY-MM-DD` labels (including sources_accessed blocks).
+    """
+    text_lower = text.lower()
+    labeled = len(re.findall(r"\baccessed_at\b\s*:\s*\d{4}-\d{2}-\d{2}", text_lower))
+    # Pipe-table rows that contain a URL and an ISO date (typical source_table shape).
+    table_dated = 0
+    for line in text.splitlines():
+        if not re.match(r"^\s*\|", line):
+            continue
+        if "accessed_at" in line.lower() and "http" not in line.lower():
+            continue  # header / separator
+        if re.search(r"https?://", line) and re.search(r"\b\d{4}-\d{2}-\d{2}\b", line):
+            table_dated += 1
+    return max(labeled, table_dated)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,7 +173,7 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
     pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
     action_items = count_action_items(text)

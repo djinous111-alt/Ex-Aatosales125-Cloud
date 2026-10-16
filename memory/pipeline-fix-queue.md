@@ -40,7 +40,7 @@ checks_run:
 - `interlinker --help` shows `--redact-site-base`
 - dry-run report site_base=`[REDACTED]` with flag; real URL without flag
 - `doctor` → errors=0 (redact-site-base OK)
-commit: pending
+commit: 731d1e5
 
 
 ## INC-20261016-0930-writer-cta-env-and-ol-five-regex
@@ -68,7 +68,7 @@ files_changed:
 checks_run:
 - unit: ol(10)=0, ol(5)=1, two ol(5)=2
 - human_voice B01 → PASS, exactly_five_lists=0
-commit: pending
+commit: 731d1e5
 
 
 ## INC-20261016-0915-research-notes-gate-accessed-at-count
@@ -98,7 +98,7 @@ files_changed:
 checks_run:
 - table-only fixture accessed_at=5
 - B01 gate PASS, technical_topic=False, accessed_at=16
-commit: pending
+commit: 731d1e5
 
 
 ## INC-20261016-0915-research-gibdd-webfetch-504
@@ -125,7 +125,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg source_soft_fail` in research skill/agent
-commit: pending
+commit: 731d1e5
 
 
 ## INC-20261016-0924-geo-qa-utility-policy-markers-missing
@@ -526,7 +526,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg filter_commit_secret_env` in schema skill/agent
-commit: pending
+commit: 731d1e5
 
 
 ## INC-20261016-0950-publish-ssh-root-cloud-secret-nondot
@@ -557,5 +557,5 @@ files_changed:
 checks_run:
 - `bash -n .cursor/cloud-agent-install.sh`
 - `doctor` → paramiko OK
-commit: pending
+commit: 731d1e5
 

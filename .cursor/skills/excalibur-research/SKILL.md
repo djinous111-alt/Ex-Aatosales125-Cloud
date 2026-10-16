@@ -68,3 +68,23 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+
+## Research notes gate (accessed_at + technical_topic)
+
+`excalibur_blog_research_notes_gate.py` считает access dates так:
+
+1. Явные метки `accessed_at: YYYY-MM-DD` (в т.ч. блок `## sources_accessed`);
+2. **или** строки `source_table` с URL + ISO-датой в той же pipe-row.
+
+Заголовок колонки `accessed_at` сам по себе **не** считается. Цель: ≥5 дат доступа.
+
+Секции-шаблоны (`## github_evidence`, упоминания Wordstat MCP) **не** должны сами по себе включать `technical_topic=true` и требовать ≥3 GitHub URL. Tech-маркеры смотрят на topic card + смысл notes, без meta-шума процесса research.
+
+## Official portals: WebFetch 5xx / timeout
+
+Если официальный портал (ГИБДД, ФНС, госуслуги и т.п.) отвечает **504/502/timeout**:
+
+1. 1–2 retry с короткой паузой;
+2. Soft-fail: зафиксируй `source_soft_fail: <host> HTTP 5xx/timeout` в notes;
+3. Используй **вторичные официальные/правовые зеркала** (ConsultantPlus, нотариат/ФНП, docs ведомства) — не выдумывай UI-тексты портала;
+4. У каждой цифры/процедуры всё равно должен быть URL + `accessed_at`.

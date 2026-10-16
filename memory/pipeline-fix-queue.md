@@ -4,7 +4,254 @@ Durable incident memory for repeated pipeline problems.
 
 Contract: `shared/pipeline-incident-fix-contract.md`
 
-## Open incidents
+## Open / needs-human
+
+- `INC-20261016-0950-publish-ssh-root-cloud-secret-nondot` → needs-human: set Cloud Secret `SSH_ROOT=.`
+
+## Recently fixed (this fixer run)
+
+
+## INC-20261016-0943-indexer-redact-site-base-flag-missing
+status: fixed
+fixed_at: 2026-10-16
+run_date: 2026-10-16
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026
+severity: low
+category: docs
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Добавлен `--redact-site-base` в `excalibur_blog_interlinker.py` (JSON report → `[REDACTED]`, HTML apply использует `--site-base`)
+- Indexer agent/skill (оба дерева): обязательный `--redact-site-base`; llms CLI без stale `--blog-path`
+- Doctor assert на `--redact-site-base`; pitfalls обновлены
+files_changed:
+- `scripts/excalibur_blog_interlinker.py`
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `interlinker --help` shows `--redact-site-base`
+- dry-run report site_base=`[REDACTED]` with flag; real URL without flag
+- `doctor` → errors=0 (redact-site-base OK)
+commit: 731d1e5
+
+
+## INC-20261016-0930-writer-cta-env-and-ol-five-regex
+status: fixed
+fixed_at: 2026-10-16
+run_date: 2026-10-16
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026
+severity: medium
+category: docs
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- `exactly_five_lists` считает `<li>` внутри каждого `<ol>` и предупреждает только при ровно 5 (не ≥5 span)
+- Writer skill + writing contract: CTA из conversion-map или env `CATALOG_URL`/`TELEGRAM_URL`; не литерал `[REDACTED]`; императивные recommendation markers
+files_changed:
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: ol(10)=0, ol(5)=1, two ol(5)=2
+- human_voice B01 → PASS, exactly_five_lists=0
+commit: 731d1e5
+
+
+## INC-20261016-0915-research-notes-gate-accessed-at-count
+status: fixed
+fixed_at: 2026-10-16
+run_date: 2026-10-16
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026
+severity: medium
+category: qa
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- `count_accessed_at()` принимает литералы `accessed_at: YYYY-MM-DD` или pipe-row source_table (URL+ISO date)
+- `technical_topic`: strip github_evidence/MCP meta noise; word-boundary для `ai`/`ии`; bare github.com refs stripped
+- Research skill/agent + pitfalls документируют rule
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `agents/excalibur-blog-research.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- table-only fixture accessed_at=5
+- B01 gate PASS, technical_topic=False, accessed_at=16
+commit: 731d1e5
+
+
+## INC-20261016-0915-research-gibdd-webfetch-504
+status: fixed
+fixed_at: 2026-10-16
+run_date: 2026-10-16
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026
+severity: low
+category: api
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Research skill/agent: WebFetch 5xx/timeout на госпортале → retry → soft-fail + вторичные официальные источники (ConsultantPlus/ФНП), без выдуманного UI
+- Pitfalls: тот же soft-fail rule
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `agents/excalibur-blog-research.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg source_soft_fail` in research skill/agent
+commit: 731d1e5
+
+
+## INC-20261016-0924-geo-qa-utility-policy-markers-missing
+status: fixed
+fixed_at: 2026-10-16
+run_date: 2026-10-16
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026
+severity: blocker
+category: qa
+
+### What went wrong
+- `pain_markers_ru` / `outcome_markers_ru` отсутствовали в `editorial-policy.json` → false BLOCK на любой статье
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Восстановлены `pain_markers_ru` (12) и `outcome_markers_ru` (10) в sync с `human_voice_gate` PAIN/OUTCOME_MARKERS
+- utility_gate fail-fast при пустых списках; doctor assert non-empty ≥3
+- Writer contract/skill/pitfalls: точные recommendation markers + CTA не `[REDACTED]`
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+checks_run:
+- `utility_gate B01` → PASS
+- `utility_gate AS09` → PASS
+- empty-policy dry-run → BLOCK with fail-fast errors
+- `doctor` → errors=0 warnings=1 (paramiko)
+commit: 3180d1a
+
+## INC-20261016-0921-writer-precommit-secret-names-csv
+status: fixed
+fixed_at: 2026-10-16
+run_date: 2026-10-16
+role: excalibur-blog-writer
+topic_id: B01
+severity: medium
+category: env
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Восстановлен `scripts/excalibur_blog_filter_commit_secret_env.sh` (CSV, identifier-only, drop marketing URL secret names)
+- Pitfalls: sanitize must stay CSV `a,b,c`
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- isolated filter: strips `https://…` and `PUBLIC_SITE_URL`
+commit: 3180d1a
+
+## INC-20261016-0905-scout-precommit-invalid-secret-name
+status: fixed
+fixed_at: 2026-10-16
+run_date: 2026-10-16
+role: excalibur-blog-scout
+topic_id: B01
+severity: medium
+category: env
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Same durable fix as INC-0921: filter script + pitfalls CSV note
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `bash -n` + isolated filter test
+commit: 3180d1a
+
+## INC-20261016-0903-director-doctor-llms-blog-path
+status: fixed
+fixed_at: 2026-10-16
+run_date: 2026-10-16
+role: excalibur-blog-director
+severity: low
+category: script
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Doctor asserts `--blog-dir` and warns/fails if stale `--blog-path` present
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `doctor` OK llms `--blog-dir`; no stale `--blog-path`
+commit: 3180d1a
+
+## INC-20261016-0903-scout-niche-drift-ai-prompts
+status: fixed
+fixed_at: 2026-10-16
+run_date: 2026-10-16
+role: excalibur-blog-scout
+severity: medium
+category: docs
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Scout agent/skill (both trees) → Авто-Сейлс clusters from site-brief; AI/Make/n8n priority removed
+- scout_helper + today.py recognize AS*|B*
+files_changed:
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `scout_helper --suggest-next` sees AS08/AS09/B01
+- rg: no Cursor AI priority lists in scout prompts (only forbid notes)
+commit: 3180d1a
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -254,3 +501,61 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261016-0936-schema-commit-secret-filter
+status: fixed
+fixed_at: 2026-10-16
+run_date: 2026-10-16
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026
+severity: medium
+category: docs
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Schema skill + agent (оба дерева): перед commit `schema.jsonld` запускать `filter_commit_secret_env.sh`; не вырезать sameAs/CTA URL
+- Pitfalls: schema commit via filter
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg filter_commit_secret_env` in schema skill/agent
+commit: 731d1e5
+
+
+## INC-20261016-0950-publish-ssh-root-cloud-secret-nondot
+status: needs-human
+fixed_at: 2026-10-16
+run_date: 2026-10-16
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026
+severity: low
+category: env
+
+### Fixer resolution
+status: needs-human
+fixed_at: 2026-10-16
+reason:
+- Cloud Secret `SSH_ROOT` нельзя изменить из repo; publish script уже имеет ENOENT→`.` fallback, но env overlay всё равно даёт лишний WARN/retry
+needed_decision_or_secret:
+- В Cursor Dashboard → Cloud Secrets выставить `SSH_ROOT=.` (точка = login cwd Beget SSH). Не panel/absolute path.
+fix_summary_partial_in_repo:
+- `.cursor/cloud-agent-install.sh` теперь ставит `requirements.txt` (включая paramiko) и fail-fast если import paramiko падает
+- Publish skill + pitfalls: явная инструкция `SSH_ROOT=.`
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `bash -n .cursor/cloud-agent-install.sh`
+- `doctor` → paramiko OK
+commit: 731d1e5
+

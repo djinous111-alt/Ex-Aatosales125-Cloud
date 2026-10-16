@@ -22,3 +22,14 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+
+## Git commit (schema.jsonld)
+
+Перед `git commit` schema/артефактов с публичными marketing URL:
+
+```bash
+eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+```
+
+Не вырезай `sameAs` / catalog / telegram / site URL из JSON-LD ради pre-commit — фильтр убирает secret-сканируемые *имена* env, а не содержимое schema. Публичные CTA URL в BlogPosting/FAQPage — ожидаемы.

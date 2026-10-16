@@ -1,0 +1,31 @@
+{
+  "article": "memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 3,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 0,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "а в китайской базе уже около 73 тысяч. В октябре 2026 появились зарубежные отчёты по авто из Китая (в то",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "40 минут",
+      "kind": "metric_or_duration",
+      "context": "БДД/ФНП и чеклист из 10 пунктов. Результат: за 20–40 минут вы сможете решить \"плачу / не плачу\" и соберите п",
+      "verified": true,
+      "reason": "Numerical value '40' matched in fact-bank context"
+    },
+    {
+      "fact": "10 минут",
+      "kind": "metric_or_duration",
+      "context": "ажите китайский отчёт и прочитайте пять блоков за 10 минут Российские базы не видят китайский период. Нужен",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит без VIN — лотерея, не сделка",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс со смартфоном и VIN на экране, китайский кроссовер, плашка до депозита, угол avto-sales125.ru",
+      "scene_hint": "Герой Авто-Сейлс (reference face + glasses), smart casual куртка под прохладный портский вечер Владивостока, держит смартфон крупным планом: на экране фото VIN-таблички и строка VIN. За спиной современный китайский кроссовер на фоне контейнеров/порта. Fake UI: рваная карточка каталога avto-sales125.ru + стикер-чеклист «до депозита» + скотч. Плашка кириллицей «до депозита». Мем-реакция: кот с телефоном (не Drake). Без кепки/капюшона. Без Wordstat/Метрики. Без токсичных стикеров (лох/лохов).",
+      "meme_caption_ru": "Сначала VIN — потом деньги"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте правило: сначала VIN и отчёт, потом деньги",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake UI чата с продавцом: запрос «VIN + фото таблички», красный стоп на кнопке «перевести депозит», зелёный чек «отчёт получен». Стикер «сначала отчёт». Без лица героя.",
+      "alt": "Скрин правила сделки: VIN и отчёт до перевода депозита"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Разберите китайский VIN: где взять и как не перепутать поля",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица сравнения: фото VIN-таблички vs текст из чата; колонки «17 символов / часто L* / без I O Q» vs «номер кузова как у японцев». Маркер на ошибке «скопировал из объявления». Без лица героя.",
+      "alt": "Таблица: как отличить китайский VIN от номера кузова и текста в чате"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Закажите китайский отчёт и прочитайте пять блоков за 10 минут",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow 5 блоков китайского отчёта за 10 минут: пробег → ДТП → ТО → комплектация → дата последней записи. Стрелки и таймер 10:00. Мини-стикер «пустой ≠ чистый». Без лица героя.",
+      "alt": "Схема: пять блоков китайского отчёта по VIN за 10 минут"
+    }
+  }
+}

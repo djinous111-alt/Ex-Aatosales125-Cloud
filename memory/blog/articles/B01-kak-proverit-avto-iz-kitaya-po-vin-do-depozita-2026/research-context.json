@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-16",
+    "today_ru": "16.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-18",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-16 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026",
+    "h1": "Как проверить авто из Китая по VIN до депозита: чек-лист 2026",
+    "primary_query": "проверка авто из китая по вин",
+    "secondary_queries": [
+      "проверка авто из китая",
+      "проверить китайский авто по vin",
+      "проверить авто по vin",
+      "история авто из китая"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "проверка авто из китая по вин 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "проверка авто из китая по вин октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "проверка авто из китая по вин новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com проверка авто из китая по вин 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "проверка авто из китая по вин official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "проверка авто из китая по вин forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "проверка авто из китая 2026",
+      "purpose": "вторичный запрос: проверка авто из китая"
+    },
+    {
+      "id": "secondary_2",
+      "query": "проверить китайский авто по vin 2026",
+      "purpose": "вторичный запрос: проверить китайский авто по vin"
+    },
+    {
+      "id": "secondary_3",
+      "query": "проверить авто по vin 2026",
+      "purpose": "вторичный запрос: проверить авто по vin"
+    },
+    {
+      "id": "secondary_4",
+      "query": "история авто из китая 2026",
+      "purpose": "вторичный запрос: история авто из китая"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как проверить авто из Китая по VIN до депозита: чек-лист 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

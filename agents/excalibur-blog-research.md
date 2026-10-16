@@ -73,6 +73,12 @@ surprising_fact: неожиданный факт или конфликт мне�
 1. ...
 ```
 
+## Gate notes (обязательно)
+
+- В `source_table` у каждой строки с URL ставь ISO-дату в колонке `accessed_at` (gate считает table dates **или** литералы `accessed_at: YYYY-MM-DD`; одного заголовка колонки мало).
+- При WebFetch **5xx/timeout** на госпортале: soft-fail + вторичные официальные источники (ConsultantPlus/ФНП), без выдуманного UI.
+- Упоминание MCP/github_evidence в шаблоне notes не делает тему technical само по себе.
+
 ## Не твоя зона
 
 - article.html, cover, schema, publish

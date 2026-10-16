@@ -6,6 +6,74 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261016-0903-director-doctor-llms-blog-path
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: low
+category: script
+
+### What went wrong
+- `python3 scripts/excalibur_blog_doctor.py` FAIL: `llms generator supports --blog-path`
+- Actual `excalibur_blog_llms_generator.py` accepts `--blog-dir` (and related flags), not `--blog-path`
+- Stale doctor check causes SUMMARY errors=1 on every preflight even when tooling is healthy
+
+### How the agent recovered this run
+- Continued pipeline; known indexer CLI uses `--blog-dir` + `--site-base ""` per pitfalls/memory
+
+### Durable fix needed before next run
+- Update doctor to assert `--blog-dir` (and drop/alias `--blog-path`), or restore `--blog-path` as deprecated alias on llms generator
+- Keep doctor SUMMARY green for healthy Cloud installs
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261016-0903-scout-niche-drift-ai-prompts
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-scout
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- `agents/excalibur-blog-scout.md`, `.cursor/agents/excalibur-blog-scout.md`, and scout skills still prioritize Cursor AI / Make / n8n / автопостинг
+- Site niche is Авто-Сейлс (`memory/brief/site-brief.md`); previous fixer claimed niche redirect but AI prompts remain in agent/skill files
+- Risk: Scout generates off-niche topics unless Director overrides in Task prompt
+
+### How the agent recovered this run
+- Director Task prompt for Scout explicitly forces Авто-Сейлс clusters + live slug denylist
+
+### Durable fix needed before next run
+- Rewrite scout agent + skill (both `agents/`/`skills/` and `.cursor/` mirrors) to Авто-Сейлс clusters from site-brief
+- Remove Cursor/Make/n8n priority lists from scout prompts
+- Ensure helper/today see AS*|B* consistently if AS pool should be usable
+
+### Suggested files to inspect/change
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

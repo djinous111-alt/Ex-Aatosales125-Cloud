@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261016-0905-scout-precommit-invalid-secret-name
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- Cloud Agent pre-commit secrets scanner failed: `RAW_SECRET_VALUE="${!SECRET_NAME}"` with `invalid variable name`
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` included one non-identifier entry shaped like a URL (`https://...`), which bash cannot expand via nameref
+- Blocked `git commit` of scout topic card until sanitized
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid `[A-Za-z_][A-Za-z0-9_]*` identifiers only, then recommitted
+- Did not use `--no-verify`
+
+### Durable fix needed before next run
+- Cursor Cloud / secrets inject: exclude non-identifier names from `CLOUD_AGENT_INJECTED_SECRET_NAMES`
+- Or harden `pre-commit.cursor` to skip names that fail bash identifier regex before `${!SECRET_NAME}`
+- Document scout commit workaround in pitfalls if env-side fix lags
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Cloud secrets inject / agent-hooks `pre-commit.cursor` (platform)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261016-0903-director-doctor-llms-blog-path
 status: open
 run_date: 2026-10-16

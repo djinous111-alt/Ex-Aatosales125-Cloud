@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261016-2125-schema-commit-secret-filter
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-nuzhna-li-era-glonass-pri-vvoze-avto-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secret scanner failed with `invalid variable name` (same class as INC-20261016-2107 / writer INC-2115): `CLOUD_AGENT_*_SECRET_NAMES` still includes a non-identifier token and public CTA URL secret names.
+- Helper `scripts/excalibur_blog_filter_commit_secret_env.sh` is still missing, so schema had to inline-filter before `git commit`.
+
+### How the agent recovered this run
+- Kept comma-separated names; dropped invalid ids and public URL secret names (`PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`, `WP_SITE_URL`); committed `schema.jsonld` with live public site URLs (same pattern as AS09).
+
+### Durable fix needed before next run
+- Ship `scripts/excalibur_blog_filter_commit_secret_env.sh` and call it from schema/cover/publish skills before every commit.
+- Close related open incidents once the helper is in repo and used.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_filter_commit_secret_env.sh` (create)
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261016-2122-geo-qa-typed-task-enum-missing
 status: open
 run_date: 2026-10-17

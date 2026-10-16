@@ -2,9 +2,22 @@
 
 ## Cloud / Task
 
-- Cloud не принимает `excalibur-blog-*` как Task types → fallback `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path.
+- Typed `excalibur-blog-*` Task types (в т.ч. geo-qa) часто недоступны в Cloud API; **постоянный путь** — `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill. Enum из repo не регистрируется.
 - Parent-agent сам пишет статью вместо `excalibur-blog-writer` → **блокер**, перезапуск writer Task.
 - Объединение cover+schema в один Task → запрещено; только параллельные отдельные Task.
+
+## Topic IDs / preflight
+
+- Topic IDs: `B\d+` и `AS\d+` (и вообще `[A-Z]+\d+`). `today.py` / `scout_helper` читают оба префикса; false `needs_scout` при AS-пуле = старый код.
+- Doctor: llms generator flag = `--blog-dir` (не `--blog-path`).
+- `editorial-policy.json`: `pain_markers_ru` / `outcome_markers_ru` length ≥ 3; пустые списки → utility gate всегда BLOCK. Doctor это проверяет.
+
+## Commit / secrets
+
+- Перед commit: `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"`.
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` — только bash identifiers, без URL-значений.
+- Public CTA URL names (`PUBLIC_SITE_URL`, `TELEGRAM_URL`, `CATALOG_URL`, `MAX_URL`, …) опускаются из scan: они легитимны в `schema.jsonld`.
+- `link-verify.py` по умолчанию redact’ит site/CTA URLs в JSON.
 
 ## Handoff / fragments
 
@@ -15,6 +28,8 @@
 
 - Перед пайплайном: `python3 scripts/excalibur_blog_today.py` и `python3 scripts/excalibur_blog_research_start.py --topic-id …`.
 - Если `EXCALIBUR_RUN_DATE` нет в выводе today.py — старая ветка/код, **блокер**.
+- Wordstat `wordstat_get_dynamics` + `PERIOD_MONTHLY`: `toDate` = последний день полного месяца, не mid-month `today_iso`.
+- research-notes-gate: ≥5 `accessed_at` (YAML `accessed_at:` или ISO-даты в таблице с колонкой accessed_at); ≥3 строки `pain_solution_map`.
 
 ## Publish
 
@@ -46,3 +61,5 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator для git: `--site-base ""` или `--relative` (URLs `/blog/<slug>/` без host). Не `--blog-path`.
+- interlinker: `--redact-site-base` чтобы в JSON report не попал live host.

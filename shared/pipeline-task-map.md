@@ -2,6 +2,12 @@
 
 Директор **не** Task. Все роли ниже — `Task(<name>)`.
 
+## Cloud typed Task vs generalPurpose
+
+Имена `excalibur-blog-*` в таблице — **желаемые** typed Task types. Если Cloud API их не принимает (частый случай для `excalibur-blog-geo-qa`), Директор обязан запускать **`Task(generalPurpose)`** с путями `.cursor/agents/<role>.md` + skill — это **постоянный fallback**, не временный workaround. Зарегистрировать typed enum из одного только git-репо нельзя.
+
+
+
 ## Схема
 
 ```text

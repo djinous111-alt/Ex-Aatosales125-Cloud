@@ -6,6 +6,122 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261016-1715-research-wordstat-dynamics-todate
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-research
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: low
+category: api
+
+### What went wrong
+- `wordstat_get_dynamics` with `period=PERIOD_MONTHLY` and `toDate=2026-10-16` returned Yandex API 400 InvalidArgument: to field must be the last day of the month.
+
+### How the agent recovered this run
+- Retried with `toDate=2026-09-30` (last complete month) and recorded monthly series Oct 2025–Sep 2026 in research-notes.
+
+### Durable fix needed before next run
+- Document in research skill / pitfalls: for PERIOD_MONTHLY set toDate to last day of previous/current complete month, not today_iso mid-month.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261016-1716-research-notes-gate-row-keywords
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-research
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: low
+category: qa
+
+### What went wrong
+- First `research_notes_gate` BLOCK: `accessed_at` counted only YAML keys with colon (table column `accessed_at` without `:` not counted); `pain_solution_map` rows counted only if cells contain pain|solution|result|боль|решение|результат — plain Russian narrative cells without those tokens scored as 1 row (header only).
+
+### How the agent recovered this run
+- Added five `accessed_at: 2026-10-16` stamps; prefixed pain-map cells with `боль:` / `решение:` / `результат:`; re-ran gate → PASS.
+
+### Durable fix needed before next run
+- Either relax gate to count `accessed_at` column dates in markdown tables, or document required cell prefixes in research agent/skill template; same for pain_solution_map keyword requirement.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/agents/excalibur-blog-research.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261016-1700-director-as-topic-selection
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-director
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_today.py` and `excalibur_blog_scout_helper.py` only match `## B\d+` topic cards and `B\d+-` article dirs.
+- `memory/topics/blog-topics.md` uses `AS##` IDs; today.py returned `needs_scout` with empty suggested topic despite unwritten P0 AS topics that pass utility gate.
+
+### How the agent recovered this run
+- Manually selected AS02 (utility PASS, cannibalization clean) and ran `research_start --topic-id AS02`.
+
+### Durable fix needed before next run
+- Extend topic ID regex in today.py / scout_helper / active-dir loaders to accept `AS\d+` (and ideally any `[A-Z]+\d+`) so pool topics are discoverable without false `needs_scout`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261016-1700-director-doctor-blog-path
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-director
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` asserts `llms generator supports --blog-path`.
+- Actual CLI is `--blog-dir` (`excalibur_blog_llms_generator.py`); doctor SUMMARY errors=1 and confuses preflight.
+
+### How the agent recovered this run
+- Continued pipeline; noted for fixer. Prior memory already said doctor should assert `--blog-dir`.
+
+### Durable fix needed before next run
+- Change doctor check to `--blog-dir` (or accept both aliases in llms generator).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

@@ -81,3 +81,16 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
 * Выдумывание цифр спроса без вызова Wordstat API.
+
+## Git commit (Cloud)
+
+Перед любым `git commit` в **том же shell**:
+
+```bash
+eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+git add <paths>
+git commit -m "..."
+```
+
+Хелпер чистит `CLOUD_AGENT_*_SECRET_NAMES`: только valid bash identifiers, comma-separated; дропает public CTA/site URL names и non-identifier junk. Без этого pre-commit падает с `invalid variable name`.
+

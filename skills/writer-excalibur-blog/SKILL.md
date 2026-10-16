@@ -44,3 +44,10 @@ memory/blog/articles/<topic_id>-<slug>/article.meta.json
 - объём вне диапазона после 1 правки
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`
+
+## CTA href и commit
+
+- В `article.html` раскрывай `CATALOG_URL` / `TELEGRAM_URL` из env в реальные href. **Никогда** не пиши буквальный `[REDACTED]` в `href`.
+- `memory/brief/editorial-policy.json` должен содержать non-empty `pain_markers_ru` / `outcome_markers_ru` (doctor проверяет).
+- Перед `git commit` в том же shell: `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"`.
+

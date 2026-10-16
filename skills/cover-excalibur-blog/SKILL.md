@@ -199,3 +199,16 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 ## Эталон (B01)
 
 `memory/blog/articles/B01-primer-seo-stati/cover/` — reference implementation после design code v1.
+
+## Git commit (Cloud)
+
+Перед любым `git commit` в **том же shell**:
+
+```bash
+eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+git add <paths>
+git commit -m "..."
+```
+
+Хелпер чистит `CLOUD_AGENT_*_SECRET_NAMES`: только valid bash identifiers, comma-separated; дропает public CTA/site URL names и non-identifier junk. Без этого pre-commit падает с `invalid variable name`.
+

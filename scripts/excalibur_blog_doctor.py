@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import os
 import subprocess
 import sys
@@ -132,7 +133,42 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check(
+        "--blog-path" not in llms_help.stdout,
+        "llms generator does not advertise stale --blog-path",
+        errors,
+        warnings,
+        warn=True,
+    )
+
+    filter_script = root / "scripts/excalibur_blog_filter_commit_secret_env.sh"
+    check(filter_script.is_file(), "commit secret env filter script exists", errors, warnings)
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    if policy_path.is_file():
+        try:
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            policy = {}
+            check(False, "editorial-policy.json is valid JSON", errors, warnings)
+        else:
+            pain = policy.get("pain_markers_ru") or []
+            outcome = policy.get("outcome_markers_ru") or []
+            check(
+                isinstance(pain, list) and len(pain) >= 2,
+                "editorial-policy pain_markers_ru has >=2 markers",
+                errors,
+                warnings,
+            )
+            check(
+                isinstance(outcome, list) and len(outcome) >= 3,
+                "editorial-policy outcome_markers_ru has >=3 markers",
+                errors,
+                warnings,
+            )
+    else:
+        check(False, "editorial-policy.json exists", errors, warnings)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

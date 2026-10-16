@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261016-2107-scout-commit-secret-filter
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secret scanner failed with `invalid variable name` because `CLOUD_AGENT_*_SECRET_NAMES` contained a non-identifier token (URL fragment), so `${!SECRET_NAME}` broke the hook.
+- Documented helper `scripts/excalibur_blog_filter_commit_secret_env.sh` is missing from the repo; scout had to inline-filter names before `git commit`.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_ALL_SECRET_NAMES` / `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid bash identifiers and temporarily excluded marketing URL secret names, then committed and pushed the B01 topic card in the same shell.
+
+### Durable fix needed before next run
+- Add `scripts/excalibur_blog_filter_commit_secret_env.sh` (or `scripts/excalibur_git.sh`) that exports only valid identifier secret names before commit.
+- Document the same-shell requirement in scout/publish skills so Cloud Agents do not hit the sandbox restore of unfiltered names.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_filter_commit_secret_env.sh` (create)
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

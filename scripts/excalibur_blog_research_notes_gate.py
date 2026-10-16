@@ -32,6 +32,9 @@ TECH_MARKERS = (
     "нейросет",
 )
 
+# Word-ish boundary: avoid substring hits like ai∈reader_pain / pain, ии∈японии.
+_TECH_BOUNDARY = r"0-9A-Za-zА-Яа-яЁё_"
+
 
 REQUIRED_FIELDS = (
     "research_date",
@@ -73,14 +76,46 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_matches(marker: str, blob: str) -> bool:
+    """True when marker appears as its own token, not as a substring of a longer word."""
+    escaped = re.escape(marker.lower())
+    pattern = rf"(?<![{_TECH_BOUNDARY}]){escaped}(?![{_TECH_BOUNDARY}])"
+    return re.search(pattern, blob, flags=re.IGNORECASE) is not None
+
+
+def _strip_research_field_labels(notes_sample: str) -> str:
+    """Remove required field labels/headings so they cannot false-trigger TECH_MARKERS."""
+    cleaned = notes_sample
+    for field in REQUIRED_FIELDS:
+        if field == "utility_verdict: PASS":
+            cleaned = re.sub(
+                r"utility[_\s-]*verdict\s*:\s*pass",
+                " ",
+                cleaned,
+                flags=re.I,
+            )
+            continue
+        field_pattern = re.escape(field).replace("_", r"[_\s-]")
+        cleaned = re.sub(
+            rf"^\s*##\s*\d*\.?\s*{field_pattern}\b",
+            " ",
+            cleaned,
+            flags=re.I | re.M,
+        )
+        cleaned = re.sub(rf"\b{field_pattern}\b\s*:", " ", cleaned, flags=re.I)
+    return cleaned
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Scan a notes sample, but strip structural labels (reader_pain, github_evidence, …).
+    notes_sample = _strip_research_field_labels(notes[:2000].lower())
+    blob += " " + notes_sample
+    return any(_marker_matches(marker, blob) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -205,7 +240,15 @@ def main() -> int:
     report = validate_research_notes(article_dir)
 
     if args.output:
-        output = args.output if args.output.is_absolute() else article_dir / args.output
+        # Bare filename → article_dir. Path with directories → repo-root relative.
+        if args.output.is_absolute():
+            output = args.output
+        else:
+            rel = args.output.as_posix()
+            if "/" in rel or rel.startswith(".."):
+                output = root / args.output
+            else:
+                output = article_dir / args.output
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

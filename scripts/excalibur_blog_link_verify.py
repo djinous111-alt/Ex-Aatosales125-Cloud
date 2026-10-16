@@ -130,6 +130,51 @@ def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
     return any(token in error for token in ("timed out", "timeout", "ssl", "network"))
 
 
+CTA_ENV_KEYS = (
+    "PUBLIC_SITE_URL",
+    "WP_HOME",
+    "WP_SITE_URL",
+    "TELEGRAM_URL",
+    "CATALOG_URL",
+    "MAX_URL",
+    "INSTAGRAM_URL",
+    "TWOGIS_URL",
+    "TG_URL",
+)
+
+
+def collect_redact_values(site_base: str | None) -> list[str]:
+    """Absolute URL values that must not land in committed link-verify.json."""
+    import os
+
+    values: list[str] = []
+    if site_base and site_base.strip() and "://" in site_base:
+        values.append(site_base.strip().rstrip("/"))
+    for key in CTA_ENV_KEYS:
+        raw = (os.environ.get(key) or "").strip().rstrip("/")
+        if raw and "://" in raw:
+            values.append(raw)
+    # Longest first so nested replacements stay stable.
+    return sorted(set(values), key=len, reverse=True)
+
+
+def redact_string(value: str, needles: list[str]) -> str:
+    out = value
+    for needle in needles:
+        if needle and needle in out:
+            out = out.replace(needle, "[REDACTED]")
+    return out
+
+
+def redact_report(report: dict[str, Any], site_base: str | None) -> dict[str, Any]:
+    needles = collect_redact_values(site_base)
+    if not needles:
+        return report
+    blob = json.dumps(report, ensure_ascii=False)
+    blob = redact_string(blob, needles)
+    return json.loads(blob)
+
+
 def verify_article(
     html_path: Path,
     *,
@@ -200,6 +245,11 @@ def main() -> int:
     ap.add_argument("--site-base", type=str, default=None, help="e.g. https://example.com")
     ap.add_argument("--timeout", type=float, default=15.0)
     ap.add_argument("--skip-external", action="store_true")
+    ap.add_argument(
+        "--no-redact",
+        action="store_true",
+        help="Keep absolute site/CTA URLs in JSON (default: redact before write)",
+    )
     args = ap.parse_args()
 
     if not args.html.is_file():
@@ -212,6 +262,8 @@ def main() -> int:
         timeout=args.timeout,
         skip_external=args.skip_external,
     )
+    if not args.no_redact:
+        report = redact_report(report, args.site_base)
     text = json.dumps(report, ensure_ascii=False, indent=2)
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)

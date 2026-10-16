@@ -61,8 +61,24 @@ def load_articles(blog_dir: Path) -> list[dict[str, Any]]:
     return articles
 
 
+def normalize_site_base(site_base: str, *, relative: bool) -> str:
+    """Return host prefix for URLs, or empty string for relative /blog/<slug>/ links."""
+    import os
+
+    if relative or os.environ.get("EXCALIBUR_LLMS_RELATIVE", "").strip().lower() in {"1", "yes", "true"}:
+        return ""
+    value = (site_base or "").strip()
+    if not value or value == "[REDACTED]":
+        return ""
+    return value.rstrip("/")
+
+
+def article_url(site_base: str, slug: str) -> str:
+    base = site_base.rstrip("/") if site_base else ""
+    return f"{base}/blog/{slug}/" if base else f"/blog/{slug}/"
+
+
 def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]], site_base: str) -> str:
-    site_base = site_base.rstrip("/")
     lines = [
         f"# {site_name}",
         f"> {site_desc}",
@@ -71,14 +87,13 @@ def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]
         ""
     ]
     for a in articles:
-        url = f"{site_base}/blog/{a['slug']}/"
+        url = article_url(site_base, a["slug"])
         lines.append(f"- [{a['title']}]({url}): {a['description']}")
 
     return "\n".join(lines) + "\n"
 
 
 def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_base: str) -> str:
-    site_base = site_base.rstrip("/")
     lines = [
         f"# {site_name} - Full LLM Knowledge Base",
         "This file contains full plain-text articles optimized for AI reasoning and semantic search.",
@@ -88,7 +103,7 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
     ]
 
     for a in articles:
-        url = f"{site_base}/blog/{a['slug']}/"
+        url = article_url(site_base, a["slug"])
         lines.extend([
             f"## {a['title']}",
             f"- **URL**: {url}",
@@ -108,7 +123,17 @@ def main() -> int:
     ap.add_argument("--blog-dir", type=Path, default=None)
     ap.add_argument("--site-name", type=str, default="Авто-Сейлс")
     ap.add_argument("--site-desc", type=str, default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.")
-    ap.add_argument("--site-base", type=str, default="https://avtosales125.ru")
+    ap.add_argument(
+        "--site-base",
+        type=str,
+        default="",
+        help='Host prefix for article URLs. Default "" → relative /blog/<slug>/ (git-safe).',
+    )
+    ap.add_argument(
+        "--relative",
+        action="store_true",
+        help="Force relative /blog/<slug>/ URLs (also: EXCALIBUR_LLMS_RELATIVE=1)",
+    )
     ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for llms.txt/llms-full.txt")
     args = ap.parse_args()
 
@@ -124,8 +149,10 @@ def main() -> int:
     articles = load_articles(blog_dir)
     print(f"Loaded {len(articles)} articles to index for LLMs.")
 
-    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, args.site_base)
-    llms_full_txt = build_llms_full_txt(args.site_name, articles, args.site_base)
+    site_base = normalize_site_base(args.site_base, relative=args.relative)
+    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, site_base)
+    llms_full_txt = build_llms_full_txt(args.site_name, articles, site_base)
+
 
     llms_path = out_dir / "llms.txt"
     llms_full_path = out_dir / "llms-full.txt"

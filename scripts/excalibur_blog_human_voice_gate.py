@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from excalibur_repo_paths import repo_relative
+from excalibur_repo_paths import repo_relative, resolve_gate_output
 
 
 LEGACY_BANNED_FACT_CHECK_NAMES = (
@@ -325,7 +325,7 @@ def main() -> int:
     report = analyze_human_voice(article_dir)
 
     if args.output:
-        output = args.output if args.output.is_absolute() else article_dir / args.output
+        output = resolve_gate_output(args.output, article_dir=article_dir, root=root)
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

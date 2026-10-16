@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261016-0943-indexer-redact-site-base-flag-missing
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026
+severity: low
+category: docs
+
+### What went wrong
+- Промпт Indexer упоминает флаг `--redact-site-base`, но `excalibur_blog_interlinker.py` его не поддерживает (`--help` только `--site-base`)
+- `--apply` пишет реальный `site_base` в `memory/blog/interlink-suggestions.json` даже при 0 opportunities
+
+### How the agent recovered this run
+- Interlinker запущен с `--site-base ${PUBLIC_SITE_URL}` (без несуществующего флага)
+- После прогона вручную заменил `site_base` в `interlink-suggestions.json` на `[REDACTED]`
+- llms generator: `--blog-dir` + `--site-base ""` (без устаревшего `--blog-path`)
+
+### Durable fix needed before next run
+- Либо добавить `--redact-site-base` в interlinker (писать `[REDACTED]` в JSON report), либо убрать флаг из agent/prompt docs
+- В pitfalls/skill: явно «report JSON redact site_base; live links в HTML — из PUBLIC_SITE_URL»
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_interlinker.py`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261016-0930-writer-cta-env-and-ol-five-regex
 status: open
 run_date: 2026-10-16

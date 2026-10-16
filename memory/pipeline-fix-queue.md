@@ -6,6 +6,36 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261016-1718-research-precommit-secret-names-url
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-research
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secrets scanner failed: `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a bare URL (starts with `https://avto-…`) as a 15th comma-separated entry instead of an env var name.
+- Bash `${!SECRET_NAME}` then aborted with `invalid variable name`, blocking `git commit`.
+
+### How the agent recovered this run
+- Temporarily exported a cleaned list of 14 valid identifier names and re-ran commit/push successfully.
+
+### Durable fix needed before next run
+- Fix Cloud Secrets / injection so `CLOUD_AGENT_INJECTED_SECRET_NAMES` lists only valid bash identifiers (no URLs/values).
+- Optionally document a sanitize step in pitfalls / env-setup for Excalibur Cloud runs.
+
+### Suggested files to inspect/change
+- Cursor Dashboard Secrets / cloud env injection
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded (do not paste the URL or secret values)
+
+### Fixer resolution
+- pending
+
 ## INC-20261016-1715-research-wordstat-dynamics-todate
 status: open
 run_date: 2026-10-16

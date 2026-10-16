@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261016-0921-writer-precommit-secret-names-csv
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026
+severity: medium
+category: env
+
+### What went wrong
+- Same Cloud pre-commit secrets scanner failure as INC-20261016-0905-scout-precommit-invalid-secret-name
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` contains a non-identifier (`https:/...`) that breaks `${!SECRET_NAME}`
+- First recovery attempt exported space-separated names; hook uses `IFS=',' read -ra`, so the whole list became one invalid name
+
+### How the agent recovered this run
+- Filtered to valid `[A-Za-z_][A-Za-z0-9_]*` identifiers and re-exported as **comma-separated** list
+- Commit succeeded without `--no-verify`
+
+### Durable fix needed before next run
+- Same as scout INC: harden inject list / pre-commit.cursor
+- Document in pitfalls: sanitize must keep CSV format (`a,b,c`), not spaces
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Cloud secrets inject / agent-hooks `pre-commit.cursor` (platform)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261016-0915-research-notes-gate-accessed-at-count
 status: open
 run_date: 2026-10-16

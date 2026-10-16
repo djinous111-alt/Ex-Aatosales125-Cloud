@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261016-0930-writer-cta-env-and-ol-five-regex
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026
+severity: medium
+category: docs
+
+### What went wrong
+- После GEO QA FAIL: CTA в article.html были литералами `[REDACTED]` / невалидный join с site-base → link-verify fail; в `conversion-map.md` URL тоже замаскированы
+- Маркеры «Делать/Не делать» не считаются в `recommendation_markers_ru` (нужны императивы «сделайте/не делайте»)
+- `human_voice_gate` regex `exactly_five_lists` срабатывает на любой `<ol>` с ≥5 `<li>` и на span нескольких списков → ложный warn даже при длинах 4/6/10/7
+
+### How the agent recovered this run
+- Подставил реальные CTA из env `CATALOG_URL` + `TELEGRAM_URL` (каталог×2, Telegram×1)
+- Переписал рекомендации на маркеры policy; добавил outcome «результат/получите/сможете/соберите»
+- Убрал ярлык TL;DR; оставил один `<ol>` (чеклист 10), остальные шаги в `<ul>` с «Шаг N»
+- Локально: human-voice PASS, utility PASS, link-verify pass, char_count 9447
+
+### Durable fix needed before next run
+- В writer skill/contract: при `[REDACTED]` в conversion-map брать CTA из `CATALOG_URL`/`TELEGRAM_URL`, не писать литерал `[REDACTED]` в href
+- Явно: «Делать/Не делать» ≠ маркеры; использовать «сделайте/не делайте/проверьте/чеклист/шаг »
+- Починить regex `exactly_five_lists` в `excalibur_blog_human_voice_gate.py` (считать точное число `<li>` внутри каждого `<ol>`, не `{5}` non-greedy span)
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261016-0915-research-notes-gate-accessed-at-count
 status: open
 run_date: 2026-10-16

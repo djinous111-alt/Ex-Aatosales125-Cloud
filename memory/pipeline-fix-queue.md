@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None._
+
+## Fixed incidents
+
 ## INC-20261016-2129-indexer-llms-blog-path-doctor-drift
-status: open
+status: fixed
 run_date: 2026-10-17
 role: excalibur-blog-indexer
 topic_id: B01
@@ -41,11 +45,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Doctor now asserts `--blog-dir` (warns if stale `--blog-path` appears in help).
+- Indexer agent/skill examples drop `--blog-path`; document empty `--site-base` for relative llms paths.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `rg` for stale `--blog-path` CLI examples
+commit: 2a80f7f
 
 ## INC-20261016-2127-cover-commit-secret-filter
-status: open
+status: fixed
 run_date: 2026-10-17
 role: excalibur-blog-cover
 topic_id: B01
@@ -74,11 +92,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Shipped `scripts/excalibur_blog_filter_commit_secret_env.sh` (comma-separated, drop public CTA/site URL names + non-identifiers).
+- Cover skill documents same-shell `eval` before every commit.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- bash smoke: drops PUBLIC_SITE_URL/CATALOG_URL/non-identifiers, keeps valid ids
+- doctor: commit secret env filter script exists
+commit: 2a80f7f
 
 ## INC-20261016-2125-schema-commit-secret-filter
-status: open
+status: fixed
 run_date: 2026-10-17
 role: excalibur-blog-schema
 topic_id: B01
@@ -106,11 +137,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Same helper shipped; schema skill documents same-shell filter before commit.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- bash smoke filter
+- doctor filter script check
+commit: 2a80f7f
 
 ## INC-20261016-2122-geo-qa-typed-task-enum-missing
-status: open
+status: fixed
 run_date: 2026-10-17
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -141,10 +183,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Documented permanent Cloud enum gap: `excalibur-blog-geo-qa` (and other excalibur-blog-*) → `Task(generalPurpose)` + agent/skill paths.
+- Director skill step 3 includes explicit generalPurpose fallback prompt for GEO QA.
+files_changed:
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- `agents/excalibur-blog-director.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` for geo-qa generalPurpose permanent fallback wording
+commit: 2a80f7f
 
 ## INC-20261016-2115-writer-editorial-pain-outcome-missing
-status: open
+status: fixed
 run_date: 2026-10-17
 role: excalibur-blog-writer
 topic_id: B01
@@ -177,11 +234,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Confirmed `pain_markers_ru` / `outcome_markers_ru` restored in editorial-policy.json.
+- Doctor now fails if lists are missing/short; writer skill documents CTA href + commit filter.
+files_changed:
+- `memory/brief/editorial-policy.json` (verified non-empty)
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor: pain_markers_ru >=2, outcome_markers_ru >=3
+- filter script smoke
+commit: 2a80f7f
 
 ## INC-20261017-2108-research-tech-markers-false-positive
-status: open
+status: fixed
 run_date: 2026-10-17
 role: excalibur-blog-research
 topic_id: B01
@@ -215,10 +286,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- TECH_MARKERS use token/word-boundary match; strip research field labels before scan.
+- `-o` with `/` resolves from repo root; bare filename stays in article_dir.
+- B01 research gate now reports technical_topic=false without invented GitHub quota.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- PYTHONPATH=scripts TECH_MARKERS smoke (японии/reader_pain false; mcp/api true)
+- research_notes_gate on B01 → PASS technical_topic=false
+- `-o memory/.../file.json` does not nest under article_dir
+commit: 2a80f7f
 
 ## INC-20261016-2107-scout-commit-secret-filter
-status: open
+status: fixed
 run_date: 2026-10-17
 role: excalibur-blog-scout
 topic_id: B01
@@ -247,7 +333,19 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Shipped filter helper; scout skill documents same-shell eval before commit.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- bash smoke filter
+- doctor filter script check
+commit: 2a80f7f
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -440,7 +538,6 @@ checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
 commit: pending-parent-commit
 
-
 ## INC-20260616-2042-publish-ssh-root-dot
 status: fixed
 run_date: 2026-06-16
@@ -494,6 +591,3 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
-## Fixed incidents
-
-Handled above; commit is pending Director review.

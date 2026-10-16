@@ -184,3 +184,29 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Haval, Changan или Geely: как выбрать кроссовер из Китая
+
+- **priority:** P0
+- **slug:** haval-changan-geely-kak-vybrat-krossover-2026
+- **h1:** Haval, Changan или Geely: как выбрать кроссовер из Китая в 2026
+- **primary_query:** хавал джили
+- **secondary_queries:** хавал или чанган, кроссовер из китая, какой китайский кроссовер выбрать
+- **search_intent:** comparison
+- **article_mode:** B
+- **h2_outline:**
+  1. С чего начать новичку: задача, бюджет «под ключ», левый руль
+  2. Сравните Haval, Changan и Geely по сценариям (город, трасса, семья)
+  3. Что проверить до депозита: мощность, объём, комплектация, сервис в РФ
+  4. Когда лучше не брать «новинку ради новинки»
+  5. Чек-лист выбора модели перед запросом в каталог
+- **faq_hints:** что лучше хавал или чанган для зимы; джили или хавал по надёжности; можно ли везти свежий кроссовер из Китая с правилом 180 дней
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс между тремя современными китайскими кроссоверами, плашка «что выбрать», угол avto-sales125.ru
+- **wordstat_signal:** «хавал джили» ~5.8k (сен 2026, dynamics); «кроссовер из китая» ~5.2k; «хавал или чанган» ~2.5k; top_requests API 500 – fallback dynamics
+- **metrika_signal:** Дзен rank 23 Haval/Changan/Geely ~92 PV; пробел на live (нет comparison-статьи брендов)
+- **audience:** новичок, который выбирает первый китайский кроссовер под заказ и хочет понятный выбор до депозита
+- **denylist_note:** не клонировать EV/VIN/растаможку Китая; угол – comparison брендов/моделей, не процесс таможни

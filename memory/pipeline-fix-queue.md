@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261016-1309-scout-wordstat-top-requests-500
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: api
+
+### What went wrong
+- `wordstat_get_top_requests` (MCP-KV) returned Yandex Search API 500 `Internal` on repeated retries (with and without regions, after pauses).
+- `wordstat_get_user_info` and `wordstat_get_regions_tree` still worked; `wordstat_get_dynamics` worked only with month-aligned `fromDate`/`toDate` (first/last day of month).
+- Parallel burst of top_requests failed the same way as sequential retries.
+
+### How the agent recovered this run
+- Validated demand via `wordstat_get_dynamics` for parent and how-to phrases (region 225, PERIOD_MONTHLY, 2026-01-01..2026-09-30).
+- First candidate «аукционный лист» rejected after automation memory denylist (already live-sense); pivoted to comparison Haval/Changan/Geely.
+- Chose P0 B01 `haval-changan-geely-kak-vybrat-krossover-2026` from dynamics («хавал джили» ~5.8k) + Metrika/zen + live slug check; utility_gate PASS.
+
+### Durable fix needed before next run
+- Make Wordstat MCP wrapper retry top_requests with backoff and fall back to dynamics when top_requests returns 500.
+- Document Scout contract: if top_requests is down, dynamics + zen-topics is an accepted demand signal (not a fatal blocker).
+- Align dynamics date defaults to first/last day of month so agents do not burn retries on InvalidArgument.
+
+### Suggested files to inspect/change
+- MCP-KV Wordstat tool wrapper (top_requests / dynamics)
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

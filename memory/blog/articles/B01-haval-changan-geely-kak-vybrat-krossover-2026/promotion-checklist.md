@@ -1,7 +1,8 @@
 # Promotion checklist — B01 haval-changan-geely-kak-vybrat-krossover-2026
 
 Дата публикации: 2026-10-16  
-Live URL: /2026/10/16/haval-changan-geely-kak-vybrat-krossover-2026/
+Live URL: [REDACTED]/2026/10/16/haval-changan-geely-kak-vybrat-krossover-2026/  
+wp_post_id: 4251 | featured: 4252 | inline: 4253, 4254, 4255 | schema_meta: ok
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

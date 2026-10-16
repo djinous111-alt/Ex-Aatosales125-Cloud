@@ -6,6 +6,72 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261016-0915-research-notes-gate-accessed-at-count
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026
+severity: medium
+category: qa
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` BLOCK: `accessed_at=1 < 5` even when `source_table` had many URL rows with date column `accessed_at`
+- Gate counts only literal `accessed_at:` field matches (`\baccessed_at\b\s*:`), not table cells
+- Skill/agent format shows table column `accessed_at` without requiring repeated `accessed_at:` labels
+
+### How the agent recovered this run
+- Added `## sources_accessed` block with 10 explicit `accessed_at: 2026-10-16` lines; gate PASS on retry
+- Also noted: mentioning `github`/`mcp` in notes flips `technical_topic=true` and can demand extra GitHub URLs
+
+### Durable fix needed before next run
+- Document in research skill/agent that gate needs >=5 literal `accessed_at:` labels (table header alone is not enough)
+- Or relax gate to count `accessed_at` dates inside `source_table` rows
+- Optionally exclude research meta words (`mcp`, `github_evidence`) from `TECH_MARKERS` false positives on non-tech topics
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261016-0915-research-gibdd-webfetch-504
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026
+severity: low
+category: api
+
+### What went wrong
+- WebFetch to `gibdd.ru/check/auto` and punycode mirror returned HTTP 504 Gateway Timeout
+- Blocked direct confirmation of live GIBDD UI copy during research
+
+### How the agent recovered this run
+- Used ConsultantPlus documented procedure for GIBDD VIN check + Autonews/FNP sources for pledge check
+- Did not invent GIBDD UI text; cited secondary official/legal sources with `accessed_at`
+
+### Durable fix needed before next run
+- Research skill: if official portal times out, allow documented secondary official mirrors (ConsultantPlus, notariat) and record soft-fail
+- Optional retry/backoff note for WebFetch 5xx on government hosts
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261016-0905-scout-precommit-invalid-secret-name
 status: open
 run_date: 2026-10-16

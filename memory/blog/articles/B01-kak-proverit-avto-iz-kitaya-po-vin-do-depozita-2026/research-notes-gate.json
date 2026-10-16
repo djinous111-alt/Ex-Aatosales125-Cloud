@@ -1,0 +1,24 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026",
+  "notes": "memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026/research-notes.md",
+  "context": "memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026/research-context.json",
+  "errors": [],
+  "warnings": [
+    "technical topic has no obvious official docs/developer documentation URL"
+  ],
+  "metrics": {
+    "today_iso": "2026-10-16",
+    "prefer_sources_after": "2026-07-18",
+    "source_urls": 24,
+    "source_domains": 13,
+    "source_table_rows": 24,
+    "accessed_at": 11,
+    "github_urls": 6,
+    "official_doc_urls": 0,
+    "action_outline_items": 10,
+    "pain_solution_rows": 4,
+    "technical_topic": true
+  }
+}

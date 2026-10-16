@@ -1,7 +1,7 @@
 # Promotion checklist — AS02 encar-na-russkom-kak-chitat
 
 Дата публикации: 2026-10-16  
-Live URL: /blog/encar-na-russkom-kak-chitat/
+Live URL: [REDACTED]/2026/07/18/encar-na-russkom-kak-chitat/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Чеклист 8 полей: год, пробег, цена, VIN, лист 성능점검, страховка, фото, тип продавца
 • X/W на силовых — стоп до любого депозита
 
-Читать: /blog/encar-na-russkom-kak-chitat/
+Читать: [REDACTED]/2026/07/18/encar-na-russkom-kak-chitat/
 ```
 
 ## Перелинковка

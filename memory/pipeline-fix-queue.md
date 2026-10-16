@@ -105,7 +105,7 @@ checks_run:
 - `utility_gate AS09` → PASS
 - empty-policy dry-run → BLOCK with fail-fast errors
 - `doctor` → errors=0 warnings=1 (paramiko)
-commit: pending
+commit: 3180d1a
 
 ## INC-20261016-0921-writer-precommit-secret-names-csv
 status: fixed
@@ -127,7 +127,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - isolated filter: strips `https://…` and `PUBLIC_SITE_URL`
-commit: pending
+commit: 3180d1a
 
 ## INC-20261016-0905-scout-precommit-invalid-secret-name
 status: fixed
@@ -148,7 +148,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `bash -n` + isolated filter test
-commit: pending
+commit: 3180d1a
 
 ## INC-20261016-0903-director-doctor-llms-blog-path
 status: fixed
@@ -168,7 +168,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `doctor` OK llms `--blog-dir`; no stale `--blog-path`
-commit: pending
+commit: 3180d1a
 
 ## INC-20261016-0903-scout-niche-drift-ai-prompts
 status: fixed
@@ -195,7 +195,7 @@ files_changed:
 checks_run:
 - `scout_helper --suggest-next` sees AS08/AS09/B01
 - rg: no Cursor AI priority lists in scout prompts (only forbid notes)
-commit: pending
+commit: 3180d1a
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

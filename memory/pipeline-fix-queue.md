@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261016-0924-geo-qa-utility-policy-markers-missing
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026
+severity: blocker
+category: qa
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` считает `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json` и требует min 2 / 3 (дефолты в коде)
+- В `editorial-policy.json` этих ключей нет → списки пустые → `pain_markers=0`, `outcome_markers=0` на **любой** статье
+- Перепроверка AS08/AS09 на текущем gate: оба BLOCK только по pain/outcome (action_markers у AS09 = 13)
+- B01 дополнительно BLOCK по action_markers 1<8 (Writer: «Делать/Не делать» ≠ «сделайте/не делайте»)
+
+### How the agent recovered this run
+- GEO QA не правил article.html (контракт FIX→Writer)
+- Зафиксировал FAIL в article-qa.md + handoff; отделил Writer-FIX от policy-blocker
+- Директору: сначала Fixer (policy markers), затем Writer FIX, затем повтор GEO QA
+
+### Durable fix needed before next run
+- Добавить в `memory/brief/editorial-policy.json` массивы `pain_markers_ru` и `outcome_markers_ru` (согласовать с маркерами `excalibur_blog_human_voice_gate.py` или явным auto-niche списком)
+- Либо в script: если ключ отсутствует — не применять min_pain/min_outcome (fail-open) и warning в report
+- Дописать в writer contract / pitfalls: recommendation markers — точные формы «сделайте/не делайте», не «Делать/Не делать»; CTA URL из conversion-map, никогда литерал `[REDACTED]`
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261016-0921-writer-precommit-secret-names-csv
 status: open
 run_date: 2026-10-16

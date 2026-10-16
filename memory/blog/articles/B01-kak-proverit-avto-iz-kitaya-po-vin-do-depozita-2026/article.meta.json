@@ -29,12 +29,16 @@
     "description_aeo": "До депозита за авто из Китая нужны VIN с фото, зарубежный отчёт по истории в КНР и скрины ГИБДД плюс ФНП. Пустой ГИБДД до учёта в РФ – норма."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
-    "date": null,
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "score": 62,
+    "verdict": "FAIL",
+    "date": "2026-10-16",
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "utility_gate": "BLOCK",
+    "human_voice": "BLOCK",
+    "link_verify": "fail",
+    "research_notes_gate": "PASS"
   },
   "cover_family": "brand_collage"
 }

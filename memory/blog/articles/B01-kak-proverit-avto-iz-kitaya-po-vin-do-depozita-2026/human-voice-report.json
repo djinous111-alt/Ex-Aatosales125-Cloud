@@ -1,0 +1,115 @@
+{
+  "gate": "human-voice",
+  "status": "BLOCK",
+  "article_dir": "memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026",
+  "errors": [
+    "reader outcome is weak or invisible: article must promise and deliver a usable result"
+  ],
+  "warnings": [
+    "multiple exactly-5-step lists detected; vary list size when editorially possible"
+  ],
+  "metrics": {
+    "h2_count": 7,
+    "repeated_h2_openers": [],
+    "textbook_h2_count": 0,
+    "paragraph_count": 24,
+    "paragraph_avg_words": 32.6,
+    "paragraph_variance_ratio": 0.47,
+    "concrete_markers": [
+      "например",
+      "на практике",
+      "типичная ошибка",
+      "в реальном проекте"
+    ],
+    "pain_markers": [
+      "боль",
+      "ошиб"
+    ],
+    "outcome_markers": [
+      "проверьте",
+      "выберите"
+    ],
+    "ai_opening_hits": [],
+    "reader_story_overlap": [
+      "депозит",
+      "зафиксировано",
+      "китайской",
+      "кроссовер",
+      "около",
+      "отчёта",
+      "почти",
+      "пробегом",
+      "продавец",
+      "торопит",
+      "тысяч",
+      "уйдёт"
+    ],
+    "reader_pain_overlap": [
+      "ввоза",
+      "историю",
+      "какие",
+      "китая",
+      "машину",
+      "молчат",
+      "отдать",
+      "покажут",
+      "предоплату",
+      "реально",
+      "чистую"
+    ],
+    "reader_outcome_overlap": [
+      "гибдд",
+      "депозита",
+      "китайский",
+      "отчёт",
+      "перевода",
+      "пунктов",
+      "решит",
+      "таблички",
+      "чек-листу"
+    ],
+    "success_criteria_overlap": [
+      "гибдд",
+      "депозит",
+      "истории",
+      "которым",
+      "отчёт",
+      "пустые",
+      "руках",
+      "скрины",
+      "совпадающий",
+      "список"
+    ],
+    "voice_angle_overlap": [
+      "деньги",
+      "красивые",
+      "отчёт",
+      "потом",
+      "сначала",
+      "только"
+    ],
+    "surprising_fact_overlap": [
+      "world",
+      "автотека",
+      "гибдд",
+      "зарубежный",
+      "история",
+      "китай",
+      "китая",
+      "машине",
+      "норма",
+      "нужна",
+      "октябре",
+      "отчёт",
+      "пилот",
+      "пустой",
+      "реестры",
+      "российские",
+      "связка",
+      "специально",
+      "чистая"
+    ],
+    "exactly_five_lists": 4,
+    "fact_check_template_blocks": 0
+  }
+}

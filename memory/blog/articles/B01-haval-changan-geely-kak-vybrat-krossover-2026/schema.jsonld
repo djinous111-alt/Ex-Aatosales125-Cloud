@@ -1,0 +1,186 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/haval-changan-geely-kak-vybrat-krossover-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/haval-changan-geely-kak-vybrat-krossover-2026/"
+      },
+      "headline": "Haval, Changan или Geely: как выбрать кроссовер из Китая в 2026",
+      "description": "Сравнение Haval, Changan и Geely под сценарий: город, трасса, семья, зима. Чеклист из 7 пунктов до депозита и модели Jolion, Coolray, UNI-S.",
+      "datePublished": "2026-10-16",
+      "dateModified": "2026-10-16",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avto-sales125.ru/"
+        },
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avto-sales125.ru/",
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125"
+        ]
+      },
+      "keywords": [
+        "хавал джили",
+        "хавал или чанган",
+        "кроссовер из китая",
+        "какой китайский кроссовер выбрать"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/haval-changan-geely-kak-vybrat-krossover-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Что лучше для зимы: хавал или чанган?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сначала проверьте полный привод в конкретной комплектации. У CS55 Plus / UNI-S владельцы часто жалуются, что 4WD нет. Сделайте так: зима + грунтовка → только оффер с 4WD и адрес сервиса; иначе берите запасной бренд с подтверждённым полным приводом."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Джили или хавал: что надёжнее для новичка?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не выбирайте \"надёжность навечно\" по ролику. Сравните сервис рядом с домом, гарантию и коробку в пробке. На практике массовый Jolion или Coolray проще редкой новинки."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли везти свежий кроссовер из Китая?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, под заказ это рабочий сценарий Авто-Сейлс. Статус и условия уточните у подборщика в каталоге или Telegram до депозита – без схем \"через знакомого\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "CS55 Plus и UNI-S – это разные машины?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. По анонсу Changan CS55 Plus перешёл в линейку UNI и стал UNI-S. Ищите одну модель под двумя именами и сверяйте комплектацию."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить в роботе DCT до депозита?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Попросите видео или тест старта в пробке на малых скоростях. Рывки – частая жалоба на форумах Jolion и в сравнениях Coolray. Не делайте вывод только по пустой трассе."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какой китайский кроссовер выбрать для семьи?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Начните с CS55 Plus / UNI-S и сравните второй ряд с Jolion. Coolray обычно теснее по багажнику. Зафиксируйте сценарий \"семья\" и только потом смотрите экраны."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/haval-changan-geely-kak-vybrat-krossover-2026/#howto",
+      "name": "Как выбрать кроссовер Haval, Changan или Geely из Китая в 2026",
+      "description": "Пошаговый выбор китайского кроссовера под сценарий недели: бренд, модель-якорь, проверка привода/коробки/сервиса до депозита.",
+      "totalTime": "PT25M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Официальный поиск дилера/сервиса бренда (Haval, Geely, Changan)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Письменная комплектация: привод, КПП, мощность, опции"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Тест или видео поведения робота DCT в пробке"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Чеклист: сценарий недели → бренд → модель → 7 пунктов до депозита"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Вилка бюджета «под ключ» без самодельного расчёта пошлин"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "С чего начать: задача недели, бюджет и левый руль",
+          "text": "Сделайте: сценарий + вилка бюджета + пометка \"левый руль\" до сравнения брендов. Не делайте: депозит из-за панорамы, пока не ясен привод и сервис в городе.",
+          "url": "https://avtosales125.ru/haval-changan-geely-kak-vybrat-krossover-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Сравните Haval, Changan и Geely под ваш сценарий",
+          "text": "Сделайте: строку \"мой сценарий → приоритетный бренд → запасной\". Не делайте: спор \"хавал джили кто круче\" без вашей недели за рулём.",
+          "url": "https://avtosales125.ru/haval-changan-geely-kak-vybrat-krossover-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Выберите модели-якоря 2026: Jolion, Coolray, UNI-S",
+          "text": "Короткий список новичка в 2026: Haval Jolion, Geely Coolray, Changan CS55 Plus (UNI-S). Сделайте: 1 основную и 1 запасную модель. Не делайте: искать «новый CS55 Plus отдельно от UNI-S».",
+          "url": "https://avtosales125.ru/haval-changan-geely-kak-vybrat-krossover-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Проверьте до депозита: привод, коробка, сервис и гарантия",
+          "text": "Сделайте: семь пунктов с галочками. Не делайте: депозит \"завтра поднимут цену\", пока нет адреса сервиса и строки про привод.",
+          "url": "https://avtosales125.ru/haval-changan-geely-kak-vybrat-krossover-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Когда лучше не брать новинку ради новинки",
+          "text": "Сделайте: вердикт \"массовая модель сейчас / новинка позже\". Не делайте: депозит за уникальную комплектацию без сервиса в вашем городе.",
+          "url": "https://avtosales125.ru/haval-changan-geely-kak-vybrat-krossover-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Соберите чеклист перед запросом в каталог",
+          "text": "Критерий успеха: депозит не внесён, а на бумаге уже есть сценарий, бюджет-вилка, любимый бренд плюс запасной и список для подборщика. Так вы перестаёте выбирать \"по панораме\".",
+          "url": "https://avtosales125.ru/haval-changan-geely-kak-vybrat-krossover-2026/"
+        }
+      ]
+    }
+  ]
+}

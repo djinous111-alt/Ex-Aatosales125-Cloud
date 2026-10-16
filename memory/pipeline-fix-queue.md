@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261016-1346-indexer-redact-site-base-missing
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-haval-changan-geely-kak-vybrat-krossover-2026
+severity: low
+category: script
+
+### What went wrong
+- User/agent contract expects interlinker flag `--redact-site-base` (если есть) so JSON report does not store live `PUBLIC_SITE_URL`.
+- On this Cloud feature branch the flag is absent (`python3 … --help` / source have only `--site-base`); durable fix existed on another lineage (`731d1e5`) but is not an ancestor of HEAD.
+- Without the flag, `--site-base $PUBLIC_SITE_URL` writes the real host into `memory/blog/interlink-suggestions.json`.
+
+### How the agent recovered this run
+- Ran interlinker `--apply` without `--redact-site-base`.
+- Post-processed report: set `site_base` to `[REDACTED]` before commit.
+- llms generator used `--blog-dir` + `--site-base ""` (relative `/blog/…`); did not pass stale `--blog-path`.
+
+### Durable fix needed before next run
+- Cherry-pick / re-apply `--redact-site-base` into `scripts/excalibur_blog_interlinker.py` on active branches.
+- Align indexer skill/agent: drop `--blog-path` from docs; doctor should assert `--blog-dir` (not `--blog-path`).
+- Keep lesson: HTML apply already uses relative `/blog/{slug}/`; redact only matters for the JSON report.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_interlinker.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261016-1340-schema-commit-public-url-secret-scan
 status: open
 run_date: 2026-10-16

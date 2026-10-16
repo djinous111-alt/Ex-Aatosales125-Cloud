@@ -2,9 +2,15 @@
 
 ## Cloud / Task
 
-- Cloud не принимает `excalibur-blog-*` как Task types → fallback `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path.
+- Cloud не принимает `excalibur-blog-*` как Task types (в т.ч. **`excalibur-blog-geo-qa`**, research, writer, cover, schema, indexer, publish, fixer) → это **постоянный** enum gap, не one-off. Canonical path: `Task(generalPurpose)` + `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md` на каждую роль отдельно.
 - Parent-agent сам пишет статью вместо `excalibur-blog-writer` → **блокер**, перезапуск writer Task.
 - Объединение cover+schema в один Task → запрещено; только параллельные отдельные Task.
+
+## Git commit / secrets env
+
+- Перед любым `git commit` в Cloud: `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"` **в том же shell**, затем `git add` + `git commit`.
+- Хелпер оставляет comma-separated `CLOUD_AGENT_*_SECRET_NAMES`, дропает non-identifier junk и public CTA/site URL names (`PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`, `WP_SITE_URL`, `WP_HOME`).
+- Не склеивай имена пробелами — pre-commit hook падает с `invalid variable name`.
 
 ## Handoff / fragments
 
@@ -15,6 +21,13 @@
 
 - Перед пайплайном: `python3 scripts/excalibur_blog_today.py` и `python3 scripts/excalibur_blog_research_start.py --topic-id …`.
 - Если `EXCALIBUR_RUN_DATE` нет в выводе today.py — старая ветка/код, **блокер**.
+- `research_notes_gate.py -o`: bare filename → в `--article-dir`; путь с `/` → от корня репо. Prefer `-o research-notes-gate.json`.
+- TECH_MARKERS в research gate — token/word-boundary match; `ai`∈`reader_pain` / `ии`∈`Японии` и heading `## github_evidence` сами по себе не делают тему technical.
+
+## Writer / editorial markers
+
+- `memory/brief/editorial-policy.json` обязан иметь non-empty `pain_markers_ru` (≥2) и `outcome_markers_ru` (≥3); doctor это проверяет.
+- В `article.html` CTA href: раскрывай `CATALOG_URL` / `TELEGRAM_URL` из env; никогда не пиши буквальный `[REDACTED]` в href.
 
 ## Publish
 
@@ -46,3 +59,4 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator CLI: `--blog-dir` / `--site-base` / `--out-dir` — **нет** `--blog-path`. Пустой `--site-base ""` даёт относительные `/blog/<slug>/` пути.

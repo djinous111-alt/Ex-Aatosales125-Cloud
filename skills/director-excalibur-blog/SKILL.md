@@ -52,7 +52,7 @@ Task(generalPurpose):
 
 ## Cloud Task fallback
 
-См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
+См. `AGENTS.md`. Canonical path, пока Cloud enum не принимает `excalibur-blog-*` (включая **`excalibur-blog-geo-qa`**): отдельный `Task(generalPurpose)` per role + `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`. Это постоянный gap, не one-off incident.
 
 ## Preflight (shell, директор)
 
@@ -126,6 +126,14 @@ Task(excalibur-blog-writer)
 
 ```text
 Task(excalibur-blog-geo-qa)
+```
+
+Если typed Task недоступен (часто):
+
+```text
+Task(generalPurpose):
+Прочитай .cursor/agents/excalibur-blog-geo-qa.md + .cursor/skills/excalibur-geo-qa/SKILL.md.
+topic_id B01. Запусти все QA-скрипты. article-qa.md verdict PASS. Блок === EXCALIBUR BLOG GEO QA === в handoff.
 ```
 
 Промпт: «topic_id B01. Запусти все QA-скрипты. article-qa.md verdict PASS. Блок === EXCALIBUR BLOG GEO QA ===.»

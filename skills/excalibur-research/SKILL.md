@@ -68,3 +68,14 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+## Research notes gate
+
+```bash
+python3 scripts/excalibur_blog_research_notes_gate.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  -o research-notes-gate.json
+```
+
+- Prefer bare filename for `-o` (пишет в `--article-dir`). Путь с `/` резолвится от корня репо.
+- `technical_topic` / GitHub quota срабатывают только по token/word-boundary TECH_MARKERS в topic fields + notes content. Подстроки вроде `ai` внутри `reader_pain`/`pain` или `ии` внутри `Японии`, а также сам heading `## github_evidence`, **не** делают auto-тему technical.
+

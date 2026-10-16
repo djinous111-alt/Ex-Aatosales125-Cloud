@@ -119,3 +119,16 @@ blockers:
 - Генерировать cover/schema с нуля
 - Пропускать dry-run
 - Завершать пайплайн без записи в `published-articles.md` при успешном publish
+
+## Git commit (Cloud)
+
+Перед любым `git commit` в **том же shell**:
+
+```bash
+eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+git add <paths>
+git commit -m "..."
+```
+
+Хелпер чистит `CLOUD_AGENT_*_SECRET_NAMES`: только valid bash identifiers, comma-separated; дропает public CTA/site URL names и non-identifier junk. Без этого pre-commit падает с `invalid variable name`.
+

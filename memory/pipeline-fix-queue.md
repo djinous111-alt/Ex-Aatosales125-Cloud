@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261016-1312-scout-precommit-redacted-secret-name
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: low
+category: env
+
+### What went wrong
+- `git commit` failed in Cloud pre-commit scanner: `CLOUD_AGENT_INJECTED_SECRET_NAMES` contains literal `[REDACTED]`, which is not a valid bash variable name (`${!SECRET_NAME}` → `invalid variable name`).
+- Repo script `scripts/excalibur_blog_filter_commit_secret_env.sh` is missing (memory still references it).
+
+### How the agent recovered this run
+- Re-exported `CLOUD_AGENT_INJECTED_SECRET_NAMES` filtered to `[A-Za-z_][A-Za-z0-9_]*` only, then committed with the scanner still active (no `--no-verify`).
+
+### Durable fix needed before next run
+- Stop injecting placeholder `[REDACTED]` into `CLOUD_AGENT_INJECTED_SECRET_NAMES`, or make pre-commit skip non-identifier names.
+- Restore `scripts/excalibur_blog_filter_commit_secret_env.sh` (or document the filter one-liner) for scout/publish commits.
+
+### Suggested files to inspect/change
+- Cloud Agent secret injection / pre-commit.cursor
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261016-1309-scout-wordstat-top-requests-500
 status: open
 run_date: 2026-10-16

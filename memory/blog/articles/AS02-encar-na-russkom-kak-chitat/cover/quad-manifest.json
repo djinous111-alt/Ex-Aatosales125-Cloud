@@ -1,0 +1,42 @@
+{
+  "topic_id": "AS02",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Цена 1890 — это манвоны, не рубли",
+  "mcp_note": "ONE Kie gpt-image-2 i2i (preferred) / MCP fallback; input_urls=[reference_url_hosted]; then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс в очках со смартфоном Encar: ирония «кот в мешке» и цены в манвонах",
+      "scene_hint": "WEATHER: indoor desk warm lamp evening; OUTFIT: neat charcoal knit polo / smart-casual shirt (NOT reference tank/t-shirt), NO cap NO hood, stylish glasses ON; reference EXACT face likeness; action selfie holding smartphone with fake Encar listing UI (Korean car card, price 1890, VIN blur); torn paper Cyrillic hook plaque «Цена 1890 — это манвоны, не рубли» with yellow highlighter on «манвоны»; sticky note «кот в мешке?» + shocked cat meme cutout + facepalm sticker (different formats); DIY zine collage tape scraps; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; NO toxic labels like лох/лохов/для лохов",
+      "meme_caption_ru": "Кот в мешке?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Откройте Encar так, чтобы карточка читалась",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake browser UI: Encar.com listing card with Chrome Translate toggle ON; Cyrillic labels «перевод браузера»; phone/laptop frame; sticky note «сначала карточка»; scotch tape corner; NO hero face; NO Wordstat/Metrika; no toxic stickers",
+      "alt": "Мокап: карточка Encar с включённым переводом браузера"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как перевести цену в манвонах без сюрприза",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns манвоны | ×10 000 | воны | ~рубли; example row 1890 → 18 900 000 ₩; yellow highlight on formula; mini sticky «не рубли»; tape corner; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица: манвоны ×10 000 = воны — как читать цену на Encar"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Пройдите чеклист из восьми полей по одной карточке",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable checklist board of 8 Encar card fields: цена, год, пробег, VIN, лист 성능점검, схема X/W, фото, продавец; red stamp «до депозита»; pink sticky «8 полей»; scotch tape; NO hero face; NO Wordstat/Metrika; no toxic labels",
+      "alt": "Чеклист из восьми полей карточки Encar до депозита"
+    }
+  }
+}

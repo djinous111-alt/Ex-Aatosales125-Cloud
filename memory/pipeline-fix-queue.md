@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261016-1731-indexer-llms-relative-site-base
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-indexer
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: low
+category: docs
+
+### What went wrong
+- Agent/skill instruct Indexer to pass `--site-base ${PUBLIC_SITE_URL}` for llms generator.
+- Repo policy (commit dropping blog host from reader-facing copy) keeps `memory/blog/llms.txt` / `llms-full.txt` as **relative** `/blog/<slug>/` URLs without host.
+- Passing live `PUBLIC_SITE_URL` would reintroduce host into git-tracked llms artifacts; CLI has no `--redact-site-base` flag (mentioned in run brief).
+- Skill example still shows `--blog-path /` for llms generator; actual argparse flag is `--blog-dir` only (related: doctor `--blog-path` incident).
+
+### How the agent recovered this run
+- Ran llms generator with `--site-base ""` so URLs are `/blog/<slug>/`.
+- Scrubbed `interlink-report.json` `site_base` to empty string before commit (no host in report).
+- Interlinker itself used `$PUBLIC_SITE_URL` only for in-memory apply (0 links applied); report rewritten without host.
+
+### Durable fix needed before next run
+- Document Indexer llms: `--site-base ""` (or explicit relative mode) for git artifacts; reserve absolute base for publish-time deploy only.
+- Add `--redact-site-base` (or write relative URLs when env `EXCALIBUR_LLMS_RELATIVE=1`) to interlinker/llms generator reports.
+- Align skill examples: drop `--blog-path`; show relative llms site-base.
+
+### Suggested files to inspect/change
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `shared/agent-pipeline-pitfalls.md` (Indexer section)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261016-1722-schema-precommit-secret-names
 status: open
 run_date: 2026-10-16

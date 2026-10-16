@@ -23,9 +23,10 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 ## Твои задачи
 
 1. Прочитать article.html, article.meta.json, research-notes, authors-registry.
-2. Собрать `schema.jsonld`: BlogPosting + FAQPage (+ HowTo если нужно).
+2. Собрать `schema.jsonld`: BlogPosting + FAQPage (+ HowTo если нужно). Публичные sameAs/site/CTA URL оставляй как есть.
 3. datePublished из research-context (today).
-4. Fragment `.cursor/excalibur-blog-fragments/schema.md`:
+4. Перед `git commit`: `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"` — не вырезай URL из JSON-LD ради scanner.
+5. Fragment `.cursor/excalibur-blog-fragments/schema.md`:
 
 ```text
 === EXCALIBUR BLOG SCHEMA ===

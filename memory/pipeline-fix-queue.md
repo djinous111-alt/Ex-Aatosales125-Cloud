@@ -23,11 +23,11 @@ category: docs
 ### How the agent recovered this run
 - Restored `pain_markers_ru` and `outcome_markers_ru` in `editorial-policy.json` aligned with human-voice markers.
 - Wrote article with CTAs from env; passed human-voice, utility, html linter, slop.
-- Will filter secret-name env before `git commit` (exclude CATALOG_URL/TELEGRAM_URL).
+- Before commit: kept **comma**-separated `CLOUD_AGENT_INJECTED_SECRET_NAMES`, dropped CATALOG_URL/TELEGRAM_URL/PUBLIC_SITE_URL/MAX_URL and invalid ids (trailing `https:/` trash). Space-joined names break the pre-commit hook with `invalid variable name`.
 
 ### Durable fix needed before next run
 - Keep non-empty pain/outcome marker lists in editorial-policy; add a unit/doctor check that lists are present.
-- Ship `scripts/excalibur_blog_filter_commit_secret_env.sh` that drops public CTA URL secret names from commit scan env.
+- Ship `scripts/excalibur_blog_filter_commit_secret_env.sh` that keeps comma separators, drops public CTA URL secret names, and strips non-identifier junk from the names list.
 - Document in writer skill: never write `[REDACTED]` into href; always expand CATALOG_URL/TELEGRAM_URL.
 
 ### Suggested files to inspect/change

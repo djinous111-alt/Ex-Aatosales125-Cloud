@@ -34,6 +34,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id {ID}
 2. Вызвать инструмент `wordstat_get_top_requests` на сервере `user-mcp-kv` для `primary_query` темы и смежных запросов.
    - Собрать точный спрос (число показов в месяц) и сопутствующие LSI-ключи.
    - Если API вернул ошибку 401 (токен устарел) — зафиксировать предупреждение `⚠️ WORDSTAT AUTH WARNING` и ссылку на авторизацию (см. SKILL.md). Не выдумывать цифры спроса!
+   - Если API 500/server error после retry — fallback `wordstat_get_dynamics` (PERIOD_MONTHLY, region 225, fromDate/toDate = первый/последний день месяца); зафиксировать `dynamics fallback` в notes.
 3. Выполнить **глубокий поиск в реальном времени через WebSearch Курсора**: конкуренты, официальные docs/changelog, GitHub repos/issues/README, форумы/обсуждения, свежие статьи на дату `today_iso`.
 4. Дочитать SERP; сверить с `memory/brief/fact-bank.md`; каждая цифра или версия продукта должна иметь URL и `accessed_at`.
 5. **Угол только практический и beginner-first:** что сделает новичок после гайда (не новость, не «вообще про», не материал для профи). Ищи страхи старта: «не понимаю термин», «боюсь сломать таблицу/CRM», «не знаю, с чего начать», «кажется, что это только для программистов».

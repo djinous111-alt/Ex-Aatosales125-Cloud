@@ -43,6 +43,7 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
   - Если вызов вернул `401 Unauthorized` (токен устарел):
     - Запиши в `research-notes.md` предупреждение: `⚠️ WORDSTAT AUTH WARNING: Токен Wordstat устарел. Обновите токен через: https://oauth.yandex.ru/authorize?response_type=token&client_id=c654b948515a4a07a4c89648a0831d40`
     - Сделай экспертную оценку семантики, но явно укажи, что точные объемы спроса не получены из-за авторизации.
+  - Если вызов вернул **500 Internal** / server error после 2–3 retry — не blocker. Fallback: `wordstat_get_dynamics` (`PERIOD_MONTHLY`, region 225, `fromDate` = первый день месяца, `toDate` = последний день месяца) + зафиксируй в notes `dynamics fallback`. Не выдумывай LSI-топ из top_requests.
   - Если вызов успешен:
     - Сформируй в `research-notes.md` таблицу спроса: Фраза | Показы в месяц.
     - Выдели сопутствующие LSI-запросы из топа выдачи Вордстата для использования копирайтером.

@@ -1,0 +1,66 @@
+{
+  "article": "memory/blog/articles/AS02-encar-na-russkom-kak-chitat/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 8,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 7,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": ", не авария. По выборке ~45 тыс. отчётов (октябрь 2026) около 80% карточек без отметок на кузове, на сил",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "15 минут",
+      "kind": "metric_or_duration",
+      "context": "карточку Encar на русском (или английском) за 10–15 минут: перевод браузера, восемь полей и правило стоп/да",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 лет",
+      "kind": "metric_or_duration",
+      "context": "а, возраст авто и страховую строку. Скачок вниз, \"5 лет / 30 тыс. км\" без объяснения или расхождение одом",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1890",
+      "kind": "large_number",
+      "context": "Открыли encar.com, включили перевод – и цена \"1890\" выглядит как копейки. Типичная ошибка новичка: п",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 000",
+      "kind": "large_number",
+      "context": "й). Цена в карточке в манвонах (만원): умножайте на 10 000, чтобы получить воны; это цена у дилера в Корее,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "18 900 000",
+      "kind": "large_number",
+      "context": "м \"мелкий шрифт\" в отчёте. Например, \"1890\" – это 18 900 000 вон у дилера, а не \"дешёвая\" цена в рублях. Открой",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1869",
+      "kind": "large_number",
+      "context": "дите в карточке Что это значит Что сделать 1890 / 1869 Манвоны, не рубли и не доллары Умножить на 10 000",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "18 690 000",
+      "kind": "large_number",
+      "context": "точки на 10 000 – получите воны. Например, 1869 → 18 690 000 ₩. Это цена в Корее, не смета \"под ключ\" в РФ. Дл",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

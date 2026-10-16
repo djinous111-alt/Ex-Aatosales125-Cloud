@@ -6,6 +6,69 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261016-1721-geo-qa-link-verify-secret-redact
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-geo-qa
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_link_verify.py` wrote absolute `PUBLIC_SITE_URL` / `TELEGRAM_URL` values into `link-verify.json`.
+- Pre-commit secret scan blocked commit of QA artifacts.
+
+### How the agent recovered this run
+- Redacted site/Telegram URLs in `link-verify.json` to `[REDACTED]` before re-commit (verdict/pass counts unchanged).
+
+### Durable fix needed before next run
+- Make `excalibur_blog_link_verify.py` redact `--site-base` and known CTA env URLs in JSON output by default when writing `-o`.
+- Document in GEO QA skill: redact before commit if scanner blocks.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261016-1720-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-geo-qa
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: env
+
+### What went wrong
+- Cloud API did not accept typed Task `excalibur-blog-geo-qa`; GEO QA ran as Cloud fallback (parent role / generalPurpose per AGENTS.md).
+
+### How the agent recovered this run
+- Executed GEO QA locally via `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md` and all required CLI gates; article-qa verdict PASS.
+
+### Durable fix needed before next run
+- Register typed Task type `excalibur-blog-geo-qa` in Cloud automation / Task catalog, or document that GEO QA always uses `Task(generalPurpose)` fallback with agent+skill paths (already in AGENTS.md — verify Cloud config matches).
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `CLOUD-AUTOMATION.md`
+- Cursor Cloud Task type / automation config
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261016-1730-writer-editorial-policy-pain-outcome-markers
 status: open
 run_date: 2026-10-16

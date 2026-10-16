@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-haval-changan-geely-kak-vybrat-krossover-2026",
+  "notes": "memory/blog/articles/B01-haval-changan-geely-kak-vybrat-krossover-2026/research-notes.md",
+  "context": "memory/blog/articles/B01-haval-changan-geely-kak-vybrat-krossover-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-10-16",
+    "prefer_sources_after": "2026-07-18",
+    "source_urls": 36,
+    "source_domains": 14,
+    "source_table_rows": 26,
+    "accessed_at": 23,
+    "github_urls": 9,
+    "official_doc_urls": 2,
+    "action_outline_items": 9,
+    "pain_solution_rows": 7,
+    "technical_topic": true
+  }
+}

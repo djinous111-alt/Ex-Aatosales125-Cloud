@@ -1,0 +1,640 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-16",
+    "today_ru": "16.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-18",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-16 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "haval-changan-geely-kak-vybrat-krossover-2026",
+    "h1": "Haval, Changan или Geely: как выбрать кроссовер из Китая в 2026",
+    "primary_query": "хавал джили",
+    "secondary_queries": [
+      "хавал или чанган",
+      "кроссовер из китая",
+      "какой китайский кроссовер выбрать"
+    ],
+    "search_intent": "comparison",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "хавал джили 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Купить Haval Jolion (Хавейл Джолион New) 2026 В России - Цены ...",
+          "url": "https://haval.ru/models/haval-jolion/",
+          "snippet": ""
+        },
+        {
+          "title": "Haval Jolion 2-й рестайлинг 2026, джип/suv 5 ... - Дром",
+          "url": "https://www.drom.ru/catalog/haval/jolion/g_2026_24678/",
+          "snippet": "Технические характеристики актуальны для автомобилей HAVAL Jolion 2026 модельного года."
+        },
+        {
+          "title": "Хавал Джолион 2026 после рестайлинга: фото, цены и комплектации",
+          "url": "https://www.mediaspeak.ru/auto/drive/haval-jolion-restayling-tseny-komplektatsii.html",
+          "snippet": "Технические характеристики Хавейл Джолион 2-й рестайлинг 2026, джип/suv 5 дв., 1 поколение Jolion. Подробно расписаны модификации автомобилей Haval Jolion 2-й рестайлинг 2026: все технические спецификации, полная комплектация салона ..."
+        },
+        {
+          "title": "Хавейл Джолион 2026 технические характеристики. Haval Jolion 2026 ...",
+          "url": "https://www.drom.ru/catalog/haval/jolion/2026/",
+          "snippet": "Всё о новом Джолион 2026 года: фото после рестайлинга, цены и комплектации, технические характеристики, двигатели и трансмиссии, преимущества и недостатки."
+        },
+        {
+          "title": "Хавал Джолион 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/haval-jolion-2026/",
+          "snippet": "Подробно расписан модельный ряд Haval Jolion 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хавейл Джолион 2026 между собой."
+        },
+        {
+          "title": "HAVAL Jolion 2026: обновленный кроссовер с мощным двигателем и новыми ...",
+          "url": "https://haval.ru/about/articles/haval-jolion-2026/",
+          "snippet": "Хавал Джолион 2026 — это городской кроссовер с современным оснащением и умеренной стоимостью. У этой модели действительно удачное сочетание практичного кузова, турбированного двигателя и понятных технических характеристик, проверенной уже на нескольких рынках."
+        }
+      ],
+      "searched_at": "2026-10-16"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "хавал джили октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Новые автомобили Haval 2026 года в Октябрьском - купить Хавейл 2026 у ...",
+          "url": "https://oktyabrski.autospot.ru/selection/novye-avtomobili-haval-2026-goda/",
+          "snippet": ""
+        },
+        {
+          "title": "Haval Great Wall H10 2026, джип/suv 5 дв., 1 ... - Дром",
+          "url": "https://www.drom.ru/catalog/haval/h10/g_2026_24376/",
+          "snippet": "Купить новый автомобиль Haval 2026 года в Октябрьском на Autospot: актуальные модели Хавейл 2026, цены от дилеров, спецпредложения и удобная онлайн-покупка."
+        },
+        {
+          "title": "Кроссоверы И Внедорожники Haval (Хавейл) В России - Официальный Сайт",
+          "url": "https://haval.ru/",
+          "snippet": "Подробно расписаны модификации автомобилей Haval Great Wall H10 2026: все технические спецификации, полная комплектация салона, цвета, в которые окрашивался автомобиль, фотографии внешнего вида и ..."
+        },
+        {
+          "title": "Купить Haval Jolion (Хавейл Джолион New) 2026 В России - Цены ...",
+          "url": "https://haval.ru/models/haval-jolion/",
+          "snippet": "Предложение распространяется на новые автомобили Haval F7x, Haval M6, Haval Dargo 2025-2026 года производства и действует в салонах официальных дилеров HAVAL CITY на 08.10.2026г."
+        },
+        {
+          "title": "Хавейл Джолион 2026 технические характеристики. Haval Jolion 2026 ...",
+          "url": "https://www.drom.ru/catalog/haval/jolion/2026/",
+          "snippet": "Технические характеристики актуальны для автомобилей HAVAL Jolion 2026 модельного года."
+        },
+        {
+          "title": "Хавал Джолион 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/haval-jolion-2026/",
+          "snippet": "Подробно расписан модельный ряд Haval Jolion 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хавейл Джолион 2026 между собой."
+        }
+      ],
+      "searched_at": "2026-10-16"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "хавал джили новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Haval Jolion 2026: новый двигатель, эргономика и борьба с Tenet T7 ...",
+          "url": "https://110km.ru/art/haval-jolion-2026-novyy-dvigatel-dlya-polnogo-privoda-i-obnovlennyy-salon-178154.html",
+          "snippet": ""
+        },
+        {
+          "title": "Новости Хавал 2026 - последние новости Haval",
+          "url": "https://www.allcarz.ru/tag/haval/",
+          "snippet": "Haval Jolion 2026 сохранил узнаваемый дизайн, но обзавелся новым мотором для полноприводных версий, улучшенной эргономикой и расширенными цифровыми возможностями. Эти перемены делают модель актуальной на фоне растущей конкуренции и меняющихся запросов покупателей."
+        },
+        {
+          "title": "Haval — последние и свежие новости сегодня и за 2026 год на iz.ru ...",
+          "url": "https://iz.ru/tag/haval",
+          "snippet": "Самые последние новости про автомобили Haval: фото и обзоры моделей Хавал 2026 года на сайте allcarz.ru"
+        },
+        {
+          "title": "Новый Haval Jolion 2026: обновили незаметно, но стало ли лучше? Честный ...",
+          "url": "https://dzen.ru/a/ad_jNaLvKzx2uHRl",
+          "snippet": "Компания «Грейт Волл Мотор Рус» провела в Москве презентацию кроссоверов Haval F7 и F7x, которые к 2026 модельному году получили ряд обновлений, в том числе модернизированные силовые агрегаты."
+        },
+        {
+          "title": "Haval Jolion 2026 провал или рывок вперед? Прокатился и сделал вывод ...",
+          "url": "https://dzen.ru/a/aoXK3wIsgkbVxwZ4",
+          "snippet": "Сегодня ситуация заметно изменилась: на дорогах становится все больше Haval, Geely, Chery и других автомобилей из Поднебесной."
+        },
+        {
+          "title": "Haval Jolion 2026: что изменилось в обновлённом бестселлере и сколько ...",
+          "url": "https://auto.yuga.ru/articles/3979.html",
+          "snippet": "Модель обновляют регулярно: в 2024 сделали рестайлинг, а к 2026 подготовили ещё один пакет изменений, на этот раз с акцентом на технику и салон. Снаружи отличий почти нет, зато под капотом и внутри всё серьёзно переработали."
+        }
+      ],
+      "searched_at": "2026-10-16"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com хавал джили 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "memorygame/vite.svg at gh-pages · tsadahiro/memorygame · GitHub",
+          "url": "https://github.com/tsadahiro/memorygame/blob/gh-pages/vite.svg",
+          "snippet": ""
+        },
+        {
+          "title": "LOZClone/icon.svg at main · GeoRosa2019/LOZClone · GitHub",
+          "url": "https://github.com/GeoRosa2019/LOZClone/blob/main/icon.svg",
+          "snippet": "Contribute to tsadahiro/memorygame development by creating an account on GitHub."
+        },
+        {
+          "title": "imagehost/STMemoryBooks/button-end.png at main · aikohanasaki/imagehost ...",
+          "url": "https://github.com/aikohanasaki/imagehost/blob/main/STMemoryBooks/button-end.png",
+          "snippet": "A beta of creating a zelda clone. Contribute to GeoRosa2019/LOZClone development by creating an account on GitHub."
+        },
+        {
+          "title": "Snapmaker-U1-DIY-Top-Hat/pics/tophatopen03.png at main · srinn ...",
+          "url": "https://github.com/srinn/Snapmaker-U1-DIY-Top-Hat/blob/main/pics/tophatopen03.png",
+          "snippet": "Contribute to aikohanasaki/imagehost development by creating an account on GitHub."
+        },
+        {
+          "title": "aseprite-mcp/examples/swordsman/swordsman.png at main · diivi/aseprite ...",
+          "url": "https://github.com/diivi/aseprite-mcp/blob/main/examples/swordsman/swordsman.png",
+          "snippet": "Contribute to srinn/Snapmaker-U1-DIY-Top-Hat development by creating an account on GitHub."
+        },
+        {
+          "title": "GitHub - MarioZero99/DiPlay-Geely-E01: 基于 shihabal3amri/DiPlay 修改，面向低版本 ...",
+          "url": "https://github.com/MarioZero99/DiPlay-Geely-E01",
+          "snippet": "MCP server for interacting with the Aseprite API. Contribute to diivi/aseprite-mcp development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-16"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "хавал джили official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Haval - Jolion - 01.01.2026 Py26 | PDF",
+          "url": "https://ru.scribd.com/document/1048907540/HAVAL-JOLION-01-01-2026-PY26",
+          "snippet": ""
+        },
+        {
+          "title": "Инструкции Для Владельцев Haval - Руководства По Эксплуатации",
+          "url": "https://haval.ru/owners/instructions/",
+          "snippet": "Haval - Jolion - 01.01.2026 Py26 Документ содержит технические характеристики и комплектации автомобиля, включая размеры, двигатель, мощность, трансмиссию и подвеску."
+        },
+        {
+          "title": "User manual Haval Jolion (2026) (English - 295 pages)",
+          "url": "https://www.manua.ls/haval/jolion-2026/manual",
+          "snippet": "Скачайте инструкции и руководства по эксплуатации автомобилей HAVAL. Подробные рекомендации, советы и информация для правильного ухода за авто."
+        },
+        {
+          "title": "Руководства по эксплуатации и мультимедиа",
+          "url": "https://haval.by/instructions",
+          "snippet": "Manual Haval Jolion (2026). View the Haval Jolion (2026) manual for free or ask your question to other Haval Jolion (2026) owners."
+        },
+        {
+          "title": "Руководства По Эксплуатации И Мультимедиа Haval",
+          "url": "https://aap-haval.ru/owners/instructions/",
+          "snippet": "В Руководствах содержится важная информация об эксплуатации автомобилей Haval, о безопасности дорожного движения, вождении автомобилей и уходе за ними, благодаря которой вы сможете в полной ..."
+        },
+        {
+          "title": "Модельный Ряд Haval (Хавейл) В России",
+          "url": "https://haval.ru/models/",
+          "snippet": "Изучите руководства по эксплуатации автомобилей HAVAL и инструкции по работе с мультимедийными системами от официального дилера «Авторитет-Авто +» во Владивостоке."
+        }
+      ],
+      "searched_at": "2026-10-16"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "хавал джили forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хавал Форум Джолион: обзор, проблемы и решения 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/k/kh/khaval-forum-dzholion.html",
+          "snippet": ""
+        },
+        {
+          "title": "Хавейл Джолион 2026 отзывы владельцев - поломки и проблемы",
+          "url": "https://www.drom.ru/reviews/haval/jolion/5kopeek/2026-all/breakages/",
+          "snippet": "Эта статья соберёт воедино реальный опыт владельцев, типичные проблемы, способы их решения и полезные лайфхаки, которые помогут избежать дорогостоящих ошибок."
+        },
+        {
+          "title": "Форумы - Хавал Клуб Форум | Haval Club (Хавейл)",
+          "url": "https://haval-clubs.ru/forums/",
+          "snippet": "Отзывы владельцев Хавейл Джолион 2026 - поломки и проблемы. Опыт эксплуатации реальных владельцев автомобилей Хавейл Джолион: поломки, минусы, недостатки и проблемы."
+        },
+        {
+          "title": "Отзывы владельцев | HAVAL Jolion клуб и форум",
+          "url": "https://jolion-haval.ru/forums/otzyvy-vladelcev.3/",
+          "snippet": "Отзывы и обзоры Haval H3 ПРОБЛЕМЫ / косяки Haval H3 Допы и тюнинг Haval H3 ТО, запчасти, расходники, ремонт Haval H3 Шины и Диски Haval H3 Электрика и мультимедия Haval H3 Оптика и свет Haval H3 Кузов и салон Haval H3"
+        },
+        {
+          "title": "Haval Jolion клуб Хавал Джолион | Чат ... - VK",
+          "url": "https://vk.ru/jolion.club",
+          "snippet": "Планирую приобрести новый Haval jolion. Что скажете за авто, какие плюсы и минусы? Стоит брать или присмотреться к другим? Рассматриваю так же Changan. Всем Вопрос про прошивку, есть те, кто делал прошивку ДВС И РКППП в Ижевске? У кого делалали? Как результат? Можете прокатить на прошитом авто, что. есть кто поменял на рестайлинг с прошлого кузова?"
+        },
+        {
+          "title": "Бортжурнал Haval Jolion - клуб, форум о Хавэйл Джолион на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/haval/jolion/",
+          "snippet": "Ждем первые впечатления и отзывы владельцев Haval Jolion! А также тюнинг, эксплуатация, обслуживание, запчасти - обсуждаем в группе, в чате и на форуме!"
+        }
+      ],
+      "searched_at": "2026-10-16"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "хавал или чанган 2026",
+      "purpose": "вторичный запрос: хавал или чанган",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чанган или Хавал: что лучше выбрать в 2026 году? Сравнение по 7 ...",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-ili-khaval-chto-luchshe.html",
+          "snippet": ""
+        },
+        {
+          "title": "Хавал vs Чанган: что лучше выбрать в 2026 году? Сравнение 7 ключевых ...",
+          "url": "https://asia-motors-hub.vercel.app/articles/k/kh/khaval-ili-changan-chto-luchshe.html",
+          "snippet": "Подробный анализ Changan и Haval: сравнение надежности, цены, комфорта и технических характеристик. Какая марка лучше для города, бездорожья и семьи? Экспертное мнение + отзывы владельцев."
+        },
+        {
+          "title": "Китайские авто 2026: Chery, Jetour, Haval, Changan или Geely - какой ...",
+          "url": "https://avtoservis.online/articles/kitajskie-avto-2026-chto-vybrat/",
+          "snippet": "Подробный анализ китайских кроссоверов Haval и Changan: сравнение надежности, цены, технических характеристик и отзывов владельцев. Экспертное мнение + таблица сравнения моделей."
+        },
+        {
+          "title": "Чанган или Хавал — что лучше: честное сравнение надёжности, двигателей ...",
+          "url": "https://avtoservis.online/changan/changan-ili-haval-chto-luchshe/",
+          "snippet": "Китайские автомобили 2026: сравнение Чери, Джетур, Хавал, Чанган и Джили. Гибриды, электромобили, внедорожники, безопасность и технологии - какой бренд выбрать в 2026 году?"
+        },
+        {
+          "title": "Changan CS75 Pro VS Haval M6 — Changan CS75 Pro бензин, 1,5 л, 2026 ...",
+          "url": "https://www.drive2.ru/l/733427857992194450/",
+          "snippet": "Changan и Haval — два наиболее узнаваемых китайских бренда. Оба предлагают богатое оснащение, современный дизайн и привлекательную цену. Но подходы к автомобилю, целевая аудитория и инженерные решения — разные. Разбираем честно."
+        },
+        {
+          "title": "Чанган или Хавал — какой автомобиль выбрать? Опыт и отзывы владельцев в ...",
+          "url": "https://peredelka38.ru/a/changan-ili-haval-kakoj-avtomobil-vybrat-opyt-i-otzyvy-vladelcev-v-pomoshch-pri-vybore",
+          "snippet": "Выбирая между Changan CS75 Pro в минималке и Haval M6 на «роботе» в единственной комплектации, я бы выбрал экономию в 400 000 ₽ (а может, и больше). Возможно, ещё более удачный вариант — взять Haval M6 с ..."
+        }
+      ],
+      "searched_at": "2026-10-16"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "кроссовер из китая 2026",
+      "purpose": "вторичный запрос: кроссовер из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "10 лучших китайских кроссоверов 2026 года в России",
+          "url": "https://www.kp.ru/expert/avto/luchshie-kitajskie-krossovery/",
+          "snippet": ""
+        },
+        {
+          "title": "Кроссоверы из Китая 2026: что выгодно везти",
+          "url": "https://asia-pod-klyuch.ru/blog/krossovery-iz-kitaya-2026",
+          "snippet": "Чтобы вы смогли разобраться в технических и эксплуатационных характеристиках и выбрать наиболее подходящую модель, мы подготовили рейтинг лучших китайских кроссоверов в 2026 году с указанием цен в России на эти машины. Рейтинг составлен на основе мнения редакции КП."
+        },
+        {
+          "title": "Лучшие китайские кроссоверы 2026 года для России: рейтинг и разбор",
+          "url": "https://mediaspeak.ru/auto/drive/luchshie-kitayskie-krossovery-reyting.html",
+          "snippet": "Какой кроссовер выгодно привезти из Китая в 2026: 15 моделей с годом, пробегом и ценой лота от 1,49 млн, выбор по бюджету и коробке, порог утильсбора 160 л.с."
+        },
+        {
+          "title": "Лучшие кроссоверы из Китая 2026: топ по бюджету | ДАРЭ",
+          "url": "https://importdare.ru/blog/luchshie-krossovery-iz-kitaya-2026",
+          "snippet": "Экспертный обзор лучших китайских кроссоверов 2026 года для России: рейтинг, новинки, плюсы и минусы, расход топлива, реальные тест-драйвы и выводы"
+        },
+        {
+          "title": "Кроссоверы из Китая до 160 л.с.: какие выгодно привезти в 2026",
+          "url": "https://asiaexpressauto.ru/blog/krossovery-iz-kitaya-do-160-ls-2026/",
+          "snippet": "Топ кроссоверов из Китая на 2026 год по бюджету: от 2 до 5+ млн ₽ под ключ, сроки доставки 50-60 дней и советы по выбору класса."
+        },
+        {
+          "title": "Лучшие китайские кроссоверы — рейтинг 2026 года - KashiAutoExport ...",
+          "url": "https://www.kashiautoexport.com/luchshie-kitajskie-krossovery-2026-excerpt-2026/",
+          "snippet": "Кроссоверы из Китая до 160 л.с. в 2026 году: почему важен порог по мощности, как считают гибриды и 11 моделей с версиями до 160 л.с., их моторы и привод."
+        }
+      ],
+      "searched_at": "2026-10-16"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "какой китайский кроссовер выбрать 2026",
+      "purpose": "вторичный запрос: какой китайский кроссовер выбрать",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "10 лучших китайских кроссоверов 2026 года в России",
+          "url": "https://www.kp.ru/expert/avto/luchshie-kitajskie-krossovery/",
+          "snippet": ""
+        },
+        {
+          "title": "Лучшие китайские кроссоверы 2026 года для России: рейтинг и разбор",
+          "url": "https://mediaspeak.ru/auto/drive/luchshie-kitayskie-krossovery-reyting.html",
+          "snippet": "Чтобы вы смогли разобраться в технических и эксплуатационных характеристиках и выбрать наиболее подходящую модель, мы подготовили рейтинг лучших китайских кроссоверов в 2026 году с указанием цен в России на эти машины. Рейтинг составлен на основе мнения редакции КП."
+        },
+        {
+          "title": "Какой китайский кроссовер выбрать в 2026 году: полный гид по сегментам",
+          "url": "https://kitaec-avto.ru/post/kakoi-kitaiskii-krossover-vybrat-v-2026-godu-polnyi-gid-po-segmentam.html",
+          "snippet": "Экспертный обзор лучших китайских кроссоверов 2026 года для России: рейтинг, новинки, плюсы и минусы, расход топлива, реальные тест-драйвы и выводы"
+        },
+        {
+          "title": "Топ китайских кроссоверов для России: обзор моделей и цен в 2026 году",
+          "url": "https://podolyaka.ru/top-kitayskih-krossoverov-dlya-rossii-obzor-modeley-i-tsen-v-2026-godu/",
+          "snippet": "Какой китайский кроссовер выбрать в 2026 году? Полный гид по сегментам: цены, плюсы и минусы, топ-модели. Рейтинг и советы."
+        },
+        {
+          "title": "Какой китайский кроссовер выбрать в 2026 году: честный разбор",
+          "url": "https://tvoe-avto.com/249040-kakoy-kitayskiy-krossover-vybrat-v-2026-godu.html",
+          "snippet": "Узнайте первыми: Топ китайских кроссоверов для России: обзор моделей и цен в 2026 году. Полный обзор события, эксклюзивные детали и мнения экспертов."
+        },
+        {
+          "title": "7 лучших китайских кроссоверов-гибридов - рейтинг 2026",
+          "url": "https://markakachestva.ru/rating-of/8548-luchshie-kitajskie-krossovery-gibridy-rejting.html",
+          "snippet": "Критерии выбора китайского кроссовера в 2026 году: класс, привод, коробка, комплектация, безопасность, гарантия и стоимость владения. Примеры Bestune T77 и T90"
+        }
+      ],
+      "searched_at": "2026-10-16"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Haval, Changan или Geely: как выбрать кроссовер из Китая в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-16"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://haval.ru/models/haval-jolion/",
+      "title": "Купить Haval Jolion (Хавейл Джолион New) 2026 В России - Цены ...",
+      "from_query": "хавал джили 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/haval/jolion/g_2026_24678/",
+      "title": "Haval Jolion 2-й рестайлинг 2026, джип/suv 5 ... - Дром",
+      "from_query": "хавал джили 2026"
+    },
+    {
+      "url": "https://www.mediaspeak.ru/auto/drive/haval-jolion-restayling-tseny-komplektatsii.html",
+      "title": "Хавал Джолион 2026 после рестайлинга: фото, цены и комплектации",
+      "from_query": "хавал джили 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/haval/jolion/2026/",
+      "title": "Хавейл Джолион 2026 технические характеристики. Haval Jolion 2026 ...",
+      "from_query": "хавал джили 2026"
+    },
+    {
+      "url": "https://cenyavto.com/haval-jolion-2026/",
+      "title": "Хавал Джолион 2026 цены модели, комплектации, фото, новый кузов, видео",
+      "from_query": "хавал джили 2026"
+    },
+    {
+      "url": "https://haval.ru/about/articles/haval-jolion-2026/",
+      "title": "HAVAL Jolion 2026: обновленный кроссовер с мощным двигателем и новыми ...",
+      "from_query": "хавал джили 2026"
+    },
+    {
+      "url": "https://oktyabrski.autospot.ru/selection/novye-avtomobili-haval-2026-goda/",
+      "title": "Новые автомобили Haval 2026 года в Октябрьском - купить Хавейл 2026 у ...",
+      "from_query": "хавал джили октябрь 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/haval/h10/g_2026_24376/",
+      "title": "Haval Great Wall H10 2026, джип/suv 5 дв., 1 ... - Дром",
+      "from_query": "хавал джили октябрь 2026"
+    },
+    {
+      "url": "https://haval.ru/",
+      "title": "Кроссоверы И Внедорожники Haval (Хавейл) В России - Официальный Сайт",
+      "from_query": "хавал джили октябрь 2026"
+    },
+    {
+      "url": "https://110km.ru/art/haval-jolion-2026-novyy-dvigatel-dlya-polnogo-privoda-i-obnovlennyy-salon-178154.html",
+      "title": "Haval Jolion 2026: новый двигатель, эргономика и борьба с Tenet T7 ...",
+      "from_query": "хавал джили новости 2026"
+    },
+    {
+      "url": "https://www.allcarz.ru/tag/haval/",
+      "title": "Новости Хавал 2026 - последние новости Haval",
+      "from_query": "хавал джили новости 2026"
+    },
+    {
+      "url": "https://iz.ru/tag/haval",
+      "title": "Haval — последние и свежие новости сегодня и за 2026 год на iz.ru ...",
+      "from_query": "хавал джили новости 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/ad_jNaLvKzx2uHRl",
+      "title": "Новый Haval Jolion 2026: обновили незаметно, но стало ли лучше? Честный ...",
+      "from_query": "хавал джили новости 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/aoXK3wIsgkbVxwZ4",
+      "title": "Haval Jolion 2026 провал или рывок вперед? Прокатился и сделал вывод ...",
+      "from_query": "хавал джили новости 2026"
+    },
+    {
+      "url": "https://auto.yuga.ru/articles/3979.html",
+      "title": "Haval Jolion 2026: что изменилось в обновлённом бестселлере и сколько ...",
+      "from_query": "хавал джили новости 2026"
+    },
+    {
+      "url": "https://github.com/tsadahiro/memorygame/blob/gh-pages/vite.svg",
+      "title": "memorygame/vite.svg at gh-pages · tsadahiro/memorygame · GitHub",
+      "from_query": "site:github.com хавал джили 2026"
+    },
+    {
+      "url": "https://github.com/GeoRosa2019/LOZClone/blob/main/icon.svg",
+      "title": "LOZClone/icon.svg at main · GeoRosa2019/LOZClone · GitHub",
+      "from_query": "site:github.com хавал джили 2026"
+    },
+    {
+      "url": "https://github.com/aikohanasaki/imagehost/blob/main/STMemoryBooks/button-end.png",
+      "title": "imagehost/STMemoryBooks/button-end.png at main · aikohanasaki/imagehost ...",
+      "from_query": "site:github.com хавал джили 2026"
+    },
+    {
+      "url": "https://github.com/srinn/Snapmaker-U1-DIY-Top-Hat/blob/main/pics/tophatopen03.png",
+      "title": "Snapmaker-U1-DIY-Top-Hat/pics/tophatopen03.png at main · srinn ...",
+      "from_query": "site:github.com хавал джили 2026"
+    },
+    {
+      "url": "https://github.com/diivi/aseprite-mcp/blob/main/examples/swordsman/swordsman.png",
+      "title": "aseprite-mcp/examples/swordsman/swordsman.png at main · diivi/aseprite ...",
+      "from_query": "site:github.com хавал джили 2026"
+    },
+    {
+      "url": "https://github.com/MarioZero99/DiPlay-Geely-E01",
+      "title": "GitHub - MarioZero99/DiPlay-Geely-E01: 基于 shihabal3amri/DiPlay 修改，面向低版本 ...",
+      "from_query": "site:github.com хавал джили 2026"
+    },
+    {
+      "url": "https://ru.scribd.com/document/1048907540/HAVAL-JOLION-01-01-2026-PY26",
+      "title": "Haval - Jolion - 01.01.2026 Py26 | PDF",
+      "from_query": "хавал джили official docs documentation 2026"
+    },
+    {
+      "url": "https://haval.ru/owners/instructions/",
+      "title": "Инструкции Для Владельцев Haval - Руководства По Эксплуатации",
+      "from_query": "хавал джили official docs documentation 2026"
+    },
+    {
+      "url": "https://www.manua.ls/haval/jolion-2026/manual",
+      "title": "User manual Haval Jolion (2026) (English - 295 pages)",
+      "from_query": "хавал джили official docs documentation 2026"
+    },
+    {
+      "url": "https://haval.by/instructions",
+      "title": "Руководства по эксплуатации и мультимедиа",
+      "from_query": "хавал джили official docs documentation 2026"
+    },
+    {
+      "url": "https://aap-haval.ru/owners/instructions/",
+      "title": "Руководства По Эксплуатации И Мультимедиа Haval",
+      "from_query": "хавал джили official docs documentation 2026"
+    },
+    {
+      "url": "https://haval.ru/models/",
+      "title": "Модельный Ряд Haval (Хавейл) В России",
+      "from_query": "хавал джили official docs documentation 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/k/kh/khaval-forum-dzholion.html",
+      "title": "Хавал Форум Джолион: обзор, проблемы и решения 2026",
+      "from_query": "хавал джили forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/haval/jolion/5kopeek/2026-all/breakages/",
+      "title": "Хавейл Джолион 2026 отзывы владельцев - поломки и проблемы",
+      "from_query": "хавал джили forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://haval-clubs.ru/forums/",
+      "title": "Форумы - Хавал Клуб Форум | Haval Club (Хавейл)",
+      "from_query": "хавал джили forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://jolion-haval.ru/forums/otzyvy-vladelcev.3/",
+      "title": "Отзывы владельцев | HAVAL Jolion клуб и форум",
+      "from_query": "хавал джили forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://vk.ru/jolion.club",
+      "title": "Haval Jolion клуб Хавал Джолион | Чат ... - VK",
+      "from_query": "хавал джили forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/haval/jolion/",
+      "title": "Бортжурнал Haval Jolion - клуб, форум о Хавэйл Джолион на Авто.ру",
+      "from_query": "хавал джили forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/ch/changan-ili-khaval-chto-luchshe.html",
+      "title": "Чанган или Хавал: что лучше выбрать в 2026 году? Сравнение по 7 ...",
+      "from_query": "хавал или чанган 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/k/kh/khaval-ili-changan-chto-luchshe.html",
+      "title": "Хавал vs Чанган: что лучше выбрать в 2026 году? Сравнение 7 ключевых ...",
+      "from_query": "хавал или чанган 2026"
+    },
+    {
+      "url": "https://avtoservis.online/articles/kitajskie-avto-2026-chto-vybrat/",
+      "title": "Китайские авто 2026: Chery, Jetour, Haval, Changan или Geely - какой ...",
+      "from_query": "хавал или чанган 2026"
+    },
+    {
+      "url": "https://avtoservis.online/changan/changan-ili-haval-chto-luchshe/",
+      "title": "Чанган или Хавал — что лучше: честное сравнение надёжности, двигателей ...",
+      "from_query": "хавал или чанган 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/l/733427857992194450/",
+      "title": "Changan CS75 Pro VS Haval M6 — Changan CS75 Pro бензин, 1,5 л, 2026 ...",
+      "from_query": "хавал или чанган 2026"
+    },
+    {
+      "url": "https://peredelka38.ru/a/changan-ili-haval-kakoj-avtomobil-vybrat-opyt-i-otzyvy-vladelcev-v-pomoshch-pri-vybore",
+      "title": "Чанган или Хавал — какой автомобиль выбрать? Опыт и отзывы владельцев в ...",
+      "from_query": "хавал или чанган 2026"
+    },
+    {
+      "url": "https://www.kp.ru/expert/avto/luchshie-kitajskie-krossovery/",
+      "title": "10 лучших китайских кроссоверов 2026 года в России",
+      "from_query": "кроссовер из китая 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/krossovery-iz-kitaya-2026",
+      "title": "Кроссоверы из Китая 2026: что выгодно везти",
+      "from_query": "кроссовер из китая 2026"
+    },
+    {
+      "url": "https://mediaspeak.ru/auto/drive/luchshie-kitayskie-krossovery-reyting.html",
+      "title": "Лучшие китайские кроссоверы 2026 года для России: рейтинг и разбор",
+      "from_query": "кроссовер из китая 2026"
+    },
+    {
+      "url": "https://importdare.ru/blog/luchshie-krossovery-iz-kitaya-2026",
+      "title": "Лучшие кроссоверы из Китая 2026: топ по бюджету | ДАРЭ",
+      "from_query": "кроссовер из китая 2026"
+    },
+    {
+      "url": "https://asiaexpressauto.ru/blog/krossovery-iz-kitaya-do-160-ls-2026/",
+      "title": "Кроссоверы из Китая до 160 л.с.: какие выгодно привезти в 2026",
+      "from_query": "кроссовер из китая 2026"
+    },
+    {
+      "url": "https://www.kashiautoexport.com/luchshie-kitajskie-krossovery-2026-excerpt-2026/",
+      "title": "Лучшие китайские кроссоверы — рейтинг 2026 года - KashiAutoExport ...",
+      "from_query": "кроссовер из китая 2026"
+    },
+    {
+      "url": "https://kitaec-avto.ru/post/kakoi-kitaiskii-krossover-vybrat-v-2026-godu-polnyi-gid-po-segmentam.html",
+      "title": "Какой китайский кроссовер выбрать в 2026 году: полный гид по сегментам",
+      "from_query": "какой китайский кроссовер выбрать 2026"
+    },
+    {
+      "url": "https://podolyaka.ru/top-kitayskih-krossoverov-dlya-rossii-obzor-modeley-i-tsen-v-2026-godu/",
+      "title": "Топ китайских кроссоверов для России: обзор моделей и цен в 2026 году",
+      "from_query": "какой китайский кроссовер выбрать 2026"
+    },
+    {
+      "url": "https://tvoe-avto.com/249040-kakoy-kitayskiy-krossover-vybrat-v-2026-godu.html",
+      "title": "Какой китайский кроссовер выбрать в 2026 году: честный разбор",
+      "from_query": "какой китайский кроссовер выбрать 2026"
+    },
+    {
+      "url": "https://markakachestva.ru/rating-of/8548-luchshie-kitajskie-krossovery-gibridy-rejting.html",
+      "title": "7 лучших китайских кроссоверов-гибридов - рейтинг 2026",
+      "from_query": "какой китайский кроссовер выбрать 2026"
+    }
+  ]
+}

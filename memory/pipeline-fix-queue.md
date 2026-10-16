@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261016-1730-writer-editorial-policy-pain-outcome-markers
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-writer
+topic_id: AS02
+article_dir: memory/blog/articles/AS02-encar-na-russkom-kak-chitat
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again lacked non-empty `pain_markers_ru` / `outcome_markers_ru`.
+- With empty lists `excalibur_blog_utility_gate.py` always counts 0 markers and would BLOCK every article (min_pain=2, min_outcome=3).
+- Side note same run: `excalibur_blog_human_voice_gate.py -o` with a relative path joins under `--article-dir`, creating nested `article_dir/memory/blog/...` instead of repo-relative output.
+
+### How the agent recovered this run
+- Restored concrete RU pain/outcome marker lists in `editorial-policy.json` before local utility gate.
+- Moved nested human-voice report to `article_dir/human-voice-report.json` and deleted accidental nested tree.
+- AS02 article then passed utility + human-voice + html linter + slop locally.
+
+### Durable fix needed before next run
+- Keep pain/outcome lists non-empty; add doctor assert that both lists exist and length ≥ 3.
+- Document in pitfalls that empty lists = always BLOCK (already noted in automation memory; re-verify doctor coverage).
+- Fix human_voice `-o` to resolve relative paths from cwd (or document absolute `-o` / bare filename only).
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261016-1718-research-precommit-secret-names-url
 status: open
 run_date: 2026-10-16

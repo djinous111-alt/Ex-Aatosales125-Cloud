@@ -1,15 +1,16 @@
 # Promotion checklist — B01 nuzhna-li-era-glonass-pri-vvoze-avto-2026
 
 Дата публикации: 2026-10-17  
-Live URL: /blog/nuzhna-li-era-glonass-pri-vvoze-avto-2026/
+Live URL: [REDACTED]/2026/10/17/nuzhna-li-era-glonass-pri-vvoze-avto-2026/  
+WP post_id: 4263 | featured: 4264 | inline: 4265/4266/4267
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200; REST id=4263 publish)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
-- [ ] Проверить internal links из статьи (200)
+- [x] Проверить internal links из статьи (200) — link-verify PASS 3/3 pre-publish
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
 
 ## Соцсети / каналы (из conversion-tracking-map)

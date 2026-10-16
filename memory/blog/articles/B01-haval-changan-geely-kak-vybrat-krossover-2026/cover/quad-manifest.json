@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит по ролику? Сначала сценарий недели",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс между тремя китайскими кроссоверами Haval, Changan и Geely с плашкой выбора до депозита",
+      "scene_hint": "Action selfie: EXACT face+glasses from reference; outfit = stylish dark bomber jacket over light shirt (cool Vladivostok dealer lot afternoon, NO hoodie NO cap NO hood); hero standing BETWEEN three modern Chinese crossovers labeled Haval / Changan / Geely on lot; big Cyrillic choice plaque «Сценарий → бренд → депозит» with yellow highlighter on «сценарий»; fake catalog card sticky note with stars; torn paper + scotch tape; shocked cat meme sticker; handwritten arrow «стоп до аванса»; corner brand avto-sales125.ru; NON-toxic friendly humor — NO insults like лох/дурак",
+      "meme_caption_ru": "Стоп: сначала сценарий"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "С чего начать: задача недели, бюджет и левый руль",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean UI comparison board: week tasks columns Город / Трасса / Семья / Зима vs budget fork + левый руль checkbox; sticky note «до брендов»; NO hero face; Cyrillic labels only",
+      "alt": "Таблица сценариев недели: город, трасса, семья, зима плюс бюджет и левый руль"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните Haval, Changan и Geely под ваш сценарий",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram: мой сценарий → Haval баланс / Changan простор / Geely динамика → приоритетный + запасной бренд; 4WD winter callout; NO hero face; tape corner",
+      "alt": "Схема выбора: сценарий → Haval, Changan или Geely → приоритет и запасной"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Выберите модели-якоря 2026: Jolion, Coolray, UNI-S",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board of 2026 anchor models: Haval Jolion баланс, Geely Coolray динамика, Changan CS55 Plus / UNI-S простор; note «UNI-S = бывший CS55»; pick 1 main + 1 backup; NO hero face",
+      "alt": "Чеклист моделей-якорей 2026: Jolion, Coolray, UNI-S с пометкой основной и запасной"
+    }
+  }
+}

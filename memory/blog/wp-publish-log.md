@@ -31,3 +31,16 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-16 — AS02 encar-na-russkom-kak-chitat
+
+- **verdict:** PASS
+- **post_id:** 3394
+- **permalink:** [REDACTED]/2026/07/18/encar-na-russkom-kak-chitat/
+- **featured_image:** 4258
+- **inline_images:** 4259 (`inline-01.png`), 4260 (`inline-02.png`), 4261 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH upload + HTTP trigger (OK; no WebFetch fallback needed); `SSH_ROOT=.`
+- **note:** update existing WP post 3394 for same slug (not foreign 4245/4251); HEAD live 200; REST slug match
+- **result:** `memory/blog/articles/AS02-encar-na-russkom-kak-chitat/wp-publish-result.json`

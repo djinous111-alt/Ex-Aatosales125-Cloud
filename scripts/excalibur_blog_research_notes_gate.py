@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
-from excalibur_repo_paths import repo_relative
+from excalibur_repo_paths import repo_relative, resolve_gate_output
 
 
 TECH_MARKERS = (
@@ -130,9 +130,49 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_colon = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    # Markdown table: ISO dates in pipe rows when an accessed_at column exists.
+    accessed_table_dates = len(re.findall(r"^\s*\|[^\n]*\b20\d{2}-\d{2}-\d{2}\b", text, flags=re.M))
+    if re.search(r"^\s*\|[^\n]*\baccessed_at\b", text_lower, flags=re.M):
+        accessed_count = max(accessed_colon, accessed_table_dates)
+    else:
+        accessed_count = accessed_colon
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    pain_section = re.search(
+        r"##\s*\d*\.?\s*pain[_\s-]*solution[_\s-]*map\b([\s\S]*?)(?=\n##\s|\Z)",
+        text_lower,
+        flags=re.I,
+    )
+    if pain_section:
+        section = pain_section.group(1)
+        pain_map_rows = 0
+        for row in re.findall(r"^\s*\|(.+)\|\s*$", section, flags=re.M):
+            cells = [c.strip() for c in row.split("|")]
+            if not cells:
+                continue
+            if all(re.fullmatch(r"[:\-\s]+", c or "") for c in cells):
+                continue
+            joined = " ".join(cells)
+            headerish = any(
+                h in joined
+                for h in ("боль", "pain", "решение", "solution", "result", "результат", "outcome", "проблема")
+            ) and len(cells) >= 2 and all(len(c) < 40 for c in cells[:3])
+            # Skip pure header row that only names columns
+            if headerish and not any(len(c) > 48 for c in cells):
+                # still count keyword-bearing body rows; skip if every cell is a short column label
+                labels = {"боль", "pain", "решение", "solution", "result", "результат", "outcome", "проблема", "шаг"}
+                if all((c.lower() in labels or not c) for c in cells):
+                    continue
+            if len(cells) >= 2:
+                pain_map_rows += 1
+    else:
+        pain_map_rows = len(
+            re.findall(
+                r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*",
+                text_lower,
+                flags=re.M,
+            )
+        )
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:
@@ -205,7 +245,7 @@ def main() -> int:
     report = validate_research_notes(article_dir)
 
     if args.output:
-        output = args.output if args.output.is_absolute() else article_dir / args.output
+        output = resolve_gate_output(args.output, article_dir=article_dir, root=root)
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

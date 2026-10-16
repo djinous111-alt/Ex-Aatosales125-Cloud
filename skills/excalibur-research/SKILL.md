@@ -46,6 +46,8 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
   - Если вызов успешен:
     - Сформируй в `research-notes.md` таблицу спроса: Фраза | Показы в месяц.
     - Выдели сопутствующие LSI-запросы из топа выдачи Вордстата для использования копирайтером.
+  - Опционально `wordstat_get_dynamics` с `period=PERIOD_MONTHLY`: **`toDate` = последний день полного месяца** (не `today_iso` mid-month). Иначе Yandex API 400 InvalidArgument. Пример mid-October: `toDate=YYYY-09-30`.
+
 2. **Замена уличных поисковиков (DuckDuckGo) на WebSearch Курсора:**
   Мы **отказываемся** от ненадежных сторонних утилит и парсеров DuckDuckGo («уток»).
   - Агент имеет полноценный доступ в интернет через нативный инструмент `**WebSearch`** (или `WebFetch` для чтения конкретных страниц).
@@ -68,3 +70,8 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+## research-notes-gate: таблицы
+
+- В `source_table` колонка `accessed_at` **или** YAML-ключи `accessed_at: YYYY-MM-DD` (≥5 дат). Gate считает ISO-даты в pipe-строках, если есть заголовок `accessed_at`.
+- В `pain_solution_map` нужны ≥3 строки таблицы (не считая separator). Предпочтительно явные префиксы/колонки `боль` / `решение` / `результат`; narrative-ячейки без этих токенов тоже считаются, если строк ≥2 колонок.
+- `-o research-notes-gate.json` (bare filename) → внутри `--article-dir`. Repo-relative путь (`memory/blog/...`) резолвится от корня репо, не вложенно.

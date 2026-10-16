@@ -1,0 +1,50 @@
+{
+  "topic_id": "AS02",
+  "slug": "encar-na-russkom-kak-chitat",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс в очках со смартфоном Encar: ирония «кот в мешке» и цены в манвонах",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-16T17:27:04+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс в очках со смартфоном Encar: ирония «кот в мешке» и цены в манвонах",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Мокап: карточка Encar с включённым переводом браузера",
+      "h2_anchor": "Откройте Encar так, чтобы карточка читалась",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица: манвоны ×10 000 = воны — как читать цену на Encar",
+      "h2_anchor": "Как перевести цену в манвонах без сюрприза",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист из восьми полей карточки Encar до депозита",
+      "h2_anchor": "Пройдите чеклист из восьми полей по одной карточке",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

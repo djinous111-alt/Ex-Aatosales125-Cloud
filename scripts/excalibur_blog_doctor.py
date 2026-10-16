@@ -132,7 +132,40 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check(
+        "--redact-site-base" in help_proc.stdout,
+        "interlinker supports --redact-site-base",
+        errors,
+        warnings,
+    )
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    check(policy_path.is_file(), "editorial-policy.json exists", errors, warnings)
+    if policy_path.is_file():
+        try:
+            import json
+
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+            pain = policy.get("pain_markers_ru") or []
+            outcome = policy.get("outcome_markers_ru") or []
+            check(
+                isinstance(pain, list) and len(pain) >= 3,
+                "editorial-policy pain_markers_ru length >= 3",
+                errors,
+                warnings,
+            )
+            check(
+                isinstance(outcome, list) and len(outcome) >= 3,
+                "editorial-policy outcome_markers_ru length >= 3",
+                errors,
+                warnings,
+            )
+        except Exception as exc:  # noqa: BLE001
+            check(False, f"editorial-policy.json parseable ({exc})", errors, warnings)
+
+    filter_script = root / "scripts/excalibur_blog_filter_commit_secret_env.sh"
+    check(filter_script.is_file(), "filter_commit_secret_env.sh exists", errors, warnings)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

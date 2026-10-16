@@ -12,20 +12,20 @@ description: Excalibur BLOG GEO QA — fact-check, link verify, linter, slop, ca
 ## Скрипты (обязательно)
 
 ```bash
-python scripts/excalibur_blog_research_notes_gate.py \
+python3 scripts/excalibur_blog_research_notes_gate.py \
   --article-dir memory/blog/articles/<dir> \
   -o research-notes-gate.json
 
-python scripts/excalibur_blog_fact_checker.py \
+python3 scripts/excalibur_blog_fact_checker.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/fact-check-report.json
 
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/link-verify.json \
   --site-base https://YOUR_SITE
 
-python scripts/excalibur_blog_html_linter.py \
+python3 scripts/excalibur_blog_html_linter.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/html-linter-report.json
 ```
@@ -33,19 +33,19 @@ python scripts/excalibur_blog_html_linter.py \
 HTML linter **блокирует оглавление в теле** (`<ol>/<ul>` с 3+ ссылками `href="#..."`) и любые теги вне whitelist, включая `<pre>`/`<code>`. При fail — Writer удаляет TOC (после инсайт-блока сразу `<p>`) или заменяет код/шаблон на whitelist-safe HTML (`<blockquote><p>...<br>...</p></blockquote>`, таблицу или список). Инсайт-блок не должен начинаться с шаблонного ярлыка `TL;DR` или фразы `Быстрый инсайт`. `research_notes_gate.py -o research-notes-gate.json` пишет файл внутри `--article-dir`; не передавай туда repo-relative путь с повтором `memory/blog/articles/...`.
 
 ```bash
-python scripts/excalibur_blog_slop_detector.py \
+python3 scripts/excalibur_blog_slop_detector.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/slop-detector-report.json
 
-python scripts/excalibur_blog_cannibalization_guard.py \
+python3 scripts/excalibur_blog_cannibalization_guard.py \
   --blog-dir memory/blog/articles \
   -o memory/blog/articles/<dir>/cannibalization-report.json
 
-python scripts/excalibur_blog_utility_gate.py \
+python3 scripts/excalibur_blog_utility_gate.py \
   --article-dir memory/blog/articles/<dir> \
   --output utility-gate-report.json
 
-python scripts/excalibur_blog_human_voice_gate.py \
+python3 scripts/excalibur_blog_human_voice_gate.py \
   --article-dir memory/blog/articles/<dir> \
   -o human-voice-report.json
 ```
@@ -55,3 +55,13 @@ python scripts/excalibur_blog_human_voice_gate.py \
 **Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.
 
 Schema и cover — **не** твоя зона (отдельные субагенты после PASS).
+
+## Link-verify и commit
+
+- `excalibur_blog_link_verify.py` по умолчанию **редактирует** `--site-base` и CTA env URLs в JSON (`[REDACTED]`). Не коммить абсолютный host.
+- `-o human-voice-report.json` / `research-notes-gate.json`: bare filename → в `--article-dir`; repo-relative путь → от корня репо.
+- Перед commit: `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"`.
+
+## Cloud Task
+
+Typed Task `excalibur-blog-geo-qa` может быть недоступен в Cloud API. Постоянный fallback: `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md` (см. AGENTS.md / `shared/pipeline-task-map.md`). Регистрация typed enum — только через Cursor Cloud config (не из repo).

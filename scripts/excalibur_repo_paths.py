@@ -16,3 +16,12 @@ def repo_relative(path: Path, root: Path | None = None) -> str:
         return p.relative_to(base).as_posix()
     except ValueError:
         return p.as_posix()
+
+
+def resolve_gate_output(output: Path, *, article_dir: Path, root: Path) -> Path:
+    """Resolve gate -o path: bare filename → article_dir; multi-part relative → root."""
+    if output.is_absolute():
+        return output
+    if len(output.parts) == 1:
+        return article_dir / output
+    return root / output

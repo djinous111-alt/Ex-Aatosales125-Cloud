@@ -7,8 +7,11 @@ import argparse
 import json
 import re
 import sys
+from collections import defaultdict
 from pathlib import Path
 from typing import Any
+
+from excalibur_blog_topic_ids import iter_topic_cards, topic_id_from_article_dirname
 
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
@@ -34,9 +37,9 @@ def load_active_article_topics(root: Path) -> set[str]:
     for path in articles_dir.iterdir():
         if not path.is_dir():
             continue
-        match = re.match(r"(B\d+)-", path.name, flags=re.IGNORECASE)
-        if match:
-            active.add(match.group(1).upper())
+        topic_id = topic_id_from_article_dirname(path.name)
+        if topic_id:
+            active.add(topic_id)
     return active
 
 
@@ -46,16 +49,13 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
     if not topics_path.is_file():
         return topics
     text = topics_path.read_text(encoding="utf-8")
-    for match in re.finditer(r"##\s+(B\d+)\s+—[^\n]*\n(.*?)(?=\n---|\n##\s+B|\Z)", text, re.DOTALL):
-        topic_id = match.group(1).upper()
-        block = match.group(2)
-        
-        def field(name: str) -> str:
+    for topic_id, block in iter_topic_cards(text):
+        def field(name: str, body: str = block) -> str:
             # Flexible matching for bullet points with different formats
-            m = re.search(rf"(?:-|\*)\s*\*\*{re.escape(name)}:\*\*\s*(.+)", block, re.IGNORECASE)
+            m = re.search(rf"(?:-|\*)\s*\*\*{re.escape(name)}:\*\*\s*(.+)", body, re.IGNORECASE)
             if not m:
                 # Fallback for plain bold key matching without lists
-                m = re.search(rf"\*\*{re.escape(name)}:\*\*\s*(.+)", block, re.IGNORECASE)
+                m = re.search(rf"\*\*{re.escape(name)}:\*\*\s*(.+)", body, re.IGNORECASE)
             return m.group(1).strip() if m else ""
             
         topics.append({
@@ -130,13 +130,23 @@ def main() -> int:
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
-        max_num = 0
+        by_prefix: dict[str, int] = defaultdict(int)
         for t in existing:
-            m = re.match(r"B(\d+)", t["topic_id"])
+            m = re.match(r"([A-Z]+)(\d+)", t["topic_id"], flags=re.IGNORECASE)
             if m:
-                max_num = max(max_num, int(m.group(1)))
-        
-        next_id = f"B{max_num + 1:02d}"
+                prefix = m.group(1).upper()
+                by_prefix[prefix] = max(by_prefix[prefix], int(m.group(2)))
+
+        # Prefer AS (Авто-Сейлс pool), then B, else first seen prefix.
+        if "AS" in by_prefix:
+            preferred = "AS"
+        elif "B" in by_prefix:
+            preferred = "B"
+        elif by_prefix:
+            preferred = sorted(by_prefix.keys())[0]
+        else:
+            preferred = "AS"
+        next_id = f"{preferred}{by_prefix.get(preferred, 0) + 1:02d}"
         print(f"Next available topic ID: {next_id}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")

@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261016-1332-geo-qa-utility-pain-outcome-markers-wiped
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-haval-changan-geely-kak-vybrat-krossover-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` BLOCK на B01: `pain_markers=0 < 2`, `outcome_markers=0 < 3`.
+- Причина не в тексте статьи: в `memory/brief/editorial-policy.json` отсутствовали `pain_markers_ru` / `outcome_markers_ru` (и `min_pain_markers` / `min_outcome_markers`) после rebrand; пустые списки дают score 0 на любой статье (AS09 тоже BLOCK).
+- Идентичный fix уже был на соседней ветке (`fix(pipeline): restore utility pain/outcome markers…`), но не влился в текущий Cloud branch.
+
+### How the agent recovered this run
+- Восстановил списки маркеров (синхрон с human_voice_gate PAIN/OUTCOME) + min thresholds в editorial-policy.json.
+- Добавил fail-fast в `scripts/excalibur_blog_utility_gate.py`, чтобы пустые списки не маскировались под «слабо раскрыта боль».
+- Повтор utility gate: B01 PASS (pain=4, outcome=9); AS09 PASS.
+
+### Durable fix needed before next run
+- Убедиться, что rebrand/sync не снова вытирает `pain_markers_ru` / `outcome_markers_ru`.
+- Зафиксировать в pitfalls: utility BLOCK с нулевыми pain/outcome при пустой policy = config bug, не writer FIX.
+- Опционально: doctor check на наличие этих ключей в editorial-policy.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_doctor.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (GEO QA уже применил restore в этом run; fixer — verify + pitfalls/doctor)
+
 ## INC-20261016-1330-writer-cta-urls-secret-scan
 status: open
 run_date: 2026-10-16

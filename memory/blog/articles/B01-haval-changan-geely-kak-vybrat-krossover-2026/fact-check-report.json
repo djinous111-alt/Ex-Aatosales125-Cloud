@@ -1,0 +1,31 @@
+{
+  "article": "memory/blog/articles/B01-haval-changan-geely-kak-vybrat-krossover-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 3,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 2,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "без вашей недели за рулём. Выберите модели-якоря 2026: Jolion, Coolray, UNI-S Короткий список новичка в",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "181",
+      "kind": "large_number",
+      "context": "S: это переименование бестселлера (BlueCore 1.5T, 181 л.с.), не \"другая машина\". На changanauto.ru спецп",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2 379 900",
+      "kind": "large_number",
+      "context": "ая машина\". На changanauto.ru спецпредложение \"от 2 379 900 ₽\" до 31.10.2026 – снова ориентир, не прайс стать",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

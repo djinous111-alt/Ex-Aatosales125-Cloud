@@ -483,3 +483,36 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261016-0936-schema-commit-secret-filter
+status: open
+run_date: 2026-10-16
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `git commit` of `schema.jsonld` failed twice: (1) pre-commit `invalid variable name` from a non-identifier entry in `CLOUD_AGENT_INJECTED_SECRET_NAMES`; (2) secret scanner blocked intentional public marketing URLs (`PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`) that belong in BlogPosting/FAQPage/HowTo JSON-LD.
+- Schema skill/agent docs did not mention `scripts/excalibur_blog_filter_commit_secret_env.sh`, so the agent wasted retries stripping sameAs instead of using the existing filter.
+
+### How the agent recovered this run
+- Restored full author `sameAs` from registry (AS09 pattern).
+- Committed via `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"` then `git commit` with hooks still on.
+
+### Durable fix needed before next run
+- Document in schema skill + agent: before committing `schema.jsonld`, run the filter-commit-secret-env script; do not strip catalog/telegram/site URLs from JSON-LD.
+
+### Suggested files to inspect/change
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

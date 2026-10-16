@@ -1,0 +1,194 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026/"
+      },
+      "headline": "Как проверить авто из Китая по VIN до депозита: чек-лист 2026",
+      "description": "Проверка авто из Китая по VIN до депозита: фото таблички, китайский отчёт, ГИБДД и ФНП, чек-лист из 10 пунктов. Подбор – в каталоге Авто-Сейлс.",
+      "datePublished": "2026-10-16",
+      "dateModified": "2026-10-16",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru"
+        },
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru",
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125"
+        ]
+      },
+      "keywords": [
+        "проверка авто из китая по вин",
+        "проверка авто из китая",
+        "проверить китайский авто по vin",
+        "проверить авто по vin",
+        "история авто из китая"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем VIN из Китая отличается от номера кузова японского авто?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "У китайских машин обычно полноценный 17-значный VIN (часто с L в начале). У японских лотов чаще оперируют номером кузова в другом формате. До депозита просите фото таблички и не путайте поле \"VIN\" с произвольным текстом из чата."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли верить пробегу без китайского отчёта?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Сверяйте заявленный одометр с точками пробега в зарубежном отчёте. Если цифры пляшут или VIN не дают – депозит не переводите."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если отчёт пустой или почти пустой?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не читайте пустоту как \"чистую историю\". Проверьте дату последней записи, запросите пояснение у продавца и при отказе дать VIN или повторный отчёт – откажитесь от лота."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужны ли ГИБДД и ФНП, если машина ещё в Китае?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Пустой ответ до учёта в РФ – норма, но скрины нужны в пакете. Они закрывают российский слой; китайский закрывает зарубежный отчёт."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Достаточно ли одного российского отчёта вместо китайского?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Российский слой не видит историю до ввоза. Если машина уже ездила в РФ – берите оба: зарубежный за китайский период и российский за местный."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Куда обратиться, если нет времени бить базы самостоятельно?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Передайте проверку до депозита команде, которая работает с Китаем регулярно. В Авто-Сейлс это каталог и переписка в Telegram – без форм на странице и без оплаты вслепую."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026/#howto",
+      "name": "Как проверить авто из Китая по VIN до депозита",
+      "description": "Пошаговая проверка лота из Китая до перевода депозита: VIN с фото, китайский/зарубежный отчёт, ГИБДД, ФНП, красные флаги и чеклист из 10 пунктов.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Фото VIN-таблички и сверка 17 символов"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Китайский/зарубежный отчёт по VIN (Автотека World, CADA или аналог)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Проверка ГИБДД (gibdd.ru) и реестр залогов ФНП"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "VIN с фото таблички и статус лота (ещё в КНР / уже в РФ)"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Пакет до депозита: китайский отчёт, скрины ГИБДД и ФНП, чеклист 10 пунктов"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Зафиксировать правило: сначала VIN и отчёт, потом деньги",
+          "text": "До любого депозита запросите VIN с фото таблички, год и статус (ещё в КНР / уже в РФ). Без фактов перевод не отправляйте.",
+          "url": "https://avtosales125.ru/kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026/#зафиксируйте-правило-сначала-vin-и-отчёт-потом-деньги"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Разобрать китайский VIN и сверить с фото таблички",
+          "text": "Сверьте 17 символов без I/O/Q, одинаковый текст на всех фото и в переписке; при расхождении – стоп, другой лот.",
+          "url": "https://avtosales125.ru/kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026/#разберите-китайский-vin-где-взять-и-как-не-перепутать-поля"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Заказать китайский/зарубежный отчёт и прочитать пять блоков",
+          "text": "Откройте отчёт по VIN (Автотека World, CADA или аналог) и проверьте пробег по датам, ДТП/ремонты, тип использования, ТО, подушки/затопления.",
+          "url": "https://avtosales125.ru/kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026/#закажите-китайский-отчёт-и-прочитайте-пять-блоков-за-10-минут"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Пробить ГИБДД и реестр залогов ФНП",
+          "text": "Снимите скрины gibdd.ru и reestr-zalogov.ru даже при пустых разделах: пустой ответ до учёта в РФ – норма, не «чистая история».",
+          "url": "https://avtosales125.ru/kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026/#поймите-почему-гибдд-и-фнп-молчат-про-китай-и-всё-равно-бейте-их"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Сверить объявление с отчётом и отсеять красные флаги",
+          "text": "Сверьте цвет, двигатель и пробег; стоп при отказе дать VIN/отчёт, разных VIN и давлении «без проверки».",
+          "url": "https://avtosales125.ru/kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026/#отсейте-красные-флаги-перекупов-и-идеально-чистых-историй"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Пройти чеклист из 10 пунктов перед депозитом",
+          "text": "Закройте пункты 1–9 (VIN, отчёт, ГИБДД, ФНП, флаги). Депозит – только после зелёного чеклиста.",
+          "url": "https://avtosales125.ru/kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026/#пройдите-чеклист-из-10-пунктов-перед-переводом-депозита"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Решить «беру / ищу другой лот» и при необходимости передать подбор",
+          "text": "Соберите пакет фактов за 20–40 минут. Если нет времени бить базы – уйдите в каталог avto-sales125.ru или Telegram avtosales125 за проверкой до оплаты, без форм на странице статьи.",
+          "url": "https://avtosales125.ru/kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026/#что-дальше"
+        }
+      ]
+    }
+  ]
+}

@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_none — AS02 fixer 2026-10-16 closed below._
+
+
 ## INC-20261016-1731-indexer-llms-relative-site-base
-status: open
+status: fixed
 run_date: 2026-10-16
 role: excalibur-blog-indexer
 topic_id: AS02
@@ -42,10 +45,27 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Indexer agent/skill: llms `--blog-dir` + `--site-base ""` (relative `/blog/<slug>/`); drop `--blog-path`.
+- interlinker: `--redact-site-base` writes empty `site_base` in JSON report.
+- llms generator: default empty site-base, `--relative` / `EXCALIBUR_LLMS_RELATIVE=1`.
+- pitfalls Indexer section updated.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+- `agents/excalibur-blog-indexer.md` / `.cursor/agents/`
+- `skills/indexer-excalibur-blog/SKILL.md` / `.cursor/skills/`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_llms_generator.py --help` (blog-dir, relative)
+- llms smoke → relative `/blog/...` URLs
+- interlinker `--redact-site-base` → site_base=""
+commit: pending-parent-commit
 
 ## INC-20261016-1722-schema-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-10-16
 role: excalibur-blog-schema
 topic_id: AS02
@@ -76,11 +96,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Restored `scripts/excalibur_blog_filter_commit_secret_env.sh`: valid identifiers only; omits public CTA URL secret names.
+- Schema skill documents allowlist + pre-commit eval.
+- Optional Cloud Dashboard: list only env *names* (not URL values) — outside repo.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `skills/schema-excalibur-blog/SKILL.md` / `.cursor/skills/`
+- `shared/agent-pipeline-pitfalls.md`
+- `AGENTS.md`
+checks_run:
+- filter script smoke (drops PUBLIC_SITE_URL/TELEGRAM_URL/URL values)
+- doctor asserts filter script exists
+commit: pending-parent-commit
 
 
 ## INC-20261016-1721-geo-qa-link-verify-secret-redact
-status: open
+status: fixed
 run_date: 2026-10-16
 role: excalibur-blog-geo-qa
 topic_id: AS02
@@ -108,11 +142,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- `excalibur_blog_link_verify.py` redacts `--site-base` and CTA env URLs in JSON by default (`--no-redact` to keep).
+- GEO QA skill documents redact + filter_commit before commit.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/excalibur-geo-qa/SKILL.md` / `.cursor/skills/`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- link-verify smoke with site-base → no host in JSON; `[REDACTED]` present
+commit: pending-parent-commit
 
 
 ## INC-20261016-1720-geo-qa-typed-task-unavailable
-status: open
+status: needs-human
 run_date: 2026-10-16
 role: excalibur-blog-geo-qa
 topic_id: AS02
@@ -139,11 +184,26 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+reason:
+- Typed Cloud Task enum `excalibur-blog-geo-qa` cannot be registered from the git repo alone.
+- Repo durable docs now treat `Task(generalPurpose)` + agent/skill paths as the **permanent** fallback (AGENTS.md, pipeline-task-map, pitfalls, GEO QA skill).
+needed_decision_or_secret:
+- Optional: register typed Task `excalibur-blog-geo-qa` in Cursor Cloud Task catalog / automation config if product supports custom enums.
+fix_summary:
+- Documented permanent generalPurpose fallback; next runs should not treat typed failure as surprise.
+files_changed:
+- `AGENTS.md`
+- `shared/pipeline-task-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/excalibur-geo-qa/SKILL.md` / `.cursor/skills/`
+checks_run:
+- `rg` for permanent generalPurpose guidance in AGENTS/pipeline-task-map/pitfalls
+commit: pending-parent-commit
 
 
 ## INC-20261016-1730-writer-editorial-policy-pain-outcome-markers
-status: open
+status: fixed
 run_date: 2026-10-16
 role: excalibur-blog-writer
 topic_id: AS02
@@ -176,10 +236,27 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Confirmed non-empty `pain_markers_ru` / `outcome_markers_ru` (≥3) in editorial-policy.json.
+- Doctor asserts both lists length ≥ 3.
+- `human_voice_gate` / `research_notes_gate` `-o`: bare filename → article_dir; multi-part relative → repo root (`resolve_gate_output`).
+files_changed:
+- `memory/brief/editorial-policy.json` (verified)
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `scripts/excalibur_repo_paths.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor errors=0 (pain/outcome asserts)
+- utility_gate AS02 PASS (pain=17, outcome=20)
+- human_voice `-o /tmp/...` and repo-relative path without nested article_dir/memory
+commit: pending-parent-commit
 
 ## INC-20261016-1718-research-precommit-secret-names-url
-status: open
+status: fixed
 run_date: 2026-10-16
 role: excalibur-blog-research
 topic_id: AS02
@@ -206,10 +283,22 @@ category: env
 - none recorded (do not paste the URL or secret values)
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Same sanitize helper as schema: filter invalid names/URLs from CLOUD_AGENT_INJECTED_SECRET_NAMES before commit.
+- Pitfalls + AGENTS document the eval step.
+- Cloud Dashboard should still inject only identifier names (human optional cleanup).
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `AGENTS.md`
+checks_run:
+- filter drops bare https URL entry and public CTA names
+commit: pending-parent-commit
 
 ## INC-20261016-1715-research-wordstat-dynamics-todate
-status: open
+status: fixed
 run_date: 2026-10-16
 role: excalibur-blog-research
 topic_id: AS02
@@ -234,10 +323,21 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Research skill/agent: PERIOD_MONTHLY `toDate` = last day of complete month, not mid-month today_iso.
+- pitfalls Research section updated.
+files_changed:
+- `skills/excalibur-research/SKILL.md` / `.cursor/skills/`
+- `agents/excalibur-blog-research.md` / `.cursor/agents/`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg PERIOD_MONTHLY` / toDate guidance in research skill
+commit: pending-parent-commit
 
 ## INC-20261016-1716-research-notes-gate-row-keywords
-status: open
+status: fixed
 run_date: 2026-10-16
 role: excalibur-blog-research
 topic_id: AS02
@@ -263,10 +363,22 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Gate counts `accessed_at` via YAML keys OR ISO dates in markdown tables with accessed_at column.
+- `pain_solution_map` counts non-separator table rows in that section (narrative cells OK).
+- Docs in research skill/agent; `-o` path resolution fixed.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md` / `.cursor/skills/`
+- `agents/excalibur-blog-research.md` / `.cursor/agents/`
+checks_run:
+- research_notes_gate AS02 PASS
+commit: pending-parent-commit
 
 ## INC-20261016-1700-director-as-topic-selection
-status: open
+status: fixed
 run_date: 2026-10-16
 role: excalibur-blog-director
 topic_id: AS02
@@ -293,10 +405,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Shared `excalibur_blog_topic_ids.py`: `[A-Z]+\d+` for cards and article dirs.
+- today.py / scout_helper accept AS## (and B##); scout suggests next AS## when AS pool present.
+files_changed:
+- `scripts/excalibur_blog_topic_ids.py`
+- `scripts/excalibur_blog_today.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- today.py → EXCALIBUR_TOPIC_SELECTION=ready, SUGGESTED=AS01
+- scout_helper --suggest-next → AS10
+commit: pending-parent-commit
 
 ## INC-20261016-1700-director-doctor-blog-path
-status: open
+status: fixed
 run_date: 2026-10-16
 role: excalibur-blog-director
 topic_id: AS02
@@ -322,7 +447,15 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-16
+fix_summary:
+- Doctor asserts `--blog-dir` (not `--blog-path`) and `--redact-site-base` on interlinker.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- doctor SUMMARY errors=0 warnings=0
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

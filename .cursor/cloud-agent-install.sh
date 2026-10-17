@@ -7,8 +7,9 @@ python3 --version
 git --version
 
 python3 -m pip install --break-system-packages --quiet \
-  requests pillow python-dotenv 2>/dev/null \
-  || python3 -m pip install --quiet requests pillow python-dotenv
+  requests pillow python-dotenv paramiko numpy 2>/dev/null \
+  || python3 -m pip install --quiet requests pillow python-dotenv paramiko numpy
+# Keep in sync with requirements.txt (SSH publish needs paramiko).
 
 mkdir -p .cursor/excalibur-blog-fragments
 touch .cursor/excalibur-blog-handoff.md

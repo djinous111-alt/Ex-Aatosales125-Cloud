@@ -7,6 +7,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 
+## INC-20261018-2121-writer-editorial-pain-outcome-missing
+status: open
+run_date: 2026-10-18
+role: excalibur-blog-writer
+topic_id: B04
+article_dir: memory/blog/articles/B04-sroki-dostavki-avto-iz-korei-vladivostok-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again lacked `pain_markers_ru` / `outcome_markers_ru` at writer start.
+- Utility gate scored pain/outcome as 0 and BLOCK even for a valid Mode B article (recurring: AS02/B01 writer incidents).
+- Fail-fast for empty marker lists was missing from current `excalibur_blog_utility_gate.py` (present in older commits, dropped on branch).
+
+### How the agent recovered this run
+- Restored `pain_markers_ru` / `outcome_markers_ru` lists in editorial-policy.
+- Re-applied fail-fast empty-list errors in utility gate.
+- Re-ran utility gate → PASS; html_linter PASS; char_count 9499.
+
+### Durable fix needed before next run
+- Pin marker lists in editorial-policy so scout/research/start scripts cannot wipe them.
+- Keep fail-fast in utility gate; add a tiny unit/smoke that empty policy lists fail with explicit policy error, not "слабо раскрыта боль".
+- Document in pitfalls: writer must verify markers before blaming article copy.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261018-research-gate-tech-substring
 status: open
 run_date: 2026-10-18

@@ -7,6 +7,76 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 
+## INC-20261018-2132-schema-commit-secret-scan-urls
+status: open
+run_date: 2026-10-18
+role: excalibur-blog-schema
+topic_id: B04
+article_dir: memory/blog/articles/B04-sroki-dostavki-avto-iz-korei-vladivostok-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secret scan blocked `schema.jsonld` because BlogPosting/FAQ/HowTo `@id`/`url`/`sameAs` embed `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` (same pattern as AS08/AS09 schemas).
+- Separately, `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a raw site URL token instead of an env var name, so bash `${!SECRET_NAME}` crashed with `invalid variable name` before scan until names were filtered.
+
+### How the agent recovered this run
+- Filtered injected secret names to valid bash identifiers for the commit hook invocation.
+- Rewrote `schema.jsonld` with same-line `pragma: allowlist secret` markers via `"_a"` JSON keys next to URL-bearing fields (valid JSON; unknown keys ignored by consumers), matching the allowlist path used in `article.html`.
+
+### Durable fix needed before next run
+- Document in schema skill: URL fields that equal publish env secrets need `pragma: allowlist secret` on the same line (or generate via a small script).
+- Fix Cloud secret injection so `CLOUD_AGENT_INJECTED_SECRET_NAMES` never lists URL values as names.
+- Optionally teach publish to expand placeholders (`{{PUBLIC_SITE_URL}}`) so committed schema has no live host secrets.
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_wp_publish.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261018-2123-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-10-18
+role: excalibur-blog-geo-qa
+topic_id: B04
+article_dir: memory/blog/articles/B04-sroki-dostavki-avto-iz-korei-vladivostok-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud API did not accept typed Task `excalibur-blog-geo-qa`.
+- Director had to launch GEO QA via `Task(generalPurpose)` fallback with `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Ran full GEO QA as generalPurpose role: all scripts PASS; article-qa.md verdict PASS (score 87); human-voice PASS.
+- Did not start cover/schema/publish from this role.
+
+### Durable fix needed before next run
+- Register or document Cloud Task type `excalibur-blog-geo-qa` where the product allows custom Task types; until then keep AGENTS.md / CLOUD-AUTOMATION fallback `Task(generalPurpose)` + agent/skill paths as the canonical path.
+- Optionally add a one-line preflight note in director skill: if typed Task rejected, immediately use generalPurpose without retry loops.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261018-2121-writer-editorial-pain-outcome-missing
 status: open
 run_date: 2026-10-18

@@ -6,6 +6,67 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-1725-geo-qa-typed-task-missing
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-geo-qa
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud API did not accept typed Task `excalibur-blog-geo-qa`; Director fell back to `Task(generalPurpose)` with `.cursor/agents/excalibur-blog-geo-qa.md` + skill path.
+
+### How the agent recovered this run
+- Ran GEO QA as generalPurpose fallback; followed agent + skill contracts; executed all QA CLIs via python3.
+
+### Durable fix needed before next run
+- Prefer typed Task types when Cloud accepts them; until then keep documented generalPurpose fallback in AGENTS.md / pitfalls (already noted).
+- Track whether Cloud Task catalog can register `excalibur-blog-*` roles.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261017-1725-utility-gate-empty-pain-outcome
+status: fixed
+run_date: 2026-10-17
+role: excalibur-blog-geo-qa
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` enforced `min_pain_markers` (default 2) and `min_outcome_markers` (default 3) even when `pain_markers_ru` / `outcome_markers_ru` were missing from `memory/brief/editorial-policy.json`, so every article got `pain_markers=0` / `outcome_markers=0` BLOCK regardless of text.
+
+### How the agent recovered this run
+- Patched gate to skip pain/outcome checks when marker lists are empty; re-ran utility → only real blocker remained (`action_markers 5 < 8` for writer FIX).
+
+### Durable fix needed before next run
+- Done: skip empty lists in utility gate.
+- Optional follow-up: add explicit `pain_markers_ru` / `outcome_markers_ru` (+ mins) to editorial-policy.json if product wants those checks on.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_utility_gate.py`
+- `memory/brief/editorial-policy.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- fixed by geo-qa this run: skip pain/outcome when policy lists empty; commit with script change.
+
+
 ## INC-20261017-1721-writer-cta-urls-secret-scan
 status: open
 run_date: 2026-10-17

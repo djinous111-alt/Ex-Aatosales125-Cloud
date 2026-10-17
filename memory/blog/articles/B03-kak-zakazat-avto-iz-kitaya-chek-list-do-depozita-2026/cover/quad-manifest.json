@@ -1,0 +1,42 @@
+{
+  "topic_id": "B03",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит без договора — лотерея",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у ноутбука и смартфона с карточкой китайского кроссовера и плашкой «до депозита»",
+      "scene_hint": "Desk selfie Vladivostok evening: navy shirt+cardigan (NOT hoodie), glasses, NO cap/hood; laptop Chinese crossover catalog card + phone checklist «до депозита»; plaque «Депозит без договора — лотерея» yellow on «лотерея»; sticky «стоп»; shocked+cat memes; footer avto-sales125.ru; no prices/VIN/Wordstat/Metrika; polite stickers only",
+      "meme_caption_ru": "Сначала договор"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте рамку заказа до выбора \"красивой картинки\"",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "RU table: «картинка» vs «рамка заказа»; rows модель/бюджет/Владивосток/срок; highlight «сначала рамка»; sticky «не с картинки»; NO hero; no insults",
+      "alt": "Таблица: рамка заказа против выбора авто по красивой картинке"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Выберите рабочий канал: договор и офис, а не \"только чат\"",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow: чат→договор юрлица→р/с→офис; red X «только чат/карта»; green «договор»; sticky «канал»; NO hero; no insults",
+      "alt": "Схема выбора канала: договор и офис вместо оплаты только в чате"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Согласуйте комплектацию, осмотр и смету до оплаты",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist: комплектация; фото-осмотр; смета состав; без оплаты до сверки; stamp «до оплаты»; sticky «смета»; NO hero; no insults",
+      "alt": "Чеклист до оплаты: комплектация, осмотр и смета"
+    }
+  }
+}

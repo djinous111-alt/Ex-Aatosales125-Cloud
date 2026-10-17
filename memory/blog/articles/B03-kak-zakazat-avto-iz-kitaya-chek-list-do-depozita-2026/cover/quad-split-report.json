@@ -1,0 +1,125 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B03-kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1281,
+      721
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 721,
+        "end": 769
+      },
+      "v_gutter_px": {
+        "start": 1281,
+        "end": 1301
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1281,
+          "bottom": 721
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1281,
+          "bottom": 721
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у ноутбука и смартфона с карточкой китайского кроссовера и плашкой «до депозита»",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1301,
+          "top": 6,
+          "right": 2560,
+          "bottom": 714
+        },
+        "raw_box_px": {
+          "left": 1301,
+          "top": 0,
+          "right": 2560,
+          "bottom": 721
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: рамка заказа против выбора авто по красивой картинке",
+        "h2_anchor": "Зафиксируйте рамку заказа до выбора \"красивой картинки\""
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 44,
+          "top": 769,
+          "right": 1237,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 769,
+          "right": 1281,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема выбора канала: договор и офис вместо оплаты только в чате",
+        "h2_anchor": "Выберите рабочий канал: договор и офис, а не \"только чат\""
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1334,
+          "top": 769,
+          "right": 2527,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1301,
+          "top": 769,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист до оплаты: комплектация, осмотр и смета",
+        "h2_anchor": "Согласуйте комплектацию, осмотр и смету до оплаты"
+      }
+    }
+  }
+}

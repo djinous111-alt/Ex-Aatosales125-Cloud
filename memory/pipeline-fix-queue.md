@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-1745-cover-mcp-timeout-kie-async
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-cover
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` (Kie) twice returned client timeout `-32001` before the image URL was delivered.
+- `excalibur_blog_hero_reference_url.py --force` failed (catbox 412, 0x0 503); reused existing `reference_url_hosted`.
+- Prompt builder embeds toxic tokens (`лох`, `лохов`) in the non-toxic instruction line, risking sticker leakage into the canvas.
+
+### How the agent recovered this run
+- Ran `scripts/excalibur_blog_kie_gpt_image2_api.py` (async createTask + poll) → task success, URL in `cover/quad-mcp-result.json`.
+- Sanitized `cover/quad-mcp-batch.json` prompt before generation: removed toxic word list; preferred scene outfit over hardcoded hoodie lock.
+- Split via `excalibur_blog_quad_apply.py` without `--inject-html` per Director cover-only request.
+
+### Durable fix needed before next run
+- Cover skill/agent: prefer Kie async script as default path on Cloud; treat sync MCP as legacy fallback only.
+- Remove explicit toxic tokens from `excalibur_blog_cover_quad_prompt.py` non-toxic line (use generic «no insulting slang» wording).
+- Optionally soft-fail force-upload with clearer note that existing hosted URL is acceptable when catbox/0x0 are down.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261017-1736-schema-secret-scan-public-urls
 status: open
 run_date: 2026-10-17

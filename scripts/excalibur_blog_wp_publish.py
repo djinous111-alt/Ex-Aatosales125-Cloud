@@ -71,11 +71,23 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
     return missing
 
 
+def paramiko_importable() -> bool:
+    try:
+        import paramiko  # noqa: F401
+    except ImportError:
+        return False
+    return True
+
+
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
     root_label = ssh_root_label(env)
+    missing = validate_publish_env(env)
+    if not paramiko_importable():
+        missing.append("paramiko")
     return {
         "allow_publish": env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes",
         "public_site_url_configured": bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")),
+        "paramiko_importable": paramiko_importable(),
         "ssh": {
             "host_configured": bool(env.get("SSH_HOST")),
             "user_configured": bool(env.get("SSH_USER")),
@@ -83,7 +95,9 @@ def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
             "root": root_label,
             "dot_fallback_enabled": root_label == "configured-non-dot",
         },
-        "missing": validate_publish_env(env),
+        "missing": missing,
+        "http_trigger_timeout_sec": 300,
+        "webfetch_fallback_wait_sec": 300,
     }
 
 
@@ -467,30 +481,39 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+def trigger_bootstrap_http(url: str, root: Path, *, timeout_sec: int = 300) -> str:
+    """Trigger remote PHP bootstrap. Large media payloads often need ≥300s."""
     try:
-        print(f"Triggering HTTP publish on {url}...")
+        print(f"Triggering HTTP publish on {url} (timeout={timeout_sec}s)...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=timeout_sec,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
         print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
-        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
+        print(
+            f"Waiting up to {timeout_sec}s for cloud-agent to write response to memory/webfetch-response.txt..."
+        )
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        for _ in range(timeout_sec):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {timeout_sec} seconds. Please trigger manually."
+        )
+
+
+def publish_response_ok(out: str) -> bool:
+    return "OK post=" in (out or "")
 
 
 def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
@@ -499,16 +522,46 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     url = public_base.rstrip("/") + "/" + remote
     root = project_root()
 
+    if not paramiko_importable():
+        raise RuntimeError(
+            "ModuleNotFoundError: paramiko is required for SSH publish. "
+            "Install via `pip install -r requirements.txt` (cloud-agent-install.sh must include it)."
+        )
+
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
+    # Do NOT delete remote bootstrap until we see a successful OK post= response.
+    # Premature cleanup after HTTP timeout leaves late curl/WebFetch with a 404 theme page.
     try:
-        out = trigger_bootstrap_http(url, root)
-    finally:
+        out = trigger_bootstrap_http(url, root, timeout_sec=300)
+    except Exception:
+        print(
+            "WARN: keeping remote bootstrap after trigger failure so WebFetch/retry can reuse it.",
+            file=sys.stderr,
+        )
+        raise
+
+    if publish_response_ok(out):
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)
         except Exception as cleanup_error:  # noqa: BLE001
             print(f"WARN cleanup: could not delete bootstrap {remote}: {cleanup_error}", file=sys.stderr)
+    else:
+        print(
+            "WARN: publish response missing 'OK post='; keeping remote bootstrap for manual retry.",
+            file=sys.stderr,
+        )
     return out
+
+
+def ledger_publish_date() -> str:
+    """Prefer EXCALIBUR_RUN_DATE over VM clock (Cloud VMs often lag a day)."""
+    from datetime import date
+
+    run_date = os.environ.get("EXCALIBUR_RUN_DATE", "").strip()
+    if run_date and len(run_date) >= 10:
+        return run_date[:10]
+    return date.today().isoformat()
 
 
 def upsert_publish_ledger(root: Path, payload: dict[str, Any], permalink: str) -> None:
@@ -524,11 +577,9 @@ def upsert_publish_ledger(root: Path, payload: dict[str, Any], permalink: str) -
             encoding="utf-8",
         )
 
-    from datetime import date
-
     topic_id = str(payload.get("topic_id") or "").upper()
     slug = str(payload.get("slug") or "")
-    row = f"| {date.today().isoformat()} | {topic_id} | {slug} | {permalink} | published |"
+    row = f"| {ledger_publish_date()} | {topic_id} | {slug} | {permalink} | published |"
     lines = ledger_path.read_text(encoding="utf-8").splitlines()
     replaced = False
     for index, line in enumerate(lines):

@@ -31,3 +31,17 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-17 — B02 peregon-avto-iz-vladivostoka-svoim-hodom-2026
+
+- **verdict:** PASS
+- **post_id:** 4286
+- **permalink:** [REDACTED]/2026/10/17/peregon-avto-iz-vladivostoka-svoim-hodom-2026/
+- **featured_image:** 4287
+- **inline_images:** 4288 (`inline-01.png`), 4289 (`inline-02.png`), 4290 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`, len=11481)
+- **skip_theme_faq_meta:** ok (`1`)
+- **method:** SSH upload (`SSH_ROOT=.`) + HTTP nginx 504 → late FALLBACK curl HTML 404 (bootstrap already deleted) → REST slug + SSH meta reconstruct
+- **note:** NEW post — denylist 4269/4263/4251/… untouched; HEAD permalink 200
+- **result:** `memory/blog/articles/B02-peregon-avto-iz-vladivostoka-svoim-hodom-2026/wp-publish-result.json`
+- **incident:** `memory/pipeline-fix-queue.md#INC-20261017-1345-publish-http-504-fallback-race`

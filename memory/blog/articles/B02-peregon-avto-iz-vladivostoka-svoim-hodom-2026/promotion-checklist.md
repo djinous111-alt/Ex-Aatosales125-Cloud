@@ -1,7 +1,8 @@
 # Promotion checklist — B02 peregon-avto-iz-vladivostoka-svoim-hodom-2026
 
 Дата публикации: 2026-10-17  
-Live URL: /blog/peregon-avto-iz-vladivostoka-svoim-hodom-2026/
+Live URL: [REDACTED]/2026/10/17/peregon-avto-iz-vladivostoka-svoim-hodom-2026/  
+WP post_id: 4286 | featured: 4287 | inline: 4288/4289/4290
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

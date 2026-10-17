@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-1345-publish-http-504-fallback-race
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-publish
+topic_id: B02
+article_dir: memory/blog/articles/B02-peregon-avto-iz-vladivostoka-svoim-hodom-2026
+severity: medium
+category: publish
+
+### What went wrong
+- Large PHP payload (~7.4MB) SSH-uploaded OK; local HTTP trigger got nginx **504 Gateway Time-out**.
+- Script entered Cloud WebFetch Fallback and waited only **120s** for `memory/webfetch-response.txt`, then raised RuntimeError (exit 1) while server-side publish had already completed.
+- After script `finally` deleted bootstrap, late `curl --max-time 300` FALLBACK returned HTML **404** (not `OK post=`). Accepting HTML body as success would be wrong.
+
+### How the agent recovered this run
+- Did **not** republish / rewrite foreign denylist IDs.
+- Reconstructed via WP REST `posts?slug=peregon-avto-iz-vladivostoka-svoim-hodom-2026` → NEW post **4286**, featured **4287**, media parent inline **4288/4289/4290**.
+- SSH one-shot meta-check: `_excalibur_blog_schema_jsonld` len=11481, `_excalibur_blog_skip_theme_faq=1`.
+- Permalink HEAD **200**; wrote `wp-publish-result.json` verdict=pass; updated ledger/log/handoff.
+
+### Durable fix needed before next run
+- `trigger_bootstrap_http`: wait **300s** (not 120) for webfetch file; treat success **only** if body contains literal `OK post=` (reject HTML 504/404).
+- Document agent must start parallel curl/WebFetch **immediately** when `=== FALLBACK_TRIGGER_URL ===` prints (before wait loop ends / before cleanup deletes bootstrap).
+- Optional: on client 504 after SSH upload, auto-probe REST by slug before FAIL; keep reconstruct path in skill.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`trigger_bootstrap_http` wait + OK-only gate)
+- `skills/publish-excalibur-blog/SKILL.md` / `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md` (publish 504 reconstruct)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261017-1335-indexer-llms-stale-blog-path-flag
 status: open
 run_date: 2026-10-17

@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-1748-indexer-skill-llms-blog-path-stale
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-indexer
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026
+severity: low
+category: docs
+
+### What went wrong
+- `skills/indexer-excalibur-blog/SKILL.md` and `.cursor/agents/excalibur-blog-indexer.md` still show `excalibur_blog_llms_generator.py --blog-path /`.
+- Actual CLI accepts only `--blog-dir` / `--site-base` / `--out-dir` (passing `--blog-path` fails argparse).
+- Related open INC-20261017-1703 covers doctor expecting `--blog-path`; skill/agent shells were not updated in the same durable rename.
+
+### How the agent recovered this run
+- Ran generator with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`) per Director prompt + CLI `--help`.
+- Interlinker `--apply` and llms outputs succeeded; promotion checklist written.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer skill and agent shell blocks; keep `--blog-dir` + `--out-dir` + `--site-base`.
+- Align with doctor fix in INC-20261017-1703 so all three (doctor/skill/agent) assert the same flags.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md` (if present)
+- `scripts/excalibur_blog_doctor.py` (with INC-1703)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261017-1745-cover-mcp-timeout-kie-async
 status: open
 run_date: 2026-10-17

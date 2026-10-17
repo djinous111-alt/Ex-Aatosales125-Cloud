@@ -29,10 +29,11 @@
     "description_aeo": "До депозита за авто из Китая нужны договор с юрлицом, расчётный счёт, смета состава цены, комплектация и понятный возврат. Иначе – пауза или отказ."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending_after_fix2",
+    "score": 88,
+    "verdict": "PASS",
     "date": "2026-10-17",
-    "note": "writer FIX2: restore Материал проверен anchor"
+    "qa_cycle": 3,
+    "note": "after FIX2 Fact Check anchor; utility 33; human-voice PASS"
   },
   "cover_family": "brand_collage",
   "cta_urls_used": {

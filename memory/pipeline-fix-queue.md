@@ -21,6 +21,7 @@ category: prompt
 
 ### How the agent recovered this run
 - Restored `Материал проверен: Редакция Авто-Сейлс (...)` (registry name_ru for avtosales-editorial); kept FIX1 utility markers; human-voice PASS, utility PASS; char_count 9442.
+- Re-ran gate with `-o human-voice-report.json` (filename only). Relative repo path nests under article_dir and left a stale BLOCK report — same class of bug as research-notes-gate `-o`.
 
 ### Durable fix needed before next run
 - Writer skill: Fact Check may vary supporting lines, but must keep exact phrase «Материал проверен» + registry `name_ru`; template WARN is soft, missing anchor is hard BLOCK.

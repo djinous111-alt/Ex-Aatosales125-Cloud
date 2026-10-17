@@ -6,8 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none — 2026-10-18 B04 run closed by fixer)_
+
 ## INC-20261018-2145-publish-paramiko-http-timeout
-status: open
+status: fixed
 run_date: 2026-10-18
 role: excalibur-blog-publish
 topic_id: B04
@@ -42,12 +44,27 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-18
+fix_summary:
+- cloud-agent-install.sh installs `requirements.txt` (includes paramiko) and fails if import missing.
+- `--env-check` reports `paramiko_importable` and lists paramiko in missing when absent.
+- HTTP trigger + WebFetch wait raised to 300s; remote bootstrap deleted only after `OK post=`.
+- Ledger date prefers `EXCALIBUR_RUN_DATE`.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/cloud-agent-install.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check` (paramiko_importable true, timeout 300)
+commit: pending-parent-commit
 
 
 ## INC-20261018-2132-schema-commit-secret-scan-urls
-status: open
+status: fixed
 run_date: 2026-10-18
 role: excalibur-blog-schema
 topic_id: B04
@@ -78,11 +95,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-18
+fix_summary:
+- Schema skill + writing contract document same-line `pragma: allowlist secret` for URL secret fields.
+- Pitfalls + `excalibur_git.sh` already sanitize invalid/public CTA names in CLOUD_AGENT_INJECTED_SECRET_NAMES.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` pragma allowlist guidance in schema skill + writing contract
+commit: pending-parent-commit
 
 
 ## INC-20261018-2123-geo-qa-typed-task-unavailable
-status: open
+status: fixed
 run_date: 2026-10-18
 role: excalibur-blog-geo-qa
 topic_id: B04
@@ -113,11 +142,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-18
+fix_summary:
+- Director agent/skill, AGENTS.md, CLOUD-AUTOMATION, pitfalls: on typed Task reject (incl. geo-qa) immediately use generalPurpose; no retry loops.
+files_changed:
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- `agents/excalibur-blog-director.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` immediate generalPurpose / no-retry guidance in director docs
+commit: pending-parent-commit
 
 
 ## INC-20261018-2121-writer-editorial-pain-outcome-missing
-status: open
+status: fixed
 run_date: 2026-10-18
 role: excalibur-blog-writer
 topic_id: B04
@@ -150,11 +193,27 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-18
+fix_summary:
+- editorial-policy `_markers_pinned` + non-empty pain/outcome lists; doctor checks non-empty.
+- utility_gate fail-fast kept; smoke `scripts/test_utility_gate_empty_markers.py`.
+- Writer skill + pitfalls: verify markers before blaming copy.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/test_utility_gate_empty_markers.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/test_utility_gate_empty_markers.py`
+- `python3 scripts/excalibur_blog_doctor.py` (errors=0)
+commit: pending-parent-commit
 
 
 ## INC-20261018-research-gate-tech-substring
-status: open
+status: fixed
 run_date: 2026-10-18
 role: excalibur-blog-research
 topic_id: B04
@@ -183,7 +242,19 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-18
+fix_summary:
+- Word-boundary `is_technical_topic` retained; regression `scripts/test_research_notes_gate_tech.py`.
+- Research skill + pitfalls document substring false-positive pitfall.
+files_changed:
+- `scripts/test_research_notes_gate_tech.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/test_research_notes_gate_tech.py`
+commit: pending-parent-commit
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch

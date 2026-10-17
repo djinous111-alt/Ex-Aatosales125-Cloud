@@ -1,5 +1,7 @@
 {
   "policy_id": "utility_only_v1",
+  "_markers_pinned": true,
+  "_markers_note": "pain_markers_ru / outcome_markers_ru обязательны. Scout/research_start/start scripts НЕ должны затирать эти списки. Doctor и utility_gate fail-fast при пустых списках.",
   "label_ru": "Только полезные статьи — без воды",
   "mission": "Публикуем только материалы, после которых читатель может сделать конкретное действие: how-to, чеклист, сравнение с выбором, troubleshooting, workflow.",
   "allowed_search_intent": [

@@ -129,7 +129,7 @@ category: env
 
 ### Durable fix needed before next run
 - Fix Cloud secrets inject so `CLOUD_AGENT_INJECTED_SECRET_NAMES` is only valid identifiers (cross-link INC-1318).
-- Document writer/research commit workaround in `shared/agent-pipeline-pitfalls.md`: unset injected names only after verifying staged files have no secret values; keep CTA as `$CATALOG_URL` placeholders in article.html.
+- Document writer/research commit workaround in `shared/agent-pipeline-pitfalls.md`: unset injected names only after verifying staged files; CTA must be live public URLs from env (see INC-1328 / INC-1319), not `$CATALOG_URL` placeholders.
 
 ### Suggested files to inspect/change
 - `shared/agent-pipeline-pitfalls.md`

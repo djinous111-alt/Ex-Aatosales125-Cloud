@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-1318-research-commit-secret-scan
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-research
+topic_id: B02
+article_dir: memory/blog/articles/B02-peregon-avto-iz-vladivostoka-svoim-hodom-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secrets scanner failed first with `invalid variable name` because `CLOUD_AGENT_INJECTED_SECRET_NAMES` included a URL string instead of an env var name.
+- After filtering names, commit blocked on `PUBLIC_SITE_URL` value inside `research-serp.json` (SERP hit on own site article) and ledger rows.
+
+### How the agent recovered this run
+- Filtered injected secret names to valid bash identifiers for the commit env.
+- Replaced site host/URL in `research-serp.json` and touched ledger rows with `[REDACTED]` before commit.
+
+### Durable fix needed before next run
+- Ensure `CLOUD_AGENT_INJECTED_SECRET_NAMES` contains only env var names, never URL values.
+- Teach `research_start` / SERP collector to redact `PUBLIC_SITE_URL` host from serp JSON automatically.
+- Document ledger URL policy: use `[REDACTED]` host or path-only when PUBLIC_SITE_URL is a secret.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_start.py`
+- Cursor Cloud secrets inject config
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261017-1315-research-notes-gate-false-technical
 status: open
 run_date: 2026-10-17

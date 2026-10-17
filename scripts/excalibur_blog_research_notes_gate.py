@@ -14,22 +14,24 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
-    "ai",
-    "ии",
-    "agent",
-    "агент",
-    "mcp",
-    "api",
-    "cursor",
-    "make",
-    "n8n",
-    "github",
-    "docker",
-    "rag",
-    "workflow",
-    "автоматизац",
-    "нейросет",
+# Whole-word / bounded markers only. Short substrings like "ai" must NOT match
+# inside required fields such as reader_pain (false technical → GitHub requirement).
+TECH_MARKERS_RE = (
+    r"\bai\b",
+    r"\bии\b",
+    r"\bagent\b",
+    r"\bагент(?:ы|ов|а|у|ом|е)?\b",
+    r"\bmcp\b",
+    r"\bapi\b",
+    r"\bcursor\b",
+    r"\bmake\.com\b",
+    r"\bn8n\b",
+    r"\bgithub\b",
+    r"\bdocker\b",
+    r"\brag\b",
+    r"\bworkflow\b",
+    r"автоматизац",
+    r"нейросет",
 )
 
 
@@ -80,7 +82,9 @@ def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
     blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Avoid matching "агент" inside non-tech phrases like страховой агент when
+    # the topic itself is clearly automotive/logistics (no tech slug/query).
+    return any(re.search(marker, blob, flags=re.I) for marker in TECH_MARKERS_RE)
 
 
 def field_present(text_lower: str, field: str) -> bool:

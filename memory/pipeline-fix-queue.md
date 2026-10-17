@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-1315-research-notes-gate-false-technical
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-research
+topic_id: B02
+article_dir: memory/blog/articles/B02-peregon-avto-iz-vladivostoka-svoim-hodom-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marked B02 (авто-логистика) as `technical_topic=true` because TECH_MARKERS used raw substring `"ai"` matching inside required field `reader_pain`, plus `"ии"` / `"агент"` false positives in Russian prose.
+- Gate then required `github_urls >= 3` for a non-software topic → BLOCK.
+- Separate counters: `accessed_at:` must appear as labeled key (bare date cells in source_table do not count); `pain_solution_map` rows must contain keywords pain/solution/result (or RU equivalents).
+
+### How the agent recovered this run
+- Patched `is_technical_topic` to use bounded regex markers (`\\bai\\b`, `make.com` instead of bare `make`, etc.).
+- Relabeled source_table dates as `accessed_at: 2026-10-17` and prefixed pain map cells with pain/solution/результат.
+- Re-ran gate → PASS (`technical_topic: false`).
+
+### Durable fix needed before next run
+- Keep bounded TECH_MARKERS; add a tiny regression test that notes containing `reader_pain:` are not auto-technical for auto topics.
+- Document in research skill: source_table date cells must be `accessed_at: YYYY-MM-DD`; pain rows need keyword tokens the gate regex expects.
+- Optionally relax technical GitHub requirement when niche is automotive/non-dev.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (patch already applied in research run; verify + close)
+
+
 ## INC-20261017-1305-scout-b01-live-override
 status: open
 run_date: 2026-10-17

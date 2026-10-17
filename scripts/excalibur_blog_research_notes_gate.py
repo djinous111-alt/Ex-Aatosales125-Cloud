@@ -16,11 +16,13 @@ from excalibur_repo_paths import repo_relative
 
 # Whole-word / bounded markers only. Short substrings like "ai" must NOT match
 # inside required fields such as reader_pain (false technical → GitHub requirement).
+# Do NOT use bare "агент" — false-positives on "страховой агент" in auto niche.
 TECH_MARKERS_RE = (
     r"\bai\b",
     r"\bии\b",
     r"\bagent\b",
-    r"\bагент(?:ы|ов|а|у|ом|е)?\b",
+    r"\bai[-\s]?агент",
+    r"\bии[-\s]?агент",
     r"\bmcp\b",
     r"\bapi\b",
     r"\bcursor\b",
@@ -29,9 +31,22 @@ TECH_MARKERS_RE = (
     r"\bgithub\b",
     r"\bdocker\b",
     r"\brag\b",
-    r"\bworkflow\b",
-    r"автоматизац",
     r"нейросет",
+)
+
+# Automotive / logistics niche → never require GitHub evidence via technical_topic.
+AUTO_TOPIC_MARKERS_RE = (
+    r"авто",
+    r"машин",
+    r"перегон",
+    r"растамож",
+    r"владивосток",
+    r"осаго",
+    r"encar",
+    r"carhistory",
+    r"таможн",
+    r"птс",
+    r"автовоз",
 )
 
 
@@ -77,13 +92,15 @@ def has_wordstat(text_lower: str) -> bool:
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
-    blob = " ".join(
+    topic_blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    # Avoid matching "агент" inside non-tech phrases like страховой агент when
-    # the topic itself is clearly automotive/logistics (no tech slug/query).
+    # Prefer topic card: auto niche must not become technical because notes mention
+    # "страховой агент" or the word "reader_pain" contains substring noise.
+    if any(re.search(marker, topic_blob, flags=re.I) for marker in AUTO_TOPIC_MARKERS_RE):
+        return False
+    blob = topic_blob + " " + notes[:2000].lower()
     return any(re.search(marker, blob, flags=re.I) for marker in TECH_MARKERS_RE)
 
 

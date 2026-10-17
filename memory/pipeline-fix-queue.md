@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None open after 2026-10-17 B03 fixer (cron 17:00). All INC-20261017-* below marked fixed._
+
+
 ## INC-20261017-1755-publish-cover-inject-skipped
-status: open
+status: fixed
+fixed_at: 2026-10-17
 run_date: 2026-10-17
 role: excalibur-blog-publish
 topic_id: B03
@@ -42,10 +46,26 @@ category: handoff
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Cover skill: inject_html default ON; Kie async default; Publish preflight documents quad_split --inject-html when registry has inline but HTML has none.
+- cloud-agent-install.sh installs paramiko/numpy from requirements.txt.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/cloud-agent-install.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg inject-html / cover inject preflight in publish+cover skills`
+- `doctor errors=0`
+commit: pending-parent-commit
 
 ## INC-20261017-1749-indexer-git-secret-names-hook
-status: open
+status: fixed
+fixed_at: 2026-10-17
 run_date: 2026-10-17
 role: excalibur-blog-indexer
 topic_id: B03
@@ -72,10 +92,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Restored scripts/excalibur_git.sh: filters non-identifier secret names and public CTA/site URL secret names before git commit.
+- Indexer skill/agent document bash scripts/excalibur_git.sh commit.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES smoke via excalibur_git.sh status`
+commit: pending-parent-commit
 
 ## INC-20261017-1748-indexer-skill-llms-blog-path-stale
-status: open
+status: fixed
+fixed_at: 2026-10-17
 run_date: 2026-10-17
 role: excalibur-blog-indexer
 topic_id: B03
@@ -107,10 +142,23 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Removed --blog-path from indexer skill/agent; CLI is --blog-dir + --site-base + --out-dir.
+files_changed:
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+checks_run:
+- `python3 scripts/excalibur_blog_llms_generator.py --help`
+- `rg --blog-path in indexer durable docs (should be absent or marked obsolete)`
+commit: pending-parent-commit
 
 ## INC-20261017-1745-cover-mcp-timeout-kie-async
-status: open
+status: fixed
+fixed_at: 2026-10-17
 run_date: 2026-10-17
 role: excalibur-blog-cover
 topic_id: B03
@@ -144,11 +192,26 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Cover skill prefers Kie async script; sync MCP gpt-image-2 is legacy fallback.
+- Prompt builder negative line no longer embeds toxic tokens (generic no-insult wording).
+- Soft-fail note for hero force-upload when catbox/0x0 down.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+- `rg toxic tokens absent from prompt builder`
+commit: pending-parent-commit
 
 
 ## INC-20261017-1736-schema-secret-scan-public-urls
-status: open
+status: fixed
+fixed_at: 2026-10-17
 run_date: 2026-10-17
 role: excalibur-blog-schema
 topic_id: B03
@@ -179,11 +242,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Schema skill documents pragma allowlist for public sameAs URLs + excalibur_git.sh commit filter.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `excalibur_git.sh secret-name filter smoke`
+commit: pending-parent-commit
 
 
 ## INC-20261017-1731-writer-fact-check-anchor
-status: open
+status: fixed
+fixed_at: 2026-10-17
 run_date: 2026-10-17
 role: excalibur-blog-writer
 topic_id: B03
@@ -211,11 +286,23 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Writer skill + writing contract: hard require «Материал проверен» + registry name_ru; supporting lines may vary.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg Материал проверен in writer skill + contract`
+commit: pending-parent-commit
 
 
 ## INC-20261017-1730-geo-qa-fact-check-phrase-overvaried
-status: open
+status: fixed
+fixed_at: 2026-10-17
 run_date: 2026-10-17
 role: excalibur-blog-geo-qa
 topic_id: B03
@@ -243,11 +330,22 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Same durable Fact Check anchor rule as INC-1731; pitfalls note that removing anchor fails human-voice.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg Материал проверен in pitfalls`
+commit: pending-parent-commit
 
 
 ## INC-20261017-1727-writer-action-markers-cheklist
-status: open
+status: fixed
+fixed_at: 2026-10-17
 run_date: 2026-10-17
 role: excalibur-blog-writer
 topic_id: B03
@@ -275,11 +373,23 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Writer skill/contract: recommendation_markers_ru imperatives; чеклист without hyphen; ban Делать/Не делать as sole labels.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg recommendation_markers|чеклист in writer skill`
+commit: pending-parent-commit
 
 
 ## INC-20261017-1725-geo-qa-typed-task-missing
-status: open
+status: fixed
+fixed_at: 2026-10-17
 run_date: 2026-10-17
 role: excalibur-blog-geo-qa
 topic_id: B03
@@ -306,7 +416,20 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Documented generalPurpose fallback for GEO QA in AGENTS.md, director skill, and geo-qa agent-md as normal path.
+files_changed:
+- `AGENTS.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-geo-qa.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg generalPurpose|geo-qa in AGENTS.md + director skill`
+commit: pending-parent-commit
 
 
 ## INC-20261017-1725-utility-gate-empty-pain-outcome
@@ -340,7 +463,8 @@ category: script
 
 
 ## INC-20261017-1721-writer-cta-urls-secret-scan
-status: open
+status: fixed
+fixed_at: 2026-10-17
 run_date: 2026-10-17
 role: excalibur-blog-writer
 topic_id: B03
@@ -369,11 +493,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Writer skill: live CTA URLs from env; commits via excalibur_git.sh which drops public CTA secret names from scan list.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/excalibur-article-writing-contract.md`
+checks_run:
+- `excalibur_git.sh filters CATALOG_URL/TELEGRAM_URL/MAX_URL/PUBLIC_SITE_URL`
+commit: pending-parent-commit
 
 
 ## INC-20261017-1714-research-notes-gate-ai-in-reader-pain
-status: open
+status: fixed
+fixed_at: 2026-10-17
 run_date: 2026-10-17
 role: excalibur-blog-research
 topic_id: B03
@@ -408,10 +545,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending (partial patch already in gate script this run; needs test + docs)
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Verified _tech_marker_hit + poison-field strip already in gate; added scripts/test_research_notes_gate_tech.py smoke.
+- Research skill documents -o filename and tech-detection rule.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `scripts/test_research_notes_gate_tech.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/test_research_notes_gate_tech.py`
+commit: pending-parent-commit (partial patch already in gate script this run; needs test + docs)
 
 ## INC-20261017-1705-scout-suggest-next-ignores-live
-status: open
+status: fixed
+fixed_at: 2026-10-17
 run_date: 2026-10-17
 role: excalibur-blog-scout
 topic_id: B03
@@ -444,10 +595,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- scout_helper --suggest-next reads live-reserved.json; prefers next_forced_topic_id; skips live B*.
+- Added --check-slug against denylist + pool; scout skill documents Авто-Сейлс niche override.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `memory/topics/live-reserved.json`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next → B04`
+- `python3 scripts/excalibur_blog_scout_helper.py --check-slug <B03 slug> → blocked`
+commit: pending-parent-commit
 
 ## INC-20261017-1703-doctor-llms-blog-path
-status: open
+status: fixed
+fixed_at: 2026-10-17
 run_date: 2026-10-17
 role: director
 topic_id: pending-scout
@@ -471,6 +637,18 @@ category: script
 
 ### Secrets
 - none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Doctor asserts `--blog-dir` and `--out-dir`, and that `--blog-path` is absent from llms generator help.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py → errors=0`
+commit: pending-parent-commit
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch

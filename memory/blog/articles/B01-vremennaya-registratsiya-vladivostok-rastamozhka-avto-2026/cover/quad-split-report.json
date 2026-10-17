@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1280,
+      720
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 720,
+        "end": 730
+      },
+      "v_gutter_px": {
+        "start": 1280,
+        "end": 1317
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1280,
+          "bottom": 720
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1280,
+          "bottom": 720
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у таможни Владивостока с паспортом и свидетельством временной регистрации, кроссовер из Азии, плашка прописка для растаможки",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1317,
+          "top": 10,
+          "right": 2560,
+          "bottom": 709
+        },
+        "raw_box_px": {
+          "left": 1317,
+          "top": 0,
+          "right": 2560,
+          "bottom": 720
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: с адресом в ДФО и без — что меняется на таможне Владивостока",
+        "h2_anchor": "Разберите, зачем таможне Владивостока адрес в ДФО"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 9,
+          "top": 730,
+          "right": 1271,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 730,
+          "right": 1280,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема трёх сценариев: регистрация, явка или транзит перед растаможкой",
+        "h2_anchor": "Выберите сценарий: регистрация, явка или транзит"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1317,
+          "top": 735,
+          "right": 2560,
+          "bottom": 1434
+        },
+        "raw_box_px": {
+          "left": 1317,
+          "top": 730,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист документов до подачи на растаможку: Япония, Корея, Китай",
+        "h2_anchor": "Соберите документы до подачи на растаможку"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разберите, зачем таможне Владивостока адрес в ДФО",
+    "injected inline_2 after H2 — Выберите сценарий: регистрация, явка или транзит",
+    "injected inline_3 after H2 — Соберите документы до подачи на растаможку"
+  ]
+}

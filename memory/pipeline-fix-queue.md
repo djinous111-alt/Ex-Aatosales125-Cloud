@@ -6,6 +6,78 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-1319-geo-qa-utility-empty-pain-markers
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-geo-qa
+topic_id: B02
+article_dir: memory/blog/articles/B02-peregon-avto-iz-vladivostoka-svoim-hodom-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` всегда требует `min_pain_markers` (default 2) и `min_outcome_markers` (default 3).
+- В `memory/brief/editorial-policy.json` нет списков `pain_markers_ru` / `outcome_markers_ru` → count всегда 0 → любой article.html получает BLOCK.
+- Тот же BLOCK воспроизводится на ранее PASS AS09 при повторном прогоне.
+
+### How the agent recovered this run
+- Зафиксировал false BLOCK в `article-qa.md`; текст статьи не правил (не writer-fix).
+- Вернул Director verdict FIX; cover/schema не запускал.
+
+### Durable fix needed before next run
+- В `excalibur_blog_utility_gate.py`: применять min_pain/min_outcome только если соответствующие marker-списки в policy непустые; иначе skip.
+- Либо добавить в `editorial-policy.json` осмысленные `pain_markers_ru` / `outcome_markers_ru` + явные `min_*` в `article_required_signals`.
+- Документировать в `shared/agent-pipeline-pitfalls.md` (секция QA).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_utility_gate.py`
+- `memory/brief/editorial-policy.json`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261017-1319-geo-qa-cta-placeholder-link-verify
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-geo-qa
+topic_id: B02
+article_dir: memory/blog/articles/B02-peregon-avto-iz-vladivostoka-svoim-hodom-2026
+severity: high
+category: qa
+
+### What went wrong
+- Writer оставил в `article.html` literal href `$CATALOG_URL`, `$TELEGRAM_URL`, `$MAX_URL`.
+- `excalibur_blog_link_verify.py` считает их internal_relative → HTTP 404 → verdict fail (3/4 links).
+- Конфликт с writer-workaround в INC-20261017-1325 («keep CTA as $CATALOG_URL placeholders»): GEO QA Pass требует живые публичные URL.
+
+### How the agent recovered this run
+- Не подставлял секреты/URL сам; FIX → Writer: публичные URL каталога/Telegram/MAX как в AS09.
+- article-qa verdict FIX; cover/schema blocked.
+
+### Durable fix needed before next run
+- Writer skill/contract: CTA только публичные URL (каталог / t.me / MAX), не `$VAR` плейсхолдеры.
+- Либо publish-подстановка до link-verify — тогда QA skill должен явно разрешить skip `$[A-Z_]+` placeholders (сейчас не разрешает).
+- Уточнить pitfalls: secret-scan workaround ≠ оставлять `$CATALOG_URL` в HTML на этапе QA.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_link_verify.py` (optional skip for `$VAR`)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261017-1325-writer-commit-secret-names
 status: open
 run_date: 2026-10-17

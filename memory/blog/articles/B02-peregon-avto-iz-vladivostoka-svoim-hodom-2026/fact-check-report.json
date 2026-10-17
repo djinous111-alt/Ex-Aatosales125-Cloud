@@ -1,0 +1,94 @@
+{
+  "article": "memory/blog/articles/B02-peregon-avto-iz-vladivostoka-svoim-hodom-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 12,
+  "verified_facts_count": 4,
+  "unverified_facts_count": 8,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "Обычному покупателю внутри РФ транзитные номера в 2026 чаще не нужны – важнее 10 суток на заявление в ГИБ",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "но – 5 000 ₽ или лишение на 1–3 месяца. С 1 марта 2025 ОСАГО убрали из документов для учёта. Но без полис",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "30 дней",
+      "kind": "metric_or_duration",
+      "context": "40–200 тыс. ₽ до Москвы, ж/д с ожиданием около 20–30 дней. Ситуация Своим ходом Автовоз / ж/д До ~2 000 км,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "40 минут",
+      "kind": "metric_or_duration",
+      "context": "поехать \"на глаз\". На практике осмотр занимает 20–40 минут и спасает от поломки за Уссурийском. Откройте кап",
+      "verified": true,
+      "reason": "Numerical value '40' matched in fact-bank context"
+    },
+    {
+      "fact": "20 дней",
+      "kind": "metric_or_duration",
+      "context": "олис на VIN до выезда: короткий вариант обычно до 20 дней без продления либо сразу годовой. паспорт и водит",
+      "verified": true,
+      "reason": "Numerical value '20' matched in fact-bank context"
+    },
+    {
+      "fact": "10 дней",
+      "kind": "metric_or_duration",
+      "context": "нее заявление в ГИБДД и полис. Если дорога дольше 10 дней, заложите подачу заявления через Госуслуги – важе",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "6 дней",
+      "kind": "metric_or_duration",
+      "context": "срокам. Не делать: романтизировать \"до Москвы за 6 дней нон-стопом\". Пройдите чек-лист из 12 пунктов пере",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "200",
+      "kind": "large_number",
+      "context": "подвески и простой – автовоз в отчётах часто 140–200 тыс. ₽ до Москвы, ж/д с ожиданием около 20–30 дней",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2 000",
+      "kind": "large_number",
+      "context": "0–30 дней. Ситуация Своим ходом Автовоз / ж/д До ~2 000 км, лето, исправное авто Чаще ок при напарнике и п",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "130",
+      "kind": "large_number",
+      "context": "вариант Ориентир затрат (кейсы 2026) Примерно 87–130 тыс. ₽ на человека; короткий кейс до Томска ~63.6",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 000",
+      "kind": "large_number",
+      "context": "ки по ст. 12.1 / 12.2 КоАП: 500–800 ₽, повторно – 5 000 ₽ или лишение на 1–3 месяца. С 1 марта 2025 ОСАГО",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1 600",
+      "kind": "large_number",
+      "context": "ельны (срок до 30 дней, госпошлина легковые около 1 600 ₽). Свежие разборы (Авто Mail, май 2026) пишут: в",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

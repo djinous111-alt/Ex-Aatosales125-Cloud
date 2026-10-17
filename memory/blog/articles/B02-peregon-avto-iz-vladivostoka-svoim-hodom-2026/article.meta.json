@@ -28,12 +28,18 @@
     "description_aeo": "Перегон авто из Владивостока своим ходом: до выезда нужны ЭПТС, ОСАГО на VIN, осмотр и план 10 суток. Когда лучше не гнать – в гайде."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 74,
+    "verdict": "FIX",
     "date": "2026-10-17",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "fact_check": "PASS",
+    "link_verify": "FAIL",
+    "utility_gate": "BLOCK",
+    "human_voice": "PASS",
+    "research_notes_gate": "PASS",
+    "core_eeat": "18/20"
   },
   "cover_family": "brand_collage"
 }

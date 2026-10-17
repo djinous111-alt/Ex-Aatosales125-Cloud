@@ -6,6 +6,49 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-0900-research-notes-gate-false-tech
+status: fixed
+run_date: 2026-10-17
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marked non-tech niche B01 (растаможка/временная регистрация) as `technical_topic` because it scanned `research-notes.md` body with naive substring markers.
+- Substring `ai` matched inside required field name `reader_pain`; substring `ии` matched Russian word endings; later `github` matched the required `github_evidence` heading.
+- Gate demanded 3 GitHub URLs for an auto-customs how-to and BLOCKed a valid utility brief.
+- Secondary: WebFetch timeout on genproc.gov.ru and HTTP 500 on Interfax during deep research (recovered via alternate sources).
+
+### How the agent recovered this run
+- Patched `is_technical_topic()` to use topic-card fields only and whole-token matching for short markers (`ai`, `ии`).
+- Ensured `accessed_at:` appears in source table cells (≥5).
+- Re-ran gate → PASS; used DEITA/WebSearch snippets where Interfax/genproc fetch failed.
+
+### Durable fix needed before next run
+- Keep tech detection off research-notes body (or exclude known field names). Already applied in script this run.
+- Optional follow-up: document in research skill that non-tech niches may put N/A in `github_evidence`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Research agent patched `is_technical_topic` during B01 run; gate PASS without fake GitHub URLs.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/research-notes.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026 -o research-notes-gate.json` → PASS
+commit: pending-parent-commit
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

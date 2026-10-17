@@ -74,13 +74,26 @@ def has_wordstat(text_lower: str) -> bool:
 
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech niche from topic card fields only.
+
+    Do not scan research-notes body: required fields like ``reader_pain``
+    contain the substring ``ai``, and the ``github_evidence`` heading always
+    contains ``github`` — both caused false positives for non-tech niches
+    (e.g. auto customs how-tos).
+    """
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Short markers (ai/ии) must be whole tokens, not substrings of Russian words.
+    for marker in TECH_MARKERS:
+        if len(marker) <= 2:
+            if re.search(rf"(?<![a-z0-9а-яё]){re.escape(marker)}(?![a-z0-9а-яё])", blob):
+                return True
+        elif marker in blob:
+            return True
+    return False
 
 
 def field_present(text_lower: str, field: str) -> bool:

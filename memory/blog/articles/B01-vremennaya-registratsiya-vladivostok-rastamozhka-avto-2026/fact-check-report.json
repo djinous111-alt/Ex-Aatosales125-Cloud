@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 2,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "иния: такие схемы уже проверяет полиция. В гайдах 2026 мнения спорят: одни пишут, что без регистрации в Д",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "иказом Минфина № 178н (компетенция постов с 27.02.2025), практикой оформления для жителей и временно пре",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 дней",
+      "kind": "metric_or_duration",
+      "context": "ормление во Владивостоке часто называют порядка 5–10 дней – не гарантия, заложите запас до ETA. Чем опасна",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "250",
+      "kind": "large_number",
+      "context": "онятный вам: город, улица, собственник Нет схемы \"250 человек на одну квартиру\" Нет обещания \"любой PDF",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "553",
+      "kind": "large_number",
+      "context": "ременно пребывающих в ДФО, админрегламентом МВД № 553 и открытыми материалами о риске фиктивной регистра",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

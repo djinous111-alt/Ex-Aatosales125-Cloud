@@ -27,6 +27,7 @@ category: qa
 - Вернул Director: re-run writer на CTA href, затем re-QA link-verify.
 - Writer FIX cycle 1 (2026-10-17): подставил живые href из env (каталог×2, Telegram×1); литерал `[REDACTED]` в href убран; локальный `link_verify` → pass; текст lead/H2/FAQ не менялся.
 - Workaround commit: pre-commit secret scanner блокирует `CATALOG_URL`/`TELEGRAM_URL` в HTML; на CTA-строки добавлен `<!-- pragma: allowlist secret -->`. Также в `CLOUD_AGENT_INJECTED_SECRET_NAMES` был битый хвост (URL как "имя") — для commit отфильтрованы только валидные bash-имена. Durable fix в skill/contract всё ещё нужен.
+- GEO QA re-run after FIX (2026-10-17): все 8 gates PASS; `link-verify` failed_count=0; `article-qa.md` verdict PASS score 91; cover||schema разблокированы. Incident остаётся open до durable fix в writer skill/contract.
 
 ### Durable fix needed before next run
 - В writer skill / writing contract явно: CTA каталог и Telegram берут `$CATALOG_URL` / `$TELEGRAM_URL`; redaction `[REDACTED]` только для blog/site origin (`PUBLIC_SITE_URL`), не для CTA.

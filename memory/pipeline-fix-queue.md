@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+
+## INC-20261018-research-gate-tech-substring
+status: open
+run_date: 2026-10-18
+role: excalibur-blog-research
+topic_id: B04
+article_dir: memory/blog/articles/B04-sroki-dostavki-avto-iz-korei-vladivostok-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` used naive `marker in blob` for TECH_MARKERS.
+- Short markers `ai` and `ии` matched inside required field `reader_pain` and ordinary Russian words (e.g. `ожидании`), so non-tech auto/logistics topic B04 was treated as technical and demanded GitHub evidence.
+
+### How the agent recovered this run
+- Patched `is_technical_topic` to use Latin/Cyrillic word-boundary regex.
+- Re-ran research-notes gate for B04 after notes fixes (`accessed_at:` cells).
+
+### Durable fix needed before next run
+- Keep word-boundary matching in the research-notes gate; add a regression test with a sample auto niche notes file that contains `reader_pain` and Russian morphology but must remain non-technical.
+- Optionally mirror the same guidance in research skill pitfalls.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

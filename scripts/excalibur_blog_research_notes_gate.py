@@ -74,13 +74,25 @@ def has_wordstat(text_lower: str) -> bool:
 
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech niche via whole-token markers (not substrings).
+
+    Naive ``marker in blob`` falsely flags auto/logistics topics because
+    ``ai`` matches inside ``reader_pain`` and ``ии`` matches inside Russian
+    words like ``ожидании``.
+    """
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
     blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    for marker in TECH_MARKERS:
+        # Word-ish boundaries for Latin + Cyrillic so short markers do not
+        # match inside required field names or ordinary Russian morphology.
+        pattern = rf"(?<![a-zа-яё0-9_]){re.escape(marker)}(?![a-zа-яё0-9_])"
+        if re.search(pattern, blob, flags=re.I):
+            return True
+    return False
 
 
 def field_present(text_lower: str, field: str) -> bool:

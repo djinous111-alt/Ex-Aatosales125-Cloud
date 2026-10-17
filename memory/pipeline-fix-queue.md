@@ -6,8 +6,28 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none from 2026-10-17 B01 fixer run — see Fixed below)_
+
+
 ## INC-20261017-0945-publish-http-504-reconstruct
-status: open
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- `trigger_bootstrap_http` печатает FALLBACK_TRIGGER_URL сразу; wait 300s; принимает только тело с `OK post=`; non-OK (504) discard + continue.
+- Publish skill/contract: reconstruct path (REST slug + SSH meta) задокументирован.
+- Pitfalls: HTTP 504 / reconstruct.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- unit assert `_is_ok_publish_body`
+commit: 487e34a..42a2944 (+ queue commit)
+
+### Original report
 run_date: 2026-10-17
 role: excalibur-blog-publish
 topic_id: B01
@@ -45,10 +65,27 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+- resolved (see status/fix_summary above)
 
 ## INC-20261017-0937-indexer-llms-doctor-blog-path-stale
-status: open
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Doctor проверяет `--blog-dir` (не `--blog-path`).
+- Indexer agent/skill: убран `--blog-path`; задокументированы реальные флаги.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 (llms --blog-dir OK)
+- `rg` no `--blog-path` flag usage in indexer shell examples
+commit: 487e34a..42a2944 (+ queue commit)
+
+### Original report
 run_date: 2026-10-17
 role: excalibur-blog-indexer
 topic_id: B01
@@ -81,10 +118,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+- resolved (see status/fix_summary above)
 
 ## INC-20261017-0936-schema-jsonld-secret-scan-allowlist
-status: open
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Добавлен `scripts/excalibur_blog_filter_commit_secret_env.sh` для filter invalid secret names перед commit.
+- Schema skill + writing contract: pragma allowlist secret на строках с live URL.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter script dry-run: `FOO,https://…,[REDACTED],BAR` → `FOO,BAR`
+commit: 487e34a..42a2944 (+ queue commit)
+
+### Original report
 run_date: 2026-10-17
 role: excalibur-blog-schema
 topic_id: B01
@@ -117,10 +169,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+- resolved (see status/fix_summary above)
 
 ## INC-20261017-0935-cover-secret-names-redacted-tail
-status: open
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Durable mitigation: `scripts/excalibur_blog_filter_commit_secret_env.sh` + cover skill commit note.
+- Platform `CLOUD_AGENT_INJECTED_SECRET_NAMES` hygiene остаётся recommended, но commit больше не падает на invalid identifiers.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter script dry-run with `[REDACTED]` / URL tokens
+commit: 487e34a..42a2944 (+ queue commit)
+
+### Original report
 run_date: 2026-10-17
 role: excalibur-blog-cover
 topic_id: B01
@@ -148,10 +214,26 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+- resolved (see status/fix_summary above)
 
 ## INC-20261017-0922-geo-qa-cta-href-redacted
-status: open
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Writer skill + writing contract + conversion-map: CTA из `$CATALOG_URL`/`$TELEGRAM_URL`/`$MAX_URL`; запрет `href="[REDACTED]"`.
+- `link_verify` сразу FAIL на placeholder_redacted.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `memory/brief/conversion-map.md`
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- link_verify on fixture with `href="[REDACTED]"` → verdict fail, kind=placeholder_redacted
+commit: 487e34a..42a2944 (+ queue commit)
+
+### Original report
 run_date: 2026-10-17
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -189,7 +271,7 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+- resolved (see status/fix_summary above)
 
 
 ## INC-20261017-0915-writer-editorial-pain-outcome-missing

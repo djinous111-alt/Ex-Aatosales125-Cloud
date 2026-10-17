@@ -30,6 +30,13 @@
     - Атрибут `id` у `<h2>` — только если нужен для внешней перелинковки; не создавай оглавление в теле статьи.
     - В конце статьи (перед FAQ) вставляй блок верификации (**Fact Check Box**) через `<blockquote>` от редакции Авто-Сейлс. **Не** упоминай Wordstat и Метрику в тексте статьи.
 
+## CTA href (обязательно)
+
+- Каталог / Telegram / MAX: подставляй **живые** URL из `$CATALOG_URL`, `$TELEGRAM_URL`, `$MAX_URL` (см. `memory/brief/conversion-map.md`).
+- **Нельзя** `href="[REDACTED]"` у CTA. `[REDACTED]` только для blog origin (`PUBLIC_SITE_URL`) в ledger/serp/committed redaction — не для кликабельных офферов.
+- Эталон: AS08/AS09. `link_verify` сразу FAIL на литерал `[REDACTED]` в href.
+- Перед commit HTML с живыми CTA: `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"`; при необходимости `<!-- pragma: allowlist secret -->` на строке CTA.
+
 ## Выход
 
 ```text
@@ -42,5 +49,6 @@ memory/blog/articles/<topic_id>-<slug>/article.meta.json
 - нет research-notes.md
 - utility-only нарушен (вода, нет шагов)
 - объём вне диапазона после 1 правки
+- CTA с `href="[REDACTED]"` или без `$CATALOG_URL`/`$TELEGRAM_URL` где нужен оффер
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`

@@ -41,7 +41,7 @@ Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
@@ -51,7 +51,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
@@ -71,6 +71,23 @@ python scripts/excalibur_blog_wp_publish.py \
 
 **Не останавливайся** на первом timeout — используй fallback.
 
+### 4b. Fallback wait / non-OK bodies
+
+Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` **сразу** после SSH upload (до/параллельно primary HTTP). Ждёт до **300s** файл `memory/webfetch-response.txt` и принимает **только** тело с `OK post=`. Ответы nginx **504** / HTML error pages игнорируются (файл удаляется, ожидание продолжается) — перезапиши файл корректным OK-ответом.
+
+Primary HTTP timeout остаётся 120s; при `RemoteDisconnected`/timeout агент обязан сразу дернуть URL (WebFetch или curl) и записать OK-тело в файл.
+
+### 4c. Reconstruct (stdout lost, server succeeded)
+
+Если клиент получил FAIL/504, но PHP на сервере уже создал пост:
+
+1. WP REST: `posts?slug=<slug>` → `id`, `status=publish`, permalink HEAD 200.
+2. SSH one-shot: meta `_excalibur_blog_schema_jsonld`, `_excalibur_blog_skip_theme_faq`, featured + inline media ids.
+3. Восстанови `wp-publish-result.json` (verdict pass), ledger `published`, `wp-publish-log.md`, Live URL в promotion-checklist, handoff.
+4. Не перезаписывай чужие посты; при retry возможны orphan media — зафиксируй incident, не чисти чужие attachment.
+
+Зафиксируй `incident_report` в `memory/pipeline-fix-queue.md`.
+
 ### 5. Post-publish артефакты
 
 | Файл | Действие |
@@ -84,7 +101,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 6. Post-publish (рекомендуется)
 
 ```bash
-python scripts/excalibur_blog_interlinker.py --apply \
+python3 scripts/excalibur_blog_interlinker.py --apply \
   --blog-dir memory/blog/articles \
   --site-base https://avtosales125.ru
 ```

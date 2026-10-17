@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-0915-writer-editorial-pain-outcome-missing
+status: fixed
+run_date: 2026-10-17
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again lacked `pain_markers_ru` / `outcome_markers_ru`.
+- `excalibur_blog_utility_gate.py` then counted 0 pain/outcome markers and would BLOCK every article with empty lists.
+- Same gap already hit prior B01/AS runs; fix had not landed durably on this branch.
+
+### How the agent recovered this run
+- Restored `pain_markers_ru` and `outcome_markers_ru` aligned with `excalibur_blog_human_voice_gate.py` defaults.
+- Re-ran utility gate on B01 article → PASS.
+
+### Durable fix needed before next run
+- Keep marker lists in `editorial-policy.json` (or add script fallback when lists are empty).
+- Optional: add regression assert in doctor/utility gate that marker lists are non-empty.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- fixed this run: marker lists restored in editorial-policy.json; utility gate PASS on B01
+
 ## INC-20261017-0900-research-notes-gate-false-tech
 status: fixed
 run_date: 2026-10-17

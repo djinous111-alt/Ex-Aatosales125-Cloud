@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-0935-cover-secret-names-redacted-tail
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in pre-commit.cursor: `invalid variable name` because `CLOUD_AGENT_INJECTED_SECRET_NAMES` ended with a comma-separated token `[REDACTED]` (not a valid bash identifier).
+- Cover pipeline itself PASS (Kie async i2i + split + inject); only commit hook blocked.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to `^[A-Za-z_][A-Za-z0-9_]*$` in the shell env for the commit command, then committed/pushed cover artifacts.
+- Same class of issue already noted under INC-20261017-0922 (битый хвост в injected secret names).
+
+### Durable fix needed before next run
+- Cloud/env: ensure `CLOUD_AGENT_INJECTED_SECRET_NAMES` never contains non-identifier tokens (URLs, `[REDACTED]`, empty pieces).
+- Optional: harden `pre-commit.cursor` to skip invalid names instead of aborting the whole commit.
+
+### Suggested files to inspect/change
+- Cloud Secrets / injected secret name list
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (platform) or local docs in `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261017-0922-geo-qa-cta-href-redacted
 status: open
 run_date: 2026-10-17

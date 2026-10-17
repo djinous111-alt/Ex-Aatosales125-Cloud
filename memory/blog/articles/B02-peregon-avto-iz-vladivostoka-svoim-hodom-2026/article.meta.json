@@ -11,7 +11,7 @@
     "самостоятельный перегон авто из владивостока",
     "перегон авто из владивостока своим ходом отзывы"
   ],
-  "char_count": 8892,
+  "char_count": 9002,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -29,7 +29,7 @@
   },
   "geo_qa": {
     "score": 74,
-    "verdict": "FIX",
+    "verdict": "FIX_APPLIED",
     "date": "2026-10-17",
     "html_linter": "PASS",
     "slop_score": "PASS",

@@ -60,7 +60,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (paramiko_importable true, timeout 300)
-commit: pending-parent-commit
+commit: c6105d2
 
 
 ## INC-20261018-2132-schema-commit-secret-scan-urls
@@ -107,7 +107,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` pragma allowlist guidance in schema skill + writing contract
-commit: pending-parent-commit
+commit: 829eb3f
 
 
 ## INC-20261018-2123-geo-qa-typed-task-unavailable
@@ -156,7 +156,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` immediate generalPurpose / no-retry guidance in director docs
-commit: pending-parent-commit
+commit: 829eb3f
 
 
 ## INC-20261018-2121-writer-editorial-pain-outcome-missing
@@ -209,7 +209,7 @@ files_changed:
 checks_run:
 - `python3 scripts/test_utility_gate_empty_markers.py`
 - `python3 scripts/excalibur_blog_doctor.py` (errors=0)
-commit: pending-parent-commit
+commit: 0c72dfc
 
 
 ## INC-20261018-research-gate-tech-substring
@@ -254,7 +254,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/test_research_notes_gate_tech.py`
-commit: pending-parent-commit
+commit: c6105d2
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch

@@ -6,6 +6,47 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-0945-publish-http-504-reconstruct
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026
+severity: medium
+category: publish
+
+### What went wrong
+- SSH upload of ~7MB bootstrap OK (`SSH_ROOT=.`), but primary HTTP trigger raised `RemoteDisconnected`.
+- Curl/WebFetch fallback against `excalibur-blog-publish-once.php` returned nginx **504** while PHP likely finished server-side.
+- Script wait for `memory/webfetch-response.txt` is only **120s**; a slow fallback curl can miss the window, and writing a 504 body is not a usable `OK post=` response.
+- Client therefore exited FAIL even though WP post/media/meta were created.
+- Duplicate publish attempts left orphan media attachments (4270–4277, 4279, 4282) while live content uses featured 4278 + inline 4280/4281/4283.
+
+### How the agent recovered this run
+- Confirmed post via WP REST `posts?slug=vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026` → id **4269**, status publish, HEAD permalink 200.
+- SSH one-shot meta-check: `_excalibur_blog_schema_jsonld` present (~11k), `_excalibur_blog_skip_theme_faq=1`, featured 4278, three inline WP media URLs.
+- Verified foreign posts untouched (4263 ERA-GLONASS modified earlier; not rewritten).
+- Reconstructed `wp-publish-result.json`, ledger `published`, wp-publish-log, promotion Live URL, handoff.
+
+### Durable fix needed before next run
+- Increase fallback wait well beyond nginx/proxy timeout (e.g. 300s) and ignore non-`OK post=` bodies (keep waiting).
+- Prefer starting fallback curl/WebFetch **immediately after SSH upload OK**, in parallel with primary HTTP.
+- Document reconstruct path (REST slug + SSH meta-check) in publish skill when stdout lost but server succeeded.
+- Optional: WP-CLI/SSH `php -f` bootstrap trigger to bypass nginx 504 for large payloads.
+- Consider media idempotency / cleanup of orphan attachments after retries.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`trigger_bootstrap_http` wait loop)
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261017-0937-indexer-llms-doctor-blog-path-stale
 status: open
 run_date: 2026-10-17

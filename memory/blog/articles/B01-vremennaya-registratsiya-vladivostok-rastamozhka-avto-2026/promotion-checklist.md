@@ -1,7 +1,7 @@
 # Promotion checklist — B01 vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026
 
-Дата публикации: 2026-10-17 (pending publish)  
-Live URL: /blog/vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/
+Дата публикации: 2026-10-17  
+Live URL: [REDACTED]/2026/10/17/vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Три пути: временная регистрация / явка / транзит
 • «PDF за 10 тысяч без собственника» — красная линия
 
-Читать: /blog/vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/
+Читать: [REDACTED]/2026/10/17/vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/
 ```
 
 ## Перелинковка
@@ -48,4 +48,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 - Indexer: interlinker `--apply --article-dir …/B01-… --site-base [REDACTED]` — 0 links applied (3 articles loaded).
 - Report: `interlink-report.json` (opportunities_found=0).
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (site-name «Авто-Сейлс», B01 в индексе).
-- Publish: ещё не выполнен (следующий шаг пайплайна).
+- Publish PASS: WP post_id=4269; featured=4278; inline=4280/4281/4283; schema_meta ok; HEAD live 200.

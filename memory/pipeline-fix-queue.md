@@ -254,3 +254,43 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261017-2107-scout-excalibur-git-missing
+status: fixed
+run_date: 2026-10-18
+role: excalibur-blog-scout
+topic_id: B04
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `bash scripts/excalibur_git.sh` was documented in automation memory / fixer notes but missing on this branch.
+- Raw `git commit` failed: pre-commit.cursor expects `CLOUD_AGENT_INJECTED_SECRET_NAMES` as **comma-separated** identifiers; space-separated list made `${!SECRET_NAME}` treat the whole string as one invalid variable name.
+- Public CTA env names (`PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`) in the scan list also risk false positives / hook breakage.
+
+### How the agent recovered this run
+- Restored `scripts/excalibur_git.sh` that normalizes secret-name lists to comma-separated valid identifiers and excludes public CTA/site vars.
+- Committed B04 scout card via the wrapper; push succeeded.
+
+### Durable fix needed before next run
+- Keep `scripts/excalibur_git.sh` on every scout/publish branch; document comma-separated requirement in pitfalls if not already.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Restored `scripts/excalibur_git.sh` with comma-separated sanitize + public CTA exclude.
+files_changed:
+- `scripts/excalibur_git.sh`
+checks_run:
+- `bash scripts/excalibur_git.sh commit` (PASS)
+- `python3 scripts/excalibur_blog_utility_gate.py --topic-id B04` (PASS)
+commit: 3f54735

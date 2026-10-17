@@ -1,0 +1,8 @@
+{
+  "topic_ids": ["B01"],
+  "slugs": [
+    "vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026"
+  ],
+  "wp_post_ids_note": "Live WP posts that occupy niche slots before a ledger row exists. Scout must not reuse these topic_ids/slugs. Do not republish foreign denylist posts.",
+  "updated": "2026-10-17"
+}

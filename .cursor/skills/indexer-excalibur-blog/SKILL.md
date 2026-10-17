@@ -17,9 +17,11 @@ python3 scripts/excalibur_blog_interlinker.py --apply \
 python3 scripts/excalibur_blog_llms_generator.py \
   --blog-dir memory/blog/articles \
   --site-base https://avtosales125.ru \
-  --blog-path / \
   --out-dir memory/blog
 ```
+
+Флаги llms generator: только `--blog-dir` + `--site-base` + `--out-dir`. Флаг `--blog-path` устарел и ломает argparse.
+Git commit артефактов: `bash scripts/excalibur_git.sh commit -m "..."`.
 
 ## Выход
 

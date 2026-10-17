@@ -17,14 +17,16 @@ quad-manifest.json (agent fills hooks + scene_hint)
        ↓
 quad-mcp-batch.json (1 job, input_urls)
        ↓
-ONE MCP gpt-image-2 i2i → canvas-quad.png 2048×1152
+DEFAULT: scripts/excalibur_blog_kie_gpt_image2_api.py (async createTask+poll)
+  legacy fallback only: sync MCP gpt-image-2 (часто -32001 timeout)
        ↓
 split → cover.png + inline-01..03.png (1200×675)
        ↓
-inject <figure> after H2 in article.html
+ALWAYS inject <figure> after H2 (--inject-html) before Indexer/Publish
 ```
 
-**Запрещено:** 4 отдельных MCP на cover + inline.
+**Запрещено:** 4 отдельных image jobs на cover + inline.  
+**inject_html:** по умолчанию **включен**. Skip только если Director явно сказал cover-only *и* Publish затем обязан сделать `quad_split --inject-html` preflight.
 
 ---
 
@@ -122,23 +124,31 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image job (Kie async default)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
-
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
-
-### Шаг 5 — apply
+**Предпочитай** прямой Kie async (Cloud-готово, без MCP client timeout):
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+Результат URL → `cover/quad-mcp-result.json`.
+
+**Legacy fallback:** sync MCP `gpt-image-2` только если Kie script недоступен. При `-32001` не крути sync create вслепую — переключайся на async script.
+
+Hero reference force-upload: если catbox/0x0 недоступны, допустимо reuse существующего `reference_url_hosted` (soft-fail).
+
+### Шаг 5 — apply (+ inject по умолчанию)
+
+```bash
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --url "<result url>" \
   --inject-html
 ```
 
-Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
+Требует Pillow. Выход: cover, inline PNG, registry, **inject** трёх `<figure class="inline-quad">` в article.html.
 
 ### Шаг 6 — fragment
 
@@ -163,12 +173,14 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 
 ## QA перед ✅
 
-- [ ] 1 MCP, не 4
-- [ ] input_urls в MCP
+- [ ] 1 image job, не 4
+- [ ] input_urls / reference в i2i
 - [ ] cover.png + 3 inline существуют
 - [ ] alt в registry для всех 4
 - [ ] inline привязаны к H2 (`h2_anchor`)
 - [ ] cover: hook + meme caption видны на PNG
+- [ ] sticker text non-toxic (без оскорбительного сленга)
+- [ ] article.html содержит `<figure class="inline-quad">` (inject выполнен)
 - [ ] inline: без лица героя
 - [ ] fragment cover.md записан
 
@@ -176,10 +188,11 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 
 ## Blockers → verdict ❌
 
-- нет reference_url_hosted
-- MCP text-only (без input_urls)
+- нет reference_url_hosted и нет reuse
+- text-only generation (без input_urls)
 - 4 отдельные генерации
 - QUAD SPLIT fail
+- inject пропущен при наличии inline slots в registry
 - inline = meme с ведущим вместо UI
 
 ---

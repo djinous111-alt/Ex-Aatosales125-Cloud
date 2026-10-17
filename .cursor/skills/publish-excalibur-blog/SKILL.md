@@ -29,8 +29,20 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 
 ### 1. Preflight publish
 
+**Cover inject preflight:** если `cover/cover-registry.json` имеет inline slots, а в `article.html` нет `<figure class="inline-quad">` / локальных `<img src="cover/...">`, сначала:
+
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_cover_quad_split.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  --inject-html
+```
+
+(Cover agent по умолчанию уже делает inject; этот шаг — страховка, когда Cover оставил `inject_html: skip`.)
+
+Env: `python3 scripts/excalibur_blog_wp_publish.py --env-check`. Нужен `paramiko`; предпочитай `SSH_ROOT=.` в Cloud Secrets.
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
   --site-base https://avtosales125.ru
@@ -41,7 +53,7 @@ Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
@@ -51,7 +63,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 

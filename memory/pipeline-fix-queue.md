@@ -19,11 +19,14 @@ category: script
 - `excalibur_blog_research_notes_gate.py` flagged a non-tech auto checklist topic as `technical_topic` because TECH_MARKER `ai` matched as a substring inside required field name `reader_pain`.
 - That forced `github_urls >= 3` on a beginner China-order article and BLOCK on first gate run.
 - Separately, `-o memory/blog/articles/.../research-notes-gate.json` nests under `article_dir` (relative `-o` is joined to article_dir), creating a duplicate path tree; correct flag is `-o research-notes-gate.json`.
+- `research-serp.json` from research_start contained live `PUBLIC_SITE_URL` host in SERP hits; pre-commit secret scanner blocked the first commit.
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` included a raw URL as a "secret name", which crashed the hook (`invalid variable name`) until filtered to valid identifiers.
 
 ### How the agent recovered this run
 - Patched gate: short ASCII markers use word boundaries; strip required field names from the tech-detection blob.
 - Rewrote source_table cells as `accessed_at: 2026-10-17` (need >=5 literal `accessed_at:`).
 - Added optional GitHub docs/community URLs to `github_evidence`; re-ran gate with `-o research-notes-gate.json` → PASS; removed nested accidental directory.
+- Redacted `PUBLIC_SITE_URL` host in `research-serp.json` to placeholder before commit; filtered invalid secret names for the scanner hook.
 
 ### Durable fix needed before next run
 - Keep/verify the `_tech_marker_hit` + poison-field strip in `scripts/excalibur_blog_research_notes_gate.py` (add a unit/smoke test that notes containing `reader_pain:` are not auto-technical).

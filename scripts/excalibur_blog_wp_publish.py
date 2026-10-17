@@ -467,30 +467,70 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+def _is_ok_publish_body(out: str) -> bool:
+    """Accept only bootstrap success lines; ignore nginx 504 / HTML error pages."""
+    return "OK post=" in out
+
+
+def trigger_bootstrap_http(url: str, root: Path, *, wait_seconds: int = 300) -> str:
+    """Trigger publish bootstrap; start fallback URL immediately; wait for OK body only.
+
+    Nginx/proxy may return 504 while PHP still finishes. Non-OK bodies in
+    memory/webfetch-response.txt are discarded so a later OK rewrite can win.
+    """
+    import time
+
+    fallback_file = root / "memory" / "webfetch-response.txt"
+    fallback_file.unlink(missing_ok=True)
+
+    # Print fallback URL before primary HTTP so the agent can WebFetch/curl in parallel.
+    print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
+    print(
+        "If primary HTTP fails or gateway-times-out, write ONLY an OK body "
+        f"(line with 'OK post=') to {fallback_file.as_posix()} within {wait_seconds}s."
+    )
+
+    primary_error: Exception | None = None
     try:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
             timeout=120,
         ) as response:
-            return response.read().decode("utf-8", errors="replace")
-    except Exception as e:
-        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
-        print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
-        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
-        fallback_file = root / "memory" / "webfetch-response.txt"
-        fallback_file.unlink(missing_ok=True)
-        import time
-
-        for _ in range(120):
-            if fallback_file.is_file():
-                out = fallback_file.read_text(encoding="utf-8")
-                fallback_file.unlink()
-                print("Cloud response detected successfully!")
+            out = response.read().decode("utf-8", errors="replace")
+            if _is_ok_publish_body(out):
                 return out
-            time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+            print(
+                f"Primary HTTP returned non-OK body (len={len(out)}); "
+                "waiting for fallback OK file..."
+            )
+    except Exception as e:  # noqa: BLE001 — network/proxy failures are expected path
+        primary_error = e
+        print(
+            f"Local HTTP trigger failed ({type(e).__name__}: {e}). "
+            "Waiting for Cloud WebFetch/curl Fallback OK body..."
+        )
+
+    for _ in range(wait_seconds):
+        if fallback_file.is_file():
+            out = fallback_file.read_text(encoding="utf-8")
+            if _is_ok_publish_body(out):
+                fallback_file.unlink(missing_ok=True)
+                print("Cloud OK response detected successfully!")
+                return out
+            # Discard 504/HTML so a rewritten OK response can be detected later.
+            print(f"Ignoring non-OK fallback body (len={len(out)}); keep waiting...")
+            fallback_file.unlink(missing_ok=True)
+        time.sleep(1)
+
+    detail = ""
+    if primary_error is not None:
+        detail = f" Primary error: {type(primary_error).__name__}: {primary_error}."
+    raise RuntimeError(
+        f"Cloud WebFetch Fallback timed out after {wait_seconds} seconds.{detail} "
+        "If WP post was created server-side, reconstruct via REST ?slug=… + SSH meta-check "
+        "(see publish skill § reconstruct)."
+    )
 
 
 def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:

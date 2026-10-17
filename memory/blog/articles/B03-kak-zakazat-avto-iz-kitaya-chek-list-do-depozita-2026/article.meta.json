@@ -12,7 +12,7 @@
     "как безопасно заказать авто из китая",
     "депозит при заказе авто из китая"
   ],
-  "char_count": 9382,
+  "char_count": 9442,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -29,13 +29,11 @@
     "description_aeo": "До депозита за авто из Китая нужны договор с юрлицом, расчётный счёт, смета состава цены, комплектация и понятный возврат. Иначе – пауза или отказ."
   },
   "geo_qa": {
-    "score": 78,
-    "verdict": "FAIL",
+    "score": null,
+    "verdict": "pending_after_fix2",
     "date": "2026-10-17",
-    "blocker": "human_voice Fact Check missing «Материал проверен»",
-    "note": "utility PASS (33); FIX2 needed for Fact Check phrase"
+    "note": "writer FIX2: restore Материал проверен anchor"
   },
-
   "cover_family": "brand_collage",
   "cta_urls_used": {
     "catalog_domain": "avto-sales125.ru",

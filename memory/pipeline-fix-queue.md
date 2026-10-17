@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-1731-writer-fact-check-anchor
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-writer
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- FIX1 varied Fact Check wording to «Проверка редакции» to dodge human-voice template WARN.
+- `excalibur_blog_human_voice_gate.py` requires the literal anchor «Материал проверен» in a `<blockquote>` before FAQ → BLOCK.
+
+### How the agent recovered this run
+- Restored `Материал проверен: Редакция Авто-Сейлс (...)` (registry name_ru for avtosales-editorial); kept FIX1 utility markers; human-voice PASS, utility PASS; char_count 9442.
+
+### Durable fix needed before next run
+- Writer skill: Fact Check may vary supporting lines, but must keep exact phrase «Материал проверен» + registry `name_ru`; template WARN is soft, missing anchor is hard BLOCK.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261017-1730-geo-qa-fact-check-phrase-overvaried
 status: open
 run_date: 2026-10-17

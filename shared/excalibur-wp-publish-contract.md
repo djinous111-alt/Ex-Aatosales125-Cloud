@@ -71,3 +71,12 @@ if ($schema) {
 - Production HTML не должен содержать MCP URLs — только WP media для featured image
 
 Skill: `skills/publish-excalibur-blog/SKILL.md` (alias: `skills/excalibur-wp-publish/SKILL.md`)
+
+## HTTP trigger / 504 / reconstruct
+
+Transport: SSH upload bootstrap + HTTP trigger of `excalibur-blog-publish-once.php` (not legacy FTP aliases).
+
+- Fallback wait: up to 300s for `memory/webfetch-response.txt`; accept only bodies containing `OK post=`.
+- If client loses stdout (nginx 504 / RemoteDisconnected) but WP post exists: reconstruct via REST slug lookup + SSH meta-check; do not republish foreign posts.
+- Before commit of publish artifacts with public marketing URLs: `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"`.
+

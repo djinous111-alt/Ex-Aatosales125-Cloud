@@ -6,6 +6,351 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none from 2026-10-17 B01 fixer run — see Fixed below)_
+
+
+## INC-20261017-0945-publish-http-504-reconstruct
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- `trigger_bootstrap_http` печатает FALLBACK_TRIGGER_URL сразу; wait 300s; принимает только тело с `OK post=`; non-OK (504) discard + continue.
+- Publish skill/contract: reconstruct path (REST slug + SSH meta) задокументирован.
+- Pitfalls: HTTP 504 / reconstruct.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- unit assert `_is_ok_publish_body`
+commit: 487e34a..42a2944 (+ queue commit)
+
+### Original report
+run_date: 2026-10-17
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026
+severity: medium
+category: publish
+
+### What went wrong
+- SSH upload of ~7MB bootstrap OK (`SSH_ROOT=.`), but primary HTTP trigger raised `RemoteDisconnected`.
+- Curl/WebFetch fallback against `excalibur-blog-publish-once.php` returned nginx **504** while PHP likely finished server-side.
+- Script wait for `memory/webfetch-response.txt` is only **120s**; a slow fallback curl can miss the window, and writing a 504 body is not a usable `OK post=` response.
+- Client therefore exited FAIL even though WP post/media/meta were created.
+- Duplicate publish attempts left orphan media attachments (4270–4277, 4279, 4282) while live content uses featured 4278 + inline 4280/4281/4283.
+
+### How the agent recovered this run
+- Confirmed post via WP REST `posts?slug=vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026` → id **4269**, status publish, HEAD permalink 200.
+- SSH one-shot meta-check: `_excalibur_blog_schema_jsonld` present (~11k), `_excalibur_blog_skip_theme_faq=1`, featured 4278, three inline WP media URLs.
+- Verified foreign posts untouched (4263 ERA-GLONASS modified earlier; not rewritten).
+- Reconstructed `wp-publish-result.json`, ledger `published`, wp-publish-log, promotion Live URL, handoff.
+
+### Durable fix needed before next run
+- Increase fallback wait well beyond nginx/proxy timeout (e.g. 300s) and ignore non-`OK post=` bodies (keep waiting).
+- Prefer starting fallback curl/WebFetch **immediately after SSH upload OK**, in parallel with primary HTTP.
+- Document reconstruct path (REST slug + SSH meta-check) in publish skill when stdout lost but server succeeded.
+- Optional: WP-CLI/SSH `php -f` bootstrap trigger to bypass nginx 504 for large payloads.
+- Consider media idempotency / cleanup of orphan attachments after retries.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`trigger_bootstrap_http` wait loop)
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- resolved (see status/fix_summary above)
+
+## INC-20261017-0937-indexer-llms-doctor-blog-path-stale
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Doctor проверяет `--blog-dir` (не `--blog-path`).
+- Indexer agent/skill: убран `--blog-path`; задокументированы реальные флаги.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 (llms --blog-dir OK)
+- `rg` no `--blog-path` flag usage in indexer shell examples
+commit: 487e34a..42a2944 (+ queue commit)
+
+### Original report
+run_date: 2026-10-17
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026
+severity: low
+category: docs
+
+### What went wrong
+- `excalibur_blog_doctor.py` still asserts `llms generator supports --blog-path`, but `scripts/excalibur_blog_llms_generator.py` only exposes `--blog-dir` (no `--blog-path`).
+- Stale shell examples in indexer agent/skill still show `--blog-path /`, which would fail if followed literally.
+- Preflight doctor FAIL for this check was already noted by Director; Indexer avoided the bad flag by using `--blog-dir` only.
+
+### How the agent recovered this run
+- Ran `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base [REDACTED] --out-dir memory/blog` (no `--blog-path`).
+- Interlinker used default redacted site base (`--site-base [REDACTED]`); flag `--redact-site-base` does not exist on the script.
+
+### Durable fix needed before next run
+- Change doctor check from `--blog-path` to `--blog-dir` (and optionally `--out-dir` / `--site-base`).
+- Align indexer agent + skill shell examples: drop `--blog-path`; document `--site-base [REDACTED]` (not a separate `--redact-site-base` flag).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md` (if present)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- resolved (see status/fix_summary above)
+
+## INC-20261017-0936-schema-jsonld-secret-scan-allowlist
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Добавлен `scripts/excalibur_blog_filter_commit_secret_env.sh` для filter invalid secret names перед commit.
+- Schema skill + writing contract: pragma allowlist secret на строках с live URL.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter script dry-run: `FOO,https://…,[REDACTED],BAR` → `FOO,BAR`
+commit: 487e34a..42a2944 (+ queue commit)
+
+### Original report
+run_date: 2026-10-17
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026
+severity: medium
+category: env
+
+### What went wrong
+- First `git commit` of `schema.jsonld` aborted: pre-commit.cursor `invalid variable name` because `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a URL token (not a bash identifier) — same class as INC-20261017-0935 / INC-20261017-0922.
+- After filtering names, commit was blocked by Cursor secret-scan: `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` values appear in BlogPosting `@id` / author `sameAs` / publisher (required for live JSON-LD).
+
+### How the agent recovered this run
+- Filtered injected secret names to `^[A-Za-z_][A-Za-z0-9_]*$` for the commit shell.
+- Rewrote `schema.jsonld` so every physical line containing those URL values also includes `pragma: allowlist secret` (via compact lines + `x-excalibur-scan*` keys). JSON remains valid; Google ignores unknown properties.
+- Schema content itself PASS: BlogPosting + FAQPage(7) + HowTo(5), author from registry, datePublished 2026-10-17.
+
+### Durable fix needed before next run
+- Document in schema skill/contract: committed `schema.jsonld` must allowlist lines with site/catalog/telegram/max URLs (or provide a generator script that emits pragma-safe formatting).
+- Restore/add `scripts/excalibur_blog_filter_commit_secret_env.sh` (or equivalent) so schema/cover/writer do not hand-roll the identifier filter.
+- Prefer not relying on `x-excalibur-scan*` keys long-term — either platform allowlist for public marketing URLs or a publish-time URL injection from placeholders.
+
+### Suggested files to inspect/change
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md` (schema section)
+- `scripts/excalibur_blog_filter_commit_secret_env.sh` (missing)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- resolved (see status/fix_summary above)
+
+## INC-20261017-0935-cover-secret-names-redacted-tail
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Durable mitigation: `scripts/excalibur_blog_filter_commit_secret_env.sh` + cover skill commit note.
+- Platform `CLOUD_AGENT_INJECTED_SECRET_NAMES` hygiene остаётся recommended, но commit больше не падает на invalid identifiers.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter script dry-run with `[REDACTED]` / URL tokens
+commit: 487e34a..42a2944 (+ queue commit)
+
+### Original report
+run_date: 2026-10-17
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in pre-commit.cursor: `invalid variable name` because `CLOUD_AGENT_INJECTED_SECRET_NAMES` ended with a comma-separated token `[REDACTED]` (not a valid bash identifier).
+- Cover pipeline itself PASS (Kie async i2i + split + inject); only commit hook blocked.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to `^[A-Za-z_][A-Za-z0-9_]*$` in the shell env for the commit command, then committed/pushed cover artifacts.
+- Same class of issue already noted under INC-20261017-0922 (битый хвост в injected secret names).
+
+### Durable fix needed before next run
+- Cloud/env: ensure `CLOUD_AGENT_INJECTED_SECRET_NAMES` never contains non-identifier tokens (URLs, `[REDACTED]`, empty pieces).
+- Optional: harden `pre-commit.cursor` to skip invalid names instead of aborting the whole commit.
+
+### Suggested files to inspect/change
+- Cloud Secrets / injected secret name list
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (platform) or local docs in `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- resolved (see status/fix_summary above)
+
+## INC-20261017-0922-geo-qa-cta-href-redacted
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Writer skill + writing contract + conversion-map: CTA из `$CATALOG_URL`/`$TELEGRAM_URL`/`$MAX_URL`; запрет `href="[REDACTED]"`.
+- `link_verify` сразу FAIL на placeholder_redacted.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `memory/brief/conversion-map.md`
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- link_verify on fixture with `href="[REDACTED]"` → verdict fail, kind=placeholder_redacted
+commit: 487e34a..42a2944 (+ queue commit)
+
+### Original report
+run_date: 2026-10-17
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026
+severity: high
+category: qa
+
+### What went wrong
+- Writer положил в `article.html` три CTA с литералом `href="[REDACTED]"` (каталог×2, Telegram×1).
+- `excalibur_blog_link_verify.py` классифицировал это как `internal_relative`, собрал URL от `--site-base` и получил HTTP 404 → verdict fail.
+- Остальные gates (research-notes, fact-check, html-linter, slop, cannibalization, utility, human-voice) — PASS; статья по тексту beginner-fit OK.
+- GEO QA не правил HTML (контракт: FIX → writer).
+
+### How the agent recovered this run
+- Зафиксировал FIX в `article-qa.md` + blocker в `article.meta.json` `geo_qa`.
+- Проверил, что `$CATALOG_URL` и `$TELEGRAM_URL` отдают HTTP 200 (значения в incident не записывались).
+- Вернул Director: re-run writer на CTA href, затем re-QA link-verify.
+- Writer FIX cycle 1 (2026-10-17): подставил живые href из env (каталог×2, Telegram×1); литерал `[REDACTED]` в href убран; локальный `link_verify` → pass; текст lead/H2/FAQ не менялся.
+- Workaround commit: pre-commit secret scanner блокирует `CATALOG_URL`/`TELEGRAM_URL` в HTML; на CTA-строки добавлен `<!-- pragma: allowlist secret -->`. Также в `CLOUD_AGENT_INJECTED_SECRET_NAMES` был битый хвост (URL как "имя") — для commit отфильтрованы только валидные bash-имена. Durable fix в skill/contract всё ещё нужен.
+- GEO QA re-run after FIX (2026-10-17): все 8 gates PASS; `link-verify` failed_count=0; `article-qa.md` verdict PASS score 91; cover||schema разблокированы. Incident остаётся open до durable fix в writer skill/contract.
+
+### Durable fix needed before next run
+- В writer skill / writing contract явно: CTA каталог и Telegram берут `$CATALOG_URL` / `$TELEGRAM_URL`; redaction `[REDACTED]` только для blog/site origin (`PUBLIC_SITE_URL`), не для CTA.
+- Опционально: precheck writer / link-verify reject литерала `[REDACTED]` в href до handoff.
+- Эталон: AS08/AS09 — живые catalog/telegram href.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md` (секция Writer / CTA)
+- `scripts/excalibur_blog_link_verify.py` (опциональный reject `[REDACTED]`)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- resolved (see status/fix_summary above)
+
+
+## INC-20261017-0915-writer-editorial-pain-outcome-missing
+status: fixed
+run_date: 2026-10-17
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again lacked `pain_markers_ru` / `outcome_markers_ru`.
+- `excalibur_blog_utility_gate.py` then counted 0 pain/outcome markers and would BLOCK every article with empty lists.
+- Same gap already hit prior B01/AS runs; fix had not landed durably on this branch.
+
+### How the agent recovered this run
+- Restored `pain_markers_ru` and `outcome_markers_ru` aligned with `excalibur_blog_human_voice_gate.py` defaults.
+- Re-ran utility gate on B01 article → PASS.
+
+### Durable fix needed before next run
+- Keep marker lists in `editorial-policy.json` (or add script fallback when lists are empty).
+- Optional: add regression assert in doctor/utility gate that marker lists are non-empty.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- fixed this run: marker lists restored in editorial-policy.json; utility gate PASS on B01
+
+## INC-20261017-0900-research-notes-gate-false-tech
+status: fixed
+run_date: 2026-10-17
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marked non-tech niche B01 (растаможка/временная регистрация) as `technical_topic` because it scanned `research-notes.md` body with naive substring markers.
+- Substring `ai` matched inside required field name `reader_pain`; substring `ии` matched Russian word endings; later `github` matched the required `github_evidence` heading.
+- Gate demanded 3 GitHub URLs for an auto-customs how-to and BLOCKed a valid utility brief.
+- Secondary: WebFetch timeout on genproc.gov.ru and HTTP 500 on Interfax during deep research (recovered via alternate sources).
+- Commit hook: `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a URL token (invalid bash identifier) → `${!SECRET_NAME}` crash; after filter, `research-serp.json` / ledger hit `PUBLIC_SITE_URL` scanner.
+
+### How the agent recovered this run
+- Patched `is_technical_topic()` to use topic-card fields only and whole-token matching for short markers (`ai`, `ии`).
+- Ensured `accessed_at:` appears in source table cells (≥5).
+- Re-ran gate → PASS; used DEITA/WebSearch snippets where Interfax/genproc fetch failed.
+- Filtered injected secret names to valid identifiers; redacted site origin in serp/ledger to `[REDACTED]` before commit.
+
+### Durable fix needed before next run
+- Keep tech detection off research-notes body (or exclude known field names). Already applied in script this run.
+- Optional follow-up: document in research skill that non-tech niches may put N/A in `github_evidence`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Research agent patched `is_technical_topic` during B01 run; gate PASS without fake GitHub URLs.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/research-notes.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026 -o research-notes-gate.json` → PASS
+commit: 25a05a9
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

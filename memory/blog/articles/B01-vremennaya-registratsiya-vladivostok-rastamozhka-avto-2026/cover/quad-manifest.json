@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Прописка для растаможки — без ДФО стоп",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у таможни Владивостока с паспортом и свидетельством временной регистрации, кроссовер из Азии, плашка прописка для растаможки",
+      "scene_hint": "WEATHER: cool foggy Vladivostok port morning, grey-blue mist over customs terminal; OUTFIT: navy smart-casual blazer over light charcoal shirt (customs/docs look, NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie at Vladivostok customs terminal holding open passport + temporary registration paper scrap; modern Asian crossover under film in background; torn paper Cyrillic hook plaque «Прописка для растаможки — без ДФО стоп» with yellow highlighter on «без ДФО»; fake UI scraps: Госуслуги registration stub + customs checklist card taped with scotch; sticky note «до депозита»; shocked meme cutout + cat reaction sticker (different formats, no toxic slang); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; NO toxic sticker text (лох/лохов forbidden)",
+      "meme_caption_ru": "Адрес в ДФО?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разберите, зачем таможне Владивостока адрес в ДФО",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI 16:9: columns Есть адрес в ДФО | Нет адреса в ДФО; rows подача ПТД / личная явка / транзит / риск отказа; yellow highlight row «без адреса — стоп»; pink sticky «зачем ДФО»; scotch tape corner; NO hero face; NO Wordstat/Metrika; no toxic slang",
+      "alt": "Таблица: с адресом в ДФО и без — что меняется на таможне Владивостока"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Выберите сценарий: регистрация, явка или транзит",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram three paths: 1 временная регистрация 2 личная явка 3 транзит — arrows to растаможка Владивосток; icons passport/queue/truck; sticky «выберите путь»; light tape; NO hero face; NO Wordstat/Metrika; no toxic slang",
+      "alt": "Схема трёх сценариев: регистрация, явка или транзит перед растаможкой"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Соберите документы до подачи на растаможку",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable checklist board before customs: паспорт, временная регистрация, договор купли, инвойс/аукционный лист JP/KR/CN, ПТС/ЭПТС hints; checkboxes; red stamp «до подачи»; sticky «пакет готов?»; NO hero face; NO Wordstat/Metrika; no toxic slang",
+      "alt": "Чеклист документов до подачи на растаможку: Япония, Корея, Китай"
+    }
+  }
+}

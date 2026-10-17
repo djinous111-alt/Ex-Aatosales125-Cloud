@@ -104,7 +104,14 @@ def _get_fallback(
         }
 
 
+def is_redacted_placeholder_href(href: str) -> bool:
+    """Literal [REDACTED] in href is never a real URL (writer mistake / over-redaction)."""
+    return "[REDACTED]" in href.upper().replace(" ", "") or href.strip().upper() == "REDACTED"
+
+
 def classify_link(href: str, site_base: str | None) -> str:
+    if is_redacted_placeholder_href(href):
+        return "placeholder_redacted"
     if href.startswith("/"):
         return "internal_relative"
     parsed = urlparse(href)
@@ -143,6 +150,23 @@ def verify_article(
     results: list[dict[str, Any]] = []
     for href in links:
         kind = classify_link(href, site_base)
+        if kind == "placeholder_redacted":
+            results.append(
+                {
+                    "url": href,
+                    "kind": kind,
+                    "status": None,
+                    "ok": False,
+                    "skipped": False,
+                    "method": None,
+                    "error": (
+                        "href contains [REDACTED] placeholder; "
+                        "use $CATALOG_URL / $TELEGRAM_URL / $MAX_URL for CTAs "
+                        "(redact only PUBLIC_SITE_URL / blog origin in committed artifacts)"
+                    ),
+                }
+            )
+            continue
         if skip_external and kind == "external":
             results.append(
                 {

@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026",
+  "notes": "memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/research-notes.md",
+  "context": "memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-10-17",
+    "prefer_sources_after": "2026-07-19",
+    "source_urls": 18,
+    "source_domains": 14,
+    "source_table_rows": 18,
+    "accessed_at": 18,
+    "github_urls": 0,
+    "official_doc_urls": 0,
+    "action_outline_items": 9,
+    "pain_solution_rows": 3,
+    "technical_topic": false
+  }
+}

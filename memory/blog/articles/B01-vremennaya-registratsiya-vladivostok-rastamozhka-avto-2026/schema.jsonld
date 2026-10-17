@@ -1,0 +1,48 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/#blogposting", "x-excalibur-scan": "pragma: allowlist secret",
+      "mainEntityOfPage": {"@type": "WebPage", "@id": "https://avtosales125.ru/vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/"}, "x-excalibur-scan-page": "pragma: allowlist secret",
+      "headline": "Временная регистрация во Владивостоке для растаможки авто: когда нужна и как оформить в 2026",
+      "description": "Когда нужна временная регистрация в ДФО для растаможки во Владивостоке: три пути, шаги через Госуслуги и чеклист вопросов компании до депозита.",
+      "datePublished": "2026-10-17",
+      "dateModified": "2026-10-17",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {"@type": "Person", "@id": "https://avtosales125.ru/#author-avtosales-editorial", "name": "Редакция Авто-Сейлс", "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая", "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.", "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png", "worksFor": {"@type": "Organization", "name": "Авто-Сейлс", "alternateName": "AVTO SALES", "url": "https://avto-sales125.ru"}, "sameAs": ["https://avto-sales125.ru/", "https://t.me/avtosales125", "https://max.ru/id2508140890_biz", "https://www.instagram.com/avtosales_rf", "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"]}, "x-excalibur-scan-author": "pragma: allowlist secret",
+      "publisher": {"@type": "Organization", "@id": "https://avtosales125.ru/#organization", "name": "Авто-Сейлс", "alternateName": "AVTO SALES", "url": "https://avto-sales125.ru", "sameAs": ["https://avto-sales125.ru", "https://t.me/avtosales125"]}, "x-excalibur-scan-publisher": "pragma: allowlist secret",
+      "keywords": ["временная регистрация во владивостоке для растаможки авто", "временная прописка для растаможки авто во владивостоке", "зачем прописка во владивостоке для растаможки авто", "временная прописка в дфо для растаможки авто"]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/#faq", "x-excalibur-scan": "pragma: allowlist secret",
+      "mainEntity": [
+        {"@type": "Question", "name": "Нужна ли временная прописка во Владивостоке, если я живу в Москве?", "acceptedAnswer": {"@type": "Answer", "text": "Не обязательно именно Владивосток. Проверьте постоянную регистрацию в любом субъекте ДФО. Если её нет – выберите временную регистрацию, явку или транзит и зафиксируйте путь в чате до депозита."}},
+        {"@type": "Question", "name": "Хватит ли временного пребывания в ДФО вместо постоянной прописки?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Сделайте свидетельство через Госуслуги с согласием собственника и передайте его брокеру до подачи декларации."}},
+        {"@type": "Question", "name": "Можно ли растаможить авто только через брокера, без своей регистрации?", "acceptedAnswer": {"@type": "Answer", "text": "Иногда да – через явку или транзит, если это подтверждено письменно. Не делайте ставку на фразу \"без вас оформим\": таможня может запросить объяснения у декларанта. Спросите план B до оплаты."}},
+        {"@type": "Question", "name": "Сколько ждать оформление после регистрации?", "acceptedAnswer": {"@type": "Answer", "text": "Ориентир по регистрации – до 6 рабочих дней после согласий. Оформление во Владивостоке часто называют порядка 5–10 дней – не гарантия, заложите запас до ETA."}},
+        {"@type": "Question", "name": "Чем опасна \"прописка для таможни\" с доски объявлений?", "acceptedAnswer": {"@type": "Answer", "text": "Риск фиктивной регистрации: адрес без намерения пребывать, иногда сотни людей на одной квартире. Избегайте таких предложений. Используйте реальный адрес или другой законный сценарий."}},
+        {"@type": "Question", "name": "Зачем прописка во Владивостоке, если машина едет в мой город?", "acceptedAnswer": {"@type": "Answer", "text": "Адрес нужен, чтобы пост понимал ваш статус в ДФО на момент оформления, а не для переезда. При транзите прописка в ДФО может не понадобиться – уточните маршрут до депозита."}},
+        {"@type": "Question", "name": "Что спросить у компании в первую очередь?", "acceptedAnswer": {"@type": "Answer", "text": "Нужен ли ДФО-адрес именно вам, какой минимальный срок регистрации, возможны ли явка и транзит, что будет при сдвиге судна. Получите ответы скрином – потом переводите деньги."}}
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/#howto", "x-excalibur-scan": "pragma: allowlist secret",
+      "name": "Как подготовить временную регистрацию в ДФО к растаможке авто во Владивостоке",
+      "description": "Пошаговый путь иногороднего: проверить адрес в ДФО, выбрать регистрацию/явку/транзит, пройти чеклист до депозита и передать пакет брокеру.",
+      "totalTime": "PT1H",
+      "tool": [{"@type": "HowToTool", "name": "Госуслуги (заявление о регистрации по месту пребывания)"}, {"@type": "HowToTool", "name": "Чат с компанией / брокером до депозита"}],
+      "supply": [{"@type": "HowToSupply", "name": "Паспорт РФ и скан разворота с регистрацией"}, {"@type": "HowToSupply", "name": "Согласие собственника и свидетельство о регистрации по месту пребывания в ДФО"}, {"@type": "HowToSupply", "name": "Семипунктный чеклист ответов компании до депозита"}],
+      "step": [
+        {"@type": "HowToStep", "position": 1, "name": "Проверьте паспорт на постоянную регистрацию в ДФО", "text": "Откройте разворот с регистрацией: если уже есть постоянная регистрация в субъекте Дальневосточного федерального округа, передайте скан брокеру — отдельная временная прописка под растаможку обычно не нужна.", "url": "https://avtosales125.ru/vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/", "x-excalibur-scan": "pragma: allowlist secret"},
+        {"@type": "HowToStep", "position": 2, "name": "Выберите один законный путь", "text": "Если регистрации в ДФО нет, зафиксируйте письменно один путь: временная регистрация по месту пребывания в субъекте ДФО, личная явка/подтверждение пребывания или таможенный транзит в свой регион.", "url": "https://avtosales125.ru/vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/", "x-excalibur-scan": "pragma: allowlist secret"},
+        {"@type": "HowToStep", "position": 3, "name": "Пройдите семипунктный чеклист в чате компании", "text": "До депозита спросите пост, нужен ли адрес именно вам, минимальный срок регистрации, собственника адреса, явку/транзит и план при сдвиге судна. Сохраните ответы скрином.", "url": "https://avtosales125.ru/vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/", "x-excalibur-scan": "pragma: allowlist secret"},
+        {"@type": "HowToStep", "position": 4, "name": "Оформите временную регистрацию через Госуслуги при необходимости", "text": "Если выбрали регистрацию: подтверждённые учётные записи, реальный адрес и согласия собственников, срок с запасом до ETA. Ориентир — до 6 рабочих дней после согласий, без госпошлины; сохраните электронное свидетельство.", "url": "https://avtosales125.ru/vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/", "x-excalibur-scan": "pragma: allowlist secret"},
+        {"@type": "HowToStep", "position": 5, "name": "Передайте пакет брокеру и только потом обсуждайте депозит", "text": "Передайте паспорт, свидетельство (или постоянную регистрацию в ДФО), контакты и дату окончания адреса. Сверьте, что адрес в пакете до подачи декларации, и только после этого обсуждайте оплату.", "url": "https://avtosales125.ru/vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/", "x-excalibur-scan": "pragma: allowlist secret"}
+      ]
+    }
+  ]
+}

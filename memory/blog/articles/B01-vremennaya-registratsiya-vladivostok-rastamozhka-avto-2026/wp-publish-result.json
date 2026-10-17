@@ -1,0 +1,18 @@
+{
+  "slug": "vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026",
+  "topic_id": "B01",
+  "post_id": 4269,
+  "permalink": "[REDACTED]/2026/10/17/vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/",
+  "featured_image": 4278,
+  "inline_images": [
+    4280,
+    4281,
+    4283
+  ],
+  "schema_meta": 1,
+  "skip_theme_faq_meta": 1,
+  "publish_method": "ssh_http_timeout_reconstruct",
+  "raw_output": "OK post=4269 slug=vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026\nOK featured_image=4278\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4280 src=cover/inline-01.png\nOK inline_image_upload=4281 src=cover/inline-02.png\nOK inline_image_upload=4283 src=cover/inline-03.png\npermalink=[REDACTED]/2026/10/17/vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/\n",
+  "verdict": "pass",
+  "notes": "Client lost OK stdout (RemoteDisconnected + nginx 504 on fallback). Verified via WP REST slug= + SSH meta-check (_excalibur_blog_schema_jsonld len=11298, skip_theme_faq=1, featured=4278, inline URLs *-2.png). Foreign posts 4263/3394 untouched. Orphan media from retries: 4270-4277,4279,4282."
+}

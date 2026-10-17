@@ -16,6 +16,13 @@
       "wp_post_id": 4286,
       "status": "published_live",
       "published_at": "2026-10-17"
+    },
+    {
+      "topic_id": "B03",
+      "slug": "kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026",
+      "wp_post_id": 4292,
+      "status": "published_live",
+      "published_at": "2026-10-17"
     }
   ],
   "denylist_slugs": [
@@ -37,7 +44,8 @@
     "ev-kitay",
     "auktsionnyy-list",
     "levyy-rul",
-    "polnaya-stoimost"
+    "polnaya-stoimost",
+    "kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026"
   ],
-  "next_forced_topic_id": "B03"
+  "next_forced_topic_id": "B04"
 }

@@ -1,7 +1,10 @@
 # Promotion checklist — B03 kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026
 
-Дата публикации: 2026-10-17 (planned)  
-Live URL: /blog/kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/
+Дата публикации: 2026-10-17  
+Live URL: /2026/10/17/kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/  
+wp_post_id: 4292  
+featured_image: 4293  
+inline_images: 4294, 4295, 4296
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

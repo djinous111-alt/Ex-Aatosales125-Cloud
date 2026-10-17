@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-1755-publish-cover-inject-skipped
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-publish
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026
+severity: medium
+category: handoff
+
+### What went wrong
+- Cover step finished with `inject_html: skip` (Director request not to touch article.html).
+- `article.html` had zero `<img>` / `<figure>` before publish, while `cover/inline-01..03.png` and registry slots were ready.
+- Publish contract expects featured + inline media upload from local `<img src="cover/...">`.
+
+### How the agent recovered this run
+- Ran `python3 scripts/excalibur_blog_cover_quad_split.py --article-dir … --inject-html` (assets already split) to insert three figures after matching H2s.
+- Re-ran link-verify (pass), dry-run, then SSH publish → NEW post 4292; featured 4293; inline 4294/4295/4296; schema_meta ok; live HEAD 200.
+- Also created gitignored `memory/site.env.local` and installed missing `paramiko` before env-check.
+
+### Durable fix needed before next run
+- Cover/Director contract: after quad split PASS, always inject inline figures before Indexer/Publish (or make Publish fail-fast when registry has inline assets but HTML has none).
+- Document in publish skill: if `cover-registry.json` has inline slots and article lacks `<figure class="inline-quad">`, run quad_split `--inject-html` as publish preflight.
+- Ensure Cloud image/boot installs `paramiko` (requirements.txt) and prefer `SSH_ROOT=.` in secrets.
+
+### Suggested files to inspect/change
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/cloud-agent-install.sh`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261017-1749-indexer-git-secret-names-hook
 status: open
 run_date: 2026-10-17

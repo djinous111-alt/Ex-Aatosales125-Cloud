@@ -1,13 +1,13 @@
 # Promotion checklist — B04 sroki-dostavki-avto-iz-korei-vladivostok-2026
 
-Дата публикации: (pending publish)  
-Live URL: /blog/sroki-dostavki-avto-iz-korei-vladivostok-2026/
+Дата публикации: 2026-10-18  
+Live URL: https://avtosales125.ru/2026/10/18/sroki-dostavki-avto-iz-korei-vladivostok-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL (HEAD 200; WP REST id=4298 featured=4305) — title, excerpt, featured image, FAQ
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Ориентир до выдачи во Владивостоке часто 20–45 дней от оплаты
 • Депозит – только после письменного таймлайна по этапам
 
-Читать: /blog/sroki-dostavki-avto-iz-korei-vladivostok-2026/
+Читать: https://avtosales125.ru/2026/10/18/sroki-dostavki-avto-iz-korei-vladivostok-2026/
 ```
 
 ## Перелинковка

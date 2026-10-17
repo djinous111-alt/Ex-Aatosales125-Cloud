@@ -31,3 +31,18 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-18 — B04 sroki-dostavki-avto-iz-korei-vladivostok-2026
+
+- **verdict:** PASS
+- **post_id:** 4298
+- **permalink:** https://avtosales125.ru/2026/10/18/sroki-dostavki-avto-iz-korei-vladivostok-2026/
+- **featured_image:** 4305
+- **inline_images:** 4306 (`inline-01.png`), 4307 (`inline-02.png`), 4308 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH upload + HTTP trigger (first attempt: missing paramiko; second: HTTP 120s timeout after upload/cleanup; third: SSH+HTTP OK ~166s, no WebFetch needed)
+- **denylist:** did not touch WP 4292/4286/4269 (verified REST slug unchanged)
+- **live-reserved:** B04 added; `next_forced_topic_id=B05`
+- **result:** `memory/blog/articles/B04-sroki-dostavki-avto-iz-korei-vladivostok-2026/wp-publish-result.json`
+- **note:** ledger date forced to `EXCALIBUR_RUN_DATE=2026-10-18` (VM clock lagged to 2026-10-17)

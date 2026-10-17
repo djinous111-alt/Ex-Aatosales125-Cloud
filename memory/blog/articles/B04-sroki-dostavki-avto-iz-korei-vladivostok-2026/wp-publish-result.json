@@ -1,0 +1,24 @@
+{
+  "slug": "sroki-dostavki-avto-iz-korei-vladivostok-2026",
+  "topic_id": "B04",
+  "permalink": "https://avtosales125.ru/2026/10/18/sroki-dostavki-avto-iz-korei-vladivostok-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B04-sroki-dostavki-avto-iz-korei-vladivostok-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1210234,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=4298 slug=sroki-dostavki-avto-iz-korei-vladivostok-2026\nOK featured_image=4305\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4306 src=cover/inline-01.png url=https://avtosales125.ru/wp-content/uploads/2026/10/sroki-dostavki-avto-iz-korei-vladivostok-2026-inline-01-1.png\nOK inline_image_upload=4307 src=cover/inline-02.png url=https://avtosales125.ru/wp-content/uploads/2026/10/sroki-dostavki-avto-iz-korei-vladivostok-2026-inline-02-1.png\nOK inline_image_upload=4308 src=cover/inline-03.png url=https://avtosales125.ru/wp-content/uploads/2026/10/sroki-dostavki-avto-iz-korei-vladivostok-2026-inline-03-1.png\npermalink=https://avtosales125.ru/2026/10/18/sroki-dostavki-avto-iz-korei-vladivostok-2026/\n",
+  "verdict": "pass",
+  "post_id": 4298,
+  "featured_image": 4305,
+  "inline_images": [
+    4306,
+    4307,
+    4308
+  ],
+  "schema_meta": 1,
+  "skip_theme_faq_meta": 1
+}

@@ -1,13 +1,14 @@
 {
   "updated_at": "2026-10-18",
-  "source": "EXCALIBUR_RECENT_WP_POSTS + scout B04 card 2026-10-18",
+  "source": "EXCALIBUR_RECENT_WP_POSTS + publish B04 2026-10-18",
   "reserved": [
     {"topic_id": "B01", "slug": "vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026", "wp_hint": "4269"},
     {"topic_id": "B02", "slug": "peregon-avto-iz-vladivostoka-svoim-hodom-2026", "wp_hint": "4286"},
-    {"topic_id": "B03", "slug": "kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026", "wp_hint": "4292"}
+    {"topic_id": "B03", "slug": "kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026", "wp_hint": "4292"},
+    {"topic_id": "B04", "slug": "sroki-dostavki-avto-iz-korei-vladivostok-2026", "wp_hint": "4298"}
   ],
-  "next_forced_topic_id": "B04",
-  "scout_note": "B04 card created in blog-topics.md (sroki-dostavki-avto-iz-korei-vladivostok-2026); not yet reserved in ledger — research_start should claim B04",
+  "next_forced_topic_id": "B05",
+  "scout_note": "B04 published as WP 4298; next forced topic B05. Do not republish 4269/4286/4292/4298.",
   "denylist_slugs": [
     "dostavka-avto-iz-vladivostoka-zd-avtovoz-2026",
     "prokhodnye-avto-iz-yaponii-2026",
@@ -19,6 +20,7 @@
     "vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026",
     "peregon-avto-iz-vladivostoka-svoim-hodom-2026",
     "kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026",
+    "sroki-dostavki-avto-iz-korei-vladivostok-2026",
     "haval-changan-geely-kak-vybrat-krossover-2026",
     "kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026",
     "samye-komfortnye-avto-myagkaya-podveska-2026",

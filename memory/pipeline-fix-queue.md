@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261018-2145-publish-paramiko-http-timeout
+status: open
+run_date: 2026-10-18
+role: excalibur-blog-publish
+topic_id: B04
+article_dir: memory/blog/articles/B04-sroki-dostavki-avto-iz-korei-vladivostok-2026
+severity: medium
+category: env
+
+### What went wrong
+- First publish attempt failed with `ModuleNotFoundError: No module named 'paramiko'` despite env-check PASS (env-check does not import paramiko).
+- Second attempt: SSH upload OK (~6.7MB), local HTTP trigger timed out at 120s; `finally` deleted remote bootstrap; late curl saw WP 404 theme page.
+- Script WebFetch fallback wait is still only 120s; large media payloads often need longer HTTP.
+
+### How the agent recovered this run
+- Installed `paramiko` via `pip install --break-system-packages paramiko`.
+- Re-ran publish; third attempt SSH+HTTP completed with `OK post=4298` (featured 4305, inline 4306–4308); permalink HEAD 200.
+- Verified denylist posts 4292/4286/4269 unchanged via WP REST.
+- Forced ledger date to EXCALIBUR_RUN_DATE 2026-10-18 (VM `date.today()` was 2026-10-17).
+
+### Durable fix needed before next run
+- Ensure cloud install / `requirements.txt` install path always includes `paramiko` before publish.
+- Raise bootstrap HTTP timeout and/or WebFetch wait to ≥300s for ~7MB payloads; do not delete remote bootstrap until a successful `OK post=` response (or keep retry token).
+- Prefer `EXCALIBUR_RUN_DATE` over `date.today()` in ledger upsert.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 
 ## INC-20261018-2132-schema-commit-secret-scan-urls
 status: open

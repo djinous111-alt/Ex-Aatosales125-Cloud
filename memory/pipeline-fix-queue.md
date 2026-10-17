@@ -20,11 +20,13 @@ category: script
 - Substring `ai` matched inside required field name `reader_pain`; substring `ии` matched Russian word endings; later `github` matched the required `github_evidence` heading.
 - Gate demanded 3 GitHub URLs for an auto-customs how-to and BLOCKed a valid utility brief.
 - Secondary: WebFetch timeout on genproc.gov.ru and HTTP 500 on Interfax during deep research (recovered via alternate sources).
+- Commit hook: `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a URL token (invalid bash identifier) → `${!SECRET_NAME}` crash; after filter, `research-serp.json` / ledger hit `PUBLIC_SITE_URL` scanner.
 
 ### How the agent recovered this run
 - Patched `is_technical_topic()` to use topic-card fields only and whole-token matching for short markers (`ai`, `ии`).
 - Ensured `accessed_at:` appears in source table cells (≥5).
 - Re-ran gate → PASS; used DEITA/WebSearch snippets where Interfax/genproc fetch failed.
+- Filtered injected secret names to valid identifiers; redacted site origin in serp/ledger to `[REDACTED]` before commit.
 
 ### Durable fix needed before next run
 - Keep tech detection off research-notes body (or exclude known field names). Already applied in script this run.
@@ -47,7 +49,7 @@ files_changed:
 - `memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026/research-notes.md`
 checks_run:
 - `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026 -o research-notes-gate.json` → PASS
-commit: pending-parent-commit
+commit: 25a05a9
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

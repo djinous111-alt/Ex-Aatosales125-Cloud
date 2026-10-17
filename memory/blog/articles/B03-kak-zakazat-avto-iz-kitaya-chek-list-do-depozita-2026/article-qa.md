@@ -1,117 +1,84 @@
-# Article QA — B03
+# Article QA — B03 (re-run after Writer FIX1)
 
 **topic_id:** B03  
 **slug:** kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026  
 **article_dir:** memory/blog/articles/B03-kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026  
 **date:** 2026-10-17  
 **verdict:** FAIL  
-**score:** 74
+**score:** 78  
+**qa_cycle:** 2 (after FIX1)
 
 ## Scripts
 
 | Script | Verdict | Notes |
 |--------|---------|-------|
-| research-notes-gate | PASS | research_date=2026-10-17; errors=[] |
-| utility gate | **BLOCK** | action_markers 5 < 8 (см. FIX) |
-| human-voice-gate | PASS | warnings: fact-check template; 4× exactly-5 lists |
-| fact-check | PASS | 2 stats; unverified: «37 дней» (есть в research-notes) |
-| link-verify | PASS | 3/3 OK (catalog, telegram, 2gis) |
-| html-linter | PASS | 0 errors; TOC нет; whitelist OK |
-| slop-detector | WARNING | 0 cliches; 6 over-long (таблица/списки); Flesch RU 56.0 |
+| research-notes-gate | PASS | research_date=2026-10-17 |
+| utility gate | **PASS** | action_markers **33** ≥ 8 |
+| human-voice-gate | **BLOCK** | Fact Check Box: нет фразы «Материал проверен» |
+| fact-check | PASS | 2 stats; unverified «37 дней» |
+| link-verify | PASS | 3/3 OK |
+| html-linter | PASS | whitelist OK |
+| slop-detector | WARNING | 0 cliches; 6 over-long; Flesch RU 55.1 |
 | cannibalization | PASS | 0 issues |
 
 ## Scores
 
 | Блок | Балл | Комментарий |
 |------|------|-------------|
-| SEO structure | 16/20 | Primary в H1/title; H2 actionable; нет 2–3 blog internal |
-| GEO / citability | 22/25 | insight, таблица, чек-лист 12, FAQ×7; ярлык «TL;DR / Быстрый инсайт» — шаблон |
-| CORE-EEAT lite | 17/20 | ≥16 ✓ (см. ниже) |
-| Human voice | 12/15 | gate PASS; шаблон Fact Check + одинаковые 5-step списки |
+| SEO structure | 16/20 | Primary в H1/title; нет blog internal |
+| GEO / citability | 23/25 | insight «Коротко», таблица, чеклист 12, FAQ×7 |
+| CORE-EEAT lite | 17/20 | ≥16 ✓ |
+| Human voice | 8/15 | gate **BLOCK** — сломан Fact Check anchor |
 | Fact safety | 12/15 | «37 дней» не в fact-bank |
-| Contract HTML | 10/10 | whitelist PASS, FAQ, CTA, без форм |
-| Utility gate | **0/0 veto** | BLOCK → итог FAIL |
-| **Итого** | **74/100** | veto utility |
+| Contract HTML | 10/10 | whitelist PASS |
+| Utility gate | 10/10 | PASS (33 markers) |
+| **Итого** | **78/100** | veto human-voice BLOCK |
 
 ## CORE-EEAT lite: 17/20
 
 | ID | Result | Comment |
 |----|--------|---------|
-| C01 | ✓ | Primary «как заказать авто из китая» в title/H1 |
-| C02 | ✓ | Lead: депозит без договора → стоп + чек-лист |
-| C03 | ✓ | Новичок, Telegram-скрин, страх депозита |
-| C04 | ✓ | ИНН/ОГРН, инвойс, VIN, расчётный счёт объяснены |
-| O01 | ✓ | H2 = рамка → канал → смета → договор → инвойс → флаги → 12 пунктов |
-| O02 | ✓ | Логичный outline до депозита only |
-| O03 | ✓ | FAQ 7 |
-| O04 | ✓ | ol/ul + таблица + чеклист, mode B |
-| R01 | ✓ | insight + критерий «готово» + FAQ |
-| R02 | ✓ | ~37 дней + EV export 01.01.2026 в research-notes |
-| R03 | ✓ | Нет самодельных пошлин/% |
-| R04 | ✓ | FAQ отвечает в 1-м предложении |
-| E01 | ✓ | Угол «до депозита» |
-| E02 | ✓ | «Делать / Не делать» в секциях (но маркеры CLI другие) |
-| E03 | ✓ | CTA: catalog×2 + Telegram×2 + 2GIS |
-| Exp01 | ✓ | Mode B, без fake «я лично» |
-| Exp02 | ✓ | Тон Авто-Сейлс / Владивосток |
-| Exp03 | ✓ | Slop hits = 0 |
-| Ept01 | ✓ | Лимиты: не калькулятор пошлин; возврат смотреть в договоре |
-| Ept02 | ✗ | Нет internal links на другие посты блога |
+| C01–C04 | ✓ | Primary + lead pain + новичок + термины |
+| O01–O04 | ✓ | Outline до депозита, FAQ 7, mode B |
+| R01–R04 | ✓ | insight + критерий готово + FAQ |
+| E01–E03 | ✓ | Угол + Сделайте/Не делайте + CTA |
+| Exp01–Exp03 | ✓ | Mode B, тон Авто-Сейлс, slop=0 |
+| Ept01 | ✓ | Лимиты пошлин / возврат в договоре |
+| Ept02 | ✗ | Нет internal blog links |
 
-**Target:** ≥16/20 ✓ · veto utility BLOCK
+**Target:** ≥16/20 ✓ · veto: human-voice BLOCK
 
 ## Pain / solution / beginner-fit
 
-| Критерий | Статус | Деталь |
-|----------|--------|--------|
-| Боль новичка | ✓ (контент) | Lead: скрин + «депозит сегодня» без договора |
-| Решение в H2 | ✓ | Канал/договор/смета/инвойс/флаги/12 пунктов |
-| Первый результат до FAQ | ✓ | «Критерий готово» + решение ставлю/жду/отказ |
-| Термины «на пальцах» | ✓ | Инвойс, расчётный счёт, ИНН/ОГРН, VIN |
-| Beginner-fit | ✓ | Без тона «для профи»; первый шаг = рамка и сверка |
-
-Utility CLI не считает «Делать/Не делать» и «чек-лист» — см. FIX.
-
-## Link verify
-
-- total: 3, failed: 0
-- see link-verify.json
-
-## AI-slop scan
-
-- cliches: 0
-- over-long: 6 (артефакт таблицы/списков)
-- Flesch RU: 56.0
-
-## Schema ready
-
-BlogPosting: pending (FAIL) | FAQPage: yes (7) | HowTo: yes | Review: no
+| Критерий | Статус |
+|----------|--------|
+| Боль в lead | ✓ |
+| Решение в H2 | ✓ |
+| Результат до FAQ | ✓ критерий «готово» |
+| Beginner-fit | ✓ |
+| Utility markers | ✓ 33 |
 
 ## Blockers
 
-1. **utility gate BLOCK:** `action_markers=5 < 8`  
-   Сейчас в тексте: `проверьте`×3 + `ориентир`×2.  
-   Нет: `сделайте` / `не делайте` / `чеклист` (без дефиса) / `избегайте` / `используйте` / `шаг `.  
-   Формулировки «Делать:» / «Не делать:» и «чек-лист» **не** входят в `recommendation_markers_ru`.
+1. **human-voice BLOCK:** Fact Check Box must contain exact phrase **«Материал проверен»** inside a `<blockquote>` before FAQ.  
+   Сейчас: `<b>Проверка редакции:</b>…` — gate не находит блок (`extract_fact_check_block` ищет substring `материал проверен`).  
+   Также в блоке должно фигурировать имя из registry: **«Редакция Авто-Сейлс»** (`author_id=avtosales-editorial`).
 
-## FIX cycle (QA) — вернуть writer (цикл 1)
+## FIX cycle (QA) — вернуть writer (цикл 2)
 
-1. **Обязательно (utility):** довести action-маркеры до ≥8. Варианты без ломки смысла:
-   - заменить «Делать:» → «Сделайте:», «Не делать:» → «Не делайте:» (минимум в 3–4 секциях);
-   - 1–2 раза написать «чеклист» (без дефиса) рядом с «чек-лист»;
-   - добавить «избегайте» / «используйте» / «проверьте» в финальный ol («Что сделать сегодня»).
-2. **Желательно (human-voice WARN):** убрать ярлык `TL;DR / Быстрый инсайт` из первого blockquote — оставить суть инсайта; варьировать Fact Check wording; один из списков сделать не ровно 5 пунктов.
-3. **Не трогать:** whitelist HTML, CTA domains, angle «до депозита», FAQ×7.
+1. **Обязательно:** в blockquote перед FAQ вернуть якорь `Материал проверен:` (можно варьировать остальной текст «Достоверность данных» / источники, но **не** убирать эту фразу). Пример каркаса:
+   - `Материал проверен: Редакция Авто-Сейлс (…)`  
+   - вторая строка про источники/дату — свободная формулировка (не копия generic Wordstat).
+2. **Не ломать:** utility markers (Сделайте/Не делайте/чеклист/избегайте), insight без TL;DR, списки ≠5 где уже поправлено.
+3. После правки: `human_voice_gate` → PASS, затем GEO QA re-score.
 
-После правки: повтор `utility_gate` + `human_voice_gate` → затем GEO QA re-score.
+## Gate checklist
 
-## Gate
-
-- score ≥ 80 → **74** ✗  
+- score ≥ 80 → **78** ✗  
 - CORE-EEAT ≥ 16/20 → **17/20** ✓  
-- link-verify pass ✓  
-- research-notes-gate PASS ✓  
-- human-voice PASS ✓  
-- utility gate PASS ✗  
+- research-notes PASS ✓  
+- utility PASS ✓  
+- human-voice PASS ✗  
+- link-verify PASS ✓  
 
-**Итог:** FAIL — cover \|\| schema **не** запускать; вернуть `excalibur-blog-writer` с FIX выше.
+**Итог:** FAIL — **cover \|\| schema не запускать**; writer FIX cycle 2 (Fact Check phrase).

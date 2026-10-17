@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-1730-geo-qa-fact-check-phrase-overvaried
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-geo-qa
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- After FIX1, Writer varied Fact Check wording from «Материал проверен» to «Проверка редакции» to clear a human-voice WARN about repeated template.
+- `excalibur_blog_human_voice_gate.py` requires substring `материал проверен` in a blockquote before FAQ → BLOCK on re-run (utility already PASS with 33 markers).
+
+### How the agent recovered this run
+- Did not rewrite article.html; returned FAIL + FIX list: restore exact phrase «Материал проверен» + registry author «Редакция Авто-Сейлс»; keep utility markers from FIX1.
+
+### Durable fix needed before next run
+- Writer skill / writing contract: when varying Fact Check, keep required anchor phrase «Материал проверен» (and registry author name); only vary the sources/date lines.
+- Optional: pitfalls note that removing the anchor fails human-voice even if content is equivalent.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261017-1727-writer-action-markers-cheklist
 status: open
 run_date: 2026-10-17

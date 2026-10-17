@@ -6,6 +6,69 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-1705-scout-suggest-next-ignores-live
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-scout
+topic_id: B03
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_scout_helper.py --suggest-next` returned `B01` because local pool/ledger has no B* cards and only AS08/AS09 published locally.
+- Live WP already published B01 (4269) and B02 (4286) on 2026-10-17; without `live-reserved.json` wired into the helper, cron scout would re-pick B01.
+- This branch helper still has only `--suggest-next` / `--check-query` (no `--check-slug`, no live-reserved read).
+
+### How the agent recovered this run
+- Forced `topic_id=B03` per Director cron context.
+- Created `memory/topics/live-reserved.json` with live B01/B02 + denylist_slugs.
+- Manual Jaccard vs live denylist and AS01-AS09 before append.
+
+### Durable fix needed before next run
+- Teach `scripts/excalibur_blog_scout_helper.py --suggest-next` to skip IDs/slugs from `memory/topics/live-reserved.json` and local ledger.
+- Add `--check-slug` against reserved + denylist.
+- Keep scout Task niche override (Авто-Сейлс) so agent/skill Cursor-drift cannot win.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `memory/topics/live-reserved.json`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261017-1703-doctor-llms-blog-path
+status: open
+run_date: 2026-10-17
+role: director
+topic_id: pending-scout
+article_dir: n/a
+severity: low
+category: script
+
+### What went wrong
+- `python3 scripts/excalibur_blog_doctor.py` FAIL: expects llms generator `--blog-path`, but `scripts/excalibur_blog_llms_generator.py` only exposes `--blog-dir` (and `--out-dir`).
+- Indexer/pitfalls already document `--blog-dir`; doctor check is stale after durable rename.
+
+### How the agent recovered this run
+- Continued pipeline; noted mismatch for fixer. Indexer will use `--blog-dir` per skill/pitfalls.
+
+### Durable fix needed before next run
+- Update `scripts/excalibur_blog_doctor.py` to assert `--blog-dir` (and optionally `--out-dir`) instead of `--blog-path`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md` (confirm doctor wording if mentioned)
+
+### Secrets
+- none recorded
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

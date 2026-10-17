@@ -42,5 +42,10 @@ memory/blog/articles/<topic_id>-<slug>/article.meta.json
 - нет research-notes.md
 - utility-only нарушен (вода, нет шагов)
 - объём вне диапазона после 1 правки
+- пустые `pain_markers_ru` / `outcome_markers_ru` в `memory/brief/editorial-policy.json` — это **policy error**, не вина текста статьи; восстанови маркеры до повторного utility gate
+
+## Preflight markers
+
+Перед utility gate убедись, что в editorial-policy непустые `pain_markers_ru` и `outcome_markers_ru` (`_markers_pinned: true`). Не затирай их при правках policy.
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`

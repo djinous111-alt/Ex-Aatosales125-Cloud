@@ -1,0 +1,107 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-18",
+    "today_ru": "18.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-20",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-18 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B04",
+    "priority": "P0",
+    "slug": "sroki-dostavki-avto-iz-korei-vladivostok-2026",
+    "h1": "Сроки доставки авто из Кореи во Владивосток в 2026: таймлайн и чек-лист до оплаты",
+    "primary_query": "доставка авто из кореи",
+    "secondary_queries": [
+      "доставка авто из кореи в россию",
+      "доставка авто из кореи во владивосток",
+      "сколько идет авто из кореи",
+      "стоимость доставки авто из кореи",
+      "авто из кореи под заказ с доставкой"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B04",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "доставка авто из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "доставка авто из кореи октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "доставка авто из кореи новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com доставка авто из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "доставка авто из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "доставка авто из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "доставка авто из кореи в россию 2026",
+      "purpose": "вторичный запрос: доставка авто из кореи в россию"
+    },
+    {
+      "id": "secondary_2",
+      "query": "доставка авто из кореи во владивосток 2026",
+      "purpose": "вторичный запрос: доставка авто из кореи во владивосток"
+    },
+    {
+      "id": "secondary_3",
+      "query": "сколько идет авто из кореи 2026",
+      "purpose": "вторичный запрос: сколько идет авто из кореи"
+    },
+    {
+      "id": "secondary_4",
+      "query": "стоимость доставки авто из кореи 2026",
+      "purpose": "вторичный запрос: стоимость доставки авто из кореи"
+    },
+    {
+      "id": "secondary_5",
+      "query": "авто из кореи под заказ с доставкой 2026",
+      "purpose": "вторичный запрос: авто из кореи под заказ с доставкой"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Сроки доставки авто из Кореи во Владивосток в 2026: таймлайн и чек-лист до оплаты 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B04-sroki-dostavki-avto-iz-korei-vladivostok-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

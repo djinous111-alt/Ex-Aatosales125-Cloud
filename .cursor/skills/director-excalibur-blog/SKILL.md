@@ -54,6 +54,8 @@ Task(generalPurpose):
 
 См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
 
+**Preflight rule:** если typed Task `excalibur-blog-*` (в т.ч. `excalibur-blog-geo-qa`) отклонён API — **сразу** `Task(generalPurpose)` с путями agent/skill. Не крути retry typed Task.
+
 ## Preflight (shell, директор)
 
 ```bash

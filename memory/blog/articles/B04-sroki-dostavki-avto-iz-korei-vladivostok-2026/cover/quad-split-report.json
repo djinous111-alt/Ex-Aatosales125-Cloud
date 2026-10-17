@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B04-sroki-dostavki-avto-iz-korei-vladivostok-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1281,
+      721
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 721,
+        "end": 761
+      },
+      "v_gutter_px": {
+        "start": 1281,
+        "end": 1310
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1281,
+          "bottom": 721
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1281,
+          "bottom": 721
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у причала Владивостока с плашкой: море 2 суток не равно выдаче авто из Кореи",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1310,
+          "top": 9,
+          "right": 2560,
+          "bottom": 712
+        },
+        "raw_box_px": {
+          "left": 1310,
+          "top": 0,
+          "right": 2560,
+          "bottom": 721
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица этапов: подбор, экспорт, море, СВХ, выдача — что входит в каждый",
+        "h2_anchor": "Разложите цикл на этапы: подбор → экспорт → море → СВХ → выдача"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 37,
+          "top": 761,
+          "right": 1244,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 761,
+          "right": 1281,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Инфографика ориентиров 2026: море ~2 суток vs цикл до выдачи 20–45 дней",
+        "h2_anchor": "Сверьте ориентиры 2026: сколько занимает каждый этап"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1331,
+          "top": 761,
+          "right": 2538,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1310,
+          "top": 761,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема пакета до оплаты: документы, слоты, рейс, готовность СВХ, потом депозит",
+        "h2_anchor": "Подготовьте пакет до оплаты, чтобы не кормить простой на СВХ"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разложите цикл на этапы: подбор → экспорт → море → СВХ → выдача",
+    "injected inline_2 after H2 — Сверьте ориентиры 2026: сколько занимает каждый этап",
+    "injected inline_3 after H2 — Подготовьте пакет до оплаты, чтобы не кормить простой на СВХ"
+  ]
+}

@@ -6,6 +6,257 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none — 2026-10-18 B04 run closed by fixer)_
+
+## INC-20261018-2145-publish-paramiko-http-timeout
+status: fixed
+run_date: 2026-10-18
+role: excalibur-blog-publish
+topic_id: B04
+article_dir: memory/blog/articles/B04-sroki-dostavki-avto-iz-korei-vladivostok-2026
+severity: medium
+category: env
+
+### What went wrong
+- First publish attempt failed with `ModuleNotFoundError: No module named 'paramiko'` despite env-check PASS (env-check does not import paramiko).
+- Second attempt: SSH upload OK (~6.7MB), local HTTP trigger timed out at 120s; `finally` deleted remote bootstrap; late curl saw WP 404 theme page.
+- Script WebFetch fallback wait is still only 120s; large media payloads often need longer HTTP.
+
+### How the agent recovered this run
+- Installed `paramiko` via `pip install --break-system-packages paramiko`.
+- Re-ran publish; third attempt SSH+HTTP completed with `OK post=4298` (featured 4305, inline 4306–4308); permalink HEAD 200.
+- Verified denylist posts 4292/4286/4269 unchanged via WP REST.
+- Forced ledger date to EXCALIBUR_RUN_DATE 2026-10-18 (VM `date.today()` was 2026-10-17).
+
+### Durable fix needed before next run
+- Ensure cloud install / `requirements.txt` install path always includes `paramiko` before publish.
+- Raise bootstrap HTTP timeout and/or WebFetch wait to ≥300s for ~7MB payloads; do not delete remote bootstrap until a successful `OK post=` response (or keep retry token).
+- Prefer `EXCALIBUR_RUN_DATE` over `date.today()` in ledger upsert.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-18
+fix_summary:
+- cloud-agent-install.sh installs `requirements.txt` (includes paramiko) and fails if import missing.
+- `--env-check` reports `paramiko_importable` and lists paramiko in missing when absent.
+- HTTP trigger + WebFetch wait raised to 300s; remote bootstrap deleted only after `OK post=`.
+- Ledger date prefers `EXCALIBUR_RUN_DATE`.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/cloud-agent-install.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check` (paramiko_importable true, timeout 300)
+commit: c6105d2
+
+
+## INC-20261018-2132-schema-commit-secret-scan-urls
+status: fixed
+run_date: 2026-10-18
+role: excalibur-blog-schema
+topic_id: B04
+article_dir: memory/blog/articles/B04-sroki-dostavki-avto-iz-korei-vladivostok-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secret scan blocked `schema.jsonld` because BlogPosting/FAQ/HowTo `@id`/`url`/`sameAs` embed `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` (same pattern as AS08/AS09 schemas).
+- Separately, `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a raw site URL token instead of an env var name, so bash `${!SECRET_NAME}` crashed with `invalid variable name` before scan until names were filtered.
+
+### How the agent recovered this run
+- Filtered injected secret names to valid bash identifiers for the commit hook invocation.
+- Rewrote `schema.jsonld` with same-line `pragma: allowlist secret` markers via `"_a"` JSON keys next to URL-bearing fields (valid JSON; unknown keys ignored by consumers), matching the allowlist path used in `article.html`.
+
+### Durable fix needed before next run
+- Document in schema skill: URL fields that equal publish env secrets need `pragma: allowlist secret` on the same line (or generate via a small script).
+- Fix Cloud secret injection so `CLOUD_AGENT_INJECTED_SECRET_NAMES` never lists URL values as names.
+- Optionally teach publish to expand placeholders (`{{PUBLIC_SITE_URL}}`) so committed schema has no live host secrets.
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_wp_publish.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-18
+fix_summary:
+- Schema skill + writing contract document same-line `pragma: allowlist secret` for URL secret fields.
+- Pitfalls + `excalibur_git.sh` already sanitize invalid/public CTA names in CLOUD_AGENT_INJECTED_SECRET_NAMES.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` pragma allowlist guidance in schema skill + writing contract
+commit: 829eb3f
+
+
+## INC-20261018-2123-geo-qa-typed-task-unavailable
+status: fixed
+run_date: 2026-10-18
+role: excalibur-blog-geo-qa
+topic_id: B04
+article_dir: memory/blog/articles/B04-sroki-dostavki-avto-iz-korei-vladivostok-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud API did not accept typed Task `excalibur-blog-geo-qa`.
+- Director had to launch GEO QA via `Task(generalPurpose)` fallback with `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Ran full GEO QA as generalPurpose role: all scripts PASS; article-qa.md verdict PASS (score 87); human-voice PASS.
+- Did not start cover/schema/publish from this role.
+
+### Durable fix needed before next run
+- Register or document Cloud Task type `excalibur-blog-geo-qa` where the product allows custom Task types; until then keep AGENTS.md / CLOUD-AUTOMATION fallback `Task(generalPurpose)` + agent/skill paths as the canonical path.
+- Optionally add a one-line preflight note in director skill: if typed Task rejected, immediately use generalPurpose without retry loops.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-18
+fix_summary:
+- Director agent/skill, AGENTS.md, CLOUD-AUTOMATION, pitfalls: on typed Task reject (incl. geo-qa) immediately use generalPurpose; no retry loops.
+files_changed:
+- `AGENTS.md`
+- `CLOUD-AUTOMATION.md`
+- `agents/excalibur-blog-director.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` immediate generalPurpose / no-retry guidance in director docs
+commit: 829eb3f
+
+
+## INC-20261018-2121-writer-editorial-pain-outcome-missing
+status: fixed
+run_date: 2026-10-18
+role: excalibur-blog-writer
+topic_id: B04
+article_dir: memory/blog/articles/B04-sroki-dostavki-avto-iz-korei-vladivostok-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again lacked `pain_markers_ru` / `outcome_markers_ru` at writer start.
+- Utility gate scored pain/outcome as 0 and BLOCK even for a valid Mode B article (recurring: AS02/B01 writer incidents).
+- Fail-fast for empty marker lists was missing from current `excalibur_blog_utility_gate.py` (present in older commits, dropped on branch).
+
+### How the agent recovered this run
+- Restored `pain_markers_ru` / `outcome_markers_ru` lists in editorial-policy.
+- Re-applied fail-fast empty-list errors in utility gate.
+- Re-ran utility gate → PASS; html_linter PASS; char_count 9499.
+
+### Durable fix needed before next run
+- Pin marker lists in editorial-policy so scout/research/start scripts cannot wipe them.
+- Keep fail-fast in utility gate; add a tiny unit/smoke that empty policy lists fail with explicit policy error, not "слабо раскрыта боль".
+- Document in pitfalls: writer must verify markers before blaming article copy.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-18
+fix_summary:
+- editorial-policy `_markers_pinned` + non-empty pain/outcome lists; doctor checks non-empty.
+- utility_gate fail-fast kept; smoke `scripts/test_utility_gate_empty_markers.py`.
+- Writer skill + pitfalls: verify markers before blaming copy.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/test_utility_gate_empty_markers.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/test_utility_gate_empty_markers.py`
+- `python3 scripts/excalibur_blog_doctor.py` (errors=0)
+commit: 0c72dfc
+
+
+## INC-20261018-research-gate-tech-substring
+status: fixed
+run_date: 2026-10-18
+role: excalibur-blog-research
+topic_id: B04
+article_dir: memory/blog/articles/B04-sroki-dostavki-avto-iz-korei-vladivostok-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` used naive `marker in blob` for TECH_MARKERS.
+- Short markers `ai` and `ии` matched inside required field `reader_pain` and ordinary Russian words (e.g. `ожидании`), so non-tech auto/logistics topic B04 was treated as technical and demanded GitHub evidence.
+
+### How the agent recovered this run
+- Patched `is_technical_topic` to use Latin/Cyrillic word-boundary regex.
+- Re-ran research-notes gate for B04 after notes fixes (`accessed_at:` cells).
+
+### Durable fix needed before next run
+- Keep word-boundary matching in the research-notes gate; add a regression test with a sample auto niche notes file that contains `reader_pain` and Russian morphology but must remain non-technical.
+- Optionally mirror the same guidance in research skill pitfalls.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-18
+fix_summary:
+- Word-boundary `is_technical_topic` retained; regression `scripts/test_research_notes_gate_tech.py`.
+- Research skill + pitfalls document substring false-positive pitfall.
+files_changed:
+- `scripts/test_research_notes_gate_tech.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/test_research_notes_gate_tech.py`
+commit: c6105d2
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16
@@ -254,3 +505,43 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261017-2107-scout-excalibur-git-missing
+status: fixed
+run_date: 2026-10-18
+role: excalibur-blog-scout
+topic_id: B04
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `bash scripts/excalibur_git.sh` was documented in automation memory / fixer notes but missing on this branch.
+- Raw `git commit` failed: pre-commit.cursor expects `CLOUD_AGENT_INJECTED_SECRET_NAMES` as **comma-separated** identifiers; space-separated list made `${!SECRET_NAME}` treat the whole string as one invalid variable name.
+- Public CTA env names (`PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`) in the scan list also risk false positives / hook breakage.
+
+### How the agent recovered this run
+- Restored `scripts/excalibur_git.sh` that normalizes secret-name lists to comma-separated valid identifiers and excludes public CTA/site vars.
+- Committed B04 scout card via the wrapper; push succeeded.
+
+### Durable fix needed before next run
+- Keep `scripts/excalibur_git.sh` on every scout/publish branch; document comma-separated requirement in pitfalls if not already.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-17
+fix_summary:
+- Restored `scripts/excalibur_git.sh` with comma-separated sanitize + public CTA exclude.
+files_changed:
+- `scripts/excalibur_git.sh`
+checks_run:
+- `bash scripts/excalibur_git.sh commit` (PASS)
+- `python3 scripts/excalibur_blog_utility_gate.py --topic-id B04` (PASS)
+commit: 3f54735

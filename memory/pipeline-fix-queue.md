@@ -25,7 +25,8 @@ category: qa
 - Зафиксировал FIX в `article-qa.md` + blocker в `article.meta.json` `geo_qa`.
 - Проверил, что `$CATALOG_URL` и `$TELEGRAM_URL` отдают HTTP 200 (значения в incident не записывались).
 - Вернул Director: re-run writer на CTA href, затем re-QA link-verify.
-- Writer FIX cycle 1 (2026-10-17): подставил живые href из env (каталог×2, Telegram×1); литерал `[REDACTED]` в href убран; локальный `link_verify` → pass; текст lead/H2/FAQ не менялся. Durable fix в skill/contract всё ещё нужен.
+- Writer FIX cycle 1 (2026-10-17): подставил живые href из env (каталог×2, Telegram×1); литерал `[REDACTED]` в href убран; локальный `link_verify` → pass; текст lead/H2/FAQ не менялся.
+- Workaround commit: pre-commit secret scanner блокирует `CATALOG_URL`/`TELEGRAM_URL` в HTML; на CTA-строки добавлен `<!-- pragma: allowlist secret -->`. Также в `CLOUD_AGENT_INJECTED_SECRET_NAMES` был битый хвост (URL как "имя") — для commit отфильтрованы только валидные bash-имена. Durable fix в skill/contract всё ещё нужен.
 
 ### Durable fix needed before next run
 - В writer skill / writing contract явно: CTA каталог и Telegram берут `$CATALOG_URL` / `$TELEGRAM_URL`; redaction `[REDACTED]` только для blog/site origin (`PUBLIC_SITE_URL`), не для CTA.

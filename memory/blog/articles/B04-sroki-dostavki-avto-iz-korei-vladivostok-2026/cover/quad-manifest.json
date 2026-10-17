@@ -1,0 +1,42 @@
+{
+  "topic_id": "B04",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Море 2 суток – а ключи через месяц?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у причала Владивостока с плашкой: море 2 суток не равно выдаче авто из Кореи",
+      "scene_hint": "WEATHER: cold foggy Vladivostok port morning, grey sea mist; OUTFIT: olive waterproof rain jacket over charcoal fleece (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie on pier with Korean sedan silhouette + ferry/ro-ro hint behind; fake UI scraps: Encar listing card + handwritten timeline strip «море 2 сут / СВХ / выдача» taped with scotch; torn paper hook plaque Cyrillic «Море 2 суток – а ключи через месяц?» with yellow highlighter on «месяц»; sticky note «не ровно N дней»; shocked meme cutout + facepalm sticker (different formats, NON-TOXIC text only — NEVER лох/лохов/для лохов); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics",
+      "meme_caption_ru": "Море ≠ выдача"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разложите цикл на этапы: подбор → экспорт → море → СВХ → выдача",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI 5 columns/stages: Подбор | Экспорт | Море | СВХ | Выдача; rows «что входит» / «типичная ошибка новичка»; yellow highlight row «море ≠ полный цикл»; pink sticky «этапы»; scotch tape corner; NO hero face; NO Wordstat/Metrika; non-toxic stickers only",
+      "alt": "Таблица этапов: подбор, экспорт, море, СВХ, выдача — что входит в каждый"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сверьте ориентиры 2026: сколько занимает каждый этап",
+      "visual_type": "infographic_card",
+      "scene_hint": "RU infographic cards 2026: Море Пусан–Владивосток ~2 суток; полный цикл до выдачи ориентир 20–45 дней; отдельная плашка «до Москвы – отдельно»; marker arrow «сверяй диапазоны»; tape + mini catalog inset; NO hero face; NO Wordstat/Metrika; non-toxic text",
+      "alt": "Инфографика ориентиров 2026: море ~2 суток vs цикл до выдачи 20–45 дней"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Подготовьте пакет до оплаты, чтобы не кормить простой на СВХ",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram before payment: документы → СБКТС/ЭПТС слоты → рейс/фрахт → СВХ readiness → депозит только после письменного таймлайна; red stop stamp «без пакета = простой»; sticky «до оплаты»; NO hero face; NO Wordstat/Metrika; non-toxic stickers",
+      "alt": "Схема пакета до оплаты: документы, слоты, рейс, готовность СВХ, потом депозит"
+    }
+  }
+}

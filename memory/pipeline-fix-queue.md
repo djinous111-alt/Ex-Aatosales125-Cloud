@@ -6,6 +6,36 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-1749-indexer-git-secret-names-hook
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-indexer
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026
+severity: low
+category: env
+
+### What went wrong
+- `git commit` failed: pre-commit hook `invalid variable name` from unsanitized `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+- `scripts/excalibur_git.sh` (durable filter from prior fixer) отсутствует на этой ветке.
+
+### How the agent recovered this run
+- Sanitized env to valid `[A-Za-z_][A-Za-z0-9_]*` names, then committed indexer artifacts.
+
+### Durable fix needed before next run
+- Cherry-pick/restore `scripts/excalibur_git.sh` onto active pipeline branches, or document the sanitize one-liner in pitfalls/indexer skill.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh` (restore)
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261017-1748-indexer-skill-llms-blog-path-stale
 status: open
 run_date: 2026-10-17

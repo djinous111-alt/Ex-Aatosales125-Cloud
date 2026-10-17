@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-1305-scout-b01-live-override
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-scout
+topic_id: B02
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_scout_helper.py --suggest-next` считает только карточки `## B\d+` в `memory/topics/blog-topics.md` и предложил `B01` (pool B*=0).
+- На live WordPress уже есть пост со slug `vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026` (WP 4269), который cron/Директор трактуют как занятый B01.
+- Без ручного override новый scout мог бы клонировать B01/slug и сломать reservation/ledger.
+
+### How the agent recovered this run
+- Взял `topic_id=B02` по явному override из cron-контракта; slug и угол проверил против denylist live-постов.
+- Добавил utility-карточку `## B02` в `memory/topics/blog-topics.md` и прогнал utility gate.
+
+### Durable fix needed before next run
+- Научить `--suggest-next` учитывать занятые ID/slug из `shared/published-articles.md` и/или denylist live WP (или локальный файл reserved topic ids), чтобы не предлагать B01 при живом конфликте.
+- Обновить scout skill/agent: ниша Авто-Сейлс (не AI/Cursor/Make), и документировать override при расхождении helper vs live.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

@@ -6,6 +6,46 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-0922-geo-qa-cta-href-redacted
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026
+severity: high
+category: qa
+
+### What went wrong
+- Writer положил в `article.html` три CTA с литералом `href="[REDACTED]"` (каталог×2, Telegram×1).
+- `excalibur_blog_link_verify.py` классифицировал это как `internal_relative`, собрал URL от `--site-base` и получил HTTP 404 → verdict fail.
+- Остальные gates (research-notes, fact-check, html-linter, slop, cannibalization, utility, human-voice) — PASS; статья по тексту beginner-fit OK.
+- GEO QA не правил HTML (контракт: FIX → writer).
+
+### How the agent recovered this run
+- Зафиксировал FIX в `article-qa.md` + blocker в `article.meta.json` `geo_qa`.
+- Проверил, что `$CATALOG_URL` и `$TELEGRAM_URL` отдают HTTP 200 (значения в incident не записывались).
+- Вернул Director: re-run writer на CTA href, затем re-QA link-verify.
+- Writer FIX cycle 1 (2026-10-17): подставил живые href из env (каталог×2, Telegram×1); литерал `[REDACTED]` в href убран; локальный `link_verify` → pass; текст lead/H2/FAQ не менялся. Durable fix в skill/contract всё ещё нужен.
+
+### Durable fix needed before next run
+- В writer skill / writing contract явно: CTA каталог и Telegram берут `$CATALOG_URL` / `$TELEGRAM_URL`; redaction `[REDACTED]` только для blog/site origin (`PUBLIC_SITE_URL`), не для CTA.
+- Опционально: precheck writer / link-verify reject литерала `[REDACTED]` в href до handoff.
+- Эталон: AS08/AS09 — живые catalog/telegram href.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md` (секция Writer / CTA)
+- `scripts/excalibur_blog_link_verify.py` (опциональный reject `[REDACTED]`)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261017-0915-writer-editorial-pain-outcome-missing
 status: fixed
 run_date: 2026-10-17

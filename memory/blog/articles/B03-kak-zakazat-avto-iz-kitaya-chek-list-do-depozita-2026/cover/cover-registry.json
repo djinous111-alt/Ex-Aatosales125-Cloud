@@ -1,0 +1,50 @@
+{
+  "topic_id": "B03",
+  "slug": "kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у ноутбука и смартфона с карточкой китайского кроссовера и плашкой «до депозита»",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-17T17:53:15+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у ноутбука и смартфона с карточкой китайского кроссовера и плашкой «до депозита»",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица: рамка заказа против выбора авто по красивой картинке",
+      "h2_anchor": "Зафиксируйте рамку заказа до выбора \"красивой картинки\"",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема выбора канала: договор и офис вместо оплаты только в чате",
+      "h2_anchor": "Выберите рабочий канал: договор и офис, а не \"только чат\"",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист до оплаты: комплектация, осмотр и смета",
+      "h2_anchor": "Согласуйте комплектацию, осмотр и смету до оплаты",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

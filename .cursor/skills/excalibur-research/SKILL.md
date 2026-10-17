@@ -62,6 +62,20 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
 
+## Gate после notes
+
+```bash
+python3 scripts/excalibur_blog_research_notes_gate.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  -o research-notes-gate.json
+```
+
+`-o` — **filename** (или absolute path). Repo-relative path вроде `memory/blog/.../research-notes-gate.json` join'ится к `article_dir` и создаёт nested duplicate.
+
+Tech detection: short ASCII markers (`ai`, `api`) требуют word boundary; имена полей (`reader_pain`) не делают auto-topic technical. Smoke: `python3 scripts/test_research_notes_gate_tech.py`.
+
+В source_table пиши literal `accessed_at: YYYY-MM-DD` (≥5). Host из `PUBLIC_SITE_URL` в `research-serp.json` перед коммитом редact'ь; коммить через `bash scripts/excalibur_git.sh`.
+
 ## Blockers
 
 - `❌ RESEARCH BLOCKER` — тема не найдена и не создана из запроса пользователя

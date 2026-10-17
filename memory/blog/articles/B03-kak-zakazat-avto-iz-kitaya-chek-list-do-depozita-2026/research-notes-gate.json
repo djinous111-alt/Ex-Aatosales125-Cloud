@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B03-kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026",
+  "notes": "memory/blog/articles/B03-kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/research-notes.md",
+  "context": "memory/blog/articles/B03-kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-10-17",
+    "prefer_sources_after": "2026-07-19",
+    "source_urls": 34,
+    "source_domains": 17,
+    "source_table_rows": 34,
+    "accessed_at": 19,
+    "github_urls": 3,
+    "official_doc_urls": 0,
+    "action_outline_items": 21,
+    "pain_solution_rows": 3,
+    "technical_topic": false
+  }
+}

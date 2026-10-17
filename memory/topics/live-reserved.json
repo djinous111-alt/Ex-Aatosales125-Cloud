@@ -1,0 +1,51 @@
+{
+  "updated_at": "2026-10-17",
+  "source": "live-wp-cron-context",
+  "note": "Local ledger may lag live WP. Scout must honor reserved topic_id/slug and denylist_slugs.",
+  "reserved": [
+    {
+      "topic_id": "B01",
+      "slug": "vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026",
+      "wp_post_id": 4269,
+      "status": "published_live",
+      "published_at": "2026-10-17"
+    },
+    {
+      "topic_id": "B02",
+      "slug": "peregon-avto-iz-vladivostoka-svoim-hodom-2026",
+      "wp_post_id": 4286,
+      "status": "published_live",
+      "published_at": "2026-10-17"
+    },
+    {
+      "topic_id": "B03",
+      "slug": "kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026",
+      "wp_post_id": 4292,
+      "status": "published_live",
+      "published_at": "2026-10-17"
+    }
+  ],
+  "denylist_slugs": [
+    "vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026",
+    "peregon-avto-iz-vladivostoka-svoim-hodom-2026",
+    "era-glonass",
+    "haval-changan-geely",
+    "vin-china",
+    "dostavka-avto-vladivostok-zhd-avtovoz",
+    "prohodnye-avto-iz-yaponii-2026-chek-list-do-stavki",
+    "rolker",
+    "koreya-pod-klyuch",
+    "auktsion-yaponii",
+    "gibrid-yaponiya",
+    "proverka-kompanii",
+    "sbkts-epts",
+    "postanovka-na-uchet",
+    "utilsbor-raschet",
+    "ev-kitay",
+    "auktsionnyy-list",
+    "levyy-rul",
+    "polnaya-stoimost",
+    "kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026"
+  ],
+  "next_forced_topic_id": "B04"
+}

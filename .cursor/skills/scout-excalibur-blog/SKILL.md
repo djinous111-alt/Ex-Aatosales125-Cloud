@@ -9,30 +9,32 @@
 ## Архитектура работы
 
 ```text
-published-articles.md + blog-topics.md (Audit)
+published-articles.md + blog-topics.md + memory/topics/live-reserved.json
               ↓
-excalibur_blog_scout_helper.py --suggest-next (Get next ID)
+excalibur_blog_scout_helper.py --suggest-next (skips live B* + ledger)
               ↓
 WebSearch (Cursor native trend scouting for 2026)
               ↓
 wordstat_get_top_requests (Yandex Wordstat API demand verify)
               ↓
-excalibur_blog_scout_helper.py --check-query (Cannibalization Guard)
+excalibur_blog_scout_helper.py --check-query + --check-slug
               ↓
 Append new Topic Card to blog-topics.md
 ```
+
+Ниша cron/Cloud: **Авто-Сейлс** (авто из Азии / Владивосток). Не давай Cursor-нише (AI/MCP) перебить override из Director prompt.
 
 ---
 
 ## Подробный алгоритм действий
 
 ### Шаг 1 — Анализ прошлого и получение ID
-* Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
+* Считай ledger `shared/published-articles.md`, пул `memory/topics/blog-topics.md` и **live** `memory/topics/live-reserved.json` (WP уже опубликованные B* + `denylist_slugs` + `next_forced_topic_id`).
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Helper пропускает IDs из ledger/article dirs/`live-reserved.json` и предпочитает `next_forced_topic_id` / следующий B* после max live.
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
@@ -44,12 +46,13 @@ Append new Topic Card to blog-topics.md
 * **Цель:** Найти ключевой запрос (primary query) с живым спросом в Яндексе и выписать 3–5 связанных поисковых вопросов для FAQ и secondary queries.
 * **Фильтр:** Если тема имеет микро-спрос (меньше 10 показов в месяц) и нет смежных тем — отложи её и возьми другую, более востребованную.
 
-### Шаг 4 — Тест на каннибализацию ключевых слов
+### Шаг 4 — Тест на каннибализацию ключевых слов + slug
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-slug "<proposed-slug>"
 ```
-Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
+Если `OVERLAP DETECTED` или `SLUG BLOCKED` — измени формулировку/slug. Не допускай пересечения с pool, ledger или live denylist.
 
 ### Шаг 5 — Сборка карточки темы (Utility-Only)
 Сформируй карточку темы по шаблону:

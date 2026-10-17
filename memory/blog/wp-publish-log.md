@@ -31,3 +31,17 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-17 — B03 kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026
+
+- verdict: PASS
+- method: SSH + HTTP (direct OK, no WebFetch fallback)
+- SSH_ROOT: `.`
+- wp_post_id: 4292
+- featured_image: 4293
+- inline_images: 4294, 4295, 4296
+- schema_meta: ok
+- skip_theme_faq_meta: 1
+- permalink: /2026/10/17/kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/
+- live HEAD: 200
+- notes: cover left inject_html=skip → publish ran quad_split --inject-html before dry-run; NEW post (not 4269/4286/4263/3394/…)

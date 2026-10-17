@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-1328-schema-precommit-invalid-secret-name
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-schema
+topic_id: B02
+article_dir: memory/blog/articles/B02-peregon-avto-iz-vladivostoka-svoim-hodom-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` of `schema.jsonld` failed in Cloud Agent pre-commit secrets scanner: `pre-commit.cursor` line 270 `${!SECRET_NAME}` with `invalid variable name`.
+- One entry in `CLOUD_AGENT_INJECTED_SECRET_NAMES` is not a bash identifier (shape like a URL with `://`, hyphen, dot; len 25), so indirect expansion aborts the hook before scanning.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to bash-safe identifiers only (`^[A-Za-z_][A-Za-z0-9_]*$`), then re-ran commit with hooks still active (14/15 names kept).
+- Commit `2c3ee4b` pushed; fragment remains gitignored.
+
+### Durable fix needed before next run
+- Pre-commit / Cloud secrets injection must skip or sanitize non-identifier names before `${!SECRET_NAME}`.
+- Document workaround in pitfalls: filter invalid names from `CLOUD_AGENT_INJECTED_SECRET_NAMES` rather than `--no-verify`.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- Cloud Agent pre-commit secrets scanner (platform hook; if repo-local wrapper exists, harden there)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261017-1328-writer-fix-cta-placeholders
 status: open
 run_date: 2026-10-17

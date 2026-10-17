@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-1328-writer-fix-cta-placeholders
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-writer
+topic_id: B02
+article_dir: memory/blog/articles/B02-peregon-avto-iz-vladivostoka-svoim-hodom-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- Initial Writer task/handoff used literal `$CATALOG_URL` / `$TELEGRAM_URL` / `$MAX_URL` in href; GEO QA link-verify failed (score 74 FIX). Same conflict as INC-20261017-1319-geo-qa-cta-placeholder-link-verify.
+
+### How the agent recovered this run
+- Writer FIX wrote live public CTA hrefs from env `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL` (hosts only: avto-sales125.ru, t.me, max.ru).
+- Soft FIX: removed TL;DR label, FAQ «примерно», list diversity (human-voice warnings cleared), 2 internal `/blog/…` links; char_count 9002.
+
+### Durable fix needed before next run
+- Writer skill/agent: expand CTA from env public URLs before QA; never leave `$CATALOG_URL` placeholders in article.html.
+- Correct INC-1325 durable advice that suggested keeping `$CATALOG_URL` placeholders.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-writer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261017-1319-geo-qa-utility-empty-pain-markers
 status: open
 run_date: 2026-10-17

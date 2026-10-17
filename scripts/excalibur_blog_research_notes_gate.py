@@ -73,6 +73,13 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _tech_marker_hit(marker: str, blob: str) -> bool:
+    """Substring match, but short ASCII tokens need boundaries (avoid ai∈reader_pain)."""
+    if marker.isascii() and len(marker) <= 3:
+        return bool(re.search(rf"(?<![a-z0-9]){re.escape(marker)}(?![a-z0-9])", blob))
+    return marker in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
     blob = " ".join(
@@ -80,7 +87,20 @@ def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
     blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Required research field names must not poison detection (ai inside reader_pain).
+    for poison in (
+        "reader_pain",
+        "reader_outcome",
+        "success_criteria",
+        "voice_angle",
+        "reader_story",
+        "surprising_fact",
+        "utility_verdict",
+        "research_date",
+        "accessed_at",
+    ):
+        blob = blob.replace(poison, " ")
+    return any(_tech_marker_hit(marker, blob) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:

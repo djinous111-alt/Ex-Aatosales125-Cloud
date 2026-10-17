@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-1714-research-notes-gate-ai-in-reader-pain
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-research
+topic_id: B03
+article_dir: memory/blog/articles/B03-kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` flagged a non-tech auto checklist topic as `technical_topic` because TECH_MARKER `ai` matched as a substring inside required field name `reader_pain`.
+- That forced `github_urls >= 3` on a beginner China-order article and BLOCK on first gate run.
+- Separately, `-o memory/blog/articles/.../research-notes-gate.json` nests under `article_dir` (relative `-o` is joined to article_dir), creating a duplicate path tree; correct flag is `-o research-notes-gate.json`.
+
+### How the agent recovered this run
+- Patched gate: short ASCII markers use word boundaries; strip required field names from the tech-detection blob.
+- Rewrote source_table cells as `accessed_at: 2026-10-17` (need >=5 literal `accessed_at:`).
+- Added optional GitHub docs/community URLs to `github_evidence`; re-ran gate with `-o research-notes-gate.json` → PASS; removed nested accidental directory.
+
+### Durable fix needed before next run
+- Keep/verify the `_tech_marker_hit` + poison-field strip in `scripts/excalibur_blog_research_notes_gate.py` (add a unit/smoke test that notes containing `reader_pain:` are not auto-technical).
+- Document in research skill/pitfalls: gate `-o` should be a filename (or absolute), not a repo-relative path.
+- Optionally treat `accessed_at` column dates in markdown tables without requiring the literal prefix in every cell.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (partial patch already in gate script this run; needs test + docs)
+
 ## INC-20261017-1705-scout-suggest-next-ignores-live
 status: open
 run_date: 2026-10-17

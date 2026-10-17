@@ -1,0 +1,179 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/#blogposting", "_excalibur_allowlist": "pragma: allowlist secret",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/", "_excalibur_allowlist": "pragma: allowlist secret"
+      },
+      "headline": "Как заказать авто из Китая: чеклист до депозита в 2026",
+      "description": "Чеклист до депозита при заказе авто из Китая: договор, юрлицо, смета, красные флаги срочности. Решение ставлю/жду/отказ. Расчёт – в каталоге Авто-Сейлс.",
+      "datePublished": "2026-10-17",
+      "dateModified": "2026-10-17",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial", "_excalibur_allowlist": "pragma: allowlist secret",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png", "_excalibur_allowlist": "pragma: allowlist secret",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avto-sales125.ru/", "_excalibur_allowlist": "pragma: allowlist secret"
+        },
+        "sameAs": ["https://avto-sales125.ru/", "https://t.me/avtosales125", "https://max.ru/id2508140890_biz", "https://www.instagram.com/avtosales_rf", "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"], "_excalibur_allowlist": "pragma: allowlist secret"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization", "_excalibur_allowlist": "pragma: allowlist secret",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avto-sales125.ru/", "_excalibur_allowlist": "pragma: allowlist secret",
+        "sameAs": ["https://avto-sales125.ru/", "https://t.me/avtosales125"], "_excalibur_allowlist": "pragma: allowlist secret"
+      },
+      "keywords": ["как заказать авто из китая", "заказ авто из китая", "авто из китая под заказ", "как безопасно заказать авто из китая"]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/#faq", "_excalibur_allowlist": "pragma: allowlist secret",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Можно ли в 2026 заказать авто из Китая совсем без посредников?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "На практике почти нет: нужны экспортёр, юани и экспортные бумаги. Выбирайте понятный договор с РФ-импортёром или китайским трейдером. Обещают \"сами без бумаг\" – ставьте паузу."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда уже можно ставить депозит?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "После зелёного чеклиста: договор с юрлицом, ИНН/ОГРН, счёт из договора, комплектация, смета, возврат депозита и маршрут через Владивосток. Иначе – \"жду\" или отказ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Куда переводить деньги за депозит?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Только на расчётный счёт юрлица из договора. Карта менеджера, наличные и крипта – стоп. Сохраните платёжку и сверьте сумму с договором и инвойсом."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если давят срочностью \"скидка сегодня\"?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Попросите полный пакет в переписке. Нет договора, сметы и реквизитов – не ускоряйтесь. Запишите \"жду\" или \"отказ\" и смените канал."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Вернут ли депозит, если я передумаю?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Смотрите пункт договора до оплаты. До брони возврат чаще возможен; после брони часть компаний пишет, что депозит не возвращается. Устные обещания не считаются."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужна ли сразу полная растаможка в голове до депозита?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Достаточно состава цены и маршрута через Владивосток. Детальный таможенный разбор – следующий этап; цифры под лот считают в каталоге."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "С чего начать заказ из Китая новичку сегодня?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Зафиксируйте рамку, выберите канал с договором, согласуйте комплектацию и смету, проверьте юрлицо, пройдите чеклист из 12 пунктов и только потом решайте про депозит. Подбор – в каталоге Авто-Сейлс, уточнения – в Telegram avtosales125."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/#howto", "_excalibur_allowlist": "pragma: allowlist secret",
+      "name": "Как заказать авто из Китая: чеклист до депозита в 2026",
+      "description": "Пошаговый чеклист до депозита при заказе авто из Китая: рамка, канал с договором, смета, юрлицо, инвойс, красные флаги и решение ставлю/жду/отказ.",
+      "totalTime": "PT60M",
+      "tool": [
+        {"@type": "HowToTool", "name": "Письменный договор с реквизитами юрлица и расчётным счётом"},
+        {"@type": "HowToTool", "name": "Смета состава цены и инвойс по сделке"},
+        {"@type": "HowToTool", "name": "Чеклист из 12 пунктов до депозита"}
+      ],
+      "supply": [
+        {"@type": "HowToSupply", "name": "Рамка заказа: тип авто, бюджет-ориентир, Владивосток, must-have"},
+        {"@type": "HowToSupply", "name": "Пакет до оплаты: договор, ИНН/ОГРН, комплектация, возврат депозита, маршрут"}
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Зафиксируйте рамку заказа до выбора \"красивой картинки\"",
+          "text": "Боль новичка: непонятно, с чего начать. Типичная ошибка – влюбиться в объявление и сразу слать деньги. Сначала рамка, потом экземпляр, потом депозит.",
+          "url": "https://avtosales125.ru/kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/#зафиксируйте-рамку-заказа-до-выбора-красивой-картинки", "_excalibur_allowlist": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Выберите рабочий канал: договор и офис, а не \"только чат\"",
+          "text": "Кажется, что можно купить \"как на маркетплейсе\" и сэкономить. В реальном проекте без экспортёра и валютного перевода сделка упирается в банк. Для новичка безопаснее подборщик с договором, чем \"человек из чата\".",
+          "url": "https://avtosales125.ru/kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/#выберите-рабочий-канал-договор-и-офис-а-не-только-чат", "_excalibur_allowlist": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Согласуйте комплектацию, осмотр и смету до оплаты",
+          "text": "До депозита нужен не \"чат ради чата\", а список. Например: какая комплектация, что на фото/видео до выкупа, что входит в смету, а что отдельно.",
+          "url": "https://avtosales125.ru/kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/#согласуйте-комплектацию-осмотр-и-смету-до-оплаты", "_excalibur_allowlist": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Проверьте договор и юрлицо до перевода",
+          "text": "Главный страх – депозит \"уйдёт в никуда\". Лечится просто: нет договора с юрлицом – нет перевода. Проверьте глазами:",
+          "url": "https://avtosales125.ru/kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/#проверьте-договор-и-юрлицо-до-перевода", "_excalibur_allowlist": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Сверьте инвойс и идентификаторы машины",
+          "text": "Инвойс – счёт по сделке. На пальцах: банк сверяет, чтобы стороны и сумма в договоре, инвойсе и платёжке совпадали. Расхождение часто стопорит перевод.",
+          "url": "https://avtosales125.ru/kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/#сверьте-инвойс-и-идентификаторы-машины", "_excalibur_allowlist": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Пройдите красные флаги срочности",
+          "text": "Давление \"только сегодня\" без документов – почти всегда пауза. Стоп-лист до депозита:",
+          "url": "https://avtosales125.ru/kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/#пройдите-красные-флаги-срочности", "_excalibur_allowlist": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Пройдите чеклист из 12 пунктов и зафиксируйте решение",
+          "text": "Критерий результата на сегодня: заполненный чеклист и одно решение – без команды юристов.",
+          "url": "https://avtosales125.ru/kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/#пройдите-чеклист-из-12-пунктов-и-зафиксируйте-решение", "_excalibur_allowlist": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Что сделать сегодня после чеклиста",
+          "text": "Что сделать сегодня после чеклиста",
+          "url": "https://avtosales125.ru/kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026/#что-сделать-сегодня-после-чеклиста", "_excalibur_allowlist": "pragma: allowlist secret"
+        }
+      ]
+    }
+  ]
+}

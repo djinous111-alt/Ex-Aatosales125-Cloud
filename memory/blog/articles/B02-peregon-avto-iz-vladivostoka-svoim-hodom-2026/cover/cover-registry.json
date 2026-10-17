@@ -1,0 +1,50 @@
+{
+  "topic_id": "B02",
+  "slug": "peregon-avto-iz-vladivostoka-svoim-hodom-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у руля утреннего Владивостока: крючок про чек-лист до выезда своим ходом",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-17T13:33:15+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у руля утреннего Владивостока: крючок про чек-лист до выезда своим ходом",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица: своим ходом vs автовоз и ж/д — когда разумно ехать",
+      "h2_anchor": "Сравните: когда своим ходом ещё разумно",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Чеклист осмотра авто на стоянке до выезда из Владивостока",
+      "h2_anchor": "Проверьте машину на стоянке до выезда",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема документов: ЭПТС, 10 суток, ОСАГО на VIN до старта",
+      "h2_anchor": "Соберите документы и оформите ОСАГО до старта",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

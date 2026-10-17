@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B02-peregon-avto-iz-vladivostoka-svoim-hodom-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1278,
+      723
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 723,
+        "end": 758
+      },
+      "v_gutter_px": {
+        "start": 1278,
+        "end": 1298
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 2,
+          "right": 1278,
+          "bottom": 721
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1278,
+          "bottom": 723
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у руля утреннего Владивостока: крючок про чек-лист до выезда своим ходом",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1298,
+          "top": 6,
+          "right": 2560,
+          "bottom": 716
+        },
+        "raw_box_px": {
+          "left": 1298,
+          "top": 0,
+          "right": 2560,
+          "bottom": 723
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: своим ходом vs автовоз и ж/д — когда разумно ехать",
+        "h2_anchor": "Сравните: когда своим ходом ещё разумно"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 33,
+          "top": 758,
+          "right": 1245,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 758,
+          "right": 1278,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист осмотра авто на стоянке до выезда из Владивостока",
+        "h2_anchor": "Проверьте машину на стоянке до выезда"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1323,
+          "top": 758,
+          "right": 2535,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1298,
+          "top": 758,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема документов: ЭПТС, 10 суток, ОСАГО на VIN до старта",
+        "h2_anchor": "Соберите документы и оформите ОСАГО до старта"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Сравните: когда своим ходом ещё разумно",
+    "injected inline_2 after H2 — Проверьте машину на стоянке до выезда",
+    "injected inline_3 after H2 — Соберите документы и оформите ОСАГО до старта"
+  ]
+}

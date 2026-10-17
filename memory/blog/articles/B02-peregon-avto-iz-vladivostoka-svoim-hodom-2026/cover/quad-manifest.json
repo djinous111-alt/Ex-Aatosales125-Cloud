@@ -1,0 +1,42 @@
+{
+  "topic_id": "B02",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Ключи есть — ехать ещё нельзя",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у руля утреннего Владивостока: крючок про чек-лист до выезда своим ходом",
+      "scene_hint": "reference face + glasses ONLY; CHANGE outfit to cool Vladivostok morning: softshell jacket + scarf, NO tank top, NO cap NO hood; action selfie from driver seat, Golden Bridge / port mist in windshield; fake UI: ОСАГО/ЭПТС checklist phone screenshot + catalog card avto-sales125.ru taped with scotch; torn paper strip; yellow highlight on «нельзя»; pink sticky «стоп» (NOT токсичный кринж); shocked meme cutout once; huge Cyrillic hook; corner brand avto-sales125.ru NOT Telegram; NO Wordstat NO Metrika",
+      "meme_caption_ru": "Сначала 12 пунктов"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Сравните: когда своим ходом ещё разумно",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns Ситуация / Своим ходом / Автовоз·ж/д; rows ~2000 км лето, дальняк, зима; sticky «go/no-go»; tape corner; NO hero face; NO Wordstat",
+      "alt": "Таблица: своим ходом vs автовоз и ж/д — когда разумно ехать"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Проверьте машину на стоянке до выезда",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable RU checklist board on clipboard at lot: масло/антифриз, бак+канистра, шины/запаска, тормоза, свет, аптечка; red pen ticks; mini sticky «на стоянке»; NO hero face",
+      "alt": "Чеклист осмотра авто на стоянке до выезда из Владивостока"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Соберите документы и оформите ОСАГО до старта",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow strip 5 steps with arrows: ЭПТС действующий → ДКП/дата 10 суток → ОСАГО на VIN → ТПО в бардачок → можно трогаться; sticky «до старта»; NO hero face; NO SEO analytics",
+      "alt": "Схема документов: ЭПТС, 10 суток, ОСАГО на VIN до старта"
+    }
+  }
+}

@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261017-0937-indexer-llms-doctor-blog-path-stale
+status: open
+run_date: 2026-10-17
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026
+severity: low
+category: docs
+
+### What went wrong
+- `excalibur_blog_doctor.py` still asserts `llms generator supports --blog-path`, but `scripts/excalibur_blog_llms_generator.py` only exposes `--blog-dir` (no `--blog-path`).
+- Stale shell examples in indexer agent/skill still show `--blog-path /`, which would fail if followed literally.
+- Preflight doctor FAIL for this check was already noted by Director; Indexer avoided the bad flag by using `--blog-dir` only.
+
+### How the agent recovered this run
+- Ran `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base [REDACTED] --out-dir memory/blog` (no `--blog-path`).
+- Interlinker used default redacted site base (`--site-base [REDACTED]`); flag `--redact-site-base` does not exist on the script.
+
+### Durable fix needed before next run
+- Change doctor check from `--blog-path` to `--blog-dir` (and optionally `--out-dir` / `--site-base`).
+- Align indexer agent + skill shell examples: drop `--blog-path`; document `--site-base [REDACTED]` (not a separate `--redact-site-base` flag).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md` (if present)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261017-0936-schema-jsonld-secret-scan-allowlist
 status: open
 run_date: 2026-10-17

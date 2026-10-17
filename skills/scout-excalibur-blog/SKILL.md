@@ -11,7 +11,7 @@
 ```text
 published-articles.md + blog-topics.md (Audit)
               ↓
-excalibur_blog_scout_helper.py --suggest-next (Get next ID)
+excalibur_blog_scout_helper.py --suggest-next (Get next ID; honors memory/topics/live-reserved.json)
               ↓
 WebSearch (Cursor native trend scouting for 2026)
               ↓

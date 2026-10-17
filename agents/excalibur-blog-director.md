@@ -38,7 +38,7 @@ Cover и Schema **не пишут** напрямую в handoff — только
 
 ## Cloud Task fallback
 
-Если Cloud не принимает `excalibur-blog-`* как Task types → **отдельный `Task(generalPurpose)` на каждую роль** с `.cursor/agents/<role>.md` + skill path.
+Если Cloud не принимает `excalibur-blog-`* как Task types (включая `excalibur-blog-geo-qa`) → **сразу** отдельный `Task(generalPurpose)` на каждую роль с `.cursor/agents/<role>.md` + skill path. **Без retry** typed Task.
 
 Если недоступен даже `generalPurpose`:
 

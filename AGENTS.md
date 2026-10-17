@@ -23,7 +23,7 @@ shell today + research_start
 
 Если Cloud API не принимает `excalibur-blog-research`, `excalibur-blog-writer`, … как Task types:
 
-- **отдельный `Task(generalPurpose)` на каждую роль**;
+- **сразу** отдельный `Task(generalPurpose)` на каждую роль (без retry typed Task);
 - передай путь `.cursor/agents/<role>.md` и `.cursor/skills/<skill>/SKILL.md`;
 - короткий контракт: входные файлы, маркер результата, запреты;
 - один Task = одна роль;

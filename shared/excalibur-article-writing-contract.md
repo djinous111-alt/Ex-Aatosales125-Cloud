@@ -348,6 +348,8 @@ Excalibur BLOG следует этому контракту для каждой 
 
 Все поля должны быть валидными по валидаторам Schema.org / Google Rich Results. Валидный JSON-LD, без разрывов строк внутри строк, экранирование кавычек.
 
+**Pre-commit secret scan:** если URL-поля совпадают с Cloud Secrets (`PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`), на той же строке JSON добавь `"_a": "pragma: allowlist secret"` рядом с URL-полем. Коммит через `bash scripts/excalibur_git.sh`.
+
 ## Чеклист перед сдачей
 
 1. Первый абзац 350–500 символов, ответ по сути (GEO)

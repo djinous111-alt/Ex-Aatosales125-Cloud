@@ -63,13 +63,18 @@ python scripts/excalibur_blog_wp_publish.py \
 
 ### 4. Cloud WebFetch Fallback
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Перед publish: `python3 scripts/excalibur_blog_wp_publish.py --env-check` должен показать `paramiko_importable: true` (иначе `pip install -r requirements.txt`).
+
+Локальный HTTP-триггер ждёт до **300s** (большие payload ~7MB). Если упал (timeout / WinError 10060):
 
 1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
+2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt` (ожидание до 300s).
 3. Скрипт продолжает и читает ответ из файла.
+4. Remote bootstrap **не удаляется**, пока ответ не содержит `OK post=` — при timeout можно retry без повторного upload.
 
 **Не останавливайся** на первом timeout — используй fallback.
+
+Ledger date берётся из `EXCALIBUR_RUN_DATE`, не из отстающих часов VM.
 
 ### 5. Post-publish артефакты
 

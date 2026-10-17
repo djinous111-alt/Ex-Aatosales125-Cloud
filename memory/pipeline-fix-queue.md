@@ -61,7 +61,7 @@ files_changed:
 checks_run:
 - `rg inject-html / cover inject preflight in publish+cover skills`
 - `doctor errors=0`
-commit: pending-parent-commit
+commit: 26bd206
 
 ## INC-20261017-1749-indexer-git-secret-names-hook
 status: fixed
@@ -106,7 +106,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `CLOUD_AGENT_INJECTED_SECRET_NAMES smoke via excalibur_git.sh status`
-commit: pending-parent-commit
+commit: 26bd206
 
 ## INC-20261017-1748-indexer-skill-llms-blog-path-stale
 status: fixed
@@ -154,7 +154,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_llms_generator.py --help`
 - `rg --blog-path in indexer durable docs (should be absent or marked obsolete)`
-commit: pending-parent-commit
+commit: 26bd206
 
 ## INC-20261017-1745-cover-mcp-timeout-kie-async
 status: fixed
@@ -206,7 +206,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - `rg toxic tokens absent from prompt builder`
-commit: pending-parent-commit
+commit: 26bd206
 
 
 ## INC-20261017-1736-schema-secret-scan-public-urls
@@ -253,7 +253,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `excalibur_git.sh secret-name filter smoke`
-commit: pending-parent-commit
+commit: 26bd206
 
 
 ## INC-20261017-1731-writer-fact-check-anchor
@@ -297,7 +297,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg Материал проверен in writer skill + contract`
-commit: pending-parent-commit
+commit: 26bd206
 
 
 ## INC-20261017-1730-geo-qa-fact-check-phrase-overvaried
@@ -340,7 +340,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg Материал проверен in pitfalls`
-commit: pending-parent-commit
+commit: 26bd206
 
 
 ## INC-20261017-1727-writer-action-markers-cheklist
@@ -384,7 +384,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg recommendation_markers|чеклист in writer skill`
-commit: pending-parent-commit
+commit: 26bd206
 
 
 ## INC-20261017-1725-geo-qa-typed-task-missing
@@ -429,7 +429,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg generalPurpose|geo-qa in AGENTS.md + director skill`
-commit: pending-parent-commit
+commit: 26bd206
 
 
 ## INC-20261017-1725-utility-gate-empty-pain-outcome
@@ -505,7 +505,7 @@ files_changed:
 - `shared/excalibur-article-writing-contract.md`
 checks_run:
 - `excalibur_git.sh filters CATALOG_URL/TELEGRAM_URL/MAX_URL/PUBLIC_SITE_URL`
-commit: pending-parent-commit
+commit: 26bd206
 
 
 ## INC-20261017-1714-research-notes-gate-ai-in-reader-pain
@@ -558,7 +558,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/test_research_notes_gate_tech.py`
-commit: pending-parent-commit (partial patch already in gate script this run; needs test + docs)
+commit: 26bd206 (partial patch already in gate script this run; needs test + docs)
 
 ## INC-20261017-1705-scout-suggest-next-ignores-live
 status: fixed
@@ -609,7 +609,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next → B04`
 - `python3 scripts/excalibur_blog_scout_helper.py --check-slug <B03 slug> → blocked`
-commit: pending-parent-commit
+commit: 26bd206
 
 ## INC-20261017-1703-doctor-llms-blog-path
 status: fixed
@@ -648,7 +648,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py → errors=0`
-commit: pending-parent-commit
+commit: 26bd206
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch

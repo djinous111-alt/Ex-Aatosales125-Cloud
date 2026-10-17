@@ -62,9 +62,21 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
 
+## Research notes gate (перед Writer)
+
+```bash
+python3 scripts/excalibur_blog_research_notes_gate.py --article-dir <article_dir> -o research-notes-gate.json
+```
+
+- В source_table даты доступа пиши как `accessed_at: YYYY-MM-DD` (голая дата в ячейке не считается).
+- Строки `pain_solution_map` должны содержать маркеры pain/боль / solution/решение / result/результат.
+- GitHub ≥3 обязателен только для **technical_topic** (Cursor/AI/MCP/Make и т.п.). Авто-логистика с `reader_pain:` не должна становиться technical из-за подстроки `ai` внутри слова.
+- Коммит: `bash scripts/excalibur_git.sh commit ...` (фильтр невалидных имён в `CLOUD_AGENT_INJECTED_SECRET_NAMES`). `research_start` сам редактирует host `PUBLIC_SITE_URL` в `research-serp.json` → `[REDACTED]`.
+
 ## Blockers
 
 - `❌ RESEARCH BLOCKER` — тема не найдена и не создана из запроса пользователя
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
+- `❌ RESEARCH BLOCKER` — `research-notes-gate.json` status ≠ PASS
 

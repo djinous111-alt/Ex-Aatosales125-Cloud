@@ -33,7 +33,7 @@ is_background: false
 1. **Preflight:** link-verify с `--site-base` из `PUBLIC_SITE_URL`.
 2. **Dry-run:** `excalibur_blog_wp_publish.py --dry-run`.
 3. **Publish:** `excalibur_blog_wp_publish.py` без dry-run.
-4. **Fallback:** при timeout HTTP-триггера — WebFetch URL из `FALLBACK_TRIGGER_URL` → `memory/webfetch-response.txt`.
+4. **Fallback:** при timeout/504 HTTP-триггера — **сразу** WebFetch/curl URL из `FALLBACK_TRIGGER_URL` → `memory/webfetch-response.txt` (успех только с literal `OK post=`; wait 300s). Не republish foreign denylist.
 5. **Ledger:** обновить `shared/published-articles.md`.
 6. **Logs:** дописать `memory/blog/wp-publish-log.md`.
 7. **Promotion:** Live URL в `promotion-checklist.md`.

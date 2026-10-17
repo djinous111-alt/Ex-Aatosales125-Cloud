@@ -52,6 +52,10 @@ python scripts/excalibur_blog_human_voice_gate.py \
 
 **Pass:** score ≥ 80, CORE-EEAT ≥ 16/20, link-verify pass, **research notes gate PASS**, **utility gate PASS**, **human voice gate PASS**, **beginner-fit PASS**. В `article-qa.md` отдельно зафиксируй: какая боль новичка решена, где показано решение, какой первый результат получит читатель, какие сложные термины объяснены «на пальцах».
 
+**CTA / link-verify:** href должны быть живые публичные URL. Literal `$CATALOG_URL` / `$TELEGRAM_URL` / `$MAX_URL` → FIX writer (placeholders ≠ publish-ready). Не подставляй секреты сам — верни FIX.
+
+**Utility pain/outcome:** `excalibur_blog_utility_gate.py` применяет `min_pain_markers` / `min_outcome_markers` только если списки маркеров в `editorial-policy.json` непустые; пустые списки = skip (не false-BLOCK).
+
 **Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.
 
 Schema и cover — **не** твоя зона (отдельные субагенты после PASS).

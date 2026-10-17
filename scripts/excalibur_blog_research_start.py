@@ -369,6 +369,8 @@ def run_research_start(
         "errors": errors,
         "unique_urls": _unique_urls(serp_runs),
     }
+    # Pre-commit secret-scan treats PUBLIC_SITE_URL as a secret — scrub before write.
+    payload_serp = redact_site_secrets_in_serp(payload_serp)
 
     context_path = out_dir / "research-context.json"
     serp_path = out_dir / "research-serp.json"
@@ -402,6 +404,51 @@ def _unique_urls(serp_runs: list[dict[str, Any]]) -> list[dict[str, str]]:
                 seen.add(url)
                 out.append({"url": url, "title": row.get("title") or "", "from_query": run.get("query") or ""})
     return out
+
+
+def _public_site_redact_hosts() -> list[str]:
+    """Hosts from PUBLIC_SITE_URL / WP_* that must not appear verbatim in committed SERP JSON."""
+    import os
+    from urllib.parse import urlparse
+
+    hosts: list[str] = []
+    for key in ("PUBLIC_SITE_URL", "WP_HOME", "WP_SITE_URL"):
+        raw = (os.environ.get(key) or "").strip()
+        if not raw:
+            continue
+        try:
+            host = urlparse(raw if "://" in raw else f"https://{raw}").netloc.lower().removeprefix("www.")
+        except Exception:
+            continue
+        if host and host not in hosts:
+            hosts.append(host)
+    return hosts
+
+
+def redact_site_secrets_in_serp(payload: dict[str, Any]) -> dict[str, Any]:
+    """Replace PUBLIC_SITE_URL host with [REDACTED] so pre-commit secret-scan can pass."""
+    hosts = _public_site_redact_hosts()
+    if not hosts:
+        return payload
+
+    def scrub(text: str) -> str:
+        out = text
+        for host in hosts:
+            # Full URLs and bare host occurrences.
+            out = re.sub(rf"https?://(?:www\.)?{re.escape(host)}", "[REDACTED]", out, flags=re.I)
+            out = re.sub(rf"(?<![\w.-])(?:www\.)?{re.escape(host)}(?![\w.-])", "[REDACTED]", out, flags=re.I)
+        return out
+
+    def walk(obj: Any) -> Any:
+        if isinstance(obj, dict):
+            return {k: walk(v) for k, v in obj.items()}
+        if isinstance(obj, list):
+            return [walk(x) for x in obj]
+        if isinstance(obj, str):
+            return scrub(obj)
+        return obj
+
+    return walk(payload)
 
 
 def main() -> int:

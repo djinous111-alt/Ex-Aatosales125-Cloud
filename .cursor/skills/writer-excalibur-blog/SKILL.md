@@ -7,6 +7,14 @@
 - `shared/editorial-utility-only.md`
 - `memory/brief/site-brief.md`, `conversion-map.md`
 
+## CTA (критично до GEO QA)
+
+- В `article.html` href CTA = **живые публичные URL** из env `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL` (или уже раскрытые URL из `conversion-map.md`).
+- **Запрещено** оставлять literal `$CATALOG_URL`, `$TELEGRAM_URL`, `$MAX_URL` — link-verify трактует их как internal relative → HTTP 404 → FIX.
+- Placeholders ≠ publish-ready. Secret-scan workaround (`excalibur_git.sh` / filter injected names) **не** означает «оставь `$VAR` в HTML».
+- Лимиты упоминаний: см. `conversion-map.md` (каталог ≤3, Telegram ≤2, MAX ≤1).
+- Коммит: `bash scripts/excalibur_git.sh commit -m "..."` (не `--no-verify`).
+
 ## Задача
 
 1. **Только режим B** — инструкция/гайд/чеклист/comparison. Режим A запрещён.

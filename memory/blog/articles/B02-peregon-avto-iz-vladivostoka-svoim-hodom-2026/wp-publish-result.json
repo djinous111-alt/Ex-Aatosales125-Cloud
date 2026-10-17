@@ -1,0 +1,22 @@
+{
+  "slug": "peregon-avto-iz-vladivostoka-svoim-hodom-2026",
+  "topic_id": "B02",
+  "permalink": "[REDACTED]/2026/10/17/peregon-avto-iz-vladivostoka-svoim-hodom-2026/",
+  "post_id": 4286,
+  "featured_image": 4287,
+  "inline_images": [
+    4288,
+    4289,
+    4290
+  ],
+  "schema_meta": 1,
+  "skip_theme_faq_meta": 1,
+  "publish_method": "ssh+http_504_rest_ssh_reconstruct",
+  "verdict": "pass",
+  "cover_evidence": {
+    "featured_media": 4287,
+    "inline_media": [4288, 4289, 4290]
+  },
+  "raw_output": "OK post=4286 slug=peregon-avto-iz-vladivostoka-svoim-hodom-2026\nOK featured_image=4287\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4288 src=cover/inline-01.png\nOK inline_image_upload=4289 src=cover/inline-02.png\nOK inline_image_upload=4290 src=cover/inline-03.png\npermalink=[REDACTED]/2026/10/17/peregon-avto-iz-vladivostoka-svoim-hodom-2026/\n",
+  "reconstruct_notes": "Local HTTP trigger returned nginx 504 after SSH upload; bootstrap deleted in finally. Late curl FALLBACK got HTML 404 (not OK post=). Verified via WP REST posts?slug= + HEAD 200 + SSH meta-check (_excalibur_blog_schema_jsonld len=11481, skip_theme_faq=1). NEW post 4286 — denylist untouched."
+}

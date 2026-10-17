@@ -6,6 +6,16 @@
 
 ---
 
+
+## Live / ledger reservation (обязательно)
+
+- `--suggest-next` учитывает `shared/published-articles.md`, article dirs и `memory/topics/live-reserved.json` (topic_ids + slugs).
+- Не предлагай/не клонируй ID/slug, уже занятые live WP, даже если карточки B* в pool нет.
+- При расхождении helper vs cron/live — обнови `live-reserved.json` и возьми override topic_id.
+- Ниша: Авто-Сейлс (не Cursor/Make/AI-агенты).
+- Коммиты артефактов: `bash scripts/excalibur_git.sh commit ...` (фильтр CLOUD_AGENT_INJECTED_SECRET_NAMES).
+
+
 ## Архитектура работы
 
 ```text
@@ -30,7 +40,7 @@ Append new Topic Card to blog-topics.md
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
   Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
 
@@ -47,7 +57,7 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
 Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
 

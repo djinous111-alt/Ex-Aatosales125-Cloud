@@ -1,18 +1,27 @@
 {
   "source": "memory/blog/articles/B02-peregon-avto-iz-vladivostoka-svoim-hodom-2026/article.html",
-  "total_links": 4,
-  "failed_count": 3,
-  "verdict": "fail",
+  "total_links": 6,
+  "failed_count": 0,
+  "verdict": "pass",
   "links": [
     {
-      "url": "https://avtosales125.ru/$CATALOG_URL",
-      "status": 404,
-      "ok": false,
+      "url": "https://avtosales125.ru/blog/samye-komfortnye-avto-myagkaya-podveska-2026/",
+      "status": 200,
+      "ok": true,
       "method": "HEAD",
-      "error": "HTTP Error 404: Not Found",
+      "error": null,
       "kind": "internal_relative",
       "skipped": false,
-      "checked_url": "https://avtosales125.ru/$CATALOG_URL"
+      "checked_url": "https://avtosales125.ru/blog/samye-komfortnye-avto-myagkaya-podveska-2026/"
+    },
+    {
+      "url": "https://avto-sales125.ru/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
     },
     {
       "url": "https://elpts.ru/",
@@ -24,24 +33,32 @@
       "skipped": false
     },
     {
-      "url": "https://avtosales125.ru/$TELEGRAM_URL",
-      "status": 404,
-      "ok": false,
+      "url": "https://avtosales125.ru/blog/trust-encar-carhistory-proverka-do-depozita/",
+      "status": 200,
+      "ok": true,
       "method": "HEAD",
-      "error": "HTTP Error 404: Not Found",
+      "error": null,
       "kind": "internal_relative",
       "skipped": false,
-      "checked_url": "https://avtosales125.ru/$TELEGRAM_URL"
+      "checked_url": "https://avtosales125.ru/blog/trust-encar-carhistory-proverka-do-depozita/"
     },
     {
-      "url": "https://avtosales125.ru/$MAX_URL",
-      "status": 404,
-      "ok": false,
+      "url": "https://t.me/avtosales125",
+      "status": 200,
+      "ok": true,
       "method": "HEAD",
-      "error": "HTTP Error 404: Not Found",
-      "kind": "internal_relative",
-      "skipped": false,
-      "checked_url": "https://avtosales125.ru/$MAX_URL"
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://max.ru/id2508140890_biz",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
     }
   ]
 }

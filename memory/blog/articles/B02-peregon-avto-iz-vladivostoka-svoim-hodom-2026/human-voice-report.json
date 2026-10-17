@@ -3,15 +3,13 @@
   "status": "PASS",
   "article_dir": "memory/blog/articles/B02-peregon-avto-iz-vladivostoka-svoim-hodom-2026",
   "errors": [],
-  "warnings": [
-    "multiple exactly-5-step lists detected; vary list size when editorially possible"
-  ],
+  "warnings": [],
   "metrics": {
     "h2_count": 6,
     "repeated_h2_openers": [],
     "textbook_h2_count": 0,
     "paragraph_count": 28,
-    "paragraph_avg_words": 28.6,
+    "paragraph_avg_words": 29.6,
     "paragraph_variance_ratio": 0.44,
     "concrete_markers": [
       "например",
@@ -138,13 +136,14 @@
       "покупателю",
       "разборы",
       "свежие",
+      "сначала",
       "суток",
       "сюрприз",
       "транзитными",
       "транзиты",
       "убрали"
     ],
-    "exactly_five_lists": 4,
+    "exactly_five_lists": 1,
     "fact_check_template_blocks": 0
   }
 }

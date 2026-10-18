@@ -3,6 +3,7 @@
 ## Cloud / Task
 
 - Cloud не принимает `excalibur-blog-*` как Task types → fallback `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path.
+- Typed enum особенно часто без `excalibur-blog-geo-qa` — сразу `Task(generalPurpose)` с agent+skill, без ретрая typed.
 - Parent-agent сам пишет статью вместо `excalibur-blog-writer` → **блокер**, перезапуск writer Task.
 - Объединение cover+schema в один Task → запрещено; только параллельные отдельные Task.
 
@@ -34,6 +35,7 @@
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
+- Utility gate читает `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json`. Пустые списки выглядят как «в статье нет боли», но это policy gap: gate skip+warn, не hard-fail с нулями. Держи списки non-empty на каждой ветке.
 
 ## Cover
 
@@ -42,7 +44,13 @@
 ## Scout
 
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- `excalibur_blog_scout_helper.py --suggest-next` читает `memory/topics/live-reserved.json` (`next_forced_topic_id`, `reserved`, `denylist_slugs`). Пустой B-pool ≠ старт с B01, если forced id задан.
+
+## Git / Secrets Scanner
+
+- Если `pre-commit.cursor` Secrets Scanner падает с `invalid variable name` (невалидный bash-идентификатор в `CLOUD_AGENT_*_SECRET_NAMES`) — допустим одноразовый `git commit --no-verify` после ручной проверки staged-файлов на сырые токены + incident в queue. Durable rename секретов — Cloud Dashboard (human).
 
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator CLI: только `--blog-dir` + `--out-dir` (флага `--blog-path` нет; doctor проверяет `--blog-dir`/`--out-dir`).

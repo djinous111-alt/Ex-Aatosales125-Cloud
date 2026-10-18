@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261018-0905-scout-wp-mcp-wrong-host
+status: open
+run_date: 2026-10-18
+role: excalibur-blog-scout
+topic_id: B05
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- MCP `wordpress_get_posts` вернул посты с хоста, не совпадающего с live Авто-Сейлс (`avtosales125.ru`), поэтому denylist live slugs B01–B04 нельзя было собрать из WP MCP.
+- `scripts/excalibur_blog_scout_helper.py --suggest-next` предложил B01 (в `blog-topics.md` не было B-карточек), хотя live WP уже занял линейку B01–B04; файл `memory/topics/live-reserved.json` helper не читает.
+
+### How the agent recovered this run
+- Denylist собран через WebSearch `site:avtosales125.ru` + handoff/memory denylist + AS08/AS09 ledger.
+- Карточка создана принудительно как `topic_id=B05`; создан `memory/topics/live-reserved.json` с `next_forced_topic_id=B06`.
+
+### Durable fix needed before next run
+- Привязать WordPress MCP / publish env к `PUBLIC_SITE_URL` Авто-Сейлс либо дать scout явный источник live slugs (env `EXCALIBUR_RECENT_WP_POSTS` / WP search на правильном хосте).
+- Научить `excalibur_blog_scout_helper.py --suggest-next` читать `memory/topics/live-reserved.json` (`reserved_topic_ids`, `next_forced_topic_id`).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `memory/topics/live-reserved.json`
+- MCP WordPress / Cloud Secrets site URL wiring
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

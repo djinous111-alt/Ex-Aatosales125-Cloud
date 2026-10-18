@@ -1,0 +1,29 @@
+{
+  "updated_at": "2026-10-18",
+  "site": "avtosales125.ru",
+  "note": "Helper --suggest-next ignores live WP unless scout honors this file. Force next ID past live B-lineage.",
+  "reserved_topic_ids": ["B01", "B02", "B03", "B04", "B05"],
+  "live_slugs_sample": [
+    "era-glonass-pri-vvoze-avto-2026-nuzhna-li",
+    "kak-kupit-avto-iz-korei-pod-klyuch-2026",
+    "dostavka-avto-iz-vladivostoka-zhd-avotovoz-peregon-2026",
+    "otsledit-avto-iz-yaponii-rolker-2026",
+    "prokhodnye-avto-iz-yaponii-2026",
+    "kak-kupit-avto-s-auktsiona-yaponii-2026",
+    "mozhno-li-privezti-gibrid-iz-yaponii-2026",
+    "akkreditiv-pri-pokupke-avto-iz-korei-2026",
+    "kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026",
+    "peregon-avto-iz-vladivostoka-svoim-hodom-2026",
+    "sroki-dostavki-avto-iz-korei-vladivostok-2026",
+    "kak-oformit-sbkts-i-epts-pri-vvoze-avto-2026",
+    "kak-postavit-na-uchet-avto-iz-yaponii-korei-kitaya-2026",
+    "kak-rasschitat-utilsbor-pri-vvoze-avto-2026"
+  ],
+  "ledger_published": ["AS08", "AS09"],
+  "scout_created": {
+    "topic_id": "B05",
+    "slug": "kak-popolnit-els-fts-pered-rastamozhkoy-avto-2026",
+    "primary_query": "как пополнить елс фтс"
+  },
+  "next_forced_topic_id": "B06"
+}

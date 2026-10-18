@@ -1,0 +1,8 @@
+{
+  "status": "mcp_timeout",
+  "error": "MCP error -32001: Request timed out",
+  "attempt": 1,
+  "tool": "gpt-image-2",
+  "recovery": "kie-api preferred_image_flow",
+  "url_found_in_logs": false
+}

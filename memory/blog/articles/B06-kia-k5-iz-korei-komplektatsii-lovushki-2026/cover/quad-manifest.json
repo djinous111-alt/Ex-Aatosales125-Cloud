@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "«Без ДТП» на Encar — а покраска?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у порта Владивостока с плашкой про ловушку «без ДТП» на Kia K5 из Кореи",
+      "scene_hint": "Hyper-realistic action selfie: EXACT face+glasses from reference; CHANGE outfit — cool foggy Vladivostok port weather: dark navy rain shell jacket (no hood up), charcoal knit underlayer, no cap; behind: modern silver Kia K5 sedan near port cranes/containers soft bokeh; layered fake UI: Encar lot card «без ДТП» + sticky note «проверь мусаго», torn paper checklist «VIN · Carhistory · LPI», yellow highlighter on «покраска»; shocked meme cutout + facepalm sticker (different); huge Cyrillic hook; corner avto-sales125.ru; DIY collage tape/sticky — NO toxic insults, NO Wordstat/Metrika, NO Telegram",
+      "meme_caption_ru": "До депозита проверь"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте сценарий: семья, трасса или ежедневный город",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean 16:9 UI mock comparison table for Kia K5 use-cases: columns Семья / Трасса / Город; rows мотор, топливо бензин|LPI, клиренс комфорт, расход; Cyrillic labels; small tape corner + sticky «свой сценарий»; NO hero face, NO people portraits",
+      "alt": "Таблица сравнения сценариев Kia K5: семья, трасса и город"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните комплектации Prestige, Best Selection, Noblesse и Signature",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Trim comparison UI board The 2026 K5: rows Prestige, Best Selection, Noblesse, Signature vs options (кожа, ADAS, люк, диски); Korean market trim names in Latin ok as model names; small Encar-style card inset; tape + sticky «что реально нужно»; NO hero face",
+      "alt": "Сравнение комплектаций K5 Prestige Best Selection Noblesse Signature"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Разберите ловушку \"без ДТП\": мусаго про каркас, а не про покраску",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board Cyrillic: мусаго = каркас не чинили; отдельно — покраска панелей; пункты Carhistory, фото зазоров, отчёт осмотра; fake Encar «без ДТП» stamp with red marker arrow «не равно без краски»; sticky «стоп до депозита»; NO hero face, NO toxic slang",
+      "alt": "Чеклист ловушки мусаго: без ДТП не значит без покраски"
+    }
+  }
+}

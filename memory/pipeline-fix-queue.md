@@ -41,7 +41,7 @@ category: script
 - script timeouts bumped 120→300 in this publish run; docs sync optional for fixer
 
 ## INC-20261018-2141-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-10-19
 role: excalibur-blog-publish
 topic_id: B08
@@ -74,11 +74,29 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-19
+fix_summary:
+- `.cursor/cloud-agent-install.sh` ставит deps из `requirements.txt` (включая paramiko) и проверяет import.
+- `excalibur_blog_wp_publish.py --env-check` теперь пытается `import paramiko` при сконфигурированном SSH и добавляет `paramiko` в missing.
+- Doctor WARN если paramiko отсутствует; publish skill документирует env-check + SSH/paramiko.
+- Cloud Secret `SSH_ROOT=.` остаётся human/env (уже в runtime); script side covered.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check` → paramiko_import_ok true
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+commit: pending-parent-commit
 
 
 ## INC-20261019-0032-indexer-skill-agent-stale-blog-path
-status: open
+status: fixed
 run_date: 2026-10-19
 role: excalibur-blog-indexer
 topic_id: B08
@@ -115,10 +133,27 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-19
+fix_summary:
+- Indexer skill/agent examples больше не содержат `--blog-path`; только `--blog-dir` + `--out-dir`.
+- Doctor asserts `--blog-dir`/`--out-dir` and absence of stale `--blog-path`.
+files_changed:
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_llms_generator.py --help`
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `rg blog-path` in indexer agent/skill contracts (docs mention only as removed)
+commit: pending-parent-commit
+
 
 ## INC-20261018-2128-cover-prompt-builder-seo-hardcode-stale-batch
-status: open
+status: fixed
 run_date: 2026-10-18
 role: excalibur-blog-cover
 topic_id: B08
@@ -150,10 +185,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-19
+fix_summary:
+- `excalibur_blog_cover_quad_prompt.py` берёт prefix/negative из style JSON + design-code, outfit из blog-hero; убран hardcode Excalibur/white hoodie.
+- Добавлен validate_cover_hook против stale SEO-default маркеров (кроме topic B01).
+- Cover skill: запрет параллелить Write(manifest) с --write-batch; python3 examples.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+- dry-run prompt B08 → chars≤3500, AVTO prefix, no Excalibur/white hoodie hardcode
+commit: pending-parent-commit
+
 
 ## INC-20261019-2130-geo-qa-utility-markers-missing-after-rebrand
-status: open
+status: fixed
 run_date: 2026-10-19
 role: excalibur-blog-geo-qa
 topic_id: B08
@@ -186,10 +236,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-19
+fix_summary:
+- `editorial-policy.json` уже содержит pinned pain/outcome markers + min 2/3 (сохранено).
+- `utility_gate.py` skip-when-empty + warning подтверждён.
+- Doctor FAIL если pain/outcome marker lists пусты/отсутствуют.
+- Pitfalls: rebrand не должен затирать `_markers_pinned`.
+files_changed:
+- `memory/brief/editorial-policy.json` (markers already restored this run)
+- `scripts/excalibur_blog_utility_gate.py` (skip-when-empty already present)
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → editorial-policy markers OK, errors=0
+commit: pending-parent-commit
+
 
 ## INC-20261019-2131-geo-qa-writer-literal-redacted-cta-href
-status: open
+status: fixed
 run_date: 2026-10-19
 role: excalibur-blog-geo-qa
 topic_id: B08
@@ -221,10 +286,28 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-19
+fix_summary:
+- Writer skill + writing contract forbid literal href="[REDACTED]".
+- conversion-map: Writer rule to re-resolve CTA if Cloud redaction rewrites URLs while writing.
+- HTML linter + link-verify hard-fail on redacted placeholder hrefs.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `memory/brief/conversion-map.md`
+- `scripts/excalibur_blog_html_linter.py`
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- html linter on sample href=[REDACTED] → FAIL
+- link_verify redacted_placeholder → fail
+commit: pending-parent-commit
+
 
 ## INC-20261019-2106-research-gate-false-technical-topic
-status: open
+status: fixed
 run_date: 2026-10-19
 role: excalibur-blog-research
 topic_id: B08
@@ -256,10 +339,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-19
+fix_summary:
+- `is_technical_topic` uses unicode word-boundary for short markers; topic fields first; auto/niche without topic tech signal → not technical.
+- `pain_solution_map` rows counted from section table data-rows.
+- Research skill documents gate behavior.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit asserts: ai∉reader_pain, ии∉комплектации; Sportage topic not technical; pain map rows=3
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+commit: pending-parent-commit
+
 
 ## INC-20261019-2110-research-precommit-secret-name
-status: open
+status: needs-human
 run_date: 2026-10-19
 role: excalibur-blog-research
 topic_id: B08
@@ -287,10 +385,23 @@ category: env
 - none recorded (имена/значения секретов не логировались)
 
 ### Fixer resolution
-- pending
+status: needs-human
+fixed_at: 2026-10-19
+reason:
+- Cloud injects a non-identifier token into `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `CLOUD_AGENT_ALL_SECRET_NAMES`; pre-commit `${!SECRET_NAME}` crashes with invalid variable name.
+- Repo cannot sanitize Cloud Dashboard secret names or the injected hook list from application code.
+needed_decision_or_secret:
+- In Cursor Cloud Dashboard Secrets: rename/remove any secret whose name is not a valid bash identifier `^[A-Za-z_][A-Za-z0-9_]*$` (especially URL-like names).
+- Workaround documented in pitfalls: filter injected name lists before commit; `--no-verify` only last resort.
+files_changed:
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- n/a (Cloud Dashboard / hook injection outside repo)
+commit: n/a
+
 
 ## INC-20261019-0010-scout-suggest-next-ignores-live-reserved
-status: open
+status: fixed
 run_date: 2026-10-19
 role: excalibur-blog-scout
 topic_id: B08
@@ -320,10 +431,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-19
+fix_summary:
+- `--suggest-next` читает `memory/topics/live-reserved.json` → `next_forced_topic_id` если id ещё не reserved/published.
+- Печатает `Suggest source: live-reserved|max+1`.
+- Scout skill documents live-reserved format.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → B09, source=live-reserved
+commit: pending-parent-commit
+
 
 ## INC-20261019-0002-director-doctor-llms-blog-path
-status: open
+status: fixed
 run_date: 2026-10-19
 role: excalibur-blog-director
 topic_id: n/a
@@ -349,7 +474,17 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-19
+fix_summary:
+- Doctor checks `--blog-dir` and `--out-dir`; asserts stale `--blog-path` absent.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 (llms blog-dir/out-dir OK)
+commit: pending-parent-commit
+
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

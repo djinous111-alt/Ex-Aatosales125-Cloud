@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261018-1745-writer-utility-pain-outcome-markers-missing
+status: open
+run_date: 2026-10-18
+role: excalibur-blog-writer
+topic_id: B07
+article_dir: memory/blog/articles/B07-rastamozhka-avto-iz-kitaya-chek-list-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` hard-failed article with `pain_markers=0` / `outcome_markers=0` because `memory/brief/editorial-policy.json` had no `pain_markers_ru` / `outcome_markers_ru` on this branch.
+- Prior fixer notes claimed empty-list skip + markers were restored, but those durable changes were not present here; writer self-check blocked until policy restored.
+
+### How the agent recovered this run
+- Restored `pain_markers_ru` / `outcome_markers_ru` and min counts in `editorial-policy.json`.
+- Strengthened lead/outcome wording in `article.html` so markers naturally appear.
+- Utility + HTML linter + human-voice self-check PASS after restore.
+
+### Durable fix needed before next run
+- Confirm `pain_markers_ru` / `outcome_markers_ru` stay in `editorial-policy.json` on every pipeline branch.
+- Harden `scripts/excalibur_blog_utility_gate.py`: if marker lists are empty, skip (warn) instead of hard-fail with zeros.
+- Document in `shared/agent-pipeline-pitfalls.md` that missing lists look like "article has no pain" but are a policy gap.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261018-1720-research-precommit-secret-scanner-invalid-var
 status: open
 run_date: 2026-10-18

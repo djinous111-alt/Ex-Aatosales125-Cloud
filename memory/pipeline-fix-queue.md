@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261019-0032-indexer-skill-agent-stale-blog-path
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-indexer
+topic_id: B08
+article_dir: memory/blog/articles/B08-kia-sportage-iz-korei-komplektatsii-lovushki-2026
+severity: low
+category: docs
+
+### What went wrong
+- Indexer skill/agent contracts still document `excalibur_blog_llms_generator.py --blog-path /`, but CLI no longer accepts `--blog-path` (only `--blog-dir` + `--out-dir`).
+- Related to open `INC-20261019-0002-director-doctor-llms-blog-path` (doctor still asserts `--blog-path`); this INC covers stale indexer docs specifically.
+
+### How the agent recovered this run
+- Ran generator without `--blog-path` per Director prompt; `llms.txt` / `llms-full.txt` written to `memory/blog/`.
+- Before commit: redacted absolute `PUBLIC_SITE_URL` from `llms.txt` / `llms-full.txt` / `interlink-suggestions.json` to relative `/blog/...` and `site_base=[REDACTED]` (secret-scan hygiene).
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer skill + agent Shell examples; document `--blog-dir` + `--out-dir` only.
+- Align doctor check (see INC-20261019-0002).
+- Prefer relative `/blog/<slug>/` URLs in llms/interlink commit artifacts (or auto-redact site-base when writing under `memory/blog/`).
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_interlinker.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261018-2128-cover-prompt-builder-seo-hardcode-stale-batch
 status: open
 run_date: 2026-10-18

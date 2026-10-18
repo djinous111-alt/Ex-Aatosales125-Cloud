@@ -468,11 +468,14 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
 
 
 def trigger_bootstrap_http(url: str, root: Path) -> str:
+    # Large PHP payloads (~7MB with cover+inline) often need >120s; B07+ uses 300s.
+    http_timeout_s = 300
+    fallback_wait_s = 300
     try:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=http_timeout_s,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
@@ -483,14 +486,16 @@ def trigger_bootstrap_http(url: str, root: Path) -> str:
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        for _ in range(fallback_wait_s):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {fallback_wait_s} seconds. Please trigger manually."
+        )
 
 
 def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:

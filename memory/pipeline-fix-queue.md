@@ -6,6 +6,77 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261018-2140-publish-http-timeout-regressed-120
+status: fixed
+run_date: 2026-10-19
+role: excalibur-blog-publish
+topic_id: B08
+article_dir: memory/blog/articles/B08-kia-sportage-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `trigger_bootstrap_http` still used urlopen timeout=120 and fallback wait=120s, despite B07 publish-patterns documenting 300s for ~7MB payloads.
+- Large B08 PHP payload (~6.8MB) would risk false timeout/fallback race on slow hosts.
+
+### How the agent recovered this run
+- Patched `scripts/excalibur_blog_wp_publish.py` to http_timeout_s=300 and fallback_wait_s=300 before real publish.
+- SSH upload OK; HTTP completed within 300s without needing WebFetch fallback.
+- Live HEAD/GET 200; REST id=4334.
+
+### Durable fix needed before next run
+- Keep 300s defaults in script (done this run).
+- Sync publish skill/contract/patterns so docs never drift back to 120s.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (done)
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- script timeouts bumped 120→300 in this publish run; docs sync optional for fixer
+
+## INC-20261018-2141-publish-paramiko-missing
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-publish
+topic_id: B08
+article_dir: memory/blog/articles/B08-kia-sportage-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `import paramiko` failed at publish preflight even though `paramiko` is listed in `requirements.txt`.
+- `--env-check` does not import paramiko, so missing dep is invisible until real SSH upload.
+- `SSH_ROOT` unset in Cloud env; host needs `SSH_ROOT=.` (login cwd).
+
+### How the agent recovered this run
+- `python3 -m pip install --break-system-packages paramiko`
+- Wrote gitignored `memory/site.env.local` with `SSH_ROOT=.` + exported `SSH_ROOT=.` for the session
+- Publish PASS via SSH
+
+### Durable fix needed before next run
+- Ensure `.cursor/cloud-agent-install.sh` / environment install always installs `paramiko` from requirements.txt
+- Make `--env-check` attempt `import paramiko` when SSH configured
+- Set Cloud Secret `SSH_ROOT=.` permanently for this host
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_wp_publish.py` (env-check import)
+- `requirements.txt`
+- Cloud Secrets (`SSH_ROOT`)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261019-0032-indexer-skill-agent-stale-blog-path
 status: open
 run_date: 2026-10-19

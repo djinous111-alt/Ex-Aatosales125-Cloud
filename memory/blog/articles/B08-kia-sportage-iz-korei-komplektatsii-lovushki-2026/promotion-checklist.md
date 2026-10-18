@@ -1,7 +1,7 @@
 # Promotion checklist — B08 kia-sportage-iz-korei-komplektatsii-lovushki-2026
 
-Дата публикации: (после publish)  
-Live URL: /blog/kia-sportage-iz-korei-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-19  
+Live URL: [REDACTED]/2026/10/19/kia-sportage-iz-korei-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

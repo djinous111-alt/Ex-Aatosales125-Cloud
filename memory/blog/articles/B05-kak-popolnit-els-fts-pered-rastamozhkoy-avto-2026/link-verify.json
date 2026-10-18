@@ -1,0 +1,27 @@
+{
+  "source": "memory/blog/articles/B05-kak-popolnit-els-fts-pered-rastamozhkoy-avto-2026/article.html",
+  "total_links": 2,
+  "failed_count": 2,
+  "verdict": "fail",
+  "links": [
+    {
+      "url": "https://edata.customs.ru/FtsPersonalCabinetWeb/",
+      "status": null,
+      "ok": false,
+      "method": "GET",
+      "error": "<urlopen error _ssl.c:983: The handshake operation timed out>",
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://avtosales125.ru/[REDACTED]",
+      "status": 404,
+      "ok": false,
+      "method": "HEAD",
+      "error": "HTTP Error 404: Not Found",
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "https://avtosales125.ru/[REDACTED]"
+    }
+  ]
+}

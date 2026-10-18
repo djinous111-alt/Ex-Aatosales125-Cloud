@@ -6,6 +6,105 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261018-0930-geo-qa-utility-pain-outcome-markers-missing
+status: open
+run_date: 2026-10-18
+role: excalibur-blog-geo-qa
+topic_id: B05
+article_dir: memory/blog/articles/B05-kak-popolnit-els-fts-pered-rastamozhkoy-avto-2026
+severity: blocker
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` для article требует `min_pain_markers` (default 2) и `min_outcome_markers` (default 3), читая списки из `pain_markers_ru` / `outcome_markers_ru` в `memory/brief/editorial-policy.json`.
+- В policy этих ключей нет → count всегда 0 → любой article gate получает BLOCK (подтверждено на B05 и на ранее PASS AS09).
+- При этом human-voice gate на тех же смысловых маркерах для B05 даёт PASS; текст статьи уже содержит `боль`/`проблем`/`ошиб`/`результат`/`проверьте`/`выберите`.
+
+### How the agent recovered this run
+- GEO QA зафиксировал utility BLOCK в `article-qa.md` и handoff; longread не переписывал; cover/schema не стартовали.
+- Вердикт FIX / score 74; эскалация в fixer + writer FIX только по CTA.
+
+### Durable fix needed before next run
+- Добавить в `memory/brief/editorial-policy.json` `pain_markers_ru` и `outcome_markers_ru` (паритет с `PAIN_MARKERS` / `OUTCOME_MARKERS` в `scripts/excalibur_blog_human_voice_gate.py`) и явные `min_pain_markers` / `min_outcome_markers` в `article_required_signals`.
+- Либо не применять дефолты min 2/3, если списки в policy отсутствуют.
+- Прогнать utility gate на AS09 и B05 → PASS без ложного BLOCK.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/editorial-utility-only.md`
+- `scripts/excalibur_blog_human_voice_gate.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261018-0930-geo-qa-cta-literal-redacted
+status: open
+run_date: 2026-10-18
+role: excalibur-blog-geo-qa
+topic_id: B05
+article_dir: memory/blog/articles/B05-kak-popolnit-els-fts-pered-rastamozhkoy-avto-2026
+severity: high
+category: qa
+
+### What went wrong
+- В `article.html` три CTA стоят как литерал `href="[REDACTED]"` (10 байт), а не как реальные HTTPS URL.
+- `link-verify` классифицирует их как `internal_relative` → `PUBLIC_SITE_URL/[REDACTED]` → HTTP 404 → link-verify FAIL.
+- Writer handoff явно отметил `href=[REDACTED] per secret policy` — избыточная редакция на этапе написания (AS09 хранит живые `avto-sales125.ru` / `t.me/...` URL).
+
+### How the agent recovered this run
+- FIX-лист writer: каталог×2 + Telegram×1 с рабочими URL из site-brief/env; longread иначе не трогали.
+
+### Durable fix needed before next run
+- В writer skill/contract: CTA URL брать из env/`catalog_url`/Telegram brief; в HTML писать реальные ссылки; `[REDACTED]` только при commit-скане отчётов, не как placeholder в article.html.
+- Добавить в pitfalls: literal `[REDACTED]` href = link-verify blocker.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/brief/site-brief.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261018-0931-geo-qa-edata-customs-ssl-timeout
+status: open
+run_date: 2026-10-18
+role: excalibur-blog-geo-qa
+topic_id: B05
+article_dir: memory/blog/articles/B05-kak-popolnit-els-fts-pered-rastamozhkoy-avto-2026
+severity: medium
+category: api
+
+### What went wrong
+- `link-verify` для `https://edata.customs.ru/FtsPersonalCabinetWeb/` падает: SSL handshake timed out (повтор timeout=45s тоже fail).
+- Родственно research WebFetch 504 на customs/edata (`INC-20261018-0915-research-customs-gov-webfetch-504`).
+- Soft-fail в скрипте есть только для social hosts (`t.me` и т.п.), не для ФТС.
+
+### How the agent recovered this run
+- Зафиксировано как blocker link-verify в article-qa; URL оставили (официальная точка входа из research); не требовали writer удалять ссылку до решения по soft-fail.
+
+### Durable fix needed before next run
+- Добавить soft-fail / retry / longer timeout для `edata.customs.ru` и `customs.gov.ru` в `excalibur_blog_link_verify.py`, либо документировать ручной verify + warning вместо FAIL.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+- related: `memory/pipeline-fix-queue.md#INC-20261018-0915-research-customs-gov-webfetch-504`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261018-0920-writer-precommit-secret-scanner-invalid-name
 status: open
 run_date: 2026-10-18

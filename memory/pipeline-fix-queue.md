@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261018-1318-research-tech-marker-false-positive
+status: open
+run_date: 2026-10-18
+role: excalibur-blog-research
+topic_id: B06
+article_dir: memory/blog/articles/B06-kia-k5-iz-korei-komplektatsii-lovushki-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marked AVTO SALES topic B06 as `technical_topic=true` and demanded 3 GitHub URLs.
+- Root cause: substring match on short TECH_MARKERS — `ai` inside required field `reader_pain`, `ии` inside Russian words like `истории`.
+- Section heading `github_evidence` could also self-trigger the technical path when present in the first 2000 chars.
+
+### How the agent recovered this run
+- Hotfixed `is_technical_topic`: word-boundary match for markers with length ≤ 3; strip `reader_pain` / `github_evidence` meta lines before scanning notes head.
+- Re-ran gate → PASS (`technical_topic: false`).
+- Did not invent GitHub URLs for an auto-import article.
+
+### Durable fix needed before next run
+- Keep the boundary/meta-strip logic (or replace TECH_MARKERS with whole-word / topic-card-only detection).
+- Add a regression test: notes with `reader_pain` + Russian `истории` on a non-tech topic must not require GitHub.
+- Document in `shared/agent-pipeline-pitfalls.md`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- optional: `tests/` or a small script smoke check
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (hotfix already in script; fixer should confirm + test + pitfalls)
+
 ## INC-20261018-1315-scout-live-reserved-ignored
 status: open
 run_date: 2026-10-18

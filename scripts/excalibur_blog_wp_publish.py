@@ -467,30 +467,41 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
+# Large bootstrap (~7MB with media) can exceed nginx/proxy idle limits; keep client wait ≥300s.
+HTTP_TRIGGER_TIMEOUT_SEC = 300
+WEBFETCH_WAIT_SEC = 300
+
+
 def trigger_bootstrap_http(url: str, root: Path) -> str:
     try:
-        print(f"Triggering HTTP publish on {url}...")
+        print(f"Triggering HTTP publish on {url} (timeout={HTTP_TRIGGER_TIMEOUT_SEC}s)...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=HTTP_TRIGGER_TIMEOUT_SEC,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
         print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
-        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
+        print(
+            f"Waiting up to {WEBFETCH_WAIT_SEC}s for cloud-agent to write "
+            "memory/webfetch-response.txt (curl --max-time ≥300)..."
+        )
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        for _ in range(WEBFETCH_WAIT_SEC):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {WEBFETCH_WAIT_SEC} seconds. "
+            "Please trigger manually or reconstruct via WP REST if the post already exists."
+        )
 
 
 def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
@@ -501,13 +512,26 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
 
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
+    out: str | None = None
     try:
         out = trigger_bootstrap_http(url, root)
     finally:
-        try:
-            delete_bootstrap_ssh(env, remote, uploaded_remote_path)
-        except Exception as cleanup_error:  # noqa: BLE001
-            print(f"WARN cleanup: could not delete bootstrap {remote}: {cleanup_error}", file=sys.stderr)
+        # Keep bootstrap until OK post= (success) or full wait TTL exhausted (out is None after timeout).
+        # Deleting early mid-flight made Cloud reconnect impossible when the client lost the HTTP body.
+        should_delete = out is None or "OK post=" in out
+        if should_delete:
+            try:
+                delete_bootstrap_ssh(env, remote, uploaded_remote_path)
+            except Exception as cleanup_error:  # noqa: BLE001
+                print(f"WARN cleanup: could not delete bootstrap {remote}: {cleanup_error}", file=sys.stderr)
+        else:
+            print(
+                f"WARN: leaving bootstrap {remote} in place (no OK post= in response). "
+                "Re-trigger FALLBACK_TRIGGER_URL or reconstruct via WP REST, then delete manually.",
+                file=sys.stderr,
+            )
+    if out is None:
+        raise RuntimeError("Publish bootstrap returned no response")
     return out
 
 

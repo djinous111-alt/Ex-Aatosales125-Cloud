@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/B08-kia-sportage-iz-korei-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 5,
+  "facts": [
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "плата при постановке на учёт; для физлиц с 01.12.2025 льготный режим держится при мощности менее 160 л.с",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ока. На странице спецификаций Kia в Корее (прогон 2026-10-19) в линейке Sportage видны 1.6 бензотурбо 18",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "а в мелочи карточки сидело Gasoline 1.6 T-GDI на 180 л.с. На таможне льготный утильсбор для физлица сор",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "146",
+      "kind": "large_number",
+      "context": "е. Сверяйте fuel и мощность: заводской 2.0 LPG на 146 л.с. – кандидат под личный ввоз; 1.6 турбо на 180",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "2.2025 льготный режим держится при мощности менее 160 л.с. Encar – корейская площадка объявлений. Perfor",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "510",
+      "kind": "large_number",
+      "context": "гажник меньше бензинового (в обзорах ориентир 586→510 л). Заправки пропаном прикиньте по маршруту. Нужен",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

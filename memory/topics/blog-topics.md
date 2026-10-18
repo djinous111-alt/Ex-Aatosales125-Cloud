@@ -184,3 +184,33 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B08 — Kia Sportage из Кореи
+
+- **priority:** P0
+- **slug:** kia-sportage-iz-korei-komplektatsii-lovushki-2026
+- **h1:** Kia Sportage из Кореи: как выбрать комплектацию и не попасть на ловушки в 2026
+- **primary_query:** спортейдж из кореи
+- **secondary_queries:** киа спортейдж из кореи, спортейдж на газу из кореи, киа спортейдж дизель из кореи
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Кому подходит Sportage из Кореи, а кому лучше смотреть другую модель
+  2. Что проверить в карточке Encar до депозита
+  3. Бензин, дизель и газ: какие ловушки у типичных лотов
+  4. Передний или полный привод: как выбрать под город и трассу
+  5. Красные флаги по пробегу, ДТП и мощности под льготный утиль
+  6. Чек-лист перед заказом Sportage из Кореи
+- **faq_hints:** стоит ли брать спортейдж на газу из кореи; какой год спортейджа лучше везти в 2026; чем 4 поколение отличается от 5 для ввоза
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у современного Kia Sportage на фоне порта Владивостока, смартфон с карточкой Encar, плашка «до депозита», угол avto-sales125.ru
+- **metrika_signal:** Zen rank 15 Sportage AWD vs 2WD; Wordstat «спортейдж из кореи» 2075; газ-хвост 514
+- **wordstat:**
+  - parent «авто из кореи»: 204476
+  - primary «спортейдж из кореи»: 2075
+  - mid «киа спортейдж из кореи»: 1528
+  - secondary «спортейдж на газу из кореи»: 514
+- **status_note:** scout 2026-10-19 forced B08 (helper suggested B01)

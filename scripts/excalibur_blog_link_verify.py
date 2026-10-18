@@ -104,7 +104,14 @@ def _get_fallback(
         }
 
 
+def is_redacted_href(href: str) -> bool:
+    token = href.strip().lower()
+    return token in {"[redacted]", "redacted"} or "[redacted]" in token
+
+
 def classify_link(href: str, site_base: str | None) -> str:
+    if is_redacted_href(href):
+        return "redacted_placeholder"
     if href.startswith("/"):
         return "internal_relative"
     parsed = urlparse(href)
@@ -143,6 +150,19 @@ def verify_article(
     results: list[dict[str, Any]] = []
     for href in links:
         kind = classify_link(href, site_base)
+        if kind == "redacted_placeholder":
+            results.append(
+                {
+                    "url": href,
+                    "kind": kind,
+                    "status": None,
+                    "ok": False,
+                    "skipped": False,
+                    "method": None,
+                    "error": "literal [REDACTED] href is forbidden; use absolute CTA from conversion-map / PUBLIC_SITE_URL",
+                }
+            )
+            continue
         if skip_external and kind == "external":
             results.append(
                 {

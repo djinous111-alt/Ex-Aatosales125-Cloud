@@ -1,0 +1,120 @@
+{
+  "gate": "human-voice",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B08-kia-sportage-iz-korei-komplektatsii-lovushki-2026",
+  "errors": [],
+  "warnings": [
+    "multiple exactly-5-step lists detected; vary list size when editorially possible"
+  ],
+  "metrics": {
+    "h2_count": 8,
+    "repeated_h2_openers": [],
+    "textbook_h2_count": 0,
+    "paragraph_count": 31,
+    "paragraph_avg_words": 31.0,
+    "paragraph_variance_ratio": 0.38,
+    "concrete_markers": [
+      "например",
+      "на практике",
+      "типичная ошибка"
+    ],
+    "pain_markers": [
+      "боль",
+      "ошиб"
+    ],
+    "outcome_markers": [
+      "результат",
+      "проверьте",
+      "соберите",
+      "выберите"
+    ],
+    "ai_opening_hits": [],
+    "reader_story_overlap": [
+      "encar",
+      "gasoline",
+      "signature",
+      "sportage",
+      "t-gdi",
+      "владивосток",
+      "внесла",
+      "выбрала",
+      "депозит",
+      "другой",
+      "искать",
+      "коммерческий",
+      "личный",
+      "льготный",
+      "мелочи",
+      "салона",
+      "семья",
+      "соседа",
+      "срочно",
+      "утиль"
+    ],
+    "reader_pain_overlap": [
+      "encar",
+      "signature",
+      "гибрид",
+      "красивый",
+      "льготный",
+      "таможне",
+      "утильсбор",
+      "физлица"
+    ],
+    "reader_outcome_overlap": [
+      "encar",
+      "sportage",
+      "депозита",
+      "дизель",
+      "коммерческий",
+      "комплектации",
+      "мотор",
+      "привод",
+      "утиль",
+      "чек-лист"
+    ],
+    "success_criteria_overlap": [
+      "check",
+      "performance",
+      "говорить",
+      "депозита",
+      "когда",
+      "мощность",
+      "понимает",
+      "привод",
+      "страховка",
+      "топливо",
+      "чек-лист"
+    ],
+    "voice_angle_overlap": [
+      "encar",
+      "одинаковые",
+      "разный",
+      "смотрит",
+      "утиль"
+    ],
+    "surprising_fact_overlap": [
+      "2026-10-19",
+      "encar",
+      "signature",
+      "sportage",
+      "актуальном",
+      "бензотурбо",
+      "более",
+      "внешне",
+      "гибрид",
+      "дизельные",
+      "дизеля",
+      "заводской",
+      "линейке",
+      "неотличим",
+      "партий",
+      "почти",
+      "ранних",
+      "спецификаций",
+      "только"
+    ],
+    "exactly_five_lists": 2,
+    "fact_check_template_blocks": 0
+  }
+}

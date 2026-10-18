@@ -1,0 +1,12 @@
+{
+  "topic_id": "B08",
+  "status": "reserved",
+  "slug": "kia-sportage-iz-korei-komplektatsii-lovushki-2026",
+  "primary_query": "спортейдж из кореи",
+  "h1": "Kia Sportage из Кореи: как выбрать комплектацию и не попасть на ловушки в 2026",
+  "next_forced_topic_id": "B09",
+  "reserved_at": "2026-10-19T00:10:00+03:00",
+  "run_date": "2026-10-19",
+  "source": "excalibur-blog-scout",
+  "note": "Forced B08 after published B07; helper --suggest-next still returned B01 on empty B-pool before append"
+}

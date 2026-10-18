@@ -30,9 +30,11 @@ Append new Topic Card to blog-topics.md
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
   Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+
+* Также читай `memory/topics/live-reserved.json` если файл есть: поле `next_forced_topic_id` имеет приоритет над max+1, пока этот id ещё не в ledger/active dirs. Helper `--suggest-next` печатает `Suggest source: live-reserved|max+1`.
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
@@ -47,7 +49,7 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
 Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
 

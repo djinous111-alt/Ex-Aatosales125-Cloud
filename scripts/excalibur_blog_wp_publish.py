@@ -73,6 +73,21 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
 
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
     root_label = ssh_root_label(env)
+    ssh_configured = bool(
+        env.get("SSH_HOST") and env.get("SSH_USER") and (env.get("SSH_PASS") or env.get("SSH_PASSWORD"))
+    )
+    paramiko_ok = False
+    paramiko_error = None
+    if ssh_configured:
+        try:
+            import paramiko  # noqa: F401
+
+            paramiko_ok = True
+        except Exception as exc:  # noqa: BLE001
+            paramiko_error = type(exc).__name__
+    missing = validate_publish_env(env)
+    if ssh_configured and not paramiko_ok:
+        missing = list(missing) + ["paramiko"]
     return {
         "allow_publish": env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes",
         "public_site_url_configured": bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")),
@@ -82,8 +97,10 @@ def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
             "password_configured": bool(env.get("SSH_PASS") or env.get("SSH_PASSWORD")),
             "root": root_label,
             "dot_fallback_enabled": root_label == "configured-non-dot",
+            "paramiko_import_ok": paramiko_ok if ssh_configured else None,
+            "paramiko_error": paramiko_error,
         },
-        "missing": validate_publish_env(env),
+        "missing": missing,
     }
 
 
@@ -468,11 +485,14 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
 
 
 def trigger_bootstrap_http(url: str, root: Path) -> str:
+    # Large PHP payloads (~7MB with cover+inline) often need >120s; B07+ uses 300s.
+    http_timeout_s = 300
+    fallback_wait_s = 300
     try:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=http_timeout_s,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
@@ -483,14 +503,16 @@ def trigger_bootstrap_http(url: str, root: Path) -> str:
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        for _ in range(fallback_wait_s):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {fallback_wait_s} seconds. Please trigger manually."
+        )
 
 
 def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:

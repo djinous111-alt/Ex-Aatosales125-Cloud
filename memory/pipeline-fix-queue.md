@@ -179,4 +179,150 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-paren
+commit: pending-parent-commit
+
+## INC-20260616-1950-scout-wordstat-format
+status: fixed
+run_date: 2026-06-16
+role: excalibur-blog-scout
+topic_id: B09
+article_dir: n/a
+severity: low
+category: api
+
+### What went wrong
+- `wordstat_get_top_requests` for the narrow phrase `как создать llms txt` returned an unexpected payload shape with only `totalCount`, so the tool wrapper could not print top phrases.
+
+### How the agent recovered this run
+- Used the successful broader Wordstat result for `llms.txt`, which included the full semantic tail and showed related actionable phrases such as `создать llms txt`.
+
+### Durable fix needed before next run
+- Make the Wordstat MCP wrapper handle low-result responses that include only `totalCount`, or document that Scout should query the broader cluster first.
+
+### Suggested files to inspect/change
+- `shared/pipeline-incident-fix-contract.md`
+- `agents/excalibur-blog-scout.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-06-16
+fix_summary:
+- Scout agent and skill now require Wordstat cluster-first validation: broad parent query before narrow how-to query.
+- `totalCount`-only responses are documented as low-result signals, not fatal tool/API failures; Scout should broaden the query and use the broad cluster for semantic tail.
+files_changed:
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
+commit: pending-parent-commit
+
+## INC-20260616-2031-indexer-python-missing
+status: fixed
+run_date: 2026-06-16
+role: excalibur-blog-indexer
+topic_id: B09
+article_dir: memory/blog/articles/B09-sozdat-llms-txt-dlya-sajta
+severity: low
+category: env
+
+### What went wrong
+- The Indexer contract requested `python scripts/excalibur_blog_interlinker.py ...`, but the Cloud shell has no `python` executable.
+- The first interlinker command failed with `python: command not found`, forcing a retry.
+
+### How the agent recovered this run
+- Re-ran the same interlinker command with `python3`, then used `python3` for the llms generator.
+- Both scripts completed successfully after the retry.
+
+### Durable fix needed before next run
+- Standardize Indexer shell examples on `python3` or provide a `python` alias in the Cloud environment.
+
+### Suggested files to inspect/change
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/environment.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-06-16
+fix_summary:
+- Indexer agent and skill shell examples now use `python3` for interlinker and llms generator.
+- Publish post-publish interlinker example also uses `python3`.
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
+commit: pending-parent-commit
+
+
+## INC-20260616-2042-publish-ssh-root-dot
+status: fixed
+run_date: 2026-06-16
+role: excalibur-blog-publish
+topic_id: B09
+article_dir: memory/blog/articles/B09-sozdat-llms-txt-dlya-sajta
+severity: low
+category: publish
+
+### What went wrong
+- A safe env-preflight wrapper initially imported `excalibur_blog_wp_publish.py` without adding `scripts/` to `sys.path`, causing `ModuleNotFoundError: asset_download`; the check was re-run with the correct `sys.path`.
+- The first real publish attempt connected over SSH but failed before upload with `FileNotFoundError/ENOENT` because the configured publish root path does not exist inside the SSH account cwd.
+- Commit was blocked by Cursor secret-scan because `PUBLIC_SITE_URL`/`WP_SITE_URL` are configured as secrets and appeared in staged publish artifacts; committed copies were redacted to `[REDACTED]` to match repository policy.
+
+### How the agent recovered this run
+- Re-ran the env check with `scripts/` on `sys.path`; allow flag, public URL and SSH settings were confirmed without printing secret values.
+- Retried publish with `SSH_ROOT=.` so the bootstrap was written to the SSH login cwd; WordPress post, featured image, 3 inline images and schema meta published successfully.
+- Replaced public site base in committed artifacts with `[REDACTED]`; live permalink remains available in local runtime handoff and WordPress result before redaction.
+
+### Durable fix needed before next run
+- Update Cloud publish root secret to `.` (or remove invalid panel path) for this SSH account, or make `excalibur_blog_wp_publish.py` auto-probe `.` when configured root returns ENOENT before bootstrap upload.
+- Document that direct import of publish helpers in ad-hoc checks needs `scripts/` on `sys.path`, or expose a tiny env-check CLI in the script.
+- Decide whether `PUBLIC_SITE_URL` should remain a secret-scanned value; if yes, keep committed examples/results redacted by contract.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- Cursor Dashboard Cloud Secrets (`SSH_ROOT` only; no secret values recorded here)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-06-16
+fix_summary:
+- `excalibur_blog_wp_publish.py` now has `--env-check` for safe publish env validation without ad-hoc imports or secret output.
+- SSH bootstrap upload now retries once at `.` when a configured non-dot root returns ENOENT, and cleanup deletes the actual uploaded remote path.
+- Publish skill/runbook document the env-check CLI, `scripts/` sys.path guidance for ad-hoc imports, and the optional Cloud Secret root update to `.` if fallback warning appears.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
+- `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
+commit: pending-parent-commit
+
+## Fixed incidents
+
+Handled above; commit is pending Director review.

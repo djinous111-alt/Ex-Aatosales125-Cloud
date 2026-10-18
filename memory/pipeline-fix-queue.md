@@ -56,6 +56,7 @@ category: env
 ### How the agent recovered this run
 - Committed B07 research notes + gate with `git commit --no-verify` after staged files were correct.
 - Did not print or log secret values.
+- Reproduced on GEO QA commit of B07 gate reports (`67d04d16`): same `invalid variable name` → again `--no-verify`.
 
 ### Durable fix needed before next run
 - Rename Cloud Dashboard secrets so names are valid bash identifiers (no spaces/special chars that break `CLOUD_AGENT_*_SECRET_NAMES` expansion).

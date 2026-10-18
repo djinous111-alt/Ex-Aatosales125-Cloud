@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261018-1320-writer-utility-pain-outcome-markers-missing
+status: open
+run_date: 2026-10-18
+role: excalibur-blog-writer
+topic_id: B06
+article_dir: memory/blog/articles/B06-kia-k5-iz-korei-komplektatsii-lovushki-2026
+severity: high
+category: docs
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` counts `pain_markers_ru` / `outcome_markers_ru` from `memory/brief/editorial-policy.json`, but those lists were absent.
+- Defaults `min_pain_markers=2` and `min_outcome_markers=3` then always BLOCK every article (counts stay 0).
+- Separately, recommendation markers require exact phrases like "сделайте" / "не делайте"; "Делать:" / "Не делать:" does not count.
+
+### How the agent recovered this run
+- Added `pain_markers_ru`, `outcome_markers_ru`, and min counts to `editorial-policy.json` (aligned with human-voice gate lists).
+- Rewrote B06 article recommendations to use policy markers; utility gate PASS.
+
+### Durable fix needed before next run
+- Keep marker lists in editorial-policy in sync with `excalibur_blog_human_voice_gate.py` CONCRETE/PAIN/OUTCOME sets (or load one shared source).
+- Document in writer skill: use "Сделайте/Не делайте/Проверьте", not "Делать/Не делать".
+- Optional: if marker list empty, skip that check instead of hard-failing.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261018-1318-research-tech-marker-false-positive
 status: open
 run_date: 2026-10-18

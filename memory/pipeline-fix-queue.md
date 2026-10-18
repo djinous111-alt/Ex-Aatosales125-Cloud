@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261018-1331-indexer-skill-stale-blog-path
+status: open
+run_date: 2026-10-18
+role: excalibur-blog-indexer
+topic_id: B06
+article_dir: memory/blog/articles/B06-kia-k5-iz-korei-komplektatsii-lovushki-2026
+severity: low
+category: docs
+
+### What went wrong
+- Indexer skill/agent CLI still documents `excalibur_blog_llms_generator.py --blog-path /`, but the script argparse only accepts `--blog-dir`, `--site-base`, `--out-dir` (no `--blog-path`).
+- Doctor already fixed (INC-20261018-1302), but `.cursor/skills/indexer-excalibur-blog/SKILL.md`, `skills/indexer-excalibur-blog/SKILL.md`, `.cursor/agents/excalibur-blog-indexer.md`, and `agents/excalibur-blog-indexer.md` still show the stale flag.
+
+### How the agent recovered this run
+- Ran llms generator without `--blog-path` (per director prompt + actual `--help`): PASS → `memory/blog/llms.txt`, `memory/blog/llms-full.txt`.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer skill + agent contracts; keep only `--blog-dir` + `--site-base` + `--out-dir`.
+- Align example CLI with `scripts/excalibur_blog_llms_generator.py --help`.
+
+### Suggested files to inspect/change
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261018-1328-cover-mcp-32001-kie-api-recovery
 status: open
 run_date: 2026-10-18

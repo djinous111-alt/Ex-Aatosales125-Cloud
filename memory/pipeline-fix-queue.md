@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261018-1706-scout-suggest-next-ignores-live-reserved
+status: open
+run_date: 2026-10-18
+role: excalibur-blog-scout
+topic_id: B07
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_scout_helper.py --suggest-next` returned `B01` because the B-pool in `blog-topics.md` was empty, ignoring `memory/topics/live-reserved.json` → `next_forced_topic_id: B07`.
+- Scout must FORCE the reserved id every run; without that override the pipeline would restart the B-series and risk topic collisions after published B01–B06.
+
+### How the agent recovered this run
+- Used Director FORCE `B07` from `live-reserved.json` and ignored helper suggestion.
+- Appended card `## B07` with slug `rastamozhka-avto-iz-kitaya-chek-list-2026`, advanced `next_forced_topic_id` to `B08`, added slug to `denylist_slugs`.
+- Utility gate PASS for B07.
+
+### Durable fix needed before next run
+- Make `--suggest-next` read `memory/topics/live-reserved.json` and prefer `next_forced_topic_id` when set and not yet present as a B-card.
+- Document the FORCE rule in scout skill/agent so Cursor/Make niche drift does not override Avto-Sales reserved ids.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

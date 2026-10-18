@@ -1,0 +1,15 @@
+{
+  "policy_id": "utility_only_v1",
+  "overall": "PASS",
+  "reports": [
+    {
+      "gate": "topic",
+      "topic_id": "B05",
+      "status": "PASS",
+      "search_intent": "checklist",
+      "article_mode": "B",
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

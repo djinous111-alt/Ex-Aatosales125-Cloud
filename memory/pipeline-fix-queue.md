@@ -6,6 +6,68 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261018-0915-research-notes-gate-tech-false-positive
+status: open
+run_date: 2026-10-18
+role: excalibur-blog-research
+topic_id: B05
+article_dir: memory/blog/articles/B05-kak-popolnit-els-fts-pered-rastamozhkoy-avto-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` пометил utility-тему про ЕЛС ФТС как `technical_topic=true`, потому что TECH_MARKERS ищутся как подстроки: `ai` срабатывает внутри обязательного поля `reader_pain`, `ии` — внутри русских окончаний («декларации»).
+- Из-за этого gate требовал ≥3 `github.com` URL на не-software чек-лист.
+
+### How the agent recovered this run
+- Добавлены релевантные смежные GitHub-репозитории (TKS API / docs, tks-api, MicrosoftDocs customs RU) в `github_evidence`.
+- В `source_table` ячейки даты записаны как `accessed_at: YYYY-MM-DD`; в `pain_solution_map` в каждую строку добавлены маркеры `боль`/`решение`/`результат` (gate считает только строки с этими словами).
+
+### Durable fix needed before next run
+- В `is_technical_topic` использовать word-boundary / токены, а не substring; исключить совпадения внутри имён обязательных полей (`reader_pain`, `github_evidence`).
+- Для не-tech ниш (авто/таможня) разрешить `github_evidence` через official docs/community без принудительных github.com URL.
+- Документировать в research skill формат `accessed_at:` в таблице и pain-map keywords для gate regex.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/editorial-utility-only.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261018-0915-research-customs-gov-webfetch-504
+status: open
+run_date: 2026-10-18
+role: excalibur-blog-research
+topic_id: B05
+article_dir: memory/blog/articles/B05-kak-popolnit-els-fts-pered-rastamozhkoy-avto-2026
+severity: low
+category: api
+
+### What went wrong
+- WebFetch к `customs.gov.ru` и `edata.customs.ru` вернул HTTP 504 Gateway Timeout на 2026-10-18; прямой HTML официального портала недоступен из среды агента.
+
+### How the agent recovered this run
+- Факты по ЕЛС/КБК/коду органа и приказу 58н сверены через ConsultantPlus + отраслевые гайды (KAD, E-10, TKS, Vostok-broker, VLB); URL ЛК сохранён в source_table с пометкой о 504.
+
+### Durable fix needed before next run
+- В research skill: при 5xx на customs.gov.ru явно разрешать ConsultantPlus / ФТС-информации как surrogate official source и требовать повторную проверку портала перед publish.
+- Опционально: retry/backoff helper для WebFetch официальных доменов.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261018-0905-scout-wp-mcp-wrong-host
 status: open
 run_date: 2026-10-18

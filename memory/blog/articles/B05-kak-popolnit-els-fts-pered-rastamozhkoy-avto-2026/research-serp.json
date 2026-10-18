@@ -1,0 +1,621 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-18",
+    "today_ru": "18.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-20",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-18 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B05",
+    "priority": "P0",
+    "slug": "kak-popolnit-els-fts-pered-rastamozhkoy-avto-2026",
+    "h1": "Как пополнить ЕЛС ФТС перед растаможкой авто: чек-лист 2026",
+    "primary_query": "как пополнить елс фтс",
+    "secondary_queries": [
+      "елс фтс личный кабинет",
+      "пополнение елс фтс",
+      "реквизиты елс фтс",
+      "как быстро зачисляются деньги на елс фтс"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как пополнить елс фтс 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как пополнить ЕЛС через личный кабинет ФТС",
+          "url": "https://vostok-broker.ru/blog/2025-08-27",
+          "snippet": ""
+        },
+        {
+          "title": "ФТС: как оплатить таможенные платежи в 2026 году — пошаговая инструкция ...",
+          "url": "https://auto-praktis.vercel.app/articles/f/ft/fts-oplata-tamozhennykh-platezhej.html",
+          "snippet": "📌 Как пополнить ЕЛС через личный кабинет ФТС - Vostok-broker инструкции и актуальное таможенное законодательство, актуальные таможенные ставки 2026, разбор подводных камней."
+        },
+        {
+          "title": "Федеральная таможенная служба",
+          "url": "https://customs.gov.ru/uchastnikam-ved/uplata-tamozhennyx-i-inyx-platezhej/edinyj-liczevoj-schet",
+          "snippet": "Эта статья поможет разобраться, как оплатить таможенные пошлины, НДС, акцизы и сборы через личный кабинет ФТС, банковские сервисы или терминалы. Мы детально рассмотрим каждый метод, сравним комиссии, сроки и типичные ошибки, а также дадим рекомендации для физических и юридических лиц."
+        },
+        {
+          "title": "Как Оплатить Таможенные Платежи В 2026: Елс Фтс, Кбк, Списание - Insal",
+          "url": "https://insal.ru/blog/kak-oplatit-tamozhennye-platezhi-els-kbk/",
+          "snippet": "Открытие единых лицевых счетов, физическим лицам, имеющим ИНН. Как открыть лицевой счет?"
+        },
+        {
+          "title": "Федеральная таможенная служба",
+          "url": "https://customs.gov.ru/fiz/uplata-tamozhennyx-platezhej/servis-uplaty-tamozhennyx-platezhej-fizicheskimi-liczami-v-otnoshenii-tovarov-dlya-lichnogo-pol-zovaniya/prodlenie-aprobaczii-servisa-po-rasporyazheniyu-avansovymi-platezhami-v-schet-ispolneniya-obyazannosti-po-uplate-tamozhennyx-platezhej-v-otnoshenii-tovarov-dlya-lichnogo-pol-zovaniya",
+          "snippet": "Пошлина, НДС и сборы: как оплатить таможенные платежи через ЕЛС ФТС, где брать КБК, как проверить зачисление и что делать при недостаче или переплате."
+        },
+        {
+          "title": "ЕЛС ФТС России, единый лицевой счет: как открыть и пополнить, вход в ...",
+          "url": "https://iclcargo.ru/stati/edinyy-licevoy-schet-els-v-tamozhne-rf/",
+          "snippet": "Все что необходимо сделать - это заблаговременно пополнить единый лицевой счет в Личном кабинете, найти свою квитанцию в сервисе «Таможенные квитанции», и нажать кнопку «Отправить распоряжение о списании». Списание таможенных платежей происходит мгновенно."
+        }
+      ],
+      "searched_at": "2026-10-18"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как пополнить елс фтс октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как пополнить ЕЛС через личный кабинет ФТС",
+          "url": "https://vostok-broker.ru/blog/2025-08-27",
+          "snippet": ""
+        },
+        {
+          "title": "ФТС: как оплатить таможенные платежи в 2026 году — пошаговая инструкция ...",
+          "url": "https://auto-praktis.vercel.app/articles/f/ft/fts-oplata-tamozhennykh-platezhej.html",
+          "snippet": "📌 Как пополнить ЕЛС через личный кабинет ФТС - Vostok-broker инструкции и актуальное таможенное законодательство, актуальные таможенные ставки 2026, разбор подводных камней."
+        },
+        {
+          "title": "Федеральная таможенная служба",
+          "url": "https://customs.gov.ru/uchastnikam-ved/uplata-tamozhennyx-i-inyx-platezhej/edinyj-liczevoj-schet",
+          "snippet": "Эта статья поможет разобраться, как оплатить таможенные пошлины, НДС, акцизы и сборы через личный кабинет ФТС, банковские сервисы или терминалы. Мы детально рассмотрим каждый метод, сравним комиссии, сроки и типичные ошибки, а также дадим рекомендации для физических и юридических лиц."
+        },
+        {
+          "title": "Как Оплатить Таможенные Платежи В 2026: Елс Фтс, Кбк, Списание - Insal",
+          "url": "https://insal.ru/blog/kak-oplatit-tamozhennye-platezhi-els-kbk/",
+          "snippet": "Открытие единых лицевых счетов, физическим лицам, имеющим ИНН. Как открыть лицевой счет?"
+        },
+        {
+          "title": "Уплата таможенных платежей: процедура и ЕЛС ФТС",
+          "url": "https://oplata-importa.ru/vse-platezhi-importera/uplata-tamozhennyh-platezhey/",
+          "snippet": "Пошлина, НДС и сборы: как оплатить таможенные платежи через ЕЛС ФТС, где брать КБК, как проверить зачисление и что делать при недостаче или переплате."
+        },
+        {
+          "title": "ЕЛС ФТС России, единый лицевой счет: как открыть и пополнить, вход в ...",
+          "url": "https://iclcargo.ru/stati/edinyy-licevoy-schet-els-v-tamozhne-rf/",
+          "snippet": "Порядок мы сверяли в августе 2026 года. Реквизиты, коды бюджетной классификации и интерфейс личного кабинета живут своей жизнью, поэтому перед самым платежом загляните на официальный сайт ФТС."
+        }
+      ],
+      "searched_at": "2026-10-18"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как пополнить елс фтс новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как пополнить ЕЛС через личный кабинет ФТС",
+          "url": "https://vostok-broker.ru/blog/2025-08-27",
+          "snippet": ""
+        },
+        {
+          "title": "ФТС: как оплатить таможенные платежи в 2026 году — пошаговая инструкция ...",
+          "url": "https://auto-praktis.vercel.app/articles/f/ft/fts-oplata-tamozhennykh-platezhej.html",
+          "snippet": "📌 Как пополнить ЕЛС через личный кабинет ФТС - Vostok-broker инструкции и актуальное таможенное законодательство, актуальные таможенные ставки 2026, разбор подводных камней."
+        },
+        {
+          "title": "Федеральная таможенная служба",
+          "url": "https://customs.gov.ru/uchastnikam-ved/uplata-tamozhennyx-i-inyx-platezhej/edinyj-liczevoj-schet",
+          "snippet": "Эта статья поможет разобраться, как оплатить таможенные пошлины, НДС, акцизы и сборы через личный кабинет ФТС, банковские сервисы или терминалы. Мы детально рассмотрим каждый метод, сравним комиссии, сроки и типичные ошибки, а также дадим рекомендации для физических и юридических лиц."
+        },
+        {
+          "title": "Уплата таможенных платежей: процедура и ЕЛС ФТС",
+          "url": "https://oplata-importa.ru/vse-platezhi-importera/uplata-tamozhennyh-platezhey/",
+          "snippet": "Открытие единых лицевых счетов, физическим лицам, имеющим ИНН. Как открыть лицевой счет?"
+        },
+        {
+          "title": "ЕЛС ФТС России, единый лицевой счет: как открыть и пополнить, вход в ...",
+          "url": "https://iclcargo.ru/stati/edinyy-licevoy-schet-els-v-tamozhne-rf/",
+          "snippet": "Порядок мы сверяли в августе 2026 года. Реквизиты, коды бюджетной классификации и интерфейс личного кабинета живут своей жизнью, поэтому перед самым платежом загляните на официальный сайт ФТС."
+        },
+        {
+          "title": "Федеральная таможенная служба",
+          "url": "https://customs.gov.ru/fiz/uplata-tamozhennyx-platezhej/servis-uplaty-tamozhennyx-platezhej-fizicheskimi-liczami-v-otnoshenii-tovarov-dlya-lichnogo-pol-zovaniya/prodlenie-aprobaczii-servisa-po-rasporyazheniyu-avansovymi-platezhami-v-schet-ispolneniya-obyazannosti-po-uplate-tamozhennyx-platezhej-v-otnoshenii-tovarov-dlya-lichnogo-pol-zovaniya",
+          "snippet": "Центр электронного декларирования (ЦЭД) и Единый лицевой счёт (ЕЛС) стали основными инструментами современной таможенной системы. Эти нововведения не просто упростили процедуры — они полностью изменили логику работы с таможней."
+        }
+      ],
+      "searched_at": "2026-10-18"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как пополнить елс фтс 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Пополнить Стим без комиссии 2026: Честное сравнение всех способов ...",
+          "url": "https://gist.github.com/walterquine/23e3909fa291a36cd1f31160209d6117",
+          "snippet": ""
+        },
+        {
+          "title": "Как пополнить Steam через криптовалюту в 2026 году — подробный гид для ...",
+          "url": "https://gist.github.com/deddingsummer5/3d7070d78347334593aa4fbec5f799d7",
+          "snippet": "В этом честном материале мы разберем все способы пополнения Steam, покажем реальные комиссии и расскажем, как максимально сократить переплаты."
+        },
+        {
+          "title": "Как пополнить Steam из России в 2026 году - GitHub",
+          "url": "https://github.com/Kak-Popolnit-Steam-Iz-Rossii-v-2026",
+          "snippet": "В 2026 году ситуация с оплатой цифрового контента в Steam остаётся сложной для пользователей из России, Казахстана, Беларуси и других стран СНГ."
+        },
+        {
+          "title": "Как пополнить Steam через МТС в 2026 году - GitHub",
+          "url": "https://github.com/Kak-Popolnit-Steam-MTS-2026",
+          "snippet": "После 2022 года пополнить стим российской картой напрямую стало невозможно. Valve Corporation отключила все российские платежные системы из-за санкций и блокировки SWIFT для крупнейших банков РФ."
+        },
+        {
+          "title": "Как пополнить русский Стим в 2026 году: гайд на пополнение русского ...",
+          "url": "https://gist.github.com/jasonelevynbo/a246e6629bba8d26a9ccbfe8c0f9e0c2/86f2aa8db64199d74ddcda1d16575a8639ac4df7",
+          "snippet": "В условиях 2025 года, когда традиционные методы пополнения Стима через МТС стали недоступны или крайне неудобны, Telegram боты стали настоящим спасением для геймеров."
+        },
+        {
+          "title": "Пополнить Steam из России в 2026 году: все рабочие способы, комиссии и ...",
+          "url": "https://gist.github.com/forcemaredart/a620f07c011c8566dd1b9f10e2a2c47e",
+          "snippet": "В этом материале разберём проверенные способы, как безопасно пополнить русский Стим с использованием российских платёжных инструментов: СБП, карт МИР и криптовалюты."
+        }
+      ],
+      "searched_at": "2026-10-18"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как пополнить елс фтс official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как пополнить ЕЛС через личный кабинет ФТС",
+          "url": "https://vostok-broker.ru/blog/2025-08-27",
+          "snippet": ""
+        },
+        {
+          "title": "Федеральная таможенная служба",
+          "url": "https://customs.gov.ru/uchastnikam-ved/uplata-tamozhennyx-i-inyx-platezhej/edinyj-liczevoj-schet",
+          "snippet": "📌 Как пополнить ЕЛС через личный кабинет ФТС - Vostok-broker инструкции и актуальное таможенное законодательство, актуальные таможенные ставки 2026, разбор подводных камней."
+        },
+        {
+          "title": "Как открыть единый лицевой счёт (ЕЛС) в ФТС — инструкция для новичка",
+          "url": "https://www.rosfirm.ru/companies_news/otkrytie-els-v-fts-s-chego-nachinaet-rabotu-novyj-uchastnik-n790422.htm",
+          "snippet": "Открытие единых лицевых счетов, физическим лицам, имеющим ИНН. Как открыть лицевой счет?"
+        },
+        {
+          "title": "ЕЛС ФТС России, единый лицевой счет: как открыть и пополнить, вход в ...",
+          "url": "https://iclcargo.ru/stati/edinyy-licevoy-schet-els-v-tamozhne-rf/",
+          "snippet": "Что такое ЕЛС участника ВЭД, зачем он нужен и как зарегистрировать личный кабинет на портале ФТС в 2026 году."
+        },
+        {
+          "title": "Таможенный единый лицевой счёт (ЕУЛС): открытие, пополнение, списание и ...",
+          "url": "https://vostoktransholding.ru/blog/chto-takoe-tamozhennyj-edinyj-licevoj-schet-euls/",
+          "snippet": "Теперь не нужно стоять в очередях на таможенных постах, носить стопки документов и переживать из-за опечаток в бумажных справках. Всё делается через интернет: подача деклараций, оплата платежей, получение разрешений, отслеживание статуса грузов. Главное — разобраться, как это работает."
+        },
+        {
+          "title": "Таможенное платёжное поручение 2026: как заполнить, реквизиты, КБК и ...",
+          "url": "https://vostoktransholding.ru/blog/tamozhennoe-platezhnoe-poruchenie-2026/",
+          "snippet": "Подробный экспертный гид по таможенному единому лицевому счёту (ЕУЛС): что такое ЕЛС, как открыть и пополнить счёт, как списываются средства, где посмотреть остаток и движения по ЕЛС ..."
+        }
+      ],
+      "searched_at": "2026-10-18"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как пополнить елс фтс forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как пополнить ЕЛС через личный кабинет ФТС",
+          "url": "https://vostok-broker.ru/blog/2025-08-27",
+          "snippet": ""
+        },
+        {
+          "title": "Как Оплатить Таможенные Платежи В 2026: Елс Фтс, Кбк, Списание - Insal",
+          "url": "https://insal.ru/blog/kak-oplatit-tamozhennye-platezhi-els-kbk/",
+          "snippet": "📌 Как пополнить ЕЛС через личный кабинет ФТС - Vostok-broker инструкции и актуальное таможенное законодательство, актуальные таможенные ставки 2026, разбор подводных камней."
+        },
+        {
+          "title": "Новый функционал ЕЛС 2026 — что изменилось в 2026",
+          "url": "https://vitvetbk.ru/blog/novyy-funktsional-els-2026-chto-izmenilos-v-2026.html",
+          "snippet": "Пошлина, НДС и сборы: как оплатить таможенные платежи через ЕЛС ФТС, где брать КБК, как проверить зачисление и что делать при недостаче или переплате."
+        },
+        {
+          "title": "Федеральная таможенная служба",
+          "url": "https://customs.gov.ru/fiz/uplata-tamozhennyx-platezhej/servis-uplaty-tamozhennyx-platezhej-fizicheskimi-liczami-v-otnoshenii-tovarov-dlya-lichnogo-pol-zovaniya/prodlenie-aprobaczii-servisa-po-rasporyazheniyu-avansovymi-platezhami-v-schet-ispolneniya-obyazannosti-po-uplate-tamozhennyx-platezhej-v-otnoshenii-tovarov-dlya-lichnogo-pol-zovaniya",
+          "snippet": "С 2026 года ФТС реализовала единый реестр обеспечений внутри ЕЛС: все действующие инструменты отображаются в одном интерфейсе, а суммарный лимит рассчитывается автоматически."
+        },
+        {
+          "title": "ФТС: как оплатить таможенные платежи в 2026 году — пошаговая инструкция ...",
+          "url": "https://auto-praktis.vercel.app/articles/f/ft/fts-oplata-tamozhennykh-platezhej.html",
+          "snippet": "Все что необходимо сделать - это заблаговременно пополнить единый лицевой счет в Личном кабинете, найти свою квитанцию в сервисе «Таможенные квитанции», и нажать кнопку «Отправить распоряжение о списании». Списание таможенных платежей происходит мгновенно."
+        },
+        {
+          "title": "Как оплатить таможенные платежи в 2026 году: ЕЛС ФТС, КБК и контроль ...",
+          "url": "https://dzen.ru/a/aZbiN-WwpxOc1COv",
+          "snippet": "Эта статья поможет разобраться, как оплатить таможенные пошлины, НДС, акцизы и сборы через личный кабинет ФТС, банковские сервисы или терминалы. Мы детально рассмотрим каждый метод, сравним комиссии, сроки и типичные ошибки, а также дадим рекомендации для физических и юридических лиц."
+        }
+      ],
+      "searched_at": "2026-10-18"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "елс фтс личный кабинет 2026",
+      "purpose": "вторичный запрос: елс фтс личный кабинет",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "ФТС Личный кабинет участника ВЭД",
+          "url": "https://edata.customs.ru/FtsPersonalCabinetWeb/",
+          "snippet": ""
+        },
+        {
+          "title": "ФТС Личный кабинет",
+          "url": "https://edata.customs.ru/FtsPersonalCabinetWeb/Mobile",
+          "snippet": "Загрузка..."
+        },
+        {
+          "title": "Федеральная таможенная служба",
+          "url": "https://customs.gov.ru/uchastnikam-ved/uplata-tamozhennyx-i-inyx-platezhej/edinyj-liczevoj-schet",
+          "snippet": "Загрузка..."
+        },
+        {
+          "title": "Федеральная таможенная служба",
+          "url": "https://customs.gov.ru/",
+          "snippet": "Открытие единых лицевых счетов, физическим лицам, имеющим ИНН. Как открыть лицевой счет?"
+        },
+        {
+          "title": "Федеральная таможенная служба",
+          "url": "https://limited.customs.gov.ru/cabinet/login",
+          "snippet": "На период проведения регламентных работ совершение необходимых операций в морских портах может осуществляться с использованием личного кабинета и информационных систем морских ..."
+        },
+        {
+          "title": "ФТС Личный кабинет участника ВЭД",
+          "url": "https://web02.edata.customs.gov.ru/FtsPersonalCabinetWeb2017/",
+          "snippet": "Обычная версия сайта Личный кабинет участника ВЭД Личный кабинет граждан Федеральная таможенная служба Все права защищены © 2004-2026"
+        }
+      ],
+      "searched_at": "2026-10-18"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "пополнение елс фтс 2026",
+      "purpose": "вторичный запрос: пополнение елс фтс",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Федеральная таможенная служба",
+          "url": "https://customs.gov.ru/uchastnikam-ved/uplata-tamozhennyx-i-inyx-platezhej/edinyj-liczevoj-schet",
+          "snippet": ""
+        },
+        {
+          "title": "Как пополнить ЕЛС через личный кабинет ФТС",
+          "url": "https://vostok-broker.ru/blog/2025-08-27",
+          "snippet": "Открытие единых лицевых счетов, физическим лицам, имеющим ИНН. Как открыть лицевой счет?"
+        },
+        {
+          "title": "Как Оплатить Таможенные Платежи В 2026: Елс Фтс, Кбк, Списание - Insal",
+          "url": "https://insal.ru/blog/kak-oplatit-tamozhennye-platezhi-els-kbk/",
+          "snippet": "📌 Как пополнить ЕЛС через личный кабинет ФТС - Vostok-broker инструкции и актуальное таможенное законодательство, актуальные таможенные ставки 2026, разбор подводных камней."
+        },
+        {
+          "title": "Федеральная таможенная служба",
+          "url": "https://customs.gov.ru/fiz/uplata-tamozhennyx-platezhej/servis-uplaty-tamozhennyx-platezhej-fizicheskimi-liczami-v-otnoshenii-tovarov-dlya-lichnogo-pol-zovaniya/prodlenie-aprobaczii-servisa-po-rasporyazheniyu-avansovymi-platezhami-v-schet-ispolneniya-obyazannosti-po-uplate-tamozhennyx-platezhej-v-otnoshenii-tovarov-dlya-lichnogo-pol-zovaniya",
+          "snippet": "На практике деньги должны корректно попасть на единый лицевой счёт (ЕЛС), а в платёжке должны быть правильные КБК — иначе можно легко устроить себе платную экскурсию \"склад временного хранения\". Ниже — пошагово, как платить таможенные платежи так, чтобы груз не завис."
+        },
+        {
+          "title": "ФТС: как оплатить таможенные платежи в 2026 году — пошаговая инструкция ...",
+          "url": "https://auto-praktis.vercel.app/articles/f/ft/fts-oplata-tamozhennykh-platezhej.html",
+          "snippet": "Все что необходимо сделать - это заблаговременно пополнить единый лицевой счет в Личном кабинете, найти свою квитанцию в сервисе «Таможенные квитанции», и нажать кнопку «Отправить распоряжение о списании». Списание таможенных платежей происходит мгновенно."
+        },
+        {
+          "title": "ФТС Личный кабинет участника ВЭД",
+          "url": "https://edata.customs.ru/FtsPersonalCabinetWeb/",
+          "snippet": "Эта статья поможет разобраться, как оплатить таможенные пошлины, НДС, акцизы и сборы через личный кабинет ФТС, банковские сервисы или терминалы. Мы детально рассмотрим каждый метод, сравним комиссии, сроки и типичные ошибки, а также дадим рекомендации для физических и юридических лиц."
+        }
+      ],
+      "searched_at": "2026-10-18"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "реквизиты елс фтс 2026",
+      "purpose": "вторичный запрос: реквизиты елс фтс",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Реквизиты для оплаты таможенных платежей",
+          "url": "https://customs.gov.ru/fiz/uplata-tamozhennyx-platezhej/rekvizity-scheta-dlya-perechisleniya-tamozhennyx-i-inyx-platezhej",
+          "snippet": ""
+        },
+        {
+          "title": "Таможенное платёжное поручение 2026: как заполнить, реквизиты, КБК и ...",
+          "url": "https://vostoktransholding.ru/blog/tamozhennoe-platezhnoe-poruchenie-2026/",
+          "snippet": "QR-код предназначен для автоматического заполнения реквизитов распоряжения о переводе денежных средств на отдельный счет ФТС России."
+        },
+        {
+          "title": "Федеральная таможенная служба",
+          "url": "https://customs.gov.ru/uchastnikam-ved/uplata-tamozhennyx-i-inyx-platezhej/edinyj-liczevoj-schet",
+          "snippet": "Подробное руководство по таможенному платёжному поручению: как заполнить документ в 2026 году, какие нужны реквизиты, КБК таможенных платежей, особенности ЕЛС ФТС и порядок уплаты ..."
+        },
+        {
+          "title": "Информация ФТС России \"Реквизиты счета для перечисления таможенных и ...",
+          "url": "https://www.consultant.ru/document/cons_doc_LAW_289889/",
+          "snippet": "Открытие единых лицевых счетов, физическим лицам, имеющим ИНН. Как открыть лицевой счет?"
+        },
+        {
+          "title": "Северо-Западное таможенное управление",
+          "url": "https://sztu.customs.gov.ru/uplata-i-vozvrat-tamozhennyx-i-inyx-platezhej/rekvizity-dlya-uplaty-tamozhennyx-i-inyx-platezhej-i-poryadok-dejstvij-platel-shhikov-v-sluchae-vyyavleniya-oshibok-v-platezhnyx-dokumentax",
+          "snippet": "При заполнении платежного поручения также заполняются следующие реквизиты: - Показатель статуса плательщика (реквизит \"101\"):"
+        },
+        {
+          "title": "Северо-Западное таможенное управление",
+          "url": "https://sztu.customs.gov.ru/ved/edinye-liczevye-scheta-uchastnikov-/rekvizity-dlya-uplaty-tamozhennyx-i-inyx-platezhej-i-poryadok-dejstvij-platel-shhikov-v-sluchae-vyyavleniya-oshibok-v-platezhnyx-dokumentax",
+          "snippet": "Перечень, описание и правила заполнения реквизитов расчетных (платежных) документов определены положением Банка России от 29.06.2021 № 762-П и приказом Минфина России от 16.05.2025 № 58н."
+        }
+      ],
+      "searched_at": "2026-10-18"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "как быстро зачисляются деньги на елс фтс 2026",
+      "purpose": "вторичный запрос: как быстро зачисляются деньги на елс фтс",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Федеральная таможенная служба",
+          "url": "https://customs.gov.ru/document/text/252636",
+          "snippet": ""
+        },
+        {
+          "title": "Федеральная таможенная служба",
+          "url": "https://customs.gov.ru/press/federal/document/329638",
+          "snippet": "В настоящее время используемые таможенными органами информационные технологии позволили сократить сроки зачисления денежных средств на единые лицевые счета (ЕЛС) плательщиков: каждые полчаса (в течение рабочего дня) из Федерального казначейства поступают и автоматически распределяются по ЕЛС плательщиков обновлённые данные о зачислении денежных ..."
+        },
+        {
+          "title": "Как Оплатить Таможенные Платежи В 2026: Елс Фтс, Кбк, Списание - Insal",
+          "url": "https://insal.ru/blog/kak-oplatit-tamozhennye-platezhi-els-kbk/",
+          "snippet": "ФТС России обращает внимание, что внесение авансовых платежей и уплата таможенных платежей осуществляется на счет Федерального казначейства в штатном режиме. Внесение денежных средств может осуществляться: - через кредитные организации; - через операторов таможенных платежей."
+        },
+        {
+          "title": "Как оплатить таможенные платежи в 2026 году: ЕЛС ФТС, КБК и контроль ...",
+          "url": "https://dzen.ru/a/aZbiN-WwpxOc1COv",
+          "snippet": "Пошлина, НДС и сборы: как оплатить таможенные платежи через ЕЛС ФТС, где брать КБК, как проверить зачисление и что делать при недостаче или переплате."
+        },
+        {
+          "title": "ФТС: как оплатить таможенные платежи в 2026 году — пошаговая инструкция ...",
+          "url": "https://auto-praktis.vercel.app/articles/f/ft/fts-oplata-tamozhennykh-platezhej.html",
+          "snippet": "На практике деньги должны корректно попасть на единый лицевой счёт (ЕЛС), а в платёжке должны быть правильные КБК — иначе можно легко устроить себе платную экскурсию \"склад временного хранения\". Ниже — пошагово, как платить таможенные платежи так, чтобы груз не завис."
+        },
+        {
+          "title": "Новый функционал ЕЛС 2026 — что изменилось в 2026",
+          "url": "https://vitvetbk.ru/blog/novyy-funktsional-els-2026-chto-izmenilos-v-2026.html",
+          "snippet": "В 2026 году процедура стала проще благодаря цифровым сервисам, но остаются нюансы: от выбора способа оплаты до учета комиссий банков и сроков зачисления. Эта статья поможет разобраться, как оплатить таможенные пошлины, НДС, акцизы и сборы через личный кабинет ФТС, банковские сервисы или терминалы."
+        }
+      ],
+      "searched_at": "2026-10-18"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как пополнить ЕЛС ФТС перед растаможкой авто: чек-лист 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как пополнить ЕЛС через личный кабинет ФТС",
+          "url": "https://vostok-broker.ru/blog/2025-08-27",
+          "snippet": ""
+        },
+        {
+          "title": "ФТС: как оплатить таможенные платежи в 2026 году — пошаговая инструкция ...",
+          "url": "https://auto-praktis.vercel.app/articles/f/ft/fts-oplata-tamozhennykh-platezhej.html",
+          "snippet": "📌 Как пополнить ЕЛС через личный кабинет ФТС - Vostok-broker инструкции и актуальное таможенное законодательство, актуальные таможенные ставки 2026, разбор подводных камней."
+        },
+        {
+          "title": "Как Оплатить Таможенные Платежи В 2026: Елс Фтс, Кбк, Списание - Insal",
+          "url": "https://insal.ru/blog/kak-oplatit-tamozhennye-platezhi-els-kbk/",
+          "snippet": "В 2026 году процедура стала проще благодаря цифровым сервисам, но остаются нюансы: от выбора способа оплаты до учета комиссий банков и сроков зачисления. Эта статья поможет разобраться, как оплатить таможенные пошлины, НДС, акцизы и сборы через личный кабинет ФТС, банковские сервисы или терминалы."
+        },
+        {
+          "title": "Растаможка машины из Японии: обновлённый чек-лист на лето 2026",
+          "url": "https://avtosales125.ru/2026/06/26/rastamozhka-mashiny-iz-yaponii-obnovlyonnyj-chek-list-na-leto-2026/",
+          "snippet": "Пошлина, НДС и сборы: как оплатить таможенные платежи через ЕЛС ФТС, где брать КБК, как проверить зачисление и что делать при недостаче или переплате."
+        },
+        {
+          "title": "Уплата таможенных платежей: процедура и ЕЛС ФТС",
+          "url": "https://oplata-importa.ru/vse-platezhi-importera/uplata-tamozhennyh-platezhey/",
+          "snippet": "Главное сейчас — понимать, как растаможить машину без фатальных ошибок, чтобы не получить от государства счет на полтора миллиона рублей из-за одной лишней лошадиной силы."
+        },
+        {
+          "title": "Порядок заполнения платежных документов для уплаты таможенных платежей ...",
+          "url": "https://www.reserv.payhd.ru/company/novosti/2026/poryadok-zapolneniya-platezhnykh-dokumentov-dlya-uplaty-tamozhennykh-platezhej-reglament-tipichnye-oshibki-i-sposoby-ikh-minimizatsii",
+          "snippet": "Как открыть и пополнить ЕЛС в ФТС Единый лицевой счёт, он же ЕЛС, открывается участнику ВЭД в ресурсах ФТС, и именно с него списываются все таможенные платежи."
+        }
+      ],
+      "searched_at": "2026-10-18"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://vostok-broker.ru/blog/2025-08-27",
+      "title": "Как пополнить ЕЛС через личный кабинет ФТС",
+      "from_query": "как пополнить елс фтс 2026"
+    },
+    {
+      "url": "https://auto-praktis.vercel.app/articles/f/ft/fts-oplata-tamozhennykh-platezhej.html",
+      "title": "ФТС: как оплатить таможенные платежи в 2026 году — пошаговая инструкция ...",
+      "from_query": "как пополнить елс фтс 2026"
+    },
+    {
+      "url": "https://customs.gov.ru/uchastnikam-ved/uplata-tamozhennyx-i-inyx-platezhej/edinyj-liczevoj-schet",
+      "title": "Федеральная таможенная служба",
+      "from_query": "как пополнить елс фтс 2026"
+    },
+    {
+      "url": "https://insal.ru/blog/kak-oplatit-tamozhennye-platezhi-els-kbk/",
+      "title": "Как Оплатить Таможенные Платежи В 2026: Елс Фтс, Кбк, Списание - Insal",
+      "from_query": "как пополнить елс фтс 2026"
+    },
+    {
+      "url": "https://customs.gov.ru/fiz/uplata-tamozhennyx-platezhej/servis-uplaty-tamozhennyx-platezhej-fizicheskimi-liczami-v-otnoshenii-tovarov-dlya-lichnogo-pol-zovaniya/prodlenie-aprobaczii-servisa-po-rasporyazheniyu-avansovymi-platezhami-v-schet-ispolneniya-obyazannosti-po-uplate-tamozhennyx-platezhej-v-otnoshenii-tovarov-dlya-lichnogo-pol-zovaniya",
+      "title": "Федеральная таможенная служба",
+      "from_query": "как пополнить елс фтс 2026"
+    },
+    {
+      "url": "https://iclcargo.ru/stati/edinyy-licevoy-schet-els-v-tamozhne-rf/",
+      "title": "ЕЛС ФТС России, единый лицевой счет: как открыть и пополнить, вход в ...",
+      "from_query": "как пополнить елс фтс 2026"
+    },
+    {
+      "url": "https://oplata-importa.ru/vse-platezhi-importera/uplata-tamozhennyh-platezhey/",
+      "title": "Уплата таможенных платежей: процедура и ЕЛС ФТС",
+      "from_query": "как пополнить елс фтс октябрь 2026"
+    },
+    {
+      "url": "https://gist.github.com/walterquine/23e3909fa291a36cd1f31160209d6117",
+      "title": "Пополнить Стим без комиссии 2026: Честное сравнение всех способов ...",
+      "from_query": "site:github.com как пополнить елс фтс 2026"
+    },
+    {
+      "url": "https://gist.github.com/deddingsummer5/3d7070d78347334593aa4fbec5f799d7",
+      "title": "Как пополнить Steam через криптовалюту в 2026 году — подробный гид для ...",
+      "from_query": "site:github.com как пополнить елс фтс 2026"
+    },
+    {
+      "url": "https://github.com/Kak-Popolnit-Steam-Iz-Rossii-v-2026",
+      "title": "Как пополнить Steam из России в 2026 году - GitHub",
+      "from_query": "site:github.com как пополнить елс фтс 2026"
+    },
+    {
+      "url": "https://github.com/Kak-Popolnit-Steam-MTS-2026",
+      "title": "Как пополнить Steam через МТС в 2026 году - GitHub",
+      "from_query": "site:github.com как пополнить елс фтс 2026"
+    },
+    {
+      "url": "https://gist.github.com/jasonelevynbo/a246e6629bba8d26a9ccbfe8c0f9e0c2/86f2aa8db64199d74ddcda1d16575a8639ac4df7",
+      "title": "Как пополнить русский Стим в 2026 году: гайд на пополнение русского ...",
+      "from_query": "site:github.com как пополнить елс фтс 2026"
+    },
+    {
+      "url": "https://gist.github.com/forcemaredart/a620f07c011c8566dd1b9f10e2a2c47e",
+      "title": "Пополнить Steam из России в 2026 году: все рабочие способы, комиссии и ...",
+      "from_query": "site:github.com как пополнить елс фтс 2026"
+    },
+    {
+      "url": "https://www.rosfirm.ru/companies_news/otkrytie-els-v-fts-s-chego-nachinaet-rabotu-novyj-uchastnik-n790422.htm",
+      "title": "Как открыть единый лицевой счёт (ЕЛС) в ФТС — инструкция для новичка",
+      "from_query": "как пополнить елс фтс official docs documentation 2026"
+    },
+    {
+      "url": "https://vostoktransholding.ru/blog/chto-takoe-tamozhennyj-edinyj-licevoj-schet-euls/",
+      "title": "Таможенный единый лицевой счёт (ЕУЛС): открытие, пополнение, списание и ...",
+      "from_query": "как пополнить елс фтс official docs documentation 2026"
+    },
+    {
+      "url": "https://vostoktransholding.ru/blog/tamozhennoe-platezhnoe-poruchenie-2026/",
+      "title": "Таможенное платёжное поручение 2026: как заполнить, реквизиты, КБК и ...",
+      "from_query": "как пополнить елс фтс official docs documentation 2026"
+    },
+    {
+      "url": "https://vitvetbk.ru/blog/novyy-funktsional-els-2026-chto-izmenilos-v-2026.html",
+      "title": "Новый функционал ЕЛС 2026 — что изменилось в 2026",
+      "from_query": "как пополнить елс фтс forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/aZbiN-WwpxOc1COv",
+      "title": "Как оплатить таможенные платежи в 2026 году: ЕЛС ФТС, КБК и контроль ...",
+      "from_query": "как пополнить елс фтс forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://edata.customs.ru/FtsPersonalCabinetWeb/",
+      "title": "ФТС Личный кабинет участника ВЭД",
+      "from_query": "елс фтс личный кабинет 2026"
+    },
+    {
+      "url": "https://edata.customs.ru/FtsPersonalCabinetWeb/Mobile",
+      "title": "ФТС Личный кабинет",
+      "from_query": "елс фтс личный кабинет 2026"
+    },
+    {
+      "url": "https://customs.gov.ru/",
+      "title": "Федеральная таможенная служба",
+      "from_query": "елс фтс личный кабинет 2026"
+    },
+    {
+      "url": "https://limited.customs.gov.ru/cabinet/login",
+      "title": "Федеральная таможенная служба",
+      "from_query": "елс фтс личный кабинет 2026"
+    },
+    {
+      "url": "https://web02.edata.customs.gov.ru/FtsPersonalCabinetWeb2017/",
+      "title": "ФТС Личный кабинет участника ВЭД",
+      "from_query": "елс фтс личный кабинет 2026"
+    },
+    {
+      "url": "https://customs.gov.ru/fiz/uplata-tamozhennyx-platezhej/rekvizity-scheta-dlya-perechisleniya-tamozhennyx-i-inyx-platezhej",
+      "title": "Реквизиты для оплаты таможенных платежей",
+      "from_query": "реквизиты елс фтс 2026"
+    },
+    {
+      "url": "https://www.consultant.ru/document/cons_doc_LAW_289889/",
+      "title": "Информация ФТС России \"Реквизиты счета для перечисления таможенных и ...",
+      "from_query": "реквизиты елс фтс 2026"
+    },
+    {
+      "url": "https://sztu.customs.gov.ru/uplata-i-vozvrat-tamozhennyx-i-inyx-platezhej/rekvizity-dlya-uplaty-tamozhennyx-i-inyx-platezhej-i-poryadok-dejstvij-platel-shhikov-v-sluchae-vyyavleniya-oshibok-v-platezhnyx-dokumentax",
+      "title": "Северо-Западное таможенное управление",
+      "from_query": "реквизиты елс фтс 2026"
+    },
+    {
+      "url": "https://sztu.customs.gov.ru/ved/edinye-liczevye-scheta-uchastnikov-/rekvizity-dlya-uplaty-tamozhennyx-i-inyx-platezhej-i-poryadok-dejstvij-platel-shhikov-v-sluchae-vyyavleniya-oshibok-v-platezhnyx-dokumentax",
+      "title": "Северо-Западное таможенное управление",
+      "from_query": "реквизиты елс фтс 2026"
+    },
+    {
+      "url": "https://customs.gov.ru/document/text/252636",
+      "title": "Федеральная таможенная служба",
+      "from_query": "как быстро зачисляются деньги на елс фтс 2026"
+    },
+    {
+      "url": "https://customs.gov.ru/press/federal/document/329638",
+      "title": "Федеральная таможенная служба",
+      "from_query": "как быстро зачисляются деньги на елс фтс 2026"
+    },
+    {
+      "url": "https://avtosales125.ru/2026/06/26/rastamozhka-mashiny-iz-yaponii-obnovlyonnyj-chek-list-na-leto-2026/",
+      "title": "Растаможка машины из Японии: обновлённый чек-лист на лето 2026",
+      "from_query": "Как пополнить ЕЛС ФТС перед растаможкой авто: чек-лист 2026 2026"
+    },
+    {
+      "url": "https://www.reserv.payhd.ru/company/novosti/2026/poryadok-zapolneniya-platezhnykh-dokumentov-dlya-uplaty-tamozhennykh-platezhej-reglament-tipichnye-oshibki-i-sposoby-ikh-minimizatsii",
+      "title": "Порядок заполнения платежных документов для уплаты таможенных платежей ...",
+      "from_query": "Как пополнить ЕЛС ФТС перед растаможкой авто: чек-лист 2026 2026"
+    }
+  ]
+}

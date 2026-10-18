@@ -1,7 +1,7 @@
 # Promotion checklist — B07 rastamozhka-avto-iz-kitaya-chek-list-2026
 
-Дата публикации: 2026-10-18 (ожидает publish)  
-Live URL: (после publish) /blog/rastamozhka-avto-iz-kitaya-chek-list-2026/
+Дата публикации: 2026-10-18  
+Live URL: /2026/10/18/rastamozhka-avto-iz-kitaya-chek-list-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Станции: СВХ → ПТД → платежи → выпуск → СБКТС → ЭПТС «действующий»
 • С 01.04.2026 ЕЛС пополняет только владелец счёта
 
-Читать: [URL после publish]
+Читать: /2026/10/18/rastamozhka-avto-iz-kitaya-chek-list-2026/
 ```
 
 ## Перелинковка

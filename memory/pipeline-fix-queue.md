@@ -22,11 +22,13 @@ category: docs
 ### How the agent recovered this run
 - Ran generator without `--blog-path` per Director prompt; `llms.txt` / `llms-full.txt` written to `memory/blog/`.
 - Before commit: redacted absolute `PUBLIC_SITE_URL` from `llms.txt` / `llms-full.txt` / `interlink-suggestions.json` to relative `/blog/...` and `site_base=[REDACTED]` (secret-scan hygiene).
+- Pre-commit hook crashed: `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a non-identifier token (URL-like, len=25 with `:/.-`); filtered list to `^[A-Za-z_][A-Za-z0-9_]*$` comma-joined and re-ran commit (hook still scanned secrets).
 
 ### Durable fix needed before next run
 - Remove `--blog-path` from indexer skill + agent Shell examples; document `--blog-dir` + `--out-dir` only.
 - Align doctor check (see INC-20261019-0002).
 - Prefer relative `/blog/<slug>/` URLs in llms/interlink commit artifacts (or auto-redact site-base when writing under `memory/blog/`).
+- Ensure Cloud secret-name injection only emits valid bash identifiers (no URL tokens in `CLOUD_AGENT_INJECTED_SECRET_NAMES`).
 
 ### Suggested files to inspect/change
 - `skills/indexer-excalibur-blog/SKILL.md`
@@ -36,6 +38,7 @@ category: docs
 - `scripts/excalibur_blog_doctor.py`
 - `scripts/excalibur_blog_llms_generator.py`
 - `scripts/excalibur_blog_interlinker.py`
+- `shared/agent-pipeline-pitfalls.md`
 
 ### Secrets
 - none recorded

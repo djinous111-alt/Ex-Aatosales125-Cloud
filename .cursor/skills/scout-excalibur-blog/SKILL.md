@@ -28,11 +28,13 @@ Append new Topic Card to blog-topics.md
 
 ### Шаг 1 — Анализ прошлого и получение ID
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
+* Если WordPress MCP отдаёт посты **не с live-хоста** (`PUBLIC_SITE_URL` / avtosales125), **не** строй denylist из MCP: используй `memory/topics/live-reserved.json` (`reserved_topic_ids`, `live_slugs_sample`, `next_forced_topic_id`) + WebSearch `site:<live-host>` + ledger.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Helper читает `live-reserved.json`: уважает `reserved_topic_ids` и `next_forced_topic_id`. Запомни следующий `topic_id` и список невыполненных тем.
+* После создания карточки обнови `live-reserved.json`: добавь новый id в `reserved_topic_ids` и выставь следующий `next_forced_topic_id`.
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
@@ -81,3 +83,4 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
 * Выдумывание цифр спроса без вызова Wordstat API.
+* Выбор `topic_id`, уже занятого live WP / `live-reserved.json`, когда MCP смотрит на другой хост.

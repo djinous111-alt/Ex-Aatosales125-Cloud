@@ -9,9 +9,10 @@
 ## Архитектура работы
 
 ```text
-published-articles.md + blog-topics.md (Audit)
+published-articles.md + blog-topics.md + live-reserved.json (Audit)
               ↓
-excalibur_blog_scout_helper.py --suggest-next (Get next ID)
+excalibur_blog_scout_helper.py --suggest-next
+  (honors next_forced_topic_id + reserved[])
               ↓
 WebSearch (Cursor native trend scouting for 2026)
               ↓
@@ -20,6 +21,7 @@ wordstat_get_top_requests (Yandex Wordstat API demand verify)
 excalibur_blog_scout_helper.py --check-query (Cannibalization Guard)
               ↓
 Append new Topic Card to blog-topics.md
+Update live-reserved.json (reserved += id, next_forced = next)
 ```
 
 ---
@@ -27,12 +29,14 @@ Append new Topic Card to blog-topics.md
 ## Подробный алгоритм действий
 
 ### Шаг 1 — Анализ прошлого и получение ID
-* Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
+* Считай `shared/published-articles.md`, `memory/topics/blog-topics.md` и **`memory/topics/live-reserved.json`**.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+  Helper обязан учесть `next_forced_topic_id` и `reserved[]` (даже если B-pool в blog-topics пуст / только AS*).
+* Если helper ещё отстаёт, FORCE path для AVTO SALES: бери `next_forced_topic_id` из live-reserved и не предлагай занятые `reserved` ID.
+* Запомни следующий `topic_id` и после append обнови live-reserved (`reserved += id`, `next_forced_topic_id` = следующий свободный).
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:

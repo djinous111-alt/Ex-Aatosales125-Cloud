@@ -22,11 +22,17 @@
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
 - Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
 - SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
+- HTTP trigger / WebFetch wait ≥300s для больших bootstrap; не удаляй PHP до `OK post=` / TTL. Если body потерян, а пост уже в WP — reconstruct via REST, **не** republish.
 
 ## Writer / Fact Check Box
 
 - Fact Check Box **не копирует** пример из `shared/excalibur-article-writing-contract.md`. Автор — только из `shared/authors-registry.json` по `author_id` в `article.meta.json`.
 - Запрещены legacy-имена вне реестра (в т.ч. «Елена Ковалева»). Human voice gate блокирует несовпадение автора и generic-шаблон «все статистические показатели…».
+- Рекомендации: «Сделайте / Не делайте / Проверьте», не «Делать: / Не делать:». `pain_markers_ru` / `outcome_markers_ru` в `editorial-policy.json` обязательны (пустой список = skip check, не hard-fail).
+
+## Research
+
+- `research_notes_gate` short TECH_MARKERS (`ai`, `ии`, …) — word-boundary; meta-строки `reader_pain` / `github_evidence` не self-trigger. Smoke: `python3 scripts/excalibur_blog_research_notes_gate.py --self-test`.
 
 ## QA
 
@@ -38,11 +44,14 @@
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- Cloud cover default = Kie API (`excalibur_blog_kie_gpt_image2_api.py`). Sync MCP `gpt-image-2`: max 1; на `-32001` → Kie recovery, URL не invent.
 
 ## Scout
 
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- `--suggest-next` читает `memory/topics/live-reserved.json` (`next_forced_topic_id` + `reserved`). Пустой B-pool ≠ начинать с B01.
 
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator CLI: `--blog-dir` + `--out-dir` (+ `--site-base`); флага `--blog-path` нет.

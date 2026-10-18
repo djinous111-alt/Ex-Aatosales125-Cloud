@@ -4,7 +4,9 @@ Cover-агент работает **после** `article.html` + GEO QA PASS.
 
 ## Главное правило
 
-**Один** вызов MCP `gpt-image-2` → один холст `2048×1152` (2×2, каждая панель 16:9) → split в `cover.png` + `inline-01..03.png`.
+**Один** image job → один холст `2048×1152` (2×2, каждая панель 16:9) → split в `cover.png` + `inline-01..03.png`.
+
+Cloud default: Kie API (`scripts/excalibur_blog_kie_gpt_image2_api.py`, createTask→recordInfo). Sync MCP `gpt-image-2` — optional max 1 attempt; on `-32001` → one Kie recovery, **do not invent URL**.
 
 | Панель | Роль | Герой |
 |--------|------|-------|
@@ -25,13 +27,15 @@ python scripts/excalibur_blog_quad_manifest.py \
 python scripts/excalibur_blog_cover_quad_prompt.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> --write-batch
 
-# 4. ONE CallMcpTool gpt-image-2 по cover/quad-mcp-batch.json
-#    input_urls: [reference_url_hosted] — обязательно
+# 4. Cloud default: Kie API (preferred_image_flow). Optional: max 1× sync MCP gpt-image-2.
+#    On -32001: log timeout → Kie recovery (same input_urls). Never invent URL.
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
 
 # 5. Скачать canvas + split
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<mcp_url>" --inject-html
+  --url "<kie_or_mcp_url>" --inject-html
 ```
 
 ## Раскладка 2×2
@@ -75,7 +79,8 @@ Inline panels: полезный UI + лёгкий human layer (стикер, tap
 
 ## Blockers
 
-- `❌ COVER HERO BLOCKER` — нет `reference_url_hosted` или MCP без `input_urls`
-- **4 отдельных MCP** на cover+inline — запрещено
+- `❌ COVER HERO BLOCKER` — нет `reference_url_hosted` или job без `input_urls`
+- **4 отдельных image jobs** на cover+inline — запрещено
+- MCP `-32001` без URL в логах и без успешного Kie recovery — blocker (не invent URL)
 - inline-панель с meme/host вместо UI/схемы
 - обложка без крючка / без `meme_caption_ru`

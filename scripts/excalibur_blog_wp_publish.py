@@ -73,6 +73,21 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
 
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
     root_label = ssh_root_label(env)
+    ssh_configured = bool(
+        env.get("SSH_HOST") and env.get("SSH_USER") and (env.get("SSH_PASS") or env.get("SSH_PASSWORD"))
+    )
+    paramiko_ok = False
+    paramiko_error = None
+    if ssh_configured:
+        try:
+            import paramiko  # noqa: F401
+
+            paramiko_ok = True
+        except Exception as exc:  # noqa: BLE001
+            paramiko_error = type(exc).__name__
+    missing = validate_publish_env(env)
+    if ssh_configured and not paramiko_ok:
+        missing = list(missing) + ["paramiko"]
     return {
         "allow_publish": env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes",
         "public_site_url_configured": bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")),
@@ -82,8 +97,10 @@ def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
             "password_configured": bool(env.get("SSH_PASS") or env.get("SSH_PASSWORD")),
             "root": root_label,
             "dot_fallback_enabled": root_label == "configured-non-dot",
+            "paramiko_import_ok": paramiko_ok if ssh_configured else None,
+            "paramiko_error": paramiko_error,
         },
-        "missing": validate_publish_env(env),
+        "missing": missing,
     }
 
 

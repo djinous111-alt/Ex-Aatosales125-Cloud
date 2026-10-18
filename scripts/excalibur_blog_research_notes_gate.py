@@ -14,7 +14,8 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short tokens need word-boundary match so "ai"≠"reader_pain", "ии"≠"комплектации".
+TECH_MARKERS_BOUNDED = (
     "ai",
     "ии",
     "agent",
@@ -28,8 +29,22 @@ TECH_MARKERS = (
     "docker",
     "rag",
     "workflow",
+)
+TECH_MARKERS_SUBSTRING = (
     "автоматизац",
     "нейросет",
+)
+# Field labels that falsely trigger short markers when scanning notes.
+NOTES_FALSE_POSITIVE_TOKENS = (
+    "reader_pain",
+    "pain_solution_map",
+    "github_evidence",
+    "success_criteria",
+    "voice_angle",
+    "reader_story",
+    "surprising_fact",
+    "reader_outcome",
+    "action_outline",
 )
 
 
@@ -73,14 +88,63 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
-def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+def _marker_in_blob(blob: str, marker: str) -> bool:
+    """Match tech markers without substring false positives inside longer words."""
+    if marker in TECH_MARKERS_SUBSTRING:
+        return marker in blob
+    # Unicode-aware word boundary: "ai" in reader_pain / "ии" in комплектации → no match.
+    return bool(re.search(rf"(?<![0-9a-zA-Zа-яА-ЯёЁ_]){re.escape(marker)}(?![0-9a-zA-Zа-яА-ЯёЁ_])", blob))
+
+
+def _topic_blob(context: dict[str, Any]) -> str:
     topic = context.get("topic") or {}
-    blob = " ".join(
+    return " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+
+
+def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    topic_blob = _topic_blob(context)
+    markers = TECH_MARKERS_BOUNDED + TECH_MARKERS_SUBSTRING
+    if any(_marker_in_blob(topic_blob, marker) for marker in markers):
+        return True
+    # Niche/auto topics without tech signal in topic fields must not require GitHub.
+    if topic_blob.strip():
+        return False
+    notes_blob = notes[:2000].lower()
+    for token in NOTES_FALSE_POSITIVE_TOKENS:
+        notes_blob = notes_blob.replace(token, " ")
+    return any(_marker_in_blob(notes_blob, marker) for marker in markers)
+
+
+def count_pain_solution_rows(text: str) -> int:
+    """Count data rows in ## pain_solution_map table (not keyword-substring scan of whole file)."""
+    match = re.search(
+        r"##\s*\d*\.?\s*pain[_\s-]*solution[_\s-]*map\b([\s\S]*?)(?=\n##\s|\Z)",
+        text,
+        flags=re.I,
+    )
+    section = match.group(1) if match else ""
+    count = 0
+    for line in section.splitlines():
+        s = line.strip()
+        if not s.startswith("|"):
+            continue
+        body = s.strip("|").strip()
+        if not body or re.fullmatch(r"[\s\-:|]+", body):
+            continue
+        cells = [c.strip() for c in body.split("|")]
+        if not cells:
+            continue
+        lower_cells = [c.lower() for c in cells]
+        # Skip markdown header row like | pain | solution | result |
+        if lower_cells[0] in {"pain", "боль", "problem", "проблема", "reader_pain"} and any(
+            x in lower_cells for x in ("solution", "решение", "result", "результат", "reader_result")
+        ):
+            continue
+        count += 1
+    return count
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -132,7 +196,7 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     ]
     accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    pain_map_rows = count_pain_solution_rows(text)
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:

@@ -66,6 +66,40 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
         })
     return topics
 
+
+def load_live_reserved(root: Path) -> dict[str, Any]:
+    """Optional FORCE id from memory/topics/live-reserved.json."""
+    path = root / "memory/topics/live-reserved.json"
+    if not path.is_file():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def resolve_suggest_next_id(
+    existing: list[dict[str, str]],
+    reserved: set[str],
+    live_reserved: dict[str, Any],
+) -> tuple[str, str]:
+    """Return (topic_id, source) where source is live-reserved|max+1."""
+    forced = str(live_reserved.get("next_forced_topic_id") or "").strip().upper()
+    if re.fullmatch(r"B\d+", forced) and forced not in reserved:
+        return forced, "live-reserved"
+
+    max_num = 0
+    for t in existing:
+        m = re.match(r"B(\d+)", t["topic_id"])
+        if m:
+            max_num = max(max_num, int(m.group(1)))
+    for topic_id in reserved:
+        m = re.match(r"B(\d+)", topic_id)
+        if m:
+            max_num = max(max_num, int(m.group(1)))
+    return f"B{max_num + 1:02d}", "max+1"
+
 def normalize_and_tokenize(text: str) -> set[str]:
     text = text.lower()
     text = re.sub(r"[^\w\s\-]", " ", text)
@@ -130,14 +164,15 @@ def main() -> int:
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
-        max_num = 0
-        for t in existing:
-            m = re.match(r"B(\d+)", t["topic_id"])
-            if m:
-                max_num = max(max_num, int(m.group(1)))
-        
-        next_id = f"B{max_num + 1:02d}"
+        live_reserved = load_live_reserved(root)
+        next_id, source = resolve_suggest_next_id(existing, reserved, live_reserved)
         print(f"Next available topic ID: {next_id}")
+        print(f"Suggest source: {source}")
+        forced = str(live_reserved.get("next_forced_topic_id") or "").strip().upper()
+        if forced:
+            print(f"live-reserved next_forced_topic_id: {forced}")
+            if forced in reserved:
+                print(f"note: forced {forced} already reserved/published — falling back to max+1")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")
         print(f"Active article dirs: {sorted(active)}")

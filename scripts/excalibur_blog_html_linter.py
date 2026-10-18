@@ -67,6 +67,21 @@ def detect_duplicate_faq_sections(html: str) -> list[str]:
     return errors
 
 
+def detect_redacted_hrefs(html: str) -> list[str]:
+    """Fail if writer left literal redaction tokens in href attributes."""
+    hits = re.findall(
+        r"""href\s*=\s*["']\s*\[?\s*REDACTED\s*\]?\s*["']""",
+        html,
+        flags=re.IGNORECASE,
+    )
+    if not hits:
+        return []
+    return [
+        f"Forbidden literal redacted CTA href ({len(hits)}×). "
+        "Never write href=\"[REDACTED]\"; resolve catalog/Telegram from conversion-map / PUBLIC_SITE_URL / prior PASS article."
+    ]
+
+
 class HTMLTagLinter(HTMLParser):
     def __init__(self, whitelist: set[str]) -> None:
         super().__init__()
@@ -122,6 +137,7 @@ def lint_html_file(html_path: Path, whitelist: set[str]) -> dict[str, Any]:
     linter.check_unclosed_tags()
     linter.errors.extend(detect_anchor_toc(html_content))
     linter.errors.extend(detect_duplicate_faq_sections(html_content))
+    linter.errors.extend(detect_redacted_hrefs(html_content))
 
     return {
         "file": str(html_path.name),

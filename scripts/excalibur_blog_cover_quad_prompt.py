@@ -15,6 +15,30 @@ REQUIRED_REFERENCE_HOST = "avtosales125.ru"
 MCP_RESOLUTION = "2K"
 KIE_IMAGE_MODEL = "gpt-image-2-image-to-image"
 
+# Stale SEO-primer hooks must not leak into niche auto topics.
+SEO_DEFAULT_HOOK_MARKERS = (
+    "wordstat",
+    "вордстат",
+    "seo-текст",
+    "seo vs geo",
+    "seo/geo",
+    "6 шагов",
+    "чеклист публикации",
+    "longread",
+    "metrika",
+    "метрика",
+)
+
+DEFAULT_PREFIX = (
+    "Russian human-made hook collage for AVTO SALES auto-import blog on clean light base. "
+    "Zine/trash-design: torn paper, scotch tape, sticky notes, marker arrows, fake RU car UI screenshots, "
+    "meme cutouts. Bold readable Cyrillic; NEVER Wordstat NEVER Metrika NEVER SEO analytics."
+)
+DEFAULT_NEGATIVE = (
+    "English text, Latin UI, watermark, logo, Wordstat, Vordstat, Metrika, SEO analytics dashboard, "
+    "corporate stock banner, vertical 9:16, unreadable text, headphones, headset, earbuds"
+)
+
 
 def project_root() -> Path:
     env_root = os.environ.get("EXCALIBUR_PROJECT_ROOT", "").strip()
@@ -69,6 +93,27 @@ def validate_prompt_budget(prompt: str) -> bool:
     return False
 
 
+def validate_cover_hook(manifest: dict) -> bool:
+    """Block stale SEO-primer hooks unless topic is explicitly a primer."""
+    topic_id = str(manifest.get("topic_id") or "").strip().upper()
+    hook = str(manifest.get("cover_hook") or "").strip().lower()
+    if not hook:
+        print("❌ COVER HOOK BLOCKER: cover_hook is empty in quad-manifest.json", file=sys.stderr)
+        return False
+    # Allow B01 primer-style hooks only when topic_id is B01.
+    if topic_id == "B01":
+        return True
+    for marker in SEO_DEFAULT_HOOK_MARKERS:
+        if marker in hook:
+            print(
+                f"❌ COVER HOOK BLOCKER: cover_hook looks like stale SEO default "
+                f"(matched {marker!r}). Re-edit quad-manifest.json for this topic before --write-batch.",
+                file=sys.stderr,
+            )
+            return False
+    return True
+
+
 def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, design_code: dict) -> str:
     slots = manifest.get("slots") or {}
 
@@ -78,23 +123,36 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
     cover = slot("cover")
     i1, i2, i3 = slot("inline_1"), slot("inline_2"), slot("inline_3")
 
+    # Keep style-driven prefix/negative/outfit, but stay under MCP char budget.
+    prefix = compact(
+        style.get("global_prompt_prefix")
+        or design_code.get("cover_panel_prompt_block")
+        or DEFAULT_PREFIX,
+        520,
+    )
+    negative = compact(
+        style.get("global_negative_prompt") or design_code.get("global_negative") or DEFAULT_NEGATIVE,
+        280,
+    )
+    outfit = compact(
+        hero.get("outfit_rule")
+        or hero.get("prompt_fragment")
+        or "CHANGE outfit to match scene WEATHER and ARTICLE TOPIC; do NOT copy reference clothing; no cap/hood.",
+        180,
+    )
+    bg = ((style.get("color_lock") or {}).get("background") or "#F5F5F0").strip()
+
     lines = [
-        "Russian human-made Excalibur BLOG hook collage on PURE WHITE #FFFFFF. Zine/trash-design: torn paper, scotch tape, pink notes, marker arrows, fake RU UI screenshots, meme cutouts. DESIGN.md-inspired bold readable Cyrillic; rotate hot accents (hot pink/purple/blue/orange); keep stickers/memes/collage; no price badges. Not corporate, not stock.",
-        "Single 2048x1152 canvas, exact 2x2 grid, four equal 16:9 panels (1024x576 each). Thin center gutters only; no bleed across quadrants.",
-        "",
-        "ALL panels keep a clean pure white #FFFFFF base; scraps/cards may cast light shadows but no beige, gray, gradient, grunge, paper-tint, or colored full-panel background.",
-        "",
-        "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
-        "",
-        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
-        "",
-        f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
-        "",
-        f"Top-right inline: {inline_panel_prompt(i1, types_catalog)} Same Excalibur collage layer, useful UI/diagram, small meme cutout.",
-        f"Bottom-left inline: {inline_panel_prompt(i2, types_catalog)} Same Excalibur collage layer, useful UI/diagram, small meme cutout.",
-        f"Bottom-right inline: {inline_panel_prompt(i3, types_catalog)} Same Excalibur collage layer, useful UI/diagram, small meme cutout.",
-        "",
-        "Inline panels must NOT be plain whiteboards or clean SaaS slides. Negative: beige/cream/off-white paper background, gray background, gradients, grunge background, headphones, headset, earbuds, English/Latin UI, watermark, logo, vertical 9:16, corporate stock banner, unreadable text, extra faces on inline panels.",
+        prefix,
+        "Single 2048x1152 canvas, exact 2x2 grid, four equal 16:9 panels (1024x576). Thin gutters; no bleed.",
+        f"Clean light base {bg}; scraps may cast light shadows; no full-panel gray/gradient wash.",
+        "Sticker text sharp but non-toxic: no insults, no лох/лохов/для лохов.",
+        f"REFERENCE FACE only top-left: keep glasses/quiff/beard. Outfit: {outfit} Vary pose/props. No headphones.",
+        f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 100)}"; caption "{compact(cover.get("meme_caption_ru", ""), 40)}"; scene: {compact(cover.get("scene_hint", ""), 220)}; host + huge Cyrillic hook; 1-2 meme cutouts.',
+        f"Top-right inline: {inline_panel_prompt(i1, types_catalog)} AVTO SALES collage, useful UI, small meme.",
+        f"Bottom-left inline: {inline_panel_prompt(i2, types_catalog)} AVTO SALES collage, useful UI, small meme.",
+        f"Bottom-right inline: {inline_panel_prompt(i3, types_catalog)} AVTO SALES collage, useful UI, small meme.",
+        f"No plain whiteboard SaaS slides. Negative: {negative}",
     ]
     return "\n".join(line for line in lines if line)
 
@@ -134,6 +192,8 @@ def main() -> int:
         )
         return 1
     if not validate_reference_url(ref_url):
+        return 1
+    if not validate_cover_hook(manifest):
         return 1
 
     prompt = build_prompt(manifest, style, hero, types_catalog, design_code)

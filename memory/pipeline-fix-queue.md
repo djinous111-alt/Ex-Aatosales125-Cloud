@@ -6,6 +6,68 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261019-0010-scout-suggest-next-ignores-live-reserved
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-scout
+topic_id: B08
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` вернул **B01** при пустом B-pool, хотя Director/automation memory требуют FORCE **B08** после published B07.
+- `memory/topics/live-reserved.json` отсутствовал в workspace; helper также не читает `next_forced_topic_id` (в текущем `scripts/excalibur_blog_scout_helper.py` нет логики live-reserved).
+
+### How the agent recovered this run
+- Игнорировал suggest-next B01; зарезервировал **B08** по контракту Director.
+- После append карточки создал `memory/topics/live-reserved.json` с `topic_id=B08` и `next_forced_topic_id=B09`.
+- Post-append `--suggest-next` уже даёт B09 (max B-id + 1), но без live-reserved следующий пустой-pool run снова откатится к B01.
+
+### Durable fix needed before next run
+- Научить `--suggest-next` читать `memory/topics/live-reserved.json` → `next_forced_topic_id` (если файл есть и id ещё не в pool/ledger).
+- Зафиксировать формат JSON в scout skill / pitfalls.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261019-0002-director-doctor-llms-blog-path
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `python3 scripts/excalibur_blog_doctor.py` fails with `FAIL llms generator supports --blog-path` (errors=1).
+- Actual CLI of `scripts/excalibur_blog_llms_generator.py` exposes `--blog-dir` + `--out-dir` (no `--blog-path`), matching prior fixer durable change.
+
+### How the agent recovered this run
+- Continued pipeline after confirming llms help shows `--blog-dir`/`--out-dir`; publish/SSH secrets OK.
+
+### Durable fix needed before next run
+- Update doctor check to assert `--blog-dir` (and preferably `--out-dir`) instead of stale `--blog-path`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

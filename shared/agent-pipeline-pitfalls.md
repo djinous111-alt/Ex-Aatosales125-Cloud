@@ -42,6 +42,8 @@
 ## Scout
 
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- Ниша Авто-Сейлс: не дрейфовать в Cursor/Make/n8n/ИИ-агентов; ориентир `memory/brief/site-brief.md`.
+- Если `live-reserved.json` задаёт `next_forced_topic_id`, а `--suggest-next` всё ещё даёт B01 на пустом B-pool – FORCE id из reserved/Director Task (см. INC scout live-reserved).
 
 ## Indexer
 

@@ -40,6 +40,26 @@ def load_active_article_topics(root: Path) -> set[str]:
     return active
 
 
+def load_live_reserved(root: Path) -> dict[str, Any]:
+    """Read memory/topics/live-reserved.json when WP MCP host is wrong or offline.
+
+    Expected keys: reserved_topic_ids, next_forced_topic_id, live_slugs_sample.
+    """
+    path = root / "memory" / "topics" / "live-reserved.json"
+    if not path.is_file():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def live_reserved_topic_ids(data: dict[str, Any]) -> set[str]:
+    raw = data.get("reserved_topic_ids") or []
+    return {str(x).upper() for x in raw if str(x).strip()}
+
+
 def load_existing_topics(root: Path) -> list[dict[str, str]]:
     topics_path = root / "memory/topics/blog-topics.md"
     topics = []
@@ -125,7 +145,9 @@ def main() -> int:
     root = project_root()
     published = load_published_topics(root)
     active = load_active_article_topics(root)
-    reserved = published | active
+    live_data = load_live_reserved(root)
+    live_ids = live_reserved_topic_ids(live_data)
+    reserved = published | active | live_ids
     existing = load_existing_topics(root)
     
     if args.suggest_next:
@@ -135,11 +157,24 @@ def main() -> int:
             m = re.match(r"B(\d+)", t["topic_id"])
             if m:
                 max_num = max(max_num, int(m.group(1)))
-        
-        next_id = f"B{max_num + 1:02d}"
+        for tid in reserved:
+            m = re.match(r"B(\d+)", tid)
+            if m:
+                max_num = max(max_num, int(m.group(1)))
+
+        forced = str(live_data.get("next_forced_topic_id") or "").strip().upper()
+        if forced and re.fullmatch(r"B\d+", forced):
+            next_id = forced
+            source = "live-reserved.next_forced_topic_id"
+        else:
+            next_id = f"B{max_num + 1:02d}"
+            source = "max(pool+reserved)+1"
+
         print(f"Next available topic ID: {next_id}")
+        print(f"Next ID source: {source}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
-        print(f"Total articles written/in_progress: {len(reserved)}")
+        print(f"Total articles written/in_progress: {len(published | active)}")
+        print(f"Live-reserved topic IDs: {sorted(live_ids)}")
         print(f"Active article dirs: {sorted(active)}")
         
         unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]

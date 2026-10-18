@@ -73,14 +73,38 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_hits(text: str, marker: str) -> bool:
+    """Match tech markers as tokens, not substrings inside unrelated words/field names.
+
+    Short Latin markers like ``ai`` must not fire inside ``reader_pain``;
+    Cyrillic ``ии`` must not fire inside word endings like «декларации».
+    """
+    marker = marker.lower()
+    text = text.lower()
+    # Latin/digit tokens: word-boundary. Cyrillic stems: still require non-letter edges
+    # so «ии» does not match inside «декларации».
+    if re.fullmatch(r"[a-z0-9]+", marker):
+        return bool(re.search(rf"(?<![a-z0-9]){re.escape(marker)}(?![a-z0-9])", text))
+    return bool(re.search(rf"(?<![а-яёa-z0-9]){re.escape(marker)}(?![а-яёa-z0-9])", text))
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
+    # Prefer topic card fields only — notes contain required field names
+    # (reader_pain, github_evidence) that false-trigger substring markers.
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    if not blob.strip():
+        # Fallback: strip known field-name labels from notes head before scanning.
+        head = notes[:2000].lower()
+        for field in REQUIRED_FIELDS:
+            if field == "utility_verdict: PASS":
+                continue
+            head = re.sub(re.escape(field.lower()).replace(r"\_", r"[_\s-]"), " ", head)
+        blob = head
+    return any(_marker_hits(blob, marker) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:

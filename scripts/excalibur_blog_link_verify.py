@@ -118,16 +118,32 @@ def classify_link(href: str, site_base: str | None) -> str:
 
 
 def is_soft_external_failure(href: str, result: dict[str, Any]) -> bool:
-    """Treat flaky social profile timeouts as warnings, not publish blockers."""
+    """Treat flaky social/gov timeouts as warnings, not publish blockers.
+
+    Social profiles and official RU customs portals often fail SSL/handshake from
+    agent egress; keep the URL (official source) but do not block publish.
+    """
     parsed = urlparse(href)
-    host = parsed.netloc.lower()
-    soft_hosts = {"t.me", "telegram.me", "wa.me", "vk.com"}
+    host = (parsed.netloc or "").lower()
+    if host.startswith("www."):
+        host = host[4:]
+    soft_hosts = {
+        "t.me",
+        "telegram.me",
+        "wa.me",
+        "vk.com",
+        "edata.customs.ru",
+        "customs.gov.ru",
+    }
     if host not in soft_hosts:
         return False
     if result.get("status") is not None:
         return False
     error = str(result.get("error") or "").lower()
-    return any(token in error for token in ("timed out", "timeout", "ssl", "network"))
+    return any(
+        token in error
+        for token in ("timed out", "timeout", "ssl", "handshake", "network", "connection")
+    )
 
 
 def verify_article(
@@ -180,7 +196,15 @@ def verify_article(
             r["checked_url"] = check_target
         if kind == "external" and is_soft_external_failure(href, r):
             r["ok"] = True
-            r["warning"] = "soft external social timeout; verify manually if needed"
+            host = (urlparse(href).netloc or "").lower()
+            if host.startswith("www."):
+                host = host[4:]
+            if host in {"edata.customs.ru", "customs.gov.ru"}:
+                r["warning"] = (
+                    "soft external customs/gov SSL or timeout; verify manually before publish"
+                )
+            else:
+                r["warning"] = "soft external social timeout; verify manually if needed"
         results.append(r)
 
     failed = [r for r in results if not r.get("ok")]

@@ -17,14 +17,15 @@ quad-manifest.json (agent fills hooks + scene_hint)
        ↓
 quad-mcp-batch.json (1 job, input_urls)
        ↓
-ONE MCP gpt-image-2 i2i → canvas-quad.png 2048×1152
+Cloud default: Kie API createTask→recordInfo (ONE job)
+  optional: max 1× sync MCP gpt-image-2; on -32001 → Kie recovery
        ↓
-split → cover.png + inline-01..03.png (1200×675)
+canvas-quad.png 2048×1152 → split → cover + inline-01..03
        ↓
 inject <figure> after H2 in article.html
 ```
 
-**Запрещено:** 4 отдельных MCP на cover + inline.
+**Запрещено:** 4 отдельных image jobs на cover + inline. **Не выдумывай URL** после MCP `-32001`.
 
 ---
 
@@ -122,19 +123,31 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image job (Cloud default = Kie API)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+**Предпочтительно (Cloud):**
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+Пишет `cover/quad-mcp-result.json` с URL. Используй `preferred_image_flow` / `timeout_policy` из batch.
+
+**Опционально:** max **один** sync MCP `gpt-image-2` (`jobs[0].mcp_args`).  
+Если MCP `-32001` Request timed out:
+
+1. Запиши `cover/quad-mcp-timeout.json` (не blocker сам по себе).
+2. Проверь MCP logs на реальный URL — если есть, сохрани в `quad-mcp-result.json`.
+3. Иначе **один** Kie API recovery (тот же prompt/`input_urls`).
+4. **Не** invent URL, **не** второй sync MCP.
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --url "<result url from Kie/MCP>" \
   --inject-html
 ```
 
@@ -163,22 +176,24 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 
 ## QA перед ✅
 
-- [ ] 1 MCP, не 4
-- [ ] input_urls в MCP
+- [ ] 1 image job (Kie или max 1 sync MCP), не 4
+- [ ] `input_urls` / reference в job
 - [ ] cover.png + 3 inline существуют
 - [ ] alt в registry для всех 4
 - [ ] inline привязаны к H2 (`h2_anchor`)
 - [ ] cover: hook + meme caption видны на PNG
 - [ ] inline: без лица героя
 - [ ] fragment cover.md записан
+- [ ] после `-32001` — Kie recovery или URL из логов, не выдуманный URL
 
 ---
 
 ## Blockers → verdict ❌
 
 - нет reference_url_hosted
-- MCP text-only (без input_urls)
+- image job text-only (без input_urls)
 - 4 отдельные генерации
+- `-32001` без URL в логах и Kie API тоже недоступен
 - QUAD SPLIT fail
 - inline = meme с ведущим вместо UI
 

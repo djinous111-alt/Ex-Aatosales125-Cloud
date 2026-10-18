@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B06-kia-k5-iz-korei-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1286,
+      724
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 724,
+        "end": 774
+      },
+      "v_gutter_px": {
+        "start": 1286,
+        "end": 1329
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1286,
+          "bottom": 724
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1286,
+          "bottom": 724
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у порта Владивостока с плашкой про ловушку «без ДТП» на Kia K5 из Кореи",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1329,
+          "top": 16,
+          "right": 2560,
+          "bottom": 708
+        },
+        "raw_box_px": {
+          "left": 1329,
+          "top": 0,
+          "right": 2560,
+          "bottom": 724
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения сценариев Kia K5: семья, трасса и город",
+        "h2_anchor": "Зафиксируйте сценарий: семья, трасса или ежедневный город"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 51,
+          "top": 774,
+          "right": 1235,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 774,
+          "right": 1286,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Сравнение комплектаций K5 Prestige Best Selection Noblesse Signature",
+        "h2_anchor": "Сравните комплектации Prestige, Best Selection, Noblesse и Signature"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1352,
+          "top": 774,
+          "right": 2536,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1329,
+          "top": 774,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист ловушки мусаго: без ДТП не значит без покраски",
+        "h2_anchor": "Разберите ловушку \"без ДТП\": мусаго про каркас, а не про покраску"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте сценарий: семья, трасса или ежедневный город",
+    "injected inline_2 after H2 — Сравните комплектации Prestige, Best Selection, Noblesse и Signature",
+    "injected inline_3 after H2 — Разберите ловушку \"без ДТП\": мусаго про каркас, а не про покраску"
+  ]
+}

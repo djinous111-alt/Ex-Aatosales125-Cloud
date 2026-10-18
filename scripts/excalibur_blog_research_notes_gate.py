@@ -73,14 +73,29 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_matches(blob: str, marker: str) -> bool:
+    """Short markers need word boundaries: 'ai' must not match 'pain', 'ии' not 'истории'."""
+    if len(marker) <= 3:
+        pattern = rf"(?<![0-9a-zа-яё_]){re.escape(marker)}(?![0-9a-zа-яё_])"
+        return bool(re.search(pattern, blob, flags=re.I))
+    return marker in blob
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Skip required meta keys / github_evidence heading so the gate does not self-trigger.
+    notes_head = notes[:2000]
+    notes_head = re.sub(
+        r"(?im)^(?:reader_pain|github_evidence|##\s*\d*\.?\s*github_evidence)\b.*$",
+        "",
+        notes_head,
+    )
+    blob += " " + notes_head.lower()
+    return any(_marker_matches(blob, marker) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -194,11 +209,51 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     }
 
 
+def self_test_tech_marker_false_positive() -> None:
+    """Regression: AVTO SALES notes with reader_pain + Russian 'истории' must not be technical."""
+    context = {
+        "topic": {
+            "h1": "Kia K5 из Кореи: комплектации и ловушки",
+            "primary_query": "киа к5 из кореи комплектации",
+            "secondary_queries": ["к5 на газу"],
+            "search_intent": "how_to",
+            "slug": "kia-k5-iz-korei-komplektatsii-lovushki-2026",
+        }
+    }
+    notes = (
+        "research_date: 2026-10-18\n"
+        "reader_pain: покупатель теряет деньги на комплектации без проверки истории\n"
+        "reader_outcome: выбрать комплектацию без скрытых доплат\n"
+        "## github_evidence\n"
+        "не требуется для авто-импорта\n"
+        "В реальных историях сделки часто ломаются на комплектации.\n"
+    )
+    assert not is_technical_topic(context, notes), (
+        "false positive: reader_pain/истории must not force technical_topic"
+    )
+    assert not _marker_matches("reader_pain: покупатель", "ai"), "ai must not match inside pain"
+    assert not _marker_matches("реальных историях сделки", "ии"), "ии must not match inside истории"
+    assert _marker_matches("настроить ai агента", "ai"), "whole-word ai must still match"
+    print("OK self-test tech-marker false-positive")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Validate research-notes.md freshness and depth")
-    ap.add_argument("--article-dir", type=Path, required=True)
+    ap.add_argument("--article-dir", type=Path, default=None)
     ap.add_argument("-o", "--output", type=Path, default=None)
+    ap.add_argument(
+        "--self-test",
+        action="store_true",
+        help="Run tech-marker false-positive regression (no article-dir required)",
+    )
     args = ap.parse_args()
+
+    if args.self_test:
+        self_test_tech_marker_false_positive()
+        return 0
+
+    if not args.article_dir:
+        ap.error("--article-dir is required unless --self-test")
 
     root = project_root()
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir

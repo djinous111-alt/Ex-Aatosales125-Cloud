@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "kia-k5-iz-korei-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у порта Владивостока с плашкой про ловушку «без ДТП» на Kia K5 из Кореи",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-18T13:28:59+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у порта Владивостока с плашкой про ловушку «без ДТП» на Kia K5 из Кореи",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сравнения сценариев Kia K5: семья, трасса и город",
+      "h2_anchor": "Зафиксируйте сценарий: семья, трасса или ежедневный город",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Сравнение комплектаций K5 Prestige Best Selection Noblesse Signature",
+      "h2_anchor": "Сравните комплектации Prestige, Best Selection, Noblesse и Signature",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист ловушки мусаго: без ДТП не значит без покраски",
+      "h2_anchor": "Разберите ловушку \"без ДТП\": мусаго про каркас, а не про покраску",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

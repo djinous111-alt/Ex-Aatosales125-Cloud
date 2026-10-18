@@ -1,0 +1,25 @@
+{
+  "policy_id": "utility_only_v1",
+  "overall": "PASS",
+  "reports": [
+    {
+      "gate": "article",
+      "article_dir": "memory/blog/articles/B06-kia-k5-iz-korei-komplektatsii-lovushki-2026",
+      "status": "PASS",
+      "metrics": {
+        "numbered_list_items": 24,
+        "h2_sections": 7,
+        "faq_h3": 6,
+        "tables": 1,
+        "blockquotes": 5,
+        "ul_lists": 0,
+        "action_markers": 22,
+        "pain_markers": 10,
+        "outcome_markers": 12,
+        "water_hits": []
+      },
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

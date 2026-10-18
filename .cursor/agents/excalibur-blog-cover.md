@@ -10,7 +10,7 @@ is_background: false
 
 ## Роль
 
-Cover-агент генерирует **один** quad-холст 2×2 (MCP `gpt-image-2` + reference i2i), режет на `cover.png` + 3 inline, вставляет `<figure>` в `article.html`.
+Cover-агент генерирует **один** quad-холст 2×2 (Cloud default: Kie API createTask→recordInfo; optional max 1× sync MCP `gpt-image-2` + reference i2i), режет на `cover.png` + 3 inline, вставляет `<figure>` в `article.html`. После MCP `-32001` — Kie recovery, URL не выдумывать.
 
 **Skill (читать первым):** `skills/cover-excalibur-blog/SKILL.md`  
 **Контракт:** `shared/blog-cover-quad-canvas-contract.md`  
@@ -46,12 +46,13 @@ Cover-агент генерирует **один** quad-холст 2×2 (MCP `gp
 
 ## Жёсткие правила
 
-1. **ONE MCP** — один холст 2×2. **Запрещено** 4 отдельных вызова.
-2. MCP **обязан** иметь `input_urls: [reference_url_hosted]` (Image to Image).
-3. **Cover (top-left):** reference **лицо**; **одежда/поза** — на усмотрение агента в `scene_hint`.
-4. **Design code:** `memory/cover/cover-design-code.json` — fake скрины, стикеры, скотч, мемы, «сделал человек», **16:9**.
-5. **Inline 1–3:** полезность по `visual_type` — **без** лица героя.
-6. Не трогать `schema.jsonld`, не переписывать текст статьи.
+1. **ONE image job** — один холст 2×2. **Запрещено** 4 отдельных генерации.
+2. Cloud default: `scripts/excalibur_blog_kie_gpt_image2_api.py`. Sync MCP — max 1 попытка; на `-32001` → один Kie recovery, **не invent URL**.
+3. Job **обязан** иметь `input_urls: [reference_url_hosted]` (Image to Image).
+4. **Cover (top-left):** reference **лицо**; **одежда/поза** — на усмотрение агента в `scene_hint`.
+5. **Design code:** `memory/cover/cover-design-code.json` — fake скрины, стикеры, скотч, мемы, «сделал человек», **16:9**.
+6. **Inline 1–3:** полезность по `visual_type` — **без** лица героя.
+7. Не трогать `schema.jsonld`, не переписывать текст статьи.
 
 ---
 
@@ -73,20 +74,25 @@ python scripts/excalibur_blog_quad_manifest.py --article-dir "$ARTICLE" --merge
 # 4. Промпт + batch (1 job)
 python scripts/excalibur_blog_cover_quad_prompt.py --article-dir "$ARTICLE" --write-batch
 
-# 5. ONE CallMcpTool user-mcp-kv / gpt-image-2
-#    аргументы из cover/quad-mcp-batch.json → jobs[0].mcp_args
-#    aspect_ratio: 16:9, resolution: 2K, input_urls обязателен
+# 5. Cloud default — Kie async API (preferred_image_flow in batch)
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir "$ARTICLE"
+# Optional legacy: max ONE sync MCP gpt-image-2 (jobs[0].mcp_args).
+# On -32001: check logs for URL → else one Kie recovery; never invent URL; never 2nd sync.
 
 # 6. Скачать + split + inject
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir "$ARTICLE" \
-  --url "<url из MCP>" \
+  --url "<url из Kie/MCP result>" \
   --inject-html
 ```
 
 ---
 
-## MCP `gpt-image-2`
+## Image job (Kie default / MCP optional)
+
+Cloud: читай `cover/quad-mcp-batch.json` → `preferred_image_flow` + `timeout_policy`.
+
+Optional sync MCP args:
 
 ```json
 {
@@ -97,7 +103,7 @@ python scripts/excalibur_blog_quad_apply.py \
 }
 ```
 
-Перед вызовом: `tools/list` → `gpt-image-2` schema. Без `input_urls` → **❌ COVER HERO BLOCKER**.
+Без `input_urls` → **❌ COVER HERO BLOCKER**. `-32001` без URL и без Kie → blocker.
 
 ---
 

@@ -1,0 +1,666 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-18",
+    "today_ru": "18.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-20",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-18 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "kia-k5-iz-korei-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Kia K5 из Кореи в 2026: комплектации, ловушки пробега и чек-лист до заказа",
+    "primary_query": "киа к5 из кореи",
+    "secondary_queries": [
+      "комплектации киа к5",
+      "киа к5 из кореи отзывы",
+      "привезти киа к5 из кореи",
+      "комплектации киа к5 в корее"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "киа к5 из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia K5 из Южной Кореи: полный гид покупателя 2026 (поколения, двигатели ...",
+          "url": "https://eimcar.ru/ru/news/kia-k5-import-iz-korei-polny-gid",
+          "snippet": ""
+        },
+        {
+          "title": "Kia K5 From Korea in 2026 | Prices, Trim Levels, Condition",
+          "url": "https://www.youtube.com/watch?v=wgzypuayOtw",
+          "snippet": "Подробный разбор Kia K5 для импорта из Кореи: поколения DL3, двигатели 2.0 и 1.6T, комплектации Prestige, Noblesse, Signature и реальные цены."
+        },
+        {
+          "title": "Kia K5 из Кореи: как выбрать комплектацию и не ошибиться с мощностью в 2026",
+          "url": "https://avtosales125.ru/2026/07/22/kia-k5-iz-korei-kak-vybrat-2026/",
+          "snippet": "KIA K5 ИЗ КОРЕИ В 2026 ГОДУ | ЦЕНЫ, КОМПЛЕКТАЦИИ, СОСТОЯНИЕ#Carstar #Автоподбор #АвтоИзКитая #АвтоИзЮжнойКореи # ..."
+        },
+        {
+          "title": "Kia K5 из Кореи 2026: болячки, цена под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-k5-iz-korei-2026",
+          "snippet": "Как выбрать киа к5 из кореи в 2026: мотор до 160 л.с., Prestige/Noblesse/Signature, LPG vs бензин, чек-лист Encar до депозита. Расчёт - в каталоге Авто-Сейлс."
+        },
+        {
+          "title": "Kia из Кореи 2026: модельный ряд и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-iz-korei-2026",
+          "snippet": "Из Кореи K5 едет на левом руле. По льготному утильсбору проходят двухлитровые версии: бензин на 160 л.с. и заводской газ на 146 л.с. Дальше разберём, что выбрать между ними, какие у K5 болячки, живые детали корейской версии и цены по реальным лотам."
+        },
+        {
+          "title": "Киа К5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/kia/k5/2026/",
+          "snippet": "Какую Kia привезти из Кореи в 2026: шесть моделей с годом и пробегом лота от 1,22 млн ₽, бензин или заводской газ у K5 и Sportage, цены по лотам и утильсбор. Бензин или заводской газ — вот главная развилка при выборе Kia из Кореи, и решает она не только расход на заправке."
+        }
+      ],
+      "searched_at": "2026-10-18"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "киа к5 из кореи октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia K5 из Южной Кореи: полный гид покупателя 2026 (поколения, двигатели ...",
+          "url": "https://eimcar.ru/ru/news/kia-k5-import-iz-korei-polny-gid",
+          "snippet": ""
+        },
+        {
+          "title": "Kia K5 из Кореи под ключ 2026: цена и растаможка | ДАРЭ",
+          "url": "https://importdare.ru/blog/kia-k5-iz-korei-pod-klyuch",
+          "snippet": "Подробный разбор Kia K5 для импорта из Кореи: поколения DL3, двигатели 2.0 и 1.6T, комплектации Prestige, Noblesse, Signature и реальные цены."
+        },
+        {
+          "title": "Киа К5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/kia/k5/2026/",
+          "snippet": "Какой Kia K5 выбрать для ввоза в 2026? Для большинства покупателей оптимален Kia K5 2.0 (150 л.с.) — он попадает в льготный утильсбор и даёт лучшую цену под ключ."
+        },
+        {
+          "title": "Kia K5 From Korea in 2026 | Prices, Trim Levels, Condition",
+          "url": "https://www.youtube.com/watch?v=wgzypuayOtw",
+          "snippet": "Подробно расписан модельный ряд Kia K5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Киа К5 2026 между собой."
+        },
+        {
+          "title": "Kia K5 из Кореи: как выбрать комплектацию и не ошибиться с мощностью в 2026",
+          "url": "https://avtosales125.ru/2026/07/22/kia-k5-iz-korei-kak-vybrat-2026/",
+          "snippet": "KIA K5 ИЗ КОРЕИ В 2026 ГОДУ | ЦЕНЫ, КОМПЛЕКТАЦИИ, СОСТОЯНИЕ#Carstar #Автоподбор #АвтоИзКитая #АвтоИзЮжнойКореи # ..."
+        },
+        {
+          "title": "Kia из Кореи 2026: модельный ряд и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-iz-korei-2026",
+          "snippet": "Как выбрать киа к5 из кореи в 2026: мотор до 160 л.с., Prestige/Noblesse/Signature, LPG vs бензин, чек-лист Encar до депозита. Расчёт - в каталоге Авто-Сейлс."
+        }
+      ],
+      "searched_at": "2026-10-18"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "киа к5 из кореи новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia K5 из Южной Кореи: полный гид покупателя 2026 (поколения, двигатели ...",
+          "url": "https://eimcar.ru/ru/news/kia-k5-import-iz-korei-polny-gid",
+          "snippet": ""
+        },
+        {
+          "title": "Киа К5 2026 из Кореи: все изменения и цена под ключ",
+          "url": "https://dzen.ru/video/watch/6a696b4bccc06762b6ae6d67",
+          "snippet": "Подробный разбор Kia K5 для импорта из Кореи: поколения DL3, двигатели 2.0 и 1.6T, комплектации Prestige, Noblesse, Signature и реальные цены."
+        },
+        {
+          "title": "Kia K5 From Korea in 2026 | Prices, Trim Levels, Condition",
+          "url": "https://www.youtube.com/watch?v=wgzypuayOtw",
+          "snippet": "📢 Telegram-канал https://t.me/taaaauto— каждый день публикуем актуальные варианты с ценами. Подберем автомобиль под ключ: — проверка в Корее. — честный расчет без скрытых расходов. — доставка до Владивостока и по России. Если вам нужен расчет на конкретный автомобиль — просто напишите, рассчитаем 👌."
+        },
+        {
+          "title": "Kia из Кореи 2026: модельный ряд и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-iz-korei-2026",
+          "snippet": "KIA K5 ИЗ КОРЕИ В 2026 ГОДУ | ЦЕНЫ, КОМПЛЕКТАЦИИ, СОСТОЯНИЕ#Carstar #Автоподбор #АвтоИзКитая #АвтоИзЮжнойКореи # ..."
+        },
+        {
+          "title": "2026 Kia K5 SUV — Новый Корейский ... - YouTube",
+          "url": "https://www.youtube.com/watch?v=YqxlvSZvUf4",
+          "snippet": "Какую Kia привезти из Кореи в 2026: шесть моделей с годом и пробегом лота от 1,22 млн ₽, бензин или заводской газ у K5 и Sportage, цены по лотам и утильсбор."
+        },
+        {
+          "title": "Kia K5 из Кореи: как выбрать комплектацию и не ошибиться с мощностью в 2026",
+          "url": "https://dzen.ru/a/amEBQTRgISluRCbq",
+          "snippet": "Полный Обзор В этом выпуске на канале Car reviews мы подробно разбираем совершенно новый 2026 Kia K5 SUV — стильный, технологичный и амбициозный кроссовер из Южной Кореи. Легендарная модель..."
+        }
+      ],
+      "searched_at": "2026-10-18"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com киа к5 из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "skyline/vite.svg at main · Balamurugan-4/skyline · GitHub",
+          "url": "https://github.com/Balamurugan-4/skyline/blob/main/vite.svg",
+          "snippet": ""
+        },
+        {
+          "title": "IMO2026/logo.svg at main · AxiomMath/IMO2026 · GitHub",
+          "url": "https://github.com/AxiomMath/IMO2026/blob/main/logo.svg",
+          "snippet": "Contribute to Balamurugan-4/skyline development by creating an account on GitHub."
+        },
+        {
+          "title": "AURA/pics/mascot2.png at main · aurateam2026/AURA · GitHub",
+          "url": "https://github.com/aurateam2026/AURA/blob/main/pics/mascot2.png",
+          "snippet": "Contribute to AxiomMath/IMO2026 development by creating an account on GitHub."
+        },
+        {
+          "title": "jscut/logo-both.svg at gh-pages · tbfleming/jscut · GitHub",
+          "url": "https://github.com/tbfleming/jscut/blob/gh-pages/logo-both.svg",
+          "snippet": "Contribute to aurateam2026/AURA development by creating an account on GitHub."
+        },
+        {
+          "title": "mutsu/HISTORY-pass.svg at main · tokuhirom/mutsu · GitHub",
+          "url": "https://github.com/tokuhirom/mutsu/blob/main/HISTORY-pass.svg",
+          "snippet": "Contribute to tbfleming/jscut development by creating an account on GitHub."
+        },
+        {
+          "title": "godot_custom-3dx-/icon.svg at master · Sreejith-nair511/godot ... - GitHub",
+          "url": "https://github.com/Sreejith-nair511/godot_custom-3dx-/blob/master/icon.svg",
+          "snippet": "Contribute to tokuhirom/mutsu development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-18"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "киа к5 из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "2026 Kia K5 Documents",
+          "url": "https://www.kiamedia.com/us/en/models/k5/2026/documents",
+          "snippet": ""
+        },
+        {
+          "title": "KIA K5 2026 FEATURES & FUNCTIONS MANUAL Pdf Download",
+          "url": "https://www.manualslib.com/manual/4024376/Kia-K5-2026.html",
+          "snippet": "2026 K5 Specifications Jul 09, 2025ID: 23329 File (.xlsx) 24.0 KB File Formats My Device Google Drive Dropbox Send to a Friend"
+        },
+        {
+          "title": "Kia K5 из Южной Кореи: полный гид покупателя 2026 (поколения, двигатели ...",
+          "url": "https://eimcar.ru/ru/news/kia-k5-import-iz-korei-polny-gid",
+          "snippet": "View and Download Kia K5 2026 features & functions manual online. K5 2026 automobile pdf manual download."
+        },
+        {
+          "title": "Киа К5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/kia/k5/2026/",
+          "snippet": "Подробный разбор Kia K5 для импорта из Кореи: поколения DL3, двигатели 2.0 и 1.6T, комплектации Prestige, Noblesse, Signature и реальные цены."
+        },
+        {
+          "title": "2026 Kia K5 Specifications",
+          "url": "https://www.kiamedia.com/us/en/models/k5/2026/specifications",
+          "snippet": "Подробно расписан модельный ряд Kia K5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Киа К5 2026 между собой."
+        },
+        {
+          "title": "Техническая документация Kia",
+          "url": "https://www.kia.ru/service/download/",
+          "snippet": "Fuel tank capacity (gal.)"
+        }
+      ],
+      "searched_at": "2026-10-18"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "киа к5 из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Форум клуба Kia K5",
+          "url": "https://k5-club.ru/forum/",
+          "snippet": ""
+        },
+        {
+          "title": "Как я привез себе KiaK5 из Кореи! Реальный опыт.",
+          "url": "https://vc.ru/life/2106653-pokupka-kia-k5-iz-korei-opyt-i-sovety",
+          "snippet": "Если вы раньше не пользовались форумом, пожалуйста прочитайте справку по форуму. Для размещения своих сообщений в форуме клуба необходимо зарегистрироваться. Если вам нужна помощь с регистрацией, обратитесь к администратору. А для просмотра сообщений просто выберите раздел форума. Tesla представила Roadster,... Как узнать комплектацию Kia..."
+        },
+        {
+          "title": "Kia K5 LPI и гибрид из Кореи: характеристики, надежность и отзывы",
+          "url": "https://inycar.ru/blog/kia-k5-lpi-i-gibrid-iz-korei-harakteristiki-nadezhnost-i-otzyvy",
+          "snippet": "Сегодня все кому не лень покупают авто из Кореи, вот и я решил поделиться историей о том, как меня угораздило привезти авто из Кореи и почему я выбрал именно этот вариант:"
+        },
+        {
+          "title": "Киа К5 2025 - 2026 отзывы владельцев - поломки и проблемы",
+          "url": "https://www.drom.ru/reviews/kia/k5/5kopeek/breakages/?year1=2025&year2=2026",
+          "snippet": "Расскажу, как эти K5 живут в жаре Ростова-на-Дону, что пишут владельцы на форумах и чем 2026 год отличается от 2024-го на рынке. За восемь лет в автопродажах я встречал одного удовлетворённого владельца LPI K5. Остальные — с проблемами. Честно: я бы не взял такую машину для себя."
+        },
+        {
+          "title": "KiaK5 - Reddit",
+          "url": "https://www.reddit.com/r/KiaK5/",
+          "snippet": "Отзывы владельцев Киа К5 2025 - 2026 - поломки и проблемы. Опыт эксплуатации реальных владельцев автомобилей Киа К5: поломки, минусы, недостатки и проблемы."
+        },
+        {
+          "title": "Форум клуба Kia K5",
+          "url": "https://k5-club.ru/forum/?s=c0cbf3007d8a01377774e5ce27e71fb6",
+          "snippet": "A subreddit dedicated to the Kia K5/Optima sedan sold around the world"
+        }
+      ],
+      "searched_at": "2026-10-18"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "комплектации киа к5 2026",
+      "purpose": "вторичный запрос: комплектации киа к5",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Киа К5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/kia/k5/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Киа К5 комплектации 2026: сравнение версий и выбор",
+          "url": "https://master-kia.vercel.app/articles/k/k5/k5-kia-komplektatsii.html",
+          "snippet": "Подробно расписан модельный ряд Kia K5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Киа К5 2026 между собой."
+        },
+        {
+          "title": "Комплектации Киа К5: сравнение всех версий, цены и опции",
+          "url": "https://master-kia.vercel.app/articles/k/ko/komplektatsii-k5-kia.html",
+          "snippet": "В этой статье мы детально разберем, чем отличаются комплектации Киа К5, какие технологии скрываются за названиями Classic, Luxe, Prestige и GT-Line."
+        },
+        {
+          "title": "Купить новый Kia K5 (Киа К5) комплектации и цены 2026",
+          "url": "https://legend-auto.ru/kia/k5/",
+          "snippet": "Подробный обзор комплектаций Kia K5. Разбираем двигатели, опции, отличия Classic от Prestige и GT-Line. Какую версию выбрать в 2026 году?"
+        },
+        {
+          "title": "KIA K5 цены и комплектации 2026 - CarMaps.Ru",
+          "url": "https://carmaps.ru/kia/k5/",
+          "snippet": "Сколько стоит новый авто Киа К5 2026 года выпуска в Москве у официального дилера. Продажа автомобиля Kia K5 2026 модельного года в новом кузове: фото, комплектации и цены."
+        },
+        {
+          "title": "Киа К5 2026 цены модели, комплектации, фото, новый кузов",
+          "url": "https://cenyavto.com/kia-k5-2026/",
+          "snippet": "KIA K5: цены и комплектации, фото в новом кузове, модификации и оборудование 2026 года."
+        }
+      ],
+      "searched_at": "2026-10-18"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "киа к5 из кореи отзывы 2026",
+      "purpose": "вторичный запрос: киа к5 из кореи отзывы",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia K5 из Южной Кореи: полный гид покупателя 2026 (поколения, двигатели ...",
+          "url": "https://eimcar.ru/ru/news/kia-k5-import-iz-korei-polny-gid",
+          "snippet": ""
+        },
+        {
+          "title": "Киа К5 отзывы владельцев: все минусы и недостатки",
+          "url": "https://www.drom.ru/reviews/kia/k5/5kopeek/",
+          "snippet": "Подробный разбор Kia K5 для импорта из Кореи: поколения DL3, двигатели 2.0 и 1.6T, комплектации Prestige, Noblesse, Signature и реальные цены."
+        },
+        {
+          "title": "Kia K5 из Кореи на газу: стоит ли покупать в России в 2026 году",
+          "url": "https://auto.ru/logbook/cars/kia/k5/23757960/kia-k5-iz-korei-na-gazu-stoit-li-pokupat-v-rossii-v-2026-godu_1e18ce9e-e63f-43ba-8734-5cf7486bc783/",
+          "snippet": "Двигатель 2.0 работает ровно, в паре с 6 ступенчатой коробкой, переключается очень мягко, практически незаметно, своевременно, сохраняя динамику. Расход экономичный, вполне устраивал. Машина кайф, самое то, что необходимо для повседневной езды."
+        },
+        {
+          "title": "Как я привез себе KiaK5 из Кореи! Реальный опыт.",
+          "url": "https://vc.ru/life/2106653-pokupka-kia-k5-iz-korei-opyt-i-sovety",
+          "snippet": "В этой статье разберемся, что представляет собой Kia K5 на газу из Кореи, сколько он расходует, чем отличается от бензиновой версии, какие у него характеристики и стоит ли привозить такой ..."
+        },
+        {
+          "title": "Киа K5 2026 - Фото, Все Минусы (Отзывы Владельцев), Цены И Комплектации ...",
+          "url": "https://atlas-auto.net/kia-k5/",
+          "snippet": "Сегодня все кому не лень покупают авто из Кореи, вот и я решил поделиться историей о том, как меня угораздило привезти авто из Кореи и почему я выбрал именно этот вариант:"
+        },
+        {
+          "title": "Kia K5 из Кореи 2026: болячки, цена под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-k5-iz-korei-2026",
+          "snippet": "Переднеприводный бизнес-седан марки Kia отныне на всех рынках называется К5 (раньше такое обозначение использовалось только в Южной Корее и Китае), а имя Optima сдано в архив."
+        }
+      ],
+      "searched_at": "2026-10-18"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "привезти киа к5 из кореи 2026",
+      "purpose": "вторичный запрос: привезти киа к5 из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia K5 из Кореи под ключ 2026: цена и растаможка | ДАРЭ",
+          "url": "https://importdare.ru/blog/kia-k5-iz-korei-pod-klyuch",
+          "snippet": ""
+        },
+        {
+          "title": "Kia K3 И K5 До 160 Л.с. Из Китая И Корея За Сколько Можно Привезти ...",
+          "url": "https://vc.ru/transport/2679814-kia-k3-i-k5-do-160-ls-iz-kitaya-i-korei",
+          "snippet": "Какой Kia K5 выбрать для ввоза в 2026? Для большинства покупателей оптимален Kia K5 2.0 (150 л.с.) — он попадает в льготный утильсбор и даёт лучшую цену под ключ."
+        },
+        {
+          "title": "Сколько стоит привезти Kia K5 из Кореи в 2026 году",
+          "url": "https://el.kz/ru/skolko-stoit-privezti-kia-k5-iz-korei-v-2026-godu_400048509/",
+          "snippet": "Мы собрали реальный топ KIA K3 / K5 / Seltos, которые в 2026 действительно выгодно везти из Китая и Южной Кореи. Не по каталогам, а по тем машинам, которые мы считаем и возим."
+        },
+        {
+          "title": "Сколько стоит привезти авто из Кореи под ключ в 2026 году",
+          "url": "https://zmaimport.ru/blog/skolko-stoit-privezti-avto-iz-korei",
+          "snippet": "Таким образом, реальная стоимость Kia K5 Prestige в Казахстане с учётом всех расходов начинается примерно от 13-14 млн тенге, а топовая Signature может выйти в 19-21 млн тенге и выше."
+        },
+        {
+          "title": "Kia из Кореи 2026: модельный ряд и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-iz-korei-2026",
+          "snippet": "Стоимость привоза авто из Кореи под ключ складывается из цены машины, проверки, выкупа, доставки, таможенных платежей, утильсбора, СБКТС, ЭПТС и перевозки до клиента. В 2026 году главное считать не цену в корейском объявлении, а итоговую сумму до выдачи в России."
+        },
+        {
+          "title": "Как привезти автомобиль из Кореи в Россию в 2026 году — пошаговая ...",
+          "url": "https://autohubexport.com/article/kak-privezti-avto-iz-korei-v-rossiu-v-2026-poshagovaya-instrukcia/",
+          "snippet": "Какую Kia привезти из Кореи в 2026: шесть моделей с годом и пробегом лота от 1,22 млн ₽, бензин или заводской газ у K5 и Sportage, цены по лотам и утильсбор."
+        }
+      ],
+      "searched_at": "2026-10-18"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "комплектации киа к5 в корее 2026",
+      "purpose": "вторичный запрос: комплектации киа к5 в корее",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia K5 из Южной Кореи: полный гид покупателя 2026 (поколения, двигатели ...",
+          "url": "https://eimcar.ru/ru/news/kia-k5-import-iz-korei-polny-gid",
+          "snippet": ""
+        },
+        {
+          "title": "Киа К5 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/kia/k5/2026/",
+          "snippet": "Подробный разбор Kia K5 для импорта из Кореи: поколения DL3, двигатели 2.0 и 1.6T, комплектации Prestige, Noblesse, Signature и реальные цены."
+        },
+        {
+          "title": "Киа К5 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/kia/k5/south-korea/",
+          "snippet": "Подробно расписан модельный ряд Kia K5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Киа К5 2026 между собой."
+        },
+        {
+          "title": "Киа К5 комплектации 2026: сравнение версий и выбор",
+          "url": "https://master-kia.vercel.app/articles/k/k5/k5-kia-komplektatsii.html",
+          "snippet": "Подробно расписан модельный ряд Kia K5: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Киа К5 между собой."
+        },
+        {
+          "title": "Комплектации Киа К5: сравнение всех версий, цены и опции",
+          "url": "https://master-kia.vercel.app/articles/k/ko/komplektatsii-k5-kia.html",
+          "snippet": "Полный обзор Киа К5 комплектации: технические характеристики, отличия Classic, Luxe, Prestige и GT-Line. Поможем выбрать идеальную версию седана."
+        },
+        {
+          "title": "Киа К5 2026 цены модели, комплектации, фото, новый кузов",
+          "url": "https://cenyavto.com/kia-k5-2026/",
+          "snippet": "Подробный обзор комплектаций Kia K5. Разбираем двигатели, опции, отличия Classic от Prestige и GT-Line. Какую версию выбрать в 2026 году?"
+        }
+      ],
+      "searched_at": "2026-10-18"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Kia K5 из Кореи в 2026: комплектации, ловушки пробега и чек-лист до заказа 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia K5 из Южной Кореи: полный гид покупателя 2026 (поколения, двигатели ...",
+          "url": "https://eimcar.ru/ru/news/kia-k5-import-iz-korei-polny-gid",
+          "snippet": ""
+        },
+        {
+          "title": "Kia K5 из Кореи под ключ 2026: цена и растаможка | ДАРЭ",
+          "url": "https://importdare.ru/blog/kia-k5-iz-korei-pod-klyuch",
+          "snippet": "Подробный разбор Kia K5 для импорта из Кореи: поколения DL3, двигатели 2.0 и 1.6T, комплектации Prestige, Noblesse, Signature и реальные цены."
+        },
+        {
+          "title": "Kia K5 из Кореи: как выбрать комплектацию и не ошибиться с мощностью в 2026",
+          "url": "https://avtosales125.ru/2026/07/22/kia-k5-iz-korei-kak-vybrat-2026/",
+          "snippet": "Какой Kia K5 выбрать для ввоза в 2026? Для большинства покупателей оптимален Kia K5 2.0 (150 л.с.) — он попадает в льготный утильсбор и даёт лучшую цену под ключ."
+        },
+        {
+          "title": "Kia K5 GT-Line из Кореи: комплектации, стоимость под ключ в 2026 и что ...",
+          "url": "https://onlyjpcars.ru/blog/kia-k5-gt-line-pod-klyuch",
+          "snippet": "Как выбрать киа к5 из кореи в 2026: мотор до 160 л.с., Prestige/Noblesse/Signature, LPG vs бензин, чек-лист Encar до депозита. Расчёт - в каталоге Авто-Сейлс."
+        },
+        {
+          "title": "Kia из Кореи 2026: модельный ряд и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-iz-korei-2026",
+          "snippet": "Разберём, что представляет собой эта машина, сколько стоит под ключ в России и на что обратить внимание при выборе. Дата актуальности: 21 мая 2026."
+        },
+        {
+          "title": "Kia K5 из Кореи 2026: болячки, цена под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-k5-iz-korei-2026",
+          "snippet": "Какую Kia привезти из Кореи в 2026: шесть моделей с годом и пробегом лота от 1,22 млн ₽, бензин или заводской газ у K5 и Sportage, цены по лотам и утильсбор."
+        }
+      ],
+      "searched_at": "2026-10-18"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://eimcar.ru/ru/news/kia-k5-import-iz-korei-polny-gid",
+      "title": "Kia K5 из Южной Кореи: полный гид покупателя 2026 (поколения, двигатели ...",
+      "from_query": "киа к5 из кореи 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=wgzypuayOtw",
+      "title": "Kia K5 From Korea in 2026 | Prices, Trim Levels, Condition",
+      "from_query": "киа к5 из кореи 2026"
+    },
+    {
+      "url": "https://avtosales125.ru/2026/07/22/kia-k5-iz-korei-kak-vybrat-2026/",
+      "title": "Kia K5 из Кореи: как выбрать комплектацию и не ошибиться с мощностью в 2026",
+      "from_query": "киа к5 из кореи 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/kia-k5-iz-korei-2026",
+      "title": "Kia K5 из Кореи 2026: болячки, цена под ключ",
+      "from_query": "киа к5 из кореи 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/kia-iz-korei-2026",
+      "title": "Kia из Кореи 2026: модельный ряд и цены",
+      "from_query": "киа к5 из кореи 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/kia/k5/2026/",
+      "title": "Киа К5 2026 технические характеристики, комплектации и цены",
+      "from_query": "киа к5 из кореи 2026"
+    },
+    {
+      "url": "https://importdare.ru/blog/kia-k5-iz-korei-pod-klyuch",
+      "title": "Kia K5 из Кореи под ключ 2026: цена и растаможка | ДАРЭ",
+      "from_query": "киа к5 из кореи октябрь 2026"
+    },
+    {
+      "url": "https://dzen.ru/video/watch/6a696b4bccc06762b6ae6d67",
+      "title": "Киа К5 2026 из Кореи: все изменения и цена под ключ",
+      "from_query": "киа к5 из кореи новости 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=YqxlvSZvUf4",
+      "title": "2026 Kia K5 SUV — Новый Корейский ... - YouTube",
+      "from_query": "киа к5 из кореи новости 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/amEBQTRgISluRCbq",
+      "title": "Kia K5 из Кореи: как выбрать комплектацию и не ошибиться с мощностью в 2026",
+      "from_query": "киа к5 из кореи новости 2026"
+    },
+    {
+      "url": "https://github.com/Balamurugan-4/skyline/blob/main/vite.svg",
+      "title": "skyline/vite.svg at main · Balamurugan-4/skyline · GitHub",
+      "from_query": "site:github.com киа к5 из кореи 2026"
+    },
+    {
+      "url": "https://github.com/AxiomMath/IMO2026/blob/main/logo.svg",
+      "title": "IMO2026/logo.svg at main · AxiomMath/IMO2026 · GitHub",
+      "from_query": "site:github.com киа к5 из кореи 2026"
+    },
+    {
+      "url": "https://github.com/aurateam2026/AURA/blob/main/pics/mascot2.png",
+      "title": "AURA/pics/mascot2.png at main · aurateam2026/AURA · GitHub",
+      "from_query": "site:github.com киа к5 из кореи 2026"
+    },
+    {
+      "url": "https://github.com/tbfleming/jscut/blob/gh-pages/logo-both.svg",
+      "title": "jscut/logo-both.svg at gh-pages · tbfleming/jscut · GitHub",
+      "from_query": "site:github.com киа к5 из кореи 2026"
+    },
+    {
+      "url": "https://github.com/tokuhirom/mutsu/blob/main/HISTORY-pass.svg",
+      "title": "mutsu/HISTORY-pass.svg at main · tokuhirom/mutsu · GitHub",
+      "from_query": "site:github.com киа к5 из кореи 2026"
+    },
+    {
+      "url": "https://github.com/Sreejith-nair511/godot_custom-3dx-/blob/master/icon.svg",
+      "title": "godot_custom-3dx-/icon.svg at master · Sreejith-nair511/godot ... - GitHub",
+      "from_query": "site:github.com киа к5 из кореи 2026"
+    },
+    {
+      "url": "https://www.kiamedia.com/us/en/models/k5/2026/documents",
+      "title": "2026 Kia K5 Documents",
+      "from_query": "киа к5 из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/4024376/Kia-K5-2026.html",
+      "title": "KIA K5 2026 FEATURES & FUNCTIONS MANUAL Pdf Download",
+      "from_query": "киа к5 из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.kiamedia.com/us/en/models/k5/2026/specifications",
+      "title": "2026 Kia K5 Specifications",
+      "from_query": "киа к5 из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.kia.ru/service/download/",
+      "title": "Техническая документация Kia",
+      "from_query": "киа к5 из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://k5-club.ru/forum/",
+      "title": "Форум клуба Kia K5",
+      "from_query": "киа к5 из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://vc.ru/life/2106653-pokupka-kia-k5-iz-korei-opyt-i-sovety",
+      "title": "Как я привез себе KiaK5 из Кореи! Реальный опыт.",
+      "from_query": "киа к5 из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/kia-k5-lpi-i-gibrid-iz-korei-harakteristiki-nadezhnost-i-otzyvy",
+      "title": "Kia K5 LPI и гибрид из Кореи: характеристики, надежность и отзывы",
+      "from_query": "киа к5 из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/kia/k5/5kopeek/breakages/?year1=2025&year2=2026",
+      "title": "Киа К5 2025 - 2026 отзывы владельцев - поломки и проблемы",
+      "from_query": "киа к5 из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.reddit.com/r/KiaK5/",
+      "title": "KiaK5 - Reddit",
+      "from_query": "киа к5 из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://k5-club.ru/forum/?s=c0cbf3007d8a01377774e5ce27e71fb6",
+      "title": "Форум клуба Kia K5",
+      "from_query": "киа к5 из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/k/k5/k5-kia-komplektatsii.html",
+      "title": "Киа К5 комплектации 2026: сравнение версий и выбор",
+      "from_query": "комплектации киа к5 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/k/ko/komplektatsii-k5-kia.html",
+      "title": "Комплектации Киа К5: сравнение всех версий, цены и опции",
+      "from_query": "комплектации киа к5 2026"
+    },
+    {
+      "url": "https://legend-auto.ru/kia/k5/",
+      "title": "Купить новый Kia K5 (Киа К5) комплектации и цены 2026",
+      "from_query": "комплектации киа к5 2026"
+    },
+    {
+      "url": "https://carmaps.ru/kia/k5/",
+      "title": "KIA K5 цены и комплектации 2026 - CarMaps.Ru",
+      "from_query": "комплектации киа к5 2026"
+    },
+    {
+      "url": "https://cenyavto.com/kia-k5-2026/",
+      "title": "Киа К5 2026 цены модели, комплектации, фото, новый кузов",
+      "from_query": "комплектации киа к5 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/kia/k5/5kopeek/",
+      "title": "Киа К5 отзывы владельцев: все минусы и недостатки",
+      "from_query": "киа к5 из кореи отзывы 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/kia/k5/23757960/kia-k5-iz-korei-na-gazu-stoit-li-pokupat-v-rossii-v-2026-godu_1e18ce9e-e63f-43ba-8734-5cf7486bc783/",
+      "title": "Kia K5 из Кореи на газу: стоит ли покупать в России в 2026 году",
+      "from_query": "киа к5 из кореи отзывы 2026"
+    },
+    {
+      "url": "https://atlas-auto.net/kia-k5/",
+      "title": "Киа K5 2026 - Фото, Все Минусы (Отзывы Владельцев), Цены И Комплектации ...",
+      "from_query": "киа к5 из кореи отзывы 2026"
+    },
+    {
+      "url": "https://vc.ru/transport/2679814-kia-k3-i-k5-do-160-ls-iz-kitaya-i-korei",
+      "title": "Kia K3 И K5 До 160 Л.с. Из Китая И Корея За Сколько Можно Привезти ...",
+      "from_query": "привезти киа к5 из кореи 2026"
+    },
+    {
+      "url": "https://el.kz/ru/skolko-stoit-privezti-kia-k5-iz-korei-v-2026-godu_400048509/",
+      "title": "Сколько стоит привезти Kia K5 из Кореи в 2026 году",
+      "from_query": "привезти киа к5 из кореи 2026"
+    },
+    {
+      "url": "https://zmaimport.ru/blog/skolko-stoit-privezti-avto-iz-korei",
+      "title": "Сколько стоит привезти авто из Кореи под ключ в 2026 году",
+      "from_query": "привезти киа к5 из кореи 2026"
+    },
+    {
+      "url": "https://autohubexport.com/article/kak-privezti-avto-iz-korei-v-rossiu-v-2026-poshagovaya-instrukcia/",
+      "title": "Как привезти автомобиль из Кореи в Россию в 2026 году — пошаговая ...",
+      "from_query": "привезти киа к5 из кореи 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/kia/k5/south-korea/",
+      "title": "Киа К5 технические характеристики, комплектации и цены",
+      "from_query": "комплектации киа к5 в корее 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/kia-k5-gt-line-pod-klyuch",
+      "title": "Kia K5 GT-Line из Кореи: комплектации, стоимость под ключ в 2026 и что ...",
+      "from_query": "Как выбрать Kia K5 из Кореи в 2026: комплектации, ловушки пробега и чек-лист до заказа 2026"
+    }
+  ]
+}

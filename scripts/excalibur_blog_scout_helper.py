@@ -40,6 +40,21 @@ def load_active_article_topics(root: Path) -> set[str]:
     return active
 
 
+def load_live_reserved(root: Path) -> dict[str, Any]:
+    """Load memory/topics/live-reserved.json (reserved IDs + next_forced_topic_id)."""
+    path = root / "memory" / "topics" / "live-reserved.json"
+    if not path.is_file():
+        return {"reserved": [], "next_forced_topic_id": ""}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {"reserved": [], "next_forced_topic_id": ""}
+    reserved_raw = data.get("reserved") or []
+    reserved = [str(x).upper() for x in reserved_raw if str(x).strip()]
+    forced = str(data.get("next_forced_topic_id") or "").strip().upper()
+    return {"reserved": reserved, "next_forced_topic_id": forced}
+
+
 def load_existing_topics(root: Path) -> list[dict[str, str]]:
     topics_path = root / "memory/topics/blog-topics.md"
     topics = []
@@ -125,19 +140,42 @@ def main() -> int:
     root = project_root()
     published = load_published_topics(root)
     active = load_active_article_topics(root)
-    reserved = published | active
+    live = load_live_reserved(root)
+    live_reserved = {x for x in live.get("reserved") or []}
+    reserved = published | active | live_reserved
     existing = load_existing_topics(root)
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
+        forced = str(live.get("next_forced_topic_id") or "").strip().upper()
         max_num = 0
         for t in existing:
             m = re.match(r"B(\d+)", t["topic_id"])
             if m:
                 max_num = max(max_num, int(m.group(1)))
-        
-        next_id = f"B{max_num + 1:02d}"
+        for rid in reserved:
+            m = re.match(r"B(\d+)$", rid)
+            if m:
+                max_num = max(max_num, int(m.group(1)))
+
+        # Prefer live-reserved next_forced when set and not already occupied.
+        if forced and forced not in reserved:
+            next_id = forced
+            source = "live-reserved.next_forced_topic_id"
+        else:
+            next_id = f"B{max_num + 1:02d}"
+            # Skip IDs already in reserved (ledger/dirs/live-reserved).
+            while next_id in reserved:
+                m = re.match(r"B(\d+)$", next_id)
+                n = int(m.group(1)) + 1 if m else max_num + 1
+                next_id = f"B{n:02d}"
+            source = "max(pool,reserved)+1"
+
         print(f"Next available topic ID: {next_id}")
+        print(f"Suggestion source: {source}")
+        if forced:
+            print(f"live-reserved.next_forced_topic_id: {forced}")
+        print(f"live-reserved.reserved: {sorted(live_reserved)}")
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")
         print(f"Active article dirs: {sorted(active)}")

@@ -1,0 +1,27 @@
+{
+  "updated_at": "2026-10-18T13:15:00Z",
+  "note": "Ledger reset in repo; live WP posts still occupy B01–B05 sense. Scout appended B06; next forced B07.",
+  "reserved": [
+    "B01",
+    "B02",
+    "B03",
+    "B04",
+    "B05",
+    "B06"
+  ],
+  "next_forced_topic_id": "B07",
+  "recent_wp_slug_denylist": [
+    "kak-popolnit-els-fts-pered-rastamozhkoy-avto-2026",
+    "sroki-dostavki-avto-iz-korei-vladivostok-2026",
+    "kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026",
+    "peregon-avto-iz-vladivostoka-svoim-hodom-2026",
+    "vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026",
+    "nuzhna-li-era-glonass-pri-vvoze-avto-2026",
+    "haval-changan-geely-kak-vybrat-krossover-2026",
+    "kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026",
+    "dostavka-avto-iz-vladivostoka-zd-avtovoz-2026",
+    "prokhodnye-avto-iz-yaponii-2026",
+    "otsledit-avto-iz-yaponii-rolker-2026",
+    "avto-iz-korei-pod-klyuch-chto-vhodit-2026"
+  ]
+}

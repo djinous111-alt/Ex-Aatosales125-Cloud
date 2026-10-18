@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B05-kak-popolnit-els-fts-pered-rastamozhkoy-avto-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1285,
+      724
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 724,
+        "end": 730
+      },
+      "v_gutter_px": {
+        "start": 1285,
+        "end": 1305
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1285,
+          "bottom": 724
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1285,
+          "bottom": 724
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у ноутбука с экраном ЛК ФТС, порт Владивостока, плашка ЕЛС до СВХ",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1305,
+          "top": 9,
+          "right": 2560,
+          "bottom": 715
+        },
+        "raw_box_px": {
+          "left": 1305,
+          "top": 0,
+          "right": 2560,
+          "bottom": 724
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Инфографика: зачем пополнять ЕЛС до прихода авто на СВХ",
+        "h2_anchor": "Поймите, зачем ЕЛС до прихода авто на СВХ"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 11,
+          "top": 730,
+          "right": 1273,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 730,
+          "right": 1285,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: свой ЕЛС против перевода брокеру на карту после 01.04.2026",
+        "h2_anchor": "Отделите ЕЛС от перевода \"брокеру на карту\""
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1305,
+          "top": 732,
+          "right": 2560,
+          "bottom": 1438
+        },
+        "raw_box_px": {
+          "left": 1305,
+          "top": 730,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап ЛК ФТС: где смотреть остаток ЕЛС после входа через Госуслуги",
+        "h2_anchor": "Откройте личный кабинет ФТС и найдите остаток"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Поймите, зачем ЕЛС до прихода авто на СВХ",
+    "injected inline_2 after H2 — Отделите ЕЛС от перевода \"брокеру на карту\"",
+    "injected inline_3 after H2 — Откройте личный кабинет ФТС и найдите остаток"
+  ]
+}

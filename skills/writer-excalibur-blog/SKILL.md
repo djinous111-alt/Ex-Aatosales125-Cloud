@@ -29,6 +29,7 @@
     - **ЗАПРЕЩЕНО:** интерактивное оглавление — `<ol>` или `<ul>` с `<a href="#...">` на заголовки H2/H3 сразу после TL;DR. После blockquote TL;DR идёт контекстный `<p>`, затем первый `<h2>`.
     - Атрибут `id` у `<h2>` — только если нужен для внешней перелинковки; не создавай оглавление в теле статьи.
     - В конце статьи (перед FAQ) вставляй блок верификации (**Fact Check Box**) через `<blockquote>` от редакции Авто-Сейлс. **Не** упоминай Wordstat и Метрику в тексте статьи.
+13. **CTA URL (критично для link-verify):** в `article.html` пиши **живые HTTPS** ссылки каталога/Telegram из `memory/brief/site-brief.md`, `conversion-map.md` / `offers-map.md` или env (`PUBLIC_SITE_URL`, catalog URL). **Запрещено** ставить `href="[REDACTED]"` — литерал `[REDACTED]` годится только для commit-скана отчётов/handoff, не как placeholder в статье. Иначе link-verify резолвит `PUBLIC_SITE_URL/[REDACTED]` → 404 → GEO QA BLOCK.
 
 ## Выход
 

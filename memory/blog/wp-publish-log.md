@@ -31,3 +31,17 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-18 — B05 kak-popolnit-els-fts-pered-rastamozhkoy-avto-2026
+
+- **verdict:** PASS
+- **post_id:** 4310
+- **permalink:** https://avtosales125.ru/2026/10/18/kak-popolnit-els-fts-pered-rastamozhkoy-avto-2026/
+- **featured_image:** 4311
+- **inline_images:** 4312 (`cover/inline-01.png`), 4313 (`cover/inline-02.png`), 4314 (`cover/inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH upload (`SSH_ROOT=.`) + HTTP trigger OK (~150s; no WebFetch fallback needed)
+- **note:** preflight `--inject-html` (cover left inject skip; 3 inline figures); denylist posts 4292/4286/4269/4298 not touched; new post_id=4310
+- **result:** `memory/blog/articles/B05-kak-popolnit-els-fts-pered-rastamozhkoy-avto-2026/wp-publish-result.json`
+

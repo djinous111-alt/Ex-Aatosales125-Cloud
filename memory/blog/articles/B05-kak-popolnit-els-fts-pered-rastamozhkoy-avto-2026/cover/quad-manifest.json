@@ -1,0 +1,42 @@
+{
+  "topic_id": "B05",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Машина на пути — а ЕЛС пуст?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у ноутбука с экраном ЛК ФТС, порт Владивостока, плашка ЕЛС до СВХ",
+      "scene_hint": "WEATHER: grey Vladivostok port day; OUTFIT: thick white heavyweight hoodie (pipeline lock), NO cap NO hood NO headphones; reference EXACT face+glasses; action selfie at laptop showing fake ФТС ЛК balance UI; background Vladivostok port cranes + modern import car silhouette; torn-paper plaque Cyrillic «Машина на пути — а ЕЛС пуст?» yellow highlight on «ЕЛС»; sticky «до СВХ»; shocked meme cutout + cat reaction (different formats); DIY zine collage; corner footer ONLY avto-sales125.ru; NEVER Wordstat/Metrika; NEVER toxic stickers лох/лохов/для лохов",
+      "meme_caption_ru": "ЕЛС до СВХ"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Поймите, зачем ЕЛС до прихода авто на СВХ",
+      "visual_type": "infographic_card",
+      "scene_hint": "RU infographic card: timeline «путь авто → СВХ → декларация» with ЕЛС wallet icon and check «остаток ≥ начисление»; sticky «до прихода»; tape; NO hero face; NO toxic text; NO Wordstat/Metrika",
+      "alt": "Инфографика: зачем пополнять ЕЛС до прихода авто на СВХ"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Отделите ЕЛС от перевода \"брокеру на карту\"",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns «свой ЕЛС / ИНН» vs «перевод брокеру на карту»; rows с 01.04.2026 зачёт / риск / кто платит; red X on чужой платёж; green check on свой СБП; sticky «не путать»; NO hero face; NO лох/лохов",
+      "alt": "Таблица: свой ЕЛС против перевода брокеру на карту после 01.04.2026"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Откройте личный кабинет ФТС и найдите остаток",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake ФТС личный кабинет screenshot via Госуслуги: balance block «Остаток ЕЛС», blurred ИНН, button «Пополнить»; sticky «скрин менеджеру»; scotch tape corner; NO hero face; NO Wordstat/Metrika; NO toxic stickers",
+      "alt": "Мокап ЛК ФТС: где смотреть остаток ЕЛС после входа через Госуслуги"
+    }
+  }
+}

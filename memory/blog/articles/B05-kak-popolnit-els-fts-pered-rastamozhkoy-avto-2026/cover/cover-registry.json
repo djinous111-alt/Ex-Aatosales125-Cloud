@@ -1,0 +1,50 @@
+{
+  "topic_id": "B05",
+  "slug": "kak-popolnit-els-fts-pered-rastamozhkoy-avto-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у ноутбука с экраном ЛК ФТС, порт Владивостока, плашка ЕЛС до СВХ",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-18T09:44:00+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у ноутбука с экраном ЛК ФТС, порт Владивостока, плашка ЕЛС до СВХ",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Инфографика: зачем пополнять ЕЛС до прихода авто на СВХ",
+      "h2_anchor": "Поймите, зачем ЕЛС до прихода авто на СВХ",
+      "visual_type": "infographic_card",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица: свой ЕЛС против перевода брокеру на карту после 01.04.2026",
+      "h2_anchor": "Отделите ЕЛС от перевода \"брокеру на карту\"",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Мокап ЛК ФТС: где смотреть остаток ЕЛС после входа через Госуслуги",
+      "h2_anchor": "Откройте личный кабинет ФТС и найдите остаток",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

@@ -62,6 +62,19 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
 
+## Официальные gov/customs порталы (flaky WebFetch)
+
+- `customs.gov.ru` и `edata.customs.ru` часто отвечают **5xx / 504 / SSL timeout** из агентского egress.
+- При 5xx/timeout на этих доменах **разрешены surrogate official sources**: ConsultantPlus, акты Минфина/ФТС на отраслевых порталах, TKS/гайды с цитатой приказа — с явной пометкой в `source_table` (`accessed_at` + note про 504/timeout).
+- URL ЛК/портала **оставляй** в `source_table` (официальная точка входа); перед publish GEO QA / link-verify soft-fail SSL timeout на этих хостах.
+- Повтори WebFetch портала один раз с backoff; не блокируй research только из‑за недоступности HTML портала, если факты сверены через surrogate.
+
+## Формат для research-notes-gate
+
+- В `source_table` даты пиши как `accessed_at: YYYY-MM-DD` (gate ищет `accessed_at`).
+- В `pain_solution_map` каждая строка должна содержать слова `боль` / `решение` / `результат`.
+- `github_evidence` обязателен как секция; жёсткие ≥3 `github.com` URL требуются только для **technical** тем (AI/API/агенты). Авто/таможня — не tech: достаточно docs/community evidence без принудительных GitHub URL.
+
 ## Blockers
 
 - `❌ RESEARCH BLOCKER` — тема не найдена и не создана из запроса пользователя

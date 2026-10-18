@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-18",
+    "today_ru": "18.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-20",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-18 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B05",
+    "priority": "P0",
+    "slug": "kak-popolnit-els-fts-pered-rastamozhkoy-avto-2026",
+    "h1": "Как пополнить ЕЛС ФТС перед растаможкой авто: чек-лист 2026",
+    "primary_query": "как пополнить елс фтс",
+    "secondary_queries": [
+      "елс фтс личный кабинет",
+      "пополнение елс фтс",
+      "реквизиты елс фтс",
+      "как быстро зачисляются деньги на елс фтс"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B05",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "как пополнить елс фтс 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "как пополнить елс фтс октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "как пополнить елс фтс новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com как пополнить елс фтс 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "как пополнить елс фтс official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "как пополнить елс фтс forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "елс фтс личный кабинет 2026",
+      "purpose": "вторичный запрос: елс фтс личный кабинет"
+    },
+    {
+      "id": "secondary_2",
+      "query": "пополнение елс фтс 2026",
+      "purpose": "вторичный запрос: пополнение елс фтс"
+    },
+    {
+      "id": "secondary_3",
+      "query": "реквизиты елс фтс 2026",
+      "purpose": "вторичный запрос: реквизиты елс фтс"
+    },
+    {
+      "id": "secondary_4",
+      "query": "как быстро зачисляются деньги на елс фтс 2026",
+      "purpose": "вторичный запрос: как быстро зачисляются деньги на елс фтс"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как пополнить ЕЛС ФТС перед растаможкой авто: чек-лист 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B05-kak-popolnit-els-fts-pered-rastamozhkoy-avto-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

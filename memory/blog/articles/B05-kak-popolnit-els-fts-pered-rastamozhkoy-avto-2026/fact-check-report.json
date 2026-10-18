@@ -1,0 +1,66 @@
+{
+  "article": "memory/blog/articles/B05-kak-popolnit-els-fts-pered-rastamozhkoy-avto-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 8,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 7,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "что жена или друг переведут \"за вас\". С 1 апреля 2026 так почти нельзя: чужой платёж на ЕЛС часто не зач",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "15 минут",
+      "kind": "metric_or_duration",
+      "context": ". Подождите обновления остатков (ориентир – около 15 минут в рабочий день). Если СБП недоступен – выберите о",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "15 мин",
+      "kind": "metric_or_duration",
+      "context": "Госуслугами Чужая карта Свой ИНН, остаток через ~15 мин Оператор в ЛК Если СБП недоступен Комиссия банка",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1 000 000",
+      "kind": "large_number",
+      "context": "миссии за операционные услуги сервиса, лимит – до 1 000 000 ₽ за операцию. Реквизиты подставляет сервис – мен",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "107",
+      "kind": "large_number",
+      "context": "т по реквизитам Ошибка КБК/кода органа КБК и поле 107 до отправки Перевод \"за друга\" Никому с 01.04.2026",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "15301061301010000510",
+      "kind": "large_number",
+      "context": "атите без ЛК, критичны два поля. КБК авансов ФТС: 15301061301010000510 . Код органа в поле 107 для аванса на ЕЛС чаще 10",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10000010",
+      "kind": "large_number",
+      "context": "10 . Код органа в поле 107 для аванса на ЕЛС чаще 10000010 . Тут важный момент: памятки брокеров Владивосток",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10702000",
+      "kind": "large_number",
+      "context": "момент: памятки брокеров Владивостока иногда дают 10702000 . Не копируйте \"как у соседа\" – переспросите мене",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

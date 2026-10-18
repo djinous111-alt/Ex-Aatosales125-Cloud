@@ -6,8 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none — post-B06 fixer 2026-10-18)_
+
 ## INC-20261018-1337-publish-http-timeout-reconstruct
-status: open
+status: fixed
 run_date: 2026-10-18
 role: excalibur-blog-publish
 topic_id: B06
@@ -40,10 +42,23 @@ category: transport
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-18
+fix_summary:
+- HTTP trigger + WebFetch wait raised to 300s; bootstrap deleted only on `OK post=` or full TTL exhaustion.
+- Publish skill documents reconstruct-via-REST (no republish) when client loses body but WP post exists.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `rg` no timeout=120 leftovers in publish script
+commit: 2828fc9+8dce378
 
 ## INC-20261018-1331-indexer-skill-stale-blog-path
-status: open
+status: fixed
 run_date: 2026-10-18
 role: excalibur-blog-indexer
 topic_id: B06
@@ -72,10 +87,24 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-18
+fix_summary:
+- Removed stale `--blog-path` from indexer agent+skill (plugin + `.cursor` copies); CLI examples use `--blog-dir`/`--out-dir` only.
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` no `--blog-path` in agents/skills
+- `python3 scripts/excalibur_blog_llms_generator.py --help` (no --blog-path)
+- `python3 scripts/excalibur_blog_doctor.py` errors=0
+commit: 2828fc9+8dce378
 
 ## INC-20261018-1328-cover-mcp-32001-kie-api-recovery
-status: open
+status: fixed
 run_date: 2026-10-18
 role: excalibur-blog-cover
 topic_id: B06
@@ -106,10 +135,26 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-18
+fix_summary:
+- Cloud cover default = Kie API; sync MCP max 1; `-32001` → Kie recovery, never invent URL.
+- Batch `timeout_policy.cloud_default=kie_async_api` + updated agent/skill/contract.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/blog-cover-quad-canvas-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+- `rg` cloud_default/kie recovery in prompt builder + skill
+commit: 2828fc9+8dce378
 
 ## INC-20261018-1320-writer-utility-pain-outcome-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-18
 role: excalibur-blog-writer
 topic_id: B06
@@ -142,10 +187,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-18
+fix_summary:
+- Confirmed pain/outcome marker lists in editorial-policy (+ markers_sync_note).
+- Utility gate skips pain/outcome check with warning if lists empty (no hard-fail).
+- Writer skill: use «Сделайте/Не делайте/Проверьте», not «Делать/Не делать».
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
+- `python3 -m json.tool memory/brief/editorial-policy.json`
+commit: 2828fc9+8dce378
 
 ## INC-20261018-1318-research-tech-marker-false-positive
-status: open
+status: fixed
 run_date: 2026-10-18
 role: excalibur-blog-research
 topic_id: B06
@@ -177,10 +237,21 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending (hotfix already in script; fixer should confirm + test + pitfalls)
+status: fixed
+fixed_at: 2026-10-18
+fix_summary:
+- Confirmed word-boundary + meta-strip hotfix; added `--self-test` regression for reader_pain/истории false positive.
+- Pitfalls document Research tech-marker rule.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --self-test`
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+commit: 2828fc9+8dce378
 
 ## INC-20261018-1315-scout-live-reserved-ignored
-status: open
+status: fixed
 run_date: 2026-10-18
 role: excalibur-blog-scout
 topic_id: B06
@@ -210,7 +281,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-18
+fix_summary:
+- `--suggest-next` loads live-reserved.json; prefers `next_forced_topic_id` and treats `reserved` as occupied.
+- Scout skill/agent document FORCE path + live-reserved update after append.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → B07 (source=live-reserved.next_forced_topic_id)
+- `python3 -m py_compile scripts/excalibur_blog_scout_helper.py`
+commit: 2828fc9+8dce378
 
 ## INC-20261018-1302-director-doctor-llms-blog-dir
 status: fixed
@@ -244,12 +330,12 @@ category: script
 status: fixed
 fixed_at: 2026-10-18
 fix_summary:
-- Doctor now asserts `--blog-dir` in llms generator help (shipped with scout B06 commit).
+- Doctor asserts `--blog-dir` (confirmed again post-B06 fixer; errors=0). No further code change needed this pass.
 files_changed:
-- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_doctor.py` (already fixed earlier)
 checks_run:
-- `python3 scripts/excalibur_blog_doctor.py` (preflight earlier: errors=0)
-commit: pending-scout-b06
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 warnings=0
+commit: confirmed-no-extra-change
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

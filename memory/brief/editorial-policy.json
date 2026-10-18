@@ -1,6 +1,7 @@
 {
   "policy_id": "utility_only_v1",
   "label_ru": "Только полезные статьи — без воды",
+  "markers_sync_note": "pain_markers_ru / outcome_markers_ru must stay aligned with PAIN_MARKERS / OUTCOME_MARKERS in scripts/excalibur_blog_human_voice_gate.py. Empty lists → utility_gate skips that check (warning), does not hard-fail.",
   "mission": "Публикуем только материалы, после которых читатель может сделать конкретное действие: how-to, чеклист, сравнение с выбором, troubleshooting, workflow.",
   "allowed_search_intent": [
     "how_to",

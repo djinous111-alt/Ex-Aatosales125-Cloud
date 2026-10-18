@@ -1,0 +1,95 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-19",
+    "today_ru": "19.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-21",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-19 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B08",
+    "priority": "P0",
+    "slug": "kia-sportage-iz-korei-komplektatsii-lovushki-2026",
+    "h1": "Kia Sportage из Кореи: как выбрать комплектацию и не попасть на ловушки в 2026",
+    "primary_query": "спортейдж из кореи",
+    "secondary_queries": [
+      "киа спортейдж из кореи",
+      "спортейдж на газу из кореи",
+      "киа спортейдж дизель из кореи"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B08",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "спортейдж из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "спортейдж из кореи октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "спортейдж из кореи новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com спортейдж из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "спортейдж из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "спортейдж из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "киа спортейдж из кореи 2026",
+      "purpose": "вторичный запрос: киа спортейдж из кореи"
+    },
+    {
+      "id": "secondary_2",
+      "query": "спортейдж на газу из кореи 2026",
+      "purpose": "вторичный запрос: спортейдж на газу из кореи"
+    },
+    {
+      "id": "secondary_3",
+      "query": "киа спортейдж дизель из кореи 2026",
+      "purpose": "вторичный запрос: киа спортейдж дизель из кореи"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Kia Sportage из Кореи: как выбрать комплектацию и не попасть на ловушки в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B08-kia-sportage-iz-korei-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

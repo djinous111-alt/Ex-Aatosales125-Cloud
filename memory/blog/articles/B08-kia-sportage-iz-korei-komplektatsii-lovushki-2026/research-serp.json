@@ -1,0 +1,571 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-19",
+    "today_ru": "19.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-21",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-19 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B08",
+    "priority": "P0",
+    "slug": "kia-sportage-iz-korei-komplektatsii-lovushki-2026",
+    "h1": "Kia Sportage из Кореи: как выбрать комплектацию и не попасть на ловушки в 2026",
+    "primary_query": "спортейдж из кореи",
+    "secondary_queries": [
+      "киа спортейдж из кореи",
+      "спортейдж на газу из кореи",
+      "киа спортейдж дизель из кореи"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "спортейдж из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Киа Спортейдж 2026 технические характеристики. Kia Sportage 2026 ...",
+          "url": "https://www.drom.ru/catalog/kia/sportage/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Sportage 2026 года из Кореи под заказ с доставкой по России",
+          "url": "https://ngt-auto.ru/korea/kia/sportage/?year_from=2026&year_to=2026",
+          "snippet": "Подробно расписан модельный ряд Kia Sportage 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Киа Спортейдж 2026 между собой."
+        },
+        {
+          "title": "Kia Sportage 2026 купить из Кореи с доставкой",
+          "url": "https://noharaauto.com/avto-iz-korei/kia/sportage/?year_from=2026&year_to=2026",
+          "snippet": "Корея — один из лидеров автомобильной индустрии. Автомобили корейских брендов славятся высоким качеством производства, богатой комплектацией, технологическими решениями и адекватной ..."
+        },
+        {
+          "title": "Kia Sportage 2026 года из Южной Кореи под заказ",
+          "url": "https://regionauto.org/korea/kia/sportage/?year_from=2026&year_to=2026",
+          "snippet": "Объявления по продаже автомобилей Kia Sportage 2026 в Корее, цена указана в рублях со всеми расходами по Корее, доставкой в Россию, пошлиной и всеми сборами."
+        },
+        {
+          "title": "Купить Kia Sportage из Кореи под ключ — от 1 546 000 ₽, 1 437 в наличии",
+          "url": "https://encarrus.ru/korea/kia/sportage/",
+          "snippet": "Kia Sportage 2026 года с пробегом из Южной Кореи под заказ. Актуальные цены, комплектации и популярные модели. Доставка по всей России. РегионАвто — надёжный партнёр в покупке корейских автомобилей."
+        },
+        {
+          "title": "Купить Kia Sportage из Кореи с аукциона без пробега по РФ - 8 196 авто ...",
+          "url": "https://autosender.ru/korean-cars/kia/sportage",
+          "snippet": "Цена в карточке — уже «под ключ» до Владивостока: стоимость Kia Sportage в Корее, доставка морем, таможенное оформление, утильсбор по мощности двигателя и наши услуги."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "спортейдж из кореи октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Sportage 2026 из Кореи: обзор и цена | AZWAY",
+          "url": "https://azway.ru/blog/kia-sportage-iz-korei-obzor",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Sportage из Кореи 2026: стоимость под ключ и комплектации, которых ...",
+          "url": "https://autoprofiasia.ru/blog/kia-sportage-iz-korei-2026-tsena-pod-klyuch",
+          "snippet": "Sportage из Кореи интересен богатым выбором, левым рулём и понятной сервисной базой. Важно не смешивать дорестайлинговый дизель/робот с модельным 2026 годом: коробки, оснащение и рыночные цены у них разные. В статье отделяем официальные характеристики от лабораторных обещаний и рекламных объявлений."
+        },
+        {
+          "title": "Kia Sportage из Кореи: версии, утиль и цена 2026",
+          "url": "https://export-motors.com/blog/kia-sportage-iz-korei",
+          "snippet": "Kia Sportage 5-го поколения из Кореи — комплектации Gravity и Noble с оснащением уровня премиум. В 2026 году бензиновые версии без ограничений по объёму разрешены к ввозу, экономия до 500 000 ₽."
+        },
+        {
+          "title": "Kia Sportage из Кореи: комплектации, стоимость под ключ и ввоз в 2026",
+          "url": "https://onlyjpcars.ru/blog/kia-sportage-iz-korei",
+          "snippet": "Kia Sportage из Кореи — почему все корейские версии идут по коммерческому утильсбору, разбор 1.6T, дизеля и гибрида, комплектации и цена под ключ в 2026."
+        },
+        {
+          "title": "Kia Sportage из Кореи: обзор, комплектации, отзывы 2026",
+          "url": "https://silenkoautocratia.ru/blog/kia-sportage-iz-korei-obzor/",
+          "snippet": "Kia Sportage NQ5 (5-е поколение) из Кореи под ключ в 2026: комплектации 1.6T, HEV и PHEV, цены на Encar, стоимость с доставкой и таможенным оформлением до Сибири, нюансы утильсбора."
+        },
+        {
+          "title": "Kia Sportage NQ5 2026: обзор и цена под ключ из Кореи | CARTO",
+          "url": "https://carto-auto.ru/blog/kia-sportage-nq5-2026-obzor-tsena-pod-klyuch/",
+          "snippet": "Kia Sportage 5-го поколения из Кореи в 2026 году: двигатели, комплектации, реальный расход, отзывы владельцев, сравнение с Hyundai Tucson и расчёт цены под ключ."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "спортейдж из кореи новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Sportage 2026 из Кореи: обзор и цена | AZWAY",
+          "url": "https://azway.ru/blog/kia-sportage-iz-korei-obzor",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Sportage из Кореи: версии, утиль и цена 2026",
+          "url": "https://export-motors.com/blog/kia-sportage-iz-korei",
+          "snippet": "Sportage из Кореи интересен богатым выбором, левым рулём и понятной сервисной базой. Важно не смешивать дорестайлинговый дизель/робот с модельным 2026 годом: коробки, оснащение и рыночные цены у них разные. В статье отделяем официальные характеристики от лабораторных обещаний и рекламных объявлений."
+        },
+        {
+          "title": "Киа Спортейдж из Кореи 2026: выбираем полный привод или передний",
+          "url": "https://dzen.ru/a/akC68_OqTyVckFL0",
+          "snippet": "Kia Sportage из Кореи — почему все корейские версии идут по коммерческому утильсбору, разбор 1.6T, дизеля и гибрида, комплектации и цена под ключ в 2026."
+        },
+        {
+          "title": "Kia Sportage NQ5 2026: обзор и цена под ключ из Кореи | CARTO",
+          "url": "https://carto-auto.ru/blog/kia-sportage-nq5-2026-obzor-tsena-pod-klyuch/",
+          "snippet": "Киа Спортейдж из Кореи 2026 модельного года — это глубоко модернизированный кроссовер пятого поколения (кузов NQ5), который благодаря переходу на классический 8-ступенчатый автомат и отказу от проблемного «робота» обеспечивает надежную эксплуатацию и премиальный комфорт."
+        },
+        {
+          "title": "Kia Sportage из Кореи: обзор, комплектации, отзывы 2026",
+          "url": "https://silenkoautocratia.ru/blog/kia-sportage-iz-korei-obzor/",
+          "snippet": "Kia Sportage пятого поколения — один из немногих премиально выглядящих кроссоверов, который в 2026 году ещё проходит по льготному утильсбору. Разбираем комплектации корейского рынка, какие моторы брать, и считаем полную цену под ключ до Москвы."
+        },
+        {
+          "title": "Kia Sportage из Кореи: комплектации, стоимость под ключ и ввоз в 2026",
+          "url": "https://onlyjpcars.ru/blog/kia-sportage-iz-korei",
+          "snippet": "Kia Sportage 5-го поколения из Кореи в 2026 году: двигатели, комплектации, реальный расход, отзывы владельцев, сравнение с Hyundai Tucson и расчёт цены под ключ."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com спортейдж из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 5,
+      "results": [
+        {
+          "title": "hcia-security/favicon.svg at main · x0k5r/hcia-security · GitHub",
+          "url": "https://github.com/x0k5r/hcia-security/blob/main/favicon.svg",
+          "snippet": ""
+        },
+        {
+          "title": "DanceOPD/assets/fig1.png at main · worldbench/DanceOPD · GitHub",
+          "url": "https://github.com/worldbench/DanceOPD/blob/main/assets/fig1.png",
+          "snippet": "Latest HCIA security dumps website. Contribute to x0k5r/hcia-security development by creating an account on GitHub."
+        },
+        {
+          "title": "comfyui-frame-interpolation_cudafull/interpolation_schedule.png at main ...",
+          "url": "https://github.com/eddyhhlure1Eddy/comfyui-frame-interpolation_cudafull/blob/main/interpolation_schedule.png",
+          "snippet": "🔥 DanceOPD: On-Policy Generative Field Distillation - DanceOPD/assets/fig1.png at main · worldbench/DanceOPD"
+        },
+        {
+          "title": "deepresearch/assets/tongyi.png at main · coloth/deepresearch",
+          "url": "https://github.com/coloth/deepresearch/blob/main/assets/tongyi.png",
+          "snippet": "Contribute to eddyhhlure1Eddy/comfyui-frame-interpolation_cudafull development by creating an account on GitHub."
+        },
+        {
+          "title": "Awesome-OpenClaw-1/ecosystem-map.svg at main - GitHub",
+          "url": "https://github.com/maliang-agent/Awesome-OpenClaw-1/blob/main/ecosystem-map.svg",
+          "snippet": "Tongyi DeepResearch, the Leading Open-source DeepResearch Agent - coloth/deepresearch"
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "спортейдж из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Документация на автомобиль Kia по VIN | АвтоСпецЦентр",
+          "url": "https://kia-asc.ru/service/download/",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Sportage 2026 из Кореи: обзор и цена | AZWAY",
+          "url": "https://azway.ru/blog/kia-sportage-iz-korei-obzor",
+          "snippet": "Запросите документацию на автомобиль Kia по VIN-номеру на сайте официального дилера Kia АвтоСпецЦентр. Руководства пользователя, сервисные книжки, сетки технического обслуживания, брошюры, инструкции."
+        },
+        {
+          "title": "Kia Sportage из Кореи: версии, утиль и цена 2026",
+          "url": "https://export-motors.com/blog/kia-sportage-iz-korei",
+          "snippet": "Sportage из Кореи интересен богатым выбором, левым рулём и понятной сервисной базой. Важно не смешивать дорестайлинговый дизель/робот с модельным 2026 годом: коробки, оснащение и рыночные цены у них разные. В статье отделяем официальные характеристики от лабораторных обещаний и рекламных объявлений."
+        },
+        {
+          "title": "Kia Sportage - Кроссовер Киа Спортейдж на официальном сайте Kia в России",
+          "url": "https://www.kia.ru/models/sportage/desc/",
+          "snippet": "Kia Sportage из Кореи — почему все корейские версии идут по коммерческому утильсбору, разбор 1.6T, дизеля и гибрида, комплектации и цена под ключ в 2026."
+        },
+        {
+          "title": "Киа Спортейдж из Кореи 2026: выбираем полный привод или передний",
+          "url": "https://dzen.ru/a/akC68_OqTyVckFL0",
+          "snippet": "Обзор кроссовера Kia Sportage на официальном сайте Kia. Описание автомобиля, фото, характеристики, комплектации и цены Киа Спортейдж на официальном сайте Kia в России."
+        },
+        {
+          "title": "Комплектации Киа Спортейдж: сравнение всех версий 2026",
+          "url": "https://master-kia.vercel.app/articles/k/ko/komplektatsii-kia-sportazh.html",
+          "snippet": "Киа Спортейдж из Кореи 2026 модельного года — это глубоко модернизированный кроссовер пятого поколения (кузов NQ5), который благодаря переходу на классический 8-ступенчатый автомат и отказу от проблемного «робота» обеспечивает надежную эксплуатацию и премиальный комфорт."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "спортейдж из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Недостатки Киа Спортейдж 2025-2026: отзывы владельцев - все минусы и плюсы",
+          "url": "https://www.allcarz.ru/kia-sportage-5-nedostatki/",
+          "snippet": ""
+        },
+        {
+          "title": "Киа Спортейдж 2025 - 2026 отзывы владельцев: все минусы и недостатки",
+          "url": "https://www.drom.ru/reviews/kia/sportage/5kopeek/?year1=2025&year2=2026",
+          "snippet": "Прежде чем покупать новый Киа Спортейдж 5 поколения или любую другую машину, предварительно стоит изучить отзывы владельцев, которые поделились своим опытом владения корейского кроссовера. Ниже мы собрали все минусы KIA Sportage 2025-2026 и плюсы на основе отзывов реальных автовладельцев."
+        },
+        {
+          "title": "Киа Спортейдж отзывы: реальный опыт владельцев и скрытые проблемы ...",
+          "url": "https://master-kia.vercel.app/articles/o/ot/otzyvy-na-kia-sportejdzh.html",
+          "snippet": "Отзывы владельцев Киа Спортейдж 2025 - 2026: все минусы и плюсы, недостатки, поломки. Опыт эксплуатации реальных владельцев автомобилей Киа Спортейдж: плюсы и минусы."
+        },
+        {
+          "title": "Киа Спортейдж (kia sportage) | форум KIA клуба",
+          "url": "https://kiaclub.ru/index.php?forums/kia-sportejdzh-kia-sportage.16/",
+          "snippet": "Kia Sportage часто называют «народным» кроссовером, но оправдывает ли он этот статус в текущих экономических условиях? В этой статье мы не будем пересказывать сухие технические характеристики."
+        },
+        {
+          "title": "Киа Спортейдж 2026 отзывы: реальные владельцы, расход, поломки",
+          "url": "https://master-kia.vercel.app/articles/k/ki/kia-sportejdzh-2024-otzyvy.html",
+          "snippet": "Kia Sportage 3 (Киа Спортейдж 2010-2016) форум по новому KIA Sportage III , модельный год 2010-2016, кузов SL (Sle)"
+        },
+        {
+          "title": "Киа Спортейдж отзывы владельцев: все минусы и недостатки",
+          "url": "https://www.drom.ru/reviews/kia/sportage/5kopeek/?year1=2024&year2=2026",
+          "snippet": "Честные отзывы о Kia Sportage 2026: расход топлива, проблемы с мультимедиа, динамика турбомоторов и надежность роботизированных коробок передач."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "киа спортейдж из кореи 2026",
+      "purpose": "вторичный запрос: киа спортейдж из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Sportage NQ5 2026: обзор и цена под ключ из Кореи | CARTO",
+          "url": "https://carto-auto.ru/blog/kia-sportage-nq5-2026-obzor-tsena-pod-klyuch/",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Sportage 2026 из Кореи: обзор и цена | AZWAY",
+          "url": "https://azway.ru/blog/kia-sportage-iz-korei-obzor",
+          "snippet": "Kia Sportage пятого поколения NQ5 через параллельный импорт: моторы 1.6T, 2.0 дизель и гибрид, комплектации, льготный утильсбор и реальная цена под ключ до Москвы."
+        },
+        {
+          "title": "Kia Sportage из Кореи: обзор, комплектации, отзывы 2026",
+          "url": "https://silenkoautocratia.ru/blog/kia-sportage-iz-korei-obzor/",
+          "snippet": "Нужна точная цена Kia Sportage? Проверим доступные машины в Корее, документы, состояние и подготовим полную смету до вашего города."
+        },
+        {
+          "title": "Kia Sportage из Кореи 2026: стоимость под ключ и комплектации, которых ...",
+          "url": "https://autoprofiasia.ru/blog/kia-sportage-iz-korei-2026-tsena-pod-klyuch",
+          "snippet": "Kia Sportage 5-го поколения из Кореи в 2026 году: двигатели, комплектации, реальный расход, отзывы владельцев, сравнение с Hyundai Tucson и расчёт цены под ключ."
+        },
+        {
+          "title": "Kia Sportage из Кореи: версии, утиль и цена 2026",
+          "url": "https://export-motors.com/blog/kia-sportage-iz-korei",
+          "snippet": "Kia Sportage 5-го поколения из Кореи — комплектации Gravity и Noble с оснащением уровня премиум. В 2026 году бензиновые версии без ограничений по объёму разрешены к ввозу, экономия до 500 000 ₽."
+        },
+        {
+          "title": "Kia Sportage из Кореи: комплектации, стоимость под ключ и ввоз в 2026",
+          "url": "https://onlyjpcars.ru/blog/kia-sportage-iz-korei",
+          "snippet": "Kia Sportage из Кореи — почему все корейские версии идут по коммерческому утильсбору, разбор 1.6T, дизеля и гибрида, комплектации и цена под ключ в 2026."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "спортейдж на газу из кореи 2026",
+      "purpose": "вторичный запрос: спортейдж на газу из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Sportage из Кореи: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-sportage-iz-korei-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Sportage 2026 из Кореи: обзор и цена | AZWAY",
+          "url": "https://azway.ru/blog/kia-sportage-iz-korei-obzor",
+          "snippet": "Ниже разберу газ и поколения, без прикрас расскажу про задиры, покажу живые корейские лоты и отдельно скажу про новый Sportage из Китая. Корейский Kia Sportage нередко приходит с завода на газу, и это не самодельное ГБО, а штатная заводская версия LPG с отдельным баком."
+        },
+        {
+          "title": "Корейский эксклюзив: почему Kia Sportage на заводском газу — это самая ...",
+          "url": "https://dzen.ru/a/aV_KqBebV0Gs4_U7",
+          "snippet": "Sportage из Кореи интересен богатым выбором, левым рулём и понятной сервисной базой. Важно не смешивать дорестайлинговый дизель/робот с модельным 2026 годом: коробки, оснащение и рыночные цены у них разные. В статье отделяем официальные характеристики от лабораторных обещаний и рекламных объявлений."
+        },
+        {
+          "title": "Kia Sportage NQ5 2026: обзор и цена под ключ из Кореи | CARTO",
+          "url": "https://carto-auto.ru/blog/kia-sportage-nq5-2026-obzor-tsena-pod-klyuch/",
+          "snippet": "Сегодня мы в GCARS разберем феномен двигателей LPi на примере популярного кроссовера Kia Sportage и посчитаем реальную экономию для владельца. Что такое заводской газ (LPi) и в чем его секрет?"
+        },
+        {
+          "title": "Kia Sportage из Кореи: обзор, комплектации, отзывы 2026",
+          "url": "https://silenkoautocratia.ru/blog/kia-sportage-iz-korei-obzor/",
+          "snippet": "Kia Sportage пятого поколения NQ5 через параллельный импорт: моторы 1.6T, 2.0 дизель и гибрид, комплектации, льготный утильсбор и реальная цена под ключ до Москвы."
+        },
+        {
+          "title": "Растаможка Kia Sportage из Кореи: утильсбор и расчёт 2026",
+          "url": "https://aa-dv.ru/rastamozhka-kia-sportage.html",
+          "snippet": "Kia Sportage 5-го поколения из Кореи в 2026 году: двигатели, комплектации, реальный расход, отзывы владельцев, сравнение с Hyundai Tucson и расчёт цены под ключ."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "киа спортейдж дизель из кореи 2026",
+      "purpose": "вторичный запрос: киа спортейдж дизель из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Sportage из Кореи: версии, утиль и цена 2026",
+          "url": "https://export-motors.com/blog/kia-sportage-iz-korei",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Sportage NQ5 2026: обзор и цена под ключ из Кореи | CARTO",
+          "url": "https://carto-auto.ru/blog/kia-sportage-nq5-2026-obzor-tsena-pod-klyuch/",
+          "snippet": "Kia Sportage из Кореи — почему все корейские версии идут по коммерческому утильсбору, разбор 1.6T, дизеля и гибрида, комплектации и цена под ключ в 2026."
+        },
+        {
+          "title": "Kia Sportage 2026 из Кореи: обзор и цена | AZWAY",
+          "url": "https://azway.ru/blog/kia-sportage-iz-korei-obzor",
+          "snippet": "Kia Sportage пятого поколения NQ5 через параллельный импорт: моторы 1.6T, 2.0 дизель и гибрид, комплектации, льготный утильсбор и реальная цена под ключ до Москвы."
+        },
+        {
+          "title": "Киа Спортейдж из Кореи 2026: выбираем полный привод или передний",
+          "url": "https://dzen.ru/a/akC68_OqTyVckFL0",
+          "snippet": "Нужна точная цена Kia Sportage? Проверим доступные машины в Корее, документы, состояние и подготовим полную смету до вашего города."
+        },
+        {
+          "title": "Киа Спортейдж 2026 технические характеристики. Kia Sportage 2026 ...",
+          "url": "https://www.drom.ru/catalog/kia/sportage/2026/",
+          "snippet": "Киа Спортейдж из Кореи 2026 модельного года — это глубоко модернизированный кроссовер пятого поколения (кузов NQ5), который благодаря переходу на классический 8-ступенчатый автомат и отказу от проблемного «робота» обеспечивает надежную эксплуатацию и премиальный комфорт."
+        },
+        {
+          "title": "Kia Sportage из Кореи: комплектации, стоимость под ключ и ввоз в 2026",
+          "url": "https://onlyjpcars.ru/blog/kia-sportage-iz-korei",
+          "snippet": "Подробно расписан модельный ряд Kia Sportage 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Киа Спортейдж 2026 между собой."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Kia Sportage из Кореи: как выбрать комплектацию и не попасть на ловушки в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Sportage из Кореи: обзор, комплектации, отзывы 2026",
+          "url": "https://silenkoautocratia.ru/blog/kia-sportage-iz-korei-obzor/",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Sportage из Кореи: комплектации, стоимость под ключ и ввоз в 2026",
+          "url": "https://onlyjpcars.ru/blog/kia-sportage-iz-korei",
+          "snippet": "Kia Sportage 5-го поколения из Кореи в 2026 году: двигатели, комплектации, реальный расход, отзывы владельцев, сравнение с Hyundai Tucson и расчёт цены под ключ."
+        },
+        {
+          "title": "Kia Sportage NQ5 2026: обзор и цена под ключ из Кореи | CARTO",
+          "url": "https://carto-auto.ru/blog/kia-sportage-nq5-2026-obzor-tsena-pod-klyuch/",
+          "snippet": "Kia Sportage NQ5 (5-е поколение) из Кореи под ключ в 2026: комплектации 1.6T, HEV и PHEV, цены на Encar, стоимость с доставкой и таможенным оформлением до Сибири, нюансы утильсбора."
+        },
+        {
+          "title": "Kia Sportage из Кореи 2026: стоимость под ключ и комплектации, которых ...",
+          "url": "https://autoprofiasia.ru/blog/kia-sportage-iz-korei-2026-tsena-pod-klyuch",
+          "snippet": "Разбираем комплектации корейского рынка, какие моторы брать, и считаем полную цену под ключ до Москвы. Kia Sportage пятого поколения (заводской индекс NQ5) — один из самых востребованных кроссоверов в параллельном импорте из Кореи."
+        },
+        {
+          "title": "Kia Sportage из Кореи: версии, утиль и цена 2026",
+          "url": "https://export-motors.com/blog/kia-sportage-iz-korei",
+          "snippet": "Kia Sportage 5-го поколения из Кореи — комплектации Gravity и Noble с оснащением уровня премиум. В 2026 году бензиновые версии без ограничений по объёму разрешены к ввозу, экономия до 500 000 ₽."
+        },
+        {
+          "title": "Kia Sportage 2026 из Кореи: обзор и цена | AZWAY",
+          "url": "https://azway.ru/blog/kia-sportage-iz-korei-obzor",
+          "snippet": "Ниже честно разбираем моторы, комплектации и цену под ключ. Sportage (индекс NQ5, поколение с 2021 года) — компактный кроссовер на 5 мест, построенный на одной платформе с Tucson. Современный дизайн, просторный салон, богатое оснащение, опциональный полный привод. На экспорт идут машины 3-5 лет."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.drom.ru/catalog/kia/sportage/2026/",
+      "title": "Киа Спортейдж 2026 технические характеристики. Kia Sportage 2026 ...",
+      "from_query": "спортейдж из кореи 2026"
+    },
+    {
+      "url": "https://ngt-auto.ru/korea/kia/sportage/?year_from=2026&year_to=2026",
+      "title": "Kia Sportage 2026 года из Кореи под заказ с доставкой по России",
+      "from_query": "спортейдж из кореи 2026"
+    },
+    {
+      "url": "https://noharaauto.com/avto-iz-korei/kia/sportage/?year_from=2026&year_to=2026",
+      "title": "Kia Sportage 2026 купить из Кореи с доставкой",
+      "from_query": "спортейдж из кореи 2026"
+    },
+    {
+      "url": "https://regionauto.org/korea/kia/sportage/?year_from=2026&year_to=2026",
+      "title": "Kia Sportage 2026 года из Южной Кореи под заказ",
+      "from_query": "спортейдж из кореи 2026"
+    },
+    {
+      "url": "https://encarrus.ru/korea/kia/sportage/",
+      "title": "Купить Kia Sportage из Кореи под ключ — от 1 546 000 ₽, 1 437 в наличии",
+      "from_query": "спортейдж из кореи 2026"
+    },
+    {
+      "url": "https://autosender.ru/korean-cars/kia/sportage",
+      "title": "Купить Kia Sportage из Кореи с аукциона без пробега по РФ - 8 196 авто ...",
+      "from_query": "спортейдж из кореи 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/kia-sportage-iz-korei-obzor",
+      "title": "Kia Sportage 2026 из Кореи: обзор и цена | AZWAY",
+      "from_query": "спортейдж из кореи октябрь 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/blog/kia-sportage-iz-korei-2026-tsena-pod-klyuch",
+      "title": "Kia Sportage из Кореи 2026: стоимость под ключ и комплектации, которых ...",
+      "from_query": "спортейдж из кореи октябрь 2026"
+    },
+    {
+      "url": "https://export-motors.com/blog/kia-sportage-iz-korei",
+      "title": "Kia Sportage из Кореи: версии, утиль и цена 2026",
+      "from_query": "спортейдж из кореи октябрь 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/kia-sportage-iz-korei",
+      "title": "Kia Sportage из Кореи: комплектации, стоимость под ключ и ввоз в 2026",
+      "from_query": "спортейдж из кореи октябрь 2026"
+    },
+    {
+      "url": "https://silenkoautocratia.ru/blog/kia-sportage-iz-korei-obzor/",
+      "title": "Kia Sportage из Кореи: обзор, комплектации, отзывы 2026",
+      "from_query": "спортейдж из кореи октябрь 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/kia-sportage-nq5-2026-obzor-tsena-pod-klyuch/",
+      "title": "Kia Sportage NQ5 2026: обзор и цена под ключ из Кореи | CARTO",
+      "from_query": "спортейдж из кореи октябрь 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/akC68_OqTyVckFL0",
+      "title": "Киа Спортейдж из Кореи 2026: выбираем полный привод или передний",
+      "from_query": "спортейдж из кореи новости 2026"
+    },
+    {
+      "url": "https://github.com/x0k5r/hcia-security/blob/main/favicon.svg",
+      "title": "hcia-security/favicon.svg at main · x0k5r/hcia-security · GitHub",
+      "from_query": "site:github.com спортейдж из кореи 2026"
+    },
+    {
+      "url": "https://github.com/worldbench/DanceOPD/blob/main/assets/fig1.png",
+      "title": "DanceOPD/assets/fig1.png at main · worldbench/DanceOPD · GitHub",
+      "from_query": "site:github.com спортейдж из кореи 2026"
+    },
+    {
+      "url": "https://github.com/eddyhhlure1Eddy/comfyui-frame-interpolation_cudafull/blob/main/interpolation_schedule.png",
+      "title": "comfyui-frame-interpolation_cudafull/interpolation_schedule.png at main ...",
+      "from_query": "site:github.com спортейдж из кореи 2026"
+    },
+    {
+      "url": "https://github.com/coloth/deepresearch/blob/main/assets/tongyi.png",
+      "title": "deepresearch/assets/tongyi.png at main · coloth/deepresearch",
+      "from_query": "site:github.com спортейдж из кореи 2026"
+    },
+    {
+      "url": "https://github.com/maliang-agent/Awesome-OpenClaw-1/blob/main/ecosystem-map.svg",
+      "title": "Awesome-OpenClaw-1/ecosystem-map.svg at main - GitHub",
+      "from_query": "site:github.com спортейдж из кореи 2026"
+    },
+    {
+      "url": "https://kia-asc.ru/service/download/",
+      "title": "Документация на автомобиль Kia по VIN | АвтоСпецЦентр",
+      "from_query": "спортейдж из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.kia.ru/models/sportage/desc/",
+      "title": "Kia Sportage - Кроссовер Киа Спортейдж на официальном сайте Kia в России",
+      "from_query": "спортейдж из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/k/ko/komplektatsii-kia-sportazh.html",
+      "title": "Комплектации Киа Спортейдж: сравнение всех версий 2026",
+      "from_query": "спортейдж из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.allcarz.ru/kia-sportage-5-nedostatki/",
+      "title": "Недостатки Киа Спортейдж 2025-2026: отзывы владельцев - все минусы и плюсы",
+      "from_query": "спортейдж из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/kia/sportage/5kopeek/?year1=2025&year2=2026",
+      "title": "Киа Спортейдж 2025 - 2026 отзывы владельцев: все минусы и недостатки",
+      "from_query": "спортейдж из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/o/ot/otzyvy-na-kia-sportejdzh.html",
+      "title": "Киа Спортейдж отзывы: реальный опыт владельцев и скрытые проблемы ...",
+      "from_query": "спортейдж из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://kiaclub.ru/index.php?forums/kia-sportejdzh-kia-sportage.16/",
+      "title": "Киа Спортейдж (kia sportage) | форум KIA клуба",
+      "from_query": "спортейдж из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/k/ki/kia-sportejdzh-2024-otzyvy.html",
+      "title": "Киа Спортейдж 2026 отзывы: реальные владельцы, расход, поломки",
+      "from_query": "спортейдж из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/kia/sportage/5kopeek/?year1=2024&year2=2026",
+      "title": "Киа Спортейдж отзывы владельцев: все минусы и недостатки",
+      "from_query": "спортейдж из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/kia-sportage-iz-korei-2026",
+      "title": "Kia Sportage из Кореи: болячки и цена",
+      "from_query": "спортейдж на газу из кореи 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/aV_KqBebV0Gs4_U7",
+      "title": "Корейский эксклюзив: почему Kia Sportage на заводском газу — это самая ...",
+      "from_query": "спортейдж на газу из кореи 2026"
+    },
+    {
+      "url": "https://aa-dv.ru/rastamozhka-kia-sportage.html",
+      "title": "Растаможка Kia Sportage из Кореи: утильсбор и расчёт 2026",
+      "from_query": "спортейдж на газу из кореи 2026"
+    }
+  ]
+}

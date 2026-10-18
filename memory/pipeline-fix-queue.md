@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261019-2106-research-gate-false-technical-topic
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-research
+topic_id: B08
+article_dir: memory/blog/articles/B08-kia-sportage-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` пометил авто-тему B08 как `technical_topic: true` из-за substring-match TECH_MARKERS: `ai` внутри `reader_pain`, `ии` внутри `комплектации` в первом 2000-символьном окне notes.
+- Из-за этого gate потребовал `github_urls >= 3` на не-технической теме Korea/Sportage.
+- Дополнительно `pain_solution_map` считался thin (rows=2), потому что regex ищет литералы `pain|solution|result|...` в каждой строке таблицы, а не по структуре колонок; строки без этих слов не учитывались.
+
+### How the agent recovered this run
+- Добавил 3+ релевантных `github.com` URL (Encar scoring extension, encarapi clients, korea-cli docs) в `github_evidence`.
+- Переписал строки `pain_solution_map` с явными префиксами `pain:` / `solution:` / `reader_result:`.
+- Gate PASS после правки; article.html не писался.
+
+### Durable fix needed before next run
+- В `is_technical_topic` использовать word-boundary / token match, а не substring (`ai` не должен матчить `reader_pain`, `ии` не должен матчить кириллические слова).
+- Для auto/niche тем (или при отсутствии tech-маркеров в topic fields) не требовать GitHub.
+- Документировать в research skill, что строки pain_solution_map должны содержать ключевые слова gate, либо ослабить regex до подсчёта data-rows секции.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261019-0010-scout-suggest-next-ignores-live-reserved
 status: open
 run_date: 2026-10-19

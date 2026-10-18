@@ -56,7 +56,7 @@ category: qa
 - Writer handoff явно отметил `href=[REDACTED] per secret policy` — избыточная редакция на этапе написания (AS09 хранит живые `avto-sales125.ru` / `t.me/...` URL).
 
 ### How the agent recovered this run
-- FIX-лист writer: каталог×2 + Telegram×1 с рабочими URL из site-brief/env; longread иначе не трогали.
+- Writer FIX-цикл: 3× `href="[REDACTED]"` заменены на HTTPS из env `CATALOG_URL` (×2) и `TELEGRAM_URL` (×1); anchors сохранены; longread/meta char_count не трогали; python-проверка: литералов в href = 0.
 
 ### Durable fix needed before next run
 - В writer skill/contract: CTA URL брать из env/`catalog_url`/Telegram brief; в HTML писать реальные ссылки; `[REDACTED]` только при commit-скане отчётов, не как placeholder в article.html.

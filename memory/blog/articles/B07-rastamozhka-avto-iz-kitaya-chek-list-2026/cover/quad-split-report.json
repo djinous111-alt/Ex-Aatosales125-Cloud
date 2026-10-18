@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B07-rastamozhka-avto-iz-kitaya-chek-list-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1280,
+      721
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 721,
+        "end": 777
+      },
+      "v_gutter_px": {
+        "start": 1280,
+        "end": 1306
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1280,
+          "bottom": 721
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1280,
+          "bottom": 721
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у порта Владивостока с плашкой «Порт ≠ финиш» и чек-листом растаможки авто из Китая",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1306,
+          "top": 8,
+          "right": 2560,
+          "bottom": 713
+        },
+        "raw_box_px": {
+          "left": 1306,
+          "top": 0,
+          "right": 2560,
+          "bottom": 721
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: папка документов и ЕЛС до прихода авто в порт",
+        "h2_anchor": "Соберите папку и ЕЛС до прихода авто в порт"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 50,
+          "top": 777,
+          "right": 1229,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 777,
+          "right": 1280,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема этапов во Владивостоке: СВХ, декларация, платежи",
+        "h2_anchor": "Пройдите этапы во Владивостоке: СВХ → декларация → платежи"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1343,
+          "top": 777,
+          "right": 2522,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1306,
+          "top": 777,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист расчёта растаможки без готовых сумм пошлины",
+        "h2_anchor": "Что смотреть в расчёте без готовых сумм пошлины"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Соберите папку и ЕЛС до прихода авто в порт",
+    "injected inline_2 after H2 — Пройдите этапы во Владивостоке: СВХ → декларация → платежи",
+    "injected inline_3 after H2 — Что смотреть в расчёте без готовых сумм пошлины"
+  ]
+}

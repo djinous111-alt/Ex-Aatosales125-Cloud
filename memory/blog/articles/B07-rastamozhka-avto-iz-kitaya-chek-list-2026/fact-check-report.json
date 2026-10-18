@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B07-rastamozhka-avto-iz-kitaya-chek-list-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 2,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "лка ДФО/транзит и чей ИНН на платежах. С 1 апреля 2026 добровольно пополнить чужой ЕЛС по сути нельзя: пл",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "5 минут",
+      "kind": "metric_or_duration",
+      "context": "онкуренты в выдаче любят \"посчитать растаможку за 5 минут\" с красивыми цифрами. На практике чаще ломаются р",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "15 дней",
+      "kind": "metric_or_duration",
+      "context": "андартные\" случаи часто укладываются примерно в 1–15 дней в зависимости от пакета; в живых отчётах встречал",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 дней",
+      "kind": "metric_or_duration",
+      "context": "ета; в живых отчётах встречались оформление около 10 дней, лаборатория 1–2 дня и ожидание ЭПТС до примерно",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    }
+  ]
+}

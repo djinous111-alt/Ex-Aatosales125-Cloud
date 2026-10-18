@@ -1,0 +1,27 @@
+{
+  "updated_at": "2026-10-18T17:06:00Z",
+  "next_forced_topic_id": "B08",
+  "note": "Forced after B07 China rastamozhka. Scout helper --suggest-next honors next_forced_topic_id (B08).",
+  "reserved": {
+    "B07": {
+      "slug": "rastamozhka-avto-iz-kitaya-chek-list-2026",
+      "primary_query": "как растаможить авто из китая",
+      "reserved_at": "2026-10-18T17:06:00Z"
+    }
+  },
+  "denylist_slugs": [
+    "kia-k5-iz-korei-komplektatsii-lovushki-2026",
+    "kak-popolnit-els-fts-pered-rastamozhkoy-avto-2026",
+    "sroki-dostavki-avto-iz-korei-vladivostok-2026",
+    "kak-zakazat-avto-iz-kitaya-chek-list-do-depozita-2026",
+    "peregon-avto-iz-vladivostoka-svoim-hodom-2026",
+    "vremennaya-registratsiya-vladivostok-rastamozhka-avto-2026",
+    "nuzhna-li-era-glonass-pri-vvoze-avto-2026",
+    "haval-changan-geely-kak-vybrat-krossover-2026",
+    "kak-proverit-avto-iz-kitaya-po-vin-do-depozita-2026",
+    "dostavka-avto-iz-vladivostoka-zd-avtovoz-2026",
+    "prokhodnye-avto-iz-yaponii-2026",
+    "otsledit-avto-iz-yaponii-rolker-2026",
+    "rastamozhka-avto-iz-kitaya-chek-list-2026"
+  ]
+}

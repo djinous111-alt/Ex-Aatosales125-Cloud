@@ -124,11 +124,15 @@ Task(excalibur-blog-writer)
 
 ### Шаг 3 — GEO QA (Task)
 
+Typed Task часто отсутствует в Cloud enum — **сразу** generalPurpose (не тратить retry на typed):
+
 ```text
-Task(excalibur-blog-geo-qa)
+Task(generalPurpose):
+Прочитай .cursor/agents/excalibur-blog-geo-qa.md + .cursor/skills/excalibur-geo-qa/SKILL.md.
+topic_id B01. Запусти все QA-скрипты. article-qa.md verdict PASS. Блок === EXCALIBUR BLOG GEO QA ===.
 ```
 
-Промпт: «topic_id B01. Запусти все QA-скрипты. article-qa.md verdict PASS. Блок === EXCALIBUR BLOG GEO QA ===.»
+Если typed `Task(excalibur-blog-geo-qa)` доступен — можно использовать его; иначе только generalPurpose выше.
 
 **Gate:** QA PASS, link-verify pass, **research notes gate PASS**, **utility gate статьи PASS**, **human voice gate PASS**. Статья должна явно решать боль читателя и давать результат. Без PASS **не** идти к шагу 4.
 
@@ -211,9 +215,9 @@ Task(excalibur-blog-publish)
 
 ## Blockers
 
-Если typed Task `excalibur-blog-*` недоступны:
+Если typed Task `excalibur-blog-*` недоступны (часто `excalibur-blog-geo-qa`):
 
-1. Используй fallback из `AGENTS.md`: отдельный `Task(generalPurpose)` на каждую роль с `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`.
+1. Сразу `Task(generalPurpose)` на каждую роль с `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md` — не тратить retry на typed enum.
 2. Если недоступен даже `generalPurpose`, тогда:
 
 `❌ БЛОКЕР: среда не поддерживает Task/subagents. Single-agent pipeline запрещён.`

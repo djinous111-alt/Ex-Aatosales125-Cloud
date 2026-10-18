@@ -1,0 +1,42 @@
+{
+  "topic_id": "B07",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Порт — ещё не финиш: без чек-листа купите простой на СВХ",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у порта Владивостока с плашкой «Порт ≠ финиш» и чек-листом растаможки авто из Китая",
+      "scene_hint": "reference face + glasses; rain/fog Vladivostok port weather: waterproof dark jacket (NOT reference t-shirt), no cap/hood; Chinese crossover under protective film at port; fake phone UI: customs checklist with ЕЛС/СВХ/ПТД/ЭПТС checkboxes + catalog card stub; torn paper + yellow highlighter on «финиш»; shocked meme cutout; sticky note «ЕЛС только владелец»; corner brand avto-sales125.ru",
+      "meme_caption_ru": "Порт ≠ финиш"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Соберите папку и ЕЛС до прихода авто в порт",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: колонки «Документы в папке» vs «ЕЛС до порта»; rows passport/contract/invoice vs owner-only ЕЛС from 01.04.2026; sticky note «до прихода»; tape corner; NO hero face",
+      "alt": "Таблица: папка документов и ЕЛС до прихода авто в порт"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Пройдите этапы во Владивостоке: СВХ → декларация → платежи",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Horizontal workflow diagram RU: СВХ → ПТД/декларация → платежи → выпуск; Vladivostok station icons; arrow markers; mini sticky «без простоя»; NO hero face",
+      "alt": "Схема этапов во Владивостоке: СВХ, декларация, платежи"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Что смотреть в расчёте без готовых сумм пошлины",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board / printable card: строки пошлина, утильсбор, СБКТС, ЭПТС — без готовых сумм, пометка «считайте в каталоге»; highlighter on «без сумм»; NO Wordstat/Metrika; NO hero face",
+      "alt": "Чеклист расчёта растаможки без готовых сумм пошлины"
+    }
+  }
+}

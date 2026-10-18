@@ -132,7 +132,32 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check("--out-dir" in llms_help.stdout, "llms generator supports --out-dir", errors, warnings)
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    if policy_path.is_file():
+        import json
+
+        policy = json.loads(policy_path.read_text(encoding="utf-8"))
+        pain = policy.get("pain_markers_ru") or []
+        outcome = policy.get("outcome_markers_ru") or []
+        check(bool(pain), "editorial-policy pain_markers_ru non-empty", errors, warnings)
+        check(bool(outcome), "editorial-policy outcome_markers_ru non-empty", errors, warnings)
+    else:
+        check(False, "editorial-policy.json present", errors, warnings)
+
+    live_reserved = root / "memory/topics/live-reserved.json"
+    check(live_reserved.is_file(), "live-reserved.json present", errors, warnings, warn=True)
+
+    scout_help = subprocess.run(
+        [sys.executable, str(root / "scripts/excalibur_blog_scout_helper.py"), "--help"],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    check("--suggest-next" in scout_help.stdout, "scout helper supports --suggest-next", errors, warnings)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

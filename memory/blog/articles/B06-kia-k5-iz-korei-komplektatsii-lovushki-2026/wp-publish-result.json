@@ -1,0 +1,18 @@
+{
+  "slug": "kia-k5-iz-korei-komplektatsii-lovushki-2026",
+  "topic_id": "B06",
+  "post_id": 4316,
+  "permalink": "https://avtosales125.ru/2026/10/18/kia-k5-iz-korei-komplektatsii-lovushki-2026/",
+  "featured_image": 4321,
+  "inline_images": [
+    4323,
+    4324,
+    4326
+  ],
+  "schema_meta": 1,
+  "skip_theme_faq_meta": 1,
+  "raw_output": "OK post=4316 slug=kia-k5-iz-korei-komplektatsii-lovushki-2026\nOK featured_image=4321\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4323 src=cover/inline-01.png url=https://avtosales125.ru/wp-content/uploads/2026/10/kia-k5-iz-korei-komplektatsii-lovushki-2026-inline-01-1.png\nOK inline_image_upload=4324 src=cover/inline-02.png url=https://avtosales125.ru/wp-content/uploads/2026/10/kia-k5-iz-korei-komplektatsii-lovushki-2026-inline-02-1.png\nOK inline_image_upload=4326 src=cover/inline-03.png url=https://avtosales125.ru/wp-content/uploads/2026/10/kia-k5-iz-korei-komplektatsii-lovushki-2026-inline-03-1.png\npermalink=https://avtosales125.ru/2026/10/18/kia-k5-iz-korei-komplektatsii-lovushki-2026/\n",
+  "verdict": "pass",
+  "publish_method": "ssh_http_remote_disconnected_reconstructed_via_wp_rest",
+  "notes": "Local HTTP RemoteDisconnected + curl peer failure during fallback wait; bootstrap deleted after 120s wait; WP REST+SSH meta verified live post complete. Orphan media from partial duplicate upload: 4317/4318/4319/4322 (not used in content). Denylist untouched: 4298/4292/4286/4269/4310."
+}

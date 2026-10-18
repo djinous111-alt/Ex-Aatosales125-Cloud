@@ -1,7 +1,7 @@
 # Promotion checklist — B06 kia-k5-iz-korei-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-18 (черновик до WP publish)  
-Live URL: https://avtosales125.ru/blog/kia-k5-iz-korei-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-18  
+Live URL: https://avtosales125.ru/2026/10/18/kia-k5-iz-korei-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Трим: Prestige / Best Selection / Noblesse / Signature по прайсу Kia KR
 • До депозита: VIN + Carhistory + лист Encar + бензин/LPI + стоп-флаги
 
-Читать: https://avtosales125.ru/blog/kia-k5-iz-korei-komplektatsii-lovushki-2026/
+Читать: https://avtosales125.ru/2026/10/18/kia-k5-iz-korei-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка

@@ -1,0 +1,115 @@
+{
+  "gate": "human-voice",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B06-kia-k5-iz-korei-komplektatsii-lovushki-2026",
+  "errors": [],
+  "warnings": [
+    "multiple exactly-5-step lists detected; vary list size when editorially possible"
+  ],
+  "metrics": {
+    "h2_count": 7,
+    "repeated_h2_openers": [],
+    "textbook_h2_count": 0,
+    "paragraph_count": 25,
+    "paragraph_avg_words": 33.6,
+    "paragraph_variance_ratio": 0.36,
+    "concrete_markers": [
+      "например",
+      "на практике",
+      "типичная ошибка"
+    ],
+    "pain_markers": [
+      "боль",
+      "проблем",
+      "ошиб"
+    ],
+    "outcome_markers": [
+      "результат",
+      "получите",
+      "сможете",
+      "проверьте",
+      "соберите",
+      "выберите"
+    ],
+    "ai_opening_hits": [],
+    "reader_story_overlap": [
+      "андрей",
+      "аренда",
+      "больше",
+      "владелец",
+      "десять",
+      "записей",
+      "истории",
+      "новосибирска",
+      "первый",
+      "страховой"
+    ],
+    "reader_pain_overlap": [
+      "encar",
+      "денег",
+      "красивый",
+      "перевода",
+      "пробегом",
+      "ремонт",
+      "такси"
+    ],
+    "reader_outcome_overlap": [
+      "депозита",
+      "любого",
+      "мотор",
+      "отправит",
+      "подборщику",
+      "пунктов",
+      "топливо",
+      "чек-лист"
+    ],
+    "success_criteria_overlap": [
+      "carhistory",
+      "encar",
+      "noblesse",
+      "prestige",
+      "selection",
+      "signature",
+      "депозит",
+      "диагностики",
+      "оплаты",
+      "отчёт",
+      "пакета",
+      "полного",
+      "понятный",
+      "решение",
+      "скрин",
+      "список",
+      "стоп-флагов"
+    ],
+    "voice_angle_overlap": [
+      "авто-сейлс",
+      "корейский",
+      "первый",
+      "проверил",
+      "седан",
+      "смотрит"
+    ],
+    "surprising_fact_overlap": [
+      "encar",
+      "авария",
+      "бампер",
+      "дверь",
+      "капот",
+      "корейское",
+      "красили",
+      "мусаго",
+      "никогда",
+      "означает",
+      "отсутствие",
+      "покраска",
+      "ремонта",
+      "силовой",
+      "статуса",
+      "структуры",
+      "часто"
+    ],
+    "exactly_five_lists": 3,
+    "fact_check_template_blocks": 0
+  }
+}

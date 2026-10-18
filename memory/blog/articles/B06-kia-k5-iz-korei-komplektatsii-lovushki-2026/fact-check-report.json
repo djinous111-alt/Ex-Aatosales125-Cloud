@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/B06-kia-k5-iz-korei-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2021",
+      "kind": "date_or_year",
+      "context": "й из Новосибирска уже тянулся к задатку за Kia K5 2021 на 48 тыс. км с пометкой \"без ДТП\". В страховой ис",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "шь. Ниже – как выбрать комплектацию K5 из Кореи в 2026, какие ловушки по пробегу и газу смотреть и какой",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "1996 года",
+      "kind": "date_or_year",
+      "context": "строк. Carhistory показывает заявленные случаи с 1996 года; полный отчёт около 2200 вон; незаявленные ДТП не",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1996",
+      "kind": "large_number",
+      "context": "строк. Carhistory показывает заявленные случаи с 1996 года; полный отчёт около 2200 вон; незаявленные ДТ",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2200",
+      "kind": "large_number",
+      "context": "заявленные случаи с 1996 года; полный отчёт около 2200 вон; незаявленные ДТП не видны. Бесплатный flood-о",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

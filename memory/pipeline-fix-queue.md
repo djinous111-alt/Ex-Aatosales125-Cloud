@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261018-1337-publish-http-timeout-reconstruct
+status: open
+run_date: 2026-10-18
+role: excalibur-blog-publish
+topic_id: B06
+article_dir: memory/blog/articles/B06-kia-k5-iz-korei-komplektatsii-lovushki-2026
+severity: high
+category: transport
+
+### What went wrong
+- SSH upload of ~6.8MB `excalibur-blog-publish-once.php` succeeded (`SSH_ROOT=.`).
+- Local HTTP trigger failed with `RemoteDisconnected` before body returned.
+- Cloud curl fallback (`--max-time 300`) also failed with curl exit 56 (peer closed) ~120s; `memory/webfetch-response.txt` never written.
+- Publish script waited only 120s for webfetch file, then deleted bootstrap in `finally` and raised `Cloud WebFetch Fallback timed out` → client exit 1 / no `wp-publish-result.json`.
+
+### How the agent recovered this run
+- Verified live WP REST `posts?slug=kia-k5-iz-korei-komplektatsii-lovushki-2026` → post **4316** status publish, featured **4321**, HEAD permalink 200.
+- SSH meta-check: `_excalibur_blog_schema_jsonld` present, `_excalibur_blog_skip_theme_faq=1`, post_content has 3 `wp-content/uploads` refs and 0 local `cover/` refs; inline media IDs **4323/4324/4326**.
+- Reconstructed `wp-publish-result.json` (verdict pass), updated ledger/log/promotion/handoff. Did **not** republish. Denylist 4298/4292/4286/4269/4310 untouched.
+
+### Durable fix needed before next run
+- Increase HTTP trigger timeout and/or webfetch wait well beyond 120s for ~7MB payloads (prefer ≥300s), and do **not** delete bootstrap until fallback response with `OK post=` is received or explicit TTL.
+- Document reconstruct-via-REST path in publish skill when client loses body but WP post exists.
+- Optionally stream PHP progress / smaller chunked media uploads to avoid nginx/proxy disconnect.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`trigger_bootstrap_http` timeout=120, wait range 120, `finally` delete)
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261018-1331-indexer-skill-stale-blog-path
 status: open
 run_date: 2026-10-18

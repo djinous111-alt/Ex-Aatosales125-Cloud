@@ -6,6 +6,76 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261018-1726-indexer-stale-blog-path-docs
+status: open
+run_date: 2026-10-18
+role: excalibur-blog-indexer
+topic_id: B07
+article_dir: memory/blog/articles/B07-rastamozhka-avto-iz-kitaya-chek-list-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer agent/skill shell examples still document `--blog-path /` for `excalibur_blog_llms_generator.py`, but CLI help only exposes `--blog-dir`, `--site-base`, `--out-dir` (no `--blog-path`).
+- `excalibur_blog_doctor.py` still asserts `"--blog-path" in llms_help` → doctor errors=1 on a healthy CLI.
+- Prior fixer runs on other Cloud branches claimed this fixed; durable change did not land on this branch.
+
+### How the agent recovered this run
+- Ran llms generator with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`); PASS, B07 present in llms.txt.
+- Interlinker `--apply` for B07: opportunities_found=0 (corpus=3); not a blocker.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent + skill examples; document `--blog-dir` + `--out-dir` only.
+- Update doctor to check `--blog-dir` / `--out-dir`, not `--blog-path`.
+- Add pitfalls note: Cloud indexer must never pass `--blog-path`.
+
+### Suggested files to inspect/change
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261018-1810-director-geo-qa-task-type-missing
+status: open
+run_date: 2026-10-18
+role: excalibur-blog-director
+topic_id: B07
+article_dir: memory/blog/articles/B07-rastamozhka-avto-iz-kitaya-chek-list-2026
+severity: medium
+category: env
+
+### What went wrong
+- Typed Task `excalibur-blog-geo-qa` rejected by Cloud Task API (not in allowed subagent_type enum), while agent file `.cursor/agents/excalibur-blog-geo-qa.md` exists.
+- Doctor still checks llms generator for stale `--blog-path` while CLI uses `--blog-dir` (errors=1).
+
+### How the agent recovered this run
+- GEO QA ran via `Task(generalPurpose)` with agent+skill paths; verdict PASS score 87.
+- Pipeline continued; doctor mismatch deferred to fixer.
+
+### Durable fix needed before next run
+- Register `excalibur-blog-geo-qa` in Cloud Task / plugin subagent types (or document forced generalPurpose fallback in AGENTS.md + director skill as primary for GEO QA).
+- Update `scripts/excalibur_blog_doctor.py` to check `--blog-dir` (and optionally `--out-dir`), not `--blog-path`.
+
+### Suggested files to inspect/change
+- `.cursor-plugin/plugin.json`
+- `AGENTS.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261018-1745-writer-utility-pain-outcome-markers-missing
 status: open
 run_date: 2026-10-18

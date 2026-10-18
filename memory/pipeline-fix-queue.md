@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261018-2128-cover-prompt-builder-seo-hardcode-stale-batch
+status: open
+run_date: 2026-10-18
+role: excalibur-blog-cover
+topic_id: B08
+article_dir: memory/blog/articles/B08-kia-sportage-iz-korei-komplektatsii-lovushki-2026
+severity: high
+category: script
+
+### What went wrong
+- Первый Kie quad для B08 собрался по stale SEO-промпту: Wordstat на ноутбуке, hook «SEO-текст…», SEO vs GEO / 6 шагов longread / чеклист публикации — вместо Sportage/Encar/LPG.
+- Причина 1: agent вызвал `Write(quad-manifest.json)` и `excalibur_blog_cover_quad_prompt.py --write-batch` параллельно → batch прочитал старый default SEO-manifest.
+- Причина 2: `excalibur_blog_cover_quad_prompt.py` hardcode prefix «Excalibur BLOG» + outfit lock «white hoodie» и игнорирует `style.global_prompt_prefix` / `cover-design-code.json` (AVTO SALES, NEVER Wordstat).
+
+### How the agent recovered this run
+- Пересобрал manifest → prompt → batch последовательно; вручную override SEO-prefix на AVTO SALES Sportage + NEVER Wordstat.
+- Второй Kie job (`a23cd5a23f8d51bd97ba03f3feaffef2`) → правильный Sportage/Encar collage; split PASS; inject figures уже были.
+
+### Durable fix needed before next run
+- Prompt builder: брать prefix/negative/outfit из `quad-style-digital-meme-collage-ru.json` + `cover-design-code.json` + `blog-hero.json` (outfit_rule), не hardcode SEO/Excalibur/white hoodie.
+- Cover skill/pitfalls: никогда не параллелить запись `quad-manifest.json` с `--write-batch`; после edit manifest — verify hook в `quad-mcp-prompt.txt` до Kie.
+- Опционально: assert в prompt builder что `cover_hook` не содержит SEO-default маркеров, если topic_id не B01 primer.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/cover/quad-style-digital-meme-collage-ru.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261019-2130-geo-qa-utility-markers-missing-after-rebrand
 status: open
 run_date: 2026-10-19

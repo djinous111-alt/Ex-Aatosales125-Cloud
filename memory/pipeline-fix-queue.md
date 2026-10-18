@@ -6,6 +6,77 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261019-2130-geo-qa-utility-markers-missing-after-rebrand
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-geo-qa
+topic_id: B08
+article_dir: memory/blog/articles/B08-kia-sportage-iz-korei-komplektatsii-lovushki-2026
+severity: high
+category: script
+
+### What went wrong
+- `memory/brief/editorial-policy.json` снова без `pain_markers_ru` / `outcome_markers_ru` и без `min_pain_markers` / `min_outcome_markers` (похоже затёрто rebrand commit).
+- `excalibur_blog_utility_gate.py` на этой ветке снова hard-fail при пустых списках (`0 < 2` / `0 < 3`), хотя durable fix (skip-when-empty + warning) уже делался на B03–B07.
+- Utility gate BLOCK на B08 при нормальном тексте статьи (human-voice уже видел pain/outcome).
+
+### How the agent recovered this run
+- Восстановил pinned marker lists + min 2/3 в `editorial-policy.json`.
+- Вернул skip-when-empty + warning в `scripts/excalibur_blog_utility_gate.py`.
+- Utility gate PASS: pain=2, outcome=6.
+
+### Durable fix needed before next run
+- Doctor: fail/warn если `pain_markers_ru`/`outcome_markers_ru` пусты или отсутствуют.
+- Rebrand/sync scripts не должны затирать pinned marker keys (`_markers_pinned`).
+- Pitfalls: empty marker lists → false utility BLOCK.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261019-2131-geo-qa-writer-literal-redacted-cta-href
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-geo-qa
+topic_id: B08
+article_dir: memory/blog/articles/B08-kia-sportage-iz-korei-komplektatsii-lovushki-2026
+severity: high
+category: qa
+
+### What went wrong
+- Writer положил в `article.html` три литерала `href="[REDACTED]"` вместо URL каталога/Telegram.
+- `link-verify` → fail (relative/`[REDACTED]` → 404). Без фикса cover||schema нельзя.
+
+### How the agent recovered this run
+- Скопировал рабочие absolute CTA из AS09 (catalog + Telegram) в три якоря B08.
+- link-verify PASS (2 unique URL, HTTP 200).
+- Обновил ярлык инсайта с `TL;DR / Быстрый инсайт` на `До депозита`.
+
+### Durable fix needed before next run
+- Writer skill/contract: запрет литерала `[REDACTED]` в href; CTA только из conversion-map / known brand URLs.
+- Pre-writer или GEO QA preflight: grep `href="\[REDACTED\]"` → blocker до QA cycle.
+- Проверить, не подменяет ли Cloud redaction реальные URL при записи файла writer-агентом.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `memory/brief/conversion-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261019-2106-research-gate-false-technical-topic
 status: open
 run_date: 2026-10-19

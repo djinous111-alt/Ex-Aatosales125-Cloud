@@ -1,0 +1,22 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 2,
+  "over_long_sentences": [
+    {
+      "sentence": "→ Газ/дизель/бензин-ловушки → Performance Check + страховка → VIN → \"стоп\" или \"можно бронировать\" Разберите газ из Кореи: заводской LPG, а не \"гараж\" Запрос \"спортейдж на газу из кореи\" пугает словом \"ГБО\"",
+      "word_count": 29
+    },
+    {
+      "sentence": "0 бензина есть эндоскопия или осознанный отказ; для дизеля сверены год, мощность и обслуживание; нет X/W на раме без объяснения; VIN и страховая история на руках",
+      "word_count": 26
+    }
+  ],
+  "readability": {
+    "score": 83.5,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 7.5,
+    "avg_syllables_per_word": 1.9
+  }
+}

@@ -37,10 +37,17 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## CTA / ссылки
+
+- CTA URL бери из `memory/brief/conversion-map.md` / `site-brief.md` как **абсолютные https**.
+- Если в brief ячейка выглядит как redaction-token — разреши через `PUBLIC_SITE_URL` (каталог) или рабочий CTA из prior PASS article; **никогда** не пиши `href="[REDACTED]"` в `article.html`.
+- HTML linter и link-verify блокируют литерал redacted href до GEO QA PASS.
+
 ## Blockers
 
 - нет research-notes.md
 - utility-only нарушен (вода, нет шагов)
 - объём вне диапазона после 1 правки
+- литерал `href="[REDACTED]"` в article.html
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`

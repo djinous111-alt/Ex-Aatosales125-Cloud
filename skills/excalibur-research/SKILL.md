@@ -62,6 +62,8 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
 
+8. Gate `research_notes_gate`: `technical_topic` определяется word-boundary по topic fields (h1/primary_query/…); substring `ai`/`ии` внутри `reader_pain`/`комплектации` не делает тему technical и не требует GitHub. Для auto/niche тем без tech-маркеров в topic fields GitHub не обязателен. Таблица `pain_solution_map` считается по data-rows секции (не обязательно писать литералы pain:/solution: в каждой клетке).
+
 ## Blockers
 
 - `❌ RESEARCH BLOCKER` — тема не найдена и не создана из запроса пользователя

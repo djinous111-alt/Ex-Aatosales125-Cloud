@@ -9,3 +9,9 @@
 | Отзывы 2GIS | https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417/131.924668%2C43.140033/tab/reviews | 1 | доверие / E-E-A-T |
 | Instagram | https://www.instagram.com/avtosales_rf | 1 | опционально, если релевантно |
 | Адрес офиса | Владивосток, Днепровская 40а стр. 4 | 1 | в футере/блоке компании, не как CTA-кнопка |
+
+## Writer rule (critical)
+
+- Never paste the literal token `[REDACTED]` into `href="..."`.
+- If Cloud redaction rewrites a URL while writing `article.html`, re-resolve CTA from this map / `PUBLIC_SITE_URL` / prior PASS article before GEO QA.
+- HTML linter + link-verify fail on redacted placeholder hrefs.

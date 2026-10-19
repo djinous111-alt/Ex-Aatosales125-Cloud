@@ -350,3 +350,40 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261019-1722-geo-qa-utility-pain-outcome-markers
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rasschitat-utilsbor-na-avto-2026
+severity: high
+category: qa
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требует `pain_markers_ru` / `outcome_markers_ru` (default min 2 / 3), но в `memory/brief/editorial-policy.json` этих списков не было → counts всегда 0 → article utility gate всегда BLOCK.
+- Writer писал «Делать/Не делать» и «чек-лист», а recommendation markers ждут «сделайте/не делайте/чеклист/шаг » — action_markers=4 < 8.
+- При правке `article.html` литералы `href="[REDACTED]"` из redacted Read-вывода затёрли реальные CTA URL; link-verify упал, пока URL не восстановили из `CATALOG_URL`/`TELEGRAM_URL`.
+
+### How the agent recovered this run
+- Добавлены `pain_markers_ru`, `outcome_markers_ru` и min_* в `editorial-policy.json`.
+- Точечно усилены action/outcome формулировки в `article.html`; убран ярлык «TL;DR / Быстрый инсайт»; CTA href восстановлены из env.
+- Повтор прогона: utility PASS, human-voice PASS, link-verify PASS, article-qa score 86 PASS.
+
+### Durable fix needed before next run
+- Зафиксировать в writer/geo-qa skills обязательные marker-списки из editorial-policy (или синхронизировать human-voice и utility markers).
+- В pitfalls: не копировать redacted `href="[REDACTED]"` обратно в файлы — брать URL только из env/git blob.
+- Fixer: подтвердить, что policy lists остаются каноном для utility gate.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

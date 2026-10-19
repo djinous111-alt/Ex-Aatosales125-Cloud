@@ -11,7 +11,7 @@
     "утильсбор на авто калькулятор",
     "рассчитать утильсбор на авто 2026"
   ],
-  "char_count": 9315,
+  "char_count": 9423,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -28,8 +28,8 @@
     "description_aeo": "Утильсбор на авто 2026 считают по возрасту, объёму, документальной мощности и статусу ввоза; страна JP/KR/CN формулу РФ не меняет."
   },
   "geo_qa": {
-    "score": 0,
-    "verdict": "PENDING",
+    "score": 86,
+    "verdict": "PASS",
     "date": "2026-10-19"
   },
   "cover_family": "brand_collage"

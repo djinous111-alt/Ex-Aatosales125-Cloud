@@ -1,19 +1,18 @@
 {
   "gate": "human-voice",
-  "status": "PASS",
+  "status": "BLOCK",
   "article_dir": "memory/blog/articles/B09-kia-seltos-iz-korei-komplektatsii-lovushki-2026",
-  "errors": [],
-  "warnings": [
-    "Fact Check block uses a repeated template; vary wording while preserving facts",
-    "multiple exactly-5-step lists detected; vary list size when editorially possible"
+  "errors": [
+    "Fact Check Box missing: need <blockquote> with «Материал проверен» before FAQ"
   ],
+  "warnings": [],
   "metrics": {
     "h2_count": 6,
     "repeated_h2_openers": [],
     "textbook_h2_count": 0,
     "paragraph_count": 26,
-    "paragraph_avg_words": 30.8,
-    "paragraph_variance_ratio": 0.4,
+    "paragraph_avg_words": 31.7,
+    "paragraph_variance_ratio": 0.35,
     "concrete_markers": [
       "например",
       "на практике",
@@ -22,8 +21,7 @@
     ],
     "pain_markers": [
       "боль",
-      "ошиб",
-      "дорого"
+      "ошиб"
     ],
     "outcome_markers": [
       "результат",
@@ -107,7 +105,6 @@
       "авто-сейлс",
       "комплектации",
       "название",
-      "обзора",
       "разговор"
     ],
     "surprising_fact_overlap": [
@@ -137,7 +134,7 @@
       "финиш",
       "чистая"
     ],
-    "exactly_five_lists": 2,
-    "fact_check_template_blocks": 1
+    "exactly_five_lists": 1,
+    "fact_check_template_blocks": 0
   }
 }

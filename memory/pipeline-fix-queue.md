@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261019-1233-geo-qa-fact-check-required-phrase-soft-fix-trap
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-geo-qa
+topic_id: B09
+article_dir: memory/blog/articles/B09-kia-seltos-iz-korei-komplektatsii-lovushki-2026
+severity: high
+category: qa
+
+### What went wrong
+- GEO QA cycle 1 soft FIX asked Writer to «разнообразить Fact Check wording».
+- Writer replaced required label «Материал проверен» with «Редакционная сверка».
+- `excalibur_blog_human_voice_gate.py` only recognizes a blockquote containing exact substring «материал проверен» → human-voice BLOCK on re-run despite utility PASS and score ≥80.
+
+### How the agent recovered this run
+- Did not edit longread (GEO QA contract).
+- Wrote FAIL `article-qa.md` + FIX list: restore «Материал проверен:» before FAQ; keep other FIX-1 gains.
+- Returned Writer for cycle 2/2; cover||schema not started.
+
+### Durable fix needed before next run
+- Document in writer + GEO QA skills/pitfalls: soft wording changes must keep the exact phrase «Материал проверен» (required by human-voice gate).
+- Optionally teach gate to accept aliases, or emit a clearer error that soft FIX must not rename the required label.
+- Soft FIX lists should say «vary second line / sources, keep first label».
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/excalibur-article-writing-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261019-1222-geo-qa-typed-task-missing-generalpurpose-fallback
 status: open
 run_date: 2026-10-19

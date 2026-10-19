@@ -1,0 +1,95 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-20",
+    "today_ru": "20.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-22",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-20 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "hyundai-tucson-iz-korei-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Hyundai Tucson из Кореи в 2026: комплектации и ловушки до депозита",
+    "primary_query": "туксон из кореи",
+    "secondary_queries": [
+      "хендай туксон из кореи",
+      "купить туксон из кореи",
+      "хендай туксон дизель из кореи"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "туксон из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "туксон из кореи октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "туксон из кореи новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com туксон из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "туксон из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "туксон из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "хендай туксон из кореи 2026",
+      "purpose": "вторичный запрос: хендай туксон из кореи"
+    },
+    {
+      "id": "secondary_2",
+      "query": "купить туксон из кореи 2026",
+      "purpose": "вторичный запрос: купить туксон из кореи"
+    },
+    {
+      "id": "secondary_3",
+      "query": "хендай туксон дизель из кореи 2026",
+      "purpose": "вторичный запрос: хендай туксон дизель из кореи"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать Hyundai Tucson из Кореи в 2026: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-hyundai-tucson-iz-korei-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

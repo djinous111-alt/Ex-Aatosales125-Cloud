@@ -6,6 +6,72 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261020-2123-cover-mcp-kv-unavailable
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-hyundai-tucson-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- MCP namespace `MCP-KV` failed live tool discovery (`gpt-image-2` unavailable).
+- Cover skill primary path CallMcpTool `gpt-image-2` could not run.
+
+### How the agent recovered this run
+- Used preferred direct Kie HTTP flow: `scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir ...` with `KIE_API_KEY`.
+- ONE i2i job succeeded; `quad_apply.py --inject-html` PASS.
+
+### Durable fix needed before next run
+- Restore MCP-KV connectivity for Cloud runs OR mark Kie script as the canonical Cloud cover path in skill/agent-md (not only batch note).
+- Keep `input_urls` + ONE-canvas rule identical across MCP and Kie paths.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/blog-cover-quad-canvas-contract.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261020-2123-cover-kie-prompt-policy
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-hyundai-tucson-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- First Kie `gpt-image-2-image-to-image` task failed: `failCode=400` content policy.
+- Root cause: `excalibur_blog_cover_quad_prompt.py` literally listed banned toxic slang in the prompt (as a negative example), which the safety filter flagged.
+- Same script also hard-locked "white hoodie", conflicting with blog-hero outfit_rule (no hood/hoodie; weather/topic outfit).
+
+### How the agent recovered this run
+- Rewrote prompt lines: friendly non-toxic instruction without listing banned words; outfit follows `scene_hint`, never hoodie/cap/hood.
+- Regenerated batch; second Kie task succeeded; split+inject PASS.
+
+### Durable fix needed before next run
+- Keep the script change: never enumerate banned insults in image prompts; describe policy abstractly.
+- Align outfit lock with `memory/cover/blog-hero.json` outfit_rule (scene weather/topic, no hoodie).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py` (already patched this run)
+- `memory/cover/blog-hero.json`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (script patched in-run; fixer should confirm docs/pitfalls updated)
+
 ## INC-20261020-2123-schema-secret-scan-public-urls
 status: open
 run_date: 2026-10-20

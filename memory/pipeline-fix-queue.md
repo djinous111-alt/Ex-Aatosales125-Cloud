@@ -256,7 +256,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261019-1303-director-doctor-blog-path
-status: open
+status: fixed
 run_date: 2026-10-19
 role: excalibur-blog-director
 topic_id: n/a
@@ -286,10 +286,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-19
+fix_summary:
+- Doctor now asserts `--blog-dir` / `--out-dir` and fails if stale `--blog-path` remains in llms help.
+- Indexer agent/skill examples drop `--blog-path`.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `rg` no durable `--blog-path` CLI examples left
+commit: 6fd2b24e
 
 ## INC-20261019-1310-scout-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-10-19
 role: excalibur-blog-scout
 topic_id: B01
@@ -318,10 +333,22 @@ category: env
 - none recorded (names filtered; values not logged)
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-19
+fix_summary:
+- Added `scripts/excalibur_blog_filter_commit_secret_env.sh` + `scripts/excalibur_git.sh` to filter non-bash-safe secret names before hooks.
+- Documented workaround in `shared/agent-pipeline-pitfalls.md` (prefer over `--no-verify`).
+- Duplicate INC block below kept as needs-human for Dashboard rename root cause.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter smoke: drops `BAR[baz]` / `1BAD`, keeps `FOO,_OK,GOOD_NAME`
+commit: 6fd2b24e
 
 ## INC-20261019-1310-scout-precommit-secret-names
-status: open
+status: needs-human
 run_date: 2026-10-19
 role: excalibur-blog-scout
 topic_id: B01
@@ -351,10 +378,15 @@ category: env
 - none recorded (names filtered; values not logged)
 
 ### Fixer resolution
-- pending
+status: needs-human
+reason:
+- Platform `pre-commit.cursor` is outside the repo; root fix is renaming the Cloud Dashboard secret to a bash-safe `[A-Za-z_][A-Za-z0-9_]*` identifier.
+- Repo workaround landed in the sibling INC-1310 (filter script / `excalibur_git.sh`); agents should use it until Dashboard rename.
+needed_decision_or_secret:
+- Cursor Dashboard: rename the non-identifier secret name (do not record the old name here).
 
 ## INC-20261019-1311-research-tech-markers-substring
-status: open
+status: fixed
 run_date: 2026-10-19
 role: excalibur-blog-research
 topic_id: B01
@@ -385,10 +417,20 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-19
+fix_summary:
+- TECH_MARKERS use Unicode-aware word-boundary / stem matching; strip known field labels before notes scan.
+- Added `--self-test` regression for `reader_pain` / `объявлении` false positives.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --self-test` → PASS
+commit: 6fd2b24e
 
 ## INC-20261019-1315-writer-editorial-pain-outcome-missing
-status: open
+status: fixed
 run_date: 2026-10-19
 role: excalibur-blog-writer
 topic_id: B01
@@ -420,4 +462,65 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-19
+fix_summary:
+- Doctor fails if pain/outcome markers empty or `_markers_pinned` missing.
+- Utility gate returns POLICY BLOCK (not article weakness) when marker lists wiped.
+- Confirmed current `editorial-policy.json` has markers + `_markers_pinned: true` (no article.html rewrite).
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_utility_gate.py`
+- `memory/brief/editorial-policy.json` (verified pinned; unchanged content this run)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor errors=0 (markers OK)
+- `policy_marker_errors` smoke on wiped policy → ≥3 errors
+commit: 6fd2b24e
+
+## INC-20261019-1333-geo-qa-typed-task-missing
+status: fixed
+run_date: 2026-10-19
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rastamozhit-avto-iz-korei-2026
+severity: medium
+category: api
+
+### What went wrong
+- Cloud API did not accept typed Task `excalibur-blog-geo-qa`; Director had to launch fallback `Task(generalPurpose)` with agent/skill paths.
+- Soft human-voice WARN: `exactly_five_lists` regex `<ol>...(li){5}</ol>` matches any ol with ≥5 `<li>` (этапы×6 + чеклист×8), not only exactly-five lists — noise during FIX cycle.
+
+### How the agent recovered this run
+- Ran full GEO QA gate set via python3 under generalPurpose role contract; all hard gates PASS; article-qa score 87.
+- Soft FIX only: Fact Check wording varied (label `Материал проверен` kept); list sizes adjusted where editorial OK; did not start cover/schema.
+
+### Durable fix needed before next run
+- Ensure Cloud Task type map registers `excalibur-blog-geo-qa` (and sibling roles) or document generalPurpose fallback as default in director skill.
+- Tighten human-voice `exactly_five_lists` to exact count of 5 `<li>` per `<ol>` (or rename metric to `long_ordered_lists`).
+
+### Suggested files to inspect/change
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-19
+fix_summary:
+- Director + GEO QA skills: immediate `Task(generalPurpose)` when typed geo-qa missing (no typed retry).
+- Human-voice `exactly_five_lists` counts only `<ol>` with exactly 5 `<li>`.
+files_changed:
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- exactly_five unit: 6-li + 5-li → count 1 (old regex would be 2)
+commit: 4ea1ce3c

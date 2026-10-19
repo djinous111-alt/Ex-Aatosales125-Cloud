@@ -5,7 +5,7 @@
   "verdict": "pass",
   "links": [
     {
-      "url": "[REDACTED]",
+      "url": "https://avto-sales125.ru/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
@@ -14,7 +14,7 @@
       "skipped": false
     },
     {
-      "url": "[REDACTED]",
+      "url": "https://t.me/avtosales125",
       "status": 200,
       "ok": true,
       "method": "HEAD",

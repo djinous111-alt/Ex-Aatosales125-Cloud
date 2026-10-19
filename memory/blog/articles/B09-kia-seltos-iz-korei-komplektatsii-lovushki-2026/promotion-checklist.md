@@ -1,7 +1,7 @@
 # Promotion checklist — B09 kia-seltos-iz-korei-komplektatsii-lovushki-2026
 
-Дата публикации: (pending publish)  
-Live URL: /blog/kia-seltos-iz-korei-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-19
+Live URL: https://avtosales125.ru/2026/10/19/kia-seltos-iz-korei-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

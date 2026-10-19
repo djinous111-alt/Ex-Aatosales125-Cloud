@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261019-0956-publish-nginx-504-webfetch-false-positive
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-publish
+topic_id: B09
+article_dir: memory/blog/articles/B09-kia-seltos-iz-korei-komplektatsii-lovushki-2026
+severity: high
+category: publish
+
+### What went wrong
+- SSH bootstrap upload OK (~6.7MB), then local HTTP trigger failed with RemoteDisconnected.
+- Curl/WebFetch fallback hit nginx 504 Gateway Time-out (~120s) and wrote HTML into memory/webfetch-response.txt.
+- Publish script treated any fallback file as success, consumed the 504 HTML, wrote wp-publish-result.json verdict=fail — while WP had already created the post server-side.
+- urlopen/fallback waits had regressed to 120s again after prior 300s bump (INC-20261018-2140).
+
+### How the agent recovered this run
+- Did NOT republish. Verified slug kia-seltos-iz-korei-komplektatsii-lovushki-2026 via WP REST → post_id=4340, featured=4346, inline=4347/4349/4350.
+- Confirmed via wp-cli: schema meta present (len=11038), skip_theme_faq=1, thumbnail=4346; Sportage 4334 untouched; permalink HEAD 200.
+- Reconstructed wp-publish-result.json (verdict=pass), ledger, publish log, promotion Live URL.
+- Re-bumped timeouts 120→300s and made fallback reject responses without literal OK post=.
+
+### Durable fix needed before next run
+- Keep urlopen timeout and fallback wait at 300s (guard against regression).
+- Fallback must ignore HTML error pages until OK post= appears (code change applied this run).
+- Document reconstruct-via-REST path in publish skill for 504-after-success cases; never republish foreign IDs.
+
+### Suggested files to inspect/change
+- scripts/excalibur_blog_wp_publish.py
+- skills/publish-excalibur-blog/SKILL.md
+- .cursor/skills/publish-excalibur-blog/SKILL.md
+- shared/agent-pipeline-pitfalls.md
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261019-0945-cover-mcp-32001-kie-api-fallback
 status: open
 run_date: 2026-10-19

@@ -490,3 +490,61 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261020-2102-doctor-stale-blog-path
+status: fixed
+Severity: medium
+agent_role: director
+topic_id: B01
+run_date: 2026-10-20
+symptom: doctor FAIL «llms generator supports --blog-path» while generator only has --blog-dir/--out-dir (post-fixer rename).
+expected: doctor checks --blog-dir (and optionally --out-dir), not --blog-path.
+actual: scripts/excalibur_blog_doctor.py still asserts "--blog-path" in llms_help.stdout
+repro: python3 scripts/excalibur_blog_doctor.py
+proposed_fix: update doctor check to --blog-dir; keep errors=0 when generator CLI matches indexer skill.
+durable_target: scripts/excalibur_blog_doctor.py
+
+### Fixer resolution
+- status: fixed (by indexer mid-run after CLI fail)
+- summary: doctor now asserts `--blog-dir` + `--out-dir`; skill/agent docs and pitfalls updated to drop `--blog-path`.
+- files_changed: `scripts/excalibur_blog_doctor.py`, `skills/indexer-excalibur-blog/SKILL.md`, `.cursor/skills/indexer-excalibur-blog/SKILL.md`, `agents/excalibur-blog-indexer.md`, `.cursor/agents/excalibur-blog-indexer.md`, `shared/agent-pipeline-pitfalls.md`
+- checks: `python3 scripts/excalibur_blog_llms_generator.py --help` (no `--blog-path`); llms generator succeeded without `--blog-path`
+
+## INC-20261020-2130-indexer-llms-blog-path-cli
+status: fixed
+run_date: 2026-10-20
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-hyundai-tucson-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer skill/agent still documented `--blog-path /` for llms generator.
+- First CLI call failed: `unrecognized arguments: --blog-path /`.
+- Related open doctor check (INC-20261020-2102) asserted the same stale flag.
+
+### How the agent recovered this run
+- Re-ran generator with `--blog-dir` + `--out-dir` only (no `--blog-path`).
+- Redacted absolute site URLs in `memory/blog/llms*.txt` to relative `/blog/<slug>/`.
+- Patched skill/agent docs, pitfalls, and doctor in the same run.
+
+### Durable fix needed before next run
+- Done this run: remove `--blog-path` from indexer contracts; doctor checks `--blog-dir`/`--out-dir`.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- status: fixed (indexer self-heal)
+- summary: CLI contracts and doctor aligned with generator; B01 llms generated successfully.
+- checks: interlinker 0 opportunities; llms lists B01
+

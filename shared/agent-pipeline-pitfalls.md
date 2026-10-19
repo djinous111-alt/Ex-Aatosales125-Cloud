@@ -46,3 +46,5 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator: только `--blog-dir` / `--out-dir` / `--site-base`; флаг `--blog-path` удалён и ломает CLI (`unrecognized arguments`).
+- Перед коммитом: в `memory/blog/llms*.txt` заменяй absolute `PUBLIC_SITE_URL` на относительные `/blog/<slug>/`; в `interlink-suggestions.json` — `site_base: [REDACTED]`.

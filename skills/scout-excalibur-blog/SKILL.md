@@ -81,3 +81,9 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
 * Выдумывание цифр спроса без вызова Wordstat API.
+
+## live-reserved + niche
+
+`--suggest-next` читает `memory/topics/live-reserved.json` и `memory/blog/live-reserved.json` (`next_forced_topic_id`, `reserved[]` / `reserved_topic_id`). Не игнорируй forced id в пользу B01 на пустом pool.
+После выбора темы обнови live-reserved (`reserved_topic_id` + `next_forced_topic_id`) и закоммить при необходимости.
+Ниша: AVTO SALES (авто из Кореи/Китая/Японии, Encar, растаможка, комплектации) по `memory/brief/site-brief.md` — не Cursor/Make/n8n defaults.

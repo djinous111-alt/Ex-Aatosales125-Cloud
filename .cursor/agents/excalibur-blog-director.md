@@ -66,3 +66,7 @@ python3 scripts/excalibur_blog_research_start.py --topic-id <id>
 
 Полный сценарий: [skills/director-excalibur-blog/SKILL.md](../skills/director-excalibur-blog/SKILL.md)  
 Субагенты: [FOR-AGENTS.md](FOR-AGENTS.md) · Карта задач: [shared/pipeline-task-map.md](../shared/pipeline-task-map.md)
+
+## Cloud Task types (B09+)
+
+Typed Task `excalibur-blog-geo-qa` (и часто другие `excalibur-blog-*`) часто отсутствует в Cloud Task catalog → **сразу** `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path. Не трать циклы на retry typed Task.

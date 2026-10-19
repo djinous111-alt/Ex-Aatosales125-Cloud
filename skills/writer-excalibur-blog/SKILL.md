@@ -28,7 +28,12 @@
     - Сразу после Lead-абзаца вставляй блок `<blockquote>` с выжимкой ключевых инсайтов (**AEO TL;DR Box**).
     - **ЗАПРЕЩЕНО:** интерактивное оглавление — `<ol>` или `<ul>` с `<a href="#...">` на заголовки H2/H3 сразу после TL;DR. После blockquote TL;DR идёт контекстный `<p>`, затем первый `<h2>`.
     - Атрибут `id` у `<h2>` — только если нужен для внешней перелинковки; не создавай оглавление в теле статьи.
-    - В конце статьи (перед FAQ) вставляй блок верификации (**Fact Check Box**) через `<blockquote>` от редакции Авто-Сейлс. **Не** упоминай Wordstat и Метрику в тексте статьи.
+    - В конце статьи (перед FAQ) вставляй блок верификации (**Fact Check Box**) через `<blockquote>` от редакции Авто-Сейлс.
+**Fact Check label (hard):** первая строка blockquote обязана содержать точную фразу `Материал проверен` (human-voice gate). Soft FIX от GEO QA может разнообразить только вторую строку / источники — **не** переименовывать ярлык в «Редакционная сверка» и т.п. **Не** упоминай Wordstat и Метрику в тексте статьи.
+
+
+13. **CTA href:** бери живые URL из env (`CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`, `PUBLIC_SITE_URL`) / `memory/brief/conversion-map.md` — никогда не пиши литерал `href="[REDACTED]"` в article.html.
+14. **git commit в Cloud:** перед commit выполни `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"` или `bash scripts/excalibur_git.sh commit -m "..."` (фильтр non-identifier `CLOUD_AGENT_*_SECRET_NAMES` + public CTA names).
 
 ## Выход
 

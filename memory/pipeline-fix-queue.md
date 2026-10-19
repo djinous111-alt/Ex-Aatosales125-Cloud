@@ -572,6 +572,43 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261019-0948-indexer-llms-stale-blog-path
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-indexer
+topic_id: B09
+article_dir: memory/blog/articles/B09-kia-seltos-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer agent/skill shell examples still document `excalibur_blog_llms_generator.py --blog-path /`, but the CLI no longer has `--blog-path` (only `--blog-dir`, `--site-base`, `--out-dir`).
+- `excalibur_blog_doctor.py` still asserts `--blog-path` in generator `--help`, producing a false doctor error (`llms generator supports --blog-path`) on every preflight.
+- User/Director already had to override the stale flag for B09; same waste as prior indexer runs.
+
+### How the agent recovered this run
+- Ran llms generator with `--blog-dir memory/blog/articles --site-base ${PUBLIC_SITE_URL} --out-dir memory/blog` (no `--blog-path`).
+- Redacted absolute site base from committed `llms*.txt` and `interlink-report.json` before git.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent + skill shell examples (repo and `.cursor/` copies).
+- Update doctor check to assert current flags (`--blog-dir` / `--out-dir` / `--site-base`), not `--blog-path`.
+- Optionally note redaction of `PUBLIC_SITE_URL` in committed llms/interlink artifacts.
+
+### Suggested files to inspect/change
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

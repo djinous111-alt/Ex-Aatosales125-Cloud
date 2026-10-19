@@ -224,16 +224,34 @@ def verify_article(
     }
 
 
+def _self_test() -> int:
+    """Ensure Cyrillic IRI path is percent-encoded for urllib (2GIS-style)."""
+    raw = "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/1"
+    encoded = iri_to_uri(raw)
+    encoded.encode("ascii")  # must not raise
+    assert "авто" not in encoded or "%D0%" in encoded or "%D1%" in encoded or "%20" in encoded
+    cyr = "https://2gis.ru/vladivostok/search/авто-сейлс"
+    out = iri_to_uri(cyr)
+    out.encode("ascii")
+    assert "авто" not in urlsplit(out).path
+    print("PASS link_verify --self-test iri_to_uri")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Verify links in Excalibur article.html")
-    ap.add_argument("html", type=Path, help="Path to article.html")
+    ap.add_argument("html", type=Path, nargs="?", help="Path to article.html")
     ap.add_argument("-o", "--output", type=Path, help="Write link-verify.json")
     ap.add_argument("--site-base", type=str, default=None, help="e.g. https://example.com")
     ap.add_argument("--timeout", type=float, default=15.0)
     ap.add_argument("--skip-external", action="store_true")
+    ap.add_argument("--self-test", action="store_true", help="Run IRI encoding regression")
     args = ap.parse_args()
 
-    if not args.html.is_file():
+    if args.self_test:
+        return _self_test()
+
+    if not args.html or not args.html.is_file():
         print(f"Not found: {args.html}", file=sys.stderr)
         return 2
 

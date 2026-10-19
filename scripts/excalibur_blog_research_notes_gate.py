@@ -32,6 +32,9 @@ TECH_MARKERS = (
     "нейросет",
 )
 
+# Word-ish boundary: avoid substring hits like ai∈reader_pain / pain, ии∈японии.
+_TECH_BOUNDARY = r"0-9A-Za-zА-Яа-яЁё_"
+
 
 REQUIRED_FIELDS = (
     "research_date",
@@ -73,14 +76,51 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _marker_matches(marker: str, blob: str) -> bool:
+    """True when marker appears as its own token, not as a substring of a longer word."""
+    escaped = re.escape(marker.lower())
+    pattern = rf"(?<![{_TECH_BOUNDARY}]){escaped}(?![{_TECH_BOUNDARY}])"
+    return re.search(pattern, blob, flags=re.IGNORECASE) is not None
+
+
+# Alias for self-tests / older call sites (INC-20261019-0913).
+def _tech_marker_hit(marker: str, blob: str) -> bool:
+    return _marker_matches(marker, blob)
+
+
+def _strip_research_field_labels(notes_sample: str) -> str:
+    """Remove required field labels/headings so they cannot false-trigger TECH_MARKERS."""
+    cleaned = notes_sample
+    for field in REQUIRED_FIELDS:
+        if field == "utility_verdict: PASS":
+            cleaned = re.sub(
+                r"utility[_\s-]*verdict\s*:\s*pass",
+                " ",
+                cleaned,
+                flags=re.I,
+            )
+            continue
+        field_pattern = re.escape(field).replace("_", r"[_\s-]")
+        cleaned = re.sub(
+            rf"^\s*##\s*\d*\.?\s*{field_pattern}\b",
+            " ",
+            cleaned,
+            flags=re.I | re.M,
+        )
+        cleaned = re.sub(rf"\b{field_pattern}\b\s*:", " ", cleaned, flags=re.I)
+    return cleaned
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Scan a notes sample, but strip structural labels (reader_pain, github_evidence, …).
+    notes_sample = _strip_research_field_labels(notes[:2000].lower())
+    blob += " " + notes_sample
+    return any(_marker_matches(marker, blob) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -194,18 +234,76 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     }
 
 
+def _self_test() -> int:
+    """Regression: ai⊂pain / reader_pain label must not mark AVTO topics technical."""
+    assert _tech_marker_hit("ai", "ai agent workflow") is True
+    assert _tech_marker_hit("ai", "reader_pain: новичок боится депозита") is False
+    assert _tech_marker_hit("api", "rest api docs") is True
+    assert _tech_marker_hit("api", "capibara") is False
+
+    notes = (
+        "research_date: 2026-10-19\n"
+        "reader_pain: новичок не знает комплектации Seltos до депозита\n"
+        "reader_outcome: чеклист комплектаций\n"
+        "success_criteria: беру / жду / отказываюсь\n"
+        "voice_angle: спокойный практик\n"
+        "reader_story: заказ через Encar\n"
+        "surprising_fact: комплектация без нужной опции\n"
+        "accessed_at: 2026-10-19\n"
+    )
+    context = {
+        "topic": {
+            "h1": "Kia Seltos из Кореи: комплектации и ловушки",
+            "primary_query": "киа селтос из кореи",
+            "slug": "kia-seltos-iz-korei-komplektatsii-lovushki-2026",
+            "search_intent": "checklist",
+            "secondary_queries": ["комплектации seltos"],
+        }
+    }
+    assert is_technical_topic(context, notes) is False
+
+    tech_notes = "reader_pain: не умею подключить AI agent к MCP"
+    tech_ctx = {
+        "topic": {
+            "h1": "Как подключить AI agent к MCP",
+            "primary_query": "ai agent mcp",
+            "slug": "ai-agent-mcp",
+            "search_intent": "how_to",
+            "secondary_queries": ["cursor mcp"],
+        }
+    }
+    assert is_technical_topic(tech_ctx, tech_notes) is True
+    print("PASS research_notes_gate --self-test")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Validate research-notes.md freshness and depth")
-    ap.add_argument("--article-dir", type=Path, required=True)
+    ap.add_argument("--article-dir", type=Path, default=None)
     ap.add_argument("-o", "--output", type=Path, default=None)
+    ap.add_argument("--self-test", action="store_true", help="Run TECH_MARKERS word-boundary regression")
     args = ap.parse_args()
+
+    if args.self_test:
+        return _self_test()
+
+    if not args.article_dir:
+        ap.error("--article-dir is required unless --self-test")
 
     root = project_root()
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
     report = validate_research_notes(article_dir)
 
     if args.output:
-        output = args.output if args.output.is_absolute() else article_dir / args.output
+        # Bare filename → article_dir. Path with directories → repo-root relative.
+        if args.output.is_absolute():
+            output = args.output
+        else:
+            rel = args.output.as_posix()
+            if "/" in rel or rel.startswith(".."):
+                output = root / args.output
+            else:
+                output = article_dir / args.output
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

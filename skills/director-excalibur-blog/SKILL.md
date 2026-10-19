@@ -130,6 +130,8 @@ Task(excalibur-blog-geo-qa)
 
 Промпт: «topic_id B01. Запусти все QA-скрипты. article-qa.md verdict PASS. Блок === EXCALIBUR BLOG GEO QA ===.»
 
+**Typed Task часто отсутствует:** если Cloud API сразу отклоняет `excalibur-blog-geo-qa` (или любой sibling role), **не ретрай typed** — сразу `Task(generalPurpose)` с `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md` + short contract (вход `article_dir`, маркер `=== EXCALIBUR BLOG GEO QA ===`, запрет cover/schema до PASS).
+
 **Gate:** QA PASS, link-verify pass, **research notes gate PASS**, **utility gate статьи PASS**, **human voice gate PASS**. Статья должна явно решать боль читателя и давать результат. Без PASS **не** идти к шагу 4.
 
 ### Шаг 4 — ПАРАЛЛЕЛЬНО (два Task в одном сообщении)
@@ -213,7 +215,7 @@ Task(excalibur-blog-publish)
 
 Если typed Task `excalibur-blog-*` недоступны:
 
-1. Используй fallback из `AGENTS.md`: отдельный `Task(generalPurpose)` на каждую роль с `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`.
+1. **Сразу** fallback из `AGENTS.md`: отдельный `Task(generalPurpose)` на каждую роль с `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`. Не трать токены на повтор typed Task для geo-qa/cover/schema/indexer/publish/fixer.
 2. Если недоступен даже `generalPurpose`, тогда:
 
 `❌ БЛОКЕР: среда не поддерживает Task/subagents. Single-agent pipeline запрещён.`

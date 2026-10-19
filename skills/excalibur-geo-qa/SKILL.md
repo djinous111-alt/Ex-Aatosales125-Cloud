@@ -9,6 +9,8 @@ description: Excalibur BLOG GEO QA — fact-check, link verify, linter, slop, ca
 
 После `article.html` + `article.meta.json` от Writer. **До** cover/schema (их делает директор параллельно после PASS).
 
+**Cloud Task:** typed `excalibur-blog-geo-qa` часто недоступен — Директор сразу запускает `Task(generalPurpose)` с этим skill + `.cursor/agents/excalibur-blog-geo-qa.md`. Агент GEO QA не оркестрирует Task.
+
 ## Скрипты (обязательно)
 
 ```bash

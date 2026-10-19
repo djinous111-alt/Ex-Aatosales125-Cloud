@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261019-1738-indexer-llms-site-base-secret-scan
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rasschitat-utilsbor-na-avto-2026
+severity: medium
+category: env
+
+### What went wrong
+- Indexer skill/agent still document `excalibur_blog_llms_generator.py --blog-path /`, but the script only accepts `--blog-dir` / `--out-dir` (related: INC-20261019-1703).
+- Running llms generator with `--site-base $PUBLIC_SITE_URL` writes absolute site URLs into `memory/blog/llms.txt` and `llms-full.txt`; Cloud pre-commit secret scanner then blocks commit (`PUBLIC_SITE_URL` match).
+- Separately, commit also hits non-bash identifiers in `CLOUD_AGENT_INJECTED_SECRET_NAMES` (same class as INC-20261019-1705 / INC-20261019-1735).
+
+### How the agent recovered this run
+- Followed Task override: llms CLI without `--blog-path`; verified via `--help`.
+- Regenerated llms with empty `--site-base` so URLs stay relative `/blog/<slug>/` (matches prior committed corpus style) and pass secret scan.
+- Filtered secret-name env lists to `^[A-Za-z_][A-Za-z0-9_]*$` for the commit shell only.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent/skill docs; document relative-URL `--site-base ""` (or script default) for commit-safe llms artifacts; expand to absolute at publish/deploy if needed.
+- Ship durable commit secret-name filter wrapper; stop documenting `$PUBLIC_SITE_URL` as llms `--site-base` while that var is a Cloud secret.
+
+### Suggested files to inspect/change
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+- `scripts/excalibur_blog_llms_generator.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261019-1729-schema-secret-scan-jsonld
 status: open
 run_date: 2026-10-19

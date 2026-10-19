@@ -352,3 +352,37 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261019-1311-research-tech-markers-substring
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rastamozhit-avto-iz-korei-2026
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` TECH_MARKERS match with plain substring search.
+- Required field name `reader_pain` contains Latin `ai`, so non-technical auto topics are classified as `technical_topic: true`.
+- Cyrillic `ии` inside ordinary words (e.g. объявлении) can also trip the `ии` marker.
+- Gate then warns about missing official docs/developer URL even for customs how-to articles.
+
+### How the agent recovered this run
+- Kept PASS by including 5 GitHub evidence URLs (calc/bots for Korea customs) so the technical GitHub requirement was satisfied.
+- Did not invent demand numbers; Wordstat MCP returned OK.
+
+### Durable fix needed before next run
+- Match TECH_MARKERS with word boundaries / token split, not raw substring.
+- Exclude known field-name false positives (`reader_pain`, `pain_solution_map`).
+- Optionally treat auto-import topics as non-technical unless slug/h1 has real tech intent.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

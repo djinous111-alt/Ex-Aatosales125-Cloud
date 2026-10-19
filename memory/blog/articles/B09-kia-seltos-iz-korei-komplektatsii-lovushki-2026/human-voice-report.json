@@ -1,10 +1,8 @@
 {
   "gate": "human-voice",
-  "status": "BLOCK",
+  "status": "PASS",
   "article_dir": "memory/blog/articles/B09-kia-seltos-iz-korei-komplektatsii-lovushki-2026",
-  "errors": [
-    "Fact Check Box missing: need <blockquote> with «Материал проверен» before FAQ"
-  ],
+  "errors": [],
   "warnings": [],
   "metrics": {
     "h2_count": 6,

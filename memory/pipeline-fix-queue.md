@@ -6,8 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None after 2026-10-19 utilсбор fixer. Closed incidents remain below for audit._
+
 ## INC-20261019-1745-publish-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-10-19
 role: excalibur-blog-publish
 topic_id: B01
@@ -37,11 +39,28 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-19
+fix_summary:
+- Shipped durable `scripts/excalibur_blog_filter_commit_secret_env.sh` + `excalibur_git.sh` (bash-safe names + drop public CTA/site URL secret names from scan list).
+- Publish skill documents commit via `excalibur_git.sh` after ledger/result writes.
+- Remaining Dashboard rename of non-bash secret names tracked under INC-20261019-1705 (needs-human).
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_git.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `bash -n scripts/excalibur_blog_filter_commit_secret_env.sh`
+- filter dry-run drops PUBLIC_SITE_URL/CATALOG_URL and invalid identifiers
+- `python3 scripts/excalibur_blog_doctor.py` errors=0
+commit: pending
+
 
 
 ## INC-20261019-1738-indexer-llms-site-base-secret-scan
-status: open
+status: fixed
 run_date: 2026-10-19
 role: excalibur-blog-indexer
 topic_id: B01
@@ -75,11 +94,30 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-19
+fix_summary:
+- Removed `--blog-path` from indexer agent/skill; document `--blog-dir`/`--out-dir` and commit-safe `--site-base ""` (relative `/blog/<slug>/`).
+- Doctor asserts llms help has `--blog-dir`/`--out-dir` and not `--blog-path`.
+- Commits via `excalibur_git.sh` (same secret-name filter as other roles).
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` errors=0
+- `rg` confirms no instructional `--blog-path /` in indexer CLI examples
+commit: pending
+
 
 
 ## INC-20261019-1729-schema-secret-scan-jsonld
-status: open
+status: fixed
 run_date: 2026-10-19
 role: excalibur-blog-schema
 topic_id: B01
@@ -112,7 +150,22 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-19
+fix_summary:
+- Schema skill documents live absolute URLs required for publish; commit only via `excalibur_git.sh` (drops public CTA/site secret names from scan list + filters invalid bash names).
+- Do not strip JSON-LD URLs and do not use `--no-verify`.
+- Dashboard non-bash secret rename remains needs-human under INC-20261019-1705.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter dry-run drops PUBLIC_SITE_URL/CATALOG_URL/TELEGRAM_URL/MAX_URL from scan list
+commit: pending
+
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -365,7 +418,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261019-1703-director-doctor-blog-path
-status: open
+status: fixed
 run_date: 2026-10-19
 role: excalibur-blog-director
 topic_id: n/a
@@ -394,10 +447,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-19
+fix_summary:
+- Doctor requires llms `--blog-dir` and `--out-dir` and fails if stale `--blog-path` appears in help.
+- Indexer agent/skill no longer document `--blog-path`; pitfalls updated.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 warnings=0
+- `python3 scripts/excalibur_blog_llms_generator.py --help` has no `--blog-path`
+commit: pending
+
 
 ## INC-20261019-1714-research-tech-marker-ii-false-positive
-status: open
+status: fixed
 run_date: 2026-10-19
 role: excalibur-blog-research
 topic_id: B01
@@ -426,10 +495,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-19
+fix_summary:
+- `is_technical_topic()` now uses word-boundary / stem matching (`marker_hits_blob`); bare substring `ии` no longer matches «Японии»/«объявлении».
+- Added `--self-test` with B01 utilсбор («Японии») regression case.
+- Research skill notes the gate behavior.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --self-test` PASS
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+commit: pending
+
 
 ## INC-20261019-1705-scout-precommit-secret-names
-status: open
+status: needs-human
 run_date: 2026-10-19
 role: excalibur-blog-scout
 topic_id: B01
@@ -458,10 +542,28 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: needs-human
+fixed_at: 2026-10-19
+reason:
+- Root cause is Cursor Dashboard Cloud Secret *names* that are not valid bash identifiers (and/or URL-shaped names). Repo cannot rename Dashboard secrets.
+- Durable workaround shipped: `scripts/excalibur_blog_filter_commit_secret_env.sh` + `scripts/excalibur_git.sh` (also drops public CTA/site URL names from scan list). Scout/cover/publish skills point agents to the wrapper.
+needed_decision_or_secret:
+- Rename every Cloud Dashboard secret name to `^[A-Za-z_][A-Za-z0-9_]*$`.
+- Prefer keeping public marketing URLs (`PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`) as non-secret env or accept that `excalibur_git.sh` excludes them from the scan list.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_git.sh`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter dry-run: invalid names dropped; PUBLIC_SITE_URL/CATALOG_URL dropped; valid names kept
+- `python3 scripts/excalibur_blog_doctor.py` confirms filter scripts exist
+commit: pending
+
 
 ## INC-20261019-1722-geo-qa-utility-pain-outcome-markers
-status: open
+status: fixed
 run_date: 2026-10-19
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -494,10 +596,28 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-19
+fix_summary:
+- Confirmed/pinned `pain_markers_ru` / `outcome_markers_ru` + `_markers_pinned: true` in `editorial-policy.json`.
+- Doctor fails if markers wiped.
+- Writer/GEO QA skills document marker lists, imperative recommendation forms, and forbid copying `href="[REDACTED]"` back into article.html.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m json.tool memory/brief/editorial-policy.json`
+- `python3 scripts/excalibur_blog_doctor.py` → `_markers_pinned` OK
+commit: pending
+
 
 ## INC-20261019-1735-cover-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-10-19
 role: excalibur-blog-cover
 topic_id: B01
@@ -526,4 +646,19 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-19
+fix_summary:
+- Same durable commit wrapper as scout/publish: `excalibur_blog_filter_commit_secret_env.sh` + `excalibur_git.sh`.
+- Cover skill documents commit via wrapper.
+- Dashboard rename remains needs-human under INC-20261019-1705.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_git.sh`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter dry-run + `bash -n` on wrapper scripts
+commit: pending
+

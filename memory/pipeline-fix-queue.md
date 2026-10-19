@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261020-2125-writer-utility-markers-wiped
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-hyundai-tucson-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- On this branch `memory/brief/editorial-policy.json` was missing `pain_markers_ru` / `outcome_markers_ru` (and `_markers_pinned`), while `excalibur_blog_utility_gate.py` still enforces `min_pain_markers` / `min_outcome_markers`.
+- Empty lists made every article fail utility gate with `pain_markers=0` / `outcome_markers=0` before meta existed.
+- Prior durable fixer notes said markers must stay pinned; they were wiped again on the active automation branch.
+
+### How the agent recovered this run
+- Restored marker lists + `_markers_pinned: true` + min counts in `editorial-policy.json` from known-good prior commits.
+- Injected CTA hrefs from env `CATALOG_URL` / `TELEGRAM_URL` (not from redacted brief placeholders).
+- Utility gate + HTML linter + slop detector PASS for B01 Tucson article.
+
+### Durable fix needed before next run
+- Doctor/preflight must fail if `pain_markers_ru` / `outcome_markers_ru` / `_markers_pinned` are missing from editorial-policy.
+- Re-apply skip-or-fail-fast behavior in utility gate when lists are empty (commit 030add6a pattern) so wiped policy cannot silently zero-score every article.
+- Keep marker restore in fixer checklist for branch drift.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261020-2115-research-tech-markers-ii-false-positive
 status: open
 run_date: 2026-10-20

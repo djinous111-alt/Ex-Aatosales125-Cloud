@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B09-kia-seltos-iz-korei-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1275,
+      715
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 715,
+        "end": 768
+      },
+      "v_gutter_px": {
+        "start": 1275,
+        "end": 1326
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1275,
+          "bottom": 715
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1275,
+          "bottom": 715
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у Kia Seltos со смартфоном Encar, плашка комплектации и ловушки, Владивосток",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1326,
+          "top": 10,
+          "right": 2560,
+          "bottom": 704
+        },
+        "raw_box_px": {
+          "left": 1326,
+          "top": 0,
+          "right": 2560,
+          "bottom": 715
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап брифа до Encar: город, семья, бюджет до ключей для выбора Seltos",
+        "h2_anchor": "Зафиксируйте задачу до Encar: город, семья, бюджет \"до ключей\""
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 40,
+          "top": 768,
+          "right": 1235,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 768,
+          "right": 1275,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: имя trim Seltos против реальных опций в карточке Encar",
+        "h2_anchor": "Сравните комплектации Seltos: что в карточке, а что только в имени trim"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1345,
+          "top": 768,
+          "right": 2540,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1326,
+          "top": 768,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист ловушек лота Encar: пробег, страховка, такси, схема кузова",
+        "h2_anchor": "Проверьте ловушки лота: пробег, страховка, такси, схема кузова"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте задачу до Encar: город, семья, бюджет \"до ключей\"",
+    "injected inline_2 after H2 — Сравните комплектации Seltos: что в карточке, а что только в имени trim",
+    "injected inline_3 after H2 — Проверьте ловушки лота: пробег, страховка, такси, схема кузова"
+  ]
+}

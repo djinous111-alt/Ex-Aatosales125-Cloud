@@ -1,0 +1,651 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-19",
+    "today_ru": "19.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-21",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-19 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B09",
+    "priority": "P0",
+    "slug": "kia-seltos-iz-korei-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Kia Seltos из Кореи: комплектации, ловушки Encar и чек-лист до депозита",
+    "primary_query": "киа селтос из кореи",
+    "secondary_queries": [
+      "селтос из кореи",
+      "комплектации киа селтос из кореи",
+      "киа селтос дизель из кореи",
+      "киа селтос из кореи полный привод"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "киа селтос из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Киа Селтос 2026 из Китая: цена, комплектации и отзывы",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-seltos-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Seltos 2026: новый кузов, 1.6 Turbo и гибрид | AZWAY",
+          "url": "https://azway.ru/blog/kia-seltos-iz-korei-obzor",
+          "snippet": "Киа Селтос 2026 из Китая и Кореи: новый кузов и старый, комплектации 1.5 и 2.0, размеры, отзывы владельцев и минусы. Наши реальные лоты с ценой под ключ."
+        },
+        {
+          "title": "Купить Kia Seltos из Кореи, цена на Киа Селтос 2026 года без пробега по РФ",
+          "url": "https://silacar.ru/korea/kia/seltos/?year_from=2026&year_to=2026",
+          "snippet": "Обзор Kia Seltos 2026 из Кореи: новый кузов, размеры, 1.6 Turbo на 193 л.с., гибрид на 141 л.с., комплектации, расход и отличия от Seltos SP2."
+        },
+        {
+          "title": "Киа Селтос 2026 технические характеристики. Kia Seltos 2026 ...",
+          "url": "https://www.drom.ru/catalog/kia/seltos/2026/",
+          "snippet": "Купить автомобиль Kia Seltos 2026 года с доставкой из Кореи. Цена указана в рублях со всеми расходами по Корее, доставкой в Россию, пошлиной и сборами."
+        },
+        {
+          "title": "Продажа Kia Seltos из Кореи | Цены на Киа Селтос в Корее",
+          "url": "https://www.drom.ru/world/korea/kia/seltos/",
+          "snippet": "Подробно расписан модельный ряд Kia Seltos 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Kia Seltos 2026 года из Южной Кореи под заказ",
+          "url": "https://regionauto.org/korea/kia/seltos/?year_from=2026&year_to=2026",
+          "snippet": "Объявления о продаже Kia Seltos под заказ из Кореи с фото авто и ценами. Стоимость и характеристики Киа Селтос на аукционе в Корее."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "киа селтос из кореи октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Seltos 2026: новый кузов, 1.6 Turbo и гибрид | AZWAY",
+          "url": "https://azway.ru/blog/kia-seltos-iz-korei-obzor",
+          "snippet": ""
+        },
+        {
+          "title": "Киа Селтос 2026 из Китая: цена, комплектации и отзывы",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-seltos-2026",
+          "snippet": "Обзор Kia Seltos 2026 из Кореи: новый кузов, размеры, 1.6 Turbo на 193 л.с., гибрид на 141 л.с., комплектации, расход и отличия от Seltos SP2."
+        },
+        {
+          "title": "Купить Kia Seltos из Кореи, цена на Киа Селтос 2026 года без пробега по РФ",
+          "url": "https://silacar.ru/korea/kia/seltos/?year_from=2026&year_to=2026",
+          "snippet": "Киа Селтос 2026 из Китая и Кореи: новый кузов и старый, комплектации 1.5 и 2.0, размеры, отзывы владельцев и минусы. Наши реальные лоты с ценой под ключ."
+        },
+        {
+          "title": "Киа Селтос 2026 технические характеристики. Kia Seltos 2026 ...",
+          "url": "https://www.drom.ru/catalog/kia/seltos/2026/",
+          "snippet": "Купить автомобиль Kia Seltos 2026 года с доставкой из Кореи. Цена указана в рублях со всеми расходами по Корее, доставкой в Россию, пошлиной и сборами."
+        },
+        {
+          "title": "Kia Seltos 2026 из Кореи — новый гибридный кроссовер! Обзор",
+          "url": "https://www.youtube.com/watch?v=pvj9DACrC-w",
+          "snippet": "Подробно расписан модельный ряд Kia Seltos 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Киа Селтос 2026 между собой."
+        },
+        {
+          "title": "Продажа Kia Seltos из Кореи | Цены на Киа Селтос в Корее",
+          "url": "https://www.drom.ru/world/korea/kia/seltos/",
+          "snippet": "🚘 Новый Kia Seltos Hybrid 2026 из Южной Кореи — подробный обзор! Знакомимся с новым Kia Seltos 2026 года для корейского рынка. В этом видео подробно рассмотрим дизайн, салон,..."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "киа селтос из кореи новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Seltos 2026: новый кузов, 1.6 Turbo и гибрид | AZWAY",
+          "url": "https://azway.ru/blog/kia-seltos-iz-korei-obzor",
+          "snippet": ""
+        },
+        {
+          "title": "Киа Селтос 2026 из Китая: цена, комплектации и отзывы",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-seltos-2026",
+          "snippet": "Обзор Kia Seltos 2026 из Кореи: новый кузов, размеры, 1.6 Turbo на 193 л.с., гибрид на 141 л.с., комплектации, расход и отличия от Seltos SP2."
+        },
+        {
+          "title": "Kia Seltos 2026 из Кореи — новый гибридный кроссовер! Обзор",
+          "url": "https://www.youtube.com/watch?v=pvj9DACrC-w",
+          "snippet": "Киа Селтос 2026 из Китая и Кореи: новый кузов и старый, комплектации 1.5 и 2.0, размеры, отзывы владельцев и минусы. Наши реальные лоты с ценой под ключ."
+        },
+        {
+          "title": "Киа Селтос 2026 года: характеристики, дизайн и старт продаж",
+          "url": "https://master-kia.vercel.app/articles/k/ki/kia-seltos-2026-goda.html",
+          "snippet": "🚘 Новый Kia Seltos Hybrid 2026 из Южной Кореи — подробный обзор! Знакомимся с новым Kia Seltos 2026 года для корейского рынка. В этом видео подробно рассмотрим дизайн, салон,..."
+        },
+        {
+          "title": "Киа Селтос новая: цена, комплектации и тест-драйв 2026",
+          "url": "https://master-kia.vercel.app/articles/k/ki/kia-seltos-novaya.html",
+          "snippet": "Полный обзор Kia Seltos 2026 года: новый дизайн, гибридные моторы, цифровые панели и цены. Стоит ли ждать новинку или брать текущую модель?"
+        },
+        {
+          "title": "Новый Kia Seltos 2026: фото, характеристики и другие подробности :: RBC ...",
+          "url": "https://www.rbcautonews.ru/news/693a6b869a7947fdfcf1adb8",
+          "snippet": "Обзор обновленного Kia Seltos 2026 года. Характеристики, новые комплектации, цены, расход топлива и реальные отзывы владельцев кроссовера."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com киа селтос из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "ky-fetch/media/logo.svg at main · realharry/ky-fetch · GitHub",
+          "url": "https://github.com/realharry/ky-fetch/blob/main/media/logo.svg",
+          "snippet": ""
+        },
+        {
+          "title": "execstasy-pam/image.png at main · Utkar5hM/execstasy-pam · GitHub",
+          "url": "https://github.com/Utkar5hM/execstasy-pam/blob/main/image.png",
+          "snippet": "🌳 Tiny & elegant JavaScript HTTP client based on the Fetch API - ky-fetch/media/logo.svg at main · realharry/ky-fetch"
+        },
+        {
+          "title": "Metroid-godot/icon.svg at main · Kernapillar/Metroid-godot",
+          "url": "https://github.com/Kernapillar/Metroid-godot/blob/main/icon.svg",
+          "snippet": "Execstasy PAM - Linux PAM Module for OAuth 2.0 Device Authorization Grant (RFC 8628) - execstasy-pam/image.png at main · Utkar5hM/execstasy-pam"
+        },
+        {
+          "title": "Grocery-List/logo.svg at main · Akkasit99/Grocery-List · GitHub",
+          "url": "https://github.com/Akkasit99/Grocery-List/blob/main/logo.svg",
+          "snippet": "Contribute to Kernapillar/Metroid-godot development by creating an account on GitHub."
+        },
+        {
+          "title": "DeepG4/logo.svg at master · raphaelmourad/DeepG4 · GitHub",
+          "url": "https://github.com/raphaelmourad/DeepG4/blob/master/logo.svg",
+          "snippet": "Contribute to Akkasit99/Grocery-List development by creating an account on GitHub."
+        },
+        {
+          "title": "obsidian-baseline/img/mobile.png at main · svnaxis/obsidian-baseline ...",
+          "url": "https://github.com/svnaxis/obsidian-baseline/blob/main/img/mobile.png",
+          "snippet": "DeepG4: A deep learning approach to predict active G-quadruplexes - DeepG4/logo.svg at master · raphaelmourad/DeepG4"
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "киа селтос из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Руководство по эксплуатации Киа Селтос 2026: Полная инструкция",
+          "url": "https://master-kia.vercel.app/articles/r/ru/rukovodstvo-po-ekspluatatsii-kia-seltos-2024.html",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Owner's Manual",
+          "url": "https://ownersmanual.kia.com/manual/Seltos?langCode=ru_RU&countryCode=C36&projCode=SP2&year=2026",
+          "snippet": "Подробное руководство по эксплуатации Kia Seltos 2026 года. Настройки мультимедиа, двигатели, режимы вождения, ТО и советы по уходу за кроссовером."
+        },
+        {
+          "title": "PDF The all-new Seltos - Kia",
+          "url": "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/new-seltos/showroom/brochure/Kia_Seltos_Brochure_Desktop_2026.pdf",
+          "snippet": "Kia Owner's Manual"
+        },
+        {
+          "title": "PDF Seltos_09 - Kia",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/en_brochure/en_catalog_seltos.pdf",
+          "snippet": "Kia India Private Limited (Formerly known as Kia Motors India Private Limited) NH-44, SY. No. 151-2, Erramanchi, Penukonda Mandal, Anantapur, Andhra Pradesh - 515 164 (India)"
+        },
+        {
+          "title": "Киа Селтос 2026 технические характеристики. Kia Seltos 2026 ...",
+          "url": "https://www.drom.ru/catalog/kia/seltos/2026/",
+          "snippet": "Add joy to your family drives by customizing the display with various character themes, including Marvel's Spider-Man, Star Wars, Disney's Mickey and Friends, and Marvel's Avengers, as well as sports themes from the 10 KBO teams. (Purchase themes via the Kia Connect Store)"
+        },
+        {
+          "title": "Киа Селтос 2026 из Китая: цена, комплектации и отзывы",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-seltos-2026",
+          "snippet": "Подробно расписан модельный ряд Kia Seltos 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "киа селтос из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Seltos (Селтос) | KIA Клуб - форум автомобилей Киа",
+          "url": "https://mykia.ru/forums/kia-seltos-seltos.127/",
+          "snippet": ""
+        },
+        {
+          "title": "Киа Селтос 2026: отзывы владельцев, реальный расход и проблемы",
+          "url": "https://master-kia.vercel.app/articles/k/ki/kia-seltos-otzyvy-2025.html",
+          "snippet": "Kia Seltos (Селтос) Компактный кроссовер от компании Kia Motors. 2 марта 2020 года начаты продажи модели в России. Построена на одной платформе с Hyundai Creta."
+        },
+        {
+          "title": "Форум клуба Киа Селтос",
+          "url": "https://kia-kx3.ru/forum/",
+          "snippet": "Полный обзор Kia Seltos 2026 года. Отзывы владельцев о надежности, расходе топлива, комплектациях и типичных неисправностях. Стоит ли покупать?"
+        },
+        {
+          "title": "Форум клуба Киа Селтос - Kia Seltos",
+          "url": "https://kia-seltos.ru/forum/",
+          "snippet": "Добро пожаловать в Kia Seltos Клуб Россия Если вы раньше не пользовались форумом, пожалуйста прочитайте справку по форуму."
+        },
+        {
+          "title": "Киа Селтос 2025 - 2026 отзывы владельцев - поломки и проблемы",
+          "url": "https://www.drom.ru/reviews/kia/seltos/5kopeek/breakages/?year1=2025&year2=2026",
+          "snippet": "Добро пожаловать в Kia Seltos Клуб Россия Если вы раньше не пользовались форумом, пожалуйста прочитайте справку по форуму."
+        },
+        {
+          "title": "Технический раздел - Kia Seltos Клуб Россия",
+          "url": "https://seltos-club.ru/forum/forumdisplay.php?f=5",
+          "snippet": "Отзывы владельцев Киа Селтос 2025 - 2026 - поломки и проблемы. Опыт эксплуатации реальных владельцев автомобилей Киа Селтос: поломки, минусы, недостатки и проблемы."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "селтос из кореи 2026",
+      "purpose": "вторичный запрос: селтос из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Киа Селтос 2026 технические характеристики. Kia Seltos 2026 ...",
+          "url": "https://www.drom.ru/catalog/kia/seltos/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Киа Селтос 2026 из Китая: цена, комплектации и отзывы",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-seltos-2026",
+          "snippet": "Подробно расписан модельный ряд Kia Seltos 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Киа Селтос 2026 между собой."
+        },
+        {
+          "title": "Kia Seltos 2026: новый кузов, 1.6 Turbo и гибрид | AZWAY",
+          "url": "https://azway.ru/blog/kia-seltos-iz-korei-obzor",
+          "snippet": "Киа Селтос 2026 из Китая и Кореи: новый кузов и старый, комплектации 1.5 и 2.0, размеры, отзывы владельцев и минусы. Наши реальные лоты с ценой под ключ."
+        },
+        {
+          "title": "Киа Селтос 2026 - цена и комплектации, фото в новом кузове, характеристики",
+          "url": "https://roadres.com/kia/seltos/",
+          "snippet": "Обзор Kia Seltos 2026 из Кореи: новый кузов, размеры, 1.6 Turbo на 193 л.с., гибрид на 141 л.с., комплектации, расход и отличия от Seltos SP2."
+        },
+        {
+          "title": "Kia Seltos 2026, джип/suv 5 дв., 2 поколение ... - Дром",
+          "url": "https://www.drom.ru/catalog/kia/seltos/g_2026_25179/",
+          "snippet": "В нашем обзоре нового Киа Селтос 2026 вы узнаете комплектации и цены автомобиля, его технические характеристики, а также найдете фото кроссовера и видео тест-драйвы, а пока небольшой экскурс о появлении модели."
+        },
+        {
+          "title": "Купить Kia Seltos из Кореи, цена на Киа Селтос 2026 года без пробега по РФ",
+          "url": "https://silacar.ru/korea/kia/seltos/?year_from=2026&year_to=2026",
+          "snippet": "Технические характеристики Киа Селтос 2026, джип/suv 5 дв., 2 поколение, SP3c Seltos. Подробно расписаны модификации автомобилей Kia Seltos 2026: все технические спецификации, полная комплектация салона, цвета, в которые окрашивался ..."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "комплектации киа селтос из кореи 2026",
+      "purpose": "вторичный запрос: комплектации киа селтос из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Киа Селтос 2026 из Китая: цена, комплектации и отзывы",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-seltos-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Киа Селтос 2026 технические характеристики. Kia Seltos 2026 ...",
+          "url": "https://www.drom.ru/catalog/kia/seltos/2026/",
+          "snippet": "Киа Селтос 2026 из Китая и Кореи: новый кузов и старый, комплектации 1.5 и 2.0, размеры, отзывы владельцев и минусы. Наши реальные лоты с ценой под ключ."
+        },
+        {
+          "title": "Kia Seltos 2026: новый кузов, 1.6 Turbo и гибрид | AZWAY",
+          "url": "https://azway.ru/blog/kia-seltos-iz-korei-obzor",
+          "snippet": "Подробно расписан модельный ряд Kia Seltos 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Киа Селтос 2026 между собой."
+        },
+        {
+          "title": "Киа Селтос 2026 года: характеристики, комплектации и цены в РФ",
+          "url": "https://master-kia.vercel.app/articles/k/ki/kia-seltos-25-goda.html",
+          "snippet": "Обзор Kia Seltos 2026 из Кореи: новый кузов, размеры, 1.6 Turbo на 193 л.с., гибрид на 141 л.с., комплектации, расход и отличия от Seltos SP2."
+        },
+        {
+          "title": "Киа Селтос: характеристики, цена и комплектации 2026",
+          "url": "https://master-kia.vercel.app/articles/a/av/avto-kia-seltos-kharakteristiki-tsena-i-komplektatsiya.html",
+          "snippet": "Полный обзор Kia Selotos 2026 модельного года. Технические характеристики, расход топлива, новые опции, комплектации и реальные отзывы владельцев."
+        },
+        {
+          "title": "Киа Селтос 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/kia-seltos-2026/",
+          "snippet": "Подробный обзор Kia Seltos: технические характеристики, расход топлива, цены, комплектации и реальные отзывы владельцев. Стоит ли покупать?"
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "киа селтос дизель из кореи 2026",
+      "purpose": "вторичный запрос: киа селтос дизель из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Киа Селтос 2026 из Китая: цена, комплектации и отзывы",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-seltos-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Seltos из Кореи: кроссовер до 160 л.с. 2026",
+          "url": "https://export-motors.com/blog/kia-seltos-iz-korei",
+          "snippet": "Киа Селтос 2026 из Китая и Кореи: новый кузов и старый, комплектации 1.5 и 2.0, размеры, отзывы владельцев и минусы. Наши реальные лоты с ценой под ключ."
+        },
+        {
+          "title": "Киа Селтос 2026 технические характеристики. Kia Seltos 2026 ...",
+          "url": "https://www.drom.ru/catalog/kia/seltos/2026/",
+          "snippet": "Kia Seltos из Кореи — городской кроссовер с льготным утильсбором. Версии 2.0 и 1.6 дизель до 160 л.с., турбо 1.6T, комплектации и цена под ключ в 2026."
+        },
+        {
+          "title": "Kia Seltos 2026: новый кузов, 1.6 Turbo и гибрид | AZWAY",
+          "url": "https://azway.ru/blog/kia-seltos-iz-korei-obzor",
+          "snippet": "Подробно расписан модельный ряд Kia Seltos 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Киа Селтос 2026 между собой."
+        },
+        {
+          "title": "Продажа Kia Seltos из Кореи | Цены на Киа Селтос в Корее",
+          "url": "https://www.drom.ru/world/korea/kia/seltos/",
+          "snippet": "Обзор Kia Seltos 2026 из Кореи: новый кузов, размеры, 1.6 Turbo на 193 л.с., гибрид на 141 л.с., комплектации, расход и отличия от Seltos SP2."
+        },
+        {
+          "title": "Киа Селтос 2026 - цена и комплектации, фото в новом кузове, характеристики",
+          "url": "https://roadres.com/kia/seltos/",
+          "snippet": "Актуальные предложения Kia Seltos под заказ из Кореи с ценами, фотографиями и характеристиками. Актуальная база объявлений и расчет стоимости Kia Seltos с доставкой в Россию."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "киа селтос из кореи полный привод 2026",
+      "purpose": "вторичный запрос: киа селтос из кореи полный привод",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Киа Селтос 2026 из Китая: цена, комплектации и отзывы",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-seltos-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Seltos из Кореи: кроссовер до 160 л.с. 2026",
+          "url": "https://export-motors.com/blog/kia-seltos-iz-korei",
+          "snippet": "Киа Селтос 2026 из Китая и Кореи: новый кузов и старый, комплектации 1.5 и 2.0, размеры, отзывы владельцев и минусы. Наши реальные лоты с ценой под ключ."
+        },
+        {
+          "title": "Киа Селтос 2026 технические характеристики. Kia Seltos 2026 ...",
+          "url": "https://www.drom.ru/catalog/kia/seltos/2026/",
+          "snippet": "Seltos (индекс SP2) — субкомпактный кроссовер на 5 мест, между маленьким городским хэтчем и среднеразмерным SUV. Это практичный автомобиль для города и трассы с опциональным полным приводом. На экспорт идут машины 3-5 лет."
+        },
+        {
+          "title": "Kia Seltos 2026: новый кузов, 1.6 Turbo и гибрид | AZWAY",
+          "url": "https://azway.ru/blog/kia-seltos-iz-korei-obzor",
+          "snippet": "Подробно расписан модельный ряд Kia Seltos 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Киа Селтос 2026 между собой."
+        },
+        {
+          "title": "Киа Селтос 2026 - цена и комплектации, фото в новом кузове, характеристики",
+          "url": "https://roadres.com/kia/seltos/",
+          "snippet": "Обзор Kia Seltos 2026 из Кореи: новый кузов, размеры, 1.6 Turbo на 193 л.с., гибрид на 141 л.с., комплектации, расход и отличия от Seltos SP2."
+        },
+        {
+          "title": "Купить Kia Seltos из Кореи, цена на Киа Селтос 2026 года без пробега по РФ",
+          "url": "https://silacar.ru/korea/kia/seltos/?year_from=2026&year_to=2026",
+          "snippet": "В нашем обзоре нового Киа Селтос 2026 вы узнаете комплектации и цены автомобиля, его технические характеристики, а также найдете фото кроссовера и видео тест-драйвы, а пока небольшой экскурс о появлении модели."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Kia Seltos из Кореи: комплектации, ловушки Encar и чек-лист до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Seltos Encar: анализ цен, комплектаций и скрытых дефектов",
+          "url": "https://master-kia.vercel.app/articles/k/ki/kia-seltos-encar.html",
+          "snippet": ""
+        },
+        {
+          "title": "Новый Kia Seltos II из Кореи: турбо, гибрид и выбор комплектации",
+          "url": "https://limcars.ru/articles/kia-seltos-2-iz-korei-obzor-versiy",
+          "snippet": "Полный гид по Kia Seltos на аукционе Encar. Реальные цены, расшифровка аукционных листов, скрытые дефекты и стратегии покупки кроссовера."
+        },
+        {
+          "title": "Kia Seltos 2026: новый кузов, 1.6 Turbo и гибрид | AZWAY",
+          "url": "https://azway.ru/blog/kia-seltos-iz-korei-obzor",
+          "snippet": "Три сочетания двигателя и привода, разная задняя подвеска, пакеты Prestige и X-Line. Разбираем новый Seltos по октябрьским документам Kia и корейским дорожным тестам."
+        },
+        {
+          "title": "Купить Kia Seltos из Кореи — цены, доставка за 5-7 недель | LHMex",
+          "url": "https://lhmex.ru/avtomobilej-korei/kia/seltos",
+          "snippet": "Обзор Kia Seltos 2026 из Кореи: новый кузов, размеры, 1.6 Turbo на 193 л.с., гибрид на 141 л.с., комплектации, расход и отличия от Seltos SP2."
+        },
+        {
+          "title": "Kia Seltos из Кореи — каталог авто под заказ | LimCars",
+          "url": "https://limcars.ru/korea/kia/seltos",
+          "snippet": "Подбираем, выкупаем и доставляем автомобили - по заявке. Работаем напрямую с корейскими дилерами и аукционами KAA, K-Car, Encar. Показываем оригинальные лоты, ставки и итоговую стоимость в режиме реального времени — никаких «накруток» и скрытых комиссий."
+        },
+        {
+          "title": "Kia Seltos из Кореи — цены и наличие | AutoKoreaGroup",
+          "url": "https://autokoreagroup.com/catalog/kia/seltos",
+          "snippet": "Seltos первого поколения и новый корейский 2026: бензин, гибрид, разные коробки и подвески. Разберём расход, полезные пакеты, реальные тесты и границы рейтингов безопасности."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/kia-seltos-2026",
+      "title": "Киа Селтос 2026 из Китая: цена, комплектации и отзывы",
+      "from_query": "киа селтос из кореи 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/kia-seltos-iz-korei-obzor",
+      "title": "Kia Seltos 2026: новый кузов, 1.6 Turbo и гибрид | AZWAY",
+      "from_query": "киа селтос из кореи 2026"
+    },
+    {
+      "url": "https://silacar.ru/korea/kia/seltos/?year_from=2026&year_to=2026",
+      "title": "Купить Kia Seltos из Кореи, цена на Киа Селтос 2026 года без пробега по РФ",
+      "from_query": "киа селтос из кореи 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/kia/seltos/2026/",
+      "title": "Киа Селтос 2026 технические характеристики. Kia Seltos 2026 ...",
+      "from_query": "киа селтос из кореи 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/korea/kia/seltos/",
+      "title": "Продажа Kia Seltos из Кореи | Цены на Киа Селтос в Корее",
+      "from_query": "киа селтос из кореи 2026"
+    },
+    {
+      "url": "https://regionauto.org/korea/kia/seltos/?year_from=2026&year_to=2026",
+      "title": "Kia Seltos 2026 года из Южной Кореи под заказ",
+      "from_query": "киа селтос из кореи 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=pvj9DACrC-w",
+      "title": "Kia Seltos 2026 из Кореи — новый гибридный кроссовер! Обзор",
+      "from_query": "киа селтос из кореи октябрь 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/k/ki/kia-seltos-2026-goda.html",
+      "title": "Киа Селтос 2026 года: характеристики, дизайн и старт продаж",
+      "from_query": "киа селтос из кореи новости 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/k/ki/kia-seltos-novaya.html",
+      "title": "Киа Селтос новая: цена, комплектации и тест-драйв 2026",
+      "from_query": "киа селтос из кореи новости 2026"
+    },
+    {
+      "url": "https://www.rbcautonews.ru/news/693a6b869a7947fdfcf1adb8",
+      "title": "Новый Kia Seltos 2026: фото, характеристики и другие подробности :: RBC ...",
+      "from_query": "киа селтос из кореи новости 2026"
+    },
+    {
+      "url": "https://github.com/realharry/ky-fetch/blob/main/media/logo.svg",
+      "title": "ky-fetch/media/logo.svg at main · realharry/ky-fetch · GitHub",
+      "from_query": "site:github.com киа селтос из кореи 2026"
+    },
+    {
+      "url": "https://github.com/Utkar5hM/execstasy-pam/blob/main/image.png",
+      "title": "execstasy-pam/image.png at main · Utkar5hM/execstasy-pam · GitHub",
+      "from_query": "site:github.com киа селтос из кореи 2026"
+    },
+    {
+      "url": "https://github.com/Kernapillar/Metroid-godot/blob/main/icon.svg",
+      "title": "Metroid-godot/icon.svg at main · Kernapillar/Metroid-godot",
+      "from_query": "site:github.com киа селтос из кореи 2026"
+    },
+    {
+      "url": "https://github.com/Akkasit99/Grocery-List/blob/main/logo.svg",
+      "title": "Grocery-List/logo.svg at main · Akkasit99/Grocery-List · GitHub",
+      "from_query": "site:github.com киа селтос из кореи 2026"
+    },
+    {
+      "url": "https://github.com/raphaelmourad/DeepG4/blob/master/logo.svg",
+      "title": "DeepG4/logo.svg at master · raphaelmourad/DeepG4 · GitHub",
+      "from_query": "site:github.com киа селтос из кореи 2026"
+    },
+    {
+      "url": "https://github.com/svnaxis/obsidian-baseline/blob/main/img/mobile.png",
+      "title": "obsidian-baseline/img/mobile.png at main · svnaxis/obsidian-baseline ...",
+      "from_query": "site:github.com киа селтос из кореи 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/r/ru/rukovodstvo-po-ekspluatatsii-kia-seltos-2024.html",
+      "title": "Руководство по эксплуатации Киа Селтос 2026: Полная инструкция",
+      "from_query": "киа селтос из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://ownersmanual.kia.com/manual/Seltos?langCode=ru_RU&countryCode=C36&projCode=SP2&year=2026",
+      "title": "Kia Owner's Manual",
+      "from_query": "киа селтос из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/new-seltos/showroom/brochure/Kia_Seltos_Brochure_Desktop_2026.pdf",
+      "title": "PDF The all-new Seltos - Kia",
+      "from_query": "киа селтос из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/en_brochure/en_catalog_seltos.pdf",
+      "title": "PDF Seltos_09 - Kia",
+      "from_query": "киа селтос из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://mykia.ru/forums/kia-seltos-seltos.127/",
+      "title": "Kia Seltos (Селтос) | KIA Клуб - форум автомобилей Киа",
+      "from_query": "киа селтос из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/k/ki/kia-seltos-otzyvy-2025.html",
+      "title": "Киа Селтос 2026: отзывы владельцев, реальный расход и проблемы",
+      "from_query": "киа селтос из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://kia-kx3.ru/forum/",
+      "title": "Форум клуба Киа Селтос",
+      "from_query": "киа селтос из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://kia-seltos.ru/forum/",
+      "title": "Форум клуба Киа Селтос - Kia Seltos",
+      "from_query": "киа селтос из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/kia/seltos/5kopeek/breakages/?year1=2025&year2=2026",
+      "title": "Киа Селтос 2025 - 2026 отзывы владельцев - поломки и проблемы",
+      "from_query": "киа селтос из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://seltos-club.ru/forum/forumdisplay.php?f=5",
+      "title": "Технический раздел - Kia Seltos Клуб Россия",
+      "from_query": "киа селтос из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://roadres.com/kia/seltos/",
+      "title": "Киа Селтос 2026 - цена и комплектации, фото в новом кузове, характеристики",
+      "from_query": "селтос из кореи 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/kia/seltos/g_2026_25179/",
+      "title": "Kia Seltos 2026, джип/suv 5 дв., 2 поколение ... - Дром",
+      "from_query": "селтос из кореи 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/k/ki/kia-seltos-25-goda.html",
+      "title": "Киа Селтос 2026 года: характеристики, комплектации и цены в РФ",
+      "from_query": "комплектации киа селтос из кореи 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/a/av/avto-kia-seltos-kharakteristiki-tsena-i-komplektatsiya.html",
+      "title": "Киа Селтос: характеристики, цена и комплектации 2026",
+      "from_query": "комплектации киа селтос из кореи 2026"
+    },
+    {
+      "url": "https://cenyavto.com/kia-seltos-2026/",
+      "title": "Киа Селтос 2026 цены модели, комплектации, фото, новый кузов, видео",
+      "from_query": "комплектации киа селтос из кореи 2026"
+    },
+    {
+      "url": "https://export-motors.com/blog/kia-seltos-iz-korei",
+      "title": "Kia Seltos из Кореи: кроссовер до 160 л.с. 2026",
+      "from_query": "киа селтос дизель из кореи 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/k/ki/kia-seltos-encar.html",
+      "title": "Kia Seltos Encar: анализ цен, комплектаций и скрытых дефектов",
+      "from_query": "Как выбрать Kia Seltos из Кореи: комплектации, ловушки Encar и чек-лист до депозита 2026"
+    },
+    {
+      "url": "https://limcars.ru/articles/kia-seltos-2-iz-korei-obzor-versiy",
+      "title": "Новый Kia Seltos II из Кореи: турбо, гибрид и выбор комплектации",
+      "from_query": "Как выбрать Kia Seltos из Кореи: комплектации, ловушки Encar и чек-лист до депозита 2026"
+    },
+    {
+      "url": "https://lhmex.ru/avtomobilej-korei/kia/seltos",
+      "title": "Купить Kia Seltos из Кореи — цены, доставка за 5-7 недель | LHMex",
+      "from_query": "Как выбрать Kia Seltos из Кореи: комплектации, ловушки Encar и чек-лист до депозита 2026"
+    },
+    {
+      "url": "https://limcars.ru/korea/kia/seltos",
+      "title": "Kia Seltos из Кореи — каталог авто под заказ | LimCars",
+      "from_query": "Как выбрать Kia Seltos из Кореи: комплектации, ловушки Encar и чек-лист до депозита 2026"
+    },
+    {
+      "url": "https://autokoreagroup.com/catalog/kia/seltos",
+      "title": "Kia Seltos из Кореи — цены и наличие | AutoKoreaGroup",
+      "from_query": "Как выбрать Kia Seltos из Кореи: комплектации, ловушки Encar и чек-лист до депозита 2026"
+    }
+  ]
+}

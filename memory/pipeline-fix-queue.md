@@ -43,6 +43,43 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20261019-0913-research-technical-topic-pain-false-positive
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-research
+topic_id: B09
+article_dir: memory/blog/articles/B09-kia-seltos-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` still uses substring `marker in blob` for TECH_MARKERS.
+- Marker `ai` matches inside required field `reader_pain` → `technical_topic: true` on a non-technical AVTO SALES Korea article.
+- Gate then requires `github_urls >= 3` even when the topic is how-to комплектации Seltos / Encar.
+- Automation memory claimed word-boundary hotfix was shipped; current script on this branch does not use word boundaries for TECH_MARKERS.
+- Passing repo-relative path to `-o` nests `research-notes-gate.json` under `article_dir/` (relative `-o` is resolved inside article_dir).
+
+### How the agent recovered this run
+- Added three real Encar-related GitHub URLs so technical_topic branch could PASS.
+- Used `-o research-notes-gate.json` (basename only) and removed nested duplicate path.
+- Gate status PASS, warnings cleared after adding an official `/docs` URL.
+
+### Durable fix needed before next run
+- Match TECH_MARKERS with word boundaries (and/or exclude known false positives like `pain` containing `ai`).
+- Document that `-o` for research-notes gate must be a basename or absolute path, not `article_dir/...`.
+- Re-run `--self-test` covering `reader_pain` on non-tech topics.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

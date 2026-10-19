@@ -61,7 +61,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `rg` no `timeout=120` in publish script
-commit: pending-parent-commit
+commit: d61ab2ca
 
 
 ## INC-20261019-0945-cover-mcp-32001-kie-api-fallback
@@ -112,7 +112,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` preferred Kie / -32001 guidance present in cover skill
-commit: pending-parent-commit
+commit: d61ab2ca
 
 
 ## INC-20261019-0943-schema-precommit-secret-names-url
@@ -216,7 +216,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_human_voice_gate.py`
 - `rg` «Материал проверен» soft-FIX guidance in writer/geo-qa skills
-commit: pending-parent-commit
+commit: d61ab2ca
 
 ## INC-20261019-1222-geo-qa-typed-task-missing-generalpurpose-fallback
 status: fixed
@@ -265,7 +265,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` immediate generalPurpose guidance in director + geo-qa skills
-commit: pending-parent-commit
+commit: d61ab2ca
 
 ## INC-20261019-1223-geo-qa-utility-markers-wiped-after-rebrand
 status: fixed
@@ -313,7 +313,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → OK markers checks
-commit: pending-parent-commit
+commit: d61ab2ca
 
 ## INC-20261019-1224-geo-qa-link-verify-iri-ascii
 status: fixed
@@ -355,7 +355,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_link_verify.py --self-test`
-commit: pending-parent-commit
+commit: d61ab2ca
 
 ## INC-20261019-0906-scout-suggest-next-ignores-live-reserved
 status: fixed
@@ -407,7 +407,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` → B10 (live-reserved.next_forced_topic_id)
-commit: pending-parent-commit
+commit: d61ab2ca
 
 ## INC-20261019-0913-research-technical-topic-pain-false-positive
 status: fixed
@@ -459,7 +459,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_research_notes_gate.py --self-test`
 - `python3 scripts/test_research_notes_gate_tech.py`
-commit: pending-parent-commit
+commit: d61ab2ca
 
 ## INC-20261019-0919-writer-precommit-injected-secret-names
 status: needs-human
@@ -807,7 +807,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0 (llms --blog-dir OK)
-commit: pending-parent-commit
+commit: d61ab2ca
 
 ## Fixed incidents
 

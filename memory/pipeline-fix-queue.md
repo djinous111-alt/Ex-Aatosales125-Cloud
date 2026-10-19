@@ -55,7 +55,7 @@ checks_run:
 - `bash -n scripts/excalibur_blog_filter_commit_secret_env.sh`
 - filter dry-run drops PUBLIC_SITE_URL/CATALOG_URL and invalid identifiers
 - `python3 scripts/excalibur_blog_doctor.py` errors=0
-commit: pending
+commit: see fixer commits on branch
 
 
 
@@ -112,7 +112,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` errors=0
 - `rg` confirms no instructional `--blog-path /` in indexer CLI examples
-commit: pending
+commit: see fixer commits on branch
 
 
 
@@ -164,7 +164,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - filter dry-run drops PUBLIC_SITE_URL/CATALOG_URL/TELEGRAM_URL/MAX_URL from scan list
-commit: pending
+commit: see fixer commits on branch
 
 
 
@@ -462,7 +462,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0 warnings=0
 - `python3 scripts/excalibur_blog_llms_generator.py --help` has no `--blog-path`
-commit: pending
+commit: see fixer commits on branch
 
 
 ## INC-20261019-1714-research-tech-marker-ii-false-positive
@@ -509,7 +509,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_research_notes_gate.py --self-test` PASS
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
-commit: pending
+commit: see fixer commits on branch
 
 
 ## INC-20261019-1705-scout-precommit-secret-names
@@ -559,7 +559,7 @@ files_changed:
 checks_run:
 - filter dry-run: invalid names dropped; PUBLIC_SITE_URL/CATALOG_URL dropped; valid names kept
 - `python3 scripts/excalibur_blog_doctor.py` confirms filter scripts exist
-commit: pending
+commit: see fixer commits on branch
 
 
 ## INC-20261019-1722-geo-qa-utility-pain-outcome-markers
@@ -613,7 +613,7 @@ files_changed:
 checks_run:
 - `python3 -m json.tool memory/brief/editorial-policy.json`
 - `python3 scripts/excalibur_blog_doctor.py` → `_markers_pinned` OK
-commit: pending
+commit: see fixer commits on branch
 
 
 ## INC-20261019-1735-cover-precommit-secret-names
@@ -660,5 +660,5 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - filter dry-run + `bash -n` on wrapper scripts
-commit: pending
+commit: see fixer commits on branch
 

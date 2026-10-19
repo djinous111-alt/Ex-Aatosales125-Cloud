@@ -11,7 +11,7 @@
     "купить туксон из кореи",
     "хендай туксон дизель из кореи"
   ],
-  "char_count": 8903,
+  "char_count": 9066,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -28,16 +28,17 @@
     "description_aeo": "Чтобы выбрать туксон из Кореи, сверьте 6 полей Encar, Performance Check, Carhistory и осмотр до депозита. Дизель – у NX4; у 5-го поколения 2026 дизеля нет."
   },
   "geo_qa": {
-    "score": 0,
-    "verdict": "PENDING",
+    "score": 88,
+    "verdict": "PASS",
     "date": "2026-10-20",
     "html_linter": "PASS",
-    "slop_score": "PASS",
-    "cannibalization": "PENDING",
-    "fact_check": "PENDING",
-    "link_verify": "PENDING",
-    "utility_gate": "PENDING",
-    "core_eeat": "PENDING"
+    "slop_score": "WARNING",
+    "cannibalization": "PASS",
+    "fact_check": "PASS",
+    "link_verify": "PASS",
+    "utility_gate": "PASS",
+    "human_voice": "PASS",
+    "core_eeat": "18/20"
   },
   "cover_family": "brand_collage"
 }

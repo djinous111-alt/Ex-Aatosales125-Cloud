@@ -6,6 +6,48 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261020-2140-publish-nginx-504-reconstruct
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-hyundai-tucson-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: publish
+
+### What went wrong
+- ~7MB PHP bootstrap: primary HTTP trigger returned nginx **504 Gateway Time-out**.
+- Curl WebFetch fallback against the same `excalibur-blog-publish-once.php` also returned **504**.
+- Publish script wrote `wp-publish-result.json` verdict=fail from 504 HTML even though WP work completed.
+- Double bootstrap execution left orphan unused media **4365–4368**; live content uses **4370/4371/4373/4374**.
+- Theme still may not echo `_excalibur_blog_schema_jsonld` into page `<script type="application/ld+json">` (meta present via wp-cli; live ld+json blocks=0 this check).
+
+### How the agent recovered this run
+- Did **not** republish.
+- Verified via WP REST: post **4364**, slug match, HEAD 200, featured_media **4370**, 3 WP media inline imgs in content.
+- Verified via SSH wp-cli: `_excalibur_blog_schema_jsonld` (BlogPosting+FAQPage+HowTo), `_excalibur_blog_skip_theme_faq=1`.
+- Reconstructed `wp-publish-result.json` verdict=pass; updated ledger/log/promotion/handoff.
+- Bumped script HTTP timeout and fallback wait **120→300** (already needed for large payloads).
+
+### Durable fix needed before next run
+- Prefer async/chunked bootstrap or longer nginx/php `fastcgi_read_timeout` for ~7MB publish-once.
+- Script should treat nginx 504 after SSH upload as soft-fail and auto-verify REST by slug before writing verdict=fail (avoid false fail + orphan media from second trigger).
+- Fallback watcher must not write 504 HTML as success body; only persist body containing `OK post=`.
+- Theme `single.php`: echo `_excalibur_blog_schema_jsonld` when set.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- WordPress theme `single.php` (schema echo)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261020-2123-cover-mcp-kv-unavailable
 status: open
 run_date: 2026-10-20

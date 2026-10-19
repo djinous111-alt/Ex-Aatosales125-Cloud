@@ -1,7 +1,7 @@
 # Promotion checklist — B01 hyundai-tucson-iz-korei-komplektatsii-lovushki-2026
 
 Дата публикации: 2026-10-20  
-Live URL: /blog/hyundai-tucson-iz-korei-komplektatsii-lovushki-2026/
+Live URL: https://avtosales125.ru/2026/10/20/hyundai-tucson-iz-korei-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir … --site-base $PUBLIC_SITE_URL` — 0 links applied.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (site-name «Авто-Сейлс»); B01 listed.
-- Publish: pending (следующий шаг пайплайна).
+- Publish: PASS WP 4364; featured 4370; inline 4371/4373/4374; schema_meta ok; reconstruct after 504.

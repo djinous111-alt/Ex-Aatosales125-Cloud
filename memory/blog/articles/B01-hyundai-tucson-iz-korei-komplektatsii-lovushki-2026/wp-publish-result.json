@@ -1,0 +1,25 @@
+{
+  "slug": "hyundai-tucson-iz-korei-komplektatsii-lovushki-2026",
+  "topic_id": "B01",
+  "permalink": "https://avtosales125.ru/2026/10/20/hyundai-tucson-iz-korei-komplektatsii-lovushki-2026/",
+  "post_id": 4364,
+  "featured_image": 4370,
+  "inline_images": [
+    4371,
+    4373,
+    4374
+  ],
+  "schema_meta": true,
+  "skip_theme_faq": true,
+  "publish_method": "ssh+http504_reconstruct_rest_wpcli",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-hyundai-tucson-iz-korei-komplektatsii-lovushki-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1215136,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=4364 slug=hyundai-tucson-iz-korei-komplektatsii-lovushki-2026\nOK featured_image=4370\nOK schema_meta=1\nOK skip_theme_faq=1\nOK inline_image_upload=4371\nOK inline_image_upload=4373\nOK inline_image_upload=4374\npermalink=https://avtosales125.ru/2026/10/20/hyundai-tucson-iz-korei-komplektatsii-lovushki-2026/\nNOTE reconstructed_after_nginx_504; do_not_republish; orphans_media=4365,4366,4367,4368\n",
+  "verdict": "pass",
+  "notes": "Primary HTTP and curl fallback returned nginx 504; WP REST+wp-cli confirmed post 4364 published with featured/inline/schema. Orphan unused media 4365-4368 from double bootstrap execution."
+}

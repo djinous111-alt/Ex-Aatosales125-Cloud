@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261019-1729-schema-secret-scan-jsonld
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rasschitat-utilsbor-na-avto-2026
+severity: medium
+category: publish
+
+### What went wrong
+- Valid `schema.jsonld` embeds absolute `PUBLIC_SITE_URL` permalinks plus author `sameAs` values that equal env secrets `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL` (same sources as `shared/authors-registry.json`).
+- Cursor pre-commit secret scanner blocks staging/commit of the new file (`CURSOR_SECRET_SCAN_BLOCKED=1`), so the schema cannot enter git history even though older AS08/AS09 schemas already contain the same public URLs.
+- Separately, `CLOUD_AGENT_INJECTED_SECRET_NAMES` includes one non-bash identifier (hyphen/dot), which crashes the hook with `invalid variable name` before filtering.
+
+### How the agent recovered this run
+- Left a complete BlogPosting+FAQPage+HowTo `schema.jsonld` on disk for Indexer/Publish (filesystem artifact).
+- Did not use `--no-verify`; did not strip live URLs from schema (publish uploads raw JSON-LD).
+- Wrote PASS fragment with `incident_report` pointing here.
+
+### Durable fix needed before next run
+- Either allowlist public marketing URLs (site/catalog/telegram/max) for schema commits, or teach publish to expand placeholders (`{{PUBLIC_SITE_URL}}`) in schema before WP meta write.
+- Filter invalid bash secret names in the pre-commit hook before `${!SECRET_NAME}` expansion.
+- Document in schema skill: commit may be deferred until publish/fixer resolves scanner vs absolute JSON-LD URLs.
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/authors-registry.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

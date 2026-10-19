@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/B09-kia-seltos-iz-korei-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "зовной удар и не перепутать поколение SP2 с новым 2026. После чек-листа вы либо спокойно бронируете лот,",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "4430",
+      "kind": "large_number",
+      "context": "MPi обычно передний. All-new 2026 длиннее (около 4430 мм, база около 2690 мм): Turbo около 193 л.с. 8AT",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2690",
+      "kind": "large_number",
+      "context": ". All-new 2026 длиннее (около 4430 мм, база около 2690 мм): Turbo около 193 л.с. 8AT FWD/AWD, Hybrid окол",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "193",
+      "kind": "large_number",
+      "context": "(около 4430 мм, база около 2690 мм): Turbo около 193 л.с. 8AT FWD/AWD, Hybrid около 141 л.с. 6DCT – без",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "141",
+      "kind": "large_number",
+      "context": "): Turbo около 193 л.с. 8AT FWD/AWD, Hybrid около 141 л.с. 6DCT – без AWD в текущей KR-линейке. Сценарий",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

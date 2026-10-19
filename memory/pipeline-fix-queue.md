@@ -6,6 +6,107 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261019-1222-geo-qa-typed-task-missing-generalpurpose-fallback
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-geo-qa
+topic_id: B09
+article_dir: memory/blog/articles/B09-kia-seltos-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud API / Task router does not accept typed Task `excalibur-blog-geo-qa`.
+- Director had to launch GEO QA via `Task(generalPurpose)` fallback with `.cursor/agents/excalibur-blog-geo-qa.md` + skill paths.
+
+### How the agent recovered this run
+- Ran GEO QA as generalPurpose role with the same agent/skill contracts.
+- Completed all QA scripts and wrote handoff block `=== EXCALIBUR BLOG GEO QA ===`.
+
+### Durable fix needed before next run
+- Register typed Task type `excalibur-blog-geo-qa` in Cloud / Cursor Task catalog, or document that generalPurpose fallback is the supported path for this repo.
+- Keep AGENTS.md / director skill aligned with whichever path is canonical.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- Cloud Task type / automation config (outside repo)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261019-1223-geo-qa-utility-markers-wiped-after-rebrand
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-geo-qa
+topic_id: B09
+article_dir: memory/blog/articles/B09-kia-seltos-iz-korei-komplektatsii-lovushki-2026
+severity: high
+category: docs
+
+### What went wrong
+- After rebrand commit, `memory/brief/editorial-policy.json` again lost `pain_markers_ru` / `outcome_markers_ru` and `_markers_pinned`.
+- Utility gate then scored pain=0 / outcome=0 and BLOCK every article (recurring pattern from B04/B05/B08).
+- Fail-fast for empty marker lists was also missing from current `excalibur_blog_utility_gate.py` on this branch.
+
+### How the agent recovered this run
+- Restored pinned pain/outcome marker lists + `min_pain_markers` / `min_outcome_markers` in editorial-policy.
+- Re-added empty-list fail-fast in `scripts/excalibur_blog_utility_gate.py`.
+- After restore: pain=5, outcome=5; remaining BLOCK is content-only (`action_markers=2 < 8`) → FIX list for writer.
+
+### Durable fix needed before next run
+- Protect marker lists from rebrand/start scripts (doctor check that `_markers_pinned` lists are non-empty).
+- Ensure fixer/rebrand PRs cannot drop `pain_markers_ru` / `outcome_markers_ru`.
+- Optionally accept brand phrasing «Делать / Не делать» in `recommendation_markers_ru` if writers standardize on it.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261019-1224-geo-qa-link-verify-iri-ascii
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-geo-qa
+topic_id: B09
+article_dir: memory/blog/articles/B09-kia-seltos-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_link_verify.py` passed raw Cyrillic IRI (2GIS search path) to `urllib.request` and failed with `'ascii' codec can't encode characters...` even though the URL is valid.
+- False FAIL on an otherwise healthy CTA link.
+
+### How the agent recovered this run
+- Added `iri_to_uri()` (percent-encode path/query, IDNA host) before HEAD/GET.
+- Re-ran link-verify: 3/3 PASS including 2GIS.
+
+### Durable fix needed before next run
+- Keep IRI encoding in link-verify; add a unit/self-check with a Cyrillic 2GIS-style URL.
+- Optionally document that writers may fully percent-encode Cyrillic paths, but script must not require it.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261019-0906-scout-suggest-next-ignores-live-reserved
 status: open
 run_date: 2026-10-19

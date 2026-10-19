@@ -184,3 +184,27 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Hyundai Tucson из Кореи: комплектации и ловушки
+
+- **priority:** P0
+- **slug:** hyundai-tucson-iz-korei-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Hyundai Tucson из Кореи в 2026: комплектации и ловушки до депозита
+- **primary_query:** туксон из кореи
+- **secondary_queries:** хендай туксон из кореи, купить туксон из кореи, хендай туксон дизель из кореи
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Кому реально подходит Tucson из Кореи, а кому лучше смотреть другой кроссовер
+  2. Что сверить в карточке Encar до ставки: год, пробег, привод, комплектация
+  3. Бензин или дизель: как новичок выбирает без «магических» цен
+  4. Типичные ловушки: скрутка, ДТП, «пустая» комплектация, дорогой ремонт
+  5. Чек-лист перед депозитом: 10 пунктов, после которых можно платить
+- **faq_hints:** чем отличается дизельный Tucson из Кореи; какие поля Encar смотреть в первую очередь; когда Tucson хуже Seltos или Sportage для города
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у современного Hyundai Tucson, порт/Владивосток или дождливый двор, плашка «до депозита», угол avto-sales125.ru
+- **wordstat_evidence:** parent «хендай туксон» ~218021; niche parent «туксон из кореи» ~912 (primary ~886); how-to «как выбрать туксон из кореи» empty/`{}` = low-result signal; secondary «хендай туксон из кореи» ~519, «купить туксон из кореи» ~174, «хендай туксон дизель из кореи» ~85
+- **metrika_signal:** zen-topics rank 13 — Hyundai Tucson из Кореи; модель не в live WP denylist (в отличие от K5/Seltos/Sportage)

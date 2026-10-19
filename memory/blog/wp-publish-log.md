@@ -31,3 +31,20 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-20 — B01 hyundai-tucson-iz-korei-komplektatsii-lovushki-2026
+
+- **verdict:** PASS (reconstructed after nginx 504)
+- **post_id:** 4364
+- **permalink:** [REDACTED]/2026/10/20/hyundai-tucson-iz-korei-komplektatsii-lovushki-2026/
+- **featured_image:** 4370
+- **inline_images:** 4371 (`inline-01`), 4373 (`inline-02`), 4374 (`inline-03`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld` BlogPosting+FAQPage+HowTo via wp-cli)
+- **skip_theme_faq_meta:** ok (`1`)
+- **method:** SSH (`SSH_ROOT=.`) + HTTP nginx 504 → curl fallback also 504 → reconstruct REST/wp-cli (**no republish**)
+- **HEAD:** 200
+- **orphans:** unused media 4365–4368 (first bootstrap pass)
+- **note:** do not republish as 4358/4352/4340/4334; new post 4364 only
+- **result:** `memory/blog/articles/B01-hyundai-tucson-iz-korei-komplektatsii-lovushki-2026/wp-publish-result.json`
+- **incident:** `memory/pipeline-fix-queue.md#INC-20261020-2140-publish-nginx-504-reconstruct`
+

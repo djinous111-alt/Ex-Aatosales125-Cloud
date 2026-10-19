@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "hyundai-tucson-iz-korei-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у Hyundai Tucson: плашка «до депозита — чеклист», fake карточка Encar, угол avto-sales125.ru",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-19T21:28:39+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у Hyundai Tucson: плашка «до депозита — чеклист», fake карточка Encar, угол avto-sales125.ru",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сценариев: кому подходит Tucson из Кореи и когда смотреть другой кроссовер",
+      "h2_anchor": "Определите, кому подходит Tucson из Кореи – и когда лучше другой кроссовер",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Скрин карточки Encar: шесть полей Tucson до любой ставки",
+      "h2_anchor": "Сверьте шесть полей карточки Encar до любой ставки",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема выбора: бензин или дизель Tucson под свой пробег",
+      "h2_anchor": "Выберите бензин или дизель под свой пробег",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

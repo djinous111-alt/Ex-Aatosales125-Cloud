@@ -63,13 +63,23 @@ python scripts/excalibur_blog_wp_publish.py \
 
 ### 4. Cloud WebFetch Fallback
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Локальный HTTP-триггер и fallback wait = **300s** (не 120). Большие PHP payload (~7MB) часто укладываются в 150–250s.
+
+Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060 / RemoteDisconnected):
 
 1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
 2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+3. Скрипт ждёт до 300s и принимает файл **только** если в нём есть литерал `OK post=` (nginx 504/HTML error pages игнорируются и перечитываются).
+4. **Не останавливайся** на первом timeout — используй fallback.
 
-**Не останавливайся** на первом timeout — используй fallback.
+### 4b. 504 / false-fail после успешного create (reconstruct, без republish)
+
+Если fallback вернул HTML 504 / `verdict=fail`, но bootstrap уже мог создать пост на сервере:
+
+1. **Не вызывай publish повторно** и **не трогай чужие post_id** (например Sportage / соседние ID).
+2. Проверь slug через WP REST / wp-cli: есть ли post с ожидаемым slug.
+3. Если post уже есть — восстанови `wp-publish-result.json` (verdict=pass), ledger `shared/published-articles.md`, publish log и promotion Live URL из REST/wp-cli evidence.
+4. Только если slug отсутствует — один идемпотентный retry publish.
 
 ### 5. Post-publish артефакты
 

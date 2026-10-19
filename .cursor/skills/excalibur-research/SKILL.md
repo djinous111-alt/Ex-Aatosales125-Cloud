@@ -68,3 +68,13 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+## research-notes gate
+
+```bash
+python3 scripts/excalibur_blog_research_notes_gate.py \
+  --article-dir memory/blog/articles/<dir> \
+  -o research-notes-gate.json
+```
+`-o` — basename или absolute path (relative path with `/` резолвится от repo root).
+TECH_MARKERS — word-boundary; `reader_pain` / `комплектации` не делают тему technical. Self-check: `python3 scripts/excalibur_blog_research_notes_gate.py --self-test`.
+`accessed_at` gate: нужно ≥5 литералов `accessed_at:` (YAML front + `## access_log` ок); даты только в table column без ключа **не** считаются.

@@ -1,0 +1,616 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-20",
+    "today_ru": "20.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-22",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-20 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "hyundai-tucson-iz-korei-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Hyundai Tucson из Кореи в 2026: комплектации и ловушки до депозита",
+    "primary_query": "туксон из кореи",
+    "secondary_queries": [
+      "хендай туксон из кореи",
+      "купить туксон из кореи",
+      "хендай туксон дизель из кореи"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "туксон из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Продажа Hyundai Tucson из Кореи | Цены на Хендай Туссан в Корее",
+          "url": "https://www.drom.ru/world/korea/hyundai/tucson/",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Palisade, Santa Fe, Tucson и Sonata 2026: цены под ключ из Кореи",
+          "url": "https://carto-auto.ru/blog/hyundai-palisade-santa-fe-tucson-sonata-2026-tseny-pod-klyuch/",
+          "snippet": "Объявления о продаже Hyundai Tucson под заказ из Кореи с фото авто и ценами. Стоимость и характеристики Хендай Туссан на аукционе в Корее."
+        },
+        {
+          "title": "Купить Hyundai Tucson из Кореи под ключ — от 1 552 000 ₽, 977 в наличии",
+          "url": "https://encarrus.ru/korea/hyundai/tucson/",
+          "snippet": "В этом материале — подробный разбор четырёх самых востребованных Hyundai 2026 года под параллельный импорт из Кореи: реальные цены под ключ в рублях, разница между комплектациями, какие моторы доступны, сроки доставки и нюансы оформления."
+        },
+        {
+          "title": "Растаможка Hyundai Tucson из Кореи в 2026: цена под ключ и выгода",
+          "url": "https://gc.auction/ru/journal/rastamozhka-hyundai-tucson-iz-korei",
+          "snippet": "Покупка Hyundai Tucson через Encarrus позволяет заказать автомобиль из Кореи с учетом нужного года выпуска, комплектации и состояния. Доступны как новые автомобили, так и варианты с пробегом, прошедшие техническую проверку перед оформлением сделки."
+        },
+        {
+          "title": "Hyundai Tucson 2026: болячки и цена под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/hyundai-tucson-2026",
+          "snippet": "Сколько стоит Hyundai Tucson из Кореи под ключ в 2026: средние цены по поколениям, растаможка для Украины и ЕС, соглашение FTA, пошлины, акцизы и реальный расчёт."
+        },
+        {
+          "title": "Hyundai Tucson (Хендай Туссан) — цена под ключ, купить из Кореи | АИ Авто",
+          "url": "https://ai-import.ru/catalog/korea/hyundai/tucson",
+          "snippet": "Hyundai Tucson из Кореи и Китая: TL или NX4, какой мотор проходит утильсбор, задиры и робот 7DCT, новый Tucson L и реальные цены под ключ от 1,69 млн ₽. Hyundai Tucson TL стоит выбирать ради простой рабочей машины и более низкой цены, а NX4 — ради свежести, мощности и богатой начинки."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "туксон из кореи октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Продажа Hyundai Tucson из Кореи | Цены на Хендай Туссан в Корее",
+          "url": "https://www.drom.ru/world/korea/hyundai/tucson/",
+          "snippet": ""
+        },
+        {
+          "title": "Растаможка Hyundai Tucson из Кореи в 2026: цена под ключ и выгода",
+          "url": "https://gc.auction/ru/journal/rastamozhka-hyundai-tucson-iz-korei",
+          "snippet": "Объявления о продаже Hyundai Tucson под заказ из Кореи с фото авто и ценами. Стоимость и характеристики Хендай Туссан на аукционе в Корее."
+        },
+        {
+          "title": "Купить Hyundai Tucson из Кореи под ключ — от 1 552 000 ₽, 977 в наличии",
+          "url": "https://encarrus.ru/korea/hyundai/tucson/",
+          "snippet": "Сколько стоит Hyundai Tucson из Кореи под ключ в 2026: средние цены по поколениям, растаможка для Украины и ЕС, соглашение FTA, пошлины, акцизы и реальный расчёт."
+        },
+        {
+          "title": "Hyundai из Кореи: ТОП-7 компаний по привозу в Россию в 2026",
+          "url": "https://vc.ru/top-raiting/3001809-hyundai-iz-korei-luchshie-kompanii-dlya-importa-v-rossiyu",
+          "snippet": "Покупка Hyundai Tucson через Encarrus позволяет заказать автомобиль из Кореи с учетом нужного года выпуска, комплектации и состояния. Доступны как новые автомобили, так и варианты с пробегом, прошедшие техническую проверку перед оформлением сделки."
+        },
+        {
+          "title": "Хендай Туксон 2026: как выбрать и привезти под ключ",
+          "url": "https://tamx.ru/journal/henday-tukson-2026-kak-vybrat-i-privezti-pod-klyuch-7945",
+          "snippet": "Hyundai из Кореи остаётся одним из самых рациональных вариантов для тех, кто хочет получить надёжный седан, кроссовер или Tucson без наценки российского дилера."
+        },
+        {
+          "title": "Hyundai Tucson 2026: болячки и цена под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/hyundai-tucson-2026",
+          "snippet": "Hyundai Tucson 2026 года и новее доступен к заказу из Китая, Южной Кореи и Кыргызстана. Минимальная актуальная цена по каталогу tamx.ru — от 2 430 000 ₽ под ключ из Китая."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "туксон из кореи новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Растаможка Hyundai Tucson из Кореи в 2026: цена под ключ и выгода",
+          "url": "https://gc.auction/ru/journal/rastamozhka-hyundai-tucson-iz-korei",
+          "snippet": ""
+        },
+        {
+          "title": "Новый Hyundai Tucson 2026: первые фото и деталиощущений - новости Cars.ru",
+          "url": "https://cars.ru/post/new-hyundai-tucson-suv-design-tech-and-the-latest-details-on-2026-suv",
+          "snippet": "Сколько стоит Hyundai Tucson из Кореи под ключ в 2026: средние цены по поколениям, растаможка для Украины и ЕС, соглашение FTA, пошлины, акцизы и реальный расчёт."
+        },
+        {
+          "title": "Hyundai представила Tucson пятого поколения: больше габариты, мощнее ...",
+          "url": "https://motor.ru/news/so-stalnym-dizainom-hyundai-predstavila-novoe-pokolenie-krossovera-tucson-22-09-2026.htm",
+          "snippet": "Новый внедорожник Hyundai Tucson: дизайн, технологии и самая свежая информация о SUV 2026 года."
+        },
+        {
+          "title": "Hyundai представил новое поколение Tucson",
+          "url": "https://lenta.ru/news/2026/09/25/hyundai-predstavil-novoe-pokolenie-tucson/",
+          "snippet": "Hyundai рассекретила кроссовер Tucson нового поколения на живой премьере в Южной Корее. Автомобиль выполнен в стиле Art of Steel, вырос в размерах (4700 мм, база 2785 мм) и улучшил аэродинамику до Cx 0,3. В салоне — раздельные экраны, мультимедиа Pleos Connect с ИИ и подрулевой селектор передач."
+        },
+        {
+          "title": "Hyundai представил обновленный Tucson 2026 с расширенным оснащением и ...",
+          "url": "https://avtozen.ru/hyundai-predstavil-obnovlennyj-tucson-2026-s-rasshirennym-osnashheniem-i-stilnym-dizajnom/",
+          "snippet": "В Южной Корее состоялась премьера нового поколения Hyundai Tucson, выполненного в фирменном стиле Art of Steel («Искусство стали»). Об этом сообщает издание «За рулем»."
+        },
+        {
+          "title": "Представлен обновлённый Hyundai Tucson 2026",
+          "url": "https://www.ixbt.com/news/2025/08/11/hyundai-tucson-2026.html",
+          "snippet": "Южнокорейский производитель объявил о выпуске нового поколения модели Tucson 2026, который получил ряд улучшений как в техническом оснащении, так и в внешнем виде. В начальной комплектации Modern теперь входят системы безопасности и подогрева, ранее доступные только в более дорогих версиях."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com туксон из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Metroid-godot/icon.svg at main · Kernapillar/Metroid-godot",
+          "url": "https://github.com/Kernapillar/Metroid-godot/blob/main/icon.svg",
+          "snippet": ""
+        },
+        {
+          "title": "HuskarUI_Qt5/demonstrate/PolygonWindow.png at master · mengps/HuskarUI ...",
+          "url": "https://github.com/mengps/HuskarUI_Qt5/blob/master/demonstrate/PolygonWindow.png",
+          "snippet": "Contribute to Kernapillar/Metroid-godot development by creating an account on GitHub."
+        },
+        {
+          "title": "Awesome-Model-Quantization/Imgs/bibench.png at master · AI-Efficiency ...",
+          "url": "https://github.com/AI-Efficiency/Awesome-Model-Quantization/blob/master/Imgs/bibench.png",
+          "snippet": "Contribute to mengps/HuskarUI_Qt5 development by creating an account on GitHub."
+        },
+        {
+          "title": "blockbench-plugins/plugins/geckolib/icon.png at master · JannisX11 ...",
+          "url": "https://github.com/JannisX11/blockbench-plugins/blob/master/plugins/geckolib/icon.png",
+          "snippet": "A curated collection of papers, benchmarks, surveys, and tools for model quantization, covering low-bit networks, LLMs, multimodal and generative models, vector and lattice quantization, and efficient deployment. - Awesome-Model-Quantization/Imgs/bibench.png at master · AI-Efficiency/Awesome-Model-Quantization."
+        },
+        {
+          "title": "NetrunnerGame/icon.svg at main · Sleven87/NetrunnerGame · GitHub",
+          "url": "https://github.com/Sleven87/NetrunnerGame/blob/main/icon.svg",
+          "snippet": "Blockbench plugin repository. Contribute to JannisX11/blockbench-plugins development by creating an account on GitHub."
+        },
+        {
+          "title": "CCTV-Smartphone-AI-Monitoring/assets/ai_monitoring_record.png at main ...",
+          "url": "https://github.com/suzuran0y/CCTV-Smartphone-AI-Monitoring/blob/main/assets/ai_monitoring_record.png",
+          "snippet": "Contribute to Sleven87/NetrunnerGame development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "туксон из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Характеристики нового Hyundai Tucson 2026",
+          "url": "https://hyundai.kz/ru/find-a-car/crossovers/tucson-2024/specification/",
+          "snippet": ""
+        },
+        {
+          "title": "Новый Hyundai Tucson 2026: первые фото и ... - cars.ru",
+          "url": "https://cars.ru/post/new-hyundai-tucson-suv-design-tech-and-the-latest-details-on-2026-suv",
+          "snippet": "Технические характеристики нового Hyundai Tucson 2026 — мощность двигателя, расход топлива, габариты, объёмы и параметры. Актуальная информация на сайте дистрибьютора в Казахстане."
+        },
+        {
+          "title": "Хендай Туссан 2026 технические характеристики. Hyundai Tucson 2026 ...",
+          "url": "https://www.drom.ru/catalog/hyundai/tucson/2026/",
+          "snippet": "Новый внедорожник Hyundai Tucson: дизайн, технологии и самая свежая информация о SUV 2026 года."
+        },
+        {
+          "title": "Hyundai Tucson 2026, джип/suv 5 дв., 5 ... - Дром",
+          "url": "https://www.drom.ru/catalog/hyundai/tucson/g_2026_25152/",
+          "snippet": "Подробно расписан модельный ряд Hyundai Tucson 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Хендай Туссан 2026 цены модели, комплектации, фото, новый кузов",
+          "url": "https://cenyavto.com/hyundai-tucson-2026/",
+          "snippet": "Подробно расписаны модификации автомобилей Hyundai Tucson 2026: все технические спецификации, полная комплектация салона, цвета, в которые окрашивался автомобиль, фотографии внешнего вида и салона."
+        },
+        {
+          "title": "Хендай Туссан 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+          "url": "https://naavtotrasse.ru/hyundai/hyundai-tucson-2025.html",
+          "snippet": "Осенью текущего года корейский производитель представил Хендай Туссан 2026 пятого поколения в совершенно новом кузове."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "туксон из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Tucson - Reddit",
+          "url": "https://www.reddit.com/r/HyundaiTucson/",
+          "snippet": ""
+        },
+        {
+          "title": "Хендай Туссан 2025 - 2026 отзывы владельцев: все минусы и недостатки",
+          "url": "https://www.drom.ru/reviews/hyundai/tucson/5kopeek/?year1=2025&year2=2026",
+          "snippet": "In December 2021 during COVID I bought a 2022 Hyundai Tucson SEL. February a piece of steel fell off the back of a truck and hit five cars. My car rolled over that piece."
+        },
+        {
+          "title": "Hyundai Tucson из Кореи: обзор, комплектации, отзывы 2026",
+          "url": "https://silenkoautocratia.ru/blog/hyundai-tucson-iz-korei-obzor/",
+          "snippet": "Опыт эксплуатации реальных владельцев автомобилей Хендай Туссан: плюсы и минусы."
+        },
+        {
+          "title": "Частые недостатки и минусы Хендай Туксон | Особенности и недостатки авто",
+          "url": "https://autominus.ru/nedostatki-i-slabye-mesta-hyundai-tucson/",
+          "snippet": "Tucson — один из самых узнаваемых силуэтов на дорогах и стабильный бестселлер Hyundai по всему миру. Разбираем актуальное поколение NX4, реальные отзывы владельцев и итоговую стоимость под ключ из Кореи."
+        },
+        {
+          "title": "Общие проблемы, недостатки Туссан 2021 - отзывы Tucson 4",
+          "url": "https://hyundai-clubs.ru/forums/topic/3304-obschie-problemy-nedostatki-tussan-2021-otzyvy-tucson-4/",
+          "snippet": "Речь шла о Hyundai Tucson третьего поколения. И, наоборот, шквал негативных отзывов на работу подвески, роботизированной коробки и нейтрализатора в прямом смысле топил репутацию расхваленного автомобиля. В чём же причина такой амбивалентности кроссовера? Давайте разбираться."
+        },
+        {
+          "title": "Как владельцы Tucson живут с машиной после 100 000 км: истории, расходы ...",
+          "url": "https://inycar.ru/blog/kak-vladeltsy-tucson-zhivut-s-mashinoj-posle-100-000-km-istorii-rashody-i-sovety-na-2026-god",
+          "snippet": "Какие проблемы недочеты успели заметить? у всех она шатается и люфтит так сильно? Nordik777 пока не было жалоб вроде по бензобаку. Два лютых косяка по моему мнению: 1. Отсутствие отделения под очки. Копеечная ведь запчасть. 2. Поворотники в заднем бампере - это просто за гранью добра и зла."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "хендай туксон из кореи 2026",
+      "purpose": "вторичный запрос: хендай туксон из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Tucson из Кореи 2026: стоимость под ключ и сравнение с ...",
+          "url": "https://autoprofiasia.ru/blog/hyundai-tucson-iz-korei-2026-tsena-pod-klyuch",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai из Кореи 2026: модельный ряд и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/hyundai-iz-korei-2026",
+          "snippet": "Hyundai Tucson из Кореи в 2026 году: реальная стоимость под ключ, сравнение с ценами дилеров, сроки доставки и комплектации, которые недоступны в России."
+        },
+        {
+          "title": "Продажа Hyundai Tucson из Кореи | Цены на Хендай Туссан в Корее",
+          "url": "https://www.drom.ru/world/korea/hyundai/tucson/",
+          "snippet": "Какой Hyundai привезти из Кореи в 2026: пять моделей с годом и пробегом лота от 1,68 млн ₽, почему два Tucson стоят 1,69 и 3,13 млн и чем отличается Elantra."
+        },
+        {
+          "title": "Hyundai Tucson 2026 года из Южной Кореи под заказ",
+          "url": "https://regionauto.org/korea/hyundai/tucson/?year_from=2026&year_to=2026",
+          "snippet": "Объявления о продаже Hyundai Tucson под заказ из Кореи с фото авто и ценами. Стоимость и характеристики Хендай Туссан на аукционе в Корее."
+        },
+        {
+          "title": "Hyundai Palisade, Santa Fe, Tucson и Sonata 2026: цены под ключ из Кореи",
+          "url": "https://carto-auto.ru/blog/hyundai-palisade-santa-fe-tucson-sonata-2026-tseny-pod-klyuch/",
+          "snippet": "Hyundai Tucson 2026 года с пробегом из Южной Кореи под заказ. Актуальные цены, комплектации и популярные модели. Доставка по всей России. РегионАвто — надёжный партнёр в покупке корейских ..."
+        },
+        {
+          "title": "Хендай Туссан 2026 технические характеристики. Hyundai Tucson 2026 ...",
+          "url": "https://www.drom.ru/catalog/hyundai/tucson/2026/",
+          "snippet": "В этом материале — подробный разбор четырёх самых востребованных Hyundai 2026 года под параллельный импорт из Кореи: реальные цены под ключ в рублях, разница между комплектациями, какие моторы доступны, сроки доставки и нюансы оформления."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "купить туксон из кореи 2026",
+      "purpose": "вторичный запрос: купить туксон из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Купить Hyundai Tucson из Кореи под ключ — от 1 552 000 ₽, 977 в наличии",
+          "url": "https://encarrus.ru/korea/hyundai/tucson/",
+          "snippet": ""
+        },
+        {
+          "title": "Продажа Hyundai Tucson из Кореи | Цены на Хендай Туссан в Корее",
+          "url": "https://www.drom.ru/world/korea/hyundai/tucson/",
+          "snippet": "Покупка Hyundai Tucson через Encarrus позволяет заказать автомобиль из Кореи с учетом нужного года выпуска, комплектации и состояния. Доступны как новые автомобили, так и варианты с пробегом, прошедшие техническую проверку перед оформлением сделки."
+        },
+        {
+          "title": "Hyundai Tucson из Кореи 2026: стоимость под ключ и сравнение с ...",
+          "url": "https://autoprofiasia.ru/blog/hyundai-tucson-iz-korei-2026-tsena-pod-klyuch",
+          "snippet": "Объявления о продаже Hyundai Tucson под заказ из Кореи с фото авто и ценами. Стоимость и характеристики Хендай Туссан на аукционе в Корее."
+        },
+        {
+          "title": "Hyundai Tucson (Хендай Туссан) — цена под ключ, купить из Кореи | АИ Авто",
+          "url": "https://ai-import.ru/catalog/korea/hyundai/tucson",
+          "snippet": "Hyundai Tucson из Кореи в 2026 году: реальная стоимость под ключ, сравнение с ценами дилеров, сроки доставки и комплектации, которые недоступны в России."
+        },
+        {
+          "title": "Hyundai Tucson под заказ по цене от 1 415 040 рублей - Авто.ру",
+          "url": "https://auto.ru/cars/hyundai/tucson/all/for-order/",
+          "snippet": "Hyundai Tucson (Хендай Туссан) купить под заказ от 3 290 000 ₽ под ключ — цены, комплектации и сроки доставки из Кореи. Выкуп, проверка, растаможка и доставка по России по одному договору."
+        },
+        {
+          "title": "Купить Hyundai Tucson (Хендай Туксон) из Кореи под ключ - цены",
+          "url": "https://kcl-group.ru/korea/hyundai/tucson",
+          "snippet": "Полный модельный ряд Hyundai Tucson под заказ из Кореи по цене от 1 415 040 рублей - более 63 Hyundai Tucson, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "хендай туксон дизель из кореи 2026",
+      "purpose": "вторичный запрос: хендай туксон дизель из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Продажа Hyundai Tucson из Кореи | Цены на Хендай Туссан в Корее",
+          "url": "https://www.drom.ru/world/korea/hyundai/tucson/",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Tucson (Хендай Туссан) — цена под ключ, купить из Кореи | АИ Авто",
+          "url": "https://ai-import.ru/catalog/korea/hyundai/tucson",
+          "snippet": "Объявления о продаже Hyundai Tucson под заказ из Кореи с фото авто и ценами. Стоимость и характеристики Хендай Туссан на аукционе в Корее."
+        },
+        {
+          "title": "Hyundai Tucson из Кореи: цена под ключ и утиль 2026",
+          "url": "https://export-motors.com/blog/hyundai-tucson-iz-korei",
+          "snippet": "Hyundai Tucson (Хендай Туссан) купить под заказ от 3 290 000 ₽ под ключ — цены, комплектации и сроки доставки из Кореи. Выкуп, проверка, растаможка и доставка по России по одному договору."
+        },
+        {
+          "title": "Купить Hyundai Tucson из Кореи под ключ — от 1 552 000 ₽, 977 в наличии",
+          "url": "https://encarrus.ru/korea/hyundai/tucson/",
+          "snippet": "Hyundai Tucson из Кореи — почему все корейские версии идут по коммерческому утильсбору, разбор моторов 1.6T и дизель, комплектации и цена под ключ в 2026."
+        },
+        {
+          "title": "Хендай Туссан 2026 технические характеристики. Hyundai Tucson 2026 ...",
+          "url": "https://www.drom.ru/catalog/hyundai/tucson/2026/",
+          "snippet": "Покупка Hyundai Tucson через Encarrus позволяет заказать автомобиль из Кореи с учетом нужного года выпуска, комплектации и состояния. Доступны как новые автомобили, так и варианты с пробегом, прошедшие техническую проверку перед оформлением сделки."
+        },
+        {
+          "title": "Hyundai Tucson из Кореи 2026: стоимость под ключ и сравнение с ...",
+          "url": "https://autoprofiasia.ru/blog/hyundai-tucson-iz-korei-2026-tsena-pod-klyuch",
+          "snippet": "Подробно расписан модельный ряд Hyundai Tucson 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Hyundai Tucson из Кореи в 2026: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Tucson из Кореи: обзор, комплектации, отзывы 2026",
+          "url": "https://silenkoautocratia.ru/blog/hyundai-tucson-iz-korei-obzor/",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Tucson из Кореи: стоимость под ключ, комплектации NX4 и ввоз в 2026",
+          "url": "https://onlyjpcars.ru/blog/hyundai-tucson-iz-korei",
+          "snippet": "Hyundai Tucson NX4 из Кореи в 2026 году: двигатели, гибридная версия, комплектации, отзывы владельцев, сравнение с Kia Sportage и расчёт цены под ключ."
+        },
+        {
+          "title": "Hyundai Tucson из Кореи 2026: стоимость под ключ и сравнение с ...",
+          "url": "https://autoprofiasia.ru/blog/hyundai-tucson-iz-korei-2026-tsena-pod-klyuch",
+          "snippet": "Hyundai Tucson четвёртого поколения (кузов NX4, с 2020 года) — один из самых узнаваемых компактных кроссоверов на корейском вторичном рынке и, пожалуй, наиболее частый запрос после Kia Sportage у тех, кто ищет левый руль, современный дизайн и широкий выбор силовых агрегатов."
+        },
+        {
+          "title": "Hyundai Tucson из Кореи: цена под ключ и утиль 2026",
+          "url": "https://export-motors.com/blog/hyundai-tucson-iz-korei",
+          "snippet": "Hyundai Tucson из Кореи в 2026 году: реальная стоимость под ключ, сравнение с ценами дилеров, сроки доставки и комплектации, которые недоступны в России."
+        },
+        {
+          "title": "Хендай Туссан 2026: как выбрать и привезти под ключ",
+          "url": "https://tamx.ru/journal/henday-tussan-2026-kak-vybrat-i-privezti-pod-klyuch-8036",
+          "snippet": "Ниже честно разбираем моторы, комплектации и из чего складывается цена под ключ. Что это за машина Tucson (индекс NX4, поколение с 2020 года) — компактный кроссовер на 5 мест, один из ..."
+        },
+        {
+          "title": "Hyundai Tucson 2026: болячки и цена под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/hyundai-tucson-2026",
+          "snippet": "Разбираем Hyundai Tucson 2026 для покупки под заказ: откуда реально везут модель, кому она подходит, что проверять перед оплатой и как понимать цену под ключ."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.drom.ru/world/korea/hyundai/tucson/",
+      "title": "Продажа Hyundai Tucson из Кореи | Цены на Хендай Туссан в Корее",
+      "from_query": "туксон из кореи 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/hyundai-palisade-santa-fe-tucson-sonata-2026-tseny-pod-klyuch/",
+      "title": "Hyundai Palisade, Santa Fe, Tucson и Sonata 2026: цены под ключ из Кореи",
+      "from_query": "туксон из кореи 2026"
+    },
+    {
+      "url": "https://encarrus.ru/korea/hyundai/tucson/",
+      "title": "Купить Hyundai Tucson из Кореи под ключ — от 1 552 000 ₽, 977 в наличии",
+      "from_query": "туксон из кореи 2026"
+    },
+    {
+      "url": "https://gc.auction/ru/journal/rastamozhka-hyundai-tucson-iz-korei",
+      "title": "Растаможка Hyundai Tucson из Кореи в 2026: цена под ключ и выгода",
+      "from_query": "туксон из кореи 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/hyundai-tucson-2026",
+      "title": "Hyundai Tucson 2026: болячки и цена под ключ",
+      "from_query": "туксон из кореи 2026"
+    },
+    {
+      "url": "https://ai-import.ru/catalog/korea/hyundai/tucson",
+      "title": "Hyundai Tucson (Хендай Туссан) — цена под ключ, купить из Кореи | АИ Авто",
+      "from_query": "туксон из кореи 2026"
+    },
+    {
+      "url": "https://vc.ru/top-raiting/3001809-hyundai-iz-korei-luchshie-kompanii-dlya-importa-v-rossiyu",
+      "title": "Hyundai из Кореи: ТОП-7 компаний по привозу в Россию в 2026",
+      "from_query": "туксон из кореи октябрь 2026"
+    },
+    {
+      "url": "https://tamx.ru/journal/henday-tukson-2026-kak-vybrat-i-privezti-pod-klyuch-7945",
+      "title": "Хендай Туксон 2026: как выбрать и привезти под ключ",
+      "from_query": "туксон из кореи октябрь 2026"
+    },
+    {
+      "url": "https://cars.ru/post/new-hyundai-tucson-suv-design-tech-and-the-latest-details-on-2026-suv",
+      "title": "Новый Hyundai Tucson 2026: первые фото и деталиощущений - новости Cars.ru",
+      "from_query": "туксон из кореи новости 2026"
+    },
+    {
+      "url": "https://motor.ru/news/so-stalnym-dizainom-hyundai-predstavila-novoe-pokolenie-krossovera-tucson-22-09-2026.htm",
+      "title": "Hyundai представила Tucson пятого поколения: больше габариты, мощнее ...",
+      "from_query": "туксон из кореи новости 2026"
+    },
+    {
+      "url": "https://lenta.ru/news/2026/09/25/hyundai-predstavil-novoe-pokolenie-tucson/",
+      "title": "Hyundai представил новое поколение Tucson",
+      "from_query": "туксон из кореи новости 2026"
+    },
+    {
+      "url": "https://avtozen.ru/hyundai-predstavil-obnovlennyj-tucson-2026-s-rasshirennym-osnashheniem-i-stilnym-dizajnom/",
+      "title": "Hyundai представил обновленный Tucson 2026 с расширенным оснащением и ...",
+      "from_query": "туксон из кореи новости 2026"
+    },
+    {
+      "url": "https://www.ixbt.com/news/2025/08/11/hyundai-tucson-2026.html",
+      "title": "Представлен обновлённый Hyundai Tucson 2026",
+      "from_query": "туксон из кореи новости 2026"
+    },
+    {
+      "url": "https://github.com/Kernapillar/Metroid-godot/blob/main/icon.svg",
+      "title": "Metroid-godot/icon.svg at main · Kernapillar/Metroid-godot",
+      "from_query": "site:github.com туксон из кореи 2026"
+    },
+    {
+      "url": "https://github.com/mengps/HuskarUI_Qt5/blob/master/demonstrate/PolygonWindow.png",
+      "title": "HuskarUI_Qt5/demonstrate/PolygonWindow.png at master · mengps/HuskarUI ...",
+      "from_query": "site:github.com туксон из кореи 2026"
+    },
+    {
+      "url": "https://github.com/AI-Efficiency/Awesome-Model-Quantization/blob/master/Imgs/bibench.png",
+      "title": "Awesome-Model-Quantization/Imgs/bibench.png at master · AI-Efficiency ...",
+      "from_query": "site:github.com туксон из кореи 2026"
+    },
+    {
+      "url": "https://github.com/JannisX11/blockbench-plugins/blob/master/plugins/geckolib/icon.png",
+      "title": "blockbench-plugins/plugins/geckolib/icon.png at master · JannisX11 ...",
+      "from_query": "site:github.com туксон из кореи 2026"
+    },
+    {
+      "url": "https://github.com/Sleven87/NetrunnerGame/blob/main/icon.svg",
+      "title": "NetrunnerGame/icon.svg at main · Sleven87/NetrunnerGame · GitHub",
+      "from_query": "site:github.com туксон из кореи 2026"
+    },
+    {
+      "url": "https://github.com/suzuran0y/CCTV-Smartphone-AI-Monitoring/blob/main/assets/ai_monitoring_record.png",
+      "title": "CCTV-Smartphone-AI-Monitoring/assets/ai_monitoring_record.png at main ...",
+      "from_query": "site:github.com туксон из кореи 2026"
+    },
+    {
+      "url": "https://hyundai.kz/ru/find-a-car/crossovers/tucson-2024/specification/",
+      "title": "Характеристики нового Hyundai Tucson 2026",
+      "from_query": "туксон из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/hyundai/tucson/2026/",
+      "title": "Хендай Туссан 2026 технические характеристики. Hyundai Tucson 2026 ...",
+      "from_query": "туксон из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/hyundai/tucson/g_2026_25152/",
+      "title": "Hyundai Tucson 2026, джип/suv 5 дв., 5 ... - Дром",
+      "from_query": "туксон из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://cenyavto.com/hyundai-tucson-2026/",
+      "title": "Хендай Туссан 2026 цены модели, комплектации, фото, новый кузов",
+      "from_query": "туксон из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://naavtotrasse.ru/hyundai/hyundai-tucson-2025.html",
+      "title": "Хендай Туссан 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+      "from_query": "туксон из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.reddit.com/r/HyundaiTucson/",
+      "title": "Hyundai Tucson - Reddit",
+      "from_query": "туксон из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/hyundai/tucson/5kopeek/?year1=2025&year2=2026",
+      "title": "Хендай Туссан 2025 - 2026 отзывы владельцев: все минусы и недостатки",
+      "from_query": "туксон из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://silenkoautocratia.ru/blog/hyundai-tucson-iz-korei-obzor/",
+      "title": "Hyundai Tucson из Кореи: обзор, комплектации, отзывы 2026",
+      "from_query": "туксон из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://autominus.ru/nedostatki-i-slabye-mesta-hyundai-tucson/",
+      "title": "Частые недостатки и минусы Хендай Туксон | Особенности и недостатки авто",
+      "from_query": "туксон из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://hyundai-clubs.ru/forums/topic/3304-obschie-problemy-nedostatki-tussan-2021-otzyvy-tucson-4/",
+      "title": "Общие проблемы, недостатки Туссан 2021 - отзывы Tucson 4",
+      "from_query": "туксон из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/kak-vladeltsy-tucson-zhivut-s-mashinoj-posle-100-000-km-istorii-rashody-i-sovety-na-2026-god",
+      "title": "Как владельцы Tucson живут с машиной после 100 000 км: истории, расходы ...",
+      "from_query": "туксон из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/blog/hyundai-tucson-iz-korei-2026-tsena-pod-klyuch",
+      "title": "Hyundai Tucson из Кореи 2026: стоимость под ключ и сравнение с ...",
+      "from_query": "хендай туксон из кореи 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/hyundai-iz-korei-2026",
+      "title": "Hyundai из Кореи 2026: модельный ряд и цены",
+      "from_query": "хендай туксон из кореи 2026"
+    },
+    {
+      "url": "https://regionauto.org/korea/hyundai/tucson/?year_from=2026&year_to=2026",
+      "title": "Hyundai Tucson 2026 года из Южной Кореи под заказ",
+      "from_query": "хендай туксон из кореи 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/hyundai/tucson/all/for-order/",
+      "title": "Hyundai Tucson под заказ по цене от 1 415 040 рублей - Авто.ру",
+      "from_query": "купить туксон из кореи 2026"
+    },
+    {
+      "url": "https://kcl-group.ru/korea/hyundai/tucson",
+      "title": "Купить Hyundai Tucson (Хендай Туксон) из Кореи под ключ - цены",
+      "from_query": "купить туксон из кореи 2026"
+    },
+    {
+      "url": "https://export-motors.com/blog/hyundai-tucson-iz-korei",
+      "title": "Hyundai Tucson из Кореи: цена под ключ и утиль 2026",
+      "from_query": "хендай туксон дизель из кореи 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/hyundai-tucson-iz-korei",
+      "title": "Hyundai Tucson из Кореи: стоимость под ключ, комплектации NX4 и ввоз в 2026",
+      "from_query": "Как выбрать Hyundai Tucson из Кореи в 2026: комплектации и ловушки до депозита 2026"
+    },
+    {
+      "url": "https://tamx.ru/journal/henday-tussan-2026-kak-vybrat-i-privezti-pod-klyuch-8036",
+      "title": "Хендай Туссан 2026: как выбрать и привезти под ключ",
+      "from_query": "Как выбрать Hyundai Tucson из Кореи в 2026: комплектации и ловушки до депозита 2026"
+    }
+  ]
+}

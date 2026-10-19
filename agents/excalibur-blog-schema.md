@@ -20,6 +20,12 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 
 Не записывай secrets, токены, private URLs или абсолютные локальные пути.
 
+## Commit / secret-scan
+
+Public site/catalog/telegram/max URLs in BlogPosting `@id` / `sameAs` — intentional.
+Перед `git commit`: `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"`.
+На каждой строке с этими URL добавь `pragma: allowlist secret` (compact one-line JSON-LD + `x-excaliburCommitNote` ок).
+
 ## Твои задачи
 
 1. Прочитать article.html, article.meta.json, research-notes, authors-registry.

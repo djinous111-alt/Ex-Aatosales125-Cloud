@@ -2,9 +2,33 @@
 
 ## Cloud / Task
 
-- Cloud не принимает `excalibur-blog-*` как Task types → fallback `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path.
+- Cloud не принимает `excalibur-blog-*` как Task types → **сразу** fallback `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path (особенно geo-qa: не ретрай typed).
 - Parent-agent сам пишет статью вместо `excalibur-blog-writer` → **блокер**, перезапуск writer Task.
 - Объединение cover+schema в один Task → запрещено; только параллельные отдельные Task.
+
+## Git / pre-commit secrets
+
+- `pre-commit.cursor` падает с `invalid variable name`, если в `CLOUD_AGENT_INJECTED_SECRET_NAMES` есть имя не из `[A-Za-z_][A-Za-z0-9_]*`.
+- Перед commit: `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"` затем `git …`, или `bash scripts/excalibur_git.sh commit …` (не `--no-verify`).
+- Wrapper также исключает public CTA/site names (`PUBLIC_SITE_URL`, `WP_SITE_URL`, `WP_HOME`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`) из scan-списка — они обязаны появляться в schema/ledger/article CTA.
+- Корневой fix: переименовать Dashboard secret names в bash-safe идентификаторы (needs-human).
+
+## Doctor / Indexer CLI
+
+- llms generator: `--blog-dir` + `--out-dir` (+ `--site-base`). Флаг `--blog-path` устарел и запрещён в docs/doctor.
+- Для commit-safe `llms.txt`: `--site-base ""` (relative `/blog/<slug>/`). Не передавай `$PUBLIC_SITE_URL` в llms `--site-base`, пока var — Cloud secret.
+
+## Research / TECH_MARKERS
+
+- `research_notes_gate` матчит tech-маркеры по word-boundary, не substring (`reader_pain` / `объявлении` / `Японии` ≠ tech).
+- Регрессия: `python3 scripts/excalibur_blog_research_notes_gate.py --self-test`.
+
+## Editorial markers
+
+- `memory/brief/editorial-policy.json` обязан иметь непустые `pain_markers_ru` / `outcome_markers_ru` и `_markers_pinned: true`.
+- Doctor и utility gate → POLICY BLOCK при wipe; не списывать на «слабую статью».
+- Recommendation markers: «сделайте/не делайте/проверьте/чеклист/шаг », не ярлыки «Делать/Не делать».
+- При правке HTML **не** копируй `href="[REDACTED]"` из redacted Read обратно в файлы — CTA только из env/git blob.
 
 ## Handoff / fragments
 
@@ -22,6 +46,7 @@
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
 - Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
 - SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
+- После publish коммить ledger через `excalibur_git.sh` (public permalinks ≠ scanner blocker).
 
 ## Writer / Fact Check Box
 
@@ -34,14 +59,21 @@
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
+- Insight-блок: запрещены ярлыки `TL;DR` и `Быстрый инсайт`.
 
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- Cover commits: `bash scripts/excalibur_git.sh commit …`.
 
 ## Scout
 
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- Topics commits: `bash scripts/excalibur_git.sh commit …`.
+
+## Schema
+
+- `schema.jsonld` держит live public URLs для WP meta; коммить через `excalibur_git.sh`, не стрипай URL под scanner.
 
 ## Indexer
 

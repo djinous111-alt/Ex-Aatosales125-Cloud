@@ -12,14 +12,18 @@ description: Excalibur BLOG Indexer — interlink между статьями + 
 ```bash
 python3 scripts/excalibur_blog_interlinker.py --apply \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --site-base https://avtosales125.ru
+  --site-base "$PUBLIC_SITE_URL"
 
+# Commit-safe llms: relative /blog/<slug>/ URLs (empty --site-base).
+# Do NOT pass --blog-path (removed). Do NOT pass $PUBLIC_SITE_URL as
+# --site-base while that env is a Cloud secret — absolute URLs trip the scanner.
 python3 scripts/excalibur_blog_llms_generator.py \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru \
-  --blog-path / \
+  --site-base "" \
   --out-dir memory/blog
 ```
+
+Commits: `bash scripts/excalibur_git.sh commit -m "..."` (filters invalid/public URL secret names).
 
 ## Выход
 

@@ -113,9 +113,21 @@ blockers:
 - `❌ PUBLISH BLOCKER` — QA не PASS, link-verify fail, нет cover/schema, credentials, allow flag
 - `❌ PUBLISH FAIL` — скрипт вернул fail (смотри `raw_output` в wp-publish-result.json)
 
+## Git commit после publish
+
+Ledger / `wp-publish-result.json` / `published-articles.md` часто содержат absolute public permalinks = значения `PUBLIC_SITE_URL` и CTA secrets. Коммить только через:
+
+```bash
+bash scripts/excalibur_git.sh add shared/published-articles.md memory/blog/articles/<dir>/wp-publish-result.json ...
+bash scripts/excalibur_git.sh commit -m "publish(...): ..."
+```
+
+Не используй `--no-verify`. Корневой fix невалидных Dashboard secret names — needs-human.
+
 ## Запрещено
 
 - Писать или переписывать longread
 - Генерировать cover/schema с нуля
 - Пропускать dry-run
 - Завершать пайплайн без записи в `published-articles.md` при успешном publish
+- Republish чужих live post_id / slug без явного запроса

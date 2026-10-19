@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Утильсбор 2026: цифра из чата уже не та?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс с планшетом у порта Владивостока: крючок про устаревший расчёт утильсбора 2026",
+      "scene_hint": "Vladivostok port fog/rain backdrop, modern Korean/China cars on pier; AVTO SALES blog host EXACT face+glasses from reference, CHANGE outfit to waterproof smart-casual jacket over shirt (rain/port weather), holds tablet with fake customs checklist UI (поля: возраст, объём, мощность, статус ввоза) — NEVER Wordstat/Metrika; torn paper + yellow highlighter on «утильсбор»; sticky note «до депозита»; shocked meme sticker; corner brand avto-sales125.ru catalog only; no toxic slang, no лох/лохов",
+      "meme_caption_ru": "Цифра из чата? Уже мимо"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Выпишите паспорт лота до любого калькулятора",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean 16:9 UI table mock: колонки «реклама / документ» vs поля паспорта лота (возраст, объём, мощность, тип ДВС/гибрид/EV, статус ввоза); sticky note «сначала факты»; no hero face; light tape corner",
+      "alt": "Таблица-сравнение рекламных цифр и полей паспорта лота до калькулятора утильсбора"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Отметьте возраст и статус ввоза",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Horizontal workflow diagram: дата выпуска → порог 3 года → физлицо/коммерция → статус ввоза → зона льготы; Cyrillic labels; mini port stamp sticker; no hero face",
+      "alt": "Схема шагов: возраст авто и статус ввоза для утильсбора 2026"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Как проверить мощность без ошибки на гибриде и электро",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board with checkboxes: пиковая vs документальная мощность, гибрид, электро, кВт→л.с.; highlighter on «из ПТС/сертификата»; torn paper scrap; no hero face",
+      "alt": "Чеклист проверки мощности двигателя для гибрида и электро до расчёта утильсбора"
+    }
+  }
+}

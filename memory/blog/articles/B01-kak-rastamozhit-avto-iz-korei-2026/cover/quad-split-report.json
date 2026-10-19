@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-kak-rastamozhit-avto-iz-korei-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1281,
+      721
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 721,
+        "end": 776
+      },
+      "v_gutter_px": {
+        "start": 1281,
+        "end": 1332
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1281,
+          "bottom": 721
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1281,
+          "bottom": 721
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс в портовой куртке у ролкера: крючок про сверку л.с. до депозита при растаможке из Кореи",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1332,
+          "top": 15,
+          "right": 2560,
+          "bottom": 706
+        },
+        "raw_box_px": {
+          "left": 1332,
+          "top": 0,
+          "right": 2560,
+          "bottom": 721
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: пошлина, утильсбор, сбор и СВХ — растаможка не одна сумма",
+        "h2_anchor": "Разложите растаможку на три платежа, а не на одну сумму"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 50,
+          "top": 776,
+          "right": 1230,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 776,
+          "right": 1281,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Инфографика: порог 160 л.с. и сверка мощности по документам до депозита",
+        "h2_anchor": "Сверьте мощность и объём по документам до любого депозита"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1356,
+          "top": 776,
+          "right": 2536,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1332,
+          "top": 776,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема этапов: порт, СВХ, таможня, СБКТС, ЭПТС и учёт во Владивостоке",
+        "h2_anchor": "Пройдите этапы через Владивосток: от порта до учёта"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разложите растаможку на три платежа, а не на одну сумму",
+    "injected inline_2 after H2 — Сверьте мощность и объём по документам до любого депозита",
+    "injected inline_3 after H2 — Пройдите этапы через Владивосток: от порта до учёта"
+  ]
+}

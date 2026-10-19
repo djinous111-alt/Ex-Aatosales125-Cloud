@@ -1,0 +1,36 @@
+{
+  "slug": "kak-rastamozhit-avto-iz-korei-2026",
+  "topic_id": "B01",
+  "permalink": "https://avtosales125.ru/2026/10/19/kak-rastamozhit-avto-iz-korei-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-kak-rastamozhit-avto-iz-korei-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1158198,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=4352 slug=kak-rastamozhit-avto-iz-korei-2026\nOK featured_image=4353\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4354 src=cover/inline-01.png url=https://avtosales125.ru/wp-content/uploads/2026/10/kak-rastamozhit-avto-iz-korei-2026-inline-01.png\nOK inline_image_upload=4355 src=cover/inline-02.png url=https://avtosales125.ru/wp-content/uploads/2026/10/kak-rastamozhit-avto-iz-korei-2026-inline-02.png\nOK inline_image_upload=4356 src=cover/inline-03.png url=https://avtosales125.ru/wp-content/uploads/2026/10/kak-rastamozhit-avto-iz-korei-2026-inline-03.png\npermalink=https://avtosales125.ru/2026/10/19/kak-rastamozhit-avto-iz-korei-2026/\n",
+  "verdict": "pass",
+  "post_id": 4352,
+  "featured_image": 4353,
+  "schema_meta": 1,
+  "skip_theme_faq_meta": 1,
+  "inline_images": [
+    {
+      "id": 4354,
+      "src": "cover/inline-01.png",
+      "url": "https://avtosales125.ru/wp-content/uploads/2026/10/kak-rastamozhit-avto-iz-korei-2026-inline-01.png"
+    },
+    {
+      "id": 4355,
+      "src": "cover/inline-02.png",
+      "url": "https://avtosales125.ru/wp-content/uploads/2026/10/kak-rastamozhit-avto-iz-korei-2026-inline-02.png"
+    },
+    {
+      "id": 4356,
+      "src": "cover/inline-03.png",
+      "url": "https://avtosales125.ru/wp-content/uploads/2026/10/kak-rastamozhit-avto-iz-korei-2026-inline-03.png"
+    }
+  ]
+}

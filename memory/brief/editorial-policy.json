@@ -19,7 +19,9 @@
     "entertainment",
     "general"
   ],
-  "allowed_article_mode": ["B"],
+  "allowed_article_mode": [
+    "B"
+  ],
   "conditional_article_mode": {
     "comparison": "B",
     "note": "Режим A (новости/кейсы) — не публикуем в utility-only блоге"
@@ -37,6 +39,33 @@
     "min_recommendation_markers": 8,
     "requires_workflow_or_table_or_checklist": true
   },
+  "pain_markers_ru": [
+    "боль",
+    "проблем",
+    "ошиб",
+    "ломает",
+    "не работает",
+    "теряет",
+    "дорого",
+    "долго",
+    "рутин",
+    "хаос",
+    "застр",
+    "сложно"
+  ],
+  "outcome_markers_ru": [
+    "результат",
+    "получите",
+    "сможете",
+    "сэконом",
+    "проверьте",
+    "запустите",
+    "соберите",
+    "настройте",
+    "исправьте",
+    "выберите"
+  ],
+  "_markers_pinned": true,
   "meta_ab_rules": {
     "title_seo_min_len": 35,
     "title_seo_max_len": 75,

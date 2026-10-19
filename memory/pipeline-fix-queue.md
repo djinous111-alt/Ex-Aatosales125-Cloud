@@ -424,3 +424,34 @@ category: qa
 ### Fixer resolution
 - pending
 
+## INC-20261019-1735-cover-precommit-secret-names
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rasschitat-utilsbor-na-avto-2026
+severity: medium
+category: env
+
+### What went wrong
+- First `git commit` of cover artifacts failed: Cloud pre-commit secret scanner `invalid variable name` because `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `CLOUD_AGENT_ALL_SECRET_NAMES` included a non-bash identifier (URL-shaped name).
+- Same root cause as INC-20261019-1705-scout-precommit-secret-names; durable filter wrapper still missing from repo.
+
+### How the agent recovered this run
+- Filtered both env vars to comma-separated `^[A-Za-z_][A-Za-z0-9_]*$` identifiers for this shell commit only.
+- Re-ran commit successfully for cover assets + article.html inject (`dd5b03f9`).
+
+### Durable fix needed before next run
+- Ship `scripts/excalibur_blog_filter_commit_secret_env.sh` + `excalibur_git.sh` (or rename Dashboard secret names to bash-safe identifiers).
+- Document in `shared/agent-pipeline-pitfalls.md`.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/` (add filter wrapper if missing)
+- Cursor Dashboard Cloud Secrets (names only; no values)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

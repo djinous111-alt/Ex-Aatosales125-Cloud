@@ -55,3 +55,16 @@ python scripts/excalibur_blog_human_voice_gate.py \
 **Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.
 
 Schema и cover — **не** твоя зона (отдельные субагенты после PASS).
+
+## Soft FIX rules (Fact Check)
+
+When asking Writer to vary Fact Check wording: **keep** exact label `Материал проверен` in the `<blockquote>` before FAQ. Vary only the second line / sources. Renaming to «Редакционная сверка» fails `human_voice_gate` even if utility PASS.
+
+## Task launch (Cloud)
+
+Typed Task `excalibur-blog-geo-qa` often missing → **immediately** `Task(generalPurpose)` with `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`. Do not spend retries on typed Task.
+
+## link_verify IRI
+
+Cyrillic hrefs (2GIS) are OK in HTML; `excalibur_blog_link_verify.py` IRI-encodes them. Writers need not pre-percent-encode.
+

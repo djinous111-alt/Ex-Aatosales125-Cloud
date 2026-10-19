@@ -2,6 +2,12 @@
 
 Cover-агент работает **после** `article.html` + GEO QA PASS.
 
+## Cloud image flow (B09+)
+
+**Preferred:** `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir <dir>` with `KIE_API_KEY` (createTask → recordInfo). Avoids sync MCP `-32001` on 2K i2i.
+
+**Legacy:** one sync MCP `gpt-image-2` call. On `-32001` without URL/task_id → switch to Kie; do not spam duplicate jobs.
+
 ## Главное правило
 
 **Один** вызов MCP `gpt-image-2` → один холст `2048×1152` (2×2, каждая панель 16:9) → split в `cover.png` + `inline-01..03.png`.

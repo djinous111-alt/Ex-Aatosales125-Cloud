@@ -15,14 +15,17 @@ reference PNG → reference_url_hosted
        ↓
 quad-manifest.json (agent fills hooks + scene_hint)
        ↓
-quad-mcp-batch.json (1 job, input_urls)
+quad-mcp-batch.json (1 job, input_urls + preferred_image_flow)
        ↓
-ONE MCP gpt-image-2 i2i → canvas-quad.png 2048×1152
+PREFERRED: scripts/excalibur_blog_kie_gpt_image2_api.py (KIE_API_KEY)
+  createTask → recordInfo poll → cover/quad-mcp-result.json
+LEGACY: sync MCP gpt-image-2 (часто -32001 timeout на 2K i2i)
        ↓
-split → cover.png + inline-01..03.png (1200×675)
-       ↓
-inject <figure> after H2 in article.html
+quad_apply --url … --inject-html → cover.png + inline-01..03.png
 ```
+
+**Cloud default:** Kie async script first. Sync MCP — только legacy fallback.
+При MCP `-32001` не считай это terminal blocker: переходи на Kie API (или async MCP status, если появится в Available Tools). Не создавай второй image job, пока нет URL/task_id.
 
 **Запрещено:** 4 отдельных MCP на cover + inline.
 
@@ -122,20 +125,25 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — image (Kie preferred)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+```bash
+# Preferred on Cursor Cloud (avoids MCP client -32001 on 2K i2i):
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+# → cover/quad-mcp-result.json with URL
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+# Legacy only if KIE_API_KEY missing and sync MCP is acceptable:
+# CallMcpTool → gpt-image-2 with jobs[0].mcp_args (1 call, input_urls required)
+```
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
   --inject-html
+# or: --url "<result url>" --inject-html
 ```
 
 Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.

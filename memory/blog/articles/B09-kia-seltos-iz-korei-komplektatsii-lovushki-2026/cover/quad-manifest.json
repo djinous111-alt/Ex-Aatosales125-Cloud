@@ -1,0 +1,42 @@
+{
+  "topic_id": "B09",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Signature на Encar ≠ нужные кнопки",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у Kia Seltos со смартфоном Encar, плашка комплектации и ловушки, Владивосток",
+      "scene_hint": "EXACT face+glasses from reference; outfit: dark olive softshell jacket over light grey henley, no cap no hood, daytime Vladivostok soft daylight; compact modern Kia Seltos crossover behind; phone in hand showing fake Encar lot card (trim Signature, options blank); torn paper plaque Cyrillic hook with yellow highlighter on «кнопки»; sticky note «до депозита»; shocked cat meme cutout; scotch tape; corner brand avto-sales125.ru; NO Wordstat NO Metrika NO Telegram",
+      "meme_caption_ru": "Trim ≠ опции"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте задачу до Encar: город, семья, бюджет \"до ключей\"",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Clean UI mock: phone/tablet brief form before Encar — fields город / семья / бюджет до ключей / привод; sticky note «сначала задача»; tape corner; NO hero face; Cyrillic labels only",
+      "alt": "Мокап брифа до Encar: город, семья, бюджет до ключей для выбора Seltos"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните комплектации Seltos: что в карточке, а что только в имени trim",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Comparison table UI: columns Trim name vs Реальные опции в карточке — rows Comfort / Prestige / Signature with check/cross icons; mini Encar card inset; NO hero; Cyrillic headers",
+      "alt": "Таблица: имя trim Seltos против реальных опций в карточке Encar"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте ловушки лота: пробег, страховка, такси, схема кузова",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board with red flags: пробег, страховка, такси/лизинг, схема кузова X/W; marker ticks and one circled «стоп»; mini body-scheme diagram sticker; NO hero face",
+      "alt": "Чеклист ловушек лота Encar: пробег, страховка, такси, схема кузова"
+    }
+  }
+}

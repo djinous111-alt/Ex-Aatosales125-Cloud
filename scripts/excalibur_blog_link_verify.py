@@ -12,7 +12,7 @@ import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import quote, urlsplit, urlunsplit, urlparse
 
 
 class LinkExtractor(HTMLParser):
@@ -43,10 +43,34 @@ def extract_links(html: str) -> list[str]:
     return out
 
 
+def iri_to_uri(url: str) -> str:
+    """Percent-encode non-ASCII path/query so urllib can request IRIs (e.g. 2GIS Cyrillic)."""
+    parts = urlsplit(url)
+    # netloc IDNA if needed; keep already-encoded path segments
+    host = parts.hostname or ""
+    try:
+        host_ascii = host.encode("idna").decode("ascii") if host else ""
+    except UnicodeError:
+        host_ascii = host
+    netloc = host_ascii
+    if parts.port:
+        netloc = f"{host_ascii}:{parts.port}"
+    if parts.username:
+        user = quote(parts.username, safe="")
+        if parts.password:
+            user = f"{user}:{quote(parts.password, safe='')}"
+        netloc = f"{user}@{netloc}"
+    path = quote(parts.path, safe="/%:@!$&'()*+,;=")
+    query = quote(parts.query, safe="%&=:@!$'()*+,;")
+    fragment = quote(parts.fragment, safe="%!$'()*+,;:@&=/")
+    return urlunsplit((parts.scheme, netloc, path, query, fragment))
+
+
 def check_url(url: str, timeout: float, user_agent: str) -> dict[str, Any]:
     ctx = ssl.create_default_context()
+    request_url = iri_to_uri(url)
     req = urllib.request.Request(
-        url,
+        request_url,
         method="HEAD",
         headers={"User-Agent": user_agent},
     )
@@ -61,7 +85,7 @@ def check_url(url: str, timeout: float, user_agent: str) -> dict[str, Any]:
             }
     except urllib.error.HTTPError as e:
         if e.code in (405, 501, 403):
-            return _get_fallback(url, timeout, user_agent, ctx, str(e))
+            return _get_fallback(request_url, timeout, user_agent, ctx, str(e), display_url=url)
         return {
             "url": url,
             "status": e.code,
@@ -70,17 +94,24 @@ def check_url(url: str, timeout: float, user_agent: str) -> dict[str, Any]:
             "error": str(e),
         }
     except Exception as e:  # noqa: BLE001
-        return _get_fallback(url, timeout, user_agent, ctx, str(e))
+        return _get_fallback(request_url, timeout, user_agent, ctx, str(e), display_url=url)
 
 
 def _get_fallback(
-    url: str, timeout: float, user_agent: str, ctx: ssl.SSLContext, head_error: str
+    url: str,
+    timeout: float,
+    user_agent: str,
+    ctx: ssl.SSLContext,
+    head_error: str,
+    *,
+    display_url: str | None = None,
 ) -> dict[str, Any]:
+    shown = display_url or url
     req = urllib.request.Request(url, headers={"User-Agent": user_agent})
     try:
         with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
             return {
-                "url": url,
+                "url": shown,
                 "status": resp.status,
                 "ok": 200 <= resp.status < 400,
                 "method": "GET",
@@ -88,7 +119,7 @@ def _get_fallback(
             }
     except urllib.error.HTTPError as e:
         return {
-            "url": url,
+            "url": shown,
             "status": e.code,
             "ok": False,
             "method": "GET",
@@ -96,7 +127,7 @@ def _get_fallback(
         }
     except Exception as e:  # noqa: BLE001
         return {
-            "url": url,
+            "url": shown,
             "status": None,
             "ok": False,
             "method": "GET",
@@ -193,16 +224,34 @@ def verify_article(
     }
 
 
+def _self_test() -> int:
+    """Ensure Cyrillic IRI path is percent-encoded for urllib (2GIS-style)."""
+    raw = "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/1"
+    encoded = iri_to_uri(raw)
+    encoded.encode("ascii")  # must not raise
+    assert "авто" not in encoded or "%D0%" in encoded or "%D1%" in encoded or "%20" in encoded
+    cyr = "https://2gis.ru/vladivostok/search/авто-сейлс"
+    out = iri_to_uri(cyr)
+    out.encode("ascii")
+    assert "авто" not in urlsplit(out).path
+    print("PASS link_verify --self-test iri_to_uri")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Verify links in Excalibur article.html")
-    ap.add_argument("html", type=Path, help="Path to article.html")
+    ap.add_argument("html", type=Path, nargs="?", help="Path to article.html")
     ap.add_argument("-o", "--output", type=Path, help="Write link-verify.json")
     ap.add_argument("--site-base", type=str, default=None, help="e.g. https://example.com")
     ap.add_argument("--timeout", type=float, default=15.0)
     ap.add_argument("--skip-external", action="store_true")
+    ap.add_argument("--self-test", action="store_true", help="Run IRI encoding regression")
     args = ap.parse_args()
 
-    if not args.html.is_file():
+    if args.self_test:
+        return _self_test()
+
+    if not args.html or not args.html.is_file():
         print(f"Not found: {args.html}", file=sys.stderr)
         return 2
 

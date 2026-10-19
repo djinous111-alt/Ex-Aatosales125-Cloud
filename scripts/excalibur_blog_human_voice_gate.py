@@ -54,7 +54,11 @@ def validate_fact_check_author(
 ) -> None:
     fact_check = extract_fact_check_block(html)
     if not fact_check:
-        errors.append("Fact Check Box missing: need <blockquote> with «Материал проверен» before FAQ")
+        errors.append(
+            "Fact Check Box missing: need <blockquote> with exact phrase «Материал проверен» "
+            "before FAQ (do not rename to «Редакционная сверка» or aliases — soft FIX must "
+            "vary only the second line / sources)"
+        )
         return
 
     fact_lower = strip_html(fact_check).lower()

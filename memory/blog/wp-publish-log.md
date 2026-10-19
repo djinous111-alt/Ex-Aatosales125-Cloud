@@ -31,3 +31,18 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-19 — B09 kia-seltos-iz-korei-komplektatsii-lovushki-2026
+
+- **verdict:** PASS
+- **post_id:** 4340
+- **permalink:** [REDACTED]/2026/10/19/kia-seltos-iz-korei-komplektatsii-lovushki-2026/
+- **featured_image:** 4346
+- **inline_images:** 4347 (inline-01.png), 4349 (inline-02.png), 4350 (inline-03.png)
+- **schema_meta:** ok (_excalibur_blog_schema_jsonld, len=11038)
+- **skip_theme_faq_meta:** ok (1)
+- **method:** SSH (SSH_ROOT=.) + HTTP RemoteDisconnected → curl fallback got nginx 504; reconstructed via WP REST + wp-cli (no republish)
+- **note:** do not republish as 4334 (Sportage B08) / 4328 / 4316 / …; orphan media gap id 4348 possible unused
+- **result:** memory/blog/articles/B09-kia-seltos-iz-korei-komplektatsii-lovushki-2026/wp-publish-result.json
+- **timeouts:** re-bumped urlopen+fallback wait 120→300s; fallback now rejects HTML without OK post=
+

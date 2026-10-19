@@ -1,0 +1,35 @@
+{
+  "slug": "kia-seltos-iz-korei-komplektatsii-lovushki-2026",
+  "topic_id": "B09",
+  "permalink": "https://avtosales125.ru/2026/10/19/kia-seltos-iz-korei-komplektatsii-lovushki-2026/",
+  "post_id": 4340,
+  "featured_image": 4346,
+  "inline_images": [
+    4347,
+    4349,
+    4350
+  ],
+  "schema_meta": "ok",
+  "skip_theme_faq": "1",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B09-kia-seltos-iz-korei-komplektatsii-lovushki-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1232495,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=4340 slug=kia-seltos-iz-korei-komplektatsii-lovushki-2026\nOK featured_image=4346\nOK schema_meta=1\nOK skip_theme_faq=1\nOK inline_image_upload=4347 src=cover/inline-01.png\nOK inline_image_upload=4349 src=cover/inline-02.png\nOK inline_image_upload=4350 src=cover/inline-03.png\npermalink=https://avtosales125.ru/2026/10/19/kia-seltos-iz-korei-komplektatsii-lovushki-2026/\nNOTE reconstructed_after_nginx_504 client_fail; verified REST id=4340 featured=4346 inline=4347,4349,4350 schema_len=11038 skip_theme_faq=1 HEAD=200; Sportage 4334 untouched\n",
+  "verdict": "pass",
+  "reconstruction": {
+    "reason": "nginx_504_on_client_after_successful_bootstrap",
+    "verified_via": [
+      "wp_rest_posts_slug",
+      "wp_cli_post_meta",
+      "permalink_HEAD_200"
+    ],
+    "foreign_posts_untouched": [
+      4334
+    ]
+  }
+}

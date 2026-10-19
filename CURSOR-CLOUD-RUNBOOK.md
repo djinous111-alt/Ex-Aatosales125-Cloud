@@ -111,3 +111,17 @@ git add .github/workflows/cloud-preflight.yml
 git commit -m "Add cloud preflight workflow"
 git push
 ```
+
+## Pre-commit secret names (Cloud)
+
+If `git commit` fails with bash `invalid variable name` in Secrets Scanner, `CLOUD_AGENT_INJECTED_SECRET_NAMES` likely contains a non-identifier (URL or redaction artifact).
+
+Workaround (same shell as commit):
+
+```bash
+eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+git commit -m "..."
+# or: bash scripts/excalibur_git.sh commit -m "..."
+```
+
+Dashboard fix (needs-human): ensure every injected secret *name* is a bash identifier (`^[A-Za-z_][A-Za-z0-9_]*$`). Public CTA URL env names should not block article commits — filter drops `CATALOG_URL`/`TELEGRAM_URL`/`PUBLIC_SITE_URL`/`MAX_URL` from the scan list.

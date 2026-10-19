@@ -6,8 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_Post-fixer 2026-10-20: all B01 Tucson open incidents below marked fixed (or already fixed)._
+
 ## INC-20261020-2140-publish-nginx-504-reconstruct
-status: open
+status: fixed
 run_date: 2026-10-20
 role: excalibur-blog-publish
 topic_id: B01
@@ -45,11 +47,28 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-20
+fix_summary:
+- `excalibur_blog_wp_publish.py`: HTTP/WebFetch accept only literal `OK post=`; nginx 504 HTML ignored; `try_rest_soft_success` polls WP REST by slug and reconstructs OK lines without a second bootstrap curl (prevents orphan media).
+- Timeouts remain 300s; bootstrap deleted only after OK post=.
+- Publish skill + pitfalls document 504 reconstruct / no-republish path.
+- Residual ops: theme `single.php` must echo `_excalibur_blog_schema_jsonld` (not in this repo) — documented in pitfalls.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_doctor.py` (asserts REST soft-success helper present)
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `python3 scripts/excalibur_blog_wp_publish.py --dry-run --article-dir …B01…`
+- `python3 scripts/excalibur_blog_doctor.py` (errors=0)
+commit: pending-parent-commit
 
 
 ## INC-20261020-2123-cover-mcp-kv-unavailable
-status: open
+status: fixed
 run_date: 2026-10-20
 role: excalibur-blog-cover
 topic_id: B01
@@ -79,10 +98,24 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-20
+fix_summary:
+- Cover skill/agent/contract: Cloud default is Kie async (`excalibur_blog_kie_gpt_image2_api.py` + `KIE_API_KEY`); sync MCP-KV `gpt-image-2` is legacy fallback with identical `input_urls` / ONE-canvas rule.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/blog-cover-quad-canvas-contract.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` Kie preferred path in cover skill/agent
+commit: pending-parent-commit
 
 ## INC-20261020-2123-cover-kie-prompt-policy
-status: open
+status: fixed
 run_date: 2026-10-20
 role: excalibur-blog-cover
 topic_id: B01
@@ -112,10 +145,23 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending (script patched in-run; fixer should confirm docs/pitfalls updated)
+status: fixed
+fixed_at: 2026-10-20
+fix_summary:
+- Confirmed `excalibur_blog_cover_quad_prompt.py` uses abstract non-toxic wording (no banned slang list) and NEVER hoodie/hood/cap; outfit follows scene_hint / blog-hero outfit_rule.
+- Pitfalls: do not enumerate toxic slang in image prompts (safety 400).
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py` (already mid-run; verified)
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `agents/excalibur-blog-cover.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+- `rg` toxic slang literals absent from prompt builder (except abstract wording)
+commit: pending-parent-commit
 
 ## INC-20261020-2123-schema-secret-scan-public-urls
-status: open
+status: fixed
 run_date: 2026-10-20
 role: excalibur-blog-schema
 topic_id: B01
@@ -146,10 +192,27 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-20
+fix_summary:
+- Schema skill/agent document intentional public URLs + `pragma: allowlist secret` / single-line JSON-LD note.
+- Restored `scripts/excalibur_blog_filter_commit_secret_env.sh` (bash-safe names + drop public CTA/site names from scan list) and `scripts/excalibur_git.sh` wrapper.
+- Residual: rename non-bash-safe Dashboard secret names (ops) — workaround is durable in scripts.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter script dry-run with mixed invalid/public/valid names
+- `bash scripts/excalibur_git.sh status -sb`
+commit: pending-parent-commit
 
 ## INC-20261020-2119-geo-qa-typed-task-unavailable
-status: open
+status: fixed
 run_date: 2026-10-20
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -180,11 +243,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-20
+fix_summary:
+- Director skill/agent + AGENTS/pitfalls/runbook: typed `excalibur-blog-*` often missing → **immediately** `Task(generalPurpose)` per role; do not retry typed Task; never parent single-agent GEO QA.
+files_changed:
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-director.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` immediate generalPurpose fallback in director skill/pitfalls
+commit: pending-parent-commit
 
 
 ## INC-20261020-2125-writer-utility-markers-wiped
-status: open
+status: fixed
 run_date: 2026-10-20
 role: excalibur-blog-writer
 topic_id: B01
@@ -217,10 +293,24 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-20
+fix_summary:
+- Confirmed `editorial-policy.json` has non-empty pain/outcome markers + `_markers_pinned`.
+- Doctor fails if markers missing/empty/unpinned.
+- Utility gate POLICY BLOCK on wiped markers (fail-fast before article scoring).
+files_changed:
+- `memory/brief/editorial-policy.json` (markers already restored mid-run; verified)
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` (markers OK)
+- utility `policy_marker_errors` empty-policy BLOCK probe
+commit: pending-parent-commit
 
 ## INC-20261020-2115-research-tech-markers-ii-false-positive
-status: open
+status: fixed
 run_date: 2026-10-20
 role: excalibur-blog-research
 topic_id: B01
@@ -250,10 +340,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-20
+fix_summary:
+- TECH_MARKERS matching is word-boundary; `ии` no longer hits `комплектации` / `объявлении`; `--self-test` covers Tucson-like auto topic.
+- Research skill documents `accessed_at:` literal key requirement (≥5).
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --self-test` PASS
+commit: pending-parent-commit
 
 ## INC-20261020-2105-scout-missing-excalibur-git
-status: open
+status: fixed
 run_date: 2026-10-20
 role: excalibur-blog-scout
 topic_id: B01
@@ -282,7 +384,21 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-20
+fix_summary:
+- Restored `scripts/excalibur_git.sh` + `scripts/excalibur_blog_filter_commit_secret_env.sh` (eval-able; bash-safe filter; public URL names dropped from scan list).
+- Doctor asserts both scripts present.
+- Residual ops: rename any non-bash-safe Dashboard secret names (workaround is durable).
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter + `excalibur_git.sh status`
+- doctor OK for both scripts
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

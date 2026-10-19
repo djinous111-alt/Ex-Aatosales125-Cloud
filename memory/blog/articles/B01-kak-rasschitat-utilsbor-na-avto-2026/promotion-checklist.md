@@ -1,15 +1,16 @@
 # Promotion checklist — B01 kak-rasschitat-utilsbor-na-avto-2026
 
-Дата публикации: 2026-10-19 (pending publish)  
-Live URL: /blog/kak-rasschitat-utilsbor-na-avto-2026/
+Дата публикации: 2026-10-19  
+Live URL: https://avtosales125.ru/2026/10/19/kak-rasschitat-utilsbor-na-avto-2026/
+WP post_id: 4358
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200; post=4358)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
-- [ ] Проверить internal links из статьи (200)
+- [x] Проверить internal links из статьи (200) — link-verify PASS pre-publish
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
 
 ## Соцсети / каналы (из conversion-tracking-map)

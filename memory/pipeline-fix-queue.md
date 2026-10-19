@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261019-0906-scout-suggest-next-ignores-live-reserved
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-scout
+topic_id: B09
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- Director Task forced topic_id **B09** (continuity after live WP series through Kia Sportage = B08).
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next` returned **B01** because B-pool in `blog-topics.md` was empty.
+- `memory/blog/live-reserved.json` was missing on this branch after previous scout claimed `next_forced_topic_id=B09`.
+- Current `scripts/excalibur_blog_scout_helper.py` has **no** reads of `live-reserved.json` / `next_forced_topic_id` (contrary to automation memory notes that helper "honors live-reserved").
+
+### How the agent recovered this run
+- Ignored helper B01; forced **B09** per Director Task.
+- Created `memory/blog/live-reserved.json` with `reserved_topic_id=B09`, `next_forced_topic_id=B10`.
+- Appended utility card B09 (Kia Seltos комплектации/ловушки); utility gate PASS.
+
+### Durable fix needed before next run
+- Teach `excalibur_blog_scout_helper.py --suggest-next` to prefer `memory/blog/live-reserved.json` → `next_forced_topic_id` when present and unused.
+- Persist `live-reserved.json` across scout runs (commit or restore from publish handoff).
+- Align scout skill/agent copy with AVTO SALES niche (site-brief), not Cursor/Make defaults.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

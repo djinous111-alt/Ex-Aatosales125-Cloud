@@ -1,0 +1,9 @@
+{
+  "reserved_topic_id": "B09",
+  "next_forced_topic_id": "B10",
+  "slug": "kia-seltos-iz-korei-komplektatsii-lovushki-2026",
+  "primary_query": "киа селтос из кореи",
+  "source": "excalibur-blog-scout",
+  "run_date": "2026-10-19",
+  "note": "Forced B09 (helper --suggest-next returned B01 on empty B-pool; continuity after B08 Sportage). Helper does not yet read this file on current branch."
+}

@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261019-0943-schema-precommit-secret-names-url
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-schema
+topic_id: B09
+article_dir: memory/blog/articles/B09-kia-seltos-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- First `git commit` of `schema.jsonld` failed in Cloud pre-commit secrets scanner: `CLOUD_AGENT_INJECTED_SECRET_NAMES` included one non-identifier entry (a URL string), so bash `${!SECRET_NAME}` aborted with `invalid variable name` before scanning files.
+- Schema content itself was fine; any commit in the same env would hit the same hook crash.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to `str.isidentifier()` names only for the commit process.
+- Retried commit successfully (hooks still ran on the filtered name list).
+- Did not use `--no-verify`.
+
+### Durable fix needed before next run
+- Ensure Cloud injects only env var *names* into `CLOUD_AGENT_INJECTED_SECRET_NAMES` (no raw URL/value tokens).
+- Harden pre-commit.cursor to skip non-identifier names instead of crashing the whole commit.
+- Optionally document the filter workaround in `shared/agent-pipeline-pitfalls.md` / Cloud runbook for schema/publish agents.
+
+### Suggested files to inspect/change
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+- Cloud Agent pre-commit secrets scanner (`pre-commit.cursor`)
+- Cursor Dashboard Cloud Secrets injection for this environment
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261019-1233-geo-qa-fact-check-required-phrase-soft-fix-trap
 status: open
 run_date: 2026-10-19

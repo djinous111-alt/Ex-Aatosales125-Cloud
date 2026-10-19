@@ -76,4 +76,5 @@ python3 scripts/excalibur_blog_research_notes_gate.py \
   -o research-notes-gate.json
 ```
 `-o` — basename или absolute path (relative path with `/` резолвится от repo root).
-TECH_MARKERS — word-boundary; `reader_pain` не делает тему technical. Self-check: `python3 scripts/excalibur_blog_research_notes_gate.py --self-test`.
+TECH_MARKERS — word-boundary; `reader_pain` / `комплектации` не делают тему technical. Self-check: `python3 scripts/excalibur_blog_research_notes_gate.py --self-test`.
+`accessed_at` gate: нужно ≥5 литералов `accessed_at:` (YAML front + `## access_log` ок); даты только в table column без ключа **не** считаются.

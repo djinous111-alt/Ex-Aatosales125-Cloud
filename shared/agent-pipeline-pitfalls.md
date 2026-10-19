@@ -15,7 +15,8 @@
 
 - Перед пайплайном: `python3 scripts/excalibur_blog_today.py` и `python3 scripts/excalibur_blog_research_start.py --topic-id …`.
 - Если `EXCALIBUR_RUN_DATE` нет в выводе today.py — старая ветка/код, **блокер**.
-- `research_notes_gate` детектит tech-нишу по **word-boundary**, не substring: `ai`/`ии` внутри `reader_pain` / `ожидании` не делают тему технической. Проверка: `python3 scripts/excalibur_blog_research_notes_gate.py --self-test`.
+- `research_notes_gate` детектит tech-нишу по **word-boundary**, не substring: `ai`/`ии` внутри `reader_pain` / `комплектации` / `ожидании` не делают тему технической. Проверка: `python3 scripts/excalibur_blog_research_notes_gate.py --self-test`.
+- Gate считает `accessed_at` только по литералу ключа `accessed_at:` (≥5 раз). Даты в markdown-таблице без ключа **не** засчитываются — добавь `## access_log` с явными `accessed_at: YYYY-MM-DD`.
 - `-o research-notes-gate.json` — basename (пишется в `--article-dir`); не передавай repo-relative `memory/blog/articles/.../research-notes-gate.json`.
 
 ## Publish
@@ -25,7 +26,9 @@
 - Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
 - SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
 - HTTP bootstrap trigger / WebFetch wait = **300s** (не 120). Fallback принимает файл только с литералом `OK post=` (nginx 504 HTML — не success).
+- После HTTP 504 скрипт сам поллит WP REST по slug (`try_rest_soft_success`) и пишет verdict=pass **без** второго curl bootstrap (иначе orphan media).
 - После 504/false-fail: проверь slug через REST/wp-cli; если пост уже создан — reconstruct artifacts, **не republish** и не трогай чужие post_id.
+- Theme `single.php` должен echo `_excalibur_blog_schema_jsonld` в `<script type="application/ld+json">` — иначе JSON-LD meta есть, а live ld+json blocks=0 (needs theme deploy, не publish retry).
 
 ## Schema / Writer / secret scan
 
@@ -52,7 +55,8 @@
 
 ## Cover
 
-- Cloud default: Kie async (`excalibur_blog_kie_gpt_image2_api.py` + `KIE_API_KEY`). Sync MCP `gpt-image-2` — legacy; `-32001` → Kie recovery, не duplicate jobs.
+- Cloud default: Kie async (`excalibur_blog_kie_gpt_image2_api.py` + `KIE_API_KEY`). Sync MCP `gpt-image-2` / MCP-KV — legacy; unavailable или `-32001` → Kie, не duplicate jobs.
+- Image prompt: **не** перечисляй banned toxic slang дословно (safety filter 400); пиши нейтрально «no insults / no humiliating labels». Outfit — по `scene_hint` / `blog-hero.json` outfit_rule, **never hoodie/hood/cap**.
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
 
 ## Scout
@@ -64,4 +68,5 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
-- llms generator CLI: `--blog-dir` + `--site-base` + `--out-dir` (флага `--blog-path` нет; doctor проверяет `--blog-dir`).
+- llms generator CLI: `--blog-dir` + `--site-base` + `--out-dir` (флага `--blog-path` нет; doctor проверяет `--blog-dir`/`--out-dir`).
+- Перед коммитом: в `memory/blog/llms*.txt` заменяй absolute `PUBLIC_SITE_URL` на относительные `/blog/<slug>/`; в `interlink-suggestions.json` — `site_base: [REDACTED]`.

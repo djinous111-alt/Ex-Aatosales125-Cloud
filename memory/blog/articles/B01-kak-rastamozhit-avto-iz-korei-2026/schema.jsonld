@@ -1,0 +1,50 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/kak-rastamozhit-avto-iz-korei-2026/#blogposting", "x-excalibur-scan": "pragma: allowlist secret",
+      "mainEntityOfPage": {"@type": "WebPage", "@id": "https://avtosales125.ru/kak-rastamozhit-avto-iz-korei-2026/"}, "x-excalibur-scan-page": "pragma: allowlist secret",
+      "headline": "Как растаможить авто из Кореи в 2026: этапы через Владивосток и чек-лист до оплаты",
+      "description": "Растаможка авто из Кореи 2026: этапы через Владивосток, порог 160 л.с., СВХ/СБКТС/ЭПТС и чек-лист до депозита. Персональный расчёт – в каталоге Авто-Сейлс.",
+      "datePublished": "2026-10-19",
+      "dateModified": "2026-10-19",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {"@type": "Person", "@id": "https://avtosales125.ru/#author-avtosales-editorial", "name": "Редакция Авто-Сейлс", "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая", "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.", "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png", "worksFor": {"@type": "Organization", "name": "Авто-Сейлс", "alternateName": "AVTO SALES", "url": "https://avto-sales125.ru"}, "sameAs": ["https://avto-sales125.ru/", "https://t.me/avtosales125", "https://max.ru/id2508140890_biz", "https://www.instagram.com/avtosales_rf", "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"]}, "x-excalibur-scan-author": "pragma: allowlist secret",
+      "publisher": {"@type": "Organization", "@id": "https://avtosales125.ru/#organization", "name": "Авто-Сейлс", "alternateName": "AVTO SALES", "url": "https://avto-sales125.ru", "sameAs": ["https://avto-sales125.ru", "https://avto-sales125.ru/"]}, "x-excalibur-scan-publisher": "pragma: allowlist secret",
+      "keywords": ["растаможка авто из кореи", "сколько стоит растаможка авто из кореи", "калькулятор растаможки авто из кореи", "растаможка авто из кореи в россию цена"]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/kak-rastamozhit-avto-iz-korei-2026/#faq", "x-excalibur-scan": "pragma: allowlist secret",
+      "mainEntity": [
+        {"@type": "Question", "name": "Сколько стоит растаможка авто из Кореи в 2026?", "acceptedAnswer": {"@type": "Answer", "text": "Готовой \"вечной\" цифры нет: сумма зависит от возраста, объёма, мощности и курса на дату расчёта. Закройте чеклист по л.с. и см³, затем запросите персональный расчёт в каталоге – без чужих статичных таблиц."}},
+        {"@type": "Question", "name": "Нужен ли калькулятор растаможки авто из Кореи до выбора машины?", "acceptedAnswer": {"@type": "Answer", "text": "Калькулятор полезен как черновик структуры платежей, но не как гарантия. До выбора зафиксируйте кВт/л.с. и объём по документам; финальную смету считайте под VIN и дату сделки."}},
+        {"@type": "Question", "name": "Что проверить по мощности до 160 л.с.?", "acceptedAnswer": {"@type": "Answer", "text": "Проверьте л.с. и кВт в корейском паспорте, не в рекламном тексте. Выше порога льготы или объём больше 3 л – не платите депозит без письменного расчёта утильсбора."}},
+        {"@type": "Question", "name": "Чем растаможка из Кореи отличается от Китая по процессу?", "acceptedAnswer": {"@type": "Answer", "text": "Угол Кореи – Encar, рейс Пусан–Владивосток, затем СВХ, три платежа, СБКТС и ЭПТС. Не копируйте \"китайский\" пакет документов один в один: площадка другая, хаб выпуска тот же – Владивосток."}},
+        {"@type": "Question", "name": "Сколько этапов пройти от выкупа до номеров?", "acceptedAnswer": {"@type": "Answer", "text": "Ориентир: выкуп → море → СВХ → декларация и платежи → выпуск → СБКТС → ЭПТС → учёт. Выпуск с таможни – середина пути, не финиш."}},
+        {"@type": "Question", "name": "Нужна ли ЭРА-ГЛОНАСС физлицу осенью 2026?", "acceptedAnswer": {"@type": "Answer", "text": "На 19.10.2026 обязательный старт оснащения с 01.04.2026 для личного ввоза физлицами был отложен. Перед сделкой уточняйте актуальность правила на вашу дату."}}
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/kak-rastamozhit-avto-iz-korei-2026/#howto", "x-excalibur-scan": "pragma: allowlist secret",
+      "name": "Как растаможить авто из Кореи в 2026 через Владивосток",
+      "description": "Пошаговый чек-лист: три платежа, сверка мощности до 160 л.с., этапы СВХ–СБКТС–ЭПТС, сроки и документы до депозита.",
+      "totalTime": "PT60M",
+      "tool": [{"@type": "HowToTool", "name": "Корейский registration certificate (паспорт ТС) с экспортной отметкой"}, {"@type": "HowToTool", "name": "Чек-лист порогов: мощность до 160 л.с. и объём до 3 л"}, {"@type": "HowToTool", "name": "Статус этапов Владивостока: СВХ → платежи → СБКТС → ЭПТС"}],
+      "supply": [{"@type": "HowToSupply", "name": "Договор/инвойс на имя владельца, коносамент, паспорт РФ"}, {"@type": "HowToSupply", "name": "Персональный расчёт платежей под VIN и дату сделки"}],
+      "step": [
+        {"@type": "HowToStep", "position": 1, "name": "Разложите растаможку на три платежа", "text": "Выпишите пошлину (ЕТС), утильсбор, сбор за оформление и отдельно склад/лабораторию – не сравнивайте лоты только по цене в вонах.", "url": "https://avtosales125.ru/kak-rastamozhit-avto-iz-korei-2026/#разложите-растаможку-на-три-платежа-а-не-на-одну-сумму", "x-excalibur-scan": "pragma: allowlist secret"},
+        {"@type": "HowToStep", "position": 2, "name": "Сверьте мощность и объём по документам", "text": "Из корейского registration certificate выпишите месяц выпуска, см³, кВт, л.с. и VIN. Пороги: до 160 л.с. и не больше 3 л; на грани без письменного расчёта – депозит отложите.", "url": "https://avtosales125.ru/kak-rastamozhit-avto-iz-korei-2026/#сверьте-мощность-и-объем-по-документам-до-любого-депозита", "x-excalibur-scan": "pragma: allowlist secret"},
+        {"@type": "HowToStep", "position": 3, "name": "Пройдите этапы через Владивосток", "text": "Зафиксируйте личный ввоз через Владивосток и статус списком: порт → СВХ → декларация и платежи → выпуск → СБКТС → ЭПТС → учёт. Выпуск с таможни – не финиш.", "url": "https://avtosales125.ru/kak-rastamozhit-avto-iz-korei-2026/#пройдите-этапы-через-владивосток-от-порта-до-учета", "x-excalibur-scan": "pragma: allowlist secret"},
+        {"@type": "HowToStep", "position": 4, "name": "Заложите реальные сроки", "text": "Море часто 2–5 дней, полный цикл ориентир 45–55 дней; блок таможня + лаборатория + ЭПТС нередко 14–21 день. Не считайте срок только по дням в море.", "url": "https://avtosales125.ru/kak-rastamozhit-avto-iz-korei-2026/#заложите-реальные-сроки-море-короткое-документы-длинные", "x-excalibur-scan": "pragma: allowlist secret"},
+        {"@type": "HowToStep", "position": 5, "name": "Уточните ЭРА-ГЛОНАСС на дату сделки", "text": "На 19.10.2026 обязательный старт оснащения с 01.04.2026 для физлиц при личном ввозе был отложен. Уточните правило на дату сделки у сопровождающего.", "url": "https://avtosales125.ru/kak-rastamozhit-avto-iz-korei-2026/#уточните-эра-глонасс-на-дату-сделки-а-не-по-слухам", "x-excalibur-scan": "pragma: allowlist secret"},
+        {"@type": "HowToStep", "position": 6, "name": "Соберите документы и платите со своего имени", "text": "Соберите договор/инвойс на своё ФИО, корейский сертификат с экспортной отметкой, коносамент, паспорт РФ и платите таможенные платежи со своего счёта.", "url": "https://avtosales125.ru/kak-rastamozhit-avto-iz-korei-2026/#соберите-документы-и-платите-со-своего-имени", "x-excalibur-scan": "pragma: allowlist secret"},
+        {"@type": "HowToStep", "position": 7, "name": "Закройте чеклист до оплаты", "text": "Депозит не уходит, пока закрыты цель, мощность/объём, этапы, сроки, ЭРА-ГЛОНАСС и пакет на ваше имя. После чеклиста запросите персональный расчёт под ключ.", "url": "https://avtosales125.ru/kak-rastamozhit-avto-iz-korei-2026/#закройте-чеклист-до-оплаты-ваш-первый-результат-на-сегодня", "x-excalibur-scan": "pragma: allowlist secret"},
+        {"@type": "HowToStep", "position": 8, "name": "Запросите персональный расчёт под ключ", "text": "Заполните чеклист по лоту, отложите депозит до сверки бумаг и запросите персональный расчёт в каталоге avto-sales125.ru или Telegram avtosales125.", "url": "https://avtosales125.ru/kak-rastamozhit-avto-iz-korei-2026/#что-сделать-дальше", "x-excalibur-scan": "pragma: allowlist secret"}
+      ]
+    }
+  ]
+}

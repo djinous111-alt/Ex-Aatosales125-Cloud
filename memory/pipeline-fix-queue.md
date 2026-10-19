@@ -386,3 +386,38 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261019-1315-writer-editorial-pain-outcome-missing
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rastamozhit-avto-iz-korei-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again lost `pain_markers_ru` and `outcome_markers_ru`.
+- Utility gate treated empty lists as zero matches and BLOCK-нул статью (`pain_markers=0`, `outcome_markers=0`) даже при живом тексте про боль/результат.
+- Повторяющийся сбой после прошлых fixer-правок; `_markers_pinned` в файле отсутствовал.
+
+### How the agent recovered this run
+- Восстановил списки маркеров из последнего known-good commit и выставил `_markers_pinned: true`.
+- Вплел в `article.html` recommendation/pain/outcome маркеры; utility gate PASS (action 29 / pain 9 / outcome 12).
+
+### Durable fix needed before next run
+- Doctor должен fail-fast, если `pain_markers_ru`/`outcome_markers_ru` пустые или отсутствуют.
+- Utility gate: при пустых списках – BLOCK policy, а не ложный BLOCK статьи.
+- Защитить editorial-policy от silent wipe в scout/research/setup шагах.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import os
 import subprocess
 import sys
@@ -132,7 +133,28 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check("--out-dir" in llms_help.stdout, "llms generator supports --out-dir", errors, warnings)
+    check("--blog-path" not in llms_help.stdout, "llms generator does not use stale --blog-path", errors, warnings)
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    check(policy_path.is_file(), "editorial-policy.json exists", errors, warnings)
+    if policy_path.is_file():
+        try:
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            check(False, f"editorial-policy.json parses: {exc}", errors, warnings)
+            policy = {}
+        pain = policy.get("pain_markers_ru")
+        outcome = policy.get("outcome_markers_ru")
+        check(isinstance(pain, list) and len(pain) >= 3, "editorial-policy pain_markers_ru non-empty", errors, warnings)
+        check(
+            isinstance(outcome, list) and len(outcome) >= 3,
+            "editorial-policy outcome_markers_ru non-empty",
+            errors,
+            warnings,
+        )
+        check(bool(policy.get("_markers_pinned")), "editorial-policy _markers_pinned true", errors, warnings)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

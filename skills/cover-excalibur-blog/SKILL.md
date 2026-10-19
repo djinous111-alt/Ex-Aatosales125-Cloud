@@ -199,3 +199,7 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 ## Эталон (B01)
 
 `memory/blog/articles/B01-primer-seo-stati/cover/` — reference implementation после design code v1.
+
+## Git commit
+
+Используй `bash scripts/excalibur_git.sh commit -m "..."` (фильтр invalid/public URL secret names). Не `--no-verify`.

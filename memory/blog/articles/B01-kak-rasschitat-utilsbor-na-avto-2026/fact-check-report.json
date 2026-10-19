@@ -1,0 +1,80 @@
+{
+  "article": "memory/blog/articles/B01-kak-rasschitat-utilsbor-na-avto-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 10,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 8,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "азад. Знакомая боль – ошибка в утильсборе на авто 2026 до депозита. Ниже – чек-лист данных по машине из К",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "к получите рабочий результат до депозита. С 01.12.2025 в расчёт для легковых учитывают тип, объём и мощно",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2025 года",
+      "kind": "date_or_year",
+      "context": "за цифрой. Не в первую вкладку поиска с таблицей 2025 года, а в сервис, где считают под конкретную машину. С",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "за Возраст на дату оформления обычно делят на \"до 3 лет\" и \"старше 3 лет\". Это влияет на коэффициент. Ста",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "12 месяцев",
+      "kind": "metric_or_duration",
+      "context": "стория льготы: было ли льготное авто за последние 12 месяцев. Сделайте: решите статус ввоза до депозита. Не де",
+      "verified": true,
+      "reason": "Numerical value '12' matched in fact-bank context"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "л.с. по этой логике; для ДВС у физлица – не выше 160 л.с. при выполнении остальных условий. Тут важный",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 400",
+      "kind": "large_number",
+      "context": "ры для физлица в разборах 2026 часто называют как 3 400 ₽ (до 3 лет) и 5 200 ₽ (старше 3 лет). Это не пра",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 200",
+      "kind": "large_number",
+      "context": "орах 2026 часто называют как 3 400 ₽ (до 3 лет) и 5 200 ₽ (старше 3 лет). Это не прайс \"на любую машину\",",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 000",
+      "kind": "large_number",
+      "context": "ы (для ДВС в открытых разборах – до 160 л.с. и до 3 000 см³). Не больше одного льготного авто за 12 месяце",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "ами – обзоры индексации утильсбора (РИА), ПП РФ № 1713 (ConsultantPlus), разборы формулы и льготы (Lenta",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -14,6 +14,8 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Whole-token / stem markers only. Plain substring falsely hits field names
+# like reader_pain ("ai") and ordinary Cyrillic words with "ии".
 TECH_MARKERS = (
     "ai",
     "ии",
@@ -31,6 +33,11 @@ TECH_MARKERS = (
     "автоматизац",
     "нейросет",
 )
+
+# Stem prefixes: match at token start, allow suffix continuation.
+TECH_STEM_MARKERS = frozenset({"автоматизац", "нейросет"})
+
+_WORD_CHAR = r"0-9A-Za-zА-Яа-яЁё_"
 
 
 REQUIRED_FIELDS = (
@@ -73,14 +80,69 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _tech_marker_re(marker: str) -> re.Pattern:
+    escaped = re.escape(marker.lower())
+    if marker in TECH_STEM_MARKERS:
+        return re.compile(rf"(?<![{_WORD_CHAR}]){escaped}", re.I)
+    return re.compile(rf"(?<![{_WORD_CHAR}]){escaped}(?![{_WORD_CHAR}])", re.I)
+
+
+def marker_hits_blob(blob: str, marker: str) -> bool:
+    return bool(_tech_marker_re(marker).search(blob))
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Prefer topic card signals; only skim notes for explicit tech tokens, not field labels.
+    notes_head = notes[:2000].lower()
+    # Strip known research field labels that embed Latin "ai" / similar substrings.
+    for field in ("reader_pain", "pain_solution_map", "reader_outcome", "success_criteria"):
+        notes_head = notes_head.replace(field, " ")
+    blob += " " + notes_head
+    return any(marker_hits_blob(blob, marker) for marker in TECH_MARKERS)
+
+
+def self_test() -> None:
+    """Regression checks for TECH_MARKERS word-boundary matching."""
+    cases = [
+        ({"topic": {"h1": "Как растаможить авто", "slug": "kak-rastamozhit"}}, "reader_pain: боится депозит\npain_solution_map: …", False),
+        ({"topic": {"h1": "Объявлении на сайте", "primary_query": "объявлении"}}, "обычный текст без tech", False),
+        (
+            {
+                "topic": {
+                    "h1": "Как рассчитать утильсбор на авто из Японии 2026",
+                    "primary_query": "утильсбор авто из Японии",
+                    "search_intent": "checklist",
+                    "slug": "kak-rasschitat-utilsbor-na-avto-2026",
+                }
+            },
+            "reader_pain: боится переплаты\npain_solution_map: …",
+            False,
+        ),
+        ({"topic": {"h1": "AI agent MCP workflow", "slug": "ai-agent"}}, "github evidence", True),
+        ({"topic": {"h1": "n8n API docker", "slug": "n8n-api"}}, "", True),
+        ({"topic": {"h1": "Cursor RAG", "slug": "cursor-rag"}}, "", True),
+    ]
+    failures: list[str] = []
+    for context, notes, expect in cases:
+        got = is_technical_topic(context, notes)
+        if got != expect:
+            failures.append(f"expected {expect} got {got} for {context!r} / {notes[:40]!r}")
+    # Direct false-positive probes
+    if marker_hits_blob("reader_pain: x", "ai"):
+        failures.append("ai must not match inside reader_pain")
+    if marker_hits_blob("объявлении", "ии"):
+        failures.append("ии must not match inside объявлении")
+    if marker_hits_blob("японии", "ии"):
+        failures.append("ии must not match inside японии")
+    if not marker_hits_blob("use ai tools", "ai"):
+        failures.append("ai must match as whole token")
+    if failures:
+        raise AssertionError("research_notes_gate self-test failed:\n- " + "\n- ".join(failures))
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -196,9 +258,18 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Validate research-notes.md freshness and depth")
-    ap.add_argument("--article-dir", type=Path, required=True)
+    ap.add_argument("--article-dir", type=Path, default=None)
     ap.add_argument("-o", "--output", type=Path, default=None)
+    ap.add_argument("--self-test", action="store_true", help="Run TECH_MARKERS word-boundary regression checks")
     args = ap.parse_args()
+
+    if args.self_test:
+        self_test()
+        print("Research Notes Gate self-test: PASS")
+        return 0
+
+    if not args.article_dir:
+        ap.error("--article-dir is required unless --self-test")
 
     root = project_root()
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir

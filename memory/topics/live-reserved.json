@@ -1,0 +1,49 @@
+{
+  "updated_at": "2026-10-19",
+  "source": "fixer post-B09 WP 4340",
+  "reserved": [
+    {
+      "topic_id": "B01",
+      "wp_hint": "4269"
+    },
+    {
+      "topic_id": "B02",
+      "wp_hint": "4286"
+    },
+    {
+      "topic_id": "B03",
+      "wp_hint": "4292"
+    },
+    {
+      "topic_id": "B04",
+      "wp_hint": "4298"
+    },
+    {
+      "topic_id": "B05",
+      "wp_hint": "4300+"
+    },
+    {
+      "topic_id": "B06",
+      "wp_hint": "4316"
+    },
+    {
+      "topic_id": "B07",
+      "wp_hint": "4328"
+    },
+    {
+      "topic_id": "B08",
+      "wp_hint": "4334",
+      "slug": "kia-sportage"
+    },
+    {
+      "topic_id": "B09",
+      "wp_hint": "4340",
+      "slug": "kia-seltos-iz-korei-komplektatsii-lovushki-2026"
+    }
+  ],
+  "next_forced_topic_id": "B10",
+  "scout_note": "B09 published WP 4340; do not republish 4334/4340. Helper honors this file + memory/blog/live-reserved.json.",
+  "denylist_slugs": [
+    "kia-seltos-iz-korei-komplektatsii-lovushki-2026"
+  ]
+}

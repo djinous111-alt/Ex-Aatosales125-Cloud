@@ -1,0 +1,95 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-19",
+    "today_ru": "19.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-21",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-19 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "kak-rasschitat-utilsbor-na-avto-2026",
+    "h1": "Как рассчитать утильсбор на авто в 2026: чек-лист для машин из Кореи, Китая и Японии",
+    "primary_query": "утильсбор на авто 2026",
+    "secondary_queries": [
+      "расчет утильсбора на авто",
+      "утильсбор на авто калькулятор",
+      "рассчитать утильсбор на авто 2026"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "утильсбор на авто 2026 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "утильсбор на авто 2026 октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "утильсбор на авто 2026 новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com утильсбор на авто 2026 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "утильсбор на авто 2026 official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "утильсбор на авто 2026 forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "расчет утильсбора на авто 2026",
+      "purpose": "вторичный запрос: расчет утильсбора на авто"
+    },
+    {
+      "id": "secondary_2",
+      "query": "утильсбор на авто калькулятор 2026",
+      "purpose": "вторичный запрос: утильсбор на авто калькулятор"
+    },
+    {
+      "id": "secondary_3",
+      "query": "рассчитать утильсбор на авто 2026 2026",
+      "purpose": "вторичный запрос: рассчитать утильсбор на авто 2026"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как рассчитать утильсбор на авто в 2026: чек-лист для машин из Кореи, Китая и Японии 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-kak-rasschitat-utilsbor-na-avto-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

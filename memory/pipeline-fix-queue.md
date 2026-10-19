@@ -287,6 +287,38 @@ category: script
 ### Fixer resolution
 - pending
 
+## INC-20261019-1714-research-tech-marker-ii-false-positive
+status: open
+run_date: 2026-10-19
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-rasschitat-utilsbor-na-avto-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` marks non-tech automotive topic B01 as `technical_topic=true` because TECH_MARKERS contains substring `ии`, which matches ordinary Russian genitive forms like «Японии» in h1/primary context.
+- Gate then requires `github_urls >= 3` and warns about missing developer docs URL even though the article is a beginner checklist about утильсбор, not AI/agents/API.
+
+### How the agent recovered this run
+- Added three relevant public GitHub evidence links (tks-api, api.tks.ru, encar tg-bot) plus official government docs URL so research-notes gate can PASS without inventing demand figures.
+- Kept beginner-first utility angle and writer_guardrails against copy-paste utilzbor price tables.
+
+### Durable fix needed before next run
+- Tighten `is_technical_topic()` markers: drop bare `ии`, require word-boundary / whole-token matches, or exclude topic blobs that are clearly automotive/customs.
+- Optionally skip GitHub minimum when `search_intent` is checklist/how_to and niche is auto-import (site-brief), not AI tooling.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261019-1705-scout-precommit-secret-names
 status: open
 run_date: 2026-10-19

@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-kak-rasschitat-utilsbor-na-avto-2026",
+  "notes": "memory/blog/articles/B01-kak-rasschitat-utilsbor-na-avto-2026/research-notes.md",
+  "context": "memory/blog/articles/B01-kak-rasschitat-utilsbor-na-avto-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-10-19",
+    "prefer_sources_after": "2026-07-21",
+    "source_urls": 24,
+    "source_domains": 12,
+    "source_table_rows": 24,
+    "accessed_at": 12,
+    "github_urls": 3,
+    "official_doc_urls": 1,
+    "action_outline_items": 9,
+    "pain_solution_rows": 9,
+    "technical_topic": true
+  }
+}

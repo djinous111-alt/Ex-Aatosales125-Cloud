@@ -1,0 +1,274 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-19",
+    "today_ru": "19.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-21",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-19 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "kak-rasschitat-utilsbor-na-avto-2026",
+    "h1": "Как рассчитать утильсбор на авто в 2026: чек-лист для машин из Кореи, Китая и Японии",
+    "primary_query": "утильсбор на авто 2026",
+    "secondary_queries": [
+      "расчет утильсбора на авто",
+      "утильсбор на авто калькулятор",
+      "рассчитать утильсбор на авто 2026"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "утильсбор на авто 2026 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "утильсбор на авто 2026 октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "утильсбор на авто 2026 новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com утильсбор на авто 2026 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "утильсбор на авто 2026 official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Утильсбор в России 2026: полные таблицы ставок и расчёт для физлиц",
+          "url": "https://autoprofiasia.ru/blog/utilsbor-v-rossii-2026-tablitsy-stavki-raschet",
+          "snippet": ""
+        },
+        {
+          "title": "Утильсбор 2026: ставки, таблица, расчёт, льготы и кто может не платить",
+          "url": "https://www.avtovzglyad.ru/avto/price/72942-2026-06-25-utilsbor-2026-stavki-tablitsa-raschyot-lgotyi-ikto-mozhet-neplatit/",
+          "snippet": "Теперь утильсбор рассчитывается по двумерной матрице: мощность × объём двигателя. С 1 января 2026 года все коэффициенты индексированы на 20%. Базовая ставка (Б) = 20 000 ₽."
+        },
+        {
+          "title": "Утильсбор, оплата и документы: как не сломать сделку в 2026",
+          "url": "https://avtonds.ru/news/utilsbor-oplata-dokumenty-premium-avto-2026",
+          "snippet": "С 1 декабря 2025 года в России действуют новые правила расчета утильсбора, а с 1 апреля 2026-го— закрыта и «обходная схема» при ввозе автомобилей из стран ЕАЭС. Все подробности — в гайде портала «АвтоВзгляд». С 2012 года, когда утильсбор был введён, он стал мощным регулятором автомобильного рынка."
+        },
+        {
+          "title": "Утильсбор и оплата премиального авто в 2026: чек-лист",
+          "url": "https://avtonds.ru/news/utilsbor-oplata-premium-avto-2026-risk-check",
+          "snippet": "Как проверить утильсбор, документы и порядок оплаты премиального автомобиля под заказ в 2026 году: чек-лист до сделки."
+        },
+        {
+          "title": "Утильсбор 2026: таблица и все изменения с января",
+          "url": "https://autotrans-rf.ru/blog/utilsbor-2026-tablicza-i-vse-izmeneniya-s-yanvarya.html",
+          "snippet": "Как проверить утильсбор, документы и оплату премиального автомобиля под заказ в 2026 году: чек-лист до аванса и безопасный маршрут сделки."
+        },
+        {
+          "title": "Утильсбор 2026: Что Изменилось — Хронология | Carto",
+          "url": "https://carto-auto.ru/blog/utilsbor-chto-izmenilos-2026-hronologiya/",
+          "snippet": "В статье подробно рассматриваются изменения для легковых и грузовых автомобилей, включая таблицы для расчёта утильсбора в зависимости от мощности и возраста автомобиля."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "утильсбор на авто 2026 forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "расчет утильсбора на авто 2026",
+      "purpose": "вторичный запрос: расчет утильсбора на авто",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Калькулятор утильсбора 2026",
+          "url": "https://calcus.ru/kalkulyator-utilsbora",
+          "snippet": ""
+        },
+        {
+          "title": "Калькулятор утиль сбора: онлайн расчёт 2026",
+          "url": "https://calculatorov.ru/kalkulyator-util-sbora/",
+          "snippet": "Калькулятор утилизационного сбора Рассчитайте размер утилизационного сбора для вашего автомобиля по актуальным ставкам 2026 года."
+        },
+        {
+          "title": "Калькулятор утильсбора авто 2026 — онлайн расчет",
+          "url": "https://lab-td.ru/calc/",
+          "snippet": "Онлайн-калькулятор утилизационного сбора на 2026 год. Рассчитайте точную сумму для легковых авто, электромобилей и грузовиков с учётом льгот для физлиц."
+        },
+        {
+          "title": "Калькулятор утильсбора 2026: рассчитать утилизационный сбор онлайн",
+          "url": "https://web-calculator.ru/avtomobilnyye-kalkulyatory/kalkulyator-utilsbora",
+          "snippet": "Выберите модель — и вы увидите полный расчёт всех обязательных платежей: таможенных пошлин, утильсбора и итоговой стоимости ввоза."
+        },
+        {
+          "title": "Калькулятор Утильсбора 2026 — Расчёт Для Авто | Azway",
+          "url": "https://azway.ru/kalkulyator-utilizacionnogo-sbora",
+          "snippet": "Рассчитайте утилизационный сбор на автомобиль в 2026 году: для физлиц (личное пользование) и юрлиц, по объёму, мощности двигателя (л.с.) и возрасту."
+        },
+        {
+          "title": "Калькулятор Утильсбора 2026 - Расчёт На Автомобиль | Avadge",
+          "url": "https://avadge.com/services/utilsbor/",
+          "snippet": "Рассчитайте утильсбор на авто онлайн: по возрасту, объёму, мощности, типу двигателя и ввозу. Покажем льготную или коммерческую ставку 2026 года."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "утильсбор на авто калькулятор 2026",
+      "purpose": "вторичный запрос: утильсбор на авто калькулятор",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Калькулятор утильсбора 2026",
+          "url": "https://calcus.ru/kalkulyator-utilsbora",
+          "snippet": ""
+        },
+        {
+          "title": "Калькулятор утильсбора авто 2026 — онлайн расчет",
+          "url": "https://lab-td.ru/calc/",
+          "snippet": "Калькулятор утилизационного сбора Рассчитайте размер утилизационного сбора для вашего автомобиля по актуальным ставкам 2026 года."
+        },
+        {
+          "title": "Калькулятор утиль сбора: онлайн расчёт 2026",
+          "url": "https://calculatorov.ru/kalkulyator-util-sbora/",
+          "snippet": "Калькулятор растаможки помогает самостоятельно рассчитать все обязательные платежи при ввозе автомобиля в Россию по новым ставкам."
+        },
+        {
+          "title": "Калькулятор утильсбора 2026: рассчитать утилизационный сбор онлайн",
+          "url": "https://web-calculator.ru/avtomobilnyye-kalkulyatory/kalkulyator-utilsbora",
+          "snippet": "Онлайн-калькулятор утилизационного сбора на 2026 год. Рассчитайте точную сумму для легковых авто, электромобилей и грузовиков с учётом льгот для физлиц."
+        },
+        {
+          "title": "Калькулятор Утильсбора 2026 — Расчёт Для Авто | Azway",
+          "url": "https://azway.ru/kalkulyator-utilizacionnogo-sbora",
+          "snippet": "Рассчитайте утилизационный сбор на автомобиль в 2026 году: для физлиц (личное пользование) и юрлиц, по объёму, мощности двигателя (л.с.) и возрасту."
+        },
+        {
+          "title": "Калькулятор Утильсбора 2026 — Физлицо И Юрлицо | Carto",
+          "url": "https://carto-auto.ru/calculator/utilsbor/",
+          "snippet": "Рассчитайте утильсбор на авто онлайн: по возрасту, объёму, мощности, типу двигателя и ввозу. Покажем льготную или коммерческую ставку 2026 года."
+        }
+      ],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "рассчитать утильсбор на авто 2026 2026",
+      "purpose": "вторичный запрос: рассчитать утильсбор на авто 2026",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-19"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как рассчитать утильсбор на авто в 2026: чек-лист для машин из Кореи, Китая и Японии 2026",
+      "purpose": "SERP по H1",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-19"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://autoprofiasia.ru/blog/utilsbor-v-rossii-2026-tablitsy-stavki-raschet",
+      "title": "Утильсбор в России 2026: полные таблицы ставок и расчёт для физлиц",
+      "from_query": "утильсбор на авто 2026 official docs documentation 2026"
+    },
+    {
+      "url": "https://www.avtovzglyad.ru/avto/price/72942-2026-06-25-utilsbor-2026-stavki-tablitsa-raschyot-lgotyi-ikto-mozhet-neplatit/",
+      "title": "Утильсбор 2026: ставки, таблица, расчёт, льготы и кто может не платить",
+      "from_query": "утильсбор на авто 2026 official docs documentation 2026"
+    },
+    {
+      "url": "https://avtonds.ru/news/utilsbor-oplata-dokumenty-premium-avto-2026",
+      "title": "Утильсбор, оплата и документы: как не сломать сделку в 2026",
+      "from_query": "утильсбор на авто 2026 official docs documentation 2026"
+    },
+    {
+      "url": "https://avtonds.ru/news/utilsbor-oplata-premium-avto-2026-risk-check",
+      "title": "Утильсбор и оплата премиального авто в 2026: чек-лист",
+      "from_query": "утильсбор на авто 2026 official docs documentation 2026"
+    },
+    {
+      "url": "https://autotrans-rf.ru/blog/utilsbor-2026-tablicza-i-vse-izmeneniya-s-yanvarya.html",
+      "title": "Утильсбор 2026: таблица и все изменения с января",
+      "from_query": "утильсбор на авто 2026 official docs documentation 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/utilsbor-chto-izmenilos-2026-hronologiya/",
+      "title": "Утильсбор 2026: Что Изменилось — Хронология | Carto",
+      "from_query": "утильсбор на авто 2026 official docs documentation 2026"
+    },
+    {
+      "url": "https://calcus.ru/kalkulyator-utilsbora",
+      "title": "Калькулятор утильсбора 2026",
+      "from_query": "расчет утильсбора на авто 2026"
+    },
+    {
+      "url": "https://calculatorov.ru/kalkulyator-util-sbora/",
+      "title": "Калькулятор утиль сбора: онлайн расчёт 2026",
+      "from_query": "расчет утильсбора на авто 2026"
+    },
+    {
+      "url": "https://lab-td.ru/calc/",
+      "title": "Калькулятор утильсбора авто 2026 — онлайн расчет",
+      "from_query": "расчет утильсбора на авто 2026"
+    },
+    {
+      "url": "https://web-calculator.ru/avtomobilnyye-kalkulyatory/kalkulyator-utilsbora",
+      "title": "Калькулятор утильсбора 2026: рассчитать утилизационный сбор онлайн",
+      "from_query": "расчет утильсбора на авто 2026"
+    },
+    {
+      "url": "https://azway.ru/kalkulyator-utilizacionnogo-sbora",
+      "title": "Калькулятор Утильсбора 2026 — Расчёт Для Авто | Azway",
+      "from_query": "расчет утильсбора на авто 2026"
+    },
+    {
+      "url": "https://avadge.com/services/utilsbor/",
+      "title": "Калькулятор Утильсбора 2026 - Расчёт На Автомобиль | Avadge",
+      "from_query": "расчет утильсбора на авто 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/calculator/utilsbor/",
+      "title": "Калькулятор Утильсбора 2026 — Физлицо И Юрлицо | Carto",
+      "from_query": "утильсбор на авто калькулятор 2026"
+    }
+  ]
+}

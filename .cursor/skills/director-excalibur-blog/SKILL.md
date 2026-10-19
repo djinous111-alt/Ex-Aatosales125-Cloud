@@ -209,6 +209,12 @@ Task(excalibur-blog-publish)
 
 Для `all` / `P0-only`: повтори пайплайн **последовательно** по topic_id. Внутри одной темы — параллель только шаг 4.
 
+
+
+## Cloud Task types (B09+)
+
+Typed Task `excalibur-blog-geo-qa` (и часто другие `excalibur-blog-*`) часто отсутствует в Cloud Task catalog → **сразу** `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path. Не трать циклы на retry typed Task.
+
 ## Blockers
 
 Если typed Task `excalibur-blog-*` недоступны:

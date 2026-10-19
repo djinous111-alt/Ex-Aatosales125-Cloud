@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import os
 import subprocess
 import sys
@@ -134,6 +135,37 @@ def main() -> int:
     )
     check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
     check("--out-dir" in llms_help.stdout, "llms generator supports --out-dir", errors, warnings)
+    check("--blog-path" not in llms_help.stdout, "llms generator does not use stale --blog-path", errors, warnings)
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    check(policy_path.is_file(), "editorial-policy.json exists", errors, warnings)
+    if policy_path.is_file():
+        try:
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            check(False, f"editorial-policy.json parses: {exc}", errors, warnings)
+            policy = {}
+        pain = policy.get("pain_markers_ru")
+        outcome = policy.get("outcome_markers_ru")
+        check(isinstance(pain, list) and len(pain) >= 3, "editorial-policy pain_markers_ru non-empty", errors, warnings)
+        check(
+            isinstance(outcome, list) and len(outcome) >= 3,
+            "editorial-policy outcome_markers_ru non-empty",
+            errors,
+            warnings,
+        )
+        check(bool(policy.get("_markers_pinned")), "editorial-policy _markers_pinned true", errors, warnings)
+
+    git_sh = root / "scripts/excalibur_git.sh"
+    filter_sh = root / "scripts/excalibur_blog_filter_commit_secret_env.sh"
+    check(git_sh.is_file(), "excalibur_git.sh present", errors, warnings)
+    check(filter_sh.is_file(), "excalibur_blog_filter_commit_secret_env.sh present", errors, warnings)
+
+    publish_py = root / "scripts/excalibur_blog_wp_publish.py"
+    if publish_py.is_file():
+        pub_src = publish_py.read_text(encoding="utf-8")
+        check("try_rest_soft_success" in pub_src, "publish has REST soft-success after 504", errors, warnings)
+        check("OK post=" in pub_src, "publish requires OK post= success marker", errors, warnings)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

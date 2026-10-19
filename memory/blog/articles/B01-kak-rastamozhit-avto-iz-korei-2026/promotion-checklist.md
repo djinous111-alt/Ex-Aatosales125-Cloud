@@ -1,7 +1,7 @@
 # Promotion checklist — B01 kak-rastamozhit-avto-iz-korei-2026
 
 Дата публикации: 2026-10-19  
-Live URL: (после publish)
+Live URL: https://avtosales125.ru/2026/10/19/kak-rastamozhit-avto-iz-korei-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir …/B01-kak-rastamozhit-avto-iz-korei-2026 --site-base $PUBLIC_SITE_URL` — 0 links applied; report `memory/blog/interlink-suggestions.json`.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (`--blog-dir` + `--out-dir`, без `--blog-path`).
-- Publish: pending.
+- Publish: PASS — WP post_id=4352; featured=4353; inline=4354/4355/4356; schema_meta=1; skip_theme_faq=1; HEAD 200.

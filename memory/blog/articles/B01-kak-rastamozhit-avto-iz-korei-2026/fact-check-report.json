@@ -1,0 +1,87 @@
+{
+  "article": "memory/blog/articles/B01-kak-rastamozhit-avto-iz-korei-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 11,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 10,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "кий утиль после порта. Растаможка авто из Кореи в 2026 – не одна пошлина, а этапы через Владивосток. Ниж",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "правила и чеклист до оплаты. Коротко: С 1 декабря 2025 льготный утиль для физлиц держится на пороге 160 л",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "55 дней",
+      "kind": "metric_or_duration",
+      "context": "е курса вона. Море короткое, полный цикл часто 45–55 дней из-за таможни, СБКТС и ЭПТС. Обязательную ЭРА-ГЛО",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "отные ориентиры 3 400 ₽ (новые) и 5 200 ₽ (старше 3 лет) работают только при прохождении порогов. На прак",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 дней",
+      "kind": "metric_or_duration",
+      "context": "ключ\" звучит приятно, но на практике море часто 2–5 дней, а полный цикл долго тянется – около 45–55 дней.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "2025 льготный утиль для физлиц держится на пороге 160 л.с.; одна \"лошадь\" в документах ломает смету силь",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "20 000",
+      "kind": "large_number",
+      "context": "на пороге до 160 л.с. Базовая ставка утильсбора – 20 000 ₽, дальше коэффициент. По разъяснению ФНС льготны",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 400",
+      "kind": "large_number",
+      "context": "оэффициент. По разъяснению ФНС льготные ориентиры 3 400 ₽ (новые) и 5 200 ₽ (старше 3 лет) работают тольк",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 200",
+      "kind": "large_number",
+      "context": "ъяснению ФНС льготные ориентиры 3 400 ₽ (новые) и 5 200 ₽ (старше 3 лет) работают только при прохождении",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 000",
+      "kind": "large_number",
+      "context": "и порогов. На практике второй стоп – объём больше 3 000 см³: \"на грани\" бьёт сильнее курса. Выпишите из ко",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1713",
+      "kind": "large_number",
+      "context": "утильсбору с 01.12.2025 и порогу 160 л.с.; ПП РФ №1713; публикации РГ и Коммерсантъ о переносе ЭРА-ГЛОНА",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

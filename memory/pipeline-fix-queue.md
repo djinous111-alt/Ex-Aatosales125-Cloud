@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261020-2105-scout-missing-excalibur-git
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- Pre-commit secret scanner failed with `invalid variable name` when expanding `CLOUD_AGENT_INJECTED_SECRET_NAMES` (non-bash-safe Dashboard secret name).
+- Documented workaround scripts `scripts/excalibur_git.sh` and `scripts/excalibur_blog_filter_commit_secret_env.sh` are missing on this branch, so scout had no durable commit helper.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to bash-safe identifiers and dropped public CTA/site env names before `git commit`.
+- Commit and push succeeded after the env filter.
+
+### Durable fix needed before next run
+- Restore or re-add `scripts/excalibur_git.sh` + `scripts/excalibur_blog_filter_commit_secret_env.sh` on the default automation branch.
+- Keep Dashboard secret rename as needs-human if names remain non-bash-safe.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

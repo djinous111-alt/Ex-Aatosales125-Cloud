@@ -61,7 +61,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `python3 scripts/excalibur_blog_llms_generator.py --help`
-commit: pending-parent-commit
+commit: a3e1d03b
 
 
 ## INC-20261021-2133-cover-manifest-prompt-race-seo-stub
@@ -111,7 +111,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_quad_manifest.py scripts/excalibur_blog_cover_quad_prompt.py`
 - unit validate_outfit_lock ok/bad
-commit: pending-parent-commit
+commit: a3e1d03b
 
 
 ## INC-20261021-2133-cover-hoodie-outfit-lock-stale
@@ -155,7 +155,7 @@ files_changed:
 checks_run:
 - unit validate_outfit_lock
 - JSON parse blog-hero.json
-commit: pending-parent-commit
+commit: a3e1d03b
 
 
 ## INC-20261021-2126-schema-precommit-invalid-secret-name
@@ -202,7 +202,7 @@ files_changed:
 checks_run:
 - filter script --print with polluted names
 - bash identifier regex smoke
-commit: pending-parent-commit
+commit: a3e1d03b
 
 
 ## INC-20261021-2135-geoqa-redacted-cta-link-verify
@@ -257,7 +257,7 @@ files_changed:
 checks_run:
 - hydrate_redacted_href unit cases
 - `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
-commit: pending-parent-commit
+commit: a3e1d03b
 
 
 ## INC-20261021-2115-writer-utility-pain-markers-empty
@@ -307,7 +307,7 @@ files_changed:
 checks_run:
 - JSON parse editorial-policy.json
 - `python3 -m py_compile scripts/excalibur_blog_utility_gate.py scripts/excalibur_blog_human_voice_gate.py`
-commit: pending-parent-commit
+commit: a3e1d03b
 
 
 ## INC-20261021-2105-scout-niche-skill-drift
@@ -355,7 +355,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg confirms AVTO niche + drift warnings only as forbidden
-commit: pending-parent-commit
+commit: a3e1d03b
 
 
 ## INC-20261021-2106-scout-missing-wp-denylist
@@ -402,7 +402,7 @@ files_changed:
 checks_run:
 - `python3 -m json.tool shared/wp-slug-denylist.json`
 - `--suggest-next` shows 131 entries; exact Mohave slug → CRITICAL exit 1
-commit: pending-parent-commit
+commit: a3e1d03b
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch

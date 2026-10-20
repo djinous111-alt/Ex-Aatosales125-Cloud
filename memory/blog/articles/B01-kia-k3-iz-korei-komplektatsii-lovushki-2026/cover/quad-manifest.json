@@ -1,0 +1,43 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Signature на Encar – а опций нет?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "outfit_lock": "softshell_or_crewneck",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс в softshell у СВХ Владивосток с чек-листом Kia K3 до заказа",
+      "scene_hint": "reference face + glasses; outfit: navy softshell jacket over charcoal crewneck (NO hoodie NO hood NO cap); cool foggy Vladivostok SVH/port vibe; fake Encar K3 Signature card + pink sticky «до депозита»; torn checklist scrap VIN/пробег/trim; shocked meme cutout; corner brand avto-sales125.ru",
+      "meme_caption_ru": "Trim ≠ опции"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Отделите корейский K3 от китайского и от Cerato",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "RU comparison table Korea BD 1.6 IVT vs China 1.5 vs Cerato/GT; columns мотор/КПП/багажник; tape + sticky «не близнец»; no host face",
+      "alt": "Таблица сравнения корейского Kia K3, китайского K3 и Cerato/GT"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как читать комплектации на Encar: trim и пакеты",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake Encar listing UI: trim Trendy Prestige Noblesse Signature + option packages photos; arrow «trim ≠ пакет»; sticky note; no host face",
+      "alt": "Мокап Encar: trim Kia K3 и пакеты опций"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте пробег и историю до депозита",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable checklist board: VIN, график пробега без провалов, страховая история, осмотр; red X on mileage gap; tape corner; no host face",
+      "alt": "Чеклист проверки пробега и истории Kia K3 до депозита"
+    }
+  }
+}

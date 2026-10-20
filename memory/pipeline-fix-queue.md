@@ -6,8 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none — Avante B01 fixer 2026-10-20 closed all open incidents)_
+
 ## INC-20261020-1340-indexer-llms-stale-blog-path
-status: open
+status: fixed
 run_date: 2026-10-20
 role: excalibur-blog-indexer
 topic_id: B01
@@ -42,10 +44,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-20
+fix_summary:
+- Doctor now checks `--blog-dir`/`--out-dir` and warns if stale `--blog-path` is advertised.
+- Indexer agent/skill examples use `--site-base ""` without `--blog-path`.
+- Pitfalls document relative-URL pattern for committed llms.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 warnings=0
+- `rg` for stale `--blog-path` shell examples (only negation docs remain)
+commit: pending-parent-commit
 
 ## INC-20261020-1335-cover-hoodie-lock-regression
-status: open
+status: fixed
 run_date: 2026-10-20
 role: excalibur-blog-cover
 topic_id: B01
@@ -78,10 +96,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-20
+fix_summary:
+- Kept `validate_outfit_lock`; hoodie strings remain only as forbidden tokens.
+- Manifest default scene hints + cover_hook switched to Авто-Сейлс/Encar; softshell/crewneck; `--merge` preserves inline fields.
+- blog-hero outfit_rule + cover skills/pitfalls: HARD no-hoodie.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `memory/cover/blog-hero.json`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py scripts/excalibur_blog_quad_manifest.py`
+- `rg` hoodie lock only in validate_outfit_lock forbidden list
+commit: pending-parent-commit
 
 ## INC-20261020-1324-geo-qa-utility-empty-pain-outcome-markers
-status: open
+status: fixed
 run_date: 2026-10-20
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -116,10 +150,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-20
+fix_summary:
+- Confirmed utility gate skips pain/outcome when marker lists empty; policy already has markers.
+- human-voice `exactly_five_lists` now matches exactly-5 `<li>` lists.
+- Writer skills forbid `TL;DR`/`Быстрый инсайт` insight labels; pitfalls updated.
+files_changed:
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py scripts/excalibur_blog_human_voice_gate.py`
+- JSON parse `memory/brief/editorial-policy.json`
+commit: pending-parent-commit
 
 ## INC-20261020-1316-research-precommit-invalid-secret-name
-status: open
+status: fixed
 run_date: 2026-10-20
 role: excalibur-blog-research
 topic_id: B01
@@ -151,10 +200,23 @@ category: env
 - none recorded (имя секрета не логировать)
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-20
+fix_summary:
+- Added `scripts/excalibur_blog_harden_precommit_secrets.sh` (skip invalid bash ids + public CTA env names) and wired into `.cursor/cloud-agent-install.sh`.
+- Live hook patched in this environment snapshot.
+- Residual ops (not blocker): rename non-bash-safe secret in Cursor Dashboard.
+files_changed:
+- `scripts/excalibur_blog_harden_precommit_secrets.sh`
+- `.cursor/cloud-agent-install.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `bash scripts/excalibur_blog_harden_precommit_secrets.sh` → patched=1
+- `grep EXCALIBUR_BLOG_PRECOMMIT_SECRET_HARDEN` on live pre-commit.cursor
+commit: pending-parent-commit
 
 ## INC-20261020-1315-research-tech-markers-hyundai-false-positive
-status: open
+status: fixed
 run_date: 2026-10-20
 role: excalibur-blog-research
 topic_id: B01
@@ -185,10 +247,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-20
+fix_summary:
+- Word-boundary TECH_MARKERS + AUTO_NICHE skip for Авто-Сейлс topics.
+- `--self-test` covers Hyundai/комплектации → false and Cursor AI → true.
+- Research skill + pitfalls updated.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --self-test` → 3 OK
+commit: pending-parent-commit
 
 ## INC-20261020-1304-scout-niche-and-cannibal-sources
-status: open
+status: fixed
 run_date: 2026-10-20
 role: excalibur-blog-scout
 topic_id: B01
@@ -225,7 +300,25 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-20
+fix_summary:
+- Scout agent/skill + editorial-utility-only rewritten for Авто-Сейлс niche from site-brief.
+- scout_helper `--check-query` now includes Bxx+ASxx pool, ledger, and `published-live-*.json` (100 live posts).
+- Residual ops: MCP WordPress host binding still environment/Dashboard concern — scout must prefer live JSON over wrong WP host.
+files_changed:
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next`
+- `--check-query "hyundai avante комплектации"` → OVERLAP B01
+- `--check-query` unique query → clean (corpus=113)
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

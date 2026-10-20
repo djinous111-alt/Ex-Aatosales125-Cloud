@@ -104,13 +104,30 @@ python scripts/excalibur_blog_quad_manifest.py \
   --merge
 ```
 
-**Руками** доработать `cover/quad-manifest.json`:
+**Руками** доработать `cover/quad-manifest.json` (и только потом prompt — не параллельно):
 
 - `cover_hook` — провокация
 - `slots.cover.meme_caption_ru` — 2–6 слов
 - `slots.cover.scene_hint` — fake скрины + мемы + outfit агента
 - `slots.inline_*.scene_hint` — конкретика H2
 - `alt` — осмысленные, не «seo картинка»
+
+
+
+## Outfit lock (Cloud)
+
+- Default: **charcoal softshell + cream crewneck**; **NO hoodie / hood / cap**.
+- `scripts/excalibur_blog_cover_quad_prompt.py` → `validate_outfit_lock()` rejects hoodie/Wordstat SEO stub.
+- `memory/cover/blog-hero.json` → `outfit_lock_cloud`.
+
+## Manifest → prompt: NO parallel race
+
+1. Запусти `quad_manifest.py --merge` **или** вручную перепиши `quad-manifest.json`.
+2. **Дождись** записи файла. Assert: `cover_hook` + `slots.cover.scene_hint` — AVTO (Encar/порт/таможня), **не** Wordstat/«15k ключей»/худи.
+3. Только **после** этого, отдельным шагом (не в том же parallel tool-batch): `cover_quad_prompt.py --write-batch`.
+4. Если ушёл Kie job со stub-промптом — **discard** task, не split/apply.
+
+`quad_manifest.py` падает на SEO/Wordstat/hoodie stub в cover fields (`assert_not_seo_stub`).
 
 ### Шаг 3 — prompt + batch
 

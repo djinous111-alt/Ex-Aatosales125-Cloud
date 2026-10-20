@@ -63,7 +63,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
 - `python3 scripts/excalibur_blog_llms_generator.py --help` shows blog-dir/out-dir only
-commit: pending-parent-commit
+commit: 0d0d79d1
 
 
 ## INC-20261020-0936-cover-hoodie-default-lock
@@ -108,7 +108,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_cover_quad_prompt.py --article-dir B01-...` OK
 - rg: no positive hoodie default in quad_manifest defaults
-commit: pending-parent-commit
+commit: 0d0d79d1
 
 
 ## INC-20261020-0930-geo-qa-typed-task-unavailable
@@ -154,7 +154,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg confirms geo-qa generalPurpose immediate fallback in director/AGENTS/task-map
-commit: pending-parent-commit
+commit: 0d0d79d1
 
 ## INC-20261020-0931-geo-qa-utility-pain-outcome-policy-missing
 status: fixed
@@ -206,7 +206,7 @@ files_changed:
 checks_run:
 - empty-policy smoke → exit 1 + POLICY BLOCK
 - policy JSON parse; marker counts 12/10
-commit: pending-parent-commit
+commit: 0d0d79d1
 
 ## INC-20261020-0915-research-notes-gate-false-technical
 status: fixed
@@ -258,7 +258,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_research_notes_gate.py --self-test` PASS
 - Santa Fe article: technical=False auto_niche=True status=PASS
-commit: pending-parent-commit
+commit: 0d0d79d1
 
 ## INC-20261020-0905-scout-precommit-secret-names
 status: fixed
@@ -302,7 +302,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - harden script applied; marker present in pre-commit.cursor
-commit: pending-parent-commit
+commit: 0d0d79d1
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -354,7 +354,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: 0d0d79d1
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -405,7 +405,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: 0d0d79d1
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -446,7 +446,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: 0d0d79d1
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -493,7 +493,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: 0d0d79d1
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -547,7 +547,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: 0d0d79d1
 
 ## Fixed incidents
 

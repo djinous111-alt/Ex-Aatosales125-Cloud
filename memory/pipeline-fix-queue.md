@@ -6,6 +6,110 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261020-1718-schema-secret-scan-redact-commit
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-k3-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cursor secret-scan blocked commit of `schema.jsonld` because BlogPosting/`sameAs` URLs equal configured secrets `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`.
+- Pre-commit also hit known `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `invalid variable name` (see INC-20261020-1712).
+
+### How the agent recovered this run
+- Filtered bash-safe secret names, then committed a `[REDACTED]` copy of `schema.jsonld` (per CURSOR-CLOUD-AGENT-PIPELINE-FROM-SCRATCH / INC-20260616-2042 pattern).
+- Restored unredacted runtime `schema.jsonld` in the working tree for publish in this run (local diff vs git intentionally not re-committed).
+
+### Durable fix needed before next run
+- Schema skill/publish: either expand `[REDACTED]`/`${PUBLIC_SITE_URL}` at publish time, or document commit-redact + runtime-hydrate as the required schema step.
+- Prefer non-secret absolute URLs in registry/schema if Dashboard keeps these values secret-scanned.
+
+### Suggested files to inspect/change
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261020-1716-cover-hoodie-outfit-lock
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-k3-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` hardcodил `Outfit lock: thick heavyweight white hoodie`.
+- Это конфликтует с `memory/cover/blog-hero.json` outfit_rule, site-brief (без капюшона) и явным cover-run: softshell/crewneck, NO hoodie.
+- `quad_manifest.py --merge` оставил SEO-заглушки (Wordstat/SEO vs GEO) от старого B01 primer на новой статье Kia K3.
+
+### How the agent recovered this run
+- Переписал outfit lock на softshell/crewneck + `validate_outfit_lock()`.
+- Вручную переписал `cover/quad-manifest.json` под Kia K3 / Владивосток / Encar / чеклист до депозита.
+
+### Durable fix needed before next run
+- Закрепить softshell/crewneck как default outfit lock в prompt builder и skill/agent-md.
+- Улучшить merge-манифест: не тащить SEO-сцены Wordstat в авто-статьи; scene_hint из topic/meta.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261020-1720-geo-qa-tldr-label-docs-conflict
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-k3-iz-korei-komplektatsii-lovushki-2026
+severity: low
+category: docs
+
+### What went wrong
+- `shared/excalibur-article-writing-contract.md` (блок 2) даёт пример инсайт-box с ярлыком `TL;DR / Быстрый инсайт:`.
+- `.cursor/skills/excalibur-geo-qa/SKILL.md` / `skills/excalibur-geo-qa/SKILL.md` требуют, чтобы инсайт-блок не начинался с `TL;DR` или `Быстрый инсайт`.
+- Writer следовал writing-contract; GEO QA не валил статью (все CLI gates PASS), но правило двусмысленно для следующих run.
+
+### How the agent recovered this run
+- Принял PASS по CLI + CORE-EEAT; зафиксировал конфликт как non-blocking optional FIX в `article-qa.md`.
+- Longread не правил: ярлык совпадает с каноническим примером writing-contract.
+
+### Durable fix needed before next run
+- Выровнять writing-contract и geo-qa skill: либо запретить ярлык и обновить пример контракта, либо убрать запрет из geo-qa skill и оставить пример.
+- Опционально: добавить мягкий WARN в `excalibur_blog_human_voice_gate.py` или html-linter, если выберут запрет.
+
+### Suggested files to inspect/change
+- `shared/excalibur-article-writing-contract.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261020-1715-writer-utility-pain-markers-empty
 status: open
 run_date: 2026-10-20

@@ -108,9 +108,10 @@ python scripts/excalibur_blog_quad_manifest.py \
 
 - `cover_hook` — провокация
 - `slots.cover.meme_caption_ru` — 2–6 слов
-- `slots.cover.scene_hint` — fake скрины + мемы + outfit агента
-- `slots.inline_*.scene_hint` — конкретика H2
+- `slots.cover.scene_hint` — fake скрины + мемы + outfit из weather+topic; **HARD: NO hoodie / NO hood / NO cap** (не возвращать `thick heavyweight white hoodie`)
+- `slots.inline_*.scene_hint` / `alt` / `visual_type` — конкретика H2; при `--merge` agent-правки сохраняются
 - `alt` — осмысленные, не «seo картинка»
+- После prompt builder: `validate_outfit_lock` обязан PASS; токсичные ярлыки (`лох` и т.п.) запрещены
 
 ### Шаг 3 — prompt + batch
 

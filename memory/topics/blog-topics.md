@@ -184,3 +184,29 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Hyundai Avante из Кореи: комплектации и ловушки
+
+- **priority:** P0
+- **slug:** hyundai-avante-iz-korei-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Hyundai Avante из Кореи: комплектации Smart/Modern/Inspiration и ловушки 2026
+- **primary_query:** hyundai avante комплектации
+- **secondary_queries:** hyundai avante из кореи, хендай аванте комплектации, hyundai avante cn7, hyundai avante elantra
+- **search_intent:** checklist
+- **article_mode:** B
+- **h2_outline:**
+  1. Avante или Elantra: одно авто, разные имена — что искать на Encar
+  2. Smart, Modern, Inspiration: чем отличаются и что проверить по фото
+  3. Мотор 1.6 и коробка: на что смотреть новичку до депозита
+  4. Красные флаги лота: прокат, страховые выплаты, «пустой» Modern
+  5. Чек-лист перед оплатой: 12 пунктов по комплектации и истории
+  6. Когда отдавать подбор под ключ, а не выбирать по названию пакета
+- **faq_hints:** чем Smart отличается от Modern; Avante и Elantra это одно и то же; какие опции часто «дорисовывают» в Modern; что смотреть в Encar до депозита
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у седана Avante CN7, смартфон с карточкой Encar и плашкой «Smart / Modern / Inspiration», Владивосток, без цен на картинке
+- **beginner_outcome:** новичок до депозита отличит Smart/Modern/Inspiration по реальным опциям и не переплатит за «громкое» название комплектации
+- **wordstat_note:** parent «hyundai avante» ~11k / «хендай аванте» ~27k; «hyundai avante комплектации» ~176; «hyundai avante из кореи» ~107; узкий «как выбрать hyundai avante» — empty/low-result
+- **avoid_overlap:** не дублировать Santa Fe/Tucson/K5/Seltos/Sportage, общий утильсбор, растаможку и «проходные»-хаб — угол только checklist комплектаций Avante CN7

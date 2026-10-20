@@ -31,3 +31,17 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-20 B01 hyundai-avante-iz-korei-komplektatsii-lovushki-2026
+
+- verdict: pass
+- post_id: 4382
+- featured_image: 4383
+- inline_images: 4384, 4385, 4386
+- schema_meta: 1
+- skip_theme_faq_meta: 1
+- method: SSH (SSH_ROOT=.) + HTTP OK (~166s, no WebFetch/504)
+- permalink: /2026/10/20/hyundai-avante-iz-korei-komplektatsii-lovushki-2026/
+- HEAD: 200
+- REST: id=4382 status=publish
+- note: NEW post — do not confuse with Santa Fe 4376 / Tucson 4364 / utilzbor 4358

@@ -13,4 +13,9 @@ python3 -m pip install --break-system-packages --quiet \
 mkdir -p .cursor/excalibur-blog-fragments
 touch .cursor/excalibur-blog-handoff.md
 
+# Harden pre-commit secret scanner: skip non-bash secret names + public CTA URLs (INC-1316).
+if [[ -f scripts/excalibur_blog_harden_precommit_secrets.sh ]]; then
+  bash scripts/excalibur_blog_harden_precommit_secrets.sh || true
+fi
+
 echo "[excalibur-cloud] install ok"

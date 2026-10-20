@@ -38,11 +38,23 @@
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- Outfit lock: **никогда** `thick heavyweight white hoodie` / hoodie / hood / cap. Outfit только из `scene_hint` weather+topic (softshell/crewneck/…). `validate_outfit_lock` в prompt builder — blocker. `--merge` в `quad_manifest.py` обязан сохранять agent `scene_hint`/`alt`/`visual_type` inline-слотов.
 
 ## Scout
 
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- Ниша по умолчанию — **Авто-Сейлс** (`memory/brief/site-brief.md`), не Cursor/AI/Make. Cannibal-check: Bxx + ASxx + ledger + `memory/blog/published-live-*.json` через `excalibur_blog_scout_helper.py --check-query`.
+
+## Research / gates
+
+- `TECH_MARKERS` — word-boundary для коротких токенов (`ai`/`ии`/`api`/…); `Hyundai` и `комплектации` не делают topic technical. Авто-ниша не требует ≥3 github.com. Self-check: `python3 scripts/excalibur_blog_research_notes_gate.py --self-test`.
+- Utility pain/outcome: маркеры живут в `memory/brief/editorial-policy.json`; пустые списки → gate **не** default-fail. Writer: не начинать инсайт с `TL;DR` / `Быстрый инсайт`.
+
+## Pre-commit / secrets
+
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` может содержать не-bash идентификатор → `${!NAME}` падает. Harden: `scripts/excalibur_blog_harden_precommit_secrets.sh` (вызывается из `.cursor/cloud-agent-install.sh`). Публичные CTA (`CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`, `PUBLIC_SITE_URL`, …) из scan исключены. Residual: переименовать невалидный secret в Dashboard.
 
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator: только `--blog-dir` / `--out-dir` / `--site-base` (нет `--blog-path`). Для git-артефактов `--site-base ""` (относительные URL), иначе secret-scan.

@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-hyundai-avante-iz-korei-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1280,
+      720
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 720,
+        "end": 764
+      },
+      "v_gutter_px": {
+        "start": 1280,
+        "end": 1358
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1280,
+          "bottom": 720
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1280,
+          "bottom": 720
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Avto-Sales сверяет комплектацию Avante CN7 Smart/Modern/Inspiration на Encar до депозита",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1358,
+          "top": 22,
+          "right": 2560,
+          "bottom": 698
+        },
+        "raw_box_px": {
+          "left": 1358,
+          "top": 0,
+          "right": 2560,
+          "bottom": 720
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап Encar: поиск Avante CN7 и пометка что Elantra — то же имя",
+        "h2_anchor": "Разведите Avante и Elantra: что искать на Encar"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 39,
+          "top": 764,
+          "right": 1241,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 764,
+          "right": 1280,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения Smart, Modern и Inspiration по опциям с фото",
+        "h2_anchor": "Сравните Smart, Modern и Inspiration по фото, а не по названию"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1358,
+          "top": 764,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1358,
+          "top": 764,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист стоп-флага: мотор 1.6 и мощность до депозита",
+        "h2_anchor": "Проверьте мотор 1.6 и мощность как стоп-флаг до депозита"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Разведите Avante и Elantra: что искать на Encar",
+    "injected inline_2 after H2 — Сравните Smart, Modern и Inspiration по фото, а не по названию",
+    "injected inline_3 after H2 — Проверьте мотор 1.6 и мощность как стоп-флаг до депозита"
+  ]
+}

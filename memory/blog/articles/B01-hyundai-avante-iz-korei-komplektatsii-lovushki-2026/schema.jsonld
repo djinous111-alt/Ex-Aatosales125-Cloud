@@ -1,0 +1,186 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/hyundai-avante-iz-korei-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/hyundai-avante-iz-korei-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Hyundai Avante из Кореи: комплектации Smart/Modern/Inspiration и ловушки 2026",
+      "description": "Чек-лист комплектаций Hyundai Avante CN7 из Кореи: отличия Smart, Modern и Inspiration, сверка опций с фото Encar и 12 пунктов до депозита.",
+      "datePublished": "2026-10-20",
+      "dateModified": "2026-10-20",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru"
+        },
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru",
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125"
+        ]
+      },
+      "keywords": [
+        "hyundai avante комплектации",
+        "hyundai avante из кореи",
+        "хендай аванте комплектации",
+        "hyundai avante cn7"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/hyundai-avante-iz-korei-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Smart отличается от Modern у Hyundai Avante?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ориентир по прайсам KR: Modern обычно богаче по климату и сиденьям первого ряда (подогрев/вентиляция, dual climate) и чаще идёт с более крупным экраном. Smart – младшая ступень. Пакеты опций могут сблизить их: сверяйте фото и список опций, а не одно слово в шапке."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Avante и Elantra – это одно и то же?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, для выбора из Кореи это одна модель под разными именами. На Encar ищите Avante; в РФ можно говорить \"Elantra = Avante для Кореи\", чтобы не потерять лоты из-за путаницы фильтров."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие опции часто \"дорисовывают\" в Modern?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Пакеты Comfort, SmartSense и Exterior Design. На практике экран, свет и ассистенты могут появиться поверх базового Modern – или отсутствовать у \"пустого\" лота с тем же словом в заголовке. Bose, memory seat и 360° помечайте \"нужен осмотр\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что смотреть в Encar до депозита по Avante?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Четыре слоя: слово комплектации, фото-чек опций, страховая история, схема кузова (X/W). Плюс отметки проката/лизинга и скрин цены с ID. Нет зелёного чек-листа из 12 пунктов – нет перевода."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Inspiration всегда \"полный фарш\"?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Inspiration – верх линейки CN7, но люк, камера и часть опций бывают опциональными. N Line – про оформление; турбо ищите по пометке двигателя, а не по шильдику."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда лучше отдать подбор Авто-Сейлс?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Когда корейский текст не читается, опции не бьются с фото или в истории есть крупные выплаты/прокат. Пришлите 2–3 ID лота и заполненный чек-лист – так быстрее, чем депозит \"наугад\"."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/hyundai-avante-iz-korei-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать комплектацию Hyundai Avante из Кореи до депозита",
+      "description": "Пошаговый чеклист Smart / Modern / Inspiration для Avante CN7 на Encar: сверка опций с фото, мотор как стоп-флаг, красные флаги истории и 12 пунктов до оплаты.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Карточка Encar: trim, фото опций, страховка, схема кузова"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Чеклист из 12 пунктов до депозита"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Скрин ID лота и цены"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Короткий список 2–3 лотов Avante CN7"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Запись trim: Smart / Modern / Inspiration (+ N Line отдельно)"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Развести Avante и Elantra в поиске",
+          "text": "На Encar ищите Avante / 아반떼 и поколение CN7; не уходите в узкий Elantra US-only фильтр и не принимайте новинку CN8 как единственный пул для импорта.",
+          "url": "https://avtosales125.ru/hyundai-avante-iz-korei-komplektatsii-lovushki-2026/#разведите-avante-и-elantra-что-искать-на-encar"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Сверить Smart / Modern / Inspiration по фото",
+          "text": "Не верьте одному слову в шапке: пройдите фото-чек света, кластера, сидений, климат-пакета, экрана и smart key. Пакеты Comfort / SmartSense / Exterior Design ломают ожидание одинаковых Modern.",
+          "url": "https://avtosales125.ru/hyundai-avante-iz-korei-komplektatsii-lovushki-2026/#сравните-smart-modern-и-inspiration-по-фото-а-не-по-названию"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Зафиксировать мотор 1.6 и мощность",
+          "text": "До депозита выпишите мотор, коробку, мощность в кВт/л.с. и год производства рядом с ID лота. Расчёт под ключ – отдельно, без угадывания утильсбора из блога.",
+          "url": "https://avtosales125.ru/hyundai-avante-iz-korei-komplektatsii-lovushki-2026/#проверьте-мотор-1-6-и-мощность-как-стоп-флаг-до-депозита"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Отсеять красные флаги истории",
+          "text": "Прочитайте страховку, схему кузова X/W и отметки проката/лизинга. «Пустой» Modern и расхождение фото с trim – стоп до перевода.",
+          "url": "https://avtosales125.ru/hyundai-avante-iz-korei-komplektatsii-lovushki-2026/#отсейте-красные-флаги-прокат-страховка-и-пустой-modern"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Пройти чеклист из 12 пунктов",
+          "text": "По каждому кандидату заполните 12 пунктов: trim, опции с фото, страховка, схема, прокат, скрин цены. Красный пункт – депозит не переводите.",
+          "url": "https://avtosales125.ru/hyundai-avante-iz-korei-komplektatsii-lovushki-2026/#пройдите-чеклист-из-12-пунктов-до-оплаты"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Отдать подбор при сомнениях",
+          "text": "Если опции и фото расходятся или история тяжёлая – передайте короткий список и чеклист в Авто-Сейлс (каталог / Telegram), без депозита «чтобы не увели лот».",
+          "url": "https://avtosales125.ru/hyundai-avante-iz-korei-komplektatsii-lovushki-2026/#когда-отдать-подбор-под-ключ-а-не-выбирать-по-пакету"
+        }
+      ]
+    }
+  ]
+}

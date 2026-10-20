@@ -1,0 +1,696 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-21",
+    "today_ru": "21.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-23",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-21 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "kia-mohave-iz-korei-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Kia Mohave из Кореи: комплектации и ловушки до депозита 2026",
+    "primary_query": "как выбрать киа мохаве из кореи",
+    "secondary_queries": [
+      "киа мохаве из кореи",
+      "киа мохаве дизель",
+      "киа мохаве под заказ из кореи",
+      "kia mohave из кореи"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как выбрать киа мохаве из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Из Кореи 2026: Как Купить Под Льготный Утиль И Выбрать Авто",
+          "url": "https://vk.ru/@chesprice-kia-iz-korei-2026-kak-kupit-pod-lgotnyi-util-i-vybrat-avto",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Kia из Кореи под ключ — каталог, цены с доставкой | EncarRus",
+          "url": "https://encarrus.ru/korea/kia/",
+          "snippet": "Подводя итог нашему масштабному разбору рынка KIA в 2026 году, я хочу сказать главное: покупка автомобиля из Кореи сегодня — это не лотерея и не «поход за удачей»."
+        },
+        {
+          "title": "Цена Kia Pegas из Китая. Расчет стоимости Киа Пегас под ключ",
+          "url": "https://rutube.ru/video/2a88a64ccb79b214fa226581a11bd22b/",
+          "snippet": "Kia из Кореи под ключ. Каталог моделей, расчёт цены с растаможкой и ЭПТС, доставка 10-20 дней до Владивостока и 45-60 дней до Москвы."
+        },
+        {
+          "title": "Купить КИА (из Кореи)",
+          "url": "https://tokito-auto.ru/korea/kia",
+          "snippet": "Расчет стоимости Киа Пегас под ключ» на канале «Рич Авто из Японии Кореи Китая» в хорошем качестве и бесплатно, опубликованное 20 августа 2026 года в 14:31, длительностью 00:07:31, на видеохостинге ..."
+        },
+        {
+          "title": "Как самому привезти авто из Кореи в РФ в 2026 году",
+          "url": "https://top-autoimport.ru/blog/kak-prignat-avto-iz-korei",
+          "snippet": "Мы свяжемся с Вами в ближайшее время, предоставим Вам выбор автомобилей по Вашим требованиям, с ценами и алгоритмом заĸаза. KIA под Заказ из Кореи 100% Гарантированные Цены в Рублях. Авто с Документами (Полная Растаможка), \"Распилы\" и \"Конструкторы\" на Запчасти."
+        },
+        {
+          "title": "Авто из Кореи - Подбор и доставка в Россию - Encar",
+          "url": "https://encar-russia.ru/",
+          "snippet": "Пошаговая инструкция, как в 2026 году пригнать самостоятельно автомобиль из Южной Кореи."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как выбрать киа мохаве из кореи октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia из Кореи: 8 проверенных фирм по привозу — разбор 2026",
+          "url": "https://dtf.ru/top-raiting/5155469-kia-iz-korei-proverennye-kompanii-dlya-pokupki-avtomobilej",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Mohave из Кореи — покупка и доставка под ключ",
+          "url": "https://lhmex.ru/avtomobilej-korei/kia/mohave",
+          "snippet": "Kia из Кореи, лучшие компании по привозу автомобилей, проверка качества, гарантии, юридическая поддержка, доставка, отзывы клиентов."
+        },
+        {
+          "title": "Продажа Kia Mohave из Кореи | Цены на Киа Мохав в Корее",
+          "url": "https://www.drom.ru/world/korea/kia/mohave/",
+          "snippet": "Подбираем, выкупаем и доставляем автомобили - по заявке. Работаем напрямую с корейскими дилерами и аукционами KAA, K-Car, Encar. Показываем оригинальные лоты, ставки и итоговую стоимость в режиме реального времени — никаких «накруток» и скрытых комиссий."
+        },
+        {
+          "title": "Купить Kia Mohave из Кореи под ключ — от 6 150 000 ₽, 757 в наличии",
+          "url": "https://encarrus.ru/korea/kia/mohave/",
+          "snippet": "Объявления о продаже Kia Mohave под заказ из Кореи с фото авто и ценами. Стоимость и характеристики Киа Мохав на аукционе в Корее."
+        },
+        {
+          "title": "Продажа Kia из Кореи | Статистика цен на Киа в Корее",
+          "url": "https://www.drom.ru/world/korea/kia/",
+          "snippet": "Цена в карточке — уже «под ключ» до Владивостока: стоимость Kia Mohave в Корее, доставка морем, таможенное оформление, утильсбор по мощности двигателя и наши услуги."
+        },
+        {
+          "title": "Купить Kia Mohave из Кореи под заказ! | Восток Транс Импорт",
+          "url": "https://koreacars.me/catalog/Kia/Mohave",
+          "snippet": "Объявления о продаже Kia под заказ из Кореи с фото авто и ценами. Стоимость и характеристики Киа на аукционе в Корее."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как выбрать киа мохаве из кореи новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Mohave из Кореи: рамный дизельный внедорожник под ключ в 2026",
+          "url": "https://onlyjpcars.ru/blog/kia-mohave-iz-korei",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Mohave 2026: технические характеристики, комплектации и цены ...",
+          "url": "https://ru.jiemeicar.com/kia-mohave-2026-tehnicheskie-harakteristiki-komplektatsii-i-tseny-polnyj-obzor",
+          "snippet": "Kia Mohave (Borrego) из Кореи — рамный внедорожник с дизельным V6 3.0. Цены на Encar, сравнение с Land Cruiser Prado, расчёт утильсбора и стоимость под ключ в Сибири в 2026."
+        },
+        {
+          "title": "Авто из Кореи под заказ: модели, цены под ключ и проверка",
+          "url": "https://azway.ru/blog/avto-iz-korei-pod-zakaz-2026",
+          "snippet": "В этом материале: актуальные характеристики и комплектации 2026 года, сравнение стоимости владения с конкурентами, тест на бездорожье, анализ поломок и полное руководство по выбору между ..."
+        },
+        {
+          "title": "17 ЛЕТ В ОДНОМ КУЗОВЕ! Почему Kia Mohave ... - Rutube",
+          "url": "https://rutube.ru/video/0efa0756dbd387b82f1ab0ded4e61595/",
+          "snippet": "Kia и Hyundai из Кореи: 13 реальных примеров с ценами, выбор бензина, дизеля, газа и гибрида. Проверка Encar, страховой истории и полной сметы до покупки."
+        },
+        {
+          "title": "Киа Мохаве 2026: обзор характеристик, цены и комплектаций",
+          "url": "https://master-kia.vercel.app/articles/k/ki/kia-mokhave-2025.html",
+          "snippet": "Сегодня у нас на честном обзоре брутальный, рамный и невероятно технологичный Kia Mohave 2020 года выпуска (2-й рестайлинг) в максимальной комплектации Master. Этот автомобиль мы привезли напрямую для нашего клиента."
+        },
+        {
+          "title": "Kia Mohave 2026: характеристики, комплектации и цены",
+          "url": "https://master-kia.vercel.app/articles/k/ki/kia-mokhave-tekhnicheskie-kharakteristiki-komplektatsii-i-tseny.html",
+          "snippet": "Вы узнаете, какие комплектации доступны на российском рынке, как изменилась цена и стоит ли рассматривать этот автомобиль как альтернативу европейским или японским аналогам."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как выбрать киа мохаве из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "kelai141/assets/week.svg at main · kelai141/kelai141 · GitHub",
+          "url": "https://github.com/kelai141/kelai141/blob/main/assets/week.svg",
+          "snippet": ""
+        },
+        {
+          "title": "anti-ai-darts/favicon.svg at main · ancf-hue/anti-ai-darts · GitHub",
+          "url": "https://github.com/ancf-hue/anti-ai-darts/blob/main/favicon.svg",
+          "snippet": "Contribute to kelai141/kelai141 development by creating an account on GitHub."
+        },
+        {
+          "title": "Обзор 10 Vpn-сервисов В 2026 Году: Что Я Тестировал Лично, Что Работает ...",
+          "url": "https://gist.github.com/BoberSdoh/ec67b2175d1f9cecaf6ad24a5278084e",
+          "snippet": "🎯 3D дартс против ИИ прямо в браузере. Один HTML файл. Камера 180°, русская озвучка, звук. Без установки. - anti-ai-darts/favicon.svg at main · ancf-hue/anti-ai-darts."
+        },
+        {
+          "title": "FMCW_Radar_Ake/polar_fft.png at master · ake1999/FMCW_Radar_Ake · GitHub",
+          "url": "https://github.com/ake1999/FMCW_Radar_Ake/blob/master/polar_fft.png",
+          "snippet": "Обзор 10 VPN-сервисов в 2026 году: что я тестировал лично, что работает, что не очень, и как выбрать под свою задачу. Без рекламы, на простом языке."
+        },
+        {
+          "title": "mod-playerbots/icon.png at master · mod-playerbots/mod-playerbots",
+          "url": "https://github.com/mod-playerbots/mod-playerbots/blob/master/icon.png",
+          "snippet": "Contribute to ake1999/FMCW_Radar_Ake development by creating an account on GitHub."
+        },
+        {
+          "title": "domashka/Almaty_districts.svg at main - GitHub",
+          "url": "https://github.com/DariyaYdyrys/domashka/blob/main/Almaty_districts.svg",
+          "snippet": "AzerothCore Playerbots Module. Contribute to mod-playerbots/mod-playerbots development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как выбрать киа мохаве из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Mohave из Кореи: рамный дизельный внедорожник под ключ в 2026",
+          "url": "https://onlyjpcars.ru/blog/kia-mohave-iz-korei",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Mohave 2026: технические характеристики, комплектации и цены ...",
+          "url": "https://ru.jiemeicar.com/kia-mohave-2026-tehnicheskie-harakteristiki-komplektatsii-i-tseny-polnyj-obzor",
+          "snippet": "Подробная методика описана в нашей статье про утильсбор 2026. Этот момент критичен при планировании бюджета: Mohave — не бюджетный автомобиль в импорте именно из-за мощного двигателя."
+        },
+        {
+          "title": "Авто из Кореи под заказ: модели, цены под ключ и проверка",
+          "url": "https://azway.ru/blog/avto-iz-korei-pod-zakaz-2026",
+          "snippet": "В этом материале: актуальные характеристики и комплектации 2026 года, сравнение стоимости владения с конкурентами, тест на бездорожье, анализ поломок и полное руководство по выбору между ..."
+        },
+        {
+          "title": "Киа Мохаве 2026: обзор характеристик, цены и комплектаций",
+          "url": "https://master-kia.vercel.app/articles/k/ki/kia-mokhave-2025.html",
+          "snippet": "Kia и Hyundai из Кореи: 13 реальных примеров с ценами, выбор бензина, дизеля, газа и гибрида. Проверка Encar, страховой истории и полной сметы до покупки."
+        },
+        {
+          "title": "Киа Мохаве 2026: характеристики, двигатели и полный обзор",
+          "url": "https://master-kia.vercel.app/articles/k/ki/kia-mokhave-2024-kharakteristiki.html",
+          "snippet": "Вы узнаете, какие комплектации доступны на российском рынке, как изменилась цена и стоит ли рассматривать этот автомобиль как альтернативу европейским или японским аналогам."
+        },
+        {
+          "title": "Как выбрать и импортировать подержанный автомобиль из Южной Кореи",
+          "url": "https://www.koreacarexp.com/ru/resources/how-to-choose-import-korean-car",
+          "snippet": "Подробные характеристики Киа Мохаве 2026 года. Расход топлива, габариты, комплектации и особенности нового дизельного двигателя. Полный анализ рамного внедорожника."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как выбрать киа мохаве из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "KIA Mohave Club - Kia Mohave - mohavod.ru",
+          "url": "https://www.mohavod.ru/viewforum.php?f=5",
+          "snippet": ""
+        },
+        {
+          "title": "Киа Мохав клуб - Киа Форум",
+          "url": "https://mykia.club/forum/29-kia-mokhav-klub/",
+          "snippet": "Обсуждаем дополнительное оборудование и тюнинг, Сервис и ТО, технические нюансы Киа Мохав и возникающие в эксплуатации проблемы. Аудио-Видео, магнитолы и прочая электроника."
+        },
+        {
+          "title": "KIA Mohave Club - Главная страница",
+          "url": "https://mohavod.ru/",
+          "snippet": "Технический форум по Kia Mohave (HM). Кузовные детали, уход за кузовом, интерьер и шумоизоляция Kia Mohave (HM) Двигатель, коробка передач, впуск, выхлопная и т.д. Kia Mohave (HM) Электрооборудование, освещение, аккумуляторы, сигнализация, авто акустика, магнитолы и т.д. Kia Mohave (HM)"
+        },
+        {
+          "title": "Авто из Кореи под заказ: модели, цены под ключ и проверка",
+          "url": "https://azway.ru/blog/avto-iz-korei-pod-zakaz-2026",
+          "snippet": "Обсуждаем дополнительное оборудование и тюнинг, Сервис и ТО, технические нюансы Киа Мохав и возникающие в эксплуатации проблемы. Аудио-Видео, магнитолы и прочая электроника. Разговоры на любые темы, открытый для любых посетителей форума. Задавайте вопросы и высказывайте любые пожелания по работе сайта. Поиск Работы , предложение и запрос услуг."
+        },
+        {
+          "title": "Пригнал KIA Mohave из Кореи - Обзоры и публикации Kia Mohave 2 - Kia ...",
+          "url": "https://kia-clubs.ru/forums/topic/2956-prignal-kia-mohave-iz-korei/",
+          "snippet": "Kia и Hyundai из Кореи: 13 реальных примеров с ценами, выбор бензина, дизеля, газа и гибрида. Проверка Encar, страховой истории и полной сметы до покупки."
+        },
+        {
+          "title": "2 месяца езжу на Kia Mohave из Кореи - Дзен",
+          "url": "https://dzen.ru/a/aisn4JcBHkuUK3AX",
+          "snippet": "Всем привет! Хочу поделиться опытом покупки машины в Южной Корее. Летом был необыкновенный ажиотаж на машины из-за границы в связи со слабым курсом до..."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "киа мохаве из кореи 2026",
+      "purpose": "вторичный запрос: киа мохаве из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Mohave из Кореи: рамный дизельный внедорожник под ключ в 2026",
+          "url": "https://onlyjpcars.ru/blog/kia-mohave-iz-korei",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Mohave 2026: технические характеристики, комплектации и цены ...",
+          "url": "https://ru.jiemeicar.com/kia-mohave-2026-tehnicheskie-harakteristiki-komplektatsii-i-tseny-polnyj-obzor",
+          "snippet": "Kia Mohave (Borrego) из Кореи — рамный внедорожник с дизельным V6 3.0. Цены на Encar, сравнение с Land Cruiser Prado, расчёт утильсбора и стоимость под ключ в Сибири в 2026."
+        },
+        {
+          "title": "Купить Kia 2026 из Кореи под ключ — каталог, цены | EncarRus",
+          "url": "https://encarrus.ru/korea/kia/avtomobili-2026/",
+          "snippet": "В этом материале: актуальные характеристики и комплектации 2026 года, сравнение стоимости владения с конкурентами, тест на бездорожье, анализ поломок и полное руководство по выбору между ..."
+        },
+        {
+          "title": "KIA Mohave (2026): цена и характеристики, фотографии и обзор",
+          "url": "https://auto.ironhorse.ru/kia-mohave-master_24970.html",
+          "snippet": "Kia 2026 из Кореи под ключ. Расчёт стоимости с растаможкой и ЭПТС, доставка 10-20 дней до Владивостока и 45-60 дней до Москвы."
+        },
+        {
+          "title": "Киа Мохаве (2026) — цена, характеристики, фото",
+          "url": "https://wroom.ru/cars/kia/mohave",
+          "snippet": "КИА Мохаве (2026) цены и комплектация. Технические характеристики Mohave The Master и обзор с фотографиями."
+        },
+        {
+          "title": "Kia Mohave из Кореи — покупка и доставка под ключ",
+          "url": "https://lhmex.ru/avtomobilej-korei/kia/mohave",
+          "snippet": "Всё про автомобиль Киа Мохаве 2026 года: цена в России, фотографии кузова и салона, характеристики, информация про двигатели."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "киа мохаве дизель 2026",
+      "purpose": "вторичный запрос: киа мохаве дизель",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Mohave 2026: новый кузов, характеристики и дата выхода",
+          "url": "https://master-kia.vercel.app/articles/k/ki/kia-mokhave-2026-novyj-kuzov.html",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Mohave Новый 2026-2026: обзор, характеристики, комплектации",
+          "url": "https://master-kia.vercel.app/articles/k/ki/kia-mohave-novyj.html",
+          "snippet": "Обзор Kia Mohave 2026 года: новый дизайн кузова, дизельные двигатели, внедорожные способности и комплектации. Подробный анализ обновленного рамного SUV."
+        },
+        {
+          "title": "Kia Mohave - Цены и комплектации - Купить Киа Мохаве - Официальный сайт ...",
+          "url": "https://www.kia.ru/models/mohave/options/",
+          "snippet": "Полный обзор обновленного Kia Mohave. Новый дизайн, мощный дизель V6, современный салон и цены. Стоит ли покупать рамный внедорожник в этом году?"
+        },
+        {
+          "title": "Kia Mohave 2026: технические характеристики, комплектации и цены ...",
+          "url": "https://ru.jiemeicar.com/kia-mohave-2026-tehnicheskie-harakteristiki-komplektatsii-i-tseny-polnyj-obzor",
+          "snippet": "Подробное описание и сравнение комплектаций и цен Киа Мохаве. Онлайн запись на тест-драйв."
+        },
+        {
+          "title": "Киа Мохаве (2026) — цена, характеристики, фото",
+          "url": "https://wroom.ru/cars/kia/mohave",
+          "snippet": "Полный обзор Kia Mohave 2026: технические характеристики, комплектации, реальный расход топлива, сравнение с Toyota Prado и Nissan Patrol, цены у российских дилеров и советы по выбору."
+        },
+        {
+          "title": "Kia Mohave - Технические характеристики Киа Мохаве: габариты, тип ...",
+          "url": "https://www.kia.ru/models/mohave/properties/",
+          "snippet": "Всё про автомобиль Киа Мохаве 2026 года: цена в России, фотографии кузова и салона, характеристики, информация про двигатели."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "киа мохаве под заказ из кореи 2026",
+      "purpose": "вторичный запрос: киа мохаве под заказ из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Купить Kia Mohave из Кореи под заказ: 1629 авто | Браво Моторс",
+          "url": "https://bravomotorrs.com/korea/kia/mohave/",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Mohave из Кореи — покупка и доставка под ключ",
+          "url": "https://lhmex.ru/avtomobilej-korei/kia/mohave",
+          "snippet": "Большая благодарность Дмитрию и всем менеджерам компании Браво Моторс, которые постоянно находились на связи и сопровождали все зависящие от них варианты сделки, начиная от осмотра машины в корейском салоне, переправки её во Владивосток и логистики по доставке автомобиля к месту нашего проживания. 14.02.2026 года мы получили свою машинку в своём городе и в этот же день зарегистрировали её в МРЭО."
+        },
+        {
+          "title": "Kia Mohave из Кореи под заказ — цены и доступные автомобили",
+          "url": "https://atp-auto.ru/avto-iz-korei/kia/mohave/",
+          "snippet": "Подбираем, выкупаем и доставляем автомобили - по заявке. Работаем напрямую с корейскими дилерами и аукционами KAA, K-Car, Encar. Показываем оригинальные лоты, ставки и итоговую стоимость в режиме реального времени — никаких «накруток» и скрытых комиссий."
+        },
+        {
+          "title": "Kia Mohave из Кореи под заказ с доставкой по России",
+          "url": "https://ngt-auto.ru/korea/kia/mohave/",
+          "snippet": "Kia Mohave из Кореи — реальные цены и доступные авто. Подбор под заказ с доставкой за 15 дней по всей России. Покажем варианты и рассчитаем стоимость."
+        },
+        {
+          "title": "Купить КИА MOHAVE (из Кореи) - Tokito Auto",
+          "url": "https://tokito-auto.ru/korea/kia/mohave",
+          "snippet": "Закажите Kia Mohave из Южной Кореи с полной проверкой и доставкой по России. Прозрачная цена, выкуп, сопровождение. NGT Auto — надёжно и с гарантией."
+        },
+        {
+          "title": "Купить Kia Mohave из Кореи под ключ — от 6 150 000 ₽, 757 в наличии",
+          "url": "https://encarrus.ru/korea/kia/mohave/",
+          "snippet": "Заказывал автомобиль Kia Carnival 2021 года в Корее. Бюджет ограничил одной суммой (3,7 млн рублей), так как деньги были в кредит, добавить физически больше не мог."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "kia mohave из кореи 2026",
+      "purpose": "вторичный запрос: kia mohave из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Mohave из Кореи: рамный дизельный внедорожник под ключ в 2026",
+          "url": "https://onlyjpcars.ru/blog/kia-mohave-iz-korei",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Mohave из Кореи — цена под ключ · калькулятор 2026",
+          "url": "https://onlyjpcars.ru/catalog/kia-mohave-hm",
+          "snippet": "Kia Mohave (Borrego) из Кореи — рамный внедорожник с дизельным V6 3.0. Цены на Encar, сравнение с Land Cruiser Prado, расчёт утильсбора и стоимость под ключ в Сибири в 2026."
+        },
+        {
+          "title": "Kia Mohave из Кореи с доставкой — Купить авто Kia Mohave в Корее",
+          "url": "https://korex-auto.com/korea/kia/mohave/",
+          "snippet": "Точная сумма зависит от года, комплектации и мощности. Откройте калькулятор OnlyJPCars для Kia Mohave: таможня 2026, утильсбор, фрахт и доставка до вашего города."
+        },
+        {
+          "title": "Купить Kia Mohave из Кореи под заказ! | Восток Транс Импорт",
+          "url": "https://koreacars.me/catalog/Kia/Mohave",
+          "snippet": "Купить Kia Mohave из Кореи — полный расчет с доставкой в Россию, пошлиной и всеми сборами. Понятная схема покупки, отслеживание этапов покупки авто в личном кабинете, низкая комиссия!"
+        },
+        {
+          "title": "Купить Kia Mohave из Кореи под заказ — цена с полной пошлиной ...",
+          "url": "https://jteco.ru/korea-auc/auto/kia/mohave/",
+          "snippet": "Заказать Kia Mohave из Кореи: цены, характеристики, доставка в любой регион. Привезти Kia Mohave из Южной Кореи в Россию поможет «Восток Транс Импорт»."
+        },
+        {
+          "title": "Купить Kia Mohave из Кореи под заказ: 1629 авто | Браво Моторс",
+          "url": "https://bravomotorrs.com/korea/kia/mohave/",
+          "snippet": "Kia Mohave из Кореи под заказ с полной пошлиной. Новые и подержанные машины с характеристиками и фото, реальный пробег. Все цены с учётом доставки в РФ, таможенного оформления и растаможки под ..."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Kia Mohave из Кореи: комплектации и ловушки до депозита 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Mohave комплектации: сравнение, цены и отличия версий",
+          "url": "https://master-kia.vercel.app/articles/k/ki/kia-mohave-komplektatsii.html",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Mohave из Кореи: рамный дизельный внедорожник под ключ в 2026",
+          "url": "https://onlyjpcars.ru/blog/kia-mohave-iz-korei",
+          "snippet": "Выбор большого рамного внедорожника — это всегда компромисс между бездорожным потенциалом и комфортом для ежедневной эксплуатации. Когда речь заходит о Kia Mohave, покупатели часто сталкиваются с дилеммой: какая именно комплектация станет оптимальной для их задач?"
+        },
+        {
+          "title": "Kia Mohave 2026: технические характеристики, комплектации и цены ...",
+          "url": "https://ru.jiemeicar.com/kia-mohave-2026-tehnicheskie-harakteristiki-komplektatsii-i-tseny-polnyj-obzor",
+          "snippet": "Kia Mohave (Borrego) из Кореи — рамный внедорожник с дизельным V6 3.0. Цены на Encar, сравнение с Land Cruiser Prado, расчёт утильсбора и стоимость под ключ в Сибири в 2026."
+        },
+        {
+          "title": "Kia Mohave 2026: характеристики, комплектации и цены",
+          "url": "https://master-kia.vercel.app/articles/k/ki/kia-mokhave-tekhnicheskie-kharakteristiki-komplektatsii-i-tseny.html",
+          "snippet": "В этом материале: актуальные характеристики и комплектации 2026 года, сравнение стоимости владения с конкурентами, тест на бездорожье, анализ поломок и полное руководство по выбору между ..."
+        },
+        {
+          "title": "Kia Mohave из Кореи — цена под ключ · калькулятор 2026",
+          "url": "https://onlyjpcars.ru/catalog/kia-mohave-hm",
+          "snippet": "Полный обзор Kia Mohave: технические характеристики, расход топлива, комплектации и актуальные цены. Стоит ли покупать рамный внедорожник?"
+        },
+        {
+          "title": "Kia Mohave из Кореи — покупка и доставка под ключ",
+          "url": "https://lhmex.ru/avtomobilej-korei/kia/mohave",
+          "snippet": "Точная сумма зависит от года, комплектации и мощности. Откройте калькулятор OnlyJPCars для Kia Mohave: таможня 2026, утильсбор, фрахт и доставка до вашего города."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://vk.ru/@chesprice-kia-iz-korei-2026-kak-kupit-pod-lgotnyi-util-i-vybrat-avto",
+      "title": "Kia Из Кореи 2026: Как Купить Под Льготный Утиль И Выбрать Авто",
+      "from_query": "как выбрать киа мохаве из кореи 2026"
+    },
+    {
+      "url": "https://encarrus.ru/korea/kia/",
+      "title": "Купить Kia из Кореи под ключ — каталог, цены с доставкой | EncarRus",
+      "from_query": "как выбрать киа мохаве из кореи 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/2a88a64ccb79b214fa226581a11bd22b/",
+      "title": "Цена Kia Pegas из Китая. Расчет стоимости Киа Пегас под ключ",
+      "from_query": "как выбрать киа мохаве из кореи 2026"
+    },
+    {
+      "url": "https://tokito-auto.ru/korea/kia",
+      "title": "Купить КИА (из Кореи)",
+      "from_query": "как выбрать киа мохаве из кореи 2026"
+    },
+    {
+      "url": "https://top-autoimport.ru/blog/kak-prignat-avto-iz-korei",
+      "title": "Как самому привезти авто из Кореи в РФ в 2026 году",
+      "from_query": "как выбрать киа мохаве из кореи 2026"
+    },
+    {
+      "url": "https://encar-russia.ru/",
+      "title": "Авто из Кореи - Подбор и доставка в Россию - Encar",
+      "from_query": "как выбрать киа мохаве из кореи 2026"
+    },
+    {
+      "url": "https://dtf.ru/top-raiting/5155469-kia-iz-korei-proverennye-kompanii-dlya-pokupki-avtomobilej",
+      "title": "Kia из Кореи: 8 проверенных фирм по привозу — разбор 2026",
+      "from_query": "как выбрать киа мохаве из кореи октябрь 2026"
+    },
+    {
+      "url": "https://lhmex.ru/avtomobilej-korei/kia/mohave",
+      "title": "Kia Mohave из Кореи — покупка и доставка под ключ",
+      "from_query": "как выбрать киа мохаве из кореи октябрь 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/korea/kia/mohave/",
+      "title": "Продажа Kia Mohave из Кореи | Цены на Киа Мохав в Корее",
+      "from_query": "как выбрать киа мохаве из кореи октябрь 2026"
+    },
+    {
+      "url": "https://encarrus.ru/korea/kia/mohave/",
+      "title": "Купить Kia Mohave из Кореи под ключ — от 6 150 000 ₽, 757 в наличии",
+      "from_query": "как выбрать киа мохаве из кореи октябрь 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/korea/kia/",
+      "title": "Продажа Kia из Кореи | Статистика цен на Киа в Корее",
+      "from_query": "как выбрать киа мохаве из кореи октябрь 2026"
+    },
+    {
+      "url": "https://koreacars.me/catalog/Kia/Mohave",
+      "title": "Купить Kia Mohave из Кореи под заказ! | Восток Транс Импорт",
+      "from_query": "как выбрать киа мохаве из кореи октябрь 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/kia-mohave-iz-korei",
+      "title": "Kia Mohave из Кореи: рамный дизельный внедорожник под ключ в 2026",
+      "from_query": "как выбрать киа мохаве из кореи новости 2026"
+    },
+    {
+      "url": "https://ru.jiemeicar.com/kia-mohave-2026-tehnicheskie-harakteristiki-komplektatsii-i-tseny-polnyj-obzor",
+      "title": "Kia Mohave 2026: технические характеристики, комплектации и цены ...",
+      "from_query": "как выбрать киа мохаве из кореи новости 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/avto-iz-korei-pod-zakaz-2026",
+      "title": "Авто из Кореи под заказ: модели, цены под ключ и проверка",
+      "from_query": "как выбрать киа мохаве из кореи новости 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/0efa0756dbd387b82f1ab0ded4e61595/",
+      "title": "17 ЛЕТ В ОДНОМ КУЗОВЕ! Почему Kia Mohave ... - Rutube",
+      "from_query": "как выбрать киа мохаве из кореи новости 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/k/ki/kia-mokhave-2025.html",
+      "title": "Киа Мохаве 2026: обзор характеристик, цены и комплектаций",
+      "from_query": "как выбрать киа мохаве из кореи новости 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/k/ki/kia-mokhave-tekhnicheskie-kharakteristiki-komplektatsii-i-tseny.html",
+      "title": "Kia Mohave 2026: характеристики, комплектации и цены",
+      "from_query": "как выбрать киа мохаве из кореи новости 2026"
+    },
+    {
+      "url": "https://github.com/kelai141/kelai141/blob/main/assets/week.svg",
+      "title": "kelai141/assets/week.svg at main · kelai141/kelai141 · GitHub",
+      "from_query": "site:github.com как выбрать киа мохаве из кореи 2026"
+    },
+    {
+      "url": "https://github.com/ancf-hue/anti-ai-darts/blob/main/favicon.svg",
+      "title": "anti-ai-darts/favicon.svg at main · ancf-hue/anti-ai-darts · GitHub",
+      "from_query": "site:github.com как выбрать киа мохаве из кореи 2026"
+    },
+    {
+      "url": "https://gist.github.com/BoberSdoh/ec67b2175d1f9cecaf6ad24a5278084e",
+      "title": "Обзор 10 Vpn-сервисов В 2026 Году: Что Я Тестировал Лично, Что Работает ...",
+      "from_query": "site:github.com как выбрать киа мохаве из кореи 2026"
+    },
+    {
+      "url": "https://github.com/ake1999/FMCW_Radar_Ake/blob/master/polar_fft.png",
+      "title": "FMCW_Radar_Ake/polar_fft.png at master · ake1999/FMCW_Radar_Ake · GitHub",
+      "from_query": "site:github.com как выбрать киа мохаве из кореи 2026"
+    },
+    {
+      "url": "https://github.com/mod-playerbots/mod-playerbots/blob/master/icon.png",
+      "title": "mod-playerbots/icon.png at master · mod-playerbots/mod-playerbots",
+      "from_query": "site:github.com как выбрать киа мохаве из кореи 2026"
+    },
+    {
+      "url": "https://github.com/DariyaYdyrys/domashka/blob/main/Almaty_districts.svg",
+      "title": "domashka/Almaty_districts.svg at main - GitHub",
+      "from_query": "site:github.com как выбрать киа мохаве из кореи 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/k/ki/kia-mokhave-2024-kharakteristiki.html",
+      "title": "Киа Мохаве 2026: характеристики, двигатели и полный обзор",
+      "from_query": "как выбрать киа мохаве из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.koreacarexp.com/ru/resources/how-to-choose-import-korean-car",
+      "title": "Как выбрать и импортировать подержанный автомобиль из Южной Кореи",
+      "from_query": "как выбрать киа мохаве из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.mohavod.ru/viewforum.php?f=5",
+      "title": "KIA Mohave Club - Kia Mohave - mohavod.ru",
+      "from_query": "как выбрать киа мохаве из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://mykia.club/forum/29-kia-mokhav-klub/",
+      "title": "Киа Мохав клуб - Киа Форум",
+      "from_query": "как выбрать киа мохаве из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://mohavod.ru/",
+      "title": "KIA Mohave Club - Главная страница",
+      "from_query": "как выбрать киа мохаве из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://kia-clubs.ru/forums/topic/2956-prignal-kia-mohave-iz-korei/",
+      "title": "Пригнал KIA Mohave из Кореи - Обзоры и публикации Kia Mohave 2 - Kia ...",
+      "from_query": "как выбрать киа мохаве из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/aisn4JcBHkuUK3AX",
+      "title": "2 месяца езжу на Kia Mohave из Кореи - Дзен",
+      "from_query": "как выбрать киа мохаве из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://encarrus.ru/korea/kia/avtomobili-2026/",
+      "title": "Купить Kia 2026 из Кореи под ключ — каталог, цены | EncarRus",
+      "from_query": "киа мохаве из кореи 2026"
+    },
+    {
+      "url": "https://auto.ironhorse.ru/kia-mohave-master_24970.html",
+      "title": "KIA Mohave (2026): цена и характеристики, фотографии и обзор",
+      "from_query": "киа мохаве из кореи 2026"
+    },
+    {
+      "url": "https://wroom.ru/cars/kia/mohave",
+      "title": "Киа Мохаве (2026) — цена, характеристики, фото",
+      "from_query": "киа мохаве из кореи 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/k/ki/kia-mokhave-2026-novyj-kuzov.html",
+      "title": "Kia Mohave 2026: новый кузов, характеристики и дата выхода",
+      "from_query": "киа мохаве дизель 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/k/ki/kia-mohave-novyj.html",
+      "title": "Kia Mohave Новый 2026-2026: обзор, характеристики, комплектации",
+      "from_query": "киа мохаве дизель 2026"
+    },
+    {
+      "url": "https://www.kia.ru/models/mohave/options/",
+      "title": "Kia Mohave - Цены и комплектации - Купить Киа Мохаве - Официальный сайт ...",
+      "from_query": "киа мохаве дизель 2026"
+    },
+    {
+      "url": "https://www.kia.ru/models/mohave/properties/",
+      "title": "Kia Mohave - Технические характеристики Киа Мохаве: габариты, тип ...",
+      "from_query": "киа мохаве дизель 2026"
+    },
+    {
+      "url": "https://bravomotorrs.com/korea/kia/mohave/",
+      "title": "Купить Kia Mohave из Кореи под заказ: 1629 авто | Браво Моторс",
+      "from_query": "киа мохаве под заказ из кореи 2026"
+    },
+    {
+      "url": "https://atp-auto.ru/avto-iz-korei/kia/mohave/",
+      "title": "Kia Mohave из Кореи под заказ — цены и доступные автомобили",
+      "from_query": "киа мохаве под заказ из кореи 2026"
+    },
+    {
+      "url": "https://ngt-auto.ru/korea/kia/mohave/",
+      "title": "Kia Mohave из Кореи под заказ с доставкой по России",
+      "from_query": "киа мохаве под заказ из кореи 2026"
+    },
+    {
+      "url": "https://tokito-auto.ru/korea/kia/mohave",
+      "title": "Купить КИА MOHAVE (из Кореи) - Tokito Auto",
+      "from_query": "киа мохаве под заказ из кореи 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/catalog/kia-mohave-hm",
+      "title": "Kia Mohave из Кореи — цена под ключ · калькулятор 2026",
+      "from_query": "kia mohave из кореи 2026"
+    },
+    {
+      "url": "https://korex-auto.com/korea/kia/mohave/",
+      "title": "Kia Mohave из Кореи с доставкой — Купить авто Kia Mohave в Корее",
+      "from_query": "kia mohave из кореи 2026"
+    },
+    {
+      "url": "https://jteco.ru/korea-auc/auto/kia/mohave/",
+      "title": "Купить Kia Mohave из Кореи под заказ — цена с полной пошлиной ...",
+      "from_query": "kia mohave из кореи 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/k/ki/kia-mohave-komplektatsii.html",
+      "title": "Kia Mohave комплектации: сравнение, цены и отличия версий",
+      "from_query": "Как выбрать Kia Mohave из Кореи: комплектации и ловушки до депозита 2026 2026"
+    }
+  ]
+}

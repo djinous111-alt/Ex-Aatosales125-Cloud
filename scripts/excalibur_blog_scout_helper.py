@@ -66,6 +66,66 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
         })
     return topics
 
+def load_wp_slug_denylist(root: Path) -> set[str]:
+    path = root / "shared/wp-slug-denylist.json"
+    if not path.is_file():
+        return set()
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return set()
+    slugs = data.get("slugs") or []
+    return {str(s).strip().lower() for s in slugs if str(s).strip()}
+
+
+def slugify_query(text: str) -> str:
+    text = text.lower().strip()
+    text = re.sub(r"[^\w\s-]", " ", text, flags=re.UNICODE)
+    text = re.sub(r"[\s_]+", "-", text).strip("-")
+    return text
+
+
+def check_denylist(query: str, denylist: set[str]) -> list[dict[str, Any]]:
+    if not denylist:
+        return [{
+            "severity": "WARNING",
+            "topic_id": "n/a",
+            "similarity": 0.0,
+            "status": "missing_denylist",
+            "message": "shared/wp-slug-denylist.json missing or empty — merge EXCALIBUR_RECENT_WP_POSTS + published-live before append",
+        }]
+    q = query.lower().strip()
+    q_slug = slugify_query(query)
+    hits = []
+    for slug in sorted(denylist):
+        if not slug:
+            continue
+        if slug == q_slug or slug in q.replace(" ", "-") or slug.replace("-", " ") in q:
+            hits.append({
+                "severity": "CRITICAL",
+                "topic_id": "denylist",
+                "similarity": 1.0,
+                "status": "wp_denylist",
+                "message": f"Query/slug overlaps denylist entry '{slug}' (do not republish/clone recent WP)",
+            })
+            continue
+        # token overlap on slug parts (len>=4)
+        slug_parts = {p for p in slug.split("-") if len(p) >= 4}
+        q_parts = normalize_and_tokenize(query)
+        # use fuller tokens from query words
+        q_words = {w for w in re.findall(r"[\w-]{4,}", q, flags=re.UNICODE)}
+        inter = slug_parts.intersection(q_words)
+        if len(inter) >= 2 and any(x in inter for x in ("kia", "hyundai", "toyota", "haval", "changan", "geely", "encar", "utilsbor", "rastamozh", "mohave", "tucson", "avante", "sportage", "seltos")):
+            hits.append({
+                "severity": "WARNING",
+                "topic_id": "denylist",
+                "similarity": round(len(inter) / max(len(slug_parts), 1), 2),
+                "status": "wp_denylist",
+                "message": f"Possible model/cluster overlap with denylist '{slug}' via {sorted(inter)}",
+            })
+    return hits
+
+
 def normalize_and_tokenize(text: str) -> set[str]:
     text = text.lower()
     text = re.sub(r"[^\w\s\-]", " ", text)
@@ -135,6 +195,10 @@ def main() -> int:
             m = re.match(r"B(\d+)", t["topic_id"])
             if m:
                 max_num = max(max_num, int(m.group(1)))
+        for pid in reserved:
+            m = re.match(r"B(\d+)", pid)
+            if m:
+                max_num = max(max_num, int(m.group(1)))
         
         next_id = f"B{max_num + 1:02d}"
         print(f"Next available topic ID: {next_id}")
@@ -144,17 +208,32 @@ def main() -> int:
         
         unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
         print(f"Unwritten topic IDs in pool: {unwritten}")
+        denylist = load_wp_slug_denylist(root)
+        print(f"WP slug denylist entries: {len(denylist)} (shared/wp-slug-denylist.json)")
+        if not denylist:
+            print("⚠️ BLOCKER RISK: denylist missing — rebuild from today.py recent WP + published-live before Scout append")
         return 0
         
     if args.check_query:
+        denylist = load_wp_slug_denylist(root)
         warnings = check_overlap(args.check_query, existing, reserved)
+        warnings.extend(check_denylist(args.check_query, denylist))
+        # Missing denylist is WARNING-only; CRITICAL denylist/overlap hits fail.
+        critical = [w for w in warnings if w.get("severity") == "CRITICAL"]
         if warnings:
-            print("❌ OVERLAP DETECTED:")
+            label = "❌ OVERLAP DETECTED:" if critical else "⚠️ DENYLIST/OVERLAP WARNINGS:"
+            print(label)
             for w in warnings:
                 print(f"  [{w['severity']}] Similarity: {w['similarity']} | Topic: {w['topic_id']} ({w['status']})")
                 print(f"  Message: {w['message']}")
-            return 1
+            if critical:
+                return 1
+            print("Continue only after manual review of warnings.")
+            return 0
         print("✅ NO CANNIBALIZATION RISK: Query is clean and unique.")
+        if not denylist:
+            print("⚠️ shared/wp-slug-denylist.json missing — treat as blocker for Scout append.")
+            return 1
         return 0
 
     ap.print_help()

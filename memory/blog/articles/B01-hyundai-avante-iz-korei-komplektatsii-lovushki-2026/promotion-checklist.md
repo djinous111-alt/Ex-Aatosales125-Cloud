@@ -1,7 +1,8 @@
 # Promotion checklist — B01 hyundai-avante-iz-korei-komplektatsii-lovushki-2026
 
 Дата публикации: 2026-10-20  
-Live URL: /blog/hyundai-avante-iz-korei-komplektatsii-lovushki-2026/
+Live URL: https://avtosales125.ru/2026/10/20/hyundai-avante-iz-korei-komplektatsii-lovushki-2026/  
+WP post_id: 4382
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +30,7 @@ Modern на Encar ≠ полный пакет
 • Два Modern могут отличаться сильнее, чем Smart с пакетами и «пустой» Modern
 • Депозит — только после чек-листа из 12 пунктов
 
-Читать: /blog/hyundai-avante-iz-korei-komplektatsii-lovushki-2026/
+Читать: https://avtosales125.ru/2026/10/20/hyundai-avante-iz-korei-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка
@@ -45,6 +46,6 @@ Modern на Encar ≠ полный пакет
 
 ## Notes
 
-- Indexer: interlinker `--apply --article-dir … --site-base [REDACTED]` — 0 links applied.
-- llms.txt / llms-full.txt обновлены в `memory/blog/` (`--site-base ""`, relative `/blog/<slug>/`).
-- Publish: не запускался на шаге Indexer.
+- Indexer: interlinker — 0 opportunities (corpus AS08/AS09/B01).
+- llms.txt / llms-full.txt обновлены в `memory/blog/`.
+- Publish 2026-10-20: WP 4382; featured 4383; inline 4384/4385/4386; schema_meta ok; HEAD 200.

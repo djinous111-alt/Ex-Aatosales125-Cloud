@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261020-1340-indexer-llms-stale-blog-path
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-hyundai-avante-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `scripts/excalibur_blog_llms_generator.py` accepts only `--blog-dir` / `--out-dir` / `--site-base` (no `--blog-path`), but agent/skill examples still show `--blog-path /`.
+- `scripts/excalibur_blog_doctor.py` still FAIL-checks `llms generator supports --blog-path` → false doctor error at pipeline start.
+- Absolute `${PUBLIC_SITE_URL}` in committed llms hits secret-scan; durable pattern is `--site-base ""` for relative `/blog/<slug>/` URLs.
+
+### How the agent recovered this run
+- Ran llms without `--blog-path`: `--blog-dir memory/blog/articles --out-dir memory/blog --site-base ""`.
+- Redacted `site_base` in `memory/blog/interlink-suggestions.json` to `[REDACTED]` before commit.
+- Interlinker `--apply` completed (0 opportunities); promotion-checklist written.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent/skill shell examples; document `--blog-dir` + `--out-dir` + `--site-base ""` for committed artifacts.
+- Change doctor check: require `--blog-dir`/`--out-dir` (and optionally empty/default site-base), not `--blog-path`.
+- Keep pitfalls note: Cloud shell `python3`; committed llms use relative paths.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261020-1335-cover-hoodie-lock-regression
 status: open
 run_date: 2026-10-20

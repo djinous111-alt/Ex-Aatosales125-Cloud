@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-20",
+    "today_ru": "20.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-22",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-20 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "hyundai-avante-iz-korei-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Hyundai Avante из Кореи: комплектации Smart/Modern/Inspiration и ловушки 2026",
+    "primary_query": "hyundai avante комплектации",
+    "secondary_queries": [
+      "hyundai avante из кореи",
+      "хендай аванте комплектации",
+      "hyundai avante cn7",
+      "hyundai avante elantra"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "hyundai avante комплектации 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "hyundai avante комплектации октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "hyundai avante комплектации новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com hyundai avante комплектации 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "hyundai avante комплектации official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "hyundai avante комплектации forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "hyundai avante из кореи 2026",
+      "purpose": "вторичный запрос: hyundai avante из кореи"
+    },
+    {
+      "id": "secondary_2",
+      "query": "хендай аванте комплектации 2026",
+      "purpose": "вторичный запрос: хендай аванте комплектации"
+    },
+    {
+      "id": "secondary_3",
+      "query": "hyundai avante cn7 2026",
+      "purpose": "вторичный запрос: hyundai avante cn7"
+    },
+    {
+      "id": "secondary_4",
+      "query": "hyundai avante elantra 2026",
+      "purpose": "вторичный запрос: hyundai avante elantra"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать Hyundai Avante из Кореи: комплектации Smart/Modern/Inspiration и ловушки 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-hyundai-avante-iz-korei-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

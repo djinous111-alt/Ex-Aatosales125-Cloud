@@ -6,6 +6,71 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261020-0930-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud API не принял typed `Task(excalibur-blog-geo-qa)`; роль запущена через fallback `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` + skill.
+
+### How the agent recovered this run
+- Выполнил GEO QA как generalPurpose с полным контрактом роли; пайплайн не останавливал.
+
+### Durable fix needed before next run
+- Зарегистрировать typed Task types `excalibur-blog-*` в Cloud / automation config, либо явно документировать generalPurpose fallback как default в director skill без потери контракта.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md` (уже упоминает pattern)
+- Cloud automation / Task type registry (вне репо, если есть)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261020-0931-geo-qa-utility-pain-outcome-policy-missing
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026
+severity: high
+category: qa
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требует `pain_markers_ru` / `outcome_markers_ru` и `min_pain_markers`/`min_outcome_markers` (default 2/3), но в `memory/brief/editorial-policy.json` списков не было → count всегда 0 → любой article BLOCK по pain/outcome.
+- Параллельно writer использовал «Делать:/Не делать:», которые не матчат `recommendation_markers_ru` (`сделайте`/`не делайте`) → action_markers=2 < 8.
+
+### How the agent recovered this run
+- Добавил в `editorial-policy.json` `pain_markers_ru` / `outcome_markers_ru` (aligned с human-voice gate) и min thresholds.
+- Минимальный auto-fix `article.html`: pain/outcome/action маркеры, insight без ярлыка TL;DR, «Сделайте/Не делайте», шаги с «Шаг N».
+- Повтор utility + human-voice → PASS.
+
+### Durable fix needed before next run
+- Держать policy markers в sync с `excalibur_blog_human_voice_gate.py` CONCRETE/PAIN/OUTCOME (или единый shared JSON).
+- Writer skill: требовать `сделайте`/`не делайте`/`проверьте`/`шаг `, не только «Делать/Не делать».
+- Unit/smoke: utility gate на fixture article не должен PASS при пустых pain/outcome lists в policy.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json` (уже дополнено в этом run)
+- `scripts/excalibur_blog_utility_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261020-0915-research-notes-gate-false-technical
 status: open
 run_date: 2026-10-20

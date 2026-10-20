@@ -6,6 +6,47 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261020-0939-indexer-doctor-stale-blog-path
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_llms_generator.py` принимает только `--blog-dir` / `--out-dir` (и site flags); флага `--blog-path` нет.
+- `excalibur_blog_doctor.py` всё ещё требует `"--blog-path" in llms_help` → preflight FAIL.
+- Контракты indexer (`.cursor/agents`, `.cursor/skills`, `agents/`, `skills/`) всё ещё печатают `--blog-path /` в shell-примере.
+- Первый прогон с `--site-base ${PUBLIC_SITE_URL}` записал абсолютные URL в `memory/blog/llms*.txt`; pre-commit secret scan заблокировал commit (`PUBLIC_SITE_URL` в staged files). Repo policy уже держит relative `/blog/...` в этих артефактах.
+
+### How the agent recovered this run
+- Запустил llms generator без `--blog-path`: `--blog-dir memory/blog/articles --out-dir memory/blog`.
+- Перегенерировал llms с `--site-base ""` → relative `/blog/<slug>/` (3 articles); commit прошёл secret scan.
+
+### Durable fix needed before next run
+- Убрать stale check `--blog-path` из doctor; проверять `--blog-dir` и `--out-dir`.
+- Обновить shell-примеры indexer agent/skill: только `--blog-dir` + `--out-dir`, без `--blog-path`.
+- В indexer skill явно: для committed `memory/blog/llms*.txt` использовать `--site-base ""` (relative paths); не писать `${PUBLIC_SITE_URL}` в llms artifacts.
+- Опционально: default `--site-base` в generator сделать `""`, а не hardcoded host.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261020-0936-cover-hoodie-default-lock
 status: open
 run_date: 2026-10-20

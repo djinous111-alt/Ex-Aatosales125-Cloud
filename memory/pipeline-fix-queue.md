@@ -22,6 +22,7 @@ category: env
 ### How the agent recovered this run
 - Перед `git commit` отфильтровал невалидные имена из `CLOUD_AGENT_INJECTED_SECRET_NAMES` (оставить только `^[A-Za-z_][A-Za-z0-9_]*$`).
 - Повторил commit + push.
+- Writer B01 (тот же run): тот же invalid name в CSV; плюс pre-commit блокировал `article.html` из-за CTA `CATALOG_URL`/`TELEGRAM_URL` – перед commit исключить из scan также `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`, `PUBLIC_SITE_URL` (публичные CTA в HTML статьи).
 
 ### Durable fix needed before next run
 - В hook: skip secret names that fail bash identifier regex before `${!SECRET_NAME}`.

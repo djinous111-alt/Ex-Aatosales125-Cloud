@@ -1,13 +1,13 @@
 # Promotion checklist — B01 kia-mohave-iz-korei-komplektatsii-lovushki-2026
 
-Дата публикации: YYYY-MM-DD (после WP publish)  
-Live URL: /blog/kia-mohave-iz-korei-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-21  
+Live URL: [REDACTED]/2026/10/21/kia-mohave-iz-korei-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200, post=4394, featured=4395)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200) — AS08 soft suspension, AS09 Trust Encar/Carhistory, catalog, Telegram
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)

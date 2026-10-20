@@ -29,10 +29,12 @@
     "description_aeo": "Kia Mohave из Кореи выбирают так: места 5/6/7, ветка Platinum или Masters, Gravity как надстройка, льготного утильсбора при ~257 л.с. нет, депозит после VIN и сметы."
   },
   "geo_qa": {
-    "score": 72,
-    "verdict": "FIX",
+    "score": 89,
+    "verdict": "PASS",
     "date": "2026-10-21",
-    "blocker": "link-verify: href=[REDACTED] x3; hydrate CATALOG_URL/TELEGRAM_URL"
+    "cycle": 2,
+    "human_voice": "PASS",
+    "link_verify": "PASS"
   },
   "cover_family": "brand_collage"
 }

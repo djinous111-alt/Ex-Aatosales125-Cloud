@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/B01-kia-mohave-iz-korei-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 5,
+  "facts": [
+    {
+      "fact": "2022",
+      "kind": "date_or_year",
+      "context": "ке: Сергей из Новосибирска увидел Masters Gravity 2022 за привлекательную цену в вонах, быстро внёс депоз",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "Отметьте год/возраст относительно порога 3 лет на 2026 и только потом открывайте фильтры trim. Разведите",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "а Encar. Отметьте год/возраст относительно порога 3 лет на 2026 и только потом открывайте фильтры trim. Р",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "260",
+      "kind": "large_number",
+      "context": "салон не переиграете. Дизель Mohave 3.0 около 257–260 л.с. всегда выше порога льготы 160 л.с., схема \"ка",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "3.0 около 257–260 л.с. всегда выше порога льготы 160 л.с., схема \"как у маломощного кроссовера\" здесь н",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "257",
+      "kind": "large_number",
+      "context": "кеты, мест 5 вместо семи, льготного утильсбора у ~257 л.с. нет. В Авто-Сейлс во Владивостоке такие кейсы",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

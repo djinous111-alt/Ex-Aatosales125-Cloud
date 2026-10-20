@@ -6,6 +6,35 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261020-1712-research-precommit-invalid-secret-name
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-k3-iz-korei-komplektatsii-lovushki-2026
+severity: low
+category: env
+
+### What went wrong
+- Cloud `pre-commit.cursor` aborted with `invalid variable name` while expanding `${!SECRET_NAME}` because `CLOUD_AGENT_INJECTED_SECRET_NAMES` CSV included a non-bash-safe token.
+
+### How the agent recovered this run
+- Re-exported filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` (bash-safe identifiers only; skipped CATALOG/TELEGRAM/MAX/PUBLIC_SITE URL secrets that collide with CTA text) and re-ran commit.
+
+### Durable fix needed before next run
+- Dashboard: rename non-bash-safe secret keys; install/hook should skip invalid identifiers before `${!name}`.
+- Keep documented filter in install script / pitfalls.
+
+### Suggested files to inspect/change
+- `shared/cloud-agent-install.sh` (or equivalent precommit harden path)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261020-1710-research-gate-kia-ai-false-positive
 status: open
 run_date: 2026-10-20

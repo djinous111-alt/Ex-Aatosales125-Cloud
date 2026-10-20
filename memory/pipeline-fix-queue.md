@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None from B01 Mohave fixer pass 2026-10-21. Resolved blocks retained below with status: fixed._
+
+
 ## INC-20261021-2136-indexer-llms-stale-blog-path-docs
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-indexer
 topic_id: B01
@@ -42,10 +45,27 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Doctor asserts `--blog-dir`/`--out-dir` and that removed `--blog-path` is absent.
+- Indexer agent/skill shell examples synced (repo + `.cursor/`).
+- Pitfalls note for llms CLI.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `python3 scripts/excalibur_blog_llms_generator.py --help`
+commit: pending-parent-commit
+
 
 ## INC-20261021-2133-cover-manifest-prompt-race-seo-stub
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-cover
 topic_id: B01
@@ -76,10 +96,26 @@ category: other
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- AVTO defaults in `quad_manifest.py`; `assert_not_seo_stub` blocks Wordstat/SEO/hoodie stub.
+- Cover skill: sequential manifest→prompt; discard SEO stub Kie jobs.
+- Prompt builder validates cover_hook/scene_hint before write-batch.
+files_changed:
+- `scripts/excalibur_blog_quad_manifest.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_quad_manifest.py scripts/excalibur_blog_cover_quad_prompt.py`
+- unit validate_outfit_lock ok/bad
+commit: pending-parent-commit
+
 
 ## INC-20261021-2133-cover-hoodie-outfit-lock-stale
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-cover
 topic_id: B01
@@ -106,10 +142,24 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending (script line patched this run; validation still missing)
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Outfit lock softshell/crewneck in prompt builder + `blog-hero.json` `outfit_lock_cloud`.
+- `validate_outfit_lock()` rejects positive hoodie / SEO stub (allows "NO hoodie").
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/blog-hero.json`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+checks_run:
+- unit validate_outfit_lock
+- JSON parse blog-hero.json
+commit: pending-parent-commit
+
 
 ## INC-20261021-2126-schema-precommit-invalid-secret-name
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-schema
 topic_id: B01
@@ -138,10 +188,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Cloud `pre-commit.cursor` skips non-identifier secret names before `${!SECRET_NAME}`.
+- Repo helper `scripts/excalibur_blog_filter_secret_names.sh`; documented in schema skill + pitfalls.
+files_changed:
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- (env) `~/.cursor/agent-hooks/.../pre-commit.cursor`
+checks_run:
+- filter script --print with polluted names
+- bash identifier regex smoke
+commit: pending-parent-commit
+
 
 ## INC-20261021-2135-geoqa-redacted-cta-link-verify
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -176,10 +241,27 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending (article hydrated; durable skill/pre-commit allowlist still open)
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Documented CTA contract: QA hydrate from env; commit may `[REDACTED]`; publish hydrates.
+- `link_verify.py` hydrates `[REDACTED]` / `[REDACTED]/path` via CATALOG_URL/TELEGRAM_URL/PUBLIC_SITE_URL + anchor text.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- hydrate_redacted_href unit cases
+- `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
+commit: pending-parent-commit
+
 
 ## INC-20261021-2115-writer-utility-pain-markers-empty
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-writer
 topic_id: B01
@@ -212,10 +294,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Confirmed utility gate skip-empty for pain/outcome; editorial-policy keeps marker lists.
+- Writer skill: recommendation_markers_ru verbs; human_voice_gate warns only on exact 5-li lists.
+files_changed:
+- `memory/brief/editorial-policy.json` (markers present)
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_human_voice_gate.py`
+checks_run:
+- JSON parse editorial-policy.json
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py scripts/excalibur_blog_human_voice_gate.py`
+commit: pending-parent-commit
+
 
 ## INC-20261021-2105-scout-niche-skill-drift
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-scout
 topic_id: B01
@@ -245,10 +341,25 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Scout agent/skill rewritten to AVTO SALES clusters; Cursor/Make marked legacy drift.
+- `editorial-utility-only.md` beginner angle = покупатель авто до депозита.
+files_changed:
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg confirms AVTO niche + drift warnings only as forbidden
+commit: pending-parent-commit
+
 
 ## INC-20261021-2106-scout-missing-wp-denylist
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-scout
 topic_id: B01
@@ -278,7 +389,21 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Created `shared/wp-slug-denylist.json` (recent WP + published-live + notes, no secrets).
+- `scout_helper --check-query/--suggest-next` reads denylist; missing file warned as blocker risk.
+files_changed:
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_scout_helper.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 -m json.tool shared/wp-slug-denylist.json`
+- `--suggest-next` shows 131 entries; exact Mohave slug → CRITICAL exit 1
+commit: pending-parent-commit
+
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

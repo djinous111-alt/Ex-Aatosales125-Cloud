@@ -46,3 +46,30 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator: `--blog-dir` + `--out-dir` (не `--blog-path`).
+
+
+## Indexer / doctor CLI
+
+- llms generator: только `--blog-dir` + `--out-dir` (+ `--site-base`). Флаг `--blog-path` удалён; doctor и skill examples не должны его требовать.
+
+## Cover
+
+- Не запускай `cover_quad_prompt.py` в том же parallel tool-batch, что и ручной rewrite `quad-manifest.json`.
+- Outfit lock Cloud: softshell + crewneck, **не** hoodie. SEO/Wordstat stub в cover_hook/scene_hint → discard, не Kie.
+- `quad_manifest.py` / `validate_outfit_lock()` блокируют stub до createTask.
+
+## CTA / secret-scan
+
+- QA: hydrate CTA из env; commit может `[REDACTED]`; publish hydrates.
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES` может содержать не-идентификаторы (`[REDACTED]`, URL) → filter `^[A-Za-z_][A-Za-z0-9_]*$` (pre-commit.cursor + `scripts/excalibur_blog_filter_secret_names.sh`).
+
+## Scout
+
+- Ниша только AVTO SALES (`site-brief.md`). Cursor/Make skill drift — игнорировать.
+- Без `shared/wp-slug-denylist.json` — blocker; helper `--check-query` читает denylist.
+
+## Writer / utility
+
+- Держи `pain_markers_ru` / `outcome_markers_ru` в `editorial-policy.json`; пустые списки в gate = skip, не false-BLOCK.
+- Recommendation = глаголы из `recommendation_markers_ru`, не только «Делать:».

@@ -1,0 +1,198 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "[REDACTED]/kia-mohave-iz-korei-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "[REDACTED]/kia-mohave-iz-korei-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Kia Mohave из Кореи: комплектации и ловушки до депозита 2026",
+      "description": "Как выбрать киа мохаве из кореи: Platinum/Masters/Gravity, места 5/6/7, стоп по льготному утильсбору и чек-лист до депозита. Подбор – в каталоге Авто-Сейлс.",
+      "datePublished": "2026-10-21",
+      "dateModified": "2026-10-21",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "[REDACTED]/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "[REDACTED]/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "[REDACTED]"
+        },
+        "sameAs": [
+          "[REDACTED]",
+          "[REDACTED]",
+          "[REDACTED]",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "[REDACTED]/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "[REDACTED]",
+        "sameAs": [
+          "[REDACTED]",
+          "[REDACTED]"
+        ]
+      },
+      "keywords": [
+        "как выбрать киа мохаве из кореи",
+        "киа мохаве из кореи",
+        "киа мохаве дизель",
+        "киа мохаве под заказ из кореи",
+        "kia mohave из кореи"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "[REDACTED]/kia-mohave-iz-korei-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Platinum Gravity отличается от Masters Gravity?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сначала разная база: Platinum или Masters. Gravity – надстройка к выбранной ветке, а не отдельный \"абсолютный максимум\". Перед бронью сверяйте список опций и места в карточке, а не одно слово в заголовке."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Пройдёт ли Kia Mohave 3.0 дизель по льготному утильсбору в 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет: мощность около 257–260 л.с. выше порога 160 л.с. В чек-листе сразу отмечайте \"льготы нет\" и считайте возрастную корзину (до/после 3 лет) через живой расчёт, без копипаста чужих сумм."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько мест выбирать: 5, 6 или 7?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "5 – если важнее багаж, 6 – если нужен раздельный второй ряд, 7 – если регулярно возите максимум людей. Зафиксируйте цифру до брони: после выкупа салона не будет."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что смотреть в Encar до депозита?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Полный VIN, число мест, ветку trim, схему кузова (X/W), страховой блок карточки, пробег и свежие фото/видео осмотра. Параллельно откройте Carhistory по VIN и только потом говорите про деньги."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему цена на Encar не равна \"под ключ\"?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В карточке – лот в Корее. До ключей добавляются фрахт, таможня, утильсбор, брокер, СВХ, лаборатория/СБКТС, ЭПТС и доставка. Требуйте смету строками до Владивостока до любого депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда безопасно вносить депозит за Mohave из Кореи?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Когда закрыты 12 пунктов чек-листа: места, trim, стоп по льготе, VIN, Carhistory, схема кузова, осмотр, письменная смета и график платежей. Нет пакета – нет перевода."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "[REDACTED]/kia-mohave-iz-korei-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать Kia Mohave из Кореи до депозита",
+      "description": "Пошаговый выбор Kia Mohave с Encar: места 5/6/7, ветка Platinum/Masters/Gravity, стоп по льготному утильсбору, проверки VIN/Carhistory и смета до Владивостока.",
+      "totalTime": "PT60M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Карточка Encar: trim, места, Performance Check"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Отчёт Carhistory по VIN"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Письменная смета строками до Владивостока"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Лист выбора: места + Platinum/Masters/Gravity + год/возраст"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Чек-лист 12 пунктов до депозита"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Ссылка на лот Encar и полный VIN"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Зафиксировать места 5/6/7 и бюджет до ключей",
+          "text": "Запишите задачу машины, выберите места (5 багаж / 6 раздельный 2 ряд / 7 максимум людей), зафиксируйте бюджет до ключей и год/возраст относительно порога 3 лет на 2026.",
+          "url": "[REDACTED]/kia-mohave-iz-korei-komplektatsii-lovushki-2026/#зафиксируйте-задачу-места-567-и-бюджет-до-ключей"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Развести комплектации Platinum, Masters и Gravity",
+          "text": "Сначала выберите базовую ветку Platinum или Masters, затем суффикс Gravity. В shortlist пишите полную связку, например Masters Gravity, 7 мест, 2022 — не бронируйте по одному слову Gravity.",
+          "url": "[REDACTED]/kia-mohave-iz-korei-komplektatsii-lovushki-2026/#разведите-комплектации-encar-platinum-masters-и-gravity"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Поставить стоп по льготному утильсбору для дизеля 3.0",
+          "text": "У Mohave дизель 3.0 около 257–260 л.с. — выше порога 160 л.с., льготной шкалы нет. Отметьте в чек-листе «льготы нет» и считайте возрастную корзину через живой расчёт.",
+          "url": "[REDACTED]/kia-mohave-iz-korei-komplektatsii-lovushki-2026/#сверьте-дизель-30-почему-льготного-утильсбора-нет"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Проверить лот: Encar, VIN и Carhistory",
+          "text": "До перевода денег соберите пакет: ссылка на лот, полный VIN, Carhistory (выплаты, flood, коммерция), схема кузова Encar без необъяснённых X/W на силовых, свежий осмотр с фото/видео.",
+          "url": "[REDACTED]/kia-mohave-iz-korei-komplektatsii-lovushki-2026/#проверьте-лот-до-депозита-encar-vin-и-carhistory"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Собрать смету строками до Владивостока",
+          "text": "Потребуйте письменную смету: лот в Корее, услуги Кореи, фрахт, таможня и утильсбор, брокер, СВХ, лаборатория/СБКТС, ЭПТС, выдача во Владивостоке. Сверьте, что закрывает депозит до моря и что платится после порта.",
+          "url": "[REDACTED]/kia-mohave-iz-korei-komplektatsii-lovushki-2026/#соберите-смету-строками-до-владивостока"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Пройти чек-лист из 12 пунктов перед деньгами",
+          "text": "Проверьте места, trim, Gravity, мощность, стоп по льготе, возраст, VIN, Carhistory, схему кузова, осмотр, смету и график платежей. Если хоть один пункт красный — депозит подождёт.",
+          "url": "[REDACTED]/kia-mohave-iz-korei-komplektatsii-lovushki-2026/#пройдите-чеклист-из-12-пунктов-перед-деньгами"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Собрать shortlist и запросить живой расчёт",
+          "text": "Соберите 2–3 лота, закройте проверки, запросите смету и отправьте связку (год, места, trim, бюджет, город) в Telegram/каталог Авто-Сейлс. Депозит обсуждайте только когда пункты чек-листа зелёные.",
+          "url": "[REDACTED]/kia-mohave-iz-korei-komplektatsii-lovushki-2026/#что-сделать-сегодня-shortlist-и-запрос-расчёта"
+        }
+      ]
+    }
+  ]
+}

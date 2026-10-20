@@ -85,12 +85,12 @@ def pick_visual_type(h2: str, types_catalog: dict, used: set[str]) -> str:
 
 def scene_hint_for_type(type_id: str, h2: str) -> str:
     hints = {
-        "comparison_table_ui": f"Таблица SEO vs GEO: критерии, цели, человек vs AI — «{h2}»",
-        "workflow_diagram": f"6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «{h2}»",
-        "checklist_board": f"Printable чеклист перед публикацией — «{h2}»",
+        "comparison_table_ui": f"Таблица сравнения комплектаций/стран: критерии до депозита — «{h2}»",
+        "workflow_diagram": f"6 шагов заказа авто: shortlist -> проверка -> логистика -> таможня -> выдача — «{h2}»",
+        "checklist_board": f"Printable чеклист до оплаты/депозита — «{h2}»",
         "schema_faq_ui": f"FAQ accordion + JSON-LD schema UI — «{h2}»",
-        "tool_screenshot": f"Скрин SEO-инструмента — «{h2}»",
-        "infographic_card": f"Карточка фактов — «{h2}»",
+        "tool_screenshot": f"Скрин Encar / аукционного листа / карточки авто — «{h2}»",
+        "infographic_card": f"Карточка фактов по модели/таможне — «{h2}»",
     }
     return hints.get(type_id, f"Полезная иллюстрация — «{h2}»")
 
@@ -99,6 +99,37 @@ def alt_for_type(type_id: str, h2: str, types_catalog: dict) -> str:
     label = ((types_catalog.get("types") or {}).get(type_id) or {}).get("label_ru") or type_id
     return f"{label}: {h2}"
 
+
+
+SEO_STUB_TOKENS = ("wordstat", "вордстат", "15k ключей", "seo-текст", "seo текст", "сеошник")
+
+
+def _positive_hoodie(text: str) -> bool:
+    import re
+
+    cleaned = re.sub(r"\bno\s+hoodie\b", " ", text, flags=re.I)
+    cleaned = re.sub(r"\bno\s+hood\b", " ", cleaned, flags=re.I)
+    cleaned = re.sub(r"без\s+худи", " ", cleaned, flags=re.I)
+    return bool(re.search(r"\bhoodie\b|\bhooded\b|худи", cleaned, flags=re.I))
+
+
+def assert_not_seo_stub(manifest: dict) -> None:
+    cover = ((manifest.get("slots") or {}).get("cover") or {})
+    parts = [
+        str(manifest.get("cover_hook") or ""),
+        str(cover.get("scene_hint") or ""),
+        str(cover.get("meme_caption_ru") or ""),
+    ]
+    blob = " ".join(parts).lower()
+    hits = [tok for tok in SEO_STUB_TOKENS if tok in blob]
+    if _positive_hoodie(blob):
+        hits.append("hoodie/худи")
+    if hits:
+        raise SystemExit(
+            "❌ MANIFEST SEO STUB BLOCKER: cover_hook/scene_hint still looks like SEO/Wordstat/hoodie stub: "
+            + ", ".join(hits)
+            + ". Rewrite for AVTO SALES before prompt/Kie."
+        )
 
 def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict[str, Any]:
     meta_path = article_dir / "article.meta.json"
@@ -114,8 +145,8 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
         "role": "cover_meme_hero",
         "alt": old_cover.get("alt") or f"Обложка: {article_topic}",
         "scene_hint": old_cover.get("scene_hint")
-        or "reference-лицо, белое плотное худи из толстой ткани, новая поза/жест/ракурс под крючок, без наушников/headset/earbuds, шок/ирония SEOшника, Wordstat + ноутбук",
-        "meme_caption_ru": old_cover.get("meme_caption_ru") or "15k ключей — 0 прочтений?",
+        or "reference-лицо, charcoal softshell + cream crewneck (NO hoodie), поза под авто-крючок, Encar/порт/таможня, без наушников/headset/earbuds, без Wordstat/SEO-аналитики",
+        "meme_caption_ru": old_cover.get("meme_caption_ru") or "Сначала trim — потом депозит",
     }
 
     used: set[str] = set()
@@ -133,7 +164,7 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
             "alt": alt_for_type(visual_type, old.get("h2_anchor") or h2, types_catalog),
         }
 
-    cover_hook = (preserve or {}).get("cover_hook") or "SEO-текст, который люди дочитают — миф или workflow?"
+    cover_hook = (preserve or {}).get("cover_hook") or "Encar показывает Gravity — уже максималка?"
 
     return {
         "topic_id": topic_id,
@@ -168,6 +199,7 @@ def main() -> int:
 
     preserve = load_json(out_path) if args.merge and out_path.is_file() else None
     manifest = build_manifest(article_dir, root, preserve)
+    assert_not_seo_stub(manifest)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     save_json(out_path, manifest)
     print(f"OK manifest={out_path}")

@@ -1,83 +1,110 @@
-# Excalibur BLOG — Scout (Скаут-разведчик новых тем)
+---
+name: scout-excalibur-blog
+description: Excalibur BLOG Scout — AVTO SALES темы, Wordstat, denylist WP slug.
+---
+
+# Excalibur BLOG — Scout (Авто-Сейлс)
 
 ## Когда запускаться
 
-Запускается по запросу пользователя для расширения пула тем или перед началом нового цикла написания статьи, когда старые темы в `blog-topics.md` исчерпаны.
+Когда пул `memory/topics/blog-topics.md` пуст/исчерпан или Директор просит новую P0-тему.
+
+## Ниша (канон)
+
+Только **AVTO SALES** по `memory/brief/site-brief.md`:
+
+- Корея / Япония / Китай под заказ
+- растаможка, утильсбор, СВХ Владивосток
+- Encar / Trust Encar / аукцион / доверие до депозита
+
+**Не ниша:** Cursor, Make, n8n, AI-агенты, автопостинг, «контент-завод» (legacy drift — игнорировать).
+
+Аудитория: покупатель авто под заказ, beginner angle = первый результат до депозита.
 
 ---
 
-## Архитектура работы
+## Архитектура
 
 ```text
-published-articles.md + blog-topics.md (Audit)
+published-articles.md + wp-slug-denylist.json + published-live + blog-topics.md
               ↓
-excalibur_blog_scout_helper.py --suggest-next (Get next ID)
+excalibur_blog_today.py (EXCALIBUR_RECENT_WP_POSTS)
               ↓
-WebSearch (Cursor native trend scouting for 2026)
+excalibur_blog_scout_helper.py --suggest-next
               ↓
-wordstat_get_top_requests (Yandex Wordstat API demand verify)
+WebSearch (авто-ниша 2026)
               ↓
-excalibur_blog_scout_helper.py --check-query (Cannibalization Guard)
+wordstat_get_top_requests (cluster-first)
               ↓
-Append new Topic Card to blog-topics.md
+excalibur_blog_scout_helper.py --check-query  (+ denylist)
+              ↓
+Append Topic Card → blog-topics.md
 ```
 
 ---
 
-## Подробный алгоритм действий
+## Алгоритм
 
-### Шаг 1 — Анализ прошлого и получение ID
-* Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
-* Вызови helper-скрипт:
-  ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
-  ```
-  Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
+### 1) Audit + ID
 
-### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
-Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
-* Поисковые запросы: *«новые ИИ инструменты автоматизации 2026»*, *«how to automate business Claude Cursor»*, *«лучшие сценарии n8n Make автоматизация»*, *«как настроить ИИ-агента инструкция»*.
-* Найди свежие, практические боли пользователей, по которым не хватает качественных гайдов.
-
-### Шаг 3 — Валидация спроса (Yandex Wordstat)
-Для 2-3 отобранных вариантов тем вызови инструмент `wordstat_get_top_requests` сервера `user-mcp-kv`.
-* **Цель:** Найти ключевой запрос (primary query) с живым спросом в Яндексе и выписать 3–5 связанных поисковых вопросов для FAQ и secondary queries.
-* **Фильтр:** Если тема имеет микро-спрос (меньше 10 показов в месяц) и нет смежных тем — отложи её и возьми другую, более востребованную.
-
-### Шаг 4 — Тест на каннибализацию ключевых слов
-Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_today.py
+python3 scripts/excalibur_blog_scout_helper.py --suggest-next
 ```
-Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
 
-### Шаг 5 — Сборка карточки темы (Utility-Only)
-Сформируй карточку темы по шаблону:
+Обязательно проверь:
+
+- `shared/wp-slug-denylist.json` существует и не пуст
+- иначе **blocker**: собери slugs из `EXCALIBUR_RECENT_WP_POSTS` + `memory/blog/published-live-avtosales125.json` + notes, запиши JSON, только потом append
+
+### 2) WebSearch (авто, не AI)
+
+Примеры запросов: «Kia/Hyundai из Кореи комплектации 2026», «растаможка авто из Китая чек-лист», «утильсбор 2026 как считать», «Encar проверка до депозита».
+
+### 3) Wordstat cluster-first
+
+1. Широкий parent (модель/кластер)
+2. Узкий how-to
+3. `totalCount`-only на узком = low-result signal → опирайся на parent semantic tail
+
+### 4) Cannibalization
+
+```bash
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<primary_query>"
+```
+
+Helper сверяет pool тем **и** `shared/wp-slug-denylist.json`. CRITICAL overlap → другая тема.
+
+### 5) Карточка (utility-only Mode B)
+
 ```markdown
-## {ID} — Короткое название темы
+## {ID} — Короткое название
 
-- **priority:** P0 (если высокий спрос) | P1
+- **priority:** P0 | P1
 - **slug:** {kebab-case-slug}
-- **h1:** {Заголовок с глаголом действия: Как / Чек-лист / Инструкция}
-- **primary_query:** {главный запрос из Вордстата}
-- **secondary_queries:** {2-3 сопутствующих запроса из Вордстата}
+- **h1:** {Как / Чек-лист / …}
+- **primary_query:** {Wordstat}
+- **secondary_queries:** {2-3}
 - **search_intent:** how_to | checklist | comparison | troubleshooting | workflow | parent_guide
 - **article_mode:** B
 - **h2_outline:**
-  1. {Действие 1}
-  2. {Действие 2}
-  3. {Действие 3}
+  1. {Действие}
+  2. {Действие}
+  3. {Действие}
   4. {Чек-лист/Сравнение}
-- **faq_hints:** {2-3 вопроса-подсказки из хвоста Вордстата}
+- **faq_hints:** {2-3}
 - **internal_links:** /
-- **cover_scene_hint:** {Краткое ТЗ для картинки - обстановка, элементы DIY-коллажа}
+- **cover_scene_hint:** {авто-сцена, не SEO/Wordstat}
 ```
 
-Допиши (append) карточку в конец `memory/topics/blog-topics.md`.
+Append в конец `memory/topics/blog-topics.md`.
 
 ---
 
-## Блокеры скаута
-* Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
-* Игнорирование проверки на каннибализацию ключей.
-* Выдумывание цифр спроса без вызова Wordstat API.
+## Блокеры
+
+- Mode A / новости без практики
+- Тема вне AVTO SALES (AI/Make/Cursor drift)
+- Нет `shared/wp-slug-denylist.json`
+- Игнор denylist / recent WP republish
+- Выдуманный Wordstat без MCP

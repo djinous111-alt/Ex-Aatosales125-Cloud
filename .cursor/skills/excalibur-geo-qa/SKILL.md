@@ -50,6 +50,16 @@ python scripts/excalibur_blog_human_voice_gate.py \
   -o human-voice-report.json
 ```
 
+
+
+## CTA hydrate before link-verify
+
+Согласованный URL-контракт:
+
+1. Перед hard-gate `link-verify` убедись, что CTA не «мёртвые»: либо живые env URL, либо `link_verify` hydrate из `CATALOG_URL` / `TELEGRAM_URL` / `PUBLIC_SITE_URL`.
+2. Если в `article.html` ещё литералы `href="[REDACTED]"` — hydrate из env (по смыслу якоря: каталог vs Telegram), затем перегони verify.
+3. Commit позже может снова записать `[REDACTED]`; publish hydrates. Не блокируй QA из‑за будущего redact.
+
 **Pass:** score ≥ 80, CORE-EEAT ≥ 16/20, link-verify pass, **research notes gate PASS**, **utility gate PASS**, **human voice gate PASS**, **beginner-fit PASS**. В `article-qa.md` отдельно зафиксируй: какая боль новичка решена, где показано решение, какой первый результат получит читатель, какие сложные термины объяснены «на пальцах».
 
 **Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.

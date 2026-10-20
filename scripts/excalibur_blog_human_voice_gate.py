@@ -233,7 +233,10 @@ def analyze_human_voice(article_dir: Path) -> dict[str, Any]:
         for quote in blockquotes
         if "материал проверен" in quote.lower() and "достоверность данных" in quote.lower()
     ]
-    exactly_five_lists = len(re.findall(r"<ol[\s\S]*?(?:<li[\s\S]*?){5}</ol>", html, flags=re.I))
+    exactly_five_lists = 0
+    for ol_block in re.findall(r"<ol[\s\S]*?</ol>", html, flags=re.I):
+        if len(re.findall(r"<li\b", ol_block, flags=re.I)) == 5:
+            exactly_five_lists += 1
 
     reader_story = extract_field(notes, "reader_story")
     reader_pain = extract_field(notes, "reader_pain")

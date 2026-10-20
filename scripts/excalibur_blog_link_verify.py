@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import json
 import re
 import ssl
@@ -19,6 +20,8 @@ class LinkExtractor(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
         self.links: list[dict[str, str]] = []
+        self._in_a = False
+        self._current: dict[str, str] | None = None
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         if tag.lower() != "a":
@@ -27,20 +30,74 @@ class LinkExtractor(HTMLParser):
         href = attr.get("href", "").strip()
         if not href or href.startswith("#") or href.startswith("mailto:") or href.startswith("tel:"):
             return
-        self.links.append({"href": href, "text_hint": ""})
+        self._current = {"href": href, "text_hint": ""}
+        self._in_a = True
+
+    def handle_data(self, data: str) -> None:
+        if self._in_a and self._current is not None:
+            self._current["text_hint"] += data
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag.lower() != "a" or not self._in_a or self._current is None:
+            return
+        self._current["text_hint"] = " ".join(self._current["text_hint"].split())
+        self.links.append(self._current)
+        self._current = None
+        self._in_a = False
 
 
-def extract_links(html: str) -> list[str]:
+def extract_links(html: str) -> list[dict[str, str]]:
     parser = LinkExtractor()
     parser.feed(html)
     seen: set[str] = set()
-    out: list[str] = []
+    out: list[dict[str, str]] = []
     for item in parser.links:
         href = item["href"]
         if href not in seen:
             seen.add(href)
-            out.append(href)
+            out.append(item)
     return out
+
+
+def hydrate_redacted_href(href: str, text_hint: str = "") -> tuple[str, str | None]:
+    """Resolve commit-time [REDACTED] placeholders from env for QA link-verify.
+
+    Contract:
+    - GEO QA / link-verify: hydrate from CATALOG_URL, TELEGRAM_URL, PUBLIC_SITE_URL
+    - git commit: may store [REDACTED] (secret-scan)
+    - publish: hydrates live URLs again
+    """
+    catalog = (os.environ.get("CATALOG_URL") or "").strip()
+    telegram = (os.environ.get("TELEGRAM_URL") or "").strip()
+    site = (
+        os.environ.get("PUBLIC_SITE_URL")
+        or os.environ.get("WP_SITE_URL")
+        or os.environ.get("WP_HOME")
+        or ""
+    ).strip().rstrip("/")
+    hint = (text_hint or "").lower()
+
+    if href.startswith("[REDACTED]/") or href.startswith("[REDACTED]?"):
+        if not site:
+            return href, "redacted_prefix_needs_PUBLIC_SITE_URL"
+        return site + href[len("[REDACTED]") :], "hydrated_site_prefix"
+
+    if href == "[REDACTED]":
+        if any(tok in hint for tok in ("telegram", "телеграм", "t.me", "tg")) and telegram:
+            return telegram, "hydrated_telegram"
+        if any(tok in hint for tok in ("каталог", "catalog", "подбор", "заявк")) and catalog:
+            return catalog, "hydrated_catalog"
+        # Prefer catalog for bare CTA placeholders when only one env is set.
+        if catalog and telegram:
+            # Ambiguous: leave unresolved so GEO QA hydrates explicitly.
+            return href, "redacted_cta_ambiguous_needs_hydrate"
+        if catalog:
+            return catalog, "hydrated_catalog_default"
+        if telegram:
+            return telegram, "hydrated_telegram_default"
+        return href, "redacted_cta_needs_CATALOG_URL_or_TELEGRAM_URL"
+
+    return href, None
 
 
 def check_url(url: str, timeout: float, user_agent: str) -> dict[str, Any]:
@@ -141,8 +198,26 @@ def verify_article(
     links = extract_links(html)
     user_agent = "ExcaliburBlogLinkVerify/1.0"
     results: list[dict[str, Any]] = []
-    for href in links:
-        kind = classify_link(href, site_base)
+    for item in links:
+        href = item["href"]
+        text_hint = item.get("text_hint") or ""
+        hydrated, hydrate_note = hydrate_redacted_href(href, text_hint)
+        if hydrate_note and hydrated == href and hydrate_note.startswith("redacted_"):
+            results.append(
+                {
+                    "url": href,
+                    "kind": "redacted_placeholder",
+                    "status": None,
+                    "ok": False,
+                    "skipped": False,
+                    "method": None,
+                    "error": hydrate_note,
+                    "text_hint": text_hint,
+                }
+            )
+            continue
+        check_href = hydrated
+        kind = classify_link(check_href, site_base)
         if skip_external and kind == "external":
             results.append(
                 {
@@ -153,13 +228,14 @@ def verify_article(
                     "skipped": True,
                     "method": None,
                     "error": None,
+                    "hydrated_from": hydrate_note,
                 }
             )
             continue
-        check_target = href
+        check_target = check_href
         if kind == "internal_relative" and site_base:
             base = site_base.rstrip("/")
-            check_target = f"{base}{href if href.startswith('/') else '/' + href}"
+            check_target = f"{base}{check_href if check_href.startswith('/') else '/' + check_href}"
         elif kind == "internal_relative":
             results.append(
                 {
@@ -170,15 +246,20 @@ def verify_article(
                     "skipped": True,
                     "method": None,
                     "error": "relative link; pass --site-base to verify",
+                    "hydrated_from": hydrate_note,
                 }
             )
             continue
         r = check_url(check_target, timeout, user_agent)
         r["kind"] = kind
         r["skipped"] = False
-        if kind == "internal_relative":
+        r["url"] = href
+        if hydrate_note:
+            r["hydrated_from"] = hydrate_note
             r["checked_url"] = check_target
-        if kind == "external" and is_soft_external_failure(href, r):
+        elif kind == "internal_relative":
+            r["checked_url"] = check_target
+        if kind == "external" and is_soft_external_failure(check_href, r):
             r["ok"] = True
             r["warning"] = "soft external social timeout; verify manually if needed"
         results.append(r)

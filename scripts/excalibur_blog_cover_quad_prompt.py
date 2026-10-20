@@ -57,6 +57,67 @@ def validate_reference_url(ref_url: str) -> bool:
     return False
 
 
+
+SEO_STUB_TOKENS = (
+    "wordstat",
+    "вордстат",
+    "15k ключей",
+    "seo-текст",
+    "seo текст",
+    "сеошник",
+)
+
+
+def _positive_hoodie(text: str) -> bool:
+    """True if hoodie/худи is requested, ignoring explicit NO/без negations."""
+    import re
+
+    cleaned = re.sub(r"\bno\s+hoodie\b", " ", text, flags=re.I)
+    cleaned = re.sub(r"\bno\s+hood\b", " ", cleaned, flags=re.I)
+    cleaned = re.sub(r"без\s+худи", " ", cleaned, flags=re.I)
+    cleaned = re.sub(r"не\s+худи", " ", cleaned, flags=re.I)
+    return bool(re.search(r"\bhoodie\b|\bhooded\b|худи", cleaned, flags=re.I))
+
+
+def validate_outfit_lock(prompt: str, manifest: dict) -> bool:
+    """Reject hoodie / Wordstat / SEO stub leftovers before Kie createTask."""
+    hay = prompt.lower()
+    cover = ((manifest.get("slots") or {}).get("cover") or {})
+    scene = str(cover.get("scene_hint") or "")
+    hook = str(manifest.get("cover_hook") or "")
+    caption = str(cover.get("meme_caption_ru") or "")
+    manifest_blob = " ".join([scene, hook, caption]).lower()
+    seo_hits = [tok for tok in SEO_STUB_TOKENS if tok in manifest_blob or tok in hay]
+    if seo_hits:
+        print(
+            "❌ COVER SCENE BLOCKER: SEO/Wordstat stub tokens: "
+            + ", ".join(seo_hits)
+            + ". Discard stub; rewrite AVTO cover_hook/scene_hint, then rebuild prompt sequentially.",
+            file=sys.stderr,
+        )
+        return False
+    if _positive_hoodie(scene) or _positive_hoodie(caption) or _positive_hoodie(hook):
+        print(
+            "❌ COVER OUTFIT BLOCKER: manifest still requests hoodie/худи. "
+            "Cloud lock = charcoal softshell + cream crewneck (NO hoodie).",
+            file=sys.stderr,
+        )
+        return False
+    if "softshell" not in hay or "crewneck" not in hay:
+        print(
+            "❌ COVER OUTFIT BLOCKER: prompt missing softshell/crewneck outfit lock.",
+            file=sys.stderr,
+        )
+        return False
+    if not hook.strip():
+        print("❌ COVER MANIFEST BLOCKER: cover_hook empty before prompt build.", file=sys.stderr)
+        return False
+    if not scene.strip():
+        print("❌ COVER MANIFEST BLOCKER: slots.cover.scene_hint empty before prompt build.", file=sys.stderr)
+        return False
+    return True
+
+
 def validate_prompt_budget(prompt: str) -> bool:
     prompt_chars = len(prompt)
     if prompt_chars <= MAX_MCP_PROMPT_CHARS:
@@ -86,7 +147,7 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         "",
         "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
         "",
-        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
+        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: charcoal softshell jacket over cream crewneck (NO hoodie NO hood NO cap). Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
         "",
         f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
         "",
@@ -137,6 +198,8 @@ def main() -> int:
         return 1
 
     prompt = build_prompt(manifest, style, hero, types_catalog, design_code)
+    if not validate_outfit_lock(prompt, manifest):
+        return 1
     if not validate_prompt_budget(prompt):
         return 1
     prompt_path = article_dir / "cover" / "quad-mcp-prompt.txt"

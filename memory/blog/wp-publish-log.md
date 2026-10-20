@@ -31,3 +31,19 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-21 — B01 kia-mohave-iz-korei-komplektatsii-lovushki-2026
+
+- verdict: pass
+- post_id: 4394
+- featured_image: 4395
+- inline_images: 4396, 4397, 4398
+- schema_meta: ok
+- skip_theme_faq_meta: 1
+- permalink: [REDACTED]/2026/10/21/kia-mohave-iz-korei-komplektatsii-lovushki-2026/
+- method: SSH (SSH_ROOT=.) + HTTP OK (no WebFetch/504)
+- HEAD: 200
+- REST id: 4394
+- denylist: not 4388/4382/4376/4364/4358
+- article_dir: memory/blog/articles/B01-kia-mohave-iz-korei-komplektatsii-lovushki-2026
+

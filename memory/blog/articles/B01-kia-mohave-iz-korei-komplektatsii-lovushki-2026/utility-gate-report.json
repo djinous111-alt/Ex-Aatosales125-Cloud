@@ -1,0 +1,25 @@
+{
+  "policy_id": "utility_only_v1",
+  "overall": "PASS",
+  "reports": [
+    {
+      "gate": "article",
+      "article_dir": "memory/blog/articles/B01-kia-mohave-iz-korei-komplektatsii-lovushki-2026",
+      "status": "PASS",
+      "metrics": {
+        "numbered_list_items": 28,
+        "h2_sections": 7,
+        "faq_h3": 6,
+        "tables": 2,
+        "blockquotes": 5,
+        "ul_lists": 0,
+        "action_markers": 34,
+        "pain_markers": 15,
+        "outcome_markers": 18,
+        "water_hits": []
+      },
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

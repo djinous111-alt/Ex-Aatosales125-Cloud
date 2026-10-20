@@ -184,3 +184,27 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Kia Mohave из Кореи: комплектации и ловушки
+
+- **priority:** P0
+- **slug:** kia-mohave-iz-korei-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Kia Mohave из Кореи: комплектации и ловушки до депозита 2026
+- **primary_query:** как выбрать киа мохаве из кореи
+- **secondary_queries:** киа мохаве из кореи, киа мохаве дизель, киа мохаве под заказ из кореи, kia mohave из кореи
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Зафиксируйте задачу: рамный SUV, места (5/6/7) и полный бюджет до Владивостока
+  2. Разведите комплектации Encar: Platinum, Masters, Gravity – что реально в базе
+  3. Сверьте дизель 3.0 и мощность по документам: порог льготного утильсбора
+  4. Проверьте лот до депозита: Trust Encar / Carhistory, пробег, АКПП, рама/кузов
+  5. Чек-лист из 12 пунктов перед переводом денег
+- **faq_hints:** чем Platinum Gravity отличается от Masters Gravity; пройдёт ли Mohave 3.0 дизель по льготному утильсбору; сколько мест выбирать 5, 6 или 7; что смотреть в Encar до депозита
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у крупного корейского рамника Mohave, смартфон с карточкой Encar, плашка «до депозита», угол avto-sales125.ru
+- **wordstat_signal:** parent «киа мохаве» ~62207; «киа мохаве дизель» ~5223; узкий «киа мохаве из кореи» ~267; «как выбрать киа мохаве» totalCount-only low-result
+- **denylist_note:** нет в recent WP (K3/Avante/Santa Fe/Tucson/Seltos/Sportage/K5 и процессные) и нет slug mohave в published-live

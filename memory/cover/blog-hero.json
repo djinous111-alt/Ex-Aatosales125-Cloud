@@ -19,7 +19,7 @@
     "hair": "как на reference, без кепки/капюшона",
     "energy": "стильный, смешной/прикольный, не клоун-кринж"
   },
-  "outfit_rule": "Одежду героя менять под ПОГОДУ сцены и ТЕМУ статьи. Примеры: зима/снег Владивосток — пуховик, шарф; дождь/порт — дождевик или куртка; лето/жара — лёгкая рубашка/футболка; таможня/документы — smart casual; Encar/аукцион — neat casual; комфорт/подвеска — удобный городской look. Майку с reference НЕ копировать. Кепку и капюшон не надевать.",
+  "outfit_rule": "Cloud lock по умолчанию: charcoal softshell + cream crewneck (NO hoodie/hood/cap). Допускается вариация под погоду сцены, но худи/капюшон/кепка запрещены. Майку с reference НЕ копировать.",
   "weather_outfit_examples": {
     "winter_snow": "пуховик / тёплая куртка, шарф, перчатки опционально",
     "rain_fog_port": "непромокаемая куртка, слой под дождь",
@@ -43,10 +43,15 @@
     "text": "avto-sales125.ru",
     "url": "https://avto-sales125.ru/",
     "placement": "corner_footer",
-    "forbidden_on_cover_corner": ["Telegram", "avtosales125", "t.me"]
+    "forbidden_on_cover_corner": [
+      "Telegram",
+      "avtosales125",
+      "t.me"
+    ]
   },
   "cover_prompt_example_ru": "Дизайнерский фотореалистичный баннер/обложка для Avto-Sales: привоз авто из Китая, Кореи, Японии; герой с первого референса — лицо то же, одежду сменить под погоду и тему; в углу обложки сайт каталога avto-sales125.ru (не Telegram); без кепки; смешной и стильный; красивые шрифты.",
   "reference_url_hosted": "http://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
   "reference_url_source": "wordpress-media",
-  "reference_url_updated_at": "2026-07-17T00:00:00+00:00"
+  "reference_url_updated_at": "2026-07-17T00:00:00+00:00",
+  "outfit_lock_cloud": "charcoal softshell jacket over cream crewneck; NO hoodie NO hood NO cap; vary pose/gesture; no headphones"
 }

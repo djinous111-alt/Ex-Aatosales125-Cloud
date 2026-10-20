@@ -362,3 +362,10 @@ Excalibur BLOG следует этому контракту для каждой 
 10. Скрипт `excalibur_blog_cannibalization_guard.py` дал PASS (нет критической каннибализации ключевых слов)
 11. `schema.jsonld` содержит E-E-A-T автора по реестру; `promotion-checklist.md` сформирован.
 
+
+## CTA / URL placeholders
+
+- Перед GEO QA hard-gate: CTA `href` из `CATALOG_URL` / `TELEGRAM_URL` (hydrate).
+- В git commit допускается `[REDACTED]` из‑за secret-scan.
+- Publish hydrates live URL. Не считай redact в commit ошибкой writer, если QA уже проходил на hydrated копии.
+

@@ -32,6 +32,9 @@ PUBLISH_ENV_KEYS = {
     "SSH_PASSWORD",
     "SSH_ROOT",
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
+    "CATALOG_URL",
+    "TELEGRAM_URL",
+    "MAX_URL",
 }
 
 
@@ -45,6 +48,39 @@ def _read_env_file(path: Path) -> dict[str, str]:
             k, v = line.split("=", 1)
             env[k.strip()] = v.strip()
     return env
+
+
+def hydrate_schema_redactions(schema_raw: str, env: dict[str, str]) -> str:
+    """Expand commit-safe [REDACTED] / ${VAR} placeholders before WP meta write.
+
+    Cloud secret-scan often blocks committing absolute URLs that equal Dashboard
+    secrets (PUBLIC_SITE_URL, CATALOG_URL, TELEGRAM_URL, MAX_URL). Schema agents
+    commit a redacted copy; publish must hydrate from env for live JSON-LD.
+    """
+    if not schema_raw:
+        return schema_raw
+    public = (
+        env.get("PUBLIC_SITE_URL")
+        or env.get("WP_HOME")
+        or env.get("WP_SITE_URL")
+        or ""
+    ).rstrip("/")
+    replacements = {
+        "${PUBLIC_SITE_URL}": public,
+        "${WP_HOME}": (env.get("WP_HOME") or public).rstrip("/"),
+        "${WP_SITE_URL}": (env.get("WP_SITE_URL") or public).rstrip("/"),
+        "${CATALOG_URL}": (env.get("CATALOG_URL") or "").rstrip("/"),
+        "${TELEGRAM_URL}": (env.get("TELEGRAM_URL") or "").rstrip("/"),
+        "${MAX_URL}": (env.get("MAX_URL") or "").rstrip("/"),
+    }
+    out = schema_raw
+    for key, value in replacements.items():
+        if value:
+            out = out.replace(key, value)
+    # Bare [REDACTED] in URL position → public site base (BlogPosting url / mainEntityOfPage).
+    if public and "[REDACTED]" in out:
+        out = out.replace("[REDACTED]", public)
+    return out
 
 
 def load_env(root: Path) -> dict[str, str]:
@@ -186,7 +222,10 @@ def load_article(article_dir: Path) -> dict:
         cover_b64 = base64.b64encode(cover_path.read_bytes()).decode("ascii")
     schema_raw = ""
     if schema_path.is_file():
-        schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        schema_raw = hydrate_schema_redactions(
+            schema_path.read_text(encoding="utf-8").strip(),
+            load_env(project_root()),
+        )
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))

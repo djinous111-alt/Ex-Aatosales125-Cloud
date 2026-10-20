@@ -78,6 +78,59 @@ def normalize_and_tokenize(text: str) -> set[str]:
         tokens.add(w_clean[:5] if len(w_clean) > 4 else w_clean)
     return tokens
 
+def load_live_slugs(root: Path) -> tuple[set[str], str | None]:
+    """Return (slugs, fetched_at) from published-live dump if present."""
+    path = root / "memory/blog/published-live-avtosales125.json"
+    if not path.is_file():
+        return set(), None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return set(), None
+    slugs: set[str] = set()
+    for post in data.get("posts") or []:
+        slug = str(post.get("slug") or "").strip().lower()
+        if slug:
+            slugs.add(slug)
+    fetched_at = str(data.get("fetched_at") or "") or None
+    return slugs, fetched_at
+
+
+def load_denylist_slugs(root: Path) -> set[str]:
+    path = root / "memory/blog/wp-slug-denylist.json"
+    if not path.is_file():
+        return set()
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return set()
+    return {str(s).strip().lower() for s in (data.get("slugs") or []) if str(s).strip()}
+
+
+def live_json_stale(fetched_at: str | None, max_age_days: int = 30) -> bool:
+    if not fetched_at:
+        return True
+    from datetime import datetime, timezone
+
+    raw = fetched_at.strip()
+    try:
+        # Support trailing Z and offsets without colon.
+        dt = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+    except ValueError:
+        return True
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    age = datetime.now(timezone.utc) - dt.astimezone(timezone.utc)
+    return age.days >= max_age_days
+
+
+def slugify_query(text: str) -> str:
+    text = text.lower().strip()
+    text = re.sub(r"[^\w\s\-]", " ", text, flags=re.UNICODE)
+    text = re.sub(r"\s+", "-", text.strip())
+    return text.strip("-")
+
+
 def check_overlap(new_query: str, existing_topics: list[dict[str, str]], reserved_ids: set[str]) -> list[dict[str, Any]]:
     new_tokens = normalize_and_tokenize(new_query)
     warnings = []
@@ -110,10 +163,51 @@ def check_overlap(new_query: str, existing_topics: list[dict[str, str]], reserve
             })
     return warnings
 
+
+def check_live_and_denylist(new_query: str, live_slugs: set[str], denylist: set[str]) -> list[dict[str, Any]]:
+    warnings: list[dict[str, Any]] = []
+    q = new_query.strip().lower()
+    slug_guess = slugify_query(new_query)
+    q_slug = q.replace(" ", "-")
+    candidates = {q, slug_guess, slug_guess.replace("_", "-"), q_slug}
+    query_tokens = normalize_and_tokenize(new_query)
+    # Model/brand anchors that make a denylist hit decisive when ≥2 overlap.
+    for slug in sorted(live_slugs | denylist):
+        source = "denylist" if slug in denylist else "published-live"
+        if slug in candidates or (slug and (slug in q_slug or q_slug in slug)):
+            warnings.append({
+                "severity": "CRITICAL",
+                "topic_id": "n/a",
+                "similarity": 1.0,
+                "status": source,
+                "message": f"Slug/query hits {source}: '{slug}'",
+            })
+            continue
+        slug_tokens = normalize_and_tokenize(slug.replace("-", " "))
+        if not query_tokens or not slug_tokens:
+            continue
+        overlap = query_tokens.intersection(slug_tokens)
+        # Require at least two meaningful tokens (e.g. hyundai+avante) to avoid "korei"-only hits.
+        if len(overlap) >= 2:
+            warnings.append({
+                "severity": "CRITICAL",
+                "topic_id": "n/a",
+                "similarity": round(len(overlap) / max(len(query_tokens | slug_tokens), 1), 2),
+                "status": source,
+                "message": f"Token overlap with {source} slug '{slug}': {sorted(overlap)}",
+            })
+    return warnings
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Helper for Excalibur BLOG Scout Agent")
     ap.add_argument("--suggest-next", action="store_true", help="Print next available Topic ID and summary")
     ap.add_argument("--check-query", type=str, default="", help="Check new primary query for overlaps")
+    ap.add_argument(
+        "--check-live",
+        action="store_true",
+        help="Also check published-live JSON + wp-slug-denylist.json (use with --check-query)",
+    )
     args = ap.parse_args()
     
     # Reconfigure stdout for utf-8 on Windows
@@ -127,6 +221,9 @@ def main() -> int:
     active = load_active_article_topics(root)
     reserved = published | active
     existing = load_existing_topics(root)
+    live_slugs, fetched_at = load_live_slugs(root)
+    denylist = load_denylist_slugs(root)
+    stale = live_json_stale(fetched_at)
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
@@ -144,10 +241,25 @@ def main() -> int:
         
         unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
         print(f"Unwritten topic IDs in pool: {unwritten}")
+        print(f"published-live fetched_at: {fetched_at or 'missing'}")
+        print(f"published-live stale (>30d): {stale}")
+        print(f"denylist slugs: {len(denylist)}")
+        if stale:
+            print(
+                "WARN: published-live JSON is stale or missing — "
+                "merge memory/blog/wp-slug-denylist.json + Director denylist before appending topics."
+            )
         return 0
         
     if args.check_query:
         warnings = check_overlap(args.check_query, existing, reserved)
+        # Always merge live+denylist for Cloud scout; --check-live kept for explicit opt-in docs.
+        warnings.extend(check_live_and_denylist(args.check_query, live_slugs, denylist))
+        if stale:
+            print(
+                "WARN: published-live JSON is stale or missing — "
+                "denylist + ledger are authoritative for recent WP slugs."
+            )
         if warnings:
             print("❌ OVERLAP DETECTED:")
             for w in warnings:
@@ -155,6 +267,8 @@ def main() -> int:
                 print(f"  Message: {w['message']}")
             return 1
         print("✅ NO CANNIBALIZATION RISK: Query is clean and unique.")
+        if args.check_live:
+            print(f"(live slugs={len(live_slugs)}, denylist={len(denylist)}, stale={stale})")
         return 0
 
     ap.print_help()

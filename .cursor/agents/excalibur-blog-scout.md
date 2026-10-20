@@ -55,5 +55,8 @@ Scout-агент ищет горячие и свежие инфоповоды п
 ## Не твоя зона
 - Написание статей (`article.html`), верстка, нарезка картинок или публикация.
 
+
+
+Cannibalization: `--check-query` также сверяет `memory/blog/published-live-avtosales125.json` + `memory/blog/wp-slug-denylist.json`. Если live JSON stale — denylist/ledger обязательны.
 ## Skill
 `skills/scout-excalibur-blog/SKILL.md` · `shared/editorial-utility-only.md`

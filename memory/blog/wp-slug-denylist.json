@@ -1,0 +1,18 @@
+{
+  "description": "Stable WP slug denylist for Scout cannibalization when published-live-*.json is stale. Update after each publish.",
+  "updated_at": "2026-10-20",
+  "slugs": [
+    "kia-k3-iz-korei-komplektatsii-lovushki-2026",
+    "hyundai-avante-iz-korei-komplektatsii-lovushki-2026",
+    "hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026",
+    "hyundai-tucson-iz-korei-komplektatsii-lovushki-2026",
+    "utilzbor-avto-iz-korei-kak-schitat-2026",
+    "kia-k5-iz-korei-komplektatsii-lovushki-2026",
+    "kia-seltos-iz-korei-komplektatsii-lovushki-2026",
+    "kia-sportage-iz-korei-komplektatsii-lovushki-2026"
+  ],
+  "notes": [
+    "Scout must merge this denylist with memory/blog/published-live-avtosales125.json and shared/published-articles.md.",
+    "If published-live fetched_at is older than ~30 days, treat denylist + ledger as authoritative."
+  ]
+}

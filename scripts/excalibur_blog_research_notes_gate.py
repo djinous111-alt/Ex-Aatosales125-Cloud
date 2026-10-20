@@ -14,6 +14,8 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Match as whole tokens only (word-boundary). Substring matches caused false
+# technical classification: "ai" inside "pain", "ии" inside "комплектации".
 TECH_MARKERS = (
     "ai",
     "ии",
@@ -30,6 +32,27 @@ TECH_MARKERS = (
     "workflow",
     "автоматизац",
     "нейросет",
+)
+
+# Auto-import / dealer utility niches are never forced to GitHub evidence.
+AUTO_NICHE_MARKERS = (
+    "encar",
+    "hyundai",
+    "toyota",
+    "kia",
+    "santa fe",
+    "tucson",
+    "аукцион",
+    "растамож",
+    "комплектац",
+    "автоимпорт",
+    "из кореи",
+    "из японии",
+    "из китая",
+    "utilzbor",
+    "утильсбор",
+    "carhistory",
+    "trust encar",
 )
 
 
@@ -73,14 +96,67 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
-def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+def _token_present(blob: str, marker: str) -> bool:
+    """True if marker appears as a whole token (Unicode-aware word boundary)."""
+    if not marker:
+        return False
+    # Prefix markers (автоматизац / нейросет) — match start of a word.
+    if marker.endswith(("ац", "ет")) and len(marker) >= 6:
+        return bool(re.search(rf"(?<![\w]){re.escape(marker)}", blob, flags=re.I | re.UNICODE))
+    return bool(re.search(rf"(?<![\w]){re.escape(marker)}(?![\w])", blob, flags=re.I | re.UNICODE))
+
+
+def topic_blob(context: dict[str, Any], notes: str) -> str:
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
     blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    return blob
+
+
+def is_auto_niche(context: dict[str, Any], notes: str) -> bool:
+    blob = topic_blob(context, notes)
+    return any(marker in blob for marker in AUTO_NICHE_MARKERS)
+
+
+def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    if is_auto_niche(context, notes):
+        return False
+    blob = topic_blob(context, notes)
+    return any(_token_present(blob, marker) for marker in TECH_MARKERS)
+
+
+def count_accessed_at(text: str) -> int:
+    """Count accessed_at labels and markdown-table column dates."""
+    text_lower = text.lower()
+    colon_hits = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    table_hits = 0
+    lines = text.splitlines()
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        if "|" in line and re.search(r"\baccessed_at\b", line, flags=re.I):
+            cells = [c.strip() for c in line.strip().strip("|").split("|")]
+            col = next(
+                (idx for idx, c in enumerate(cells) if re.search(r"\baccessed_at\b", c, flags=re.I)),
+                None,
+            )
+            if col is None:
+                i += 1
+                continue
+            i += 1
+            if i < len(lines) and re.match(r"^\s*\|?\s*[-:| ]+\s*\|?\s*$", lines[i]):
+                i += 1
+            while i < len(lines) and "|" in lines[i]:
+                row_cells = [c.strip() for c in lines[i].strip().strip("|").split("|")]
+                if col < len(row_cells) and re.match(r"^\d{4}-\d{2}-\d{2}$", row_cells[col]):
+                    table_hits += 1
+                i += 1
+            continue
+        i += 1
+    return colon_hits + table_hits
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,7 +206,7 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
     pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
     action_items = count_action_items(text)
@@ -159,10 +235,16 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         warnings.append("Wordstat auth warning present; exact demand volumes were not verified")
 
     technical = is_technical_topic(context, text)
+    auto_niche = is_auto_niche(context, text)
     if technical and len(github_urls) < 3:
         errors.append(f"technical topic requires GitHub evidence: github_urls={len(github_urls)} < 3")
     if technical and not official_doc_urls:
         warnings.append("technical topic has no obvious official docs/developer documentation URL")
+    if auto_niche and not technical and len(github_urls) < 3:
+        warnings.append(
+            "auto/dealer niche: GitHub evidence optional; github_urls not required "
+            f"(found {len(github_urls)})"
+        )
 
     if year and year not in text:
         warnings.append(f"current year {year} is not visible in research notes")
@@ -190,15 +272,80 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
             "action_outline_items": action_items,
             "pain_solution_rows": pain_map_rows,
             "technical_topic": technical,
+            "auto_niche": auto_niche,
         },
     }
 
 
+def run_self_test() -> int:
+    """Lightweight regression checks for TECH_MARKERS and accessed_at counting."""
+    failures: list[str] = []
+
+    # Substring traps must NOT classify as technical
+    fake_ctx = {
+        "topic": {
+            "h1": "Hyundai Santa Fe из Кореи: как выбрать комплектацию",
+            "primary_query": "как выбрать комплектацию hyundai santa fe из кореи",
+            "slug": "hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026",
+            "search_intent": "how_to",
+        }
+    }
+    notes = (
+        "reader_pain: покупатель теряет деньги на комплектации\n"
+        "reader_outcome: сможет проверить см³ до депозита\n"
+    )
+    if is_technical_topic(fake_ctx, notes):
+        failures.append("Santa Fe / комплектации / reader_pain wrongly marked technical")
+    if not is_auto_niche(fake_ctx, notes):
+        failures.append("Santa Fe should be auto_niche")
+
+    tech_ctx = {
+        "topic": {
+            "h1": "Как подключить MCP API к Cursor agent",
+            "primary_query": "mcp api cursor agent",
+            "slug": "mcp-api-cursor-agent",
+            "search_intent": "how_to",
+        }
+    }
+    if not is_technical_topic(tech_ctx, "github evidence for rag workflow"):
+        failures.append("MCP/API/Cursor topic should be technical")
+
+    table = """
+| source | url | accessed_at | why |
+| --- | --- | --- | --- |
+| a | https://example.com/a | 2026-10-20 | x |
+| b | https://example.com/b | 2026-10-20 | y |
+| c | https://example.com/c | 2026-10-20 | z |
+| d | https://example.com/d | 2026-10-20 | w |
+| e | https://example.com/e | 2026-10-20 | v |
+"""
+    if count_accessed_at(table) < 5:
+        failures.append(f"table accessed_at count expected >=5 got {count_accessed_at(table)}")
+
+    colon_block = "\n".join(f"source_access_{i}: accessed_at: 2026-10-20" for i in range(5))
+    if count_accessed_at(colon_block) < 5:
+        failures.append(f"colon accessed_at count expected >=5 got {count_accessed_at(colon_block)}")
+
+    if failures:
+        for item in failures:
+            print(f"SELF-TEST FAIL: {item}", file=sys.stderr)
+        return 1
+    print("Research Notes Gate self-test: PASS")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Validate research-notes.md freshness and depth")
-    ap.add_argument("--article-dir", type=Path, required=True)
+    ap.add_argument("--article-dir", type=Path, default=None)
     ap.add_argument("-o", "--output", type=Path, default=None)
+    ap.add_argument("--self-test", action="store_true", help="Run TECH_MARKERS / accessed_at regressions")
     args = ap.parse_args()
+
+    if args.self_test:
+        return run_self_test()
+
+    if not args.article_dir:
+        ap.error("--article-dir is required unless --self-test")
 
     root = project_root()
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir

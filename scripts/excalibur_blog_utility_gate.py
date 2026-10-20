@@ -89,6 +89,37 @@ def is_actionable_h2(title: str) -> bool:
     return False
 
 
+# Keep in sync with scripts/excalibur_blog_human_voice_gate.py PAIN/OUTCOME_MARKERS
+# and memory/brief/editorial-policy.json pain_markers_ru / outcome_markers_ru.
+DEFAULT_PAIN_MARKERS_RU = [
+    "боль",
+    "проблем",
+    "ошиб",
+    "ломает",
+    "не работает",
+    "теряет",
+    "дорого",
+    "долго",
+    "рутин",
+    "хаос",
+    "застр",
+    "сложно",
+]
+
+DEFAULT_OUTCOME_MARKERS_RU = [
+    "результат",
+    "получите",
+    "сможете",
+    "сэконом",
+    "проверьте",
+    "запустите",
+    "соберите",
+    "настройте",
+    "исправьте",
+    "выберите",
+]
+
+
 def count_markers(text: str, markers: list[str]) -> int:
     hay = text.lower()
     return sum(hay.count(marker.lower()) for marker in markers)
@@ -185,8 +216,20 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     if marker_count < min_rec:
         errors.append(f"мало action-маркеров в тексте: {marker_count} < {min_rec}")
 
-    pain_markers = policy.get("pain_markers_ru") or []
-    outcome_markers = policy.get("outcome_markers_ru") or []
+    pain_markers = list(policy.get("pain_markers_ru") or [])
+    outcome_markers = list(policy.get("outcome_markers_ru") or [])
+    if not pain_markers:
+        errors.append(
+            "POLICY BLOCK: editorial-policy.json missing non-empty pain_markers_ru "
+            "(required; keep in sync with human_voice_gate PAIN_MARKERS)"
+        )
+        pain_markers = list(DEFAULT_PAIN_MARKERS_RU)
+    if not outcome_markers:
+        errors.append(
+            "POLICY BLOCK: editorial-policy.json missing non-empty outcome_markers_ru "
+            "(required; keep in sync with human_voice_gate OUTCOME_MARKERS)"
+        )
+        outcome_markers = list(DEFAULT_OUTCOME_MARKERS_RU)
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 

@@ -69,6 +69,41 @@ def validate_prompt_budget(prompt: str) -> bool:
     return False
 
 
+def validate_outfit_lock(prompt: str, manifest: dict) -> bool:
+    """Reject legacy positive hoodie outfit locks; hoodie may appear only as FORBIDDEN."""
+    lowered = prompt.lower()
+    banned_positive = (
+        "thick heavyweight white hoodie",
+        "heavyweight white hoodie",
+        "белое плотное худи",
+        "white hoodie",
+    )
+    for phrase in banned_positive:
+        if phrase in lowered:
+            print(
+                f"❌ COVER OUTFIT BLOCKER: positive hoodie lock {phrase!r} in prompt; "
+                "use softshell/crewneck/jacket and keep hoodie only under FORBIDDEN.",
+                file=sys.stderr,
+            )
+            return False
+    if "hoodie" in lowered and "forbidden" not in lowered:
+        print(
+            "❌ COVER OUTFIT BLOCKER: 'hoodie' appears without FORBIDDEN context.",
+            file=sys.stderr,
+        )
+        return False
+    cover = ((manifest.get("slots") or {}).get("cover") or {})
+    scene = str(cover.get("scene_hint") or "").lower()
+    for phrase in banned_positive:
+        if phrase in scene:
+            print(
+                f"❌ COVER OUTFIT BLOCKER: positive hoodie lock {phrase!r} in cover scene_hint.",
+                file=sys.stderr,
+            )
+            return False
+    return True
+
+
 def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, design_code: dict) -> str:
     slots = manifest.get("slots") or {}
 
@@ -138,6 +173,8 @@ def main() -> int:
 
     prompt = build_prompt(manifest, style, hero, types_catalog, design_code)
     if not validate_prompt_budget(prompt):
+        return 1
+    if not validate_outfit_lock(prompt, manifest):
         return 1
     prompt_path = article_dir / "cover" / "quad-mcp-prompt.txt"
     prompt_path.write_text(prompt + "\n", encoding="utf-8")

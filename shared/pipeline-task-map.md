@@ -2,6 +2,22 @@
 
 Директор **не** Task. Все роли ниже — `Task(<name>)`.
 
+## Typed Task → generalPurpose (обязательный fallback)
+
+Cloud часто **не** регистрирует typed `excalibur-blog-*` (особенно `excalibur-blog-geo-qa`). Правило Директора:
+
+1. Попробуй typed `Task(excalibur-blog-<role>)` **один раз** (или сразу generalPurpose, если прошлый run уже показал missing).
+2. При отказе API — **немедленно** `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-<role>.md` + `.cursor/skills/<skill>/SKILL.md`.
+3. Один Task = одна роль; контракт роли не урезать.
+4. Не останавливать пайплайн из‑за отсутствия typed name, пока работает generalPurpose.
+
+Пример GEO QA:
+
+```text
+Task(generalPurpose):
+Ты excalibur-blog-geo-qa. Прочитай .cursor/agents/excalibur-blog-geo-qa.md + .cursor/skills/excalibur-geo-qa/SKILL.md.
+```
+
 ## Схема
 
 ```text

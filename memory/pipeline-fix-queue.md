@@ -6,8 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none — B01 Santa Fe 2026-10-20 incidents closed below)_
+
 ## INC-20261020-0939-indexer-doctor-stale-blog-path
-status: open
+status: fixed
 run_date: 2026-10-20
 role: excalibur-blog-indexer
 topic_id: B01
@@ -44,11 +46,28 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-20
+fix_summary:
+- Doctor checks `--blog-dir` and `--out-dir` (not stale `--blog-path`).
+- Indexer agent/skill examples use `--site-base ""` + `--out-dir`; document no `--blog-path`.
+- llms generator default `--site-base` is `""` (relative `/blog/...` for commits).
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
+- `python3 scripts/excalibur_blog_llms_generator.py --help` shows blog-dir/out-dir only
+commit: pending-parent-commit
 
 
 ## INC-20261020-0936-cover-hoodie-default-lock
-status: open
+status: fixed
 run_date: 2026-10-20
 role: excalibur-blog-cover
 topic_id: B01
@@ -77,11 +96,23 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-20
+fix_summary:
+- Confirmed defaults already forbid hoodie (softshell/crewneck + FORBIDDEN).
+- Added `validate_outfit_lock()` to block positive hoodie phrases in prompt/scene_hint.
+- Pitfalls note: never hard-code hoodie as default outfit.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_cover_quad_prompt.py --article-dir B01-...` OK
+- rg: no positive hoodie default in quad_manifest defaults
+commit: pending-parent-commit
 
 
 ## INC-20261020-0930-geo-qa-typed-task-unavailable
-status: open
+status: fixed
 run_date: 2026-10-20
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -108,10 +139,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-20
+fix_summary:
+- Documented immediate generalPurpose fallback for geo-qa (and other roles) in director skill, AGENTS.md, pipeline-task-map, director agent, pitfalls.
+- Cloud Task type registry remains outside repo (optional human follow-up); pipeline no longer stalls on missing typed name.
+files_changed:
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-director.md`
+- `.cursor/agents/excalibur-blog-director.md`
+- `AGENTS.md`
+- `shared/pipeline-task-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg confirms geo-qa generalPurpose immediate fallback in director/AGENTS/task-map
+commit: pending-parent-commit
 
 ## INC-20261020-0931-geo-qa-utility-pain-outcome-policy-missing
-status: open
+status: fixed
 run_date: 2026-10-20
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -143,10 +189,27 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-20
+fix_summary:
+- Kept `pain_markers_ru`/`outcome_markers_ru` in editorial-policy.json (12/10 markers).
+- utility_gate now emits POLICY BLOCK when lists empty (still scores with defaults but overall BLOCK).
+- POLICY BLOCK pinned in editorial-utility-only + geo-qa skill; writer requires сделайте/не делайте/проверьте/шаг.
+files_changed:
+- `scripts/excalibur_blog_utility_gate.py`
+- `memory/brief/editorial-policy.json` (verified present)
+- `shared/editorial-utility-only.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+checks_run:
+- empty-policy smoke → exit 1 + POLICY BLOCK
+- policy JSON parse; marker counts 12/10
+commit: pending-parent-commit
 
 ## INC-20261020-0915-research-notes-gate-false-technical
-status: open
+status: fixed
 run_date: 2026-10-20
 role: excalibur-blog-research
 topic_id: B01
@@ -180,10 +243,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-20
+fix_summary:
+- TECH_MARKERS matched with Unicode token boundaries; AUTO_NICHE skips GitHub requirement.
+- `accessed_at` counts colon labels + markdown table column ISO dates.
+- Added `--self-test`; research skill documents when GitHub is required.
+- Wordstat empty `{}` left as scout/MCP note in pitfalls (no in-repo MCP client to patch).
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --self-test` PASS
+- Santa Fe article: technical=False auto_niche=True status=PASS
+commit: pending-parent-commit
 
 ## INC-20261020-0905-scout-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-10-20
 role: excalibur-blog-scout
 topic_id: B01
@@ -211,7 +289,20 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-20
+fix_summary:
+- Added `scripts/excalibur_blog_harden_precommit_secret_names.sh` (idempotent skip of non-identifier names).
+- Wired into `.cursor/cloud-agent-install.sh` so new Cloud pods re-apply harden.
+- Applied harden to live pre-commit.cursor in this environment.
+- Upstream CLOUD_AGENT_INJECTED_SECRET_NAMES sanitization remains platform-side (optional).
+files_changed:
+- `scripts/excalibur_blog_harden_precommit_secret_names.sh`
+- `.cursor/cloud-agent-install.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- harden script applied; marker present in pre-commit.cursor
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -460,4 +551,4 @@ commit: pending-parent-commit
 
 ## Fixed incidents
 
-Handled above; commit is pending Director review.
+Handled above; B01 Santa Fe 2026-10-20 open set closed by fixer. Commit hash filled after push.

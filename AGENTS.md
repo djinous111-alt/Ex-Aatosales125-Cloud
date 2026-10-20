@@ -29,6 +29,8 @@ shell today + research_start
 - один Task = одна роль;
 - параллель `cover || schema` — **два отдельных Task** в одном сообщении.
 
+**Практика:** typed `Task(excalibur-blog-geo-qa)` в Cloud **часто отсутствует**. На шаге GEO QA (и любой другой роли после первого отказа typed) — **сразу** `Task(generalPurpose)` с полным agent+skill контрактом, без повторных typed-retry.
+
 Если недоступен даже `generalPurpose` Task:
 
 `❌ БЛОКЕР: Cloud Agent не может запускать отдельные Task/subagents даже через generalPurpose. Single-agent pipeline запрещён.`

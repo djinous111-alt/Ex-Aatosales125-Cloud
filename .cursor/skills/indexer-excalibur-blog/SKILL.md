@@ -12,14 +12,15 @@ description: Excalibur BLOG Indexer — interlink между статьями + 
 ```bash
 python3 scripts/excalibur_blog_interlinker.py --apply \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --site-base https://avtosales125.ru
+  --site-base [REDACTED]
 
 python3 scripts/excalibur_blog_llms_generator.py \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru \
-  --blog-path / \
+  --site-base "" \
   --out-dir memory/blog
 ```
+
+Флаги: только `--blog-dir` + `--out-dir` (флага `--blog-path` нет). Для committed `memory/blog/llms*.txt` всегда `--site-base ""` → relative `/blog/<slug>/`; не пиши `${PUBLIC_SITE_URL}` в llms-артефакты (secret scan / repo policy).
 
 ## Выход
 

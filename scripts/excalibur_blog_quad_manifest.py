@@ -84,15 +84,25 @@ def pick_visual_type(h2: str, types_catalog: dict, used: set[str]) -> str:
 
 
 def scene_hint_for_type(type_id: str, h2: str) -> str:
+    # Авто-Сейлс defaults (Encar/комплектации). Outfit: softshell/crewneck — NO hoodie/hood/cap.
+    outfit = "OUTFIT: navy softshell or charcoal crewneck (NO hoodie NO hood NO cap)"
     hints = {
-        "comparison_table_ui": f"Таблица SEO vs GEO: критерии, цели, человек vs AI — «{h2}»",
-        "workflow_diagram": f"6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «{h2}»",
-        "checklist_board": f"Printable чеклист перед публикацией — «{h2}»",
-        "schema_faq_ui": f"FAQ accordion + JSON-LD schema UI — «{h2}»",
-        "tool_screenshot": f"Скрин SEO-инструмента — «{h2}»",
-        "infographic_card": f"Карточка фактов — «{h2}»",
+        "comparison_table_ui": (
+            f"WEATHER: indoor Encar desk; {outfit}; таблица комплектаций Smart/Modern/Inspiration — «{h2}»"
+        ),
+        "workflow_diagram": (
+            f"WEATHER: indoor; {outfit}; шаги до депозита: лот → опции → фото → Carhistory — «{h2}»"
+        ),
+        "checklist_board": (
+            f"WEATHER: indoor; {outfit}; printable чеклист проверки лота до оплаты — «{h2}»"
+        ),
+        "schema_faq_ui": f"WEATHER: indoor; {outfit}; FAQ карточки про комплектации Encar — «{h2}»",
+        "tool_screenshot": (
+            f"WEATHER: indoor Encar UI; {outfit}; fake Encar card / опции без цен — «{h2}»"
+        ),
+        "infographic_card": f"WEATHER: indoor; {outfit}; карточка фактов по комплектации — «{h2}»",
     }
-    return hints.get(type_id, f"Полезная иллюстрация — «{h2}»")
+    return hints.get(type_id, f"WEATHER: indoor; {outfit}; полезная иллюстрация — «{h2}»")
 
 
 def alt_for_type(type_id: str, h2: str, types_catalog: dict) -> str:
@@ -134,7 +144,7 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
             "alt": old.get("alt") or alt_for_type(visual_type, anchor, types_catalog),
         }
 
-    cover_hook = (preserve or {}).get("cover_hook") or "SEO-текст, который люди дочитают — миф или workflow?"
+    cover_hook = (preserve or {}).get("cover_hook") or "Modern на Encar ≠ полный пакет опций"
 
     return {
         "topic_id": topic_id,

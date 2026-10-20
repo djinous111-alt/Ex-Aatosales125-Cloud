@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "hyundai-avante-iz-korei-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Avto-Sales сверяет комплектацию Avante CN7 Smart/Modern/Inspiration на Encar до депозита",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-20T13:34:37+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Avto-Sales сверяет комплектацию Avante CN7 Smart/Modern/Inspiration на Encar до депозита",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Мокап Encar: поиск Avante CN7 и пометка что Elantra — то же имя",
+      "h2_anchor": "Разведите Avante и Elantra: что искать на Encar",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица сравнения Smart, Modern и Inspiration по опциям с фото",
+      "h2_anchor": "Сравните Smart, Modern и Inspiration по фото, а не по названию",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист стоп-флага: мотор 1.6 и мощность до депозита",
+      "h2_anchor": "Проверьте мотор 1.6 и мощность как стоп-флаг до депозита",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

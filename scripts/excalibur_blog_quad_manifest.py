@@ -114,23 +114,24 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
         "role": "cover_meme_hero",
         "alt": old_cover.get("alt") or f"Обложка: {article_topic}",
         "scene_hint": old_cover.get("scene_hint")
-        or "reference-лицо, белое плотное худи из толстой ткани, новая поза/жест/ракурс под крючок, без наушников/headset/earbuds, шок/ирония SEOшника, Wordstat + ноутбук",
-        "meme_caption_ru": old_cover.get("meme_caption_ru") or "15k ключей — 0 прочтений?",
+        or "WEATHER: indoor Encar desk; OUTFIT: navy softshell over crewneck (NO hoodie NO hood NO cap); reference face+glasses; fake Encar card + checklist scraps; corner avto-sales125.ru; NEVER Wordstat NEVER Metrika",
+        "meme_caption_ru": old_cover.get("meme_caption_ru") or "Сверь опции с фото",
     }
 
     used: set[str] = set()
     slots: dict[str, Any] = {"cover": cover}
     for idx, slot_key in enumerate(("inline_1", "inline_2", "inline_3"), start=1):
         h2 = h2s[idx - 1] if idx - 1 < len(h2s) else f"Секция {idx}"
-        visual_type = pick_visual_type(h2, types_catalog, used)
-        used.add(visual_type)
         old = ((preserve or {}).get("slots") or {}).get(slot_key) or {}
+        visual_type = old.get("visual_type") or pick_visual_type(h2, types_catalog, used)
+        used.add(visual_type)
+        anchor = old.get("h2_anchor") or h2
         slots[slot_key] = {
             "quadrant": DEFAULT_SLOT_MAP[slot_key],
-            "h2_anchor": old.get("h2_anchor") or h2,
+            "h2_anchor": anchor,
             "visual_type": visual_type,
-            "scene_hint": scene_hint_for_type(visual_type, old.get("h2_anchor") or h2),
-            "alt": alt_for_type(visual_type, old.get("h2_anchor") or h2, types_catalog),
+            "scene_hint": old.get("scene_hint") or scene_hint_for_type(visual_type, anchor),
+            "alt": old.get("alt") or alt_for_type(visual_type, anchor, types_catalog),
         }
 
     cover_hook = (preserve or {}).get("cover_hook") or "SEO-текст, который люди дочитают — миф или workflow?"

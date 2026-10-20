@@ -69,6 +69,33 @@ def validate_prompt_budget(prompt: str) -> bool:
     return False
 
 
+def validate_outfit_lock(prompt: str, scene_hint: str) -> bool:
+    """Durable rule: never force hoodie/hood/cap; outfit comes from scene_hint weather+topic."""
+    hay = f"{prompt}\n{scene_hint}".lower()
+    forbidden = (
+        "outfit lock: thick heavyweight white hoodie",
+        "white hoodie",
+        "белое плотное худи",
+        "thick heavyweight white hoodie",
+    )
+    for token in forbidden:
+        if token in hay and "never hoodie" not in hay and "no hoodie" not in hay:
+            print(
+                f"❌ COVER OUTFIT BLOCKER: forbidden hoodie lock token «{token}». "
+                "Use scene_hint weather+topic outfit; NO hoodie NO hood NO cap.",
+                file=sys.stderr,
+            )
+            return False
+    if "never hoodie" not in hay and "no hoodie" not in hay and "no hood" not in hay:
+        print(
+            "❌ COVER OUTFIT BLOCKER: prompt/scene_hint must explicitly ban hoodie/hood "
+            "(durable blog-hero outfit_rule).",
+            file=sys.stderr,
+        )
+        return False
+    return True
+
+
 def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, design_code: dict) -> str:
     slots = manifest.get("slots") or {}
 
@@ -86,7 +113,7 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         "",
         "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
         "",
-        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
+        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit from cover.scene_hint weather+topic (smart casual / softshell / crewneck / rain jacket / light shirt) — NEVER hoodie, NEVER hood, NEVER cap. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
         "",
         f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
         "",
@@ -138,6 +165,9 @@ def main() -> int:
 
     prompt = build_prompt(manifest, style, hero, types_catalog, design_code)
     if not validate_prompt_budget(prompt):
+        return 1
+    cover_slot = (manifest.get("slots") or {}).get("cover") or {}
+    if not validate_outfit_lock(prompt, str(cover_slot.get("scene_hint") or "")):
         return 1
     prompt_path = article_dir / "cover" / "quad-mcp-prompt.txt"
     prompt_path.write_text(prompt + "\n", encoding="utf-8")

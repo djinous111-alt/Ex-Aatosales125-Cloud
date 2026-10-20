@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Modern на Encar ≠ полный пакет",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Avto-Sales сверяет комплектацию Avante CN7 Smart/Modern/Inspiration на Encar до депозита",
+      "scene_hint": "WEATHER: grey indoor desk near rainy Vladivostok window; OUTFIT: navy softshell jacket over charcoal crewneck (NOT reference tank/t-shirt), NO hoodie NO hood NO cap, glasses on; reference EXACT face likeness; action selfie pointing at fake Encar lot card scraps labeled Smart / Modern / Inspiration with yellow highlighter on «Modern»; torn-paper Cyrillic hook plaque; sticky note «не по имени»; shocked meme cutout + facepalm sticker (different formats); DIY zine collage; corner footer ONLY avto-sales125.ru (NOT Telegram); NEVER Wordstat NEVER Metrika NEVER prices on image",
+      "meme_caption_ru": "Сверь опции с фото"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Разведите Avante и Elantra: что искать на Encar",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake Encar search UI: filter Avante CN7 vs Elantra label, year/mileage chips, sticky note «это одно авто»; scotch tape corner; no host face; no prices",
+      "alt": "Мокап Encar: поиск Avante CN7 и пометка что Elantra — то же имя"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните Smart, Modern и Inspiration по фото, а не по названию",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Comparison table UI: columns Smart / Modern / Inspiration; rows свет, сиденья, камера, пакеты; check/cross icons; mini photo thumbs; pink sticky «смотри фото»; no host face; no prices",
+      "alt": "Таблица сравнения Smart, Modern и Inspiration по опциям с фото"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте мотор 1.6 и мощность как стоп-флаг до депозита",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board: мотор 1.6, мощность/лс стоп-флаг, N Line ≠ турбо; red STOP stamp on bad power; tape + marker arrow; no host face; no prices",
+      "alt": "Чеклист стоп-флага: мотор 1.6 и мощность до депозита"
+    }
+  }
+}

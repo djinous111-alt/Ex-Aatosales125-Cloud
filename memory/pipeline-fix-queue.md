@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261020-1335-cover-hoodie-lock-regression
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-hyundai-avante-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- На ветке cron 2026-10-20 снова всплыл outfit lock `thick heavyweight white hoodie` в `scripts/excalibur_blog_cover_quad_prompt.py` и SEO/худи дефолт scene_hint в `excalibur_blog_quad_manifest.py`, хотя durable rule (blog-hero + prior Santa Fe fix) — NO hoodie / NO hood / NO cap.
+- `--merge` в `quad_manifest.py` не сохранял agent-edited `scene_hint`/`alt`/`visual_type` для inline слотов → затирал кастомные Avante/Encar hints SEO-дефолтами.
+
+### How the agent recovered this run
+- Prompt builder: outfit from scene_hint weather+topic; explicit NEVER hoodie/hood/cap; added `validate_outfit_lock()`.
+- Manifest defaults: softshell/crewneck Encar desk; merge preserves inline scene_hint/alt/visual_type.
+- Cover scene_hint: navy softshell + charcoal crewneck; hook «Modern на Encar ≠ полный пакет»; non-toxic; no prices.
+- Kie async i2i ONE canvas → split PASS → inject 3 figures.
+
+### Durable fix needed before next run
+- Keep `validate_outfit_lock` in cover prompt path; never reintroduce white-hoodie outfit lock.
+- Keep merge preserve for inline slot fields.
+- Cover skill/pitfalls: no-hoodie is hard rule alongside toxic-slang ban.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261020-1324-geo-qa-utility-empty-pain-outcome-markers
 status: open
 run_date: 2026-10-20

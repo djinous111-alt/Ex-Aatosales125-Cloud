@@ -622,3 +622,38 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261020-1733-publish-paramiko-missing-env
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-k3-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `paramiko` missing in Cloud Agent runtime (`ModuleNotFoundError`) despite being required for SSH publish transport.
+- `memory/site.env.local` absent; credentials available only via Cloud Secrets env overlay.
+
+### How the agent recovered this run
+- `python3 -m pip install --break-system-packages paramiko`
+- Wrote gitignored `memory/site.env.local` from Cloud Secrets with `SSH_ROOT=.`
+- Publish then succeeded: SSH upload + HTTP OK → post=4388 (no WebFetch fallback).
+
+### Durable fix needed before next run
+- Ensure `.cursor/cloud-agent-install.sh` / `requirements.txt` install path always installs `paramiko` before publish.
+- Document or automate creation of `memory/site.env.local` from Cloud Secrets with `SSH_ROOT=.` in install/start.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `memory/site.env.local.example`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

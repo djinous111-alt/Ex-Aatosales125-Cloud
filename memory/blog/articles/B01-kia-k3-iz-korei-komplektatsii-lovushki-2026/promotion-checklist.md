@@ -1,7 +1,7 @@
 # Promotion checklist — B01 kia-k3-iz-korei-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-20 (pending WP publish)  
-Live URL: /blog/kia-k3-iz-korei-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-20  
+Live URL: https://avtosales125.ru/2026/10/20/kia-k3-iz-korei-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Signature на Encar – а опций нет?
 • Trendy–Signature – только сортировка: две Prestige часто отличаются сильнее соседних уровней
 • Депозит – только после VIN, графика пробега, истории и осмотра
 
-Читать: /blog/kia-k3-iz-korei-komplektatsii-lovushki-2026/
+Читать: https://avtosales125.ru/2026/10/20/kia-k3-iz-korei-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка
@@ -47,4 +47,4 @@ Signature на Encar – а опций нет?
 
 - Indexer: interlinker `--apply --article-dir …/B01-kia-k3-iz-korei-komplektatsii-lovushki-2026 --site-base ${PUBLIC_SITE_URL}` — 0 links applied.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (`--blog-dir` / `--out-dir`, `--site-base ""` для commit-safe путей).
-- Publish: не выполнен на шаге Indexer (роль).
+- Publish: PASS — WP post=4388; featured=4389; inline=4390/4391/4392; schema_meta ok; HEAD 200.

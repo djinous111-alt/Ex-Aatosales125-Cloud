@@ -1,0 +1,11 @@
+SSH upload OK: ./excalibur-blog-publish-once.php (6984044 bytes)
+Triggering HTTP publish on https://avtosales125.ru/excalibur-blog-publish-once.php...
+OK post=4388 slug=kia-k3-iz-korei-komplektatsii-lovushki-2026
+OK featured_image=4389
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=4390 src=cover/inline-01.png url=https://avtosales125.ru/wp-content/uploads/2026/10/kia-k3-iz-korei-komplektatsii-lovushki-2026-inline-01.png
+OK inline_image_upload=4391 src=cover/inline-02.png url=https://avtosales125.ru/wp-content/uploads/2026/10/kia-k3-iz-korei-komplektatsii-lovushki-2026-inline-02.png
+OK inline_image_upload=4392 src=cover/inline-03.png url=https://avtosales125.ru/wp-content/uploads/2026/10/kia-k3-iz-korei-komplektatsii-lovushki-2026-inline-03.png
+permalink=https://avtosales125.ru/2026/10/20/kia-k3-iz-korei-komplektatsii-lovushki-2026/
+

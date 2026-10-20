@@ -1,0 +1,107 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-20",
+    "today_ru": "20.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-22",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-20 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "kia-k3-iz-korei-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Kia K3 из Кореи: комплектации, ловушки пробега и чек-лист перед заказом",
+    "primary_query": "как выбрать kia k3 из кореи",
+    "secondary_queries": [
+      "киа к3 из кореи",
+      "kia k3 комплектации",
+      "комплектации киа к3 из кореи",
+      "киа к3 комплектации",
+      "купить киа к3 из кореи"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "как выбрать kia k3 из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "как выбрать kia k3 из кореи октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "как выбрать kia k3 из кореи новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com как выбрать kia k3 из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "как выбрать kia k3 из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "как выбрать kia k3 из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "киа к3 из кореи 2026",
+      "purpose": "вторичный запрос: киа к3 из кореи"
+    },
+    {
+      "id": "secondary_2",
+      "query": "kia k3 комплектации 2026",
+      "purpose": "вторичный запрос: kia k3 комплектации"
+    },
+    {
+      "id": "secondary_3",
+      "query": "комплектации киа к3 из кореи 2026",
+      "purpose": "вторичный запрос: комплектации киа к3 из кореи"
+    },
+    {
+      "id": "secondary_4",
+      "query": "киа к3 комплектации 2026",
+      "purpose": "вторичный запрос: киа к3 комплектации"
+    },
+    {
+      "id": "secondary_5",
+      "query": "купить киа к3 из кореи 2026",
+      "purpose": "вторичный запрос: купить киа к3 из кореи"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать Kia K3 из Кореи: комплектации, ловушки пробега и чек-лист перед заказом 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-kia-k3-iz-korei-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

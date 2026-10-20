@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261021-2136-indexer-llms-stale-blog-path-docs
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-mohave-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_llms_generator.py --help` exposes only `--blog-dir` / `--out-dir` (no `--blog-path`).
+- `scripts/excalibur_blog_doctor.py` still fails on `llms generator supports --blog-path`.
+- Indexer skill/agent shell examples still pass removed `--blog-path /`, which would abort a naive run.
+- Same class of drift previously noted for K3 indexer; durable fix was not applied / not present in this queue.
+
+### How the agent recovered this run
+- Ran llms generator with `--blog-dir memory/blog/articles --out-dir memory/blog --site-base $PUBLIC_SITE_URL` only (per run contract).
+- Did not use `--blog-path`.
+
+### Durable fix needed before next run
+- Doctor: assert `--blog-dir` and `--out-dir` in llms help; drop `--blog-path` check.
+- Sync shell examples in indexer agent/skill (repo + `.cursor/`) to match CLI.
+- Optional: note in `shared/agent-pipeline-pitfalls.md`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261021-2133-cover-manifest-prompt-race-seo-stub
 status: open
 run_date: 2026-10-21

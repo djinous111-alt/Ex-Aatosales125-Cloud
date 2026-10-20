@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261020-1715-writer-utility-pain-markers-empty
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-k3-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` always BLOCK when `pain_markers_ru` / `outcome_markers_ru` missing from `memory/brief/editorial-policy.json` (defaults min_pain=2 / min_outcome=3 against empty lists → count 0).
+- Same class of failure previously noted in writer memory (AS05), but markers were absent again on this branch.
+
+### How the agent recovered this run
+- Restored `pain_markers_ru` and `outcome_markers_ru` (aligned with human_voice_gate defaults) and set `min_pain_markers` / `min_outcome_markers` in `article_required_signals`.
+- Strengthened article copy with pain/outcome/recommendation markers; utility + human-voice gates PASS.
+
+### Durable fix needed before next run
+- Make utility gate skip pain/outcome checks when marker lists are empty OR ship markers in editorial-policy as required schema.
+- Add regression test: empty marker lists must not hard-BLOCK every article.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261020-1712-research-precommit-invalid-secret-name
 status: open
 run_date: 2026-10-20

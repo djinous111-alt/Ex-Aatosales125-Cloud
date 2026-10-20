@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261020-1727-indexer-llms-stale-blog-path-docs
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-k3-iz-korei-komplektatsii-lovushki-2026
+severity: low
+category: docs
+
+### What went wrong
+- Indexer skill/agent CLI examples still document removed flag `--blog-path` for `excalibur_blog_llms_generator.py`.
+- Actual generator help exposes only `--blog-dir` / `--out-dir` / `--site-base` (no `--blog-path`).
+- Related open incident: `INC-20261020-1700-director-doctor-llms-blog-path` (doctor still FAIL-checks legacy flag).
+
+### How the agent recovered this run
+- Ran generator with `--blog-dir memory/blog/articles --out-dir memory/blog --site-base ""` (commit-safe relative URLs).
+- Did not pass `--blog-path`; interlinker/llms completed without retry.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from Indexer skill and agent examples; document `--blog-dir` / `--out-dir`.
+- Note committed llms often use `--site-base ""` to avoid absolute URL secret-scan redaction.
+- Align doctor check with current CLI (see INC-1700).
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261020-1719-cover-mcp-32001-timeout
 status: open
 run_date: 2026-10-20

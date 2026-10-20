@@ -6,6 +6,71 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261020-1704-scout-stale-live-json
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: low
+category: docs
+
+### What went wrong
+- `memory/blog/published-live-avtosales125.json` has `fetched_at` 2026-07-17 and omits recent live WP slugs (Avante/Santa Fe/Tucson/utilzbor how-to and peers from Director denylist).
+- Scout `--check-query` only sees `## Bxx` cards; without a fresh live dump cannibalization against published WP is incomplete.
+
+### How the agent recovered this run
+- Cross-checked primary/slug against Director denylist + automation memory + existing AS* pool before append.
+- Chose Kia K3 outside denylist/live hits; utility gate PASS.
+
+### Durable fix needed before next run
+- Refresh `published-live-avtosales125.json` (or add scout helper flag to merge live slugs + denylist file) before each scout run.
+- Document in scout skill that stale live JSON requires Director denylist fallback.
+
+### Suggested files to inspect/change
+- `memory/blog/published-live-avtosales125.json`
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261020-1700-director-doctor-llms-blog-path
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `python3 scripts/excalibur_blog_doctor.py` failed with `FAIL llms generator supports --blog-path` (SUMMARY errors=1).
+- Generator help only exposes `--blog-dir` / `--out-dir`; doctor still checks for legacy `--blog-path`.
+
+### How the agent recovered this run
+- Continued pipeline after noting stale doctor check; did not invent `--blog-path` alias in generator during preflight.
+- Will rely on fixer post-run to align doctor with current CLI.
+
+### Durable fix needed before next run
+- Update `scripts/excalibur_blog_doctor.py` to check `--blog-dir` (and optionally `--out-dir`) instead of `--blog-path`.
+- Keep pitfalls/docs consistent with Indexer CLI.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

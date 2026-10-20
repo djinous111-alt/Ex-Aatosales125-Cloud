@@ -46,3 +46,36 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+
+## Indexer / llms
+
+- `excalibur_blog_llms_generator.py` принимает `--blog-dir` / `--out-dir` / `--site-base`. Флага `--blog-path` нет; doctor проверяет `--blog-dir`.
+- Для git commit llms часто `--site-base ""` (относительные пути), иначе secret-scan может редactить абсолютный PUBLIC_SITE_URL.
+
+## Research / Wordstat / gates
+
+- Wordstat: cluster-first (parent → how-to). Пустой `{}` / totalCount-only на how-to = low-result, не fatal; пиши WORDSTAT NOTE, не выдумывай показы.
+- `research_notes_gate`: TECH_MARKERS матчятся по word-boundary; бренд `kia` не должен форсить GitHub evidence. Auto how-to/checklist в авто-нише — не technical.
+- Pre-commit: перед `${!SECRET_NAME}` фильтруй `CLOUD_AGENT_INJECTED_SECRET_NAMES` до bash-safe идентификаторов (`source scripts/excalibur_blog_filter_injected_secrets.sh` или install.sh).
+
+## Writer / utility
+
+- `pain_markers_ru` / `outcome_markers_ru` должны жить в `memory/brief/editorial-policy.json`. Пустые списки → utility gate **skip** pain/outcome (WARN), не hard-BLOCK всех статей.
+
+## GEO QA / TL;DR
+
+- Ярлык `TL;DR / Быстрый инсайт:` в insight `<blockquote>` разрешён (writing-contract блок 2). GEO QA не валит за этот ярлык.
+
+## Cover
+
+- Outfit lock: softshell/crewneck, **NO hoodie**. `quad_manifest --merge` не тащит legacy SEO/Wordstat/hoodie сцены.
+- Генерация: default Kie async API; sync MCP gpt-image-2 legacy; после `-32001` не blind-retry.
+
+## Schema / publish
+
+- Commit schema с `[REDACTED]`/`${PUBLIC_SITE_URL}` при secret-scan; publish гидратирует URL из env.
+- Cloud install обязан ставить `paramiko`; `SSH_ROOT=.` в site.env / Secrets.
+
+## Scout
+
+- `--check-query` мержит `published-live-*.json` + `memory/blog/wp-slug-denylist.json`. Stale live JSON → denylist + ledger authoritative.

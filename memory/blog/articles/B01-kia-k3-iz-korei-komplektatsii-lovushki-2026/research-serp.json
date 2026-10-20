@@ -1,0 +1,661 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-20",
+    "today_ru": "20.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-22",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-20 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "kia-k3-iz-korei-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Kia K3 из Кореи: комплектации, ловушки пробега и чек-лист перед заказом",
+    "primary_query": "как выбрать kia k3 из кореи",
+    "secondary_queries": [
+      "киа к3 из кореи",
+      "kia k3 комплектации",
+      "комплектации киа к3 из кореи",
+      "киа к3 комплектации",
+      "купить киа к3 из кореи"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как выбрать kia k3 из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia K3 из Южной Кореи: полный гид покупателя 2026 (поколения ...",
+          "url": "https://eimcar.ru/ru/news/kia-k3-import-iz-korei-gid-pokupatelya",
+          "snippet": ""
+        },
+        {
+          "title": "Kia K3 из Кореи и Китая 2026: цена под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-k3-iz-korei-2026",
+          "snippet": "Разбираем Kia K3 для импорта из Южной Кореи: двигатель 1.6, поколения, комплектации Trendy, Noblesse, Signature и реальные цены под ключ."
+        },
+        {
+          "title": "Kia K3 (Cerato/Forte) из Кореи: компактный седан, цены и расчёт ...",
+          "url": "https://onlyjpcars.ru/blog/kia-k3-cerato-iz-korei",
+          "snippet": "Возим его из двух стран: из Кореи с мотором 1.6 на 123 л.с. и из Китая с 1.5 на 115 л.с., обе версии на вариаторе и на левом руле. Под льготный утильсбор проходят обе."
+        },
+        {
+          "title": "Kia K3 из Кореи — обзор, комплектации, характеристики и отзывы",
+          "url": "https://carsplus.online/news/kia-k3-iz-korei",
+          "snippet": "В Корее доступны три мотора, у каждого своя таможенная история. Самая распространённая и самая доступная версия. Передний привод, 6-ступенчатый автомат или механика. Мощность 123-130 л.с. — уверенно ниже порога 160 л.с., льготная ставка утильсбора применяется без вопросов."
+        },
+        {
+          "title": "Kia K3 (Cerato) из Кореи: цена под ключ 2026",
+          "url": "https://export-motors.com/blog/kia-k3-iz-korei",
+          "snippet": "Kia K3 из Кореи: обзор, комплектации, характеристики и отзывы реальных владельцев. Все, что нужно знать о корейской версии Kia K3."
+        },
+        {
+          "title": "Kia K3 из Южной Кореи: поколения, комплектации и разбор корейских ...",
+          "url": "https://eimcar.ru/ru/news/kia-k3-generations-trims-korea-breakdown",
+          "snippet": "Kia K3 (Cerato) из Кореи — недорогой седан C-класса с льготным утильсбором. Версии 1.6 бензин и LPG до 160 л.с., комплектации и цена под ключ в 2026 году."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как выбрать kia k3 из кореи октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia K3 из Южной Кореи: полный гид покупателя 2026 (поколения ...",
+          "url": "https://eimcar.ru/ru/news/kia-k3-import-iz-korei-gid-pokupatelya",
+          "snippet": ""
+        },
+        {
+          "title": "Kia K3 из Кореи и Китая 2026: цена под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-k3-iz-korei-2026",
+          "snippet": "Разбираем Kia K3 для импорта из Южной Кореи: двигатель 1.6, поколения, комплектации Trendy, Noblesse, Signature и реальные цены под ключ."
+        },
+        {
+          "title": "Kia K3 (Cerato/Forte) из Кореи: компактный седан, цены и расчёт ...",
+          "url": "https://onlyjpcars.ru/blog/kia-k3-cerato-iz-korei",
+          "snippet": "Возим его из двух стран: из Кореи с мотором 1.6 на 123 л.с. и из Китая с 1.5 на 115 л.с., обе версии на вариаторе и на левом руле. Под льготный утильсбор проходят обе."
+        },
+        {
+          "title": "Kia K3 (Cerato) из Кореи: цена под ключ 2026",
+          "url": "https://export-motors.com/blog/kia-k3-iz-korei",
+          "snippet": "Kia K3 (Cerato, Forte) из Кореи под ключ в 2026: версии 1.6 и 2.0 с льготным утильсбором, 1.6 T-GDi — коммерческая ставка. Аукционные цены на Encar, доставка в Сибирь."
+        },
+        {
+          "title": "Kia K3 Из Кореи Под Заказ // Сколько Стоит Бюджетный Седан В 2026 # ...",
+          "url": "https://www.youtube.com/watch?v=X5dlUnCm93k",
+          "snippet": "Kia K3 (Cerato) из Кореи — недорогой седан C-класса с льготным утильсбором. Версии 1.6 бензин и LPG до 160 л.с., комплектации и цена под ключ в 2026 году."
+        },
+        {
+          "title": "Kia K3 из Кореи: обзор 1.6, комплектации и вариатор IVT",
+          "url": "https://azway.ru/blog/kia-k3-iz-korei-obzor",
+          "snippet": "In this video, we explore the KIA K3, available to order from Korea: actual cost, trim levels, fuel consumption, customs clearance, and the final cost of a turnkey purchase."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как выбрать kia k3 из кореи новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia K3 из Южной Кореи: полный гид покупателя 2026 (поколения ...",
+          "url": "https://eimcar.ru/ru/news/kia-k3-import-iz-korei-gid-pokupatelya",
+          "snippet": ""
+        },
+        {
+          "title": "Kia K3 из Кореи и Китая 2026: цена под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-k3-iz-korei-2026",
+          "snippet": "Разбираем Kia K3 для импорта из Южной Кореи: двигатель 1.6, поколения, комплектации Trendy, Noblesse, Signature и реальные цены под ключ."
+        },
+        {
+          "title": "Kia K3 (Cerato/Forte) из Кореи: компактный седан, цены и расчёт ...",
+          "url": "https://onlyjpcars.ru/blog/kia-k3-cerato-iz-korei",
+          "snippet": "Возим его из двух стран: из Кореи с мотором 1.6 на 123 л.с. и из Китая с 1.5 на 115 л.с., обе версии на вариаторе и на левом руле. Под льготный утильсбор проходят обе."
+        },
+        {
+          "title": "Kia K3 вместо Palisade и Sorento: что теперь везут из Кореи после ...",
+          "url": "https://www.32cars.ru/posts/id-22653-kia-k3-vmesto-palisade-i-sorento-chto-teper-vezut-iz-korei-posle-ogranichenija-v-160-ls",
+          "snippet": "В Корее доступны три мотора, у каждого своя таможенная история. Самая распространённая и самая доступная версия. Передний привод, 6-ступенчатый автомат или механика. Мощность 123-130 л.с. — уверенно ниже порога 160 л.с., льготная ставка утильсбора применяется без вопросов."
+        },
+        {
+          "title": "Kia K3 (Cerato) из Кореи: цена под ключ 2026",
+          "url": "https://export-motors.com/blog/kia-k3-iz-korei",
+          "snippet": "Эксперт Целиков назвал Kia K3 лидером импорта автомобилей с пробегом из Южной Кореи"
+        },
+        {
+          "title": "Kia K3 из Кореи — обзор, комплектации, характеристики и отзывы",
+          "url": "https://carsplus.online/news/kia-k3-iz-korei",
+          "snippet": "Kia K3 (Cerato) из Кореи — недорогой седан C-класса с льготным утильсбором. Версии 1.6 бензин и LPG до 160 л.с., комплектации и цена под ключ в 2026 году."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как выбрать kia k3 из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - MoonshotAI/Kimi-K3: Open Frontier Intelligence",
+          "url": "https://github.com/MoonshotAI/Kimi-K3/tree/main",
+          "snippet": ""
+        },
+        {
+          "title": "Хватит дурацких стратегий! · bol-van zapret · Discussion #1543",
+          "url": "https://github.com/bol-van/zapret/discussions/1543",
+          "snippet": "Kimi K3 is evaluated with the Kimi Code harness and GPT-5.6 Sol with the Codex harness; all other results are from FrontierSWE. Dominance scores are recomputed from the raw scores using the official evaluation script and are current as of July 16, 2026."
+        },
+        {
+          "title": "Обзор 10 Vpn-сервисов В 2026 Году: Что Я Тестировал Лично, Что Работает ...",
+          "url": "https://gist.github.com/BoberSdoh/ec67b2175d1f9cecaf6ad24a5278084e",
+          "snippet": "В крупные корпорации набирают как правило дигенератов имеющих сертификат. Зайди на любой крупный банковский сайт или на сайт провайдера/мобильного оператора или в ВК."
+        },
+        {
+          "title": "domashka/Almaty_districts.svg at main - GitHub",
+          "url": "https://github.com/DariyaYdyrys/domashka/blob/main/Almaty_districts.svg",
+          "snippet": "Обзор 10 VPN-сервисов в 2026 году: что я тестировал лично, что работает, что не очень, и как выбрать под свою задачу. Без рекламы, на простом языке."
+        },
+        {
+          "title": "was-node-suite-comfyui/image/layerutility_nodes.jpg at main ...",
+          "url": "https://github.com/RituCodeWeb/was-node-suite-comfyui/blob/main/image/layerutility_nodes.jpg",
+          "snippet": "Contribute to DariyaYdyrys/domashka development by creating an account on GitHub."
+        },
+        {
+          "title": "dagu/assets/images/readme-logs-dark.png at main · dagucloud/dagu",
+          "url": "https://github.com/dagucloud/dagu/blob/main/assets/images/readme-logs-dark.png",
+          "snippet": "Contribute to RituCodeWeb/was-node-suite-comfyui development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как выбрать kia k3 из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia K3 из Южной Кореи: полный гид покупателя 2026 (поколения ...",
+          "url": "https://eimcar.ru/ru/news/kia-k3-import-iz-korei-gid-pokupatelya",
+          "snippet": ""
+        },
+        {
+          "title": "Kia K3 из Южной Кореи: поколения, комплектации и разбор корейских ...",
+          "url": "https://eimcar.ru/ru/news/kia-k3-generations-trims-korea-breakdown",
+          "snippet": "Разбираем Kia K3 для импорта из Южной Кореи: двигатель 1.6, поколения, комплектации Trendy, Noblesse, Signature и реальные цены под ключ."
+        },
+        {
+          "title": "Kia K3 (Cerato/Forte) из Кореи: компактный седан, цены и расчёт ...",
+          "url": "https://onlyjpcars.ru/blog/kia-k3-cerato-iz-korei",
+          "snippet": "Подробный разбор Kia K3 для импорта из Кореи: поколения BD, рестайлинг, комплектации Trendy, Noblesse, Signature и реальные цены."
+        },
+        {
+          "title": "Kia K3 (Cerato) из Кореи: цена под ключ 2026",
+          "url": "https://export-motors.com/blog/kia-k3-iz-korei",
+          "snippet": "Kia K3 — самый доступный способ въехать в корейский рынок через привоз. В России эта модель известна под именем Cerato (третье поколение), в Корее с 2018 года она носит маркировку K3 (BD)."
+        },
+        {
+          "title": "Как заказать авто из Кореи в 2026 году: пошаговая инструкция",
+          "url": "https://www.asiapk.ru/blog/kak-zakazat-avto-iz-korei-2026",
+          "snippet": "Kia K3 (Cerato) из Кореи — недорогой седан C-класса с льготным утильсбором. Версии 1.6 бензин и LPG до 160 л.с., комплектации и цена под ключ в 2026 году."
+        },
+        {
+          "title": "Kia K3 из Кореи и Китая 2026: цена под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-k3-iz-korei-2026",
+          "snippet": "Полное руководство по покупке автомобиля из Южной Кореи в 2026: как выбрать, проверить, рассчитать стоимость под ключ, сроки доставки и растаможки. Пошагово и без сюрпризов."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как выбрать kia k3 из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia K3 2026: честные отзывы владельцев, плюсы и минусы",
+          "url": "https://master-kia.vercel.app/articles/o/ot/otzyvy-o-kia-k3.html",
+          "snippet": ""
+        },
+        {
+          "title": "Kia K3 из Южной Кореи: полный гид покупателя 2026 (поколения ...",
+          "url": "https://eimcar.ru/ru/news/kia-k3-import-iz-korei-gid-pokupatelya",
+          "snippet": "Собираем реальные отзывы о Kia K3. Расход топлива, проблемы с вариатором, комплектации и стоит ли покупать седан из Кореи. Полный анализ."
+        },
+        {
+          "title": "Бортжурнал Kia K3 - клуб, форум о Киа к3 на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/kia/k3/",
+          "snippet": "Разбираем Kia K3 для импорта из Южной Кореи: двигатель 1.6, поколения, комплектации Trendy, Noblesse, Signature и реальные цены под ключ."
+        },
+        {
+          "title": "Kia K3 из Южной Кореи: поколения, комплектации и разбор корейских ...",
+          "url": "https://eimcar.ru/ru/news/kia-k3-generations-trims-korea-breakdown",
+          "snippet": "История, которая может коснуться каждого владельца корейского автомобиля. ⚠️ К нам в Exact-Lab обратился владелец Kia K3 2022 года с типичной для этих машин проблемой: руль стал тяжёлым, усилитель фактически перестал работать."
+        },
+        {
+          "title": "Kia K3 2026: Честные отзывы владельцев, плюсы и минусы модели",
+          "url": "https://master-kia.vercel.app/articles/o/ot/otzyvy-o-kia-k-3.html",
+          "snippet": "Подробный разбор Kia K3 для импорта из Кореи: поколения BD, рестайлинг, комплектации Trendy, Noblesse, Signature и реальные цены."
+        },
+        {
+          "title": "Kia K3 (Cerato/Forte) из Кореи: компактный седан, цены и расчёт ...",
+          "url": "https://onlyjpcars.ru/blog/kia-k3-cerato-iz-korei",
+          "snippet": "Свежие отзывы о Kia K3: реальный расход, надежность двигателя, качество сборки и особенности эксплуатации в России. Анализ проблем и достоинств."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "киа к3 из кореи 2026",
+      "purpose": "вторичный запрос: киа к3 из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia K3 из Кореи и Китая 2026: цена под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-k3-iz-korei-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Kia K3 из Южной Кореи: полный гид покупателя 2026 (поколения ...",
+          "url": "https://eimcar.ru/ru/news/kia-k3-import-iz-korei-gid-pokupatelya",
+          "snippet": "Возим его из двух стран: из Кореи с мотором 1.6 на 123 л.с. и из Китая с 1.5 на 115 л.с., обе версии на вариаторе и на левом руле. Под льготный утильсбор проходят обе."
+        },
+        {
+          "title": "Киа К3 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/kia/k3/2026/",
+          "snippet": "Разбираем Kia K3 для импорта из Южной Кореи: двигатель 1.6, поколения, комплектации Trendy, Noblesse, Signature и реальные цены под ключ."
+        },
+        {
+          "title": "Kia K3 (Cerato/Forte) из Кореи: компактный седан, цены и расчёт ...",
+          "url": "https://onlyjpcars.ru/blog/kia-k3-cerato-iz-korei",
+          "snippet": "Подробно расписан модельный ряд Kia K3 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Цена Киа К3 в 2026 году: актуальные расценки, комплектации",
+          "url": "https://master-kia.vercel.app/articles/t/ts/tsena-kia-k3.html",
+          "snippet": "Kia K3 (Cerato, Forte) из Кореи под ключ в 2026: версии 1.6 и 2.0 с льготным утильсбором, 1.6 T-GDi — коммерческая ставка. Аукционные цены на Encar, доставка в Сибирь."
+        },
+        {
+          "title": "Новая Киа К3 2026: обзор, характеристики, цены и комплектации",
+          "url": "https://master-kia.vercel.app/articles/n/no/novaya-kia-k3.html",
+          "snippet": "Узнайте, сколько стоит Kia K3 сегодня. Подробный разбор цен на новые и б/у седаны, зависимость стоимости от комплектации, рынка и года выпуска."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "kia k3 комплектации 2026",
+      "purpose": "вторичный запрос: kia k3 комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Киа К3 2026 технические характеристики. Kia K3 2026 комплектации и цены ...",
+          "url": "https://www.drom.ru/catalog/kia/k3/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "PDF Kia K3 (2026 г.) цена и комплектации",
+          "url": "https://aurum-motors.ru/wp-content/uploads/2026/07/Kia-K3-2026.pdf",
+          "snippet": "Подробно расписан модельный ряд Kia K3 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Киа К3 2026 между собой."
+        },
+        {
+          "title": "Киа К3 технические характеристики. Kia K3 комплектации и цены фото",
+          "url": "https://www.drom.ru/catalog/kia/k3/",
+          "snippet": "Описание комплектаций (от 28 июля 2026 г.): Распределение тормозной силы (EBD/CBC и др.) Система тормозной помощи (EBA/BA и др.) (TCS/ASR и др.) Системы стабилизации устойчивости (ESP/DSC и др.) Доставка до Вашего города (работаем со всеми регионами). Позвоните или напишите и мы сделаем Вам несколько предложений!"
+        },
+        {
+          "title": "Kia K3 2026: характеристики, комплектации и старт продаж",
+          "url": "https://master-kia.vercel.app/articles/k/ki/kia-k3-2025.html",
+          "snippet": "Подробно расписан модельный ряд Kia K3: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Киа К3 между собой."
+        },
+        {
+          "title": "Новый Kia K3 2026: характеристики, дизайн и цена в РФ",
+          "url": "https://master-kia.vercel.app/articles/n/no/novyj-kia-k3.html",
+          "snippet": "Полный обзор Kia K3 2026 модельного года. Двигатели, расход топлива, оснащение и комплектации. Стоит ли покупать седан бизнес-класса?"
+        },
+        {
+          "title": "Kia K3 (2026 г.) цена и комплектации",
+          "url": "https://aurum-motors.ru/kia-k3-2026/",
+          "snippet": "Обзор нового Kia K3. Узнайте всё о техническом оснащении, дизайне интерьера, уровнях комплектации и стоимости седана в России."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "комплектации киа к3 из кореи 2026",
+      "purpose": "вторичный запрос: комплектации киа к3 из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia K3 из Южной Кореи: полный гид покупателя 2026 (поколения ...",
+          "url": "https://eimcar.ru/ru/news/kia-k3-import-iz-korei-gid-pokupatelya",
+          "snippet": ""
+        },
+        {
+          "title": "Киа К3 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/kia/k3/2026/",
+          "snippet": "Разбираем Kia K3 для импорта из Южной Кореи: двигатель 1.6, поколения, комплектации Trendy, Noblesse, Signature и реальные цены под ключ."
+        },
+        {
+          "title": "Киа К3 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/kia/k3/",
+          "snippet": "Подробно расписан модельный ряд Kia K3 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Киа К3 2026 между собой."
+        },
+        {
+          "title": "Новая Киа К3 2026: обзор, характеристики, цены и комплектации",
+          "url": "https://master-kia.vercel.app/articles/n/no/novaya-kia-k3.html",
+          "snippet": "Подробно расписан модельный ряд Kia K3: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Киа К3 между собой."
+        },
+        {
+          "title": "Kia K3 из Кореи — обзор, комплектации, характеристики и отзывы",
+          "url": "https://carsplus.online/news/kia-k3-iz-korei",
+          "snippet": "Подробный тест-драйв Kia K3 нового поколения. Разбор дизайна, салона, технических характеристик, расхода топлива и безопасности. Стоит ли покупать?"
+        },
+        {
+          "title": "Kia K3 (Cerato/Forte) из Кореи: компактный седан, цены и расчёт ...",
+          "url": "https://onlyjpcars.ru/blog/kia-k3-cerato-iz-korei",
+          "snippet": "Kia K3 из Кореи: обзор, комплектации, характеристики и отзывы реальных владельцев. Все, что нужно знать о корейской версии Kia K3."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "киа к3 комплектации 2026",
+      "purpose": "вторичный запрос: киа к3 комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Киа К3 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/kia/k3/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Новая Киа К3 2026: обзор, характеристики, цены и комплектации",
+          "url": "https://master-kia.vercel.app/articles/n/no/novaya-kia-k3.html",
+          "snippet": "Подробно расписан модельный ряд Kia K3 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Киа К3 2026 между собой."
+        },
+        {
+          "title": "Киа К3 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/kia/k3/",
+          "snippet": "Подробный тест-драйв Kia K3 нового поколения. Разбор дизайна, салона, технических характеристик, расхода топлива и безопасности. Стоит ли покупать?"
+        },
+        {
+          "title": "Цена Киа К3 в 2026 году: актуальные расценки, комплектации",
+          "url": "https://master-kia.vercel.app/articles/t/ts/tsena-kia-k3.html",
+          "snippet": "Подробно расписан модельный ряд Kia K3: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Киа К3 между собой."
+        },
+        {
+          "title": "Kia K3 (2026 г.) цена и комплектации",
+          "url": "https://aurum-motors.ru/kia-k3-2026/",
+          "snippet": "Узнайте, сколько стоит Kia K3 сегодня. Подробный разбор цен на новые и б/у седаны, зависимость стоимости от комплектации, рынка и года выпуска."
+        },
+        {
+          "title": "PDF Kia K3 (2026 г.) цена и комплектации",
+          "url": "https://aurum-motors.ru/wp-content/uploads/2026/07/Kia-K3-2026.pdf",
+          "snippet": "Описание комплектаций (от 28 июля 2026 г.): Марка, модель, комплектации Kia K3 1.5L IVT Comfort Premium Edition Kia K3 1.5L IVT Luxury Smart Edition Рекомендованная розничная цена производителя в Китае (MSRP) 114 400 yuan"
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "secondary_5",
+      "query": "купить киа к3 из кореи 2026",
+      "purpose": "вторичный запрос: купить киа к3 из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia K3 из Южной Кореи: полный гид покупателя 2026 (поколения ...",
+          "url": "https://eimcar.ru/ru/news/kia-k3-import-iz-korei-gid-pokupatelya",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Kia K3 из Кореи под ключ — от 1 389 000 ₽, 874 в наличии",
+          "url": "https://encarrus.ru/korea/kia/k3/",
+          "snippet": "Разбираем Kia K3 для импорта из Южной Кореи: двигатель 1.6, поколения, комплектации Trendy, Noblesse, Signature и реальные цены под ключ."
+        },
+        {
+          "title": "Kia K3 из Кореи и Китая 2026: цена под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/kia-k3-iz-korei-2026",
+          "snippet": "Цена в карточке — уже «под ключ» до Владивостока: стоимость Kia K3 в Корее, доставка морем, таможенное оформление, утильсбор по мощности двигателя и наши услуги."
+        },
+        {
+          "title": "Продажа Kia K3 из Кореи | Цены на Киа К3 в Корее",
+          "url": "https://www.drom.ru/world/korea/kia/k3/",
+          "snippet": "Возим его из двух стран: из Кореи с мотором 1.6 на 123 л.с. и из Китая с 1.5 на 115 л.с., обе версии на вариаторе и на левом руле. Под льготный утильсбор проходят обе."
+        },
+        {
+          "title": "Kia K3 (Cerato/Forte) из Кореи: компактный седан, цены и расчёт ...",
+          "url": "https://onlyjpcars.ru/blog/kia-k3-cerato-iz-korei",
+          "snippet": "Объявления о продаже Kia K3 под заказ из Кореи с фото авто и ценами. Стоимость и характеристики Киа К3 на аукционе в Корее."
+        },
+        {
+          "title": "Купить Kia из Кореи под ключ — каталог, цены с доставкой | EncarRus",
+          "url": "https://encarrus.ru/korea/kia/",
+          "snippet": "Kia K3 (Cerato, Forte) из Кореи под ключ в 2026: версии 1.6 и 2.0 с льготным утильсбором, 1.6 T-GDi — коммерческая ставка. Аукционные цены на Encar, доставка в Сибирь."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Kia K3 из Кореи: комплектации, ловушки пробега и чек-лист перед заказом 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia K3 из Южной Кореи: полный гид покупателя 2026 (поколения ...",
+          "url": "https://eimcar.ru/ru/news/kia-k3-import-iz-korei-gid-pokupatelya",
+          "snippet": ""
+        },
+        {
+          "title": "Kia K3 из Южной Кореи: поколения, комплектации и разбор корейских ...",
+          "url": "https://eimcar.ru/ru/news/kia-k3-generations-trims-korea-breakdown",
+          "snippet": "Разбираем Kia K3 для импорта из Южной Кореи: двигатель 1.6, поколения, комплектации Trendy, Noblesse, Signature и реальные цены под ключ."
+        },
+        {
+          "title": "Kia K3 (Cerato/Forte) из Кореи: компактный седан, цены и расчёт ...",
+          "url": "https://onlyjpcars.ru/blog/kia-k3-cerato-iz-korei",
+          "snippet": "Подробный разбор Kia K3 для импорта из Кореи: поколения BD, рестайлинг, комплектации Trendy, Noblesse, Signature и реальные цены."
+        },
+        {
+          "title": "Kia K3 из Кореи: обзор 1.6, комплектации и вариатор IVT",
+          "url": "https://azway.ru/blog/kia-k3-iz-korei-obzor",
+          "snippet": "Kia K3 — самый доступный способ въехать в корейский рынок через привоз. В России эта модель известна под именем Cerato (третье поколение), в Корее с 2018 года она носит маркировку K3 (BD)."
+        },
+        {
+          "title": "Kia K3 (Cerato) из Кореи: цена под ключ 2026",
+          "url": "https://export-motors.com/blog/kia-k3-iz-korei",
+          "snippet": "Kia K3 BD 2021-2023: корейский седан на 123 л.с., расход, IVT, салон и комплектации. Отличия от китайского K3, Cerato и GT, проверка перед покупкой."
+        },
+        {
+          "title": "Kia K3 из Кореи: доступный седан вместо Kia Cerato",
+          "url": "https://onlyjpcars.ru/blog/kia-k3-iz-korei",
+          "snippet": "Kia K3 (Cerato) из Кореи — недорогой седан C-класса с льготным утильсбором. Версии 1.6 бензин и LPG до 160 л.с., комплектации и цена под ключ в 2026 году."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://eimcar.ru/ru/news/kia-k3-import-iz-korei-gid-pokupatelya",
+      "title": "Kia K3 из Южной Кореи: полный гид покупателя 2026 (поколения ...",
+      "from_query": "как выбрать kia k3 из кореи 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/kia-k3-iz-korei-2026",
+      "title": "Kia K3 из Кореи и Китая 2026: цена под ключ",
+      "from_query": "как выбрать kia k3 из кореи 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/kia-k3-cerato-iz-korei",
+      "title": "Kia K3 (Cerato/Forte) из Кореи: компактный седан, цены и расчёт ...",
+      "from_query": "как выбрать kia k3 из кореи 2026"
+    },
+    {
+      "url": "https://carsplus.online/news/kia-k3-iz-korei",
+      "title": "Kia K3 из Кореи — обзор, комплектации, характеристики и отзывы",
+      "from_query": "как выбрать kia k3 из кореи 2026"
+    },
+    {
+      "url": "https://export-motors.com/blog/kia-k3-iz-korei",
+      "title": "Kia K3 (Cerato) из Кореи: цена под ключ 2026",
+      "from_query": "как выбрать kia k3 из кореи 2026"
+    },
+    {
+      "url": "https://eimcar.ru/ru/news/kia-k3-generations-trims-korea-breakdown",
+      "title": "Kia K3 из Южной Кореи: поколения, комплектации и разбор корейских ...",
+      "from_query": "как выбрать kia k3 из кореи 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=X5dlUnCm93k",
+      "title": "Kia K3 Из Кореи Под Заказ // Сколько Стоит Бюджетный Седан В 2026 # ...",
+      "from_query": "как выбрать kia k3 из кореи октябрь 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/kia-k3-iz-korei-obzor",
+      "title": "Kia K3 из Кореи: обзор 1.6, комплектации и вариатор IVT",
+      "from_query": "как выбрать kia k3 из кореи октябрь 2026"
+    },
+    {
+      "url": "https://www.32cars.ru/posts/id-22653-kia-k3-vmesto-palisade-i-sorento-chto-teper-vezut-iz-korei-posle-ogranichenija-v-160-ls",
+      "title": "Kia K3 вместо Palisade и Sorento: что теперь везут из Кореи после ...",
+      "from_query": "как выбрать kia k3 из кореи новости 2026"
+    },
+    {
+      "url": "https://github.com/MoonshotAI/Kimi-K3/tree/main",
+      "title": "GitHub - MoonshotAI/Kimi-K3: Open Frontier Intelligence",
+      "from_query": "site:github.com как выбрать kia k3 из кореи 2026"
+    },
+    {
+      "url": "https://github.com/bol-van/zapret/discussions/1543",
+      "title": "Хватит дурацких стратегий! · bol-van zapret · Discussion #1543",
+      "from_query": "site:github.com как выбрать kia k3 из кореи 2026"
+    },
+    {
+      "url": "https://gist.github.com/BoberSdoh/ec67b2175d1f9cecaf6ad24a5278084e",
+      "title": "Обзор 10 Vpn-сервисов В 2026 Году: Что Я Тестировал Лично, Что Работает ...",
+      "from_query": "site:github.com как выбрать kia k3 из кореи 2026"
+    },
+    {
+      "url": "https://github.com/DariyaYdyrys/domashka/blob/main/Almaty_districts.svg",
+      "title": "domashka/Almaty_districts.svg at main - GitHub",
+      "from_query": "site:github.com как выбрать kia k3 из кореи 2026"
+    },
+    {
+      "url": "https://github.com/RituCodeWeb/was-node-suite-comfyui/blob/main/image/layerutility_nodes.jpg",
+      "title": "was-node-suite-comfyui/image/layerutility_nodes.jpg at main ...",
+      "from_query": "site:github.com как выбрать kia k3 из кореи 2026"
+    },
+    {
+      "url": "https://github.com/dagucloud/dagu/blob/main/assets/images/readme-logs-dark.png",
+      "title": "dagu/assets/images/readme-logs-dark.png at main · dagucloud/dagu",
+      "from_query": "site:github.com как выбрать kia k3 из кореи 2026"
+    },
+    {
+      "url": "https://www.asiapk.ru/blog/kak-zakazat-avto-iz-korei-2026",
+      "title": "Как заказать авто из Кореи в 2026 году: пошаговая инструкция",
+      "from_query": "как выбрать kia k3 из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/o/ot/otzyvy-o-kia-k3.html",
+      "title": "Kia K3 2026: честные отзывы владельцев, плюсы и минусы",
+      "from_query": "как выбрать kia k3 из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/kia/k3/",
+      "title": "Бортжурнал Kia K3 - клуб, форум о Киа к3 на Авто.ру",
+      "from_query": "как выбрать kia k3 из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/o/ot/otzyvy-o-kia-k-3.html",
+      "title": "Kia K3 2026: Честные отзывы владельцев, плюсы и минусы модели",
+      "from_query": "как выбрать kia k3 из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/kia/k3/2026/",
+      "title": "Киа К3 2026 технические характеристики, комплектации и цены",
+      "from_query": "киа к3 из кореи 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/t/ts/tsena-kia-k3.html",
+      "title": "Цена Киа К3 в 2026 году: актуальные расценки, комплектации",
+      "from_query": "киа к3 из кореи 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/n/no/novaya-kia-k3.html",
+      "title": "Новая Киа К3 2026: обзор, характеристики, цены и комплектации",
+      "from_query": "киа к3 из кореи 2026"
+    },
+    {
+      "url": "https://aurum-motors.ru/wp-content/uploads/2026/07/Kia-K3-2026.pdf",
+      "title": "PDF Kia K3 (2026 г.) цена и комплектации",
+      "from_query": "kia k3 комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/kia/k3/",
+      "title": "Киа К3 технические характеристики. Kia K3 комплектации и цены фото",
+      "from_query": "kia k3 комплектации 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/k/ki/kia-k3-2025.html",
+      "title": "Kia K3 2026: характеристики, комплектации и старт продаж",
+      "from_query": "kia k3 комплектации 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/n/no/novyj-kia-k3.html",
+      "title": "Новый Kia K3 2026: характеристики, дизайн и цена в РФ",
+      "from_query": "kia k3 комплектации 2026"
+    },
+    {
+      "url": "https://aurum-motors.ru/kia-k3-2026/",
+      "title": "Kia K3 (2026 г.) цена и комплектации",
+      "from_query": "kia k3 комплектации 2026"
+    },
+    {
+      "url": "https://encarrus.ru/korea/kia/k3/",
+      "title": "Купить Kia K3 из Кореи под ключ — от 1 389 000 ₽, 874 в наличии",
+      "from_query": "купить киа к3 из кореи 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/korea/kia/k3/",
+      "title": "Продажа Kia K3 из Кореи | Цены на Киа К3 в Корее",
+      "from_query": "купить киа к3 из кореи 2026"
+    },
+    {
+      "url": "https://encarrus.ru/korea/kia/",
+      "title": "Купить Kia из Кореи под ключ — каталог, цены с доставкой | EncarRus",
+      "from_query": "купить киа к3 из кореи 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/kia-k3-iz-korei",
+      "title": "Kia K3 из Кореи: доступный седан вместо Kia Cerato",
+      "from_query": "Как выбрать Kia K3 из Кореи: комплектации, ловушки пробега и чек-лист перед заказом 2026"
+    }
+  ]
+}

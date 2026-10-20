@@ -14,22 +14,40 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Word-boundary / token markers only. Bare "ai" must NOT match brand "kia".
 TECH_MARKERS = (
-    "ai",
-    "ии",
-    "agent",
-    "агент",
-    "mcp",
-    "api",
-    "cursor",
-    "make",
-    "n8n",
-    "github",
-    "docker",
-    "rag",
-    "workflow",
-    "автоматизац",
-    "нейросет",
+    r"\bai\b",
+    r"\bии\b",
+    r"\bagent\b",
+    r"\bагент\b",
+    r"\bmcp\b",
+    r"\bapi\b",
+    r"\bcursor\b",
+    r"\bmake\b",
+    r"\bn8n\b",
+    r"\bgithub\b",
+    r"\bdocker\b",
+    r"\brag\b",
+    r"\bworkflow\b",
+    r"автоматизац",
+    r"нейросет",
+)
+
+# Auto-import / checklist how-tos are not "technical" for GitHub evidence.
+AUTO_NICHE_MARKERS = (
+    r"\bkia\b",
+    r"\bhyundai\b",
+    r"\btoyota\b",
+    r"\bencar\b",
+    r"\bcarhistory\b",
+    r"из кореи",
+    r"растамож",
+    r"комплектац",
+    r"аукцион",
+)
+
+NON_TECH_INTENTS = frozenset(
+    {"how_to", "howto", "checklist", "comparison", "parent_guide", "troubleshooting"}
 )
 
 
@@ -75,12 +93,16 @@ def has_wordstat(text_lower: str) -> bool:
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
+    intent = str(topic.get("search_intent") or "").strip().lower().replace("-", "_")
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
     blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Auto niche how-to/checklist must not force GitHub evidence via brand false positives.
+    if intent in NON_TECH_INTENTS and any(re.search(m, blob, flags=re.I) for m in AUTO_NICHE_MARKERS):
+        return False
+    return any(re.search(marker, blob, flags=re.I) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:

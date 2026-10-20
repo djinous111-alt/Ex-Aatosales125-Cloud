@@ -83,16 +83,19 @@ def pick_visual_type(h2: str, types_catalog: dict, used: set[str]) -> str:
     return TYPE_PRIORITY[0]
 
 
-def scene_hint_for_type(type_id: str, h2: str) -> str:
+def scene_hint_for_type(type_id: str, h2: str, topic_hint: str = "") -> str:
+    """Build inline scene from article H2/topic — never inject legacy SEO/Wordstat stubs."""
+    topic = (topic_hint or "").strip()
+    topic_bit = f"; тема: {topic[:80]}" if topic else ""
     hints = {
-        "comparison_table_ui": f"Таблица SEO vs GEO: критерии, цели, человек vs AI — «{h2}»",
-        "workflow_diagram": f"6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «{h2}»",
-        "checklist_board": f"Printable чеклист перед публикацией — «{h2}»",
-        "schema_faq_ui": f"FAQ accordion + JSON-LD schema UI — «{h2}»",
-        "tool_screenshot": f"Скрин SEO-инструмента — «{h2}»",
-        "infographic_card": f"Карточка фактов — «{h2}»",
+        "comparison_table_ui": f"Таблица сравнения по критериям из «{h2}»{topic_bit}",
+        "workflow_diagram": f"Пошаговая схема действий: «{h2}»{topic_bit}",
+        "checklist_board": f"Чеклист до решения/оплаты: «{h2}»{topic_bit}",
+        "schema_faq_ui": f"FAQ/карточка ответов: «{h2}»{topic_bit}",
+        "tool_screenshot": f"Fake UI/скрин инструмента по «{h2}»{topic_bit}",
+        "infographic_card": f"Карточка фактов: «{h2}»{topic_bit}",
     }
-    return hints.get(type_id, f"Полезная иллюстрация — «{h2}»")
+    return hints.get(type_id, f"Полезная иллюстрация: «{h2}»{topic_bit}")
 
 
 def alt_for_type(type_id: str, h2: str, types_catalog: dict) -> str:
@@ -109,13 +112,25 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
     article_topic = meta.get("h1") or article_dir.name
 
     old_cover = ((preserve or {}).get("slots") or {}).get("cover") or {}
+    default_cover_scene = (
+        "reference face + glasses; outfit: navy/charcoal softshell jacket OR heavyweight crewneck "
+        "(NO hoodie, NO hood, NO cap); new pose/gesture; no headphones; topic-specific fake UI + meme cutout"
+    )
+    # On --merge, drop legacy SEO/Wordstat/hoodie stubs from a previous article.
+    preserved_scene = str(old_cover.get("scene_hint") or "")
+    stale_scene = any(
+        token in preserved_scene.lower()
+        for token in ("hoodie", "худи", "wordstat", "vordstat", "seoshnik", "seo vs geo", "15k ключей")
+    )
+    cover_scene = preserved_scene if preserved_scene and not stale_scene else default_cover_scene
+    preserved_caption = str(old_cover.get("meme_caption_ru") or "")
+    stale_caption = any(token in preserved_caption.lower() for token in ("15k", "wordstat", "ключей — 0"))
     cover = {
         "quadrant": "top_left",
         "role": "cover_meme_hero",
         "alt": old_cover.get("alt") or f"Обложка: {article_topic}",
-        "scene_hint": old_cover.get("scene_hint")
-        or "reference-лицо, белое плотное худи из толстой ткани, новая поза/жест/ракурс под крючок, без наушников/headset/earbuds, шок/ирония SEOшника, Wordstat + ноутбук",
-        "meme_caption_ru": old_cover.get("meme_caption_ru") or "15k ключей — 0 прочтений?",
+        "scene_hint": cover_scene,
+        "meme_caption_ru": preserved_caption if preserved_caption and not stale_caption else "До депозита — чеклист",
     }
 
     used: set[str] = set()
@@ -125,15 +140,27 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
         visual_type = pick_visual_type(h2, types_catalog, used)
         used.add(visual_type)
         old = ((preserve or {}).get("slots") or {}).get(slot_key) or {}
+        anchor = old.get("h2_anchor") or h2
+        old_hint = str(old.get("scene_hint") or "")
+        stale_inline = any(
+            token in old_hint.lower()
+            for token in ("seo vs geo", "wordstat", "longread: интент", "json-ld schema ui", "seo-инструмента")
+        )
         slots[slot_key] = {
             "quadrant": DEFAULT_SLOT_MAP[slot_key],
-            "h2_anchor": old.get("h2_anchor") or h2,
+            "h2_anchor": anchor,
             "visual_type": visual_type,
-            "scene_hint": scene_hint_for_type(visual_type, old.get("h2_anchor") or h2),
-            "alt": alt_for_type(visual_type, old.get("h2_anchor") or h2, types_catalog),
+            "scene_hint": (
+                old_hint
+                if old_hint and not stale_inline
+                else scene_hint_for_type(visual_type, anchor, article_topic)
+            ),
+            "alt": alt_for_type(visual_type, anchor, types_catalog),
         }
 
-    cover_hook = (preserve or {}).get("cover_hook") or "SEO-текст, который люди дочитают — миф или workflow?"
+    old_hook = str((preserve or {}).get("cover_hook") or "")
+    stale_hook = any(token in old_hook.lower() for token in ("seo-текст", "seo текст", "workflow?"))
+    cover_hook = old_hook if old_hook and not stale_hook else f"{article_topic}: ловушка до депозита?"
 
     return {
         "topic_id": topic_id,
@@ -144,8 +171,9 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
         "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
         "blog_hero": "memory/cover/blog-hero.json",
         "inline_types_catalog": "memory/cover/inline-visual-types.json",
+        "outfit_lock": "softshell_or_crewneck",
         "cover_hook": cover_hook,
-        "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+        "mcp_note": "Prefer Kie async API (scripts/excalibur_blog_kie_gpt_image2_api.py); sync MCP gpt-image-2 is legacy fallback",
         "slots": slots,
     }
 

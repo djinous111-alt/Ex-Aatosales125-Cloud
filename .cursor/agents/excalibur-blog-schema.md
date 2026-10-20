@@ -37,6 +37,9 @@ verdict: PASS | BLOCKER
 
 - cover MCP, правка longread, publish.
 
+
+
+**Secret-scan:** перед commit редактируй URL в `[REDACTED]`/`${PUBLIC_SITE_URL}`; publish гидратирует через env (`hydrate_schema_redactions`).
 ## Skill
 
 `skills/schema-excalibur-blog/SKILL.md`

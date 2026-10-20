@@ -30,7 +30,7 @@ Append new Topic Card to blog-topics.md
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
   Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
 
@@ -44,10 +44,17 @@ Append new Topic Card to blog-topics.md
 * **Цель:** Найти ключевой запрос (primary query) с живым спросом в Яндексе и выписать 3–5 связанных поисковых вопросов для FAQ и secondary queries.
 * **Фильтр:** Если тема имеет микро-спрос (меньше 10 показов в месяц) и нет смежных тем — отложи её и возьми другую, более востребованную.
 
+### Шаг 3b — Live WP slugs + denylist
+* `--check-query` смотрит карточки `## Bxx` в `blog-topics.md` **и** автоматически мержит:
+  - `memory/blog/published-live-avtosales125.json` (slug dump)
+  - `memory/blog/wp-slug-denylist.json` (stable denylist после publish)
+* Если helper пишет `published-live stale` / `fetched_at` старше ~30 дней — **обязателен** fallback на denylist + `shared/published-articles.md` + Director denylist; не полагайся только на stale live JSON.
+* После каждого publish допиши новый slug в `wp-slug-denylist.json`.
+
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
 Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
 

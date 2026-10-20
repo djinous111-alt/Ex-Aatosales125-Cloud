@@ -18,12 +18,14 @@
 
 ## Agent rule
 
-Cover agent:
+Cover agent (Cloud default):
 
-- предпочитает async tools, если они есть в Cursor `Available Tools`;
-- sync `gpt-image-2` вызывает только один раз, если async tools недоступны;
-- после `HTTP MCP -32001 Request timed out` не делает blind retry sync create;
-- если нет `url`, `task_id` и status/result tool — возвращает `COVER MCP ASYNC BLOCKER`.
+1. **Предпочтительный путь:** прямой Kie async API через
+   `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir <dir>`
+   (createTask → recordInfo, `task_id` сразу, poll в shell). Аргументы = `jobs[0].api_args` / тот же prompt+input_urls.
+2. Sync MCP `gpt-image-2` — **legacy fallback** только если нет `KIE_API_KEY` и нет async MCP tools.
+3. Если sync MCP всё же вызван: максимум **1** попытка; после `HTTP MCP -32001 Request timed out` не делать blind retry sync create; искать URL/task_id в MCP logs.
+4. Если нет URL/task_id и нет status/result tool — `COVER MCP ASYNC BLOCKER` или сразу Kie fallback (если ключ есть).
 
 ## Why
 

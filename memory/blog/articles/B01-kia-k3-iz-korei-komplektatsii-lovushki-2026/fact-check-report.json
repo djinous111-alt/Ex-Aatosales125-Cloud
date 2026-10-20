@@ -1,0 +1,73 @@
+{
+  "article": "memory/blog/articles/B01-kia-k3-iz-korei-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 9,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 8,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "круиз, крупные приборы; годы-ориентир на октябрь 2026: чаще 2022–2023 – сверяйте дату изготовления, не",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2022",
+      "kind": "date_or_year",
+      "context": "пные приборы; годы-ориентир на октябрь 2026: чаще 2022–2023 – сверяйте дату изготовления, не только моде",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "приборы; годы-ориентир на октябрь 2026: чаще 2022–2023 – сверяйте дату изготовления, не только модельный",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 лет",
+      "kind": "metric_or_duration",
+      "context": "ктябрь 2026? Частый ориентир – 2022–2023 (около 3–5 лет). Всегда сверяйте дату изготовления, не только мо",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "123",
+      "kind": "large_number",
+      "context": "массовый седан BD – обычно атмосфер 1.6 MPI около 123 л.с., передний привод и вариатор IVT (бесступенчат",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "115",
+      "kind": "large_number",
+      "context": "айский K3 – отдельная линейка КНР: чаще 1.5 около 115 л.с. и свои турбо/робот. Кузовные детали часто не",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "502",
+      "kind": "large_number",
+      "context": "али часто не взаимозаменяемы; у KR багажник около 502 л без запаски, у CN – около 482 л с запаской. Крит",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "482",
+      "kind": "large_number",
+      "context": "KR багажник около 502 л без запаски, у CN – около 482 л с запаской. Критерий Корея (BD) Китай Cerato / G",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "204",
+      "kind": "large_number",
+      "context": "I ≈123 л.с. 1.5 ≈115 л.с. (+ турбо) GT Turbo ≈201–204 л.с. – другой бюджет Коробка IVT (вариатор) свои К",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

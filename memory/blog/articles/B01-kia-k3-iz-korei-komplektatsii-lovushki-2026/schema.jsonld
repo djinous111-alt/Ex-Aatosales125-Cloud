@@ -1,0 +1,203 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "[REDACTED]/kia-k3-iz-korei-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "[REDACTED]/kia-k3-iz-korei-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Kia K3 из Кореи: комплектации, ловушки пробега и чек-лист перед заказом",
+      "description": "Как выбрать Kia K3 из Кореи: trim vs опции, отличие от Китая и GT, чек-лист до депозита и shortlist 2–3 лотов. Подбор – в каталоге Авто-Сейлс.",
+      "datePublished": "2026-10-20",
+      "dateModified": "2026-10-20",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "[REDACTED]/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "[REDACTED]/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "[REDACTED]"
+        },
+        "sameAs": [
+          "[REDACTED]",
+          "[REDACTED]",
+          "[REDACTED]",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "[REDACTED]/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "[REDACTED]",
+        "sameAs": [
+          "[REDACTED]",
+          "[REDACTED]"
+        ]
+      },
+      "keywords": [
+        "как выбрать kia k3 из кореи",
+        "киа к3 из кореи",
+        "kia k3 комплектации",
+        "комплектации киа к3 из кореи",
+        "киа к3 комплектации",
+        "купить киа к3 из кореи"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "[REDACTED]/kia-k3-iz-korei-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Kia K3 из Кореи отличается от версии из Китая?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сверьте мотор и происхождение. Корейский массовый вариант – обычно 1.6 ≈123 л.с. и IVT; китайский чаще 1.5 ≈115 л.с. и другие узлы. Кузовные детали часто не совпадают. Не смешивайте лоты в одном shortlist без этой проверки."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие комплектации Kia K3 бывают в Корее?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ориентируйтесь на Trendy, Prestige, Noblesse, Signature как на сортировку. Дальше сверяйте пакеты и фото: камера, подогревы, климат, круиз. Не покупайте \"максималку\" по одному слову в чате."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужна ли русификация Kia K3 из Кореи?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Обычно да, если хотите меню удобно на русском. На практике корейское меню русифицируют проще китайского. Согласуйте работы до оплаты \"под ключ\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Вариатор или автомат – на что смотреть новичку?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "На корейском массовом K3 BD чаще IVT (вариатор). Не путайте с 6AT у части Cerato в РФ и не берите GT Turbo \"по привычке к автомату\". На осмотре просите холодный старт и поведение коробки в движении."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли вносить депозит, если trim Signature, а отчётов ещё нет?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Сначала VIN, график пробега, страховая история/flood и осмотр. Красивый trim не отменяет правило: нет пакета – нет перевода."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "С каких годов новичку смотреть K3 на октябрь 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Частый ориентир – 2022–2023 (около 3–5 лет). Всегда сверяйте дату изготовления, не только модельный год в объявлении, и только потом сравнивайте пробег и цену."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Куда идти с shortlist из 2–3 лотов?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Откройте каталог avto-sales125.ru за расчётом или напишите в Telegram avtosales125 со ссылками на лоты и списком must-have. Форм на блоге нет – детали заказа живут в каталоге и переписке."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "[REDACTED]/kia-k3-iz-korei-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать Kia K3 из Кореи: комплектации, ловушки пробега и чек-лист перед заказом",
+      "description": "Пошаговый выбор корейского Kia K3 до депозита: страна и мотор, trim vs опции, пробег и история, красные флаги, чеклист Владивосток и shortlist 2–3 лотов.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Карточка Encar: trim, фото опций, Performance Check"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Полный VIN + страховая история / flood-check"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Осмотр: фото/видео с VIN и холодный старт IVT"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Список must-have опций до поиска"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Shortlist из 2–3 лотов с фактами до депозита"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Отделите корейский K3 от китайского и от Cerato",
+          "text": "Зафиксируйте страну и мотор: корейский BD обычно 1.6 MPI и IVT; китайский K3 и GT отсейте из shortlist новичка.",
+          "url": "[REDACTED]/kia-k3-iz-korei-komplektatsii-lovushki-2026/#отделите-корейский-k3-от-китайского-и-от-cerato"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Как читать комплектации на Encar: trim и пакеты",
+          "text": "Составьте must-have до поиска. Trendy/Prestige/Noblesse/Signature – сортировка; опции сверяйте по фото и списку пакета, а не по слову «максималка».",
+          "url": "[REDACTED]/kia-k3-iz-korei-komplektatsii-lovushki-2026/#как-читать-комплектации-на-encar-trim-и-пакеты"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Проверьте пробег и историю до депозита",
+          "text": "Соберите пакет до перевода: полный VIN, график пробега без провалов, страховая история/flood, метки коммерции и осмотр.",
+          "url": "[REDACTED]/kia-k3-iz-korei-komplektatsii-lovushki-2026/#проверьте-пробег-и-историю-до-депозита"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Отсейте красные флаги за десять минут",
+          "text": "При путанице Корея/Китай, GT, отсутствии VIN, провале пробега или давлении «оплатите сегодня» – вычёркивайте лот.",
+          "url": "[REDACTED]/kia-k3-iz-korei-komplektatsii-lovushki-2026/#отсейте-красные-флаги-за-десять-минут"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Чеклист перед заказом через Владивосток",
+          "text": "Пройдите чеклист: страна/мотор/КПП, trim + фото опций, VIN и история, осмотр, маршрут через Владивосток/СВХ и shortlist 2–3 лотов.",
+          "url": "[REDACTED]/kia-k3-iz-korei-komplektatsii-lovushki-2026/#чеклист-перед-заказом-через-владивосток"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Сделайте сегодня: shortlist из 2–3 лотов",
+          "text": "Соберите 2–3 финальных лота с фактами и must-have; обсудите сравнение в каталоге или Telegram уже с документами.",
+          "url": "[REDACTED]/kia-k3-iz-korei-komplektatsii-lovushki-2026/#сделайте-сегодня-shortlist-из-2-3-лотов"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Что дальше",
+          "text": "Закройте Китай/GT, shortlist, проверки до депозита и откройте актуальный расчёт в каталоге Авто-Сейлс.",
+          "url": "[REDACTED]/kia-k3-iz-korei-komplektatsii-lovushki-2026/#что-дальше"
+        }
+      ]
+    }
+  ]
+}

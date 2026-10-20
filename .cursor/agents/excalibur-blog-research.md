@@ -31,7 +31,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id {ID}
 ## Твои задачи
 
 1. Прочитать `research-context.json` (после shell шага 0).
-2. Вызвать инструмент `wordstat_get_top_requests` на сервере `user-mcp-kv` для `primary_query` темы и смежных запросов.
+2. Вызвать инструмент `wordstat_get_top_requests` на сервере `user-mcp-kv` для `primary_query` темы и смежных запросов. Cluster-first: сначала parent-кластер, потом how-to; `{}`/totalCount-only = low-result (WORDSTAT NOTE), не выдумывать показы.
    - Собрать точный спрос (число показов в месяц) и сопутствующие LSI-ключи.
    - Если API вернул ошибку 401 (токен устарел) — зафиксировать предупреждение `⚠️ WORDSTAT AUTH WARNING` и ссылку на авторизацию (см. SKILL.md). Не выдумывать цифры спроса!
 3. Выполнить **глубокий поиск в реальном времени через WebSearch Курсора**: конкуренты, официальные docs/changelog, GitHub repos/issues/README, форумы/обсуждения, свежие статьи на дату `today_iso`.

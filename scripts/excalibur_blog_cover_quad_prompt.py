@@ -69,6 +69,35 @@ def validate_prompt_budget(prompt: str) -> bool:
     return False
 
 
+def validate_outfit_lock(prompt: str, manifest: dict) -> bool:
+    """Reject hoodie lock; require softshell/crewneck (Avto-Sales cover policy)."""
+    lower = prompt.lower()
+    # Allow "NO hoodie" negation; block positive hoodie outfit lock.
+    toxic_positive = (
+        "outfit lock: thick heavyweight white hoodie" in lower
+        or ("white hoodie" in lower and "no hoodie" not in lower)
+    )
+    has_allowed = "softshell" in lower or "crewneck" in lower
+    scene = " ".join(
+        str(((manifest.get("slots") or {}).get("cover") or {}).get("scene_hint") or "").lower()
+    )
+    if "hoodie" in scene and "no hoodie" not in scene:
+        print(
+            "❌ COVER OUTFIT BLOCKER: cover.scene_hint must not request hoodie "
+            "(use softshell/crewneck; NO hoodie).",
+            file=sys.stderr,
+        )
+        return False
+    if toxic_positive or not has_allowed:
+        print(
+            "❌ COVER OUTFIT BLOCKER: prompt outfit lock must be softshell or crewneck "
+            "(NO hoodie). Got missing allowed outfit or positive hoodie lock.",
+            file=sys.stderr,
+        )
+        return False
+    return True
+
+
 def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, design_code: dict) -> str:
     slots = manifest.get("slots") or {}
 
@@ -86,7 +115,7 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         "",
         "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
         "",
-        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
+        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: navy or charcoal softshell jacket OR heavyweight crewneck (NO hoodie, NO hood, NO cap). Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
         "",
         f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
         "",
@@ -138,6 +167,8 @@ def main() -> int:
 
     prompt = build_prompt(manifest, style, hero, types_catalog, design_code)
     if not validate_prompt_budget(prompt):
+        return 1
+    if not validate_outfit_lock(prompt, manifest):
         return 1
     prompt_path = article_dir / "cover" / "quad-mcp-prompt.txt"
     prompt_path.write_text(prompt + "\n", encoding="utf-8")

@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261020-1324-geo-qa-utility-empty-pain-outcome-markers
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-hyundai-avante-iz-korei-komplektatsii-lovushki-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требовал `min_pain_markers=2` и `min_outcome_markers=3` даже когда в `memory/brief/editorial-policy.json` не было `pain_markers_ru` / `outcome_markers_ru`.
+- При пустых списках `count_markers` всегда 0 → вечный `UTILITY GATE BLOCKER` для любой статьи (AS08/AS09/B01).
+- Параллельно human-voice BLOCK из-за слабых outcome-маркеров в тексте B01 и шаблонного ярлыка `TL;DR / Быстрый инсайт` (снят точечным FIX).
+
+### How the agent recovered this run
+- Точечный FIX `article.html`: action/pain/outcome маркеры, инсайт «Коротко:», критерий результата до FAQ.
+- В policy добавлены `pain_markers_ru`, `outcome_markers_ru`, `min_pain_markers`, `min_outcome_markers`.
+- В utility gate: enforce pain/outcome только если списки маркеров в policy непустые.
+- Повтор QA → utility PASS + human-voice PASS + article-qa PASS (87).
+
+### Durable fix needed before next run
+- Зафиксировать в pitfalls/skills: utility pain/outcome markers должны жить в policy; script не должен default-fail на пустых списках.
+- Опционально: выровнять human-voice `exactly_five_lists` regex на ровно 5 пунктов (сейчас ≥5).
+- Writer skill: не начинать инсайт с `TL;DR` / `Быстрый инсайт`; использовать «Сделайте/Не делайте» или маркеры из policy.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_utility_gate.py`
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261020-1316-research-precommit-invalid-secret-name
 status: open
 run_date: 2026-10-20

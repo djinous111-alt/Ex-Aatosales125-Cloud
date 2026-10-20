@@ -1,0 +1,591 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-20",
+    "today_ru": "20.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-22",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-20 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026",
+    "h1": "Hyundai Santa Fe из Кореи: как выбрать комплектацию и не попасть на ловушки в 2026",
+    "primary_query": "как выбрать комплектацию hyundai santa fe из кореи",
+    "secondary_queries": [
+      "hyundai santa fe комплектации",
+      "santa fe из кореи",
+      "hyundai santa fe из кореи",
+      "hyundai santa fe 2026 комплектации"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как выбрать комплектацию hyundai santa fe из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Santa Fe 2026: комплектации и цена под ключ | АвтоДилер Тарасов",
+          "url": "https://tamx.ru/journal/hyundai-santa-fe-2026-komplektatsii-tsena-i-chto-vhodit-v-summu-7806",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: 7 мест, комплектации MX5 и стоимость под ...",
+          "url": "https://onlyjpcars.ru/blog/hyundai-santa-fe-iz-korei",
+          "snippet": "Разбираем, кому подходит Hyundai Santa Fe 2026, как выбирать комплектацию и что входит в цену «под ключ» при заказе автомобиля из Южной Кореи."
+        },
+        {
+          "title": "Hyundai Santa Fe 2026: как выбрать комплектацию, что важно в салоне и ...",
+          "url": "https://inycar.ru/blog/hyundai-santa-fe-2026-kak-vybrat-komplektatsiyu-chto-vazhno-v-salone-i-multimedia-opyt-vladeltsev",
+          "snippet": "Семь мест, крупный кузов, богатая оснащённость и выбор между обычным бензином, гибридом и плагин-гибридом — всё это делает Santa Fe популярным запросом при привозе из Кореи."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи 2026: 7-местный кроссовер дешевле дилера",
+          "url": "https://autoprofiasia.ru/blog/hyundai-santa-fe-iz-korei-2026",
+          "snippet": "Как правильно выбрать Hyundai Santa Fe 2026: обзор комплектаций, важные функции салона и мультимедиа, отзывы владельцев. Полный гайд для будущих покупателей."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: TM, MX5, дизель или гибрид",
+          "url": "https://azway.ru/blog/hyundai-santa-fe-iz-korei-obzor",
+          "snippet": "Разбираю, почему новый Hyundai Santa Fe MX5 из Кореи выгоднее, чем у дилера. Реальные цены под ключ, комплектации и риски параллельного импорта."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: цена под ключ 2026",
+          "url": "https://export-motors.com/blog/hyundai-santa-fe-iz-korei",
+          "snippet": "Как выбрать Санта Фе из Кореи: TM с автоматом или роботом, MX5 2,5 Turbo и Hybrid, пять, шесть и семь мест. Расход, комплектации и реальный ценовой пример."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как выбрать комплектацию hyundai santa fe из кореи октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Santa Fe 2026: комплектации и цена под ключ | АвтоДилер Тарасов",
+          "url": "https://tamx.ru/journal/hyundai-santa-fe-2026-komplektatsii-tsena-i-chto-vhodit-v-summu-7806",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Santa Fe 2026: как выбрать комплектацию, что важно в салоне и ...",
+          "url": "https://inycar.ru/blog/hyundai-santa-fe-2026-kak-vybrat-komplektatsiyu-chto-vazhno-v-salone-i-multimedia-opyt-vladeltsev",
+          "snippet": "Разбираем, кому подходит Hyundai Santa Fe 2026, как выбирать комплектацию и что входит в цену «под ключ» при заказе автомобиля из Южной Кореи."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: 7 мест, комплектации MX5 и стоимость под ...",
+          "url": "https://onlyjpcars.ru/blog/hyundai-santa-fe-iz-korei",
+          "snippet": "Как правильно выбрать Hyundai Santa Fe 2026: обзор комплектаций, важные функции салона и мультимедиа, отзывы владельцев. Полный гайд для будущих покупателей."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: цена под ключ 2026",
+          "url": "https://export-motors.com/blog/hyundai-santa-fe-iz-korei",
+          "snippet": "Семь мест, крупный кузов, богатая оснащённость и выбор между обычным бензином, гибридом и плагин-гибридом — всё это делает Santa Fe популярным запросом при привозе из Кореи."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи 2026: 7-местный кроссовер дешевле дилера",
+          "url": "https://autoprofiasia.ru/blog/hyundai-santa-fe-iz-korei-2026",
+          "snippet": "Hyundai Santa Fe из Кореи — надёжный семейный SUV на 5-7 мест. Честно про коммерческий утильсбор, дизель, 2.5T и гибрид, комплектации и цена под ключ 2026."
+        },
+        {
+          "title": "Hyundai Palisade, Santa Fe, Tucson и Sonata 2026: цены под ключ из Кореи",
+          "url": "https://carto-auto.ru/blog/hyundai-palisade-santa-fe-tucson-sonata-2026-tseny-pod-klyuch/",
+          "snippet": "Разбираю, почему новый Hyundai Santa Fe MX5 из Кореи выгоднее, чем у дилера. Реальные цены под ключ, комплектации и риски параллельного импорта."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как выбрать комплектацию hyundai santa fe из кореи новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Santa Fe 2026: комплектации и цена под ключ | АвтоДилер Тарасов",
+          "url": "https://tamx.ru/journal/hyundai-santa-fe-2026-komplektatsii-tsena-i-chto-vhodit-v-summu-7806",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: 7 мест, комплектации MX5 и стоимость под ...",
+          "url": "https://onlyjpcars.ru/blog/hyundai-santa-fe-iz-korei",
+          "snippet": "Разбираем, кому подходит Hyundai Santa Fe 2026, как выбирать комплектацию и что входит в цену «под ключ» при заказе автомобиля из Южной Кореи."
+        },
+        {
+          "title": "Hyundai Santa Fe 2026: как выбрать комплектацию, что важно в салоне и ...",
+          "url": "https://inycar.ru/blog/hyundai-santa-fe-2026-kak-vybrat-komplektatsiyu-chto-vazhno-v-salone-i-multimedia-opyt-vladeltsev",
+          "snippet": "Семь мест, крупный кузов, богатая оснащённость и выбор между обычным бензином, гибридом и плагин-гибридом — всё это делает Santa Fe популярным запросом при привозе из Кореи."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: цена под ключ 2026",
+          "url": "https://export-motors.com/blog/hyundai-santa-fe-iz-korei",
+          "snippet": "Как правильно выбрать Hyundai Santa Fe 2026: обзор комплектаций, важные функции салона и мультимедиа, отзывы владельцев. Полный гайд для будущих покупателей."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи 2026: 7-местный кроссовер дешевле дилера",
+          "url": "https://autoprofiasia.ru/blog/hyundai-santa-fe-iz-korei-2026",
+          "snippet": "Hyundai Santa Fe из Кореи — надёжный семейный SUV на 5-7 мест. Честно про коммерческий утильсбор, дизель, 2.5T и гибрид, комплектации и цена под ключ 2026."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: TM, MX5, дизель или гибрид",
+          "url": "https://azway.ru/blog/hyundai-santa-fe-iz-korei-obzor",
+          "snippet": "Разбираю, почему новый Hyundai Santa Fe MX5 из Кореи выгоднее, чем у дилера. Реальные цены под ключ, комплектации и риски параллельного импорта."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как выбрать комплектацию hyundai santa fe из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "libnx/nx/default_icon.jpg at master · switchbrew/libnx · GitHub",
+          "url": "https://github.com/switchbrew/libnx/blob/master/nx/default_icon.jpg",
+          "snippet": ""
+        },
+        {
+          "title": "slackmoji/emoji/blob/blob-wine-gif.gif at master · seanprashad ...",
+          "url": "https://github.com/seanprashad/slackmoji/blob/master/emoji/blob/blob-wine-gif.gif/",
+          "snippet": "Library for Switch Homebrew. Contribute to switchbrew/libnx development by creating an account on GitHub."
+        },
+        {
+          "title": "Обзор 10 Vpn-сервисов В 2026 Году: Что Я Тестировал Лично, Что Работает ...",
+          "url": "https://gist.github.com/BoberSdoh/ec67b2175d1f9cecaf6ad24a5278084e",
+          "snippet": "A collection of 1,000+ emoji for Slack. Contribute to seanprashad/slackmoji development by creating an account on GitHub."
+        },
+        {
+          "title": "blockbench-plugins/plugins/geckolib/icon.png at master · JannisX11 ...",
+          "url": "https://github.com/JannisX11/blockbench-plugins/blob/master/plugins/geckolib/icon.png",
+          "snippet": "Обзор 10 VPN-сервисов в 2026 году: что я тестировал лично, что работает, что не очень, и как выбрать под свою задачу. Без рекламы, на простом языке."
+        },
+        {
+          "title": "furl/logo.svg at master · gruns/furl · GitHub",
+          "url": "https://github.com/gruns/furl/blob/master/logo.svg",
+          "snippet": "Blockbench plugin repository. Contribute to JannisX11/blockbench-plugins development by creating an account on GitHub."
+        },
+        {
+          "title": "godot_test/icon.svg at main · tskolnick/godot_test · GitHub",
+          "url": "https://github.com/tskolnick/godot_test/blob/main/icon.svg",
+          "snippet": "Add logo to readme."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как выбрать комплектацию hyundai santa fe из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Santa Fe 2026: комплектации и цена под ключ | АвтоДилер Тарасов",
+          "url": "https://tamx.ru/journal/hyundai-santa-fe-2026-komplektatsii-tsena-i-chto-vhodit-v-summu-7806",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: 7 мест, комплектации MX5 и стоимость под ...",
+          "url": "https://onlyjpcars.ru/blog/hyundai-santa-fe-iz-korei",
+          "snippet": "Разбираем, кому подходит Hyundai Santa Fe 2026, как выбирать комплектацию и что входит в цену «под ключ» при заказе автомобиля из Южной Кореи."
+        },
+        {
+          "title": "Hyundai Santa Fe 2026: как выбрать комплектацию, что важно в салоне и ...",
+          "url": "https://inycar.ru/blog/hyundai-santa-fe-2026-kak-vybrat-komplektatsiyu-chto-vazhno-v-salone-i-multimedia-opyt-vladeltsev",
+          "snippet": "Семь мест, крупный кузов, богатая оснащённость и выбор между обычным бензином, гибридом и плагин-гибридом — всё это делает Santa Fe популярным запросом при привозе из Кореи."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: цена под ключ 2026",
+          "url": "https://export-motors.com/blog/hyundai-santa-fe-iz-korei",
+          "snippet": "Как правильно выбрать Hyundai Santa Fe 2026: обзор комплектаций, важные функции салона и мультимедиа, отзывы владельцев. Полный гайд для будущих покупателей."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: TM, MX5, дизель или гибрид",
+          "url": "https://azway.ru/blog/hyundai-santa-fe-iz-korei-obzor",
+          "snippet": "Ниже честно разбираем версии, комплектации и цену под ключ. Что это за машина Santa Fe (поколение TM с рестайлингом) — среднеразмерный кроссовер на 5-7 мест, между компактным Tucson и большим ..."
+        },
+        {
+          "title": "Hyundai Palisade, Santa Fe, Tucson и Sonata 2026: цены под ключ из Кореи",
+          "url": "https://carto-auto.ru/blog/hyundai-palisade-santa-fe-tucson-sonata-2026-tseny-pod-klyuch/",
+          "snippet": "Как выбрать Санта Фе из Кореи: TM с автоматом или роботом, MX5 2,5 Turbo и Hybrid, пять, шесть и семь мест. Расход, комплектации и реальный ценовой пример."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как выбрать комплектацию hyundai santa fe из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Santa Fe 2026: как выбрать комплектацию, что важно в салоне и ...",
+          "url": "https://inycar.ru/blog/hyundai-santa-fe-2026-kak-vybrat-komplektatsiyu-chto-vazhno-v-salone-i-multimedia-opyt-vladeltsev",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи 2026: 7-местный кроссовер дешевле дилера",
+          "url": "https://autoprofiasia.ru/blog/hyundai-santa-fe-iz-korei-2026",
+          "snippet": "Как правильно выбрать Hyundai Santa Fe 2026: обзор комплектаций, важные функции салона и мультимедиа, отзывы владельцев. Полный гайд для будущих покупателей."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: TM, MX5, дизель или гибрид",
+          "url": "https://azway.ru/blog/hyundai-santa-fe-iz-korei-obzor",
+          "snippet": "Разбираю, почему новый Hyundai Santa Fe MX5 из Кореи выгоднее, чем у дилера. Реальные цены под ключ, комплектации и риски параллельного импорта."
+        },
+        {
+          "title": "Hyundai Santa Fe TM 2.2 из Кореи: что проверить перед покупкой",
+          "url": "https://www.drive2.ru/o/b/744093120781628980/",
+          "snippet": "Как выбрать Санта Фе из Кореи: TM с автоматом или роботом, MX5 2,5 Turbo и Hybrid, пять, шесть и семь мест. Расход, комплектации и реальный ценовой пример."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: 7 мест, комплектации MX5 и стоимость под ...",
+          "url": "https://onlyjpcars.ru/blog/hyundai-santa-fe-iz-korei",
+          "snippet": "Покупать Santa Fe из Кореи только по фотографиям и названию комплектации рискованно. До оплаты нужно подтвердить характеристики по VIN, проверить историю и состояние конкретной машины, а затем пересчитать полную стоимость доставки и оформления. Сначала определите точную модификацию."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: цена под ключ 2026",
+          "url": "https://export-motors.com/blog/hyundai-santa-fe-iz-korei",
+          "snippet": "Семь мест, крупный кузов, богатая оснащённость и выбор между обычным бензином, гибридом и плагин-гибридом — всё это делает Santa Fe популярным запросом при привозе из Кореи."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "hyundai santa fe комплектации 2026",
+      "purpose": "вторичный запрос: hyundai santa fe комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хендай Санта Фе 2026 технические характеристики. Hyundai Santa Fe 2026 ...",
+          "url": "https://www.drom.ru/catalog/hyundai/santa_fe/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Santa Fe 2026 — цены и комплектации в СПБ | Официальный дилер",
+          "url": "https://hyundai-spb.ru/santa-fe/equipment/",
+          "snippet": "Подробно расписан модельный ряд Hyundai Santa Fe 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Hyundai Santa Fe 2025-2026 в СПБ | Цены, комплектации, покупка у ...",
+          "url": "https://hyundai-spb.ru/santa-fe/",
+          "snippet": "Hyundai Santa Fe - Комплектации и цены Планируете покупку Hyundai Santa Fe 2026 года? Ознакомьтесь с доступными комплектациями, ценами и спецпредложениями в автосалонах в СПб."
+        },
+        {
+          "title": "Хендай Санта Фе 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/hyundai-santa-fe-2026/",
+          "snippet": "Hyundai Santa Fe 2025-2026 доступна у официального дилера в СПб. Выберите подходящую комплектацию, оформите кредит или рассрочку, сдайте авто по trade-in и уезжайте на новой Santa Fe по лучшей цене уже сегодня!"
+        },
+        {
+          "title": "Хендай Санта Фе 2026 новый кузов, цены, комплектации, фото, видео тест ...",
+          "url": "https://naavtotrasse.ru/hyundai/hyundai-santa-fe-2026.html",
+          "snippet": "Комплектации и цены Hyundai Santa Fe 2026 предлагается покупателям в пяти вариантах исполнения. Его стоимость стартует с отметки 2,35 млн рублей."
+        },
+        {
+          "title": "Hyundai Santa Fe 2026: комплектации и цены официальных дилеров в Москве",
+          "url": "https://kuplu-hyundai.ru/modelnyj-ryad-hyundai/santa-fe/",
+          "snippet": "Пятое поколение Хендай Санта Фе 2026 интересно тем, что совмещает новый кузов с цифровой архитектурой cc-NC и чипом Nvidia. У машины заметно изменились и «железо», и электроника, и подход к комплектациям. Кроме того, корректировки затронули технические характеристики и цены модели."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "santa fe из кореи 2026",
+      "purpose": "вторичный запрос: santa fe из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Santa Fe из Кореи 2026: 7-местный кроссовер дешевле дилера",
+          "url": "https://autoprofiasia.ru/blog/hyundai-santa-fe-iz-korei-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: 7 мест, комплектации MX5 и стоимость под ...",
+          "url": "https://onlyjpcars.ru/blog/hyundai-santa-fe-iz-korei",
+          "snippet": "Эта история — не исключение, а правило. Ниже объясню, как мы возим Santa Fe из Кореи, какие реальные цены и где подводные камни. Что даёт корейский Santa Fe, чего нет у российского? Главное ..."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: цена под ключ 2026",
+          "url": "https://export-motors.com/blog/hyundai-santa-fe-iz-korei",
+          "snippet": "Hyundai Santa Fe из Кореи под ключ в 2026: поколения TM и MX5, двигатели 2.5 T-GDI, HEV и PHEV, цены с Encar, утильсбор по коммерческой ставке, доставка в Сибирь."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: поколения и цена под ключ 2026",
+          "url": "https://avto-pod-zakaz.com/hyundai-santa-fe-iz-korei-cena-pod-klyuch-2026/",
+          "snippet": "Hyundai Santa Fe из Кореи — надёжный семейный SUV на 5-7 мест. Честно про коммерческий утильсбор, дизель, 2.5T и гибрид, комплектации и цена под ключ 2026."
+        },
+        {
+          "title": "Hyundai Santa Fe под ключ 2026: цена и растаможка | ДАРЭ",
+          "url": "https://importdare.ru/blog/hyundai-santa-fe-pod-klyuch",
+          "snippet": "Hyundai Santa Fe из Кореи под заказ: поколения MX5 и TM, бензин, дизель и гибрид, влияние мощности и возраста на платежи, ориентиры цен и сроки доставки."
+        },
+        {
+          "title": "Hyundai Santa Fe Gasoline 2.5T 2WD 2026 из Кореи — 4.7 млн ₽ под ключ ...",
+          "url": "https://carto-auto.ru/korea/42724480-hyundai-santa-fe-2026/",
+          "snippet": "Hyundai Santa Fe под ключ из Кореи в 2026: 5-7,5 млн ₽, полный расчёт растаможки и сроки от 45 дней с фиксированной сметой."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "hyundai santa fe из кореи 2026",
+      "purpose": "вторичный запрос: hyundai santa fe из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Santa Fe из Кореи: 7 мест, комплектации MX5 и стоимость под ...",
+          "url": "https://onlyjpcars.ru/blog/hyundai-santa-fe-iz-korei",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи 2026: 7-местный кроссовер дешевле дилера",
+          "url": "https://autoprofiasia.ru/blog/hyundai-santa-fe-iz-korei-2026",
+          "snippet": "Hyundai Santa Fe из Кореи под ключ в 2026: поколения TM и MX5, двигатели 2.5 T-GDI, HEV и PHEV, цены с Encar, утильсбор по коммерческой ставке, доставка в Сибирь."
+        },
+        {
+          "title": "Hyundai Santa Fe под ключ 2026: цена и растаможка | ДАРЭ",
+          "url": "https://importdare.ru/blog/hyundai-santa-fe-pod-klyuch",
+          "snippet": "Эта история — не исключение, а правило. Ниже объясню, как мы возим Santa Fe из Кореи, какие реальные цены и где подводные камни. Что даёт корейский Santa Fe, чего нет у российского? Главное — мотор."
+        },
+        {
+          "title": "Растаможка Hyundai Santa Fe из Кореи в 2026: цена под ключ и выгода",
+          "url": "https://gc.auction/ru/journal/rastamozhka-hyundai-santa-fe-iz-korei",
+          "snippet": "Hyundai Santa Fe под ключ из Кореи в 2026: 5-7,5 млн ₽, полный расчёт растаможки и сроки от 45 дней с фиксированной сметой."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи — купить с доставкой в Россию 2026 | Azway ...",
+          "url": "https://azway.ru/import/koreya/hyundai-santa-fe",
+          "snippet": "Сколько стоит Hyundai Santa Fe из Кореи под ключ в 2026: средние цены по поколениям, растаможка для Украины и ЕС, соглашение FTA, пошлины, акцизы и реальный расчёт."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: поколения и цена под ключ 2026",
+          "url": "https://avto-pod-zakaz.com/hyundai-santa-fe-iz-korei-cena-pod-klyuch-2026/",
+          "snippet": "Купить Hyundai Santa Fe из Кореи под ключ. 2.5L 4-цилиндровый / 1.6L турбо гибрид / 2.2L дизель, 180-265 л.с.. Цена от 3.2 до 5.0 млн ₽ под ключ. Доставка по всей России, растаможка, СБКТС, ЭПТС."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "hyundai santa fe 2026 комплектации 2026",
+      "purpose": "вторичный запрос: hyundai santa fe 2026 комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хендай Санта Фе 2026 технические характеристики. Hyundai Santa Fe 2026 ...",
+          "url": "https://www.drom.ru/catalog/hyundai/santa_fe/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Santa Fe 2026 — цены и комплектации в СПБ | Официальный дилер",
+          "url": "https://hyundai-spb.ru/santa-fe/equipment/",
+          "snippet": "Подробно расписан модельный ряд Hyundai Santa Fe 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Хендай Санта Фе 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/hyundai-santa-fe-2026/",
+          "snippet": "Hyundai Santa Fe - Комплектации и цены Планируете покупку Hyundai Santa Fe 2026 года? Ознакомьтесь с доступными комплектациями, ценами и спецпредложениями в автосалонах в СПб."
+        },
+        {
+          "title": "Хендай Санта Фе 2026 новый кузов, цены, комплектации, фото, видео тест ...",
+          "url": "https://naavtotrasse.ru/hyundai/hyundai-santa-fe-2026.html",
+          "snippet": "В этой статье подробно разберем технические характеристики, комплектации и цены машины. Также здесь можно увидеть фото кроссовера. Все версии Santa Fe пятого поколения оснащаются турбированным двигателем G4NN рабочим объемом 1998 куб. см с непосредственным впрыском."
+        },
+        {
+          "title": "Hyundai Santa Fe 2025-2026 в СПБ | Цены, комплектации, покупка у ...",
+          "url": "https://hyundai-spb.ru/santa-fe/",
+          "snippet": "Пятое поколение Хендай Санта Фе 2026 интересно тем, что совмещает новый кузов с цифровой архитектурой cc-NC и чипом Nvidia. У машины заметно изменились и «железо», и электроника, и подход к комплектациям. Кроме того, корректировки затронули технические характеристики и цены модели."
+        },
+        {
+          "title": "Hyundai Santa Fe 2026: комплектации и цены официальных дилеров в Москве",
+          "url": "https://kuplu-hyundai.ru/modelnyj-ryad-hyundai/santa-fe/",
+          "snippet": "Hyundai Santa Fe 2025-2026 доступна у официального дилера в СПб. Выберите подходящую комплектацию, оформите кредит или рассрочку, сдайте авто по trade-in и уезжайте на новой Santa Fe по лучшей цене уже сегодня!"
+        }
+      ],
+      "searched_at": "2026-10-20"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Hyundai Santa Fe из Кореи: как выбрать комплектацию и не попасть на ловушки в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Santa Fe из Кореи 2026: 7-местный кроссовер дешевле дилера",
+          "url": "https://autoprofiasia.ru/blog/hyundai-santa-fe-iz-korei-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: 7 мест, комплектации MX5 и стоимость под ...",
+          "url": "https://onlyjpcars.ru/blog/hyundai-santa-fe-iz-korei",
+          "snippet": "Разбираю, почему новый Hyundai Santa Fe MX5 из Кореи выгоднее, чем у дилера. Реальные цены под ключ, комплектации и риски параллельного импорта."
+        },
+        {
+          "title": "Hyundai Santa Fe 2026: как выбрать комплектацию, что важно в салоне и ...",
+          "url": "https://inycar.ru/blog/hyundai-santa-fe-2026-kak-vybrat-komplektatsiyu-chto-vazhno-v-salone-i-multimedia-opyt-vladeltsev",
+          "snippet": "Hyundai Santa Fe из Кореи под ключ в 2026: поколения TM и MX5, двигатели 2.5 T-GDI, HEV и PHEV, цены с Encar, утильсбор по коммерческой ставке, доставка в Сибирь."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: TM, MX5, дизель или гибрид",
+          "url": "https://azway.ru/blog/hyundai-santa-fe-iz-korei-obzor",
+          "snippet": "Как правильно выбрать Hyundai Santa Fe 2026: обзор комплектаций, важные функции салона и мультимедиа, отзывы владельцев. Полный гайд для будущих покупателей."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: цена под ключ 2026",
+          "url": "https://export-motors.com/blog/hyundai-santa-fe-iz-korei",
+          "snippet": "Как выбрать Санта Фе из Кореи: TM с автоматом или роботом, MX5 2,5 Turbo и Hybrid, пять, шесть и семь мест. Расход, комплектации и реальный ценовой пример."
+        },
+        {
+          "title": "Hyundai Santa Fe из Кореи: поколения и цена под ключ 2026",
+          "url": "https://avto-pod-zakaz.com/hyundai-santa-fe-iz-korei-cena-pod-klyuch-2026/",
+          "snippet": "Hyundai Santa Fe из Кореи — надёжный семейный SUV на 5-7 мест. Честно про коммерческий утильсбор, дизель, 2.5T и гибрид, комплектации и цена под ключ 2026."
+        }
+      ],
+      "searched_at": "2026-10-20"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://tamx.ru/journal/hyundai-santa-fe-2026-komplektatsii-tsena-i-chto-vhodit-v-summu-7806",
+      "title": "Hyundai Santa Fe 2026: комплектации и цена под ключ | АвтоДилер Тарасов",
+      "from_query": "как выбрать комплектацию hyundai santa fe из кореи 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/hyundai-santa-fe-iz-korei",
+      "title": "Hyundai Santa Fe из Кореи: 7 мест, комплектации MX5 и стоимость под ...",
+      "from_query": "как выбрать комплектацию hyundai santa fe из кореи 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/hyundai-santa-fe-2026-kak-vybrat-komplektatsiyu-chto-vazhno-v-salone-i-multimedia-opyt-vladeltsev",
+      "title": "Hyundai Santa Fe 2026: как выбрать комплектацию, что важно в салоне и ...",
+      "from_query": "как выбрать комплектацию hyundai santa fe из кореи 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/blog/hyundai-santa-fe-iz-korei-2026",
+      "title": "Hyundai Santa Fe из Кореи 2026: 7-местный кроссовер дешевле дилера",
+      "from_query": "как выбрать комплектацию hyundai santa fe из кореи 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/hyundai-santa-fe-iz-korei-obzor",
+      "title": "Hyundai Santa Fe из Кореи: TM, MX5, дизель или гибрид",
+      "from_query": "как выбрать комплектацию hyundai santa fe из кореи 2026"
+    },
+    {
+      "url": "https://export-motors.com/blog/hyundai-santa-fe-iz-korei",
+      "title": "Hyundai Santa Fe из Кореи: цена под ключ 2026",
+      "from_query": "как выбрать комплектацию hyundai santa fe из кореи 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/hyundai-palisade-santa-fe-tucson-sonata-2026-tseny-pod-klyuch/",
+      "title": "Hyundai Palisade, Santa Fe, Tucson и Sonata 2026: цены под ключ из Кореи",
+      "from_query": "как выбрать комплектацию hyundai santa fe из кореи октябрь 2026"
+    },
+    {
+      "url": "https://github.com/switchbrew/libnx/blob/master/nx/default_icon.jpg",
+      "title": "libnx/nx/default_icon.jpg at master · switchbrew/libnx · GitHub",
+      "from_query": "site:github.com как выбрать комплектацию hyundai santa fe из кореи 2026"
+    },
+    {
+      "url": "https://github.com/seanprashad/slackmoji/blob/master/emoji/blob/blob-wine-gif.gif/",
+      "title": "slackmoji/emoji/blob/blob-wine-gif.gif at master · seanprashad ...",
+      "from_query": "site:github.com как выбрать комплектацию hyundai santa fe из кореи 2026"
+    },
+    {
+      "url": "https://gist.github.com/BoberSdoh/ec67b2175d1f9cecaf6ad24a5278084e",
+      "title": "Обзор 10 Vpn-сервисов В 2026 Году: Что Я Тестировал Лично, Что Работает ...",
+      "from_query": "site:github.com как выбрать комплектацию hyundai santa fe из кореи 2026"
+    },
+    {
+      "url": "https://github.com/JannisX11/blockbench-plugins/blob/master/plugins/geckolib/icon.png",
+      "title": "blockbench-plugins/plugins/geckolib/icon.png at master · JannisX11 ...",
+      "from_query": "site:github.com как выбрать комплектацию hyundai santa fe из кореи 2026"
+    },
+    {
+      "url": "https://github.com/gruns/furl/blob/master/logo.svg",
+      "title": "furl/logo.svg at master · gruns/furl · GitHub",
+      "from_query": "site:github.com как выбрать комплектацию hyundai santa fe из кореи 2026"
+    },
+    {
+      "url": "https://github.com/tskolnick/godot_test/blob/main/icon.svg",
+      "title": "godot_test/icon.svg at main · tskolnick/godot_test · GitHub",
+      "from_query": "site:github.com как выбрать комплектацию hyundai santa fe из кореи 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/o/b/744093120781628980/",
+      "title": "Hyundai Santa Fe TM 2.2 из Кореи: что проверить перед покупкой",
+      "from_query": "как выбрать комплектацию hyundai santa fe из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/hyundai/santa_fe/2026/",
+      "title": "Хендай Санта Фе 2026 технические характеристики. Hyundai Santa Fe 2026 ...",
+      "from_query": "hyundai santa fe комплектации 2026"
+    },
+    {
+      "url": "https://hyundai-spb.ru/santa-fe/equipment/",
+      "title": "Hyundai Santa Fe 2026 — цены и комплектации в СПБ | Официальный дилер",
+      "from_query": "hyundai santa fe комплектации 2026"
+    },
+    {
+      "url": "https://hyundai-spb.ru/santa-fe/",
+      "title": "Hyundai Santa Fe 2025-2026 в СПБ | Цены, комплектации, покупка у ...",
+      "from_query": "hyundai santa fe комплектации 2026"
+    },
+    {
+      "url": "https://cenyavto.com/hyundai-santa-fe-2026/",
+      "title": "Хендай Санта Фе 2026 цены модели, комплектации, фото, новый кузов, видео",
+      "from_query": "hyundai santa fe комплектации 2026"
+    },
+    {
+      "url": "https://naavtotrasse.ru/hyundai/hyundai-santa-fe-2026.html",
+      "title": "Хендай Санта Фе 2026 новый кузов, цены, комплектации, фото, видео тест ...",
+      "from_query": "hyundai santa fe комплектации 2026"
+    },
+    {
+      "url": "https://kuplu-hyundai.ru/modelnyj-ryad-hyundai/santa-fe/",
+      "title": "Hyundai Santa Fe 2026: комплектации и цены официальных дилеров в Москве",
+      "from_query": "hyundai santa fe комплектации 2026"
+    },
+    {
+      "url": "https://avto-pod-zakaz.com/hyundai-santa-fe-iz-korei-cena-pod-klyuch-2026/",
+      "title": "Hyundai Santa Fe из Кореи: поколения и цена под ключ 2026",
+      "from_query": "santa fe из кореи 2026"
+    },
+    {
+      "url": "https://importdare.ru/blog/hyundai-santa-fe-pod-klyuch",
+      "title": "Hyundai Santa Fe под ключ 2026: цена и растаможка | ДАРЭ",
+      "from_query": "santa fe из кореи 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/korea/42724480-hyundai-santa-fe-2026/",
+      "title": "Hyundai Santa Fe Gasoline 2.5T 2WD 2026 из Кореи — 4.7 млн ₽ под ключ ...",
+      "from_query": "santa fe из кореи 2026"
+    },
+    {
+      "url": "https://gc.auction/ru/journal/rastamozhka-hyundai-santa-fe-iz-korei",
+      "title": "Растаможка Hyundai Santa Fe из Кореи в 2026: цена под ключ и выгода",
+      "from_query": "hyundai santa fe из кореи 2026"
+    },
+    {
+      "url": "https://azway.ru/import/koreya/hyundai-santa-fe",
+      "title": "Hyundai Santa Fe из Кореи — купить с доставкой в Россию 2026 | Azway ...",
+      "from_query": "hyundai santa fe из кореи 2026"
+    }
+  ]
+}

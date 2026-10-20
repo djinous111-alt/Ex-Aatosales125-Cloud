@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-20",
+    "today_ru": "20.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-22",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-20 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026",
+    "h1": "Hyundai Santa Fe из Кореи: как выбрать комплектацию и не попасть на ловушки в 2026",
+    "primary_query": "как выбрать комплектацию hyundai santa fe из кореи",
+    "secondary_queries": [
+      "hyundai santa fe комплектации",
+      "santa fe из кореи",
+      "hyundai santa fe из кореи",
+      "hyundai santa fe 2026 комплектации"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "как выбрать комплектацию hyundai santa fe из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "как выбрать комплектацию hyundai santa fe из кореи октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "как выбрать комплектацию hyundai santa fe из кореи новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com как выбрать комплектацию hyundai santa fe из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "как выбрать комплектацию hyundai santa fe из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "как выбрать комплектацию hyundai santa fe из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "hyundai santa fe комплектации 2026",
+      "purpose": "вторичный запрос: hyundai santa fe комплектации"
+    },
+    {
+      "id": "secondary_2",
+      "query": "santa fe из кореи 2026",
+      "purpose": "вторичный запрос: santa fe из кореи"
+    },
+    {
+      "id": "secondary_3",
+      "query": "hyundai santa fe из кореи 2026",
+      "purpose": "вторичный запрос: hyundai santa fe из кореи"
+    },
+    {
+      "id": "secondary_4",
+      "query": "hyundai santa fe 2026 комплектации 2026",
+      "purpose": "вторичный запрос: hyundai santa fe 2026 комплектации"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Hyundai Santa Fe из Кореи: как выбрать комплектацию и не попасть на ловушки в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

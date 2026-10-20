@@ -1,7 +1,8 @@
 # Promotion checklist — B01 hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-20 (план)  
-Live URL: /blog/hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-20  
+Live URL: /2026/10/20/hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026/  
+WP post_id: 4376 | featured: 4377 | inline: 4378/4379/4380
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +30,7 @@ Calligraphy ≠ можно брать
 • От 2000 см³ в РФ/Беларусь по практике 2026 нужна лицензия на вывоз
 • MX5: дизеля нет — только 2.5 Turbo или гибрид 1.6
 
-Читать: /blog/hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026/
+Читать: /2026/10/20/hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка
@@ -47,4 +48,4 @@ Calligraphy ≠ можно брать
 
 - Indexer: interlinker `--apply` — 1 link applied (B01→AS09, keyword «trust encar»).
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (`--blog-dir` + `--out-dir`, без `--blog-path`; `--site-base ""` → relative `/blog/...`).
-- Publish ещё не запускался (indexer only).
+- Publish PASS: WP 4376; HEAD 200; schema_meta + skip_theme_faq ok; inbound interlinker: 0 opportunities.

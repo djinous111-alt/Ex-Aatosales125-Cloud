@@ -1,11 +1,11 @@
 {
   "source": "memory/blog/articles/B01-hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026/article.html",
-  "total_links": 2,
+  "total_links": 3,
   "failed_count": 0,
   "verdict": "pass",
   "links": [
     {
-      "url": "[REDACTED]",
+      "url": "https://avto-sales125.ru/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
@@ -14,7 +14,17 @@
       "skipped": false
     },
     {
-      "url": "[REDACTED]",
+      "url": "https://avtosales125.ru/blog/trust-encar-carhistory-proverka-do-depozita/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "https://avtosales125.ru/blog/trust-encar-carhistory-proverka-do-depozita/"
+    },
+    {
+      "url": "https://t.me/avtosales125",
       "status": 200,
       "ok": true,
       "method": "HEAD",

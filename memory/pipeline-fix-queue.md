@@ -57,7 +57,7 @@ files_changed:
 checks_run:
 - `rg` no erroneous `--blog-path` CLI usage in indexer examples
 - doctor llms `--blog-dir` / `--out-dir` PASS
-commit: ece04d46
+commit: c9678710
 
 ## INC-20261020-1719-cover-mcp-32001-timeout
 status: fixed
@@ -105,7 +105,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` Kie-first guidance in cover skill/contract
-commit: ece04d46
+commit: c9678710
 
 ## INC-20261020-1718-schema-secret-scan-redact-commit
 status: fixed
@@ -153,7 +153,7 @@ files_changed:
 checks_run:
 - unit hydrate_schema_redactions with placeholder URLs
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
-commit: ece04d46
+commit: c9678710
 
 ## INC-20261020-1716-cover-hoodie-outfit-lock
 status: fixed
@@ -203,7 +203,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile` cover scripts
 - `rg` positive hoodie lock only in validator reject list
-commit: ece04d46
+commit: c9678710
 
 ## INC-20261020-1720-geo-qa-tldr-label-docs-conflict
 status: fixed
@@ -248,7 +248,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` confirm forbid wording removed; allow wording present
-commit: ece04d46
+commit: c9678710
 
 ## INC-20261020-1715-writer-utility-pain-markers-empty
 status: fixed
@@ -292,7 +292,7 @@ files_changed:
 checks_run:
 - empty-marker skip unit logic
 - `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
-commit: ece04d46
+commit: c9678710
 
 ## INC-20261020-1712-research-precommit-invalid-secret-name
 status: fixed
@@ -333,7 +333,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `bash -n` install + filter scripts
-commit: ece04d46
+commit: c9678710
 
 ## INC-20261020-1710-research-gate-kia-ai-false-positive
 status: fixed
@@ -377,7 +377,7 @@ files_changed:
 checks_run:
 - unit: kia how_to → technical_topic=False; mcp ai agent → True
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
-commit: ece04d46
+commit: c9678710
 
 ## INC-20261020-1708-research-wordstat-empty-howto
 status: fixed
@@ -421,7 +421,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` Cluster-first / WORDSTAT NOTE in research skill
-commit: ece04d46
+commit: c9678710
 
 ## INC-20261020-1704-scout-stale-live-json
 status: fixed
@@ -469,7 +469,7 @@ files_changed:
 checks_run:
 - `--suggest-next` reports stale=True + denylist count
 - `--check-query "hyundai avante…"` → OVERLAP denylist
-commit: ece04d46
+commit: c9678710
 
 ## INC-20261020-1700-director-doctor-llms-blog-path
 status: fixed
@@ -509,7 +509,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
-commit: ece04d46
+commit: c9678710
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -808,5 +808,5 @@ files_changed:
 checks_run:
 - `rg` paramiko in install/Dockerfile/requirements
 - doctor PASS (publish env present this run)
-commit: ece04d46
+commit: c9678710
 

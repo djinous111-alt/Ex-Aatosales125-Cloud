@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261020-0905-scout-precommit-secret-names
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in Cloud pre-commit secrets scanner: `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained one entry that is a URL-like string, not a valid bash identifier.
+- Hook line `RAW_SECRET_VALUE="${!SECRET_NAME}"` aborted with `invalid variable name` before scanning staged files.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid `[A-Za-z_][A-Za-z0-9_]*` identifiers for the commit process only.
+- Re-ran commit successfully with the secrets scanner still active on remaining names; pushed branch.
+
+### Durable fix needed before next run
+- Sanitize injected secret-name list upstream so non-identifier values never reach pre-commit.cursor.
+- Or harden pre-commit.cursor to skip/`continue` when `SECRET_NAME` is not a valid bash identifier.
+
+### Suggested files to inspect/change
+- Cloud Agent secret injection / env wiring for `CLOUD_AGENT_INJECTED_SECRET_NAMES`
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (platform) if editable in this repo
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

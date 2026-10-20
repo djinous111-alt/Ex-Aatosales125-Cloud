@@ -60,7 +60,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0 warnings=0
 - `rg` for stale `--blog-path` shell examples (only negation docs remain)
-commit: pending-parent-commit
+commit: 41897be5
 
 ## INC-20261020-1335-cover-hoodie-lock-regression
 status: fixed
@@ -112,7 +112,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py scripts/excalibur_blog_quad_manifest.py`
 - `rg` hoodie lock only in validate_outfit_lock forbidden list
-commit: pending-parent-commit
+commit: 41897be5
 
 ## INC-20261020-1324-geo-qa-utility-empty-pain-outcome-markers
 status: fixed
@@ -165,7 +165,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_utility_gate.py scripts/excalibur_blog_human_voice_gate.py`
 - JSON parse `memory/brief/editorial-policy.json`
-commit: pending-parent-commit
+commit: 41897be5
 
 ## INC-20261020-1316-research-precommit-invalid-secret-name
 status: fixed
@@ -213,7 +213,7 @@ files_changed:
 checks_run:
 - `bash scripts/excalibur_blog_harden_precommit_secrets.sh` → patched=1
 - `grep EXCALIBUR_BLOG_PRECOMMIT_SECRET_HARDEN` on live pre-commit.cursor
-commit: pending-parent-commit
+commit: 41897be5
 
 ## INC-20261020-1315-research-tech-markers-hyundai-false-positive
 status: fixed
@@ -260,7 +260,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_research_notes_gate.py --self-test` → 3 OK
-commit: pending-parent-commit
+commit: 41897be5
 
 ## INC-20261020-1304-scout-niche-and-cannibal-sources
 status: fixed
@@ -318,7 +318,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next`
 - `--check-query "hyundai avante комплектации"` → OVERLAP B01
 - `--check-query` unique query → clean (corpus=113)
-commit: pending-parent-commit
+commit: 41897be5
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

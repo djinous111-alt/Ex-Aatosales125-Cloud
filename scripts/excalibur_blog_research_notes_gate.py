@@ -32,6 +32,38 @@ TECH_MARKERS = (
     "нейросет",
 )
 
+# Short tokens must use word/token boundaries — substring match false-positives
+# e.g. "ai" in "Hyundai", "ии" in "комплектации", "make" in unrelated words.
+BOUNDARY_TECH_MARKERS = frozenset({"ai", "ии", "api", "rag", "mcp", "make"})
+
+# Авто-Сейлс niche: beginner car-import checklists are NOT IT/AI technical topics.
+AUTO_NICHE_MARKERS = (
+    "hyundai",
+    "хендай",
+    "киа",
+    "kia",
+    "toyota",
+    "encar",
+    "растамож",
+    "утильсбор",
+    "утиль сбор",
+    "из кореи",
+    "из японии",
+    "из китая",
+    "комплектац",
+    "avante",
+    "tucson",
+    "santa fe",
+    "sportage",
+    "seltos",
+    "авто из",
+    "владвосток",
+    "владивосток",
+    "свх",
+    "carhistory",
+    "аукцион",
+)
+
 
 REQUIRED_FIELDS = (
     "research_date",
@@ -73,14 +105,40 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
-def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+def _topic_blob(context: dict[str, Any], notes: str = "") -> str:
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    if notes:
+        blob += " " + notes[:2000].lower()
+    return blob
+
+
+def is_auto_niche_topic(context: dict[str, Any], notes: str = "") -> bool:
+    blob = _topic_blob(context, notes)
+    return any(marker in blob for marker in AUTO_NICHE_MARKERS)
+
+
+def tech_marker_hit(blob: str, marker: str) -> bool:
+    """Token/word-boundary match for short markers; substring for longer stems."""
+    if marker in BOUNDARY_TECH_MARKERS or len(marker) <= 3:
+        return bool(
+            re.search(
+                rf"(?<![0-9a-zа-яё_]){re.escape(marker)}(?![0-9a-zа-яё_])",
+                blob,
+                flags=re.IGNORECASE,
+            )
+        )
+    return marker in blob
+
+
+def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    if is_auto_niche_topic(context, notes):
+        return False
+    blob = _topic_blob(context, notes)
+    return any(tech_marker_hit(blob, marker) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -194,11 +252,50 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     }
 
 
+def self_test() -> int:
+    """Regression checks for TECH_MARKERS false positives (INC-1315)."""
+    cases = [
+        (
+            {"topic": {"h1": "Hyundai Avante из Кореи: комплектации", "primary_query": "hyundai avante комплектации", "slug": "hyundai-avante-iz-korei"}},
+            "",
+            False,
+            "Hyundai + комплектации must not be technical",
+        ),
+        (
+            {"topic": {"h1": "Cursor AI agent для новичка", "primary_query": "cursor ai agent", "slug": "cursor-ai-agent"}},
+            "настройте mcp и api workflow",
+            True,
+            "Cursor AI agent must be technical",
+        ),
+        (
+            {"topic": {"h1": "Как выбрать комплектации на Inspiration", "primary_query": "комплектации inspiration", "slug": "komplektatsii"}},
+            "",
+            False,
+            "комплектации must not trip ии marker",
+        ),
+    ]
+    failed = 0
+    for context, notes, expect, label in cases:
+        got = is_technical_topic(context, notes)
+        status = "OK" if got == expect else "FAIL"
+        print(f"{status} technical_topic={got} expect={expect} :: {label}")
+        if got != expect:
+            failed += 1
+    return 1 if failed else 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Validate research-notes.md freshness and depth")
-    ap.add_argument("--article-dir", type=Path, required=True)
+    ap.add_argument("--article-dir", type=Path, default=None)
     ap.add_argument("-o", "--output", type=Path, default=None)
+    ap.add_argument("--self-test", action="store_true", help="Run TECH_MARKERS regression checks")
     args = ap.parse_args()
+
+    if args.self_test:
+        return self_test()
+
+    if not args.article_dir:
+        ap.error("--article-dir is required unless --self-test")
 
     root = project_root()
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir

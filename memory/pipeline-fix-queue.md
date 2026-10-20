@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261020-0936-cover-hoodie-default-lock
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` hard-coded outfit lock `thick heavyweight white hoodie`, contradicting `cover-concept.json` negative (`hoodie`), `blog-hero.json` outfit_rule (no hood), and run instructions (no hoodie).
+- `excalibur_blog_quad_manifest.py` default cover `scene_hint` also forced «белое плотное худи» + SEO/Wordstat leftovers, so `--merge` without agent rewrite would bake banned outfit/SEO UI into covers.
+
+### How the agent recovered this run
+- Rewrote `cover/quad-manifest.json` for Santa Fe (softshell + crewneck, no hoodie; banned slang listed).
+- Patched both scripts to forbid hoodie/hood/cap and drop SEO/Wordstat defaults; regenerated prompt/batch; generated ONE Kie i2i quad successfully.
+
+### Durable fix needed before next run
+- Reviewer/fixer: confirm hoodie lock stays removed; keep banned slang (`лох`/`лохов`/`для лохов`) in prompt negatives; optionally add a unit/assert that generated cover prompts never contain positive outfit lock for hoodie.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `memory/cover/cover-concept.json`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261020-0930-geo-qa-typed-task-unavailable
 status: open
 run_date: 2026-10-20

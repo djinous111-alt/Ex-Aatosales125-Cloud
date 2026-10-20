@@ -85,14 +85,14 @@ def pick_visual_type(h2: str, types_catalog: dict, used: set[str]) -> str:
 
 def scene_hint_for_type(type_id: str, h2: str) -> str:
     hints = {
-        "comparison_table_ui": f"Таблица SEO vs GEO: критерии, цели, человек vs AI — «{h2}»",
-        "workflow_diagram": f"6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «{h2}»",
-        "checklist_board": f"Printable чеклист перед публикацией — «{h2}»",
-        "schema_faq_ui": f"FAQ accordion + JSON-LD schema UI — «{h2}»",
-        "tool_screenshot": f"Скрин SEO-инструмента — «{h2}»",
-        "infographic_card": f"Карточка фактов — «{h2}»",
+        "comparison_table_ui": f"RU comparison table UI for auto-import topic — «{h2}»; NO hero face; NO Wordstat/Metrika",
+        "workflow_diagram": f"RU workflow steps diagram for lot check / generations / documents — «{h2}»; NO hero face",
+        "checklist_board": f"Printable RU checklist board before deposit / customs — «{h2}»; NO hero face",
+        "schema_faq_ui": f"FAQ accordion + useful RU UI card — «{h2}»; NO hero face",
+        "tool_screenshot": f"Fake Encar / auction / catalog card screenshot — «{h2}»; NO hero face; NEVER Wordstat/Metrika",
+        "infographic_card": f"RU fact card with numbers for auto-import — «{h2}»; NO hero face",
     }
-    return hints.get(type_id, f"Полезная иллюстрация — «{h2}»")
+    return hints.get(type_id, f"Полезная иллюстрация авто/логистика — «{h2}»")
 
 
 def alt_for_type(type_id: str, h2: str, types_catalog: dict) -> str:
@@ -114,8 +114,8 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
         "role": "cover_meme_hero",
         "alt": old_cover.get("alt") or f"Обложка: {article_topic}",
         "scene_hint": old_cover.get("scene_hint")
-        or "reference-лицо, белое плотное худи из толстой ткани, новая поза/жест/ракурс под крючок, без наушников/headset/earbuds, шок/ирония SEOшника, Wordstat + ноутбук",
-        "meme_caption_ru": old_cover.get("meme_caption_ru") or "15k ключей — 0 прочтений?",
+        or "WEATHER+TOPIC from article; OUTFIT match weather (softshell/jacket/crewneck/smart casual); FORBIDDEN hoodie/hood/cap; reference face+glasses; fake Encar/catalog UI + torn paper hook; corner avto-sales125.ru; NEVER Wordstat/Metrika; no toxic slang лох/лохов",
+        "meme_caption_ru": old_cover.get("meme_caption_ru") or "Сначала цифры",
     }
 
     used: set[str] = set()
@@ -133,7 +133,7 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
             "alt": alt_for_type(visual_type, old.get("h2_anchor") or h2, types_catalog),
         }
 
-    cover_hook = (preserve or {}).get("cover_hook") or "SEO-текст, который люди дочитают — миф или workflow?"
+    cover_hook = (preserve or {}).get("cover_hook") or (meta.get("title") or article_topic)[:80]
 
     return {
         "topic_id": topic_id,

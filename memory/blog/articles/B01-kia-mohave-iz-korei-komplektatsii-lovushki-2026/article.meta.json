@@ -12,7 +12,7 @@
     "киа мохаве под заказ из кореи",
     "kia mohave из кореи"
   ],
-  "char_count": 9309,
+  "char_count": 9481,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -29,9 +29,10 @@
     "description_aeo": "Kia Mohave из Кореи выбирают так: места 5/6/7, ветка Platinum или Masters, Gravity как надстройка, льготного утильсбора при ~257 л.с. нет, депозит после VIN и сметы."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
-    "date": "2026-10-21"
+    "score": 72,
+    "verdict": "FIX",
+    "date": "2026-10-21",
+    "blocker": "link-verify: href=[REDACTED] x3; hydrate CATALOG_URL/TELEGRAM_URL"
   },
   "cover_family": "brand_collage"
 }

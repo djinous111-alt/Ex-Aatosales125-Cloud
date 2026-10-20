@@ -3,8 +3,10 @@
 ## Cloud / Task
 
 - Cloud не принимает `excalibur-blog-*` как Task types → fallback `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path.
+- Typed `excalibur-blog-geo-qa` **часто missing** → сразу `Task(generalPurpose)` с полным GEO QA контрактом; не крутить typed-retry.
 - Parent-agent сам пишет статью вместо `excalibur-blog-writer` → **блокер**, перезапуск writer Task.
 - Объединение cover+schema в один Task → запрещено; только параллельные отдельные Task.
+- Pre-commit secrets scanner: `CLOUD_AGENT_INJECTED_SECRET_NAMES` может содержать non-identifier (URL-like). Install/harden через `scripts/excalibur_blog_harden_precommit_secret_names.sh` (вызывается из cloud-agent-install).
 
 ## Handoff / fragments
 
@@ -38,11 +40,23 @@
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- Outfit default: softshell/jacket/crewneck — **никогда** не hard-code `hoodie` / «белое плотное худи» в prompt builder или default `scene_hint`. Hoodie только в FORBIDDEN/negatives.
 
 ## Scout
 
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
 
+## Research
+
+- `research_notes_gate` TECH_MARKERS — word-boundary (не substring): `pain` ≠ `ai`, `комплектации` ≠ `ии`. Auto/dealer ниши (Encar, Hyundai, растаможка) не требуют `github_urls >= 3`.
+- `accessed_at` засчитывается и как `accessed_at:`, и как колонка markdown-таблицы с ISO-датами.
+
+## QA / policy
+
+- `editorial-policy.json` обязан содержать non-empty `pain_markers_ru` / `outcome_markers_ru` (sync с human_voice_gate). Пустые списки → POLICY BLOCK в utility gate.
+- Writer action-маркеры: `сделайте` / `не делайте` / `проверьте` / `шаг ` (не только «Делать:/Не делать:»).
+
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator: `--blog-dir` + `--out-dir` (флага `--blog-path` нет). Committed `memory/blog/llms*.txt` → `--site-base ""` (relative `/blog/...`).

@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у причала с телефоном Encar: крючок Calligraphy не равно можно брать до проверки см³",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-20T09:35:57+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у причала с телефоном Encar: крючок Calligraphy не равно можно брать до проверки см³",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Мокап карточки Encar: блок двигателя и см³ выделены раньше названия пакета Calligraphy",
+      "h2_anchor": "Откройте карточку Encar: сначала двигатель, потом название пакета",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица: что видно на фото Santa Fe vs что скрыто в названии пакета Exclusive Prestige Calligraphy",
+      "h2_anchor": "Сравните пакеты Santa Fe: что видно на фото, а что только в названии",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема поколений Santa Fe TM vs MX5: дизель, турбо и гибрид до выбора комплектации",
+      "h2_anchor": "Разделите поколения TM и MX5: где дизель, где гибрид",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

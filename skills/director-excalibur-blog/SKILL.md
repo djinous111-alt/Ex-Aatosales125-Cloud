@@ -52,7 +52,17 @@ Task(generalPurpose):
 
 ## Cloud Task fallback
 
-См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
+См. `AGENTS.md` и `shared/pipeline-task-map.md`.
+
+**Практика 2026-10:** typed `Task(excalibur-blog-geo-qa)` (и часто другие `excalibur-blog-*`) в Cloud **часто отсутствуют**. Не трать retry на typed name: **сразу** `Task(generalPurpose)` с полным контрактом роли:
+
+```text
+Task(generalPurpose):
+Ты excalibur-blog-geo-qa. Прочитай .cursor/agents/excalibur-blog-geo-qa.md + .cursor/skills/excalibur-geo-qa/SKILL.md.
+topic_id / article_dir из handoff. Запусти все QA-скрипты → article-qa.md PASS + human-voice-report.json PASS.
+```
+
+То же для research/writer/cover/schema/indexer/publish/fixer, если typed Task отвергнут с первой попытки. Один Task = одна роль; контракт не урезать.
 
 ## Preflight (shell, директор)
 
@@ -124,11 +134,22 @@ Task(excalibur-blog-writer)
 
 ### Шаг 3 — GEO QA (Task)
 
+Предпочтительный typed Task (если Cloud его принимает):
+
 ```text
 Task(excalibur-blog-geo-qa)
 ```
 
-Промпт: «topic_id B01. Запусти все QA-скрипты. article-qa.md verdict PASS. Блок === EXCALIBUR BLOG GEO QA ===.»
+**Если typed недоступен (типично) — сразу без второго typed-retry:**
+
+```text
+Task(generalPurpose):
+Ты excalibur-blog-geo-qa. Прочитай .cursor/agents/excalibur-blog-geo-qa.md + .cursor/skills/excalibur-geo-qa/SKILL.md.
+topic_id / article_dir из handoff. Запусти все QA-скрипты. article-qa.md verdict PASS + human-voice-report.json PASS.
+Блок === EXCALIBUR BLOG GEO QA === в handoff.
+```
+
+Промпт (typed): «topic_id B01. Запусти все QA-скрипты. article-qa.md verdict PASS. Блок === EXCALIBUR BLOG GEO QA ===.»
 
 **Gate:** QA PASS, link-verify pass, **research notes gate PASS**, **utility gate статьи PASS**, **human voice gate PASS**. Статья должна явно решать боль читателя и давать результат. Без PASS **не** идти к шагу 4.
 
@@ -211,9 +232,9 @@ Task(excalibur-blog-publish)
 
 ## Blockers
 
-Если typed Task `excalibur-blog-*` недоступны:
+Если typed Task `excalibur-blog-*` недоступны (особенно `excalibur-blog-geo-qa` — часто missing):
 
-1. Используй fallback из `AGENTS.md`: отдельный `Task(generalPurpose)` на каждую роль с `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`.
+1. **Сразу** fallback из `AGENTS.md` / `shared/pipeline-task-map.md`: отдельный `Task(generalPurpose)` на каждую роль с `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`. Не крутить typed-retry.
 2. Если недоступен даже `generalPurpose`, тогда:
 
 `❌ БЛОКЕР: среда не поддерживает Task/subagents. Single-agent pipeline запрещён.`

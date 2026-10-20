@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B01-hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "выбрать комплектацию Hyundai Santa Fe из Кореи в 2026: сначала три цифры (см³, л.с., места), потом имя",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2000",
+      "kind": "date_or_year",
+      "context": "пателя из РФ критичнее объём двигателя. Машины от 2000 см³ в РФ/Беларусь по практике 2026 требуют разреше",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2497",
+      "kind": "large_number",
+      "context": "епозит, а уже после брони выясняется: объём около 2497 см³, для вывоза в РФ нужна лицензия, а \"семь мест\"",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1598",
+      "kind": "large_number",
+      "context": "o (около 2497 см³) или гибрид HEV/PHEV 1.6 (около 1598 см³). HEV – гибрид: ДВС плюс электромотор; в карто",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

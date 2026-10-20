@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Calligraphy ≠ можно брать",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у причала с телефоном Encar: крючок Calligraphy не равно можно брать до проверки см³",
+      "scene_hint": "WEATHER: cool foggy Vladivostok port morning; OUTFIT: navy softshell field jacket over charcoal crewneck sweater (NO hoodie, NO hood, NO cap), glasses on; reference EXACT face likeness; action selfie holding phone with fake Encar Santa Fe Calligraphy card + sticky note «сначала см³»; torn paper hook plaque Cyrillic «Calligraphy ≠ можно брать» with yellow highlighter on «можно брать»; shocked meme cutout + facepalm sticker (different formats); modern Hyundai Santa Fe silhouette in soft background; DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; banned sticker slang: лох лохов для лохов",
+      "meme_caption_ru": "Сначала см³"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Откройте карточку Encar: сначала двигатель, потом название пакета",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake Encar lot card UI RU labels: блок двигателя см³ / л.с. highlighted first, trim name Calligraphy secondary and crossed lightly; red arrow «сначала мотор»; pink sticky «до депозита»; scotch tape; NO hero face; NO Wordstat/Metrika; no toxic slang",
+      "alt": "Мокап карточки Encar: блок двигателя и см³ выделены раньше названия пакета Calligraphy"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните пакеты Santa Fe: что видно на фото, а что только в названии",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table: columns фото салона | название trim | что реально проверить; rows места 5/7, кожа, диски, камеры; yellow highlight «места только по фото»; tape corner mini catalog scrap; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица: что видно на фото Santa Fe vs что скрыто в названии пакета Exclusive Prestige Calligraphy"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Разделите поколения TM и MX5: где дизель, где гибрид",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 3 steps: TM (дизель/бензин) → MX5 (2.5 Turbo / гибрид 1.6, без дизеля) → решение лота; arrows and sticky «поколение до trim»; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема поколений Santa Fe TM vs MX5: дизель, турбо и гибрид до выбора комплектации"
+    }
+  }
+}

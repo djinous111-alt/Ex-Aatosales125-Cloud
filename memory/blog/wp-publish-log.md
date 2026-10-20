@@ -31,3 +31,17 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-20 — B01 hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026
+
+- **verdict:** PASS
+- **post_id:** 4376
+- **permalink:** /2026/10/20/hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026/
+- **featured_image:** 4377
+- **inline_images:** 4378 (`inline-01.png`), 4379 (`inline-02.png`), 4380 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
+- **skip_theme_faq_meta:** ok (`_excalibur_blog_skip_theme_faq=1`)
+- **method:** SSH (`SSH_ROOT=.`) + HTTP trigger OK (~164s, no WebFetch/504)
+- **PHP bytes:** 7073232
+- **result:** `memory/blog/articles/B01-hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026/wp-publish-result.json`
+- **verify:** HEAD 200; REST id=4376; featured_media=4377

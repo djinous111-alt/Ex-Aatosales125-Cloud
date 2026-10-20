@@ -1,0 +1,34 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 5,
+  "over_long_sentences": [
+    {
+      "sentence": "Порядок чтения карточки: Ссылка на лот → Поколение TM/MX5 → Топливо и см³ → Мощность → Trim → Места и привод → Фото салона → VIN/история → Решение по депозиту Сделайте: без выписанных см³ и л",
+      "word_count": 27
+    },
+    {
+      "sentence": "Сравните пакеты Santa Fe: что видно на фото, а что только в названии По прайс-листам Hyundai Korea 2026 линейка идёт примерно так: Exclusive и Prestige → H-Pick → Calligraphy и Black Ink",
+      "word_count": 29
+    },
+    {
+      "sentence": "Что смотреть На что влияет Типичная ошибка Имя trim Кожа/Nappa, диски, зеркало, аудио, опции Путать trim с двигателем Объём см³ Экспортный фильтр и смета под заказ Смотреть только на \"2",
+      "word_count": 29
+    },
+    {
+      "sentence": "5\" в заголовке Число мест Семья 5 / 6 / 7 Верить \"7 мест\" без третьего ряда на фото HTRAC / 4WD Полный привод (HTRAC – 4WD Hyundai) Думать, что Calligraphy всегда полный привод Например, в заголовках Encar встречаются Exclusive, Prestige, Prestige Plus, Calligraphy, H Pick плюс 2",
+      "word_count": 36
+    },
+    {
+      "sentence": "Достоверность: факты сверены с Hyundai Korea (прайс/каталог Santa Fe 2026), карточками Encar, сообщениями Yonhap/Reuters об экспортном контроле и практикой заказов через Владивосток на 2026-10-20; актуальные расчёты – в каталоге",
+      "word_count": 30
+    }
+  ],
+  "readability": {
+    "score": 80.0,
+    "level": "Easy (Standard modern readable web content)",
+    "avg_sentence_len": 8.6,
+    "avg_syllables_per_word": 1.9
+  }
+}

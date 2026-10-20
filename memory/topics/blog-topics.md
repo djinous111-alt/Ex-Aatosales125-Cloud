@@ -184,3 +184,27 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Hyundai Santa Fe из Кореи: комплектации и ловушки
+
+- **priority:** P0
+- **slug:** hyundai-santa-fe-iz-korei-komplektatsii-lovushki-2026
+- **h1:** Hyundai Santa Fe из Кореи: как выбрать комплектацию и не попасть на ловушки в 2026
+- **primary_query:** как выбрать комплектацию hyundai santa fe из кореи
+- **secondary_queries:** hyundai santa fe комплектации, santa fe из кореи, hyundai santa fe из кореи, hyundai santa fe 2026 комплектации
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. С чего начать новичку: не название версии, а список опций и двигателя в карточке Encar
+  2. Какие пакеты Santa Fe реально отличаются на фото и в описании
+  3. Ловушки 2026: мощность, объём двигателя и ограничения на вывоз из Кореи
+  4. Как сверить комплектацию с VIN и фото до депозита
+  5. Чек-лист выбора Santa Fe перед заказом через Владивосток
+- **faq_hints:** чем Comfort отличается от Calligraphy на Encar; какой двигатель Santa Fe безопаснее заказывать в 2026; что проверить в объявлении кроме пробега
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** современный Hyundai Santa Fe у причала Владивостока, герой Авто-Сейлс с телефоном Encar, плашка «комплектация до депозита», угол avto-sales125.ru
+- **wordstat_signal:** parent «hyundai santa fe комплектации» 657; «santa fe из кореи» 273; узкий how-to low-result {}; кластер «авто из кореи» 204357
+- **scout_notes:** Live WP уже закрыл Tucson/K5/Seltos/Sportage; Santa Fe – горячий семейный кроссовер Encar 2026 вне denylist; без угла гибрид/утильсбор-how-to/под ключ

@@ -61,7 +61,7 @@ python scripts/excalibur_blog_research_notes_gate.py \
 
 Контракт: `shared/excalibur-article-writing-contract.md`
 
-- Каждый H2 = подзадача + **рекомендация** (делать / не делать)
+- Каждый H2 = подзадача + **рекомендация** в формулировках utility gate: `сделайте` / `не делайте` / `проверьте` / `шаг ` (не только ярлыки «Делать:/Не делать:» — они не матчат `recommendation_markers_ru`)
 - Минимум **5** нумерованных шагов ИЛИ чеклист 10+ пунктов
 - Workflow-схема (`→`) или таблица (comparison)
 - FAQ — короткие **ответы-действия**, не пересказ
@@ -69,6 +69,12 @@ python scripts/excalibur_blog_research_notes_gate.py \
 - Lead называет боль, H2 закрывают боли из `pain_solution_map`, до FAQ есть понятный критерий результата.
 - Beginner-fit: сложный термин объяснён сразу, нет тона «для профи», есть первый безопасный шаг без команды разработчиков.
 - Human voice gate PASS: нет шаблонных H2, есть живые примеры, разный ритм абзацев
+
+## POLICY BLOCK (pain / outcome)
+
+Канон маркеров: `memory/brief/editorial-policy.json` → `pain_markers_ru` / `outcome_markers_ru` + `article_required_signals.min_pain_markers` / `min_outcome_markers`.
+
+Должны совпадать с `PAIN_MARKERS` / `OUTCOME_MARKERS` в `scripts/excalibur_blog_human_voice_gate.py`. Пустые списки в policy → utility gate ставит **POLICY BLOCK** (статья не виновата). Не удалять эти ключи при правках policy.
 
 ## Gate 4 — GEO QA
 
@@ -78,6 +84,7 @@ python scripts/excalibur_blog_utility_gate.py \
 ```
 
 **Blocker `UTILITY ARTICLE BLOCKER`** — writer правит (FIX), QA не PASS.
+**Blocker `POLICY BLOCK`** — починить `editorial-policy.json` (pain/outcome lists), не article.html.
 
 Плюс slop-detector (вода/штампы).
 

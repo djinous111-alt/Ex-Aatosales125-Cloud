@@ -6,6 +6,72 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261021-2105-scout-niche-skill-drift
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: prompt
+
+### What went wrong
+- `.cursor/agents/excalibur-blog-scout.md` и `.cursor/skills/scout-excalibur-blog/SKILL.md` всё ещё описывают нишу Cursor/Make/n8n/AI-агентов и audience automation-новичков.
+- `memory/brief/site-brief.md` канонически задаёт Авто-Сейлс (авто из Японии/Кореи/Китая, растаможка, Владивосток). Без явного override в прогоне Scout рискует генерировать чужие P0-темы.
+
+### How the agent recovered this run
+- Следовал явному контракту прогона: игнор AI-дрейфа skill, темы только AVTO SALES utility-only.
+- Подобрал B01 по WebSearch + Wordstat + denylist recent WP / published-live.
+
+### Durable fix needed before next run
+- Переписать scout agent + skill под нишу Авто-Сейлс: кластеры Корея/Япония/Китай/логистика/доверие, audience = покупатель авто под заказ.
+- Убрать приоритет Cursor/Make/автопостинг из scout-контрактов или пометить как нерелевантный legacy.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md` (beginner angle под авто-импорт, не AI)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261021-2106-scout-missing-wp-denylist
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- `shared/wp-slug-denylist.json` отсутствует в workspace, хотя Scout обязан не republish/клонировать recent WP.
+- Без файла защита от каннибализации зависит от ручной сборки из `excalibur_blog_today.py` + `memory/blog/published-live-avtosales125.json`.
+
+### How the agent recovered this run
+- Собрал запрет из EXCALIBUR_RECENT_WP_POSTS (today.py) + user notes + published-live JSON.
+- Вручную сверил slug/query B01 (Mohave) с denylist и live posts перед append карточки.
+
+### Durable fix needed before next run
+- Добавить `shared/wp-slug-denylist.json` (или генератор из today.py / WP API) и подключить его в `excalibur_blog_scout_helper.py --check-query`.
+- Зафиксировать в scout skill шаг: при отсутствии denylist-файла – blocker или обязательный manual merge из today.py + published-live.
+
+### Suggested files to inspect/change
+- `shared/wp-slug-denylist.json` (создать)
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_today.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

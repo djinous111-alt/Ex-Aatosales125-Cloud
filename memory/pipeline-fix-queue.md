@@ -6,6 +6,46 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261020-1304-scout-niche-and-cannibal-sources
+status: open
+run_date: 2026-10-20
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: prompt
+
+### What went wrong
+- Контракты scout (`.cursor/agents/excalibur-blog-scout.md`, `.cursor/skills/scout-excalibur-blog/SKILL.md`, `shared/editorial-utility-only.md`) по умолчанию ведут в нишу Cursor/AI/Make, тогда как live-сайт и `memory/brief/site-brief.md` — Авто-Сейлс (Encar, растаможка, утильсбор).
+- `wordpress_get_posts` MCP вернул посты другого хоста (таможенный блог), а не live Авто-Сейлс; ledger `shared/published-articles.md` содержит только AS08/AS09 и не отражает десятки уже опубликованных slug.
+- `excalibur_blog_scout_helper.py --check-query` смотрит только карточки `## Bxx`, игнорирует пул `ASxx` и live-slug из `memory/blog/published-live-avtosales125.json`.
+
+### How the agent recovered this run
+- Выбрал utility-тему по автоимпорту по явному override Director/cron (не Cursor AI).
+- Сверил углы с `memory/blog/published-live-avtosales125.json`, WebSearch-трендами 2026, automation memory denylist и Wordstat.
+- Черновик про «проходные авто» отклонён: слово в scout denylist; карточка B01 переписана на `hyundai-avante-iz-korei-komplektatsii-lovushki-2026`.
+- Узкие how-to (`как выбрать авто из кореи`, `как выбрать hyundai avante`) дали empty/`totalCount` — для semantic tail использованы parent-кластеры Avante.
+
+### Durable fix needed before next run
+- Переписать scout agent/skill/editorial beginner-фильтр под нишу Авто-Сейлс (или читать niche из `site-brief.md` как source of truth).
+- Научить scout cannibal-check читать ASxx + `published-live-*.json` / WP правильного сайта; починить MCP/host binding для live блога.
+- Обновлять ledger после publish, чтобы `needs_scout` не опирался на урезанный AS08/AS09 список.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/published-articles.md`
+- `memory/brief/site-brief.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

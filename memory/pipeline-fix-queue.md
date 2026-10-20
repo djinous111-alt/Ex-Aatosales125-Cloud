@@ -6,6 +6,70 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261021-2133-cover-manifest-prompt-race-seo-stub
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-mohave-iz-korei-komplektatsii-lovushki-2026
+severity: high
+category: other
+
+### What went wrong
+- После `quad_manifest.py --merge` дефолтный stub всё ещё SEO/Wordstat («SEO-текст…», «15k ключей», Wordstat+ноутбук).
+- Cover-агент переписал `quad-manifest.json` на Mohave и в том же tool-batch параллельно запустил `cover_quad_prompt.py` → batch/Kie ушли со stub-промптом.
+- Первый canvas (task `ffb6725caf9fbe26ae9c4ea8b9a1b29f`) был SEO-коллаж с hoodie/Wordstat — отклонён после visual QA.
+
+### How the agent recovered this run
+- Повторно записал manifest, затем **строго последовательно** rebuild prompt/batch, патч outfit softshell/crewneck, Kie ONE job `dbfffe53fd27dc6338f257f962f2e360`, split PASS, inject ok (figures уже были).
+- Visual QA: Gravity hook, softshell+crewneck, Encar/места/утильсбор; без Wordstat.
+
+### Durable fix needed before next run
+- В cover skill: после ручного edit manifest не вызывать prompt builder в том же parallel tool batch.
+- `quad_manifest.py`: для AVTO/авто-тем не подставлять SEO Wordstat stub (или fail если scene_hint содержит Wordstat).
+- Cover runbook: обязательный assert `cover_hook`/`scene_hint` до Kie createTask.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261021-2133-cover-hoodie-outfit-lock-stale
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-mohave-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` всё ещё вшивал `Outfit lock: thick heavyweight white hoodie`, хотя Cloud lock = softshell/crewneck NO hoodie (см. automation memory + прошлый INC K3).
+
+### How the agent recovered this run
+- Post-patch prompt/batch перед Kie; строку в скрипте заменили на softshell/crewneck.
+
+### Durable fix needed before next run
+- Закрепить outfit lock softshell/crewneck в skill + style preset; добавить `validate_outfit_lock()` (reject hoodie/Wordstat в prompt).
+- Fixer: проверить что `.cursor/skills` и `skills/` синхронизированы.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `memory/cover/blog-hero.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (script line patched this run; validation still missing)
+
 ## INC-20261021-2126-schema-precommit-invalid-secret-name
 status: open
 run_date: 2026-10-21

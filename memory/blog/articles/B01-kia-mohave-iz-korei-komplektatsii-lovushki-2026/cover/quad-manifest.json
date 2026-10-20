@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Gravity на Encar — уже максималка?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у Kia Mohave из Кореи со смартфоном Encar, плашка про Gravity до депозита",
+      "scene_hint": "WEATHER: cool grey Vladivostok port light; OUTFIT: charcoal softshell jacket over cream crewneck (NO hoodie NO hood NO cap), glasses on; EXACT reference face; action selfie holding phone with fake Encar Kia Mohave card taped by scotch; torn paper Cyrillic hook «Gravity на Encar — уже максималка?» yellow highlight on «максималка»; sticky «сначала места»; shocked meme + facepalm sticker (different); DIY zine; corner footer ONLY avto-sales125.ru catalog (NOT Telegram); NEVER Wordstat NEVER Metrika; modern dark Kia Mohave SUV hint behind",
+      "meme_caption_ru": "Сначала ветка trim"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте задачу: места 5/6/7 и бюджет до ключей",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns Места 5 | 6 | 7; rows семья/багаж/третий ряд/когда брать; yellow highlight row «7 мест»; sticky «до ключей»; scotch tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица мест 5/6/7 Kia Mohave: семья, багаж и бюджет до ключей"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Разведите комплектации Encar: Platinum, Masters и Gravity",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake Encar listing screenshot: trim chips Platinum / Masters / Gravity; Cyrillic labels «ветка ≠ суффикс»; sticky «Gravity — надстройка»; tape corner; NO hero face; NO Wordstat/Metrika",
+      "alt": "Мокап Encar: ветки Platinum и Masters и суффикс Gravity у Kia Mohave"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сверьте дизель 3.0: почему льготного утильсбора нет",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 4 steps: дизель 3.0 → ~257 л.с. → порог 160 → стоп льготы; red stamp «льготы нет»; mini sticky «смета»; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема: дизель Mohave 3.0 выше порога 160 л.с. — льготного утильсбора нет"
+    }
+  }
+}

@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261021-2126-schema-precommit-invalid-secret-name
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-mohave-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` schema.jsonld failed in pre-commit.cursor: `RAW_SECRET_VALUE="${!SECRET_NAME}"` with SECRET_NAME literally `[REDACTED]` from `CLOUD_AGENT_INJECTED_SECRET_NAMES` → bash error `invalid variable name`.
+- Schema artifact itself used allowed `[REDACTED]` URL placeholders; failure was env list pollution, not content secrets.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to bash-safe identifiers (`^[A-Za-z_][A-Za-z0-9_]*$`) for the commit session (15→14 names).
+- Commit `fcddc025` and push succeeded; fragment left uncommitted.
+
+### Durable fix needed before next run
+- Filter non-identifier secret names before the `${!SECRET_NAME}` loop in pre-commit.cursor (or sanitize CLOUD_AGENT_INJECTED_SECRET_NAMES at inject time).
+- Document the filter in schema skill / agent-pipeline-pitfalls so schema/cover do not burn a retry.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261021-2135-geoqa-redacted-cta-link-verify
 status: open
 run_date: 2026-10-21

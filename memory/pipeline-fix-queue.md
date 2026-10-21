@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261021-1330-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-sorento-iz-korei-komplektatsii-lovushki-2026
+severity: low
+category: docs
+
+### What went wrong
+- `.cursor/agents/excalibur-blog-indexer.md` and `.cursor/skills/indexer-excalibur-blog/SKILL.md` still document `excalibur_blog_llms_generator.py --blog-path /`.
+- Actual CLI only accepts `--blog-dir` / `--out-dir` (confirmed via `--help`). Related: open `INC-20261021-1303-director-doctor-blog-path`.
+
+### How the agent recovered this run
+- Ran llms generator with `--blog-dir memory/blog/articles --out-dir memory/blog` (no `--blog-path`); PASS, 3 articles indexed.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent/skill examples (root `skills/` + `.cursor/` mirrors).
+- Keep doctor/script alignment under INC-20261021-1303.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261021-1320-geo-qa-typed-task-missing
 status: open
 run_date: 2026-10-21

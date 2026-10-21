@@ -512,3 +512,41 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261021-0924-indexer-llms-stale-blog-path-flag
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer agent/skill still document `excalibur_blog_llms_generator.py ... --blog-path /`, but the CLI only accepts `--blog-dir` / `--out-dir` (same root cause as doctor INC-20261021-1205).
+- Following the agent command literally would fail argparse before generating llms.txt.
+
+### How the agent recovered this run
+- Ran `python3 scripts/excalibur_blog_llms_generator.py --help`, omitted `--blog-path`, used `--blog-dir` + `--out-dir`.
+- First pass with `--site-base ${PUBLIC_SITE_URL}` blocked pre-commit secret-scan on `memory/blog/llms.txt` / `llms-full.txt`.
+- Regenerated with `--site-base ""` (relative `/blog/<slug>/`, matches HEAD policy after host-drop commit); cleared host from `interlink-suggestions.json` before commit.
+- Also: `CLOUD_AGENT_INJECTED_SECRET_NAMES` ended with a non-identifier entry that broke pre-commit `${!SECRET_NAME}`; filtered to valid identifiers for the commit attempt.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent/skill shell examples; keep `--blog-dir` + `--out-dir` only.
+- Document: committed llms/interlink artifacts must use empty/`""` site-base (relative URLs), not `${PUBLIC_SITE_URL}` — secret-scan blocks host.
+- Fixer should close together with doctor check (INC-20261021-1205).
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

@@ -427,6 +427,7 @@ category: script
 - Усилил lead боли в `article.html` (маркеры «боль»/«застрять»).
 - Скрипт: если списки маркеров пусты — skip + warning вместо hard BLOCK.
 - CTA hydrated из env; убран шаблонный ярлык TL;DR в инсайт-блоке.
+- Commit: `CLOUD_AGENT_INJECTED_SECRET_NAMES` фильтровать в comma-separated `str.isidentifier()` (не space-separated — hook делает `IFS=','`); `link-verify.json` URL → `[REDACTED]` перед commit.
 
 ### Durable fix needed before next run
 - Держать `pain_markers_ru` / `outcome_markers_ru` в editorial-policy синхронно с human-voice.

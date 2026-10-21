@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B01-kia-sorento-iz-korei-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 2,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "инимум trim), потом лот, потом депозит. Gravity с 2026 MY – это X-Line, не \"другая машина\". Гибрид не рав",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "202",
+      "kind": "large_number",
+      "context": "чно подходит Что проверить в карточке Дизель 2.2 ~202 ps, 8DCT; часто на б/у Encar Трасса, дальние поезд",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "га Топливо diesel, поколение MQ4 Гибрид 1.6T HEV ~180 ps ДВС + электромотор ~47.7 kW, 6AT Город, тише ст",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "281",
+      "kind": "large_number",
+      "context": "сть ДВС для расчёта, не миф о льготе Бензин 2.5T ~281 ps, 8DCT Динамика и запас на обгоны Топливо gasoli",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

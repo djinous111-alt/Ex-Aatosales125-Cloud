@@ -29,12 +29,16 @@
     "description_aeo": "Kia Sorento из Кореи выбирают по брифу семьи: мотор, места, 2WD/4WD, минимум Prestige–X-Line и отчёты до депозита. Готовые суммы утиля в статье не публикуем."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 88,
+    "verdict": "PASS",
     "date": "2026-10-21",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility_gate": "PASS",
+    "research_notes_gate": "PASS",
+    "link_verify": "PASS"
   },
   "cover_family": "brand_collage"
 }

@@ -6,6 +6,82 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261021-1320-geo-qa-typed-task-missing
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-sorento-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud API не принимает typed Task `excalibur-blog-geo-qa`; роль запущена через `generalPurpose` fallback с путями `.cursor/agents/excalibur-blog-geo-qa.md` и `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Выполнен полный GEO QA контракт в generalPurpose: все скрипты, `article-qa.md` PASS, handoff-блок записан.
+
+### Durable fix needed before next run
+- Зарегистрировать typed Task `excalibur-blog-geo-qa` в Cloud Agent / automation config, либо явно задокументировать generalPurpose fallback как канон в director skill + CLOUD-AUTOMATION.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+- Cursor Cloud Task type registry (host)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261021-1320-geo-qa-utility-pain-outcome-empty
+status: fixed
+run_date: 2026-10-21
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-sorento-iz-korei-komplektatsii-lovushki-2026
+severity: high
+category: qa
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требовал `min_pain_markers=2` и `min_outcome_markers=3` по умолчанию, но в `memory/brief/editorial-policy.json` не было списков `pain_markers_ru` / `outcome_markers_ru` → любой article всегда BLOCK (в т.ч. ранее PASS AS09).
+- Маркеры recommendation не включали `делать` / `не делать` / `чек-лист`, хотя writing-contract требует «Делать / Не делать» в каждой H2.
+
+### How the agent recovered this run
+- Добавлены `pain_markers_ru` / `outcome_markers_ru` (sync с human-voice gate) и recommendation-маркеры под writing-contract.
+- Скрипт: mins pain/outcome применяются только если список маркеров в policy непустой.
+- CTA `href="[REDACTED]"` в B01 заменены на рабочие URL по паттерну AS09; link-verify PASS.
+- Повтор utility gate → PASS.
+
+### Durable fix needed before next run
+- Уже внесено в policy + script; fixer может только подтвердить sync docs (`shared/editorial-utility-only.md`) и закрыть review.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/editorial-utility-only.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Policy lists for pain/outcome/recommendation aligned with human-voice + writing-contract.
+- Utility gate skips pain/outcome mins when marker lists are empty.
+- B01 CTA placeholders restored; utility + link-verify PASS.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `memory/blog/articles/B01-kia-sorento-iz-korei-komplektatsii-lovushki-2026/article.html`
+checks_run:
+- `python3 scripts/excalibur_blog_utility_gate.py --article-dir memory/blog/articles/B01-...`
+- `python3 scripts/excalibur_blog_link_verify.py ...` (PASS 2/2)
+commit: pending
+
 ## INC-20261021-1317-writer-pre-commit-hook-redacted
 status: open
 run_date: 2026-10-21

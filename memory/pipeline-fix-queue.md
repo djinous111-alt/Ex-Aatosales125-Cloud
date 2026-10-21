@@ -6,8 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None — Alphard B01 fixer pass closed the 10 open incidents below (status: fixed)._
+
 ## INC-20261021-0930-publish-nginx-504-reconstruct
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-publish
 topic_id: B01
@@ -43,11 +45,27 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- After nginx/HTTP 504, publish script prints FALLBACK_TRIGGER_URL immediately and REST-probes posts?slug=; reconstructs result/ledger when live OK (no republish).
+- CTA/schema `[REDACTED]` hydrate from PUBLIC_SITE_URL/TELEGRAM_URL before SSH/dry-run.
+- Successful publish appends slug to shared/wp-slug-denylist.json.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `skills/excalibur-wp-publish/SKILL.md`
+- `.cursor/skills/excalibur-wp-publish/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `python3 scripts/excalibur_blog_wp_publish.py --article-dir …/B01-toyota-alphard… --dry-run` (hydrate notes, no live publish)
+commit: pending-parent-commit
 
 
 ## INC-20261021-0920-cover-kie-http-ref-500
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-cover
 topic_id: B01
@@ -70,17 +88,31 @@ category: api
 ### Suggested files to inspect/change
 - `scripts/excalibur_blog_hero_reference_url.py`
 - `scripts/excalibur_blog_kie_gpt_image2_api.py`
-- `memory/cover/blog-hero.json`
 - `.cursor/skills/cover-excalibur-blog/SKILL.md`
 
 ### Secrets
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- hero_reference_url.py and cover prompt builder prefer/upgrade http→https.
+- kie_gpt_image2_api normalizes input_urls to https and retries once on failCode=500.
+- Runtime https upgrade via hero_reference_url.py / cover prompt / kie API (committed blog-hero.json stays secret-scan safe).
+files_changed:
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 -m py_compile` cover/kie/hero scripts
+- prefer_https_url unit assert
+commit: pending-parent-commit
 
 ## INC-20261021-0917-cover-seo-stub-hoodie-defaults
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-cover
 topic_id: B01
@@ -111,7 +143,21 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- softshell/crewneck is canonical; validate_outfit_lock() rejects thick heavyweight white hoodie.
+- quad_manifest strips SEO/Wordstat/hoodie stubs after --merge; visual_manifest defaults no longer seed SEO primer.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `scripts/excalibur_blog_visual_manifest.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+checks_run:
+- validate_outfit_lock softshell pass / hoodie fail
+- rg: no SEO-текст defaults in visual_manifest
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -363,7 +409,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261021-1205-director-doctor-llms-blog-path
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-director
 topic_id: n/a
@@ -390,10 +436,19 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Doctor now checks --blog-dir/--out-dir and warns if stale --blog-path appears.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 warnings=0
+commit: pending-parent-commit
 
 ## INC-20261021-0905-scout-missing-wp-denylist
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-scout
 topic_id: B01
@@ -423,10 +478,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Created shared/wp-slug-denylist.json with recent WP (Alphard 4400 / Mohave / K3 / Avante / …) + live/ledger slugs.
+- scout_helper --suggest-next/--check-slug/--check-query reads denylist; scout agent/skill document it.
+files_changed:
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_scout_helper.py`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+checks_run:
+- `--check-slug` Alphard → DENYLIST HIT; unique slug → FREE
+- `python3 -m json.tool shared/wp-slug-denylist.json`
+commit: pending-parent-commit
 
 ## INC-20261021-0915-research-tech-topic-false-positive
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-research
 topic_id: B01
@@ -455,10 +525,20 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Confirmed word-boundary is_technical_topic (prior partial fix).
+- Added --self-test regression for Japan/auto vs mcp/ai/n8n.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --self-test` → 3/3 OK
+commit: pending-parent-commit
 
 ## INC-20261021-0920-research-precommit-redacted-secret-name
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-research
 topic_id: B01
@@ -484,10 +564,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Added scripts/excalibur_blog_filter_secret_names.sh (comma-separated identifiers only).
+- Hardened env pre-commit.cursor / commit-msg.cursor to skip non-identifier names before `${!SECRET_NAME}`.
+- Documented in pitfalls + writer/research commit guidance.
+files_changed:
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `CLOUD_AGENT_INJECTED_SECRET_NAMES='FOO,BAR,[REDACTED],BAZ' source …` → FOO,BAR,BAZ
+commit: pending-parent-commit
 
 ## INC-20261021-0912-writer-precommit-redacted-secret-name
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-writer
 topic_id: B01
@@ -514,10 +605,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Same filter script + hook hardening as research precommit incident.
+- Writer skill notes source filter_secret_names.sh before git commit.
+files_changed:
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter script strips [REDACTED] token
+commit: pending-parent-commit
 
 ## INC-20261021-0914-geo-qa-utility-pain-outcome-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -551,10 +654,27 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Confirmed pain_markers_ru/outcome_markers_ru in editorial-policy.json and utility_gate skip+warn when empty.
+- Writing contract + writer skill forbid insight labels TL;DR / Быстрый инсайт.
+- GEO QA skill documents CTA hydrate before link-verify.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/excalibur-article-writing-contract.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- policy pain=12 outcome=10
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
+commit: pending-parent-commit
 
 ## INC-20261021-0924-indexer-llms-stale-blog-path-flag
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-indexer
 topic_id: B01
@@ -589,4 +709,19 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Indexer agent/skill examples use --blog-dir + --out-dir and --site-base "" only; --blog-path removed.
+- Closed together with doctor INC-20261021-1205.
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- rg: shell examples no longer invoke --blog-path /
+- `python3 scripts/excalibur_blog_doctor.py` errors=0
+commit: pending-parent-commit

@@ -203,11 +203,52 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     }
 
 
+def selftest_technical_topic() -> int:
+    """Regression: Japan/auto niche must not trip technical_topic via substring ai/ии."""
+    cases = [
+        (
+            {"topic": {"h1": "Toyota Alphard из Японии", "primary_query": "alphard япония", "slug": "toyota-alphard-iz-yaponii"}},
+            "reader_pain: застрять с лотом до депозита",
+            False,
+        ),
+        (
+            {"topic": {"h1": "Как настроить MCP в Cursor", "primary_query": "mcp cursor ai", "slug": "mcp-cursor-ai"}},
+            "github evidence for agents",
+            True,
+        ),
+        (
+            {"topic": {"h1": "n8n workflow для новичка", "primary_query": "n8n", "slug": "n8n-workflow"}},
+            "automation notes",
+            True,
+        ),
+    ]
+    failed = 0
+    for context, notes, expect in cases:
+        got = is_technical_topic(context, notes)
+        status = "OK" if got == expect else "FAIL"
+        if got != expect:
+            failed += 1
+        print(f"{status}: expect={expect} got={got} h1={context['topic'].get('h1')!r}")
+    return 1 if failed else 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Validate research-notes.md freshness and depth")
-    ap.add_argument("--article-dir", type=Path, required=True)
+    ap.add_argument("--article-dir", type=Path, default=None)
     ap.add_argument("-o", "--output", type=Path, default=None)
+    ap.add_argument(
+        "--self-test",
+        action="store_true",
+        help="Run technical_topic false-positive regression (Japan/auto vs ai/mcp)",
+    )
     args = ap.parse_args()
+
+    if args.self_test:
+        return selftest_technical_topic()
+
+    if args.article_dir is None:
+        print("--article-dir is required unless --self-test", file=sys.stderr)
+        return 2
 
     root = project_root()
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir

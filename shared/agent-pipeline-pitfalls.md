@@ -43,11 +43,27 @@
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- Kie i2i: `reference_url_hosted` / `input_urls` только **https** (http → risk `failCode=500`); hero script и kie API делают upgrade + один retry.
+- Outfit lock: charcoal softshell + cream crewneck; hoodie defaults запрещены (`validate_outfit_lock`).
+- `quad_manifest --merge` / visual_manifest не должны оставлять SEO-stub (`SEO-текст`, `Wordstat + ноутбук`, худи) на авто-темах.
 
 ## Scout
 
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- Канон denylist: `shared/wp-slug-denylist.json` + `EXCALIBUR_RECENT_WP_POSTS`; helper: `--check-slug` / `--suggest-next`.
 
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator flags: `--blog-dir` + `--out-dir` (не `--blog-path`). Для commit: `--site-base ""` (relative URLs).
+
+## Publish 504
+
+- nginx edge ~120s может 504 на bootstrap PHP; после `FALLBACK_TRIGGER_URL` сразу WebFetch/curl → `memory/webfetch-response.txt`.
+- Скрипт REST-probe по slug и reconstruct result/ledger без republish, если live OK.
+- Publish hydrates `[REDACTED]` CTA/schema из env перед SSH.
+
+## Pre-commit secret names
+
+- Если `CLOUD_AGENT_INJECTED_SECRET_NAMES` содержит literal `[REDACTED]` → `invalid variable name`.
+- Перед commit: `source scripts/excalibur_blog_filter_secret_names.sh` (comma-separated identifiers only).

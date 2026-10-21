@@ -134,6 +134,17 @@ def build_manifest(article_dir: Path, root: Path, preserve: dict | None) -> dict
         }
 
     cover_hook = (preserve or {}).get("cover_hook") or f"До ставки: {article_topic[:72]}"
+    banned_stub_markers = ("SEO-текст", "Wordstat + ноутбук", "худи", "hoodie", "15k ключей")
+    hook_blob = f"{cover_hook} {cover.get('scene_hint', '')} {cover.get('meme_caption_ru', '')}"
+    if any(marker.lower() in hook_blob.lower() for marker in banned_stub_markers):
+        # Auto-topic defaults must not keep SEO-primer / hoodie stubs after --merge.
+        cover["scene_hint"] = (
+            "reference-лицо + очки; charcoal softshell поверх cream crewneck "
+            "(НЕ худи, НЕ капюшон, НЕ кепка); поза/жест под тему статьи; без наушников; "
+            "без Wordstat/Metrika/SEO-stub"
+        )
+        cover["meme_caption_ru"] = "До ставки — проверь"
+        cover_hook = f"До ставки: {article_topic[:72]}"
 
     return {
         "topic_id": topic_id,

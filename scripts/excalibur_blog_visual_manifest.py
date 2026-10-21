@@ -113,9 +113,13 @@ def build_manifest(article_dir: Path, root: Path, preserve_cover: dict | None) -
 
     cover = preserve_cover or {
         "file": "cover/cover.png",
-        "hook": "SEO-текст, который люди дочитают — миф или workflow?",
-        "meme_caption_ru": "15k ключей — 0 прочтений?",
-        "scene_hint": "герой с reference-лицом, шок/ирония SEOшника, Wordstat + ноутбук, крючок на клик",
+        "hook": f"До ставки: {str(article_topic)[:72]}",
+        "meme_caption_ru": "До ставки — проверь",
+        "scene_hint": (
+            "reference-лицо + очки; charcoal softshell поверх cream crewneck "
+            "(НЕ худи, НЕ капюшон, НЕ кепка); поза/жест под тему статьи; без наушников; "
+            "без Wordstat/Metrika/SEO-stub"
+        ),
         "alt": f"Обложка: {article_topic}",
     }
 

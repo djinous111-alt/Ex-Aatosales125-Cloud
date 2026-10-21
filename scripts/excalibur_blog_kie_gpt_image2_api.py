@@ -95,6 +95,23 @@ def require_success(response: dict[str, Any], action: str) -> None:
     raise KieApiError(f"Kie API {action} failed: code={response.get('code')} msg={msg}")
 
 
+def prefer_https_url(url: str) -> str:
+    text = str(url or "").strip()
+    if text.startswith("http://"):
+        return "https://" + text[len("http://") :]
+    return text
+
+
+def normalize_input_urls(input_urls: list[Any]) -> list[str]:
+    """Kie i2i often returns failCode=500 on http:// WordPress media refs — prefer https."""
+    out: list[str] = []
+    for raw in input_urls:
+        url = prefer_https_url(raw)
+        if url:
+            out.append(url)
+    return out
+
+
 def batch_mcp_args(batch_path: Path) -> dict[str, Any]:
     batch = load_json(batch_path)
     jobs = batch.get("jobs")
@@ -113,9 +130,12 @@ def batch_mcp_args(batch_path: Path) -> dict[str, Any]:
         raise KieApiError("Missing prompt in jobs[0].mcp_args")
     if not isinstance(input_urls, list) or not input_urls:
         raise KieApiError("Missing non-empty input_urls in jobs[0].mcp_args")
+    normalized = normalize_input_urls(input_urls)
+    if normalized != [str(u).strip() for u in input_urls]:
+        print("WARN Kie input_urls: upgraded http→https for reference media", file=sys.stderr)
     return {
         "prompt": prompt,
-        "input_urls": input_urls,
+        "input_urls": normalized,
         "aspect_ratio": args.get("aspect_ratio") or "auto",
         "resolution": args.get("resolution") or "1K",
     }
@@ -294,13 +314,57 @@ def main() -> int:
             print(f"OK task_record={task_record_path}")
             return 0
 
-        task_data = poll_until_result(
-            record_url=args.record_url,
-            api_key=api_key,
-            task_id=task_id,
-            poll_interval=max(1, args.poll_interval),
-            max_wait=max(1, args.max_wait),
-        )
+        https_retry_done = False
+        try:
+            task_data = poll_until_result(
+                record_url=args.record_url,
+                api_key=api_key,
+                task_id=task_id,
+                poll_interval=max(1, args.poll_interval),
+                max_wait=max(1, args.max_wait),
+            )
+        except KieApiError as poll_exc:
+            # One retry on failCode=500 with forced-https refs (http media often dies with Internal Error).
+            msg = str(poll_exc)
+            if (not args.task_id) and (not https_retry_done) and "failCode=500" in msg:
+                https_retry_done = True
+                image_input = {
+                    **image_input,
+                    "input_urls": normalize_input_urls(list(image_input.get("input_urls") or [])),
+                }
+                print(
+                    "WARN Kie failCode=500 — retrying once with https input_urls (no further creates after success)",
+                    file=sys.stderr,
+                )
+                task_id, create_response = create_task(
+                    create_url=args.create_url,
+                    api_key=api_key,
+                    model=args.model,
+                    image_input=image_input,
+                    callback_url=args.callback_url,
+                )
+                save_json(
+                    task_record_path,
+                    {
+                        "task_id": task_id,
+                        "source": "kie-api",
+                        "model": args.model,
+                        "state": "created_https_retry",
+                        "create_response": create_response,
+                        "created_at_epoch": int(time.time()),
+                        "retry_reason": "failCode_500_http_ref",
+                    },
+                )
+                print(f"Kie task created (https retry): task_id={task_id}")
+                task_data = poll_until_result(
+                    record_url=args.record_url,
+                    api_key=api_key,
+                    task_id=task_id,
+                    poll_interval=max(1, args.poll_interval),
+                    max_wait=max(1, args.max_wait),
+                )
+            else:
+                raise
         record = result_record(task_data, task_id)
         save_json(result_path, record)
         save_json(

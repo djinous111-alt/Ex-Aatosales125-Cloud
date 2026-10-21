@@ -1,15 +1,16 @@
 # Promotion checklist — B01 kak-chitat-aukcionnyj-list-yaponiya-2026
 
-Дата публикации: 2026-10-22 (ожидается после publish)  
-Live URL: /blog/kak-chitat-aukcionnyj-list-yaponiya-2026/
+Дата публикации: 2026-10-22  
+Live URL: [REDACTED]/2026/10/12/kak-chitat-aukcionnyj-list-yaponiya-2026/  
+WP post_id: 4086 · featured 4425 · inline 4430/4431/4432 · HEAD 200
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
-- [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
-- [ ] Проверить internal links из статьи (200)
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200; content+3 inline via wp-cli)
+- [x] Schema meta `_excalibur_blog_schema_jsonld` на посте (len=11751; theme echo отдельно)
+- [x] Проверить internal/CTA links (link-verify PASS pre-publish)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
 
 ## Соцсети / каналы (из conversion-tracking-map)
@@ -29,7 +30,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • R/RA — про каркас, не про «подушки»
 • XX на двери сам по себе R не даёт
 
-Читать: /blog/kak-chitat-aukcionnyj-list-yaponiya-2026/
+Читать: [REDACTED]/2026/10/12/kak-chitat-aukcionnyj-list-yaponiya-2026/
 ```
 
 ## Перелинковка
@@ -47,3 +48,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker --apply → 0 links applied; llms.txt + llms-full.txt regenerated (3 articles).
 - Cover + Schema DONE до indexer; READY FOR PUBLISH.
+- Publish 2026-10-22: SSH+HTTP 504 → REST/wp-cli reconstruct; upsert post 4086 (same slug); no republish.

@@ -502,3 +502,43 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261022-2130-publish-http-504-reconstruct
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-chitat-aukcionnyj-list-yaponiya-2026
+severity: medium
+category: publish
+
+### What went wrong
+- SSH bootstrap upload OK (~6.5MB PHP), but local HTTP trigger hit `TimeoutError` at 120s.
+- curl FALLBACK to `excalibur-blog-publish-once.php` returned nginx **504 Gateway Time-out** HTML (~177 bytes), not `OK post=`.
+- Publish script then raised `Cloud WebFetch Fallback timed out after 120 seconds` (race: 504 body written, but script wait/consume path still failed).
+- Client exited fail even though server-side PHP finished: post **4086** updated (`post_modified` 2026-10-22), featured **4425**, inlines **4430/4431/4432**, schema_meta + skip_theme_faq set.
+- Duplicate orphan media created during long bootstrap: cover **4426**, inlines **4427–4429**.
+
+### How the agent recovered this run
+- Did **not** republish.
+- Verified via WP REST `posts?slug=` + wp-cli content/meta; HTTP HEAD **200**.
+- Reconstructed `wp-publish-result.json` (verdict pass), ledger `published`, wp-publish-log, promotion Live URL, handoff PUBLISH block.
+- Backfilled empty inline attachment alts via wp-cli.
+
+### Durable fix needed before next run
+- Increase client HTTP wait / treat nginx 504 as “maybe still running”: poll REST by slug before FAIL; auto-reconstruct when `OK post=` missing but post+media+meta evidence exists.
+- Do not accept 504 HTML as successful `webfetch-response.txt` content; require literal `OK post=` or structured JSON.
+- Optionally bump `trigger_bootstrap_http` timeout beyond nginx edge (~120s) and/or stream progress; document orphan media cleanup.
+- Ensure `SSH_ROOT=.` and paramiko are in install path (already known lessons).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

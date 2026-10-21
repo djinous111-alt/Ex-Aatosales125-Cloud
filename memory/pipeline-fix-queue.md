@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261021-1729-indexer-llms-stale-blog-path
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-carnival-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `scripts/excalibur_blog_llms_generator.py` accepts only `--blog-dir` / `--out-dir` / `--site-base` (no `--blog-path`).
+- Indexer skill shells (repo + `.cursor`) still document `--blog-path /`.
+- `excalibur_blog_doctor.py` still asserts `"--blog-path" in llms_help` → false FAIL (stale check).
+- Recurring across runs; prior memory note existed but durable fix not applied on this branch.
+
+### How the agent recovered this run
+- Followed Director/user contract: ran llms generator with `--blog-dir memory/blog/articles --out-dir memory/blog` (no `--blog-path`).
+- Interlinker `--apply` OK (0 opportunities); promotion-checklist written; handoff updated.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer skill shell examples; document `--blog-dir` + `--out-dir` only.
+- Flip doctor check: FAIL if `--blog-path` still present / PASS if `--blog-dir` and `--out-dir` are documented in `--help`.
+- Optionally align agent prose if it still mentions `--blog-path`.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md` / `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261021-1721-cover-mcp-32001-kie-fallback
 status: open
 run_date: 2026-10-21

@@ -254,3 +254,66 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261021-1205-director-doctor-llms-blog-path
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` FAIL: expects llms generator flag `--blog-path`, but `excalibur_blog_llms_generator.py --help` only documents `--blog-dir` / `--out-dir`.
+- Doctor SUMMARY errors=1 blocks clean preflight even when publish env is OK.
+
+### How the agent recovered this run
+- Continued pipeline after verifying generator help; treated as stale doctor check (known from prior fixer notes).
+
+### Durable fix needed before next run
+- Align doctor check with actual CLI (`--blog-dir` and/or `--out-dir`), not `--blog-path`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261021-0905-scout-missing-wp-denylist
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- `shared/wp-slug-denylist.json` отсутствует в репозитории; Scout не может опереться на канонический denylist-файл.
+- `memory/blog/published-live-avtosales125.json` устарел (`fetched_at` 2026-07-17) относительно live WP Oct 18–21 из `excalibur_blog_today.py`.
+
+### How the agent recovered this run
+- Сверил кандидатов с `EXCALIBUR_RECENT_WP_POSTS`, handoff denylist, live JSON slugs и WP search (`Alphard` / `альфард` = пусто).
+- Выбрал свободный угол Toyota Alphard (не Kia/Hyundai комплектации и не процессные клоны utilsbor/rastamozhka/ELS).
+
+### Durable fix needed before next run
+- Добавить `shared/wp-slug-denylist.json` с recent/live slugs AVTO SALES и обновлять его после publish.
+- Обновлять `published-live-avtosales125.json` ближе к cron-дате или научить scout helper читать recent WP из today.py.
+
+### Suggested files to inspect/change
+- `shared/wp-slug-denylist.json` (создать)
+- `scripts/excalibur_blog_scout_helper.py`
+- `memory/blog/published-live-avtosales125.json`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

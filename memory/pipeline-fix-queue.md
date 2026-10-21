@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-2130-writer-utility-pain-outcome-markers-missing
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-chitat-aukcionnyj-list-yaponiya-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требовал `min_pain_markers=2` и `min_outcome_markers=3`, но в `memory/brief/editorial-policy.json` не было списков `pain_markers_ru` / `outcome_markers_ru`.
+- Пустые списки давали count=0 всегда → BLOCK на любой статье (включая уже опубликованный AS09).
+
+### How the agent recovered this run
+- Добавил в `editorial-policy.json` те же pain/outcome маркеры, что использует `excalibur_blog_human_voice_gate.py`.
+- Явно прописал `min_pain_markers` / `min_outcome_markers` в `article_required_signals`.
+- Статья B01 после правок: utility PASS + human-voice PASS.
+
+### Durable fix needed before next run
+- Зафиксировать маркеры в policy (уже сделано в этом run) и кратко описать в pitfalls.
+- Опционально: в utility gate пропускать pain/outcome check, если списки маркеров пустые (fail-open), чтобы пустой policy не блокировал пайплайн.
+- Human-voice warning `exactly_five_lists`: regex считает любой `<ol>` с ≥5 `<li>` как "exactly 5" – поправить подсчёт по точному числу `<li>`.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261022-2115-research-tech-marker-false-positive
 status: open
 run_date: 2026-10-22

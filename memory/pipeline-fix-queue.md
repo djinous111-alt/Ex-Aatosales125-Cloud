@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None open for run 2026-10-22 after fixer._
+
+
 ## INC-20261022-2124-indexer-precommit-secret-name-bash
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-indexer
 topic_id: B01
@@ -34,11 +37,26 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- Добавлен `scripts/excalibur_blog_filter_secret_names.sh` — фильтрует non-identifier токены (в т.ч. `[REDACTED]`) из `CLOUD_AGENT_INJECTED_SECRET_NAMES` перед git commit.
+- Documented в pitfalls + indexer skill: `source scripts/excalibur_blog_filter_secret_names.sh` до commit.
+files_changed:
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- `bash scripts/excalibur_blog_filter_secret_names.sh --export` (strips `[REDACTED]`)
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+commit: pending-parent-commit
+
 
 
 ## INC-20261022-2122-cover-missing-corner-brand
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-cover
 topic_id: B01
@@ -68,11 +86,27 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- Prompt builder требует REQUIRED COVER CORNER BRAND `avto-sales125.ru` + `validate_corner_brand`.
+- Style/design-code negatives: missing corner brand / Telegram on corner.
+- Cover skill: PIL overlay без второго image job допустим.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/quad-style-digital-meme-collage-ru.json`
+- `memory/cover/cover-design-code.json`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+- corner-brand validate smoke
+commit: pending-parent-commit
+
 
 
 ## INC-20261022-2119-schema-commit-secret-scan-block
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-schema
 topic_id: B01
@@ -105,10 +139,28 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- Publish уже hydrates `[REDACTED]` в schema/CTA из env (`hydrate_redacted_placeholders`); skill schema документирует git placeholders + hydrate.
+- `filter_secret_names.sh` чинит pre-commit invalid identifier.
+- Pitfalls: Schema/commit секция.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py` (restored hydrate+504 path)
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- assert `hydrate_redacted_placeholders` + `reconstruct_publish_output` in publish script
+- doctor errors=0
+commit: pending-parent-commit
+
 
 ## INC-20261022-2145-geo-qa-tldr-label-not-gated
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -138,10 +190,26 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- `html_linter` + `human_voice_gate` BLOCK на `TL;DR` / `Быстрый инсайт` в первом insight blockquote.
+- Writing contract + writer skill: ярлык `Коротко:` (запрет TL;DR example).
+files_changed:
+- `scripts/excalibur_blog_html_linter.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/excalibur-article-writing-contract.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- insight label smoke (bad FAIL / good PASS)
+- B01 article.html html_linter + human_voice PASS
+commit: pending-parent-commit
+
 
 ## INC-20261022-2130-writer-utility-pain-outcome-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-writer
 topic_id: B01
@@ -174,10 +242,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- `editorial-policy.json` уже содержит `pain_markers_ru` / `outcome_markers_ru` + mins.
+- Utility gate: fail-open (warning) если списки маркеров пустые.
+- Human-voice: `exactly_five_lists` считает только ol с ровно 5 `<li>`.
+files_changed:
+- `memory/brief/editorial-policy.json` (kept markers)
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- utility gate B01 PASS
+- exact-5-li smoke (6-item ol → 0)
+commit: pending-parent-commit
+
 
 ## INC-20261022-2115-research-tech-marker-false-positive
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-research
 topic_id: B01
@@ -214,10 +297,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- `is_technical_topic`: word-boundary + strip field labels (`reader_pain:` и т.п.).
+- Self-test включает Japan auction-sheet case (expect False).
+- `research_start` redacts PUBLIC_SITE / catalog hosts в `research-serp.json`.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `scripts/excalibur_blog_research_start.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --self-test` PASS
+- redact_public_hosts smoke
+commit: pending-parent-commit
+
 
 ## INC-20261022-2105-scout-missing-wp-denylist
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-scout
 topic_id: B01
@@ -252,7 +349,28 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- Восстановлен `shared/wp-slug-denylist.json` (117 slugs): B01/4086, Carnival 4418, Sorento/Alphard/Mohave/K3/Avante/Santa Fe/Tucson/utilsbor/rastamozhit/Seltos/Sportage + live dump.
+- Scout helper: `--check-slug` + merge `EXCALIBUR_RECENT_WP_POSTS`.
+- Doctor проверяет denylist + `--check-slug`.
+- Scout agent/skill обновлены.
+files_changed:
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `--check-slug kak-chitat-aukcionnyj-list-yaponiya-2026` → DENYLIST HIT
+- `--check-slug brand-new-unique-slug-2026-fixer` → FREE
+- doctor errors=0
+commit: pending-parent-commit
+
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -504,7 +622,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261022-2130-publish-http-504-reconstruct
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-publish
 topic_id: B01
@@ -541,4 +659,20 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- Publish script: nginx 504 → REST probe by slug → reconstruct `OK post=` без republish; WebFetch wait re-probes; hydrate `[REDACTED]`.
+- Publish skill документирует 504/reconstruct/orphan media policy.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `skills/excalibur-wp-publish/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- py_compile publish script
+- assert reconstruct + hydrate helpers present
+- doctor errors=0
+commit: pending-parent-commit
+

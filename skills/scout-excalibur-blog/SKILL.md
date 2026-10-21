@@ -11,13 +11,15 @@
 ```text
 published-articles.md + blog-topics.md (Audit)
               ↓
-excalibur_blog_scout_helper.py --suggest-next (Get next ID)
+excalibur_blog_scout_helper.py --suggest-next (Get next ID + denylist status)
               ↓
 WebSearch (Cursor native trend scouting for 2026)
               ↓
 wordstat_get_top_requests (Yandex Wordstat API demand verify)
               ↓
 excalibur_blog_scout_helper.py --check-query (Cannibalization Guard)
+              ↓
+excalibur_blog_scout_helper.py --check-slug (shared/wp-slug-denylist.json)
               ↓
 Append new Topic Card to blog-topics.md
 ```
@@ -44,12 +46,15 @@ Append new Topic Card to blog-topics.md
 * **Цель:** Найти ключевой запрос (primary query) с живым спросом в Яндексе и выписать 3–5 связанных поисковых вопросов для FAQ и secondary queries.
 * **Фильтр:** Если тема имеет микро-спрос (меньше 10 показов в месяц) и нет смежных тем — отложи её и возьми другую, более востребованную.
 
-### Шаг 4 — Тест на каннибализацию ключевых слов
+### Шаг 4 — Тест на каннибализацию и WP slug denylist
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-slug "<candidate-slug>"
 ```
-Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
+Если возвращается `OVERLAP DETECTED` / `SLUG DENYLIST HIT` — измени формулировку или выбери другую тему.
+
+Канон denylist: `shared/wp-slug-denylist.json` (+ `EXCALIBUR_RECENT_WP_POSTS` в env). Если WordPress MCP отдаёт чужой блог — **не** верь MCP slug-list; сверяй denylist + ledger.
 
 ### Шаг 5 — Сборка карточки темы (Utility-Only)
 Сформируй карточку темы по шаблону:

@@ -45,6 +45,27 @@ def extract_fact_check_block(html: str) -> str:
     return ""
 
 
+FORBIDDEN_INSIGHT_LABELS = (
+    "tl;dr",
+    "tldr",
+    "быстрый инсайт",
+)
+
+
+def detect_forbidden_insight_labels(html: str) -> list[str]:
+    """First non-Fact-Check blockquote must not start with TL;DR / Быстрый инсайт."""
+    hits: list[str] = []
+    for quote in re.findall(r"<blockquote[\s\S]*?</blockquote>", html, flags=re.I):
+        plain = strip_html(quote).strip().lower()
+        if not plain or "материал проверен" in plain:
+            continue
+        for label in FORBIDDEN_INSIGHT_LABELS:
+            if plain.startswith(label) or f"{label} /" in plain[:40] or f"{label}/" in plain[:40]:
+                hits.append(label)
+        break  # only the first insight-style blockquote
+    return hits
+
+
 def validate_fact_check_author(
     html: str,
     article_dir: Path,
@@ -233,7 +254,19 @@ def analyze_human_voice(article_dir: Path) -> dict[str, Any]:
         for quote in blockquotes
         if "материал проверен" in quote.lower() and "достоверность данных" in quote.lower()
     ]
-    exactly_five_lists = len(re.findall(r"<ol[\s\S]*?(?:<li[\s\S]*?){5}</ol>", html, flags=re.I))
+    # Count <ol> that have exactly 5 <li> (previous regex matched any ol with ≥5 items).
+    exactly_five_lists = 0
+    for ol_block in re.findall(r"<ol\b[\s\S]*?</ol>", html, flags=re.I):
+        li_count = len(re.findall(r"<li\b", ol_block, flags=re.I))
+        if li_count == 5:
+            exactly_five_lists += 1
+
+    insight_label_hits = detect_forbidden_insight_labels(html)
+    if insight_label_hits:
+        errors.append(
+            "insight block uses forbidden template label "
+            f"{insight_label_hits}; use «Коротко:» or plain meaning, not TL;DR / Быстрый инсайт"
+        )
 
     reader_story = extract_field(notes, "reader_story")
     reader_pain = extract_field(notes, "reader_pain")

@@ -26,6 +26,65 @@ def load_published_topics(root: Path) -> set[str]:
     return published
 
 
+def _slugs_from_recent_env() -> list[str]:
+    """Parse EXCALIBUR_RECENT_WP_POSTS (comma/newline/JSON) when MCP host is wrong."""
+    import os
+
+    raw = (os.environ.get("EXCALIBUR_RECENT_WP_POSTS") or "").strip()
+    if not raw:
+        return []
+    if raw.startswith("["):
+        try:
+            data = json.loads(raw)
+            out: list[str] = []
+            for item in data:
+                if isinstance(item, str):
+                    out.append(item.strip())
+                elif isinstance(item, dict) and item.get("slug"):
+                    out.append(str(item["slug"]).strip())
+            return [s for s in out if s]
+        except json.JSONDecodeError:
+            pass
+    parts = re.split(r"[\s,;]+", raw)
+    return [p.strip() for p in parts if p.strip() and not p.strip().isdigit()]
+
+
+def load_wp_slug_denylist(root: Path) -> dict[str, Any]:
+    path = root / "shared/wp-slug-denylist.json"
+    if not path.is_file():
+        env_slugs = _slugs_from_recent_env()
+        if env_slugs:
+            return {
+                "slugs": env_slugs,
+                "slug_set": {s.lower() for s in env_slugs},
+                "updated_at": None,
+                "recent_wp": [{"slug": s, "note": "EXCALIBUR_RECENT_WP_POSTS"} for s in env_slugs],
+                "do_not_rewrite_post_ids": [],
+                "path": "env:EXCALIBUR_RECENT_WP_POSTS",
+                "missing": False,
+                "from_env_only": True,
+            }
+        return {"slugs": [], "path": str(path), "missing": True}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    slugs = [str(s).strip() for s in (data.get("slugs") or []) if str(s).strip()]
+    for env_slug in _slugs_from_recent_env():
+        if env_slug not in slugs:
+            slugs.append(env_slug)
+    return {
+        "slugs": slugs,
+        "slug_set": {s.lower() for s in slugs},
+        "updated_at": data.get("updated_at"),
+        "recent_wp": data.get("recent_wp") or [],
+        "do_not_rewrite_post_ids": data.get("do_not_rewrite_post_ids") or [],
+        "path": "shared/wp-slug-denylist.json",
+        "missing": False,
+    }
+
+
+def slug_denied(slug: str, denylist: dict[str, Any]) -> bool:
+    return bool(slug) and slug.strip().lower() in (denylist.get("slug_set") or set())
+
+
 def load_active_article_topics(root: Path) -> set[str]:
     articles_dir = root / "memory" / "blog" / "articles"
     if not articles_dir.is_dir():
@@ -114,6 +173,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Helper for Excalibur BLOG Scout Agent")
     ap.add_argument("--suggest-next", action="store_true", help="Print next available Topic ID and summary")
     ap.add_argument("--check-query", type=str, default="", help="Check new primary query for overlaps")
+    ap.add_argument("--check-slug", type=str, default="", help="Check candidate slug against shared/wp-slug-denylist.json")
     args = ap.parse_args()
     
     # Reconfigure stdout for utf-8 on Windows
@@ -127,6 +187,7 @@ def main() -> int:
     active = load_active_article_topics(root)
     reserved = published | active
     existing = load_existing_topics(root)
+    denylist = load_wp_slug_denylist(root)
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
@@ -144,6 +205,24 @@ def main() -> int:
         
         unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
         print(f"Unwritten topic IDs in pool: {unwritten}")
+        if denylist.get("missing"):
+            print("❌ DENYLIST MISSING: shared/wp-slug-denylist.json — create/update before Scout picks a topic")
+        else:
+            recent = denylist.get("recent_wp") or []
+            print(f"WP slug denylist: {len(denylist.get('slugs') or [])} slugs (updated_at={denylist.get('updated_at')})")
+            print(f"Recent WP slugs (must avoid): {[r.get('slug') for r in recent[:12]]}")
+            print(f"Do-not-rewrite post ids: {denylist.get('do_not_rewrite_post_ids')}")
+        return 0 if not denylist.get("missing") else 1
+
+    if args.check_slug:
+        slug = args.check_slug.strip()
+        if denylist.get("missing"):
+            print("❌ DENYLIST MISSING: shared/wp-slug-denylist.json")
+            return 1
+        if slug_denied(slug, denylist):
+            print(f"❌ SLUG DENYLIST HIT: '{slug}' is already on live/recent WP or ledger")
+            return 1
+        print(f"✅ SLUG FREE: '{slug}' not in wp-slug-denylist.json")
         return 0
         
     if args.check_query:
@@ -154,6 +233,13 @@ def main() -> int:
                 print(f"  [{w['severity']}] Similarity: {w['similarity']} | Topic: {w['topic_id']} ({w['status']})")
                 print(f"  Message: {w['message']}")
             return 1
+        # Also flag if query tokens clearly match a denylisted slug stem
+        q_tokens = normalize_and_tokenize(args.check_query)
+        for slug in denylist.get("slugs") or []:
+            slug_tokens = normalize_and_tokenize(slug.replace("-", " "))
+            if q_tokens and slug_tokens and len(q_tokens.intersection(slug_tokens)) >= max(3, len(slug_tokens) // 3):
+                print(f"❌ DENYLIST OVERLAP: query looks close to live slug '{slug}'")
+                return 1
         print("✅ NO CANNIBALIZATION RISK: Query is clean and unique.")
         return 0
 

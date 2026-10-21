@@ -22,3 +22,9 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+## Commit / secret-scan
+
+- Для git допустимы `[REDACTED]` placeholders вместо `PUBLIC_SITE_URL` / `sameAs` URL — `excalibur_blog_wp_publish.py` hydrates их из env перед upload.
+- Если Cloud pre-commit падает на `invalid variable name` в secret injection: `source scripts/excalibur_blog_filter_secret_names.sh` перед `git commit`.
+- Не оставляй сломанный JSON-LD с литералом `[REDACTED]` на live сайте: publish обязан hydrate.

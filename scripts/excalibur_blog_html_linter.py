@@ -35,6 +35,25 @@ def detect_anchor_toc(html: str) -> list[str]:
     return errors
 
 
+def detect_forbidden_insight_labels(html: str) -> list[str]:
+    """Fail if the first insight blockquote uses TL;DR / Быстрый инсайт labels."""
+    errors: list[str] = []
+    for quote in re.findall(r"<blockquote[\s\S]*?</blockquote>", html, flags=re.I | re.DOTALL):
+        plain = re.sub(r"<[^>]+>", " ", quote)
+        plain = re.sub(r"\s+", " ", plain).strip().lower()
+        if not plain or "материал проверен" in plain:
+            continue
+        for label in ("tl;dr", "tldr", "быстрый инсайт"):
+            if plain.startswith(label) or f"{label} /" in plain[:48] or f"{label}/" in plain[:48]:
+                errors.append(
+                    "Forbidden insight label in first <blockquote>: "
+                    f"{label!r}. Use «Коротко:» or plain meaning (not TL;DR / Быстрый инсайт)."
+                )
+                return errors
+        break
+    return errors
+
+
 def detect_duplicate_faq_sections(html: str) -> list[str]:
     """Fail if article has more than one FAQ heading block."""
     errors: list[str] = []
@@ -122,6 +141,7 @@ def lint_html_file(html_path: Path, whitelist: set[str]) -> dict[str, Any]:
     linter.check_unclosed_tags()
     linter.errors.extend(detect_anchor_toc(html_content))
     linter.errors.extend(detect_duplicate_faq_sections(html_content))
+    linter.errors.extend(detect_forbidden_insight_labels(html_content))
 
     return {
         "file": str(html_path.name),

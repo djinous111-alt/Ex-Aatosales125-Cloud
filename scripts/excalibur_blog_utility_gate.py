@@ -190,12 +190,21 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 
+    # Fail-open when policy lists are empty: empty markers used to BLOCK every article.
     min_pain = int(req.get("min_pain_markers") or 2)
-    if pain_count < min_pain:
+    if not pain_markers:
+        warnings.append(
+            "pain_markers_ru missing/empty in editorial-policy.json — pain check skipped (fail-open)"
+        )
+    elif pain_count < min_pain:
         errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
 
     min_outcome = int(req.get("min_outcome_markers") or 3)
-    if outcome_count < min_outcome:
+    if not outcome_markers:
+        warnings.append(
+            "outcome_markers_ru missing/empty in editorial-policy.json — outcome check skipped (fail-open)"
+        )
+    elif outcome_count < min_outcome:
         errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
 
     if req.get("requires_workflow_or_table_or_checklist"):

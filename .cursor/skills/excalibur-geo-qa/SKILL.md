@@ -55,3 +55,10 @@ python scripts/excalibur_blog_human_voice_gate.py \
 **Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.
 
 Schema и cover — **не** твоя зона (отдельные субагенты после PASS).
+
+## CTA hydrate before link-verify
+
+- Replace article CTA `[REDACTED]` href from env (`PUBLIC_SITE_URL`, `TELEGRAM_URL`) before `link_verify`.
+- Re-redact to `[REDACTED]` before commit if secret-scan requires it; publish hydrates again.
+- Keep `pain_markers_ru` / `outcome_markers_ru` in `memory/brief/editorial-policy.json` (utility gate skips only with warning if empty).
+- Before commit: `source scripts/excalibur_blog_filter_secret_names.sh`.

@@ -47,14 +47,52 @@ def inline_panel_prompt(slot: dict, types_catalog: dict) -> str:
     return f"{label}; H2: «{h2}»; scene: {scene}; no host face."
 
 
+def prefer_https_url(url: str) -> str:
+    if url.startswith("http://"):
+        return "https://" + url[len("http://") :]
+    return url
+
+
 def validate_reference_url(ref_url: str) -> bool:
     if REQUIRED_REFERENCE_HOST in ref_url:
         return True
+    if "[REDACTED]" in ref_url:
+        print(
+            "❌ COVER HERO BLOCKER: reference_url_hosted is redacted in git. "
+            "Set BLOG_HERO_REFERENCE_URL to the https WordPress media URL "
+            f"(host {REQUIRED_REFERENCE_HOST}) or restore memory/cover/blog-hero.json before prompt build.",
+            file=sys.stderr,
+        )
+        return False
     print(
         f"❌ COVER HERO BLOCKER: reference_url_hosted must use stable {REQUIRED_REFERENCE_HOST} WordPress media URL, got: {ref_url}",
         file=sys.stderr,
     )
     return False
+
+
+def validate_outfit_lock(prompt: str, scene_hint: str = "") -> bool:
+    """Reject hoodie defaults; softshell/crewneck is canonical."""
+    blob = f"{prompt}\n{scene_hint}".lower()
+    if "thick heavyweight white hoodie" in blob:
+        print("❌ COVER OUTFIT BLOCKER: legacy hoodie outfit lock", file=sys.stderr)
+        return False
+    # Positive hoodie in outfit lock line (negations like "NO hoodie" are OK).
+    for line in blob.splitlines():
+        if "outfit lock" in line and "hoodie" in line and "no hoodie" not in line:
+            print("❌ COVER OUTFIT BLOCKER: hoodie in outfit lock", file=sys.stderr)
+            return False
+        if "худи" in line and "не худи" not in line and ("scene" in line or "outfit" in line or "softshell" not in blob):
+            if "не худи" not in blob:
+                print("❌ COVER OUTFIT BLOCKER: худи without softshell lock", file=sys.stderr)
+                return False
+    if "softshell" not in blob or "crewneck" not in blob:
+        print(
+            "❌ COVER OUTFIT BLOCKER: prompt must lock charcoal softshell + cream crewneck",
+            file=sys.stderr,
+        )
+        return False
+    return True
 
 
 def validate_prompt_budget(prompt: str) -> bool:
@@ -86,7 +124,7 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         "",
         "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
         "",
-        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
+        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: charcoal softshell over cream crewneck (NO hoodie, NO hood, NO cap). Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
         "",
         f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
         "",
@@ -126,17 +164,26 @@ def main() -> int:
     design_code_path = root / style.get("design_code", "memory/cover/cover-design-code.json")
     design_code = load_json(design_code_path) if design_code_path.is_file() else {}
 
-    ref_url = (hero.get("reference_url_hosted") or "").strip()
+    ref_url = prefer_https_url((hero.get("reference_url_hosted") or "").strip())
+    env_ref = prefer_https_url(os.environ.get("BLOG_HERO_REFERENCE_URL", "").strip())
+    if env_ref:
+        ref_url = env_ref
     if not ref_url:
         print(
-            "❌ COVER HERO BLOCKER: reference_url_hosted missing. Run excalibur_blog_hero_reference_url.py",
+            "❌ COVER HERO BLOCKER: reference_url_hosted missing. Run excalibur_blog_hero_reference_url.py "
+            "or set BLOG_HERO_REFERENCE_URL",
             file=sys.stderr,
         )
         return 1
     if not validate_reference_url(ref_url):
         return 1
+    if ref_url != (hero.get("reference_url_hosted") or "").strip():
+        print(f"WARN upgraded reference_url_hosted to https for Kie i2i: {ref_url}", file=sys.stderr)
 
     prompt = build_prompt(manifest, style, hero, types_catalog, design_code)
+    cover_hint = str(((manifest.get("slots") or {}).get("cover") or {}).get("scene_hint") or "")
+    if not validate_outfit_lock(prompt, cover_hint):
+        return 1
     if not validate_prompt_budget(prompt):
         return 1
     prompt_path = article_dir / "cover" / "quad-mcp-prompt.txt"

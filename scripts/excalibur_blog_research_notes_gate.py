@@ -74,13 +74,22 @@ def has_wordstat(text_lower: str) -> bool:
 
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect real tech/automation topics; avoid substring false positives.
+
+    Short markers like ``ai`` / ``ии`` must not match inside ``reader_pain`` or
+    Russian ``японии`` (Japan automotive niche).
+    """
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
     blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    for marker in TECH_MARKERS:
+        # Word-ish boundary: Latin/Cyrillic/digit/_ must not flank the marker.
+        if re.search(rf"(?<![a-z0-9_а-яё]){re.escape(marker)}(?![a-z0-9_а-яё])", blob, flags=re.I):
+            return True
+    return False
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,7 +139,15 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    # Prefer explicit "accessed_at: YYYY-MM-DD" cells (documented contract).
+    accessed_prefixed = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    # Fallback: ISO dates in source-table URL rows when an accessed_at column exists.
+    accessed_iso_fallback = 0
+    if re.search(r"\|[^\n]*\baccessed_at\b[^\n]*\|", text_lower):
+        accessed_iso_fallback = len(
+            re.findall(r"^\s*\|[^\n]*https?://[^\n]*\b20\d{2}-\d{2}-\d{2}\b", text, flags=re.M)
+        )
+    accessed_count = max(accessed_prefixed, accessed_iso_fallback)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
     pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
     action_items = count_action_items(text)
@@ -194,11 +211,52 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     }
 
 
+def selftest_technical_topic() -> int:
+    """Regression: Japan/auto niche must not trip technical_topic via substring ai/ии."""
+    cases = [
+        (
+            {"topic": {"h1": "Toyota Alphard из Японии", "primary_query": "alphard япония", "slug": "toyota-alphard-iz-yaponii"}},
+            "reader_pain: застрять с лотом до депозита",
+            False,
+        ),
+        (
+            {"topic": {"h1": "Как настроить MCP в Cursor", "primary_query": "mcp cursor ai", "slug": "mcp-cursor-ai"}},
+            "github evidence for agents",
+            True,
+        ),
+        (
+            {"topic": {"h1": "n8n workflow для новичка", "primary_query": "n8n", "slug": "n8n-workflow"}},
+            "automation notes",
+            True,
+        ),
+    ]
+    failed = 0
+    for context, notes, expect in cases:
+        got = is_technical_topic(context, notes)
+        status = "OK" if got == expect else "FAIL"
+        if got != expect:
+            failed += 1
+        print(f"{status}: expect={expect} got={got} h1={context['topic'].get('h1')!r}")
+    return 1 if failed else 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Validate research-notes.md freshness and depth")
-    ap.add_argument("--article-dir", type=Path, required=True)
+    ap.add_argument("--article-dir", type=Path, default=None)
     ap.add_argument("-o", "--output", type=Path, default=None)
+    ap.add_argument(
+        "--self-test",
+        action="store_true",
+        help="Run technical_topic false-positive regression (Japan/auto vs ai/mcp)",
+    )
     args = ap.parse_args()
+
+    if args.self_test:
+        return selftest_technical_topic()
+
+    if args.article_dir is None:
+        print("--article-dir is required unless --self-test", file=sys.stderr)
+        return 2
 
     root = project_root()
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir

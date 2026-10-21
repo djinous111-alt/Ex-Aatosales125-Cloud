@@ -1,0 +1,26 @@
+{
+  "slug": "kia-sorento-iz-korei-komplektatsii-lovushki-2026",
+  "topic_id": "B01",
+  "permalink": "[REDACTED]/2026/10/21/kia-sorento-iz-korei-komplektatsii-lovushki-2026/",
+  "publish_method": "ssh",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-kia-sorento-iz-korei-komplektatsii-lovushki-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1242643,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=4412 slug=kia-sorento-iz-korei-komplektatsii-lovushki-2026\nOK featured_image=4413\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4414 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/10/kia-sorento-iz-korei-komplektatsii-lovushki-2026-inline-01.png\nOK inline_image_upload=4415 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/10/kia-sorento-iz-korei-komplektatsii-lovushki-2026-inline-02.png\nOK inline_image_upload=4416 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/10/kia-sorento-iz-korei-komplektatsii-lovushki-2026-inline-03.png\npermalink=[REDACTED]/2026/10/21/kia-sorento-iz-korei-komplektatsii-lovushki-2026/\n",
+  "verdict": "pass",
+  "post_id": 4412,
+  "featured_image": 4413,
+  "inline_images": [
+    4414,
+    4415,
+    4416
+  ],
+  "schema_meta": 1,
+  "skip_theme_faq_meta": 1,
+  "head_status": 200,
+  "rest_id": 4412
+}

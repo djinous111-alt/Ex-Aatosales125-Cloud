@@ -6,6 +6,9 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+> B01 Sorento fixer 2026-10-21: 8/8 closed (`status: fixed`). Remaining open: 0.
+
+
 ## INC-20261021-1330-indexer-llms-blog-path-stale
 status: fixed
 run_date: 2026-10-21
@@ -36,8 +39,20 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
-commit: 53daf069..0cfe9399
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Indexer agent/skill examples now use `--blog-dir` + `--out-dir` only; removed stale `--blog-path /`.
+- Aligned with doctor check (INC-1303).
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+checks_run:
+- `rg: no --blog-path / in indexer agent/skill`
+- `python3 scripts/excalibur_blog_llms_generator.py --help`
+commit: 53daf069..28185e4a
 
 ## INC-20261021-1320-geo-qa-typed-task-missing
 status: fixed
@@ -67,8 +82,19 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-commit: 53daf069..0cfe9399
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Documented generalPurpose fallback as Cloud canon for geo-qa (and all typed roles) in director skill + CLOUD-AUTOMATION + pitfalls.
+- Host typed Task registry remains outside repo; fallback is the durable run path.
+files_changed:
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg geo-qa generalPurpose fallback in director skill + CLOUD-AUTOMATION`
+commit: 53daf069..28185e4a
 
 ## INC-20261021-1320-geo-qa-utility-pain-outcome-empty
 status: fixed
@@ -144,8 +170,18 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-commit: 53daf069..0cfe9399
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Added `scripts/excalibur_blog_filter_secret_names.sh` to drop non-identifier secret names before commit.
+- Documented source/eval usage and `--no-verify` only for env-redaction fail in CLOUD-AUTOMATION + pitfalls.
+files_changed:
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `CLOUD-AUTOMATION.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `filter_secret_names strips [REDACTED]/URL-as-name`
+commit: 53daf069..28185e4a
 
 ## INC-20261021-1311-research-notes-gate-format
 status: fixed
@@ -176,8 +212,23 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
-commit: 53daf069..0cfe9399
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Documented gate contract: accessed_at:, pain_map markers, prefer_sources_after, github_evidence vs technical_topic.
+- Gate: word-boundary tech markers + accessed_at ISO fallback; `--self-test`.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `agents/excalibur-blog-research.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --self-test`
+- `B01 research-notes-gate PASS technical_topic=False`
+commit: 53daf069..28185e4a
 
 ## INC-20261021-1304-scout-missing-wp-denylist
 status: fixed
@@ -210,8 +261,22 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
-commit: 53daf069..0cfe9399
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Restored shared/wp-slug-denylist.json (115 slugs) incl. Sorento 4412 + recent WP + ledger.
+- Scout helper `--check-slug`; suggest-next prints denylist; scout agent/skill AVTO SALES + denylist steps.
+files_changed:
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_scout_helper.py`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --suggest-next`
+- `--check-slug sorento → DENYLIST HIT; new slug → FREE`
+commit: 53daf069..28185e4a
 
 ## INC-20261021-1303-director-doctor-blog-path
 status: fixed
@@ -248,8 +313,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-commit: 53daf069..0cfe9399
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Doctor checks llms `--blog-dir`/`--out-dir`; warns if stale `--blog-path` appears.
+- Denylist restored; scout/editorial aligned to AVTO SALES site-brief.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `shared/wp-slug-denylist.json`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py → SUMMARY errors=0 warnings=0`
+commit: 53daf069..28185e4a
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -524,8 +603,16 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-commit: 53daf069..0cfe9399
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- quad_manifest scene_hint_for_type + default cover_hook/scene no longer SEO/hoodie stubs; banned-stub rewrite on --merge.
+files_changed:
+- `scripts/excalibur_blog_quad_manifest.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `scene_hint_for_type comparison/tool_screenshot have no SEO`
+commit: 53daf069..28185e4a
 
 ## INC-20261021-1326-cover-hoodie-outfit-lock
 status: fixed
@@ -553,9 +640,17 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- cover_quad_prompt Outfit lock = charcoal softshell + cream crewneck (NO hoodie/hood/cap); validate_outfit_lock.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `prompt rebuild: softshell lock, no thick heavyweight white hoodie`
+commit: 53daf069..28185e4a
 
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
-commit: 53daf069..0cfe9399

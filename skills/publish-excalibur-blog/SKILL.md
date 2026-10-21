@@ -33,7 +33,7 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 python scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
-  --site-base https://avtosales125.ru
+  --site-base "$PUBLIC_SITE_URL"
 ```
 
 Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
@@ -61,15 +61,18 @@ python scripts/excalibur_blog_wp_publish.py \
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
 - пишет post meta `_excalibur_blog_schema_jsonld`.
 
-### 4. Cloud WebFetch Fallback
+### 4. Cloud WebFetch Fallback + nginx 504
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060 / nginx **504**):
 
 1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+2. Cloud-агент открывает URL через WebFetch/curl и пишет ответ в `memory/webfetch-response.txt`.
+3. Скрипт читает файл; **HTML 504 ≠ успех** — нужен литерал `OK post=` или REST reconstruct.
+4. При 504/timeout скрипт сам polling'ит WP REST по slug и, если post+media уже live, пишет reconstructed `wp-publish-result.json` **без republish**.
 
-**Не останавливайся** на первом timeout — используй fallback.
+Перед SSH publish hydrates `[REDACTED]` в article/schema из `PUBLIC_SITE_URL` / `TELEGRAM_URL`.
+
+**Не останавливайся** на первом timeout — используй fallback + REST probe. Не делай второй publish, если REST уже показывает готовый post.
 
 ### 5. Post-publish артефакты
 
@@ -86,7 +89,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ```bash
 python scripts/excalibur_blog_interlinker.py --apply \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru
+  --site-base "$PUBLIC_SITE_URL"
 ```
 
 Inbound-ссылки из старых статей на новую.

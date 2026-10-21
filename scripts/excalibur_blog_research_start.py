@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 import time
@@ -20,6 +21,46 @@ from typing import Any
 from zoneinfo import ZoneInfo
 
 from excalibur_repo_paths import repo_relative
+
+
+def _site_hosts_to_redact() -> list[str]:
+    hosts: list[str] = []
+    for key in ("PUBLIC_SITE_URL", "WP_HOME", "WP_SITE_URL"):
+        raw = (os.environ.get(key) or "").strip()
+        if not raw:
+            continue
+        try:
+            host = urllib.parse.urlparse(raw if "://" in raw else f"https://{raw}").hostname
+        except Exception:
+            host = None
+        if host:
+            hosts.append(host.lower())
+            if host.lower().startswith("www."):
+                hosts.append(host.lower()[4:])
+    # Stable catalog host often appears in SERP; keep committed artifacts free of it.
+    for extra in ("avto-sales125.ru", "avtosales125.ru"):
+        if extra not in hosts:
+            hosts.append(extra)
+    return hosts
+
+
+def redact_public_hosts(obj: Any, hosts: list[str] | None = None) -> Any:
+    """Replace live site hosts with [REDACTED] so research-serp.json can be committed."""
+    hosts = hosts if hosts is not None else _site_hosts_to_redact()
+    if not hosts:
+        return obj
+    if isinstance(obj, dict):
+        return {k: redact_public_hosts(v, hosts) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [redact_public_hosts(v, hosts) for v in obj]
+    if isinstance(obj, str):
+        out = obj
+        for host in hosts:
+            if host and host in out.lower():
+                # Case-insensitive replace of host substring.
+                out = re.sub(re.escape(host), "[REDACTED]", out, flags=re.I)
+        return out
+    return obj
 
 USER_AGENT = "ExcaliburBlogResearch/1.0 (+research-start)"
 DDG_HTML = "https://html.duckduckgo.com/html/"
@@ -42,7 +83,7 @@ def now_context(tz_name: str) -> dict[str, Any]:
         1: "январь",
         2: "февраль",
         3: "март",
-        4: "апril",
+        4: "апрель",
         5: "май",
         6: "июнь",
         7: "июль",
@@ -369,6 +410,8 @@ def run_research_start(
         "errors": errors,
         "unique_urls": _unique_urls(serp_runs),
     }
+    # Never persist live PUBLIC_SITE_URL / catalog hosts into committed serp artifacts.
+    payload_serp = redact_public_hosts(payload_serp)
 
     context_path = out_dir / "research-context.json"
     serp_path = out_dir / "research-serp.json"

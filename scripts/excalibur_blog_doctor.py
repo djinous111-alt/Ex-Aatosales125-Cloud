@@ -132,7 +132,39 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check(
+        "--blog-dir" in llms_help.stdout and "--out-dir" in llms_help.stdout,
+        "llms generator supports --blog-dir and --out-dir",
+        errors,
+        warnings,
+    )
+    check(
+        "--blog-path" not in llms_help.stdout,
+        "llms generator does not expose stale --blog-path",
+        errors,
+        warnings,
+        warn=True,
+    )
+    check(
+        (root / "shared/wp-slug-denylist.json").is_file(),
+        "shared/wp-slug-denylist.json exists",
+        errors,
+        warnings,
+    )
+    check(
+        (root / "scripts/excalibur_blog_filter_secret_names.sh").is_file(),
+        "filter_secret_names.sh exists",
+        errors,
+        warnings,
+    )
+    scout_help = subprocess.run(
+        [sys.executable, str(root / "scripts/excalibur_blog_scout_helper.py"), "--help"],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    check("--check-slug" in scout_help.stdout, "scout helper supports --check-slug", errors, warnings)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

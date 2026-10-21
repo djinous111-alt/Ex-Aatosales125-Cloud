@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-kak-chitat-aukcionnyj-list-yaponiya-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1024,
+      580
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 580,
+        "end": 597
+      },
+      "v_gutter_px": {
+        "start": 1024,
+        "end": 1048
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 2,
+          "right": 1024,
+          "bottom": 578
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1024,
+          "bottom": 580
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс с распечаткой японского аукционного листа и маркером, схема кузова крупно, угол avto-sales125.ru",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1048,
+          "top": 9,
+          "right": 2048,
+          "bottom": 571
+        },
+        "raw_box_px": {
+          "left": 1048,
+          "top": 0,
+          "right": 2048,
+          "bottom": 580
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап аукционного листа: модель, пробег и оценка салона за 2 минуты",
+        "h2_anchor": "Начните с идентификации: модель, пробег и салон за 2 минуты"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 18,
+          "top": 597,
+          "right": 1005,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 597,
+          "right": 1024,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица шкалы оценок японского аукциона: почему четвёрка — рабочий лот",
+        "h2_anchor": "Разберите шкалу оценок: почему \"четвёрка\" – рабочий лот"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1054,
+          "top": 597,
+          "right": 2041,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1048,
+          "top": 597,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист R и RA: ремонт каркаса, а не миф про подушки безопасности",
+        "h2_anchor": "Сверьте R и RA: каркас, а не миф про подушки"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Начните с идентификации: модель, пробег и салон за 2 минуты",
+    "injected inline_2 after H2 — Разберите шкалу оценок: почему \"четвёрка\" – рабочий лот",
+    "injected inline_3 after H2 — Сверьте R и RA: каркас, а не миф про подушки"
+  ]
+}

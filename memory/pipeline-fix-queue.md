@@ -349,3 +349,32 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261021-0920-research-precommit-redacted-secret-name
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `pre-commit.cursor` crashed with `invalid variable name` because `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a literal `[REDACTED]` token (not a valid bash identifier) after platform redaction.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to `str.isidentifier()` names before commit; hook still ran and scanned remaining secrets.
+
+### Durable fix needed before next run
+- Platform/Cloud: do not inject placeholder `[REDACTED]` into `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+- Hook hardening: skip non-identifier secret names instead of expanding `${!SECRET_NAME}`.
+
+### Suggested files to inspect/change
+- Cloud Secrets / agent injection for `CLOUD_AGENT_INJECTED_SECRET_NAMES`
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (vendor) or local wrapper
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

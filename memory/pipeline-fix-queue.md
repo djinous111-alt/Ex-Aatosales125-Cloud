@@ -6,6 +6,46 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261021-0930-publish-nginx-504-reconstruct
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: publish
+
+### What went wrong
+- SSH upload of `excalibur-blog-publish-once.php` (~6.6MB) succeeded with `SSH_ROOT=.`.
+- Local HTTP trigger and curl fallback both returned nginx **504 Gateway Time-out** (~120s) before PHP finished writing the response body.
+- Publish script WebFetch wait (300s) timed out before the agent could write `memory/webfetch-response.txt` (agent was still probing REST after curl 504).
+- Committed `article.html` / `schema.jsonld` still had literal CTA/schema `[REDACTED]` placeholders; publish had to re-hydrate from env before link-verify/publish.
+
+### How the agent recovered this run
+- Verified live post via WP REST `posts?slug=toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026` → id **4400**, featured **4407**, HEAD permalink **200**.
+- Confirmed `_excalibur_blog_schema_jsonld` + `_excalibur_blog_skip_theme_faq=1` via SSH wp-cli; inline media **4408/4409/4410** in content.
+- Reconstructed `wp-publish-result.json` + ledger (`published`) without republish; did not rewrite denylisted posts 4394/4388/4382/4376/4364/4358.
+- Bumped client HTTP/WebFetch wait 120→300 in `scripts/excalibur_blog_wp_publish.py` (nginx edge still caps ~120s).
+
+### Durable fix needed before next run
+- After HTTP/curl 504, auto-probe REST by slug + wp-cli meta before FAIL; reconstruct result/ledger when live OK.
+- Start WebFetch/curl fallback **immediately** when `FALLBACK_TRIGGER_URL` prints; do not wait for local HTTP to fully exhaust if nginx 504 already known.
+- Keep CTA/schema hydrate step explicit in publish preflight when href/`[REDACTED]` placeholders remain after GEO QA commit.
+- Optionally raise nginx/proxy `proxy_read_timeout` for bootstrap PHP, or stream progress so edge does not 504 mid-sideload.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261021-0920-cover-kie-http-ref-500
 status: open
 run_date: 2026-10-21
@@ -16,7 +56,7 @@ severity: medium
 category: api
 
 ### What went wrong
-- First Kie `gpt-image-2-image-to-image` job with `http://avtosales125.ru/...` reference failed: `failCode=500 Internal Error` after `waiting`.
+- First Kie `gpt-image-2-image-to-image` job with `http://[REDACTED]/...` reference failed: `failCode=500 Internal Error` after `waiting`.
 - Same batch with `https://` reference succeeded on one retry (task_id `34f7db59c1533ada04a8cd18c3b97057`).
 
 ### How the agent recovered this run

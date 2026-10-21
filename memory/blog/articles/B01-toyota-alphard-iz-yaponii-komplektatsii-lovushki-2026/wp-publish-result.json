@@ -1,0 +1,24 @@
+{
+  "slug": "toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026",
+  "topic_id": "B01",
+  "permalink": "[REDACTED]/2026/10/21/toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026/",
+  "publish_method": "ssh",
+  "post_id": 4400,
+  "featured_image": 4407,
+  "inline_images": [
+    4408,
+    4409,
+    4410
+  ],
+  "schema_meta": 1,
+  "skip_theme_faq": 1,
+  "orphan_media": [
+    4401,
+    4402,
+    4403,
+    4404
+  ],
+  "reconstructed_after": "nginx_504",
+  "raw_output": "OK post=4400 slug=toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026\nOK featured_image=4407\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4408 src=cover/inline-01.png\nOK inline_image_upload=4409 src=cover/inline-02.png\nOK inline_image_upload=4410 src=cover/inline-03.png\npermalink=[REDACTED]/2026/10/21/toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026/\n# reconstructed_after_nginx_504 via REST+wp-cli (no republish)\n",
+  "verdict": "pass"
+}

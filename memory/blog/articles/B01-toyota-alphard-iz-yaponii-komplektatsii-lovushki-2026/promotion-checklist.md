@@ -1,7 +1,7 @@
 # Promotion checklist — B01 toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026
 
-Дата публикации: (после publish)  
-Live URL: (после publish)
+Дата публикации: 2026-10-21  
+Live URL: [REDACTED]/2026/10/21/toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Alphard с USS — а кузов уже 40?
 • Гибрид/PHEV ≠ «просто бензин»: лист не показывает здоровье батареи
 • METI-фильтр: современный Alphard нельзя считать прямым экспортом в РФ
 
-Читать: /blog/toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026/
+Читать: /2026/10/21/toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка

@@ -317,3 +317,35 @@ category: docs
 
 ### Fixer resolution
 - pending
+
+## INC-20261021-0915-research-tech-topic-false-positive
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` помечал авто-тему Alphard как `technical_topic` из-за substring-маркеров: `ии` внутри слова «японии» и `ai` внутри `reader_pain`.
+- Gate требовал `github_urls >= 3` для нетехнической ниши AVTO SALES и блокировал валидный research-notes.
+
+### How the agent recovered this run
+- Заменил substring-check на regex с границами слова (латиница/кириллица/цифры/`_`) в `is_technical_topic`.
+- Перезапустил gate; automotive B01 больше не требует GitHub evidence.
+
+### Durable fix needed before next run
+- Закрепить регрессионный тест на ложные срабатывания `японии` / `reader_pain` vs реальные маркеры `ai` / `mcp` / `github`.
+- Упомянуть pitfall в `shared/agent-pipeline-pitfalls.md` (Japan/auto ≠ technical).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- tests for research-notes gate (если есть / добавить)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

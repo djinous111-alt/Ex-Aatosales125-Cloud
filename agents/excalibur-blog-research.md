@@ -78,6 +78,10 @@ surprising_fact: неожиданный факт или конфликт мне�
 - article.html, cover, schema, publish
 - темы без how_to/checklist/comparison intent
 
+## Gate contract (кратко)
+
+Перед handoff: `research-notes-gate.json` PASS. В notes: ≥5× `accessed_at: YYYY-MM-DD`, pain_map строки с pain|solution|result|боль|решение|результат, литерал `prefer_sources_after`, секция `github_evidence` (для авто-тем AVTO SALES без обязательных github.com URL). Подробности — skill «Контракт research_notes_gate».
+
 ## Skill
 
 `skills/excalibur-research/SKILL.md` · `shared/editorial-utility-only.md`

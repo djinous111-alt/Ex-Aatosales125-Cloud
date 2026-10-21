@@ -52,6 +52,8 @@
   "recommendation_markers_ru": [
     "сделайте",
     "не делайте",
+    "делать",
+    "не делать",
     "шаг ",
     "проверьте",
     "используйте",
@@ -60,8 +62,39 @@
     "избегайте",
     "ориентир",
     "чеклист",
+    "чек-лист",
     "workflow"
   ],
+  "pain_markers_ru": [
+    "боль",
+    "проблем",
+    "ошиб",
+    "ломает",
+    "не работает",
+    "теряет",
+    "дорого",
+    "долго",
+    "рутин",
+    "хаос",
+    "застр",
+    "сложно"
+  ],
+  "outcome_markers_ru": [
+    "результат",
+    "получите",
+    "сможете",
+    "сэконом",
+    "проверьте",
+    "запустите",
+    "соберите",
+    "настройте",
+    "исправьте",
+    "выберите"
+  ],
+  "article_required_signals_notes": {
+    "pain_outcome_markers": "Synced with scripts/excalibur_blog_human_voice_gate.py PAIN_MARKERS / OUTCOME_MARKERS so utility gate does not always BLOCK when lists were missing.",
+    "recommendation_markers": "Includes делать/не делать/чек-лист to match shared/excalibur-article-writing-contract.md H2 recommendations."
+  },
   "water_phrases_ru": [
     "в современном мире",
     "давайте разбер",

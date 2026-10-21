@@ -1,0 +1,44 @@
+{
+  "topic_id": "B01",
+  "slug": "kia-sorento-iz-korei-komplektatsii-lovushki-2026",
+  "title": "Как выбрать Kia Sorento из Кореи: дизель, гибрид и ловушки до депозита",
+  "h1": "Как выбрать Kia Sorento из Кореи: дизель, гибрид и ловушки до депозита",
+  "description": "Киа Соренто из Кореи: бриф семьи, дизель/гибрид/2.5T, Prestige–X-Line, 5/6/7 мест и чек-лист из 12 пунктов до депозита. Расчёт – в каталоге.",
+  "cover_alt": "Герой Авто-Сейлс у семейного Kia Sorento со смартфоном и карточкой Encar, плашка до депозита, Владивосток",
+  "primary_query": "киа соренто из кореи",
+  "secondary_queries": [
+    "киа соренто комплектации",
+    "киа соренто гибрид",
+    "купить киа соренто из кореи",
+    "киа соренто дизель из кореи"
+  ],
+  "char_count": 9268,
+  "article_mode": "B",
+  "author_id": "avtosales-editorial",
+  "anchor_variants": [
+    "как выбрать Kia Sorento из Кореи до депозита",
+    "чек-лист комплектаций Sorento с Encar",
+    "дизель или гибрид Sorento под заказ из Кореи"
+  ],
+  "meta_ab": {
+    "title_seo": "Киа Соренто из Кореи: комплектации и ловушки до депозита",
+    "title_ctr": "🚗 Киа Соренто из Кореи: какая комплектация и мотор не сольют депозит?",
+    "title_aeo": "Как выбрать Kia Sorento из Кореи: дизель, гибрид или 2.5T до депозита?",
+    "description_seo": "Киа Соренто из Кореи: бриф семьи, дизель/гибрид/2.5T, Prestige–X-Line, 5/6/7 мест и чек-лист из 12 пунктов до депозита. Расчёт – в каталоге.",
+    "description_ctr": "⚡ Сначала бриф, потом лот. Gravity = X-Line, гибрид ≠ автольгота. 12 пунктов Trust Encar/Carhistory до любого перевода.",
+    "description_aeo": "Kia Sorento из Кореи выбирают по брифу семьи: мотор, места, 2WD/4WD, минимум Prestige–X-Line и отчёты до депозита. Готовые суммы утиля в статье не публикуем."
+  },
+  "geo_qa": {
+    "score": 88,
+    "verdict": "PASS",
+    "date": "2026-10-21",
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility_gate": "PASS",
+    "research_notes_gate": "PASS",
+    "link_verify": "PASS"
+  },
+  "cover_family": "brand_collage"
+}

@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-kia-sorento-iz-korei-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1274,
+      713
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 713,
+        "end": 759
+      },
+      "v_gutter_px": {
+        "start": 1274,
+        "end": 1317
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1274,
+          "bottom": 713
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1274,
+          "bottom": 713
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у семейного Kia Sorento со смартфоном и карточкой Encar, плашка до депозита, Владивосток",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1317,
+          "top": 7,
+          "right": 2560,
+          "bottom": 706
+        },
+        "raw_box_px": {
+          "left": 1317,
+          "top": 0,
+          "right": 2560,
+          "bottom": 713
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап брифа семьи: мотор, места, привод и минимум комплектации до поиска на Encar",
+        "h2_anchor": "Составьте бриф семьи до поиска на Encar"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 31,
+          "top": 759,
+          "right": 1242,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 759,
+          "right": 1274,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения дизель 2.2, гибрид 1.6 и 2.5T для Kia Sorento из Кореи",
+        "h2_anchor": "Выберите мотор: дизель 2.2, гибрид 1.6 или 2.5T"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1333,
+          "top": 759,
+          "right": 2544,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1317,
+          "top": 759,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема комплектаций Prestige–X-Line для Kia Sorento: минимум trim до депозита",
+        "h2_anchor": "Зафиксируйте минимум комплектации Prestige–X-Line"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Составьте бриф семьи до поиска на Encar",
+    "injected inline_2 after H2 — Выберите мотор: дизель 2.2, гибрид 1.6 или 2.5T",
+    "injected inline_3 after H2 — Зафиксируйте минимум комплектации Prestige–X-Line"
+  ]
+}

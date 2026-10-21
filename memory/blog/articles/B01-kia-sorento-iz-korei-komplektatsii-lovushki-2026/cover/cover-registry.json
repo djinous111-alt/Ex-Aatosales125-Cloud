@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "kia-sorento-iz-korei-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у семейного Kia Sorento со смартфоном и карточкой Encar, плашка до депозита, Владивосток",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-21T13:27:33+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у семейного Kia Sorento со смартфоном и карточкой Encar, плашка до депозита, Владивосток",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Мокап брифа семьи: мотор, места, привод и минимум комплектации до поиска на Encar",
+      "h2_anchor": "Составьте бриф семьи до поиска на Encar",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица сравнения дизель 2.2, гибрид 1.6 и 2.5T для Kia Sorento из Кореи",
+      "h2_anchor": "Выберите мотор: дизель 2.2, гибрид 1.6 или 2.5T",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема комплектаций Prestige–X-Line для Kia Sorento: минимум trim до депозита",
+      "h2_anchor": "Зафиксируйте минимум комплектации Prestige–X-Line",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

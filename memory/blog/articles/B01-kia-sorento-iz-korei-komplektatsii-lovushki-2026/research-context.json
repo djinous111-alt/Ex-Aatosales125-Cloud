@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-21",
+    "today_ru": "21.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-23",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-21 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "kia-sorento-iz-korei-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Kia Sorento из Кореи: дизель, гибрид и ловушки до депозита",
+    "primary_query": "киа соренто из кореи",
+    "secondary_queries": [
+      "киа соренто комплектации",
+      "киа соренто гибрид",
+      "купить киа соренто из кореи",
+      "киа соренто дизель из кореи"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "киа соренто из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "киа соренто из кореи октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "киа соренто из кореи новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com киа соренто из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "киа соренто из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "киа соренто из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "киа соренто комплектации 2026",
+      "purpose": "вторичный запрос: киа соренто комплектации"
+    },
+    {
+      "id": "secondary_2",
+      "query": "киа соренто гибрид 2026",
+      "purpose": "вторичный запрос: киа соренто гибрид"
+    },
+    {
+      "id": "secondary_3",
+      "query": "купить киа соренто из кореи 2026",
+      "purpose": "вторичный запрос: купить киа соренто из кореи"
+    },
+    {
+      "id": "secondary_4",
+      "query": "киа соренто дизель из кореи 2026",
+      "purpose": "вторичный запрос: киа соренто дизель из кореи"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать Kia Sorento из Кореи: дизель, гибрид и ловушки до депозита 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-kia-sorento-iz-korei-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

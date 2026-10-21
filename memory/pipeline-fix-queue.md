@@ -495,6 +495,43 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261021-1732-publish-paramiko-missing
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-carnival-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- First live publish attempt failed immediately with `ModuleNotFoundError: no module named 'paramiko'`.
+- Cloud image/python env is externally managed (PEP 668); plain `pip3 install paramiko` is blocked.
+- `memory/site.env.local` was absent; publish relied on Cloud Secrets already exported into the process env (worked, but diverges from skill precondition path).
+
+### How the agent recovered this run
+- Installed paramiko with `pip3 install --break-system-packages paramiko` (got 5.1.0).
+- Re-ran publish with `SSH_ROOT=.`; SSH upload + HTTP trigger succeeded without WebFetch fallback.
+- WP post 4418 published; featured 4419; inline 4420–4422; schema_meta ok; HEAD 200.
+
+### Durable fix needed before next run
+- Ensure `paramiko` is installed in the Cloud Agent environment image / `.cursor/environment.json` install script / `requirements.txt` install step so publish does not depend on ad-hoc pip.
+- Optionally create `memory/site.env.local` from secrets at preflight (without committing) or document that Cloud Secrets env alone is enough when the file is missing.
+- Keep default guidance `SSH_ROOT=.` for this host.
+
+### Suggested files to inspect/change
+- `requirements.txt` (already lists paramiko — verify install step)
+- `.cursor/environment.json`
+- `scripts/excalibur_blog_doctor.py` (preflight check for paramiko import)
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

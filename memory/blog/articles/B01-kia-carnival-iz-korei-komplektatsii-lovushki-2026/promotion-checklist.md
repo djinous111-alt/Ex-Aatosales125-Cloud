@@ -1,7 +1,7 @@
 # Promotion checklist — B01 kia-carnival-iz-korei-komplektatsii-lovushki-2026
 
-Дата публикации: (после publish)  
-Live URL: /blog/kia-carnival-iz-korei-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-21
+Live URL: [REDACTED]/2026/10/21/kia-carnival-iz-korei-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Carnival 2026 на дизеле? Сверь мотор до депозита
 • До денег: год, топливо, trim, 7/9 мест, VIN + Carhistory
 • Prestige / Signature / X-Line — про семью, не про «самое дорогое слово»
 
-Читать: /blog/kia-carnival-iz-korei-komplektatsii-lovushki-2026/
+Читать: [REDACTED]/2026/10/21/kia-carnival-iz-korei-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка
@@ -48,4 +48,4 @@ Carnival 2026 на дизеле? Сверь мотор до депозита
 - Indexer: `python3 scripts/excalibur_blog_interlinker.py --apply --article-dir memory/blog/articles/B01-kia-carnival-iz-korei-komplektatsii-lovushki-2026 --site-base $PUBLIC_SITE_URL` → interlink_count=0, targets=[].
 - llms: `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (без `--blog-path`; doctor/skill stale).
 - llms.txt / llms-full.txt обновлены в `memory/blog/`; B01 в индексе.
-- Publish: не запускался (зона Indexer).
+- Publish: PASS post_id=4418; featured=4419; inline=4420,4421,4422; HEAD 200.

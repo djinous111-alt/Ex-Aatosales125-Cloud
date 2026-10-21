@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-2115-research-tech-marker-false-positive
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-chitat-aukcionnyj-list-yaponiya-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` пометил how_to тему про аукционный лист как `technical_topic=true`.
+- Сработал substring-маркер `ai` внутри обязательного поля `reader_pain` (и дополнительно `ии` в обычных русских словах вроде "комментарии").
+- Из-за ложного technical флага gate потребовал `github_urls >= 3` для нетехнической авто-темы; первый прогон получил BLOCK.
+
+### How the agent recovered this run
+- Добавил третий смежный GitHub/gist URL в `github_evidence` (Yahoo JP scrapers как community signal, не как OSS decoder USS).
+- Убрал англ. `airbag` из notes (лишний риск по маркеру `ai`).
+- Повторный gate: PASS (warning про official docs остаётся косметическим).
+
+### Durable fix needed before next run
+- В `is_technical_topic` использовать word-boundary / токены, а не `marker in blob` для коротких маркеров (`ai`, `ии`, `rag`, `make`, `api`).
+- Исключить имена обязательных полей research-notes (`reader_pain`, `github_evidence`) из проверки маркеров.
+- Либо не требовать GitHub evidence для non-dev ниш (автоимпорт), даже если technical_topic сработал ложно.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261022-2105-scout-missing-wp-denylist
 status: open
 run_date: 2026-10-22

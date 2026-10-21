@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261021-1311-research-notes-gate-format
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-sorento-iz-korei-komplektatsii-lovushki-2026
+severity: low
+category: docs
+
+### What went wrong
+- Первый прогон `excalibur_blog_research_notes_gate.py` дал BLOCK: `accessed_at` в колонке таблицы без суффикса `:` не считался; строки `pain_solution_map` без слов pain/solution/result в ячейках считались «тонкими».
+- Слово `github` в notes включает `technical_topic` и требует ≥3 github.com URL даже для авто-темы.
+
+### How the agent recovered this run
+- Перевёл даты в ячейки вида `accessed_at: 2026-10-21`; префиксы `pain:` / `solution:` / `result:` в строках карты.
+- Добавил 3 релевантных Encar GitHub URL + docs URL; повторный gate → PASS без warnings.
+
+### Durable fix needed before next run
+- В research skill/agent явно описать контракт gate: минимум 5 вхождений `accessed_at:`, в каждой строке pain_map слова pain|solution|result|боль|решение|результат, литерал `prefer_sources_after` даты, и что `github_evidence` заголовок триггерит technical_topic.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `scripts/excalibur_blog_research_notes_gate.py` (опционально: считать колонку accessed_at без двоеточия)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261021-1304-scout-missing-wp-denylist
 status: open
 run_date: 2026-10-21

@@ -6,6 +6,73 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261021-0920-cover-kie-http-ref-500
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- First Kie `gpt-image-2-image-to-image` job with `http://avtosales125.ru/...` reference failed: `failCode=500 Internal Error` after `waiting`.
+- Same batch with `https://` reference succeeded on one retry (task_id `34f7db59c1533ada04a8cd18c3b97057`).
+
+### How the agent recovered this run
+- Rewrote `jobs[0].mcp_args.input_urls[0]` to https and re-ran `excalibur_blog_kie_gpt_image2_api.py` once.
+- Split/apply PASS; no second generation after success.
+
+### Durable fix needed before next run
+- Prefer https WordPress media URL in `blog-hero.json` / `hero_reference_url.py` output.
+- Document Kie i2i: http reference → 500 risk; retry once with https before blocker.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `memory/cover/blog-hero.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261021-0917-cover-seo-stub-hoodie-defaults
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_quad_manifest.py --merge` still seeded SEO/Wordstat/hoodie stubs (`SEO-текст…`, `Wordstat + ноутбук`, `худи`) for automotive B01 Alphard.
+- `excalibur_blog_cover_quad_prompt.py` still hardcoded `Outfit lock: thick heavyweight white hoodie` despite prior softshell incidents.
+
+### How the agent recovered this run
+- Manually rewrote `cover/quad-manifest.json` for Alphard (port/minivan, softshell/crewneck, non-toxic captions) before prompt builder.
+- Patched generated prompt/batch outfit lock to charcoal softshell + cream crewneck.
+- Applied durable defaults in both scripts this run (softshell lock; auto-topic scene/hook hints without SEO stub).
+
+### Durable fix needed before next run
+- Keep softshell/crewneck as canonical outfit lock; add `validate_outfit_lock()` reject for hoodie.
+- Manifest defaults must not inject SEO primer stubs for auto topics; agent rewrite of cover_hook/scene remains required after `--merge`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-2105-scout-missing-wp-denylist
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- На ветке отсутствует `shared/wp-slug-denylist.json`, хотя scout обязан сверять slug с denylist перед append карточки.
+- `EXCALIBUR_RECENT_WP_POSTS` в env не задан.
+- WordPress MCP (`wordpress_get_posts` / `wordpress_search_posts`) вернул чужой блог (записи про таможню/СБКТС на другом хосте), а не live AVTO SALES с известными post id 4418/4412/4400/… – автоматическая сверка slug через MCP на этом run недостоверна.
+
+### How the agent recovered this run
+- Сверил кандидат slug `kak-chitat-aukcionnyj-list-yaponiya-2026` вручную с republish-запретом из Director handoff и user prompt (Carnival/Sorento/Alphard/Mohave/K3/Avante/Santa Fe/Tucson/utilsbor/rastamozhit-korea/Seltos/Sportage/AS08/AS09).
+- Проверил ledger `shared/published-articles.md` (только AS08/AS09) и пул `memory/topics/blog-topics.md` (AS01–AS09 без пересечения с аукционным листом).
+- Запустил `excalibur_blog_scout_helper.py --check-query` до append – NO OVERLAP; после append exact match на B01 ожидаем.
+- Карточку B01 добавил; `excalibur_blog_utility_gate.py --topic-id B01` → PASS.
+
+### Durable fix needed before next run
+- Восстановить или заново сгенерировать `shared/wp-slug-denylist.json` из live AVTO SALES WP slugs (включая известные republish-запреты).
+- Починить WordPress MCP credentials/base URL на блог Авто-Сейлс, либо документировать fallback: ручной denylist + `EXCALIBUR_RECENT_WP_POSTS` когда MCP указывает на другой сайт.
+- Добавить в scout helper `--check-slug` против denylist + recent WP list.
+
+### Suggested files to inspect/change
+- `shared/wp-slug-denylist.json` (создать)
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Dashboard MCP / WP base URL secrets (значения не записывать)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

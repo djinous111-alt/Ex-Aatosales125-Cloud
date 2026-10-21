@@ -113,7 +113,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir memory/blog/articles/B01-...`
 - `python3 scripts/excalibur_blog_link_verify.py ...` (PASS 2/2)
-commit: 53daf069 / docs-pending
+commit: 53daf069..815f8677
 
 ## INC-20261021-1317-writer-pre-commit-hook-redacted
 status: fixed

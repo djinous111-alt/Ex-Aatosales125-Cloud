@@ -37,7 +37,7 @@ category: docs
 
 ### Fixer resolution
 - pending
-
+commit: 53daf069..0cfe9399
 
 ## INC-20261021-1320-geo-qa-typed-task-missing
 status: fixed
@@ -68,6 +68,7 @@ category: env
 
 ### Fixer resolution
 - pending
+commit: 53daf069..0cfe9399
 
 ## INC-20261021-1320-geo-qa-utility-pain-outcome-empty
 status: fixed
@@ -144,6 +145,7 @@ category: env
 
 ### Fixer resolution
 - pending
+commit: 53daf069..0cfe9399
 
 ## INC-20261021-1311-research-notes-gate-format
 status: fixed
@@ -175,7 +177,7 @@ category: docs
 
 ### Fixer resolution
 - pending
-
+commit: 53daf069..0cfe9399
 
 ## INC-20261021-1304-scout-missing-wp-denylist
 status: fixed
@@ -209,6 +211,7 @@ category: docs
 
 ### Fixer resolution
 - pending
+commit: 53daf069..0cfe9399
 
 ## INC-20261021-1303-director-doctor-blog-path
 status: fixed
@@ -246,6 +249,7 @@ category: script
 
 ### Fixer resolution
 - pending
+commit: 53daf069..0cfe9399
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -521,6 +525,7 @@ category: script
 
 ### Fixer resolution
 - pending
+commit: 53daf069..0cfe9399
 
 ## INC-20261021-1326-cover-hoodie-outfit-lock
 status: fixed
@@ -553,3 +558,4 @@ category: script
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+commit: 53daf069..0cfe9399

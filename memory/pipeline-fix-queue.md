@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261021-1716-geo-qa-utility-policy-marker-drift
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-carnival-iz-korei-komplektatsii-lovushki-2026
+severity: high
+category: qa
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требовал `min_pain_markers`/`min_outcome_markers` (defaults 2/3), но в `memory/brief/editorial-policy.json` не было `pain_markers_ru` / `outcome_markers_ru` → count всегда 0 → BLOCK на любой статье (регрессия подтверждена на AS09).
+- B01 отдельно валился по `action_markers` 6 < 8: в тексте «Делать/Не делать» и «чек-лист», тогда как policy ждал «сделайте/не делайте» и точные recommendation-токены.
+
+### How the agent recovered this run
+- Добавил в policy `pain_markers_ru` / `outcome_markers_ru` (синхрон с human-voice) + `чек-лист` в recommendation; явные `min_pain_markers`/`min_outcome_markers`.
+- В скрипте: enforce pain/outcome только если списки непустые.
+- Перезапуск utility: pain/outcome PASS; остаётся writer FIX по action_markers.
+- Статью не правил; `article-qa.md` = FIX; cover/schema не запускал.
+
+### Durable fix needed before next run
+- Fixer: подтвердить sync policy↔human-voice; writer skill явно требовать recommendation-маркеры policy (≥8), не только «Делать/Не делать».
+- Pitfalls QA уже дополнен одной строкой про marker drift.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261021-1715-research-notes-gate-format-quirks
 status: open
 run_date: 2026-10-21

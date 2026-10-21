@@ -1,0 +1,31 @@
+{
+  "article": "memory/blog/articles/B01-kak-chitat-aukcionnyj-list-yaponiya-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 3,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 2,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "жен вердикт по пяти зонам, а не восторг от 4.5. В 2026 под заказ из Японии через Владивосток лист по-преж",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2018",
+      "kind": "date_or_year",
+      "context": "а практике год часто пишут эпохой: Reiwa (R) – от 2018, Heisei (H) – от 1988. Ошибка года бьёт по возрас",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1988",
+      "kind": "date_or_year",
+      "context": "ишут эпохой: Reiwa (R) – от 2018, Heisei (H) – от 1988. Ошибка года бьёт по возрастной ступени на таможн",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

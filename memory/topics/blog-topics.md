@@ -184,3 +184,28 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Kia Sorento из Кореи: комплектации и ловушки
+
+- **priority:** P0
+- **slug:** kia-sorento-iz-korei-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Kia Sorento из Кореи: дизель, гибрид и ловушки до депозита
+- **primary_query:** киа соренто из кореи
+- **secondary_queries:** киа соренто комплектации, киа соренто гибрид, купить киа соренто из кореи, киа соренто дизель из кореи
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Для кого Sorento из Кореи в 2026 и чем он отличается от Sportage/Santa Fe
+  2. Дизель 2.2, бензин 2.5T и гибрид 1.6: что смотреть до ставки, без готовых сумм
+  3. Комплектации Prestige / Noblesse / Signature / X-Line: какие опции реально нужны семье
+  4. 5, 6 или 7 мест и привод 2WD/4WD: как не купить «не ту» версию
+  5. Красные флаги Encar до депозита: пробег, страховая история, такси/каршеринг, мощность под утиль
+  6. Чек-лист из 12 пунктов перед переводом депозита
+- **faq_hints:** чем дизель Sorento отличается от гибрида при ввозе; какие комплектации чаще берут под заказ; что проверить в Encar до депозита; 6 или 7 мест что выбрать
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у современного Kia Sorento (семейный SUV), смартфон с карточкой Encar, порт Владивостока или дождливый двор, плашка «до депозита», угол avto-sales125.ru
+- **wordstat_signal:** parent «киа соренто» ~435693; узкий «киа соренто из кореи» ~892 (хвост: купить/дизель/гибрид/под заказ); «киа соренто комплектации» ~2122; «киа соренто гибрид» ~2900; «как выбрать киа соренто» totalCount-only 25 (low-result, не fatal)
+- **anti_cannibalization:** не пересекается с AS01–AS09 primary_query; slug вне recent WP (нет Sorento/соренто на live); WP search пусто

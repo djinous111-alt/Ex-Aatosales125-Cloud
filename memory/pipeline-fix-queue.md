@@ -6,6 +6,76 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261021-1304-scout-missing-wp-denylist
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- `shared/wp-slug-denylist.json` отсутствует на ветке; scout не может вызвать `--check-slug` / machine denylist.
+- Связано с открытым `INC-20261021-1303-director-doctor-blog-path` (там же отмечен missing denylist).
+
+### How the agent recovered this run
+- Сверил кандидат-slug вручную с `EXCALIBUR_RECENT_WP_POSTS` из today.py, ledger `shared/published-articles.md` и WP search (`Sorento`/`соренто` = пусто).
+- `--check-query` для primary_query прошёл без CRITICAL overlap.
+- Append карточки B01 не блокировал.
+
+### Durable fix needed before next run
+- Восстановить `shared/wp-slug-denylist.json` из recent WP slugs + ledger (Alphard, Mohave, K3, Avante, Santa Fe, Tucson, utilzbor, rastamozhka Korea/China, Seltos, Sportage, K5, AS08/AS09 и др.).
+- Добавить scout helper `--check-slug` и упоминание denylist в scout skill/agent.
+
+### Suggested files to inspect/change
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261021-1303-director-doctor-blog-path
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-director
+topic_id: n/a
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `python3 scripts/excalibur_blog_doctor.py` FAIL: expects llms generator `--blog-path`, but `scripts/excalibur_blog_llms_generator.py` only exposes `--blog-dir` / `--out-dir`.
+- Automation memory from prior Alphard fixer claimed doctor was aligned to `--blog-dir`, but this branch still has the stale check at `scripts/excalibur_blog_doctor.py:135`.
+- `shared/wp-slug-denylist.json` missing on this branch (prior runs relied on it for scout `--check-slug` / anti-republish).
+
+### How the agent recovered this run
+- Continued pipeline with scout → research; doctor FAIL treated as non-blocking for research_start.
+- Will route to fixer after PIPELINE DONE.
+
+### Durable fix needed before next run
+- Update doctor check to `--blog-dir` (and optionally accept legacy alias).
+- Restore or regenerate `shared/wp-slug-denylist.json` from recent WP slugs + ledger.
+- Align scout skill/agent niche text with `memory/brief/site-brief.md` (AVTO SALES), not AI/automation template leftovers.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `shared/wp-slug-denylist.json`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

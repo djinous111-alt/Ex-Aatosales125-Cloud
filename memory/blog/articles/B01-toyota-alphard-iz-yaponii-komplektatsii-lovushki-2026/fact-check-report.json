@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/B01-toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "ья из Хабаровска уже перевела задаток за \"Alphard 2025 с USS Tokyo\": салон красивый, оценка 4.5. Через не",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "ой вывоз из Японии в РФ для таких машин с августа 2023 закрыт. Боль новичка здесь простая: отдать деньги,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026 года",
+      "kind": "date_or_year",
+      "context": "и поля на листе, не красоту решётки. Часть статей 2026 года публикует ставки \"под ключ из Японии\" и игнорируе",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "2015",
+      "kind": "date_or_year",
+      "context": "о двадцать третий год\". Что смотреть Кузов 30 (с ~2015) Кузов 40 (с ~2023) Типичные коды AGH30, GGH30, A",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "Autonews; FAQ METI, обновление страницы в октябре 2026), материалами Toyota по комплектациям Alphard, га",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "140",
+      "kind": "large_number",
+      "context": "wer ottoman (подставка под ноги, у Toyota порядка 140 мм), опции экранов. На 40-м часто сравнивают Z и E",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    }
+  ]
+}

@@ -31,6 +31,10 @@
 
 ## QA
 
+- Utility gate: в `editorial-policy.json` обязательны `pain_markers_ru` и `outcome_markers_ru`; пустые списки раньше давали вечный BLOCK (см. INC-20261021-0914).
+- GEO QA перед link-verify hydrates CTA `[REDACTED]` из `PUBLIC_SITE_URL` и `TELEGRAM_URL`.
+- Инсайт-блок не должен начинаться с `TL;DR` или `Быстрый инсайт`.
+
 - Шаг cover||schema **только после** GEO QA PASS.
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.

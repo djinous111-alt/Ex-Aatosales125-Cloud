@@ -378,3 +378,33 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261021-0912-writer-precommit-redacted-secret-name
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Writer `git commit` hit the same `pre-commit.cursor` crash as research: `invalid variable name` when `CLOUD_AGENT_INJECTED_SECRET_NAMES` includes literal `[REDACTED]` (not a bash identifier). Related: INC-20261021-0920.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to `str.isidentifier()` names in the commit shell; hook scanned remaining secrets; commit `2a6b6b97` succeeded with CTA `[REDACTED]` placeholders intact in article HTML.
+
+### Durable fix needed before next run
+- Same as INC-20261021-0920: platform must not inject placeholder `[REDACTED]` into secret-name list; hook should skip non-identifier names.
+- Optional: document writer commit workaround in `shared/agent-pipeline-pitfalls.md` and writer skill until hook is hardened.
+
+### Suggested files to inspect/change
+- Cloud Secrets / agent injection for `CLOUD_AGENT_INJECTED_SECRET_NAMES`
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (vendor) or local wrapper
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

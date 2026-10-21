@@ -9,6 +9,23 @@ description: Excalibur BLOG GEO QA — fact-check, link verify, linter, slop, ca
 
 После `article.html` + `article.meta.json` от Writer. **До** cover/schema (их делает директор параллельно после PASS).
 
+## Cloud Task
+
+Typed Task `excalibur-blog-geo-qa` часто **отсутствует** в Cloud API. Канон Director:
+
+```text
+Task(generalPurpose):
+  прочитай .cursor/agents/excalibur-blog-geo-qa.md
+  + .cursor/skills/excalibur-geo-qa/SKILL.md
+  → article-qa.md verdict PASS + блок === EXCALIBUR BLOG GEO QA ===
+```
+
+Это не blocker. Если недоступен даже `generalPurpose` — см. `AGENTS.md`.
+
+## Utility markers
+
+`excalibur_blog_utility_gate.py` читает `pain_markers_ru` / `outcome_markers_ru` / `recommendation_markers_ru` из `memory/brief/editorial-policy.json`. Списки должны совпадать с human-voice маркерами; пустые pain/outcome + default mins = вечный BLOCK. При FIX по `action_markers` — Writer добавляет imperative-формы (≥8), не только «Делать/Не делать».
+
 ## Скрипты (обязательно)
 
 ```bash

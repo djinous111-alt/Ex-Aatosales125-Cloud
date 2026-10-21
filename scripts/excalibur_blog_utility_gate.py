@@ -185,22 +185,19 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     if marker_count < min_rec:
         errors.append(f"мало action-маркеров в тексте: {marker_count} < {min_rec}")
 
-    # Enforce pain/outcome only when policy lists are non-empty.
-    # Empty lists + default mins previously blocked every article (policy/script drift).
     pain_markers = policy.get("pain_markers_ru") or []
     outcome_markers = policy.get("outcome_markers_ru") or []
-    pain_count = count_markers(plain, pain_markers) if pain_markers else 0
-    outcome_count = count_markers(plain, outcome_markers) if outcome_markers else 0
+    pain_count = count_markers(plain, pain_markers)
+    outcome_count = count_markers(plain, outcome_markers)
 
-    if pain_markers:
-        min_pain = int(req.get("min_pain_markers") or 2)
-        if pain_count < min_pain:
-            errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
+    # Only enforce mins when marker lists exist in policy (empty list → always 0 → false BLOCK).
+    min_pain = int(req.get("min_pain_markers") or 2)
+    if pain_markers and pain_count < min_pain:
+        errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
 
-    if outcome_markers:
-        min_outcome = int(req.get("min_outcome_markers") or 3)
-        if outcome_count < min_outcome:
-            errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
+    min_outcome = int(req.get("min_outcome_markers") or 3)
+    if outcome_markers and outcome_count < min_outcome:
+        errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
 
     if req.get("requires_workflow_or_table_or_checklist"):
         has_utility_block = bool(tables or blockquotes or ul_lists >= 2 or "→" in html)

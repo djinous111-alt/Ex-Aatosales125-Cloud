@@ -35,8 +35,6 @@
     "min_actionable_h2": 3,
     "min_faq_pairs": 5,
     "min_recommendation_markers": 8,
-    "min_pain_markers": 2,
-    "min_outcome_markers": 3,
     "requires_workflow_or_table_or_checklist": true
   },
   "meta_ab_rules": {
@@ -54,6 +52,8 @@
   "recommendation_markers_ru": [
     "сделайте",
     "не делайте",
+    "делать",
+    "не делать",
     "шаг ",
     "проверьте",
     "используйте",
@@ -91,6 +91,10 @@
     "исправьте",
     "выберите"
   ],
+  "article_required_signals_notes": {
+    "pain_outcome_markers": "Synced with scripts/excalibur_blog_human_voice_gate.py PAIN_MARKERS / OUTCOME_MARKERS so utility gate does not always BLOCK when lists were missing.",
+    "recommendation_markers": "Includes делать/не делать/чек-лист to match shared/excalibur-article-writing-contract.md H2 recommendations."
+  },
   "water_phrases_ru": [
     "в современном мире",
     "давайте разбер",

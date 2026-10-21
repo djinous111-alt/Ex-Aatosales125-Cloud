@@ -60,7 +60,17 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 4. Извлеки минимум 10–15 проверенных фактов (цифр/утверждений) с точными URL источников из твоего интернет-поиска.
 5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.
 6. Не копировать структуру конкурента 1:1.
-7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
+7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного покупателя авто без опыта импорта. Если угол только для профи-перекупа без первого безопасного шага — research blocker.
+
+## Контракт `research_notes_gate` (обязательно до PASS)
+
+Gate: `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir <dir> -o research-notes-gate.json`
+
+- Минимум **5** вхождений `accessed_at:` (ячейки вида `accessed_at: YYYY-MM-DD`; одного заголовка колонки мало).
+- В каждой строке `pain_solution_map` должны быть слова `pain|solution|result|боль|решение|результат` (удобно префиксы `pain:` / `solution:` / `result:`).
+- В notes должен быть литерал даты `prefer_sources_after` из `research-context.json` → freshness window.
+- Секция `## github_evidence` обязательна по структуре; для авто-тем AVTO SALES **не** требуется ≥3 github.com URL. Tech-режим включается только маркерами ai/mcp/n8n/… по **границам слова** (substring `ии` внутри «японии» / `ai` внутри `reader_pain` больше не ломает gate). Проверка: `python3 scripts/excalibur_blog_research_notes_gate.py --self-test`.
+- `utility_verdict: PASS`, `research_date` = `today_iso`, ≥8 URL / ≥5 доменов, Wordstat-секция, `action_outline` ≥5 пунктов.
 
 ## Blockers
 

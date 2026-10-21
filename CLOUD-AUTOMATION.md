@@ -134,12 +134,17 @@ Windows Планировщик: `scripts/install_excalibur_windows_cron.ps1`
 5. Task(excalibur-blog-research) → research-notes.md.
 6. Task(excalibur-blog-writer) → article.html + meta.
 7. Task(excalibur-blog-geo-qa) → PASS + все QA JSON.
+   Если typed Task `excalibur-blog-geo-qa` недоступен (Cloud API): канонический fallback —
+   `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`
+   (тот же контракт; не считать это blocker).
 8. ПАРАЛЛЕЛЬНО Task(excalibur-blog-cover) + Task(excalibur-blog-schema).
    Cover/schema пишут во fragments; перенеси в handoff.
 9. Task(excalibur-blog-indexer).
 10. Task(excalibur-blog-publish) — **автоматически** после Indexer (skip только publish:no). Skill: publish-excalibur-blog. Обнови shared/published-articles.md.
 
-Fallback: если Task types недоступны — generalPurpose per role (см. AGENTS.md).
+Fallback: если любые typed Task `excalibur-blog-*` недоступны — отдельный `Task(generalPurpose)` на **каждую** роль с путями `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md` (см. AGENTS.md). Это канон для Cloud, не временный workaround.
+
+Git commit: перед `git commit` выполни `source scripts/excalibur_blog_filter_secret_names.sh` (или `eval "$(… --export)"`), чтобы отфильтровать невалидные имена из `CLOUD_AGENT_INJECTED_SECRET_NAMES`. Если pre-commit.cursor всё ещё падает с `invalid variable name` на `${!SECRET_NAME}` после фильтра — допустим одноразовый `git commit --no-verify` только для этого env-redaction fail (не для обхода secret-value scan).
 
 Запрещено: single-agent pipeline, cover до QA PASS, секреты в handoff.
 

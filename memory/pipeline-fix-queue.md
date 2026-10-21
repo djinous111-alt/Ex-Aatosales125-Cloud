@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None — Carnival B01 fixer pass closed all current-run opens._
+
+## Recently fixed (this run)
+
 ## INC-20261021-1729-indexer-llms-stale-blog-path
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-indexer
 topic_id: B01
@@ -41,10 +45,27 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Doctor checks `--blog-dir`/`--out-dir` and warns if stale `--blog-path` remains in `--help`.
+- Indexer skill/agent (repo + `.cursor`) document `--blog-dir` + `--out-dir` only.
+- Pitfalls: llms flags без `--blog-path`.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 warnings=0
+- `python3 scripts/excalibur_blog_llms_generator.py --help` shows `--blog-dir`/`--out-dir`
+- `rg` no `--blog-path` in indexer skills
+commit: pending-parent-commit
 
 ## INC-20261021-1721-cover-mcp-32001-kie-fallback
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-cover
 topic_id: B01
@@ -73,11 +94,27 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Cover skill/agent: Cloud primary path = Kie async `excalibur_blog_kie_gpt_image2_api.py`; sync MCP gpt-image-2 = legacy fallback.
+- Documented `-32001` recovery: no duplicate job → log URL/task_id or Kie; timeout_policy in batch retained.
+- Pitfalls Cover section updated.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `scripts/excalibur_blog_cover_quad_prompt.py` (timeout_policy / preferred_image_flow)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+- `rg` Kie primary / 32001 guidance in cover skill
+commit: pending-parent-commit
 
 
 ## INC-20261021-1720-cover-prompt-hoodie-lock-vs-niche
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-cover
 topic_id: B01
@@ -104,11 +141,27 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Prompt builder outfit lock → charcoal softshell + cream crewneck (NO hoodie); `validate_outfit_lock` rejects hoodie stubs.
+- `quad_manifest --merge` defaults/scene hints AVTO SALES (no SEO/hoodie stubs); banned stub rewrite.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile` cover prompt + quad_manifest
+- outfit_lock validator smoke (hoodie FAIL / softshell PASS)
+commit: pending-parent-commit
 
 
 ## INC-20261021-1716-geo-qa-utility-policy-marker-drift
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -140,10 +193,29 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Confirmed `editorial-policy.json` has pain/outcome/recommendation markers + mins; utility_gate enforces pain/outcome only when lists non-empty.
+- Writer skill requires imperative recommendation_markers_ru ≥8 (not only «Делать/Не делать»).
+- GEO QA skill documents typed-task missing → `Task(generalPurpose)` fallback + marker sync note.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- JSON parse editorial-policy.json
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
+commit: pending-parent-commit
 
 ## INC-20261021-1715-research-notes-gate-format-quirks
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-research
 topic_id: B01
@@ -177,10 +249,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- TECH_MARKERS match on word boundaries (no reader_pain/`японии` false positive).
+- accessed_at: prefer `accessed_at:` cells; ISO dates in source_table fallback when column present.
+- Research skill/agent document quirks; `--self-test` added.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `agents/excalibur-blog-research.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_research_notes_gate.py --self-test` PASS
+commit: pending-parent-commit
 
 ## INC-20261021-1704-scout-git-hooks-invalid-secret-name
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-scout
 topic_id: B01
@@ -212,10 +299,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Restored `scripts/excalibur_blog_filter_secret_names.sh` (keep only `[A-Za-z_][A-Za-z0-9_]*` names).
+- Pitfalls + doctor check for script presence; CLOUD_AUTOMATION note.
+- Platform Dashboard still should rename invalid secret names (human if needed) — repo side hardened.
+files_changed:
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `CLOUD-AUTOMATION.md`
+checks_run:
+- doctor OK filter_secret_names.sh exists
+- `bash scripts/excalibur_blog_filter_secret_names.sh --export` runs
+commit: pending-parent-commit
 
 ## INC-20261021-1702-scout-missing-wp-denylist
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-scout
 topic_id: B01
@@ -248,7 +349,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- Restored `shared/wp-slug-denylist.json` (116 slugs) incl. Carnival 4418 + Sorento/Alphard/Mohave/… do-not-rewrite ids.
+- Scout helper `--check-slug` / `--suggest-next` reads denylist; missing file = blocker.
+- Scout skill/agent AVTO SALES + denylist required.
+files_changed:
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_scout_helper.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `--check-slug kia-carnival-…` → DENYLIST HIT exit 1
+- `--check-slug brand-new-unique-…` → FREE exit 0
+- `--suggest-next` prints 116 slugs + post ids incl. 4418
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -496,7 +615,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20261021-1732-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-publish
 topic_id: B01
@@ -530,7 +649,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-21
+fix_summary:
+- `.cursor/cloud-agent-install.sh` installs from `requirements.txt` (includes paramiko) with fallback package list.
+- Doctor checks `paramiko` import (warn normally / error with `--publish`).
+- Publish skill: Cloud Secrets env enough without site.env.local; SSH_ROOT=. guidance.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt` (already listed paramiko)
+- `scripts/excalibur_blog_doctor.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `import paramiko` OK
+- doctor `OK paramiko available` / SUMMARY errors=0 warnings=0
+commit: pending-parent-commit
 
 ## Fixed incidents
 

@@ -165,9 +165,13 @@ def main() -> int:
     design_code = load_json(design_code_path) if design_code_path.is_file() else {}
 
     ref_url = prefer_https_url((hero.get("reference_url_hosted") or "").strip())
+    env_ref = prefer_https_url(os.environ.get("BLOG_HERO_REFERENCE_URL", "").strip())
+    if env_ref:
+        ref_url = env_ref
     if not ref_url:
         print(
-            "❌ COVER HERO BLOCKER: reference_url_hosted missing. Run excalibur_blog_hero_reference_url.py",
+            "❌ COVER HERO BLOCKER: reference_url_hosted missing. Run excalibur_blog_hero_reference_url.py "
+            "or set BLOG_HERO_REFERENCE_URL",
             file=sys.stderr,
         )
         return 1

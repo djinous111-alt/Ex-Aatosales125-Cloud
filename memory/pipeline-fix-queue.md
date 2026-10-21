@@ -61,7 +61,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --article-dir …/B01-toyota-alphard… --dry-run` (hydrate notes, no live publish)
-commit: pending-parent-commit
+commit: e14c6d42
 
 
 ## INC-20261021-0920-cover-kie-http-ref-500
@@ -109,7 +109,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile` cover/kie/hero scripts
 - prefer_https_url unit assert
-commit: pending-parent-commit
+commit: e14c6d42
 
 ## INC-20261021-0917-cover-seo-stub-hoodie-defaults
 status: fixed
@@ -157,7 +157,7 @@ files_changed:
 checks_run:
 - validate_outfit_lock softshell pass / hoodie fail
 - rg: no SEO-текст defaults in visual_manifest
-commit: pending-parent-commit
+commit: e14c6d42
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -209,7 +209,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: e14c6d42
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -260,7 +260,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: e14c6d42
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -301,7 +301,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: e14c6d42
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -348,7 +348,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: e14c6d42
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -402,7 +402,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: e14c6d42
 
 ## Fixed incidents
 
@@ -445,7 +445,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 warnings=0
-commit: pending-parent-commit
+commit: e14c6d42
 
 ## INC-20261021-0905-scout-missing-wp-denylist
 status: fixed
@@ -493,7 +493,7 @@ files_changed:
 checks_run:
 - `--check-slug` Alphard → DENYLIST HIT; unique slug → FREE
 - `python3 -m json.tool shared/wp-slug-denylist.json`
-commit: pending-parent-commit
+commit: e14c6d42
 
 ## INC-20261021-0915-research-tech-topic-false-positive
 status: fixed
@@ -535,7 +535,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_research_notes_gate.py --self-test` → 3/3 OK
-commit: pending-parent-commit
+commit: e14c6d42
 
 ## INC-20261021-0920-research-precommit-redacted-secret-name
 status: fixed
@@ -575,7 +575,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `CLOUD_AGENT_INJECTED_SECRET_NAMES='FOO,BAR,[REDACTED],BAZ' source …` → FOO,BAR,BAZ
-commit: pending-parent-commit
+commit: e14c6d42
 
 ## INC-20261021-0912-writer-precommit-redacted-secret-name
 status: fixed
@@ -617,7 +617,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - filter script strips [REDACTED] token
-commit: pending-parent-commit
+commit: e14c6d42
 
 ## INC-20261021-0914-geo-qa-utility-pain-outcome-markers-missing
 status: fixed
@@ -671,7 +671,7 @@ files_changed:
 checks_run:
 - policy pain=12 outcome=10
 - `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
-commit: pending-parent-commit
+commit: e14c6d42
 
 ## INC-20261021-0924-indexer-llms-stale-blog-path-flag
 status: fixed
@@ -724,4 +724,4 @@ files_changed:
 checks_run:
 - rg: shell examples no longer invoke --blog-path /
 - `python3 scripts/excalibur_blog_doctor.py` errors=0
-commit: pending-parent-commit
+commit: e14c6d42

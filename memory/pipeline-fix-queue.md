@@ -52,7 +52,7 @@ files_changed:
 checks_run:
 - `rg: no --blog-path / in indexer agent/skill`
 - `python3 scripts/excalibur_blog_llms_generator.py --help`
-commit: 53daf069..fd2c8380
+commit: 53daf069..2065c4d2
 
 ## INC-20261021-1320-geo-qa-typed-task-missing
 status: fixed
@@ -94,7 +94,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg geo-qa generalPurpose fallback in director skill + CLOUD-AUTOMATION`
-commit: 53daf069..fd2c8380
+commit: 53daf069..2065c4d2
 
 ## INC-20261021-1320-geo-qa-utility-pain-outcome-empty
 status: fixed
@@ -181,7 +181,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `filter_secret_names strips [REDACTED]/URL-as-name`
-commit: 53daf069..fd2c8380
+commit: 53daf069..2065c4d2
 
 ## INC-20261021-1311-research-notes-gate-format
 status: fixed
@@ -228,7 +228,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_research_notes_gate.py --self-test`
 - `B01 research-notes-gate PASS technical_topic=False`
-commit: 53daf069..fd2c8380
+commit: 53daf069..2065c4d2
 
 ## INC-20261021-1304-scout-missing-wp-denylist
 status: fixed
@@ -276,7 +276,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --suggest-next`
 - `--check-slug sorento → DENYLIST HIT; new slug → FREE`
-commit: 53daf069..fd2c8380
+commit: 53daf069..2065c4d2
 
 ## INC-20261021-1303-director-doctor-blog-path
 status: fixed
@@ -328,7 +328,7 @@ files_changed:
 - `shared/editorial-utility-only.md`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py → SUMMARY errors=0 warnings=0`
-commit: 53daf069..fd2c8380
+commit: 53daf069..2065c4d2
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -612,7 +612,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `scene_hint_for_type comparison/tool_screenshot have no SEO`
-commit: 53daf069..fd2c8380
+commit: 53daf069..2065c4d2
 
 ## INC-20261021-1326-cover-hoodie-outfit-lock
 status: fixed
@@ -649,7 +649,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `prompt rebuild: softshell lock, no thick heavyweight white hoodie`
-commit: 53daf069..fd2c8380
+commit: 53daf069..2065c4d2
 
 ## Fixed incidents
 

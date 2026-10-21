@@ -57,8 +57,8 @@ inject <figure> after H2 in article.html
 ## Герой (blog-host)
 
 **Lock (reference i2i):** только лицо и очки с `blog-hero-reference.png`.  
-**Одежда (обязательно менять):** под **погоду** сцены (снег/дождь/жара/туман/ночь) и **тему** статьи (порт, таможня, Encar, салон, ямы/комфорт и т.д.). Майку с reference не копировать.  
-**Запрет:** кепка, капюшон.  
+**Одежда (канон):** charcoal softshell поверх cream/charcoal crewneck. Prompt builder ставит `Outfit lock: charcoal softshell… (NO hoodie)` и `validate_outfit_lock` блокирует legacy hoodie stubs. Подстраивай цвет/слой под погоду сцены, но **не** возвращай hoodie/hood/cap.  
+**Запрет:** кепка, капюшон, hoodie/худи, SEO-stub (`Wordstat`, `15k ключей`).  
 **Footer / угол обложки:** сайт каталога `avto-sales125.ru` (не Telegram).  
 **Стиль:** hyper-realistic action selfie + плашка (blueprint Avto-Sales).
 
@@ -122,23 +122,35 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE image job (Cloud: Kie primary)
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+**Preferred (Cloud):** async Kie API — избегает MCP client `-32001` timeout на 2K i2i:
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+Скрипт читает `cover/quad-mcp-batch.json` → `createTask` → poll `recordInfo` → `cover/quad-mcp-result.json`.
+
+**Legacy fallback:** sync MCP-KV `gpt-image-2` с `jobs[0].mcp_args` (1 входное фото, 16:9, 2K).  
+Если HTTP `-32001 Request timed out`:
+1. Не создавай второй image job.
+2. Ищи URL/task_id в expanded MCP response / Cursor MCP logs (~2 мин).
+3. Если URL есть — сохрани в `cover/quad-mcp-result.json` и иди в apply.
+4. Если нет URL/task_id — сразу Kie preferred flow с тем же payload (idempotent: один успешный canvas).
+
+См. `timeout_policy` в `quad-mcp-batch.json` и `shared/mcp-image-async-contract.md`.
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
   --inject-html
 ```
 
-Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
+Или с явным `--url` из MCP/Kie. Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
 
 ### Шаг 6 — fragment
 
@@ -163,8 +175,10 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 
 ## QA перед ✅
 
-- [ ] 1 MCP, не 4
-- [ ] input_urls в MCP
+- [ ] 1 image job, не 4
+- [ ] input_urls / reference https
+- [ ] outfit lock softshell+crewneck (нет hoodie stub)
+- [ ] cover_hook/scene_hint без SEO-primer stubs
 - [ ] cover.png + 3 inline существуют
 - [ ] alt в registry для всех 4
 - [ ] inline привязаны к H2 (`h2_anchor`)

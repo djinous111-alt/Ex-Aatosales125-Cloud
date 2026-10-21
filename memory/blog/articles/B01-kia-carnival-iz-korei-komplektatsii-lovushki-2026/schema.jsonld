@@ -1,0 +1,207 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/kia-carnival-iz-korei-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/kia-carnival-iz-korei-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Kia Carnival из Кореи: дизель 2.2, гибрид и комплектации до депозита в 2026",
+      "description": "Как выбрать киа карнивал из Кореи в 2026: дизель 2.2 только в б/у, гибрид и 3.5 в новом ряду, комплектации и чек-лист до депозита.",
+      "datePublished": "2026-10-21",
+      "dateModified": "2026-10-21",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru"
+        },
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru",
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125"
+        ]
+      },
+      "keywords": [
+        "киа карнивал из кореи",
+        "киа карнивал дизель",
+        "киа карнивал комплектации",
+        "киа карнивал под заказ из кореи"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/kia-carnival-iz-korei-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Можно ли в 2026 ещё взять Carnival 2.2 дизель из Кореи?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, но как б/у на Encar, не как новый MY2026 с завода. В новом корейском ряде дизель снят; остаются бензин 3.5 и гибрид 1.6. Перед поиском зафиксируйте ветку \"б/у дизель\" и сверяйте строку топлива в каждой карточке."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем Noblesse отличается от Signature на практике?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Noblesse обычно про комфорт дверей и ассистентов. Signature – про более богатый салон (кожа, память, инвертор). Выбирайте по списку опций под семью, а не по самому дорогому слову. X-Line – внешний dark-пакет, не отдельная модель."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что выбрать семье: 7 или 9 мест?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Детские кресла и частые поездки \"полной кассой\" – чаще 9 мест. Важнее комфорт второго ряда – смотрите 7. Hi-Limousine не равен \"девяти местам\": это высокий кузов. Число мест запишите до депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить до депозита кроме красивых фото?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Год, топливо, мощность, trim, 7/9 мест, VIN, Carhistory/insurance, схему кузова, диагностику и живой осмотр. Нет пакета – нет перевода. Расчёт под ключ – по конкретному лоту, не \"на глаз\" из обзора."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем опасна путаница мощности на карточке?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ps и объём влияют на таможенный сценарий. Сверяйте цифру в лоте: 3.5 около 294 ps, hybrid около 245 ps, дизель – по году (~194–202). Суммы не считайте \"на глаз\" – берите расчёт под ключ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Стоит ли брать Hi-Limousine \"на всякий случай\"?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Только если нужен высокий потолок, шторы и монитор. Если цель – кресла и багаж, сначала закройте 7/9 и мотор, иначе переплатите за класс кузова, который семье не нужен."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/kia-carnival-iz-korei-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать Kia Carnival из Кореи до депозита",
+      "description": "Пошаговый чек-лист до депозита: сценарий семьи, моторная ветка, поля Encar, trim, 7/9 мест, Carhistory, диагностика и живой осмотр.",
+      "totalTime": "PT60M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Карточка Encar: год, топливо, мощность, trim, 7/9 мест"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Отчёт Carhistory / insurance history и схема кузова"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Encar-диагностика и живой осмотр (фото/видео)"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Сценарий семьи: места, багаж, Hi-Limousine да/нет"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Выбранная моторная ветка: б/у дизель 2.2 / 3.5 / hybrid 1.6"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Записать сценарий семьи",
+          "text": "Запишите, сколько взрослых и детей постоянно ездят, нужен ли высокий потолок Hi-Limousine или обычный кузов.",
+          "url": "https://avtosales125.ru/kia-carnival-iz-korei-komplektatsii-lovushki-2026/#запишите-сценарий-семьи-до-поиска-лота"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Выбрать моторную ветку",
+          "text": "Выберите до поиска лотов: б/у дизель 2.2 или бензин 3.5 или hybrid 1.6; новый MY2026 в Корее без дизеля.",
+          "url": "https://avtosales125.ru/kia-carnival-iz-korei-komplektatsii-lovushki-2026/#выберите-моторную-ветку-дизель-только-среди-б-у"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Выписать поля карточки Encar",
+          "text": "На карточке Encar выпишите год, топливо, объём, мощность (ps), комплектацию и 7/9 мест.",
+          "url": "https://avtosales125.ru/kia-carnival-iz-korei-komplektatsii-lovushki-2026/#пройдите-чек-лист-перед-любым-переводом"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Сверить trim Prestige–X-Line",
+          "text": "Сверьте Prestige / Noblesse / Signature / X-Line и не путайте X-Line с отдельным авто.",
+          "url": "https://avtosales125.ru/kia-carnival-iz-korei-komplektatsii-lovushki-2026/#сверьте-комплектации-и-число-мест-до-депозита"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Открыть историю и схему кузова",
+          "text": "Откройте Carhistory / insurance и схему кузова; стоп при силовых заменах, крупных выплатах, аренде без объяснения.",
+          "url": "https://avtosales125.ru/kia-carnival-iz-korei-komplektatsii-lovushki-2026/#отсейте-красные-флаги-мощность-история-диагностика"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Проверить Encar-диагностику",
+          "text": "Проверьте уровень диагностики 진단 / + / ++; скрин «всё ок» без VIN не считается.",
+          "url": "https://avtosales125.ru/kia-carnival-iz-korei-komplektatsii-lovushki-2026/#отсейте-красные-флаги-мощность-история-диагностика"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Запросить живой осмотр",
+          "text": "Запросите фото/видео: кузов, днище, холодный старт, обе sliding doors, ряды сидений, багажник.",
+          "url": "https://avtosales125.ru/kia-carnival-iz-korei-komplektatsii-lovushki-2026/#пройдите-чек-лист-перед-любым-переводом"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Получить расчёт под ключ до депозита",
+          "text": "До любого депозита получите расчёт под ключ по конкретному лоту в каталоге Авто-Сейлс или Telegram – без перевода «на честном слове».",
+          "url": "https://avtosales125.ru/kia-carnival-iz-korei-komplektatsii-lovushki-2026/#пройдите-чек-лист-перед-любым-переводом"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 9,
+          "name": "Фиксировать бронь только после пакета",
+          "text": "Только после пунктов 3–8 фиксируйте бронь; если любого пункта нет – лот отложите.",
+          "url": "https://avtosales125.ru/kia-carnival-iz-korei-komplektatsii-lovushki-2026/#зафиксируйте-результат-что-должно-стоять-в-заметке"
+        }
+      ]
+    }
+  ]
+}

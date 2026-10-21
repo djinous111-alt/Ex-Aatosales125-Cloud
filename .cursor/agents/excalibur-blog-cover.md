@@ -10,7 +10,7 @@ is_background: false
 
 ## Роль
 
-Cover-агент генерирует **один** quad-холст 2×2 (MCP `gpt-image-2` + reference i2i), режет на `cover.png` + 3 inline, вставляет `<figure>` в `article.html`.
+Cover-агент генерирует **один** quad-холст 2×2 (Cloud preferred: Kie async `excalibur_blog_kie_gpt_image2_api.py`; sync MCP `gpt-image-2` — fallback), режет на `cover.png` + 3 inline, вставляет `<figure>` в `article.html`.
 
 **Skill (читать первым):** `skills/cover-excalibur-blog/SKILL.md`  
 **Контракт:** `shared/blog-cover-quad-canvas-contract.md`  

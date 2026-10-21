@@ -1,0 +1,73 @@
+{
+  "article": "memory/blog/articles/B01-kia-carnival-iz-korei-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 9,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 7,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "Папа двоих детей уже готовил перевод за \"Carnival 2026 Signature\": панорама, красивые фото, в голове слов",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2045",
+      "kind": "date_or_year",
+      "context": "al высота около 1775–1785 мм, у high-roof – около 2045 мм. Потолок ради стояния и штор – смотрите Hi-Limo",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "rnival в Корее (релиз Hyundai Motor Group, август 2025) официально остались бензин 3.5 и турбо-гибрид 1.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1775",
+      "kind": "large_number",
+      "context": "й топ для семьи. У обычного Carnival высота около 1775–1785 мм, у high-roof – около 2045 мм. Потолок рад",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1785",
+      "kind": "large_number",
+      "context": "для семьи. У обычного Carnival высота около 1775–1785 мм, у high-roof – около 2045 мм. Потолок ради стоя",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "194",
+      "kind": "large_number",
+      "context": ".2 Б/у на Encar; в новом MY2026 ряда нет Поздние ~194 ps; ранние KA4 до ~202 ps Кто хочет дизель и готов",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "202",
+      "kind": "large_number",
+      "context": "м MY2026 ряда нет Поздние ~194 ps; ранние KA4 до ~202 ps Кто хочет дизель и готов проверить пробег Бензи",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "294",
+      "kind": "large_number",
+      "context": "отов проверить пробег Бензин 3.5 Новый ряд и б/у ~294 ps Кто берёт свежий ряд без гибрида Гибрид 1.6 tur",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "245",
+      "kind": "large_number",
+      "context": "Новый ряд; Jan–Aug 2026 доля hybrid ~84% Система ~245 ps Кто ок с гибридом и отдельным обслуживанием Пра",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

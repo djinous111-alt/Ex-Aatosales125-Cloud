@@ -10,7 +10,7 @@ is_background: false
 
 ## Роль
 
-Cover-агент генерирует **один** quad-холст 2×2 (MCP `gpt-image-2` + reference i2i), режет на `cover.png` + 3 inline, вставляет `<figure>` в `article.html`.
+Cover-агент генерирует **один** quad-холст 2×2 (Cloud preferred: Kie async `excalibur_blog_kie_gpt_image2_api.py`; sync MCP `gpt-image-2` — fallback), режет на `cover.png` + 3 inline, вставляет `<figure>` в `article.html`.
 
 **Skill (читать первым):** `skills/cover-excalibur-blog/SKILL.md`  
 **Контракт:** `shared/blog-cover-quad-canvas-contract.md`  
@@ -46,9 +46,9 @@ Cover-агент генерирует **один** quad-холст 2×2 (MCP `gp
 
 ## Жёсткие правила
 
-1. **ONE MCP** — один холст 2×2. **Запрещено** 4 отдельных вызова.
-2. MCP **обязан** иметь `input_urls: [reference_url_hosted]` (Image to Image).
-3. **Cover (top-left):** reference **лицо**; **одежда/поза** — на усмотрение агента в `scene_hint`.
+1. **ONE image job** — один холст 2×2. **Запрещено** 4 отдельных вызова. При MCP `-32001` не дублируй job → логи URL/task_id или сразу Kie.
+2. i2i **обязан** иметь `input_urls: [https reference_url_hosted]`.
+3. **Cover (top-left):** reference **лицо**; outfit lock charcoal softshell + cream crewneck (**NO hoodie/hood/cap**); поза в `scene_hint` под нишу статьи (не SEO-stub).
 4. **Design code:** `memory/cover/cover-design-code.json` — fake скрины, стикеры, скотч, мемы, «сделал человек», **16:9**.
 5. **Inline 1–3:** полезность по `visual_type` — **без** лица героя.
 6. Не трогать `schema.jsonld`, не переписывать текст статьи.

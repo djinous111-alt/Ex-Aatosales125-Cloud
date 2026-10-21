@@ -20,10 +20,14 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | Cloud Secrets env **или** `memory/site.env.local` (не коммитить): `SSH_*`, `PUBLIC_SITE_URL` / `WP_SITE_URL` |
+| Python deps | `paramiko` (+ Pillow/numpy из `requirements.txt`); Cloud install: `.cursor/cloud-agent-install.sh` |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
+| SSH root | default guidance `SSH_ROOT=.` для этого host |
 
-Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
+Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).  
+Если `ModuleNotFoundError: paramiko` → **blocker env**, не publish workaround: поставь через install/`pip3 install --break-system-packages paramiko` и заведи incident.  
+Preflight: `python3 scripts/excalibur_blog_wp_publish.py --env-check` и/или `python3 scripts/excalibur_blog_doctor.py --publish`.
 
 ## Алгоритм
 

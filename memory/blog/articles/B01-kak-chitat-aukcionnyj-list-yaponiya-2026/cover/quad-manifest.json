@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Смотришь только на 4.5 — и пропускаешь битый каркас?",
+  "mcp_note": "ONE gpt-image-2 / Kie i2i call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс с распечаткой японского аукционного листа и маркером, схема кузова крупно, угол avto-sales125.ru",
+      "scene_hint": "WEATHER: cool indoor desk light Vladivostok office/docs vibe; OUTFIT: charcoal softshell jacket or navy crewneck sweater over light shirt (NOT hoodie, NOT cap, NOT hood, NOT reference tank/t-shirt), glasses on; reference EXACT face likeness; action selfie holding printed Japanese auction sheet (AUCTION SHEET mock) with yellow marker circling body diagram codes A/U/W/XX; large torn-paper Cyrillic hook plaque «Смотришь только на 4.5?» with yellow highlighter on «4.5»; sticky notes «схема кузова» and «до ставки» (NEVER insults, NEVER лох/лохов/для лохов); shocked meme cutout + facepalm sticker (different formats); DIY zine collage with scotch tape; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics",
+      "meme_caption_ru": "Сначала схема кузова"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Начните с идентификации: модель, пробег и салон за 2 минуты",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake RU auction-sheet screenshot UI: fields модель / пробег / оценка салона A–E circled in 2 minutes; yellow marker arrows; pink sticky «старт за 2 мин»; scotch tape corner; NO hero face; NO Wordstat/Metrika; no toxic sticker text",
+      "alt": "Мокап аукционного листа: модель, пробег и оценка салона за 2 минуты"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Разберите шкалу оценок: почему \"четвёрка\" – рабочий лот",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: rows S / 6 / 5 / 4.5 / 4 / 3 / R / RA with short meaning; yellow highlight row «4 = рабочий лот»; sticky «не гонись за 4.5»; tape; NO hero face; NO Wordstat/Metrika; no insults on stickers",
+      "alt": "Таблица шкалы оценок японского аукциона: почему четвёрка — рабочий лот"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сверьте R и RA: каркас, а не миф про подушки",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU checklist board: R/RA = ремонт каркаса; миф «RA = подушки» with red X; stop zones on body frame icons; sticky «каркас, не airbag»; NO hero face; NO Wordstat/Metrika; no toxic labels",
+      "alt": "Чеклист R и RA: ремонт каркаса, а не миф про подушки безопасности"
+    }
+  }
+}

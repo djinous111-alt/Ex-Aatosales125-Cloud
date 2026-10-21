@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-2122-cover-missing-corner-brand
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kak-chitat-aukcionnyj-list-yaponiya-2026
+severity: low
+category: prompt
+
+### What went wrong
+- ONE Kie gpt-image-2 i2i quad succeeded (split PASS, inject ok, softshell/crewneck, auction sheet + body diagram, no toxic stickers).
+- Cover panel omitted the required corner footer `avto-sales125.ru` even though prompt/manifest demanded catalog-site corner brand (NOT Telegram).
+
+### How the agent recovered this run
+- Did not launch a second image job.
+- PIL overlay of subtle `avto-sales125.ru` chip on `cover/cover.png` and matching top-left quadrant of `cover/canvas-quad.png`.
+
+### Durable fix needed before next run
+- Strengthen corner-brand instruction weight in `excalibur_blog_cover_quad_prompt.py` / style preset (explicit bottom-right placement + negative for missing brand).
+- Optional post-gen QA: fail or warn if OCR/heuristic cannot find `avto-sales125.ru` on cover panel.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/quad-style-digital-meme-collage-ru.json`
+- `memory/cover/cover-design-code.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261022-2119-schema-commit-secret-scan-block
 status: open
 run_date: 2026-10-22

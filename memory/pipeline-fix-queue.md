@@ -7,7 +7,7 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 ## INC-20261021-1330-indexer-llms-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-indexer
 topic_id: B01
@@ -40,7 +40,7 @@ category: docs
 
 
 ## INC-20261021-1320-geo-qa-typed-task-missing
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -113,10 +113,10 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir memory/blog/articles/B01-...`
 - `python3 scripts/excalibur_blog_link_verify.py ...` (PASS 2/2)
-commit: pending
+commit: 53daf069 / docs-pending
 
 ## INC-20261021-1317-writer-pre-commit-hook-redacted
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-writer
 topic_id: B01
@@ -146,7 +146,7 @@ category: env
 - pending
 
 ## INC-20261021-1311-research-notes-gate-format
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-research
 topic_id: B01
@@ -178,7 +178,7 @@ category: docs
 
 
 ## INC-20261021-1304-scout-missing-wp-denylist
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-scout
 topic_id: B01
@@ -211,7 +211,7 @@ category: docs
 - pending
 
 ## INC-20261021-1303-director-doctor-blog-path
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-director
 topic_id: n/a
@@ -493,7 +493,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20261021-1325-cover-stale-seo-manifest-defaults
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-cover
 topic_id: B01
@@ -523,7 +523,7 @@ category: script
 - pending
 
 ## INC-20261021-1326-cover-hoodie-outfit-lock
-status: open
+status: fixed
 run_date: 2026-10-21
 role: excalibur-blog-cover
 topic_id: B01

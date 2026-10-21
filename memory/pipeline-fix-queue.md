@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261021-1721-cover-mcp-32001-kie-fallback
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-carnival-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP-KV `gpt-image-2` i2i (16:9 2K) returned HTTP MCP error -32001 Request timed out.
+- Polled local MCP/agent-tools logs ~2 min: no recoverable result URL/task_id from the timed-out sync call.
+
+### How the agent recovered this run
+- Used preferred batch flow `scripts/excalibur_blog_kie_gpt_image2_api.py` with the same `jobs[0].mcp_args` payload (one image job).
+- Kie task success → `cover/quad-mcp-result.json` → `excalibur_blog_quad_apply.py --inject-html` PASS.
+
+### Durable fix needed before next run
+- Prefer documenting Kie async as primary cover path for Cloud; keep sync MCP as optional fallback with async status retrieval.
+- Ensure MCP client either raises after backend URL is available or exposes task_id for poll.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py` (batch timeout_policy)
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261021-1720-cover-prompt-hoodie-lock-vs-niche
 status: open
 run_date: 2026-10-21

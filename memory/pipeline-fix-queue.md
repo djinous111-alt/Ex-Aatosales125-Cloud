@@ -51,7 +51,7 @@ files_changed:
 checks_run:
 - `bash scripts/excalibur_blog_filter_secret_names.sh --export` (strips `[REDACTED]`)
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
-commit: pending-parent-commit
+commit: ea11b8c0
 
 
 
@@ -101,7 +101,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - corner-brand validate smoke
-commit: pending-parent-commit
+commit: ea11b8c0
 
 
 
@@ -156,7 +156,7 @@ files_changed:
 checks_run:
 - assert `hydrate_redacted_placeholders` + `reconstruct_publish_output` in publish script
 - doctor errors=0
-commit: pending-parent-commit
+commit: ea11b8c0
 
 
 ## INC-20261022-2145-geo-qa-tldr-label-not-gated
@@ -205,7 +205,7 @@ files_changed:
 checks_run:
 - insight label smoke (bad FAIL / good PASS)
 - B01 article.html html_linter + human_voice PASS
-commit: pending-parent-commit
+commit: ea11b8c0
 
 
 ## INC-20261022-2130-writer-utility-pain-outcome-markers-missing
@@ -256,7 +256,7 @@ files_changed:
 checks_run:
 - utility gate B01 PASS
 - exact-5-li smoke (6-item ol → 0)
-commit: pending-parent-commit
+commit: ea11b8c0
 
 
 ## INC-20261022-2115-research-tech-marker-false-positive
@@ -310,7 +310,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_research_notes_gate.py --self-test` PASS
 - redact_public_hosts smoke
-commit: pending-parent-commit
+commit: ea11b8c0
 
 
 ## INC-20261022-2105-scout-missing-wp-denylist
@@ -369,7 +369,7 @@ checks_run:
 - `--check-slug kak-chitat-aukcionnyj-list-yaponiya-2026` → DENYLIST HIT
 - `--check-slug brand-new-unique-slug-2026-fixer` → FREE
 - doctor errors=0
-commit: pending-parent-commit
+commit: ea11b8c0
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -674,5 +674,5 @@ checks_run:
 - py_compile publish script
 - assert reconstruct + hydrate helpers present
 - doctor errors=0
-commit: pending-parent-commit
+commit: ea11b8c0
 

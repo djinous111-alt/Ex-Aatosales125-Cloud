@@ -459,6 +459,64 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261021-1325-cover-stale-seo-manifest-defaults
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-sorento-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_quad_manifest.py --merge` seeded cover with SEO-era defaults: hoodie outfit, Wordstat laptop scene, SEO cover_hook, and inline scene_hints like «Таблица SEO vs GEO» / «Скрин SEO-инструмента» despite auto-picked visual_types for auto H2s.
+
+### How the agent recovered this run
+- Manually rewrote `cover/quad-manifest.json` for Sorento/Encar/Vladivostok «до депозита» before running prompt builder; outfit softshell/crewneck, no hoodie; non-toxic sticker copy.
+
+### Durable fix needed before next run
+- Replace SEO placeholder strings in `scene_hint_for_type` and default cover scene_hint/cover_hook with niche-neutral auto-import templates (or pull from article.meta cover_alt / research voice_angle).
+- Default outfit must follow blog-hero outfit_rule (no hoodie/hood/cap).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_quad_manifest.py`
+- `memory/cover/cover-prompts.json` (stale B01 primer-seo entry)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261021-1326-cover-hoodie-outfit-lock
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-kia-sorento-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` hardcodes «Outfit lock: thick heavyweight white hoodie», conflicting with blog-hero outfit_rule and agent scene_hint (softshell/crewneck, no hoodie).
+
+### How the agent recovered this run
+- Patched generated `quad-mcp-batch.json` + `quad-mcp-prompt.txt` to softshell/crewneck before ONE image call.
+
+### Durable fix needed before next run
+- Read outfit from manifest `slots.cover.scene_hint` / blog-hero.json; never hardcode hoodie; forbid hood/cap in prompt template.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/blog-hero.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

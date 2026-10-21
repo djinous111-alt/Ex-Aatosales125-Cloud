@@ -1,0 +1,206 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "[REDACTED]/kia-sorento-iz-korei-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "[REDACTED]/kia-sorento-iz-korei-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Kia Sorento из Кореи: дизель, гибрид и ловушки до депозита",
+      "description": "Киа Соренто из Кореи: бриф семьи, дизель/гибрид/2.5T, Prestige–X-Line, 5/6/7 мест и чек-лист из 12 пунктов до депозита. Расчёт – в каталоге.",
+      "datePublished": "2026-10-21",
+      "dateModified": "2026-10-21",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "[REDACTED]/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "[REDACTED]/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "[REDACTED]"
+        },
+        "sameAs": [
+          "[REDACTED]",
+          "[REDACTED]",
+          "[REDACTED]",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "[REDACTED]/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "[REDACTED]",
+        "sameAs": [
+          "[REDACTED]",
+          "[REDACTED]"
+        ]
+      },
+      "keywords": [
+        "киа соренто из кореи",
+        "киа соренто комплектации",
+        "киа соренто гибрид",
+        "купить киа соренто из кореи",
+        "киа соренто дизель из кореи"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "[REDACTED]/kia-sorento-iz-korei-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем дизель Sorento отличается от гибрида при ввозе?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Дизель 2.2 чаще берут за тягу и длинные трассы, гибрид 1.6 – за городской ритм. Для таможни и утиля смотрите мощность ДВС в карточке и считайте актуально в каталоге: готовые суммы из чужих статей не копируйте, особенно миф \"гибрид всегда льготный\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие комплектации чаще берут под заказ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Семьи обычно стартуют с Noblesse или Signature, если нужен запас опций. Prestige берут, когда важна сама машина, а не полный пакет. X-Line (бывший Gravity) выбирают ради внешнего вида – зафиксируйте минимум в брифе до фильтра Encar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить в Encar до депозита?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Полный VIN, совпадение пробега, число мест, 2WD/4WD, комплектацию и историю использования. Затем Trust Encar / Carhistory: аренда, такси, крупные страховые, тотал, затопление. Нет пакета – нет перевода."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "6 или 7 мест: что выбрать?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нужны отдельные кресла второго ряда и удобный проход – смотрите 6 мест. Нужен диван \"трое сзади\" плюс третий ряд – 7. Сверяйте опцию в тексте карточки, а не только фото салона."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Полный привод идёт по умолчанию?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Во многих лотах стоит 2WD. Если зима и полный привод обязательны – внесите 4WD в бриф и в фильтр до ставки, иначе рискуете купить \"не ту\" версию."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли верить названию Gravity в старом объявлении?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, как старому имени X-Line с 2026 MY. Это не другое поколение. Сверяйте остальное: мотор, места, привод и отчёты – название пакета само по себе не красный флаг."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Куда идти за расчётом без готовых сумм в статье?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В каталог Авто-Сейлс с параметрами лота и мощностью ДВС, детали заказа – в Telegram avtosales125. На странице блога форм нет: так цифры не устаревают вместе с текстом."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "[REDACTED]/kia-sorento-iz-korei-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать Kia Sorento из Кореи до депозита",
+      "description": "Пошаговый выбор семейного Sorento MQ4 с Encar: бриф, мотор, минимум комплектации Prestige–X-Line, места и привод, Trust Encar/Carhistory и чек-лист из 12 пунктов до перевода депозита.",
+      "totalTime": "PT45M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Карточка Encar: VIN, комплектация, места, 2WD/4WD"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Trust Encar / Carhistory по VIN"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Каталог Авто-Сейлс для актуального расчёта по мощности ДВС"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Лист «моя версия»: мотор, места, привод, минимум trim"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Чек-лист из 12 пунктов до депозита"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Ссылка на лот Encar и полный VIN"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Составьте бриф семьи до поиска на Encar",
+          "text": "Запишите четыре пункта: кто ездит и сколько детских кресел, город/трасса/зима и нужен ли 4WD, 6 или 7 мест, приоритет тишины/тяги/динамики. Держите бриф рядом с экраном и не меняйте места и привод ради красивого лота.",
+          "url": "[REDACTED]/kia-sorento-iz-korei-komplektatsii-lovushki-2026/#составьте-бриф-семьи-до-поиска-на-encar"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Выберите мотор: дизель 2.2, гибрид 1.6 или 2.5T",
+          "text": "Выберите мотор под сценарий: дизель 2.2 для трассы, гибрид 1.6 для города, 2.5T для динамики. Запишите мощность ДВС из карточки и не копируйте чужие суммы утиля – особенно миф, что гибрид всегда льготный.",
+          "url": "[REDACTED]/kia-sorento-iz-korei-komplektatsii-lovushki-2026/#выберите-мотор-дизель-2-2-гибрид-1-6-или-2-5t"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Зафиксируйте минимум комплектации Prestige–X-Line",
+          "text": "Зафиксируйте минимум trim: Prestige → Noblesse → Signature → X-Line. Gravity с 2026 MY – это X-Line, не другое поколение; в старых объявлениях Encar имя Gravity ещё встречается.",
+          "url": "[REDACTED]/kia-sorento-iz-korei-komplektatsii-lovushki-2026/#зафиксируйте-минимум-комплектации-prestige-x-line"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Сверьте 5, 6 или 7 мест и привод 2WD/4WD",
+          "text": "Сверьте число мест и привод с брифом в тексте карточки: 6 мест обычно с отдельными креслами второго ряда, 7 – с диваном. Полный привод часто опция; 2WD – передний привод, даже если фото «как у соседа».",
+          "url": "[REDACTED]/kia-sorento-iz-korei-komplektatsii-lovushki-2026/#сверьте-5-6-или-7-мест-и-привод-2wd-4wd"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Проверьте красные флаги Encar до депозита",
+          "text": "Сохраните лот и полный VIN, сверьте пробег, историю использования, крупные страховые, тотал и затопление через Trust Encar / Carhistory. Один критичный красный флаг – пауза; два и больше – депозит не переводите.",
+          "url": "[REDACTED]/kia-sorento-iz-korei-komplektatsii-lovushki-2026/#проверьте-красные-флаги-encar-до-депозита"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Пройдите чек-лист из 12 пунктов перед депозитом",
+          "text": "Пройдите 12 пунктов: бриф, поколение MQ4, мотор, места, привод, минимум комплектации, VIN, пробег, коммерция, тотал/затопление, мощность ДВС и свежие фото/видео. Если критичных красных больше одного – депозит не переводите.",
+          "url": "[REDACTED]/kia-sorento-iz-korei-komplektatsii-lovushki-2026/#пройдите-чек-лист-из-12-пунктов-перед-депозитом"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Что дальше",
+          "text": "Закройте бриф, выберите мотор и минимум комплектации, отфильтруйте Encar и пройдите отчёты с чек-листом. Только с «зелёным» листом обсуждайте бронь и логистику через Владивосток в каталоге или Telegram Авто-Сейлс.",
+          "url": "[REDACTED]/kia-sorento-iz-korei-komplektatsii-lovushki-2026/#что-дальше"
+        }
+      ]
+    }
+  ]
+}

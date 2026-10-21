@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Alphard с USS — а кузов уже 40?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у минивэна у порта Владивостока, плашка Alphard до ставки, угол каталога avto-sales125.ru",
+      "scene_hint": "reference face + glasses only; charcoal softshell jacket over cream crewneck (NO hoodie, NO hood, NO cap); cool foggy Vladivostok port behind modern Japanese minivan silhouette; fake auction sheet scrap + sticky note «до ставки»; shocked/facepalm meme cutouts; huge Cyrillic plaque Alphard; corner brand avto-sales125.ru; no Wordstat/Metrika",
+      "meme_caption_ru": "Alphard до ставки"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Сначала проверьте законность маршрута – до любой ставки",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист-доска: маршрут Япония→РФ, тип мотора, письменный ответ брокера до депозита; tape + sticky «стоп»; без лица героя",
+      "alt": "Чеклист законности маршрута Alphard до ставки"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как отличить кузов 30 от 40 на листе, а не по году",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake скрин аукционного листа: chassis code 30 vs 40, поля кузова выделены маркером; без лица героя, без SEO UI",
+      "alt": "Скрин аукционного листа: кузов Alphard 30 против 40"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Разведите бензин, гибрид и PHEV до расчёта",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица бензин / Hybrid / PHEV: что ломает ввоз и утильсбор; стикер «до расчёта»; без лица героя",
+      "alt": "Таблица бензин, гибрид и PHEV Alphard до расчёта"
+    }
+  }
+}

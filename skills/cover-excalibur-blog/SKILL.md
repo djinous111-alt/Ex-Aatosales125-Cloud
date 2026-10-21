@@ -199,3 +199,11 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 ## Эталон (B01)
 
 `memory/blog/articles/B01-primer-seo-stati/cover/` — reference implementation после design code v1.
+
+## Hero reference URL (Kie i2i)
+
+- `reference_url_hosted` must be **https** (http WordPress media → Kie `failCode=500` risk).
+- Run `python3 scripts/excalibur_blog_hero_reference_url.py` (auto http→https upgrade).
+- `excalibur_blog_kie_gpt_image2_api.py` normalizes `input_urls` to https and retries once on 500.
+- Outfit lock: charcoal softshell + cream crewneck; `validate_outfit_lock()` rejects hoodie defaults.
+- After `quad_manifest.py --merge`, rewrite SEO/Wordstat/hoodie stubs for auto topics before prompt build.

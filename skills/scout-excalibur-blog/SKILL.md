@@ -34,6 +34,16 @@ Append new Topic Card to blog-topics.md
   ```
   Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
 
+
+### Шаг 1b — WP slug denylist (обязательно)
+* Канон: `shared/wp-slug-denylist.json` (recent Alphard/Mohave/K3/Avante/… + live slugs).
+* Helper печатает denylist при `--suggest-next`; перед финальным slug:
+  ```bash
+  python3 scripts/excalibur_blog_scout_helper.py --check-slug "<candidate-slug>"
+  python3 scripts/excalibur_blog_scout_helper.py --check-query "<primary_query>"
+  ```
+* Также сверяй `EXCALIBUR_RECENT_WP_POSTS` из `excalibur_blog_today.py`. Не предлагай темы-клоны уже живых комплектаций.
+
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
 * Поисковые запросы: *«новые ИИ инструменты автоматизации 2026»*, *«how to automate business Claude Cursor»*, *«лучшие сценарии n8n Make автоматизация»*, *«как настроить ИИ-агента инструкция»*.

@@ -1,0 +1,651 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-21",
+    "today_ru": "21.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-23",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-21 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Toyota Alphard из Японии: кузов 30/40, гибрид и ловушки до ставки 2026",
+    "primary_query": "как выбрать тойота альфард из японии",
+    "secondary_queries": [
+      "тойота альфард из японии",
+      "альфард гибрид",
+      "тойота альфард владивосток",
+      "альфард левый руль"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как выбрать тойота альфард из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Alphard 2026 из Японии: цены под ключ и какие версии реально ввезти",
+          "url": "https://autoprofiasia.ru/blog/toyota-alphard-iz-yaponii-2026-tsena",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Alphard из Японии: поколения, стоимость под ключ и нюансы ввоза ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-alphard-iz-yaponii",
+          "snippet": "Toyota Alphard 40 Series 2026: реальные цены под ключ, какие версии разрешены для ввоза в РФ. Таблица характеристик, аукционные советы и личный опыт AutoProfi Asia."
+        },
+        {
+          "title": "Toyota Alphard из Японии в 2026: почему нельзя привезти и что взять вместо",
+          "url": "https://autoprofiasia.ru/blog/toyota-alphard-iz-yaponii-2026-alternativy",
+          "snippet": "Toyota Alphard из Японии под ключ в 2026: поколения AGH30 и 4th gen, аукционные цены USS/TAA, стоимость таможенного оформления и утильсбора, комплектация Executive Lounge."
+        },
+        {
+          "title": "Toyota Alphard: 30-й и 40-й кузов, гибрид, места и покупка в 2026 году",
+          "url": "https://azway.ru/blog/toyota-alphard-iz-yaponii-obzor",
+          "snippet": "Toyota Alphard из Японии в 2026 году: почему все версии попадают под санкции и какие минивэны реально можно привезти. Honda Freed, Toyota Sienta и альтернативы."
+        },
+        {
+          "title": "Toyota Alphard 40 Executive Lounge и Vellfire Z Premier 2026: обзор ...",
+          "url": "https://carto-auto.ru/blog/toyota-alphard-40-executive-lounge-vellfire-z-premier-2026-pod-klyuch-iz-yaponii/",
+          "snippet": "Экспертный обзор Toyota Alphard: поколения 20, 30 и 40, версии на 6-8 мест, бензин и гибрид, проверка подержанной машины и ограничения вывоза из Японии в Россию."
+        },
+        {
+          "title": "Toyota Alphard 2026: где купить и как выбрать лучший вариант",
+          "url": "https://toyotabase.vercel.app/articles/k/ku/kupit-tojota-rejs.html",
+          "snippet": "Подробный гид по топовому Alphard 40 Executive Lounge и Vellfire Z Premier 2026. Сравниваем версии, моторы 2.5 Hybrid и 2.4 Turbo, опции салона, цены аукциона Японии и итог под ключ в Москве — от 9 до 11 млн ₽."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как выбрать тойота альфард из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Alphard из Японии: поколения, стоимость под ключ и нюансы ввоза ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-alphard-iz-yaponii",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Alphard из Японии в 2026: почему нельзя привезти и что взять вместо",
+          "url": "https://autoprofiasia.ru/blog/toyota-alphard-iz-yaponii-2026-alternativy",
+          "snippet": "Toyota Alphard из Японии под ключ в 2026: поколения AGH30 и 4th gen, аукционные цены USS/TAA, стоимость таможенного оформления и утильсбора, комплектация Executive Lounge."
+        },
+        {
+          "title": "Toyota Alphard: 30-й и 40-й кузов, гибрид, места и покупка в 2026 году",
+          "url": "https://azway.ru/blog/toyota-alphard-iz-yaponii-obzor",
+          "snippet": "Toyota Alphard из Японии в 2026 году: почему все версии попадают под санкции и какие минивэны реально можно привезти. Honda Freed, Toyota Sienta и альтернативы."
+        },
+        {
+          "title": "Toyota Alphard 40 Executive Lounge и Vellfire Z Premier 2026: обзор ...",
+          "url": "https://carto-auto.ru/blog/toyota-alphard-40-executive-lounge-vellfire-z-premier-2026-pod-klyuch-iz-yaponii/",
+          "snippet": "Экспертный обзор Toyota Alphard: поколения 20, 30 и 40, версии на 6-8 мест, бензин и гибрид, проверка подержанной машины и ограничения вывоза из Японии в Россию."
+        },
+        {
+          "title": "Toyota Alphard 2026: где купить и как выбрать лучший вариант",
+          "url": "https://toyotabase.vercel.app/articles/k/ku/kupit-tojota-rejs.html",
+          "snippet": "Подробный гид по топовому Alphard 40 Executive Lounge и Vellfire Z Premier 2026. Сравниваем версии, моторы 2.5 Hybrid и 2.4 Turbo, опции салона, цены аукциона Японии и итог под ключ в Москве — от 9 до 11 млн ₽."
+        },
+        {
+          "title": "Toyota Alphard (Тойота Альфард) из Японии — поколения, кузова и ...",
+          "url": "https://www.japantrek.ru/catalog/toyota/alphard/",
+          "snippet": "Хотите купить Toyota Alphard? Сравните цены, комплектации и официальных дилеров. Советы по выбору нового и б/у минивэна с пробегом из Японии."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как выбрать тойота альфард из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Alphard 2026 из Японии: цены под ключ и какие версии реально ввезти",
+          "url": "https://autoprofiasia.ru/blog/toyota-alphard-iz-yaponii-2026-tsena",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Alphard из Японии в 2026: почему нельзя привезти и что взять вместо",
+          "url": "https://autoprofiasia.ru/blog/toyota-alphard-iz-yaponii-2026-alternativy",
+          "snippet": "Разбираемся, какие моторы проходят по эконормам, сколько стоит Alphard под ключ во Владивостоке и на чём реально горят клиенты. Сейчас в Японии продаются два основных двигателя: гибрид 2.5 л (A25A-FXS) и бензин 3.5 л (2GR-FKS). Гибрид сертифицирован под Евро-5 и Евро-6 — проблем с таможней нет."
+        },
+        {
+          "title": "Toyota Alphard из Японии: поколения, стоимость под ключ и нюансы ввоза ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-alphard-iz-yaponii",
+          "snippet": "Toyota Alphard из Японии в 2026 году: почему все версии попадают под санкции и какие минивэны реально можно привезти. Honda Freed, Toyota Sienta и альтернативы."
+        },
+        {
+          "title": "Toyota Alphard: 30-й и 40-й кузов, гибрид, места и покупка в 2026 году",
+          "url": "https://azway.ru/blog/toyota-alphard-iz-yaponii-obzor",
+          "snippet": "Toyota Alphard из Японии под ключ в 2026: поколения AGH30 и 4th gen, аукционные цены USS/TAA, стоимость таможенного оформления и утильсбора, комплектация Executive Lounge. Разбор для Сибири и ДВ."
+        },
+        {
+          "title": "Toyota Alphard 40 Executive Lounge и Vellfire Z Premier 2026: обзор ...",
+          "url": "https://carto-auto.ru/blog/toyota-alphard-40-executive-lounge-vellfire-z-premier-2026-pod-klyuch-iz-yaponii/",
+          "snippet": "Экспертный обзор Toyota Alphard: поколения 20, 30 и 40, версии на 6-8 мест, бензин и гибрид, проверка подержанной машины и ограничения вывоза из Японии в Россию."
+        },
+        {
+          "title": "Тойота Альфард из Китая 2026: цена, где купить, утильсбор",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/toyota-alphard-iz-kitaya/",
+          "snippet": "Подробный гид по топовому Alphard 40 Executive Lounge и Vellfire Z Premier 2026. Сравниваем версии, моторы 2.5 Hybrid и 2.4 Turbo, опции салона, цены аукциона Японии и итог под ключ в Москве — от 9 до 11 млн ₽."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как выбрать тойота альфард из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "kelai141/assets/week.svg at main · kelai141/kelai141 · GitHub",
+          "url": "https://github.com/kelai141/kelai141/blob/main/assets/week.svg",
+          "snippet": ""
+        },
+        {
+          "title": "domashka/Almaty_districts.svg at main - GitHub",
+          "url": "https://github.com/DariyaYdyrys/domashka/blob/main/Almaty_districts.svg",
+          "snippet": "Contribute to kelai141/kelai141 development by creating an account on GitHub."
+        },
+        {
+          "title": "Обзор 10 Vpn-сервисов В 2026 Году: Что Я Тестировал Лично, Что Работает ...",
+          "url": "https://gist.github.com/BoberSdoh/ec67b2175d1f9cecaf6ad24a5278084e",
+          "snippet": "Contribute to DariyaYdyrys/domashka development by creating an account on GitHub."
+        },
+        {
+          "title": "Document/数据结构/各种数据结构的使用情况.PNG at master · FangWW/Document",
+          "url": "https://github.com/FangWW/Document/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5.PNG",
+          "snippet": "Обзор 10 VPN-сервисов в 2026 году: что я тестировал лично, что работает, что не очень, и как выбрать под свою задачу. Без рекламы, на простом языке."
+        },
+        {
+          "title": "was-node-suite-comfyui/image/image_mask_scale_as_example.jpg at main ...",
+          "url": "https://github.com/RituCodeWeb/was-node-suite-comfyui/blob/main/image/image_mask_scale_as_example.jpg",
+          "snippet": "Cannot retrieve latest commit at this time."
+        },
+        {
+          "title": "DGMO/assets/ku-logo.png at main · wltschmrz/DGMO · GitHub",
+          "url": "https://github.com/wltschmrz/DGMO/blob/main/assets/ku-logo.png",
+          "snippet": "Contribute to RituCodeWeb/was-node-suite-comfyui development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как выбрать тойота альфард из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Alphard из Японии: поколения, стоимость под ключ и нюансы ввоза ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-alphard-iz-yaponii",
+          "snippet": ""
+        },
+        {
+          "title": "Документы на Тойота Альфард: полный список для покупки и таможни",
+          "url": "https://toyotabase.vercel.app/articles/d/do/dokumenty-na-tojota-alfard.html",
+          "snippet": "Toyota Alphard из Японии под ключ в 2026: поколения AGH30 и 4th gen, аукционные цены USS/TAA, стоимость таможенного оформления и утильсбора, комплектация Executive Lounge."
+        },
+        {
+          "title": "Праворукая Тойота из Японии: как выбрать и легализовать в 2026",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-yaponskaya-pravorukaya.html",
+          "snippet": "Какие документы нужны на Toyota Alphard? Полный гид по ПТС, ЭПТС, таможне, техпаспорту и проверке авто из Японии для ввоза в РФ."
+        },
+        {
+          "title": "Тойота Альфард 2026 технические характеристики. Toyota Alphard 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/alphard/2026/",
+          "snippet": "Мы проанализировали рынок и составили рейтинг моделей, которые оптимально сочетают надёжность, проходимость и лёгкость в легализации. При выборе модели обращайте внимание на год выпуска: машины старше 2016 года требуют дополнительных проверок на таможне."
+        },
+        {
+          "title": "Toyota Alphard 40 Executive Lounge и Vellfire Z Premier 2026: обзор ...",
+          "url": "https://carto-auto.ru/blog/toyota-alphard-40-executive-lounge-vellfire-z-premier-2026-pod-klyuch-iz-yaponii/",
+          "snippet": "Подробно расписан модельный ряд Toyota Alphard 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Альфард 2026 между собой."
+        },
+        {
+          "title": "Toyota Alphard: 30-й и 40-й кузов, гибрид, места и покупка в 2026 году",
+          "url": "https://azway.ru/blog/toyota-alphard-iz-yaponii-obzor",
+          "snippet": "Подробный гид по топовому Alphard 40 Executive Lounge и Vellfire Z Premier 2026. Сравниваем версии, моторы 2.5 Hybrid и 2.4 Turbo, опции салона, цены аукциона Японии и итог под ключ в Москве — от 9 до 11 млн ₽."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как выбрать тойота альфард из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Alphard из Японии: поколения, стоимость под ключ и нюансы ввоза ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-alphard-iz-yaponii",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Alphard: 30-й и 40-й кузов, гибрид, места и покупка в 2026 году",
+          "url": "https://azway.ru/blog/toyota-alphard-iz-yaponii-obzor",
+          "snippet": "Итог Toyota Alphard из Японии — один из самых интересных вариантов для тех, кому нужен премиальный минивэн с правым рулём. Спрос на него стабилен: и для семей, и для представительского ..."
+        },
+        {
+          "title": "Праворукая Тойота из Японии: как выбрать и легализовать в 2026",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-yaponskaya-pravorukaya.html",
+          "snippet": "Экспертный обзор Toyota Alphard: поколения 20, 30 и 40, версии на 6-8 мест, бензин и гибрид, проверка подержанной машины и ограничения вывоза из Японии в Россию."
+        },
+        {
+          "title": "Toyota Alphard 40 Executive Lounge и Vellfire Z Premier 2026: обзор ...",
+          "url": "https://carto-auto.ru/blog/toyota-alphard-40-executive-lounge-vellfire-z-premier-2026-pod-klyuch-iz-yaponii/",
+          "snippet": "В этом материале разберём все этапы — от анализа рынка до юридических тонкостей, чтобы вы могли принять взвешенное решение. Особенность японских праворуких Toyota — в их техническом состоянии и комплектации."
+        },
+        {
+          "title": "Toyota Alphard из Японии в 2026: почему нельзя привезти и что взять вместо",
+          "url": "https://autoprofiasia.ru/blog/toyota-alphard-iz-yaponii-2026-alternativy",
+          "snippet": "Подробный гид по топовому Alphard 40 Executive Lounge и Vellfire Z Premier 2026. Сравниваем версии, моторы 2.5 Hybrid и 2.4 Turbo, опции салона, цены аукциона Японии и итог под ключ в Москве — от 9 до 11 млн ₽."
+        },
+        {
+          "title": "Бортжурнал Toyota Alphard - клуб, форум о Тойота Альфард на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/toyota/alphard/",
+          "snippet": "Toyota Alphard из Японии в 2026 году: почему все версии попадают под санкции и какие минивэны реально можно привезти. Honda Freed, Toyota Sienta и альтернативы."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "тойота альфард из японии 2026",
+      "purpose": "вторичный запрос: тойота альфард из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Alphard 2026 из Японии: цены под ключ и какие версии реально ввезти",
+          "url": "https://autoprofiasia.ru/blog/toyota-alphard-iz-yaponii-2026-tsena",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Alphard из Японии: поколения, стоимость под ключ и нюансы ввоза ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-alphard-iz-yaponii",
+          "snippet": "Toyota Alphard 40 Series 2026: реальные цены под ключ, какие версии разрешены для ввоза в РФ. Таблица характеристик, аукционные советы и личный опыт AutoProfi Asia."
+        },
+        {
+          "title": "Тойота Альфард 2026 технические характеристики. Toyota Alphard 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/alphard/2026/",
+          "snippet": "Toyota Alphard из Японии под ключ в 2026: поколения AGH30 и 4th gen, аукционные цены USS/TAA, стоимость таможенного оформления и утильсбора, комплектация Executive Lounge."
+        },
+        {
+          "title": "Toyota Alphard из Японии в 2026: почему нельзя привезти и что взять вместо",
+          "url": "https://autoprofiasia.ru/blog/toyota-alphard-iz-yaponii-2026-alternativy",
+          "snippet": "Подробно расписан модельный ряд Toyota Alphard 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Альфард 2026 между собой."
+        },
+        {
+          "title": "Тойота Альфард из Китая 2026: цена, где купить, утильсбор",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/toyota-alphard-iz-kitaya/",
+          "snippet": "Toyota Alphard из Японии в 2026 году: почему все версии попадают под санкции и какие минивэны реально можно привезти. Honda Freed, Toyota Sienta и альтернативы."
+        },
+        {
+          "title": "Купить Toyota Alphard 2026 — параллельный импорт из Японии, 11.5 млн ...",
+          "url": "https://carto-auto.ru/catalog/toyota-alphard-japan-2026-8/",
+          "snippet": "Alphard в Китае не выпускают: это импортный японский минивэн, который продаётся с гибридом 2.5. Разбираю официальную цену 2026 года, что было в Китае раньше, какой утильсбор у Альфарда и почему везти его через Китай — осознанный выбор, а не экономия."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "альфард гибрид 2026",
+      "purpose": "вторичный запрос: альфард гибрид",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Альфард 2026 технические характеристики. Toyota Alphard 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/alphard/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить новые Toyota Alphard 2026 года с гибридным двигателем по цене от ...",
+          "url": "https://auto.ru/cars/toyota/alphard/2026-year/new/engine-gibrid/",
+          "snippet": "Подробно расписан модельный ряд Toyota Alphard 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Альфард 2026 между собой."
+        },
+        {
+          "title": "Купить Toyota Alphard с гибридным двигателем 2026 года выпуска",
+          "url": "https://auto.ru/cars/toyota/alphard/2026-year/all/engine-gibrid/",
+          "snippet": "Полный модельный ряд новых Toyota Alphard 2026 года с гибридным двигателем по цене от 14 400 000 рублей - у нас вы можете выбрать и купить новую машину, ознакомиться с ценами и комплектациями."
+        },
+        {
+          "title": "Тойота Альфард 2026 (Toyota Alphard) — 8 990 000 ₽, гибрид 2.5, полный ...",
+          "url": "https://ruliauto-zakaz.ru/stati/toyota-alphard-2026-cena-harakteristiki",
+          "snippet": "Полный модельный ряд Toyota Alphard 2026 года с гибридным двигателем по цене от 8 020 000 рублей - более 14 Тойота Альфард, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        },
+        {
+          "title": "Toyota Alphard 2026: цена, характеристики и обзор нового минивэна",
+          "url": "https://carsvibe.ru/articles/toyota-alphard-2026-cena-kharakteristiki-i-obzor-novogo-minivena",
+          "snippet": "Новый Toyota Alphard Hybrid Executive 2026 — 8 990 000 ₽ под ключ из Китая: гибрид 2.5, вариатор, полный привод. От 8 990 000 ₽ под ключ за версию Hybrid Executive — гибридный мотор 2.5 л (190 л.с.), полный привод, вариатор. В цену входят автомобиль, доставка, растаможка и оформление."
+        },
+        {
+          "title": "Toyota Alphard 2.5 Hybrid X (01.2025 - 05.2026) - Дром",
+          "url": "https://www.drom.ru/catalog/toyota/alphard/521497/",
+          "snippet": "Toyota Alphard 2026 уже продаётся в России. Разбираем цены, гибрид 2.5, полный привод E-Four, версии G и Executive Lounge, салон и характеристики нового Альфарда."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "тойота альфард владивосток 2026",
+      "purpose": "вторичный запрос: тойота альфард владивосток",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Продажа Toyota Alphard, 2026 год во Владивостоке",
+          "url": "https://auto.drom.ru/vladivostok/toyota/alphard/239963843.html",
+          "snippet": ""
+        },
+        {
+          "title": "Тойота Альфард 2026 технические характеристики. Toyota Alphard 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/alphard/2026/",
+          "snippet": "Характеристики Продавец поможет подобрать и доставить Toyota Alphard с похожими параметрами"
+        },
+        {
+          "title": "Продажа Toyota Alphard, 2026 год во Владивостоке",
+          "url": "https://auto.drom.ru/vladivostok/toyota/alphard/480135699.html",
+          "snippet": "Подробно расписан модельный ряд Toyota Alphard 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Альфард 2026 между собой."
+        },
+        {
+          "title": "Официальный Дилер Toyota В Г. Владивосток - Купить Авто В Тойота Центр ...",
+          "url": "https://toyota-vvo.ru/",
+          "snippet": "Продажа Тойота Альфард 2026 года во Владивостоке, автомат, черный, КУРСЫ ВАЛЮТ БЬЮТ ИСТОРИЧЕСКИЙ МИНИМУМ, бензин, передний привод, Япония, под заказ"
+        },
+        {
+          "title": "Сколько стоит Тойота Альфард 2026 года, цена в Владивостоке",
+          "url": "https://cenamashin.ru/cena/toyota/alphard/2026/vladivostok",
+          "snippet": "Официальный дилер TOYOTA - купить авто в Тойота Центр Владивосток. Узнать подробности Вы можете по телефону + 7 (423) 224-00-24 или в нашем дилерском центре по адресу г. Владивосток, ул.Маковского, 224."
+        },
+        {
+          "title": "Купить Toyota Alphard 2026 года по цене от 11 500 000 рублей - более 10 ...",
+          "url": "https://auto.ru/cars/toyota/alphard/2026-year/all/",
+          "snippet": "Средняя цена (стоимость) Тойота Альфард 2026 года в Владивостоке, статистика цены и продаж, ликвидность в городе, сколько стоил новый в 2026 году и еще много полезной информации."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "альфард левый руль 2026",
+      "purpose": "вторичный запрос: альфард левый руль",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Alphard 40: цена под ключ, левый и правый руль, версии 2026",
+          "url": "https://moyka63.ru/news/toyota-alphard-privoz-cena/",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Alphard левый руль: цены, особенности и легализация в России",
+          "url": "https://toyotabase.vercel.app/articles/t/to/toyota-alphard-levyj-rul.html",
+          "snippet": "Чем леворульный Alphard отличается от праворульного? Рынком и ценой: левый руль — Китай и ОАЭ, правый — Япония."
+        },
+        {
+          "title": "Тойота Альфард 2026 технические характеристики. Toyota Alphard 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/alphard/2026/",
+          "snippet": "В этой статье разберём, где найти Alphard с левым рулём, как избежать подводных камней при покупке и что изменилось в таможенных правилах в 2026 году."
+        },
+        {
+          "title": "Купить новый автомобиль Toyota Alphard IV 2026 года выпуска",
+          "url": "https://auto.ru/cars/toyota/alphard/2026-year/23633237/new/",
+          "snippet": "Подробно расписан модельный ряд Toyota Alphard 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Альфард 2026 между собой."
+        },
+        {
+          "title": "Тойота Альфард 2026 в Москве, Модель: Alphard, гибрид, новый авто от ...",
+          "url": "https://auto.drom.ru/moscow/toyota/alphard/669751139.html",
+          "snippet": "Полный модельный ряд новых Toyota Alphard IV 2026 года по цене от 14 500 000 рублей - у нас вы можете выбрать и купить новую машину, ознакомиться с ценами и комплектациями."
+        },
+        {
+          "title": "Минивэны Toyota с левым рулём 2026: модельный ряд, цены и особенности",
+          "url": "https://toyotabase.vercel.app/articles/m/mi/miniven-tojota-modelnyj-ryad-s-levym-rulem.html",
+          "snippet": "Toyota Alphard IV 2026 года — это автомобиль, который сочетает в себе технологичность и практичность. Чёрный цвет кузова и 19-дюймовые диски придают ему стильный и современный вид. Гибридный двигатель объёмом 2, 5 литра и мощностью 190 лошадиных сил обеспечивает отличную динамику и экономичность."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Toyota Alphard из Японии: кузов 30/40, гибрид и ловушки до ставки 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Alphard: 30-й и 40-й кузов, гибрид, места и покупка в 2026 году",
+          "url": "https://azway.ru/blog/toyota-alphard-iz-yaponii-obzor",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Alphard 2026 из Японии: цены под ключ и какие версии реально ввезти",
+          "url": "https://autoprofiasia.ru/blog/toyota-alphard-iz-yaponii-2026-tsena",
+          "snippet": "Экспертный обзор Toyota Alphard: поколения 20, 30 и 40, версии на 6-8 мест, бензин и гибрид, проверка подержанной машины и ограничения вывоза из Японии в Россию."
+        },
+        {
+          "title": "Toyota Alphard из Японии: поколения, стоимость под ключ и нюансы ввоза ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-alphard-iz-yaponii",
+          "snippet": "Toyota Alphard 40 Series 2026: реальные цены под ключ, какие версии разрешены для ввоза в РФ. Таблица характеристик, аукционные советы и личный опыт AutoProfi Asia."
+        },
+        {
+          "title": "Toyota Alphard: гид покупателя для экспорта — VIP-минивэн из Японии",
+          "url": "https://www.auto-x.jp/ru/blog/toyota-alphard-buyers-guide",
+          "snippet": "Toyota Alphard из Японии под ключ в 2026: поколения AGH30 и 4th gen, аукционные цены USS/TAA, стоимость таможенного оформления и утильсбора, комплектация Executive Lounge."
+        },
+        {
+          "title": "Toyota Alphard Hybrid из Японии: разница в цене против бензина ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-alphard-hybrid-iz-yaponii",
+          "snippet": "Гид лицензированного японского экспортёра по Toyota Alphard: поколения AH10-AH40, Alphard против Vellfire, двигатели V6 и гибрид E-Four, чек-лист покупки и цены FOB."
+        },
+        {
+          "title": "Toyota Alphard из Японии: обзор, цены, комплектации, поколения",
+          "url": "https://4ringcars.ru/20-toyota-alphard-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+          "snippet": "Alphard 30-й серии (2015-2023) выпускался в трёх конфигурациях двигателя, и разница между ними — не только в характеристиках, но и в итоговой стоимости под ключ."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://autoprofiasia.ru/blog/toyota-alphard-iz-yaponii-2026-tsena",
+      "title": "Toyota Alphard 2026 из Японии: цены под ключ и какие версии реально ввезти",
+      "from_query": "как выбрать тойота альфард из японии 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/toyota-alphard-iz-yaponii",
+      "title": "Toyota Alphard из Японии: поколения, стоимость под ключ и нюансы ввоза ...",
+      "from_query": "как выбрать тойота альфард из японии 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/blog/toyota-alphard-iz-yaponii-2026-alternativy",
+      "title": "Toyota Alphard из Японии в 2026: почему нельзя привезти и что взять вместо",
+      "from_query": "как выбрать тойота альфард из японии 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/toyota-alphard-iz-yaponii-obzor",
+      "title": "Toyota Alphard: 30-й и 40-й кузов, гибрид, места и покупка в 2026 году",
+      "from_query": "как выбрать тойота альфард из японии 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/toyota-alphard-40-executive-lounge-vellfire-z-premier-2026-pod-klyuch-iz-yaponii/",
+      "title": "Toyota Alphard 40 Executive Lounge и Vellfire Z Premier 2026: обзор ...",
+      "from_query": "как выбрать тойота альфард из японии 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/k/ku/kupit-tojota-rejs.html",
+      "title": "Toyota Alphard 2026: где купить и как выбрать лучший вариант",
+      "from_query": "как выбрать тойота альфард из японии 2026"
+    },
+    {
+      "url": "https://www.japantrek.ru/catalog/toyota/alphard/",
+      "title": "Toyota Alphard (Тойота Альфард) из Японии — поколения, кузова и ...",
+      "from_query": "как выбрать тойота альфард из японии октябрь 2026"
+    },
+    {
+      "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/toyota-alphard-iz-kitaya/",
+      "title": "Тойота Альфард из Китая 2026: цена, где купить, утильсбор",
+      "from_query": "как выбрать тойота альфард из японии новости 2026"
+    },
+    {
+      "url": "https://github.com/kelai141/kelai141/blob/main/assets/week.svg",
+      "title": "kelai141/assets/week.svg at main · kelai141/kelai141 · GitHub",
+      "from_query": "site:github.com как выбрать тойота альфард из японии 2026"
+    },
+    {
+      "url": "https://github.com/DariyaYdyrys/domashka/blob/main/Almaty_districts.svg",
+      "title": "domashka/Almaty_districts.svg at main - GitHub",
+      "from_query": "site:github.com как выбрать тойота альфард из японии 2026"
+    },
+    {
+      "url": "https://gist.github.com/BoberSdoh/ec67b2175d1f9cecaf6ad24a5278084e",
+      "title": "Обзор 10 Vpn-сервисов В 2026 Году: Что Я Тестировал Лично, Что Работает ...",
+      "from_query": "site:github.com как выбрать тойота альфард из японии 2026"
+    },
+    {
+      "url": "https://github.com/FangWW/Document/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5.PNG",
+      "title": "Document/数据结构/各种数据结构的使用情况.PNG at master · FangWW/Document",
+      "from_query": "site:github.com как выбрать тойота альфард из японии 2026"
+    },
+    {
+      "url": "https://github.com/RituCodeWeb/was-node-suite-comfyui/blob/main/image/image_mask_scale_as_example.jpg",
+      "title": "was-node-suite-comfyui/image/image_mask_scale_as_example.jpg at main ...",
+      "from_query": "site:github.com как выбрать тойота альфард из японии 2026"
+    },
+    {
+      "url": "https://github.com/wltschmrz/DGMO/blob/main/assets/ku-logo.png",
+      "title": "DGMO/assets/ku-logo.png at main · wltschmrz/DGMO · GitHub",
+      "from_query": "site:github.com как выбрать тойота альфард из японии 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/d/do/dokumenty-na-tojota-alfard.html",
+      "title": "Документы на Тойота Альфард: полный список для покупки и таможни",
+      "from_query": "как выбрать тойота альфард из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-yaponskaya-pravorukaya.html",
+      "title": "Праворукая Тойота из Японии: как выбрать и легализовать в 2026",
+      "from_query": "как выбрать тойота альфард из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/alphard/2026/",
+      "title": "Тойота Альфард 2026 технические характеристики. Toyota Alphard 2026 ...",
+      "from_query": "как выбрать тойота альфард из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/toyota/alphard/",
+      "title": "Бортжурнал Toyota Alphard - клуб, форум о Тойота Альфард на Авто.ру",
+      "from_query": "как выбрать тойота альфард из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/catalog/toyota-alphard-japan-2026-8/",
+      "title": "Купить Toyota Alphard 2026 — параллельный импорт из Японии, 11.5 млн ...",
+      "from_query": "тойота альфард из японии 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/toyota/alphard/2026-year/new/engine-gibrid/",
+      "title": "Купить новые Toyota Alphard 2026 года с гибридным двигателем по цене от ...",
+      "from_query": "альфард гибрид 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/toyota/alphard/2026-year/all/engine-gibrid/",
+      "title": "Купить Toyota Alphard с гибридным двигателем 2026 года выпуска",
+      "from_query": "альфард гибрид 2026"
+    },
+    {
+      "url": "https://ruliauto-zakaz.ru/stati/toyota-alphard-2026-cena-harakteristiki",
+      "title": "Тойота Альфард 2026 (Toyota Alphard) — 8 990 000 ₽, гибрид 2.5, полный ...",
+      "from_query": "альфард гибрид 2026"
+    },
+    {
+      "url": "https://carsvibe.ru/articles/toyota-alphard-2026-cena-kharakteristiki-i-obzor-novogo-minivena",
+      "title": "Toyota Alphard 2026: цена, характеристики и обзор нового минивэна",
+      "from_query": "альфард гибрид 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/alphard/521497/",
+      "title": "Toyota Alphard 2.5 Hybrid X (01.2025 - 05.2026) - Дром",
+      "from_query": "альфард гибрид 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/vladivostok/toyota/alphard/239963843.html",
+      "title": "Продажа Toyota Alphard, 2026 год во Владивостоке",
+      "from_query": "тойота альфард владивосток 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/vladivostok/toyota/alphard/480135699.html",
+      "title": "Продажа Toyota Alphard, 2026 год во Владивостоке",
+      "from_query": "тойота альфард владивосток 2026"
+    },
+    {
+      "url": "https://toyota-vvo.ru/",
+      "title": "Официальный Дилер Toyota В Г. Владивосток - Купить Авто В Тойота Центр ...",
+      "from_query": "тойота альфард владивосток 2026"
+    },
+    {
+      "url": "https://cenamashin.ru/cena/toyota/alphard/2026/vladivostok",
+      "title": "Сколько стоит Тойота Альфард 2026 года, цена в Владивостоке",
+      "from_query": "тойота альфард владивосток 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/toyota/alphard/2026-year/all/",
+      "title": "Купить Toyota Alphard 2026 года по цене от 11 500 000 рублей - более 10 ...",
+      "from_query": "тойота альфард владивосток 2026"
+    },
+    {
+      "url": "https://moyka63.ru/news/toyota-alphard-privoz-cena/",
+      "title": "Toyota Alphard 40: цена под ключ, левый и правый руль, версии 2026",
+      "from_query": "альфард левый руль 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/toyota-alphard-levyj-rul.html",
+      "title": "Toyota Alphard левый руль: цены, особенности и легализация в России",
+      "from_query": "альфард левый руль 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/toyota/alphard/2026-year/23633237/new/",
+      "title": "Купить новый автомобиль Toyota Alphard IV 2026 года выпуска",
+      "from_query": "альфард левый руль 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/moscow/toyota/alphard/669751139.html",
+      "title": "Тойота Альфард 2026 в Москве, Модель: Alphard, гибрид, новый авто от ...",
+      "from_query": "альфард левый руль 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/m/mi/miniven-tojota-modelnyj-ryad-s-levym-rulem.html",
+      "title": "Минивэны Toyota с левым рулём 2026: модельный ряд, цены и особенности",
+      "from_query": "альфард левый руль 2026"
+    },
+    {
+      "url": "https://www.auto-x.jp/ru/blog/toyota-alphard-buyers-guide",
+      "title": "Toyota Alphard: гид покупателя для экспорта — VIP-минивэн из Японии",
+      "from_query": "Как выбрать Toyota Alphard из Японии: кузов 30/40, гибрид и ловушки до ставки 2026 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/toyota-alphard-hybrid-iz-yaponii",
+      "title": "Toyota Alphard Hybrid из Японии: разница в цене против бензина ...",
+      "from_query": "Как выбрать Toyota Alphard из Японии: кузов 30/40, гибрид и ловушки до ставки 2026 2026"
+    },
+    {
+      "url": "https://4ringcars.ru/20-toyota-alphard-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+      "title": "Toyota Alphard из Японии: обзор, цены, комплектации, поколения",
+      "from_query": "Как выбрать Toyota Alphard из Японии: кузов 30/40, гибрид и ловушки до ставки 2026 2026"
+    }
+  ]
+}

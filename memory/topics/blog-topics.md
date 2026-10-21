@@ -184,3 +184,28 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Toyota Alphard из Японии: комплектации и ловушки
+
+- **priority:** P0
+- **slug:** toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Toyota Alphard из Японии: кузов 30/40, гибрид и ловушки до ставки 2026
+- **primary_query:** как выбрать тойота альфард из японии
+- **secondary_queries:** тойота альфард из японии, альфард гибрид, тойота альфард владивосток, альфард левый руль
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Зачем решать кузов и тип силовой установки до ставки, а не после выигрыша
+  2. Кузов 30 vs 40: что смотреть новичку на аукционном листе
+  3. Гибрид и PHEV: какие поля ломают расчёт утильсбора и ввоз
+  4. 6, 7 или 8 мест и комплектации Z / Executive Lounge без воды
+  5. Красные флаги: батарея, двери, пробег, расхождение VIN и фото
+  6. Чек-лист перед ставкой и депозитом брокеру
+- **faq_hints:** чем гибрид Alphard отличается от PHEV при ввозе; какой кузов проще везти через Владивосток в 2026; можно ли брать левый руль без осмотра листа
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у минивэна/порта Владивостока, плашка «Alphard до ставки», угол avto-sales125.ru
+- **wordstat_note:** parent «тойота альфард» ~56784; «альфард гибрид» ~2435; «альфард владивосток» ~1175; narrow «альфард из японии» ~216; «как выбрать альфард» totalCount-only 3 (low-result); «как купить альфард из японии» empty `{}`
+- **cannibal_note:** нет в recent WP Oct 18–21, нет в published-live, WP search Alphard/альфард пуст; вне denylist комплектаций Kia/Hyundai; не клон японских минивэнов-списка и аукционного листа

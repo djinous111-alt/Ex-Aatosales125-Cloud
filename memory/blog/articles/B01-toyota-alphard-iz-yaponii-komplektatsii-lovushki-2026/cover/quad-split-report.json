@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1276,
+      724
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 724,
+        "end": 748
+      },
+      "v_gutter_px": {
+        "start": 1276,
+        "end": 1284
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 3,
+          "right": 1276,
+          "bottom": 721
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1276,
+          "bottom": 724
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у минивэна у порта Владивостока, плашка Alphard до ставки, угол каталога avto-sales125.ru",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1284,
+          "top": 3,
+          "right": 2560,
+          "bottom": 721
+        },
+        "raw_box_px": {
+          "left": 1284,
+          "top": 0,
+          "right": 2560,
+          "bottom": 724
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист законности маршрута Alphard до ставки",
+        "h2_anchor": "Сначала проверьте законность маршрута – до любой ставки"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 23,
+          "top": 748,
+          "right": 1253,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 748,
+          "right": 1276,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Скрин аукционного листа: кузов Alphard 30 против 40",
+        "h2_anchor": "Как отличить кузов 30 от 40 на листе, а не по году"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1307,
+          "top": 748,
+          "right": 2537,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1284,
+          "top": 748,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица бензин, гибрид и PHEV Alphard до расчёта",
+        "h2_anchor": "Разведите бензин, гибрид и PHEV до расчёта"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Сначала проверьте законность маршрута – до любой ставки",
+    "injected inline_2 after H2 — Как отличить кузов 30 от 40 на листе, а не по году",
+    "injected inline_3 after H2 — Разведите бензин, гибрид и PHEV до расчёта"
+  ]
+}

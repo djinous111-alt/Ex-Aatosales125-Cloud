@@ -71,6 +71,8 @@ python scripts/excalibur_blog_wp_publish.py \
 
 **Не останавливайся** на первом timeout — используй fallback.
 
+При nginx **504**: немедленно WebFetch `FALLBACK_TRIGGER_URL`; скрипт сам REST-probe по slug и может reconstruct без republish.
+
 ### 5. Post-publish артефакты
 
 | Файл | Действие |
@@ -119,3 +121,11 @@ blockers:
 - Генерировать cover/schema с нуля
 - Пропускать dry-run
 - Завершать пайплайн без записи в `published-articles.md` при успешном publish
+
+## CTA/schema hydrate + nginx 504
+
+- Before SSH publish the script hydrates committed `[REDACTED]` placeholders from `PUBLIC_SITE_URL` / `TELEGRAM_URL`.
+- If local HTTP trigger returns nginx **504**, script prints `FALLBACK_TRIGGER_URL` immediately — WebFetch/curl that URL into `memory/webfetch-response.txt` without waiting for another local attempt.
+- On 504 the script also probes WP REST `posts?slug=` and reconstructs `wp-publish-result.json` + ledger when the live post is already OK (**no republish**).
+- After success, slug is appended to `shared/wp-slug-denylist.json`.
+- Before `git commit` of publish artifacts: `source scripts/excalibur_blog_filter_secret_names.sh`.

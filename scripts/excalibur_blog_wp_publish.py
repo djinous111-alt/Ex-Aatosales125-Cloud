@@ -8,6 +8,7 @@ import io
 import json
 import os
 import sys
+import urllib.parse
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -25,6 +26,7 @@ PUBLISH_ENV_KEYS = {
     "PUBLIC_SITE_URL",
     "WP_HOME",
     "WP_SITE_URL",
+    "TELEGRAM_URL",
     "SSH_HOST",
     "SSH_PORT",
     "SSH_USER",
@@ -467,33 +469,178 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+def _is_gateway_timeout(exc: BaseException) -> bool:
+    text = str(exc).lower()
+    if "504" in text or "gateway time" in text:
+        return True
+    code = getattr(exc, "code", None)
+    return code == 504
+
+
+def hydrate_redacted_placeholders(content: str, schema: str, env: dict[str, str]) -> tuple[str, str, list[str]]:
+    """Replace committed [REDACTED] CTA/schema placeholders from publish env."""
+    import re
+
+    public = (env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL") or "").rstrip("/")
+    telegram = (env.get("TELEGRAM_URL") or "").strip()
+    notes: list[str] = []
+    if "[REDACTED]" not in content and "[REDACTED]" not in schema:
+        return content, schema, notes
+    if not public:
+        raise RuntimeError(
+            "article/schema still contain [REDACTED] placeholders; set PUBLIC_SITE_URL before publish hydrate"
+        )
+
+    html = content
+    if telegram:
+        html2, n = re.subn(
+            r'href="\[REDACTED\]"((?:(?!</a>).){0,200}[Tt]elegram)',
+            f'href="{telegram}"\\1',
+            html,
+            flags=re.S,
+        )
+        if n:
+            html = html2
+            notes.append(f"hydrated_telegram_href={n}")
+    before = html.count("[REDACTED]")
+    html = html.replace("[REDACTED]", public)
+    if before:
+        notes.append(f"hydrated_html_redacted={before}")
+
+    schema_out = schema
+    before_s = schema_out.count("[REDACTED]")
+    if before_s:
+        schema_out = schema_out.replace("[REDACTED]", public)
+        notes.append(f"hydrated_schema_redacted={before_s}")
+    return html, schema_out, notes
+
+
+def probe_live_post_by_slug(public_base: str, slug: str) -> dict[str, Any] | None:
+    """REST probe after nginx 504: return post dict if published live."""
+    api = (
+        public_base.rstrip("/")
+        + "/wp-json/wp/v2/posts?slug="
+        + urllib.parse.quote(slug)
+        + "&_fields=id,slug,link,status"
+    )
+    try:
+        with urllib.request.urlopen(
+            urllib.request.Request(api, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
+            timeout=30,
+        ) as response:
+            payload = json.loads(response.read().decode("utf-8", errors="replace"))
+    except Exception as exc:  # noqa: BLE001
+        print(f"WARN REST slug probe failed: {type(exc).__name__}: {exc}", file=sys.stderr)
+        return None
+    if not isinstance(payload, list) or not payload:
+        return None
+    post = payload[0]
+    if not isinstance(post, dict):
+        return None
+    if str(post.get("status") or "") not in {"publish", "future", ""}:
+        # empty status may mean field omitted; accept if link present
+        if not post.get("link"):
+            return None
+    return post
+
+
+def reconstruct_publish_output(post: dict[str, Any], slug: str) -> str:
+    post_id = post.get("id") or ""
+    permalink = str(post.get("link") or "").strip()
+    lines = [
+        f"OK post={post_id} slug={slug}",
+        f"permalink={permalink}",
+        "# reconstructed_after_nginx_504 via REST (no republish)",
+    ]
+    return "\n".join(lines) + "\n"
+
+
+def append_slug_to_denylist(root: Path, slug: str, topic_id: str = "") -> None:
+    path = root / "shared" / "wp-slug-denylist.json"
+    if not path.is_file() or not slug:
+        return
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return
+    slugs = [str(s) for s in (data.get("slugs") or [])]
+    if slug in slugs:
+        return
+    from datetime import date
+
+    slugs.insert(0, slug)
+    data["slugs"] = slugs
+    data["updated_at"] = date.today().isoformat()
+    recent = list(data.get("recent_wp") or [])
+    if not any(isinstance(r, dict) and r.get("slug") == slug for r in recent):
+        recent.insert(0, {"date": date.today().isoformat(), "slug": slug, "note": topic_id or "published"})
+        data["recent_wp"] = recent[:20]
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def trigger_bootstrap_http(
+    url: str,
+    root: Path,
+    *,
+    slug: str = "",
+    public_base: str = "",
+) -> str:
     try:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=300,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
+        # Print FALLBACK immediately so Cloud agent can WebFetch without waiting for local retry loops.
         print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
+        print(
+            "ACTION: open FALLBACK_TRIGGER_URL via WebFetch/curl NOW and write the body to "
+            "memory/webfetch-response.txt (do not wait for another local HTTP attempt)."
+        )
+
+        if _is_gateway_timeout(e) and slug and public_base:
+            print("nginx/gateway 504 detected — probing WP REST by slug before FAIL...")
+            live = probe_live_post_by_slug(public_base, slug)
+            if live and live.get("link"):
+                print(
+                    f"REST reconstruct: live post id={live.get('id')} slug={live.get('slug')} — "
+                    "treating publish as OK without republish"
+                )
+                return reconstruct_publish_output(live, slug)
+
         print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        for _ in range(300):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
+            # Re-probe REST every ~30s while waiting — PHP may have finished after nginx 504.
+            if slug and public_base and _ % 30 == 29:
+                live = probe_live_post_by_slug(public_base, slug)
+                if live and live.get("link"):
+                    print(
+                        f"REST reconstruct during WebFetch wait: id={live.get('id')} — OK without republish"
+                    )
+                    return reconstruct_publish_output(live, slug)
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+
+        if slug and public_base:
+            live = probe_live_post_by_slug(public_base, slug)
+            if live and live.get("link"):
+                print("REST reconstruct after WebFetch timeout — OK without republish")
+                return reconstruct_publish_output(live, slug)
+        raise RuntimeError("Cloud WebFetch Fallback timed out after 300 seconds. Please trigger manually.")
 
 
-def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
+def publish_via_ssh(env: dict[str, str], php: str, public_base: str, slug: str = "") -> str:
     remote = "excalibur-blog-publish-once.php"
     data = php.encode("utf-8")
     url = public_base.rstrip("/") + "/" + remote
@@ -502,7 +649,7 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        out = trigger_bootstrap_http(url, root, slug=slug, public_base=public_base)
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)
@@ -569,14 +716,37 @@ def main() -> int:
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
     payload = load_article(article_dir)
+
+    env = load_env(root)
+    content, schema, hydrate_notes = hydrate_redacted_placeholders(
+        str(payload.get("content") or ""),
+        str(payload.get("schema_jsonld") or ""),
+        env,
+    )
+    payload["content"] = content
+    payload["schema_jsonld"] = schema
+    if hydrate_notes:
+        print("CTA/schema hydrate:", ", ".join(hydrate_notes))
+
     php = build_php(payload)
 
     if args.dry_run:
-        print(json.dumps({"dry_run": True, "slug": payload["slug"], "title": payload["title"]}, ensure_ascii=False, indent=2))
+        print(
+            json.dumps(
+                {
+                    "dry_run": True,
+                    "slug": payload["slug"],
+                    "title": payload["title"],
+                    "hydrate_notes": hydrate_notes,
+                    "redacted_remaining_in_payload": "[REDACTED]" in content or "[REDACTED]" in schema,
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1
@@ -588,26 +758,38 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ssh(env, php, public)
+    out = publish_via_ssh(env, php, public, slug=str(payload.get("slug") or ""))
     print(out)
 
     result_path = article_dir / "wp-publish-result.json"
     permalink = ""
+    post_id = payload.get("post_id") or 0
     for line in out.splitlines():
         if line.startswith("permalink="):
             permalink = line.split("=", 1)[1].strip()
+        if line.startswith("OK post="):
+            try:
+                post_id = int(line.split("post=", 1)[1].split()[0])
+            except ValueError:
+                pass
+    reconstructed = "reconstructed_after_nginx_504" in out
     result = {
         "slug": payload["slug"],
         "topic_id": payload["topic_id"],
         "permalink": permalink,
+        "post_id": post_id,
         "publish_method": "ssh",
         "cover_evidence": payload.get("cover_evidence", {}),
         "raw_output": out,
+        "hydrate_notes": hydrate_notes,
         "verdict": "pass" if "OK post=" in out else "fail",
     }
+    if reconstructed:
+        result["reconstructed_after"] = "nginx_504"
     result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     if result["verdict"] == "pass":
         upsert_publish_ledger(root, payload, permalink)
+        append_slug_to_denylist(root, str(payload.get("slug") or ""), str(payload.get("topic_id") or ""))
     return 0 if result["verdict"] == "pass" else 1
 
 

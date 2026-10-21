@@ -1,0 +1,22 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026",
+  "notes": "memory/blog/articles/B01-toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026/research-notes.md",
+  "context": "memory/blog/articles/B01-toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026/research-context.json",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "today_iso": "2026-10-21",
+    "prefer_sources_after": "2026-07-23",
+    "source_urls": 43,
+    "source_domains": 15,
+    "source_table_rows": 40,
+    "accessed_at": 19,
+    "github_urls": 0,
+    "official_doc_urls": 0,
+    "action_outline_items": 9,
+    "pain_solution_rows": 10,
+    "technical_topic": false
+  }
+}

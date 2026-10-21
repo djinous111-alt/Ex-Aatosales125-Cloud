@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261021-1702-scout-missing-wp-denylist
+status: open
+run_date: 2026-10-21
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- В ветке отсутствует `shared/wp-slug-denylist.json`, хотя scout обязан не дублировать уже живые WP-slug/модели (Sorento, Alphard, Mohave, K3, Avante, Santa Fe, Tucson, utilzbor, rastamozhka Korea/China, Seltos, Sportage, AS08/AS09 и др.).
+- Helper `--check-query` смотрит только карточки `## Bxx` в `blog-topics.md` и ledger, поэтому без denylist легко выбрать уже опубликованную модель.
+- MCP `wordpress_get_posts` / `wordpress_search_posts` в этом run вернули чужой/неполный WP-контент, а не актуальный блог Авто-Сейлс - на них нельзя опираться как на единственный denylist.
+
+### How the agent recovered this run
+- Сверил кандидатов вручную со списком recent WP из Director Task + automation memory (запрет republish).
+- Выбрал свежую модель вне списка: Kia Carnival; `--check-query "киа карнивал из кореи"` = NO CANNIBALIZATION RISK.
+- Зафиксировал gap для fixer: восстановить denylist и проверку slug в scout helper.
+
+### Durable fix needed before next run
+- Восстановить `shared/wp-slug-denylist.json` со всеми live slug/моделями Авто-Сейлс (включая Oct 2026: kia-sorento, toyota-alphard, kia-mohave и др.).
+- Добавить в `scripts/excalibur_blog_scout_helper.py` флаг `--check-slug` / чтение denylist при scout preflight.
+- В scout skill явно: при отсутствии denylist - blocker или обязательная сверка с recent WP + memory, не только `--check-query`.
+
+### Suggested files to inspect/change
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

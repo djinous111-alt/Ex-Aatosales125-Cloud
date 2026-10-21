@@ -184,3 +184,27 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Kia Carnival из Кореи
+
+- **priority:** P0
+- **slug:** kia-carnival-iz-korei-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Kia Carnival из Кореи: дизель 2.2, гибрид и комплектации до депозита в 2026
+- **primary_query:** киа карнивал из кореи
+- **secondary_queries:** киа карнивал дизель, киа карнивал комплектации, киа карнивал под заказ из кореи
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Зачем Carnival из Кореи, а не "просто большой минивэн с объявления"
+  2. Дизель 2.2 vs бензин 3.5 vs гибрид 1.6: что реально ищут на Encar в 2026
+  3. Комплектации Prestige / Noblesse / Signature / X-Line и 7 vs 9 мест
+  4. Красные флаги до депозита: мощность, пробег, Trust Encar, Hi-Limousine
+  5. Чек-лист перед переводом: фото, VIN, отчёт, расчёт под ключ в каталоге
+- **faq_hints:** можно ли ещё взять Carnival 2.2 дизель из Кореи в 2026; чем Noblesse отличается от Signature на Encar; 7 или 9 мест для семьи; что проверить до депозита кроме красивых фото
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у большого корейского минивэна / смартфона с карточкой Encar, плашка "до депозита", угол avto-sales125.ru
+- **wordstat_signal:** parent «киа карнивал» ~103290; «киа карнивал дизель» ~9655; «киа карнивал комплектации» ~876; узкий «киа карнивал из кореи» ~498; «как выбрать киа карнивал» totalCount-only 1 (low-result)
+- **trend_note:** MY2026 Carnival в Корее без дизеля 2.2 (остаются бензин 3.5 и гибрид 1.6) - на Encar дизель остаётся в б/у, из-за этого новички путают год/мотор до депозита

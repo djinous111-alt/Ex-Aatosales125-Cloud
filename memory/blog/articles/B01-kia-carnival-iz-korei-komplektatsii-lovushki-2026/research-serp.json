@@ -1,0 +1,656 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-21",
+    "today_ru": "21.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-23",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-21 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "kia-carnival-iz-korei-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Kia Carnival из Кореи: дизель 2.2, гибрид и комплектации до депозита в 2026",
+    "primary_query": "киа карнивал из кореи",
+    "secondary_queries": [
+      "киа карнивал дизель",
+      "киа карнивал комплектации",
+      "киа карнивал под заказ из кореи"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "киа карнивал из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Carnival 2026: обзор, цена под ключ, гибрид | CARTO",
+          "url": "https://carto-auto.ru/blog/kia-carnival-2026-obzor-tsena-pod-klyuch/",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Carnival из Кореи 2026: 7-местный минивэн под ключ — цена, версии и ...",
+          "url": "https://autoprofiasia.ru/blog/kia-carnival-iz-korei-2026-7-mest-tsena",
+          "snippet": "Kia Carnival 2026 (KA4) под ключ из Кореи: моторы 3.5 V6, 2.2 дизель и новый гибрид 245 л.с., VIP Hi-Limousine, цены 4,5-6,5 млн ₽, растаможка и утильсбор."
+        },
+        {
+          "title": "Kia Carnival из Кореи: минивэн под ключ 2026",
+          "url": "https://export-motors.com/blog/kia-carnival-iz-korei",
+          "snippet": "Kia Carnival из Кореи 2026 — лучший минивэн для семьи от 4,2 млн ₽ под ключ. Дизель 2.2 или PHEV, 7-11 мест: подберём нужную версию и рассчитаем стоимость за 15 минут!"
+        },
+        {
+          "title": "Киа Карнивал 2026 технические характеристики. Kia Carnival 2026 ...",
+          "url": "https://www.drom.ru/catalog/kia/carnival/2026/",
+          "snippet": "Kia Carnival из Кореи — топовый семейный минивэн на 7-9 мест. Честно про коммерческий утильсбор, дизель и V6, комплектации и цену под ключ после реформы 2026."
+        },
+        {
+          "title": "Киа Карнивал 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/kia-carnival-2026/",
+          "snippet": "Киа Карнивал 2026 комплектации и цены, фото. Подробно расписан модельный ряд Kia Carnival 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть ..."
+        },
+        {
+          "title": "Минивэны из Кореи 2026 — Carnival, Staria, Sienna — EncarRus",
+          "url": "https://encarrus.ru/news/miniveny-iz-korei-2026/",
+          "snippet": "Киа Карнивал 2026 — это большой семейный минивэн нового поколения, который постарался совместить простор классического MPV с более солидной и почти кроссоверной внешностью."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "киа карнивал из кореи октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Carnival 2026: обзор, цена под ключ, гибрид | CARTO",
+          "url": "https://carto-auto.ru/blog/kia-carnival-2026-obzor-tsena-pod-klyuch/",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Carnival из Кореи 2026: 7-местный минивэн под ключ — цена, версии и ...",
+          "url": "https://autoprofiasia.ru/blog/kia-carnival-iz-korei-2026-7-mest-tsena",
+          "snippet": "Kia Carnival 2026 (KA4) под ключ из Кореи: моторы 3.5 V6, 2.2 дизель и новый гибрид 245 л.с., VIP Hi-Limousine, цены 4,5-6,5 млн ₽, растаможка и утильсбор."
+        },
+        {
+          "title": "Купить Kia Carnival 2026 Года Из Кореи С Доставкой По России, Цена На ...",
+          "url": "https://japautobuy.ru/auto/korea/5367388",
+          "snippet": "Kia Carnival из Кореи 2026 — лучший минивэн для семьи от 4,2 млн ₽ под ключ. Дизель 2.2 или PHEV, 7-11 мест: подберём нужную версию и рассчитаем стоимость за 15 минут!"
+        },
+        {
+          "title": "Продажа Kia Carnival из Кореи | Цены на Киа Карнивал в Корее",
+          "url": "https://www.drom.ru/world/korea/kia/carnival/",
+          "snippet": "KIA CARNIVAL 2026 года купить из Кореи под ключ. Закажите автомобиль с доставкой по России. Киа Карнивал Белый: объем двигателя 1598 см3, пробег 3498 км из Кореи под заказ."
+        },
+        {
+          "title": "Б/у Kia Carnival из Кореи - Цены - PLC Auction",
+          "url": "https://plc.auction/ru/auction/from-kr/kia/carnival",
+          "snippet": "Объявления о продаже Kia Carnival под заказ из Кореи с фото авто и ценами. Стоимость и характеристики Киа Карнивал на аукционе в Корее."
+        },
+        {
+          "title": "Киа Карнивал 2026 технические характеристики. Kia Carnival 2026 ...",
+          "url": "https://www.drom.ru/catalog/kia/carnival/2026/",
+          "snippet": "Ищете высокотехнологичный, хорошо обслуживаемый автомобиль по доступной цене? Kia Carnival из Кореи — один из лучших вариантов. PLC Auction предоставляет прямой доступ к рынку подержанных автомобилей Южной Кореи для последующего импорта в вашу страну."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "киа карнивал из кореи новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Carnival 2026: обзор, цена под ключ, гибрид | CARTO",
+          "url": "https://carto-auto.ru/blog/kia-carnival-2026-obzor-tsena-pod-klyuch/",
+          "snippet": ""
+        },
+        {
+          "title": "новый КИА Карнивал рест и Палисад рест из Кореи в 2026 году",
+          "url": "https://www.youtube.com/watch?v=IdSkXtrV46Y",
+          "snippet": "Kia Carnival 2026 (KA4) под ключ из Кореи: моторы 3.5 V6, 2.2 дизель и новый гибрид 245 л.с., VIP Hi-Limousine, цены 4,5-6,5 млн ₽, растаможка и утильсбор."
+        },
+        {
+          "title": "Киа Карнивал 2026: полный обзор, тест-драйв и реальные отзывы",
+          "url": "https://master-kia.vercel.app/articles/t/te/test-drajv-kia-karnival.html",
+          "snippet": "The newest KIA Carnival Resto and Palisade Resto from Korea in 2026 All the information and figures in the video 💬 Want a similar car? 👨🏼‍💻 Roman and the agents We work for results ..."
+        },
+        {
+          "title": "новый КИА Карнивал рест и Палисад рест из Кореи в 2026 году",
+          "url": "https://rutube.ru/video/052ea88527252fd83fd7ae10c2aed04c/",
+          "snippet": "Детальный тест-драйв Kia Carnival. Разбор характеристик, расхода топлива, вместимости салона и мультимедиа. Стоит ли покупать этот минивэн в 2026 году?"
+        },
+        {
+          "title": "Киа Карнивал: цена, комплектации и покупка из Кореи",
+          "url": "https://blog.kmgexport.com/kia/kia-karnival-cena-komplektacii-i-pokupka-iz-korei/",
+          "snippet": "Смотрите видео онлайн «новый КИА Карнивал рест и Палисад рест из Кореи в 2026 году» на канале «Авто заказ Monster Car Logistic со всего мира» в хорошем качестве и бесплатно, опубликованное 3 января 2026 ..."
+        },
+        {
+          "title": "Kia Carnival из Кореи: минивэн под ключ в Сибирь в 2026",
+          "url": "https://onlyjpcars.ru/blog/kia-carnival-iz-korei",
+          "snippet": "В этом материале разберем реальные цены на разные версии Carnival, особенности модели и почему покупка из Кореи становится все популярнее среди российских автовладельцев."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com киа карнивал из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "obsidian-baseline/img/mobile.png at main · svnaxis/obsidian-baseline ...",
+          "url": "https://github.com/svnaxis/obsidian-baseline/blob/main/img/mobile.png",
+          "snippet": ""
+        },
+        {
+          "title": "leaf/images/preview.png at main · RivoLink/leaf · GitHub",
+          "url": "https://github.com/RivoLink/leaf/blob/main/images/preview.png",
+          "snippet": "A foundational Obsidian theme; the baseline of your thoughts. - svnaxis/obsidian-baseline"
+        },
+        {
+          "title": "GitHub Docs",
+          "url": "https://docs.github.com/",
+          "snippet": "Terminal Markdown previewer — GUI-like experience. - RivoLink/leaf"
+        },
+        {
+          "title": "y-9pbl1122/Kaspersky.svg at main · Zack2321/y-9pbl1122 · GitHub",
+          "url": "https://github.com/Zack2321/y-9pbl1122/blob/main/Kaspersky.svg",
+          "snippet": "Get started, troubleshoot, and make the most of GitHub. Documentation for new users, developers, administrators, and all of GitHub's products."
+        },
+        {
+          "title": "esp32-rtp/images/ota.png at main · netham45/esp32-rtp · GitHub",
+          "url": "https://github.com/netham45/esp32-rtp/blob/main/images/ota.png",
+          "snippet": "Contribute to Zack2321/y-9pbl1122 development by creating an account on GitHub."
+        },
+        {
+          "title": "project/logo.svg at main · Neerajillapu/project · GitHub",
+          "url": "https://github.com/Neerajillapu/project/blob/main/logo.svg",
+          "snippet": "This is an RTP sender/receiver that can receive network audio and play back over SPDIF/USB UAC Host or receive audio from SPDIF/or USB UAC Device and send it out over the network - esp32-rtp/images/ota.png at main · netham45/esp32-rtp"
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "киа карнивал из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Carnival 2026 - Car & User Manual | Kia Owner's Manual",
+          "url": "https://ownersmanual.kia.com/manual/Carnival?projCode=KA4&year=2026&langCode=ru_RU&countryCode=C36",
+          "snippet": ""
+        },
+        {
+          "title": "PDF The Kia Carnival",
+          "url": "https://www.kia.com/content/dam/kwcms/id/en/brochure/Kia-Carnival-Brochure-2026.pdf",
+          "snippet": "Изображения автомобиля могут отличаться от фактически доступных к продаже моделей. © 2023 Kia. All rights reserved."
+        },
+        {
+          "title": "Руководства по эксплуатации автомобилей Киа - Официальный сайт Kia",
+          "url": "https://www.kia.ru/service/your-kia/",
+          "snippet": "PT Kia Sales Indonesia, a direct subsidiary of Kia Global and the official distributor of Kia vehicles in Indonesia, reserves the right to make changes to models, specifications, equipment, and accessories at any time."
+        },
+        {
+          "title": "2026 KIA CARNIVAL Owner's Manual in PDF!",
+          "url": "https://www.k-manuals.com/2026-kia-carnival/",
+          "snippet": "Хотите узнать все о своем автомобиле? В разделе «Руководства по эксплуатации» на официальном сайте Kia представлено множество полезных материалов."
+        },
+        {
+          "title": "Киа Карнивал 2026 технические характеристики. Kia Carnival 2026 ...",
+          "url": "https://www.drom.ru/catalog/kia/carnival/2026/",
+          "snippet": "Our site provides up-to-date KIA owner's manuals with important driving instructions, maintenance guidelines, and vehicle operation information. On this page, you can open the 2026 Kia Carnival KIA Owner's Manual PDF in full-screen mode or download it to your computer, tablet, or phone."
+        },
+        {
+          "title": "2026 Kia Carnival Specifications",
+          "url": "https://www.kiamedia.com/us/en/models/carnival/2026/specifications",
+          "snippet": "Подробно расписан модельный ряд Kia Carnival 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "киа карнивал из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Киа Карнивал клуб - Киа Форум",
+          "url": "https://mykia.club/forum/186-kia-karnival-klub/",
+          "snippet": ""
+        },
+        {
+          "title": "Киа Карнивал (kia carnival) | форум KIA клуба",
+          "url": "https://kiaclub.ru/index.php?forums/kia-karnival-kia-carnival.22/",
+          "snippet": "Технический форум по Kia Carnival 1 (GQ), 2 (VQ), 3 (YP), 4 (KA4). Темы, которые не подходят ни к одному подфорумов раздела Kia Carnival. Но речь идет именно об этом авто. Kia Carnival 1 (GQ) (1999, 2000, 2001, 2002, 2003, 2004, 2005) ремонт, устройство, электросхемы, запчасти."
+        },
+        {
+          "title": "Форум Киа Карнивал: отзывы владельцев, ремонт и тюнинг",
+          "url": "https://master-kia.vercel.app/articles/f/fo/forum-kia-karnival.html",
+          "snippet": "Добрый день, господа. Хочу приобрести Карнивал 2,2 дизель 3 или 4 поколения. Подскажите, какие проблемы по этим вариантам я могу получить? ..."
+        },
+        {
+          "title": "КИА Карнивал из Кореи отзывы владельцев",
+          "url": "https://kia-clubs.ru/forums/topic/2866-kia-karnival-iz-korei-otzyvy-vladelcev/",
+          "snippet": "Посетите форум Киа Карнивал для обсуждения неисправностей, подбора запчастей, обмена опытом ремонта и тюнинга популярных моделей минивэнов."
+        },
+        {
+          "title": "kiacarnivals - Reddit",
+          "url": "https://www.reddit.com/r/kiacarnivals/",
+          "snippet": "Кто покупал Карнивал из Кореии, делитесь своими отзывами, с какими трудностями столкнулись при покупке, как в эксплуатации авто, делитесь своими отзывами по авто."
+        },
+        {
+          "title": "ПРОБЛЕМЫ / косяки Kia Carnival - Kia Club / Форум Киа Клуб: Киа К5 Клуб ...",
+          "url": "https://kia-clubs.ru/forums/forum/835-problemy-kosyaki-kia-carnival/",
+          "snippet": "r/kiacarnivals: a place to discuss anything related to the kia carnival. I guess the kiacarnival sub is private for whatever reason"
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "киа карнивал дизель 2026",
+      "purpose": "вторичный запрос: киа карнивал дизель",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Киа Карнивал 2026 технические характеристики. Kia Carnival 2026 ...",
+          "url": "https://www.drom.ru/catalog/kia/carnival/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Киа Карнивал 2026: цена в России, обзор нового минивэна и какую версию ...",
+          "url": "https://carsvibe.ru/articles/kia-karnival-2026-cena-v-rossii-obzor-novogo-minivena-i-kakuyu-versiyu-vybrat",
+          "snippet": "Киа Карнивал 2026 комплектации и цены, фото. Подробно расписан модельный ряд Kia Carnival 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть ..."
+        },
+        {
+          "title": "ТТХ Киа Карнивал 2026: полные характеристики, габариты и двигатели",
+          "url": "https://master-kia.vercel.app/articles/t/tt/ttkh-kia-karnival.html",
+          "snippet": "Обзор Kia Carnival 2026: цены в России, гибрид, бензиновый и дизельный двигатели, комплектации, салон на 7 или 9 мест и советы перед покупкой."
+        },
+        {
+          "title": "Киа Карнивал 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/kia-carnival-2026/",
+          "snippet": "Линейка двигателей Kia Carnival предлагает варианты для разных рынков, но наиболее распространенными являются бензиновые моторы серии Smartstream и дизельные агрегаты."
+        },
+        {
+          "title": "Купить Kia Carnival с дизельным двигателем 2026 года выпуска",
+          "url": "https://auto.ru/cars/kia/carnival/2026-year/all/engine-dizel/",
+          "snippet": "Киа Карнивал 2026: популярный минивэн с самым низким расходом топлива в классе и богатым оснащением. Детальный разбор модели"
+        },
+        {
+          "title": "Купить Киа Карнивал 2026: цены, комплектации и отзывы экспертов",
+          "url": "https://master-kia.vercel.app/articles/k/ku/kupit-karnival-kia.html",
+          "snippet": "Полный модельный ряд Kia Carnival 2026 года с дизельным двигателем по цене от 6 590 000 рублей - много Киа Карнивал, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "киа карнивал комплектации 2026",
+      "purpose": "вторичный запрос: киа карнивал комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Киа Карнивал 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/kia/carnival/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Киа Карнивал 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/kia-carnival-2026/",
+          "snippet": "Киа Карнивал 2026 комплектации и цены, фото. Подробно расписан модельный ряд Kia Carnival 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть ..."
+        },
+        {
+          "title": "Kia Carnival - Цены и комплектации - Купить кроссвэн Киа Карнивал ...",
+          "url": "https://www.kia.ru/models/carnival/options/",
+          "snippet": "Четвертое поколение Киа Карнивал 2026 представлено в четырех основных комплектациях. При этом набор базового оборудования у модели изначально весьма богатый, поэтому даже стартовая версия не выглядит упрощенной."
+        },
+        {
+          "title": "Комплектации Киа Карнивал 2026-2026: сравнение всех версий",
+          "url": "https://master-kia.vercel.app/articles/k/ko/komplektatsii-kia-karnival.html",
+          "snippet": "Kia Carnival: комплектации и цены на официальном сайте Kia России. Подробное описание и сравнение комплектаций и цен. Онлайн запись на тест-драйв."
+        },
+        {
+          "title": "KIA Carnival цены и комплектации 2026 - carmaps.ru",
+          "url": "https://carmaps.ru/kia/carnival/",
+          "snippet": "Подробный разбор комплектаций Kia Carnival. От Classic до Premium. Двигатели 2.2 и 3.5, опции, цены и выбор лучшей версии для семьи."
+        },
+        {
+          "title": "Киа Карнивал технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/kia/carnival/",
+          "snippet": "KIA Carnival: цены и комплектации, фото в новом кузове, модификации и оборудование 2026 года."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "киа карнивал под заказ из кореи 2026",
+      "purpose": "вторичный запрос: киа карнивал под заказ из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Carnival под заказ по цене от 4 020 111 рублей - Авто.ру",
+          "url": "https://auto.ru/cars/kia/carnival/all/for-order/",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Carnival из Кореи 2026: 7-местный минивэн под ключ — цена, версии и ...",
+          "url": "https://autoprofiasia.ru/blog/kia-carnival-iz-korei-2026-7-mest-tsena",
+          "snippet": "Полный модельный ряд Kia Carnival под заказ из Кореи по цене от 4 020 111 рублей - более 34 Kia Carnival, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        },
+        {
+          "title": "Купить Kia Carnival Из Кореи Под Заказ, Продажа Киа Карнивал Под Ключ С ...",
+          "url": "https://japautobuy.ru/avtomobili-iz-korei/kia/carnival",
+          "snippet": "Kia Carnival из Кореи 2026 — лучший минивэн для семьи от 4,2 млн ₽ под ключ. Дизель 2.2 или PHEV, 7-11 мест: подберём нужную версию и рассчитаем стоимость за 15 минут!"
+        },
+        {
+          "title": "Купить Kia Carnival 2026 Года Из Кореи С Доставкой По России, Цена На ...",
+          "url": "https://japautobuy.ru/auto/korea/5262286",
+          "snippet": "Продажа KIA CARNIVAL под заказ из Кореи. Вы можете выбрать и купить новый или б/у KIA CARNIVAL из Южной Кореи. Все авто с реальными фотографиями, техническими характеристиками."
+        },
+        {
+          "title": "Kia Carnival 2026 года из Кореи под заказ с доставкой по России",
+          "url": "https://ngt-auto.ru/korea/kia/carnival/?year_from=2026&year_to=2026",
+          "snippet": "Закажите автомобиль с доставкой по России. Киа Карнивал Черный: объем двигателя 3470 см3, пробег 56 км из Кореи под заказ. Полное описание и комплектация авто, аукционный лист, фотографии."
+        },
+        {
+          "title": "Kia Carnival под заказ из Кореи - Авто.ру",
+          "url": "https://auto.ru/cars/kia/carnival/new/for-order/",
+          "snippet": "Закажите Kia Carnival 2026 года из Южной Кореи с полной проверкой и доставкой по России. Прозрачная цена, выкуп, сопровождение. NGT Auto — надёжно и с гарантией."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Kia Carnival из Кореи: дизель 2.2, гибрид и комплектации до депозита в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Kia Carnival из Кореи 2026: 7-местный минивэн под ключ — цена, версии и ...",
+          "url": "https://autoprofiasia.ru/blog/kia-carnival-iz-korei-2026-7-mest-tsena",
+          "snippet": ""
+        },
+        {
+          "title": "Kia Carnival 2026: обзор, цена под ключ, гибрид | CARTO",
+          "url": "https://carto-auto.ru/blog/kia-carnival-2026-obzor-tsena-pod-klyuch/",
+          "snippet": "Kia Carnival из Кореи 2026 — лучший минивэн для семьи от 4,2 млн ₽ под ключ. Дизель 2.2 или PHEV, 7-11 мест: подберём нужную версию и рассчитаем стоимость за 15 минут!"
+        },
+        {
+          "title": "Kia Carnival из Кореи: минивэн под ключ в Сибирь в 2026",
+          "url": "https://onlyjpcars.ru/blog/kia-carnival-iz-korei",
+          "snippet": "В этом обзоре — всё про Kia Carnival 2026: поколение и рестайлинг, три версии моторов (бензин 3.5 V6, дизель 2.2 CRDi и новинку — гибрид 1.6T-GDI), комплектации вплоть до VIP Hi-Limousine с реклайнер-креслами ..."
+        },
+        {
+          "title": "Kia Carnival из Кореи: минивэн под ключ 2026",
+          "url": "https://export-motors.com/blog/kia-carnival-iz-korei",
+          "snippet": "Разберём актуальное поколение подробно: чем оно отличается от предшественника, какие моторы встречаются, сколько мест в разных версиях и — самое важное — как мощность двигателей влияет на стоимость растаможки."
+        },
+        {
+          "title": "Kia Carnival из Кореи: стоит ли покупать в 2026 году?",
+          "url": "https://master-kia.vercel.app/articles/k/ki/kia-karnaval-iz-korei.html",
+          "snippet": "Kia Carnival из Кореи — топовый семейный минивэн на 7-9 мест. Честно про коммерческий утильсбор, дизель и V6, комплектации и цену под ключ после реформы 2026."
+        },
+        {
+          "title": "Kia Carnival KA4 из Кореи: места, двигатели и семейный салон",
+          "url": "https://azway.ru/blog/kia-carnival-ka4-iz-korei-obzor",
+          "snippet": "Kia Carnival из Кореи привлекает покупателей своим дизайном, богатым оснащением и доступной ценой по сравнению с официальными дилерами в странах СНГ."
+        }
+      ],
+      "searched_at": "2026-10-21"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://carto-auto.ru/blog/kia-carnival-2026-obzor-tsena-pod-klyuch/",
+      "title": "Kia Carnival 2026: обзор, цена под ключ, гибрид | CARTO",
+      "from_query": "киа карнивал из кореи 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/blog/kia-carnival-iz-korei-2026-7-mest-tsena",
+      "title": "Kia Carnival из Кореи 2026: 7-местный минивэн под ключ — цена, версии и ...",
+      "from_query": "киа карнивал из кореи 2026"
+    },
+    {
+      "url": "https://export-motors.com/blog/kia-carnival-iz-korei",
+      "title": "Kia Carnival из Кореи: минивэн под ключ 2026",
+      "from_query": "киа карнивал из кореи 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/kia/carnival/2026/",
+      "title": "Киа Карнивал 2026 технические характеристики. Kia Carnival 2026 ...",
+      "from_query": "киа карнивал из кореи 2026"
+    },
+    {
+      "url": "https://cenyavto.com/kia-carnival-2026/",
+      "title": "Киа Карнивал 2026 цены модели, комплектации, фото, новый кузов, видео",
+      "from_query": "киа карнивал из кореи 2026"
+    },
+    {
+      "url": "https://encarrus.ru/news/miniveny-iz-korei-2026/",
+      "title": "Минивэны из Кореи 2026 — Carnival, Staria, Sienna — EncarRus",
+      "from_query": "киа карнивал из кореи 2026"
+    },
+    {
+      "url": "https://japautobuy.ru/auto/korea/5367388",
+      "title": "Купить Kia Carnival 2026 Года Из Кореи С Доставкой По России, Цена На ...",
+      "from_query": "киа карнивал из кореи октябрь 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/korea/kia/carnival/",
+      "title": "Продажа Kia Carnival из Кореи | Цены на Киа Карнивал в Корее",
+      "from_query": "киа карнивал из кореи октябрь 2026"
+    },
+    {
+      "url": "https://plc.auction/ru/auction/from-kr/kia/carnival",
+      "title": "Б/у Kia Carnival из Кореи - Цены - PLC Auction",
+      "from_query": "киа карнивал из кореи октябрь 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=IdSkXtrV46Y",
+      "title": "новый КИА Карнивал рест и Палисад рест из Кореи в 2026 году",
+      "from_query": "киа карнивал из кореи новости 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/t/te/test-drajv-kia-karnival.html",
+      "title": "Киа Карнивал 2026: полный обзор, тест-драйв и реальные отзывы",
+      "from_query": "киа карнивал из кореи новости 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/052ea88527252fd83fd7ae10c2aed04c/",
+      "title": "новый КИА Карнивал рест и Палисад рест из Кореи в 2026 году",
+      "from_query": "киа карнивал из кореи новости 2026"
+    },
+    {
+      "url": "https://blog.kmgexport.com/kia/kia-karnival-cena-komplektacii-i-pokupka-iz-korei/",
+      "title": "Киа Карнивал: цена, комплектации и покупка из Кореи",
+      "from_query": "киа карнивал из кореи новости 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/kia-carnival-iz-korei",
+      "title": "Kia Carnival из Кореи: минивэн под ключ в Сибирь в 2026",
+      "from_query": "киа карнивал из кореи новости 2026"
+    },
+    {
+      "url": "https://github.com/svnaxis/obsidian-baseline/blob/main/img/mobile.png",
+      "title": "obsidian-baseline/img/mobile.png at main · svnaxis/obsidian-baseline ...",
+      "from_query": "site:github.com киа карнивал из кореи 2026"
+    },
+    {
+      "url": "https://github.com/RivoLink/leaf/blob/main/images/preview.png",
+      "title": "leaf/images/preview.png at main · RivoLink/leaf · GitHub",
+      "from_query": "site:github.com киа карнивал из кореи 2026"
+    },
+    {
+      "url": "https://docs.github.com/",
+      "title": "GitHub Docs",
+      "from_query": "site:github.com киа карнивал из кореи 2026"
+    },
+    {
+      "url": "https://github.com/Zack2321/y-9pbl1122/blob/main/Kaspersky.svg",
+      "title": "y-9pbl1122/Kaspersky.svg at main · Zack2321/y-9pbl1122 · GitHub",
+      "from_query": "site:github.com киа карнивал из кореи 2026"
+    },
+    {
+      "url": "https://github.com/netham45/esp32-rtp/blob/main/images/ota.png",
+      "title": "esp32-rtp/images/ota.png at main · netham45/esp32-rtp · GitHub",
+      "from_query": "site:github.com киа карнивал из кореи 2026"
+    },
+    {
+      "url": "https://github.com/Neerajillapu/project/blob/main/logo.svg",
+      "title": "project/logo.svg at main · Neerajillapu/project · GitHub",
+      "from_query": "site:github.com киа карнивал из кореи 2026"
+    },
+    {
+      "url": "https://ownersmanual.kia.com/manual/Carnival?projCode=KA4&year=2026&langCode=ru_RU&countryCode=C36",
+      "title": "Carnival 2026 - Car & User Manual | Kia Owner's Manual",
+      "from_query": "киа карнивал из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwcms/id/en/brochure/Kia-Carnival-Brochure-2026.pdf",
+      "title": "PDF The Kia Carnival",
+      "from_query": "киа карнивал из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.kia.ru/service/your-kia/",
+      "title": "Руководства по эксплуатации автомобилей Киа - Официальный сайт Kia",
+      "from_query": "киа карнивал из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.k-manuals.com/2026-kia-carnival/",
+      "title": "2026 KIA CARNIVAL Owner's Manual in PDF!",
+      "from_query": "киа карнивал из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.kiamedia.com/us/en/models/carnival/2026/specifications",
+      "title": "2026 Kia Carnival Specifications",
+      "from_query": "киа карнивал из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://mykia.club/forum/186-kia-karnival-klub/",
+      "title": "Киа Карнивал клуб - Киа Форум",
+      "from_query": "киа карнивал из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://kiaclub.ru/index.php?forums/kia-karnival-kia-carnival.22/",
+      "title": "Киа Карнивал (kia carnival) | форум KIA клуба",
+      "from_query": "киа карнивал из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/f/fo/forum-kia-karnival.html",
+      "title": "Форум Киа Карнивал: отзывы владельцев, ремонт и тюнинг",
+      "from_query": "киа карнивал из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://kia-clubs.ru/forums/topic/2866-kia-karnival-iz-korei-otzyvy-vladelcev/",
+      "title": "КИА Карнивал из Кореи отзывы владельцев",
+      "from_query": "киа карнивал из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.reddit.com/r/kiacarnivals/",
+      "title": "kiacarnivals - Reddit",
+      "from_query": "киа карнивал из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://kia-clubs.ru/forums/forum/835-problemy-kosyaki-kia-carnival/",
+      "title": "ПРОБЛЕМЫ / косяки Kia Carnival - Kia Club / Форум Киа Клуб: Киа К5 Клуб ...",
+      "from_query": "киа карнивал из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://carsvibe.ru/articles/kia-karnival-2026-cena-v-rossii-obzor-novogo-minivena-i-kakuyu-versiyu-vybrat",
+      "title": "Киа Карнивал 2026: цена в России, обзор нового минивэна и какую версию ...",
+      "from_query": "киа карнивал дизель 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/t/tt/ttkh-kia-karnival.html",
+      "title": "ТТХ Киа Карнивал 2026: полные характеристики, габариты и двигатели",
+      "from_query": "киа карнивал дизель 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/kia/carnival/2026-year/all/engine-dizel/",
+      "title": "Купить Kia Carnival с дизельным двигателем 2026 года выпуска",
+      "from_query": "киа карнивал дизель 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/k/ku/kupit-karnival-kia.html",
+      "title": "Купить Киа Карнивал 2026: цены, комплектации и отзывы экспертов",
+      "from_query": "киа карнивал дизель 2026"
+    },
+    {
+      "url": "https://www.kia.ru/models/carnival/options/",
+      "title": "Kia Carnival - Цены и комплектации - Купить кроссвэн Киа Карнивал ...",
+      "from_query": "киа карнивал комплектации 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/k/ko/komplektatsii-kia-karnival.html",
+      "title": "Комплектации Киа Карнивал 2026-2026: сравнение всех версий",
+      "from_query": "киа карнивал комплектации 2026"
+    },
+    {
+      "url": "https://carmaps.ru/kia/carnival/",
+      "title": "KIA Carnival цены и комплектации 2026 - carmaps.ru",
+      "from_query": "киа карнивал комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/kia/carnival/",
+      "title": "Киа Карнивал технические характеристики, комплектации и цены",
+      "from_query": "киа карнивал комплектации 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/kia/carnival/all/for-order/",
+      "title": "Kia Carnival под заказ по цене от 4 020 111 рублей - Авто.ру",
+      "from_query": "киа карнивал под заказ из кореи 2026"
+    },
+    {
+      "url": "https://japautobuy.ru/avtomobili-iz-korei/kia/carnival",
+      "title": "Купить Kia Carnival Из Кореи Под Заказ, Продажа Киа Карнивал Под Ключ С ...",
+      "from_query": "киа карнивал под заказ из кореи 2026"
+    },
+    {
+      "url": "https://japautobuy.ru/auto/korea/5262286",
+      "title": "Купить Kia Carnival 2026 Года Из Кореи С Доставкой По России, Цена На ...",
+      "from_query": "киа карнивал под заказ из кореи 2026"
+    },
+    {
+      "url": "https://ngt-auto.ru/korea/kia/carnival/?year_from=2026&year_to=2026",
+      "title": "Kia Carnival 2026 года из Кореи под заказ с доставкой по России",
+      "from_query": "киа карнивал под заказ из кореи 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/kia/carnival/new/for-order/",
+      "title": "Kia Carnival под заказ из Кореи - Авто.ру",
+      "from_query": "киа карнивал под заказ из кореи 2026"
+    },
+    {
+      "url": "https://master-kia.vercel.app/articles/k/ki/kia-karnaval-iz-korei.html",
+      "title": "Kia Carnival из Кореи: стоит ли покупать в 2026 году?",
+      "from_query": "Как выбрать Kia Carnival из Кореи: дизель 2.2, гибрид и комплектации до депозита в 2026 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/kia-carnival-ka4-iz-korei-obzor",
+      "title": "Kia Carnival KA4 из Кореи: места, двигатели и семейный салон",
+      "from_query": "Как выбрать Kia Carnival из Кореи: дизель 2.2, гибрид и комплектации до депозита в 2026 2026"
+    }
+  ]
+}

@@ -1,58 +1,53 @@
 # Excalibur BLOG — только полезные статьи (utility-only)
 
-Канон: `memory/brief/editorial-policy.json`
+Канон: `memory/brief/editorial-policy.json` · ниша: `memory/brief/site-brief.md` (**AVTO SALES**)
 
 ## Принцип
 
-**Публикуем только то, что даёт действие.** После прочтения читатель знает *что сделать* — не «вообще про тему».
+**Публикуем только то, что даёт действие.** После прочтения читатель знает *что сделать до депозита/ставки/оплаты* — не «вообще про модель».
 
-Дополнительный фильтр канала: **новичок-first**. Статья должна быть полезна обычному человеку без технического бэкграунда, который только начинает путь в автоматизации, AI-агентах и нейросетях. Если тема требует опыта разработчика/админа/архитектора и не даёт простого первого результата — тему не берём.
+Фильтр канала: **покупатель-first**. Статья полезна человеку без опыта импорта авто из Японии/Кореи/Китая. Если угол только для профи-перекупа без чеклиста для обычного клиента — тему не берём.
 
 | ✅ Берём | ❌ Не берём |
 |---------|------------|
-| How-to, пошаговый гайд | Новости, «вышло обновление» |
-| Чеклист перед действием | Мнение без инструкции |
-| Comparison с таблицей и выбором | «Что такое X» на 9k без шагов |
-| Troubleshooting / fix | Trend-посты, размышления |
-| Workflow (A→B→C) | Корпоративная вода, мотивация |
-| Автопостинг, авто-блог, лиды, трафик, сайт/лендинг через Cursor AI с чеклистом запуска | Абстрактное «будущее маркетинга с ИИ» без действий |
+| How-to выбора комплектации / двигателя | Новости рынка без действия |
+| Чеклист до депозита (Encar, Carhistory, лист) | Мнение без инструкции |
+| Comparison стран/кузовов/версий с таблицей | «Что такое X» без шагов |
+| Troubleshooting ловушек растаможки/логистики | Trend-посты, мотивация |
+| Workflow: подбор → проверка → ставка → СВХ | Корпоративная вода |
+| Утильсбор/документы 2026 как чеклист (без выдуманных сумм) | Cursor/n8n/Make/AI-агенты, чужой SEO/AI template |
 
 ## Gate 1 — тема (`blog-topics.md`)
 
-Перед research:
-
 ```bash
-python scripts/excalibur_blog_utility_gate.py --topic-id B01
+python3 scripts/excalibur_blog_utility_gate.py --topic-id B01
 ```
 
-**Blocker `UTILITY TOPIC BLOCKER`** — тему не пускаем в пайплайн.
+**Blocker `UTILITY TOPIC BLOCKER`** — тему не пускаем.
 
-Обязательные поля карточки:
+Обязательные поля:
 
 - `search_intent`: `how_to` | `checklist` | `comparison` | `troubleshooting` | `workflow` | `parent_guide`
-- `article_mode`: **B** (инструкция/гайд)
-- `h1` / `primary_query`: глагол действия («как…», «чек-лист…», «сравнение…»)
-- beginner angle: в карточке или outline должен быть понятный первый результат для новичка
+- `article_mode`: **B**
+- `h1` / `primary_query`: глагол действия («как…», «чек-лист…»)
+- понятный первый результат для покупателя до оплаты
 
 ## Gate 2 — research
 
-Research-агент **отклоняет** угол без практики. В `research-notes.md`:
+В `research-notes.md`:
 
 - `utility_verdict: PASS`
-- `research_date` совпадает с `research-context.json` → `today_iso`
-- `source_table` с URL и `accessed_at`
-- `github_evidence` для технических тем
-- `reader_pain`: конкретная боль/риск/затык читателя
-- `reader_outcome`: одно предложение — какой первый результат сможет сделать новичок
-- `success_criteria`: как новичок поймёт, что проблема решена
-- `voice_angle`, `reader_story`, `surprising_fact`: материал для человеческого lead/H2
-- `pain_solution_map`: таблица pain → solution → proof/source → reader_result
-- `action_outline`: 5–9 шагов или чеклист-пунктов
-
-Машинный gate:
+- `research_date` = `today_iso`
+- source table: в каждой строке ячейка вида `accessed_at: YYYY-MM-DD` (**двоеточие обязательно** для gate)
+- ≥5 вхождений `accessed_at:`
+- `pain_solution_map`: в каждой строке слова pain|solution|result|боль|решение|результат (удобно префиксы `pain:` / `solution:` / `result:`)
+- литерал `prefer_sources_after` даты из freshness window
+- `github_evidence` — секция нужна; для **авто-тем** GitHub ≥3 не требуется (technical_topic ловит только реальный tech/automation; заголовок `github_evidence` сам по себе не должен включать tech-режим)
+- `reader_pain` / `reader_outcome` / `success_criteria` / `voice_angle` / `reader_story` / `surprising_fact`
+- `action_outline`: 5–9 шагов
 
 ```bash
-python scripts/excalibur_blog_research_notes_gate.py \
+python3 scripts/excalibur_blog_research_notes_gate.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   -o research-notes-gate.json
 ```
@@ -61,38 +56,34 @@ python scripts/excalibur_blog_research_notes_gate.py \
 
 Контракт: `shared/excalibur-article-writing-contract.md`
 
-- Каждый H2 = подзадача + **рекомендация** (делать / не делать)
-- Минимум **5** нумерованных шагов ИЛИ чеклист 10+ пунктов
-- Workflow-схема (`→`) или таблица (comparison)
-- FAQ — короткие **ответы-действия**, не пересказ
-- Lead/H2 используют `reader_story`, `voice_angle`, `surprising_fact`
-- Lead называет боль, H2 закрывают боли из `pain_solution_map`, до FAQ есть понятный критерий результата.
-- Beginner-fit: сложный термин объяснён сразу, нет тона «для профи», есть первый безопасный шаг без команды разработчиков.
-- Human voice gate PASS: нет шаблонных H2, есть живые примеры, разный ритм абзацев
+- Каждый H2 = подзадача + **Делать / Не делать**
+- Минимум **5** шагов ИЛИ чеклист 10+
+- Таблица/workflow до FAQ
+- Lead = боль → H2 = решения из `pain_solution_map` → до FAQ критерий результата
+- CTA ≤ 3 (каталог + Telegram), без форм на странице
 
 ## Gate 4 — GEO QA
 
 ```bash
-python scripts/excalibur_blog_utility_gate.py \
+python3 scripts/excalibur_blog_utility_gate.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
-**Blocker `UTILITY ARTICLE BLOCKER`** — writer правит (FIX), QA не PASS.
+Плюс human-voice, link-verify, slop. Cover/schema только после PASS.
 
-Плюс slop-detector (вода/штампы).
+## Чеклист редактора
 
-## Как провернуть без воды (чеклист редактора)
-
-1. **Island test:** вырежь H2 — остаётся ли actionable кусок?
-2. **So what test:** каждый абзац — «и что мне с этим делать?»
-3. **Lead:** боль + ответ + результат (не «в этой статье»)
-4. **Нет режима A** в utility-only блоге
-5. **Цифры** только из research / fact-bank
-6. **CTA ≤ 3**, не подменяет пользу
+1. Island test по H2  
+2. So what test по абзацу  
+3. Lead: боль + ответ + результат  
+4. Нет режима A  
+5. Цифры только из research / fact-bank  
+6. CTA ≤ 3  
 
 ## Связанные файлы
 
-- `memory/brief/site-brief.md` — niche + editorial
-- `skills/excalibur/references/article-archetypes.md` — скелет B
-- `skills/excalibur/references/ai-slop-blocklist.md` — вода/штампы
-- `shared/quality-blog.md` — blockers
+- `memory/brief/site-brief.md`
+- `shared/wp-slug-denylist.json`
+- `skills/excalibur/references/article-archetypes.md`
+- `skills/excalibur/references/ai-slop-blocklist.md`
+- `shared/quality-blog.md`

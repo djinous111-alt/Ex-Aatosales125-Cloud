@@ -1,7 +1,7 @@
 # Promotion checklist — B01 levyj-rul-iz-yaponii-2026-chek-list
 
 Дата публикации: 2026-10-22  
-Live URL: (после publish) /levyj-rul-iz-yaponii-2026-chek-list/
+Live URL: /2026/10/22/levyj-rul-iz-yaponii-2026-chek-list/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Нужен обычный LHD — честнее Корея или Китай, не «любой ценой» JP
 • Нет трёх строк в договоре — нет перевода
 
-Читать: [URL после publish]
+Читать: /2026/10/22/levyj-rul-iz-yaponii-2026-chek-list/
 ```
 
 ## Перелинковка

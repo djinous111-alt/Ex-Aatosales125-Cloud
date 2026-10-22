@@ -1,0 +1,11 @@
+SSH upload OK: ./excalibur-blog-publish-once.php (6582912 bytes)
+Triggering HTTP publish on [REDACTED]/excalibur-blog-publish-once.php...
+OK post=4435 slug=levyj-rul-iz-yaponii-2026-chek-list
+OK featured_image=4436
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=4437 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/10/levyj-rul-iz-yaponii-2026-chek-list-inline-01.png
+OK inline_image_upload=4438 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/10/levyj-rul-iz-yaponii-2026-chek-list-inline-02.png
+OK inline_image_upload=4439 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/10/levyj-rul-iz-yaponii-2026-chek-list-inline-03.png
+permalink=[REDACTED]/2026/10/22/levyj-rul-iz-yaponii-2026-chek-list/
+

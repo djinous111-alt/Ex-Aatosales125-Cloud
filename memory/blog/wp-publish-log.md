@@ -6,6 +6,21 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 
 Лог публикаций начинается с нуля после перенастройки под AVTO SALES (2026-07-17).
 
+## 2026-10-22 — B01 levyj-rul-iz-yaponii-2026-chek-list
+
+- **verdict:** PASS
+- **post_id:** 4435
+- **permalink:** /2026/10/22/levyj-rul-iz-yaponii-2026-chek-list/
+- **featured_image:** 4436
+- **inline_images:** 4437 (`inline-01.png`), 4438 (`inline-02.png`), 4439 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
+- **skip_theme_faq_meta:** ok (`1`)
+- **method:** SSH (`SSH_ROOT=.`) + HTTP OK (~120–180s; timeout client bumped 120→300; no WebFetch/504)
+- **HEAD:** 200; REST id=4435; featured_media=4436
+- **result:** `memory/blog/articles/B01-levyj-rul-iz-yaponii-2026-chek-list/wp-publish-result.json`
+- **incident_report:** none
+- **note:** NEW post — do not republish as 4412/4400/4394/4388/4382/4376/4364/4358/4086
+
 ## 2026-07-17 — AS08 samye-komfortnye-avto-myagkaya-podveska-2026
 
 - **verdict:** PASS

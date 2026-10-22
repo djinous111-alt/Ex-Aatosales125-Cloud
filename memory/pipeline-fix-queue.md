@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-0927-schema-absolute-urls-secret-scan
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-levyj-rul-iz-yaponii-2026-chek-list
+severity: medium
+category: env
+
+### What went wrong
+- First `schema.jsonld` draft used absolute `@id` / `sameAs` from `PUBLIC_SITE_URL` + registry (same pattern as AS08/AS09).
+- Cloud pre-commit secret scanner blocked commit: `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` appear as secret values.
+- Additionally `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a non-identifier token that crashed `${!SECRET_NAME}` until filtered (same class as INC-20261022-0915).
+
+### How the agent recovered this run
+- Regenerated schema with root-relative `@id` (`/slug/#…`) and public-only `sameAs` (Instagram + 2GIS).
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to bash-safe identifiers, then committed.
+- FAQ/HowTo content unchanged; artifact READY for Indexer/Publish.
+
+### Durable fix needed before next run
+- Document schema contract: either root-relative site IRIs + public `sameAs` only, or publish-time absolutization of `PUBLIC_SITE_URL`.
+- Align AS08/AS09 examples / skill with the commit-safe pattern.
+- Restore or add `scripts/excalibur_blog_filter_secret_names.sh` referenced by INC-20261022-0915.
+- Optionally: publish step expands root-relative `@id` to absolute before WP meta write.
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261022-0920-geo-qa-utility-pain-outcome-markers-missing
 status: open
 run_date: 2026-10-22

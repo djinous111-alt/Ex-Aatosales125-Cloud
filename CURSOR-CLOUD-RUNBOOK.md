@@ -61,6 +61,8 @@ EXCALIBUR_TOPIC_ID=<optional fixed topic id>
 
 Do **not** put URL values into the names list. Invalid names must be skipped by `pre-commit.cursor` **and** `commit-msg.cursor` (otherwise `${!SECRET_NAME}` aborts with `invalid variable name`).
 
+Repo helper: `scripts/excalibur_blog_filter_secret_names.sh` prints a filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES=` line for temporary env export before commit.
+
 For intentional public site URLs in committed artifacts (`schema.jsonld`, HTML), add same-line `pragma: allowlist secret`.
 
 Publish credentials belong in Cloud Secrets / process env; `memory/site.env.local` is gitignored and may be auto-written by doctor/publish from env (`SSH_ROOT=.` default).

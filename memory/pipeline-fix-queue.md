@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-2123-indexer-stale-llms-blog-path
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Agent/skill shell examples still pass `--blog-path /` to `excalibur_blog_llms_generator.py`.
+- Current CLI help has only `--blog-dir`, `--site-base`, `--out-dir` (no `--blog-path`); unknown flag would fail the Indexer step.
+- `excalibur_blog_doctor.py` still asserts `"--blog-path" in llms_help.stdout`, so doctor FAIL is a false positive / stale contract.
+
+### How the agent recovered this run
+- Ran llms generator with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` only (per Director override).
+- Generated `memory/blog/llms.txt` and `memory/blog/llms-full.txt` successfully (3 articles).
+- First `git commit` blocked by secret-scan (`PUBLIC_SITE_URL` embedded in llms/interlink JSON); replaced site base with `[REDACTED]` in those artifacts for the commit, then re-hydrated working copies for publish.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent/skill shell blocks (`.cursor/` + `agents/` + `skills/`).
+- Update doctor: drop the `--blog-path` check; optionally assert `--out-dir` / `--blog-dir` instead.
+- Align any remaining docs that mention `--blog-path` for llms generator.
+- Llms/interlink scripts (or indexer skill) should write git-safe placeholders for site base, or document post-generate redact+rehydrate like schema.jsonld.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261023-2140-writer-editorial-policy-pain-outcome-markers-missing
 status: open
 run_date: 2026-10-23

@@ -57,3 +57,7 @@ Scout-агент ищет горячие и свежие инфоповоды п
 
 ## Skill
 `skills/scout-excalibur-blog/SKILL.md` · `shared/editorial-utility-only.md`
+
+## Denylist
+
+Перед выбором темы: `shared/wp-slug-denylist.json` + `python3 scripts/excalibur_blog_scout_helper.py --check-query ... --check-slug ...`. Live REST `PUBLIC_SITE_URL` обязателен; WordPress MCP без сверки — не источник.

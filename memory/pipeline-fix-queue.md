@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261023-2105-scout-missing-wp-slug-denylist
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- `shared/wp-slug-denylist.json` отсутствует в репозитории, хотя scout-контракт требует сверку с denylist перед новой model/how-to карточкой.
+- Без файла каждый scout вынужден заново полагаться на ручной список из промпта Директора и live WP REST, риск republish растёт.
+
+### How the agent recovered this run
+- Сверился с ручным denylist из инструкции Директора (Harrier, Monjaro, левый руль, Kia/Hyundai серия, utilsbor, auction sheet, AS08/AS09, Seltos/Sportage/K5/Genesis/Palisade/Staria, Sonata soft-overlap, Grandeur).
+- Дополнительно проверил live WP через `PUBLIC_SITE_URL` REST (`/wp-json/wp/v2/posts?slug=...` и search по моделям); wordpress_* MCP не использовался как источник истины.
+- Выбрал GAP-тему B01 Mazda CX-5 из Китая: exact slug отсутствует, Wordstat живой.
+
+### Durable fix needed before next run
+- Добавить канонический `shared/wp-slug-denylist.json` со slug/WP id уже LIVE и недавно закрытых model-гайдов.
+- Обновить scout skill/agent: при отсутствии файла – blocker или явный fallback на denylist + live REST; не молчаливый skip.
+
+### Suggested files to inspect/change
+- `shared/wp-slug-denylist.json` (создать)
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `scripts/excalibur_blog_scout_helper.py` (опционально: читать denylist в `--check-query`)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

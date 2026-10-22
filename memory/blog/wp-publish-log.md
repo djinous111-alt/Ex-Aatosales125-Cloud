@@ -31,3 +31,17 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-23 — B01 mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026
+
+- **verdict:** PASS (reconstructed)
+- **post_id:** 4453
+- **permalink:** [REDACTED]/2026/10/23/mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/
+- **featured_image:** 4459
+- **inline_images:** 4460 (`inline-01.png`), 4461 (`inline-02.png`), 4463 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`, ~11418 bytes)
+- **skip_theme_faq_meta:** ok (`1`)
+- **method:** SSH (`SSH_ROOT=.`) upload OK; local HTTP trigger TimeoutError; WebFetch fallback wait 120s timed out; server-side bootstrap completed. Verified REST id=4453 featured_media=4459 HEAD 200 + wp-cli meta. **No third publish.** Foreign denylist posts 4447/4441/4435 untouched.
+- **preflight:** created `memory/site.env.local` from Cloud Secrets; installed paramiko 5.1.0; PHP payload ~6.8MB; link-verify PASS
+- **result:** `memory/blog/articles/B01-mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/wp-publish-result.json`
+

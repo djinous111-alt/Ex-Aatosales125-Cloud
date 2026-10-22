@@ -1,7 +1,7 @@
 # Promotion checklist — B01 mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-23 (планово; live URL — после publish)  
-Live URL: /blog/mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-23 (published; wp_post_id=4453)  
+Live URL: [REDACTED]/2026/10/23/mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Опции — только на непрерывном видео, не по скринам
 • VIN + заводская карточка; любой красный пункт чеклиста — деньги не уходят
 
-Читать: /blog/mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/
+Читать: [REDACTED]/2026/10/23/mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка

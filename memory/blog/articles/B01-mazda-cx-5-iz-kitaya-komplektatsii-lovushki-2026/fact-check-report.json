@@ -1,0 +1,24 @@
+{
+  "article": "memory/blog/articles/B01-mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 2,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 1,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "один пункт чеклиста красный – депозит отложите. В 2026 кроссоверы из Китая ищут часто: свежий левый руль",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "360",
+      "kind": "large_number",
+      "context": "о Comfort в чёрном исполнении без люка, без камер 360 и без бесключевого доступа. Типичная боль новичка:",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

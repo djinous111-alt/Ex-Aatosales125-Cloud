@@ -1,0 +1,26 @@
+{
+  "slug": "mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026",
+  "topic_id": "B01",
+  "permalink": "[REDACTED]/2026/10/23/mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/",
+  "post_id": 4453,
+  "featured_image": 4459,
+  "inline_images": [
+    4460,
+    4461,
+    4463
+  ],
+  "schema_meta": 1,
+  "skip_theme_faq": "1",
+  "publish_method": "ssh",
+  "publish_date": "2026-10-23",
+  "reconstructed": true,
+  "reconstruction_reason": "Local HTTP trigger timed out after SSH upload; Cloud WebFetch fallback wait also timed out (120s) while server-side bootstrap completed (second trigger after first). Verified via WP REST + wp-cli; did not republish.",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/cover/cover.png",
+    "source": "existing_file"
+  },
+  "raw_output": "OK post=4453\nOK featured_image=4459\nOK schema_meta=1\nOK inline_image_upload=4460,4461,4463\npermalink=[REDACTED]/2026/10/23/mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/\nnote=reconstructed_after_http_timeout_and_webfetch_timeout; live REST+wp-cli verified; no third publish\n",
+  "verdict": "pass",
+  "http_status": 200,
+  "duplicate_media_note": "First timeout left media 4454-4457; second server-side run set featured 4459 and inlines 4460/4461/4463 (content uses -1.png). Foreign posts 4447/4441/4435 untouched."
+}

@@ -6,6 +6,77 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-2125-publish-missing-site-env-and-paramiko
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `memory/site.env.local` was missing again (Cloud Secrets present in process env).
+- `paramiko` was not installed in the runtime image; env-check does not import it, so missing dep surfaces only on real publish.
+
+### How the agent recovered this run
+- Wrote `memory/site.env.local` from Cloud Secrets without wrapping quotes; set `SSH_ROOT=.`.
+- Installed `paramiko` via `python3 -m pip install --break-system-packages paramiko` (5.1.0).
+
+### Durable fix needed before next run
+- Ensure cloud install script / environment.json install step includes `paramiko` from `requirements.txt`.
+- Document or automate bootstrap of `memory/site.env.local` from Cloud Secrets when missing (gitignored).
+- Keep `SSH_ROOT=.` in Cloud Secrets for this host.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/environment.json`
+- `requirements.txt`
+- `skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261022-2130-publish-http-timeout-webfetch-reconstruct
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: publish
+
+### What went wrong
+- SSH upload of ~6.8MB bootstrap OK; local HTTP trigger hit `TimeoutError` at 120s while PHP still running.
+- Entered WebFetch fallback; agent started `curl --max-time 300` but script only waits 120s for `memory/webfetch-response.txt`, then raises RuntimeError and exits without writing `wp-publish-result.json`.
+- Server-side bootstrap completed (and a second trigger after the first timeout created duplicate media: cover 4454→4459, inlines *-1.png). Live post was already published.
+
+### How the agent recovered this run
+- Did **not** run a third publish.
+- Verified via WP REST + wp-cli: post_id=4453, featured=4459, inline=4460/4461/4463, schema_meta present, skip_theme_faq=1, permalink HEAD 200.
+- Reconstructed `wp-publish-result.json` verdict=pass; updated ledger/log/promotion/handoff.
+
+### Durable fix needed before next run
+- Increase Cloud WebFetch fallback wait well beyond HTTP timeout (e.g. 300s) and/or stream curl into webfetch file earlier.
+- On client timeout: auto-probe REST by slug before FAIL; reconstruct result when live post matches slug.
+- Prefer not re-triggering bootstrap when REST already shows published slug+featured for same payload (avoid duplicate media).
+- Document: agent must start curl/WebFetch **immediately** on FALLBACK_TRIGGER_URL and keep waiting until OK post= or proven 504+REST reconstruct.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`trigger_bootstrap_http` wait loop)
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/excalibur-wp-publish-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261022-2123-indexer-stale-llms-blog-path
 status: open
 run_date: 2026-10-23

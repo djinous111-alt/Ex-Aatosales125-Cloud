@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-1320-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud API не принимает typed Task `excalibur-blog-geo-qa`; директор запускает роль через `Task(generalPurpose)` fallback.
+
+### How the agent recovered this run
+- Выполнена роль GEO QA по `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md` в generalPurpose.
+- Все QA-гейты PASS; article-qa verdict PASS; cover/schema не запускались.
+
+### Durable fix needed before next run
+- Зарегистрировать typed Task type `excalibur-blog-geo-qa` в Cloud / automation config, либо явно зафиксировать generalPurpose fallback как канон в director skill + CLOUD-AUTOMATION.md.
+- Проверить остальные `excalibur-blog-*` Task types (research/writer/cover/schema/indexer/publish/fixer) тем же списком.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+- `AGENTS.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261022-1615-writer-editorial-policy-pain-outcome-markers
 status: open
 run_date: 2026-10-22

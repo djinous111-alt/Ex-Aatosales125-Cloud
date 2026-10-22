@@ -57,7 +57,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` (errors=0 warnings=0)
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (site_env_local_present=true, root=dot)
-commit: pending-parent-commit
+commit: fb4bafe3ea52
 
 
 ## INC-20261022-1733-publish-paramiko-missing
@@ -99,7 +99,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` (paramiko available OK)
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (paramiko_available=true)
-commit: pending-parent-commit
+commit: fb4bafe3ea52
 
 
 ## INC-20261022-1729-indexer-llms-stale-blog-path-flag
@@ -147,7 +147,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` (llms --blog-dir/--out-dir OK)
 - `rg --blog-path` only in negative notes
-commit: pending-parent-commit
+commit: fb4bafe3ea52
 
 
 ## INC-20261022-1727-cover-hoodie-lock-regression
@@ -193,7 +193,7 @@ files_changed:
 checks_run:
 - assert no `white hoodie` / `худи` defaults in prompt/manifest builders
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py scripts/excalibur_blog_quad_manifest.py`
-commit: pending-parent-commit
+commit: fb4bafe3ea52
 
 
 ## INC-20261022-1728-cover-missing-corner-brand-pil
@@ -235,7 +235,7 @@ files_changed:
 checks_run:
 - `rg def stamp_corner_brand scripts/excalibur_blog_cover_quad_split.py`
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_split.py`
-commit: pending-parent-commit
+commit: fb4bafe3ea52
 
 
 ## INC-20261022-1726-cover-hero-https-host-fallback
@@ -280,7 +280,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
 - `rg litterbox|upgrade_http scripts/excalibur_blog_hero_reference_url.py`
-commit: pending-parent-commit
+commit: fb4bafe3ea52
 
 
 
@@ -332,7 +332,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - unit: `verify_article` fails on `href="[REDACTED]"`
-commit: pending-parent-commit
+commit: fb4bafe3ea52
 
 
 ## INC-20261022-1720-writer-utility-gate-missing-pain-outcome-markers
@@ -379,7 +379,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir memory/blog/articles/AS08-...` PASS
 - doctor editorial-policy marker checks OK
-commit: pending-parent-commit
+commit: fb4bafe3ea52
 
 
 ## INC-20261022-1716-research-pre-commit-hook-invalid-varname
@@ -423,7 +423,7 @@ files_changed:
 - `.cursor/skills/excalibur-research/SKILL.md`
 checks_run:
 - filter drops URL/`[REDACTED]` names; patched loop OK with FOO,BAR
-commit: pending-parent-commit
+commit: fb4bafe3ea52
 
 
 ## INC-20261022-1715-research-tech-markers-yaponii-false-positive
@@ -466,7 +466,7 @@ files_changed:
 - `skills/excalibur-research/SKILL.md`
 checks_run:
 - `is_technical_topic(Harrier/японии)=False`; MCP/ai topic=True
-commit: pending-parent-commit
+commit: fb4bafe3ea52
 
 
 ## INC-20261022-1704-scout-missing-wp-slug-denylist
@@ -516,7 +516,7 @@ files_changed:
 checks_run:
 - `scout_helper --check-slug toyota-harrier-...` CRITICAL denylist hit
 - doctor denylist OK
-commit: pending-parent-commit
+commit: fb4bafe3ea52
 
 
 ## INC-20261022-1704-scout-mcp-wordpress-wrong-host
@@ -564,7 +564,7 @@ files_changed:
 - `shared/wp-slug-denylist.json`
 checks_run:
 - doctor + scout denylist path OK
-commit: pending-parent-commit
+commit: fb4bafe3ea52
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -617,7 +617,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: fb4bafe3ea52
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -668,7 +668,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: fb4bafe3ea52
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -709,7 +709,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: fb4bafe3ea52
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -756,7 +756,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: fb4bafe3ea52
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -810,7 +810,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: fb4bafe3ea52
 
 ## Fixed incidents
 

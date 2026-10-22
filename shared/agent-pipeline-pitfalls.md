@@ -46,3 +46,39 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+
+## Indexer / llms
+
+- `excalibur_blog_llms_generator.py` принимает `--blog-dir` и `--out-dir`, **не** `--blog-path`. Doctor проверяет актуальные флаги.
+
+## Scout / denylist
+
+- Перед выбором темы: `shared/wp-slug-denylist.json` + live `PUBLIC_SITE_URL` REST. WordPress MCP без сверки live URL — не источник denylist.
+
+## Research gate
+
+- Нужны литералы `accessed_at:` (≥5) и pain/solution/result в data-rows `pain_solution_map`.
+- Не путать URL-значения с именами в `CLOUD_AGENT_INJECTED_SECRET_NAMES` (только bash identifiers).
+
+## Writer / utility
+
+- `editorial-policy.json` обязан иметь непустые `pain_markers_ru` / `outcome_markers_ru` до сдачи HTML.
+- Не коммитить placeholder `href="[REDACTED]"` в `article.html`; CTA только из conversion-map. `link_verify` валит placeholder tokens.
+
+## Cover
+
+- Image flow: Kie async script first; sync MCP — fallback.
+- `reference_url_hosted` только https (litterbox после catbox/0x0).
+- Outfit из weather/topic; **NO hoodie** hardcode.
+- Corner brand `avto-sales125.ru` штампуется split-скриптом, если модель не отрисовала.
+
+## Publish
+
+- `memory/site.env.local` auto-write из env; `SSH_ROOT=.`; нужен `paramiko` в runtime/install.
+- Ledger-строки держать внутри markdown table (не после note-блока).
+- HTTP trigger timeout → сразу curl/WebFetch `FALLBACK_TRIGGER_URL` в `memory/webfetch-response.txt`; скрипт ждёт **300s**. При отсутствии `OK post=` — REST by slug + reconstruct, **без** повторного bootstrap.
+
+## Schema / pre-commit
+
+- Absolute site/catalog/telegram URLs в `schema.jsonld` → commit-safe `[REDACTED]` / `schema.jsonld.runtime`; hydrate at publish from env. Same-line `pragma: allowlist secret` только если scanner allows.
+- Перед `git commit` в Cloud: `eval "$(bash scripts/excalibur_blog_filter_secret_names.sh | sed …)"` или `scripts/excalibur_git.sh commit …` — отфильтровать невалидные имена из `CLOUD_AGENT_INJECTED_SECRET_NAMES`.

@@ -1,0 +1,107 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-23",
+    "today_ru": "23.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-25",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-23 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Mazda CX-5 из Китая: комплектации и ловушки до депозита",
+    "primary_query": "мазда сх5 из китая комплектации",
+    "secondary_queries": [
+      "мазда сх5 из китая",
+      "комплектации мазда сх5 из китая 2026",
+      "mazda cx 5 zhishang комплектация",
+      "мазда сх5 комфорт из китая",
+      "русификация мазда сх5 из китая"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "мазда сх5 из китая комплектации 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "мазда сх5 из китая комплектации октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "мазда сх5 из китая комплектации новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com мазда сх5 из китая комплектации 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "мазда сх5 из китая комплектации official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "мазда сх5 из китая комплектации forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "мазда сх5 из китая 2026",
+      "purpose": "вторичный запрос: мазда сх5 из китая"
+    },
+    {
+      "id": "secondary_2",
+      "query": "комплектации мазда сх5 из китая 2026 2026",
+      "purpose": "вторичный запрос: комплектации мазда сх5 из китая 2026"
+    },
+    {
+      "id": "secondary_3",
+      "query": "mazda cx 5 zhishang комплектация 2026",
+      "purpose": "вторичный запрос: mazda cx 5 zhishang комплектация"
+    },
+    {
+      "id": "secondary_4",
+      "query": "мазда сх5 комфорт из китая 2026",
+      "purpose": "вторичный запрос: мазда сх5 комфорт из китая"
+    },
+    {
+      "id": "secondary_5",
+      "query": "русификация мазда сх5 из китая 2026",
+      "purpose": "вторичный запрос: русификация мазда сх5 из китая"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать Mazda CX-5 из Китая: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

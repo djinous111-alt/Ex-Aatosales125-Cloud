@@ -20,10 +20,22 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | Cloud Secrets → `memory/site.env.local` (gitignored): `SSH_*`, `PUBLIC_SITE_URL` |
+| Paramiko | `import paramiko` (ставится в `.cursor/cloud-agent-install.sh`) |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
+
+### Шаг 0 — site.env.local + env-check
+
+Если `memory/site.env.local` отсутствует, doctor/publish **auto-write** его из process env (Cloud Secrets). Default `SSH_ROOT=.` для login cwd этого хоста. Файл **не коммитить**.
+
+```bash
+python3 scripts/excalibur_blog_doctor.py --publish
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+`--env-check` обязан репортить `paramiko_available` и `missing` (включая `paramiko` если нет модуля).
 
 ## Алгоритм
 
@@ -63,13 +75,14 @@ python scripts/excalibur_blog_wp_publish.py \
 
 ### 4. Cloud WebFetch Fallback
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060 / nginx 504):
 
 1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+2. Cloud-агент **сразу** открывает URL (`curl --max-time 300` или WebFetch) и пишет ответ в `memory/webfetch-response.txt` **пока скрипт ещё ждёт** (wait = **300s**, дольше HTTP timeout 120s).
+3. Успех только при литерале `OK post=` в файле. HTML 504/404 ≠ success.
+4. Если wait истёк или файл без `OK post=` — скрипт делает REST probe `posts?slug=` и reconstruct result; **не** делай третий/повторный publish и не re-trigger bootstrap при уже LIVE slug+featured (иначе duplicate media `*-1.png`).
 
-**Не останавливайся** на первом timeout — используй fallback.
+**Не останавливайся** на первом timeout — используй fallback, затем REST reconstruct.
 
 ### 5. Post-publish артефакты
 

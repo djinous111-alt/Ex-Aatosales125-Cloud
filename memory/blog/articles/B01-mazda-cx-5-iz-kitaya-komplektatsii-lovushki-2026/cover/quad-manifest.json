@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит за «максималку» — а внутри Comfort?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у порта: плашка про депозит до сверки комплектации Mazda CX-5, угол avto-sales125.ru",
+      "scene_hint": "EXACT face+glasses from reference; OUTFIT: navy softshell jacket or charcoal crewneck sweater (NO hoodie, NO hood, NO cap); cool foggy Vladivostok port morning; modern Mazda CX-5 silhouette near containers; fake phone screenshot of catalog card «CX-5 Zhishang» taped with scotch; torn paper hook plaque with yellow highlight on «депозит»; shocked meme cutout; sticky note «сверь видео»; corner footer tiny text avto-sales125.ru; DIY zine collage 16:9; NO toxic slang, NO Wordstat/Metrika, NO Telegram",
+      "meme_caption_ru": "Сначала видео — потом деньги"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Почему нельзя бронировать CX-5 только по красивым фото",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean comparison table UI 16:9: columns Фото / Видео опций / Документы; rows Black Pack, люк, 360, keyless; red X on photo-only column, green check on video+docs; small tape corner + sticky «не по скрину»; NO hero face, NO hoodie props",
+      "alt": "Таблица: почему фото CX-5 недостаточно до брони — нужны видео опций и документы"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните Comfort, Zhishang, Zhiya и Pro по маркерам на видео",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Horizontal workflow diagram UI: Comfort → Zhishang → Zhishang Pro → Zhiya → Zhiya Pro with icons (ткань, люк, 360, кожа, ассистенты); arrows and marker stars; mini fake video frame inset; NO hero face",
+      "alt": "Схема ступеней Comfort–Zhishang–Zhiya–Pro с маркерами опций на видео"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Как не попасть на ловушки Smart, Elegant и Black Pack",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board UI: items Smart≠топ, Elegant≠Pro, Black Pack≠комплектация, показать 360 на видео, стоп без VIN; green/red toggles; catalog card corner motif; NO hero face, calm useful tone no toxic text",
+      "alt": "Чеклист ловушек Smart, Elegant и Black Pack до депозита на CX-5"
+    }
+  }
+}

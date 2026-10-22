@@ -26,14 +26,15 @@ is_background: false
 - `article_dir` из handoff
 - `article.html`, `article.meta.json`, `article-qa.md` (PASS)
 - `schema.jsonld`, `cover/cover.png`, `cover-registry.json`
-- `memory/site.env.local`
+- `memory/site.env.local` (auto-write from Cloud Secrets if missing; `SSH_ROOT=.`; never commit)
+- `paramiko` installed (`requirements.txt` / cloud-agent-install)
 
 ## Твои задачи (строго по порядку)
 
 1. **Preflight:** link-verify с `--site-base` из `PUBLIC_SITE_URL`.
 2. **Dry-run:** `excalibur_blog_wp_publish.py --dry-run`.
 3. **Publish:** `excalibur_blog_wp_publish.py` без dry-run.
-4. **Fallback:** при timeout HTTP-триггера — WebFetch URL из `FALLBACK_TRIGGER_URL` → `memory/webfetch-response.txt`.
+4. **Fallback:** при timeout HTTP-триггера сразу стартуй `curl --max-time 300` / WebFetch URL из `FALLBACK_TRIGGER_URL` → `memory/webfetch-response.txt`. Скрипт ждёт **300s** (не 120). Если ответ без `OK post=` или wait истёк — **REST probe by slug** и reconstruct `wp-publish-result.json`; **не** запускай второй bootstrap (дубли media).
 5. **Ledger:** обновить `shared/published-articles.md`.
 6. **Logs:** дописать `memory/blog/wp-publish-log.md`.
 7. **Promotion:** Live URL в `promotion-checklist.md`.

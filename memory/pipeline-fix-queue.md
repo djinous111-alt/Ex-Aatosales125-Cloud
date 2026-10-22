@@ -452,3 +452,32 @@ category: env
 ### Fixer resolution
 - pending
 
+## INC-20261022-2118-cover-mcp-timeout-kie-fallback
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` returned HTTP -32001 Request timed out twice for 2K i2i quad canvas.
+
+### How the agent recovered this run
+- Switched to preferred async path `scripts/excalibur_blog_kie_gpt_image2_api.py` with KIE_API_KEY (createTask + poll), per kie-gpt-image-api-contract.
+
+### Durable fix needed before next run
+- Cover skill/agent docs should lead with Kie API script as primary Cloud path; MCP sync only as optional probe. Reduce wasted double sync retries.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/kie-gpt-image-api-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

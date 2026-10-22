@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у порта: плашка про депозит до сверки комплектации Mazda CX-5, угол avto-sales125.ru",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-22T21:21:12+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у порта: плашка про депозит до сверки комплектации Mazda CX-5, угол avto-sales125.ru",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица: почему фото CX-5 недостаточно до брони — нужны видео опций и документы",
+      "h2_anchor": "Почему нельзя бронировать CX-5 только по красивым фото",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема ступеней Comfort–Zhishang–Zhiya–Pro с маркерами опций на видео",
+      "h2_anchor": "Сравните Comfort, Zhishang, Zhiya и Pro по маркерам на видео",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист ловушек Smart, Elegant и Black Pack до депозита на CX-5",
+      "h2_anchor": "Как не попасть на ловушки Smart, Elegant и Black Pack",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

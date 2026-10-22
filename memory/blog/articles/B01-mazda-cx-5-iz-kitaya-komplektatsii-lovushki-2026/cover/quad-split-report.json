@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1284,
+      742
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 742,
+        "end": 773
+      },
+      "v_gutter_px": {
+        "start": 1284,
+        "end": 1319
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 10,
+          "right": 1284,
+          "bottom": 732
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1284,
+          "bottom": 742
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у порта: плашка про депозит до сверки комплектации Mazda CX-5, угол avto-sales125.ru",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1319,
+          "top": 22,
+          "right": 2560,
+          "bottom": 720
+        },
+        "raw_box_px": {
+          "left": 1319,
+          "top": 0,
+          "right": 2560,
+          "bottom": 742
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: почему фото CX-5 недостаточно до брони — нужны видео опций и документы",
+        "h2_anchor": "Почему нельзя бронировать CX-5 только по красивым фото"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 49,
+          "top": 773,
+          "right": 1235,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 773,
+          "right": 1284,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема ступеней Comfort–Zhishang–Zhiya–Pro с маркерами опций на видео",
+        "h2_anchor": "Сравните Comfort, Zhishang, Zhiya и Pro по маркерам на видео"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1346,
+          "top": 773,
+          "right": 2532,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1319,
+          "top": 773,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист ловушек Smart, Elegant и Black Pack до депозита на CX-5",
+        "h2_anchor": "Как не попасть на ловушки Smart, Elegant и Black Pack"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Почему нельзя бронировать CX-5 только по красивым фото",
+    "injected inline_2 after H2 — Сравните Comfort, Zhishang, Zhiya и Pro по маркерам на видео",
+    "injected inline_3 after H2 — Как не попасть на ловушки Smart, Elegant и Black Pack"
+  ]
+}

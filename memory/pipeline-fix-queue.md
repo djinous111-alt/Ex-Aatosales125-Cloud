@@ -65,7 +65,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - llms generator dry-run to /tmp with empty site-base
-commit: pending-parent-commit
+commit: c9603252
 
 ## INC-20261022-0928-cover-outfit-lock-hoodie
 status: fixed
@@ -121,7 +121,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - rg: no `Outfit lock: thick heavyweight white hoodie` in prompt builder
-commit: pending-parent-commit
+commit: c9603252
 
 ## INC-20261022-0927-schema-absolute-urls-secret-scan
 status: fixed
@@ -176,7 +176,7 @@ files_changed:
 checks_run:
 - absolutize_schema_jsonld unit smoke
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
-commit: pending-parent-commit
+commit: c9603252
 
 ## INC-20261022-0920-geo-qa-utility-pain-outcome-markers-missing
 status: fixed
@@ -228,7 +228,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir …B01…` → PASS (pain=3, outcome=8)
-commit: pending-parent-commit
+commit: c9603252
 
 ## INC-20261022-0921-geo-qa-link-verify-iri-ascii
 status: fixed
@@ -272,7 +272,7 @@ files_changed:
 checks_run:
 - iri_to_uri Cyrillic smoke + check_url without ascii codec crash
 - `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
-commit: pending-parent-commit
+commit: c9603252
 
 ## INC-20261022-0915-writer-precommit-secret-names
 status: fixed
@@ -317,7 +317,7 @@ files_changed:
 - `.cursor/skills/writer-excalibur-blog/SKILL.md`
 checks_run:
 - filter script smoke with URL-shaped junk token → PUBLIC_SITE_URL,SSH_HOST,SSH_USER
-commit: pending-parent-commit
+commit: c9603252
 
 ## INC-20261022-0910-research-gate-output-path
 status: fixed
@@ -377,7 +377,7 @@ files_changed:
 checks_run:
 - `--self-test` PASS
 - gate `-o research-notes-gate.json` without nested `article_dir/memory`
-commit: pending-parent-commit
+commit: c9603252
 
 ## INC-20261022-0905-scout-missing-wp-denylist
 status: fixed
@@ -424,7 +424,7 @@ files_changed:
 checks_run:
 - JSON parse denylist
 - `--check-slug levyj-rul…` DENY; unique slug FREE
-commit: pending-parent-commit
+commit: c9603252
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -476,7 +476,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: c9603252
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -527,7 +527,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: c9603252
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -568,7 +568,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: c9603252
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -615,7 +615,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: c9603252
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -669,7 +669,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: c9603252
 
 ## Fixed incidents
 

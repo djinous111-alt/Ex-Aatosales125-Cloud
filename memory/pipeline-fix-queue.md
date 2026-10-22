@@ -6,6 +6,67 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-1733-publish-missing-site-env-local
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-harrier-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `memory/site.env.local` was missing at publish start (gitignored); Cloud Secrets were present in process env but publish skill/contract expects the local file.
+- `SSH_ROOT` was unset in process env; host requires login cwd `.`.
+
+### How the agent recovered this run
+- Created `memory/site.env.local` from Cloud Secrets without quoting values; set `SSH_ROOT=.`.
+- `--env-check` then passed (`allow_publish=true`, `root=dot`); publish succeeded.
+
+### Durable fix needed before next run
+- Ensure Cloud install/bootstrap always materializes `memory/site.env.local` from secrets (or document that process env alone is enough and relax skill wording).
+- Persist `SSH_ROOT=.` in Cloud Secrets for this host.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `memory/site.env.local.example`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261022-1733-publish-paramiko-missing
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-harrier-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `paramiko` was not installed in the Cloud environment; `--env-check` does not import it, so the gap appeared only at real SSH upload.
+
+### How the agent recovered this run
+- `python3 -m pip install --break-system-packages paramiko` (5.1.0); SSH upload then OK.
+
+### Durable fix needed before next run
+- Add `paramiko` to Cloud install path / `requirements.txt` install step so publish agents do not re-hit this.
+
+### Suggested files to inspect/change
+- `requirements.txt`
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/environment.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261022-1729-indexer-llms-stale-blog-path-flag
 status: open
 run_date: 2026-10-22

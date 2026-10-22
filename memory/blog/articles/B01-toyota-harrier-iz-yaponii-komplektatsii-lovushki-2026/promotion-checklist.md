@@ -1,13 +1,13 @@
 # Promotion checklist — B01 toyota-harrier-iz-yaponii-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-22 (ожидает publish)  
-Live URL: /blog/toyota-harrier-iz-yaponii-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-22  
+Live URL: [REDACTED]/2026/10/22/toyota-harrier-iz-yaponii-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (REST id=4447 featured_media=4448; HEAD 200)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -48,3 +48,8 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 - Indexer: interlinker `--apply` выполнен; `opportunities_found: 0` (report: `memory/blog/interlink-suggestions.json`).
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (3 articles indexed, B01 включён).
 - Cover||Schema DONE; READY FOR PUBLISH.
+
+## Publish result
+
+- WP post_id **4447**; featured **4448**; inline **4449/4450/4451**; schema_meta ok; skip_theme_faq=1.
+- Ledger: status=published.

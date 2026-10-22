@@ -6,6 +6,48 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-0910-research-gate-output-path
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-levyj-rul-iz-yaponii-2026-chek-list
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` resolves relative `-o` as `article_dir / output`, so `-o memory/blog/articles/.../research-notes-gate.json` creates a nested duplicate tree under the article dir.
+- Docs/examples still show repo-relative `-o` paths; agents waste a step on cleanup. False-positive `technical_topic` (substring markers like `cursor`/`make`/`ai`) adds a docs warning on auto niche topics.
+- Pre-commit secrets scanner crashed: `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a non-identifier token (URL-shaped), so `${!SECRET_NAME}` failed with "invalid variable name".
+- After filter, commit blocked again: `research-serp.json` from `research_start` contained literal `PUBLIC_SITE_URL` host in SERP rows; ledger `published-articles.md` also had the same host.
+
+### How the agent recovered this run
+- Re-ran gate with `-o research-notes-gate.json` (basename only); removed nested `article_dir/memory/...` tree.
+- Gate status PASS; warning about official docs URL left as non-blocking.
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to bash-safe identifiers before `git commit`.
+- Redacted `PUBLIC_SITE_URL` host in `research-serp.json` and `shared/published-articles.md` before commit.
+
+### Durable fix needed before next run
+- Document in research skill/agent: always `-o research-notes-gate.json` (basename) or absolute path; never repo-relative path with `-o`.
+- Optionally fix script to treat `-o` with `/` as repo-root-relative, or reject nested writes.
+- Narrow `TECH_MARKERS` matching to word-boundaries so auto how-to topics are not flagged technical.
+- Ensure Cloud Secrets injection puts only valid env identifiers into `CLOUD_AGENT_INJECTED_SECRET_NAMES` (no URL/values).
+- `excalibur_blog_research_start.py` / SERP writer must redact `PUBLIC_SITE_URL` (and catalog host) before writing `research-serp.json`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `scripts/excalibur_blog_research_start.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded (values not logged; only that one injected "name" was URL-shaped)
+
+### Fixer resolution
+- pending
+
 ## INC-20261022-0905-scout-missing-wp-denylist
 status: open
 run_date: 2026-10-22

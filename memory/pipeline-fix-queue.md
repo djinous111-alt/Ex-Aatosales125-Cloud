@@ -26,6 +26,7 @@ category: prompt
 - Patched generated `quad-mcp-prompt.txt` / `quad-mcp-batch.json` to replace hoodie outfit lock with navy softshell/crewneck (NO hoodie/hood/cap).
 - Used https `input_urls` for ONE Kie i2i job (WP media); split PASS + inject ok.
 - Commit: kept `http://` host in committed batch/hero diffs so pre-commit secret scan does not match `PUBLIC_SITE_URL` (`https://…`); runtime i2i still used https.
+- Corner brand on gen was weak/missing → PIL stamp `avto-sales125.ru` on `cover.png` (no second image job).
 
 ### Durable fix needed before next run
 - Change outfit lock in `excalibur_blog_cover_quad_prompt.py` to weather/topic-driven softshell/crewneck (or read from blog-hero outfit_rule); forbid hoodie in prefix.

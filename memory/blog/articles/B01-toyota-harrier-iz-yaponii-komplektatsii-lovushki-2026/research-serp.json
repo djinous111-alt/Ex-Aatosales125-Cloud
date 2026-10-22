@@ -1,0 +1,579 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-22",
+    "today_ru": "22.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-24",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-22 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "toyota-harrier-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Toyota Harrier из Японии: кузова, гибрид и ловушки до ставки в 2026",
+    "primary_query": "тойота харриер из японии",
+    "secondary_queries": [
+      "тойота харриер под заказ из японии",
+      "тойота харриер гибрид",
+      "какой харриер будет проходным из японии",
+      "тойота харриер с аукциона"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "тойота харриер из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Харриер 2026 технические характеристики. Toyota Harrier 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/harrier/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Harrier из Японии: стоимость под ключ, поколения и нюансы ввоза ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-harrier-iz-yaponii",
+          "snippet": "Подробно расписан модельный ряд Toyota Harrier 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Харриер 2026 между собой."
+        },
+        {
+          "title": "Купить Тойота Харриер 2026 года с аукциона Японии - Токай Авто",
+          "url": "https://tokai-auto.ru/toyota/harrier/?year_from=2026&year_to=2026",
+          "snippet": "Toyota Harrier (ZSU60, MXUA80) из Японии под ключ в 2026: аукционные цены, таможня, расчёт стоимости для Сибири. Какое поколение выбрать — гибрид или PHV."
+        },
+        {
+          "title": "Каталог Toyota Harrier (Тойота Харриер) из Японии — поколения и цены",
+          "url": "https://jpstar.ru/catalog/toyota/harrier/",
+          "snippet": "Автомобили Toyota Harrier (Тойота Харриер) 2026 года с аукционов Японии доступны для заказа с доставкой в Россию. Мы предлагаем машины с прозрачной историей, реальным пробегом и полным пакетом документов. Все автомобили проходят строгий контроль на японских аукционах, где фиксируется их техническое состояние и реальный пробег."
+        },
+        {
+          "title": "Toyota Harrier из Японии: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-harrier-iz-yaponii-2026",
+          "snippet": "Привозим автомобили напрямую из Японии под заказ - полный каталог всех японских автомобилей! Джапан Стар предоставит выгодные условия и полное сопровождение на всех этапах сделки."
+        },
+        {
+          "title": "Заказать Тойота Харриер из Японии с доставкой | Антарес Авто",
+          "url": "https://antaresjp.ru/aukciony/toyota/harrier/",
+          "snippet": "Toyota Harrier с бензиновым 2.0 едет из Японии в среднем 2-3 месяца. Причина в том, что мотор объёмом больше 1,9 литра считается санкционным, поэтому машина идёт через третьи страны."
+        }
+      ],
+      "searched_at": "2026-10-22"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "тойота харриер из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Harrier из Японии: стоимость под ключ, поколения и нюансы ввоза ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-harrier-iz-yaponii",
+          "snippet": ""
+        },
+        {
+          "title": "Тойота Харриер 2026 технические характеристики. Toyota Harrier 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/harrier/2026/",
+          "snippet": "Toyota Harrier (ZSU60, MXUA80) из Японии под ключ в 2026: аукционные цены, таможня, расчёт стоимости для Сибири. Какое поколение выбрать — гибрид или PHV."
+        },
+        {
+          "title": "Купить Тойота Харриер 2026 года с аукциона Японии - Токай Авто",
+          "url": "https://tokai-auto.ru/toyota/harrier/?year_from=2026&year_to=2026",
+          "snippet": "Подробно расписан модельный ряд Toyota Harrier 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Харриер 2026 между собой."
+        },
+        {
+          "title": "Продажи Toyota HARRIER (Тойота Харриер) 2026 года",
+          "url": "https://vladdiler.ru/statistika/toyota/harrier/?year_from=2026&year_to=2026",
+          "snippet": "Автомобили Toyota Harrier (Тойота Харриер) 2026 года с аукционов Японии доступны для заказа с доставкой в Россию. Мы предлагаем машины с прозрачной историей, реальным пробегом и полным пакетом документов. Все автомобили проходят строгий контроль на японских аукционах, где фиксируется их техническое состояние и реальный пробег."
+        },
+        {
+          "title": "Каталог Toyota Harrier (Тойота Харриер) из Японии — поколения и цены",
+          "url": "https://jpstar.ru/catalog/toyota/harrier/",
+          "snippet": "Статистика проданных автомобилей Toyota HARRIER (Тойота Харриер) 2026 года на аукционах Японии: фото, описания, пробег, комплектации и цены в рублях. Удобный поиск по модели, году и кузову."
+        },
+        {
+          "title": "Toyota HARRIER (Тойота Харриер) с Японии под полную пошлину",
+          "url": "https://autotrans-rf.ru/catalog/toyota/harrier/",
+          "snippet": "Привозим автомобили напрямую из Японии под заказ - полный каталог всех японских автомобилей! Джапан Стар предоставит выгодные условия и полное сопровождение на всех этапах сделки."
+        }
+      ],
+      "searched_at": "2026-10-22"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "тойота харриер из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Harrier из Японии: стоимость под ключ, поколения и нюансы ввоза ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-harrier-iz-yaponii",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Harrier из Японии: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-harrier-iz-yaponii-2026",
+          "snippet": "Toyota Harrier (ZSU60, MXUA80) из Японии под ключ в 2026: аукционные цены, таможня, расчёт стоимости для Сибири. Какое поколение выбрать — гибрид или PHV."
+        },
+        {
+          "title": "Тойота Харриер 2026 технические характеристики. Toyota Harrier 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/harrier/2026/",
+          "snippet": "Toyota Harrier с бензиновым 2.0 едет из Японии в среднем 2-3 месяца. Причина в том, что мотор объёмом больше 1,9 литра считается санкционным, поэтому машина идёт через третьи страны."
+        },
+        {
+          "title": "Toyota из Японии 2026: модельный ряд и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-iz-yaponii-2026",
+          "snippet": "Подробно расписан модельный ряд Toyota Harrier 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Харриер 2026 между собой."
+        },
+        {
+          "title": "Toyota Harrier 2026: автомобиль обновился в Японии",
+          "url": "https://cenyavto.com/toyota-harrier-obnovilsya-v-yaponii-versiya-night-shade/",
+          "snippet": "Какую Toyota привезти из Японии в 2026: девять моделей с годом и пробегом лота, Roomy и Sienta для семьи, Raize и Harrier, почему Camry и RAV4 без льготы."
+        },
+        {
+          "title": "Toyota Harrier 2026 обновился: версия Night Shade и гибрид 2.5 уже в ...",
+          "url": "https://auto.yuga.ru/articles/4918.html",
+          "snippet": "Официальные изображения рестайлингового Toyota Harrier 2026, который на китайском рынке известен под именем Lingfang Harrier, уже появились в открытом доступе."
+        }
+      ],
+      "searched_at": "2026-10-22"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com тойота харриер из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-22"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "тойота харриер из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Руководства по эксплуатации автомобилей Toyota",
+          "url": "https://www.toyota.ru/owners/information/manuals",
+          "snippet": ""
+        },
+        {
+          "title": "トヨタ 取扱説明書 | ハリアー | トヨタ自動車webサイト",
+          "url": "https://manual.toyota.jp/harrier/",
+          "snippet": "Ознакомьтесь и скачайте руководство по эксплуатации, по мультимедийной системе для вашей модели Toyota"
+        },
+        {
+          "title": "Тойота Харриер 2026 технические характеристики. Toyota Harrier 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/harrier/2026/",
+          "snippet": "トヨタ ハリアーの取扱説明書をご覧いただけます。 「ご利用の条件」を読み、ご同意いただいたうえでご利用ください。"
+        },
+        {
+          "title": "Комплектация Тойота Харриер: уровни и опции 2026",
+          "url": "https://toyotabase.vercel.app/articles/k/ko/komplektatsiya-tojota-kharrier.html",
+          "snippet": "Подробно расписан модельный ряд Toyota Harrier 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Toyota Harrier из Японии: стоимость под ключ, поколения и нюансы ввоза ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-harrier-iz-yaponii",
+          "snippet": "Полный разбор комплектаций Toyota Harrier. Отличия версий G, S, Z, Premium. Двигатели, полный привод, расход топлива и реальные отзывы владельцев."
+        },
+        {
+          "title": "Официальный сайт ООО \"Тойота Мотор\" | Toyota",
+          "url": "https://www.toyota.ru/",
+          "snippet": "Toyota Harrier (ZSU60, MXUA80) из Японии под ключ в 2026: аукционные цены, таможня, расчёт стоимости для Сибири. Какое поколение выбрать — гибрид или PHV."
+        }
+      ],
+      "searched_at": "2026-10-22"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "тойота харриер из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Форум Тойота Харриер: ремонт, отзывы и тюнинг — Toyota Base",
+          "url": "https://toyotabase.vercel.app/articles/f/fo/forum-tojota-kharrier.html",
+          "snippet": ""
+        },
+        {
+          "title": "Тойота Харриер отзывы владельцев - поломки и проблемы",
+          "url": "https://www.drom.ru/reviews/toyota/harrier/5kopeek/breakages/",
+          "snippet": "Полный обзор сообщества владельцев Toyota Harrier. Где искать форум, как подобрать запчасти, типичные поломки и советы по эксплуатации кроссовера."
+        },
+        {
+          "title": "Бортжурнал Toyota Harrier - клуб, форум о Тойота Харриер на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/toyota/harrier/",
+          "snippet": "Отзывы владельцев Тойота Харриер - поломки и проблемы. Опыт эксплуатации реальных владельцев автомобилей Тойота Харриер: поломки, минусы, недостатки и проблемы."
+        },
+        {
+          "title": "Клуб Тойота Харриер: Тюнинг, Ремонт и Отзывы Владельцев",
+          "url": "https://toyotabase.vercel.app/articles/k/kl/klub-tojota-kharrier.html",
+          "snippet": "Harrier или ZR-V: какой японский кроссовер выбрали бы вы? Если выбирать автомобиль из Японии, иногда за сопоставимый бюджет можно смотреть машины с совершенно разным характером."
+        },
+        {
+          "title": "Отзывы владельцев Toyota Harrier с ФОТО - Дром",
+          "url": "https://www.drom.ru/reviews/toyota/harrier/",
+          "snippet": "Именно вокруг этой модели сформировалось мощное сообщество, известное как \"клуб тойота харриер\", где делятся опытом, решают сложные технические задачи и находят редчайшие запчасти."
+        },
+        {
+          "title": "Бортжурнал Toyota - клуб, форум о Тойота на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/toyota/",
+          "snippet": "Я бы оценил опыт с Toyota Harrier как удовлетворительный. В том числе за внешний вид, интерьер и производительность двигателя, при этом ходовые качества и комфорт оцениваю ниже, а вот ..."
+        }
+      ],
+      "searched_at": "2026-10-22"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "тойота харриер под заказ из японии 2026",
+      "purpose": "вторичный запрос: тойота харриер под заказ из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Harrier из Японии: стоимость под ключ, поколения и нюансы ввоза ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-harrier-iz-yaponii",
+          "snippet": ""
+        },
+        {
+          "title": "Заказать Тойота Харриер из Японии с доставкой | Антарес Авто",
+          "url": "https://antaresjp.ru/aukciony/toyota/harrier/",
+          "snippet": "Toyota Harrier (ZSU60, MXUA80) из Японии под ключ в 2026: аукционные цены, таможня, расчёт стоимости для Сибири. Какое поколение выбрать — гибрид или PHV."
+        },
+        {
+          "title": "Купить Тойота Харриер 2026 года с аукциона Японии - Токай Авто",
+          "url": "https://tokai-auto.ru/toyota/harrier/?year_from=2026&year_to=2026",
+          "snippet": "Тойота Харриер из Японии под заказ: цена от 1 980 000 ₽, двигатель 2 л, 2007-2026 г.в. Оценка аукциона, расчет цены, доставка и оформление по договору."
+        },
+        {
+          "title": "Toyota Harrier из Японии под заказ — цены и авто с аукционов",
+          "url": "https://atp-auto.ru/avto-iz-yaponii/toyota/harrier/",
+          "snippet": "Автомобили Toyota Harrier (Тойота Харриер) 2026 года с аукционов Японии доступны для заказа с доставкой в Россию. Мы предлагаем машины с прозрачной историей, реальным пробегом и полным пакетом документов. Все автомобили проходят строгий контроль на японских аукционах, где фиксируется их техническое состояние и реальный пробег."
+        },
+        {
+          "title": "Купить Тойота Харриер из Японии, Toyota Harrier с аукциона",
+          "url": "https://antaresjp.ru/aukciony/toyota/harrier/?p=1",
+          "snippet": "Toyota Harrier из Японии — реальные цены с аукционов в 2026 году. Подбор под заказ и доставка от 25 дней по всей России. Покажем варианты."
+        },
+        {
+          "title": "Купить Toyota Harrier Из Японии С Аукциона Без Пробега По Рф - Каталог ...",
+          "url": "https://autosender.ru/japan-auto/toyota/harrier",
+          "snippet": "TOYOTA HARRIER из Японии 314 автомобилей TOYOTA HARRIER с аукциона в в Японии. Купить авто Тойота Харриер на заказ. Уточните цены в ."
+        }
+      ],
+      "searched_at": "2026-10-22"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "тойота харриер гибрид 2026",
+      "purpose": "вторичный запрос: тойота харриер гибрид",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Харриер 2026 технические характеристики. Toyota Harrier 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/harrier/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Harrier 2.5 Hybrid G (06.2025 - 07.2026) - Дром",
+          "url": "https://www.drom.ru/catalog/toyota/harrier/536216/",
+          "snippet": "Тойота Харриер 2026 комплектации и цены, фото. Подробно расписан модельный ряд Toyota Harrier 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона ..."
+        },
+        {
+          "title": "Комплектация Тойота Харриер: уровни и опции 2026",
+          "url": "https://toyotabase.vercel.app/articles/k/ko/komplektatsiya-tojota-kharrier.html",
+          "snippet": "Подробно расписаны модификации автомобилей Toyota Harrier 2.5 Hybrid G: все технические спецификации, полная комплектация салона, цвета, в которые окрашивался автомобиль, фотографии внешнего вида и ..."
+        },
+        {
+          "title": "Toyota Harrier 2026 обновился: версия Night Shade и гибрид 2.5 уже в ...",
+          "url": "https://auto.yuga.ru/articles/4918.html",
+          "snippet": "Полный разбор комплектаций Toyota Harrier. Отличия версий G, S, Z, Premium. Двигатели, полный привод, расход топлива и реальные отзывы владельцев."
+        },
+        {
+          "title": "Toyota Harrier 2026: цены, комплектации и отзывы о новом кроссовере",
+          "url": "https://toyotabase.vercel.app/articles/n/no/novaya-tojota-kharrier.html",
+          "snippet": "Toyota Harrier 2026 получил освежённый дизайн с затемнёнными элементами в версии Night Shade, расширенное мультимедийное оснащение и сохранил проверенную гибридную схему."
+        },
+        {
+          "title": "Toyota Harrier обновится в 2026 году: экран 14 дюймов и новый гибрид",
+          "url": "https://cenyavto.com/toyota-harrier-obnovitsya-v-2026-godu-ekran-14/",
+          "snippet": "Все о новом Toyota Harrier 2026: технические характеристики, сравнение с RAV4, реальные отзывы владельцев, цены в России и особенности гибридной версии. Эксклюзивные фото и видео."
+        }
+      ],
+      "searched_at": "2026-10-22"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "какой харриер будет проходным из японии 2026",
+      "purpose": "вторичный запрос: какой харриер будет проходным из японии",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-22"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "тойота харриер с аукциона 2026",
+      "purpose": "вторичный запрос: тойота харриер с аукциона",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Купить Тойота Харриер 2026 года с аукциона Японии - Токай Авто",
+          "url": "https://tokai-auto.ru/toyota/harrier/?year_from=2026&year_to=2026",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Toyota Harrier 2026 года | Лот: 52038 от 25.06.2026 TAA Kantou ...",
+          "url": "https://www.drom.ru/world/japan/toyota/harrier/8054006/",
+          "snippet": "Автомобили Toyota Harrier (Тойота Харриер) 2026 года с аукционов Японии доступны для заказа с доставкой в Россию. Мы предлагаем машины с прозрачной историей, реальным пробегом и полным пакетом документов. Все автомобили проходят строгий контроль на японских аукционах, где фиксируется их техническое состояние и реальный пробег."
+        },
+        {
+          "title": "Toyota Harrier 2026 года с аукционов Японии",
+          "url": "https://avtoimport-group.ru/statistika/toyota/harrier/?year_from=2026&year_to=2026",
+          "snippet": "Статистика проданных Toyota Harrier на аукционах Японии. Фотографии, характеристики, цены и расчет реальной стоимости Toyota Harrier в России."
+        },
+        {
+          "title": "Продажа Toyota Harrier 2026 года с аукционов Японии: цена и фото",
+          "url": "https://sferacar.ru/statistika/toyota/harrier/?year_from=2026&year_to=2026",
+          "snippet": "Автомобили Toyota Harrier 2026 года на аукционах Японии, с подробным расчетом реальной стоимости в России. Удобный поиск по марке, модели, году и комплектации авто"
+        },
+        {
+          "title": "Продажа Toyota Harrier с аукционов Японии, статистика, цены!",
+          "url": "https://priority-auto.ru/auto-from-japan/toyota/harrier/",
+          "snippet": "В данном разделе представлены автомобили Toyota Harrier 2026 года с аукционов Японии. Цены указаны в рублях уже с учётом всех расходов: затрат в Японии, доставки в Россию, брокерских услуг, пошлины и ..."
+        },
+        {
+          "title": "Продажи Toyota HARRIER (Тойота Харриер) 2026 года",
+          "url": "https://vladdiler.ru/statistika/toyota/harrier/?year_from=2026&year_to=2026",
+          "snippet": "Купить Toyota Harrier с аукционов Японии. Статистика продаж Toyota — более миллиона лотов с фото, аукционными листами, описанием и ценой продажи. Удобный фильтр по марке, модели, году и пробегу."
+        }
+      ],
+      "searched_at": "2026-10-22"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Toyota Harrier из Японии: кузова, гибрид и ловушки до ставки в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Harrier: 60 или 80 кузов, двигатели, цены и покупка",
+          "url": "https://azway.ru/blog/toyota-harrier-iz-yaponii-obzor",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Harrier из Японии: стоимость под ключ, поколения и нюансы ввоза ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-harrier-iz-yaponii",
+          "snippet": "Напишите, какой бюджет выделен на всю покупку и до какого города нужен расчёт. Далее укажите поколение, бензин или гибрид, обязательный привод и две-три необходимые функции."
+        },
+        {
+          "title": "Гид покупателя Toyota Harrier: японский представительский SUV на ...",
+          "url": "https://www.auto-x.jp/ru/blog/toyota-harrier-buyers-guide",
+          "snippet": "Toyota Harrier (ZSU60, MXUA80) из Японии под ключ в 2026: аукционные цены, таможня, расчёт стоимости для Сибири. Какое поколение выбрать — гибрид или PHV."
+        },
+        {
+          "title": "Toyota Harrier из Японии: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-harrier-iz-yaponii-2026",
+          "snippet": "От Найроби до Коломбо Toyota Harrier — статусный SUV номер один. Наш гид экспортёра охватывает все четыре поколения, связь с Lexus RX, чек-лист перед торгами и реалистичные цены FOB."
+        },
+        {
+          "title": "Toyota Harrier из Японии: обзор, цены, комплектации, поколения",
+          "url": "https://4ringcars.ru/18-toyota-harrier-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+          "snippet": "Toyota Harrier — статусный кроссовер с яркой внешностью, богатым салоном и местом для семьи: круговой обзор, панорама, акустика JBL в топовых версиях, багажник 456 литров. Владельцы берут его прежде всего за вид («95% людей говорят красивая, чёткая, модная тачка») и за надёжный атмосферный мотор."
+        },
+        {
+          "title": "Toyota Harrier из Японии — характеристики, комплектации и цены | Темп-А",
+          "url": "https://tempa-cars.ru/catalog/toyota/harrier/",
+          "snippet": "В этой статье мы разберём все поколения Harrier, актуальные цены на аукционах, комплектации и нюансы покупки для российских автовладельцев."
+        }
+      ],
+      "searched_at": "2026-10-22"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.drom.ru/catalog/toyota/harrier/2026/",
+      "title": "Тойота Харриер 2026 технические характеристики. Toyota Harrier 2026 ...",
+      "from_query": "тойота харриер из японии 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/toyota-harrier-iz-yaponii",
+      "title": "Toyota Harrier из Японии: стоимость под ключ, поколения и нюансы ввоза ...",
+      "from_query": "тойота харриер из японии 2026"
+    },
+    {
+      "url": "https://tokai-auto.ru/toyota/harrier/?year_from=2026&year_to=2026",
+      "title": "Купить Тойота Харриер 2026 года с аукциона Японии - Токай Авто",
+      "from_query": "тойота харриер из японии 2026"
+    },
+    {
+      "url": "https://jpstar.ru/catalog/toyota/harrier/",
+      "title": "Каталог Toyota Harrier (Тойота Харриер) из Японии — поколения и цены",
+      "from_query": "тойота харриер из японии 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/toyota-harrier-iz-yaponii-2026",
+      "title": "Toyota Harrier из Японии: болячки и цена",
+      "from_query": "тойота харриер из японии 2026"
+    },
+    {
+      "url": "https://antaresjp.ru/aukciony/toyota/harrier/",
+      "title": "Заказать Тойота Харриер из Японии с доставкой | Антарес Авто",
+      "from_query": "тойота харриер из японии 2026"
+    },
+    {
+      "url": "https://vladdiler.ru/statistika/toyota/harrier/?year_from=2026&year_to=2026",
+      "title": "Продажи Toyota HARRIER (Тойота Харриер) 2026 года",
+      "from_query": "тойота харриер из японии октябрь 2026"
+    },
+    {
+      "url": "https://autotrans-rf.ru/catalog/toyota/harrier/",
+      "title": "Toyota HARRIER (Тойота Харриер) с Японии под полную пошлину",
+      "from_query": "тойота харриер из японии октябрь 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/toyota-iz-yaponii-2026",
+      "title": "Toyota из Японии 2026: модельный ряд и цены",
+      "from_query": "тойота харриер из японии новости 2026"
+    },
+    {
+      "url": "https://cenyavto.com/toyota-harrier-obnovilsya-v-yaponii-versiya-night-shade/",
+      "title": "Toyota Harrier 2026: автомобиль обновился в Японии",
+      "from_query": "тойота харриер из японии новости 2026"
+    },
+    {
+      "url": "https://auto.yuga.ru/articles/4918.html",
+      "title": "Toyota Harrier 2026 обновился: версия Night Shade и гибрид 2.5 уже в ...",
+      "from_query": "тойота харриер из японии новости 2026"
+    },
+    {
+      "url": "https://www.toyota.ru/owners/information/manuals",
+      "title": "Руководства по эксплуатации автомобилей Toyota",
+      "from_query": "тойота харриер из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://manual.toyota.jp/harrier/",
+      "title": "トヨタ 取扱説明書 | ハリアー | トヨタ自動車webサイト",
+      "from_query": "тойота харриер из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/k/ko/komplektatsiya-tojota-kharrier.html",
+      "title": "Комплектация Тойота Харриер: уровни и опции 2026",
+      "from_query": "тойота харриер из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.toyota.ru/",
+      "title": "Официальный сайт ООО \"Тойота Мотор\" | Toyota",
+      "from_query": "тойота харриер из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/f/fo/forum-tojota-kharrier.html",
+      "title": "Форум Тойота Харриер: ремонт, отзывы и тюнинг — Toyota Base",
+      "from_query": "тойота харриер из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/toyota/harrier/5kopeek/breakages/",
+      "title": "Тойота Харриер отзывы владельцев - поломки и проблемы",
+      "from_query": "тойота харриер из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/toyota/harrier/",
+      "title": "Бортжурнал Toyota Harrier - клуб, форум о Тойота Харриер на Авто.ру",
+      "from_query": "тойота харриер из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/k/kl/klub-tojota-kharrier.html",
+      "title": "Клуб Тойота Харриер: Тюнинг, Ремонт и Отзывы Владельцев",
+      "from_query": "тойота харриер из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/toyota/harrier/",
+      "title": "Отзывы владельцев Toyota Harrier с ФОТО - Дром",
+      "from_query": "тойота харриер из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/toyota/",
+      "title": "Бортжурнал Toyota - клуб, форум о Тойота на Авто.ру",
+      "from_query": "тойота харриер из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://atp-auto.ru/avto-iz-yaponii/toyota/harrier/",
+      "title": "Toyota Harrier из Японии под заказ — цены и авто с аукционов",
+      "from_query": "тойота харриер под заказ из японии 2026"
+    },
+    {
+      "url": "https://antaresjp.ru/aukciony/toyota/harrier/?p=1",
+      "title": "Купить Тойота Харриер из Японии, Toyota Harrier с аукциона",
+      "from_query": "тойота харриер под заказ из японии 2026"
+    },
+    {
+      "url": "https://autosender.ru/japan-auto/toyota/harrier",
+      "title": "Купить Toyota Harrier Из Японии С Аукциона Без Пробега По Рф - Каталог ...",
+      "from_query": "тойота харриер под заказ из японии 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/harrier/536216/",
+      "title": "Toyota Harrier 2.5 Hybrid G (06.2025 - 07.2026) - Дром",
+      "from_query": "тойота харриер гибрид 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/n/no/novaya-tojota-kharrier.html",
+      "title": "Toyota Harrier 2026: цены, комплектации и отзывы о новом кроссовере",
+      "from_query": "тойота харриер гибрид 2026"
+    },
+    {
+      "url": "https://cenyavto.com/toyota-harrier-obnovitsya-v-2026-godu-ekran-14/",
+      "title": "Toyota Harrier обновится в 2026 году: экран 14 дюймов и новый гибрид",
+      "from_query": "тойота харриер гибрид 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/japan/toyota/harrier/8054006/",
+      "title": "Купить Toyota Harrier 2026 года | Лот: 52038 от 25.06.2026 TAA Kantou ...",
+      "from_query": "тойота харриер с аукциона 2026"
+    },
+    {
+      "url": "https://avtoimport-group.ru/statistika/toyota/harrier/?year_from=2026&year_to=2026",
+      "title": "Toyota Harrier 2026 года с аукционов Японии",
+      "from_query": "тойота харриер с аукциона 2026"
+    },
+    {
+      "url": "https://sferacar.ru/statistika/toyota/harrier/?year_from=2026&year_to=2026",
+      "title": "Продажа Toyota Harrier 2026 года с аукционов Японии: цена и фото",
+      "from_query": "тойота харриер с аукциона 2026"
+    },
+    {
+      "url": "https://priority-auto.ru/auto-from-japan/toyota/harrier/",
+      "title": "Продажа Toyota Harrier с аукционов Японии, статистика, цены!",
+      "from_query": "тойота харриер с аукциона 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/toyota-harrier-iz-yaponii-obzor",
+      "title": "Toyota Harrier: 60 или 80 кузов, двигатели, цены и покупка",
+      "from_query": "Как выбрать Toyota Harrier из Японии: кузова, гибрид и ловушки до ставки в 2026 2026"
+    },
+    {
+      "url": "https://www.auto-x.jp/ru/blog/toyota-harrier-buyers-guide",
+      "title": "Гид покупателя Toyota Harrier: японский представительский SUV на ...",
+      "from_query": "Как выбрать Toyota Harrier из Японии: кузова, гибрид и ловушки до ставки в 2026 2026"
+    },
+    {
+      "url": "https://4ringcars.ru/18-toyota-harrier-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+      "title": "Toyota Harrier из Японии: обзор, цены, комплектации, поколения",
+      "from_query": "Как выбрать Toyota Harrier из Японии: кузова, гибрид и ловушки до ставки в 2026 2026"
+    },
+    {
+      "url": "https://tempa-cars.ru/catalog/toyota/harrier/",
+      "title": "Toyota Harrier из Японии — характеристики, комплектации и цены | Темп-А",
+      "from_query": "Как выбрать Toyota Harrier из Японии: кузова, гибрид и ловушки до ставки в 2026 2026"
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "[REDACTED]/mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "[REDACTED]/mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Mazda CX-5 из Китая: комплектации и ловушки до депозита",
+      "description": "Mazda CX-5 из Китая: Comfort, Zhishang, Zhiya и Pro. Чеклист до депозита, ловушки Smart/Elegant/Black Pack, VIN и заводская карточка. Расчёт – в каталоге Авто-Сейлс.",
+      "datePublished": "2026-10-23",
+      "dateModified": "2026-10-23",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "[REDACTED]/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "[REDACTED]/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "[REDACTED]"
+        },
+        "sameAs": [
+          "[REDACTED]",
+          "[REDACTED]",
+          "[REDACTED]",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "[REDACTED]/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "[REDACTED]",
+        "sameAs": [
+          "[REDACTED]",
+          "[REDACTED]"
+        ]
+      },
+      "keywords": [
+        "мазда сх5 из китая комплектации",
+        "мазда сх5 из китая",
+        "комплектации мазда сх5 из китая 2026",
+        "mazda cx 5 zhishang комплектация",
+        "мазда сх5 комфорт из китая"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "[REDACTED]/mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Zhishang отличается от Comfort?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сделайте сверку по маркерам: у Comfort обычно нет люка и keyless, у Zhishang они появляются вместе с передними датчиками и обычным круизом. Если в объявлении Comfort, а продают как \"почти Smart со всем\" – запросите видео и карточку до депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужна ли Zhiya Pro обычному водителю?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не всегда. Выберите Zhiya Pro, если хотите и кожаный комфорт, и 360/ассистенты. Если важнее парковка, а кожа вторична, на практике хватает Zhishang Pro. Сверьте must-have список, а не ценник."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Работает ли русификация и китайские онлайн-сервисы в РФ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Русификацию штатной системы закладывайте после прихода авто; до депозита полезно фото раздела \"О системе\". Китайские connected-сервисы в РФ обычно не работают \"из коробки\" – не стройте ожидания на них."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем китайская CX-5 отличается от японской по рулю и свежести?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Китайская версия чаще идёт как новый или свежий LHD 2.0 FWD. Японская – часто RHD с пробегом и другим зимним пакетом. Сравните два VIN под ваш сценарий, а не \"страну вообще\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "VIN \"пробился\" – можно ли сразу слать депозит?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. VIN подтверждает идентичность, но не полный список опций. Проверьте заводскую карточку на тот же номер и видео спорных функций. Расхождение – повод отложить оплату."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если продавец даёт только фото без таблички?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Избегайте депозита. Попросите непрерывное видео с VIN и включением опций. Если ответа нет – переходите к другому лоту или уточняйте через менеджера в Telegram."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "[REDACTED]/mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать комплектацию Mazda CX-5 из Китая до депозита",
+      "description": "Пошаговая проверка China-spec CX-5 до перевода денег: китайское имя версии, видео опций, VIN и заводская карточка.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Непрерывное видео лота с VIN и опциями"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Заводская / дилерская карточка на тот же VIN"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Таблица маркеров Comfort / Zhishang / Zhiya / Pro"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Список must-have опций до просмотра лотов"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "2–3 объявления с исходным китайским именем версии"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Чеклист из 10 пунктов перед депозитом"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Выпишите must-have опции",
+          "text": "Выпишите 3–5 опций, без которых машина вам не нужна.",
+          "url": "[REDACTED]/mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/#сравните-comfort-zhishang-zhiya-и-pro-по-маркерам-на-видео"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Зафиксируйте китайское имя версии",
+          "text": "Откройте 2–3 объявления и рядом запишите исходное китайское имя версии, не только \"Comfort/Smart\".",
+          "url": "[REDACTED]/mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/#сравните-comfort-zhishang-zhiya-и-pro-по-маркерам-на-видео"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Сверьте версию с маркерами на видео",
+          "text": "Сверьте версию с маркерами из таблицы комплектаций на реальном видео этой машины.",
+          "url": "[REDACTED]/mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/#сравните-comfort-zhishang-zhiya-и-pro-по-маркерам-на-видео"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Запросите непрерывное видео опций",
+          "text": "Запросите одно непрерывное видео: общий вид → табличка VIN → одометр → включение спорных опций.",
+          "url": "[REDACTED]/mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/#как-не-попасть-на-ловушки-smart-elegant-и-black-pack"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Сверьте VIN 17 символов",
+          "text": "Сверьте 17 символов VIN везде; без букв I, O, Q в корректном VIN.",
+          "url": "[REDACTED]/mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/#проверьте-vin-и-заводскую-карточку-до-перевода-денег"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Получите заводскую карточку на тот же VIN",
+          "text": "Получите заводскую карточку на этот VIN и сверьте цвет/год/мотор/опции с договором.",
+          "url": "[REDACTED]/mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/#проверьте-vin-и-заводскую-карточку-до-перевода-денег"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Бронируйте только после зелёного чеклиста",
+          "text": "Только после зелёного чеклиста бронируйте конкретный VIN – актуальные лоты и расчёт смотрите в каталоге Авто-Сейлс.",
+          "url": "[REDACTED]/mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/#чеклист-новичка-10-пунктов-перед-депозитом-на-cx-5-из-китая"
+        }
+      ]
+    }
+  ]
+}

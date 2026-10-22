@@ -386,3 +386,69 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261022-2115-cover-hoodie-outfit-lock
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` hardcodes `Outfit lock: thick heavyweight white hoodie`, which conflicts with blog-hero outfit_rule (no hood/cap) and explicit cover brief softshell/crewneck for this run.
+
+### How the agent recovered this run
+- Patched generated `quad-mcp-prompt.txt` / `quad-mcp-batch.json` before MCP call to softshell/crewneck and NO hoodie.
+
+### Durable fix needed before next run
+- Replace hardcoded hoodie outfit lock in prompt builder with weather/topic outfit from scene_hint or blog-hero.outfit_rule; keep explicit NO hoodie/NO hood/NO cap.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/blog-hero.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261023-2115-schema-secret-scan-jsonld
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` of `schema.jsonld` blocked by Cursor secret-scan: file contained `PUBLIC_SITE_URL`, `TELEGRAM_URL`, `CATALOG_URL`, `MAX_URL` values required for valid BlogPosting/@id and author sameAs.
+- Prior articles already store live URLs in committed schema; current scan rejects new commits with the same pattern.
+
+### How the agent recovered this run
+- Wrote full runtime schema for publish at `schema.jsonld.runtime`.
+- Committed redacted `schema.jsonld` with `[REDACTED]` placeholders replacing secret URL values.
+- Restored unredacted content to `schema.jsonld` after commit so publish can ingest live JSON-LD.
+- Fragment documents `incident_report` and READY=yes for pipeline.
+
+### Durable fix needed before next run
+- Document in schema skill: commit-safe redaction vs runtime unredacted file (or expand placeholders at publish from env).
+- Prefer publish-time URL expansion from env so git never stores secret URL literals.
+- Align authors-registry / schema commit policy with secret-scan (placeholders in repo, hydrate at publish).
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

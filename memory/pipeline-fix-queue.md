@@ -6,6 +6,47 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-0935-indexer-llms-blog-path-mismatch
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-levyj-rul-iz-yaponii-2026-chek-list
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_doctor.py` requires `--blog-path` in `excalibur_blog_llms_generator.py --help` (`FAIL llms generator supports --blog-path`, errors=1).
+- Actual CLI of `scripts/excalibur_blog_llms_generator.py` only exposes `--blog-dir`, `--site-name`, `--site-desc`, `--site-base`, `--out-dir` — no `--blog-path`.
+- Indexer skill / agent shell examples pass both `--blog-dir` and `--blog-path /`, so contract and doctor disagree with the script.
+
+### How the agent recovered this run
+- Ran llms generator with supported flags only: `--blog-dir memory/blog/articles` (omitted unsupported `--blog-path`).
+- First pass with `--site-base $PUBLIC_SITE_URL` wrote absolute URLs; Cloud pre-commit secret scanner blocked commit (same class as schema INC-0927).
+- Regenerated commit-safe artifacts with `--site-base ""` → root-relative `/blog/<slug>/` (matches prior HEAD `llms.txt`); cleared `site_base` in `interlink-suggestions.json`.
+- Confirmed outputs: `memory/blog/llms.txt`, `memory/blog/llms-full.txt` (3 articles indexed, B01 present).
+- Interlinker `--apply` completed with `opportunities_found=0` (no keyword hits vs AS08/AS09); not a CLI failure.
+- Pre-commit also required comma-separated bash-safe `CLOUD_AGENT_INJECTED_SECRET_NAMES` (space-joined filter breaks `IFS=','` split).
+
+### Durable fix needed before next run
+- Align doctor, skill, and script: either add `--blog-path` to llms generator (URL path prefix for article links) or change doctor + skill examples to stop requiring `--blog-path`.
+- Document Indexer commit-safe default: empty/`""` site-base (root-relative `/blog/...`); absolutize at publish/deploy if needed — do not commit `PUBLIC_SITE_URL` host into `llms*.txt`.
+- Prefer one canonical flag set documented in `.cursor/skills/indexer-excalibur-blog/SKILL.md` and `skills/indexer-excalibur-blog/SKILL.md`.
+- Restore `scripts/excalibur_blog_filter_secret_names.sh` emitting comma-separated names for the host hook.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261022-0928-cover-outfit-lock-hoodie
 status: open
 run_date: 2026-10-22

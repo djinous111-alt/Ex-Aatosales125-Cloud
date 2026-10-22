@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261023-2140-writer-editorial-policy-pain-outcome-markers-missing
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- В `memory/brief/editorial-policy.json` снова отсутствовали `pain_markers_ru` / `outcome_markers_ru`.
+- `excalibur_blog_utility_gate.py` при пустых списках всегда даёт BLOCK по pain/outcome (min 2/3), даже если статья человеческая.
+- Это уже чинилось в прошлых B01 run (Monjaro/Harrier), но списки снова пропали из policy.
+
+### How the agent recovered this run
+- Восстановил `pain_markers_ru` и `outcome_markers_ru` в `editorial-policy.json` (без короткого маркера `боль`, чтобы не ловить ложное `больше`).
+- Selfcheck: html_linter PASS, utility PASS, human_voice PASS.
+
+### Durable fix needed before next run
+- Закрепить fallback-маркеры внутри `excalibur_blog_utility_gate.py`, если policy-списки пустые (как заявлялось в Harrier fixer notes, но в текущем скрипте fallback нет).
+- Добавить doctor-check: policy обязана содержать non-empty pain/outcome marker lists.
+- Не давать scout/research затирать эти ключи при правках policy.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_utility_gate.py`
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261023-2112-research-notes-gate-accessed-at-and-tech-false-positive
 status: open
 run_date: 2026-10-23

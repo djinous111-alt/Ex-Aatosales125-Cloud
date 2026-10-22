@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-1720-writer-utility-gate-missing-pain-outcome-markers
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-harrier-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_utility_gate.py --article-dir` всегда BLOCK: `pain_markers=0` и `outcome_markers=0`, даже на уже опубликованных AS08/AS09.
+- Причина: в `memory/brief/editorial-policy.json` не было ключей `pain_markers_ru` / `outcome_markers_ru`, а скрипт читает только policy (human_voice_gate держит свои списки отдельно).
+
+### How the agent recovered this run
+- Добавил `pain_markers_ru`, `outcome_markers_ru`, `min_pain_markers`, `min_outcome_markers` в editorial-policy.json (согласовано с маркерами human_voice_gate).
+- Усилил в article.html явные маркеры результата ("Результат, который вы получите", "сможете").
+
+### Durable fix needed before next run
+- Зафиксировать единый источник маркеров (policy ↔ human_voice_gate), чтобы списки не расходились.
+- Опционально: если списков нет в policy, fallback на те же константы, что в human_voice_gate, вместо silent empty list.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261022-1716-research-pre-commit-hook-invalid-varname
 status: open
 run_date: 2026-10-22

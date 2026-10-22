@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-1335-indexer-llms-stale-blog-path
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `python3 scripts/excalibur_blog_doctor.py` FAIL: `llms generator supports --blog-path`.
+- `excalibur_blog_llms_generator.py --help` exposes only `--blog-dir`, `--site-name`, `--site-desc`, `--site-base`, `--out-dir` — no `--blog-path`.
+- Agent/skill shell examples still pass `--blog-path /` (`agents/excalibur-blog-indexer.md`, `.cursor/agents/excalibur-blog-indexer.md`, `skills/indexer-excalibur-blog/SKILL.md`, `.cursor/skills/indexer-excalibur-blog/SKILL.md`).
+- Recurring drift: same mismatch noted in prior indexer runs; doctor check was never aligned to the real CLI.
+
+### How the agent recovered this run
+- Ran llms generator with supported flags only: `--blog-dir memory/blog/articles --site-base ${PUBLIC_SITE_URL} --out-dir memory/blog`.
+- Generated `memory/blog/llms.txt` and `memory/blog/llms-full.txt`; B01 listed; committed copies use relative `/blog/<slug>/` URLs (no absolute site base).
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent/skill shell examples OR restore the flag in `excalibur_blog_llms_generator.py` if still required.
+- Change doctor check from `--blog-path` to `--blog-dir` (and optionally `--out-dir`) so preflight matches the script.
+- Add a one-line note to `shared/agent-pipeline-pitfalls.md`: never pass `--blog-path` to llms generator.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261022-1330-cover-hero-https-host-fail
 status: open
 run_date: 2026-10-22

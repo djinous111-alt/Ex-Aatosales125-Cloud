@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-22",
+    "today_ru": "22.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-24",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-22 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Geely Monjaro из Китая: комплектации и ловушки до депозита в 2026",
+    "primary_query": "джили монжаро из китая",
+    "secondary_queries": [
+      "джили монжаро комплектации",
+      "джили монжаро из китая под заказ",
+      "джили монжаро привезти из китая",
+      "отличие джили монжаро из китая и дилерская"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "джили монжаро из китая 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "джили монжаро из китая октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "джили монжаро из китая новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com джили монжаро из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "джили монжаро из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "джили монжаро из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "джили монжаро комплектации 2026",
+      "purpose": "вторичный запрос: джили монжаро комплектации"
+    },
+    {
+      "id": "secondary_2",
+      "query": "джили монжаро из китая под заказ 2026",
+      "purpose": "вторичный запрос: джили монжаро из китая под заказ"
+    },
+    {
+      "id": "secondary_3",
+      "query": "джили монжаро привезти из китая 2026",
+      "purpose": "вторичный запрос: джили монжаро привезти из китая"
+    },
+    {
+      "id": "secondary_4",
+      "query": "отличие джили монжаро из китая и дилерская 2026",
+      "purpose": "вторичный запрос: отличие джили монжаро из китая и дилерская"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать Geely Monjaro из Китая: комплектации и ловушки до депозита в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

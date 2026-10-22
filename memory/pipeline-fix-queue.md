@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-1612-research-notes-gate-format-quirks
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: script
+
+### What went wrong
+- Первый прогон `excalibur_blog_research_notes_gate.py` дал BLOCK: `accessed_at` считаются только как литералы `accessed_at:` (колонка таблицы `| accessed_at |` не засчитывается).
+- Строки `pain_solution_map` засчитываются только если в самой data-row есть слова pain/solution/result (или русские аналоги); один header-row недостаточен.
+- Ложное `technical_topic=true`: маркер `ai` матчится внутри поля `reader_pain` (`p`+`ai`+`n`), из-за чего появляется warning про official docs на авто-теме.
+
+### How the agent recovered this run
+- Добавлен `source_access_log` с несколькими `accessed_at: YYYY-MM-DD | url`.
+- В data-rows pain_solution_map префиксы `pain:` / `solution:` / `result:`.
+- Gate перезапущен → PASS (warning technical docs остался, errors=0).
+
+### Durable fix needed before next run
+- В research skill/agent явно: минимум 5 литералов `accessed_at:`; в каждой строке pain_map – ключевые слова pain/solution/result.
+- В gate: не считать `ai` внутри `pain` / `reader_pain`; для non-tech тем не требовать /docs URL warning как technical.
+- Опционально: принимать `accessed_at` из markdown-таблицы source_table.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261022-1605-scout-missing-wp-denylist
 status: open
 run_date: 2026-10-22

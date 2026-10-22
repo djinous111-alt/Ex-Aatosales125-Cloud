@@ -1,0 +1,574 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-22",
+    "today_ru": "22.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-24",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-22 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Geely Monjaro из Китая: комплектации и ловушки до депозита в 2026",
+    "primary_query": "джили монжаро из китая",
+    "secondary_queries": [
+      "джили монжаро комплектации",
+      "джили монжаро из китая под заказ",
+      "джили монжаро привезти из китая",
+      "отличие джили монжаро из китая и дилерская"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "джили монжаро из китая 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Джили Монжаро 2026 технические характеристики. Geely Monjaro 2026 ...",
+          "url": "https://www.drom.ru/catalog/geely/monjaro/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Джили Монжаро 2026 купить из Китая — Geely Monjaro i-HEV",
+          "url": "https://revocars.ru/geely/geely-monjaro-2026/",
+          "snippet": "Подробно расписан модельный ряд Geely Monjaro 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Джили Монжаро 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+          "url": "https://naavtotrasse.ru/geely/geely-monjaro-2026.html",
+          "snippet": "Все комплектации Джили Монжаро 2026 для рынка Китая: гибрид i-HEV, 2.0T на 218 и 272 л.с., полный привод Wangyue, пакет Qianli Haohan H3 и таблица ТТХ всех восьми версий."
+        },
+        {
+          "title": "Geely Monjaro (Джили Монжаро) из Китая: цена под ключ 2026",
+          "url": "https://ivan-auto.ru/blog/kitajskie-brendy/klassika/geely-monjaro-cena-komplektacii-2026/",
+          "snippet": "Джили Монжаро 2026 (на домашнем рынке модель известна как Xingyue L) — кроссовер на архитектуре e-CMA, который берёт не только размером, но и набором силовых установок от «чистого» бензина до гибридов и версии с увеличителем запаса хода."
+        },
+        {
+          "title": "Продажа Geely Monjaro из Китая | Цены на Джили Монжаро в Китае",
+          "url": "https://www.drom.ru/world/china/geely/monjaro/",
+          "snippet": "Сколько стоит Geely Monjaro из Китая под ключ? По реальным примерам ввоза под ключ — ориентировочно от 3,55 до 4,4 млн ₽, в зависимости от года, мотора (218 или 238 л.с.) и комплектации лота."
+        },
+        {
+          "title": "Джили Монжаро 2026 после рестайлинга: фото, комплектации и цены",
+          "url": "https://mediaspeak.ru/auto/drive/geely-monjaro-restayling-obzor.html",
+          "snippet": "Объявления о продаже Geely Monjaro под заказ из Китая с фото авто и ценами. Стоимость и характеристики Джили Монжаро на аукционе в Китае."
+        }
+      ],
+      "searched_at": "2026-10-22"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "джили монжаро из китая октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Джили Монжаро 2026 технические характеристики. Geely Monjaro 2026 ...",
+          "url": "https://www.drom.ru/catalog/geely/monjaro/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Geely Monjaro (Джили Монжаро) из Китая: цена под ключ 2026",
+          "url": "https://ivan-auto.ru/blog/kitajskie-brendy/klassika/geely-monjaro-cena-komplektacii-2026/",
+          "snippet": "Подробно расписан модельный ряд Geely Monjaro 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Geely Monjaro 2026 — бестселлер из Китая получил новый кузов. Цены ...",
+          "url": "https://naavtotrasse.ru/geely/geely-monjaro-2026.html",
+          "snippet": "Сколько стоит Geely Monjaro из Китая под ключ? По реальным примерам ввоза под ключ — ориентировочно от 3,55 до 4,4 млн ₽, в зависимости от года, мотора (218 или 238 л.с.) и комплектации лота."
+        },
+        {
+          "title": "Джили Монжаро 2026 купить из Китая — Geely Monjaro i-HEV",
+          "url": "https://revocars.ru/geely/geely-monjaro-2026/",
+          "snippet": "Джили Монжаро 2026 (на домашнем рынке модель известна как Xingyue L) — кроссовер на архитектуре e-CMA, который берёт не только размером, но и набором силовых установок от «чистого» бензина до гибридов и версии с увеличителем запаса хода."
+        },
+        {
+          "title": "НОВЫЙ GEELY MONJARO 2026 (МОНДЖАРО) - что ... - Rutube",
+          "url": "https://rutube.ru/video/5ac3f869b1d16a050349f72ac617cb19/",
+          "snippet": "Все комплектации Джили Монжаро 2026 для рынка Китая: гибрид i-HEV, 2.0T на 218 и 272 л.с., полный привод Wangyue, пакет Qianli Haohan H3 и таблица ТТХ всех восьми версий."
+        },
+        {
+          "title": "Geely Monjaro / Джилли Монджаро 4WD 2026 год выпуска - 272 л.с. под ...",
+          "url": "https://li-auto.com/buy/stock/geely-monjaro-dzhilli-mondzharo-2026/",
+          "snippet": "Geely Monjaro 2026 — обновлённый флагманский кроссовер из Китая. Что изменилось по сравнению с прошлой версией? В этом обзоре разберём дизайн, интерьер, оснащение, моторную линейку и технологии. Покажем, какие доработки сделали китайцы, и сравним с конкурентами из Европы и Японии."
+        }
+      ],
+      "searched_at": "2026-10-22"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "джили монжаро из китая новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Geely Monjaro (Джили Монжаро) из Китая: цена под ключ 2026",
+          "url": "https://ivan-auto.ru/blog/kitajskie-brendy/klassika/geely-monjaro-cena-komplektacii-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Geely Monjaro 2026 — бестселлер из Китая получил новый кузов. Цены ...",
+          "url": "https://naavtotrasse.ru/geely/geely-monjaro-2026.html",
+          "snippet": "Monjaro официально продаётся в РФ через дилеров Geely с заводской гарантией 5 лет / 150 000 км, и в августе 2026 у дилеров действует скидка до 400 000 ₽ — новая машина выходит в районе 4,6-5 млн ₽."
+        },
+        {
+          "title": "НОВЫЙ GEELY MONJARO 2026 (МОНДЖАРО) - что ... - Rutube",
+          "url": "https://rutube.ru/video/5ac3f869b1d16a050349f72ac617cb19/",
+          "snippet": "Джили Монжаро 2026 (на домашнем рынке модель известна как Xingyue L) — кроссовер на архитектуре e-CMA, который берёт не только размером, но и набором силовых установок от «чистого» бензина до гибридов и версии с увеличителем запаса хода."
+        },
+        {
+          "title": "Джили Монжаро 2026 после рестайлинга: фото, комплектации и цены",
+          "url": "https://mediaspeak.ru/auto/drive/geely-monjaro-restayling-obzor.html",
+          "snippet": "Geely Monjaro 2026 — обновлённый флагманский кроссовер из Китая. Что изменилось по сравнению с прошлой версией? В этом обзоре разберём дизайн, интерьер, оснащение, моторную линейку и технологии. Покажем, какие доработки сделали китайцы, и сравним с конкурентами из Европы и Японии."
+        },
+        {
+          "title": "Новости Geely Monjaro. Узнавайте первыми об обновлениях и рестайлингах",
+          "url": "https://monjarik.ru/news",
+          "snippet": "В преддверии рестайлинга Джили Монжаро 2026 были проведены незначительные изменения в комплектациях и ценах, что, впрочем, не помешало флагману удержать свои позиции в топе китайских кроссоверов."
+        },
+        {
+          "title": "Geely Monjaro 2026 - живой тест-драйв из Китая",
+          "url": "https://monjarik.ru/reviews/geely-monjaro-2026-test-drive-kitay",
+          "snippet": "Обновления модели, новости с автосалонов, новые комплектации или рестайлинг популярного кроссовера Джили Монжаро"
+        }
+      ],
+      "searched_at": "2026-10-22"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com джили монжаро из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-22"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "джили монжаро из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Пользовательские руководства Geely — ПДФ инструкции",
+          "url": "https://www.geely-motors.com/for-owners/technical-center/usermanual/",
+          "snippet": ""
+        },
+        {
+          "title": "Новый Джили Монжаро: полный обзор, характеристики и комплектации 2026 ...",
+          "url": "https://asia-motors-hub.vercel.app/articles/n/no/novyj-dzhili-monzharo.html",
+          "snippet": "Скачайте официальные руководства по эксплуатации GEELY: модели, оборудование, советы по обслуживанию."
+        },
+        {
+          "title": "Джили Монжаро 2026 технические характеристики. Geely Monjaro 2026 ...",
+          "url": "https://www.drom.ru/catalog/geely/monjaro/2026/",
+          "snippet": "Подробный анализ кроссовера Geely Xingyue L. Технические характеристики, реальный расход топлива, особенности полного привода и сравнение комплектаций нового Джили Монжаро."
+        },
+        {
+          "title": "GEELY Monjaro 2026: обзор, характеристики и комплектации флагманского ...",
+          "url": "https://www.geely-motors.com/blog/geely-monjaro-2026/",
+          "snippet": "Подробно расписан модельный ряд Geely Monjaro 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Джили Монжаро 2026 после рестайлинга: фото, комплектации и цены",
+          "url": "https://mediaspeak.ru/auto/drive/geely-monjaro-restayling-obzor.html",
+          "snippet": "Подробный обзор флагманского кроссовера GEELY Monjaro 2026: технические характеристики, комплектации Luxury и Flagship, цены, особенности оснащения и адаптации к российским условиям."
+        },
+        {
+          "title": "Geely Monjaro",
+          "url": "https://www.geely.com/en/models/monjaro",
+          "snippet": "Обновленный Джили Монжаро 2026 представлен в трех комплектациях с одинаковыми техническими характеристиками. Модель оснащена единственным бензиновым двигателем с турбонаддувом, работающим в паре с автоматической коробкой передач и полным приводом с многодисковой муфтой."
+        }
+      ],
+      "searched_at": "2026-10-22"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "джили монжаро из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Geely Monjaro отзывы реальных владельцев 2026 — плюсы, минусы, помпа и АКБ",
+          "url": "https://motorist.expert/geely/service-geely/geely-monjaro-otzyvy.html",
+          "snippet": ""
+        },
+        {
+          "title": "Джили Монжаро 2025 - 2026 отзывы владельцев: все минусы и недостатки",
+          "url": "https://www.drom.ru/reviews/geely/monjaro/5kopeek/?year1=2025&year2=2026",
+          "snippet": "Monjaro продаётся с 2023 года, и отзывы делятся на две ясные группы: те, кто пересел с европейских кроссоверов (Tiguan, Kodiaq, Santa Fe), и те, кто пришёл с бюджетных седанов. Расходятся они сильнее всего — об этом ниже отдельно. Сводка по частым вопросам владельцев."
+        },
+        {
+          "title": "Джили Монжаро 2026 отзывы владельцев - поломки и проблемы",
+          "url": "https://www.drom.ru/reviews/geely/monjaro/5kopeek/2026-all/breakages/",
+          "snippet": "Отзывы владельцев Джили Монжаро 2025 - 2026: все минусы и плюсы, недостатки, поломки. Опыт эксплуатации реальных владельцев автомобилей Джили Монжаро: плюсы и минусы."
+        },
+        {
+          "title": "Джили Монжаро 2026: честные отзывы владельцев, расход и поломки",
+          "url": "https://asia-motors-hub.vercel.app/articles/d/dz/dzhili-monzharo-2024-otzyvy.html",
+          "snippet": "Отзывы владельцев Джили Монжаро 2026 - поломки и проблемы. Опыт эксплуатации реальных владельцев автомобилей Джили Монжаро: поломки, минусы, недостатки и проблемы."
+        },
+        {
+          "title": "Отзывы владельцев | Geely Monjaro клуб и форум",
+          "url": "https://geely-monjaro-club.ru/forums/otzyvy-vladelcev.3/",
+          "snippet": "В этом материале мы детально разберем технические нюансы, реальный расход топлива и скрытые проблемы, с которыми сталкиваются владельцы Джили Монжаро. Вы узнаете, почему важно проверить настройки перед первой поездкой и какие вопросы стоит задать менеджеру в салоне, чтобы избежать разочарования."
+        },
+        {
+          "title": "Опыт владения про Geely Monjaro. Обслуживание, ремонт, тюнинг",
+          "url": "https://monjarik.ru/experience",
+          "snippet": "Товарищи, сегодня стал счастливым обладателем Geely Monjaro flagship 2023 года. скажите, как подключить CarPlay, что б не слететь с гарантии. Может. Принимайте в свои ряды 2024 exclusive ОД. Посоветуйте что. Какой расход у кого? Сколько объем бака? И на сколько хватает полный бак. 1.Можно ли заливать в монжаро 6 литров масла, вместо 5,6 л?"
+        }
+      ],
+      "searched_at": "2026-10-22"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "джили монжаро комплектации 2026",
+      "purpose": "вторичный запрос: джили монжаро комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Джили Монжаро 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/geely/monjaro/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Джили Монжаро 2026 после рестайлинга: фото, комплектации и цены",
+          "url": "https://mediaspeak.ru/auto/drive/geely-monjaro-restayling-obzor.html",
+          "snippet": "Джили Монжаро 2026 комплектации и цены, фото. Подробно расписан модельный ряд Geely Monjaro 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона ..."
+        },
+        {
+          "title": "GEELY Monjaro 2026: обзор, характеристики и комплектации флагманского ...",
+          "url": "https://www.geely-motors.com/blog/geely-monjaro-2026/",
+          "snippet": "Джили Монжаро 2026 года: фото после рестайлинга, актуальные цены, обновленные комплектации, технические характеристики и многое другое"
+        },
+        {
+          "title": "Geely Monjaro — цены, комплектации, характеристики и фото",
+          "url": "https://www.geely-motors.com/model/monjaro/",
+          "snippet": "Подробный обзор флагманского кроссовера GEELY Monjaro 2026: технические характеристики, комплектации Luxury и Flagship, цены, особенности оснащения и адаптации к российским условиям."
+        },
+        {
+          "title": "Geely Monjaro (Джили Монжаро) технические характеристики, комплектации ...",
+          "url": "https://www.drom.ru/catalog/geely/monjaro/",
+          "snippet": "Geely Monjaro предлагает внушительный пакет современных систем активной безопасности и помощи водителю 2-го уровня. Их работу обеспечивают 2 радара, 5 камер и 8 ультразвуковых датчиков."
+        },
+        {
+          "title": "Geely Monjaro 2026 - комплектации и цены, купить Джили Монжаро у ...",
+          "url": "https://kors-group-geely.ru/models/monjaro/",
+          "snippet": "Подробно расписан модельный ряд Geely Monjaro: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Джили Монжаро между собой."
+        }
+      ],
+      "searched_at": "2026-10-22"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "джили монжаро из китая под заказ 2026",
+      "purpose": "вторичный запрос: джили монжаро из китая под заказ",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Купить Geely Monjaro 2026 из Китая под ключ — EASY.CAR",
+          "url": "https://easy.car/car/china/2026/geely/monjaro",
+          "snippet": ""
+        },
+        {
+          "title": "№3007860: Купить Geely Monjaro 2026 года в Китае - авто под заказ без ...",
+          "url": "https://www.drom.ru/world/china/geely/monjaro/3007860/",
+          "snippet": "Geely Monjaro (Джили Monjaro) 2026 в наличии — заказ под ключ из Китая, доставка по России. Цена от 4.6 млн ₽, без дилерских наценок. Офис в Москве. Все комплектации."
+        },
+        {
+          "title": "Цены на Geely Monjaro из Китая под заказ - Дром",
+          "url": "https://www.drom.ru/world/china/geely/monjaro/",
+          "snippet": "Объявление №3007860: Geely Monjaro 2026 без пробега по РФ под заказ из Китая. Цена и фото."
+        },
+        {
+          "title": "Geely Monjaro (Джили Монжаро) из Китая: цена под ключ 2026",
+          "url": "https://ivan-auto.ru/blog/kitajskie-brendy/klassika/geely-monjaro-cena-komplektacii-2026/",
+          "snippet": "Объявления о продаже Geely Monjaro под заказ из Китая с фото авто и ценами. Стоимость и характеристики Джили Монжаро на аукционе в Китае."
+        },
+        {
+          "title": "Geely Monjaro / Джилли Монджаро 4WD 2026 год выпуска - 272 л.с. под ...",
+          "url": "https://li-auto.com/buy/stock/geely-monjaro-dzhilli-mondzharo-2026/",
+          "snippet": "Сколько стоит Geely Monjaro из Китая под ключ? По реальным примерам ввоза под ключ — ориентировочно от 3,55 до 4,4 млн ₽, в зависимости от года, мотора (218 или 238 л.с.) и комплектации лота."
+        },
+        {
+          "title": "Джили Монжаро 2026 купить из Китая — Geely Monjaro i-HEV",
+          "url": "https://revocars.ru/geely/geely-monjaro-2026/",
+          "snippet": "Geely Monjaro / Джилли Монджаро 4WD Moonlit Pavilion Version 2026 год выпуска - 272 л.с. под заказ из Китая"
+        }
+      ],
+      "searched_at": "2026-10-22"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "джили монжаро привезти из китая 2026",
+      "purpose": "вторичный запрос: джили монжаро привезти из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как привезти Geely Monjaro из Китая: цена, доставка и нюансы",
+          "url": "https://asia-motors-hub.vercel.app/articles/p/pr/privezti-dzhili-mondzharo-iz-kitaya.html",
+          "snippet": ""
+        },
+        {
+          "title": "Geely Monjaro (Джили Монжаро) из Китая: цена под ключ 2026",
+          "url": "https://ivan-auto.ru/blog/kitajskie-brendy/klassika/geely-monjaro-cena-komplektacii-2026/",
+          "snippet": "Полный гайд: как привезти Geely Monjaro из Китая самостоятельно. Реальная цена, сроки доставки, таможенные пошлины и риски покупки в 2026 году."
+        },
+        {
+          "title": "Geely Monjaro из Китая: цена, комплектации и доставка в 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/g/ge/geely-monjaro-iz-kitaya.html",
+          "snippet": "Сколько стоит Geely Monjaro из Китая под ключ? По реальным примерам ввоза под ключ — ориентировочно от 3,55 до 4,4 млн ₽, в зависимости от года, мотора (218 или 238 л.с.) и комплектации лота."
+        },
+        {
+          "title": "Джили Монжаро 2026 купить из Китая — Geely Monjaro i-HEV",
+          "url": "https://revocars.ru/geely/geely-monjaro-2026/",
+          "snippet": "Полный гид по покупке Geely Monjaro из КНР. Реальные цены, отличия комплектаций, нюансы доставки и растаможки. Стоит ли овчинка выделки?"
+        },
+        {
+          "title": "Как купить Geely Monjaro из Китая и привезти в Россию...",
+          "url": "https://ezzhev.ru/%D0%B1%D0%B5%D0%B7-%D1%80%D1%83%D0%B1%D1%80%D0%B8%D0%BA%D0%B8/geely-monjaro-iz-kitaya-kupit-2026/",
+          "snippet": "Все комплектации Джили Монжаро 2026 для рынка Китая: гибрид i-HEV, 2.0T на 218 и 272 л.с., полный привод Wangyue, пакет Qianli Haohan H3 и таблица ТТХ всех восьми версий."
+        },
+        {
+          "title": "Geely из Китая 2026: модели, цены и выгода vs дилер",
+          "url": "https://160drive.ru/geely-iz-kitaya-modeli-ceny-2026/",
+          "snippet": "Сервис помогает подобрать кроссовер Geely Monjaro, проверить продавца, организовать покупку, доставку, растаможку по ФТС РФ, ЭПТС и СБКТС, утильсбор и постановку на учёт. Это параллельный импорт под ключ, а не статус официального дилера Geely."
+        }
+      ],
+      "searched_at": "2026-10-22"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "отличие джили монжаро из китая и дилерская 2026",
+      "purpose": "вторичный запрос: отличие джили монжаро из китая и дилерская",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Отличия дилерского и китайского дорестайлинг Geely Monjaro ...",
+          "url": "https://monjarik.ru/tips/otlichiya-dillerskogo-i-kitaiskogo-monjaro",
+          "snippet": ""
+        },
+        {
+          "title": "Geely Monjaro из Китая: версии, коробки и отличия | AZWAY",
+          "url": "https://azway.ru/blog/geely-monjaro-iz-kitaya-obzor",
+          "snippet": "Подробное сравнение комплектаций и особенностей Geely Monjaro от официального дилера и привезенного по параллельному импорту из Китая"
+        },
+        {
+          "title": "РАЗНИЦА В ЦЕНЕ МЕЖДУ ДИЛЕРСКИМ МОНЖАРО или из КИТАЯ! Выбрали новый ...",
+          "url": "https://vkvideo.ru/video-25821882_456240845",
+          "snippet": "Джили Монжаро из Китая бывает не только с привычным автоматом Aisin. Разбираем Xingyue L по двигателю, коробке и приводу, затем выбираем полезные опции для России."
+        },
+        {
+          "title": "РАЗНИЦА В ЦЕНЕ МЕЖДУ ДИЛЕРСКИМ МОНЖАРО или из КИТАЯ! Выбрали новый ...",
+          "url": "https://rutube.ru/video/0277f3320a64801d4a9c71faab70c723/",
+          "snippet": "По желанию клиента мы устанавливаем дополнительное оборудование: антикоррозийная обработка, аудиосистема, сигнализация, спортивный салон, литые диски, зимняя резина, тонировка и многое другое."
+        },
+        {
+          "title": "РАЗНИЦА В ЦЕНЕ МЕЖДУ ДИЛЕРСКИМ МОНЖАРО или из КИТАЯ! Выбрали новый ...",
+          "url": "https://rutube.ru/video/6d2397605db3c56355d8702a09dbbe47/",
+          "snippet": "• Хотите новый обзор автомобиля? Пишите, и мы сделаем для вас подробный обзор и выложим на наш YouTube-канал. По запросу можем выйти на видеосвязь и показать интересующий вас автомобиль."
+        },
+        {
+          "title": "Geely Monjaro (Джили Монжаро) из Китая: цена под ключ 2026",
+          "url": "https://ivan-auto.ru/blog/kitajskie-brendy/klassika/geely-monjaro-cena-komplektacii-2026/",
+          "snippet": "Вы увидите полную прозрачность, даже по какой цене мы приобрели автомобиль у дилера. Такого уровня открытости вам не предложит ни один продавец. Цену на Geely Monjaro в Тольятти или другой интересующий вас автомобиль можно узнать по указанному телефону."
+        }
+      ],
+      "searched_at": "2026-10-22"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Geely Monjaro из Китая: комплектации и ловушки до депозита в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-22"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.drom.ru/catalog/geely/monjaro/2026/",
+      "title": "Джили Монжаро 2026 технические характеристики. Geely Monjaro 2026 ...",
+      "from_query": "джили монжаро из китая 2026"
+    },
+    {
+      "url": "https://revocars.ru/geely/geely-monjaro-2026/",
+      "title": "Джили Монжаро 2026 купить из Китая — Geely Monjaro i-HEV",
+      "from_query": "джили монжаро из китая 2026"
+    },
+    {
+      "url": "https://naavtotrasse.ru/geely/geely-monjaro-2026.html",
+      "title": "Джили Монжаро 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+      "from_query": "джили монжаро из китая 2026"
+    },
+    {
+      "url": "https://ivan-auto.ru/blog/kitajskie-brendy/klassika/geely-monjaro-cena-komplektacii-2026/",
+      "title": "Geely Monjaro (Джили Монжаро) из Китая: цена под ключ 2026",
+      "from_query": "джили монжаро из китая 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/china/geely/monjaro/",
+      "title": "Продажа Geely Monjaro из Китая | Цены на Джили Монжаро в Китае",
+      "from_query": "джили монжаро из китая 2026"
+    },
+    {
+      "url": "https://mediaspeak.ru/auto/drive/geely-monjaro-restayling-obzor.html",
+      "title": "Джили Монжаро 2026 после рестайлинга: фото, комплектации и цены",
+      "from_query": "джили монжаро из китая 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/5ac3f869b1d16a050349f72ac617cb19/",
+      "title": "НОВЫЙ GEELY MONJARO 2026 (МОНДЖАРО) - что ... - Rutube",
+      "from_query": "джили монжаро из китая октябрь 2026"
+    },
+    {
+      "url": "https://li-auto.com/buy/stock/geely-monjaro-dzhilli-mondzharo-2026/",
+      "title": "Geely Monjaro / Джилли Монджаро 4WD 2026 год выпуска - 272 л.с. под ...",
+      "from_query": "джили монжаро из китая октябрь 2026"
+    },
+    {
+      "url": "https://monjarik.ru/news",
+      "title": "Новости Geely Monjaro. Узнавайте первыми об обновлениях и рестайлингах",
+      "from_query": "джили монжаро из китая новости 2026"
+    },
+    {
+      "url": "https://monjarik.ru/reviews/geely-monjaro-2026-test-drive-kitay",
+      "title": "Geely Monjaro 2026 - живой тест-драйв из Китая",
+      "from_query": "джили монжаро из китая новости 2026"
+    },
+    {
+      "url": "https://www.geely-motors.com/for-owners/technical-center/usermanual/",
+      "title": "Пользовательские руководства Geely — ПДФ инструкции",
+      "from_query": "джили монжаро из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/n/no/novyj-dzhili-monzharo.html",
+      "title": "Новый Джили Монжаро: полный обзор, характеристики и комплектации 2026 ...",
+      "from_query": "джили монжаро из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://www.geely-motors.com/blog/geely-monjaro-2026/",
+      "title": "GEELY Monjaro 2026: обзор, характеристики и комплектации флагманского ...",
+      "from_query": "джили монжаро из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://www.geely.com/en/models/monjaro",
+      "title": "Geely Monjaro",
+      "from_query": "джили монжаро из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://motorist.expert/geely/service-geely/geely-monjaro-otzyvy.html",
+      "title": "Geely Monjaro отзывы реальных владельцев 2026 — плюсы, минусы, помпа и АКБ",
+      "from_query": "джили монжаро из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/geely/monjaro/5kopeek/?year1=2025&year2=2026",
+      "title": "Джили Монжаро 2025 - 2026 отзывы владельцев: все минусы и недостатки",
+      "from_query": "джили монжаро из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/geely/monjaro/5kopeek/2026-all/breakages/",
+      "title": "Джили Монжаро 2026 отзывы владельцев - поломки и проблемы",
+      "from_query": "джили монжаро из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/d/dz/dzhili-monzharo-2024-otzyvy.html",
+      "title": "Джили Монжаро 2026: честные отзывы владельцев, расход и поломки",
+      "from_query": "джили монжаро из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://geely-monjaro-club.ru/forums/otzyvy-vladelcev.3/",
+      "title": "Отзывы владельцев | Geely Monjaro клуб и форум",
+      "from_query": "джили монжаро из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://monjarik.ru/experience",
+      "title": "Опыт владения про Geely Monjaro. Обслуживание, ремонт, тюнинг",
+      "from_query": "джили монжаро из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.geely-motors.com/model/monjaro/",
+      "title": "Geely Monjaro — цены, комплектации, характеристики и фото",
+      "from_query": "джили монжаро комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/geely/monjaro/",
+      "title": "Geely Monjaro (Джили Монжаро) технические характеристики, комплектации ...",
+      "from_query": "джили монжаро комплектации 2026"
+    },
+    {
+      "url": "https://kors-group-geely.ru/models/monjaro/",
+      "title": "Geely Monjaro 2026 - комплектации и цены, купить Джили Монжаро у ...",
+      "from_query": "джили монжаро комплектации 2026"
+    },
+    {
+      "url": "https://easy.car/car/china/2026/geely/monjaro",
+      "title": "Купить Geely Monjaro 2026 из Китая под ключ — EASY.CAR",
+      "from_query": "джили монжаро из китая под заказ 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/china/geely/monjaro/3007860/",
+      "title": "№3007860: Купить Geely Monjaro 2026 года в Китае - авто под заказ без ...",
+      "from_query": "джили монжаро из китая под заказ 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/p/pr/privezti-dzhili-mondzharo-iz-kitaya.html",
+      "title": "Как привезти Geely Monjaro из Китая: цена, доставка и нюансы",
+      "from_query": "джили монжаро привезти из китая 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/g/ge/geely-monjaro-iz-kitaya.html",
+      "title": "Geely Monjaro из Китая: цена, комплектации и доставка в 2026",
+      "from_query": "джили монжаро привезти из китая 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/%D0%B1%D0%B5%D0%B7-%D1%80%D1%83%D0%B1%D1%80%D0%B8%D0%BA%D0%B8/geely-monjaro-iz-kitaya-kupit-2026/",
+      "title": "Как купить Geely Monjaro из Китая и привезти в Россию...",
+      "from_query": "джили монжаро привезти из китая 2026"
+    },
+    {
+      "url": "https://160drive.ru/geely-iz-kitaya-modeli-ceny-2026/",
+      "title": "Geely из Китая 2026: модели, цены и выгода vs дилер",
+      "from_query": "джили монжаро привезти из китая 2026"
+    },
+    {
+      "url": "https://monjarik.ru/tips/otlichiya-dillerskogo-i-kitaiskogo-monjaro",
+      "title": "Отличия дилерского и китайского дорестайлинг Geely Monjaro ...",
+      "from_query": "отличие джили монжаро из китая и дилерская 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/geely-monjaro-iz-kitaya-obzor",
+      "title": "Geely Monjaro из Китая: версии, коробки и отличия | AZWAY",
+      "from_query": "отличие джили монжаро из китая и дилерская 2026"
+    },
+    {
+      "url": "https://vkvideo.ru/video-25821882_456240845",
+      "title": "РАЗНИЦА В ЦЕНЕ МЕЖДУ ДИЛЕРСКИМ МОНЖАРО или из КИТАЯ! Выбрали новый ...",
+      "from_query": "отличие джили монжаро из китая и дилерская 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/0277f3320a64801d4a9c71faab70c723/",
+      "title": "РАЗНИЦА В ЦЕНЕ МЕЖДУ ДИЛЕРСКИМ МОНЖАРО или из КИТАЯ! Выбрали новый ...",
+      "from_query": "отличие джили монжаро из китая и дилерская 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/6d2397605db3c56355d8702a09dbbe47/",
+      "title": "РАЗНИЦА В ЦЕНЕ МЕЖДУ ДИЛЕРСКИМ МОНЖАРО или из КИТАЯ! Выбрали новый ...",
+      "from_query": "отличие джили монжаро из китая и дилерская 2026"
+    }
+  ]
+}

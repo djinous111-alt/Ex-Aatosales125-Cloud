@@ -21,14 +21,13 @@ category: script
 - B01: action_markers=7&lt;8 (writer-fixable) + pain/outcome 0 (не writer-fixable без policy).
 
 ### How the agent recovered this run
-- Зафиксировал FAIL в `article-qa.md`; статью не переписывал.
-- Вернул writer FIX только по action-маркерам (+1 из `recommendation_markers_ru`) и encode 2GIS URL.
-- Pain/outcome utility оставил на Fixer (sync policy со списками human-voice gate).
+- GEO QA: зафиксировал FAIL в `article-qa.md`; статью не переписывал в том run.
+- Writer FIX 2026-10-22: синхронизировал `editorial-policy.json` с `PAIN_MARKERS` / `OUTCOME_MARKERS` human-voice + `min_pain_markers`/`min_outcome_markers`; усилил лексику в `article.html`; utility selfcheck PASS.
 
 ### Durable fix needed before next run
-- Добавить в `editorial-policy.json` `pain_markers_ru` и `outcome_markers_ru` (согласовать с `PAIN_MARKERS` / `OUTCOME_MARKERS` в `excalibur_blog_human_voice_gate.py`) и явные `min_pain_markers` / `min_outcome_markers` в `article_required_signals`.
-- Либо: если списки пусты — не применять min thresholds (skip check), чтобы не блокировать весь пайплайн.
-- В writer skill явно: «Делать/Не делать» ≠ маркеры; нужны формы из `recommendation_markers_ru` (`сделайте`, `не делайте`, …).
+- ~~Добавить в `editorial-policy.json` pain/outcome lists~~ — сделано writer FIX; Fixer должен подтвердить и закрыть incident после GEO QA re-run.
+- Опционально: если списки пусты — skip min thresholds в `utility_gate.py` (defense in depth).
+- В writer skill явно: «Делать/Не делать» ≠ маркеры; нужны формы из `recommendation_markers_ru`; не писать «больше» рядом с маркером «боль».
 
 ### Suggested files to inspect/change
 - `memory/brief/editorial-policy.json`
@@ -42,7 +41,7 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+- pending (policy lists synced by writer FIX; close after GEO QA re-run PASS)
 
 ## INC-20261022-0921-geo-qa-link-verify-iri-ascii
 status: open

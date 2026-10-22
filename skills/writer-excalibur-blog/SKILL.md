@@ -14,6 +14,7 @@
 1. Прочитай `memory/brief/editorial-policy.json`.
 2. Если `pain_markers_ru` или `outcome_markers_ru` пусты / отсутствуют `min_pain_markers` / `min_outcome_markers` — **восстанови baseline** (синхрон с human-voice PAIN/OUTCOME маркерами) **до** сдачи HTML. Пустые списки → `utility_gate` BLOCK (`pain_count=0`).
 3. Doctor тоже валит пустые списки — не жди FAIL GEO QA.
+4. CTA `href` только реальные `https://…` из `memory/brief/conversion-map.md` (каталог / Telegram). **Запрещено** literal `href="[REDACTED]"`, пустые href, `TODO`/`YOUR_URL`. Перед сдачей проверь, что каждый CTA начинается с `https://`.
 
 ## Задача
 

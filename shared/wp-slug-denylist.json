@@ -2,7 +2,7 @@
   "version": 1,
   "updated": "2026-10-22",
   "source": "live WordPress REST /wp/v2/posts + ledger AS08/AS09/B01",
-  "note": "Scout/research must treat these slugs as republish-forbidden. Refresh via live PUBLIC_SITE_URL REST; do not trust WordPress MCP alone without PUBLIC_SITE_URL check.",
+  "note": "Scout/research must treat these slugs as republish-forbidden. Refresh via live PUBLIC_SITE_URL REST; do not trust WordPress MCP alone without PUBLIC_SITE_URL host-match check. Includes B01 Harrier WP 4447.",
   "slugs": [
     "akkreditiv-pri-pokupke-avto-iz-korei-2026",
     "antikor-yaponskih-mashin-skolko-stoit-i-chto-realno-nuzhno-na-zimu",
@@ -185,6 +185,7 @@
     "tamozhennoe-oformlenie-kak-rabotaet-zashhita-personalnyh-dannyh",
     "tank-300-iz-kitaya-ramnik-ili-krossover-2026",
     "toyota-alphard-iz-yaponii-komplektatsii-lovushki-2026",
+    "toyota-harrier-iz-yaponii-komplektatsii-lovushki-2026",
     "trust-encar-carhistory-proverka-do-depozita",
     "ustanovka-era-glonass-na-vvezennyy-avto-2026",
     "utilsbor-do-160-ls-2026-kak-proverit",
@@ -211,6 +212,7 @@
     "haval-changan-geely-kak-vybrat-krossover-2026",
     "levyj-rul-iz-yaponii-2026-chek-list",
     "samye-komfortnye-avto-myagkaya-podveska-2026",
-    "trust-encar-carhistory-proverka-do-depozita"
+    "trust-encar-carhistory-proverka-do-depozita",
+    "toyota-harrier-iz-yaponii-komplektatsii-lovushki-2026"
   ]
 }

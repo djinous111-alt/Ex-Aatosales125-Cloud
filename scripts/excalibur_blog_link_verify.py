@@ -30,6 +30,30 @@ class LinkExtractor(HTMLParser):
         self.links.append({"href": href, "text_hint": ""})
 
 
+PLACEHOLDER_HREF_TOKENS = (
+    "[REDACTED]",
+    "REDACTED",
+    "TODO",
+    "FIXME",
+    "YOUR_URL",
+    "example.com/REPLACE",
+)
+
+
+def is_placeholder_href(href: str) -> bool:
+    raw = (href or "").strip()
+    if not raw:
+        return True
+    upper = raw.upper()
+    if upper in {"[REDACTED]", "REDACTED", "TODO", "FIXME"}:
+        return True
+    if "[REDACTED]" in raw or "YOUR_URL" in upper:
+        return True
+    if raw.startswith("http") and "example.com/REPLACE" in raw:
+        return True
+    return False
+
+
 def extract_links(html: str) -> list[str]:
     parser = LinkExtractor()
     parser.feed(html)
@@ -142,6 +166,19 @@ def verify_article(
     user_agent = "ExcaliburBlogLinkVerify/1.0"
     results: list[dict[str, Any]] = []
     for href in links:
+        if is_placeholder_href(href):
+            results.append(
+                {
+                    "url": href,
+                    "kind": "placeholder",
+                    "status": None,
+                    "ok": False,
+                    "skipped": False,
+                    "method": None,
+                    "error": "placeholder href token (e.g. [REDACTED]); use real URL from conversion-map",
+                }
+            )
+            continue
         kind = classify_link(href, site_base)
         if skip_external and kind == "external":
             results.append(

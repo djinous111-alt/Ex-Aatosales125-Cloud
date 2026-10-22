@@ -63,6 +63,7 @@
 ## Writer / utility
 
 - `editorial-policy.json` обязан иметь непустые `pain_markers_ru` / `outcome_markers_ru` до сдачи HTML.
+- Не коммитить placeholder `href="[REDACTED]"` в `article.html`; CTA только из conversion-map. `link_verify` валит placeholder tokens.
 
 ## Cover
 

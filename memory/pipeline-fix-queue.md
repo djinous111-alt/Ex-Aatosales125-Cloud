@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None for B01 Harrier 2026-10-22 after fixer._
+
+
 ## INC-20261022-1733-publish-missing-site-env-local
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-publish
 topic_id: B01
@@ -36,10 +39,29 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- doctor/publish/install auto-write `memory/site.env.local` from process env; default `SSH_ROOT=.`
+- publish skill/example document env-check + SSH_ROOT
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/cloud-agent-install.sh`
+- `memory/site.env.local.example`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-publish.md`
+- `.cursor/agents/excalibur-blog-publish.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` (errors=0 warnings=0)
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check` (site_env_local_present=true, root=dot)
+commit: pending-parent-commit
+
 
 ## INC-20261022-1733-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-publish
 topic_id: B01
@@ -65,10 +87,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- paramiko in `cloud-agent-install.sh` + `requirements.txt`; doctor and `--env-check` report `paramiko_available`
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_wp_publish.py`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` (paramiko available OK)
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check` (paramiko_available=true)
+commit: pending-parent-commit
+
 
 ## INC-20261022-1729-indexer-llms-stale-blog-path-flag
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-indexer
 topic_id: B01
@@ -97,10 +132,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- doctor checks `--blog-dir`/`--out-dir` and warns if stale `--blog-path` remains in CLI
+- removed `--blog-path` from indexer agent/skill examples; pitfalls note
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` (llms --blog-dir/--out-dir OK)
+- `rg --blog-path` only in negative notes
+commit: pending-parent-commit
+
 
 ## INC-20261022-1727-cover-hoodie-lock-regression
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-cover
 topic_id: B01
@@ -130,10 +181,23 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- outfit lock built from blog-hero weather/topic with explicit NO hoodie; removed SEO/hoodie stub defaults from quad_manifest
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+checks_run:
+- assert no `white hoodie` / `худи` defaults in prompt/manifest builders
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py scripts/excalibur_blog_quad_manifest.py`
+commit: pending-parent-commit
+
 
 ## INC-20261022-1728-cover-missing-corner-brand-pil
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-cover
 topic_id: B01
@@ -160,10 +224,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- `stamp_corner_brand` PIL overlay after split (default on); cover skill documents stamp vs MCP retry
+files_changed:
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+checks_run:
+- `rg def stamp_corner_brand scripts/excalibur_blog_cover_quad_split.py`
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_split.py`
+commit: pending-parent-commit
+
 
 ## INC-20261022-1726-cover-hero-https-host-fallback
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-cover
 topic_id: B01
@@ -192,11 +268,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- hero_reference_url prefers http→https WP rewrite; litterbox provider after catbox/0x0; prompt validator requires https
+files_changed:
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
+- `rg litterbox|upgrade_http scripts/excalibur_blog_hero_reference_url.py`
+commit: pending-parent-commit
+
 
 
 ## INC-20261022-1717-geo-qa-writer-cta-href-redacted-literal
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -230,10 +319,24 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- link_verify fails on placeholder href tokens (`[REDACTED]` etc.)
+- writer skill + article writing contract forbid placeholder CTA; pitfalls note
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: `verify_article` fails on `href="[REDACTED]"`
+commit: pending-parent-commit
+
 
 ## INC-20261022-1720-writer-utility-gate-missing-pain-outcome-markers
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-writer
 topic_id: B01
@@ -262,10 +365,25 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- editorial-policy already has pain/outcome markers; doctor enforces non-empty lists
+- utility_gate falls back to human_voice-aligned defaults if policy lists empty; human_voice markers synced
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_utility_gate.py --article-dir memory/blog/articles/AS08-...` PASS
+- doctor editorial-policy marker checks OK
+commit: pending-parent-commit
+
 
 ## INC-20261022-1716-research-pre-commit-hook-invalid-varname
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-research
 topic_id: B01
@@ -292,10 +410,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- repo helper `scripts/excalibur_blog_filter_secret_names.sh` filters non-identifier secret names
+- VM pre-commit.cursor / commit-msg.cursor skip invalid SECRET_NAME before `${!SECRET_NAME}`
+- runbook documents the workaround
+files_changed:
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+checks_run:
+- filter drops URL/`[REDACTED]` names; patched loop OK with FOO,BAR
+commit: pending-parent-commit
+
 
 ## INC-20261022-1715-research-tech-markers-yaponii-false-positive
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-research
 topic_id: B01
@@ -324,10 +456,21 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- TECH markers use word-boundary for short tokens (`ии`/`ai`/`api`); `японии` no longer forces github_urls
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/excalibur-research/SKILL.md`
+checks_run:
+- `is_technical_topic(Harrier/японии)=False`; MCP/ai topic=True
+commit: pending-parent-commit
+
 
 ## INC-20261022-1704-scout-missing-wp-slug-denylist
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-scout
 topic_id: B01
@@ -357,10 +500,27 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- restored `shared/wp-slug-denylist.json` (201 slugs) incl. Harrier 4447 + priority_block
+- scout_helper `--check-slug` CRITICAL on denylist hit; doctor checks denylist exists
+files_changed:
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+checks_run:
+- `scout_helper --check-slug toyota-harrier-...` CRITICAL denylist hit
+- doctor denylist OK
+commit: pending-parent-commit
+
 
 ## INC-20261022-1704-scout-mcp-wordpress-wrong-host
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-scout
 topic_id: B01
@@ -389,7 +549,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- scout/publish pitfalls: live slug source = PUBLIC_SITE_URL REST; WordPress MCP only after host-match
+- denylist + scout_helper reduce reliance on MCP wordpress_*
+- Dashboard MCP WordPress base URL rebind remains optional human ops (not required for next run if REST used)
+files_changed:
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/wp-slug-denylist.json`
+checks_run:
+- doctor + scout denylist path OK
+commit: pending-parent-commit
+
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

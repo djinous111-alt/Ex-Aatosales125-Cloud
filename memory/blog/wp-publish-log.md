@@ -1,6 +1,6 @@
 # WP publish log — Авто-Сейлс
 
-Сайт: https://avtosales125.ru/
+Сайт: [REDACTED]/
 FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`)
 Метрика Дзен: 109566711
 
@@ -10,7 +10,7 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 
 - **verdict:** PASS
 - **post_id:** 3342
-- **permalink:** https://avtosales125.ru/2026/07/17/samye-komfortnye-avto-myagkaya-podveska-2026/
+- **permalink:** [REDACTED]/2026/07/17/samye-komfortnye-avto-myagkaya-podveska-2026/
 - **featured_image:** 3349
 - **inline_images:** 3351 (`inline-01.png`), 3355 (`inline-02.png`), 3358 (`inline-03.png`)
 - **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
@@ -23,7 +23,7 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 
 - **verdict:** PASS
 - **post_id:** 3364
-- **permalink:** https://avtosales125.ru/2026/07/17/trust-encar-carhistory-proverka-do-depozita/
+- **permalink:** [REDACTED]/2026/07/17/trust-encar-carhistory-proverka-do-depozita/
 - **featured_image:** 3386
 - **inline_images:** 3387 (`inline-01.png`), 3388 (`inline-02.png`), 3389 (`inline-03.png`)
 - **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
@@ -31,3 +31,16 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-22 — B01 geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026
+
+- **verdict:** PASS
+- **post_id:** 4441
+- **permalink:** [REDACTED]/2026/10/22/geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026/
+- **featured_image:** 4442
+- **inline_images:** 4443 (`inline-01.png`), 4444 (`inline-02.png`), 4445 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH (`SSH_ROOT=.`) + HTTP OK (no WebFetch/504)
+- **note:** NEW post; do not republish as 4435/4412/4400/4394/4388/4086; paramiko installed at runtime; site.env.local created from Cloud Secrets
+- **result:** `memory/blog/articles/B01-geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026/wp-publish-result.json`

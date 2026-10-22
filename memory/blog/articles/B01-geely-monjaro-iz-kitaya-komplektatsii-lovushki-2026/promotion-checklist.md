@@ -1,13 +1,13 @@
 # Promotion checklist — B01 geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-22 (pending WP publish)  
-Live URL: /blog/geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-22  
+Live URL: [REDACTED]/2026/10/22/geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200; REST id=4441)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)

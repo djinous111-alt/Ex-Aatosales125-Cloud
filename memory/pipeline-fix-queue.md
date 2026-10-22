@@ -6,6 +6,73 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-1345-publish-missing-site-env-local
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `memory/site.env.local` отсутствовал в runtime (gitignored); publish precondition требует файл.
+- Cloud Secrets были в process env (`SSH_*`, `PUBLIC_SITE_URL`, `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`), но локальный файл не создан preflight'ом.
+
+### How the agent recovered this run
+- Создал `memory/site.env.local` из Cloud Secrets без quotes; `SSH_ROOT=.` (login cwd).
+- `--env-check` → allow_publish true, missing [].
+
+### Durable fix needed before next run
+- Preflight/doctor или publish skill step 0: auto-write `memory/site.env.local` from env when missing (never commit).
+- Document in publish skill: `SSH_ROOT=.` default for this host.
+
+### Suggested files to inspect/change
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_setup.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261022-1346-publish-paramiko-missing
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `import paramiko` → ModuleNotFoundError в cloud runtime.
+- `--env-check` не импортирует paramiko, поэтому gap незаметен до реального publish.
+
+### How the agent recovered this run
+- `python3 -m pip install --break-system-packages paramiko` (5.1.0); publish SSH OK.
+
+### Durable fix needed before next run
+- Добавить paramiko в `.cursor/cloud-agent-install.sh` / environment install и `requirements.txt` check в doctor.
+- Опционально: `--env-check` должен проверять import paramiko.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/environment.json`
+- `requirements.txt`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_wp_publish.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261022-1335-indexer-llms-stale-blog-path
 status: open
 run_date: 2026-10-22

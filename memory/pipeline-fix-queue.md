@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-1729-indexer-llms-stale-blog-path-flag
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-harrier-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Agent/skill shell examples still pass `--blog-path /` to `excalibur_blog_llms_generator.py`, but the live CLI only accepts `--blog-dir` / `--out-dir` (no `--blog-path`). Blind copy would exit with argparse error.
+- Preflight doctor also still expects `--blog-path` support (stale check noted in handoff).
+
+### How the agent recovered this run
+- Followed Cloud canon: ran llms generator with only `--blog-dir`, `--site-base`, `--out-dir` (no `--blog-path`). Generation OK (3 articles → `memory/blog/llms.txt` + `llms-full.txt`).
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent + skill shell examples (`.cursor` and `skills/`).
+- Align `excalibur_blog_doctor.py` check with actual llms CLI flags (`--blog-dir` / `--out-dir` only).
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261022-1727-cover-hoodie-lock-regression
 status: open
 run_date: 2026-10-22

@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-1605-scout-missing-wp-denylist
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- `shared/wp-slug-denylist.json` отсутствует на ветке Cloud run.
+- Без файла scout/research не имеют канонического republish-барьера; риск повторно взять live slug или близкую тему.
+- MCP `wordpress_*` в этом окружении может указывать на чужой хост; единственный надёжный список – REST live `PUBLIC_SITE_URL` + ручной denylist из Director Task.
+
+### How the agent recovered this run
+- Каннибализацию проверили по live WP REST (`PUBLIC_SITE_URL`), карточкам AS*, ledger AS08/AS09 и явному запрету republish из Task.
+- Выбрана свободная тема B01 Geely Monjaro (нет slug monjaro на live; другой primary, чем `haval-changan-geely-*`).
+- Utility gate PASS; `--check-query` до append был clean.
+
+### Durable fix needed before next run
+- Добавить `shared/wp-slug-denylist.json` со всеми live/forbidden slugs (октябрьские process guides + model guides + auction sheet 4086).
+- Подключить denylist в `excalibur_blog_scout_helper.py --check-query` (CRITICAL при совпадении slug/primary).
+- Зафиксировать в scout skill: WordPress MCP не считать источником denylist без сверки `PUBLIC_SITE_URL`.
+
+### Suggested files to inspect/change
+- `shared/wp-slug-denylist.json` (создать)
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

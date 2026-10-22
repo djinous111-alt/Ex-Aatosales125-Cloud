@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит без фото салона — лотерея",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у схемы правый руль Япония vs левый другой рынок, порт Владивостока, плашка до депозита",
+      "scene_hint": "EXACT face+glasses from reference; CHANGE outfit to dark navy softshell jacket or crewneck sweater (NO hoodie, NO hood, NO cap); cool misty Vladivostok port autumn weather behind; phone fake UI with car catalog card 'левый руль?' and customs checklist stub; torn paper + scotch tape + yellow sticky note with soft non-toxic Cyrillic 'стоп' and 'фото салона'; shocked meme reaction cutout; huge Cyrillic hook plaque about deposit before interior photo; corner brand tiny text avto-sales125.ru (catalog site, NOT Telegram); modern SUV silhouette; DIY zine collage 16:9",
+      "meme_caption_ru": "Руль слева? Где фото?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте задачу: нужен левый руль или готовы к правому с японского аукциона",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Clean phone/desktop UI mock: two big choice cards — LHD цель vs готовность к RHD с JP-аукциона; Cyrillic labels; small tape corner + sticky 'выбери задачу'; NO hero face; NO Wordstat/Metrika",
+      "alt": "UI выбора задачи: нужен левый руль или готов правый с японского аукциона"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Разведите рынки: японский аукцион и \"левый руль с японским шильдиком\"",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Comparison table UI: колонки JP-аукцион / Корея Encar / Китай под заказ; строки руль, шильдик, страна вывоза; highlighter on mismatch row; mini sticker 'не путать'; NO hero face",
+      "alt": "Таблица сравнения рынков: японский аукцион vs левый руль с японским шильдиком"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте происхождение до денег: фото салона, VIN и страна вывоза",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board before deposit: 1 фото салона с рулём 2 VIN/кузов 3 страна вывоза; green/red checkmarks; torn paper edge + one soft sticky 'до денег'; NO hero face; readable Cyrillic",
+      "alt": "Чеклист до депозита: фото салона, VIN и страна вывоза"
+    }
+  }
+}

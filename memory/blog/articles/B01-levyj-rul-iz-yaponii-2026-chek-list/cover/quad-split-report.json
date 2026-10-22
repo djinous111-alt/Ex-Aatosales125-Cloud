@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-levyj-rul-iz-yaponii-2026-chek-list/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1283,
+      722
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 722,
+        "end": 765
+      },
+      "v_gutter_px": {
+        "start": 1283,
+        "end": 1312
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1283,
+          "bottom": 722
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1283,
+          "bottom": 722
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у схемы правый руль Япония vs левый другой рынок, порт Владивостока, плашка до депозита",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1312,
+          "top": 10,
+          "right": 2560,
+          "bottom": 712
+        },
+        "raw_box_px": {
+          "left": 1312,
+          "top": 0,
+          "right": 2560,
+          "bottom": 722
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "UI выбора задачи: нужен левый руль или готов правый с японского аукциона",
+        "h2_anchor": "Зафиксируйте задачу: нужен левый руль или готовы к правому с японского аукциона"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 41,
+          "top": 765,
+          "right": 1241,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 765,
+          "right": 1283,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения рынков: японский аукцион vs левый руль с японским шильдиком",
+        "h2_anchor": "Разведите рынки: японский аукцион и \"левый руль с японским шильдиком\""
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1336,
+          "top": 765,
+          "right": 2536,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1312,
+          "top": 765,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист до депозита: фото салона, VIN и страна вывоза",
+        "h2_anchor": "Проверьте происхождение до денег: фото салона, VIN и страна вывоза"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте задачу: нужен левый руль или готовы к правому с японского аукциона",
+    "injected inline_2 after H2 — Разведите рынки: японский аукцион и \"левый руль с японским шильдиком\"",
+    "injected inline_3 after H2 — Проверьте происхождение до денег: фото салона, VIN и страна вывоза"
+  ]
+}

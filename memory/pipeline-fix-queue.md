@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-0928-cover-outfit-lock-hoodie
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-levyj-rul-iz-yaponii-2026-chek-list
+severity: medium
+category: prompt
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` hardcodes `Outfit lock: thick heavyweight white hoodie` in the quad prompt prefix.
+- Director brief for B01 required softshell/crewneck and NO hoodie; `cover-concept.json` already lists hoodie in `global_negative_prompt`.
+- Auto `quad-manifest.py` also seeded SEO-template scene_hint with hoodie/Wordstat for a non-SEO car-import topic.
+- `research-notes.md` had no `cover_scene_hint` field; agent used `article.meta.json` cover_alt + H2s.
+
+### How the agent recovered this run
+- Manually rewrote `cover/quad-manifest.json` for LHD/JP deposit checklist (hook, softshell scene, non-toxic stickers, corner brand avto-sales125.ru).
+- Patched generated `quad-mcp-prompt.txt` / `quad-mcp-batch.json` to replace hoodie outfit lock with navy softshell/crewneck (NO hoodie/hood/cap).
+- Forced `reference_url_hosted` to https:// before ONE Kie i2i job; split PASS + inject ok.
+
+### Durable fix needed before next run
+- Change outfit lock in `excalibur_blog_cover_quad_prompt.py` to weather/topic-driven softshell/crewneck (or read from blog-hero outfit_rule); forbid hoodie in prefix.
+- Stop seeding SEO Wordstat/hoodie defaults in `excalibur_blog_quad_manifest.py` for auto topics; prefer article cover_alt / research cover_scene_hint.
+- Optionally document `cover_scene_hint` as required research field.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `memory/cover/blog-hero.json`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261022-0927-schema-absolute-urls-secret-scan
 status: open
 run_date: 2026-10-22

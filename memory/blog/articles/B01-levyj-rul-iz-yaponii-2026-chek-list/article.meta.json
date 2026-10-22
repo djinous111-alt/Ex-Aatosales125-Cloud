@@ -29,15 +29,16 @@
     "description_aeo": "До депозита за авто с левым рулём \"из Японии\" нужны фото салона, страна вывоза и VIN в договоре. Массовый LHD чаще берут в Корее или Китае, не с JP-аукциона."
   },
   "geo_qa": {
-    "score": 74,
-    "verdict": "FAIL",
+    "score": 86,
+    "verdict": "PASS",
     "date": "2026-10-22",
+    "recheck": "after-writer-fix",
     "html_linter": "PASS",
-    "slop_score": "WARNING",
+    "slop_score": "PASS",
     "cannibalization": "PASS",
-    "utility_gate": "BLOCK",
+    "utility_gate": "PASS",
     "human_voice": "PASS",
-    "link_verify": "FAIL",
+    "link_verify": "PASS",
     "research_notes_gate": "PASS"
   },
   "cover_family": "brand_collage"

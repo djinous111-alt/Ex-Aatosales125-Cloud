@@ -11,8 +11,8 @@
     "repeated_h2_openers": [],
     "textbook_h2_count": 0,
     "paragraph_count": 30,
-    "paragraph_avg_words": 29.3,
-    "paragraph_variance_ratio": 0.41,
+    "paragraph_avg_words": 29.7,
+    "paragraph_variance_ratio": 0.44,
     "concrete_markers": [
       "например",
       "на практике",
@@ -21,11 +21,13 @@
     ],
     "pain_markers": [
       "боль",
+      "проблем",
       "ошиб"
     ],
     "outcome_markers": [
       "результат",
       "получите",
+      "сможете",
       "проверьте",
       "соберите"
     ],
@@ -68,9 +70,9 @@
       "вывоза",
       "депозита",
       "договоре",
+      "заполнен",
       "китай",
       "корею",
-      "короткий",
       "кузов",
       "меняю",
       "отказываюсь",

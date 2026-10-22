@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-1325-schema-precommit-secret-url-allowlist
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Commit `schema.jsonld` blocked by pre-commit secret scan: `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL` appear in BlogPosting/HowTo absolute URLs and author `sameAs` (required by schema contract / registry).
+- Related: `INC-20261022-1613` (URL mistakenly injected as secret *name*) — filter to `[A-Za-z_][A-Za-z0-9_]*` still required before the value scan runs.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid bash identifiers (comma-separated).
+- Rewrote secret-bearing JSON lines so each contains `pragma: allowlist secret` via `x-excalibur-pragma*` keys (same marker as HTML `<!-- pragma: allowlist secret -->`).
+
+### Durable fix needed before next run
+- Document in `skills/schema-excalibur-blog/SKILL.md` (and contract) that absolute site/catalog/telegram URLs in `schema.jsonld` need same-line `pragma: allowlist secret` for Cloud pre-commit.
+- Or: keep placeholders in git and expand `PUBLIC_SITE_URL` at publish time in `excalibur_blog_wp_publish.py`.
+
+### Suggested files to inspect/change
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_wp_publish.py`
+
+### Secrets
+- none recorded (only secret *names* and that site/catalog URLs are scanned)
+
+### Fixer resolution
+- pending
+
 ## INC-20261022-1320-geo-qa-typed-task-unavailable
 status: open
 run_date: 2026-10-22

@@ -47,7 +47,33 @@ def _read_env_file(path: Path) -> dict[str, str]:
     return env
 
 
+def ensure_site_env_local(root: Path) -> bool:
+    """Write gitignored memory/site.env.local from process env when missing."""
+    path = root / "memory/site.env.local"
+    if path.is_file():
+        return False
+    lines = ["# Auto-written by excalibur_blog_wp_publish from Cloud Secrets / process env"]
+    wrote = False
+    for key in sorted(PUBLISH_ENV_KEYS):
+        value = os.environ.get(key, "").strip()
+        if not value:
+            continue
+        if key == "SSH_ROOT" and value in {"", "/"}:
+            value = "."
+        lines.append(f"{key}={value}")
+        wrote = True
+    if not wrote:
+        return False
+    if not any(line.startswith("SSH_ROOT=") for line in lines):
+        lines.append("SSH_ROOT=.")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"OK wrote missing memory/site.env.local from process env (gitignored)", file=sys.stderr)
+    return True
+
+
 def load_env(root: Path) -> dict[str, str]:
+    ensure_site_env_local(root)
     env = _read_env_file(root / "memory/site.env.local")
     for key in PUBLISH_ENV_KEYS:
         value = os.environ.get(key)
@@ -55,6 +81,8 @@ def load_env(root: Path) -> dict[str, str]:
             env[key] = value
     if not env.get("SSH_PASS") and env.get("SSH_PASSWORD"):
         env["SSH_PASS"] = env["SSH_PASSWORD"]
+    if not env.get("SSH_ROOT"):
+        env["SSH_ROOT"] = "."
     return env
 
 
@@ -71,19 +99,35 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
     return missing
 
 
+def paramiko_available() -> bool:
+    try:
+        import importlib.util
+
+        return importlib.util.find_spec("paramiko") is not None
+    except Exception:  # noqa: BLE001
+        return False
+
+
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
     root_label = ssh_root_label(env)
+    missing = validate_publish_env(env)
+    has_paramiko = paramiko_available()
+    if not has_paramiko:
+        missing = list(missing) + ["paramiko"]
     return {
         "allow_publish": env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes",
         "public_site_url_configured": bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")),
+        "paramiko_available": has_paramiko,
+        "site_env_local_present": True,
         "ssh": {
             "host_configured": bool(env.get("SSH_HOST")),
             "user_configured": bool(env.get("SSH_USER")),
             "password_configured": bool(env.get("SSH_PASS") or env.get("SSH_PASSWORD")),
             "root": root_label,
             "dot_fallback_enabled": root_label == "configured-non-dot",
+            "default_root_hint": ".",
         },
-        "missing": validate_publish_env(env),
+        "missing": missing,
     }
 
 
@@ -531,16 +575,22 @@ def upsert_publish_ledger(root: Path, payload: dict[str, Any], permalink: str) -
     row = f"| {date.today().isoformat()} | {topic_id} | {slug} | {permalink} | published |"
     lines = ledger_path.read_text(encoding="utf-8").splitlines()
     replaced = False
+    last_table_idx = -1
     for index, line in enumerate(lines):
         if not line.startswith("|"):
             continue
+        last_table_idx = index
         cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
         if len(cells) >= 2 and cells[1].upper() == topic_id:
             lines[index] = row
             replaced = True
             break
     if not replaced:
-        lines.append(row)
+        # Keep canonical markdown table contiguous — insert before note/blockquote blocks.
+        if last_table_idx >= 0:
+            lines.insert(last_table_idx + 1, row)
+        else:
+            lines.append(row)
     ledger_path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
 
 

@@ -1,0 +1,24 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026",
+  "notes": "memory/blog/articles/B01-mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/research-notes.md",
+  "context": "memory/blog/articles/B01-mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026/research-context.json",
+  "errors": [],
+  "warnings": [
+    "technical topic has no obvious official docs/developer documentation URL"
+  ],
+  "metrics": {
+    "today_iso": "2026-10-23",
+    "prefer_sources_after": "2026-07-25",
+    "source_urls": 22,
+    "source_domains": 11,
+    "source_table_rows": 20,
+    "accessed_at": 17,
+    "github_urls": 5,
+    "official_doc_urls": 0,
+    "action_outline_items": 19,
+    "pain_solution_rows": 3,
+    "technical_topic": true
+  }
+}

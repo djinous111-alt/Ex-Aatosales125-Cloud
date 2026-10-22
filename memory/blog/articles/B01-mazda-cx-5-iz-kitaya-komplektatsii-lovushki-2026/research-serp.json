@@ -1,0 +1,651 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-23",
+    "today_ru": "23.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-25",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-23 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "mazda-cx-5-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Mazda CX-5 из Китая: комплектации и ловушки до депозита",
+    "primary_query": "мазда сх5 из китая комплектации",
+    "secondary_queries": [
+      "мазда сх5 из китая",
+      "комплектации мазда сх5 из китая 2026",
+      "mazda cx 5 zhishang комплектация",
+      "мазда сх5 комфорт из китая",
+      "русификация мазда сх5 из китая"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "мазда сх5 из китая комплектации 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Mazda CX-5 2026 из Китая: таблица всех пяти комплектаций и чем они ...",
+          "url": "https://www.drive2.ru/b/734616704939726440/",
+          "snippet": ""
+        },
+        {
+          "title": "Mazda CX-5 2026: комплектации и цены из Китая · mazdacx.ru",
+          "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-komplektatsii-i-tseny-iz-kitaya",
+          "snippet": "Я собрал детальное сравнение всех пяти комплектаций CX-5 2026 года. Параметры разбиты по блокам: техника, безопасность, комфорт, мультимедиа, внешность. Логика простая: находишь опцию которая важна именно тебе — и смотришь с какой комплектации она появляется."
+        },
+        {
+          "title": "Mazda CX-5 2026 из Китая: комплектации, цены, опции · mazdacx.ru",
+          "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-iz-kitaya-polnyy-obzor-komplektatsiy",
+          "snippet": "Актуальные комплектации Mazda CX-5 2026 с ценами параллельного импорта. Все опции, сравнение версий и условия доставки в Россию."
+        },
+        {
+          "title": "Mazda CX-5 из Китая: какую комплектацию выбрать в 2026 году",
+          "url": "https://www.drive2.ru/o/b/746186316043016402/",
+          "snippet": "Все комплектации Mazda CX-5 2026 из Китая: цены, опции, характеристики. Параллельный импорт, гарантия, доставка по России."
+        },
+        {
+          "title": "Мазда СХ-5 2026 технические характеристики. Mazda CX-5 2026 ...",
+          "url": "https://www.drom.ru/catalog/mazda/cx-5/2026/",
+          "snippet": "В этом гиде — китайская Mazda CX-5 2.0 с шестиступенчатым автоматом и передним приводом. В каталогах линейка обозначена как 2025款 — модельный год 2025; гид обновлён 15 октября 2026 года."
+        },
+        {
+          "title": "Mazda CX-5 из Китая 2026: обзор и комплектации | AZWAY",
+          "url": "https://azway.ru/blog/mazda-cx-5-iz-kitaya-2026",
+          "snippet": "Мазда СХ-5 2026 комплектации и цены, фото. Подробно расписан модельный ряд Mazda CX-5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Мазда СХ-5 2026 между собой."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "мазда сх5 из китая комплектации октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Mazda CX-5 2026: комплектации и цены из Китая · mazdacx.ru",
+          "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-komplektatsii-i-tseny-iz-kitaya",
+          "snippet": ""
+        },
+        {
+          "title": "Mazda CX-5 2026 из Китая: комплектации, цены, опции · mazdacx.ru",
+          "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-iz-kitaya-polnyy-obzor-komplektatsiy",
+          "snippet": "Актуальные комплектации Mazda CX-5 2026 с ценами параллельного импорта. Все опции, сравнение версий и условия доставки в Россию."
+        },
+        {
+          "title": "Mazda CX-5 2026 из Китая: таблица всех пяти комплектаций и чем они ...",
+          "url": "https://www.drive2.ru/b/734616704939726440/",
+          "snippet": "Все комплектации Mazda CX-5 2026 из Китая: цены, опции, характеристики. Параллельный импорт, гарантия, доставка по России."
+        },
+        {
+          "title": "Mazda CX-5 из Китая: какую комплектацию выбрать в 2026 году",
+          "url": "https://www.drive2.ru/o/b/746186316043016402/",
+          "snippet": "Я собрал детальное сравнение всех пяти комплектаций CX-5 2026 года. Параметры разбиты по блокам: техника, безопасность, комфорт, мультимедиа, внешность. Логика простая: находишь опцию которая важна именно тебе — и смотришь с какой комплектации она появляется."
+        },
+        {
+          "title": "Mazda CX-5 из Китая 2026: обзор и комплектации | AZWAY",
+          "url": "https://azway.ru/blog/mazda-cx-5-iz-kitaya-2026",
+          "snippet": "В этом гиде — китайская Mazda CX-5 2.0 с шестиступенчатым автоматом и передним приводом. В каталогах линейка обозначена как 2025款 — модельный год 2025; гид обновлён 15 октября 2026 года."
+        },
+        {
+          "title": "Мазда СХ-5 2026 технические характеристики. Mazda CX-5 2026 ...",
+          "url": "https://www.drom.ru/catalog/mazda/cx-5/2026/",
+          "snippet": "Проверенный обзор Mazda CX-5 китайского рынка: официальные характеристики Changan Mazda, пять версий 2.0L 6AT 2WD, различия комплектаций и чек-лист перед заказом."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "мазда сх5 из китая комплектации новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Mazda CX-5 2026: комплектации и цены из Китая · mazdacx.ru",
+          "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-komplektatsii-i-tseny-iz-kitaya",
+          "snippet": ""
+        },
+        {
+          "title": "Mazda CX-5 2026 из Китая: комплектации, цены, опции · mazdacx.ru",
+          "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-iz-kitaya-polnyy-obzor-komplektatsiy",
+          "snippet": "Актуальные комплектации Mazda CX-5 2026 с ценами параллельного импорта. Все опции, сравнение версий и условия доставки в Россию."
+        },
+        {
+          "title": "Mazda CX-5 2026 из Китая: таблица всех пяти комплектаций и чем они ...",
+          "url": "https://www.drive2.ru/b/734616704939726440/",
+          "snippet": "Все комплектации Mazda CX-5 2026 из Китая: цены, опции, характеристики. Параллельный импорт, гарантия, доставка по России."
+        },
+        {
+          "title": "Mazda CX-5 из Китая 2026: обзор и комплектации | AZWAY",
+          "url": "https://azway.ru/blog/mazda-cx-5-iz-kitaya-2026",
+          "snippet": "Я собрал детальное сравнение всех пяти комплектаций CX-5 2026 года. Параметры разбиты по блокам: техника, безопасность, комфорт, мультимедиа, внешность. Логика простая: находишь опцию которая важна именно тебе — и смотришь с какой комплектации она появляется."
+        },
+        {
+          "title": "Mazda CX-5 из Китая в 2026: цены, комплектации, адаптация и реальная ...",
+          "url": "https://inycar.ru/blog/mazda-cx-5-iz-kitaya-v-2026-tseny-komplektatsii-adaptatsiya-i-realnaya-stoimost-vladeniya",
+          "snippet": "Проверенный обзор Mazda CX-5 китайского рынка: официальные характеристики Changan Mazda, пять версий 2.0L 6AT 2WD, различия комплектаций и чек-лист перед заказом."
+        },
+        {
+          "title": "Мазда СХ 5 из Китая — обзор, комплектации и стоимость под заказ",
+          "url": "https://autotopik.ru/news/mazda-sh-5-iz-kitaya-obzor-modeli-komplektatsiy-i-tsen.html",
+          "snippet": "Разбираем китайскую Mazda CX-5 2026: актуальные цены, комплектации, нюансы адаптации и скрытые расходы. Узнайте реальную стоимость владения и расчёты экспертов."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com мазда сх5 из китая комплектации 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "SRPO/comfyui/SRPO-workflow.png at main · Tencent-Hunyuan/SRPO",
+          "url": "https://github.com/Tencent-Hunyuan/SRPO/blob/main/comfyui/SRPO-workflow.png",
+          "snippet": ""
+        },
+        {
+          "title": "Windev-Radinus/CM_center.svg at main - GitHub",
+          "url": "https://github.com/Fab2bprog/Windev-Radinus/blob/main/CM_center.svg",
+          "snippet": "Directly Aligning the Full Diffusion Trajectory with Fine-Grained Human Preference - Tencent-Hunyuan/SRPO"
+        },
+        {
+          "title": "dotfiles/Screenshots/sddm-sc.png at main · roscaa-stack/dotfiles",
+          "url": "https://github.com/roscaa-stack/dotfiles/blob/main/Screenshots/sddm-sc.png",
+          "snippet": "Radinus: Windev Personal finance management software source code [WD28] - Fab2bprog/Windev-Radinus"
+        },
+        {
+          "title": "web-builder/vercel.svg at main · MackoLee/web-builder · GitHub",
+          "url": "https://github.com/MackoLee/web-builder/blob/main/vercel.svg",
+          "snippet": "Contribute to roscaa-stack/dotfiles development by creating an account on GitHub."
+        },
+        {
+          "title": "pyvista-stl/bench0.png at main · pyvista/pyvista-stl · GitHub",
+          "url": "https://github.com/pyvista/pyvista-stl/blob/main/bench0.png",
+          "snippet": "Contribute to MackoLee/web-builder development by creating an account on GitHub."
+        },
+        {
+          "title": "Art-stuff/locket-pookie.svg at main · jane-doe-69/Art-stuff",
+          "url": "https://github.com/jane-doe-69/Art-stuff/blob/main/locket-pookie.svg",
+          "snippet": "Contribute to pyvista/pyvista-stl development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "мазда сх5 из китая комплектации official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Mazda CX-5 2026 из Китая: комплектации и цены · mazdacx.ru",
+          "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-iz-kitaya-komplektacii-i-ceny",
+          "snippet": ""
+        },
+        {
+          "title": "Mazda CX-5 2026 из Китая: комплектации, цены, опции · mazdacx.ru",
+          "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-iz-kitaya-polnyy-obzor-komplektatsiy",
+          "snippet": "Полный каталог комплектаций Mazda CX-5 2026 из Китая с ценами. Параллельный импорт, гарантия 12 месяцев, доставка за 21-45 дней по РФ."
+        },
+        {
+          "title": "Mazda CX-5 2026 из Китая: таблица всех пяти комплектаций и чем они ...",
+          "url": "https://www.drive2.ru/b/734616704939726440/",
+          "snippet": "Все комплектации Mazda CX-5 2026 из Китая: цены, опции, характеристики. Параллельный импорт, гарантия, доставка по России."
+        },
+        {
+          "title": "Mazda Cx-5 2025 — Полный Разбор Всех 5 Комплектаций (Китай, 2wd)",
+          "url": "https://www.drive2.ru/b/729937183451911606/",
+          "snippet": "Я собрал детальное сравнение всех пяти комплектаций CX-5 2026 года. Параметры разбиты по блокам: техника, безопасность, комфорт, мультимедиа, внешность. Логика простая: находишь опцию которая важна именно тебе — и смотришь с какой комплектации она появляется."
+        },
+        {
+          "title": "Mazda CX-5 2026 из Китая — сравнение всех комплектаций",
+          "url": "https://autopodzakaz96.ru/blog/obzory-modeley-iz-kitaya/cx-5-2026-kakuyu-komplektatsiyu-vybrat-pri-zakaze-iz-kitaya/",
+          "snippet": "Разобрал для вас каждую комплектацию новой Mazda CX-5 2025 модельного года китайской сборки. Все версии — переднеприводные (2WD), один мотор 2.0L бензин. Никакой воды — только конкретика и цены ..."
+        },
+        {
+          "title": "Мазда СХ 5 из Китая — обзор, комплектации и стоимость под заказ",
+          "url": "https://autotopik.ru/news/mazda-sh-5-iz-kitaya-obzor-modeli-komplektatsiy-i-tsen.html",
+          "snippet": "Разбираем все комплектации Mazda CX-5 2WD: от базовой Comfort до топовой Zhiya Pro с комплексом систем L2 и расширенным пакетом безопасности."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "мазда сх5 из китая комплектации forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Mazda CX-5 2026 из Китая: таблица всех пяти комплектаций и чем они ...",
+          "url": "https://www.drive2.ru/b/734616704939726440/",
+          "snippet": ""
+        },
+        {
+          "title": "Mazda CX-5 из Китая: личный опыт покупки, доставки и растаможки в 2026 году",
+          "url": "https://auto.ru/logbook/cars/mazda/cx_5/mazda-cx-5-kak-kupit-i-privezti-avto-iz-kitaia-lichnyy-opyt_b8156e57-4e85-4b7e-b162-c130e0096cad/",
+          "snippet": "Я собрал детальное сравнение всех пяти комплектаций CX-5 2026 года. Параметры разбиты по блокам: техника, безопасность, комфорт, мультимедиа, внешность. Логика простая: находишь опцию которая важна именно тебе — и смотришь с какой комплектации она появляется."
+        },
+        {
+          "title": "Mazda CX-5 2026 из Китая: комплектации, цены, опции · mazdacx.ru",
+          "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-iz-kitaya-polnyy-obzor-komplektatsiy",
+          "snippet": "В России нужная комплектация Mazda CX-5 стоит 3.5-4 млн руб. Да, есть гарантия, подарки и хорошие кредитные условия. Но для нас это дорого. Брать б/у в России тоже не хотелось — рынок сейчас перегрет, а состояние машин часто вызывает вопросы. В Китае аналогичный вариант обходится в 1,5-1,8 млн руб."
+        },
+        {
+          "title": "Mazda CX-5 из Китая в 2026: честный обзор китайской сборки",
+          "url": "https://verticalauto.ru/articles/mazda-cx-5-iz-kitaia-motory-avtomat-podvodnye-kamni-pokupki",
+          "snippet": "В этом обзоре разберём все доступные комплектации, опции, технические характеристики и реальные цены для покупателей и юрлиц в России. Mazda CX-5 2026 остаётся одним из самых популярных кроссоверов на российском рынке параллельного импорта."
+        },
+        {
+          "title": "Mazda CX-5 2026: комплектации и цены из Китая · mazdacx.ru",
+          "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-komplektatsii-i-tseny-iz-kitaya",
+          "snippet": "Mazda CX-5 из Китая — одна из самых запрашиваемых машин у нас в салоне летом 2026 года."
+        },
+        {
+          "title": "Mazda CX-5 из Китая разница комплектаций — Авто.ру",
+          "url": "https://auto.ru/logbook/cars/mazda/cx_5/mazda-cx-5-iz-kitaia_1928cadf-7370-45b5-84eb-2daa3e6d3311/",
+          "snippet": "Актуальные комплектации Mazda CX-5 2026 с ценами параллельного импорта. Все опции, сравнение версий и условия доставки в Россию."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "мазда сх5 из китая 2026",
+      "purpose": "вторичный запрос: мазда сх5 из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Mazda CX-5 из Китая в 2026: честный обзор китайской сборки",
+          "url": "https://verticalauto.ru/articles/mazda-cx-5-iz-kitaia-motory-avtomat-podvodnye-kamni-pokupki",
+          "snippet": ""
+        },
+        {
+          "title": "Mazda CX-5 2026 из Китая: комплектации, цены, опции · mazdacx.ru",
+          "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-iz-kitaya-polnyy-obzor-komplektatsiy",
+          "snippet": "Подробный разбор Mazda CX-5 с завода Changan-Mazda: атмосферные моторы 2.0 и 2.5 SkyActiv-G, классический автомат, нюансы мультимедиа и зимнего пакета, ликвидность на вторичке."
+        },
+        {
+          "title": "Мазда СХ-5 2026 технические характеристики. Mazda CX-5 2026 ...",
+          "url": "https://www.drom.ru/catalog/mazda/cx-5/2026/",
+          "snippet": "Все комплектации Mazda CX-5 2026 из Китая: цены, опции, характеристики. Параллельный импорт, гарантия, доставка по России."
+        },
+        {
+          "title": "Mazda CX-5 2026: комплектации и цены из Китая · mazdacx.ru",
+          "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-komplektatsii-i-tseny-iz-kitaya",
+          "snippet": "Подробно расписан модельный ряд Mazda CX-5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Мазда СХ-5 2026 между собой."
+        },
+        {
+          "title": "Mazda CX-5 2026 из Китая: таблица всех пяти комплектаций и чем они ...",
+          "url": "https://www.drive2.ru/b/734616704939726440/",
+          "snippet": "Актуальные комплектации Mazda CX-5 2026 с ценами параллельного импорта. Все опции, сравнение версий и условия доставки в Россию."
+        },
+        {
+          "title": "Мазда СХ 5 из Китая — обзор, комплектации и стоимость под заказ",
+          "url": "https://autotopik.ru/news/mazda-sh-5-iz-kitaya-obzor-modeli-komplektatsiy-i-tsen.html",
+          "snippet": "Я собрал детальное сравнение всех пяти комплектаций CX-5 2026 года. Параметры разбиты по блокам: техника, безопасность, комфорт, мультимедиа, внешность. Логика простая: находишь опцию которая важна именно тебе — и смотришь с какой комплектации она появляется."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "комплектации мазда сх5 из китая 2026 2026",
+      "purpose": "вторичный запрос: комплектации мазда сх5 из китая 2026",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Mazda CX-5 2026: комплектации и цены из Китая · mazdacx.ru",
+          "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-komplektatsii-i-tseny-iz-kitaya",
+          "snippet": ""
+        },
+        {
+          "title": "Mazda CX-5 2026 из Китая: комплектации и цены · mazdacx.ru",
+          "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-iz-kitaya-komplektacii-i-ceny",
+          "snippet": "Актуальные комплектации Mazda CX-5 2026 с ценами параллельного импорта. Все опции, сравнение версий и условия доставки в Россию."
+        },
+        {
+          "title": "Mazda CX-5 2026 из Китая: таблица всех пяти комплектаций и чем они ...",
+          "url": "https://www.drive2.ru/b/734616704939726440/",
+          "snippet": "Полный каталог комплектаций Mazda CX-5 2026 из Китая с ценами. Параллельный импорт, гарантия 12 месяцев, доставка за 21-45 дней по РФ."
+        },
+        {
+          "title": "Мазда СХ-5 2026 технические характеристики. Mazda CX-5 2026 ...",
+          "url": "https://www.drom.ru/catalog/mazda/cx-5/2026/",
+          "snippet": "Я собрал детальное сравнение всех пяти комплектаций CX-5 2026 года. Параметры разбиты по блокам: техника, безопасность, комфорт, мультимедиа, внешность. Логика простая: находишь опцию которая важна именно тебе — и смотришь с какой комплектации она появляется."
+        },
+        {
+          "title": "Mazda CX-5 из Китая: какую комплектацию выбрать в 2026 году",
+          "url": "https://www.drive2.ru/o/b/746186316043016402/",
+          "snippet": "Подробно расписан модельный ряд Mazda CX-5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Mazda CX-5 из Китая 2026: обзор и комплектации | AZWAY",
+          "url": "https://azway.ru/blog/mazda-cx-5-iz-kitaya-2026",
+          "snippet": "В этом гиде — китайская Mazda CX-5 2.0 с шестиступенчатым автоматом и передним приводом. В каталогах линейка обозначена как 2025款 — модельный год 2025; гид обновлён 15 октября 2026 года."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "mazda cx 5 zhishang комплектация 2026",
+      "purpose": "вторичный запрос: mazda cx 5 zhishang комплектация",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Mazda CX-5 из Китая: какую комплектацию выбрать в 2026 году",
+          "url": "https://www.drive2.ru/o/b/746186316043016402/",
+          "snippet": ""
+        },
+        {
+          "title": "Мазда СХ-5 2026 технические характеристики. Mazda CX-5 2026 ...",
+          "url": "https://www.drom.ru/catalog/mazda/cx-5/2026/",
+          "snippet": "Разбираем пять комплектаций китайской Mazda CX-5: Comfort, Zhishang, Zhishang Pro, Zhiya и Zhiya Pro. Таблица оборудования, фотографии кузова и салона каждой версии и подсказки для выбора. Короткий…"
+        },
+        {
+          "title": "Mazda CX-5 2026 из Китая — сравнение всех комплектаций",
+          "url": "https://autopodzakaz96.ru/blog/obzory-modeley-iz-kitaya/cx-5-2026-kakuyu-komplektatsiyu-vybrat-pri-zakaze-iz-kitaya/",
+          "snippet": "Подробно расписан модельный ряд Mazda CX-5 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Мазда СХ-5 2026 между собой."
+        },
+        {
+          "title": "Mazda CX-5 Zhishang Edition - ohota-auto.ru",
+          "url": "https://ohota-auto.ru/mazda-cx-5-2026-zhishang-edition/",
+          "snippet": "Подробный разбор Mazda CX-5 2026 китайской сборки: Comfort, Smart, Zhishang Pro, Intelligent and Elegant, Zhiya Pro. Сравнение оснащения, безопасности, комплектаций и технологий."
+        },
+        {
+          "title": "Mazda CX-5 2026: комплектации и цены, сравнение и выбор",
+          "url": "https://mazda-base.vercel.app/articles/m/ma/mazda-cx5-komplektatsiya.html",
+          "snippet": "Проверяем кузов, осматриваем подкапотное пространство, оцениваем работу двигателя; Оцениваем состояние салона и работу всех функций."
+        },
+        {
+          "title": "Mazda CX-5 2026: комплектации и цены из Китая · mazdacx.ru",
+          "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-komplektatsii-i-tseny-iz-kitaya",
+          "snippet": "В этом материале мы детально разберём все доступные версии CX-5 2026 модельного года, сравним их по цене, оснащению и техническим параметрам, а также дадим практические рекомендации по выбору."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "мазда сх5 комфорт из китая 2026",
+      "purpose": "вторичный запрос: мазда сх5 комфорт из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Mazda CX-5 из Китая: какую комплектацию выбрать в 2026 году",
+          "url": "https://www.drive2.ru/o/b/746186316043016402/",
+          "snippet": ""
+        },
+        {
+          "title": "Mazda CX-5 2026: комплектации и цены из Китая · mazdacx.ru",
+          "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-komplektatsii-i-tseny-iz-kitaya",
+          "snippet": "Разбираем пять комплектаций китайской Mazda CX-5: Comfort, Zhishang, Zhishang Pro, Zhiya и Zhiya Pro. Таблица оборудования, фотографии кузова и салона каждой версии и подсказки для выбора. Короткий…"
+        },
+        {
+          "title": "Mazda CX-5 из Китая в 2026: честный обзор китайской сборки",
+          "url": "https://verticalauto.ru/articles/mazda-cx-5-iz-kitaia-motory-avtomat-podvodnye-kamni-pokupki",
+          "snippet": "Актуальные комплектации Mazda CX-5 2026 с ценами параллельного импорта. Все опции, сравнение версий и условия доставки в Россию."
+        },
+        {
+          "title": "Mazda CX-5 2026 из Китая — сравнение всех комплектаций",
+          "url": "https://autopodzakaz96.ru/blog/obzory-modeley-iz-kitaya/cx-5-2026-kakuyu-komplektatsiyu-vybrat-pri-zakaze-iz-kitaya/",
+          "snippet": "Подробный разбор Mazda CX-5 с завода Changan-Mazda: атмосферные моторы 2.0 и 2.5 SkyActiv-G, классический автомат, нюансы мультимедиа и зимнего пакета, ликвидность на вторичке."
+        },
+        {
+          "title": "Mazda CX-5 2026 из Китая: комплектации и цены · mazdacx.ru",
+          "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-iz-kitaya-komplektacii-i-ceny",
+          "snippet": "Подробный разбор Mazda CX-5 2026 китайской сборки: Comfort, Smart, Zhishang Pro, Intelligent and Elegant, Zhiya Pro. Сравнение оснащения, безопасности, комплектаций и технологий."
+        },
+        {
+          "title": "Mazda CX-5 из Китая 2026: обзор и комплектации | AZWAY",
+          "url": "https://azway.ru/blog/mazda-cx-5-iz-kitaya-2026",
+          "snippet": "Полный каталог комплектаций Mazda CX-5 2026 из Китая с ценами. Параллельный импорт, гарантия 12 месяцев, доставка за 21-45 дней по РФ."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "secondary_5",
+      "query": "русификация мазда сх5 из китая 2026",
+      "purpose": "вторичный запрос: русификация мазда сх5 из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Русификация Мазды СХ-5 из Китая: экран, CarPlay, нужна ли",
+          "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/rusifikaciya-mazda-cx-5-iz-kitaya/",
+          "snippet": ""
+        },
+        {
+          "title": "Русификация Мазда СХ5 из Китая — язык, тачскрин, отключение i-stop",
+          "url": "https://japonecufa.ru/blog/tpost/rusifikatsiya-mazda-cx5-kitay",
+          "snippet": "Для СХ-5 2022 года и новее русификация часто не нужна: штатная магнитола 10,25″ с CarPlay и CarLife даже в базе, навигации нет. Переводить остаются меню и приборка; по маркам это 17 000-45 000 ₽ и 1-3 дня (октябрь 2026). Риски прошивки."
+        },
+        {
+          "title": "Русификация Mazda CX-5 2022-2026, из Китая ... - Rutube",
+          "url": "https://rutube.ru/video/3fef0188409c1e879eaa743916e4e9c0/",
+          "snippet": "Русификация мазда из китая — это глубокая прошивка головного устройства и блока приборки. В отличие от европейских версий, где русский можно выбрать в настройках, здесь его просто нет. Нужно перепрошивать блоки под конкретный VIN."
+        },
+        {
+          "title": "Русификация Мазда СХ5 из Китая — язык, тачскрин, отключение i-stop",
+          "url": "https://www.drive2.ru/o/b/737924035916082658/",
+          "snippet": "Представляем вам перевод на русский язык штатной магнитолы, активацию Android auto и отключение блокировки тачскрина штатной мультимедиа в движении для Mazda CX-5 2022-2026 из Китая и других стран."
+        },
+        {
+          "title": "Как сделать русификацию Mazda CX-5 из Китая — Авто.ру",
+          "url": "https://auto.ru/logbook/cars/mazda/cx_5/23556191/kak-sdelat-rusifikatsiiu-mazda-cx-5-iz-kitaia_8111709a-83ad-4b0c-8ef5-23a85fcb3111/",
+          "snippet": "Владельцы автомобилей Mazda CX5, ввезённых из Китая, часто сталкиваются с отсутствием русского языка в интерфейсе мультимедиа и приборной панели."
+        },
+        {
+          "title": "Русификация Mazda CX-5 2026 из Китая — MMB RUSSIA",
+          "url": "https://mmbrussia.ru/blog/rusifikaciya-mazda-cx-5-2026-iz-kitaya",
+          "snippet": "Заказал машину из Китая. Она технически в отличном состоянии, комплектация богатая, но мультимедийная система оказалась полностью на китайском."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Mazda CX-5 из Китая: комплектации и ловушки до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Mazda CX-5 из Китая в 2026: честный обзор китайской сборки",
+          "url": "https://verticalauto.ru/articles/mazda-cx-5-iz-kitaia-motory-avtomat-podvodnye-kamni-pokupki",
+          "snippet": ""
+        },
+        {
+          "title": "Mazda CX-5 2026 из Китая: комплектации, цены, опции · mazdacx.ru",
+          "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-iz-kitaya-polnyy-obzor-komplektatsiy",
+          "snippet": "В этом материале — чем китайская CX-5 отличается от глобальной, какие моторы и коробки доехали до российского покупателя, что не так с мультимедиа и зимним пакетом, как с обслуживанием ..."
+        },
+        {
+          "title": "Комплектации Mazda CX-5 2026: сравнение и цены · mazdacx.ru",
+          "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-komplektacii-i-ceny-sravnenie",
+          "snippet": "В этом обзоре разберём все доступные комплектации, опции, технические характеристики и реальные цены для покупателей и юрлиц в России."
+        },
+        {
+          "title": "Mazda CX-5 2026 из Китая: таблица всех пяти комплектаций и чем они ...",
+          "url": "https://www.drive2.ru/b/734616704939726440/",
+          "snippet": "В этом материале мы детально разберём каждую комплектацию, сравним оснащение и поможем выбрать оптимальный вариант для вашего бюджета и задач."
+        },
+        {
+          "title": "Mazda CX-5 из Китая 2026: обзор и комплектации | AZWAY",
+          "url": "https://azway.ru/blog/mazda-cx-5-iz-kitaya-2026",
+          "snippet": "Я собрал детальное сравнение всех пяти комплектаций CX-5 2026 года. Параметры разбиты по блокам: техника, безопасность, комфорт, мультимедиа, внешность. Логика простая: находишь опцию которая важна именно тебе — и смотришь с какой комплектации она появляется."
+        },
+        {
+          "title": "Mazda CX-5 из Китая в 2026: цены, комплектации, адаптация и реальная ...",
+          "url": "https://inycar.ru/blog/mazda-cx-5-iz-kitaya-v-2026-tseny-komplektatsii-adaptatsiya-i-realnaya-stoimost-vladeniya",
+          "snippet": "Проверенный обзор Mazda CX-5 китайского рынка: официальные характеристики Changan Mazda, пять версий 2.0L 6AT 2WD, различия комплектаций и чек-лист перед заказом."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.drive2.ru/b/734616704939726440/",
+      "title": "Mazda CX-5 2026 из Китая: таблица всех пяти комплектаций и чем они ...",
+      "from_query": "мазда сх5 из китая комплектации 2026"
+    },
+    {
+      "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-komplektatsii-i-tseny-iz-kitaya",
+      "title": "Mazda CX-5 2026: комплектации и цены из Китая · mazdacx.ru",
+      "from_query": "мазда сх5 из китая комплектации 2026"
+    },
+    {
+      "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-iz-kitaya-polnyy-obzor-komplektatsiy",
+      "title": "Mazda CX-5 2026 из Китая: комплектации, цены, опции · mazdacx.ru",
+      "from_query": "мазда сх5 из китая комплектации 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/o/b/746186316043016402/",
+      "title": "Mazda CX-5 из Китая: какую комплектацию выбрать в 2026 году",
+      "from_query": "мазда сх5 из китая комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/mazda/cx-5/2026/",
+      "title": "Мазда СХ-5 2026 технические характеристики. Mazda CX-5 2026 ...",
+      "from_query": "мазда сх5 из китая комплектации 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/mazda-cx-5-iz-kitaya-2026",
+      "title": "Mazda CX-5 из Китая 2026: обзор и комплектации | AZWAY",
+      "from_query": "мазда сх5 из китая комплектации 2026"
+    },
+    {
+      "url": "https://inycar.ru/blog/mazda-cx-5-iz-kitaya-v-2026-tseny-komplektatsii-adaptatsiya-i-realnaya-stoimost-vladeniya",
+      "title": "Mazda CX-5 из Китая в 2026: цены, комплектации, адаптация и реальная ...",
+      "from_query": "мазда сх5 из китая комплектации новости 2026"
+    },
+    {
+      "url": "https://autotopik.ru/news/mazda-sh-5-iz-kitaya-obzor-modeli-komplektatsiy-i-tsen.html",
+      "title": "Мазда СХ 5 из Китая — обзор, комплектации и стоимость под заказ",
+      "from_query": "мазда сх5 из китая комплектации новости 2026"
+    },
+    {
+      "url": "https://github.com/Tencent-Hunyuan/SRPO/blob/main/comfyui/SRPO-workflow.png",
+      "title": "SRPO/comfyui/SRPO-workflow.png at main · Tencent-Hunyuan/SRPO",
+      "from_query": "site:github.com мазда сх5 из китая комплектации 2026"
+    },
+    {
+      "url": "https://github.com/Fab2bprog/Windev-Radinus/blob/main/CM_center.svg",
+      "title": "Windev-Radinus/CM_center.svg at main - GitHub",
+      "from_query": "site:github.com мазда сх5 из китая комплектации 2026"
+    },
+    {
+      "url": "https://github.com/roscaa-stack/dotfiles/blob/main/Screenshots/sddm-sc.png",
+      "title": "dotfiles/Screenshots/sddm-sc.png at main · roscaa-stack/dotfiles",
+      "from_query": "site:github.com мазда сх5 из китая комплектации 2026"
+    },
+    {
+      "url": "https://github.com/MackoLee/web-builder/blob/main/vercel.svg",
+      "title": "web-builder/vercel.svg at main · MackoLee/web-builder · GitHub",
+      "from_query": "site:github.com мазда сх5 из китая комплектации 2026"
+    },
+    {
+      "url": "https://github.com/pyvista/pyvista-stl/blob/main/bench0.png",
+      "title": "pyvista-stl/bench0.png at main · pyvista/pyvista-stl · GitHub",
+      "from_query": "site:github.com мазда сх5 из китая комплектации 2026"
+    },
+    {
+      "url": "https://github.com/jane-doe-69/Art-stuff/blob/main/locket-pookie.svg",
+      "title": "Art-stuff/locket-pookie.svg at main · jane-doe-69/Art-stuff",
+      "from_query": "site:github.com мазда сх5 из китая комплектации 2026"
+    },
+    {
+      "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-iz-kitaya-komplektacii-i-ceny",
+      "title": "Mazda CX-5 2026 из Китая: комплектации и цены · mazdacx.ru",
+      "from_query": "мазда сх5 из китая комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/b/729937183451911606/",
+      "title": "Mazda Cx-5 2025 — Полный Разбор Всех 5 Комплектаций (Китай, 2wd)",
+      "from_query": "мазда сх5 из китая комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://autopodzakaz96.ru/blog/obzory-modeley-iz-kitaya/cx-5-2026-kakuyu-komplektatsiyu-vybrat-pri-zakaze-iz-kitaya/",
+      "title": "Mazda CX-5 2026 из Китая — сравнение всех комплектаций",
+      "from_query": "мазда сх5 из китая комплектации official docs documentation 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/mazda/cx_5/mazda-cx-5-kak-kupit-i-privezti-avto-iz-kitaia-lichnyy-opyt_b8156e57-4e85-4b7e-b162-c130e0096cad/",
+      "title": "Mazda CX-5 из Китая: личный опыт покупки, доставки и растаможки в 2026 году",
+      "from_query": "мазда сх5 из китая комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://verticalauto.ru/articles/mazda-cx-5-iz-kitaia-motory-avtomat-podvodnye-kamni-pokupki",
+      "title": "Mazda CX-5 из Китая в 2026: честный обзор китайской сборки",
+      "from_query": "мазда сх5 из китая комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/mazda/cx_5/mazda-cx-5-iz-kitaia_1928cadf-7370-45b5-84eb-2daa3e6d3311/",
+      "title": "Mazda CX-5 из Китая разница комплектаций — Авто.ру",
+      "from_query": "мазда сх5 из китая комплектации forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://ohota-auto.ru/mazda-cx-5-2026-zhishang-edition/",
+      "title": "Mazda CX-5 Zhishang Edition - ohota-auto.ru",
+      "from_query": "mazda cx 5 zhishang комплектация 2026"
+    },
+    {
+      "url": "https://mazda-base.vercel.app/articles/m/ma/mazda-cx5-komplektatsiya.html",
+      "title": "Mazda CX-5 2026: комплектации и цены, сравнение и выбор",
+      "from_query": "mazda cx 5 zhishang комплектация 2026"
+    },
+    {
+      "url": "https://ivan-auto.ru/blog/yaponskie/iz-kitaya/rusifikaciya-mazda-cx-5-iz-kitaya/",
+      "title": "Русификация Мазды СХ-5 из Китая: экран, CarPlay, нужна ли",
+      "from_query": "русификация мазда сх5 из китая 2026"
+    },
+    {
+      "url": "https://japonecufa.ru/blog/tpost/rusifikatsiya-mazda-cx5-kitay",
+      "title": "Русификация Мазда СХ5 из Китая — язык, тачскрин, отключение i-stop",
+      "from_query": "русификация мазда сх5 из китая 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/3fef0188409c1e879eaa743916e4e9c0/",
+      "title": "Русификация Mazda CX-5 2022-2026, из Китая ... - Rutube",
+      "from_query": "русификация мазда сх5 из китая 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/o/b/737924035916082658/",
+      "title": "Русификация Мазда СХ5 из Китая — язык, тачскрин, отключение i-stop",
+      "from_query": "русификация мазда сх5 из китая 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/mazda/cx_5/23556191/kak-sdelat-rusifikatsiiu-mazda-cx-5-iz-kitaia_8111709a-83ad-4b0c-8ef5-23a85fcb3111/",
+      "title": "Как сделать русификацию Mazda CX-5 из Китая — Авто.ру",
+      "from_query": "русификация мазда сх5 из китая 2026"
+    },
+    {
+      "url": "https://mmbrussia.ru/blog/rusifikaciya-mazda-cx-5-2026-iz-kitaya",
+      "title": "Русификация Mazda CX-5 2026 из Китая — MMB RUSSIA",
+      "from_query": "русификация мазда сх5 из китая 2026"
+    },
+    {
+      "url": "https://mazdacx.ru/novosti/mazda-cx-5-2026-komplektacii-i-ceny-sravnenie",
+      "title": "Комплектации Mazda CX-5 2026: сравнение и цены · mazdacx.ru",
+      "from_query": "Как выбрать Mazda CX-5 из Китая: комплектации и ловушки до депозита 2026"
+    }
+  ]
+}

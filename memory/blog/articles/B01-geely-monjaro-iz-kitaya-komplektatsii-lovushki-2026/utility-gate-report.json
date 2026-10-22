@@ -1,0 +1,25 @@
+{
+  "policy_id": "utility_only_v1",
+  "overall": "PASS",
+  "reports": [
+    {
+      "gate": "article",
+      "article_dir": "memory/blog/articles/B01-geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026",
+      "status": "PASS",
+      "metrics": {
+        "numbered_list_items": 14,
+        "h2_sections": 7,
+        "faq_h3": 6,
+        "tables": 2,
+        "blockquotes": 4,
+        "ul_lists": 3,
+        "action_markers": 45,
+        "pain_markers": 4,
+        "outcome_markers": 14,
+        "water_hits": []
+      },
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

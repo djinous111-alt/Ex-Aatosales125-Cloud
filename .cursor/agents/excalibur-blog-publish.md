@@ -26,7 +26,8 @@ is_background: false
 - `article_dir` из handoff
 - `article.html`, `article.meta.json`, `article-qa.md` (PASS)
 - `schema.jsonld`, `cover/cover.png`, `cover-registry.json`
-- `memory/site.env.local`
+- `memory/site.env.local` (auto-write from Cloud Secrets if missing; `SSH_ROOT=.`; never commit)
+- `paramiko` installed (`requirements.txt` / cloud-agent-install)
 
 ## Твои задачи (строго по порядку)
 

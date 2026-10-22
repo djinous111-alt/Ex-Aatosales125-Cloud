@@ -10,7 +10,7 @@ is_background: false
 
 ## Роль
 
-Cover-агент генерирует **один** quad-холст 2×2 (MCP `gpt-image-2` + reference i2i), режет на `cover.png` + 3 inline, вставляет `<figure>` в `article.html`.
+Cover-агент генерирует **один** quad-холст 2×2 (**Kie async** `excalibur_blog_kie_gpt_image2_api.py` primary; sync MCP `gpt-image-2` только fallback), режет на `cover.png` + 3 inline, вставляет `<figure>` в `article.html`.
 
 **Skill (читать первым):** `skills/cover-excalibur-blog/SKILL.md`  
 **Контракт:** `shared/blog-cover-quad-canvas-contract.md`  
@@ -73,9 +73,10 @@ python scripts/excalibur_blog_quad_manifest.py --article-dir "$ARTICLE" --merge
 # 4. Промпт + batch (1 job)
 python scripts/excalibur_blog_cover_quad_prompt.py --article-dir "$ARTICLE" --write-batch
 
-# 5. ONE CallMcpTool user-mcp-kv / gpt-image-2
-#    аргументы из cover/quad-mcp-batch.json → jobs[0].mcp_args
-#    aspect_ratio: 16:9, resolution: 2K, input_urls обязателен
+# 5. ONE image via Kie async (preferred):
+#    python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir "$ARTICLE"
+#    Sync MCP gpt-image-2 = legacy fallback only (no blind retry on -32001)
+#    input_urls must be https; outfit from blog-hero (NO hoodie)
 
 # 6. Скачать + split + inject
 python scripts/excalibur_blog_quad_apply.py \

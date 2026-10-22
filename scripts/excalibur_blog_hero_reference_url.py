@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Ensure blog hero reference has a public URL for MCP gpt-image-2 input_urls."""
+"""Ensure blog hero reference has a public HTTPS URL for MCP gpt-image-2 input_urls."""
 
 from __future__ import annotations
 
@@ -83,6 +83,45 @@ def upload_0x0(image_path: Path) -> str:
     return url
 
 
+def upload_litterbox(image_path: Path, *, hours: int = 72) -> str:
+    """Temporary https host (litterbox.catbox.moe) — fallback after catbox/0x0."""
+    boundary = "----ExcaliburHeroLitter"
+    body_prefix = (
+        f"--{boundary}\r\n"
+        f'Content-Disposition: form-data; name="reqtype"\r\n\r\n'
+        f"fileupload\r\n"
+        f"--{boundary}\r\n"
+        f'Content-Disposition: form-data; name="time"\r\n\r\n'
+        f"{hours}h\r\n"
+        f"--{boundary}\r\n"
+        f'Content-Disposition: form-data; name="fileToUpload"; filename="{image_path.name}"\r\n'
+        f"Content-Type: image/png\r\n\r\n"
+    ).encode("utf-8")
+    body_suffix = f"\r\n--{boundary}--\r\n".encode("utf-8")
+    body = body_prefix + image_path.read_bytes() + body_suffix
+    request = urllib.request.Request(
+        "https://litterbox.catbox.moe/resources/internals/api.php",
+        data=body,
+        headers={
+            "Content-Type": f"multipart/form-data; boundary={boundary}",
+            "User-Agent": "ExcaliburBlogHero/1.0",
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(request, timeout=120) as response:
+        url = response.read().decode("utf-8", errors="replace").strip()
+    if not url.startswith("https://"):
+        raise RuntimeError(f"litterbox upload failed: {url[:200]}")
+    return url
+
+
+PROVIDERS = {
+    "catbox": upload_catbox,
+    "0x0": upload_0x0,
+    "litterbox": upload_litterbox,
+}
+
+
 def resolve_reference_path(root: Path, hero: dict) -> Path:
     rel = hero.get("reference_image") or "memory/cover/assets/blog-hero-reference.png"
     path = Path(rel)
@@ -91,11 +130,34 @@ def resolve_reference_path(root: Path, hero: dict) -> Path:
     return path
 
 
+def try_https_upgrade(url: str) -> str | None:
+    """If URL is http:// for a known media host, try https:// HEAD and return it."""
+    if not url.startswith("http://"):
+        return None
+    https_url = "https://" + url[len("http://") :]
+    try:
+        request = urllib.request.Request(https_url, method="HEAD", headers={"User-Agent": "ExcaliburBlogHero/1.0"})
+        with urllib.request.urlopen(request, timeout=20) as response:
+            if 200 <= getattr(response, "status", 200) < 400:
+                return https_url
+    except Exception:  # noqa: BLE001
+        return None
+    return None
+
+
+def url_is_https(url: str) -> bool:
+    return url.startswith("https://")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--hero-json", default="memory/cover/blog-hero.json")
     ap.add_argument("--force", action="store_true", help="Re-upload even if URL exists")
-    ap.add_argument("--provider", choices=("catbox", "0x0", "auto"), default="auto")
+    ap.add_argument(
+        "--provider",
+        choices=("catbox", "0x0", "litterbox", "auto"),
+        default="auto",
+    )
     args = ap.parse_args()
 
     root = project_root()
@@ -114,11 +176,31 @@ def main() -> int:
 
     existing = (hero.get("reference_url_hosted") or "").strip()
     if existing and not args.force:
-        print(f"OK reference_url_hosted={existing}")
-        return 0
+        if url_is_https(existing):
+            print(f"OK reference_url_hosted={existing}")
+            return 0
+        upgraded = try_https_upgrade(existing)
+        if upgraded:
+            hero["reference_url_hosted"] = upgraded
+            hero["reference_url_source"] = (hero.get("reference_url_source") or "upgrade") + "-https"
+            hero["reference_url_updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+            save_json(hero_path, hero)
+            print(f"OK reference_url_hosted={upgraded} (upgraded http→https)")
+            return 0
+        print(
+            f"WARN reference_url_hosted is not https ({existing[:80]}…); re-hosting",
+            file=sys.stderr,
+        )
 
     env_url = os.environ.get("BLOG_HERO_REFERENCE_URL", "").strip()
     if env_url:
+        if not url_is_https(env_url):
+            upgraded = try_https_upgrade(env_url)
+            if upgraded:
+                env_url = upgraded
+            else:
+                print("❌ HERO BLOCKER: BLOG_HERO_REFERENCE_URL must be https", file=sys.stderr)
+                return 1
         hero["reference_url_hosted"] = env_url
         hero["reference_url_source"] = "env:BLOG_HERO_REFERENCE_URL"
         hero["reference_url_updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -126,14 +208,16 @@ def main() -> int:
         print(f"OK reference_url_hosted={env_url}")
         return 0
 
-    providers = ["catbox", "0x0"] if args.provider == "auto" else [args.provider]
+    providers = ["catbox", "0x0", "litterbox"] if args.provider == "auto" else [args.provider]
     last_error: Exception | None = None
     for provider in providers:
         try:
-            url = upload_catbox(ref_path) if provider == "catbox" else upload_0x0(ref_path)
+            url = PROVIDERS[provider](ref_path)
             hero["reference_url_hosted"] = url
             hero["reference_url_source"] = provider
             hero["reference_url_updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+            if provider == "litterbox":
+                hero["reference_url_last_i2i_fallback"] = url
             save_json(hero_path, hero)
             print(f"OK reference_url_hosted={url}")
             return 0

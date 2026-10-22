@@ -376,6 +376,60 @@ def inject_figures(article_html: Path, split_info: dict[str, Any], dry_run: bool
     return changes
 
 
+def load_corner_brand(root: Path) -> str:
+    hero_path = root / "memory/cover/blog-hero.json"
+    if not hero_path.is_file():
+        return "avto-sales125.ru"
+    try:
+        hero = load_json(hero_path)
+    except Exception:  # noqa: BLE001
+        return "avto-sales125.ru"
+    brand = ((hero.get("cover_corner_brand") or {}).get("text") or "").strip()
+    return brand or "avto-sales125.ru"
+
+
+def stamp_corner_brand(image_path: Path, brand: str, *, canvas_quad_tl: Path | None = None) -> dict[str, Any]:
+    """PIL overlay of catalog corner brand on cover (+ optional TL quadrant of canvas)."""
+    from PIL import Image, ImageDraw, ImageFont
+
+    result: dict[str, Any] = {"brand": brand, "cover": False, "canvas_tl": False}
+    if not brand:
+        return result
+
+    def _draw(img: Image.Image) -> Image.Image:
+        draw = ImageDraw.Draw(img)
+        font = ImageFont.load_default()
+        padding = max(8, img.width // 80)
+        try:
+            bbox = draw.textbbox((0, 0), brand, font=font)
+            tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
+        except Exception:  # noqa: BLE001
+            tw, th = len(brand) * 6, 11
+        x = img.width - tw - padding
+        y = img.height - th - padding
+        # Readable dark text with light outline for collage backgrounds
+        for dx, dy in ((-1, 0), (1, 0), (0, -1), (0, 1)):
+            draw.text((x + dx, y + dy), brand, fill="#FFFFFF", font=font)
+        draw.text((x, y), brand, fill="#0B1F3A", font=font)
+        return img
+
+    cover = Image.open(image_path).convert("RGB")
+    cover = _draw(cover)
+    cover.save(image_path, format="PNG")
+    result["cover"] = True
+
+    if canvas_quad_tl and canvas_quad_tl.is_file():
+        canvas = Image.open(canvas_quad_tl).convert("RGB")
+        w, h = canvas.size
+        # Stamp only on top-left quadrant area
+        tl = canvas.crop((0, 0, w // 2, h // 2))
+        tl = _draw(tl)
+        canvas.paste(tl, (0, 0))
+        canvas.save(canvas_quad_tl, format="PNG")
+        result["canvas_tl"] = True
+    return result
+
+
 def create_demo_canvas(path: Path, style_label: str) -> None:
     from PIL import Image, ImageDraw
 
@@ -418,6 +472,17 @@ def main() -> int:
         help=argparse.SUPPRESS,
     )
     ap.add_argument("--inject-html", action="store_true", help="Insert <figure> after matched H2 in article.html")
+    ap.add_argument(
+        "--stamp-corner-brand",
+        action="store_true",
+        default=True,
+        help="PIL-stamp catalog corner brand on cover.png (default: on)",
+    )
+    ap.add_argument(
+        "--no-stamp-corner-brand",
+        action="store_true",
+        help="Disable corner brand stamp",
+    )
     ap.add_argument(
         "--demo-canvas",
         action="store_true",
@@ -491,7 +556,21 @@ def main() -> int:
     except ValueError as exc:
         print(f"❌ QUAD SPLIT BLOCKER: {exc}", file=sys.stderr)
         return 1
+
+    brand = load_corner_brand(root)
+    do_stamp = args.stamp_corner_brand and not args.no_stamp_corner_brand
+    brand_info: dict[str, Any] = {"brand": brand, "stamped": False}
+    if do_stamp:
+        brand_info = stamp_corner_brand(
+            cover_dir / "cover.png",
+            brand,
+            canvas_quad_tl=canvas_path,
+        )
+        brand_info["stamped"] = bool(brand_info.get("cover"))
+        print(f"OK corner_brand={brand} stamped={brand_info['stamped']}")
+
     registry = build_registry(article_dir, manifest, split_info)
+    registry["corner_brand"] = brand_info
     save_json(cover_dir / "cover-registry.json", registry)
 
     report = {
@@ -499,6 +578,7 @@ def main() -> int:
         "status": "PASS",
         "manifest": str(manifest_path.relative_to(article_dir)).replace("\\", "/"),
         "split": split_info,
+        "corner_brand": brand_info,
     }
     if args.inject_html:
         report["html_inject"] = inject_figures(article_dir / "article.html", split_info, dry_run=False)

@@ -56,7 +56,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check`
-commit: pending-parent-commit
+commit: 86ece91c26161c18db816ca650d8490fa978c8e8
 
 ## INC-20261022-1346-publish-paramiko-missing
 status: fixed
@@ -101,7 +101,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check`
-commit: pending-parent-commit
+commit: 86ece91c26161c18db816ca650d8490fa978c8e8
 
 
 ## INC-20261022-1335-indexer-llms-stale-blog-path
@@ -155,7 +155,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py`
 - rg --blog-path in indexer docs (only negative note remains)
-commit: pending-parent-commit
+commit: 86ece91c26161c18db816ca650d8490fa978c8e8
 
 ## INC-20261022-1330-cover-hero-https-host-fail
 status: fixed
@@ -196,7 +196,7 @@ files_changed:
 - `skills/cover-excalibur-blog/SKILL.md`
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
-commit: pending-parent-commit
+commit: 86ece91c26161c18db816ca650d8490fa978c8e8
 
 ## INC-20261022-1331-cover-sync-mcp-timeout-kie-async
 status: fixed
@@ -236,7 +236,7 @@ files_changed:
 - `.cursor/agents/excalibur-blog-cover.md`
 checks_run:
 - rg Kie async in cover skill
-commit: pending-parent-commit
+commit: 86ece91c26161c18db816ca650d8490fa978c8e8
 
 ## INC-20261022-1332-cover-prompt-hoodie-lock
 status: fixed
@@ -276,7 +276,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_cover_quad_prompt.py --article-dir ...B01...`
 - rg Outfit lock hoodie → gone
-commit: pending-parent-commit
+commit: 86ece91c26161c18db816ca650d8490fa978c8e8
 
 ## INC-20261022-1333-cover-missing-corner-brand
 status: fixed
@@ -314,7 +314,7 @@ files_changed:
 - `skills/cover-excalibur-blog/SKILL.md`
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_split.py`
-commit: pending-parent-commit
+commit: 86ece91c26161c18db816ca650d8490fa978c8e8
 
 ## INC-20261022-1325-schema-precommit-secret-url-allowlist
 status: fixed
@@ -358,7 +358,7 @@ files_changed:
 - `CURSOR-CLOUD-RUNBOOK.md`
 checks_run:
 - rg pragma: allowlist in schema skill
-commit: pending-parent-commit
+commit: 86ece91c26161c18db816ca650d8490fa978c8e8
 
 ## INC-20261022-1320-geo-qa-typed-task-unavailable
 status: fixed
@@ -401,7 +401,7 @@ files_changed:
 - `CLOUD-AUTOMATION.md`
 checks_run:
 - rg ожидаемый канон AGENTS.md
-commit: pending-parent-commit
+commit: 86ece91c26161c18db816ca650d8490fa978c8e8
 
 ## INC-20261022-1615-writer-editorial-policy-pain-outcome-markers
 status: fixed
@@ -444,7 +444,7 @@ files_changed:
 - `.cursor/skills/writer-excalibur-blog/SKILL.md`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py`
-commit: pending-parent-commit
+commit: 86ece91c26161c18db816ca650d8490fa978c8e8
 
 ## INC-20261022-1613-research-precommit-url-as-secret-name
 status: fixed
@@ -485,7 +485,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - rg Secret names vs secret values CURSOR-CLOUD-RUNBOOK.md
-commit: pending-parent-commit
+commit: 86ece91c26161c18db816ca650d8490fa978c8e8
 
 ## INC-20261022-1612-research-notes-gate-format-quirks
 status: fixed
@@ -532,7 +532,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - research_notes_gate B01 → PASS technical_topic=false
-commit: pending-parent-commit
+commit: 86ece91c26161c18db816ca650d8490fa978c8e8
 
 ## INC-20261022-1605-scout-missing-wp-denylist
 status: fixed
@@ -581,7 +581,7 @@ files_changed:
 checks_run:
 - `scout_helper denylist hit on auction-sheet slug`
 - `doctor denylist exists`
-commit: pending-parent-commit
+commit: 86ece91c26161c18db816ca650d8490fa978c8e8
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

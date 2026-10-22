@@ -6,6 +6,71 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-1704-scout-missing-wp-slug-denylist
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- `shared/wp-slug-denylist.json` отсутствует на текущей ветке, хотя Scout обязан блокировать republish/каннибализацию по live slug list.
+- Без denylist каждый run заново собирает 1000+ slug через REST и рискует пропустить запрещённые модели/гайды.
+
+### How the agent recovered this run
+- Собрал live slug list через `PUBLIC_SITE_URL` REST `wp/v2/posts` (1207 publish).
+- Вручную сверил forbidden set (Monjaro, левый руль Япония, Carnival/Sorento/Alphard/Mohave/K3/Avante/Santa Fe/Tucson, utilsbor/korea-customs, auction sheet 4086, AS08/AS09) и выбрал GAP-тему Toyota Harrier.
+
+### Durable fix needed before next run
+- Добавить `shared/wp-slug-denylist.json` с актуальной выгрузкой live/forbidden slugs для AVTO SALES.
+- Обновить scout helper/skill: если denylist missing → warning + обязательный REST fallback, не silent skip.
+
+### Suggested files to inspect/change
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261022-1704-scout-mcp-wordpress-wrong-host
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: high
+category: env
+
+### What went wrong
+- MCP `wordpress_*` (MCP-KV) вернул чужой сайт: host `tamopro.ru`, X-WP-Total≈6.
+- Live блог AVTO SALES через `PUBLIC_SITE_URL` REST имеет 1200+ постов; доверять MCP WordPress как единственному источнику slug/denylist нельзя.
+
+### How the agent recovered this run
+- Не использовал MCP WordPress для anti-cannibalization.
+- Канонический список slug взял только из `PUBLIC_SITE_URL` REST; подтвердил `rest_host_matches_public=true`.
+
+### Durable fix needed before next run
+- Перепривязать MCP WordPress credentials/base URL к PUBLIC_SITE_URL блога Авто-Сейлс либо явно пометить wordpress_* как untrusted для этого pipeline.
+- В scout/publish skills зафиксировать правило: live slug source = PUBLIC_SITE_URL REST; MCP wordpress_* только после host-match check.
+
+### Suggested files to inspect/change
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Dashboard MCP / secrets for WordPress base URL (no secret values in repo)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

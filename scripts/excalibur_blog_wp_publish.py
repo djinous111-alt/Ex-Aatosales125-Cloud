@@ -168,7 +168,47 @@ def normalize_cover_png(cover_path: Path, registry_path: Path, root: Path) -> di
     return evidence
 
 
-def load_article(article_dir: Path) -> dict:
+def absolutize_schema_jsonld(schema_raw: str, public_base: str) -> str:
+    """Expand root-relative @id/@url in committed schema for WP meta (commit stays relative)."""
+    base = (public_base or "").rstrip("/")
+    if not base or not schema_raw.strip():
+        return schema_raw
+    try:
+        data = json.loads(schema_raw)
+    except json.JSONDecodeError:
+        return schema_raw
+
+    def absolutize_str(value: str) -> str:
+        if value.startswith("/") and not value.startswith("//"):
+            return f"{base}{value}"
+        return value
+
+    def walk(node: Any) -> Any:
+        if isinstance(node, dict):
+            out: dict[str, Any] = {}
+            for key, value in node.items():
+                if key in {"@id", "url", "mainEntityOfPage"} and isinstance(value, str):
+                    out[key] = absolutize_str(value)
+                elif key == "image":
+                    if isinstance(value, str):
+                        out[key] = absolutize_str(value)
+                    elif isinstance(value, list):
+                        out[key] = [
+                            absolutize_str(item) if isinstance(item, str) else walk(item) for item in value
+                        ]
+                    else:
+                        out[key] = walk(value)
+                else:
+                    out[key] = walk(value)
+            return out
+        if isinstance(node, list):
+            return [walk(item) for item in node]
+        return node
+
+    return json.dumps(walk(data), ensure_ascii=False)
+
+
+def load_article(article_dir: Path, *, public_base: str = "") -> dict:
     meta_path = article_dir / "article.meta.json"
     html_path = article_dir / "article.html"
     if not meta_path.is_file() or not html_path.is_file():
@@ -187,6 +227,7 @@ def load_article(article_dir: Path) -> dict:
     schema_raw = ""
     if schema_path.is_file():
         schema_raw = schema_path.read_text(encoding="utf-8").strip()
+        schema_raw = absolutize_schema_jsonld(schema_raw, public_base)
     cover_alt = meta.get("cover_alt") or meta.get("cover_alt_text") or ""
     if cover_reg.is_file():
         reg = json.loads(cover_reg.read_text(encoding="utf-8"))
@@ -569,7 +610,10 @@ def main() -> int:
         return 2
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
-    payload = load_article(article_dir)
+    env = load_env(root)
+    public = args.public_base or env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL") or ""
+    # Absolutize root-relative schema IRIs only in the publish payload (git keeps relative).
+    payload = load_article(article_dir, public_base=public if not args.dry_run else "")
     php = build_php(payload)
 
     if args.dry_run:
@@ -577,7 +621,6 @@ def main() -> int:
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1
@@ -585,7 +628,6 @@ def main() -> int:
     if missing:
         print(f"BLOCKER: missing publish env: {', '.join(missing)}", file=sys.stderr)
         return 2
-    public = args.public_base or env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL") or ""
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2

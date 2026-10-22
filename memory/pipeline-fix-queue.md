@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_none — 2026-10-22 B01 fixer closed 8 incidents (see Fixed below)._
+
+## Fixed incidents (2026-10-22 B01)
+
 ## INC-20261022-0935-indexer-llms-blog-path-mismatch
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-indexer
 topic_id: B01
@@ -45,10 +49,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- LLMS generator now exposes both `--blog-dir` (filesystem) and `--blog-path` (URL prefix, default `/blog`).
+- Doctor checks both flags; commit-safe default `--site-base ""` → root-relative `/blog/<slug>/`.
+- Indexer agent/skills updated; `out_dir.mkdir` added.
+files_changed:
+- `scripts/excalibur_blog_llms_generator.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- llms generator dry-run to /tmp with empty site-base
+commit: pending-parent-commit
 
 ## INC-20261022-0928-cover-outfit-lock-hoodie
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-cover
 topic_id: B01
@@ -85,11 +105,26 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- Outfit lock → charcoal softshell + cream crewneck (NO hoodie); validator rejects legacy hoodie lock.
+- Quad-manifest auto defaults niche-neutral; SEO/Wordstat/hoodie stubs banned.
+- `blog-hero.json` outfit_rule documents softshell/crewneck lock.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `memory/cover/blog-hero.json`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+- rg: no `Outfit lock: thick heavyweight white hoodie` in prompt builder
+commit: pending-parent-commit
 
 ## INC-20261022-0927-schema-absolute-urls-secret-scan
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-schema
 topic_id: B01
@@ -125,10 +160,26 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- Schema contract: commit root-relative `@id`/`url`/`image` + public `sameAs` only.
+- Publish absolutizes root-relative IRIs in WP payload (`absolutize_schema_jsonld`); git stays relative.
+- Restored `filter_secret_names.sh` for pre-commit.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- absolutize_schema_jsonld unit smoke
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+commit: pending-parent-commit
 
 ## INC-20261022-0920-geo-qa-utility-pain-outcome-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -162,10 +213,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending (policy lists synced by writer FIX; close after GEO QA re-run PASS)
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- Confirmed `editorial-policy.json` has non-empty `pain_markers_ru` / `outcome_markers_ru` + min thresholds.
+- utility_gate: empty marker lists → skip threshold + warning (defense in depth).
+- Writer/editorial docs: «Делать/Не делать» ≠ recommendation markers.
+files_changed:
+- `memory/brief/editorial-policy.json` (confirmed)
+- `scripts/excalibur_blog_utility_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_utility_gate.py --article-dir …B01…` → PASS (pain=3, outcome=8)
+commit: pending-parent-commit
 
 ## INC-20261022-0921-geo-qa-link-verify-iri-ascii
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -194,10 +260,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- `iri_to_uri()` percent-encodes non-ASCII path/query/fragment (+ IDNA host) before urlopen in HEAD/GET.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `skills/excalibur-geo-qa/SKILL.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- iri_to_uri Cyrillic smoke + check_url without ascii codec crash
+- `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
+commit: pending-parent-commit
 
 ## INC-20261022-0915-writer-precommit-secret-names
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-writer
 topic_id: B01
@@ -227,10 +305,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- Restored/hardened `scripts/excalibur_blog_filter_secret_names.sh`: accepts comma/whitespace lists, emits comma-separated bash-safe identifiers.
+- Documented in pitfalls + writer skill. Host Cloud Secrets injection should still prefer identifier-only names.
+files_changed:
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+checks_run:
+- filter script smoke with URL-shaped junk token → PUBLIC_SITE_URL,SSH_HOST,SSH_USER
+commit: pending-parent-commit
 
 ## INC-20261022-0910-research-gate-output-path
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-research
 topic_id: B01
@@ -269,10 +359,28 @@ category: script
 - none recorded (values not logged; only that one injected "name" was URL-shaped)
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- `-o` basename → article_dir; multi-part/absolute → repo-root (no nested memory/ tree).
+- `technical_topic` word-boundary + `--self-test`; research_start redacts PUBLIC_SITE_URL host in SERP JSON.
+- Docs/skills/agents updated to basename-only examples.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `scripts/excalibur_blog_research_start.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `agents/excalibur-blog-research.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `--self-test` PASS
+- gate `-o research-notes-gate.json` without nested `article_dir/memory`
+commit: pending-parent-commit
 
 ## INC-20261022-0905-scout-missing-wp-denylist
-status: open
+status: fixed
 run_date: 2026-10-22
 role: excalibur-blog-scout
 topic_id: B01
@@ -302,7 +410,21 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-22
+fix_summary:
+- Restored `shared/wp-slug-denylist.json` (updated 2026-10-22) with October slugs + B01/4435 + auction sheet 4086 + Carnival/Sorento/….
+- Scout helper `--check-slug` / denylist awareness; scout skills require denylist + live site; WP MCP not sole source.
+files_changed:
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_scout_helper.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- JSON parse denylist
+- `--check-slug levyj-rul…` DENY; unique slug FREE
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

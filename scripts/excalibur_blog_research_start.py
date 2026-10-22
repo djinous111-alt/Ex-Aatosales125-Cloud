@@ -374,6 +374,7 @@ def run_research_start(
     serp_path = out_dir / "research-serp.json"
 
     if not dry_run:
+        payload_serp = redact_serp_payload(payload_serp)
         context_path.write_text(json.dumps(payload_context, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         serp_path.write_text(json.dumps(payload_serp, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         save_utility = out_dir / "utility-gate-topic.json"
@@ -390,6 +391,39 @@ def run_research_start(
         "ledger_reserved": ledger_reserved,
         "dry_run": dry_run,
     }
+
+
+def _secret_host_tokens() -> list[str]:
+    """Hosts from Cloud Secrets that must not land literally in committed SERP/ledger."""
+    import os
+
+    tokens: list[str] = []
+    for key in ("PUBLIC_SITE_URL", "WP_HOME", "WP_SITE_URL", "CATALOG_URL"):
+        raw = (os.environ.get(key) or "").strip()
+        if not raw:
+            continue
+        if "://" not in raw:
+            raw = "https://" + raw
+        host = urllib.parse.urlparse(raw).netloc.lower()
+        if host and host not in tokens:
+            tokens.append(host)
+    return tokens
+
+
+def redact_secret_hosts(text: str) -> str:
+    out = text
+    for host in _secret_host_tokens():
+        out = out.replace(f"https://{host}", "[REDACTED]")
+        out = out.replace(f"http://{host}", "[REDACTED]")
+        out = out.replace(host, "[REDACTED]")
+    return out
+
+
+def redact_serp_payload(payload: dict[str, Any]) -> dict[str, Any]:
+    """Rewrite SERP JSON so PUBLIC_SITE_URL host does not trip secret-scan on commit."""
+    raw = json.dumps(payload, ensure_ascii=False)
+    redacted = redact_secret_hosts(raw)
+    return json.loads(redacted)
 
 
 def _unique_urls(serp_runs: list[dict[str, Any]]) -> list[dict[str, str]]:

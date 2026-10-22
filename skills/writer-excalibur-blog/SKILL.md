@@ -44,3 +44,11 @@ memory/blog/articles/<topic_id>-<slug>/article.meta.json
 - объём вне диапазона после 1 правки
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`
+
+
+## Utility markers vs «Делать/Не делать»
+
+- Заголовки «Делать / Не делать» **не** считаются action-маркерами сами по себе.
+- Нужны формы из `recommendation_markers_ru` в `memory/brief/editorial-policy.json` (`сделайте`, `проверьте`, `шаг ` …).
+- Pain/outcome считаются по `pain_markers_ru` / `outcome_markers_ru`; не пиши «больше» вплотную к маркеру «боль» (ложный substring).
+- Перед commit: `source scripts/excalibur_blog_filter_secret_names.sh` (или `eval "$(… --export)"`) — имена должны быть comma-separated bash-safe identifiers.

@@ -22,7 +22,7 @@
 Перед research:
 
 ```bash
-python scripts/excalibur_blog_utility_gate.py --topic-id B01
+python3 scripts/excalibur_blog_utility_gate.py --topic-id B01
 ```
 
 **Blocker `UTILITY TOPIC BLOCKER`** — тему не пускаем в пайплайн.
@@ -52,10 +52,13 @@ Research-агент **отклоняет** угол без практики. В 
 Машинный gate:
 
 ```bash
-python scripts/excalibur_blog_research_notes_gate.py \
+# -o basename only (writes into --article-dir)
+python3 scripts/excalibur_blog_research_notes_gate.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   -o research-notes-gate.json
 ```
+
+В `memory/brief/editorial-policy.json` обязательны непустые `pain_markers_ru` / `outcome_markers_ru` (и `recommendation_markers_ru`). Заголовки «Делать/Не делать» сами по себе маркерами не считаются.
 
 ## Gate 3 — writer
 

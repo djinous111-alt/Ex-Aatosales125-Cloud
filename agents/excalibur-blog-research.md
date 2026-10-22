@@ -38,7 +38,7 @@ python scripts/excalibur_blog_utility_gate.py --topic-id {ID}
 4. Дочитать SERP; сверить с `memory/brief/fact-bank.md`; каждая цифра или версия продукта должна иметь URL и `accessed_at`.
 5. **Угол только практический и beginner-first:** что сделает новичок после гайда (не новость, не «вообще про», не материал для профи). Ищи страхи старта: «не понимаю термин», «боюсь сломать таблицу/CRM», «не знаю, с чего начать», «кажется, что это только для программистов».
 6. Заполнить `research-notes.md` как structured brief: `research_date`, `accessed_at`, `source_table`, `wordstat`, `github_evidence`, `reader_pain`, `reader_outcome`, `success_criteria`, `voice_angle`, `reader_story`, `surprising_fact`, `pain_solution_map`, `action_outline`, `utility_verdict: PASS`. Все поля должны быть сформулированы для новичка/обычного человека, а не для архитектора или разработчика.
-7. Запустить `python scripts/excalibur_blog_research_notes_gate.py --article-dir <article_dir> -o research-notes-gate.json`. Если gate BLOCK — исправить `research-notes.md`, не передавать Writer.
+7. Запустить `python3 scripts/excalibur_blog_research_notes_gate.py --article-dir <article_dir> -o research-notes-gate.json  # basename only`. Если gate BLOCK — исправить `research-notes.md`, не передавать Writer.
 8. Handoff `=== EXCALIBUR BLOG RESEARCH ===`.
 
 ## Формат research-notes.md обязателен

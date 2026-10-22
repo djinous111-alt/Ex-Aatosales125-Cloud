@@ -30,7 +30,7 @@ Append new Topic Card to blog-topics.md
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
   Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
 
@@ -47,7 +47,7 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
 Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
 
@@ -81,3 +81,17 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
 * Выдумывание цифр спроса без вызова Wordstat API.
+
+
+## Антиканнибализация / denylist (обязательно)
+
+1. Перед выбором темы проверь `shared/wp-slug-denylist.json` (recent_wp + slugs + do_not_rewrite_post_ids).
+2. Helper:
+   ```bash
+   python3 scripts/excalibur_blog_scout_helper.py --suggest-next
+   python3 scripts/excalibur_blog_scout_helper.py --check-slug "<candidate-slug>"
+   python3 scripts/excalibur_blog_scout_helper.py --check-query "<primary_query>"
+   ```
+3. Дополнительно сверь live site search (`site:<PUBLIC_HOST> <тема>`) и `memory/blog/published-live-avtosales125.json`.
+4. **WordPress MCP (`wordpress_search_posts` / `wordpress_get_posts`) — НЕ единственный источник истины**: MCP может вернуть чужой/старый хост. При mismatch хоста опирайся на denylist + live site + ledger.
+5. Если denylist отсутствует — blocker + incident в `memory/pipeline-fix-queue.md`.

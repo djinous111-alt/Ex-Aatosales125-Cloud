@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-1615-writer-editorial-policy-pain-outcome-markers
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- В `memory/brief/editorial-policy.json` снова отсутствовали `pain_markers_ru` / `outcome_markers_ru` (и min_* в `article_required_signals`).
+- `excalibur_blog_utility_gate.py` при пустых списках считает `pain_count=0` / `outcome_count=0` и даёт BLOCK (пороги по умолчанию 2 и 3).
+
+### How the agent recovered this run
+- Восстановил списки маркеров (синхрон с human-voice PAIN/OUTCOME) и `min_pain_markers` / `min_outcome_markers` в policy до сдачи article.html.
+- Self-check: html_linter PASS, utility PASS, human_voice PASS.
+
+### Durable fix needed before next run
+- Зафиксировать маркеры в policy как обязательный baseline; добавить unit/doctor check «empty pain/outcome lists → fail doctor».
+- В writer skill: preflight читать policy и при пустых списках восстанавливать до gate, не после FAIL GEO QA.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_doctor.py` или `scripts/excalibur_blog_utility_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261022-1613-research-precommit-url-as-secret-name
 status: open
 run_date: 2026-10-22

@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-1717-geo-qa-writer-cta-href-redacted-literal
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-harrier-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: qa
+
+### What went wrong
+- После Writer в `article.html` три CTA имели буквальный `href="[REDACTED]"` (len=10), а не URL из `memory/brief/conversion-map.md`.
+- `excalibur_blog_link_verify.py` → verdict fail (unique relative `[REDACTED]` → 404 на site-base).
+- Writer handoff при этом писал `cta_links: 3` без проверки реальных URL.
+
+### How the agent recovered this run
+- GEO QA восстановил CTA по якорям: каталог ×2 и Telegram ×1 из conversion-map / канона AS08–AS09.
+- Перезапустил link-verify → PASS (2 unique external, status 200).
+- Остальные gates (html-linter, slop, cannibalization, utility, human-voice, research-notes) уже были PASS; article-qa PASS score 87.
+
+### Durable fix needed before next run
+- Writer skill/contract: запрет literal `[REDACTED]` / пустых href; preflight читать conversion-map и сверять `href` на `https://` + HEAD/known hosts.
+- Опционально: маленький script `excalibur_blog_cta_href_gate.py` или проверка в human_voice/html-linter на placeholder tokens в attributes.
+- Document в pitfalls (Writer/QA): не коммитить placeholder REDACTED в article.html.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_link_verify.py` (optional token detect)
+- `memory/brief/conversion-map.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261022-1720-writer-utility-gate-missing-pain-outcome-markers
 status: open
 run_date: 2026-10-22

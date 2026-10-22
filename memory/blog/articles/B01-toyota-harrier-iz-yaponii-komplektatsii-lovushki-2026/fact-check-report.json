@@ -1,0 +1,59 @@
+{
+  "article": "memory/blog/articles/B01-toyota-harrier-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 7,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 6,
+  "facts": [
+    {
+      "fact": "2021",
+      "kind": "date_or_year",
+      "context": "сибирска уже прикинул ставку по красивому Harrier 2021 \"2.0, оценка 4.5\" – а в листе код MXUA80 и 171 л.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "мит ставки. Toyota Harrier с японского аукциона в 2026 берут часто: кроссовер выглядит дорого, лотов мног",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2013",
+      "kind": "date_or_year",
+      "context": "те, а не имя на бампере. Кузов 60 (XU60, примерно 2013–2020) и кузов 80 (XU80, с июня 2020) на фото похо",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2020",
+      "kind": "date_or_year",
+      "context": "не имя на бампере. Кузов 60 (XU60, примерно 2013–2020) и кузов 80 (XU80, с июня 2020) на фото похожи, н",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "171",
+      "kind": "large_number",
+      "context": "r 2021 \"2.0, оценка 4.5\" – а в листе код MXUA80 и 171 л.с. Это не тот 2.0, что у соседа на 60-м кузове.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "0\" не считается. Ориентир льготы для физлица – до 160 л.с.; типичный проходной кандидат – атмосферный 60",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "151",
+      "kind": "large_number",
+      "context": "ный проходной кандидат – атмосферный 60/2.0 около 151 л.с., а 80/2.0 около 171 и гибриды обычно идут по",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

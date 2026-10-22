@@ -29,12 +29,17 @@
     "description_aeo": "Toyota Harrier из Японии выбирают по коду кузова и мощности до ставки: 60/2.0 ~151 л.с. чаще в льготе, 80/2.0 и гибриды считают отдельно."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 87,
+    "verdict": "PASS",
     "date": "2026-10-22",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "link_verify": "PASS",
+    "utility_gate": "PASS",
+    "human_voice": "PASS",
+    "research_notes_gate": "PASS",
+    "core_eeat": "19/20"
   },
   "cover_family": "brand_collage"
 }

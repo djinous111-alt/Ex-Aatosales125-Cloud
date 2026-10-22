@@ -55,7 +55,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` → paramiko_available=true
-commit: pending-parent-commit
+commit: e3e8c6a0
 
 ## INC-20261022-2130-publish-http-timeout-webfetch-reconstruct
 status: fixed
@@ -104,7 +104,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `rg WEBFETCH_FALLBACK_WAIT_SECONDS=300 scripts/excalibur_blog_wp_publish.py`
-commit: pending-parent-commit
+commit: e3e8c6a0
 
 
 ## INC-20261022-2123-indexer-stale-llms-blog-path
@@ -156,7 +156,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → llms --blog-dir/--out-dir OK
 - `python3 scripts/excalibur_blog_llms_generator.py --help`
-commit: pending-parent-commit
+commit: e3e8c6a0
 
 ## INC-20261023-2140-writer-editorial-policy-pain-outcome-markers-missing
 status: fixed
@@ -202,7 +202,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → pain/outcome checks OK
 - `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
-commit: pending-parent-commit
+commit: e3e8c6a0
 
 
 ## INC-20261023-2112-research-notes-gate-accessed-at-and-tech-false-positive
@@ -248,7 +248,7 @@ files_changed:
 - `agents/excalibur-blog-research.md`
 checks_run:
 - `research_notes_gate` on B01 → PASS technical_topic=False accessed_at=17
-commit: pending-parent-commit
+commit: e3e8c6a0
 
 ## INC-20261023-2113-research-precommit-invalid-secret-name
 status: fixed
@@ -288,7 +288,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - filter_secret_names smoke: drops URL-like / hyphenated names
-commit: pending-parent-commit
+commit: e3e8c6a0
 
 ## INC-20261023-2105-scout-missing-wp-slug-denylist
 status: fixed
@@ -335,7 +335,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --help` shows --check-slug
 - `doctor` denylist exists/has slugs
-commit: pending-parent-commit
+commit: e3e8c6a0
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -387,7 +387,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: e3e8c6a0
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -438,7 +438,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: e3e8c6a0
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -479,7 +479,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: e3e8c6a0
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -526,7 +526,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: e3e8c6a0
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -580,7 +580,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: e3e8c6a0
 
 ## Fixed incidents
 
@@ -623,7 +623,7 @@ files_changed:
 - `agents/excalibur-blog-cover.md`
 checks_run:
 - outfit smoke: rain/port → weather outfit + NO hoodie; no thick white hoodie hardcode
-commit: pending-parent-commit
+commit: e3e8c6a0
 
 ## INC-20261023-2115-schema-secret-scan-jsonld
 status: fixed
@@ -668,7 +668,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg schema.jsonld.runtime skills/schema-excalibur-blog/SKILL.md`
-commit: pending-parent-commit
+commit: e3e8c6a0
 
 ## INC-20261022-2118-cover-mcp-timeout-kie-fallback
 status: fixed
@@ -707,5 +707,5 @@ files_changed:
 - `scripts/excalibur_blog_cover_quad_prompt.py` (preferred_image_flow already Kie)
 checks_run:
 - `rg "Kie async preferred" skills/cover-excalibur-blog/SKILL.md`
-commit: pending-parent-commit
+commit: e3e8c6a0
 

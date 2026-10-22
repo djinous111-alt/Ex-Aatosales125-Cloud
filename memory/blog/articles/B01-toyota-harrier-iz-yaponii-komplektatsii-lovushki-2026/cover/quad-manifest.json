@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Красивый Harrier 2.0 — а кузов уже 80?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у Toyota Harrier у порта Владивостока, плашка «до ставки», угол avto-sales125.ru",
+      "scene_hint": "WEATHER: cool foggy Vladivostok port morning, grey harbour mist, ro-ro ship hint; OUTFIT: matte charcoal softshell jacket over cream crewneck (NOT hoodie, NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie next to modern silver Toyota Harrier crossover; fake auction sheet scrap + catalog card taped with scotch; torn paper Cyrillic hook plaque «Красивый Harrier 2.0 — а кузов уже 80?» with yellow highlighter on «80»; sticky note «до ставки»; shocked meme cutout + facepalm sticker (different formats); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; no toxic labels",
+      "meme_caption_ru": "Harrier до ставки"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте задачу и бюджет \"под ключ\" до поиска лота",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns Семья/город | Бюджет под ключ | Гибрид? | Пробег; rows задача → лимит ставки → запас на доставку; yellow highlight «бюджет до поиска лота»; pink sticky «под ключ»; scotch tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица: задача, бюджет под ключ и лимит ставки до поиска лота Harrier"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Разберите поколения и коды кузова: бензин vs гибрид без путаницы",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 4 steps: код кузова 60/80 → бензин или гибрид → мощность л.с. → проходной чек; arrows between cards; mini body-code badges «60» «80»; sticky «без путаницы»; tape corner; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема: поколения Harrier, коды кузова 60/80 и бензин vs гибрид"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сверьте комплектацию G / Z и пакеты с листом и фото до ставки",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake Japanese auction sheet + phone photo UI side-by-side: labels G / Z / пакеты; checkmarks «лист = фото»; red flag icons on mismatch; sticky «сверить до ставки»; scotch tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Мокап: сверка комплектации G/Z и пакетов Harrier с аукционным листом и фото"
+    }
+  }
+}

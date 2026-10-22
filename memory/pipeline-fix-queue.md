@@ -6,6 +6,102 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-1727-cover-hoodie-lock-regression
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-harrier-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `scripts/excalibur_blog_cover_quad_prompt.py` снова содержал outfit lock `thick heavyweight white hoodie`, хотя cloud lessons и прошлые cover-раны требуют softshell/crewneck NO hoodie.
+- SEO-stub scene_hint в `quad_manifest.py --merge` тоже тянул hoodie/Wordstat defaults до ручной перезаписи manifest.
+
+### How the agent recovered this run
+- Переписал outfit lock на matte charcoal softshell + cream crewneck (NOT hoodie/hood/cap).
+- Добавил явную строку corner footer `avto-sales125.ru` в cover prompt line.
+- Manifest для Harrier заполнен вручную (порт Владивостока, до ставки, G/Z лист).
+
+### Durable fix needed before next run
+- Зафиксировать softshell/crewneck lock в prompt builder + regression test/assert на отсутствие `hoodie` как positive outfit.
+- В `excalibur_blog_quad_manifest.py` убрать SEO/hoodie stub defaults для auto scene_hint.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261022-1728-cover-missing-corner-brand-pil
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-harrier-iz-yaponii-komplektatsii-lovushki-2026
+severity: low
+category: script
+
+### What went wrong
+- После ONE Kie i2i quad canvas на cover panel не было читаемого corner brand `avto-sales125.ru` (каталог), хотя hook/caption/outfit ок.
+
+### How the agent recovered this run
+- PIL overlay semi-opaque navy pill + `avto-sales125.ru` в правом нижнем углу `cover/cover.png` без второго image job.
+
+### Durable fix needed before next run
+- Встроить optional PIL corner stamp в `excalibur_blog_cover_quad_split.py` / `quad_apply.py` после split (flag или always-on для cover slot).
+- Document в cover skill: если gen без угла — stamp, не retry MCP.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `scripts/excalibur_blog_quad_apply.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261022-1726-cover-hero-https-host-fallback
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-harrier-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `blog-hero.json` держал `http://` WordPress media URL; cloud lessons требуют https для Kie `input_urls`.
+- `--force` upload catbox/0x0 упал (412 / SSL timeout); litterbox дал https face, но `cover_quad_prompt.py` validator принимает только host `avtosales125.ru`.
+
+### How the agent recovered this run
+- Переключил `reference_url_hosted` на `https://avtosales125.ru/wp-content/uploads/...` (HEAD 200); litterbox URL сохранён как fallback field.
+- Kie createTask i2i success с https WP face.
+
+### Durable fix needed before next run
+- `excalibur_blog_hero_reference_url.py`: prefer https rewrite of WP media; add litterbox provider; keep host allowlist but accept litterbox when WP https fails.
+- Validator: allow https litterbox/catbox as temporary face host OR auto-upgrade WP http→https.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/blog-hero.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261022-1717-geo-qa-writer-cta-href-redacted-literal
 status: open
 run_date: 2026-10-22

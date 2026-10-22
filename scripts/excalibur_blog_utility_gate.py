@@ -13,6 +13,40 @@ from typing import Any
 
 from excalibur_repo_paths import repo_relative
 
+# Fallback when editorial-policy.json omits lists (keep in sync with human_voice_gate).
+DEFAULT_PAIN_MARKERS_RU = (
+    "боль",
+    "проблем",
+    "ошиб",
+    "ломает",
+    "не работает",
+    "теряет",
+    "дорого",
+    "долго",
+    "рутин",
+    "хаос",
+    "застр",
+    "сложно",
+    "ловуш",
+    "боюсь",
+    "пута",
+)
+DEFAULT_OUTCOME_MARKERS_RU = (
+    "результат",
+    "получите",
+    "сможете",
+    "сэконом",
+    "проверьте",
+    "запустите",
+    "соберите",
+    "настройте",
+    "исправьте",
+    "выберите",
+    "критерий успеха",
+    "чек-лист",
+    "чеклист",
+)
+
 
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
@@ -185,8 +219,8 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     if marker_count < min_rec:
         errors.append(f"мало action-маркеров в тексте: {marker_count} < {min_rec}")
 
-    pain_markers = policy.get("pain_markers_ru") or []
-    outcome_markers = policy.get("outcome_markers_ru") or []
+    pain_markers = list(policy.get("pain_markers_ru") or []) or list(DEFAULT_PAIN_MARKERS_RU)
+    outcome_markers = list(policy.get("outcome_markers_ru") or []) or list(DEFAULT_OUTCOME_MARKERS_RU)
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 

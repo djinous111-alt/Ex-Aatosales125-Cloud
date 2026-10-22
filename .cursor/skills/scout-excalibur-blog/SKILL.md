@@ -44,12 +44,17 @@ Append new Topic Card to blog-topics.md
 * **Цель:** Найти ключевой запрос (primary query) с живым спросом в Яндексе и выписать 3–5 связанных поисковых вопросов для FAQ и secondary queries.
 * **Фильтр:** Если тема имеет микро-спрос (меньше 10 показов в месяц) и нет смежных тем — отложи её и возьми другую, более востребованную.
 
-### Шаг 4 — Тест на каннибализацию ключевых слов
+### Шаг 4 — Тест на каннибализацию + WP denylist
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py \
+  --check-query "<выбранный_запрос>" \
+  --check-slug "<kebab-case-slug>"
 ```
-Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
+Если возвращается `OVERLAP DETECTED` / `SLUG DENYLIST HIT` — измени формулировку или выбери другую тему.
+
+Канонический republish-барьер: `shared/wp-slug-denylist.json` (live slugs).  
+**Не** считай WordPress MCP источником denylist без сверки с live `PUBLIC_SITE_URL` REST (`/wp-json/wp/v2/posts`). При отсутствии denylist-файла — обнови его из live REST до выбора темы.
 
 ### Шаг 5 — Сборка карточки темы (Utility-Only)
 Сформируй карточку темы по шаблону:

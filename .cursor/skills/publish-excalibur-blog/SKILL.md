@@ -20,10 +20,22 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | Cloud Secrets → `memory/site.env.local` (gitignored): `SSH_*`, `PUBLIC_SITE_URL` |
+| Paramiko | `import paramiko` (ставится в `.cursor/cloud-agent-install.sh`) |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
+
+### Шаг 0 — site.env.local + env-check
+
+Если `memory/site.env.local` отсутствует, doctor/publish **auto-write** его из process env (Cloud Secrets). Default `SSH_ROOT=.` для login cwd этого хоста. Файл **не коммитить**.
+
+```bash
+python3 scripts/excalibur_blog_doctor.py --publish
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+`--env-check` обязан репортить `paramiko_available` и `missing` (включая `paramiko` если нет модуля).
 
 ## Алгоритм
 

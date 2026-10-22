@@ -31,3 +31,16 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-22 — B01 toyota-harrier-iz-yaponii-komplektatsii-lovushki-2026
+
+- **verdict:** PASS
+- **post_id:** 4447
+- **permalink:** [REDACTED]/2026/10/22/toyota-harrier-iz-yaponii-komplektatsii-lovushki-2026/
+- **featured_image:** 4448
+- **inline_images:** 4449 (`inline-01.png`), 4450 (`inline-02.png`), 4451 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH (`SSH_ROOT=.`) + HTTP OK (~2–3 min, no WebFetch/504)
+- **note:** NEW post — do not confuse with Monjaro 4441 / LHD 4435; preflight created `memory/site.env.local` from Cloud Secrets; installed paramiko 5.1.0
+- **result:** `memory/blog/articles/B01-toyota-harrier-iz-yaponii-komplektatsii-lovushki-2026/wp-publish-result.json`

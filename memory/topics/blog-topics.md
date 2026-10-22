@@ -184,3 +184,27 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Toyota Harrier из Японии: комплектации и ловушки до ставки
+
+- **priority:** P0
+- **slug:** toyota-harrier-iz-yaponii-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Toyota Harrier из Японии: кузова, гибрид и ловушки до ставки в 2026
+- **primary_query:** тойота харриер из японии
+- **secondary_queries:** тойота харриер под заказ из японии, тойота харриер гибрид, какой харриер будет проходным из японии, тойота харриер с аукциона
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Зафиксируйте задачу и бюджет "под ключ" до поиска лота
+  2. Разберите поколения и коды кузова: бензин vs гибрид без путаницы
+  3. Сверьте комплектацию (G / Z / пакеты) с листом и фото до ставки
+  4. Красные флаги аукционного листа: R/RA, силовые зоны, пробег, гибрид-варнинги
+  5. Чек-лист перед депозитом / лимитом ставки на Harrier
+- **faq_hints:** какой харриер будет проходным из японии; бензин или гибрид выгоднее для ввоза; на что смотреть в аукционном листе до ставки; чем кузов 60 отличается от 80
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у современного кроссовера Toyota Harrier на фоне порта Владивостока, плашка "до ставки", угол avto-sales125.ru
+- **wordstat_signal:** parent "тойота харриер" ~92710; narrow "харриер из японии" / "тойота харриер из японии" ~485/401; hybrid tail ~2255; how-to "как выбрать тойота харриер" totalCount-only 17 (low-result)
+- **anti_cannibalization:** live WP gap (нет harrier/харриер); helper --check-query clean; не пересекается с Alphard/auction-sheet/levyj-rul

@@ -190,13 +190,21 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 
-    min_pain = int(req.get("min_pain_markers") or 2)
-    if pain_count < min_pain:
-        errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
+    # Defense in depth: empty marker lists in editorial-policy must not hard-BLOCK
+    # every article (INC-20261022-0920). Skip min thresholds and warn instead.
+    if not pain_markers:
+        warnings.append("pain_markers_ru пуст в editorial-policy — pain threshold пропущен")
+    else:
+        min_pain = int(req.get("min_pain_markers") or 2)
+        if pain_count < min_pain:
+            errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
 
-    min_outcome = int(req.get("min_outcome_markers") or 3)
-    if outcome_count < min_outcome:
-        errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
+    if not outcome_markers:
+        warnings.append("outcome_markers_ru пуст в editorial-policy — outcome threshold пропущен")
+    else:
+        min_outcome = int(req.get("min_outcome_markers") or 3)
+        if outcome_count < min_outcome:
+            errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
 
     if req.get("requires_workflow_or_table_or_checklist"):
         has_utility_block = bool(tables or blockquotes or ul_lists >= 2 or "→" in html)

@@ -1,0 +1,24 @@
+{
+  "gate": "research-notes",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-levyj-rul-iz-yaponii-2026-chek-list",
+  "notes": "memory/blog/articles/B01-levyj-rul-iz-yaponii-2026-chek-list/research-notes.md",
+  "context": "memory/blog/articles/B01-levyj-rul-iz-yaponii-2026-chek-list/research-context.json",
+  "errors": [],
+  "warnings": [
+    "technical topic has no obvious official docs/developer documentation URL"
+  ],
+  "metrics": {
+    "today_iso": "2026-10-22",
+    "prefer_sources_after": "2026-07-24",
+    "source_urls": 39,
+    "source_domains": 14,
+    "source_table_rows": 28,
+    "accessed_at": 5,
+    "github_urls": 3,
+    "official_doc_urls": 0,
+    "action_outline_items": 9,
+    "pain_solution_rows": 7,
+    "technical_topic": true
+  }
+}

@@ -10,7 +10,7 @@ description: Excalibur BLOG Research — topic research перед статьё�
 **Шаг 0 (скрипт, обязательно):** перед любым research — зафиксировать дату и собрать свежий SERP.
 
 ```bash
-python scripts/excalibur_blog_research_start.py --topic-id B01
+python3 scripts/excalibur_blog_research_start.py --topic-id B01
 ```
 
 Создаёт в папке статьи:
@@ -68,3 +68,17 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+
+## research-notes-gate CLI
+
+```bash
+# Предпочтительно: basename only (пишет в --article-dir)
+python3 scripts/excalibur_blog_research_notes_gate.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug> \
+  -o research-notes-gate.json
+
+# Допустимо: абсолютный путь или repo-relative multi-part путь от корня репо.
+# Не передавай repo-relative путь ожидая article_dir-relative — раньше это создавало nested memory/... дерево.
+```
+
+`technical_topic` использует word-boundary matching (ложные срабатывания на «японии»/«make» в auto-нише снижены). Regression: `--self-test`.

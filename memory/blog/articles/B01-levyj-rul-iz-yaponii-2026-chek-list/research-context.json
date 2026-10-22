@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-22",
+    "today_ru": "22.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-24",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-22 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "levyj-rul-iz-yaponii-2026-chek-list",
+    "h1": "Как купить авто с левым рулём \"из Японии\" в 2026: чек-лист до депозита",
+    "primary_query": "левый руль из японии",
+    "secondary_queries": [
+      "авто из японии с левым рулем",
+      "левый руль из японии купить",
+      "машины из японии с левым рулем",
+      "левый руль из японии купить владивосток"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "левый руль из японии 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "левый руль из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "левый руль из японии новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com левый руль из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "левый руль из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "левый руль из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "авто из японии с левым рулем 2026",
+      "purpose": "вторичный запрос: авто из японии с левым рулем"
+    },
+    {
+      "id": "secondary_2",
+      "query": "левый руль из японии купить 2026",
+      "purpose": "вторичный запрос: левый руль из японии купить"
+    },
+    {
+      "id": "secondary_3",
+      "query": "машины из японии с левым рулем 2026",
+      "purpose": "вторичный запрос: машины из японии с левым рулем"
+    },
+    {
+      "id": "secondary_4",
+      "query": "левый руль из японии купить владивосток 2026",
+      "purpose": "вторичный запрос: левый руль из японии купить владивосток"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как купить авто с левым рулём \"из Японии\" в 2026: чек-лист до депозита 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-levyj-rul-iz-yaponii-2026-chek-list",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

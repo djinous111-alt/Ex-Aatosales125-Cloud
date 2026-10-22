@@ -12,7 +12,7 @@ import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import quote, urlparse, urlsplit, urlunsplit
 
 
 class LinkExtractor(HTMLParser):
@@ -43,7 +43,38 @@ def extract_links(html: str) -> list[str]:
     return out
 
 
+def iri_to_uri(url: str) -> str:
+    """Percent-encode non-ASCII path/query/fragment so urllib can request IRI URLs."""
+    parts = urlsplit(url)
+    # Keep already-encoded segments; encode Unicode path/query/fragment.
+    path = quote(parts.path, safe="/%:@&=+$,;~*")
+    query = quote(parts.query, safe="=&%:@+/?,;")
+    fragment = quote(parts.fragment, safe="=&%:@+/?,;")
+    # netloc may contain IDN; encode hostname via IDNA if needed.
+    netloc = parts.netloc
+    if netloc and any(ord(ch) > 127 for ch in netloc):
+        if "@" in netloc:
+            userinfo, hostport = netloc.rsplit("@", 1)
+        else:
+            userinfo, hostport = "", netloc
+        if ":" in hostport:
+            host, port = hostport.rsplit(":", 1)
+            try:
+                host = host.encode("idna").decode("ascii")
+            except UnicodeError:
+                host = host
+            hostport = f"{host}:{port}"
+        else:
+            try:
+                hostport = hostport.encode("idna").decode("ascii")
+            except UnicodeError:
+                pass
+        netloc = f"{userinfo}@{hostport}" if userinfo else hostport
+    return urlunsplit((parts.scheme, netloc, path, query, fragment))
+
+
 def check_url(url: str, timeout: float, user_agent: str) -> dict[str, Any]:
+    url = iri_to_uri(url)
     ctx = ssl.create_default_context()
     req = urllib.request.Request(
         url,
@@ -76,6 +107,7 @@ def check_url(url: str, timeout: float, user_agent: str) -> dict[str, Any]:
 def _get_fallback(
     url: str, timeout: float, user_agent: str, ctx: ssl.SSLContext, head_error: str
 ) -> dict[str, Any]:
+    url = iri_to_uri(url)
     req = urllib.request.Request(url, headers={"User-Agent": user_agent})
     try:
         with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:

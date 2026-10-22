@@ -55,3 +55,9 @@ python scripts/excalibur_blog_human_voice_gate.py \
 **Beginner-fit blocker:** статья звучит как для профи/разработчиков/архитекторов, не объясняет термины (API, RAG, MCP, workflow, agent), не даёт первого безопасного шага или требует команды разработчиков без альтернативы для новичка.
 
 Schema и cover — **не** твоя зона (отдельные субагенты после PASS).
+
+
+## Link verify IRI
+
+`excalibur_blog_link_verify.py` сам percent-encode non-ASCII path/query (2GIS и др.) перед HTTP.
+Writer всё равно может заранее encode; скрипт больше не падает на `'ascii' codec`.

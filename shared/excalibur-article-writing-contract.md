@@ -348,6 +348,8 @@ Excalibur BLOG следует этому контракту для каждой 
 
 Все поля должны быть валидными по валидаторам Schema.org / Google Rich Results. Валидный JSON-LD, без разрывов строк внутри строк, экранирование кавычек.
 
+**Commit-safe URLs:** в git `schema.jsonld` используй root-relative `@id` / `url` / `mainEntityOfPage` / `image` (`/<slug>/#…`). Не вшивай host из `PUBLIC_SITE_URL` (secret-scan). `sameAs` — только публичные профили. Publish absolutize root-relative IRIs при записи WP meta.
+
 ## Чеклист перед сдачей
 
 1. Первый абзац 350–500 символов, ответ по сути (GEO)

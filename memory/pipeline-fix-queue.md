@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-0905-scout-missing-wp-denylist
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- `shared/wp-slug-denylist.json` отсутствует на ветке; scout не может опереться на канонический denylist republish-slug'ов.
+- MCP `wordpress_search_posts` возвращает чужой/старый хост (посты июля про таможню), а не live avtosales125.ru – нельзя использовать как единственный антиканнибализационный источник.
+
+### How the agent recovered this run
+- Сверил запрет republish из Director Task + automation memory + WebSearch site:avtosales125.ru + `memory/blog/published-live-avtosales125.json`.
+- Выбрал тему вне live-slug'ов октября (не аукционный лист, не модели Carnival/Sorento/…, не проходные/утиль/СВХ/Encar).
+- `--check-query` по primary_query чистый; AS* карточки не считались Bxx-пулом.
+
+### Durable fix needed before next run
+- Закоммитить актуальный `shared/wp-slug-denylist.json` со свежими WP slug'ами Авто-Сейлс (включая октябрь 2026).
+- В scout skill явно: denylist + live site search обязательны; MCP WordPress не sole source of truth при mismatch хоста.
+
+### Suggested files to inspect/change
+- `shared/wp-slug-denylist.json`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

@@ -6,6 +6,125 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-1330-cover-hero-https-host-fail
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- `excalibur_blog_hero_reference_url.py --force` failed: catbox HTTP 412, 0x0 SSL handshake timeout.
+- Existing `reference_url_hosted` was `http://` WordPress media; cover contract/user require https `input_urls`.
+
+### How the agent recovered this run
+- Confirmed WordPress media also serves over https (HEAD 200).
+- Uploaded local `blog-hero-reference.png` to litterbox (https) for this i2i call; restored durable WP https in `blog-hero.json` after generation.
+
+### Durable fix needed before next run
+- Treat non-https `reference_url_hosted` as stale and force re-host/upgrade to https automatically.
+- Add litterbox (or another reliable https host) as provider after catbox/0x0 in `excalibur_blog_hero_reference_url.py`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `memory/cover/blog-hero.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261022-1331-cover-sync-mcp-timeout-kie-async
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` timed out twice with `-32001` on 2K i2i quad canvas.
+
+### How the agent recovered this run
+- Used preferred path `scripts/excalibur_blog_kie_gpt_image2_api.py` (async createTask + poll) → one task success → `quad_apply --inject-html`.
+
+### Durable fix needed before next run
+- Cover skill/agent should lead with Kie async script; sync MCP only as legacy fallback (docs already partially say this; make runbook step 5 = kie script).
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261022-1332-cover-prompt-hoodie-lock
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` hardcodes `Outfit lock: thick heavyweight white hoodie`, conflicting with `blog-hero.json` outfit_rule and user rule softshell/crewneck OK, NO hoodie.
+- Auto-manifest defaults also suggested hoodie/Wordstat scene for new B01 topic until rewritten.
+
+### How the agent recovered this run
+- Manually rewrote `quad-manifest.json` for Geely/port/deposit; patched prompt text before Kie call to softshell/crewneck + NO hoodie.
+
+### Durable fix needed before next run
+- Replace hoodie outfit lock with weather/topic outfit from `blog-hero.json` / cover `scene_hint`.
+- Clear SEO-primer defaults when topic is auto/import cars.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_quad_manifest.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261022-1333-cover-missing-corner-brand
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-monjaro-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: qa
+
+### What went wrong
+- Generated cover lacked visible corner catalog brand `avto-sales125.ru` despite prompt.
+
+### How the agent recovered this run
+- PIL overlay of `avto-sales125.ru` on `cover.png` and TL quadrant of `canvas-quad.png` (no second image generation).
+
+### Durable fix needed before next run
+- Add post-split validator + optional overlay helper for required corner brand (same pattern as prior auction-sheet cover incident).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `scripts/excalibur_blog_quad_apply.py`
+- `memory/cover/cover-design-code.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261022-1325-schema-precommit-secret-url-allowlist
 status: open
 run_date: 2026-10-22

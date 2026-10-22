@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит за Monjaro — а привод другой?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у китайского кроссовера у порта Владивостока, плашка до депозита, угол каталога avto-sales125.ru",
+      "scene_hint": "Photoreal action selfie at Vladivostok port: Chinese Geely/Xingyue L crossover on dock behind hero; cool foggy Pacific air; EXACT face+glasses from reference; OUTFIT: dark olive softshell jacket over charcoal crewneck (NO hoodie, NO cap, NO hood); Cyrillic plaque «до депозита» with yellow highlight on «депозита»; fake phone UI: car catalog card + customs checklist sticky; torn paper + scotch tape; one shocked meme cutout; corner brand avto-sales125.ru; NO toxic/insult text, NO Wordstat/Metrika, NO Telegram",
+      "meme_caption_ru": "Стоп — сверь лот"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте задачу поездок до поиска лота",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI (no people): колонки Семья/город vs Трасса/зима vs Must-have AWD; rows подогревы, мультимедиа RU, сервис вне ОД; sticky note «ТЗ до чатов»; tape corner; readable Cyrillic only",
+      "alt": "Таблица сценариев поездок до поиска лота Monjaro: семья, трасса, AWD"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Разберите линейку 2026: i-HEV, Changfeng и Dongfang Yao",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram UI without faces: три ветки 2026 — i-HEV FWD → Changfeng 2.0T FWD → Dongfang Yao / Wangyue AWD; arrows and badges кВт; mini sticker «не путать Flagship»; no hero",
+      "alt": "Схема веток Geely Xingyue L / Monjaro 2026: i-HEV, Changfeng, Dongfang Yao"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте мощность, возраст и утильсбор до депозита",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable checklist board UI: пункты кВт, возраст, утильсбор без льготы, VIN/фото; green/red status chips; title «до депозита»; no people faces; Cyrillic only",
+      "alt": "Чеклист мощности, возраста и утильсбора до депозита за Monjaro"
+    }
+  }
+}

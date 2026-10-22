@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/B01-levyj-rul-iz-yaponii-2026-chek-list/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "а не \"обычная Camry для семьи\". По данным JAIA за 2025 в Японии зарегистрировали 243 129 новых авто иност",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "кой LHD-премиум и готовы ждать маршрут. С августа 2023 Япония ограничила прямой экспорт в РФ для авто с м",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "йте у брокера без обещаний серых схем. По обзорам 2026: без ограничений путь до Владивостока по части ло",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "30 минут",
+      "kind": "metric_or_duration",
+      "context": "ие \"переделаем руль\". Задача гайда простая. За 20–30 минут заполнить короткий чек и принять решение до перев",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "243 129",
+      "kind": "large_number",
+      "context": "По данным JAIA за 2025 в Японии зарегистрировали 243 129 новых авто иностранных марок. Это потолок \"иномаро",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

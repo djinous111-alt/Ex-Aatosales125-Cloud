@@ -6,6 +6,76 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261022-0920-geo-qa-utility-pain-outcome-markers-missing
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-levyj-rul-iz-yaponii-2026-chek-list
+severity: blocker
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требует `pain_markers` ≥2 и `outcome_markers` ≥3 (defaults в коде), читая списки из `editorial-policy.json` → `pain_markers_ru` / `outcome_markers_ru`.
+- В `memory/brief/editorial-policy.json` этих ключей нет → списки пустые → любой article получает `pain_markers=0` / `outcome_markers=0` и BLOCK, даже при human-voice PASS и явном pain/outcome в тексте.
+- B01: action_markers=7&lt;8 (writer-fixable) + pain/outcome 0 (не writer-fixable без policy).
+
+### How the agent recovered this run
+- Зафиксировал FAIL в `article-qa.md`; статью не переписывал.
+- Вернул writer FIX только по action-маркерам (+1 из `recommendation_markers_ru`) и encode 2GIS URL.
+- Pain/outcome utility оставил на Fixer (sync policy со списками human-voice gate).
+
+### Durable fix needed before next run
+- Добавить в `editorial-policy.json` `pain_markers_ru` и `outcome_markers_ru` (согласовать с `PAIN_MARKERS` / `OUTCOME_MARKERS` в `excalibur_blog_human_voice_gate.py`) и явные `min_pain_markers` / `min_outcome_markers` в `article_required_signals`.
+- Либо: если списки пусты — не применять min thresholds (skip check), чтобы не блокировать весь пайплайн.
+- В writer skill явно: «Делать/Не делать» ≠ маркеры; нужны формы из `recommendation_markers_ru` (`сделайте`, `не делайте`, …).
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261022-0921-geo-qa-link-verify-iri-ascii
+status: open
+run_date: 2026-10-22
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-levyj-rul-iz-yaponii-2026-chek-list
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_link_verify.py` падает на URL 2GIS с кириллицей в path: `'ascii' codec can't encode characters...` → verdict fail при живой ссылке.
+- Writer может обойти percent-encode, но скрипт должен сам IRI→URI quote перед urllib request.
+
+### How the agent recovered this run
+- Зафиксировал link-verify FAIL в QA; в FIX для writer — полный percent-encode path 2GIS.
+- Статью не менял.
+
+### Durable fix needed before next run
+- В `check_url` / `_get_fallback` нормализовать URL через `urllib.parse.urlsplit` + `quote(path, safe='/%')` (и query при необходимости) перед `urlopen`.
+- Документировать в writer/geo-qa: внешние URL с non-ASCII — encode или полагаться на фикс скрипта.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261022-0915-writer-precommit-secret-names
 status: open
 run_date: 2026-10-22

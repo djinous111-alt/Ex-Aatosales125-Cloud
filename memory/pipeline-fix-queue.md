@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-2125-director-main-missing-utility-markers
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-director
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026
+severity: blocker
+category: docs
+
+### What went wrong
+- Cloud run branched from `main` without prior durable fixer commits (Vezel `2a6ab59b` / Sonata `958b92a5` not ancestors).
+- `memory/brief/editorial-policy.json` lacked `pain_markers_ru` / `outcome_markers_ru`, so utility article gate always BLOCKED even after writer FIX.
+- `excalibur_blog_utility_gate.py` lacked fail-fast for empty marker lists (regression vs Vezel fixer).
+- Also missing on this branch: `shared/wp-slug-denylist.json`, scout `--check-slug`, doctor `--blog-dir` check (still requires stale `--blog-path`).
+
+### How the agent recovered this run
+- Director restored `pain_markers_ru` / `outcome_markers_ru` + mins into `editorial-policy.json` (aligned with prior Sonata restore + human_voice).
+- Restored utility-gate fail-fast empty-list policy from Vezel patch.
+- Re-ran utility gate on B01 Stepwgn → PASS; then re-queued GEO QA.
+
+### Durable fix needed before next run
+- Merge prior fixer commits into `main` OR re-apply: policy markers, utility fail-fast, doctor llms `--blog-dir`, scout denylist CLI + tracked denylist JSON, geo-qa typed Task registration.
+- Ensure new Cloud branches inherit these files so each cron run does not rediscover the same blocker.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/wp-slug-denylist.json`
+- `AGENTS.md` / `.cursor/agents` geo-qa availability
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261024-2119-geo-qa-typed-task-unavailable
 status: open
 run_date: 2026-10-24

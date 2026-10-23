@@ -485,6 +485,7 @@ category: script
 ### Durable fix needed before next run
 - Align doctor check with real CLI: drop `--blog-path` expectation OR restore `--blog-path` in generator if still needed.
 - Remove `--blog-path` from indexer agent/skill examples; document `--blog-dir` + `--out-dir` only.
+- Document that committed `llms*.txt` must use relative `/blog/...` URLs (empty `--site-base`) or `${PUBLIC_SITE_URL}` placeholder — never expand live `PUBLIC_SITE_URL` into git-tracked files.
 - Optional: pitfalls note so Indexer never passes `--blog-path`.
 
 ### Suggested files to inspect/change

@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-23",
+    "today_ru": "23.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-25",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-23 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "honda-vezel-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Honda Vezel из Японии: как выбрать комплектацию и не ошибиться с утильсбором до депозита",
+    "primary_query": "хонда везел из японии",
+    "secondary_queries": [
+      "хонда везел комплектации",
+      "хонда везел гибрид",
+      "везел из японии",
+      "хонда везел из китая"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "хонда везел из японии 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "хонда везел из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "хонда везел из японии новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com хонда везел из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "хонда везел из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "хонда везел из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "хонда везел комплектации 2026",
+      "purpose": "вторичный запрос: хонда везел комплектации"
+    },
+    {
+      "id": "secondary_2",
+      "query": "хонда везел гибрид 2026",
+      "purpose": "вторичный запрос: хонда везел гибрид"
+    },
+    {
+      "id": "secondary_3",
+      "query": "везел из японии 2026",
+      "purpose": "вторичный запрос: везел из японии"
+    },
+    {
+      "id": "secondary_4",
+      "query": "хонда везел из китая 2026",
+      "purpose": "вторичный запрос: хонда везел из китая"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Honda Vezel из Японии: как выбрать комплектацию и не ошибиться с утильсбором до депозита 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-honda-vezel-iz-yaponii-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

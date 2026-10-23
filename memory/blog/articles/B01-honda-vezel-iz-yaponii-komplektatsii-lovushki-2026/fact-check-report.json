@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/B01-honda-vezel-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026 год",
+      "kind": "date_or_year",
+      "context": ") и 6AA-RV6 (4WD). Например, по каталогу Honda на 2026 год у бензина G около 87 кВт / 118 PS, у e:HEV ДВС ок",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "коды кузова сверены с каталогом Honda Japan VEZEL 2026; логика утильсбора – с разъяснениями по 30-минутн",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "170",
+      "kind": "large_number",
+      "context": "о скрину, в листе мелькает RV5 и рекламные \"около 170 сил\". Через сутки ясно: пик мотора для расчёта не",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "118",
+      "kind": "large_number",
+      "context": "логу Honda на 2026 год у бензина G около 87 кВт / 118 PS, у e:HEV ДВС около 78 кВт / 106 PS, электромото",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "106",
+      "kind": "large_number",
+      "context": "около 87 кВт / 118 PS, у e:HEV ДВС около 78 кВт / 106 PS, электромотор в пике – 96 кВт / 131 PS. Для ути",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "131",
+      "kind": "large_number",
+      "context": "о 78 кВт / 106 PS, электромотор в пике – 96 кВт / 131 PS. Для утильсбора у параллельного гибрида считают",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "honda-vezel-iz-yaponii-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у правого Honda Vezel с аукционным листом, плашка до депозита, Владивосток",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-23T17:26:56+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у правого Honda Vezel с аукционным листом, плашка до депозита, Владивосток",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица: кому подходит Honda Vezel — город, семья, правый руль",
+      "h2_anchor": "Определите, кому подходит Vezel: город, семья, правый руль",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема сверки бензин G и e:HEV по мощности до ставки",
+      "h2_anchor": "Сверьте бензин G и e:HEV по мощности до ставки",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист комплектаций Honda Vezel X Z RS G без переплаты",
+      "h2_anchor": "Выберите комплектацию X / Z / RS / G без переплаты",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

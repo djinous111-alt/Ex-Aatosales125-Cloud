@@ -362,3 +362,8 @@ Excalibur BLOG следует этому контракту для каждой 
 10. Скрипт `excalibur_blog_cannibalization_guard.py` дал PASS (нет критической каннибализации ключевых слов)
 11. `schema.jsonld` содержит E-E-A-T автора по реестру; `promotion-checklist.md` сформирован.
 
+## CTA / secret-scan
+
+Публичные CTA (`CATALOG_URL`, `TELEGRAM_URL`) допустимы в `article.html`. На строке с URL обязателен `<!-- pragma: allowlist secret -->`.
+Запрещены placeholder href: `[REDACTED]`, `${CATALOG_URL}`, `example.com` — GEO QA link-verify вернёт FAIL (`kind=placeholder`).
+

@@ -68,3 +68,6 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+## technical_topic gate
+
+`excalibur_blog_research_notes_gate.py` marks technical topics via **word-boundary** markers on the topic card (`h1`/`primary_query`/…). Substrings like `ai` inside `pain` or `ии` inside `японии` must not force GitHub evidence. Non-dev niches (авто) normally stay non-technical.

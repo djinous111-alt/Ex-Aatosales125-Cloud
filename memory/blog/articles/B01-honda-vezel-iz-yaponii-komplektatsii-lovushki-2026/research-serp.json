@@ -1,0 +1,681 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-23",
+    "today_ru": "23.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-25",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-23 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "honda-vezel-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Honda Vezel из Японии: как выбрать комплектацию и не ошибиться с утильсбором до депозита",
+    "primary_query": "хонда везел из японии",
+    "secondary_queries": [
+      "хонда везел комплектации",
+      "хонда везел гибрид",
+      "везел из японии",
+      "хонда везел из китая"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "хонда везел из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хонда Везел 2026 технические характеристики. Honda Vezel 2026 ...",
+          "url": "https://www.drom.ru/catalog/honda/vezel/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Хонда Везел 2026 года с аукциона Японии - Токай Авто",
+          "url": "https://tokai-auto.ru/honda/vezel/?year_from=2026&year_to=2026",
+          "snippet": "Подробно расписан модельный ряд Honda Vezel 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Honda Vezel Из Японии",
+          "url": "https://tokito-auto.ru/japan/czeny-na-avto/honda/vezel",
+          "snippet": "Список лотов Хонда Везел 2026 года на online аукционах Японии, наши специалисты помогут с выбором и покупкой автомобиля с аукциона Японии"
+        },
+        {
+          "title": "Продажи Honda VEZEL (Хонда Везел) 2026 года",
+          "url": "https://vladdiler.ru/statistika/honda/vezel/?year_from=2026&year_to=2026",
+          "snippet": "В мае месяце обратился в фирму Токито для покупки авто, а именно Honda Freed. Заключили договор, и начали рассматривать варианты автомобилей. Сразу хочу сказать, что бюджет был ограничен. Именно моим договором занимался сам Илья."
+        },
+        {
+          "title": "Honda Vezel (Хонда Везел) Джип/SUV, 2024-2026 , 2 поколение",
+          "url": "https://www.japantrek.ru/catalog/honda/vezel/2024-2026-2-restyling-hybrid-dzip-suv-23734.html",
+          "snippet": "Статистика проданных автомобилей Honda VEZEL (Хонда Везел) 2026 года на аукционах Японии: фото, описания, пробег, комплектации и цены в рублях. Удобный поиск по модели, году и кузову."
+        },
+        {
+          "title": "Заказать Хонда Везель из Японии с доставкой | Антарес Авто",
+          "url": "https://antaresjp.ru/aukciony/honda/vezel/",
+          "snippet": "Цены на Honda Vezel с аукционов Японии напрямую зависят от состояния авто (аукционная оценка, пробег) и комплектации (объем двигателя, тип топлива, привод, тюнинг и т.д.)."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "хонда везел из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Купить Хонда Везел 2026 года с аукциона Японии - Токай Авто",
+          "url": "https://tokai-auto.ru/honda/vezel/?year_from=2026&year_to=2026",
+          "snippet": ""
+        },
+        {
+          "title": "Хонда Везел 2026 технические характеристики. Honda Vezel 2026 ...",
+          "url": "https://www.drom.ru/catalog/honda/vezel/2026/",
+          "snippet": "Список лотов Хонда Везел 2026 года на online аукционах Японии, наши специалисты помогут с выбором и покупкой автомобиля с аукциона Японии"
+        },
+        {
+          "title": "Honda Vezel Из Японии",
+          "url": "https://tokito-auto.ru/japan/czeny-na-avto/honda/vezel",
+          "snippet": "Подробно расписан модельный ряд Honda Vezel 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Продажи Honda VEZEL (Хонда Везел) 2026 года",
+          "url": "https://vladdiler.ru/statistika/honda/vezel/?year_from=2026&year_to=2026",
+          "snippet": "Мы читаем аукционные листы, знаем особенности моделей и понимаем, какие дефекты могут превратить покупку в дорогостоящую проблему. Объясним нюансы, подскажем альтернативу, отговорим от проблемных лотов или посоветуем купить хороший авто. Не нашли нужный автомобиль?"
+        },
+        {
+          "title": "Honda из Японии под ключ 2026: цена и растаможка | ДАРЭ",
+          "url": "https://importdare.ru/blog/honda-iz-yaponii-pod-klyuch",
+          "snippet": "Статистика проданных автомобилей Honda VEZEL (Хонда Везел) 2026 года на аукционах Японии: фото, описания, пробег, комплектации и цены в рублях. Удобный поиск по модели, году и кузову."
+        },
+        {
+          "title": "Каталог Honda Vezel (Хонда Везел) из Японии — поколения и цены",
+          "url": "https://jpstar.ru/catalog/honda/vezel/",
+          "snippet": "Honda из Японии под ключ: честная смета в рублях, растаможка CR-V, Fit, Vezel. Какие модели реально ввезти в 2026, а какие под запретом гибридов e:HEV."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "хонда везел из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хонда Везел 2026 технические характеристики. Honda Vezel 2026 ...",
+          "url": "https://www.drom.ru/catalog/honda/vezel/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Honda Vezel из Японии: поколения, гибрид e:HEV и стоимость под ключ в 2026",
+          "url": "https://onlyjpcars.ru/blog/honda-vezel-iz-yaponii",
+          "snippet": "Подробно расписан модельный ряд Honda Vezel 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Хонда Везел 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+          "url": "https://naavtotrasse.ru/honda/honda-vezel-2026.html",
+          "snippet": "Honda Vezel из Японии под ключ: два поколения RU и RV, гибрид e:HEV, аукционные цены в JPY, итог в рублях до Сибири и нюансы растаможки по мощности в 2026."
+        },
+        {
+          "title": "Новая версия Honda Vezel удивила оснащением: что изменилось по цене ...",
+          "url": "https://speedme.ru/posts/id-87748-novaja-versija-honda-vezel-udivila-osnascheniem-chto-izmenilos-po-tsene-lada-vesta",
+          "snippet": "Хонда Везел 2026 — один из самых любопытных компактных кроссоверов марки, который сегодня ориентирован прежде всего на рынок Японии."
+        },
+        {
+          "title": "В Японии стартует выпуск Honda Vezel eHEV RS 2026 — самой спортивной ...",
+          "url": "https://avtoaziya.ru/yaponskie/honda/honda-vezel-e-hev-rs-2026.html",
+          "snippet": "У Honda Vezel теперь два разных предложения под одним названием. В Японии 23 октября стартуют продажи обновлённого кроссовера, у которого бензиновая комплектация G ..."
+        },
+        {
+          "title": "Кроссовер Honda Vezel следующего поколения показали на качественных ...",
+          "url": "https://daily-motor.ru/autonews/174345",
+          "snippet": "Honda Vezel, известный в Европе как HR-V, теперь доступен в новой комплектации RS, сочетающей спортивный стиль и детали салона с улучшенными настройками шасси."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com хонда везел из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Awesome-IDEs/Resources/Icons/void.png at main · zeelsheladiya/Awesome ...",
+          "url": "https://github.com/zeelsheladiya/Awesome-IDEs/blob/main/Resources/Icons/void.png",
+          "snippet": ""
+        },
+        {
+          "title": "pong/icon.svg at main · NJKode/pong · GitHub",
+          "url": "https://github.com/NJKode/pong/blob/main/icon.svg",
+          "snippet": "A curated list of Integrated Development Environments (IDEs) and related tools that can enhance your coding experience and boost your productivity. - Awesome-IDEs/Resources/Icons/void.png at main · zeelsheladiya/Awesome-IDEs."
+        },
+        {
+          "title": "Steam из России в 2026: низкий пинг, обход замедления, голосовой чат ...",
+          "url": "https://gist.github.com/evilork/a40aa5841ba2f9236aa72c7b35551823",
+          "snippet": "Contribute to NJKode/pong development by creating an account on GitHub."
+        },
+        {
+          "title": "PyPortfolioOpt/media/corrplot_white.png at main · PyPortfolio ...",
+          "url": "https://github.com/PyPortfolio/PyPortfolioOpt/blob/master/media/corrplot_white.png?raw=true",
+          "snippet": "Полный разбор: почему Steam стал медленнее, как падает пинг в CS2, Dota 2, PUBG, и что делать чтобы пятничный вечер не превращался в борьбу с лагами. Если хочется коротко: Дальше — детальный разбор почему так, как проверить лично, и как настроить решение за 5 минут. 2022-2024: Steam работал нормально."
+        },
+        {
+          "title": "pyvista-stl/bench0.png at main · pyvista/pyvista-stl · GitHub",
+          "url": "https://github.com/pyvista/pyvista-stl/blob/main/bench0.png",
+          "snippet": "Financial portfolio optimization in python, including classical efficient frontier, Black-Litterman, Hierarchical Risk Parity - PyPortfolio/PyPortfolioOpt"
+        },
+        {
+          "title": "ComfyUI/input/example.png at master · Comfy-Org/ComfyUI",
+          "url": "https://github.com/Comfy-Org/ComfyUI/blob/master/input/example.png",
+          "snippet": "Contribute to pyvista/pyvista-stl development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "хонда везел из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хонда Везел 2026 технические характеристики. Honda Vezel 2026 ...",
+          "url": "https://www.drom.ru/catalog/honda/vezel/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Honda Issues Integrated Report - \"Honda Report 2026\" - Honda Global",
+          "url": "https://global.honda/en/topics/2026/c_2026-10-09eng.html",
+          "snippet": "Подробно расписан модельный ряд Honda Vezel 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Honda Vezel (Хонда Везел) Джип/SUV, 2024-2026 , 2 поколение",
+          "url": "https://www.japantrek.ru/catalog/honda/vezel/2024-2026-2-restyling-hybrid-dzip-suv-23734.html",
+          "snippet": "TOKYO, Japan, October 9, 2026 - Honda Motor Co., Ltd. today issued the company's integrated report, the \"Honda Report 2026,\" and made it available on the company website. The annual Honda Report summarizes the initiatives pursued by Honda to ensure sustainable growth and medium- to long-term enhancement of its future corporate value. This report also introduces the unique value Honda ..."
+        },
+        {
+          "title": "Honda| Официальный сайт",
+          "url": "https://honda.ru/?%CF%EE%F7%E5%EC%F3",
+          "snippet": "Цены на Honda Vezel с аукционов Японии напрямую зависят от состояния авто (аукционная оценка, пробег) и комплектации (объем двигателя, тип топлива, привод, тюнинг и т.д.)."
+        },
+        {
+          "title": "Хонда Везел технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/honda/vezel/",
+          "snippet": "Авто 06 октября Honda R&D, Taisei Corporation и Taisei Rotec разработали технологию беспроводной зарядки движущихся электромобилей. Автомобили, мотоциклы, садово-парковая техника, лодочные моторы, генераторы, надувные лодки, официальные диллеры."
+        },
+        {
+          "title": "Каталог Honda Vezel (Хонда Везел) из Японии — все поколения",
+          "url": "https://bravomotorrs.com/catalog/honda/vezel/",
+          "snippet": "Подробно расписан модельный ряд Honda Vezel: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хонда Везел между собой."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "хонда везел из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хонда Везел 2026 отзывы владельцев - поломки и проблемы",
+          "url": "https://www.drom.ru/reviews/honda/vezel/5kopeek/2026-all/breakages/",
+          "snippet": ""
+        },
+        {
+          "title": "Бортжурнал Honda Vezel - клуб, форум о Хонда Везел на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/honda/vezel/",
+          "snippet": "Отзывы владельцев Хонда Везел 2026 - поломки и проблемы. Опыт эксплуатации реальных владельцев автомобилей Хонда Везел: поломки, минусы, недостатки и проблемы."
+        },
+        {
+          "title": "Отзывы владельцев Honda Vezel с ФОТО - Дром",
+          "url": "https://www.drom.ru/reviews/honda/vezel/",
+          "snippet": "Бортжурнал Honda Vezel: реальные истории, опыт эксплуатации и обслуживания. Читайте в Бортжурнале Авто.ру"
+        },
+        {
+          "title": "Форум Honda Vezel с ИИ от ChatGPT - Хонда Везел форум сервис",
+          "url": "https://honda.forums.services/vezel",
+          "snippet": "Отзывы владельцев Honda Vezel. Надежность Хонда Везел. Достоинства и недостатки Honda Vezel. Опыт эксплуатации автомобилей Хонда Везел."
+        },
+        {
+          "title": "Отзывы реальных владельцев Honda Vezel'2026",
+          "url": "https://ironhorse.ru/honda/vezel/2g-2022/comment-page-1/",
+          "snippet": "Форум Honda Vezel с 24/7 ИИ Нейроном на базе ChatGPT - идеальное место, чтобы быстро получить ответы на вопросы о проблемах с Honda Vezel."
+        },
+        {
+          "title": "Кроссовер, который не бесит: опыт тех, кто пересел на Honda Vezel",
+          "url": "https://dzen.ru/a/afHmMVelrQTlKpC0",
+          "snippet": "Узнай мнение реальных владельцев Honda Vezel'2026 - их отзывы о достоинствах и недостатках, итоговые оценки."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "хонда везел комплектации 2026",
+      "purpose": "вторичный запрос: хонда везел комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хонда Везел 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/honda/vezel/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Хонда Везел технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/honda/vezel/",
+          "snippet": "Хонда Везел 2026 комплектации и цены, фото. Подробно расписан модельный ряд Honda Vezel 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хонда Везел 2026 между собой."
+        },
+        {
+          "title": "Honda Vezel (Хонда Везел) Джип/SUV, 2024-2026, 2 поколение — комплектации",
+          "url": "https://jpstar.ru/catalog/honda/vezel/2024-2026-2-restyling-hybrid-dzip-suv-23734.html",
+          "snippet": "Подробно расписан модельный ряд Honda Vezel: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хонда Везел между собой."
+        },
+        {
+          "title": "Хонда Везел 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+          "url": "https://naavtotrasse.ru/honda/honda-vezel-2026.html",
+          "snippet": "Комплектации Honda Vezel 2024-2026 (2 поколение): модификации, параметры и ориентиры по цене. Стоимость — по статистике продаж за 3 месяца, с учётом доставки в от компании Джапан Стар."
+        },
+        {
+          "title": "Honda Vezel 2026 в России: цена, комплектации, характеристики ...",
+          "url": "https://honda-irkutsk.ru/pages/info/honda-vezel-2026-v-rossii/",
+          "snippet": "Хонда Везел 2026 не получила новый кузов, но визуальные обновления все-таки были применены, так как модель обзавелась псевдоспортивной комплектацией RS."
+        },
+        {
+          "title": "Honda Vezel — все комплектации 2026 года",
+          "url": "https://chinaautozone.ru/specs.php?series=3460",
+          "snippet": "На российском рынке стартовал приём заказов на обновлённый кроссовер Honda Vezel 2026 модельного года. Автомобиль получил рестайлинг, новые опции и предлагается в трёх комплектациях."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "хонда везел гибрид 2026",
+      "purpose": "вторичный запрос: хонда везел гибрид",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хонда Везел 2026 технические характеристики. Honda Vezel 2026 ...",
+          "url": "https://www.drom.ru/catalog/honda/vezel/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Хонда Везел технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/honda/vezel/",
+          "snippet": "Подробно расписан модельный ряд Honda Vezel 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хонда Везел 2026 между собой."
+        },
+        {
+          "title": "Honda Vezel (Хонда Везел) Джип/SUV, 2024-2026, 2 поколение — комплектации",
+          "url": "https://jpstar.ru/catalog/honda/vezel/2024-2026-2-restyling-hybrid-dzip-suv-23734.html",
+          "snippet": "Подробно расписан модельный ряд Honda Vezel: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хонда Везел между собой."
+        },
+        {
+          "title": "Honda Vezel (Хонда Везел) Джип/SUV, 2024-2026 , 2 поколение",
+          "url": "https://www.japantrek.ru/catalog/honda/vezel/2024-2026-2-restyling-hybrid-dzip-suv-23734.html",
+          "snippet": "Комплектации Honda Vezel 2024-2026 (2 поколение): модификации, параметры и ориентиры по цене. Стоимость — по статистике продаж за 3 месяца, с учётом доставки в от компании Джапан Стар."
+        },
+        {
+          "title": "Купить Honda Vezel 2026 года до 2 200 000 рублей - более 11 Хонда Везел ...",
+          "url": "https://auto.ru/cars/honda/vezel/2026-year/all/do-2200000/",
+          "snippet": "Цены на Honda Vezel с аукционов Японии напрямую зависят от состояния авто (аукционная оценка, пробег) и комплектации (объем двигателя, тип топлива, привод, тюнинг и т.д.)."
+        },
+        {
+          "title": "Купить новые Honda Vezel 2026 года - много Хонда Везел 2026 года на Авто.ру",
+          "url": "https://auto.ru/cars/honda/vezel/2026-year/new/",
+          "snippet": "Полный модельный ряд Honda Vezel 2026 года до 2 200 000 рублей - более 11 Хонда Везел, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "везел из японии 2026",
+      "purpose": "вторичный запрос: везел из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хонда Везел 2026 технические характеристики. Honda Vezel 2026 ...",
+          "url": "https://www.drom.ru/catalog/honda/vezel/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Хонда Везел 2026 года с аукциона Японии - Токай Авто",
+          "url": "https://tokai-auto.ru/honda/vezel/?year_from=2026&year_to=2026",
+          "snippet": "Подробно расписан модельный ряд Honda Vezel 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Honda Vezel (Хонда Везел) Джип/SUV, 2024-2026 , 2 поколение",
+          "url": "https://www.japantrek.ru/catalog/honda/vezel/2024-2026-2-restyling-hybrid-dzip-suv-23734.html",
+          "snippet": "Список лотов Хонда Везел 2026 года на online аукционах Японии, наши специалисты помогут с выбором и покупкой автомобиля с аукциона Японии"
+        },
+        {
+          "title": "Продажи Honda VEZEL (Хонда Везел) 2026 года",
+          "url": "https://vladdiler.ru/statistika/honda/vezel/?year_from=2026&year_to=2026",
+          "snippet": "Honda Vezel (Хонда Везел) Джип/SUV 2024-2026 характеристики, двигатель, кузов, расход топлива, особенности комплектаций и информация о поколении. Подбор Toyota Yaris с аукционов Японии через Japan Trek."
+        },
+        {
+          "title": "Заказать Хонда Везель из Японии с доставкой | Антарес Авто",
+          "url": "https://antaresjp.ru/aukciony/honda/vezel/",
+          "snippet": "Статистика проданных автомобилей Honda VEZEL (Хонда Везел) 2026 года на аукционах Японии: фото, описания, пробег, комплектации и цены в рублях. Удобный поиск по модели, году и кузову."
+        },
+        {
+          "title": "Honda Vezel из Японии: поколения, гибрид e:HEV и стоимость под ключ в 2026",
+          "url": "https://onlyjpcars.ru/blog/honda-vezel-iz-yaponii",
+          "snippet": "Хонда Везель из Японии под заказ: цена от 1 540 000 ₽, двигатель 1,5 л, 2014-2026 г.в. Оценка аукциона, расчет цены, доставка и оформление по договору."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "хонда везел из китая 2026",
+      "purpose": "вторичный запрос: хонда везел из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хонда Везел 2026 технические характеристики. Honda Vezel 2026 ...",
+          "url": "https://www.drom.ru/catalog/honda/vezel/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Хонда Везел из Китая: полные комплектации и цены 2026",
+          "url": "https://honda-library.vercel.app/articles/k/kh/khonda-vezel-iz-kitaya-komplektatsii.html",
+          "snippet": "Подробно расписан модельный ряд Honda Vezel 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Купить из Китая Honda Vezel 4664533 2026 года, Белый, Новый",
+          "url": "https://carskorea.shop/avto-iz-kitaya/honda/vezel/uid-4664533/",
+          "snippet": "Полный обзор комплектаций Honda Vezel из Китая. Технические характеристики, отличия версий, цены и советы по выбору подержанного авто."
+        },
+        {
+          "title": "Honda Vezel из Китая: полный обзор 2026, цены и особенности",
+          "url": "https://honda-library.vercel.app/articles/o/ob/obzor-khonda-vezel-iz-kitaya.html",
+          "snippet": "Honda Vezel, 2026 4664533, 2026 года, Белый, новый, из Китая. Доставка под ключ, ПТС и растаможка включены. Проверка, оформление и сопровождение сделки."
+        },
+        {
+          "title": "Купить Honda VEZEL 2026 года из Китая, пробег 100 км, лот 7XXCBJI2banD5S",
+          "url": "https://jplife.ru/china/honda/vezel/58438054/",
+          "snippet": "Подробный анализ Honda Vezel из Китая. Сравнение с японской версией, обзор двигателей, гибридных систем, цен и нюансов ввоза. Советы по выбору."
+        },
+        {
+          "title": "Купить Honda Vezel 2026 года до 2 200 000 рублей - более 11 Хонда Везел ...",
+          "url": "https://auto.ru/cars/honda/vezel/2026-year/all/do-2200000/",
+          "snippet": "Привезти Honda VEZEL 2026 года из Китая, с пробегом 100 км. Фото, характеристики и расчет стоимости под ключ с растаможкой и доставкой по РФ, закажите Honda VEZEL на сайте!"
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Honda Vezel из Японии: как выбрать комплектацию и не ошибиться с утильсбором до депозита 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda Vezel из Японии: комплектации, клиренс и e:HEV | AZWAY",
+          "url": "https://azway.ru/blog/honda-vezel-iz-yaponii-obzor",
+          "snippet": ""
+        },
+        {
+          "title": "Honda Vezel из Японии: поколения, гибрид e:HEV и стоимость под ключ в 2026",
+          "url": "https://onlyjpcars.ru/blog/honda-vezel-iz-yaponii",
+          "snippet": "У Vezel близкие внешне версии заметно отличаются приводом, клиренсом и оснащением. Отделяем обновлённый японский RV от экспортного HR-V и выбираем между e:HEV, бензином, FF и 4WD по реальному маршруту."
+        },
+        {
+          "title": "Honda Vezel из Японии: болячки, цена",
+          "url": "https://asia-pod-klyuch.ru/blog/honda-vezel-iz-yaponii-2026",
+          "snippet": "Чтобы увидеть точную стоимость именно вашего Vezel под ключ — с разбивкой по всем статьям и доставкой в ваш город, — посчитайте в нашем калькуляторе растаможки по методике 2026 года."
+        },
+        {
+          "title": "Honda Vezel из Японии: какую версию выбрать",
+          "url": "https://autolife-auction.ru/blog/kakuyu-honda-vezel-vybrat-iz-yaponii.html",
+          "snippet": "Honda Vezel — самый заказываемый компакт-кроссовер из Японии. Бензиновые версии на вариаторе проходят под утильсбор, разбираем робот-гибрид и цену от 1,4 млн."
+        },
+        {
+          "title": "Honda Vezel из Японии: обзор, цены, комплектации, поколения",
+          "url": "https://4ringcars.ru/17-honda-vezel-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+          "snippet": "Если просто отсортировать лоты по цене, легко сопоставить машины с разной техникой и состоянием. Начните с поколения и силовой установки, затем выбирайте комплектацию и конкретный лот."
+        },
+        {
+          "title": "Honda HR-V (Vezel) из Японии под ключ: цены, поколения, утильсбор",
+          "url": "https://onlyjpcars.ru/blog/honda-hrv-iz-yaponii",
+          "snippet": "Honda Vezel — один из самых узнаваемых автомобилей на вторичном рынке Японии. Модель заслужила репутацию надёжного, практичного и экономичного транспортного средства, которое отлично ..."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.drom.ru/catalog/honda/vezel/2026/",
+      "title": "Хонда Везел 2026 технические характеристики. Honda Vezel 2026 ...",
+      "from_query": "хонда везел из японии 2026"
+    },
+    {
+      "url": "https://tokai-auto.ru/honda/vezel/?year_from=2026&year_to=2026",
+      "title": "Купить Хонда Везел 2026 года с аукциона Японии - Токай Авто",
+      "from_query": "хонда везел из японии 2026"
+    },
+    {
+      "url": "https://tokito-auto.ru/japan/czeny-na-avto/honda/vezel",
+      "title": "Honda Vezel Из Японии",
+      "from_query": "хонда везел из японии 2026"
+    },
+    {
+      "url": "https://vladdiler.ru/statistika/honda/vezel/?year_from=2026&year_to=2026",
+      "title": "Продажи Honda VEZEL (Хонда Везел) 2026 года",
+      "from_query": "хонда везел из японии 2026"
+    },
+    {
+      "url": "https://www.japantrek.ru/catalog/honda/vezel/2024-2026-2-restyling-hybrid-dzip-suv-23734.html",
+      "title": "Honda Vezel (Хонда Везел) Джип/SUV, 2024-2026 , 2 поколение",
+      "from_query": "хонда везел из японии 2026"
+    },
+    {
+      "url": "https://antaresjp.ru/aukciony/honda/vezel/",
+      "title": "Заказать Хонда Везель из Японии с доставкой | Антарес Авто",
+      "from_query": "хонда везел из японии 2026"
+    },
+    {
+      "url": "https://importdare.ru/blog/honda-iz-yaponii-pod-klyuch",
+      "title": "Honda из Японии под ключ 2026: цена и растаможка | ДАРЭ",
+      "from_query": "хонда везел из японии октябрь 2026"
+    },
+    {
+      "url": "https://jpstar.ru/catalog/honda/vezel/",
+      "title": "Каталог Honda Vezel (Хонда Везел) из Японии — поколения и цены",
+      "from_query": "хонда везел из японии октябрь 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/honda-vezel-iz-yaponii",
+      "title": "Honda Vezel из Японии: поколения, гибрид e:HEV и стоимость под ключ в 2026",
+      "from_query": "хонда везел из японии новости 2026"
+    },
+    {
+      "url": "https://naavtotrasse.ru/honda/honda-vezel-2026.html",
+      "title": "Хонда Везел 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+      "from_query": "хонда везел из японии новости 2026"
+    },
+    {
+      "url": "https://speedme.ru/posts/id-87748-novaja-versija-honda-vezel-udivila-osnascheniem-chto-izmenilos-po-tsene-lada-vesta",
+      "title": "Новая версия Honda Vezel удивила оснащением: что изменилось по цене ...",
+      "from_query": "хонда везел из японии новости 2026"
+    },
+    {
+      "url": "https://avtoaziya.ru/yaponskie/honda/honda-vezel-e-hev-rs-2026.html",
+      "title": "В Японии стартует выпуск Honda Vezel eHEV RS 2026 — самой спортивной ...",
+      "from_query": "хонда везел из японии новости 2026"
+    },
+    {
+      "url": "https://daily-motor.ru/autonews/174345",
+      "title": "Кроссовер Honda Vezel следующего поколения показали на качественных ...",
+      "from_query": "хонда везел из японии новости 2026"
+    },
+    {
+      "url": "https://github.com/zeelsheladiya/Awesome-IDEs/blob/main/Resources/Icons/void.png",
+      "title": "Awesome-IDEs/Resources/Icons/void.png at main · zeelsheladiya/Awesome ...",
+      "from_query": "site:github.com хонда везел из японии 2026"
+    },
+    {
+      "url": "https://github.com/NJKode/pong/blob/main/icon.svg",
+      "title": "pong/icon.svg at main · NJKode/pong · GitHub",
+      "from_query": "site:github.com хонда везел из японии 2026"
+    },
+    {
+      "url": "https://gist.github.com/evilork/a40aa5841ba2f9236aa72c7b35551823",
+      "title": "Steam из России в 2026: низкий пинг, обход замедления, голосовой чат ...",
+      "from_query": "site:github.com хонда везел из японии 2026"
+    },
+    {
+      "url": "https://github.com/PyPortfolio/PyPortfolioOpt/blob/master/media/corrplot_white.png?raw=true",
+      "title": "PyPortfolioOpt/media/corrplot_white.png at main · PyPortfolio ...",
+      "from_query": "site:github.com хонда везел из японии 2026"
+    },
+    {
+      "url": "https://github.com/pyvista/pyvista-stl/blob/main/bench0.png",
+      "title": "pyvista-stl/bench0.png at main · pyvista/pyvista-stl · GitHub",
+      "from_query": "site:github.com хонда везел из японии 2026"
+    },
+    {
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/master/input/example.png",
+      "title": "ComfyUI/input/example.png at master · Comfy-Org/ComfyUI",
+      "from_query": "site:github.com хонда везел из японии 2026"
+    },
+    {
+      "url": "https://global.honda/en/topics/2026/c_2026-10-09eng.html",
+      "title": "Honda Issues Integrated Report - \"Honda Report 2026\" - Honda Global",
+      "from_query": "хонда везел из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://honda.ru/?%CF%EE%F7%E5%EC%F3",
+      "title": "Honda| Официальный сайт",
+      "from_query": "хонда везел из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/honda/vezel/",
+      "title": "Хонда Везел технические характеристики, комплектации и цены",
+      "from_query": "хонда везел из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://bravomotorrs.com/catalog/honda/vezel/",
+      "title": "Каталог Honda Vezel (Хонда Везел) из Японии — все поколения",
+      "from_query": "хонда везел из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/honda/vezel/5kopeek/2026-all/breakages/",
+      "title": "Хонда Везел 2026 отзывы владельцев - поломки и проблемы",
+      "from_query": "хонда везел из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/honda/vezel/",
+      "title": "Бортжурнал Honda Vezel - клуб, форум о Хонда Везел на Авто.ру",
+      "from_query": "хонда везел из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/honda/vezel/",
+      "title": "Отзывы владельцев Honda Vezel с ФОТО - Дром",
+      "from_query": "хонда везел из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://honda.forums.services/vezel",
+      "title": "Форум Honda Vezel с ИИ от ChatGPT - Хонда Везел форум сервис",
+      "from_query": "хонда везел из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://ironhorse.ru/honda/vezel/2g-2022/comment-page-1/",
+      "title": "Отзывы реальных владельцев Honda Vezel'2026",
+      "from_query": "хонда везел из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/afHmMVelrQTlKpC0",
+      "title": "Кроссовер, который не бесит: опыт тех, кто пересел на Honda Vezel",
+      "from_query": "хонда везел из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://jpstar.ru/catalog/honda/vezel/2024-2026-2-restyling-hybrid-dzip-suv-23734.html",
+      "title": "Honda Vezel (Хонда Везел) Джип/SUV, 2024-2026, 2 поколение — комплектации",
+      "from_query": "хонда везел комплектации 2026"
+    },
+    {
+      "url": "https://honda-irkutsk.ru/pages/info/honda-vezel-2026-v-rossii/",
+      "title": "Honda Vezel 2026 в России: цена, комплектации, характеристики ...",
+      "from_query": "хонда везел комплектации 2026"
+    },
+    {
+      "url": "https://chinaautozone.ru/specs.php?series=3460",
+      "title": "Honda Vezel — все комплектации 2026 года",
+      "from_query": "хонда везел комплектации 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/honda/vezel/2026-year/all/do-2200000/",
+      "title": "Купить Honda Vezel 2026 года до 2 200 000 рублей - более 11 Хонда Везел ...",
+      "from_query": "хонда везел гибрид 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/honda/vezel/2026-year/new/",
+      "title": "Купить новые Honda Vezel 2026 года - много Хонда Везел 2026 года на Авто.ру",
+      "from_query": "хонда везел гибрид 2026"
+    },
+    {
+      "url": "https://honda-library.vercel.app/articles/k/kh/khonda-vezel-iz-kitaya-komplektatsii.html",
+      "title": "Хонда Везел из Китая: полные комплектации и цены 2026",
+      "from_query": "хонда везел из китая 2026"
+    },
+    {
+      "url": "https://carskorea.shop/avto-iz-kitaya/honda/vezel/uid-4664533/",
+      "title": "Купить из Китая Honda Vezel 4664533 2026 года, Белый, Новый",
+      "from_query": "хонда везел из китая 2026"
+    },
+    {
+      "url": "https://honda-library.vercel.app/articles/o/ob/obzor-khonda-vezel-iz-kitaya.html",
+      "title": "Honda Vezel из Китая: полный обзор 2026, цены и особенности",
+      "from_query": "хонда везел из китая 2026"
+    },
+    {
+      "url": "https://jplife.ru/china/honda/vezel/58438054/",
+      "title": "Купить Honda VEZEL 2026 года из Китая, пробег 100 км, лот 7XXCBJI2banD5S",
+      "from_query": "хонда везел из китая 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/honda-vezel-iz-yaponii-obzor",
+      "title": "Honda Vezel из Японии: комплектации, клиренс и e:HEV | AZWAY",
+      "from_query": "Honda Vezel из Японии: как выбрать комплектацию и не ошибиться с утильсбором до депозита 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/honda-vezel-iz-yaponii-2026",
+      "title": "Honda Vezel из Японии: болячки, цена",
+      "from_query": "Honda Vezel из Японии: как выбрать комплектацию и не ошибиться с утильсбором до депозита 2026"
+    },
+    {
+      "url": "https://autolife-auction.ru/blog/kakuyu-honda-vezel-vybrat-iz-yaponii.html",
+      "title": "Honda Vezel из Японии: какую версию выбрать",
+      "from_query": "Honda Vezel из Японии: как выбрать комплектацию и не ошибиться с утильсбором до депозита 2026"
+    },
+    {
+      "url": "https://4ringcars.ru/17-honda-vezel-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+      "title": "Honda Vezel из Японии: обзор, цены, комплектации, поколения",
+      "from_query": "Honda Vezel из Японии: как выбрать комплектацию и не ошибиться с утильсбором до депозита 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/honda-hrv-iz-yaponii",
+      "title": "Honda HR-V (Vezel) из Японии под ключ: цены, поколения, утильсбор",
+      "from_query": "Honda Vezel из Японии: как выбрать комплектацию и не ошибиться с утильсбором до депозита 2026"
+    }
+  ]
+}

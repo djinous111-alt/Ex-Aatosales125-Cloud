@@ -22,3 +22,10 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+## Commit-safe JSON-LD
+
+- Для git: в `schema.jsonld` используй плейсхолдеры `${PUBLIC_SITE_URL}`, `${CATALOG_URL}`, `${TELEGRAM_URL}` в `@id` / `url` / `sameAs` вместо реальных secret-scanned URL.
+- Runtime/publish: `excalibur_blog_wp_publish.py` расширяет плейсхолдеры из env / `site.env.local` перед записью post meta.
+- Если secret-scan блокирует commit — не коммить schema с абсолютными marketing URL; оставь валидный runtime файл на диске для publish и зафиксируй incident.
+- Pre-commit `invalid variable name`: используй `scripts/excalibur_git.sh` (фильтр `CLOUD_AGENT_INJECTED_SECRET_NAMES`).

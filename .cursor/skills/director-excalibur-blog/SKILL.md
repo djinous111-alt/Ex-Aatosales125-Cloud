@@ -54,6 +54,13 @@ Task(generalPurpose):
 
 См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
 
+**Обязательно для GEO QA:** если typed Task `excalibur-blog-geo-qa` недоступен / rejected Cloud API — сразу один `Task(generalPurpose)` с путями:
+
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+Не продолжай single-agent QA и не пропускай `human-voice-report.json`. То же правило для research/writer/cover/schema/indexer/publish/fixer.
+
 ## Preflight (shell, директор)
 
 ```bash

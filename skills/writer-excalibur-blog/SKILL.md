@@ -44,3 +44,10 @@ memory/blog/articles/<topic_id>-<slug>/article.meta.json
 - объём вне диапазона после 1 правки
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`
+
+## CTA URLs (критично)
+
+- В live `article.html` CTA `href` только **absolute `https://`** из env: `CATALOG_URL` (каталог) и `TELEGRAM_URL` (Telegram).
+- **Запрещено** копировать литерал `[REDACTED]`, `...`, `TODO` из `memory/brief/conversion-map.md` / fact-bank в `href`.
+- Self-check перед handoff: `rg -n 'href=\"\[REDACTED\]|href=\'\[REDACTED\]' article.html` → 0 hits; html-linter должен PASS.
+- `PUBLIC_SITE_URL` (блог) может отличаться от host каталога — catalog CTA не резолвить через blog `--site-base`.

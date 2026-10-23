@@ -44,3 +44,9 @@ verdict: PASS | BLOCKER
 ## Выход
 
 `schema.jsonld`
+
+## Commit hygiene
+
+- Commit-safe `schema.jsonld`: `${PUBLIC_SITE_URL}` / `${CATALOG_URL}` / `${TELEGRAM_URL}` placeholders.
+- Publish расширяет плейсхолдеры. Не коммить absolute secret-scanned marketing URLs.
+- Git: `scripts/excalibur_git.sh`.

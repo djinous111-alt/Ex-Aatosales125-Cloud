@@ -21,6 +21,28 @@ def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
 
+def expand_schema_placeholders(schema_text: str, env: dict[str, str] | None = None) -> str:
+    """Expand ${PUBLIC_SITE_URL} / ${CATALOG_URL} / ${TELEGRAM_URL} before WP meta write.
+
+    Commit-safe schema.jsonld may store placeholders so secret-scan does not block git.
+    """
+    env = env or os.environ
+    out = schema_text
+    for key in (
+        "PUBLIC_SITE_URL",
+        "WP_SITE_URL",
+        "WP_HOME",
+        "CATALOG_URL",
+        "TELEGRAM_URL",
+        "MAX_URL",
+    ):
+        value = (env.get(key) or "").strip().rstrip("/")
+        if value:
+            out = out.replace(f"${{{key}}}", value)
+            out = out.replace(f"${key}", value)
+    return out
+
+
 PUBLISH_ENV_KEYS = {
     "PUBLIC_SITE_URL",
     "WP_HOME",
@@ -49,7 +71,12 @@ def _read_env_file(path: Path) -> dict[str, str]:
 
 def load_env(root: Path) -> dict[str, str]:
     env = _read_env_file(root / "memory/site.env.local")
-    for key in PUBLISH_ENV_KEYS:
+    extra_keys = (
+        "CATALOG_URL",
+        "TELEGRAM_URL",
+        "MAX_URL",
+    )
+    for key in (*PUBLISH_ENV_KEYS, *extra_keys):
         value = os.environ.get(key)
         if value:
             env[key] = value
@@ -483,14 +510,15 @@ def trigger_bootstrap_http(url: str, root: Path) -> str:
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        # Match curl --max-time 300 used by Cloud agents on large PHP payloads.
+        for _ in range(300):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
                 return out
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        raise RuntimeError("Cloud WebFetch Fallback timed out after 300 seconds. Please trigger manually.")
 
 
 def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
@@ -569,6 +597,10 @@ def main() -> int:
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
     payload = load_article(article_dir)
+    env = load_env(root)
+    # Expand commit-safe ${PUBLIC_SITE_URL} placeholders before PHP/meta write.
+    if payload.get("schema_jsonld"):
+        payload["schema_jsonld"] = expand_schema_placeholders(payload["schema_jsonld"], env)
     php = build_php(payload)
 
     if args.dry_run:
@@ -576,7 +608,6 @@ def main() -> int:
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1

@@ -14,22 +14,26 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Word-boundary / phrase markers only — never raw substring "ai"/"ии"
+# (false positives: "pain", "комплектации", brand names).
 TECH_MARKERS = (
-    "ai",
-    "ии",
-    "agent",
-    "агент",
-    "mcp",
-    "api",
-    "cursor",
-    "make",
-    "n8n",
-    "github",
-    "docker",
-    "rag",
-    "workflow",
-    "автоматизац",
-    "нейросет",
+    r"\bai\b",
+    r"\bagent\b",
+    r"\bmcp\b",
+    r"\bapi\b",
+    r"\bcursor\b",
+    r"\bmake\.com\b",
+    r"\bn8n\b",
+    r"\bgithub\b",
+    r"\bdocker\b",
+    r"\brag\b",
+    r"\bworkflow\b",
+    r"(?<![а-яё])ии(?![а-яё])",
+    r"агент",
+    r"автоматизац",
+    r"нейросет",
+    r"llm",
+    r"langchain",
 )
 
 
@@ -75,12 +79,44 @@ def has_wordstat(text_lower: str) -> bool:
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
+    # Prefer topic card fields; do not scan full notes (pain/solution labels trip false tech).
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    if not blob.strip():
+        blob = notes[:800].lower()
+    return any(re.search(marker, blob, flags=re.I) for marker in TECH_MARKERS)
+
+
+def count_pain_solution_rows(text: str) -> int:
+    """Count markdown table body rows under ## pain_solution_map (not keyword-in-row)."""
+    match = re.search(
+        r"##\s*\d*\.?\s*pain[_\s-]*solution[_\s-]*map\b([\s\S]*?)(?=\n##\s|\Z)",
+        text,
+        flags=re.I,
+    )
+    section = match.group(1) if match else ""
+    if not section.strip():
+        return 0
+    rows = 0
+    for line in section.splitlines():
+        stripped = line.strip()
+        if not stripped.startswith("|"):
+            continue
+        # Skip separator / header rows
+        cells = [c.strip() for c in stripped.strip("|").split("|")]
+        if not cells or all(re.fullmatch(r":?-{3,}:?", c or "") for c in cells):
+            continue
+        headerish = " ".join(cells).lower()
+        if re.search(r"\b(боль|pain|решение|solution|результат|result|исход)\b", headerish) and rows == 0:
+            # likely header row — skip once
+            if any(h in headerish for h in ("боль", "pain", "решение", "solution")) and len(cells) >= 2:
+                # If every cell looks like a short column title, treat as header
+                if all(len(c) <= 24 for c in cells):
+                    continue
+        rows += 1
+    return rows
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -132,7 +168,7 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     ]
     accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    pain_map_rows = count_pain_solution_rows(text)
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:

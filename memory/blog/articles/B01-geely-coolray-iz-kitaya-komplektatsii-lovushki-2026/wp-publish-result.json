@@ -1,0 +1,18 @@
+{
+  "slug": "geely-coolray-iz-kitaya-komplektatsii-lovushki-2026",
+  "topic_id": "B01",
+  "post_id": 4465,
+  "permalink": "[REDACTED]/2026/10/23/geely-coolray-iz-kitaya-komplektatsii-lovushki-2026/",
+  "featured_image": 4472,
+  "inline_images": [
+    4473,
+    4474,
+    4475
+  ],
+  "schema_meta": 1,
+  "skip_theme_faq_meta": 1,
+  "raw_output": "OK post=4465 slug=geely-coolray-iz-kitaya-komplektatsii-lovushki-2026\nOK featured_image=4472\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4473 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/10/geely-coolray-iz-kitaya-komplektatsii-lovushki-2026-inline-01-1.png\nOK inline_image_upload=4474 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/10/geely-coolray-iz-kitaya-komplektatsii-lovushki-2026-inline-02-1.png\nOK inline_image_upload=4475 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/10/geely-coolray-iz-kitaya-komplektatsii-lovushki-2026-inline-03-1.png\npermalink=[REDACTED]/2026/10/23/geely-coolray-iz-kitaya-komplektatsii-lovushki-2026/\n",
+  "verdict": "pass",
+  "publish_method": "ssh_http_timeout_curl_fallback_rest_reconstruct",
+  "notes": "Local HTTP RemoteDisconnected; script WebFetch wait 120s timed out before curl (~111s) finished; curl OK post=4465; REST/wp-cli confirmed; no third publish. Duplicate media from double trigger (4466-4469 orphaned; live uses 4472-4475 *-1.png)."
+}

@@ -1,0 +1,186 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/geely-coolray-iz-kitaya-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/geely-coolray-iz-kitaya-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Geely Coolray из Китая: комплектации и ловушки до депозита в 2026",
+      "description": "Geely Coolray из Китая: как отличить атмосферный Super/Max от турбо Binyue L, сверить мощность и VIN до депозита. Чеклист Авто-Сейлс без калькулятора пошлин.",
+      "datePublished": "2026-10-23",
+      "dateModified": "2026-10-23",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru/"
+        },
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru/",
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125"
+        ]
+      },
+      "keywords": [
+        "geely coolray из китая",
+        "geely coolray комплектации",
+        "geely coolray 2026 из китая",
+        "купить geely coolray из китая"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/geely-coolray-iz-kitaya-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Какие комплектации Geely Coolray смотреть из Китая в 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сводите выбор к двум линейкам: атмосферный Chaoneng (Super / Super Max) и турбо Binyue L (Chaoyue, Xingzuan, Xingyao, Battle). Старые ярлыки Luxury/Flagship используйте только как подсказку, а не как спецификацию для оплаты."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем Coolray отличается от Monjaro при заказе?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Coolray – компакт B для города, Monjaro – крупный D с другим багажником, мотором и бюджетом. Сначала выберите класс, потом комплектацию. Не сравнивайте их как \"две версии одной цены\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какая версия проходит под льготный утильсбор?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В открытых разборах льготный сценарий связывают с мощностью примерно до 160 л.с.: атмосферные ~93 кВт обычно в зоне, турбо ~133 кВт – нет. Точную сумму под ваш VIN не берите из статьи – запросите расчёт в каталоге до депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить до депозита на Coolray из Китая?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Спецификацию мотора (кВт/л.с.), коробку, китайское имя комплектации, VIN в трёх местах, инвойс на покупателя и план ЭРА-ГЛОНАСС → СБКТС/ЗоЕТС → ЭПТС. Нет пакета – нет перевода."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему нельзя верить обещанию \"прошьём мощность под льготу\"?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Это риск схемы, а не рабочий план. Мощность для расчёта должна совпадать со спецификацией и документами лота. Если условие сделки – \"потом занизим\", откажитесь и возьмите другую версию."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Battle – это максимальная комплектация?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не всегда. Часто Battle меняет стиль и обвес, а не добавляет комфорт. Сверяйте люк, сиденья, L2 и подогревы пункт за пунктом со спецификацией Xingyao, а не по маркетинговому имени."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/geely-coolray-iz-kitaya-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать Geely Coolray из Китая: комплектации и ловушки до депозита",
+      "description": "Пошаговый выбор Coolray из Китая: отделить от Monjaro, свести комплектации к двум линейкам, сверить мощность и VIN, пройти чеклист до депозита.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Спецификация лота: мотор кВт/л.с., коробка, комплектация"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "VIN на кузове, в инвойсе и в спецификации"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Смета под ключ в каталоге Авто-Сейлс"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Таблица «моя версия = мотор + коробка + салон»"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Пакет до депозита: VIN, инвойс, план ЭРА-ГЛОНАСС → СБКТС/ЗоЕТС → ЭПТС"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Отделите Coolray от Monjaro до подбора",
+          "text": "Зафиксируйте цель: городской компакт Coolray, не крупный Monjaro. Не смешивайте прайсы и не выбирайте «что красивее на фото».",
+          "url": "https://avtosales125.ru/geely-coolray-iz-kitaya-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Сведите имена комплектаций к двум линейкам Китая 2026",
+          "text": "Выпишите из спецификации лота китайское имя + мотор + коробка + экран/L2/подогревы. Не платите по устаревшим ярлыкам Luxury/Flagship.",
+          "url": "https://avtosales125.ru/geely-coolray-iz-kitaya-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Сверьте мощность: льготный сценарий vs турбо Binyue L",
+          "text": "Зафиксируйте атмо или турбо, кВт и л.с. из спецификации. Оцените льготную зону ~до 160 л.с. и откажитесь от схемы «прошьём под льготу».",
+          "url": "https://avtosales125.ru/geely-coolray-iz-kitaya-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Соберите пакет VIN и документов до депозита",
+          "text": "Сверьте VIN в трёх местах, инвойс на покупателя и план ЭРА-ГЛОНАСС → СБКТС/ЗоЕТС → ЭПТС. Нет пакета – нет перевода.",
+          "url": "https://avtosales125.ru/geely-coolray-iz-kitaya-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Чеклист перед оплатой: депозит можно или стоп",
+          "text": "Пройдите чеклист: класс, линейка, мотор, ловушки Battle/прошивки, VIN и смета. Ставьте «можно» только в конце.",
+          "url": "https://avtosales125.ru/geely-coolray-iz-kitaya-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Что дальше",
+          "text": "Выпишите 2–3 кандидата, запросите смету и VIN-пакет через Владивосток, затем обсуждайте депозит в каталоге Авто-Сейлс.",
+          "url": "https://avtosales125.ru/geely-coolray-iz-kitaya-komplektatsii-lovushki-2026/"
+        }
+      ]
+    }
+  ]
+}

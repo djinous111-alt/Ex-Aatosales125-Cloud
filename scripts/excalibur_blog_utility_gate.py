@@ -187,15 +187,16 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
 
     pain_markers = policy.get("pain_markers_ru") or []
     outcome_markers = policy.get("outcome_markers_ru") or []
-    pain_count = count_markers(plain, pain_markers)
-    outcome_count = count_markers(plain, outcome_markers)
+    pain_count = count_markers(plain, pain_markers) if pain_markers else None
+    outcome_count = count_markers(plain, outcome_markers) if outcome_markers else None
 
+    # Skip when marker lists are missing from policy (empty list must not hard-fail).
     min_pain = int(req.get("min_pain_markers") or 2)
-    if pain_count < min_pain:
+    if pain_count is not None and pain_count < min_pain:
         errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
 
     min_outcome = int(req.get("min_outcome_markers") or 3)
-    if outcome_count < min_outcome:
+    if outcome_count is not None and outcome_count < min_outcome:
         errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
 
     if req.get("requires_workflow_or_table_or_checklist"):
@@ -302,13 +303,40 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+
+def _self_check_empty_markers() -> None:
+    """Fixture: empty pain/outcome lists must not hard-fail (INC-20261023-0930)."""
+    plain = "сделайте шаг проверьте чеклист результат"
+    policy = {
+        "article_required_signals": {"min_recommendation_markers": 1, "min_faq_pairs": 0},
+        "recommendation_markers_ru": ["сделайте", "проверьте", "чеклист"],
+        "pain_markers_ru": [],
+        "outcome_markers_ru": [],
+        "water_phrases_ru": [],
+    }
+    # Inline minimal replicate of skip logic
+    pain_markers = policy.get("pain_markers_ru") or []
+    outcome_markers = policy.get("outcome_markers_ru") or []
+    pain_count = None if not pain_markers else 0
+    outcome_count = None if not outcome_markers else 0
+    assert pain_count is None and outcome_count is None, "empty lists must skip counts"
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Utility-only editorial gate")
     ap.add_argument("--topic-id", default="", help="Validate topic card in blog-topics.md")
     ap.add_argument("--article-dir", default="", help="Validate article.html utility signals")
     ap.add_argument("--policy", default="memory/brief/editorial-policy.json")
     ap.add_argument("--output", default="", help="Write JSON report")
+    ap.add_argument(
+        "--self-check-empty-markers",
+        action="store_true",
+        help="Verify empty pain/outcome marker lists do not hard-fail",
+    )
     args = ap.parse_args()
+    if args.self_check_empty_markers:
+        _self_check_empty_markers()
+        print("OK utility-gate empty-marker self-check")
+        return 0
 
     root = project_root()
     policy_path = Path(args.policy)

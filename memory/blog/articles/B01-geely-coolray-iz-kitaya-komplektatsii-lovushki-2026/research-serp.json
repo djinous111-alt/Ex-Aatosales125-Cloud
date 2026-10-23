@@ -1,0 +1,605 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-23",
+    "today_ru": "23.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-25",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-23 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "geely-coolray-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Geely Coolray из Китая: комплектации и ловушки до депозита в 2026",
+    "primary_query": "geely coolray из китая",
+    "secondary_queries": [
+      "geely coolray комплектации",
+      "geely coolray 2026 из китая",
+      "купить geely coolray из китая",
+      "чем отличаются комплектации geely coolray"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "geely coolray из китая 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GEELY Новый Coolray 2026 — цены, комплектации, характеристики и фото",
+          "url": "https://www.geely-motors.com/model/coolray-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Geely Coolray из Китая под ключ: цена и растаможка | AZWAY",
+          "url": "https://azway.ru/cars-160hp/geely-coolray-binyue",
+          "snippet": "Новый Coolray Geely Coolray — это вызов обыденности: дерзкий спортивный дизайн притягивает взгляды, а богатое оснащение делает каждую поездку комфортной и безопасной. Стиль без компромиссов."
+        },
+        {
+          "title": "Geely Coolray 2026: обзор, цены, стоит ли покупать?",
+          "url": "https://ezzhev.ru/kitajskie-avto/geely-coolray-2026-obzor-tseny-konkurenty/",
+          "snippet": "Geely Coolray из Китая под ключ: 141 л.с., растаможка и утильсбор 2026 в цене. Доставка в любой город РФ за 30-45 дней. Цена от 1 395 000 ₽. Расчёт за 15 минут."
+        },
+        {
+          "title": "Geely Coolray из Китая: параллельный импорт, цены и утильсбор 2026",
+          "url": "https://onlyjpcars.ru/blog/geely-coolray-iz-kitaya",
+          "snippet": "Полный обзор Geely Coolray 2026. Сравнение комплектаций, цены, отзывы. Узнайте, стоит ли покупать и как сэкономить до 30% при покупке из Китая."
+        },
+        {
+          "title": "Geely Coolray 2026: всё, что нужно знать перед покупкой",
+          "url": "https://160drive.ru/geely-coolray-2026-obzor/",
+          "snippet": "Привоз Geely Coolray из Китая: параллельный импорт, стоимость под ключ в Красноярске, утильсбор 2026, СБКТС и ЭРА-ГЛОНАСС."
+        },
+        {
+          "title": "Geely Coolray 2026: стоит ли брать базу и как сэкономить",
+          "url": "https://ezzhev.ru/chinese-cars/geely-coolray-2026-kak-sekonomit-bazovaya-komplektaciya/",
+          "snippet": "Geely Coolray 2026: комплектации, реальный расход, слабые места и стоимость владения в России. Стоит ли брать у дилера или привезти из Китая напрямую."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "geely coolray из китая октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GEELY Новый Coolray 2026 — цены, комплектации, характеристики и фото",
+          "url": "https://www.geely-motors.com/model/coolray-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Geely Coolray 2026: обзор, цены, стоит ли покупать?",
+          "url": "https://ezzhev.ru/kitajskie-avto/geely-coolray-2026-obzor-tseny-konkurenty/",
+          "snippet": "Новый Coolray Geely Coolray — это вызов обыденности: дерзкий спортивный дизайн притягивает взгляды, а богатое оснащение делает каждую поездку комфортной и безопасной. Стиль без компромиссов."
+        },
+        {
+          "title": "Geely Coolray из Китая: параллельный импорт, цены и утильсбор 2026",
+          "url": "https://onlyjpcars.ru/blog/geely-coolray-iz-kitaya",
+          "snippet": "Полный обзор Geely Coolray 2026. Сравнение комплектаций, цены, отзывы. Узнайте, стоит ли покупать и как сэкономить до 30% при покупке из Китая."
+        },
+        {
+          "title": "Geely Coolray из Китая: цены, плюсы и минусы кроссовера 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/g/ge/geely-coolray-iz-kitaya.html",
+          "snippet": "Привоз Geely Coolray из Китая: параллельный импорт, стоимость под ключ в Красноярске, утильсбор 2026, СБКТС и ЭРА-ГЛОНАСС."
+        },
+        {
+          "title": "Новый Coolray 2026 — что изменилось и стоит ли обновляться?",
+          "url": "https://geely-club.com/news/novsti-geely/novyy-coolray-2026-%E2%80%94-chto-izmenilos-i-stoit-li-obnovlyatsya-r18/",
+          "snippet": "В этой статье разберём все ключевые аспекты приобретения Geely Coolray из Китая: актуальные цены на 2026 год, сравнение с официальными дилерами в России, технические особенности разных версий и ..."
+        },
+        {
+          "title": "Geely Coolray из Китая под ключ: цена и растаможка | AZWAY",
+          "url": "https://azway.ru/cars-160hp/geely-coolray-binyue",
+          "snippet": "Прошло несколько лет. Coolray 2026 — это уже совсем другая история. Новый турбомотор с преселективной коробкой — машина едет так, как старый и не мечтал."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "geely coolray из китая новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Новый Coolray 2026 — что изменилось и стоит ли обновляться?",
+          "url": "https://geely-club.com/news/novsti-geely/novyy-coolray-2026-%E2%80%94-chto-izmenilos-i-stoit-li-obnovlyatsya-r18/",
+          "snippet": ""
+        },
+        {
+          "title": "Geely Coolray 2026: обзор, цены, стоит ли покупать?",
+          "url": "https://ezzhev.ru/kitajskie-avto/geely-coolray-2026-obzor-tseny-konkurenty/",
+          "snippet": "Обзор обновлённого Geely Coolray 2026: новый турбомотор 1.5л 147 л.с., преселективная коробка 7DCT, комплектация и цены на российском рынке. Стоит ли пересаживаться с предыдущего поколения?"
+        },
+        {
+          "title": "Geely Coolray 2026 до 160 л.с.: обновленный ... - Дзен",
+          "url": "https://dzen.ru/a/aWpGyhD7VhuwRtGY",
+          "snippet": "Полный обзор Geely Coolray 2026. Сравнение комплектаций, цены, отзывы. Узнайте, стоит ли покупать и как сэкономить до 30% при покупке из Китая."
+        },
+        {
+          "title": "Geely Coolray 2026: всё, что нужно знать перед покупкой",
+          "url": "https://160drive.ru/geely-coolray-2026-obzor/",
+          "snippet": "Geely встроила в Coolray 2026 мультимедийную систему GKUI 2.0 последнего поколения. Огромный экран впечатляет в салоне дилера, но как система работает в реальности российских дорог и интернета?"
+        },
+        {
+          "title": "Новый Geely Coolray: подробный тест и обзор Джили Кулрей 2026 года ...",
+          "url": "https://auto.ru/mag/article/ekspertnyy-test-geely-coolray/",
+          "snippet": "Geely Coolray 2026: комплектации, реальный расход, слабые места и стоимость владения в России. Стоит ли брать у дилера или привезти из Китая напрямую."
+        },
+        {
+          "title": "Geely Coolray из Китая: параллельный импорт, цены и утильсбор 2026",
+          "url": "https://onlyjpcars.ru/blog/geely-coolray-iz-kitaya",
+          "snippet": "С 1 июля 2026 года цветовую гамму Geely Coolray расширили — теперь автомобиль можно заказать в лиловом перламутре, белом или сером металликах. В остальном — тот же привычный Geely Coolray."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com geely coolray из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "geely coolray из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Geely User Manuals & Service Guides | PDF Download Center",
+          "url": "https://electriccar-geely.com/en/manuals/",
+          "snippet": ""
+        },
+        {
+          "title": "Geely Coolray 2026: полное руководство по эксплуатации",
+          "url": "https://asia-motors-hub.vercel.app/articles/g/ge/geely-coolray-2024-rukovodstvo-po-ekspluatatsii.html",
+          "snippet": "Access and download official Geely owner's manuals, service guides, and technical specs in PDF. Find documentation for EX5, Starray, Coolray, Emgrand, and more. Latest 2026 editions available."
+        },
+        {
+          "title": "GEELY Новый Coolray 2026 — цены, комплектации, характеристики и фото",
+          "url": "https://www.geely-motors.com/model/coolray-2026/",
+          "snippet": "Официальная инструкция по Geely Coolray 2026: технические характеристики, настройки, обслуживание и советы по эксплуатации. Скачайте PDF и изучите все нюансы."
+        },
+        {
+          "title": "PDF РУКОВОДСТВО ПО ЭКСПЛУАТАЦИИ - Geely",
+          "url": "https://geely.kz/userdata/uploads/files/new-coolray/manual.pdf",
+          "snippet": "Официальная страница Нового Coolray 2026: фото, характеристики, комплектации и спецпредложения."
+        },
+        {
+          "title": "PDF НОВЫЙ GEELY COOLRAY - dhost.makeagency.ru",
+          "url": "https://dhost.makeagency.ru/resource/GEELY_COOLRAY.pdf",
+          "snippet": "Соблюдайте интервалы технического обслуживания и соответствующие требования, приведенные в настоящем документе. В данном руководстве содержится информация обо всех версиях модели."
+        },
+        {
+          "title": "Руководство по эксплуатации GEELY Coolray: книги по ремонту, инструкции ...",
+          "url": "https://www.avtogermes.ru/servis/geely/coolray/obsluzhivanie/download/",
+          "snippet": "КОНТРОЛЬ НАД ХОЛОДОМ Новый Coolray способен превратить зимние поездки в уютное путешествие, предлагая подогрев передних и задних сидений, руля, зеркал и форсунок стеклоомывателя."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "geely coolray из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Geely Coolray 2026. Мой опыт пригона через Silenko AUTOcratia",
+          "url": "https://www.drive2.ru/b/742278651717898339/",
+          "snippet": ""
+        },
+        {
+          "title": "Coolray | ChinaAutoForum.ru - форум по китайским автомобилям",
+          "url": "https://chinaautoforum.ru/forums/coolray.17/",
+          "snippet": "Саму машину увидел у ребят в Telegram. Я как раз смотрел варианты из Китая и хотел именно новую, без пробега. Написал менеджеру, попросил посчитать сколько она реально получится со всеми расходами. До этого за Силенко Автократией уже следил, поэтому компания была знакомая."
+        },
+        {
+          "title": "Geely Coolray: честные отзывы владельцев 2026 года",
+          "url": "https://asia-motors-hub.vercel.app/articles/c/co/coolray-geely-otzyvy-vladeltsev.html",
+          "snippet": "Форум Geely Coolray: отзывы владельцев, плюсы и минусы, обслуживание, реальные проблемы, расход топлива, тюнинг и советы по выбору и эксплуатации."
+        },
+        {
+          "title": "Geely Coolray (Кулрей) отзывы реальных владельцев 2026 — плюсы, минусы ...",
+          "url": "https://motorist.expert/geely/service-geely/geely-coolray-otzyvy.html",
+          "snippet": "В этой статье мы собрали реальные отзывы с форумов, соцсетей и автосервисов — без прикрас и маркетинговых лозунгов. Анализируя опыт владельцев, мы выявили ключевые моменты: от проблем с коробкой передач после 40 000 км до неожиданных плюсов вроде надёжной шумоизоляции."
+        },
+        {
+          "title": "Опыт покупки Geely Coolray из Китая в Россию: цены и этапы",
+          "url": "https://ezzhev.ru/how-buy-car/opyt-pokupki-geely-coolray-iz-kitaya-v/",
+          "snippet": "К сентябрю 2026 года о Geely Coolray высказались 3 146 человек. Из этого отобрано 311 развёрнутых отзывов — тех, где владелец рассказывает про свою машину, а не задаёт вопрос: 37 из них с указанным пробегом, 63 — со сроком владения."
+        },
+        {
+          "title": "Geely Coolray Club",
+          "url": "https://coolray.ru/",
+          "snippet": "Реальный опыт покупки Geely Coolray из Китая в Россию. Узнайте цены, сроки доставки, нюансы растаможки и утильсбора в 2026 году. Рассчитайте выгоду!"
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "geely coolray комплектации 2026",
+      "purpose": "вторичный запрос: geely coolray комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GEELY Новый Coolray 2026 — цены, комплектации, характеристики и фото",
+          "url": "https://www.geely-motors.com/model/coolray-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Джили Кулрей 2026 технические характеристики. Geely Coolray 2026 ...",
+          "url": "https://www.drom.ru/catalog/geely/sx11/2026/",
+          "snippet": "Новый Coolray Geely Coolray — это вызов обыденности: дерзкий спортивный дизайн притягивает взгляды, а богатое оснащение делает каждую поездку комфортной и безопасной. Стиль без компромиссов."
+        },
+        {
+          "title": "Geely Coolray 2026: комплектации и цены, все опции и оборудование",
+          "url": "https://geely-silver.ru/models/coolray-2026/komplektatsii-i-tseny-geely-coolray-2026/",
+          "snippet": "Подробно расписан модельный ряд Geely Coolray 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Джили Кулрей 2026 между собой."
+        },
+        {
+          "title": "Geely Coolray 2026 - цены и комплектации в России | carsdb.ru",
+          "url": "https://carsdb.ru/geely/coolray/",
+          "snippet": "Полный обзор Geely Coolray 2026: все комплектации (Base, Comfort, Flagship и др.), точные цены, список опций и отличия версий. Актуальные данные на 2026 год. Сравните оснащение и выберите лучшую."
+        },
+        {
+          "title": "Купить Geely Coolray NEW 2026 : комплектации и цены",
+          "url": "https://aim-avto.ru/cars/geely/coolray-new/",
+          "snippet": "Новые комплектации и цены на 15.10.2026 были взяты с общедоступных сайтов дилеров, занимающихся продажей Geely. Также обратите внимание на технические характеристики."
+        },
+        {
+          "title": "Geely Coolray New в Москве — комплектации и цены от 1 901 990 рублей на ...",
+          "url": "https://avtomir.ru/new-cars/geely/new-coolray/complectations/",
+          "snippet": "Скидки на новый автомобиль Geely Coolray NEW, кредит 10,9%, рассрочка 0%, выгодный TRADE-IN . Специальные цены на Джили Кулрей Нью 2026 года!"
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "geely coolray 2026 из китая 2026",
+      "purpose": "вторичный запрос: geely coolray 2026 из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GEELY Новый Coolray 2026 — цены, комплектации, характеристики и фото",
+          "url": "https://www.geely-motors.com/model/coolray-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Geely Coolray 2026: всё, что нужно знать перед покупкой",
+          "url": "https://160drive.ru/geely-coolray-2026-obzor/",
+          "snippet": "Новый Coolray Geely Coolray — это вызов обыденности: дерзкий спортивный дизайн притягивает взгляды, а богатое оснащение делает каждую поездку комфортной и безопасной. Стиль без компромиссов."
+        },
+        {
+          "title": "Geely Coolray 2026: обзор, цены, стоит ли покупать?",
+          "url": "https://ezzhev.ru/kitajskie-avto/geely-coolray-2026-obzor-tseny-konkurenty/",
+          "snippet": "Geely Coolray 2026: комплектации, реальный расход, слабые места и стоимость владения в России. Стоит ли брать у дилера или привезти из Китая напрямую."
+        },
+        {
+          "title": "Geely Coolray из Китая: параллельный импорт, цены и утильсбор 2026",
+          "url": "https://onlyjpcars.ru/blog/geely-coolray-iz-kitaya",
+          "snippet": "Полный обзор Geely Coolray 2026. Сравнение комплектаций, цены, отзывы. Узнайте, стоит ли покупать и как сэкономить до 30% при покупке из Китая."
+        },
+        {
+          "title": "Geely Coolray из Китая под ключ: цена и растаможка | AZWAY",
+          "url": "https://azway.ru/cars-160hp/geely-coolray-binyue",
+          "snippet": "Привоз Geely Coolray из Китая: параллельный импорт, стоимость под ключ в Красноярске, утильсбор 2026, СБКТС и ЭРА-ГЛОНАСС."
+        },
+        {
+          "title": "Geely Coolray 2026 из Китая — от 1 540 000 ₽ · Щербаков Авто",
+          "url": "https://shcherbakov-auto.ru/catalog/geely-coolray",
+          "snippet": "Geely Coolray из Китая под ключ: 141 л.с., растаможка и утильсбор 2026 в цене. Доставка в любой город РФ за 30-45 дней. Цена от 1 395 000 ₽. Расчёт за 15 минут."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "купить geely coolray из китая 2026",
+      "purpose": "вторичный запрос: купить geely coolray из китая",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Geely Coolray из Китая — купить с доставкой в Россию 2026 | Azway ...",
+          "url": "https://azway.ru/import/kitay/geely-coolray",
+          "snippet": ""
+        },
+        {
+          "title": "Geely Coolray из Китая под ключ: цена и растаможка | AZWAY",
+          "url": "https://azway.ru/cars-160hp/geely-coolray-binyue",
+          "snippet": "Купить Geely Coolray из Китая под ключ. 1.5L турбо 3-цилиндровый, 150-177 л.с.. Цена от 1.8 до 2.5 млн ₽ под ключ. Доставка по всей России, растаможка, СБКТС, ЭПТС."
+        },
+        {
+          "title": "Купить Geely Coolray 2026 — параллельный импорт из Китая, 2.6 млн ₽ | CARTO",
+          "url": "https://carto-auto.ru/catalog/geely-coolray-china-2026-0/",
+          "snippet": "Geely Coolray из Китая под ключ: 141 л.с., растаможка и утильсбор 2026 в цене. Доставка в любой город РФ за 30-45 дней. Цена от 1 395 000 ₽. Расчёт за 15 минут."
+        },
+        {
+          "title": "Купить Geely Coolray 2026 из Китая под ключ — 1 950 000 ₽ | EncarRus",
+          "url": "https://encarrus-china.ru/new/geely-coolray/",
+          "snippet": "Купить Geely Coolray 2026 года, пробег 5 450 км, гибрид 261 л.с. — параллельный импорт из Китая, привезём в РФ под ключ. Цена 2.6 млн ₽ (35 дней)…"
+        },
+        {
+          "title": "Geely Coolray 2026 из Китая — от 1 540 000 ₽ · Щербаков Авто",
+          "url": "https://shcherbakov-auto.ru/catalog/geely-coolray",
+          "snippet": "Заказать новый Джили Кулрей из Китая под ключ в Москве можно через EncarRus: цена 1 950 000 ₽ включает доставку, таможенное оформление, утилизационный сбор и все платежи."
+        },
+        {
+          "title": "Geely Coolray из Китая: параллельный импорт, цены и утильсбор 2026",
+          "url": "https://onlyjpcars.ru/blog/geely-coolray-iz-kitaya",
+          "snippet": "Geely Coolray 2026 из Китая под заказ — от 1 540 000 ₽. Проверим автомобиль до выкупа и рассчитаем доставку по России для вашего города."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "чем отличаются комплектации geely coolray 2026",
+      "purpose": "вторичный запрос: чем отличаются комплектации geely coolray",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GEELY Новый Coolray 2026 — цены, комплектации, характеристики и фото",
+          "url": "https://www.geely-motors.com/model/coolray-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Geely Coolray 2026: все комплектации и их отличия",
+          "url": "https://asia-motors-hub.vercel.app/articles/k/ko/komplektatsii-geely-coolray.html",
+          "snippet": "Официальная страница Нового Coolray 2026: фото, характеристики, комплектации и спецпредложения."
+        },
+        {
+          "title": "Geely Coolray 2026: комплектации и цены, все опции и оборудование",
+          "url": "https://geely-silver.ru/models/coolray-2026/komplektatsii-i-tseny-geely-coolray-2026/",
+          "snippet": "В этой статье мы детально разберём все доступные комплектации Geely Coolray 2026 модельного года: от технического оснащения до опций комфорта."
+        },
+        {
+          "title": "Geely Coolray 2026: полный модельный ряд, цены и характеристики",
+          "url": "https://asia-motors-hub.vercel.app/articles/m/mo/modelnyj-ryad-geely-coolray.html",
+          "snippet": "Полный обзор Geely Coolray 2026: все комплектации (Base, Comfort, Flagship и др.), точные цены, список опций и отличия версий. Актуальные данные на 2026 год. Сравните оснащение и выберите лучшую."
+        },
+        {
+          "title": "Geely Coolray в 2026 году: цены, комплектации и обоснованность покупки ...",
+          "url": "https://avto-zhurnal.ru/article/geely-coolray-kupit/",
+          "snippet": "Но как не потеряться в многообразии версий? Coolray предлагается в 5 основных комплектациях — от базовой Comfort до топовой Flagship, каждая из которых имеет уникальные фишки. Далее — подробный разбор."
+        },
+        {
+          "title": "Возвращение легенды: подробный разбор нового Geely Coolray 2026 г ...",
+          "url": "https://autostyle-geely.ru/tpost/3ac8x6gfr1-vozvraschenie-legendi-podrobnii-razbor-n",
+          "snippet": "Цены на Geely Coolray у официальных дилеров и в параллельном импорте. Разбор комплектаций, гибридная версия HEV, сравнение с конкурентами."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Geely Coolray из Китая: комплектации и ловушки до депозита в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Geely Coolray 2026: обзор, цены, стоит ли покупать?",
+          "url": "https://ezzhev.ru/kitajskie-avto/geely-coolray-2026-obzor-tseny-konkurenty/",
+          "snippet": ""
+        },
+        {
+          "title": "Geely Coolray 2026: стоит ли брать базу и как сэкономить",
+          "url": "https://ezzhev.ru/chinese-cars/geely-coolray-2026-kak-sekonomit-bazovaya-komplektaciya/",
+          "snippet": "Полный обзор Geely Coolray 2026. Сравнение комплектаций, цены, отзывы. Узнайте, стоит ли покупать и как сэкономить до 30% при покупке из Китая."
+        },
+        {
+          "title": "Geely Coolray в 2026 году: цены, комплектации и обоснованность покупки ...",
+          "url": "https://avto-zhurnal.ru/article/geely-coolray-kupit/",
+          "snippet": "Всего для российского рынка (и для импорта из Китая) доступны четыре основные версии. Эксперты Езжев провели детальный обзор оснащения, чтобы вы могли принять взвешенное решение."
+        },
+        {
+          "title": "Geely Coolray из Китая: цены, плюсы и минусы кроссовера 2026",
+          "url": "https://asia-motors-hub.vercel.app/articles/g/ge/geely-coolray-iz-kitaya.html",
+          "snippet": "На апрель 2026 года цены на новый Coolray у официальных дилеров — от 2 390 000 ₽ за бензиновую версию до 3 190 000 ₽ за гибридную в максимальной комплектации. Этот материал — навигатор по комплектациям, ценам и обоснованности выбора компактного кроссовера от Geely."
+        },
+        {
+          "title": "Geely Coolray из Китая: параллельный импорт, цены и утильсбор 2026",
+          "url": "https://onlyjpcars.ru/blog/geely-coolray-iz-kitaya",
+          "snippet": "В этой статье разберём все ключевые аспекты приобретения Geely Coolray из Китая: актуальные цены на 2026 год, сравнение с официальными дилерами в России, технические особенности разных версий и ..."
+        },
+        {
+          "title": "Geely Coolray 2026: всё, что нужно знать перед покупкой",
+          "url": "https://160drive.ru/geely-coolray-2026-obzor/",
+          "snippet": "Привоз Geely Coolray из Китая: параллельный импорт, стоимость под ключ в Красноярске, утильсбор 2026, СБКТС и ЭРА-ГЛОНАСС."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.geely-motors.com/model/coolray-2026/",
+      "title": "GEELY Новый Coolray 2026 — цены, комплектации, характеристики и фото",
+      "from_query": "geely coolray из китая 2026"
+    },
+    {
+      "url": "https://azway.ru/cars-160hp/geely-coolray-binyue",
+      "title": "Geely Coolray из Китая под ключ: цена и растаможка | AZWAY",
+      "from_query": "geely coolray из китая 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/kitajskie-avto/geely-coolray-2026-obzor-tseny-konkurenty/",
+      "title": "Geely Coolray 2026: обзор, цены, стоит ли покупать?",
+      "from_query": "geely coolray из китая 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/geely-coolray-iz-kitaya",
+      "title": "Geely Coolray из Китая: параллельный импорт, цены и утильсбор 2026",
+      "from_query": "geely coolray из китая 2026"
+    },
+    {
+      "url": "https://160drive.ru/geely-coolray-2026-obzor/",
+      "title": "Geely Coolray 2026: всё, что нужно знать перед покупкой",
+      "from_query": "geely coolray из китая 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/chinese-cars/geely-coolray-2026-kak-sekonomit-bazovaya-komplektaciya/",
+      "title": "Geely Coolray 2026: стоит ли брать базу и как сэкономить",
+      "from_query": "geely coolray из китая 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/g/ge/geely-coolray-iz-kitaya.html",
+      "title": "Geely Coolray из Китая: цены, плюсы и минусы кроссовера 2026",
+      "from_query": "geely coolray из китая октябрь 2026"
+    },
+    {
+      "url": "https://geely-club.com/news/novsti-geely/novyy-coolray-2026-%E2%80%94-chto-izmenilos-i-stoit-li-obnovlyatsya-r18/",
+      "title": "Новый Coolray 2026 — что изменилось и стоит ли обновляться?",
+      "from_query": "geely coolray из китая октябрь 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/aWpGyhD7VhuwRtGY",
+      "title": "Geely Coolray 2026 до 160 л.с.: обновленный ... - Дзен",
+      "from_query": "geely coolray из китая новости 2026"
+    },
+    {
+      "url": "https://auto.ru/mag/article/ekspertnyy-test-geely-coolray/",
+      "title": "Новый Geely Coolray: подробный тест и обзор Джили Кулрей 2026 года ...",
+      "from_query": "geely coolray из китая новости 2026"
+    },
+    {
+      "url": "https://electriccar-geely.com/en/manuals/",
+      "title": "Geely User Manuals & Service Guides | PDF Download Center",
+      "from_query": "geely coolray из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/g/ge/geely-coolray-2024-rukovodstvo-po-ekspluatatsii.html",
+      "title": "Geely Coolray 2026: полное руководство по эксплуатации",
+      "from_query": "geely coolray из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://geely.kz/userdata/uploads/files/new-coolray/manual.pdf",
+      "title": "PDF РУКОВОДСТВО ПО ЭКСПЛУАТАЦИИ - Geely",
+      "from_query": "geely coolray из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://dhost.makeagency.ru/resource/GEELY_COOLRAY.pdf",
+      "title": "PDF НОВЫЙ GEELY COOLRAY - dhost.makeagency.ru",
+      "from_query": "geely coolray из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://www.avtogermes.ru/servis/geely/coolray/obsluzhivanie/download/",
+      "title": "Руководство по эксплуатации GEELY Coolray: книги по ремонту, инструкции ...",
+      "from_query": "geely coolray из китая official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/b/742278651717898339/",
+      "title": "Geely Coolray 2026. Мой опыт пригона через Silenko AUTOcratia",
+      "from_query": "geely coolray из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://chinaautoforum.ru/forums/coolray.17/",
+      "title": "Coolray | ChinaAutoForum.ru - форум по китайским автомобилям",
+      "from_query": "geely coolray из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/c/co/coolray-geely-otzyvy-vladeltsev.html",
+      "title": "Geely Coolray: честные отзывы владельцев 2026 года",
+      "from_query": "geely coolray из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://motorist.expert/geely/service-geely/geely-coolray-otzyvy.html",
+      "title": "Geely Coolray (Кулрей) отзывы реальных владельцев 2026 — плюсы, минусы ...",
+      "from_query": "geely coolray из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://ezzhev.ru/how-buy-car/opyt-pokupki-geely-coolray-iz-kitaya-v/",
+      "title": "Опыт покупки Geely Coolray из Китая в Россию: цены и этапы",
+      "from_query": "geely coolray из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://coolray.ru/",
+      "title": "Geely Coolray Club",
+      "from_query": "geely coolray из китая forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/geely/sx11/2026/",
+      "title": "Джили Кулрей 2026 технические характеристики. Geely Coolray 2026 ...",
+      "from_query": "geely coolray комплектации 2026"
+    },
+    {
+      "url": "https://geely-silver.ru/models/coolray-2026/komplektatsii-i-tseny-geely-coolray-2026/",
+      "title": "Geely Coolray 2026: комплектации и цены, все опции и оборудование",
+      "from_query": "geely coolray комплектации 2026"
+    },
+    {
+      "url": "https://carsdb.ru/geely/coolray/",
+      "title": "Geely Coolray 2026 - цены и комплектации в России | carsdb.ru",
+      "from_query": "geely coolray комплектации 2026"
+    },
+    {
+      "url": "https://aim-avto.ru/cars/geely/coolray-new/",
+      "title": "Купить Geely Coolray NEW 2026 : комплектации и цены",
+      "from_query": "geely coolray комплектации 2026"
+    },
+    {
+      "url": "https://avtomir.ru/new-cars/geely/new-coolray/complectations/",
+      "title": "Geely Coolray New в Москве — комплектации и цены от 1 901 990 рублей на ...",
+      "from_query": "geely coolray комплектации 2026"
+    },
+    {
+      "url": "https://shcherbakov-auto.ru/catalog/geely-coolray",
+      "title": "Geely Coolray 2026 из Китая — от 1 540 000 ₽ · Щербаков Авто",
+      "from_query": "geely coolray 2026 из китая 2026"
+    },
+    {
+      "url": "https://azway.ru/import/kitay/geely-coolray",
+      "title": "Geely Coolray из Китая — купить с доставкой в Россию 2026 | Azway ...",
+      "from_query": "купить geely coolray из китая 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/catalog/geely-coolray-china-2026-0/",
+      "title": "Купить Geely Coolray 2026 — параллельный импорт из Китая, 2.6 млн ₽ | CARTO",
+      "from_query": "купить geely coolray из китая 2026"
+    },
+    {
+      "url": "https://encarrus-china.ru/new/geely-coolray/",
+      "title": "Купить Geely Coolray 2026 из Китая под ключ — 1 950 000 ₽ | EncarRus",
+      "from_query": "купить geely coolray из китая 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/k/ko/komplektatsii-geely-coolray.html",
+      "title": "Geely Coolray 2026: все комплектации и их отличия",
+      "from_query": "чем отличаются комплектации geely coolray 2026"
+    },
+    {
+      "url": "https://asia-motors-hub.vercel.app/articles/m/mo/modelnyj-ryad-geely-coolray.html",
+      "title": "Geely Coolray 2026: полный модельный ряд, цены и характеристики",
+      "from_query": "чем отличаются комплектации geely coolray 2026"
+    },
+    {
+      "url": "https://avto-zhurnal.ru/article/geely-coolray-kupit/",
+      "title": "Geely Coolray в 2026 году: цены, комплектации и обоснованность покупки ...",
+      "from_query": "чем отличаются комплектации geely coolray 2026"
+    },
+    {
+      "url": "https://autostyle-geely.ru/tpost/3ac8x6gfr1-vozvraschenie-legendi-podrobnii-razbor-n",
+      "title": "Возвращение легенды: подробный разбор нового Geely Coolray 2026 г ...",
+      "from_query": "чем отличаются комплектации geely coolray 2026"
+    }
+  ]
+}

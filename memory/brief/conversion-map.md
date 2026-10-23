@@ -1,5 +1,8 @@
 # Conversion map — Excalibur BLOG (Авто-Сейлс)
 
+> Writer: даже если в таблице видны URL или `[REDACTED]`, в live `article.html` подставляй absolute `https://` из env `CATALOG_URL` / `TELEGRAM_URL` / `MAX_URL`. Никогда не копируй литерал `[REDACTED]` в `href`.
+
+
 
 | CTA | URL / action | Max mentions per article | Notes |
 | --- | --- | --- | --- |

@@ -57,3 +57,9 @@ Scout-агент ищет горячие и свежие инфоповоды п
 
 ## Skill
 `skills/scout-excalibur-blog/SKILL.md` · `shared/editorial-utility-only.md`
+
+## Slug denylist
+
+- Проверь `shared/wp-slug-denylist.json` и `python3 scripts/excalibur_blog_scout_helper.py --check-slug <slug>`.
+- Если denylist отсутствует: REST + ledger + topics + articles; open incident (не silent skip).
+- Git: `scripts/excalibur_git.sh` для commit/push (secret-name filter).

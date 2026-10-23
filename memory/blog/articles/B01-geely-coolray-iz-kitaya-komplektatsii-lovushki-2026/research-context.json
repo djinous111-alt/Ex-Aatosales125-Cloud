@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-23",
+    "today_ru": "23.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-25",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-23 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "geely-coolray-iz-kitaya-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Geely Coolray из Китая: комплектации и ловушки до депозита в 2026",
+    "primary_query": "geely coolray из китая",
+    "secondary_queries": [
+      "geely coolray комплектации",
+      "geely coolray 2026 из китая",
+      "купить geely coolray из китая",
+      "чем отличаются комплектации geely coolray"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "geely coolray из китая 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "geely coolray из китая октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "geely coolray из китая новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com geely coolray из китая 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "geely coolray из китая official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "geely coolray из китая forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "geely coolray комплектации 2026",
+      "purpose": "вторичный запрос: geely coolray комплектации"
+    },
+    {
+      "id": "secondary_2",
+      "query": "geely coolray 2026 из китая 2026",
+      "purpose": "вторичный запрос: geely coolray 2026 из китая"
+    },
+    {
+      "id": "secondary_3",
+      "query": "купить geely coolray из китая 2026",
+      "purpose": "вторичный запрос: купить geely coolray из китая"
+    },
+    {
+      "id": "secondary_4",
+      "query": "чем отличаются комплектации geely coolray 2026",
+      "purpose": "вторичный запрос: чем отличаются комплектации geely coolray"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать Geely Coolray из Китая: комплектации и ловушки до депозита в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-geely-coolray-iz-kitaya-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

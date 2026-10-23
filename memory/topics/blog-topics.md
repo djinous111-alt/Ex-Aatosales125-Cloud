@@ -184,3 +184,28 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Geely Coolray из Китая: комплектации и ловушки
+
+- **priority:** P0
+- **slug:** geely-coolray-iz-kitaya-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Geely Coolray из Китая: комплектации и ловушки до депозита в 2026
+- **primary_query:** geely coolray из китая
+- **secondary_queries:** geely coolray комплектации, geely coolray 2026 из китая, купить geely coolray из китая, чем отличаются комплектации geely coolray
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Для кого Coolray и чем он отличается от Monjaro на практике
+  2. Какие комплектации смотреть на китайском рынке (Luxury, Flagship, Super Max)
+  3. Ловушки мощности и льготного утильсбора: что сверить до депозита
+  4. Документы и VIN: красные флаги китайской поставки
+  5. Чек-лист перед оплатой и заказом через Владивосток
+- **faq_hints:** какие комплектации geely coolray бывают; чем coolray отличается от monjaro при заказе; что проверить до депозита на coolray из китая
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у компактного кроссовера Coolray, смартфон с комплектацией, плашка "до депозита", угол avto-sales125.ru
+- **wordstat_signal:** parent "авто из китая" 122361; narrow "geely coolray из китая" 678; secondary "geely coolray комплектации" 1472
+- **wp_gap:** slug FREE на live WP (REST 2026-10-23); недавние Geely/Mazda/Harrier не перекрывают Coolray
+- **beginner_outcome:** новичок сможет сравнить 2–3 комплектации Coolray и отсеять ловушку до перевода депозита

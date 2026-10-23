@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "description": "LIVE / reserved WP slugs that must not be reused by Scout or Publish.",
+  "updated_at": "2026-10-23",
+  "slugs": [
+    "samye-komfortnye-avto-myagkaya-podveska-2026",
+    "trust-encar-carhistory-proverka-do-depozita",
+    "geely-coolray-iz-kitaya-komplektatsii-lovushki-2026"
+  ],
+  "fallback_when_missing": [
+    "GET {PUBLIC_SITE_URL}/wp-json/wp/v2/posts?per_page=20",
+    "GET {PUBLIC_SITE_URL}/wp-json/wp/v2/posts?slug=<candidate>",
+    "shared/published-articles.md",
+    "memory/topics/blog-topics.md",
+    "memory/blog/articles/*"
+  ]
+}

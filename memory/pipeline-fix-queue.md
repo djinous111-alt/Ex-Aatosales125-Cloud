@@ -6,8 +6,31 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None for B01 Stepwgn post-run fixer (2026-10-24). All listed below are fixed._
+
+
 ## INC-20261024-2142-publish-siteenv-paramiko-ledger-date
-status: open
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- Cloud install/Dockerfile/`requirements.txt` install `paramiko`; doctor warns if missing.
+- Publish/doctor auto-materialize gitignored `memory/site.env.local` from process env (`SSH_ROOT=.`).
+- `upsert_publish_ledger` prefers `EXCALIBUR_RUN_DATE` over VM `date.today()`.
+- WebFetch fallback wait remains `range(300)` (not 120); documented in publish skill + pitfalls.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/Dockerfile`
+- `requirements.txt` (already listed paramiko)
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `rg` for `range(300)` and `EXCALIBUR_RUN_DATE` in publish script
+commit: pending-parent-commit
+
 run_date: 2026-10-24
 role: excalibur-blog-publish
 topic_id: B01
@@ -44,11 +67,27 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+- closed by Stepwgn post-run fixer (re-apply Vezel/Sonata durable fixes + IRI/ledger patches)
 
 ## INC-20261024-2140-indexer-llms-blog-path-stale-docs
-status: open
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- Indexer agent/skill examples use `--blog-dir` + `--out-dir` + empty `--site-base` for git-relative llms URLs; no `--blog-path`.
+- Doctor checks `--blog-dir`/`--out-dir` and warns if stale `--blog-path` appears in help.
+- Pitfalls Indexer section documents both rules.
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `rg` for `--blog-path` only as negative docs
+commit: pending-parent-commit
+
 run_date: 2026-10-24
 role: excalibur-blog-indexer
 topic_id: B01
@@ -83,11 +122,28 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
-
+- closed by Stepwgn post-run fixer (re-apply Vezel/Sonata durable fixes + IRI/ledger patches)
 
 ## INC-20261024-2138-cover-mcp-timeout-kie-fallback
-status: open
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- Cover skill/agent: Cloud canon = Kie async (`excalibur_blog_kie_gpt_image2_api.py`); sync MCP optional probe only; `-32001` without url/task_id → Kie, no blind retry.
+- Batch `preferred_image_flow` / timeout_policy already point at Kie; hero reference prefers HTTPS hosted URL.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `shared/mcp-image-async-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+- `rg` preferred_image_flow / Kie-first in cover skill
+commit: pending-parent-commit
+
 run_date: 2026-10-24
 role: excalibur-blog-cover
 topic_id: B01
@@ -120,11 +176,23 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
-
+- closed by Stepwgn post-run fixer (re-apply Vezel/Sonata durable fixes + IRI/ledger patches)
 
 ## INC-20261024-2138-cover-prompt-hoodie-lock-override
-status: open
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- Removed hardcoded white hoodie lock; `outfit_lock_from_hero()` injects weather/topic outfit from `blog-hero.json` / `scene_hint` with explicit NO hoodie/hood/cap.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/blog-hero.json`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+checks_run:
+- `rg` no `thick heavyweight white hoodie` in prompt builder
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+commit: pending-parent-commit
+
 run_date: 2026-10-24
 role: excalibur-blog-cover
 topic_id: B01
@@ -152,11 +220,25 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
-
+- closed by Stepwgn post-run fixer (re-apply Vezel/Sonata durable fixes + IRI/ledger patches)
 
 ## INC-20261024-2126-schema-precommit-site-url-scrub
-status: open
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- Schema skill: prefer `[REDACTED]` site base / `@id` / secret sameAs in committed JSON-LD; public Instagram/2GIS OK; publish expands `PUBLIC_SITE_URL`.
+- Cloud install patches pre-commit to skip non-identifier secret names; filter scripts + CURSOR-CLOUD-RUNBOOK document sanitization.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+checks_run:
+- `rg` REDACTED / pragma guidance in schema skill
+commit: pending-parent-commit
+
 run_date: 2026-10-24
 role: excalibur-blog-schema
 topic_id: B01
@@ -190,11 +272,27 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+- closed by Stepwgn post-run fixer (re-apply Vezel/Sonata durable fixes + IRI/ledger patches)
 
 ## INC-20261024-2125-director-main-missing-utility-markers
-status: open
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- Re-applied Vezel/Sonata durable fixes onto this main-based branch: editorial pain/outcome markers + `_markers_pinned`, utility fail-fast, doctor `--blog-dir`, scout denylist CLI + tracked JSON, geo-qa generalPurpose docs.
+- Merge this branch/PR into main so next Cloud cron inherits the surface.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/wp-slug-denylist.json`
+- `AGENTS.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- utility gate B01 PASS
+commit: pending-parent-commit
+
 run_date: 2026-10-24
 role: excalibur-blog-director
 topic_id: B01
@@ -229,11 +327,23 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
-
+- closed by Stepwgn post-run fixer (re-apply Vezel/Sonata durable fixes + IRI/ledger patches)
 
 ## INC-20261024-2119-geo-qa-typed-task-unavailable
-status: open
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- Documented permanent Cloud path: when typed `excalibur-blog-geo-qa` missing, Director uses `Task(generalPurpose)` + geo-qa agent/skill (AGENTS.md, director skill, pitfalls, pipeline-task-map). Optional human: register typed Task types in Cloud catalog later.
+files_changed:
+- `AGENTS.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/pipeline-task-map.md`
+checks_run:
+- `rg` geo-qa generalPurpose fallback in AGENTS.md / director skill
+commit: pending-parent-commit
+
 run_date: 2026-10-24
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -261,11 +371,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+- closed by Stepwgn post-run fixer (re-apply Vezel/Sonata durable fixes + IRI/ledger patches)
 
 ## INC-20261024-2120-geo-qa-utility-policy-missing-pain-outcome
-status: open
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- `editorial-policy.json` has non-empty `pain_markers_ru` / `outcome_markers_ru`, mins, and `_markers_pinned: true`.
+- Utility gate fail-fast on empty/missing marker lists or missing pin.
+- Doctor validates markers + pin.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- utility gate B01 PASS
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+commit: pending-parent-commit
+
 run_date: 2026-10-24
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -304,11 +428,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
+- closed by Stepwgn post-run fixer (re-apply Vezel/Sonata durable fixes + IRI/ledger patches)
 
 ## INC-20261024-2121-geo-qa-link-verify-unicode-ascii
-status: open
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- `excalibur_blog_link_verify.py` IRI→URI encodes path/query/fragment (and IDNA host) before urllib request; Cyrillic 2GIS paths no longer raise ascii codec errors.
+- Kept placeholder-href FAIL + CTA URL redact in JSON artifacts.
+files_changed:
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit check `iri_to_uri` percent-encodes Cyrillic path
+- `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
+commit: pending-parent-commit
+
 run_date: 2026-10-24
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -341,11 +476,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
-
+- closed by Stepwgn post-run fixer (re-apply Vezel/Sonata durable fixes + IRI/ledger patches)
 
 ## INC-20261024-2118-writer-precommit-cta-secret-scan
-status: open
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- Writer skill: CTA href = live absolute `CATALOG_URL`/`TELEGRAM_URL` + `<!-- pragma: allowlist secret -->`; never `[REDACTED]` href.
+- Install patches pre-commit secret-name identifier guard; filter helper scripts documented in CURSOR-CLOUD-RUNBOOK.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `.cursor/cloud-agent-install.sh`
+checks_run:
+- `rg` pragma allowlist / CTA guidance in writer skill
+commit: pending-parent-commit
+
 run_date: 2026-10-24
 role: excalibur-blog-writer
 topic_id: B01
@@ -378,11 +526,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+- closed by Stepwgn post-run fixer (re-apply Vezel/Sonata durable fixes + IRI/ledger patches)
 
 ## INC-20261024-2115-research-wordstat-empty-primary
-status: open
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- Research skill documents empty `{}` Wordstat payload (≠401): mark EMPTY PAYLOAD, fallback primary → short how-to → brand/parent; never invent volumes. `totalCount`-only = valid low-result.
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` WORDSTAT EMPTY PAYLOAD / fallback order in research skill
+commit: pending-parent-commit
+
 run_date: 2026-10-24
 role: excalibur-blog-research
 topic_id: B01
@@ -412,10 +570,25 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+- closed by Stepwgn post-run fixer (re-apply Vezel/Sonata durable fixes + IRI/ledger patches)
 
 ## INC-20261024-2117-research-precommit-secret-names-url
-status: open
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- Cloud install hardens pre-commit/commit-msg to skip non-bash-identifier entries in `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+- Helper scripts `excalibur_blog_filter_secret_names.sh` / `excalibur_git.sh` + runbook docs. Dashboard should still put only identifiers in NAMES (values in env vars).
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_git.sh`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- scripts present; doctor checks filter scripts exist
+commit: pending-parent-commit
+
 run_date: 2026-10-24
 role: excalibur-blog-research
 topic_id: B01
@@ -443,10 +616,22 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+- closed by Stepwgn post-run fixer (re-apply Vezel/Sonata durable fixes + IRI/ledger patches)
 
 ## INC-20261024-2116-research-notes-gate-false-technical
-status: open
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- TECH markers use word-boundary for short tokens (`ai`/`ии`); strip reader_pain fields from blob; table `accessed_at` ISO dates count toward ≥5.
+- B01 Stepwgn now `technical_topic=false` without bogus GitHub/docs requirements.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- research notes gate B01 → PASS, technical_topic=False, accessed_at=22
+commit: pending-parent-commit
+
 run_date: 2026-10-24
 role: excalibur-blog-research
 topic_id: B01
@@ -478,10 +663,30 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+- closed by Stepwgn post-run fixer (re-apply Vezel/Sonata durable fixes + IRI/ledger patches)
 
 ## INC-20261024-2103-scout-missing-wp-slug-denylist
-status: open
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- Added tracked `shared/wp-slug-denylist.json` (1214 slugs incl. Stepwgn/Vezel/Sonata).
+- Scout helper: `--check-slug` / `--rebuild-denylist` / `--no-live-rest`.
+- Doctor validates denylist file+git tracking and scout CLI flags.
+- Scout skill/pitfalls: Cyrillic LIVE slugs + Korea >2.0L caution.
+files_changed:
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- scout `--check-slug` blocks Stepwgn; free slug OK
+- doctor errors=0
+commit: pending-parent-commit
+
 run_date: 2026-10-24
 role: excalibur-blog-scout
 topic_id: B01
@@ -512,7 +717,7 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+- closed by Stepwgn post-run fixer (re-apply Vezel/Sonata durable fixes + IRI/ledger patches)
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

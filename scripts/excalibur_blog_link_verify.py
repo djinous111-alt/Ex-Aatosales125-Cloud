@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import ssl
 import sys
@@ -12,7 +13,50 @@ import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import quote, unquote, urlparse, urlunparse
+
+
+def iri_to_uri(url: str) -> str:
+    """Percent-encode non-ASCII path/query/fragment so urllib can request IRIs."""
+    parsed = urlparse(url)
+    # IDNA host (best-effort); leave host unchanged if encoding fails.
+    try:
+        netloc = parsed.hostname.encode("idna").decode("ascii") if parsed.hostname else parsed.netloc
+        if parsed.port:
+            netloc = f"{netloc}:{parsed.port}"
+        if parsed.username:
+            user = quote(unquote(parsed.username), safe="")
+            if parsed.password is not None:
+                user += ":" + quote(unquote(parsed.password), safe="")
+            netloc = f"{user}@{netloc}"
+    except (UnicodeError, ValueError):
+        netloc = parsed.netloc
+    return urlunparse(
+        (
+            parsed.scheme,
+            netloc,
+            quote(unquote(parsed.path), safe="/%:@"),
+            parsed.params,
+            quote(unquote(parsed.query), safe="=&%:@?/"),
+            quote(unquote(parsed.fragment), safe="=&%:@?/"),
+        )
+    )
+
+
+def redact_report_urls(report: dict[str, Any]) -> dict[str, Any]:
+    """Rewrite live CTA/site URLs to env placeholders so secret-scan can commit reports."""
+    replacements: list[tuple[str, str]] = []
+    for env_name in ("CATALOG_URL", "TELEGRAM_URL", "PUBLIC_SITE_URL", "WP_SITE_URL", "MAX_URL"):
+        value = (os.environ.get(env_name) or "").strip().rstrip("/")
+        if value and len(value) >= 8:
+            replacements.append((value, f"${{{env_name}}}"))
+    if not replacements:
+        return report
+    text = json.dumps(report, ensure_ascii=False)
+    for live, placeholder in sorted(replacements, key=lambda x: len(x[0]), reverse=True):
+        text = text.replace(live, placeholder)
+        text = text.replace(live + "/", placeholder + "/")
+    return json.loads(text)
 
 
 class LinkExtractor(HTMLParser):
@@ -45,8 +89,9 @@ def extract_links(html: str) -> list[str]:
 
 def check_url(url: str, timeout: float, user_agent: str) -> dict[str, Any]:
     ctx = ssl.create_default_context()
+    request_url = iri_to_uri(url)
     req = urllib.request.Request(
-        url,
+        request_url,
         method="HEAD",
         headers={"User-Agent": user_agent},
     )
@@ -61,7 +106,7 @@ def check_url(url: str, timeout: float, user_agent: str) -> dict[str, Any]:
             }
     except urllib.error.HTTPError as e:
         if e.code in (405, 501, 403):
-            return _get_fallback(url, timeout, user_agent, ctx, str(e))
+            return _get_fallback(request_url, timeout, user_agent, ctx, str(e), display_url=url)
         return {
             "url": url,
             "status": e.code,
@@ -70,17 +115,24 @@ def check_url(url: str, timeout: float, user_agent: str) -> dict[str, Any]:
             "error": str(e),
         }
     except Exception as e:  # noqa: BLE001
-        return _get_fallback(url, timeout, user_agent, ctx, str(e))
+        return _get_fallback(request_url, timeout, user_agent, ctx, str(e), display_url=url)
 
 
 def _get_fallback(
-    url: str, timeout: float, user_agent: str, ctx: ssl.SSLContext, head_error: str
+    url: str,
+    timeout: float,
+    user_agent: str,
+    ctx: ssl.SSLContext,
+    head_error: str,
+    *,
+    display_url: str | None = None,
 ) -> dict[str, Any]:
+    shown = display_url or url
     req = urllib.request.Request(url, headers={"User-Agent": user_agent})
     try:
         with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
             return {
-                "url": url,
+                "url": shown,
                 "status": resp.status,
                 "ok": 200 <= resp.status < 400,
                 "method": "GET",
@@ -88,7 +140,7 @@ def _get_fallback(
             }
     except urllib.error.HTTPError as e:
         return {
-            "url": url,
+            "url": shown,
             "status": e.code,
             "ok": False,
             "method": "GET",
@@ -96,7 +148,7 @@ def _get_fallback(
         }
     except Exception as e:  # noqa: BLE001
         return {
-            "url": url,
+            "url": shown,
             "status": None,
             "ok": False,
             "method": "GET",
@@ -104,7 +156,21 @@ def _get_fallback(
         }
 
 
+_PLACEHOLDER_HREF_RE = re.compile(
+    r"\[REDACTED\]|\$\{?(?:CATALOG_URL|TELEGRAM_URL|PUBLIC_SITE_URL)\}?|"
+    r"https?://example\.com\b|TODO_URL|REPLACE_ME",
+    flags=re.I,
+)
+
+
+def is_placeholder_href(href: str) -> bool:
+    """Literal redacted/placeholder hrefs are writer contract violations."""
+    return bool(_PLACEHOLDER_HREF_RE.search(href.strip()))
+
+
 def classify_link(href: str, site_base: str | None) -> str:
+    if is_placeholder_href(href):
+        return "placeholder"
     if href.startswith("/"):
         return "internal_relative"
     parsed = urlparse(href)
@@ -143,6 +209,23 @@ def verify_article(
     results: list[dict[str, Any]] = []
     for href in links:
         kind = classify_link(href, site_base)
+        if kind == "placeholder":
+            results.append(
+                {
+                    "url": "${CTA_URL}",
+                    "raw_href_kind": "placeholder",
+                    "kind": "placeholder",
+                    "status": None,
+                    "ok": False,
+                    "skipped": False,
+                    "method": None,
+                    "error": (
+                        "literal placeholder href forbidden "
+                        "(use live CATALOG_URL/TELEGRAM_URL + <!-- pragma: allowlist secret -->)"
+                    ),
+                }
+            )
+            continue
         if skip_external and kind == "external":
             results.append(
                 {
@@ -212,7 +295,9 @@ def main() -> int:
         timeout=args.timeout,
         skip_external=args.skip_external,
     )
-    text = json.dumps(report, ensure_ascii=False, indent=2)
+    # Keep verdict from live check; redact URLs only in serialized artifact/stdout.
+    safe_report = redact_report_urls(report)
+    text = json.dumps(safe_report, ensure_ascii=False, indent=2)
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(text + "\n", encoding="utf-8")

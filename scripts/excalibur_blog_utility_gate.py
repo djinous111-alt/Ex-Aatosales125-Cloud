@@ -94,6 +94,29 @@ def count_markers(text: str, markers: list[str]) -> int:
     return sum(hay.count(marker.lower()) for marker in markers)
 
 
+def policy_marker_errors(policy: dict[str, Any]) -> list[str]:
+    """Fail-fast when editorial marker lists were wiped — policy BLOCK, not article weakness."""
+    errors: list[str] = []
+    pain = policy.get("pain_markers_ru")
+    outcome = policy.get("outcome_markers_ru")
+    if not isinstance(pain, list) or not pain:
+        errors.append(
+            "editorial-policy.json: pain_markers_ru пуст или отсутствует "
+            "(POLICY BLOCK — восстанови маркеры / _markers_pinned, не правь статью)"
+        )
+    if not isinstance(outcome, list) or not outcome:
+        errors.append(
+            "editorial-policy.json: outcome_markers_ru пуст или отсутствует "
+            "(POLICY BLOCK — восстанови маркеры / _markers_pinned, не правь статью)"
+        )
+    if not policy.get("_markers_pinned"):
+        errors.append(
+            "editorial-policy.json: _markers_pinned отсутствует или false "
+            "(защита от silent wipe pain/outcome маркеров)"
+        )
+    return errors
+
+
 def gate_topic(topic: dict[str, str], policy: dict[str, Any]) -> dict[str, Any]:
     errors: list[str] = []
     warnings: list[str] = []
@@ -147,6 +170,17 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     if not html_path.is_file():
         return {"gate": "article", "status": "BLOCK", "errors": ["article.html not found"], "warnings": []}
 
+    policy_errors = policy_marker_errors(policy)
+    if policy_errors:
+        return {
+            "gate": "article",
+            "article_dir": repo_relative(article_dir, project_root()),
+            "status": "BLOCK",
+            "metrics": {"pain_markers": 0, "outcome_markers": 0, "policy_markers_ok": False},
+            "errors": policy_errors,
+            "warnings": [],
+        }
+
     html = html_path.read_text(encoding="utf-8")
     plain = strip_html(html)
 
@@ -187,29 +221,16 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
 
     pain_markers = policy.get("pain_markers_ru") or []
     outcome_markers = policy.get("outcome_markers_ru") or []
-    if not isinstance(pain_markers, list) or not pain_markers:
-        errors.append(
-            "policy incomplete: pain_markers_ru missing/empty in editorial-policy.json "
-            "(utility_only_v1 requires non-empty list; do not apply min_pain against [])"
-        )
-        pain_count = 0
-    else:
-        pain_count = count_markers(plain, pain_markers)
-        min_pain = int(req.get("min_pain_markers") or 2)
-        if pain_count < min_pain:
-            errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
+    pain_count = count_markers(plain, pain_markers)
+    outcome_count = count_markers(plain, outcome_markers)
 
-    if not isinstance(outcome_markers, list) or not outcome_markers:
-        errors.append(
-            "policy incomplete: outcome_markers_ru missing/empty in editorial-policy.json "
-            "(utility_only_v1 requires non-empty list; do not apply min_outcome against [])"
-        )
-        outcome_count = 0
-    else:
-        outcome_count = count_markers(plain, outcome_markers)
-        min_outcome = int(req.get("min_outcome_markers") or 3)
-        if outcome_count < min_outcome:
-            errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
+    min_pain = int(req.get("min_pain_markers") or 2)
+    if pain_count < min_pain:
+        errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
+
+    min_outcome = int(req.get("min_outcome_markers") or 3)
+    if outcome_count < min_outcome:
+        errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
 
     if req.get("requires_workflow_or_table_or_checklist"):
         has_utility_block = bool(tables or blockquotes or ul_lists >= 2 or "→" in html)
@@ -330,6 +351,17 @@ def main() -> int:
     policy = load_json(policy_path)
 
     reports: list[dict[str, Any]] = []
+    policy_errs = policy_marker_errors(policy)
+    if policy_errs and not args.article_dir:
+        # Topic-only runs still fail fast on wiped markers (doctor also checks).
+        reports.append(
+            {
+                "gate": "policy",
+                "status": "BLOCK",
+                "errors": policy_errs,
+                "warnings": [],
+            }
+        )
 
     if args.topic_id:
         topics_path = root / "memory/topics/blog-topics.md"

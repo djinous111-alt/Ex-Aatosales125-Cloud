@@ -44,3 +44,11 @@ memory/blog/articles/<topic_id>-<slug>/article.meta.json
 - объём вне диапазона после 1 правки
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`
+
+## CTA href (Cloud secret-scan)
+
+- Пиши **живые** CTA из env: `CATALOG_URL`, `TELEGRAM_URL` (публичные маркетинговые URL).
+- На каждой строке `article.html` с этими URL добавь HTML-комментарий `<!-- pragma: allowlist secret -->`.
+- **Запрещено** литерал `href="[REDACTED]"` / `${CATALOG_URL}` / `example.com` в production `article.html` — link-verify пометит `kind=placeholder` и FAIL.
+- В `link-verify.json` скрипт сам переписывает live CTA на `${CATALOG_URL}`/`${TELEGRAM_URL}` для git.
+

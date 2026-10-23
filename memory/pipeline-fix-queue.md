@@ -6,9 +6,10 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None for run_date 2026-10-23 after fixer._
 
 ## INC-20261023-1736-publish-siteenv-paramiko-fallback-wait
-status: open
+status: fixed
 run_date: 2026-10-23
 role: excalibur-blog-publish
 topic_id: B01
@@ -43,11 +44,28 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-23
+fix_summary:
+- Cloud install/Dockerfile now install `paramiko` from requirements (or explicit package list).
+- Publish skill documents bootstrap of gitignored `memory/site.env.local` from Cloud Secrets with `SSH_ROOT=.`.
+- Confirmed WebFetch fallback wait remains `range(300)` / 300 seconds in `excalibur_blog_wp_publish.py`.
+- Pitfalls Publish section updated.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/Dockerfile`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `rg` range(300) / 300 seconds in publish script
+- `python3 scripts/excalibur_blog_doctor.py` (paramiko OK)
+commit: 180efd56, b9376b0b, 2a6ab59b
 
 
 ## INC-20261023-1730-geo-qa-typed-task-missing
-status: open
+status: fixed
 run_date: 2026-10-23
 role: excalibur-blog-director
 topic_id: B01
@@ -74,10 +92,24 @@ category: tooling
 ### Secrets
 - none recorded
 
-
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-23
+fix_summary:
+- Documented permanent Cloud path: when typed `excalibur-blog-geo-qa` is missing from Task catalog, Director uses `Task(generalPurpose)` with geo-qa agent+skill.
+- AGENTS.md Cloud Task fallback explicitly lists geo-qa; director skill has copy-paste prompt.
+- Pitfalls Cloud/Task note added.
+files_changed:
+- `AGENTS.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` geo-qa generalPurpose fallback in AGENTS.md / director skill
+commit: 180efd56, b9376b0b, 2a6ab59b
 
 ## INC-20261023-1729-indexer-llms-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-10-23
 role: excalibur-blog-indexer
 topic_id: B01
@@ -114,11 +146,27 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-23
+fix_summary:
+- Doctor now requires `--blog-dir`/`--out-dir` and fails if stale `--blog-path` appears in llms `--help`.
+- Indexer agent/skill examples use empty `--site-base` for git-relative `/blog/<slug>/` URLs; removed `--blog-path`.
+- Pitfalls Indexer section synced.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0
+- `rg` for `--blog-path` in indexer contracts (clean)
+commit: 180efd56, b9376b0b, 2a6ab59b
 
 
 ## INC-20261023-1722-cover-mcp-32001-kie-fallback
-status: open
+status: fixed
 run_date: 2026-10-23
 role: excalibur-blog-cover
 topic_id: B01
@@ -152,11 +200,24 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-23
+fix_summary:
+- Cover skill / pipeline-task-map / mcp-image-async-contract: after first MCP -32001 with no url/task_id, immediately fall back to Kie API (no 5-min wait without logs; no blind sync retry).
+- Fragment must record `source: kie-api` on fallback.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/pipeline-task-map.md`
+- `shared/mcp-image-async-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` for Kie fallback / -32001 guidance in cover contracts
+commit: 180efd56, b9376b0b, 2a6ab59b
 
 
 ## INC-20261023-1716-geo-qa-utility-pain-outcome-markers-missing
-status: open
+status: fixed
 run_date: 2026-10-23
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -186,11 +247,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-23
+fix_summary:
+- `editorial-policy.json` already has non-empty `pain_markers_ru` / `outcome_markers_ru` + min thresholds (kept).
+- `excalibur_blog_utility_gate.py` fail-fast with «policy incomplete» when marker lists missing/empty (no silent BLOCK on zeros).
+- Pitfalls QA section documents required policy fields.
+files_changed:
+- `memory/brief/editorial-policy.json` (verified present)
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_utility_gate.py --article-dir …/B01-…` → PASS
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
+commit: 180efd56, b9376b0b, 2a6ab59b
 
 
 ## INC-20261023-1717-geo-qa-writer-literal-redacted-href
-status: open
+status: fixed
 run_date: 2026-10-23
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -223,11 +297,25 @@ category: prompt
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-23
+fix_summary:
+- Writer skill + writing contract forbid literal `[REDACTED]`/`${CATALOG_URL}` href; require live CTA from env + `<!-- pragma: allowlist secret -->`.
+- `link_verify` classifies placeholders as FAIL (`kind=placeholder`) and redacts live CTA URLs to `${ENV}` in JSON artifact for secret-scan.
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- placeholder href unit check → verdict fail
+- `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
+commit: 180efd56, b9376b0b, 2a6ab59b
 
 
 ## INC-20261023-1720-research-precommit-secret-name-url
-status: open
+status: fixed
 run_date: 2026-10-23
 role: excalibur-blog-research
 topic_id: B01
@@ -256,10 +344,21 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-23
+fix_summary:
+- `.cursor/cloud-agent-install.sh` idempotently patches platform `pre-commit.cursor` to skip non-bash-identifier entries in `CLOUD_AGENT_INJECTED_SECRET_NAMES` (EXCALIBUR_SECRET_NAME_ID_GUARD).
+- Pitfalls documents filter + install patch.
+- Residual (ops): Cloud Secrets inject should not put URL-like values into secret *names*; schema CTA allowlist via pragma remains writer/schema duty.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- install script patched live hook; `grep EXCALIBUR_SECRET_NAME_ID_GUARD` OK
+commit: 180efd56, b9376b0b, 2a6ab59b
 
 ## INC-20261023-1715-research-notes-gate-false-technical
-status: open
+status: fixed
 run_date: 2026-10-23
 role: excalibur-blog-research
 topic_id: B01
@@ -290,7 +389,19 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-23
+fix_summary:
+- `is_technical_topic` uses word-boundary regex; prefers topic-card fields; strips required field labels on notes fallback.
+- `accessed_at` also counted via ISO dates in source_table URL rows; pain_solution_map rows counted inside section.
+- B01 re-run: technical_topic=false, gate PASS without GitHub workaround requirement.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit asserts (Honda Vezel not technical; MCP/Cursor is)
+- `PYTHONPATH=scripts python3 scripts/excalibur_blog_research_notes_gate.py --article-dir …/B01-…` → PASS technical_topic=false
+commit: 180efd56, b9376b0b, 2a6ab59b
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -538,7 +649,7 @@ checks_run:
 commit: pending-parent-commit
 
 ## INC-20261023-1705-scout-wp-slug-denylist-missing
-status: open
+status: fixed
 run_date: 2026-10-23
 role: excalibur-blog-scout
 topic_id: B01
@@ -572,7 +683,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-23
+fix_summary:
+- `shared/wp-slug-denylist.json` tracked in git (1211 slugs); doctor verifies existence + git tracking.
+- `excalibur_blog_scout_helper.py` adds `--check-slug` and `--rebuild-denylist` (+ optional live REST).
+- Scout agent/skill require denylist slug check for AVTO SALES, not only `--check-query`.
+files_changed:
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/wp-slug-denylist.json` (verified tracked)
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_scout_helper.py --check-slug honda-vezel-… --no-live-rest` → OK
+- `python3 scripts/excalibur_blog_doctor.py` → denylist + CLI flags OK
+commit: 180efd56, b9376b0b, 2a6ab59b
 
 ## Fixed incidents
 

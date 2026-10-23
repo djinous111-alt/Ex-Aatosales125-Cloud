@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-hyundai-sonata-iz-korei-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1262,
+      730
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 730,
+        "end": 758
+      },
+      "v_gutter_px": {
+        "start": 1262,
+        "end": 1284
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 10,
+          "right": 1262,
+          "bottom": 720
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1262,
+          "bottom": 730
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у Hyundai Sonata со смартфоном Encar, плашка до депозита, угол avto-sales125.ru",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1284,
+          "top": 6,
+          "right": 2560,
+          "bottom": 724
+        },
+        "raw_box_px": {
+          "left": 1284,
+          "top": 0,
+          "right": 2560,
+          "bottom": 730
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица выбора задачи покупки Sonata: семья, такси или седан",
+        "h2_anchor": "Зафиксируйте задачу: семья, такси или просто седан"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 25,
+          "top": 758,
+          "right": 1237,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 758,
+          "right": 1262,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема проверки мотора и порога 160 л.с. до выбора лота Sonata",
+        "h2_anchor": "Сверьте мотор, мощность и возраст до выбора лота"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1316,
+          "top": 758,
+          "right": 2528,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1284,
+          "top": 758,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист: бензин vs заводской LPi и ловушка LPG rental",
+        "h2_anchor": "Отделите бензин от заводского ГБО: когда газ экономит"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Зафиксируйте задачу: семья, такси или просто седан",
+    "injected inline_2 after H2 — Сверьте мотор, мощность и возраст до выбора лота",
+    "injected inline_3 after H2 — Отделите бензин от заводского ГБО: когда газ экономит"
+  ]
+}

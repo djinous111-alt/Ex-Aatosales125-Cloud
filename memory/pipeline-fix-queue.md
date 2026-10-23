@@ -410,10 +410,12 @@ category: prompt
 
 ### How the agent recovered this run
 - Patched `cover/quad-mcp-prompt.txt` and synced `mcp_args` + `api_args` in `quad-mcp-batch.json` to softshell/crewneck and non-toxic wording without listing forbidden insults.
+- After ONE Kie i2i success, corner brand `avto-sales125.ru` was missing on cover panel — stamped small catalog footer via Pillow on `cover/cover.png` (no second generation).
 
 ### Durable fix needed before next run
 - Change default outfit lock in `scripts/excalibur_blog_cover_quad_prompt.py` to softshell/crewneck; forbid hoodie/hood/cap.
 - Rephrase non-toxic rule without listing specific insult words in the generation prompt.
+- Strengthen corner-brand instruction early in prompt (and/or post-split stamp helper) so `avto-sales125.ru` is reliably visible.
 - Align cover-concept / pitfalls with Cloud lesson.
 
 ### Suggested files to inspect/change

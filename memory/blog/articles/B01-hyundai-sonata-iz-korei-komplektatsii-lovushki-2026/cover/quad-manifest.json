@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит до сверки Encar? Стоп!",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у Hyundai Sonata со смартфоном Encar, плашка до депозита, угол avto-sales125.ru",
+      "scene_hint": "EXACT face+glasses from reference; OUTFIT: navy softshell jacket or charcoal crewneck sweater (DEFAULT softshell/crewneck — ABSOLUTELY NO hoodie, NO hood, NO cap); daylight Vladivostok street next to modern silver Hyundai Sonata sedan; hero holds smartphone showing fake Encar lot card (year, mileage, fuel, hp fields readable in Cyrillic/Korean mix); torn-paper plaque «до депозита» with yellow highlighter on «депозита»; sticky note «сверь trim»; shocked meme reaction cutout; scotch tape scraps; corner footer tiny text avto-sales125.ru (catalog site, NOT Telegram); no Wordstat no Metrika; photoreal action selfie collage 16:9",
+      "meme_caption_ru": "Сначала фильтр — потом депозит"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зафиксируйте задачу: семья, такси или просто седан",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean comparison table UI (NO hero face): 3 columns Семья / Такси-пробег / Просто седан vs rows цель, LPG да/нет, trim-уровень, риск утиля; Cyrillic headers; small sticky note «одна фраза»; tape corner; utility screenshot look",
+      "alt": "Таблица выбора задачи покупки Sonata: семья, такси или седан"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сверьте мотор, мощность и возраст до выбора лота",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram (NO hero): steps Год → Объём → Мощность → Порог 160 л.с. → Утильсбор; highlight node «≤160 л.с.» green vs «1.6 Turbo ~180» red warning; arrow path; mini fake Encar power field; sticky «до выбора лота»; readable Cyrillic",
+      "alt": "Схема проверки мотора и порога 160 л.с. до выбора лота Sonata"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Отделите бензин от заводского ГБО: когда газ экономит",
+      "visual_type": "checklist_board",
+      "scene_hint": "Checklist board UI (NO hero): items LPi заводской / LPG rental / taxi history / бензин 2.0; checkmarks and X marks; fuel badges; note «газ ≠ всегда выгодно»; tape + mini catalog card scrap; Cyrillic only; printable board aesthetic",
+      "alt": "Чеклист: бензин vs заводской LPi и ловушка LPG rental"
+    }
+  }
+}

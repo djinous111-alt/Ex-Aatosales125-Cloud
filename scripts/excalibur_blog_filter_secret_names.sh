@@ -45,7 +45,8 @@ if ((${#filtered[@]} > 0)); then
 fi
 
 if [[ "$export_mode" -eq 1 ]]; then
-  printf "export CLOUD_AGENT_INJECTED_SECRET_NAMES=%q\n" "$safe"
+  # Single-quote for eval safety; value is only [A-Za-z0-9_,] after filter.
+  printf "export CLOUD_AGENT_INJECTED_SECRET_NAMES='%s'\n" "$safe"
 else
   export CLOUD_AGENT_INJECTED_SECRET_NAMES="$safe"
 fi

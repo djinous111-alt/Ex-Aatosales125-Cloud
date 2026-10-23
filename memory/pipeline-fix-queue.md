@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-2140-indexer-llms-blog-path-stale-docs
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer agent/skill shell still documents `excalibur_blog_llms_generator.py ... --blog-path /`, but the script only accepts `--blog-dir` / `--out-dir` (no `--blog-path`); following the skill literally fails argparse.
+- Agent also defaults `--site-base ${PUBLIC_SITE_URL}`, while committed `memory/blog/llms*.txt` and git hygiene expect relative URLs via empty `--site-base`.
+- Doctor already reports stale `--blog-path` check (see related scout/doctor notes); Indexer docs were not aligned this run.
+
+### How the agent recovered this run
+- Ran llms generator with `--blog-dir memory/blog/articles --out-dir memory/blog --site-base ""` (no `--blog-path`), matching existing relative URL style in `memory/blog/llms.txt`.
+- Interlinker `--apply` with `--site-base ""` (apply path already writes `/blog/<slug>/`).
+
+### Durable fix needed before next run
+- Remove `--blog-path` from Indexer agent + skill shell examples; document only `--blog-dir` + `--out-dir`.
+- Document empty `--site-base` for git-committed relative llms/interlink URLs; keep absolute base only as optional publish-time note.
+- Align `excalibur_blog_doctor.py` Indexer check with real CLI (no false `--blog-path` requirement).
+- Expand `shared/agent-pipeline-pitfalls.md` Indexer section with these two rules.
+
+### Suggested files to inspect/change
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261024-2138-cover-mcp-timeout-kie-fallback
 status: open
 run_date: 2026-10-24

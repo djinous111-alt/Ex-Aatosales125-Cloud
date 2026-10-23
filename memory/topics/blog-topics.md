@@ -184,3 +184,27 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Honda Stepwgn из Японии: комплектации и ловушки
+
+- **priority:** P0
+- **slug:** honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Honda Stepwgn из Японии: кузова, Spada и ловушки до ставки в 2026
+- **primary_query:** как выбрать honda stepwgn из японии
+- **secondary_queries:** степвагон из японии, хонда степвагон из японии, honda stepwgn spada, хонда степвагон кузова
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Кому подходит Stepwgn и чем Spada отличается от обычной версии
+  2. Какие кузова и моторы смотреть на японском аукционе до ставки
+  3. Ловушки аукционного листа: сдвижные двери, пробег, оценка кузова
+  4. Что проверить по комплектации до депозита (нави, камеры, сиденья, 4WD)
+  5. Чек-лист перед ставкой: возраст проходной, мощность, утильсбор, логистика через Владивосток
+- **faq_hints:** чем Stepwgn Spada отличается от базового; какой кузов RP чаще берут под заказ; какие красные флаги в аукционном листе до ставки; сколько roughly ждать до Владивостока
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у японского семейного минивэна на фоне порта Владивостока, аукционный лист на смартфоне, плашка "до ставки", угол avto-sales125.ru
+- **wordstat_signal:** parent "авто из японии" ~108k; brand "honda stepwgn" ~74k / "хонда степвагон" ~202k similar; narrow "степвагон из японии" ~790; how-to totalCount-only low-detail
+- **dedupe_note:** LIVE WP slug free; Palisade отклонён (KR export >2.0L + LIVE hendaj-palisad-...); recent Honda Vezel/Alphard/Harrier не дублируем

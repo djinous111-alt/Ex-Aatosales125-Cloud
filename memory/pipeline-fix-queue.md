@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-2103-scout-missing-wp-slug-denylist
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- Scout prompt expects `shared/wp-slug-denylist.json` and helper flags `--check-slug` / `--rebuild-denylist`, but the file and CLI flags are absent in the repo.
+- `scripts/excalibur_blog_scout_helper.py` only exposes `--suggest-next` and `--check-query`; AS* cards are ignored for Bxx pool (by design), so LIVE model posts are invisible to `--check-query` alone.
+- First draft card for Hyundai Palisade looked slug-free by exact kebab, but LIVE Cyrillic slug `hendaj-palisad-iz-korei-...` plus Korea export limit >2.0L made the topic unsafe; automation memory already warned, local denylist was missing so the warning was easy to miss.
+
+### How the agent recovered this run
+- Used `EXCALIBUR_RECENT_WP_POSTS` from `excalibur_blog_today.py` plus live WP REST slug/search (Latin + Cyrillic titles) to reject occupied/unsafe models.
+- Replaced Palisade draft with free slug `honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026`; `--check-query` clean; utility gate PASS.
+
+### Durable fix needed before next run
+- Add `shared/wp-slug-denylist.json` (rebuild from LIVE WP all pages) and wire `--rebuild-denylist` / `--check-slug` into `excalibur_blog_scout_helper.py`.
+- Document Cyrillic translit slug search + Korea >2.0L export filter in scout skill / pitfalls.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `shared/wp-slug-denylist.json`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

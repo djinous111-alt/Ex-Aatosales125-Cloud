@@ -251,6 +251,43 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261023-1304-scout-wp-slug-denylist-missing
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- На ветке отсутствовал `shared/wp-slug-denylist.json`, хотя LIVE-блог уже содержит десятки model/process slug'ов.
+- Helper `--check-query` смотрит только пул `## Bxx` в `blog-topics.md` и не видит LIVE WP slug'и; без denylist/REST легко выбрать повтор модели (Coolray/CX-5/Harrier и др.).
+- MCP `wordpress_search_posts` по запросу `sonata` вернул пусто, тогда как REST `PUBLIC_SITE_URL` нашёл связанные посты (в т.ч. старое сравнение K5/Sonata) — MCP нельзя считать единственным источником denylist.
+
+### How the agent recovered this run
+- Собрал минимальный denylist из `PUBLIC_SITE_URL` REST `/wp-json/wp/v2/posts?per_page=100` (100 slug'ов) в `shared/wp-slug-denylist.json`.
+- Дополнительно проверил exact slug кандидата через REST `?slug=` и search; выбранный `hyundai-sonata-iz-korei-komplektatsii-lovushki-2026` = GAP (`[]`).
+- Не опирался на MCP wordpress_* как на sole source of truth.
+
+### Durable fix needed before next run
+- Держать `shared/wp-slug-denylist.json` в репо и обновлять после каждого publish.
+- В scout helper добавить `--check-slug` против denylist + опциональный REST probe по `PUBLIC_SITE_URL`.
+- В scout skill/agent явно: niche AVTO SALES; denylist + REST обязательны; MCP wordpress_* только как доп. сигнал.
+
+### Suggested files to inspect/change
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

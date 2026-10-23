@@ -6,6 +6,35 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261023-1720-research-precommit-secret-name-url
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-vezel-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `pre-commit.cursor` падает на `${!SECRET_NAME}` с `invalid variable name`, потому что в `CLOUD_AGENT_INJECTED_SECRET_NAMES` попадает URL-подобная строка (не bash identifier).
+
+### How the agent recovered this run
+- Перед `git commit` отфильтровал список до валидных `[A-Za-z_][A-Za-z0-9_]*` имён и прогнал hook с очищенным env (без `--no-verify`).
+
+### Durable fix needed before next run
+- В Cloud Secrets / inject pipeline не класть URL или иные non-identifier значения в `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+- Либо в pre-commit hook пропускать имена, не подходящие под bash identifier, вместо hard-fail.
+
+### Suggested files to inspect/change
+- Cloud agent secret injection config
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (platform)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261023-1715-research-notes-gate-false-technical
 status: open
 run_date: 2026-10-23

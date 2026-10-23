@@ -29,12 +29,18 @@
     "description_aeo": "До депозита за Coolray из Китая сверьте линейку Chaoneng (~93 кВт) или турбо Binyue L (~133 кВт), VIN и пакет документов. Смету берите в каталоге."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
-    "date": null,
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "score": 88,
+    "verdict": "PASS",
+    "date": "2026-10-23",
+    "html_linter": "pass",
+    "slop_score": "pass",
+    "cannibalization": "pass",
+    "link_verify": "pass",
+    "human_voice": "pass",
+    "utility_gate": "pass",
+    "research_notes_gate": "pass",
+    "qa_cycle": 2,
+    "blocker": null
   },
   "cover_family": "brand_collage"
 }

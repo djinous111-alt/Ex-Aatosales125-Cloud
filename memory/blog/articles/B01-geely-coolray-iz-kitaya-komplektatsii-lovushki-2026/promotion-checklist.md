@@ -1,7 +1,8 @@
 # Promotion checklist — B01 geely-coolray-iz-kitaya-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-23 (ожидаемая; publish pending)  
-Live URL: /blog/geely-coolray-iz-kitaya-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-23  
+Live URL: [REDACTED]/2026/10/23/geely-coolray-iz-kitaya-komplektatsii-lovushki-2026/  
+WP post_id: 4465 · featured 4472 · inline 4473/4474/4475
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

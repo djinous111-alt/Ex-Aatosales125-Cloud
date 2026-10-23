@@ -1,0 +1,129 @@
+{
+  "gate": "human-voice",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-geely-coolray-iz-kitaya-komplektatsii-lovushki-2026",
+  "errors": [],
+  "warnings": [
+    "paragraph rhythm too uniform: variance/avg=0.34",
+    "multiple exactly-5-step lists detected; vary list size when editorially possible"
+  ],
+  "metrics": {
+    "h2_count": 6,
+    "repeated_h2_openers": [],
+    "textbook_h2_count": 0,
+    "paragraph_count": 22,
+    "paragraph_avg_words": 41.5,
+    "paragraph_variance_ratio": 0.34,
+    "concrete_markers": [
+      "например",
+      "на практике",
+      "типичная ошибка",
+      "из практики"
+    ],
+    "pain_markers": [
+      "боль",
+      "ошиб"
+    ],
+    "outcome_markers": [
+      "результат",
+      "получите",
+      "проверьте",
+      "соберите",
+      "выберите"
+    ],
+    "ai_opening_hits": [],
+    "reader_story_overlap": [
+      "binyue",
+      "coolray",
+      "flagship",
+      "super",
+      "атмосферник",
+      "выяснил",
+      "деньги",
+      "депозит",
+      "дилера",
+      "игорь",
+      "льготу",
+      "неделю",
+      "посредника",
+      "проходит",
+      "смету",
+      "турбо",
+      "увидел"
+    ],
+    "reader_pain_overlap": [
+      "депозита",
+      "другим",
+      "комплектации",
+      "красивое",
+      "льготный",
+      "машину",
+      "мотором",
+      "перепутать",
+      "турбо",
+      "утильсбор"
+    ],
+    "reader_outcome_overlap": [
+      "binyue",
+      "coolray",
+      "super",
+      "депозита",
+      "документов",
+      "линейки",
+      "мощность",
+      "реальные",
+      "сравнит",
+      "турбо",
+      "утильсбора"
+    ],
+    "success_criteria_overlap": [
+      "версия",
+      "депозит",
+      "коробка",
+      "красных",
+      "мотор",
+      "нельзя",
+      "оплатой",
+      "ответ",
+      "перед",
+      "салоне",
+      "список",
+      "таблица",
+      "флагов",
+      "ясный"
+    ],
+    "voice_angle_overlap": [
+      "бумага",
+      "двигатель",
+      "картинка",
+      "комплектации",
+      "переводом",
+      "потом",
+      "сначала",
+      "спокойный",
+      "эксперт"
+    ],
+    "surprising_fact_overlap": [
+      "binyue",
+      "chaoneng",
+      "coolray",
+      "атмосферный",
+      "базой",
+      "именем",
+      "китае",
+      "машины",
+      "одним",
+      "одной",
+      "около",
+      "продаются",
+      "разница",
+      "разные",
+      "сейчас",
+      "турбо",
+      "утильсбора",
+      "юаней"
+    ],
+    "exactly_five_lists": 2,
+    "fact_check_template_blocks": 0
+  }
+}

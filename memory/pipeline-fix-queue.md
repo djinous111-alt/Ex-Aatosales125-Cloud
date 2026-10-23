@@ -6,6 +6,73 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261023-0942-publish-site-env-paramiko
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-coolray-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `memory/site.env.local` missing at publish start (gitignored); Cloud Secrets present in process env.
+- `paramiko` not installed in image (`ModuleNotFoundError`) despite being required for SSH publish.
+
+### How the agent recovered this run
+- Wrote `memory/site.env.local` from Cloud Secrets with `SSH_ROOT=.` (no quotes); `pip install --break-system-packages paramiko` (5.1.0); `--env-check` PASS.
+
+### Durable fix needed before next run
+- Ensure cloud install installs `paramiko` from `requirements.txt`.
+- Document bootstrap of `site.env.local` from secrets + `SSH_ROOT=.` in publish skill / pitfalls.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261023-0943-publish-http-fallback-wait-120
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-coolray-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: publish
+
+### What went wrong
+- ~6.3MB PHP payload: local HTTP trigger `RemoteDisconnected` after ~120s.
+- Script WebFetch fallback wait is only **120s**, while curl `--max-time 300` needed ~111s after FALLBACK print — race caused script `RuntimeError` timeout even though curl later returned full `OK post=4465`.
+- Double trigger (partial first + curl) duplicated media (`*-1.png`); live post correctly points at latest IDs 4472–4475.
+
+### How the agent recovered this run
+- Started curl `--max-time 300` immediately on FALLBACK into `memory/webfetch-response.txt`.
+- Did **not** republish after script FAIL; reconstructed via REST slug + wp-cli meta (`skip_theme_faq=1`, schema BlogPosting+FAQPage, featured 4472); HEAD 200.
+
+### Durable fix needed before next run
+- Bump `trigger_bootstrap_http` fallback wait from 120s to **300s** (match curl/Cloud lesson).
+- Keep REST reconstruct path documented; never third-publish on timeout when slug already LIVE.
+- Optionally skip second media upload if post+attachments already exist for slug.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`trigger_bootstrap_http` loop)
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261023-0934-indexer-llms-blog-path-stale
 status: open
 run_date: 2026-10-23

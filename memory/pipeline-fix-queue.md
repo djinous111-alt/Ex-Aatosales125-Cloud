@@ -6,6 +6,75 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-2138-cover-mcp-timeout-kie-fallback
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` i2i returned HTTP `-32001 Request timed out` with no URL/task_id in the tool response.
+- Agent-visible MCP/Cloud logs had no recoverable result URL (cursor-cloud events empty; no local MCP log with resultUrls).
+- Preferred Kie API first createTask failed after generating: `failCode=500 Internal Error` (task_id recorded in `cover/kie-image-task.json`).
+
+### How the agent recovered this run
+- Polled briefly for late MCP URL; none found — did not blind-retry sync MCP create.
+- Retried ONE Kie i2i job with HTTPS `input_urls` (same reference host) → success → `quad_apply --inject-html` PASS.
+
+### Durable fix needed before next run
+- Prefer default cover path = Kie async script (`excalibur_blog_kie_gpt_image2_api.py`) in skill/agent runbook; treat sync MCP as optional probe only.
+- Document HTTPS preference for WordPress media reference URLs when calling Kie.
+- Optional: async MCP start/status tools so `-32001` can resume by task_id.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_cover_quad_prompt.py` (`preferred_image_flow` / timeout_policy)
+- `shared/kie-gpt-image-api-contract.md`
+- `scripts/excalibur_blog_hero_reference_url.py` (prefer https hosted URL)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261024-2138-cover-prompt-hoodie-lock-override
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026
+severity: low
+category: prompt
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` hardcodes `Outfit lock: thick heavyweight white hoodie` even when `quad-manifest` / `blog-hero.json` require weather/topic outfit (softshell/crewneck, NO hoodie).
+- Agent had to manually patch `cover/quad-mcp-prompt.txt` + batch prompt before generation.
+
+### How the agent recovered this run
+- Replaced hoodie lock string in prompt/batch with softshell+crewneck / NO hoodie for B01 before Kie call.
+
+### Durable fix needed before next run
+- Remove hardcoded hoodie lock; inject outfit from `slots.cover.scene_hint` or `blog-hero.outfit_rule` / per-article scene.
+- Keep only: reference face+glasses; NO cap/hood as negatives.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/blog-hero.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261024-2126-schema-precommit-site-url-scrub
 status: open
 run_date: 2026-10-24

@@ -122,23 +122,35 @@ python scripts/excalibur_blog_cover_quad_prompt.py \
 
 Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE MCP (optional probe) → Kie fallback
 
-`CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
-Аргументы = `jobs[0].mcp_args` из batch.
+Cloud default path: **MCP once, then Kie API** (see `shared/kie-gpt-image-api-contract.md`).
 
-Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
+1. Optional: one sync `gpt-image-2` MCP call with `jobs[0].mcp_args` (input_urls, 16:9, 2K).
+2. If MCP returns URL → write `cover/quad-mcp-result.json` and go to apply.
+3. If HTTP MCP **-32001 Request timed out** and logs/tool response have **no URL and no task_id**:
+   - **do not** blind-retry sync MCP;
+   - **do not** wait the full 5 minutes when MCP logs are unavailable;
+   - immediately run Kie API:
+
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
+4. Record fragment `source: kie-api` when fallback used (`source: mcp` only when MCP URL applied).
+
+Prefer async MCP start/status tools when listed in Available Tools (`shared/mcp-image-async-contract.md`).
 
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
   --inject-html
 ```
 
-Требует Pillow. Выход: cover, inline PNG, registry, inject в article.html.
+Or pass `--url` when applying a recovered MCP URL. Requires Pillow. Output: cover, inline PNG, registry, inject in article.html.
 
 ### Шаг 6 — fragment
 

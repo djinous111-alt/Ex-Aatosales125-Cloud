@@ -17,7 +17,9 @@ WebSearch (Cursor native trend scouting for 2026)
               ↓
 wordstat_get_top_requests (Yandex Wordstat API demand verify)
               ↓
-excalibur_blog_scout_helper.py --check-query (Cannibalization Guard)
+excalibur_blog_scout_helper.py --check-query (pool overlap)
+              ↓
+excalibur_blog_scout_helper.py --check-slug (wp-slug-denylist + live REST)
               ↓
 Append new Topic Card to blog-topics.md
 ```
@@ -30,7 +32,7 @@ Append new Topic Card to blog-topics.md
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
   Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
 
@@ -47,9 +49,26 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
 Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
+
+
+### Шаг 4b — WP slug denylist (AVTO SALES / LIVE site)
+
+Перед append карточки обязательно:
+
+```bash
+# Если denylist отсутствует или устарел:
+python3 scripts/excalibur_blog_scout_helper.py --rebuild-denylist
+
+# Exact + fuzzy + optional live REST ?slug=
+python3 scripts/excalibur_blog_scout_helper.py --check-slug "<candidate-kebab-slug>"
+```
+
+- `shared/wp-slug-denylist.json` должен быть в git (doctor проверяет).
+- `--check-query` смотрит только pool `blog-topics.md` — **не** заменяет denylist/LIVE slug check.
+- Exit 1 / exact denylist / live_rest_empty=false → смени slug/тему.
 
 ### Шаг 5 — Сборка карточки темы (Utility-Only)
 Сформируй карточку темы по шаблону:

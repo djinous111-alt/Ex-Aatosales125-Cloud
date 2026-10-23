@@ -1,0 +1,35 @@
+{
+  "source": "memory/blog/articles/B01-honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "total_links": 3,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "https://avto-sales125.ru",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "[CTA_TELEGRAM_OK]",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://2gis.ru/vladivostok/firm/70000001090415417/tab/reviews",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

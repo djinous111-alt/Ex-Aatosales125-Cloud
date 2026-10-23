@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у семейного Honda Stepwgn у порта Владивостока, аукционный лист на смартфоне, плашка до ставки",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-23T21:37:08+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у семейного Honda Stepwgn у порта Владивостока, аукционный лист на смартфоне, плашка до ставки",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сравнения Spada и обычного Stepwgn: обвес, LED, руль, длина, мотор",
+      "h2_anchor": "Сравните Spada и обычный Stepwgn: за что реально платите",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема шагов: код кузова RP1–RP8 до ставки одним предложением",
+      "h2_anchor": "Разберите кузова RP1–RP8 до ставки одним предложением",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Скрин аукционного листа Stepwgn с красными флагами пробега и ремонта двери",
+      "h2_anchor": "Прочитайте аукционный лист: красные флаги до ставки",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

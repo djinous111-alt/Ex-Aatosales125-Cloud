@@ -1,0 +1,646 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-24",
+    "today_ru": "24.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-26",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-24 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Honda Stepwgn из Японии: кузова, Spada и ловушки до ставки в 2026",
+    "primary_query": "как выбрать honda stepwgn из японии",
+    "secondary_queries": [
+      "степвагон из японии",
+      "хонда степвагон из японии",
+      "honda stepwgn spada",
+      "хонда степвагон кузова"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как выбрать honda stepwgn из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda Stepwgn из Японии: стоит ли везти и что проверить | DSS Group",
+          "url": "https://dss-g.com/all-news/articles/honda-stepwgn-iz-yaponii-stoit-li-vezti-semejnyj-miniven-i-chto-proverit/",
+          "snippet": ""
+        },
+        {
+          "title": "Honda Stepwgn из Японии 2026: болячки, вариатор и цена под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/honda-stepwgn-iz-yaponii-2026",
+          "snippet": "Если вы присматриваете Honda Stepwgn из Японии для семьи, отправьте нам запрос — подскажем подходящую версию и двигатель и покажем точную стоимость под ключ под ваш вариант."
+        },
+        {
+          "title": "Honda Stepwgn из Японии: обзор, цены, комплектации, поколения",
+          "url": "https://4ringcars.ru/36-honda-stepwgn-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+          "snippet": "Ниже разберу поколения, мотор, реальные болячки и покажу три живых лота: свежий 2016-й, богатый 2021-й и абсолютно новый 2026 года. С чем Stepwgn конкурирует и сколько стоят соседи по классу, собрано в обзоре японских минивэнов. Гончая только в путь! По трассе 140-150 летает не напрягаясь, обгон мгновенный."
+        },
+        {
+          "title": "Honda STEP WGN RP7: 2022 против 2026. Что японцы допилили за четыре ...",
+          "url": "https://www.drive2.ru/l/746267954781365716/",
+          "snippet": "Honda Stepwgn — один из самых узнаваемых автомобилей на вторичном рынке Японии. Модель заслужила репутацию надёжного, практичного и экономичного транспортного средства, которое отлично ..."
+        },
+        {
+          "title": "Новые Honda Stepwgn 2026 появились в России: что важно знать о минивэне ...",
+          "url": "https://e-motorscorp.com/blog/honda-stepwgn-2026-iz-yaponii-v-rossii.html",
+          "snippet": "Что японцы действительно улучшили? В мае 2025 года Honda расширила возможности Honda SENSING. Но, когда я полез сравнивать инструкцию 2022 года и инструкцию 2026-го, всплыли и другие занятные отличия."
+        },
+        {
+          "title": "7 мест, турбомотор и полный привод: Honda Stepwgn из Японии удивил ...",
+          "url": "https://www.pravda.ru/news/auto/2407584-honda-stepwgn-russia-price/",
+          "snippet": "Объявления о машинах 2026 года опубликованы в разных регионах России, а среди доступных исполнений чаще всего встречаются Air и Spada с бензиновым турбомотором, передним либо полным приводом."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как выбрать honda stepwgn из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda Stepwgn из Японии: стоит ли везти и что проверить | DSS Group",
+          "url": "https://dss-g.com/all-news/articles/honda-stepwgn-iz-yaponii-stoit-li-vezti-semejnyj-miniven-i-chto-proverit/",
+          "snippet": ""
+        },
+        {
+          "title": "Honda STEP WGN RP7: 2022 против 2026. Что японцы допилили за четыре ...",
+          "url": "https://www.drive2.ru/l/746267954781365716/",
+          "snippet": "Если вы присматриваете Honda Stepwgn из Японии для семьи, отправьте нам запрос — подскажем подходящую версию и двигатель и покажем точную стоимость под ключ под ваш вариант."
+        },
+        {
+          "title": "Honda Stepwgn из Японии: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/honda-stepwgn-iz-yaponii-2026",
+          "snippet": "Что японцы действительно улучшили? В мае 2025 года Honda расширила возможности Honda SENSING. Но, когда я полез сравнивать инструкцию 2022 года и инструкцию 2026-го, всплыли и другие занятные отличия."
+        },
+        {
+          "title": "Honda Stepwgn из Японии: обзор, цены, комплектации, поколения",
+          "url": "https://4ringcars.ru/36-honda-stepwgn-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+          "snippet": "Ниже разберу поколения, мотор, реальные болячки и покажу три живых лота: свежий 2016-й, богатый 2021-й и абсолютно новый 2026 года. С чем Stepwgn конкурирует и сколько стоят соседи по классу, собрано в обзоре японских минивэнов. Гончая только в путь! По трассе 140-150 летает не напрягаясь, обгон мгновенный."
+        },
+        {
+          "title": "7 мест, турбомотор и полный привод: Honda Stepwgn из Японии удивил ...",
+          "url": "https://www.pravda.ru/news/auto/2407584-honda-stepwgn-russia-price/",
+          "snippet": "Honda Stepwgn — один из самых узнаваемых автомобилей на вторичном рынке Японии. Модель заслужила репутацию надёжного, практичного и экономичного транспортного средства, которое отлично ..."
+        },
+        {
+          "title": "Новые Honda Stepwgn 2026 появились в России: что важно знать о минивэне ...",
+          "url": "https://e-motorscorp.com/blog/honda-stepwgn-2026-iz-yaponii-v-rossii.html",
+          "snippet": "Узнайте актуальные цены на семиместный Honda Stepwgn в России и почему японский минивэн оказался дешевле новых китайских альтернатив."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как выбрать honda stepwgn из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda Stepwgn из Японии: стоит ли везти и что проверить | DSS Group",
+          "url": "https://dss-g.com/all-news/articles/honda-stepwgn-iz-yaponii-stoit-li-vezti-semejnyj-miniven-i-chto-proverit/",
+          "snippet": ""
+        },
+        {
+          "title": "Трехлетний Honda Stepwgn из Японии можно привезти за 3 млн рублей",
+          "url": "https://motor.ru/news/trekhletnii-honda-stepwgn-iz-yaponii-mozhno-privezti-za-3-mln-rublei-21-07-2026.htm",
+          "snippet": "Если вы присматриваете Honda Stepwgn из Японии для семьи, отправьте нам запрос — подскажем подходящую версию и двигатель и покажем точную стоимость под ключ под ваш вариант."
+        },
+        {
+          "title": "7 мест, турбомотор и полный привод: Honda Stepwgn из Японии удивил ...",
+          "url": "https://www.pravda.ru/news/auto/2407584-honda-stepwgn-russia-price/",
+          "snippet": "Honda Stepwgn возрастом три года — это не утилитарный микроавтобус, а полноценный автомобиль с просторным и продуманным салоном. Об этом пишет журнал «За рулем». «Главный вопрос — покупать из наличия или заказывать автомобиль самому."
+        },
+        {
+          "title": "Honda STEP WGN RP7: 2022 против 2026. Что японцы допилили за четыре ...",
+          "url": "https://www.drive2.ru/l/746267954781365716/",
+          "snippet": "Узнайте актуальные цены на семиместный Honda Stepwgn в России и почему японский минивэн оказался дешевле новых китайских альтернатив."
+        },
+        {
+          "title": "Новые Honda Stepwgn 2026 появились в России: что важно знать о минивэне ...",
+          "url": "https://e-motorscorp.com/blog/honda-stepwgn-2026-iz-yaponii-v-rossii.html",
+          "snippet": "Что японцы действительно улучшили? В мае 2025 года Honda расширила возможности Honda SENSING. Но, когда я полез сравнивать инструкцию 2022 года и инструкцию 2026-го, всплыли и другие занятные отличия."
+        },
+        {
+          "title": "Honda Stepwgn из Японии: обзор, цены, комплектации, поколения",
+          "url": "https://4ringcars.ru/36-honda-stepwgn-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+          "snippet": "Объявления о машинах 2026 года опубликованы в разных регионах России, а среди доступных исполнений чаще всего встречаются Air и Spada с бензиновым турбомотором, передним либо полным приводом."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как выбрать honda stepwgn из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Обзор 10 Vpn-сервисов В 2026 Году: Что Я Тестировал Лично, Что Работает ...",
+          "url": "https://gist.github.com/BoberSdoh/ec67b2175d1f9cecaf6ad24a5278084e",
+          "snippet": ""
+        },
+        {
+          "title": "ayushHardeniya/assets/signwhitetrans1.png at main · ayushHardeniya ...",
+          "url": "https://github.com/ayushHardeniya/ayushHardeniya/blob/main/assets/signwhitetrans1.png",
+          "snippet": "Обзор 10 VPN-сервисов в 2026 году: что я тестировал лично, что работает, что не очень, и как выбрать под свою задачу. Без рекламы, на простом языке."
+        },
+        {
+          "title": "mlp/tex/553adacf0f305d836cf8d4c1e810bc13.svg at master - GitHub",
+          "url": "https://github.com/filipecalasans/mlp/blob/master/tex/553adacf0f305d836cf8d4c1e810bc13.svg?invert_in_darkmode&sanitize=true",
+          "snippet": "This repository powers my GitHub profile - a snapshot of who I am and what I build. - ayushHardeniya/assets/signwhitetrans1.png at main · ayushHardeniya/ayushHardeniya"
+        },
+        {
+          "title": "Steam из России в 2026: низкий пинг, обход замедления, голосовой чат ...",
+          "url": "https://gist.github.com/evilork/a40aa5841ba2f9236aa72c7b35551823",
+          "snippet": "Multilayer Perceptron Implementation in Python. Contribute to filipecalasans/mlp development by creating an account on GitHub."
+        },
+        {
+          "title": "Решения упражнений с сайта sql-ex - GitHub",
+          "url": "https://github.com/atskayasatana/sql-ex",
+          "snippet": "Дальше — детальный разбор почему так, как проверить лично, и как настроить решение за 5 минут."
+        },
+        {
+          "title": "PadForge/screenshots/workshop-configs.jpg at main · hifihedgehog ...",
+          "url": "https://github.com/hifihedgehog/PadForge/blob/main/screenshots/workshop-configs.jpg",
+          "snippet": "Выбрать все белые квадраты, которые окрашивались только из баллончиков, пустых к настоящему времени. Вывести имя квадрата. Для каждой компании, перевозившей пассажиров, подсчитать время, которое провели в полете самолеты с пассажирами. Вывод: название компании, время в минутах."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как выбрать honda stepwgn из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda Stepwgn из Японии: стоит ли везти и что проверить | DSS Group",
+          "url": "https://dss-g.com/all-news/articles/honda-stepwgn-iz-yaponii-stoit-li-vezti-semejnyj-miniven-i-chto-proverit/",
+          "snippet": ""
+        },
+        {
+          "title": "Новые Honda Stepwgn 2026 появились в России: что важно знать о минивэне ...",
+          "url": "https://e-motorscorp.com/blog/honda-stepwgn-2026-iz-yaponii-v-rossii.html",
+          "snippet": "Если вы присматриваете Honda Stepwgn из Японии для семьи, отправьте нам запрос — подскажем подходящую версию и двигатель и покажем точную стоимость под ключ под ваш вариант."
+        },
+        {
+          "title": "Honda Stepwgn из Японии: обзор, цены, комплектации, поколения",
+          "url": "https://4ringcars.ru/36-honda-stepwgn-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+          "snippet": "Объявления о машинах 2026 года опубликованы в разных регионах России, а среди доступных исполнений чаще всего встречаются Air и Spada с бензиновым турбомотором, передним либо полным приводом."
+        },
+        {
+          "title": "Honda Step WGN из Японии: поколения, комплектации, цены и аукционы",
+          "url": "https://avtomost-asia.ru/models/honda-step-wgn",
+          "snippet": "Honda Stepwgn — один из самых узнаваемых автомобилей на вторичном рынке Японии. Модель заслужила репутацию надёжного, практичного и экономичного транспортного средства, которое отлично ..."
+        },
+        {
+          "title": "Хонда Стэпвэгон 2026 технические характеристики. Honda Stepwgn 2026 ...",
+          "url": "https://www.drom.ru/catalog/honda/stepwgn/2026/",
+          "snippet": "Как выбрать Honda Step WGN из Японии: версии, комплектации, поколения, преимущества и особенности. Условия ввоза и аукционы выбранной модели."
+        },
+        {
+          "title": "Honda Stepwgn из Японии: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/honda-stepwgn-iz-yaponii-2026",
+          "snippet": "Подробно расписан модельный ряд Honda Stepwgn 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хонда Стэпвэгон 2026 между собой."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как выбрать honda stepwgn из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda Stepwgn из Японии: стоит ли везти и что проверить | DSS Group",
+          "url": "https://dss-g.com/all-news/articles/honda-stepwgn-iz-yaponii-stoit-li-vezti-semejnyj-miniven-i-chto-proverit/",
+          "snippet": ""
+        },
+        {
+          "title": "Honda Stepwgn | Honda минивэны и компактвэны клуб и форум",
+          "url": "https://honda-van.ru/forums/honda-stepwgn.20/",
+          "snippet": "Если вы присматриваете Honda Stepwgn из Японии для семьи, отправьте нам запрос — подскажем подходящую версию и двигатель и покажем точную стоимость под ключ под ваш вариант."
+        },
+        {
+          "title": "Honda Stepwgn с аукциона в Японии: цены, выбор и доставка",
+          "url": "https://honda-library.vercel.app/articles/k/kh/khonda-stepvagon-s-auktsiona-v-yaponii.html",
+          "snippet": "Honda Stepwgn — минивэн, выпускающийся японской компанией Honda с 1996 года. В отличие от Odyssey и Stream, автомобиль имеет более высокую вертикальную кабину и вмещает в себя восемь человек."
+        },
+        {
+          "title": "Мой опыт самостоятельной покупки автомобиля на аукционе в Японии",
+          "url": "https://www.drive2.ru/l/728743388702058277/",
+          "snippet": "Полный гид по покупке Honda Stepwgn с аукционов Японии. Реальные цены, оценка состояния, особенности поколений RP и RG, а также скрытые расходы на доставку."
+        },
+        {
+          "title": "Honda Stepwgn из Японии: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/honda-stepwgn-iz-yaponii-2026",
+          "snippet": "Добрый день, уважаемые пользователи сайта Drive2! Решил поделиться своим опытом самостоятельной покупки авто в Японии, возможно кому-то это будет полезным, так как информация периодически устаревает. Выбор автомобиля и комплектации."
+        },
+        {
+          "title": "Honda STEP WGN RP7: 2022 против 2026. Что японцы допилили за четыре ...",
+          "url": "https://www.drive2.ru/l/746267954781365716/",
+          "snippet": "Honda Stepwgn из Японии: разбор мотора 1.5 турбо и вариатора, дверь вака-вака против нового кузова, расход и цена под ключ от 1 533 883 ₽. Комиссия 60 000 ₽. Дверь вака-вака или новый кузов — вокруг этого выбора крутятся все споры о Stepwgn."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "степвагон из японии 2026",
+      "purpose": "вторичный запрос: степвагон из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Заказать Хонда Степвагон из Японии с доставкой | Антарес Авто",
+          "url": "https://antaresjp.ru/aukciony/honda/step-wagon/",
+          "snippet": ""
+        },
+        {
+          "title": "Honda StepWGN 2026 — купить автомобиль из Японии | JCK AUTO",
+          "url": "https://jckauto.ru/catalog/cars/honda-stepwgn-2026-iz-yaponii-74664362",
+          "snippet": "Хонда Степвагон из Японии под заказ: цена от 1 270 000 ₽, двигатель 1,5 л, 2000-2026 г.в. Оценка аукциона, расчет цены, доставка и оформление по договору."
+        },
+        {
+          "title": "Honda Stepwgn из Японии: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/honda-stepwgn-iz-yaponii-2026",
+          "snippet": "Смотри, это Honda StepWGN в шестом кузове, привезённый из Японии. По сути — очень продуманный семейный минивэн, который берут не ради понтов, а чтобы возить кучу народу и вещей."
+        },
+        {
+          "title": "Продажа Honda Stepwgn, Цены И Фото, Купить В Японии",
+          "url": "https://carwin.ru/japanstats/honda/stepwgn/",
+          "snippet": "Ниже разберу поколения, мотор, реальные болячки и покажу три живых лота: свежий 2016-й, богатый 2021-й и абсолютно новый 2026 года. С чем Stepwgn конкурирует и сколько стоят соседи по классу, собрано в обзоре японских минивэнов. Гончая только в путь! По трассе 140-150 летает не напрягаясь, обгон мгновенный."
+        },
+        {
+          "title": "7 мест, турбомотор и полный привод: Honda Stepwgn из Японии удивил ...",
+          "url": "https://www.pravda.ru/news/auto/2407584-honda-stepwgn-russia-price/",
+          "snippet": "Ввоз авто, выпущенных ранее 2007 г. невозможен из-за несоответствия экологическим стандартам России. Конструктора, распилы и авто на запчасти мы не поставляем."
+        },
+        {
+          "title": "Купить Honda Stepwgn с аукциона Японии | Цены на авто в Токидоки",
+          "url": "https://tokidoki.su/stat/honda/stepwgn/",
+          "snippet": "Параллельный импорт из Японии расширяет предложение семейных автомобилей. На российских классифайдах появился семиместный минивэн Honda Stepwgn. Модель завозят в двух исполнениях: базовом Air и более оснащенном Spada."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "хонда степвагон из японии 2026",
+      "purpose": "вторичный запрос: хонда степвагон из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хонда Стэпвэгон 2026 технические характеристики. Honda Stepwgn 2026 ...",
+          "url": "https://www.drom.ru/catalog/honda/stepwgn/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Honda Stepwgn из Японии: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/honda-stepwgn-iz-yaponii-2026",
+          "snippet": "Подробно расписан модельный ряд Honda Stepwgn 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Honda StepWGN 2026 — купить автомобиль из Японии | JCK AUTO",
+          "url": "https://jckauto.ru/catalog/cars/honda-stepwgn-2026-iz-yaponii-74664362",
+          "snippet": "Ниже разберу поколения, мотор, реальные болячки и покажу три живых лота: свежий 2016-й, богатый 2021-й и абсолютно новый 2026 года. С чем Stepwgn конкурирует и сколько стоят соседи по классу, собрано в обзоре японских минивэнов. Гончая только в путь! По трассе 140-150 летает не напрягаясь, обгон мгновенный."
+        },
+        {
+          "title": "Заказать Хонда Степвагон из Японии с доставкой | Антарес Авто",
+          "url": "https://antaresjp.ru/aukciony/honda/step-wagon/",
+          "snippet": "Смотри, это Honda StepWGN в шестом кузове, привезённый из Японии. По сути — очень продуманный семейный минивэн, который берут не ради понтов, а чтобы возить кучу народу и вещей."
+        },
+        {
+          "title": "7 мест, турбомотор и полный привод: Honda Stepwgn из Японии удивил ...",
+          "url": "https://www.pravda.ru/news/auto/2407584-honda-stepwgn-russia-price/",
+          "snippet": "Хонда Степвагон из Японии под заказ: цена от 1 270 000 ₽, двигатель 1,5 л, 2000-2026 г.в. Оценка аукциона, расчет цены, доставка и оформление по договору."
+        },
+        {
+          "title": "Продажа Honda Stepwgn, Цены И Фото, Купить В Японии",
+          "url": "https://carwin.ru/japanstats/honda/stepwgn/",
+          "snippet": "Параллельный импорт из Японии расширяет предложение семейных автомобилей. На российских классифайдах появился семиместный минивэн Honda Stepwgn. Модель завозят в двух исполнениях: базовом Air и более оснащенном Spada."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "honda stepwgn spada 2026",
+      "purpose": "вторичный запрос: honda stepwgn spada",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хонда Стэпвэгон 2026 технические характеристики. Honda Stepwgn 2026 ...",
+          "url": "https://www.drom.ru/catalog/honda/stepwgn/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Honda Stepwgn 2.0 e:HEV Spada Black Edition (10.2026 - н.в ... - Дром",
+          "url": "https://www.drom.ru/catalog/honda/stepwgn/564351/",
+          "snippet": "Подробно расписан модельный ряд Honda Stepwgn 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Купить Honda Stepwgn Spada 2026 года выпуска в Высоком",
+          "url": "https://www.avito.ru/vysokoe/avtomobili/honda/stepwgn_spada/2026-ASgBAgICA0Tgtg2ymCjitg3WtIYV~owU1B8",
+          "snippet": "Подробно расписаны модификации автомобилей Honda Stepwgn 2.0 e:HEV Spada Black Edition: все технические спецификации, полная комплектация салона, цвета, в которые окрашивался автомобиль, фотографии ..."
+        },
+        {
+          "title": "Купить Honda Stepwgn 2026 года по цене от 1 850 000 рублей - более 20 ...",
+          "url": "https://auto.ru/cars/honda/stepwagon/2026-year/all/",
+          "snippet": "17 объявлений о продаже Хонда Stepwgn Spada 2026 года выпуска от 4 000 000 ₽. Большой выбор Honda от частных продавцов и официальных дилеров в Высоком. Проверка истории машин с пробегом по VIN."
+        },
+        {
+          "title": "Обзор Honda Stepwgn 2026 | Spada — идеальный минивэн для семьи?",
+          "url": "https://rutube.ru/video/cc274de25b6893b649590ad21b3e2391/",
+          "snippet": "Полный модельный ряд Honda Stepwgn 2026 года по цене от 1 850 000 рублей - более 20 Хонда Степвагон, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        },
+        {
+          "title": "Купить Honda Stepwgn Spada 2026 года выпуска в Октябрьском",
+          "url": "https://www.avito.ru/oktyabrskoe/avtomobili/honda/stepwgn_spada/2026-ASgBAgICA0Tgtg2ymCjitg3WtIYV~owU1B8",
+          "snippet": "Смотрите видео онлайн «Обзор Honda Stepwgn 2026 | Spada — идеальный минивэн для семьи?» на канале «Drakcar_auto» в хорошем качестве и бесплатно, опубликованное 20 июня 2026 года в 17:45, длительностью 00:29:09, на видеохостинге RUTUBE."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "хонда степвагон кузова 2026",
+      "purpose": "вторичный запрос: хонда степвагон кузова",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хонда Стэпвэгон 2026 технические характеристики. Honda Stepwgn 2026 ...",
+          "url": "https://www.drom.ru/catalog/honda/stepwgn/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "В РФ появился новый Хонда Степвагон 2026 в версиях Спада и Эйр",
+          "url": "https://autompv.ru/new-auto/50776-honda-stepwgn-2023.html",
+          "snippet": "Подробно расписан модельный ряд Honda Stepwgn 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "AUTO.RIA - Honda Stepwgn — поколения, цены, фото, технические ...",
+          "url": "https://auto.ria.com/newauto/catalog/honda/stepwgn/",
+          "snippet": "В России начались продажи среднеразмерного вэна Honda StepWGN 2026, шестого по счету поколения."
+        },
+        {
+          "title": "Honda Stepwgn: обзор поколений, цены в России и какой Степвагон ...",
+          "url": "https://reelauto.ru/blog/honda-stepwgn-obzor.html",
+          "snippet": "Все поколения Honda Stepwgn, модификации и комплектации, типы кузова, цены на авто Хонда Степвгн в каталоге AUTO.RIA."
+        },
+        {
+          "title": "Хонда Стэпвэгон технические характеристики. Honda Stepwgn комплектации ...",
+          "url": "https://www.drom.ru/catalog/honda/stepwgn/",
+          "snippet": "Но новости рассказывают только про новый кузов, а у модели пять поколений с торгов Японии — и среди них есть варианты от 700 тысяч рублей."
+        },
+        {
+          "title": "Honda Stepwgn: каталог Honda, технические характеристики, фото, отзывы ...",
+          "url": "https://hondaworld.ru/honda_stepwgn.htm",
+          "snippet": "Подробно расписан модельный ряд Honda Stepwgn: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хонда Стэпвэгон между собой."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Honda Stepwgn из Японии: кузова, Spada и ловушки до ставки в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda Stepwgn и Spada: главные отличия, дизайн и комплектации",
+          "url": "https://honda-library.vercel.app/articles/h/ho/honda-stepwgn-i-spada-otlichiya.html",
+          "snippet": ""
+        },
+        {
+          "title": "Honda Stepwgn vs Spada: В чем реальная разница и что выбрать?",
+          "url": "https://honda-library.vercel.app/articles/o/ot/otlichie-khonda-stepvagon-ot-spada.html",
+          "snippet": "В то время как обычный Stepwgn выглядит как утилитарный, но удобный инструмент для перевозки грузов и людей, Spada стремится выглядеть как бизнес-класс на колесах. Разница в цене на вторичном рынке может быть существенной, и она напрямую зависит от года выпуска и состояния кузова."
+        },
+        {
+          "title": "Honda Stepwgn из Японии: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/honda-stepwgn-iz-yaponii-2026",
+          "snippet": "Подробное сравнение Honda Stepwgn и Spada. Разбираем отличия в дизайне, комплектациях, двигателях и комфорте. Узнайте, какая модель лучше для вашей семьи."
+        },
+        {
+          "title": "Honda Stepwgn из Японии: стоит ли везти и что проверить | DSS Group",
+          "url": "https://dss-g.com/all-news/articles/honda-stepwgn-iz-yaponii-stoit-li-vezti-semejnyj-miniven-i-chto-proverit/",
+          "snippet": "Это семейный минивэн Honda, который владельцы любят за легковую управляемость и надёжную связку мотор плюс вариатор, а спорят из-за той самой задней двери. Все три наших лота это версия Spada с мотором 1.5 турбо на 150 сил, вариатором и передним приводом."
+        },
+        {
+          "title": "Honda Step WGN RP6-RP8: e:HEV, SPADA и 7/8 мест | AZWAY",
+          "url": "https://azway.ru/blog/honda-stepwgn-iz-yaponii-obzor",
+          "snippet": "Если вы присматриваете Honda Stepwgn из Японии для семьи, отправьте нам запрос — подскажем подходящую версию и двигатель и покажем точную стоимость под ключ под ваш вариант."
+        },
+        {
+          "title": "Honda Stepwgn 2026: цена в России, Spada, e:HEV и характеристики ...",
+          "url": "https://tenetul-cheboksarskiy.maksatech.com/articles/honda-stepwgn-2026-cena-v-rossii-spada-e-hev-i-kharakteristiki",
+          "snippet": "В шестом поколении выбор Step WGN строится вокруг трёх вещей: семи- или восьмиместного салона, спокойного AIR либо оснащённого SPADA и силовой установки. Разбираем их по заводским данным и реальной семейной эксплуатации."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://dss-g.com/all-news/articles/honda-stepwgn-iz-yaponii-stoit-li-vezti-semejnyj-miniven-i-chto-proverit/",
+      "title": "Honda Stepwgn из Японии: стоит ли везти и что проверить | DSS Group",
+      "from_query": "как выбрать honda stepwgn из японии 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/honda-stepwgn-iz-yaponii-2026",
+      "title": "Honda Stepwgn из Японии 2026: болячки, вариатор и цена под ключ",
+      "from_query": "как выбрать honda stepwgn из японии 2026"
+    },
+    {
+      "url": "https://4ringcars.ru/36-honda-stepwgn-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+      "title": "Honda Stepwgn из Японии: обзор, цены, комплектации, поколения",
+      "from_query": "как выбрать honda stepwgn из японии 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/l/746267954781365716/",
+      "title": "Honda STEP WGN RP7: 2022 против 2026. Что японцы допилили за четыре ...",
+      "from_query": "как выбрать honda stepwgn из японии 2026"
+    },
+    {
+      "url": "https://e-motorscorp.com/blog/honda-stepwgn-2026-iz-yaponii-v-rossii.html",
+      "title": "Новые Honda Stepwgn 2026 появились в России: что важно знать о минивэне ...",
+      "from_query": "как выбрать honda stepwgn из японии 2026"
+    },
+    {
+      "url": "https://www.pravda.ru/news/auto/2407584-honda-stepwgn-russia-price/",
+      "title": "7 мест, турбомотор и полный привод: Honda Stepwgn из Японии удивил ...",
+      "from_query": "как выбрать honda stepwgn из японии 2026"
+    },
+    {
+      "url": "https://motor.ru/news/trekhletnii-honda-stepwgn-iz-yaponii-mozhno-privezti-za-3-mln-rublei-21-07-2026.htm",
+      "title": "Трехлетний Honda Stepwgn из Японии можно привезти за 3 млн рублей",
+      "from_query": "как выбрать honda stepwgn из японии новости 2026"
+    },
+    {
+      "url": "https://gist.github.com/BoberSdoh/ec67b2175d1f9cecaf6ad24a5278084e",
+      "title": "Обзор 10 Vpn-сервисов В 2026 Году: Что Я Тестировал Лично, Что Работает ...",
+      "from_query": "site:github.com как выбрать honda stepwgn из японии 2026"
+    },
+    {
+      "url": "https://github.com/ayushHardeniya/ayushHardeniya/blob/main/assets/signwhitetrans1.png",
+      "title": "ayushHardeniya/assets/signwhitetrans1.png at main · ayushHardeniya ...",
+      "from_query": "site:github.com как выбрать honda stepwgn из японии 2026"
+    },
+    {
+      "url": "https://github.com/filipecalasans/mlp/blob/master/tex/553adacf0f305d836cf8d4c1e810bc13.svg?invert_in_darkmode&sanitize=true",
+      "title": "mlp/tex/553adacf0f305d836cf8d4c1e810bc13.svg at master - GitHub",
+      "from_query": "site:github.com как выбрать honda stepwgn из японии 2026"
+    },
+    {
+      "url": "https://gist.github.com/evilork/a40aa5841ba2f9236aa72c7b35551823",
+      "title": "Steam из России в 2026: низкий пинг, обход замедления, голосовой чат ...",
+      "from_query": "site:github.com как выбрать honda stepwgn из японии 2026"
+    },
+    {
+      "url": "https://github.com/atskayasatana/sql-ex",
+      "title": "Решения упражнений с сайта sql-ex - GitHub",
+      "from_query": "site:github.com как выбрать honda stepwgn из японии 2026"
+    },
+    {
+      "url": "https://github.com/hifihedgehog/PadForge/blob/main/screenshots/workshop-configs.jpg",
+      "title": "PadForge/screenshots/workshop-configs.jpg at main · hifihedgehog ...",
+      "from_query": "site:github.com как выбрать honda stepwgn из японии 2026"
+    },
+    {
+      "url": "https://avtomost-asia.ru/models/honda-step-wgn",
+      "title": "Honda Step WGN из Японии: поколения, комплектации, цены и аукционы",
+      "from_query": "как выбрать honda stepwgn из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/honda/stepwgn/2026/",
+      "title": "Хонда Стэпвэгон 2026 технические характеристики. Honda Stepwgn 2026 ...",
+      "from_query": "как выбрать honda stepwgn из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://honda-van.ru/forums/honda-stepwgn.20/",
+      "title": "Honda Stepwgn | Honda минивэны и компактвэны клуб и форум",
+      "from_query": "как выбрать honda stepwgn из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://honda-library.vercel.app/articles/k/kh/khonda-stepvagon-s-auktsiona-v-yaponii.html",
+      "title": "Honda Stepwgn с аукциона в Японии: цены, выбор и доставка",
+      "from_query": "как выбрать honda stepwgn из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/l/728743388702058277/",
+      "title": "Мой опыт самостоятельной покупки автомобиля на аукционе в Японии",
+      "from_query": "как выбрать honda stepwgn из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://antaresjp.ru/aukciony/honda/step-wagon/",
+      "title": "Заказать Хонда Степвагон из Японии с доставкой | Антарес Авто",
+      "from_query": "степвагон из японии 2026"
+    },
+    {
+      "url": "https://jckauto.ru/catalog/cars/honda-stepwgn-2026-iz-yaponii-74664362",
+      "title": "Honda StepWGN 2026 — купить автомобиль из Японии | JCK AUTO",
+      "from_query": "степвагон из японии 2026"
+    },
+    {
+      "url": "https://carwin.ru/japanstats/honda/stepwgn/",
+      "title": "Продажа Honda Stepwgn, Цены И Фото, Купить В Японии",
+      "from_query": "степвагон из японии 2026"
+    },
+    {
+      "url": "https://tokidoki.su/stat/honda/stepwgn/",
+      "title": "Купить Honda Stepwgn с аукциона Японии | Цены на авто в Токидоки",
+      "from_query": "степвагон из японии 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/honda/stepwgn/564351/",
+      "title": "Honda Stepwgn 2.0 e:HEV Spada Black Edition (10.2026 - н.в ... - Дром",
+      "from_query": "honda stepwgn spada 2026"
+    },
+    {
+      "url": "https://www.avito.ru/vysokoe/avtomobili/honda/stepwgn_spada/2026-ASgBAgICA0Tgtg2ymCjitg3WtIYV~owU1B8",
+      "title": "Купить Honda Stepwgn Spada 2026 года выпуска в Высоком",
+      "from_query": "honda stepwgn spada 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/honda/stepwagon/2026-year/all/",
+      "title": "Купить Honda Stepwgn 2026 года по цене от 1 850 000 рублей - более 20 ...",
+      "from_query": "honda stepwgn spada 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/cc274de25b6893b649590ad21b3e2391/",
+      "title": "Обзор Honda Stepwgn 2026 | Spada — идеальный минивэн для семьи?",
+      "from_query": "honda stepwgn spada 2026"
+    },
+    {
+      "url": "https://www.avito.ru/oktyabrskoe/avtomobili/honda/stepwgn_spada/2026-ASgBAgICA0Tgtg2ymCjitg3WtIYV~owU1B8",
+      "title": "Купить Honda Stepwgn Spada 2026 года выпуска в Октябрьском",
+      "from_query": "honda stepwgn spada 2026"
+    },
+    {
+      "url": "https://autompv.ru/new-auto/50776-honda-stepwgn-2023.html",
+      "title": "В РФ появился новый Хонда Степвагон 2026 в версиях Спада и Эйр",
+      "from_query": "хонда степвагон кузова 2026"
+    },
+    {
+      "url": "https://auto.ria.com/newauto/catalog/honda/stepwgn/",
+      "title": "AUTO.RIA - Honda Stepwgn — поколения, цены, фото, технические ...",
+      "from_query": "хонда степвагон кузова 2026"
+    },
+    {
+      "url": "https://reelauto.ru/blog/honda-stepwgn-obzor.html",
+      "title": "Honda Stepwgn: обзор поколений, цены в России и какой Степвагон ...",
+      "from_query": "хонда степвагон кузова 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/honda/stepwgn/",
+      "title": "Хонда Стэпвэгон технические характеристики. Honda Stepwgn комплектации ...",
+      "from_query": "хонда степвагон кузова 2026"
+    },
+    {
+      "url": "https://hondaworld.ru/honda_stepwgn.htm",
+      "title": "Honda Stepwgn: каталог Honda, технические характеристики, фото, отзывы ...",
+      "from_query": "хонда степвагон кузова 2026"
+    },
+    {
+      "url": "https://honda-library.vercel.app/articles/h/ho/honda-stepwgn-i-spada-otlichiya.html",
+      "title": "Honda Stepwgn и Spada: главные отличия, дизайн и комплектации",
+      "from_query": "Как выбрать Honda Stepwgn из Японии: кузова, Spada и ловушки до ставки в 2026 2026"
+    },
+    {
+      "url": "https://honda-library.vercel.app/articles/o/ot/otlichie-khonda-stepvagon-ot-spada.html",
+      "title": "Honda Stepwgn vs Spada: В чем реальная разница и что выбрать?",
+      "from_query": "Как выбрать Honda Stepwgn из Японии: кузова, Spada и ловушки до ставки в 2026 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/honda-stepwgn-iz-yaponii-obzor",
+      "title": "Honda Step WGN RP6-RP8: e:HEV, SPADA и 7/8 мест | AZWAY",
+      "from_query": "Как выбрать Honda Stepwgn из Японии: кузова, Spada и ловушки до ставки в 2026 2026"
+    },
+    {
+      "url": "https://tenetul-cheboksarskiy.maksatech.com/articles/honda-stepwgn-2026-cena-v-rossii-spada-e-hev-i-kharakteristiki",
+      "title": "Honda Stepwgn 2026: цена в России, Spada, e:HEV и характеристики ...",
+      "from_query": "Как выбрать Honda Stepwgn из Японии: кузова, Spada и ловушки до ставки в 2026 2026"
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "[REDACTED]/honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "[REDACTED]/honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Honda Stepwgn из Японии: кузова, Spada и ловушки до ставки в 2026",
+      "description": "Чек-лист Honda Stepwgn из Японии: кузова RP, Spada vs база, красные флаги аукционного листа и комплектация до депозита. Без калькулятора пошлин в тексте.",
+      "datePublished": "2026-10-24",
+      "dateModified": "2026-10-24",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "[REDACTED]/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "[REDACTED]wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "[REDACTED]"
+        },
+        "sameAs": [
+          "[REDACTED]",
+          "[REDACTED]",
+          "[REDACTED]",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "[REDACTED]/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "[REDACTED]",
+        "sameAs": [
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "keywords": [
+        "как выбрать honda stepwgn из японии",
+        "степвагон из японии",
+        "хонда степвагон из японии",
+        "honda stepwgn spada",
+        "хонда степвагон кузова"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "[REDACTED]/honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Honda Stepwgn Spada отличается от базовой версии?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сверьте обвес, оптику, длину на 5G и пакет салона. Мотор 1.5 турбо у бензина – тот же класс. Нужен только объём – берите базу; Spada – за стиль и trim, не за \"другой двигатель\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какой кузов RP чаще смотрят под заказ из Японии?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "На 5G чаще обсуждают RP3/RP4 (Spada) и соседние коды базы; на 6G – RP6/RP7 бензин и RP8 гибрид. До ставки назовите код одним предложением и решите, нужна ли Waku Waku (только 5G)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие красные флаги в аукционном листе до ставки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Остановитесь при ★★/★★★ у пробега, сильных пометках на сдвижных дверях и ржавчине на силовых зонах. Балл 4.5 без схемы – слабый аргумент для депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько примерно ждать Stepwgn до Владивостока?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Заложите порядок: море часто 4–7 дней, растаможня при готовых документах часто 5–10 дней. Это ориентир для плана, не гарантия – сроки уточняйте по отправке."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли 4WD на Stepwgn для семьи?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Берите 4WD, если зима и скользкие дворы важны. Не берите ради мифа \"выше клиренс\": на 5G полный привод ниже примерно на 5 мм. Сверьте RP6/RP7 или пару на 5G."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что спросить у подборщика до депозита?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Пришлите один лот: код кузова, обе сдвижные, NAVI/камеры, вторая печка, 4WD, пометки на дверях, пробег без звёзд и расчёт под ключ. Нет ответов – нет депозита."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "[REDACTED]/honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать Honda Stepwgn из Японии до ставки",
+      "description": "Чек-лист Honda Stepwgn из Японии: кузова RP, Spada vs база, красные флаги аукционного листа и комплектация до депозита. Без калькулятора пошлин в тексте.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Аукционный лист лота Honda Stepwgn"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Карточка лота с кодом кузова RP"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Чек-лист комплектации до депозита"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Один реальный лот Stepwgn (не пять сразу)"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Список 3–5 вопросов подборщику до ставки"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Выберите один реальный лот Stepwgn, не пять сразу.",
+          "text": "Шаг 1. Выберите один реальный лот Stepwgn, не пять сразу.",
+          "url": "[REDACTED]/honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026/#что-дальше"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Запишите код RP, Spada/база, 2WD или 4WD.",
+          "text": "Шаг 2. Запишите код RP, Spada/база, 2WD или 4WD.",
+          "url": "[REDACTED]/honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026/#что-дальше"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Прогоните лист: балл, пробег, двери, ржавчина.",
+          "text": "Шаг 3. Прогоните лист: балл, пробег, двери, ржавчина.",
+          "url": "[REDACTED]/honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026/#что-дальше"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Выпишите комплектацию и 3–5 вопросов.",
+          "text": "Шаг 4. Выпишите комплектацию и 3–5 вопросов.",
+          "url": "[REDACTED]/honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026/#что-дальше"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Запросите расчёт под ключ в каталоге Авто-Сейлс и только потом думайте о ставке.",
+          "text": "Шаг 5. Запросите расчёт под ключ в каталоге Авто-Сейлс и только потом думайте о ставке.",
+          "url": "[REDACTED]/honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026/#что-дальше"
+        }
+      ]
+    }
+  ]
+}

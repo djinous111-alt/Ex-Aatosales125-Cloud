@@ -43,6 +43,9 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
   - Если вызов вернул `401 Unauthorized` (токен устарел):
     - Запиши в `research-notes.md` предупреждение: `⚠️ WORDSTAT AUTH WARNING: Токен Wordstat устарел. Обновите токен через: https://oauth.yandex.ru/authorize?response_type=token&client_id=c654b948515a4a07a4c89648a0831d40`
     - Сделай экспертную оценку семантики, но явно укажи, что точные объемы спроса не получены из-за авторизации.
+  - Если вызов вернул пустой `{}` / без `totalCount` и без топа (не 401):
+    - **Не** выдумывай показы. Запиши `WORDSTAT EMPTY PAYLOAD` для этой фразы.
+    - Fallback-порядок: primary → укороченный how-to → brand+narrow / parent cluster. `totalCount`-only = валидный low-result signal.
   - Если вызов успешен:
     - Сформируй в `research-notes.md` таблицу спроса: Фраза | Показы в месяц.
     - Выдели сопутствующие LSI-запросы из топа выдачи Вордстата для использования копирайтером.
@@ -68,3 +71,6 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+## technical_topic gate
+
+`excalibur_blog_research_notes_gate.py` marks technical topics via **word-boundary** markers on the topic card (`h1`/`primary_query`/…). Substrings like `ai` inside `pain` or `ии` inside `японии` must not force GitHub evidence. Non-dev niches (авто) normally stay non-technical.

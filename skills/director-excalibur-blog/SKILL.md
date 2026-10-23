@@ -54,6 +54,17 @@ Task(generalPurpose):
 
 См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
 
+**geo-qa:** если typed `excalibur-blog-geo-qa` отсутствует в Cloud Task catalog (invalid option), сразу запускай:
+
+```text
+Task(generalPurpose):
+Прочитай .cursor/agents/excalibur-blog-geo-qa.md + .cursor/skills/excalibur-geo-qa/SKILL.md.
+article_dir из handoff. Запусти все QA gates включая human-voice. Маркер === EXCALIBUR BLOG GEO QA ===.
+Не делай cover/schema/publish.
+```
+
+То же правило для любой другой отсутствующей typed роли — не блокируй пайплайн на catalog mismatch.
+
 ## Preflight (shell, директор)
 
 ```bash

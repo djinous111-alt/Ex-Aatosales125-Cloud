@@ -20,17 +20,28 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | Cloud Secrets / process env + optional `memory/site.env.local` (`SSH_*`, `SSH_ROOT=.`, `PUBLIC_SITE_URL`) |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
+| Python deps | `paramiko` из `requirements.txt` (cloud install) |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
+
+### Bootstrap `site.env.local` (Cloud)
+
+Файл gitignored. Если его нет, а Secrets уже в process env — достаточно `--env-check`. Иначе собери локальный файл из Secrets (значения не печатать в handoff):
+
+```bash
+# SSH_ROOT=. без кавычек; не коммить site.env.local
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+python3 -c "import paramiko; print(paramiko.__version__)"
+```
 
 ## Алгоритм
 
 ### 1. Preflight publish
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
   --site-base https://avtosales125.ru
@@ -41,7 +52,7 @@ Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
@@ -51,7 +62,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
@@ -63,11 +74,12 @@ python scripts/excalibur_blog_wp_publish.py \
 
 ### 4. Cloud WebFetch Fallback
 
-Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
+Если локальный HTTP-триггер bootstrap упал (timeout / RemoteDisconnected / WinError 10060):
 
-1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php` и ждёт ответ **до 300s**.
+2. Сразу после FALLBACK стартуй `curl --max-time 300 "<url>" -o memory/webfetch-response.txt` (или WebFetch → тот же файл). Не жди 120s — большой PHP payload часто отвечает ~100–180s.
+3. Скрипт читает файл и продолжает.
+4. Если скрипт всё же упал по timeout, а curl уже вернул `OK post=...` / slug LIVE — **не** делай третий publish; REST/wp-cli reconstruct meta.
 
 **Не останавливайся** на первом timeout — используй fallback.
 
@@ -84,7 +96,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 6. Post-publish (рекомендуется)
 
 ```bash
-python scripts/excalibur_blog_interlinker.py --apply \
+python3 scripts/excalibur_blog_interlinker.py --apply \
   --blog-dir memory/blog/articles \
   --site-base https://avtosales125.ru
 ```

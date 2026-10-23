@@ -69,3 +69,9 @@ permalink=https://avtosales125.ru/...
 ## Skill
 
 `skills/publish-excalibur-blog/SKILL.md`
+
+## Env / fallback
+
+- Нужен `paramiko` (`requirements.txt` / cloud install).
+- `site.env.local` из Secrets при необходимости; `SSH_ROOT=.`; `--env-check` перед publish.
+- WebFetch/curl fallback wait = **300s**; на LIVE slug без третьего publish.

@@ -199,3 +199,9 @@ Keywords + автовыбор: `inline-visual-types.json` + `quad_manifest.py`.
 ## Эталон (B01)
 
 `memory/blog/articles/B01-primer-seo-stati/cover/` — reference implementation после design code v1.
+
+## Outfit lock
+
+- Default outfit в `excalibur_blog_cover_quad_prompt.py`: navy softshell / crewneck.
+- **Запрещено:** hoodie, hood, cap (согласовано с `blog-hero.json` / negative prompt).
+- `scene_hint` может уточнять погоду/тему; не возвращай hoodie через ручной патч batch.

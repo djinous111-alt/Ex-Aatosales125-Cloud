@@ -81,3 +81,10 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
 * Выдумывание цифр спроса без вызова Wordstat API.
+
+## Slug denylist и fallback
+
+1. Проверь кандидата: `python3 scripts/excalibur_blog_scout_helper.py --check-slug <kebab-slug>`.
+2. Канон: `shared/wp-slug-denylist.json` (LIVE/reserved slugs).
+3. Если denylist **отсутствует** — не silent skip: сверь WP REST (`/wp-json/wp/v2/posts?slug=` + recent), `shared/published-articles.md`, `memory/topics/blog-topics.md`, `memory/blog/articles/*` и открой incident в `memory/pipeline-fix-queue.md`.
+4. Git commits: `scripts/excalibur_git.sh commit ...` чтобы pre-commit не падал на битых `CLOUD_AGENT_INJECTED_SECRET_NAMES`.

@@ -68,3 +68,7 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+## pain_solution_map и technical topic
+
+- В `research-notes.md` секция `## pain_solution_map` — markdown-таблица с ≥3 data rows (gate считает строки таблицы, не keyword-in-row).
+- `technical_topic` детектится по topic card (word-boundary: `ai`, `mcp`, `api`, `n8n`, …), не по substring `ai`/`ии` внутри русских слов. Авто-how-to про комплектации не требует GitHub evidence.

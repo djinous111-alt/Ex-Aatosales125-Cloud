@@ -144,3 +144,7 @@ python3 scripts/excalibur_blog_research_start.py --topic-id B01
 - пример CI preflight: `shared/cloud-preflight-workflow.yml.example`.
 
 Cloud Agent должен брать секреты только из Cursor Dashboard Secrets / env vars. Если для publish нет `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` или SSH/public site переменных, publish-агент обязан вернуть явный blocker, а не пытаться угадать доступы.
+
+## GEO QA typed Task
+
+Если Cloud API не принимает `excalibur-blog-geo-qa`, Director обязан запустить отдельный `Task(generalPurpose)` с `.cursor/agents/excalibur-blog-geo-qa.md` и `.cursor/skills/excalibur-geo-qa/SKILL.md` до cover||schema. Не выполнять GEO QA в parent-агенте.

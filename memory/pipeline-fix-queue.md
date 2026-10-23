@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261023-0930-cover-hoodie-outfit-lock
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-coolray-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` hard-codes `Outfit lock: thick heavyweight white hoodie` into every quad prompt, conflicting with Cloud lesson softshell/crewneck NO hoodie and with agent `scene_hint` (navy softshell + crewneck).
+- Without a manual string patch of `quad-mcp-prompt.txt` / `quad-mcp-batch.json`, i2i would favor hoodie despite scene_hint.
+
+### How the agent recovered this run
+- After `--write-batch`, replaced hoodie outfit lock with softshell/crewneck in prompt+batch, then ran Kie-first `excalibur_blog_kie_gpt_image2_api.py` (ONE job), apply+inject PASS.
+
+### Durable fix needed before next run
+- Change default outfit lock in `excalibur_blog_cover_quad_prompt.py` to softshell/crewneck (NO hoodie/hood/cap), or inject outfit from `slots.cover.scene_hint` / blog-hero `outfit_rule` instead of a fixed hoodie string.
+- Align `.cursor/skills/cover-excalibur-blog/SKILL.md` and style preset text with the same rule.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `memory/cover/quad-style-digital-meme-collage-ru.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261023-0945-geo-qa-typed-task-unavailable
 status: open
 run_date: 2026-10-23

@@ -1,0 +1,191 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "${PUBLIC_SITE_URL}/hyundai-sonata-iz-korei-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "${PUBLIC_SITE_URL}/hyundai-sonata-iz-korei-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Hyundai Sonata из Кореи: как выбрать комплектацию и не попасть в ловушку до депозита в 2026",
+      "description": "Соната из Кореи: как выбрать комплектацию DN8/The Edge до депозита. Фильтр 160 л.с., LPG vs rental, сверка trim с фото Encar и чек-лист из 10 пунктов.",
+      "datePublished": "2026-10-23",
+      "dateModified": "2026-10-23",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "${PUBLIC_SITE_URL}/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "${PUBLIC_SITE_URL}/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "${PUBLIC_SITE_URL}"
+        },
+        "sameAs": [
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "${PUBLIC_SITE_URL}/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "${PUBLIC_SITE_URL}",
+        "sameAs": [
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "keywords": [
+        "соната из кореи",
+        "хендай соната из кореи",
+        "соната комплектации",
+        "хендай соната комплектации",
+        "соната на газу из кореи"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "${PUBLIC_SITE_URL}/hyundai-sonata-iz-korei-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Sonata отличается от K5 при заказе из Кореи?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "По моторам и логике утильсбора это близкие седаны. Выбирайте по дизайну, подвеске и конкретному лоту с чистой историей. Мощность и комплектацию сверяйте так же, как для Sonata."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Стоит ли брать Sonata на газу из Кореи?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Заводской LPi имеет смысл при большом пробеге и прозрачной истории без rental/taxi. Перед депозитом заложите диагностику газа; не берите газ только из-за цены топлива."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какую мощность смотреть до расчёта утильсбора?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ориентир для льготы физлица – до 160 л.с. при выполнении условий. Sonata 2.0 (~160) и LPi (~146) обычно в зоне; 1.6T (~180) – коммерческий сценарий. Hybrid сверяйте по документам суммарной мощности."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить в Encar до депозита?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Выпишите год, объём, л.с., топливо и trim; сверьте опции с фото салона; откройте страховую историю и пометки rental. Без отчёта и осмотра депозит не переводите."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему турбо 1.6 иногда кажется выгоднее, а потом дороже?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Меньший объём иногда выглядит \"дешевле\" на пошлине, но мощность выше 160 л.с. уводит в коммерческий утильсбор. Сначала фильтр по л.с., потом сравнение цен лотов."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли верить названию Inspiration или Premium в объявлении?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет как единственному доказательству. Сверьте список опций и фото панели/салона. Нет совпадения – стоп или запрос дополнительных кадров до оплаты."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "${PUBLIC_SITE_URL}/hyundai-sonata-iz-korei-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать комплектацию Hyundai Sonata из Кореи до депозита",
+      "description": "Пошаговый фильтр лота Encar: задача покупки, мотор и порог 160 л.с., бензин vs LPG, сверка trim с фото салона, история и чек-лист из 10 пунктов до перевода депозита.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Карточка Encar: год, объём, л.с., топливо, trim и фото салона"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Отчёт истории лота (Trust Encar / Carhistory) и пометки rental/taxi"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Фото или видео осмотра до депозита"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Фраза задачи покупки (семья / ежедневный седан / большой пробег)"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Чек-лист из 10 пунктов до перевода депозита"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Зафиксировать задачу: семья, такси или просто седан",
+          "text": "Запишите задачу одной фразой, выберите 1–2 целевых уровня trim и решите, готов ли рассматривать заводской LPG. Пока фразы нет – shortlist не собирайте.",
+          "url": "${PUBLIC_SITE_URL}/hyundai-sonata-iz-korei-komplektatsii-lovushki-2026/#зафиксируйте-задачу-семья-такси-или-просто-седан"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Сверить мотор, мощность и возраст",
+          "text": "Спишите объём и л.с. с полей карточки Encar. Для льготы физлица ориентир – до 160 л.с.: 2.0 (~160) и LPi (~146) обычно в зоне, 1.6 Turbo (~180) – коммерческий сценарий. Учтите возраст на растаможку.",
+          "url": "${PUBLIC_SITE_URL}/hyundai-sonata-iz-korei-komplektatsii-lovushki-2026/#сверьте-мотор-мощность-и-возраст-до-выбора-лота"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Отделить бензин от заводского ГБО",
+          "text": "При LPG/LPi откройте историю назначения и заложите диагностику газа. Не берите газ только из-за цены литра, игнорируя rental/taxi и пробег.",
+          "url": "${PUBLIC_SITE_URL}/hyundai-sonata-iz-korei-komplektatsii-lovushki-2026/#отделите-бензин-от-заводского-гбо-когда-газ-экономит"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Сопоставить комплектацию с фото салона",
+          "text": "Сверьте опции и фото: приборка, экран, камеры, вентиляция/подогрев, кнопки ассистентов. Название Premium/Inspiration в заголовке – не единственное доказательство.",
+          "url": "${PUBLIC_SITE_URL}/hyundai-sonata-iz-korei-komplektatsii-lovushki-2026/#сопоставьте-комплектацию-encar-с-фото-салона"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Проверить историю до депозита",
+          "text": "Соберите пакет: схема и страховые блоки Encar, отчёт по VIN, пометки rental и число владельцев. Нет пакета и осмотра – нет перевода.",
+          "url": "${PUBLIC_SITE_URL}/hyundai-sonata-iz-korei-komplektatsii-lovushki-2026/#проверьте-историю-до-депозита-отчёты-такси-владельцы"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Пройти чек-лист из 10 пунктов",
+          "text": "Пройдите список сверху вниз: задача, мощность, льготный сценарий, возраст, топливо, LPG/rental, trim по фото, страховая история, владельцы, осмотр. Все зелёные – можно обсуждать депозит; красный без объяснения – стоп.",
+          "url": "${PUBLIC_SITE_URL}/hyundai-sonata-iz-korei-komplektatsii-lovushki-2026/#чек-лист-из-10-пунктов-перед-переводом-депозита"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Собрать shortlist и запросить расчёт",
+          "text": "Оставьте 2–3 лота Sonata 2.0 или LPi под задачу, повторите фильтр 160 л.с. и запросите расчёт под ключ в каталоге Авто-Сейлс. Форм на странице нет.",
+          "url": "${PUBLIC_SITE_URL}/hyundai-sonata-iz-korei-komplektatsii-lovushki-2026/#что-сделать-дальше"
+        }
+      ]
+    }
+  ]
+}

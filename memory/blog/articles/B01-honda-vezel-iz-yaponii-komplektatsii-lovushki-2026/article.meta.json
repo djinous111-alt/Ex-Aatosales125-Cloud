@@ -12,7 +12,7 @@
     "везел из японии",
     "хонда везел из китая"
   ],
-  "char_count": 9151,
+  "char_count": 9479,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -29,12 +29,16 @@
     "description_aeo": "До депозита за Honda Vezel из Японии сверьте код кузова, грейд G или e:HEV, аукционный лист и 30-минутную мощность относительно порога 117,68 кВт."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 87,
+    "verdict": "PASS",
     "date": "2026-10-23",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "WARNING",
+    "cannibalization": "PASS",
+    "utility_gate": "PASS",
+    "human_voice": "PASS",
+    "research_notes_gate": "PASS",
+    "core_eeat_lite": "18/20"
   },
   "cover_family": "brand_collage"
 }

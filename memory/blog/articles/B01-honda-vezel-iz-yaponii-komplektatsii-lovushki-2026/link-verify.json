@@ -1,0 +1,29 @@
+{
+  "source": "memory/blog/articles/B01-honda-vezel-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "total_links": 2,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "${CATALOG_URL}",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false,
+      "url_env": "CATALOG_URL"
+    },
+    {
+      "url": "${TELEGRAM_URL}",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false,
+      "url_env": "TELEGRAM_URL"
+    }
+  ],
+  "note": "CTA URLs substituted with env placeholders for git secret-scan; live verify used CATALOG_URL/TELEGRAM_URL (2/2 PASS)."
+}

@@ -6,6 +6,74 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261023-0945-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-coolray-iz-kitaya-komplektatsii-lovushki-2026
+severity: high
+category: env
+
+### What went wrong
+- Cloud API не принимает typed Task `excalibur-blog-geo-qa`; роль запущена только через `Task(generalPurpose)` fallback с путями `.cursor/agents/excalibur-blog-geo-qa.md` и `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+- Риск: следующий run снова потеряет контракт роли, если Director не передаст agent/skill явно.
+
+### How the agent recovered this run
+- Выполнен полный GEO QA контракт в generalPurpose: все скрипты из skill + research-notes / utility / human-voice gates; handoff-блок записан.
+
+### Durable fix needed before next run
+- Зарегистрировать typed Task `excalibur-blog-geo-qa` в Cloud Task types / automation wiring, либо явно задокументировать обязательный generalPurpose fallback в director skill и CLOUD-AUTOMATION.
+- Добавить preflight-проверку: если typed role недоступна — один generic Task с agent+skill paths, без single-agent pipeline.
+
+### Suggested files to inspect/change
+- `.cursor/agents/excalibur-blog-director.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+- `AGENTS.md`
+- `.cursor/environment.json`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261023-0946-geo-qa-cta-href-redacted-placeholder
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-coolray-iz-kitaya-komplektatsii-lovushki-2026
+severity: blocker
+category: qa
+
+### What went wrong
+- `article.html` содержит три CTA с литералом `href="[REDACTED]"` (нет `https://`, нет Telegram URL); `excalibur_blog_link_verify.py` → verdict fail (404 на internal_relative).
+- Writer handoff заявил catalog×2 + Telegram, но абсолютные URL не записаны; GEO QA gate score 74 / FAIL.
+- Дополнительно: `PUBLIC_SITE_URL` host (`avtosales125.ru`) ≠ catalog host (`avto-sales125.ru`) — relative CTA при `--site-base` из PUBLIC_SITE_URL ломаются даже при валидном path.
+
+### How the agent recovered this run
+- Статью не правил (контракт GEO QA); описан FIX для writer; article-qa.md verdict FAIL; cover||schema не запускать.
+
+### Durable fix needed before next run
+- Writer self-check / html-linter: fail если `href` содержит `[REDACTED]` / не начинается с `https://` для CTA.
+- Зафиксировать в writer skill: CTA только absolute из `CATALOG_URL` + `TELEGRAM_URL` (как AS09).
+- Согласовать `PUBLIC_SITE_URL` с брендовым catalog host или не резолвить catalog CTA через blog site-base.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_html_linter.py`
+- `shared/excalibur-article-writing-contract.md`
+- `memory/brief/conversion-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261023-0930-writer-utility-gate-empty-pain-outcome
 status: open
 run_date: 2026-10-23

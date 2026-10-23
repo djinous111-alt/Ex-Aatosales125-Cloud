@@ -502,3 +502,16 @@ category: script
 
 ### Fixer resolution
 - pending
+
+## INC-20261023-1332-publish-siteenv-paramiko
+
+- **status:** open
+- **agent:** excalibur-blog-publish
+- **topic_id:** B01
+- **slug:** hyundai-sonata-iz-korei-komplektatsii-lovushki-2026
+- **when:** 2026-10-23T13:32Z
+- **symptom:** `memory/site.env.local` missing; `paramiko` not installed (PEP 668); publish blocked until bootstrap
+- **workaround:** write site.env.local from Cloud Secrets (SSH_ROOT=.); `pip install --break-system-packages paramiko`
+- **durable_fix_needed:** ensure cloud-agent-install.sh / requirements installs paramiko; document site.env.local bootstrap in publish skill
+- **related:** INC-20261023-0942 (Coolray same)
+

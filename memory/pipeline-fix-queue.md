@@ -7,6 +7,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 
+## INC-20261023-1729-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-vezel-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Agent/skill shell examples still pass `--blog-path /` to `excalibur_blog_llms_generator.py`, but current CLI only has `--blog-dir`, `--site-base`, `--out-dir` (no `--blog-path`).
+- `excalibur_blog_doctor.py` still asserts `"--blog-path" in llms_help` → false FAIL / stale contract (noted in director preflight).
+- Skill/agent examples show absolute `[REDACTED]` site-base; committed `memory/blog/llms.txt` uses git-relative `/blog/<slug>/` URLs (empty `--site-base`).
+
+### How the agent recovered this run
+- Ran generator without `--blog-path`: `--blog-dir memory/blog/articles --out-dir memory/blog --site-base ""`.
+- Interlinker `--apply` with `$PUBLIC_SITE_URL` as documented (0 opportunities; report saved under article_dir).
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent/skill shell blocks; document `--blog-dir` + `--out-dir` only.
+- Flip doctor check: require `--blog-dir` / `--out-dir`, fail if `--blog-path` still present in help (or drop the flag check).
+- Document empty `--site-base` for git-relative `/blog/<slug>/` URLs in committed llms artifacts.
+- Sync pitfalls Indexer section with the above.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261023-1722-cover-mcp-32001-kie-fallback
 status: open
 run_date: 2026-10-23

@@ -1,0 +1,73 @@
+{
+  "article": "memory/blog/articles/B01-honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 9,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 8,
+  "facts": [
+    {
+      "fact": "2015",
+      "kind": "date_or_year",
+      "context": "u Gate была только у 5-го поколения (RP, примерно 2015–2021) и исчезла у 6-го (RP6–RP8). Многие платят з",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2021",
+      "kind": "date_or_year",
+      "context": "e была только у 5-го поколения (RP, примерно 2015–2021) и исчезла у 6-го (RP6–RP8). Многие платят за \"но",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2022",
+      "kind": "date_or_year",
+      "context": "рид, часто и привод. 5-е поколение (примерно 2015–2022): RP1/RP2 – обычные; RP3/RP4 – Spada; RP5 – гибри",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "7 дней",
+      "kind": "metric_or_duration",
+      "context": "истика понятна: море Япония → Владивосток часто 4–7 дней; растаможня при готовых документах часто 5–10 дне",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 дней",
+      "kind": "metric_or_duration",
+      "context": "7 дней; растаможня при готовых документах часто 5–10 дней (ориентир, не обещание). Есть 3–5 вопросов подбор",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "155",
+      "kind": "large_number",
+      "context": "Плюс по спецификациям Honda для 5G клиренс 2WD – 155 мм, 4WD – 150 мм: полный привод не выше, а чуть ни",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "150",
+      "kind": "large_number",
+      "context": "фикациям Honda для 5G клиренс 2WD – 155 мм, 4WD – 150 мм: полный привод не выше, а чуть ниже. Сравните S",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4735",
+      "kind": "large_number",
+      "context": "просто вместительная семья. На 5G Spada длиннее: 4735 мм против 4690 мм по архивному PDF Honda. Снаружи",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4690",
+      "kind": "large_number",
+      "context": "ельная семья. На 5G Spada длиннее: 4735 мм против 4690 мм по архивному PDF Honda. Снаружи – бампер, решёт",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

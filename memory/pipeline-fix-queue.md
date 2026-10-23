@@ -6,6 +6,107 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-2119-geo-qa-typed-task-unavailable
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud API не принимает typed Task `excalibur-blog-geo-qa`.
+- Роль запущена только через fallback `Task(generalPurpose)` + `.cursor/agents/excalibur-blog-geo-qa.md` + skill path.
+
+### How the agent recovered this run
+- Выполнен полный GEO QA контракт через generalPurpose: все скрипты, `article-qa.md`, handoff-блок.
+
+### Durable fix needed before next run
+- Зарегистрировать typed Task types `excalibur-blog-*` в Cloud / automation, либо явно задокументировать generalPurpose fallback как канон в director skill и AGENTS.md (уже частично есть — проверить, что automation trigger всегда передаёт fallback).
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `CLOUD-AUTOMATION.md`
+- Cursor Cloud Task type / automation config
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261024-2120-geo-qa-utility-policy-missing-pain-outcome
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026
+severity: blocker
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` требует `pain_markers_ru` / `outcome_markers_ru` и `min_pain_markers`/`min_outcome_markers` (default 2/3).
+- В `memory/brief/editorial-policy.json` этих ключей нет → списки пустые → `pain_markers=0` / `outcome_markers=0` на любой статье.
+- Повторный прогон AS09 (ранее PASS) тоже BLOCK только из-за пустых списков.
+
+### How the agent recovered this run
+- Зафиксирован BLOCK в `utility-gate-report.json` и `article-qa.md` verdict FIX.
+- Writer получил точный FIX по action-маркерам; pain/outcome отмечены как policy/script blocker, не как слепой рерайт.
+- Human-voice gate (свои PAIN/OUTCOME_MARKERS) для B01 — PASS.
+
+### Durable fix needed before next run
+- Добавить в `editorial-policy.json` списки `pain_markers_ru` / `outcome_markers_ru` (можно выровнять с human_voice_gate) и при необходимости `min_pain_markers` / `min_outcome_markers` в `article_required_signals`.
+- Либо не применять pain/outcome checks, если ключи policy отсутствуют.
+- Регрессия: AS08/AS09 + B01 должны снова проходить utility при валидном тексте.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261024-2121-geo-qa-link-verify-unicode-ascii
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_link_verify.py` упал на 2GIS URL с кириллицей в path: `'ascii' codec can't encode characters in position 24-27`.
+- Каталог и Telegram CTA — HTTP 200.
+- Ручной percent-encode того же URL даёт HTTP 200.
+
+### How the agent recovered this run
+- `link-verify.json` verdict fail зафиксирован; в FIX для writer — заменить href на firm-only ASCII URL или полностью percent-encoded path.
+- Не правили article.html из GEO QA.
+
+### Durable fix needed before next run
+- В `excalibur_blog_link_verify.py` перед urllib request делать IRI→URI encode (quote path/query), чтобы кириллические внешние ссылки не валили gate.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261024-2118-writer-precommit-cta-secret-scan
 status: open
 run_date: 2026-10-24

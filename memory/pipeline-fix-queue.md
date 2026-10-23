@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261023-0915-research-notes-gate-false-tech-painmap
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-coolray-iz-kitaya-komplektatsii-lovushki-2026
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` first run BLOCK: `pain_solution_map too thin` because row counter requires substring `боль|pain|решение|solution|result|результат` inside each table row; normal Russian cells without those labels were ignored.
+- Same gate marked `technical_topic: true` on an auto how-to via substring false positives (`ai` inside `pain`, `ии` inside Russian words like `комплектации`), which then demanded GitHub/docs evidence for a non-dev article.
+
+### How the agent recovered this run
+- Prefixed pain/solution/result labels in each `pain_solution_map` row; kept 3 GitHub VIN-tool URLs so the false technical path still PASSed.
+- Re-ran gate → PASS (remaining warning: no official docs URL).
+
+### Durable fix needed before next run
+- Count `pain_solution_map` data rows under the section (markdown table body) instead of keyword-in-row regex.
+- Detect technical topics with word-boundary / allowlist markers, not raw substring `ai`/`ии`.
+- Document required pain-map cell labels in research skill if keyword heuristic stays.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261023-0908-scout-precommit-secret-names
 status: open
 run_date: 2026-10-23

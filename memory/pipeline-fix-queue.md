@@ -29,7 +29,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `rg` for `range(300)` and `EXCALIBUR_RUN_DATE` in publish script
-commit: pending-parent-commit
+commit: 357ab223
 
 run_date: 2026-10-24
 role: excalibur-blog-publish
@@ -86,7 +86,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `rg` for `--blog-path` only as negative docs
-commit: pending-parent-commit
+commit: 357ab223
 
 run_date: 2026-10-24
 role: excalibur-blog-indexer
@@ -142,7 +142,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - `rg` preferred_image_flow / Kie-first in cover skill
-commit: pending-parent-commit
+commit: 357ab223
 
 run_date: 2026-10-24
 role: excalibur-blog-cover
@@ -191,7 +191,7 @@ files_changed:
 checks_run:
 - `rg` no `thick heavyweight white hoodie` in prompt builder
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
-commit: pending-parent-commit
+commit: 357ab223
 
 run_date: 2026-10-24
 role: excalibur-blog-cover
@@ -237,7 +237,7 @@ files_changed:
 - `scripts/excalibur_blog_filter_commit_secret_env.sh`
 checks_run:
 - `rg` REDACTED / pragma guidance in schema skill
-commit: pending-parent-commit
+commit: 357ab223
 
 run_date: 2026-10-24
 role: excalibur-blog-schema
@@ -291,7 +291,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - utility gate B01 PASS
-commit: pending-parent-commit
+commit: 357ab223
 
 run_date: 2026-10-24
 role: excalibur-blog-director
@@ -342,7 +342,7 @@ files_changed:
 - `shared/pipeline-task-map.md`
 checks_run:
 - `rg` geo-qa generalPurpose fallback in AGENTS.md / director skill
-commit: pending-parent-commit
+commit: 357ab223
 
 run_date: 2026-10-24
 role: excalibur-blog-geo-qa
@@ -388,7 +388,7 @@ files_changed:
 checks_run:
 - utility gate B01 PASS
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
-commit: pending-parent-commit
+commit: 357ab223
 
 run_date: 2026-10-24
 role: excalibur-blog-geo-qa
@@ -442,7 +442,7 @@ files_changed:
 checks_run:
 - unit check `iri_to_uri` percent-encodes Cyrillic path
 - `python3 -m py_compile scripts/excalibur_blog_link_verify.py`
-commit: pending-parent-commit
+commit: 357ab223
 
 run_date: 2026-10-24
 role: excalibur-blog-geo-qa
@@ -492,7 +492,7 @@ files_changed:
 - `.cursor/cloud-agent-install.sh`
 checks_run:
 - `rg` pragma allowlist / CTA guidance in writer skill
-commit: pending-parent-commit
+commit: 357ab223
 
 run_date: 2026-10-24
 role: excalibur-blog-writer
@@ -539,7 +539,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` WORDSTAT EMPTY PAYLOAD / fallback order in research skill
-commit: pending-parent-commit
+commit: 357ab223
 
 run_date: 2026-10-24
 role: excalibur-blog-research
@@ -587,7 +587,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - scripts present; doctor checks filter scripts exist
-commit: pending-parent-commit
+commit: 357ab223
 
 run_date: 2026-10-24
 role: excalibur-blog-research
@@ -630,7 +630,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - research notes gate B01 → PASS, technical_topic=False, accessed_at=22
-commit: pending-parent-commit
+commit: 357ab223
 
 run_date: 2026-10-24
 role: excalibur-blog-research
@@ -685,7 +685,7 @@ files_changed:
 checks_run:
 - scout `--check-slug` blocks Stepwgn; free slug OK
 - doctor errors=0
-commit: pending-parent-commit
+commit: 357ab223
 
 run_date: 2026-10-24
 role: excalibur-blog-scout

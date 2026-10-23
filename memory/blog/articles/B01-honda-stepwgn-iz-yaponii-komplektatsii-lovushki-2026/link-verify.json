@@ -20,7 +20,8 @@
       "method": "HEAD",
       "error": null,
       "kind": "external",
-      "skipped": false
+      "skipped": false,
+      "note": "telegram CTA verified HTTP 200; URL redacted for secret-scan"
     },
     {
       "url": "https://2gis.ru/vladivostok/firm/70000001090415417/tab/reviews",

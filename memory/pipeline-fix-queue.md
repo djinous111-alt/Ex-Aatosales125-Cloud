@@ -96,10 +96,16 @@ category: script
 - Writer получил точный FIX по action-маркерам; pain/outcome отмечены как policy/script blocker, не как слепой рерайт.
 - Human-voice gate (свои PAIN/OUTCOME_MARKERS) для B01 — PASS.
 
+### Notes (GEO QA recheck 2026-10-24)
+- **Resolved this run (symptom):** Director восстановил `pain_markers_ru` / `outcome_markers_ru` + mins; utility gate B01 → PASS (pain 9, outcome 11, action 24).
+- Связанный durable incident: INC-20261024-2125-director-main-missing-utility-markers (merge prior fixer commits into main).
+- status остаётся `open` для fixer close после durable merge/commit policy на ветку main.
+
 ### Durable fix needed before next run
 - Добавить в `editorial-policy.json` списки `pain_markers_ru` / `outcome_markers_ru` (можно выровнять с human_voice_gate) и при необходимости `min_pain_markers` / `min_outcome_markers` в `article_required_signals`.
 - Либо не применять pain/outcome checks, если ключи policy отсутствуют.
 - Регрессия: AS08/AS09 + B01 должны снова проходить utility при валидном тексте.
+- Закоммитить restore на ветку, от которой стартуют Cloud runs (см. INC-2125).
 
 ### Suggested files to inspect/change
 - `memory/brief/editorial-policy.json`
@@ -131,6 +137,11 @@ category: script
 ### How the agent recovered this run
 - `link-verify.json` verdict fail зафиксирован; в FIX для writer — заменить href на firm-only ASCII URL или полностью percent-encoded path.
 - Не правили article.html из GEO QA.
+
+### Notes (GEO QA recheck 2026-10-24)
+- **Resolved this run (article symptom):** Writer заменил 2GIS href на ASCII firm URL; recheck `link-verify` → pass, failed_count 0, HTTP 200 на 2GIS.
+- Durable gap остаётся: скрипт всё ещё падает на IRI с кириллицей — нужен IRI→URI encode в `excalibur_blog_link_verify.py`.
+- status остаётся `open` для fixer close после патча скрипта.
 
 ### Durable fix needed before next run
 - В `excalibur_blog_link_verify.py` перед urllib request делать IRI→URI encode (quote path/query), чтобы кириллические внешние ссылки не валили gate.

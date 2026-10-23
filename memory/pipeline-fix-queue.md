@@ -39,6 +39,37 @@ category: api
 ### Fixer resolution
 - pending
 
+## INC-20261024-2117-research-precommit-secret-names-url
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Cloud pre-commit secrets scanner failed with `invalid variable name` because `CLOUD_AGENT_INJECTED_SECRET_NAMES` comma-list included a raw catalog URL (`https://…`) as if it were a secret *name*.
+- Bash `${!SECRET_NAME}` cannot expand URL-shaped "names", blocking `git commit` for research artifacts.
+
+### How the agent recovered this run
+- Temporarily exported a sanitized NAMES list (valid identifiers only, no URL tokens) for the commit/push of this run.
+- Did not print secret values.
+
+### Durable fix needed before next run
+- Ensure Dashboard / env injection puts only valid shell identifiers into `CLOUD_AGENT_INJECTED_SECRET_NAMES` (values belong in env vars like `CATALOG_URL`, not in the names list).
+- Optionally harden pre-commit.cursor to skip non-identifier names instead of aborting.
+
+### Suggested files to inspect/change
+- Cursor Cloud Secrets / env injection for this repo
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (platform) or local hook wrapper docs in `CURSOR-CLOUD-RUNBOOK.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261024-2116-research-notes-gate-false-technical
 status: open
 run_date: 2026-10-24

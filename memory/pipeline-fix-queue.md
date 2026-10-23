@@ -251,6 +251,43 @@ checks_run:
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
 commit: pending-parent-commit
 
+## INC-20261023-1705-scout-wp-slug-denylist-missing
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- `shared/wp-slug-denylist.json` отсутствовал на ветке Cloud run при сброшенном ledger (только AS08/AS09) и пустом B-pool.
+- Director/Task ожидал `scripts/excalibur_blog_scout_helper.py --check-slug`, но helper поддерживает только `--suggest-next` и `--check-query` (CLI mismatch).
+- `--check-query` смотрит только карточки `## Bxx` в `blog-topics.md` и не защищает от LIVE WP slug/model cannibalization.
+
+### How the agent recovered this run
+- Восстановил denylist из `PUBLIC_SITE_URL` REST `wp/v2/posts?per_page=100` (все 13 страниц, 1211 slug) + known LIVE recent slug из today/Director context.
+- Вручную проверил candidate slug через REST `?slug=` (пустой массив) и fuzzy `vezel` по denylist (0 hits).
+- Выбрал gap-тему Honda Vezel (не Sonata/Coolray/CX-5/Harrier/Monjaro и др. October model-posts).
+
+### Durable fix needed before next run
+- Добавить в `excalibur_blog_scout_helper.py` флаги `--rebuild-denylist` и `--check-slug <slug>` (чтение/запись `shared/wp-slug-denylist.json`, REST fallback на `PUBLIC_SITE_URL`).
+- В scout skill/agent для AVTO SALES явно требовать denylist + live slug check, не только `--check-query`.
+- Закоммитить актуальный denylist или генерировать его в preflight `today.py` / doctor.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_today.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## Fixed incidents
 
 Handled above; commit is pending Director review.

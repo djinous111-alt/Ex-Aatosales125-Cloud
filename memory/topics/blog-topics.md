@@ -184,3 +184,28 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Honda Vezel из Японии: комплектации и ловушки
+
+- **priority:** P0
+- **slug:** honda-vezel-iz-yaponii-komplektatsii-lovushki-2026
+- **h1:** Honda Vezel из Японии: как выбрать комплектацию и не ошибиться с утильсбором до депозита
+- **primary_query:** хонда везел из японии
+- **secondary_queries:** хонда везел комплектации, хонда везел гибрид, везел из японии, хонда везел из китая
+- **search_intent:** checklist
+- **article_mode:** B
+- **h2_outline:**
+  1. Кому подходит Vezel: город, семья, правый руль без лишней мощности
+  2. Бензин G vs e:HEV: что смотреть в документах по мощности до ставки
+  3. Комплектации X / Z / RS / G: что реально нужно новичку
+  4. Аукционный лист и фото: красные флаги до депозита
+  5. Ловушка "Vezel из Китая" vs японский аукцион: разные машины по документам
+  6. Чек-лист из 10 пунктов перед переводом депозита
+- **faq_hints:** проходит ли гибрид Vezel по льготному утильсбору; чем японский Vezel отличается от китайского; какую комплектацию брать новичку без переплаты
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у компактного кроссовера Honda Vezel (правый руль), аукционный лист/смартфон в кадре, порт Владивостока или дождливая набережная, плашка "до депозита", угол avto-sales125.ru
+- **wordstat_signal:** parent «авто из японии» 108323; brand «хонда везел» 79888; narrow «хонда везел из японии» 534; «хонда везел комплектации» 1481; «хонда везел гибрид» 3221; live exact slug REST []
+- **live_gap:** нет dedicated slug *vezel* на live (1211 posts denylist); Sonata/Coolray/CX-5/Harrier/Monjaro и др. October model-posts пропущены

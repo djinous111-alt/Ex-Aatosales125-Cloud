@@ -1,0 +1,202 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/honda-vezel-iz-yaponii-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/honda-vezel-iz-yaponii-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Honda Vezel из Японии: как выбрать комплектацию и не ошибиться с утильсбором до депозита",
+      "description": "Хонда везел из Японии: чек-лист комплектаций G/X/Z/RS, гибрид e:HEV vs бензин, аукционный лист и риск утильсбора до депозита. Без калькулятора сумм.",
+      "datePublished": "2026-10-23",
+      "dateModified": "2026-10-23",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru/"
+        },
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru/",
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125"
+        ]
+      },
+      "keywords": [
+        "хонда везел из японии",
+        "хонда везел комплектации",
+        "хонда везел гибрид",
+        "везел из японии",
+        "хонда везел из китая"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/honda-vezel-iz-yaponii-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Проходит ли гибрид Vezel e:HEV по льготному утильсбору?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не угадывайте по пику 96 кВт из брошюры. Запросите сверку: ДВС + максимальная 30-минутная мощность мотора из ОТТС/СБКТС и сравните с 117,68 кВт. Точную сумму считайте под конкретный лот."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем японский Vezel отличается от китайского?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Для японского аукциона требуйте правый руль и лист с кодом RU/RV. Китайский Vezel/XR-V чаще левый руль и другой набор опций. До депозита зафиксируйте страну и документы в одном сообщении."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какую комплектацию брать новичку без переплаты?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Для города чаще берите e:HEV X или Z. G – если нужен простой бензин 4WD. RS – только ради вида и после проверки дисков и кузова по листу. Зафиксируйте 1–2 грейда до поиска."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как за 30 секунд отличить бензин G от гибрида?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Откройте код кузова: RV4 + G = бензин; RV5/RV6 + e:HEV = гибрид текущего поколения. RU3/RU4 Hybrid – старый i-DCD с роботом, его проверяют отдельно."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать при оценке R, RA или RB в листе?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не переводите депозит вслепую. Запросите расшифровку ремонта и схему. Нет пояснения или схема мутная – отложите лот и смотрите следующий."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли опираться на \"лошади\" из обзора для расчёта?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Для гибрида берите документы машины и 30-минутную мощность, а не пик из рекламы. Вопрос менеджеру: \"нужна сверка мощности для утильсбора по этому VIN/лоту\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Куда писать, если чек-лист уже зелёный?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Откройте каталог Авто-Сейлс со ссылкой на лот и ответами \"да/нет\". Детали по грейду уточняйте в переписке – без форм на странице статьи."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/honda-vezel-iz-yaponii-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать комплектацию Honda Vezel из Японии и не ошибиться с утильсбором до депозита",
+      "description": "Пошаговый чек-лист до депозита: сценарий, код кузова G vs e:HEV, грейд X/Z/RS, аукционный лист, Япония vs Китай, сверка мощности и 10 пунктов «да/нет».",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Аукционный лист лота (оценка, схема, комментарии)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Код кузова и грейд из карточки лота (RU*/RV*, G / e:HEV)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Документы по мощности: ОТТС/СБКТС или сверка под VIN/лот"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Ссылка на лот и сценарий: город/семья, правый руль, Владивосток"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Чек-лист из 10 пунктов «да/нет» до депозита"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Определить сценарий: город, семья, правый руль",
+          "text": "Зафиксируйте город/семью, бюджет до депозита, правый руль и Владивосток как хаб. Не выбирайте только по фото RS, если нужен простой бензин.",
+          "url": "https://avtosales125.ru/honda-vezel-iz-yaponii-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Сверить бензин G и e:HEV по мощности",
+          "text": "Выпишите код кузова и грейд: RV4 + G = бензин; RV5/RV6 + e:HEV = гибрид. Для утильсбора у гибрида берите ДВС + 30-минутную мощность из документов vs 117,68 кВт, не пик из брошюры.",
+          "url": "https://avtosales125.ru/honda-vezel-iz-yaponii-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Выбрать комплектацию X / Z / RS / G",
+          "text": "Зафиксируйте 1–2 грейда под сценарий: чаще e:HEV X или Z для города, G для бензина 4WD, RS только после проверки дисков и кузова. Не путайте i-DCD RU3/RU4 с e:HEV.",
+          "url": "https://avtosales125.ru/honda-vezel-iz-yaponii-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Прочитать аукционный лист и красные флаги",
+          "text": "Проверьте оценку, схему A/U/W/XX и пометки R/RA/RB. Нет понятного листа или ремонт без пояснения — депозит не переводите. Сверьте фото с листом.",
+          "url": "https://avtosales125.ru/honda-vezel-iz-yaponii-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Отделить японский аукцион от «Vezel из Китая»",
+          "text": "Требуйте правый руль и лист с кодами RU/RV. Левый руль без японского листа — другой рынок. До депозита зафиксируйте страну и документы в одном сообщении.",
+          "url": "https://avtosales125.ru/honda-vezel-iz-yaponii-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Пройти чек-лист из 10 пунктов перед депозитом",
+          "text": "Ответьте «да/нет» по сценарию, коду кузова, грейду, топливу, приводу, листу, флагам, фото, стране и плану сверки мощности. Любой «нет/неясно» — депозит стоп.",
+          "url": "https://avtosales125.ru/honda-vezel-iz-yaponii-komplektatsii-lovushki-2026/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Запросить расчёт под лот после зелёного чек-листа",
+          "text": "Сохраните shortlist из 1–2 лотов с зелёным чеклистом и запросите расчёт под VIN/лот в каталоге Авто-Сейлс или Telegram. Только после ответов обсуждайте депозит и выдачу во Владивостоке.",
+          "url": "https://avtosales125.ru/honda-vezel-iz-yaponii-komplektatsii-lovushki-2026/"
+        }
+      ]
+    }
+  ]
+}

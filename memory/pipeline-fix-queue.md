@@ -54,11 +54,12 @@ category: qa
 - Дополнительно: `PUBLIC_SITE_URL` host (`avtosales125.ru`) ≠ catalog host (`avto-sales125.ru`) — relative CTA при `--site-base` из PUBLIC_SITE_URL ломаются даже при валидном path.
 
 ### How the agent recovered this run
-- Статью не правил (контракт GEO QA); описан FIX для writer; article-qa.md verdict FAIL; cover||schema не запускать.
+- GEO QA: статью не правил; описан FIX для writer; article-qa.md verdict FAIL; cover||schema не запускать.
+- Writer retry: подставил absolute `CATALOG_URL`×2 + `TELEGRAM_URL`×1 в `article.html`; литерал `[REDACTED]` = 0; https CTA = 3; char_count 9313 без переписывания тела.
 
 ### Durable fix needed before next run
 - Writer self-check / html-linter: fail если `href` содержит `[REDACTED]` / не начинается с `https://` для CTA.
-- Зафиксировать в writer skill: CTA только absolute из `CATALOG_URL` + `TELEGRAM_URL` (как AS09).
+- Зафиксировать в writer skill: CTA только absolute из `CATALOG_URL` + `TELEGRAM_URL` (как AS09); запрет копировать `[REDACTED]` из conversion-map/fact-bank в live href.
 - Согласовать `PUBLIC_SITE_URL` с брендовым catalog host или не резолвить catalog CTA через blog site-base.
 
 ### Suggested files to inspect/change

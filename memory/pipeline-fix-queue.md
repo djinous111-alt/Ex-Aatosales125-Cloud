@@ -7,6 +7,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 
+## INC-20261023-1722-cover-mcp-32001-kie-fallback
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-vezel-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` (MCP-KV) for ONE 2K i2i quad canvas returned `HTTP MCP error -32001: Request timed out`.
+- Tool response/logs/cloud events contained no generated URL and no task_id for late recovery.
+- Short polling (no URL in cover/*, /tmp, or cursor-cloud events) confirmed MCP client timeout without result delivery.
+
+### How the agent recovered this run
+- Did not blind-retry sync MCP create (avoids duplicate jobs).
+- Used documented Cloud primary path: `scripts/excalibur_blog_kie_gpt_image2_api.py` with the same `cover/quad-mcp-batch.json` jobs[0].mcp_args (prompt + input_urls + 16:9 + 2K).
+- Kie createTask → recordInfo → `quad-mcp-result.json` → `excalibur_blog_quad_apply.py --inject-html` → split PASS.
+
+### Durable fix needed before next run
+- Cover agent/skill: after first MCP -32001 with no URL/task_id in logs, immediately fall back to Kie API (do not wait full 5 min when logs are unavailable).
+- Prefer exposing async MCP start/status tools, or make Director prompt step 5 say «MCP once, then Kie API» as the default Cloud path.
+- Ensure cover fragment records `source: kie-api` when fallback used.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/pipeline-task-map.md` (④a Cover)
+- `shared/kie-gpt-image-api-contract.md`
+- `shared/mcp-image-async-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261023-1716-geo-qa-utility-pain-outcome-markers-missing
 status: open
 run_date: 2026-10-23

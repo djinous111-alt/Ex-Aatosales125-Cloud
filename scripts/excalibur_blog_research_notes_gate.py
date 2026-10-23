@@ -14,6 +14,8 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Word/token markers only — never bare substrings like "ai" inside "pain"
+# or "ии" inside "японии".
 TECH_MARKERS = (
     "ai",
     "ии",
@@ -30,6 +32,22 @@ TECH_MARKERS = (
     "workflow",
     "автоматизац",
     "нейросет",
+)
+
+# Field labels that contain marker substrings but must not force technical_topic.
+TECH_BLOB_FIELD_STRIP = (
+    "reader_pain",
+    "reader_outcome",
+    "pain_solution_map",
+    "success_criteria",
+    "voice_angle",
+    "reader_story",
+    "surprising_fact",
+    "github_evidence",
+    "action_outline",
+    "accessed_at",
+    "research_date",
+    "utility_verdict",
 )
 
 
@@ -73,14 +91,30 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def _tech_marker_pattern(marker: str) -> re.Pattern[str]:
+    """Match whole tokens; allow Cyrillic/Latin word chars around short markers."""
+    escaped = re.escape(marker.lower())
+    # Prefix markers (автоматизац, нейросет) match as stems.
+    if marker.endswith(("ац", "ет")) or marker in {"автоматизац", "нейросет"}:
+        return re.compile(rf"(?<![0-9a-zа-яё_]){escaped}", flags=re.I)
+    return re.compile(rf"(?<![0-9a-zа-яё_]){escaped}(?![0-9a-zа-яё_])", flags=re.I)
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
+    # Prefer topic card fields — do not scan full notes (field names like
+    # reader_pain / github_evidence create false positives).
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    if not blob.strip():
+        # Fallback: first 2k of notes with required field labels stripped.
+        sample = notes[:2000]
+        for field in TECH_BLOB_FIELD_STRIP:
+            sample = re.sub(re.escape(field), " ", sample, flags=re.I)
+        blob = sample.lower()
+    return any(_tech_marker_pattern(marker).search(blob) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,9 +164,33 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
+    # Count explicit accessed_at: keys and ISO dates in source_table rows.
     accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    iso_in_table = len(
+        re.findall(
+            r"^\s*\|[^\n]*https?://[^\n]*\b20\d{2}-\d{2}-\d{2}\b",
+            text,
+            flags=re.M,
+        )
+    )
+    accessed_count = max(accessed_count, iso_in_table)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    pain_section = re.search(
+        r"##\s*\d*\.?\s*pain[_\s-]*solution[_\s-]*map\b([\s\S]*?)(?=\n##\s|\Z)",
+        text_lower,
+        flags=re.I,
+    )
+    pain_body = pain_section.group(1) if pain_section else ""
+    # Any markdown table/list row inside the pain_solution_map section counts.
+    pain_map_rows = len(re.findall(r"^\s*\|.+\|", pain_body, flags=re.M))
+    if pain_map_rows < 3:
+        pain_map_rows = len(
+            re.findall(
+                r"^\s*(?:\|.*(?:боль|pain|решение|solution|result|результат).*|[-*]\s+\S+)",
+                pain_body or text_lower,
+                flags=re.M,
+            )
+        )
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:

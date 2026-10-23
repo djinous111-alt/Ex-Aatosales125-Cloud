@@ -113,6 +113,38 @@ def main() -> int:
 
     check(module_available("PIL"), "Pillow available", errors, warnings)
     check(module_available("numpy"), "numpy available", errors, warnings)
+    check(
+        module_available("paramiko"),
+        "paramiko available (SSH publish)",
+        errors,
+        warnings,
+        warn=not args.publish,
+    )
+
+    denylist = root / "shared/wp-slug-denylist.json"
+    check(denylist.is_file(), "shared/wp-slug-denylist.json exists", errors, warnings)
+    check(
+        bool(git_ls_files(root, "shared/wp-slug-denylist.json")),
+        "shared/wp-slug-denylist.json is tracked in git",
+        errors,
+        warnings,
+    )
+
+    scout = root / "scripts/excalibur_blog_scout_helper.py"
+    scout_help = subprocess.run(
+        [sys.executable, str(scout), "--help"],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    check("--check-slug" in scout_help.stdout, "scout helper supports --check-slug", errors, warnings)
+    check(
+        "--rebuild-denylist" in scout_help.stdout,
+        "scout helper supports --rebuild-denylist",
+        errors,
+        warnings,
+    )
 
     interlinker = root / "scripts/excalibur_blog_interlinker.py"
     help_proc = subprocess.run(
@@ -132,7 +164,14 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check("--out-dir" in llms_help.stdout, "llms generator supports --out-dir", errors, warnings)
+    check(
+        "--blog-path" not in llms_help.stdout,
+        "llms generator does not expose stale --blog-path",
+        errors,
+        warnings,
+    )
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

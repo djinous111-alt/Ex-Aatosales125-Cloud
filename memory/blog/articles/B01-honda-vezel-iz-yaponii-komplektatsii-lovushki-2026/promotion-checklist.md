@@ -1,7 +1,7 @@
 # Promotion checklist — B01 honda-vezel-iz-yaponii-komplektatsii-lovushki-2026
 
 Дата публикации: 2026-10-23  
-Live URL: /blog/honda-vezel-iz-yaponii-komplektatsii-lovushki-2026/
+Live URL: /2026/10/23/honda-vezel-iz-yaponii-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • До ставки: код кузова + лист + мощность 30 мин vs 117,68 кВт
 • Япония с листом ≠ «Vezel из Китая» без аукциона
 
-Читать: /blog/honda-vezel-iz-yaponii-komplektatsii-lovushki-2026/
+Читать: /2026/10/23/honda-vezel-iz-yaponii-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка
@@ -47,4 +47,4 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir …/B01-… --site-base $PUBLIC_SITE_URL` — 0 links applied.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (empty `--site-base` → git-relative `/blog/<slug>/`; без `--blog-path` — CLI его не принимает).
-- Publish: pending (indexer не публикует).
+- Publish: PASS — WP post_id=4483; featured=4484; inline=4485/4486/4487; schema_meta ok; HEAD 200.

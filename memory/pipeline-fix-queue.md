@@ -7,6 +7,75 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 
+## INC-20261023-1736-publish-siteenv-paramiko-fallback-wait
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-vezel-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `memory/site.env.local` missing at publish start (gitignored); Cloud Secrets present in env.
+- `paramiko` not installed in Cloud image (`ModuleNotFoundError`); `--env-check` does not import it.
+- Publish script WebFetch fallback wait still `range(120)` / "120 seconds" despite prior memory note of 300s durable fix.
+
+### How the agent recovered this run
+- Wrote `memory/site.env.local` from Cloud Secrets with `SSH_ROOT=.` (no quoted values).
+- `python3 -m pip install --break-system-packages paramiko` (5.1.0).
+- Patched fallback wait 120→300s in `scripts/excalibur_blog_wp_publish.py`.
+- Publish succeeded via SSH + HTTP without FALLBACK; post_id=4483 (NEW slug).
+
+### Durable fix needed before next run
+- Ensure Cloud install installs `paramiko` from `requirements.txt` / `.cursor/cloud-agent-install.sh`.
+- Document bootstrap of `memory/site.env.local` + `SSH_ROOT=.` in publish skill preflight.
+- Keep fallback wait at 300s in script (this run patched); verify not reverted.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261023-1730-geo-qa-typed-task-missing
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-director
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-vezel-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: tooling
+
+### What went wrong
+- Cloud Task API rejected `subagent_type=excalibur-blog-geo-qa` as invalid option.
+- Available typed Excalibur agents omitted geo-qa; Director used `Task(generalPurpose)` fallback with `.cursor/agents/excalibur-blog-geo-qa.md` + skill.
+
+### How the agent recovered this run
+- Launched generalPurpose with explicit agent+skill paths; GEO QA returned PASS.
+
+### Durable fix needed before next run
+- Register `excalibur-blog-geo-qa` in Cloud Task/subagent catalog alongside other excalibur-blog-* types, or document required generalPurpose fallback in AGENTS.md / director skill as permanent Cloud path.
+
+### Suggested files to inspect/change
+- `AGENTS.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- Cloud agent registration / `.cursor-plugin` if applicable
+
+### Secrets
+- none recorded
+
+
+
 ## INC-20261023-1729-indexer-llms-blog-path-stale
 status: open
 run_date: 2026-10-23

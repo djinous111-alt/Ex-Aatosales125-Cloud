@@ -324,3 +324,38 @@ category: docs
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261023-1310-research-notes-gate-accessed-pain
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-hyundai-sonata-iz-korei-komplektatsii-lovushki-2026
+severity: low
+category: script
+
+### What went wrong
+- Первый прогон `excalibur_blog_research_notes_gate.py` дал BLOCK: `accessed_at=1 < 5`, хотя в `source_table` у каждой строки была дата в колонке `accessed_at`.
+- Gate считает только вхождения вида `accessed_at:` (с двоеточием), а не значения в markdown-таблице.
+- `pain_solution_map` с русскими ячейками без слов pain/боль/solution/решение/result/результат считался thin (`rows=2 < 3`), хотя строк данных было 5.
+
+### How the agent recovered this run
+- Добавил явные метки `accessed_at: 2026-10-23` в verified_facts и source_access_* (≥5).
+- В каждую строку pain_solution_map вставил маркеры `боль` / `решение` / `результат`.
+- Повторный gate: PASS.
+
+### Durable fix needed before next run
+- В `.cursor/skills/excalibur-research/SKILL.md` и шаблоне research-notes явно: минимум 5 строк `accessed_at: YYYY-MM-DD`; в pain_solution_map каждая data-row должна содержать pain/боль и solution/решение/result/результат.
+- Опционально смягчить gate: считать даты в колонке source_table как accessed_at.
+
+### Suggested files to inspect/change
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

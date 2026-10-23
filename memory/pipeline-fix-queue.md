@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261023-0934-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-coolray-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Agent/skill contracts still document `excalibur_blog_llms_generator.py ... --blog-path /`, but the script CLI accepts only `--blog-dir` + `--out-dir` (no `--blog-path`).
+- `excalibur_blog_doctor.py` still asserts `"--blog-path" in llms_help`, so doctor FAIL is stale relative to the real generator.
+- Blindly following agent.md would fail the llms step; Cloud lesson «never --blog-path» saved this run.
+
+### How the agent recovered this run
+- Checked `python3 scripts/excalibur_blog_llms_generator.py --help`; ran with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` only; llms.txt + llms-full.txt OK (3 articles).
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent/skill shell examples; document `--blog-dir` + `--out-dir` as the only llms paths.
+- Update doctor check to match real CLI (assert `--blog-dir` / `--out-dir`, not `--blog-path`).
+- Add pitfall line under Indexer in `shared/agent-pipeline-pitfalls.md`.
+
+### Suggested files to inspect/change
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261023-0930-cover-hoodie-outfit-lock
 status: open
 run_date: 2026-10-23

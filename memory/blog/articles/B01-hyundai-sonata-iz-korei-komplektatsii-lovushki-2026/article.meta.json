@@ -29,12 +29,15 @@
     "description_aeo": "До депозита за Hyundai Sonata из Кореи сверьте мощность с порогом 160 л.с., отделите LPi от rental/taxi и подтвердите комплектацию фото салона Encar."
   },
   "geo_qa": {
-    "score": 0,
-    "verdict": "PENDING",
+    "score": 87,
+    "verdict": "PASS",
     "date": "2026-10-23",
-    "html_linter": "PENDING",
-    "slop_score": "PENDING",
-    "cannibalization": "PENDING"
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility_gate": "PASS",
+    "research_notes_gate": "PASS"
   },
   "cover_family": "brand_collage"
 }

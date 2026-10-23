@@ -1,0 +1,80 @@
+{
+  "article": "memory/blog/articles/B01-hyundai-sonata-iz-korei-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 10,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 9,
+  "facts": [
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "е\" из-за меньшего объёма, но после порога с 01.12.2025 коммерческий утильсбор делает такую Sonata заметно",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "омплектацию Encar с фото салона Уровни The Edge в 2026: Premium, S, Exclusive, Inspiration. У S в базе ч",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "лица при выполнении условий – порядка 3 400 ₽ (до 3 лет) и 5 200 ₽ (старше 3 лет). Коммерческий тариф – с",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "ичная ошибка: в карточке мелко написано 1.6 Turbo 180 л.с. или LPG (rental car), а замечаешь это после п",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": ". Ниже – стоп-правила до оплаты: задача → мотор и 160 л.с. → бензин или газ → комплектация по фото → чек",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 400",
+      "kind": "large_number",
+      "context": "е ставки физлица при выполнении условий – порядка 3 400 ₽ (до 3 лет) и 5 200 ₽ (старше 3 лет). Коммерческ",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 200",
+      "kind": "large_number",
+      "context": "выполнении условий – порядка 3 400 ₽ (до 3 лет) и 5 200 ₽ (старше 3 лет). Коммерческий тариф – скачок на",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "146",
+      "kind": "large_number",
+      "context": "л.с. Обычно да Массовый рабочий вариант 2.0 LPi ~146 л.с. Обычно да Экономия на топливе, смотрите истор",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "290",
+      "kind": "large_number",
+      "context": "овушка \"дешевле объём – дороже утиль\" 2.5 N Line ~290 л.с. Нет Плюс проверка допуска экспорта Стоп-прави",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "0 160",
+      "kind": "large_number",
+      "context": "емонтами – сигнал до депозита. Даже Inspiration 2.0 160 л.с. может иметь отметку аренды при \"чистой\" страх",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

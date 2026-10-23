@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-2126-schema-precommit-site-url-scrub
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- First schema commit attempt failed: Cloud pre-commit aborted with `invalid variable name` when `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a URL-shaped token (same class as INC-20261024-2117 / INC-2118).
+- After filtering NAMES to valid shell identifiers, commit still blocked: `PUBLIC_SITE_URL` / `MAX_URL` values from author registry `sameAs` / site base appeared in `schema.jsonld` (`CURSOR_SECRET_SCAN_BLOCKED`).
+- Contract wants absolute `@id` / `sameAs` for BlogPosting E-E-A-T, but Dashboard treats site/profile URLs as commit secrets.
+
+### How the agent recovered this run
+- Regenerated `schema.jsonld` with site base `[REDACTED]` (AS08/AS09 pattern).
+- Scrubbed all injectable secret values from author `sameAs` / `image` / `@id` before write; kept public Instagram + 2GIS URLs.
+- Exported sanitized `CLOUD_AGENT_INJECTED_SECRET_NAMES` (identifiers only) for the commit shell.
+
+### Durable fix needed before next run
+- Document in schema skill: committed JSON-LD uses `[REDACTED]` site base; publish expands from `PUBLIC_SITE_URL`; never commit live secret URL values.
+- Fix Dashboard injection so `CLOUD_AGENT_INJECTED_SECRET_NAMES` has no URL tokens.
+- Prefer marking public marketing host URLs as non-secret, or expand `@id` at publish time from meta.
+
+### Suggested files to inspect/change
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md` (schema section)
+- `CURSOR-CLOUD-RUNBOOK.md`
+- Cloud Secrets / `CLOUD_AGENT_INJECTED_SECRET_NAMES` injection
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261024-2125-director-main-missing-utility-markers
 status: open
 run_date: 2026-10-24

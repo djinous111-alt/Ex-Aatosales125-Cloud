@@ -6,6 +6,47 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-2142-publish-siteenv-paramiko-ledger-date
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `memory/site.env.local` missing at publish start (Cloud Secrets were in process env only).
+- `paramiko` not installed in the image (`pip install` workaround required before SSH transport).
+- `upsert_publish_ledger` uses `date.today()`; VM clock was 2026-10-23 while `EXCALIBUR_RUN_DATE` / WP permalink day is 2026-10-24 — ledger row needed manual date correction.
+- WebFetch fallback wait in `excalibur_blog_wp_publish.py` is still `range(120)` (120s), not 300s documented in publish-patterns / prior Vezel incident notes (this run HTTP trigger succeeded, so no fallback).
+
+### How the agent recovered this run
+- Materialized gitignored `memory/site.env.local` from Cloud Secrets with `SSH_ROOT=.` and `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes`.
+- Installed `paramiko` 5.1.0 via `pip --break-system-packages`.
+- Forced ledger date to `2026-10-24` after script wrote `2026-10-23`.
+- Publish itself: SSH upload + HTTP OK; NEW post_id=4489 (not republish of 4483 Vezel).
+
+### Durable fix needed before next run
+- Cloud install / `.cursor/cloud-agent-install.sh` must install `paramiko` from `requirements.txt`.
+- Document or automate materializing `memory/site.env.local` from Cloud Secrets when missing (publish preflight).
+- `upsert_publish_ledger` should prefer `EXCALIBUR_RUN_DATE` over `date.today()`.
+- Bump fallback wait loop 120→300s in `trigger_bootstrap_http` to match skill/patterns.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/cloud-agent-install.sh` / `requirements.txt`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261024-2140-indexer-llms-blog-path-stale-docs
 status: open
 run_date: 2026-10-24

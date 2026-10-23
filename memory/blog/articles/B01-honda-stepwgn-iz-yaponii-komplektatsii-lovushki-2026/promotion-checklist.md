@@ -1,7 +1,8 @@
 # Promotion checklist — B01 honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-24 (planned; pre-publish)  
-Live URL: /blog/honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-24  
+Live URL: /2026/10/24/honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026/  
+WP post_id: 4489 | featured: 4490 | inline: 4491/4492/4493
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

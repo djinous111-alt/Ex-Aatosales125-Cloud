@@ -66,6 +66,33 @@ def load_existing_topics(root: Path) -> list[dict[str, str]]:
         })
     return topics
 
+def load_slug_denylist(root: Path) -> tuple[set[str], bool]:
+    """Return (slugs, file_present). Missing file → empty set + False (caller must fallback)."""
+    path = root / "shared" / "wp-slug-denylist.json"
+    if not path.is_file():
+        return set(), False
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return set(), False
+    slugs = {str(s).strip().lower() for s in (data.get("slugs") or []) if str(s).strip()}
+    return slugs, True
+
+
+def load_published_slugs(root: Path) -> set[str]:
+    ledger_path = root / "shared/published-articles.md"
+    slugs: set[str] = set()
+    if not ledger_path.is_file():
+        return slugs
+    for line in ledger_path.read_text(encoding="utf-8").splitlines():
+        if not line.startswith("| 20"):
+            continue
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if len(cells) >= 3 and cells[2] and cells[2] != "slug":
+            slugs.add(cells[2].lower())
+    return slugs
+
+
 def normalize_and_tokenize(text: str) -> set[str]:
     text = text.lower()
     text = re.sub(r"[^\w\s\-]", " ", text)
@@ -114,6 +141,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Helper for Excalibur BLOG Scout Agent")
     ap.add_argument("--suggest-next", action="store_true", help="Print next available Topic ID and summary")
     ap.add_argument("--check-query", type=str, default="", help="Check new primary query for overlaps")
+    ap.add_argument("--check-slug", type=str, default="", help="Check candidate slug against denylist + ledger")
     args = ap.parse_args()
     
     # Reconfigure stdout for utf-8 on Windows
@@ -127,6 +155,8 @@ def main() -> int:
     active = load_active_article_topics(root)
     reserved = published | active
     existing = load_existing_topics(root)
+    denylist, denylist_present = load_slug_denylist(root)
+    ledger_slugs = load_published_slugs(root)
     
     if args.suggest_next:
         print("=== EXCALIBUR SCOUT HELPER ===")
@@ -141,6 +171,13 @@ def main() -> int:
         print(f"Total topics in pool (blog-topics.md): {len(existing)}")
         print(f"Total articles written/in_progress: {len(reserved)}")
         print(f"Active article dirs: {sorted(active)}")
+        print(f"Slug denylist present: {denylist_present} (entries={len(denylist)})")
+        if not denylist_present:
+            print(
+                "WARN: shared/wp-slug-denylist.json missing — "
+                "fallback: WP REST recent/?slug= + published-articles.md + blog-topics + articles dirs; "
+                "open incident in memory/pipeline-fix-queue.md"
+            )
         
         unwritten = [t["topic_id"] for t in existing if t["topic_id"] not in reserved]
         print(f"Unwritten topic IDs in pool: {unwritten}")
@@ -155,6 +192,29 @@ def main() -> int:
                 print(f"  Message: {w['message']}")
             return 1
         print("✅ NO CANNIBALIZATION RISK: Query is clean and unique.")
+        return 0
+
+    if args.check_slug:
+        slug = args.check_slug.strip().lower()
+        blocked_by = []
+        if slug in denylist:
+            blocked_by.append("wp-slug-denylist.json")
+        if slug in ledger_slugs:
+            blocked_by.append("published-articles.md")
+        topic_slugs = {t.get("slug", "").strip().lower() for t in existing if t.get("slug")}
+        if slug in topic_slugs:
+            blocked_by.append("blog-topics.md")
+        if any(p.name.lower().endswith(f"-{slug}") for p in (root / "memory/blog/articles").glob("*") if p.is_dir()):
+            blocked_by.append("memory/blog/articles")
+        if not denylist_present:
+            print(
+                "WARN: shared/wp-slug-denylist.json missing — "
+                "also verify via WP REST ?slug= before reserving; open incident"
+            )
+        if blocked_by:
+            print(f"❌ SLUG BLOCKED: {slug} found in {', '.join(blocked_by)}")
+            return 1
+        print(f"✅ SLUG FREE (local checks): {slug}")
         return 0
 
     ap.print_help()

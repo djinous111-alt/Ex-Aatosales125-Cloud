@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261023-0906-scout-wp-slug-denylist-missing
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- На текущей ветке отсутствует `shared/wp-slug-denylist.json`, хотя scout/publish рассчитывают на denylist как защиту от переиздания LIVE-slug.
+- Helper/скрипты и scout-контракт не дают явного fallback: "если файла нет - сверить PUBLIC_SITE_URL REST + recent WP + blog-topics + memory/blog/articles".
+
+### How the agent recovered this run
+- Не полагался на denylist.
+- Сверил кандидатов через WP REST (`/wp-json/wp/v2/posts` recent + `?slug=` + search), ledger `shared/published-articles.md`, `memory/topics/blog-topics.md` и `memory/blog/articles/*`.
+- Выбрал свободный slug `geely-coolray-iz-kitaya-komplektatsii-lovushki-2026` (REST count=0).
+
+### Durable fix needed before next run
+- Вернуть канонический `shared/wp-slug-denylist.json` (список LIVE slug / недавних WP) на ветку пайплайна.
+- В scout skill/agent явно описать fallback без denylist: REST search + recent posts + topics + articles; missing file = open incident, не silent skip.
+
+### Suggested files to inspect/change
+- `shared/wp-slug-denylist.json`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `scripts/excalibur_blog_scout_helper.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

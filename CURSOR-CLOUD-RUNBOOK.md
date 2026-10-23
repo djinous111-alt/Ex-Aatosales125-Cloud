@@ -55,6 +55,26 @@ EXCALIBUR_TOPIC_ID=<optional fixed topic id>
 
 Запрещено добавлять в repo реальные `.env`, `memory/site.env.local`, MCP tokens, SSH credentials, Cursor API keys.
 
+## Secret names vs secret values
+
+`CLOUD_AGENT_INJECTED_SECRET_NAMES` must be a comma-separated list of **bash identifiers** (`PUBLIC_SITE_URL`, `SSH_HOST`, …).
+
+Do **not** put URL values into the names list. Invalid names must be skipped by `pre-commit.cursor` **and** `commit-msg.cursor` (otherwise `${!SECRET_NAME}` aborts with `invalid variable name`).
+
+Repo helpers (prefer over `git commit --no-verify`):
+
+```bash
+eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+git commit -m "..."
+# or: bash scripts/excalibur_git.sh commit -m "..."
+# or: eval "$(bash scripts/excalibur_blog_filter_secret_names.sh)"  # prints export line
+```
+
+For intentional public site URLs in committed artifacts (`schema.jsonld`, HTML), add same-line `pragma: allowlist secret`.
+
+Publish credentials belong in Cloud Secrets / process env; `memory/site.env.local` is gitignored and may be auto-written by doctor/publish from env (`SSH_ROOT=.` default).
+
+
 ## GitHub setup
 
 1. Создать приватный GitHub repo.

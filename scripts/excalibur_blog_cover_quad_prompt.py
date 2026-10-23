@@ -69,6 +69,31 @@ def validate_prompt_budget(prompt: str) -> bool:
     return False
 
 
+def outfit_lock_from_hero(hero: dict, cover_scene: str) -> str:
+    """Build outfit lock from blog-hero.json; never hardcode hoodie."""
+    corner = ((hero.get("cover_corner_brand") or {}).get("text") or "avto-sales125.ru").strip()
+    scene = (cover_scene or "").lower()
+    examples = hero.get("weather_outfit_examples") or {}
+    if any(token in scene for token in ("snow", "winter", "снег", "зим")):
+        chosen = examples.get("winter_snow") or "warm winter coat, scarf; NO hoodie"
+    elif any(token in scene for token in ("rain", "fog", "port", "дожд", "туман", "порт")):
+        chosen = examples.get("rain_fog_port") or "dark olive softshell over charcoal crewneck; NO hoodie"
+    elif any(token in scene for token in ("summer", "heat", "солнц", "жар")):
+        chosen = examples.get("summer_heat") or "light shirt or tee; NO hoodie"
+    elif any(token in scene for token in ("customs", "docs", "тамож", "документ")):
+        chosen = examples.get("office_docs_customs") or "smart casual shirt/blazer; NO hoodie"
+    else:
+        rule = (hero.get("outfit_rule") or "").strip()
+        chosen = compact(rule, 180) if rule else "outfit matches scene weather + topic; softshell/crewneck OK"
+    return (
+        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. "
+        f"Outfit: {chosen}. NO hoodie, NO cap, NO hood. "
+        "Vary pose, gesture, angle, expression, props and composition every cover. "
+        "No headphones/headset/earbuds. Do not copy reference clothing. "
+        f"Corner brand on cover: {corner}."
+    )
+
+
 def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, design_code: dict) -> str:
     slots = manifest.get("slots") or {}
 
@@ -77,6 +102,7 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
 
     cover = slot("cover")
     i1, i2, i3 = slot("inline_1"), slot("inline_2"), slot("inline_3")
+    outfit_line = outfit_lock_from_hero(hero, str(cover.get("scene_hint") or ""))
 
     lines = [
         "Russian human-made Excalibur BLOG hook collage on PURE WHITE #FFFFFF. Zine/trash-design: torn paper, scotch tape, pink notes, marker arrows, fake RU UI screenshots, meme cutouts. DESIGN.md-inspired bold readable Cyrillic; rotate hot accents (hot pink/purple/blue/orange); keep stickers/memes/collage; no price badges. Not corporate, not stock.",
@@ -84,9 +110,9 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         "",
         "ALL panels keep a clean pure white #FFFFFF base; scraps/cards may cast light shadows but no beige, gray, gradient, grunge, paper-tint, or colored full-panel background.",
         "",
-        "Sticker and meme text must be sharp but non-toxic: no insults, no humiliating labels, no Russian words like лох, лохов, для лохов.",
+        "Sticker and meme text must be sharp, witty, non-toxic: friendly irony only; never insult the reader; never label people as fools or suckers.",
         "",
-        "REFERENCE FACE only on top-left cover: preserve glasses, quiff, beard and old meme-person vibe. Outfit lock: thick heavyweight white hoodie. Vary pose, gesture, angle, expression, props and composition every cover. No headphones/headset/earbuds. Do not copy reference clothing.",
+        outfit_line,
         "",
         f'Top-left COVER: hook "{compact(manifest.get("cover_hook", ""), 120)}"; caption "{compact(cover.get("meme_caption_ru", ""), 45)}"; scene: {compact(cover.get("scene_hint", ""), 320)}; host with reference face; huge readable Cyrillic hook; 1-2 meme reaction cutouts.',
         "",
@@ -94,7 +120,7 @@ def build_prompt(manifest: dict, style: dict, hero: dict, types_catalog: dict, d
         f"Bottom-left inline: {inline_panel_prompt(i2, types_catalog)} Same Excalibur collage layer, useful UI/diagram, small meme cutout.",
         f"Bottom-right inline: {inline_panel_prompt(i3, types_catalog)} Same Excalibur collage layer, useful UI/diagram, small meme cutout.",
         "",
-        "Inline panels must NOT be plain whiteboards or clean SaaS slides. Negative: beige/cream/off-white paper background, gray background, gradients, grunge background, headphones, headset, earbuds, English/Latin UI, watermark, logo, vertical 9:16, corporate stock banner, unreadable text, extra faces on inline panels.",
+        "Inline panels must NOT be plain whiteboards or clean SaaS slides. Negative: beige/cream/off-white paper background, gray background, gradients, grunge background, headphones, headset, earbuds, English/Latin UI, watermark, logo, vertical 9:16, corporate stock banner, unreadable text, extra faces on inline panels, hoodie.",
     ]
     return "\n".join(line for line in lines if line)
 
@@ -130,6 +156,12 @@ def main() -> int:
     if not ref_url:
         print(
             "❌ COVER HERO BLOCKER: reference_url_hosted missing. Run excalibur_blog_hero_reference_url.py",
+            file=sys.stderr,
+        )
+        return 1
+    if not ref_url.startswith("https://"):
+        print(
+            f"❌ COVER HERO BLOCKER: reference_url_hosted must be https, got: {ref_url}",
             file=sys.stderr,
         )
         return 1

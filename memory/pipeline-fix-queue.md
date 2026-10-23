@@ -462,3 +462,42 @@ category: env
 
 ### Fixer resolution
 - pending
+
+## INC-20261023-1326-indexer-doctor-llms-blog-path
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-hyundai-sonata-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_doctor.py` checks that llms generator help contains `--blog-path` and reports FAIL when missing.
+- Actual CLI `excalibur_blog_llms_generator.py` has no `--blog-path`; only `--blog-dir`, `--site-base`, `--out-dir` (and site-name/desc).
+- Indexer agent/skill shell examples still document `--blog-path /`, which would argparse-fail if followed literally.
+
+### How the agent recovered this run
+- Ran llms generator with only `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
+- Generated `memory/blog/llms.txt` and `memory/blog/llms-full.txt` successfully (3 articles).
+- Commit blocked by secret scanner (raw PUBLIC_SITE_URL in llms*.txt): regenerated with empty `--site-base` for relative `/blog/...` URLs (matches prior HEAD); filtered invalid `CLOUD_AGENT_INJECTED_SECRET_NAMES` for pre-commit.
+
+### Durable fix needed before next run
+- Align doctor check with real CLI: drop `--blog-path` expectation OR restore `--blog-path` in generator if still needed.
+- Remove `--blog-path` from indexer agent/skill examples; document `--blog-dir` + `--out-dir` only.
+- Optional: pitfalls note so Indexer never passes `--blog-path`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

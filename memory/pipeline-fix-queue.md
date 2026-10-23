@@ -300,7 +300,7 @@ files_changed:
 checks_run:
 - filter dry-run with URL/[REDACTED] junk names
 - `python3 scripts/excalibur_blog_doctor.py` errors=0
-commit: pending-parent-commit
+commit: 1c6bfba1
 
 ## INC-20261023-1304-scout-wp-slug-denylist-missing
 status: fixed
@@ -355,7 +355,7 @@ files_changed:
 checks_run:
 - scout helper DENYLIST HIT on Sonata slug
 - doctor denylist checks OK
-commit: pending-parent-commit
+commit: 1c6bfba1
 
 ## Fixed incidents
 
@@ -410,7 +410,7 @@ files_changed:
 checks_run:
 - research_notes_gate Sonata article PASS
 - py_compile gate script
-commit: pending-parent-commit
+commit: 1c6bfba1
 
 ## INC-20261023-1315-writer-editorial-policy-pain-outcome-markers
 status: fixed
@@ -461,7 +461,7 @@ files_changed:
 checks_run:
 - doctor marker checks OK
 - utility_gate Sonata PASS
-commit: pending-parent-commit
+commit: 1c6bfba1
 
 ## INC-20261023-1320-cover-prompt-hoodie-hardcode
 status: fixed
@@ -515,7 +515,7 @@ files_changed:
 checks_run:
 - unit test outfit_lock_from_hero + build_prompt (no hoodie hardcode / no лох)
 - py_compile cover scripts
-commit: pending-parent-commit
+commit: 1c6bfba1
 
 
 ## INC-20261023-1321-schema-precommit-invalid-secret-name
@@ -560,7 +560,7 @@ files_changed:
 checks_run:
 - filter dry-run drops non-identifiers
 - doctor filter script presence OK
-commit: pending-parent-commit
+commit: 1c6bfba1
 
 ## INC-20261023-1326-indexer-doctor-llms-blog-path
 status: fixed
@@ -615,7 +615,7 @@ files_changed:
 checks_run:
 - doctor llms flags OK (errors=0)
 - rg: no `--blog-path /` examples in indexer contracts
-commit: pending-parent-commit
+commit: 1c6bfba1
 
 ## INC-20261023-1332-publish-siteenv-paramiko
 status: fixed
@@ -665,5 +665,5 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` paramiko_available=true missing=[]
 - doctor paramiko OK
-commit: pending-parent-commit
+commit: 1c6bfba1
 

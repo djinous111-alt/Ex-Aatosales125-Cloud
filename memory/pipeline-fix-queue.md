@@ -458,3 +458,41 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+
+## INC-20261023-0928-schema-secret-scan-jsonld
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-geely-coolray-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- Pre-commit secret scanner blocked commit of `schema.jsonld` because BlogPosting `@id` / publisher URL and author `sameAs` reuse values that overlap configured Cloud secrets (`PUBLIC_SITE_URL`, catalog/telegram/max URL envs).
+- Additionally, `CLOUD_AGENT_INJECTED_SECRET_NAMES` includes a raw URL token (not a valid bash name), which crashes the hook with `invalid variable name` before filtering.
+
+### How the agent recovered this run
+- Left a valid runtime `schema.jsonld` on disk for publish (BlogPosting + FAQPage + HowTo, FAQ matched to HTML).
+- Did not commit `schema.jsonld`; wrote schema fragment with PASS and this incident pointer.
+- Did not put secret values into the incident or fragment.
+
+### Durable fix needed before next run
+- Schema skill/contract: commit-safe JSON-LD (relative site paths or `${PUBLIC_SITE_URL}` placeholders) + publish step that expands placeholders before WP meta write.
+- Optionally stop treating public marketing URLs as secret-scanned values, or document redaction/`[REDACTED]` policy for committed schema examples.
+- Fix Cloud secret-name injection so only valid `ENV_VAR` names enter `CLOUD_AGENT_INJECTED_SECRET_NAMES`.
+
+### Suggested files to inspect/change
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `CURSOR-CLOUD-AGENT-PIPELINE-FROM-SCRATCH.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

@@ -20,6 +20,7 @@ category: env
 
 ### How the agent recovered this run
 - Перед `git commit` отфильтровал список до валидных `[A-Za-z_][A-Za-z0-9_]*` имён и прогнал hook с очищенным env (без `--no-verify`).
+- Writer B01 (2026-10-23): тот же fail на `pre-commit.cursor` line 270; recovery – comma-split `CLOUD_AGENT_INJECTED_SECRET_NAMES`, drop non-identifier (urlish 25-char), re-export filtered list, commit без `--no-verify`.
 
 ### Durable fix needed before next run
 - В Cloud Secrets / inject pipeline не класть URL или иные non-identifier значения в `CLOUD_AGENT_INJECTED_SECRET_NAMES`.

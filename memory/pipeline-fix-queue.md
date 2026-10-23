@@ -55,7 +55,7 @@ files_changed:
 checks_run:
 - `python3 -c "import paramiko"`
 - `python3 scripts/excalibur_blog_doctor.py` PASS
-commit: pending-parent-commit
+commit: 01a2e05a
 
 ## INC-20261023-0943-publish-http-fallback-wait-120
 status: fixed
@@ -102,7 +102,7 @@ files_changed:
 checks_run:
 - `rg range(300)` in wp_publish.py
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
-commit: pending-parent-commit
+commit: 01a2e05a
 
 
 ## INC-20261023-0934-indexer-llms-blog-path-stale
@@ -153,7 +153,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` errors=0
-commit: pending-parent-commit
+commit: 01a2e05a
 
 ## INC-20261023-0930-cover-hoodie-outfit-lock
 status: fixed
@@ -198,7 +198,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - `JSON parse style preset`
-commit: pending-parent-commit
+commit: 01a2e05a
 
 ## INC-20261023-0945-geo-qa-typed-task-unavailable
 status: fixed
@@ -244,7 +244,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` geo-qa generalPurpose fallback in director/AGENTS/CLOUD-AUTOMATION
-commit: pending-parent-commit
+commit: 01a2e05a
 
 ## INC-20261023-0946-geo-qa-cta-href-redacted-placeholder
 status: fixed
@@ -294,7 +294,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `html_linter FAIL on [REDACTED] href; PASS on https://example.com`
-commit: pending-parent-commit
+commit: 01a2e05a
 
 ## INC-20261023-0930-writer-utility-gate-empty-pain-outcome
 status: fixed
@@ -339,7 +339,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 scripts/excalibur_blog_utility_gate.py --self-check-empty-markers`
-commit: pending-parent-commit
+commit: 01a2e05a
 
 ## INC-20261023-0915-research-notes-gate-false-tech-painmap
 status: fixed
@@ -384,7 +384,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `heuristic smoke: Coolray not technical; MCP/Cursor is; pain map rows≥3`
-commit: pending-parent-commit
+commit: 01a2e05a
 
 
 ## INC-20261023-0908-scout-precommit-secret-names
@@ -431,7 +431,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `filter keeps PUBLIC_SITE_URL SSH_HOST ok_NAME; drops URL/[REDACTED]/bad-name`
-commit: pending-parent-commit
+commit: 01a2e05a
 
 
 ## INC-20261023-0906-scout-wp-slug-denylist-missing
@@ -480,7 +480,7 @@ files_changed:
 - `.cursor/agents/excalibur-blog-scout.md`
 checks_run:
 - `--check-slug` blocks B01 LIVE slug; free slug PASS; denylist present=True
-commit: pending-parent-commit
+commit: 01a2e05a
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -783,5 +783,5 @@ files_changed:
 checks_run:
 - `expand_schema_placeholders` smoke
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
-commit: pending-parent-commit
+commit: 01a2e05a
 

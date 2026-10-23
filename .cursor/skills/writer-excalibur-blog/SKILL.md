@@ -3,9 +3,17 @@
 ## Вход
 
 - `research-notes.md` с **utility_verdict: PASS**
+- `research-notes-gate.json` **PASS**
 - `shared/excalibur-article-writing-contract.md`
 - `shared/editorial-utility-only.md`
+- `memory/brief/editorial-policy.json` — `pain_markers_ru` / `outcome_markers_ru` + `min_*`
 - `memory/brief/site-brief.md`, `conversion-map.md`
+
+## Preflight (до article.html)
+
+1. Прочитай `memory/brief/editorial-policy.json`.
+2. Если `pain_markers_ru` или `outcome_markers_ru` пусты / отсутствуют `min_pain_markers` / `min_outcome_markers` — **восстанови baseline** (синхрон с human-voice PAIN/OUTCOME маркерами) **до** сдачи HTML. Пустые списки → `utility_gate` BLOCK (`pain_count=0`).
+3. Doctor тоже валит пустые списки — не жди FAIL GEO QA.
 
 ## Задача
 

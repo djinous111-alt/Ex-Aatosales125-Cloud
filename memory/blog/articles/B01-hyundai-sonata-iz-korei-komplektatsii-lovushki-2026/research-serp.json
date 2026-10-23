@@ -1,0 +1,641 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-23",
+    "today_ru": "23.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-25",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-23 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "hyundai-sonata-iz-korei-komplektatsii-lovushki-2026",
+    "h1": "Hyundai Sonata из Кореи: как выбрать комплектацию и не попасть в ловушку до депозита в 2026",
+    "primary_query": "соната из кореи",
+    "secondary_queries": [
+      "хендай соната из кореи",
+      "соната комплектации",
+      "хендай соната комплектации",
+      "соната на газу из кореи"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "соната из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Sonata из Кореи: цена под ключ и утиль 2026",
+          "url": "https://export-motors.com/blog/hyundai-sonata-iz-korei",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Sonata S 2026 из Кореи — 3.8 млн ₽ под ключ, 2 185 км, без ...",
+          "url": "https://carto-auto.ru/korea/42494021-hyundai-sonata-2026/",
+          "snippet": "Hyundai Sonata из Кореи — какие версии проходят льготный утильсбор в 2026, сколько стоит растаможка и цена под ключ. Разбираем 2.0, LPG, гибрид и турбо 1.6T."
+        },
+        {
+          "title": "Hyundai Sonata 2026 года из Кореи под заказ с доставкой по России",
+          "url": "https://ngt-auto.ru/korea/hyundai/sonata/?year_from=2026&year_to=2026",
+          "snippet": "Расшифровка цены под ключ Считаем по актуальному курсу воны и ставкам 2026 года. Итог — ориентир до осмотра; в договоре фиксируем точную сумму под ваш город."
+        },
+        {
+          "title": "Hyundai Sonata 2026: болячки, цена под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/hyundai-sonata-2026",
+          "snippet": "Закажите Hyundai Sonata 2026 года из Южной Кореи с полной проверкой и доставкой по России. Прозрачная цена, выкуп, сопровождение. NGT Auto — надёжно и с гарантией."
+        },
+        {
+          "title": "Купить Hyundai Sonata Из Кореи Под Заказ, Продажа Хендай Соната Под ...",
+          "url": "https://japautobuy.ru/avtomobili-iz-korei/hyundai/sonata",
+          "snippet": "Стоит ли брать Hyundai Sonata с заводским газом? Брать Hyundai Sonata с заводским ГБО стоит, если хочется экономить на топливе: газ заметно дешевле бензина, а версии с ним из Кореи есть в наличии."
+        },
+        {
+          "title": "Купить Hyundai Sonata из Кореи под ключ — от 1 563 000 ₽, 1 742 в наличии",
+          "url": "https://encarrus.ru/korea/hyundai/sonata/",
+          "snippet": "Вы можете выбрать и купить новый или б/у HYUNDAI SONATA из Южной Кореи. Все авто с реальными фотографиями, техническими характеристиками. Цена на Хендай СОНАТА рассчитывается по калькулятору, указана в рублях под ключ с доставкой в любой город России."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "соната из кореи октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Sonata из Кореи: цена под ключ и утиль 2026",
+          "url": "https://export-motors.com/blog/hyundai-sonata-iz-korei",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Sonata Lpg Из Кореи В Россию | Какая Цена В Октябре 2026 ...",
+          "url": "https://rutube.ru/video/1f0de04769e4dc189c09fc2c858fd5ae/",
+          "snippet": "Hyundai Sonata из Кореи — какие версии проходят льготный утильсбор в 2026, сколько стоит растаможка и цена под ключ. Разбираем 2.0, LPG, гибрид и турбо 1.6T."
+        },
+        {
+          "title": "Hyundai Sonata Lpg Из Кореи В Россию | Какая Цена В Октябре 2026?",
+          "url": "https://www.youtube.com/watch?v=ojt5QvhpXBA",
+          "snippet": "Смотрите видео онлайн «HYUNDAI SONATA LPG из Кореи в Россию | Какая цена в октябре 2026?» на канале «АВТО ИЗ КОРЕИ И КИТАЯ | BORZ AUTO» в хорошем качестве и бесплатно, опубликованное 1 октября 2026 года в 18:42, длительностью 00:03:57, на видеохостинге RUTUBE."
+        },
+        {
+          "title": "Hyundai Sonata S 2026 из Кореи — 3.8 млн ₽ под ключ, 2 185 км, без ...",
+          "url": "https://carto-auto.ru/korea/42494021-hyundai-sonata-2026/",
+          "snippet": "Футуристичный дизайн, дерзкая оптика, современный салон — машина выглядит так, будто приехала из будущего. 🔥 А газовый мотор сейчас особенно актуален: экономично, практично и без лишней..."
+        },
+        {
+          "title": "Купить Hyundai Sonata Из Кореи Под Заказ, Продажа Хендай Соната Под ...",
+          "url": "https://japautobuy.ru/avtomobili-iz-korei/hyundai/sonata",
+          "snippet": "Фото — с площадки Encar (Корея), лот обновлён 2026-10-03, выгрузка 2026-10-21. Реальный автомобиль у дилера в Корее; перед выкупом наш агент делает свой осмотр и видео. Считаем по актуальному курсу воны и ставкам 2026 года. Итог — ориентир до осмотра; в договоре фиксируем точную сумму под ваш город."
+        },
+        {
+          "title": "Hyundai Sonata из Кореи: DN8, цена под ключ | AZWAY",
+          "url": "https://azway.ru/import/koreya/hyundai-sonata",
+          "snippet": "Продажа HYUNDAI SONATA под заказ из Кореи. Вы можете выбрать и купить новый или б/у HYUNDAI SONATA из Южной Кореи. Все авто с реальными фотографиями, техническими характеристиками."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "соната из кореи новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Sonata из Кореи: цена под ключ и утиль 2026",
+          "url": "https://export-motors.com/blog/hyundai-sonata-iz-korei",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Sonata 2026: болячки, цена под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/hyundai-sonata-2026",
+          "snippet": "Hyundai Sonata из Кореи — какие версии проходят льготный утильсбор в 2026, сколько стоит растаможка и цена под ключ. Разбираем 2.0, LPG, гибрид и турбо 1.6T."
+        },
+        {
+          "title": "Привезли из Кореи Hyundai Sonata. 2 ключевых отличия корейской сборки и ...",
+          "url": "https://dss-g.com/all-news/news/privezli-iz-korei-hyundai-sonata/",
+          "snippet": "Hyundai Sonata восьмого поколения (DN8) — просторный седан на левом руле со смелым дизайном, богатой комплектацией за свои деньги и спокойным характером. Владельцы, пересевшие с Toyota Camry, пишут, что Sonata мягче проходит ямы с острыми краями и стабильнее держит прямую."
+        },
+        {
+          "title": "Привезли из Кореи Hyundai Sonata. 2 ключевые отличия корейской сборки и ...",
+          "url": "https://dzen.ru/a/ahaHt1QJxQnh20Kf",
+          "snippet": "Разбираем Hyundai Sonata 2022 из Кореи: отличия мотора G4NM, комплектации и реальная стоимость под ключ — кейс DSS Group."
+        },
+        {
+          "title": "У Hyundai Sonata 2.5 расход масла достигает 3 л на 10 тыс. км",
+          "url": "https://jckauto.ru/blog/hyundai-sonata-import-korea",
+          "snippet": "Один из таких автомобилей мы буквально на днях (конец мая 2026) привезли нашему клиенту \"под ключ\": Цену, за которую автомобиль обошелся \"под ключ\", мы назовем в конце материала, а пока давайте разберем 2 ключевых отличия корейской сборки. 1. Другая гамма моторов."
+        },
+        {
+          "title": "Hyundai Sonata 2026 из Кореи за 2,55 млн рублей: стоит ли покупать ...",
+          "url": "https://tenetul.maksatech.com/articles/hyundai-sonata-2026-iz-korei-za-2-55-mln-rubley-stoit-li-pokupat-sedan-ed7cbb25",
+          "snippet": "Подробный обзор Hyundai Sonata восьмого поколения: дизайн, моторы, надёжность и особенности корейских версий. Полный расчёт стоимости импорта из Кореи в Россию в 2026 году."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com соната из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - facebookresearch/sonata: [CVPR'25 Highlight] Official ...",
+          "url": "https://github.com/facebookresearch/sonata",
+          "snippet": ""
+        },
+        {
+          "title": "AcFANcom (AcFAN) · GitHub",
+          "url": "https://github.com/AcFANcom",
+          "snippet": "This repo is the official project repository of the paper Sonata: Self-Supervised Learning of Reliable Point Representations and is mainly used for providing pre-trained models, inference code and visualization demo."
+        },
+        {
+          "title": "docpos/logo.svg at main · gzyxds/docpos · GitHub",
+          "url": "https://github.com/gzyxds/docpos/blob/main/logo.svg",
+          "snippet": "ACFAN是一个免费面向二次元用户、动漫爱好者与漫画阅读用户的内容平台，聚合动漫推荐、漫画内容、追番资讯、热门更新、分类浏览与同好分享等板块社区。 官网地址：https://acpcssr.47u3j9k8.work/ - AcFANcom."
+        },
+        {
+          "title": "seyi/image 2.svg at main · oluwaseyi-alpha/seyi · GitHub",
+          "url": "https://github.com/oluwaseyi-alpha/seyi/blob/main/image%202.svg",
+          "snippet": "Contribute to gzyxds/docpos development by creating an account on GitHub."
+        },
+        {
+          "title": "recipe-book/trash.svg at main · ShiyangNg/recipe-book · GitHub",
+          "url": "https://github.com/ShiyangNg/recipe-book/blob/main/trash.svg",
+          "snippet": "Contribute to oluwaseyi-alpha/seyi development by creating an account on GitHub."
+        },
+        {
+          "title": "artwork/icons/oci_icon_machinelearning.svg at main - GitHub",
+          "url": "https://github.com/opencontainers/artwork/blob/main/icons/oci_icon_machinelearning.svg",
+          "snippet": "Contribute to ShiyangNg/recipe-book development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "соната из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Sonata из Кореи: цена под ключ и утиль 2026",
+          "url": "https://export-motors.com/blog/hyundai-sonata-iz-korei",
+          "snippet": ""
+        },
+        {
+          "title": "Привезли из Кореи Hyundai Sonata. 2 ключевых отличия корейской сборки и ...",
+          "url": "https://dss-g.com/all-news/news/privezli-iz-korei-hyundai-sonata/",
+          "snippet": "Hyundai Sonata из Кореи — какие версии проходят льготный утильсбор в 2026, сколько стоит растаможка и цена под ключ. Разбираем 2.0, LPG, гибрид и турбо 1.6T."
+        },
+        {
+          "title": "PDF Hyundai",
+          "url": "https://www.hyundainews.com/assets/documents/original/68169-2026SonataSpecsFeatures20250722A.pdf",
+          "snippet": "Разбираем Hyundai Sonata 2022 из Кореи: отличия мотора G4NM, комплектации и реальная стоимость под ключ — кейс DSS Group."
+        },
+        {
+          "title": "Hyundai Sonata из Кореи: DN8, цена под ключ | AZWAY",
+          "url": "https://azway.ru/import/koreya/hyundai-sonata",
+          "snippet": "Hyundai ... Hyundai"
+        },
+        {
+          "title": "У Hyundai Sonata 2.5 расход масла достигает 3 л на 10 тыс. км",
+          "url": "https://jckauto.ru/blog/hyundai-sonata-import-korea",
+          "snippet": "Подбор Hyundai Sonata DN8 из Кореи: бензин 2.0, 1.6 Turbo, заводской газ или Hybrid. Проверка истории и расчёт полной цены до точки получения."
+        },
+        {
+          "title": "Привезли из Кореи Hyundai Sonata. 2 ключевые отличия корейской сборки и ...",
+          "url": "https://dzen.ru/a/ahaHt1QJxQnh20Kf",
+          "snippet": "Подробный обзор Hyundai Sonata восьмого поколения: дизайн, моторы, надёжность и особенности корейских версий. Полный расчёт стоимости импорта из Кореи в Россию в 2026 году."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "соната из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Sonata - Reddit",
+          "url": "https://www.reddit.com/r/sonata/",
+          "snippet": ""
+        },
+        {
+          "title": "Новые темы в форуме клуба: » Импорт подержанных автомобилей Hyundai и ...",
+          "url": "https://vk.com/wall-97121095_57085",
+          "snippet": "r/sonata: This is a subreddit dedicated to the discussion of the Hyundai Sonata."
+        },
+        {
+          "title": "Привезли из Кореи Hyundai Sonata. 2 ключевые отличия корейской сборки и ...",
+          "url": "https://dzen.ru/a/ahaHt1QJxQnh20Kf",
+          "snippet": "Новые темы в форуме клуба: » Импорт подержанных автомобилей Hyundai и KIA из Южной Кореи сократился в разы https://sonata-club.net/forum/showthread.php?t=2570"
+        },
+        {
+          "title": "Привезли из Кореи Hyundai Sonata. 2 ключевых отличия корейской сборки и ...",
+          "url": "https://dss-g.com/all-news/news/privezli-iz-korei-hyundai-sonata/",
+          "snippet": "Есть ли смысл вести из Кореи или проще купить на \"вторичке\"? Hyundai Sonata всегда пользовалась уважением на российском рынке, но конкретно 8-ое поколение смогло доказать, что \"Корея способная тягаться с Camry\"...и это не безосновательный лозунг."
+        },
+        {
+          "title": "Hyundai Sonata из Кореи: цена под ключ и утиль 2026",
+          "url": "https://export-motors.com/blog/hyundai-sonata-iz-korei",
+          "snippet": "Разбираем Hyundai Sonata 2022 из Кореи: отличия мотора G4NM, комплектации и реальная стоимость под ключ — кейс DSS Group."
+        },
+        {
+          "title": "Импорт подержанных автомобилей Hyundai и KIA из Южной Кореи сократился ...",
+          "url": "https://vk.com/wall-97121095_57882",
+          "snippet": "Hyundai Sonata из Кореи — какие версии проходят льготный утильсбор в 2026, сколько стоит растаможка и цена под ключ. Разбираем 2.0, LPG, гибрид и турбо 1.6T."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "хендай соната из кореи 2026",
+      "purpose": "вторичный запрос: хендай соната из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Sonata из Кореи: цена под ключ и утиль 2026",
+          "url": "https://export-motors.com/blog/hyundai-sonata-iz-korei",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Sonata S 2026 из Кореи — 3.8 млн ₽ под ключ, 2 185 км, без ...",
+          "url": "https://carto-auto.ru/korea/42494021-hyundai-sonata-2026/",
+          "snippet": "Hyundai Sonata из Кореи — какие версии проходят льготный утильсбор в 2026, сколько стоит растаможка и цена под ключ. Разбираем 2.0, LPG, гибрид и турбо 1.6T."
+        },
+        {
+          "title": "Хендай Соната 2026 технические характеристики. Hyundai Sonata 2026 ...",
+          "url": "https://www.drom.ru/catalog/hyundai/sonata/2026/",
+          "snippet": "Реальный автомобиль у дилера в Корее; перед выкупом наш агент делает свой осмотр и видео. Считаем по актуальному курсу воны и ставкам 2026 года. Итог — ориентир до осмотра; в договоре фиксируем точную сумму под ваш город. Hyundai Sonata S 2026, 2 185 км, 2.0 л гибрид — реальный лот Encar."
+        },
+        {
+          "title": "Купить Hyundai Sonata Из Кореи Под Заказ, Продажа Хендай Соната Под ...",
+          "url": "https://japautobuy.ru/avtomobili-iz-korei/hyundai/sonata",
+          "snippet": "Подробно расписан модельный ряд Hyundai Sonata 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Hyundai Sonata 2026: болячки, цена под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/hyundai-sonata-2026",
+          "snippet": "Продажа HYUNDAI SONATA под заказ из Кореи. Вы можете выбрать и купить новый или б/у HYUNDAI SONATA из Южной Кореи. Все авто с реальными фотографиями, техническими характеристиками."
+        },
+        {
+          "title": "Купить автомобиль Hyundai Sonata 2026 года из Кореи с доставкой",
+          "url": "https://korex-auto.com/korea/hyundai/sonata/?year_from=2026&year_to=2026",
+          "snippet": "Стоит ли брать Hyundai Sonata с заводским газом? Брать Hyundai Sonata с заводским ГБО стоит, если хочется экономить на топливе: газ заметно дешевле бензина, а версии с ним из Кореи есть в наличии."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "соната комплектации 2026",
+      "purpose": "вторичный запрос: соната комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хендай Соната 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/hyundai/sonata/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Хендай Соната 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/hyundai-sonata-2026/",
+          "snippet": "Подробно расписан модельный ряд Hyundai Sonata 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Hyundai Sonata 2026 — цены и комплектации в СПБ | Официальный дилер",
+          "url": "https://hyundai-spb.ru/sonata/equipment/",
+          "snippet": "Хендай Соната 2026 года отличается большим разнообразием комплектаций и интересными техническими характеристиками. При этом по цене седан дешевле своих главных конкурентов. В данном обзоре можно увидеть актуальные фото модели."
+        },
+        {
+          "title": "Hyundai Sonata, купить новый Хендай Соната, комплектации и цены ...",
+          "url": "https://aim-avto.ru/cars/hyundai/sonata/",
+          "snippet": "Hyundai Sonata - Комплектации и цены Планируете покупку Hyundai Sonata 2026 года? Ознакомьтесь с доступными комплектациями, ценами и спецпредложениями в автосалонах в СПб."
+        },
+        {
+          "title": "Hyundai Sonata цены и комплектации 2026 - carmaps.ru",
+          "url": "https://carmaps.ru/hyundai/sonata/",
+          "snippet": "Скидки на новый автомобиль Hyundai Sonata, кредит 10,9%, рассрочка 0%, выгодный TRADE-IN . Специальные цены на Хендай Соната 2026 года!"
+        },
+        {
+          "title": "Hyundai Sonata 2026: комплектации и цены официальных дилеров в Москве",
+          "url": "https://kuplu-hyundai.ru/modelnyj-ryad-hyundai/sonata-2/",
+          "snippet": "Hyundai Sonata: цены и комплектации, фото в новом кузове, модификации и оборудование 2026 года."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "хендай соната комплектации 2026",
+      "purpose": "вторичный запрос: хендай соната комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хендай Соната 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/hyundai/sonata/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Хендай Соната 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/hyundai-sonata-2026/",
+          "snippet": "Подробно расписан модельный ряд Hyundai Sonata 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хендай Соната 2026 между собой."
+        },
+        {
+          "title": "Hyundai Sonata 2026 — цены и комплектации в СПБ | Официальный дилер",
+          "url": "https://hyundai-spb.ru/sonata/equipment/",
+          "snippet": "Хендай Соната 2026 года отличается большим разнообразием комплектаций и интересными техническими характеристиками. При этом по цене седан дешевле своих главных конкурентов. В данном обзоре можно увидеть актуальные фото модели."
+        },
+        {
+          "title": "Hyundai Sonata 2026: комплектации и цены официальных дилеров в Москве",
+          "url": "https://kuplu-hyundai.ru/modelnyj-ryad-hyundai/sonata-2/",
+          "snippet": "Hyundai Sonata - Комплектации и цены Планируете покупку Hyundai Sonata 2026 года? Ознакомьтесь с доступными комплектациями, ценами и спецпредложениями в автосалонах в СПб."
+        },
+        {
+          "title": "Hyundai Sonata, купить новый Хендай Соната, комплектации и цены ...",
+          "url": "https://aim-avto.ru/cars/hyundai/sonata/",
+          "snippet": "Новый Хендай Соната 2026 - комплектации, фото и технические характеристики. Цены на покупку Sonata за наличные и в кредит по официальной программе Hyundai в салонах автодилеров в Москве."
+        },
+        {
+          "title": "Hyundai Sonata 2025-2026 в СПБ | Цены, комплектации, покупка у ...",
+          "url": "https://hyundai-spb.ru/sonata/",
+          "snippet": "Скидки на новый автомобиль Hyundai Sonata, кредит 10,9%, рассрочка 0%, выгодный TRADE-IN . Специальные цены на Хендай Соната 2026 года!"
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "соната на газу из кореи 2026",
+      "purpose": "вторичный запрос: соната на газу из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Авто на газу (LPG) из Кореи в 2026: Sonata и K5 LPi, Grandeur | CARTO Блог",
+          "url": "https://carto-auto.ru/blog/avto-na-gazu-lpg-iz-korei-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Sonata из Кореи: цена под ключ и утиль 2026",
+          "url": "https://export-motors.com/blog/hyundai-sonata-iz-korei",
+          "snippet": "Заводской газ — корейская особенность: LPG-версии Sonata, K5, Grandeur и Carnival выпускаются на конвейере, с заводским баллоном в нише запаски и полной гарантией."
+        },
+        {
+          "title": "Hyundai Sonata 2026 из Кореи за 2,55 млн рублей: стоит ли покупать ...",
+          "url": "https://tenetul.maksatech.com/articles/hyundai-sonata-2026-iz-korei-za-2-55-mln-rubley-stoit-li-pokupat-sedan-ed7cbb25",
+          "snippet": "Hyundai Sonata из Кореи — какие версии проходят льготный утильсбор в 2026, сколько стоит растаможка и цена под ключ. Разбираем 2.0, LPG, гибрид и турбо 1.6T."
+        },
+        {
+          "title": "Авто из Кореи 2026: Sonata, K5, Sportage на газу, Tiguan — цены",
+          "url": "https://vkvideo.ru/video-222567547_456241640",
+          "snippet": "Подробный обзор Hyundai Sonata 2026 с заводским мотором 2.0 LPi: цены в России, расход газа, оснащение, багажник, гарантия и сравнение с китайскими седанами."
+        },
+        {
+          "title": "Hyundai Sonata из Кореи: DN8, цена под ключ | AZWAY",
+          "url": "https://azway.ru/import/koreya/hyundai-sonata",
+          "snippet": "Видео от 20 сентября 2026 в хорошем качестве, без регистрации в бесплатном видеокаталоге ВКонтакте! 4926 — просмотрели. 88 — оценили."
+        },
+        {
+          "title": "Kia K5 до 160 л.с., Sonata на газу, Avante: цены до Владивостока",
+          "url": "https://vkvideo.ru/video-222567547_456241684",
+          "snippet": "Подбор Hyundai Sonata DN8 из Кореи: бензин 2.0, 1.6 Turbo, заводской газ или Hybrid. Проверка истории и расчёт полной цены до точки получения."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Hyundai Sonata из Кореи: как выбрать комплектацию и не попасть в ловушку до депозита в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Sonata из Кореи: цена под ключ и утиль 2026",
+          "url": "https://export-motors.com/blog/hyundai-sonata-iz-korei",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Sonata 2026: болячки, цена под ключ",
+          "url": "https://asia-pod-klyuch.ru/blog/hyundai-sonata-2026",
+          "snippet": "Hyundai Sonata из Кореи — какие версии проходят льготный утильсбор в 2026, сколько стоит растаможка и цена под ключ. Разбираем 2.0, LPG, гибрид и турбо 1.6T."
+        },
+        {
+          "title": "Привезли из Кореи Hyundai Sonata. 2 ключевых отличия корейской сборки и ...",
+          "url": "https://dss-g.com/all-news/news/privezli-iz-korei-hyundai-sonata/",
+          "snippet": "Hyundai Sonata восьмого поколения (DN8) — просторный седан на левом руле со смелым дизайном, богатой комплектацией за свои деньги и спокойным характером. Владельцы, пересевшие с Toyota Camry, пишут, что Sonata мягче проходит ямы с острыми краями и стабильнее держит прямую."
+        },
+        {
+          "title": "Привезли из Кореи Hyundai Sonata. 2 ключевые отличия корейской сборки и ...",
+          "url": "https://dzen.ru/a/ahaHt1QJxQnh20Kf",
+          "snippet": "На российском рынке Hyundai Sonata восьмого поколения предлагалась с двумя хорошо знакомыми атмосферными моторами: двухлитровым G4NA и 2,5-литровым G4KM. С одной стороны, все выглядело неплохо: проверенные агрегаты, понятное обслуживание, отсутствие сложных турбин и ставка на массового покупателя."
+        },
+        {
+          "title": "Hyundai Sonata из Кореи: DN8, цена под ключ | AZWAY",
+          "url": "https://azway.ru/import/koreya/hyundai-sonata",
+          "snippet": "На российском рынке Hyundai Sonata восьмого поколения предлагалась с двумя хорошо знакомыми атмосферными моторами: двухлитровым G4NA и 2,5-литровым G4KM. С одной стороны, все выглядело неплохо: проверенные агрегаты, понятное обслуживание, отсутствие сложных турбин и ставка на массового покупателя."
+        },
+        {
+          "title": "Hyundai/Kia: как не попасть на коммерческий утильсбор",
+          "url": "https://carexkorea.ru/hyundai-kia-kak-ne-popast-na-kommercheskij-utilsbor/",
+          "snippet": "Подбор Hyundai Sonata DN8 из Кореи: бензин 2.0, 1.6 Turbo, заводской газ или Hybrid. Проверка истории и расчёт полной цены до точки получения."
+        }
+      ],
+      "searched_at": "2026-10-23"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://export-motors.com/blog/hyundai-sonata-iz-korei",
+      "title": "Hyundai Sonata из Кореи: цена под ключ и утиль 2026",
+      "from_query": "соната из кореи 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/korea/42494021-hyundai-sonata-2026/",
+      "title": "Hyundai Sonata S 2026 из Кореи — 3.8 млн ₽ под ключ, 2 185 км, без ...",
+      "from_query": "соната из кореи 2026"
+    },
+    {
+      "url": "https://ngt-auto.ru/korea/hyundai/sonata/?year_from=2026&year_to=2026",
+      "title": "Hyundai Sonata 2026 года из Кореи под заказ с доставкой по России",
+      "from_query": "соната из кореи 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/hyundai-sonata-2026",
+      "title": "Hyundai Sonata 2026: болячки, цена под ключ",
+      "from_query": "соната из кореи 2026"
+    },
+    {
+      "url": "https://japautobuy.ru/avtomobili-iz-korei/hyundai/sonata",
+      "title": "Купить Hyundai Sonata Из Кореи Под Заказ, Продажа Хендай Соната Под ...",
+      "from_query": "соната из кореи 2026"
+    },
+    {
+      "url": "https://encarrus.ru/korea/hyundai/sonata/",
+      "title": "Купить Hyundai Sonata из Кореи под ключ — от 1 563 000 ₽, 1 742 в наличии",
+      "from_query": "соната из кореи 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/1f0de04769e4dc189c09fc2c858fd5ae/",
+      "title": "Hyundai Sonata Lpg Из Кореи В Россию | Какая Цена В Октябре 2026 ...",
+      "from_query": "соната из кореи октябрь 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ojt5QvhpXBA",
+      "title": "Hyundai Sonata Lpg Из Кореи В Россию | Какая Цена В Октябре 2026?",
+      "from_query": "соната из кореи октябрь 2026"
+    },
+    {
+      "url": "https://azway.ru/import/koreya/hyundai-sonata",
+      "title": "Hyundai Sonata из Кореи: DN8, цена под ключ | AZWAY",
+      "from_query": "соната из кореи октябрь 2026"
+    },
+    {
+      "url": "https://dss-g.com/all-news/news/privezli-iz-korei-hyundai-sonata/",
+      "title": "Привезли из Кореи Hyundai Sonata. 2 ключевых отличия корейской сборки и ...",
+      "from_query": "соната из кореи новости 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/ahaHt1QJxQnh20Kf",
+      "title": "Привезли из Кореи Hyundai Sonata. 2 ключевые отличия корейской сборки и ...",
+      "from_query": "соната из кореи новости 2026"
+    },
+    {
+      "url": "https://jckauto.ru/blog/hyundai-sonata-import-korea",
+      "title": "У Hyundai Sonata 2.5 расход масла достигает 3 л на 10 тыс. км",
+      "from_query": "соната из кореи новости 2026"
+    },
+    {
+      "url": "https://tenetul.maksatech.com/articles/hyundai-sonata-2026-iz-korei-za-2-55-mln-rubley-stoit-li-pokupat-sedan-ed7cbb25",
+      "title": "Hyundai Sonata 2026 из Кореи за 2,55 млн рублей: стоит ли покупать ...",
+      "from_query": "соната из кореи новости 2026"
+    },
+    {
+      "url": "https://github.com/facebookresearch/sonata",
+      "title": "GitHub - facebookresearch/sonata: [CVPR'25 Highlight] Official ...",
+      "from_query": "site:github.com соната из кореи 2026"
+    },
+    {
+      "url": "https://github.com/AcFANcom",
+      "title": "AcFANcom (AcFAN) · GitHub",
+      "from_query": "site:github.com соната из кореи 2026"
+    },
+    {
+      "url": "https://github.com/gzyxds/docpos/blob/main/logo.svg",
+      "title": "docpos/logo.svg at main · gzyxds/docpos · GitHub",
+      "from_query": "site:github.com соната из кореи 2026"
+    },
+    {
+      "url": "https://github.com/oluwaseyi-alpha/seyi/blob/main/image%202.svg",
+      "title": "seyi/image 2.svg at main · oluwaseyi-alpha/seyi · GitHub",
+      "from_query": "site:github.com соната из кореи 2026"
+    },
+    {
+      "url": "https://github.com/ShiyangNg/recipe-book/blob/main/trash.svg",
+      "title": "recipe-book/trash.svg at main · ShiyangNg/recipe-book · GitHub",
+      "from_query": "site:github.com соната из кореи 2026"
+    },
+    {
+      "url": "https://github.com/opencontainers/artwork/blob/main/icons/oci_icon_machinelearning.svg",
+      "title": "artwork/icons/oci_icon_machinelearning.svg at main - GitHub",
+      "from_query": "site:github.com соната из кореи 2026"
+    },
+    {
+      "url": "https://www.hyundainews.com/assets/documents/original/68169-2026SonataSpecsFeatures20250722A.pdf",
+      "title": "PDF Hyundai",
+      "from_query": "соната из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.reddit.com/r/sonata/",
+      "title": "Sonata - Reddit",
+      "from_query": "соната из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://vk.com/wall-97121095_57085",
+      "title": "Новые темы в форуме клуба: » Импорт подержанных автомобилей Hyundai и ...",
+      "from_query": "соната из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://vk.com/wall-97121095_57882",
+      "title": "Импорт подержанных автомобилей Hyundai и KIA из Южной Кореи сократился ...",
+      "from_query": "соната из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/hyundai/sonata/2026/",
+      "title": "Хендай Соната 2026 технические характеристики. Hyundai Sonata 2026 ...",
+      "from_query": "хендай соната из кореи 2026"
+    },
+    {
+      "url": "https://korex-auto.com/korea/hyundai/sonata/?year_from=2026&year_to=2026",
+      "title": "Купить автомобиль Hyundai Sonata 2026 года из Кореи с доставкой",
+      "from_query": "хендай соната из кореи 2026"
+    },
+    {
+      "url": "https://cenyavto.com/hyundai-sonata-2026/",
+      "title": "Хендай Соната 2026 цены модели, комплектации, фото, новый кузов, видео",
+      "from_query": "соната комплектации 2026"
+    },
+    {
+      "url": "https://hyundai-spb.ru/sonata/equipment/",
+      "title": "Hyundai Sonata 2026 — цены и комплектации в СПБ | Официальный дилер",
+      "from_query": "соната комплектации 2026"
+    },
+    {
+      "url": "https://aim-avto.ru/cars/hyundai/sonata/",
+      "title": "Hyundai Sonata, купить новый Хендай Соната, комплектации и цены ...",
+      "from_query": "соната комплектации 2026"
+    },
+    {
+      "url": "https://carmaps.ru/hyundai/sonata/",
+      "title": "Hyundai Sonata цены и комплектации 2026 - carmaps.ru",
+      "from_query": "соната комплектации 2026"
+    },
+    {
+      "url": "https://kuplu-hyundai.ru/modelnyj-ryad-hyundai/sonata-2/",
+      "title": "Hyundai Sonata 2026: комплектации и цены официальных дилеров в Москве",
+      "from_query": "соната комплектации 2026"
+    },
+    {
+      "url": "https://hyundai-spb.ru/sonata/",
+      "title": "Hyundai Sonata 2025-2026 в СПБ | Цены, комплектации, покупка у ...",
+      "from_query": "хендай соната комплектации 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/avto-na-gazu-lpg-iz-korei-2026/",
+      "title": "Авто на газу (LPG) из Кореи в 2026: Sonata и K5 LPi, Grandeur | CARTO Блог",
+      "from_query": "соната на газу из кореи 2026"
+    },
+    {
+      "url": "https://vkvideo.ru/video-222567547_456241640",
+      "title": "Авто из Кореи 2026: Sonata, K5, Sportage на газу, Tiguan — цены",
+      "from_query": "соната на газу из кореи 2026"
+    },
+    {
+      "url": "https://vkvideo.ru/video-222567547_456241684",
+      "title": "Kia K5 до 160 л.с., Sonata на газу, Avante: цены до Владивостока",
+      "from_query": "соната на газу из кореи 2026"
+    },
+    {
+      "url": "https://carexkorea.ru/hyundai-kia-kak-ne-popast-na-kommercheskij-utilsbor/",
+      "title": "Hyundai/Kia: как не попасть на коммерческий утильсбор",
+      "from_query": "Hyundai Sonata из Кореи: как выбрать комплектацию и не попасть в ловушку до депозита в 2026 2026"
+    }
+  ]
+}

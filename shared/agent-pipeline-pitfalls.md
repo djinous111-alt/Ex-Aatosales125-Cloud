@@ -37,7 +37,7 @@
 
 ## Cover
 
-- Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным. QA может проверять запрещённые ярлыки; **generation prompt** формулируй без перечисления конкретных оскорблений (чтобы модель их не нарисовала).
 
 ## Scout
 
@@ -46,3 +46,37 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+
+## Indexer / llms
+
+- `excalibur_blog_llms_generator.py` принимает `--blog-dir` и `--out-dir`, **не** `--blog-path`. Doctor проверяет актуальные флаги.
+
+## Scout / denylist
+
+- Перед выбором темы: `shared/wp-slug-denylist.json` + live `PUBLIC_SITE_URL` REST. WordPress MCP без сверки live URL — не источник denylist.
+
+## Research gate
+
+- Нужны литералы `accessed_at:` (≥5) и pain/solution/result в data-rows `pain_solution_map`.
+- Не путать URL-значения с именами в `CLOUD_AGENT_INJECTED_SECRET_NAMES` (только bash identifiers).
+
+## Writer / utility
+
+- `editorial-policy.json` обязан иметь непустые `pain_markers_ru` / `outcome_markers_ru` до сдачи HTML.
+
+## Cover
+
+- Image flow: Kie async script first; sync MCP — fallback.
+- `reference_url_hosted` только https (litterbox после catbox/0x0).
+- Outfit из weather/topic; **NO hoodie** hardcode.
+- Corner brand `avto-sales125.ru` штампуется split-скриптом, если модель не отрисовала.
+
+## Publish
+
+- `memory/site.env.local` auto-write из env; `SSH_ROOT=.`; нужен `paramiko` в runtime/install.
+- Ledger-строки держать внутри markdown table (не после note-блока).
+
+## Schema / pre-commit
+
+- Absolute site/catalog/telegram URLs в `schema.jsonld` → same-line `pragma: allowlist secret`.
+- Если pre-commit падает с bash `invalid variable name` на `${!SECRET_NAME}`: не `--no-verify`. Сначала `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"` или `bash scripts/excalibur_git.sh commit -m "..."`. `CLOUD_AGENT_INJECTED_SECRET_NAMES` — только bash identifiers.

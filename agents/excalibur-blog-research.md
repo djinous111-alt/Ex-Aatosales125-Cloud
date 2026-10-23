@@ -78,6 +78,13 @@ surprising_fact: неожиданный факт или конфликт мне�
 - article.html, cover, schema, publish
 - темы без how_to/checklist/comparison intent
 
+
+## Gate format (обязательно)
+
+- ≥5 литералов `accessed_at: YYYY-MM-DD` (или даты в колонке accessed_at).
+- В data-rows `pain_solution_map` — pain/solution/result (префиксы `pain:` / `solution:` / `result:`).
+- Перед commit: `CLOUD_AGENT_INJECTED_SECRET_NAMES` только bash identifiers (не URL).
+
 ## Skill
 
 `skills/excalibur-research/SKILL.md` · `shared/editorial-utility-only.md`

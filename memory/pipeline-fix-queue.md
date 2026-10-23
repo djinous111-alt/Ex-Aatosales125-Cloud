@@ -394,3 +394,69 @@ category: docs
 
 ### Fixer resolution
 - pending
+
+## INC-20261023-1320-cover-prompt-hoodie-hardcode
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-hyundai-sonata-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: prompt
+
+### What went wrong
+- `excalibur_blog_cover_quad_prompt.py` hardcodes Outfit lock: thick heavyweight white hoodie, conflicting with Cloud lesson softshell/crewneck DEFAULT and scene_hint NO hoodie.
+- Same script embeds toxic-word examples (лох/лохов) in the prompt body, which risks the image model rendering those words on stickers.
+
+### How the agent recovered this run
+- Patched `cover/quad-mcp-prompt.txt` and synced `mcp_args` + `api_args` in `quad-mcp-batch.json` to softshell/crewneck and non-toxic wording without listing forbidden insults.
+
+### Durable fix needed before next run
+- Change default outfit lock in `scripts/excalibur_blog_cover_quad_prompt.py` to softshell/crewneck; forbid hoodie/hood/cap.
+- Rephrase non-toxic rule without listing specific insult words in the generation prompt.
+- Align cover-concept / pitfalls with Cloud lesson.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/cover/cover-concept.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261023-1321-schema-precommit-invalid-secret-name
+status: open
+run_date: 2026-10-23
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-hyundai-sonata-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` failed in Cloud pre-commit secret scanner: `CLOUD_AGENT_INJECTED_SECRET_NAMES` CSV ends with an invalid bash identifier (literal redacted token), so `${!SECRET_NAME}` aborts the hook before scanning staged files.
+- Schema agent could not land `schema.jsonld` until the invalid name was filtered out of the env CSV for that commit.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid `[A-Za-z_][A-Za-z0-9_]*` identifiers, then re-ran `git commit` with the same staged `schema.jsonld` (placeholders `${PUBLIC_SITE_URL}`, no secret values).
+
+### Durable fix needed before next run
+- Ensure Cloud-injected secret-name list never contains non-identifiers / redaction placeholders.
+- Optionally harden pre-commit hook: skip names that fail identifier regex instead of aborting the whole commit.
+- Document in pitfalls: if pre-commit dies on `invalid variable name` at `${!SECRET_NAME}`, filter invalid names from `CLOUD_AGENT_INJECTED_SECRET_NAMES` and retry (do not `--no-verify`).
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_doctor.py` (optional env sanity check)
+- Cloud secrets / injected-names plumbing (outside repo if needed)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

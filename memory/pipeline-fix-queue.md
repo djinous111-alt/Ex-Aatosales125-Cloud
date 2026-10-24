@@ -56,7 +56,7 @@ files_changed:
 checks_run:
 - `rg Kie async / timeout_policy in cover skill`
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
-commit: pending-parent-commit
+commit: cb566404
 
 ## INC-20261024-1331-cover-missing-corner-brand
 status: fixed
@@ -99,7 +99,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_split.py`
 - `rg stamp_corner_brand scripts/excalibur_blog_cover_quad_split.py`
-commit: pending-parent-commit
+commit: cb566404
 
 ## INC-20261024-1326-schema-commit-secret-scan-filter
 status: fixed
@@ -151,7 +151,7 @@ checks_run:
 - `bash -n scripts/excalibur_git.sh`
 - `eval filter_commit_secret_env.sh`
 - `doctor: excalibur_git.sh present`
-commit: pending-parent-commit
+commit: cb566404
 
 ## INC-20261024-1330-geo-qa-utility-policy-pain-outcome-missing
 status: fixed
@@ -204,7 +204,7 @@ files_changed:
 checks_run:
 - `utility_gate B01 Freed PASS`
 - `doctor pain/outcome/_markers_pinned OK`
-commit: pending-parent-commit
+commit: cb566404
 
 ## INC-20261024-1325-writer-cta-env-not-brief-redacted
 status: fixed
@@ -258,7 +258,7 @@ files_changed:
 checks_run:
 - `html_linter FAIL on [REDACTED] fixture`
 - `doctor git helpers present`
-commit: pending-parent-commit
+commit: cb566404
 
 ## INC-20261024-1315-research-tech-markers-false-positive
 status: fixed
@@ -306,7 +306,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `research_notes_gate B01 Freed PASS technical=False`
-commit: pending-parent-commit
+commit: cb566404
 
 ## INC-20261024-1304-scout-wp-slug-denylist-missing
 status: fixed
@@ -359,7 +359,7 @@ checks_run:
 - `scout --check-slug freed → DENYLIST HIT`
 - `scout --check-slug raize → DENYLIST HIT`
 - `doctor denylist exists`
-commit: pending-parent-commit
+commit: cb566404
 
 ## INC-20261024-1334-indexer-llms-stale-blog-path-flag
 status: fixed
@@ -411,7 +411,7 @@ files_changed:
 checks_run:
 - `doctor llms --blog-dir OK / no stale --blog-path`
 - `python3 scripts/excalibur_blog_llms_generator.py --help`
-commit: pending-parent-commit
+commit: cb566404
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -710,4 +710,4 @@ files_changed:
 checks_run:
 - `doctor paramiko available`
 - `wp_publish --env-check paramiko_available True`
-commit: pending-parent-commit
+commit: cb566404

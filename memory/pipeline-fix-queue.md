@@ -51,7 +51,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - unit checks for is_gateway_error_html / HTTP_TRIGGER_TIMEOUT_SEC
-commit: 75aab681
+commit: 1d48df53
 
 ## INC-20261024-2148-indexer-skill-llms-blog-path-stale
 status: fixed
@@ -77,7 +77,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `rg` confirms no stale CLI `--blog-path` requirement in doctor
-commit: 75aab681
+commit: 1d48df53
 
 ## INC-20261024-2144-cover-mcp-kv-unavailable-kie-fallback
 status: fixed
@@ -101,7 +101,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` for Kie/MCP-KV fallback wording in cover skill
-commit: 75aab681
+commit: 1d48df53
 
 ## INC-20261024-2145-cover-missing-corner-brand-pil
 status: fixed
@@ -124,7 +124,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_split.py`
 - `--help` shows stamp flags
-commit: 75aab681
+commit: 1d48df53
 
 ## INC-20261025-2130-geo-qa-utility-pain-markers-empty
 status: fixed
@@ -149,7 +149,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - Fit article utility gate PASS (pain=8, outcome=13)
-commit: 75aab681
+commit: 1d48df53
 
 ## INC-20261025-0017-research-mcp-kv-wordstat-unavailable
 status: fixed
@@ -171,7 +171,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` for MCP-KV error fallback in research skill
-commit: 75aab681
+commit: 1d48df53
 
 ## INC-20261025-0018-research-notes-gate-false-technical
 status: fixed
@@ -191,7 +191,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - unit: Honda Fit notes → technical_topic=False; MCP agent topic → True
-commit: 75aab681
+commit: 1d48df53
 
 ## INC-20261025-2112-director-doctor-llms-blog-path
 status: fixed
@@ -210,7 +210,7 @@ files_changed:
 - `scripts/excalibur_blog_doctor.py`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 warnings=0
-commit: 75aab681
+commit: 1d48df53
 
 ## INC-20261025-2113-director-paramiko-missing-main
 status: fixed
@@ -234,7 +234,7 @@ files_changed:
 - `scripts/excalibur_blog_wp_publish.py`
 checks_run:
 - doctor paramiko OK; `import paramiko`
-commit: 75aab681
+commit: 1d48df53
 
 ## INC-20261025-2105-scout-mcp-kv-wordstat-unavailable
 status: fixed
@@ -257,7 +257,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` MCP-KV fallback in scout skill/agent
-commit: 75aab681
+commit: 1d48df53
 
 ## INC-20261025-2110-scout-precommit-invalid-secret-name
 status: fixed
@@ -281,7 +281,7 @@ files_changed:
 checks_run:
 - sourced filter: invalid names skipped; valid kept
 - `scripts/excalibur_git.sh status` runs
-commit: 75aab681
+commit: 1d48df53
 
 ## INC-20261025-2106-scout-missing-wp-slug-denylist
 status: fixed
@@ -305,7 +305,7 @@ files_changed:
 - `agents/excalibur-blog-scout.md`
 checks_run:
 - denylist --check ok; doctor denylist OK; Fit/Jimny slugs present
-commit: 75aab681
+commit: 1d48df53
 
 
 ## Fixed incidents (historical)
@@ -360,7 +360,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: 75aab681
+commit: 1d48df53
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -411,7 +411,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: 75aab681
+commit: 1d48df53
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -452,7 +452,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: 75aab681
+commit: 1d48df53
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -499,7 +499,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: 75aab681
+commit: 1d48df53
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -553,7 +553,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: 75aab681
+commit: 1d48df53
 
 ## Fixed incidents
 

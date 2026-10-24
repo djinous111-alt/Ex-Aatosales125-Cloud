@@ -34,6 +34,12 @@
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
+- `utility_gate` читает `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json`; канон = `PAIN_MARKERS` / `OUTCOME_MARKERS` в `excalibur_blog_human_voice_gate.py`. Пустые списки → fail-soft warning, не BLOCK; не удаляй ключи из policy.
+- Doctor/llms: флаг каталога статей — `--blog-dir`, не `--blog-path`.
+
+## Scout / denylist
+
+- `shared/wp-slug-denylist.json` обязателен в tip (LIVE WP slugs). Без файла doctor FAIL; scout перед выбором темы сверяет denylist + ledger, иначе риск дубля LIVE-поста.
 
 ## Cover
 

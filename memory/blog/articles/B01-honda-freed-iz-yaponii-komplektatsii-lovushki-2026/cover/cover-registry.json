@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "honda-freed-iz-yaponii-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у семейного Honda Freed и аукционного листа, плашка «до ставки», порт Владивостока",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-24T13:30:54+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у семейного Honda Freed и аукционного листа, плашка «до ставки», порт Владивостока",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица: когда семье нужен Freed с дверями и третьим рядом, а когда — нет",
+      "h2_anchor": "Решите, нужен ли вам Freed: семья, двери и третий ряд",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема: от сценария семьи к кодам кузова GB, Spike и GT до поиска лота",
+      "h2_anchor": "Разберите поколения и кузова: GB, Spike, GT",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист топлива: Hybrid = пауза, сверка кузова и маршрута до ставки",
+      "h2_anchor": "Выберите топливо до ставки: бензин или гибрид",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

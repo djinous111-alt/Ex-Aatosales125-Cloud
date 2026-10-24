@@ -6,6 +6,72 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-1328-cover-mcp-timeout-kie-async
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-freed-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` i2i (2K 16:9 quad) дважды вернул `MCP error -32001: Request timed out` до появления URL в ответе клиента.
+- Повторный sync create рисковал дублировать дорогой job; канон уже указывает на async Kie HTTP.
+
+### How the agent recovered this run
+- Остановил sync MCP retry после 2× timeout.
+- Один job через `python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir …` (createTask → poll recordInfo).
+- task_id `c5aad9688a04bf483d9adac1219ab098` → `cover/quad-mcp-result.json` → `excalibur_blog_quad_apply.py --inject-html` PASS.
+- `reference_url_hosted` оставлен WP media URL (без `--force` / без catbox overwrite).
+
+### Durable fix needed before next run
+- В cover skill/agent: Cursor Cloud default = Kie async script; sync MCP только legacy fallback.
+- Не делать второй sync create после `-32001` без URL/task_id в логе.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_cover_quad_prompt.py` (timeout_policy уже есть — подтянуть в skill runbook step 4)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261024-1331-cover-missing-corner-brand
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-freed-iz-yaponii-komplektatsii-lovushki-2026
+severity: low
+category: qa
+
+### What went wrong
+- После успешного Kie i2i на cover panel не было угла каталога `avto-sales125.ru`, хотя prompt/design code требуют corner brand.
+
+### How the agent recovered this run
+- Без второго image job: PIL overlay `avto-sales125.ru` на `cover/cover.png` и top-left квадрант `cover/canvas-quad.png`.
+- Видимый текст без токсичных ярлыков; плашка «до ставки» сохранена.
+
+### Durable fix needed before next run
+- Post-split QA/helper: если OCR/heuristic не видит `avto-sales125.ru` в cover panel — авто-overlay перед registry finalize.
+- Усилить corner brand в prompt builder (уже есть, модель всё равно пропускает).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_quad_apply.py` или новый `excalibur_blog_cover_corner_brand.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261024-1326-schema-commit-secret-scan-filter
 status: open
 run_date: 2026-10-24

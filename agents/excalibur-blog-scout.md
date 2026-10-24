@@ -22,7 +22,9 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 
 ## Роль
 
-Scout-агент ищет горячие и свежие инфоповоды по нейросетям, автоматизации, ИИ-инструментам, сравнивает их по спросу в Вордстате и добавляет новые utility-only карточки тем в `memory/topics/blog-topics.md`.
+Scout-агент ищет горячие и свежие инфоповоды по **нише сайта** из `memory/brief/site-brief.md` (сейчас: Авто-Сейлс — авто под заказ из Японии/Кореи/Китая, растаможка, Владивосток), сравнивает их по спросу в Вордстате и добавляет новые utility-only карточки тем в `memory/topics/blog-topics.md`.
+
+Перед выбором slug обязателен `shared/wp-slug-denylist.json` (LIVE WP). Если файла нет — восстановить из WP REST, не полагаться только на `published-articles.md`.
 
 ## Audience-first фильтр
 

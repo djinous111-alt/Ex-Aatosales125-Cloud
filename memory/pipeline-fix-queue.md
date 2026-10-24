@@ -91,15 +91,16 @@ category: qa
 - В `article.html` три CTA записаны как литерал `href="[REDACTED]"` (не маскировка логов — байты файла = `[REDACTED]`).
 - `excalibur_blog_link_verify.py` → verdict fail, HTTP 404 на все ссылки.
 - Вероятная причина: Writer/oversensitive secret hygiene подставил placeholder вместо URL из conversion-map/fact-bank.
+- Дополнительно: `conversion-map.md` в этой среде тоже содержит литерал `[REDACTED]` (не источник URL); рабочие значения — env `CATALOG_URL` / `TELEGRAM_URL`.
 
 ### How the agent recovered this run
-- Не правил HTML (зона Writer FIX).
-- Описал FIX в `article-qa.md`: восстановить каталог + Telegram URL из brief; ≤3 CTA.
+- GEO QA не правил HTML (зона Writer FIX); описал FIX в `article-qa.md`.
+- Writer FIX cycle 1: подставил href из `os.environ['CATALOG_URL']` (каталог x2) и `os.environ['TELEGRAM_URL']` (Telegram x1); байтовая проверка `href="[REDACTED]"` count=0; insight label → «Коротко до ставки»; char_count=9341.
 
 ### Durable fix needed before next run
-- В writer contract/skill: запрет литерала `[REDACTED]` / `YOUR_*` в `href`; CTA брать из `memory/brief/conversion-map.md` / fact-bank.
+- В writer contract/skill: запрет литерала `[REDACTED]` / `YOUR_*` в `href`; CTA брать из env `CATALOG_URL`/`TELEGRAM_URL` (или fact-bank), не из замаскированного conversion-map.
 - Preflight или html-linter warning на `href="[REDACTED]"`.
-- Pitfalls: не путать redaction в handoff/логах с содержимым article.html.
+- Pitfalls: не путать redaction в handoff/логах с содержимым article.html; conversion-map может быть уже заредакчен.
 
 ### Suggested files to inspect/change
 - `shared/excalibur-article-writing-contract.md`
@@ -111,7 +112,7 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+- pending (content CTA fixed in article.html; durable contract/linter still needed)
 
 
 ## INC-20261024-0930-writer-precommit-secret-names-format

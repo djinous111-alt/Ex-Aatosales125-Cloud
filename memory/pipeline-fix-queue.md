@@ -6,6 +6,46 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-1727-indexer-doctor-llms-blog-path-mismatch
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `scripts/excalibur_blog_llms_generator.py --help` больше не объявляет `--blog-path` (только `--blog-dir`, `--site-base`, `--out-dir`, …).
+- `scripts/excalibur_blog_doctor.py` всё ещё проверяет `"--blog-path" in llms_help.stdout` → `FAIL llms generator supports --blog-path` (errors=1).
+- Контракты Indexer (`.cursor/agents/excalibur-blog-indexer.md`, skills `indexer-excalibur-blog`) и shell-примеры всё ещё показывают `--blog-path /`, из‑за чего агент тратит шаг на устаревший флаг.
+- Первый прогон с `--site-base $PUBLIC_SITE_URL` записал абсолютный host в `memory/blog/llms.txt` / `llms-full.txt` → Cloud pre-commit secrets scanner `COMMIT BLOCKED` (Secret: PUBLIC_SITE_URL). В git уже принят relative-path формат (`/blog/<slug>/`).
+
+### How the agent recovered this run
+- Запустил generator без `--blog-path`: `--blog-dir memory/blog/articles --site-base "" --out-dir memory/blog` → relative URLs, git-safe.
+- Interlinker `--apply` с `--site-base ""` (0 opportunities); promotion checklist записан; publish не трогался.
+- Commit: фильтр `CLOUD_AGENT_INJECTED_SECRET_NAMES` до valid identifiers (см. `#INC-20261024-1705`).
+
+### Durable fix needed before next run
+- Doctor: заменить проверку `--blog-path` на актуальные флаги (`--blog-dir` и/или `--out-dir`).
+- Синхронизировать agent/skill shell-примеры Indexer: убрать `--blog-path`; для git-артефактов рекомендовать `--site-base ""` (relative `/blog/<slug>/`), не `$PUBLIC_SITE_URL`.
+- Pitfalls: llms/interlink в `memory/blog/` — без абсолютного host из secrets.
+- Опционально: generator default `--site-base ""` вместо hardcoded host.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_llms_generator.py`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261024-1721-schema-secret-urls-precommit-block
 status: open
 run_date: 2026-10-24

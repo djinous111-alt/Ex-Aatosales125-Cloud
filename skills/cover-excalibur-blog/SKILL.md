@@ -90,11 +90,12 @@ inject <figure> after H2 in article.html
 ### Шаг 1 — reference URL
 
 ```bash
-python scripts/excalibur_blog_hero_reference_url.py
+python3 scripts/excalibur_blog_hero_reference_url.py
+# --force только если нужно перезалить; при fail catbox/0x0 скрипт сохранит pinned WP URL
 ```
 
-Проверить `memory/cover/blog-hero.json` → `reference_url_hosted`.  
-Fallback env: `BLOG_HERO_REFERENCE_URL`.
+Проверить `memory/cover/blog-hero.json` → `reference_url_hosted` (host `avtosales125.ru` WordPress media).  
+Fallback env: `BLOG_HERO_REFERENCE_URL`. Не блокируй cover, если `--force` upload упал, а стабильный WP URL уже есть.
 
 ### Шаг 2 — manifest
 

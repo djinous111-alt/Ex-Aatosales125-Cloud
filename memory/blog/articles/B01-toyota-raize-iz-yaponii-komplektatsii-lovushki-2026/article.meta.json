@@ -1,0 +1,48 @@
+{
+  "topic_id": "B01",
+  "slug": "toyota-raize-iz-yaponii-komplektatsii-lovushki-2026",
+  "title": "Как выбрать Toyota Raize из Японии: моторы, 4WD и ловушки до ставки",
+  "h1": "Как выбрать Toyota Raize из Японии: моторы 1.0T/1.2, 4WD и ловушки до ставки в 2026",
+  "description": "Как выбрать Toyota Raize из Японии в 2026: коды кузова 1.0T/1.2, 4WD, комплектации X/G/Z, проходной месяц и чек-лист до ставки. Подбор – в каталоге Авто-Сейлс.",
+  "cover_alt": "Компактный Toyota Raize у порта Владивостока, герой Авто-Сейлс с плашкой до ставки, угол avto-sales125.ru",
+  "primary_query": "как выбрать toyota raize из японии",
+  "secondary_queries": [
+    "тойота райз из японии",
+    "тойота райз комплектации",
+    "toyota raize 1.0",
+    "тойота райз владивосток"
+  ],
+  "char_count": 9341,
+  "article_mode": "B",
+  "author_id": "avtosales-editorial",
+  "anchor_variants": [
+    "как выбрать Toyota Raize из Японии до ставки",
+    "чек-лист Raize: мотор, 4WD и месяц выпуска",
+    "комплектации X G Z и ловушки аукционного листа"
+  ],
+  "meta_ab": {
+    "title_seo": "Как выбрать Toyota Raize из Японии: моторы и ловушки",
+    "title_ctr": "🚗 Как выбрать Toyota Raize из Японии и не купить гибрид или непроходной месяц?",
+    "title_aeo": "Как выбрать Toyota Raize из Японии: какой мотор, 4WD и месяц выпуска?",
+    "description_seo": "Как выбрать Toyota Raize из Японии в 2026: коды кузова 1.0T/1.2, 4WD, комплектации X/G/Z, проходной месяц и чек-лист аукционного листа до ставки.",
+    "description_ctr": "⚡ До ставки сверьте код кузова, месяц выпуска и лист. Чек-лист из 10 пунктов для Raize – без гибрида и сюрприза на СВХ Владивостока.",
+    "description_aeo": "Toyota Raize из Японии выбирают по коду кузова (A201A 1.2 FWD или A210A 1.0T 4WD), месяцу выпуска под дату декларации и аукционному листу до ставки."
+  },
+  "geo_qa": {
+    "score": 92,
+    "verdict": "PASS",
+    "date": "2026-10-24",
+    "retry": 1,
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility_gate": "PASS",
+    "link_verify": "PASS",
+    "research_notes_gate": "PASS",
+    "fact_check": "PASS",
+    "beginner_fit": "PASS",
+    "CORE_EEAT_lite": "19/20"
+  },
+  "cover_family": "brand_collage"
+}

@@ -44,3 +44,12 @@ memory/blog/articles/<topic_id>-<slug>/article.meta.json
 - объём вне диапазона после 1 правки
 
 References: `article-archetypes.md` (§ B only), `geo-writing-checklist.md`, `ai-slop-blocklist.md`
+
+
+## CTA href (Cloud secret-scan)
+
+- Пиши **живые** CTA из env: `CATALOG_URL`, `TELEGRAM_URL` (публичные маркетинговые URL).
+- На каждой строке `article.html` с этими URL добавь HTML-комментарий `<!-- pragma: allowlist secret -->`.
+- **Запрещено** литерал `href="[REDACTED]"` / `${CATALOG_URL}` / `example.com` в production `article.html` — html-linter и link-verify пометит FAIL.
+- Если `conversion-map.md` уже заредакчен (`[REDACTED]`), бери URL из env Cloud Secrets, не из map.
+- Перед commit: `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"` или `bash scripts/excalibur_git.sh commit ...`.

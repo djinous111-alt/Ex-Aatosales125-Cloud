@@ -31,6 +31,7 @@ PUBLISH_ENV_KEYS = {
     "SSH_PASS",
     "SSH_PASSWORD",
     "SSH_ROOT",
+    "SSH_PATH",  # Cloud alias; mapped to SSH_ROOT when SSH_ROOT unset
     "EXCALIBUR_BLOG_ALLOW_PUBLISH",
 }
 
@@ -47,7 +48,36 @@ def _read_env_file(path: Path) -> dict[str, str]:
     return env
 
 
+def ensure_site_env_local(root: Path) -> bool:
+    """Write gitignored memory/site.env.local from process env when missing."""
+    path = root / "memory/site.env.local"
+    if path.is_file():
+        return False
+    lines = ["# Auto-written by excalibur_blog_wp_publish from Cloud Secrets / process env"]
+    wrote = False
+    for key in sorted(PUBLISH_ENV_KEYS):
+        if key == "SSH_PATH":
+            continue  # not written; canonical is SSH_ROOT
+        value = os.environ.get(key, "").strip()
+        if not value:
+            continue
+        if key == "SSH_ROOT" and value in {"", "/"}:
+            value = "."
+        lines.append(f"{key}={value}")
+        wrote = True
+    if not wrote:
+        return False
+    if not any(line.startswith("SSH_ROOT=") for line in lines):
+        # Prefer SSH_ROOT=. (login cwd). SSH_PATH panel paths often ENOENT in SFTP.
+        lines.append("SSH_ROOT=.")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print("OK wrote missing memory/site.env.local from process env (gitignored)", file=sys.stderr)
+    return True
+
+
 def load_env(root: Path) -> dict[str, str]:
+    ensure_site_env_local(root)
     env = _read_env_file(root / "memory/site.env.local")
     for key in PUBLISH_ENV_KEYS:
         value = os.environ.get(key)
@@ -55,6 +85,20 @@ def load_env(root: Path) -> dict[str, str]:
             env[key] = value
     if not env.get("SSH_PASS") and env.get("SSH_PASSWORD"):
         env["SSH_PASS"] = env["SSH_PASSWORD"]
+    if not env.get("SSH_ROOT"):
+        # Canonical Cloud Secret is SSH_ROOT=.. SSH_PATH is a non-canonical alias
+        # (often a panel public_html path that does not exist in SFTP cwd).
+        ssh_path = (env.get("SSH_PATH") or os.environ.get("SSH_PATH") or "").strip()
+        if ssh_path in {".", "./"}:
+            env["SSH_ROOT"] = "."
+        else:
+            env["SSH_ROOT"] = "."
+            if ssh_path:
+                print(
+                    "WARN SSH_ROOT unset; defaulting to '.' "
+                    "(SSH_PATH ignored for publish root — set Cloud Secret SSH_ROOT=.).",
+                    file=sys.stderr,
+                )
     return env
 
 
@@ -71,19 +115,35 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
     return missing
 
 
+def paramiko_available() -> bool:
+    try:
+        import importlib.util
+
+        return importlib.util.find_spec("paramiko") is not None
+    except Exception:  # noqa: BLE001
+        return False
+
+
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
     root_label = ssh_root_label(env)
+    missing = validate_publish_env(env)
+    has_paramiko = paramiko_available()
+    if not has_paramiko:
+        missing = list(missing) + ["paramiko"]
     return {
         "allow_publish": env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes",
         "public_site_url_configured": bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")),
+        "paramiko_available": has_paramiko,
+        "site_env_local_present": (project_root() / "memory/site.env.local").is_file(),
         "ssh": {
             "host_configured": bool(env.get("SSH_HOST")),
             "user_configured": bool(env.get("SSH_USER")),
             "password_configured": bool(env.get("SSH_PASS") or env.get("SSH_PASSWORD")),
             "root": root_label,
             "dot_fallback_enabled": root_label == "configured-non-dot",
+            "default_root_hint": ".",
         },
-        "missing": validate_publish_env(env),
+        "missing": missing,
     }
 
 
@@ -195,6 +255,7 @@ def load_article(article_dir: Path) -> dict:
     import re
     img_srcs = re.findall(r'<img\s+[^>]*src=["\']([^"\']+)["\']', content)
     inline_images = []
+    missing_local_imgs: list[str] = []
     for src in img_srcs:
         if not src.startswith(("http://", "https://", "data:")):
             local_path = article_dir / src
@@ -206,6 +267,15 @@ def load_article(article_dir: Path) -> dict:
                     "b64": b64_data,
                     "filename": local_path.name
                 })
+            else:
+                missing_local_imgs.append(src)
+    if missing_local_imgs:
+        print(
+            "WARN missing local inline <img> files (upload will skip): "
+            + ", ".join(missing_local_imgs[:12])
+            + ("…" if len(missing_local_imgs) > 12 else ""),
+            file=sys.stderr,
+        )
 
     wp_post_id = meta.get("wp_post_id") or meta.get("post_id")
     result_path = article_dir / "wp-publish-result.json"

@@ -1,0 +1,129 @@
+{
+  "article": "memory/blog/articles/B01-toyota-raize-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 17,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 16,
+  "facts": [
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "Увидели на Дроме \"Raize Z 2023 4WD\" за приятную цену и уже тянет поставить? Типич",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2021",
+      "kind": "date_or_year",
+      "context": "а A201A), а турбо 1.0 после смены линейки в конце 2021 идёт в паре с 4WD (A210A). Гибрид A202A отсекайте",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2023 года",
+      "kind": "date_or_year",
+      "context": "торый ломает поиск: хотите \"турбо и городской 2WD 2023 года\" – на свежем рынке такой связки почти нет. После",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2022",
+      "kind": "date_or_year",
+      "context": "город, ровный асфальт, экономия базовый shortlist 2022–2023 A210A 1.0T (996 см³, ~98 л.с.), 4WD зима, гр",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "1 июля; год и месяц – 15-е число месяца. На осень 2026 при известном месяце октябрь–декабрь 2023 ещё могу",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2024",
+      "kind": "date_or_year",
+      "context": "факты сверены со спецификациями Toyota JP (нояб. 2024), toyota-club.net по кодам кузова, разборами прох",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 лет",
+      "kind": "metric_or_duration",
+      "context": "тор или месяц, который на дату растаможки ещё \"до 3 лет\". Райз – компактный кроссовер Toyota (платформа D",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 минут",
+      "kind": "metric_or_duration",
+      "context": "кроссовер, не семейный \"автобус\". Делайте так: за 5 минут выберите сценарий – только город; зима и грунтовк",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 лет",
+      "kind": "metric_or_duration",
+      "context": "ыть \"до 3 лет\", а январь–сентябрь 2023 – группа 3–5 лет. Соседние месяцы одного \"2023\" бьют по платежам п",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3995",
+      "kind": "large_number",
+      "context": "енарию По заводским цифрам Toyota JP: длина около 3995 мм, ширина 1695, высота 1620, клиренс 185 мм, пять",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1695",
+      "kind": "large_number",
+      "context": "ким цифрам Toyota JP: длина около 3995 мм, ширина 1695, высота 1620, клиренс 185 мм, пять мест. Это горо",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1620",
+      "kind": "large_number",
+      "context": "yota JP: длина около 3995 мм, ширина 1695, высота 1620, клиренс 185 мм, пять мест. Это городской кроссов",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "185",
+      "kind": "large_number",
+      "context": "около 3995 мм, ширина 1695, высота 1620, клиренс 185 мм, пять мест. Это городской кроссовер, не семейны",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1196",
+      "kind": "large_number",
+      "context": "/ привод Кому брать Вердикт до ставки A201A 1.2 (1196 см³, ~87 л.с.), FWD город, ровный асфальт, экономи",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "996",
+      "kind": "large_number",
+      "context": "экономия базовый shortlist 2022–2023 A210A 1.0T (996 см³, ~98 л.с.), 4WD зима, грунтовка, полный привод",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "же и чуть прожорливее. Обе бензиновые версии ниже 160 л.с. и попадают в зону льготного утильсбора для фи",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1000",
+      "kind": "large_number",
+      "context": "та 3–5 лет ступень единой ставки ниже у мотора до 1000 см³ (1.0), чем у 1.2. Это не повод брать турбо без",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

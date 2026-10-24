@@ -81,3 +81,4 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
 * Выдумывание цифр спроса без вызова Wordstat API.
+* Отсутствует `shared/wp-slug-denylist.json` (или пустой `slugs`) при доступном LIVE WP REST — **блокер**: восстанови denylist из WP `/wp-json/wp/v2/posts` (+ pages) перед выбором slug. Ledger `published-articles.md` один недостаточен против LIVE дублей.

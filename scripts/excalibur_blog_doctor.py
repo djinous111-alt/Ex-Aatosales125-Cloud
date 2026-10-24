@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import os
 import subprocess
 import sys
@@ -132,7 +133,22 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check("--out-dir" in llms_help.stdout, "llms generator supports --out-dir", errors, warnings)
+    check("--blog-path" not in llms_help.stdout, "llms generator has no stale --blog-path", errors, warnings)
+
+    check(module_available("paramiko"), "paramiko importable (publish SSH)", errors, warnings, warn=not args.publish)
+
+    denylist = root / "shared/wp-slug-denylist.json"
+    if denylist.is_file():
+        try:
+            denylist_data = json.loads(denylist.read_text(encoding="utf-8"))
+            slug_count = len(denylist_data.get("slugs") or [])
+            check(slug_count > 0, f"wp-slug-denylist.json has slugs ({slug_count})", errors, warnings)
+        except (OSError, json.JSONDecodeError, TypeError, AttributeError) as exc:
+            check(False, f"wp-slug-denylist.json parseable ({exc})", errors, warnings)
+    else:
+        check(False, "shared/wp-slug-denylist.json exists", errors, warnings)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

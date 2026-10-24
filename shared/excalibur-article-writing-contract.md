@@ -235,6 +235,12 @@ Excalibur BLOG следует этому контракту для каждой 
 2–3 предложения **только если** уместно по теме. Бери URL и формулировку из `conversion-tracking-map.md` / `offers-map.md`.  
 Не больше **3** упоминаний основного офера/CTA на статью (включая баннер и «что дальше»).
 
+
+Публичные CTA (`CATALOG_URL`, `TELEGRAM_URL`) допустимы в `article.html`. На строке с URL обязателен `<!-- pragma: allowlist secret -->`.
+Запрещены placeholder href: `[REDACTED]`, `${CATALOG_URL}`, `YOUR_*`, `example.com` — html-linter и GEO QA link-verify вернут FAIL (`kind=placeholder`).
+Если `conversion-map.md` содержит литерал `[REDACTED]`, бери URL из env Cloud Secrets.
+
+
 ### Блок 5: Inline-баннер (опционально)
 
 **Только если** в `conversion-tracking-map.md` есть `excalibur_inline_banner: yes` и `banner_image_url` + `banner_link_url`.

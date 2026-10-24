@@ -184,3 +184,27 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Toyota Raize из Японии: комплектации и ловушки
+
+- **priority:** P0
+- **slug:** toyota-raize-iz-yaponii-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Toyota Raize из Японии: моторы 1.0T/1.2, 4WD и ловушки до ставки в 2026
+- **primary_query:** как выбрать toyota raize из японии
+- **secondary_queries:** тойота райз из японии, тойота райз комплектации, toyota raize 1.0, тойота райз владивосток
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Кому вообще подходит Raize: город, клиренс, лимит по пассажирам и багажу
+  2. Моторы и привод до ставки: 1.0T vs 1.2, FF vs 4WD, что смотреть в аукционном листе
+  3. Комплектации X / G / Z: какие опции реально нужны в РФ, а за что не стоит переплачивать
+  4. Ловушки до ставки: месяц выпуска и проходной возраст, оценка кузова, перекрас, пробег
+  5. Чек-лист перед ставкой: 10 пунктов, без которых лот не трогаем
+- **faq_hints:** чем 1.0T отличается от 1.2 по растаможке; нужен ли 4WD для города; как понять проходной месяц выпуска Raize; что смотреть в аукционном листе первым
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** компактный кроссовер Toyota Raize у порта Владивостока, герой Авто-Сейлс с плашкой "до ставки", угол avto-sales125.ru
+- **wordstat_signal:** parent "авто из японии" 108k; brand "тойота райз" 44k / "toyota raize" 17k; narrow "тойота райз из японии" 323; "тойота райз комплектации" 1.1k
+- **live_denylist_check:** slug FREE; Latin+Cyrillic WP search без dedicated Raize-поста; не пересекается с Oct LIVE model-гайдами

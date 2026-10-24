@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "До ставки: код кузова важнее названия",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у компактного Toyota Raize в порту Владивостока: крючок про ловушки до ставки, угол avto-sales125.ru",
+      "scene_hint": "WEATHER: cool misty Vladivostok port morning, light sea fog, grey-blue harbor light (NOT deep winter blizzard); OUTFIT_FROM_HERO_WEATHER: matte navy technical field jacket + charcoal knit base layer + dark jeans (CHANGE from reference tank/shearling), NO cap NO hood NO hoodie, keep glasses; EXACT face likeness from reference; action selfie next to compact modern Toyota Raize crossover (Japan→Vladivostok vibe); fake auction sheet scrap taped with scotch showing body-code trap A202A vs A210A; torn paper Cyrillic plaque «До ставки: код кузова важнее названия» with yellow highlighter on «код кузова»; sticky note «не по заголовку лота»; shocked meme cutout + facepalm sticker (different formats, no toxic labels); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics",
+      "meme_caption_ru": "Сначала код кузова"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Проверьте, подходит ли вам Raize по размеру и сценарию",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable checklist board for Raize fit: 1) только город 2) зима+грунтовка → 4WD 3) семья/коляска → проверить багаж 4) клиренс 185 мм 5) длина ~4 м; red stamp «не ваш размер — другая модель»; pink sticky «сценарий»; scotch tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Чеклист: подходит ли Toyota Raize по размеру и сценарию использования"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Выберите мотор и привод по коду кузова, а не по заголовку лота",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake Japanese auction sheet / lot UI mock: big Cyrillic labels A201A=1.2 FWD, A210A=1.0T 4WD, A202A=hybrid; crossed-out flashy lot title «Raize Z 4WD»; sticky «смотри код кузова»; tape corner; NO hero face; NO Wordstat/Metrika",
+      "alt": "Мокап аукционного листа: коды кузова A201A, A210A, A202A важнее заголовка лота"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Сравните комплектации X, G и Z под климат РФ",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI columns X | G | Z; rows LED/климат/диски/подогрев/Smart Assist for RF climate; yellow highlight row «под зиму РФ»; mini catalog card tape corner; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица комплектаций Toyota Raize X, G и Z под климат РФ"
+    }
+  }
+}

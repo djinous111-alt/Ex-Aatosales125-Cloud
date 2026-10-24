@@ -79,6 +79,8 @@ python scripts/excalibur_blog_utility_gate.py \
 
 **Blocker `UTILITY ARTICLE BLOCKER`** — writer правит (FIX), QA не PASS.
 
+Маркеры боли/результата: `pain_markers_ru` / `outcome_markers_ru` в `memory/brief/editorial-policy.json` должны совпадать с `PAIN_MARKERS` / `OUTCOME_MARKERS` в `scripts/excalibur_blog_human_voice_gate.py`. Пустые списки в policy → utility_gate даёт warning (fail-soft), не ложный BLOCK по `pain_markers=0`.
+
 Плюс slop-detector (вода/штампы).
 
 ## Как провернуть без воды (чеклист редактора)

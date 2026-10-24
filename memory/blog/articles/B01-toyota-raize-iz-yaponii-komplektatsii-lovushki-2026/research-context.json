@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-24",
+    "today_ru": "24.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-26",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-24 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "toyota-raize-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Toyota Raize из Японии: моторы 1.0T/1.2, 4WD и ловушки до ставки в 2026",
+    "primary_query": "как выбрать toyota raize из японии",
+    "secondary_queries": [
+      "тойота райз из японии",
+      "тойота райз комплектации",
+      "toyota raize 1.0",
+      "тойота райз владивосток"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "как выбрать toyota raize из японии 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "как выбрать toyota raize из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "как выбрать toyota raize из японии новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com как выбрать toyota raize из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "как выбрать toyota raize из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "как выбрать toyota raize из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "тойота райз из японии 2026",
+      "purpose": "вторичный запрос: тойота райз из японии"
+    },
+    {
+      "id": "secondary_2",
+      "query": "тойота райз комплектации 2026",
+      "purpose": "вторичный запрос: тойота райз комплектации"
+    },
+    {
+      "id": "secondary_3",
+      "query": "toyota raize 1.0 2026",
+      "purpose": "вторичный запрос: toyota raize 1.0"
+    },
+    {
+      "id": "secondary_4",
+      "query": "тойота райз владивосток 2026",
+      "purpose": "вторичный запрос: тойота райз владивосток"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать Toyota Raize из Японии: моторы 1.0T/1.2, 4WD и ловушки до ставки в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-toyota-raize-iz-yaponii-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

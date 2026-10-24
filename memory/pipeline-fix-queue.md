@@ -30,6 +30,7 @@ category: docs
 - Добавить в scout/preflight явный blocker, если denylist отсутствует, а LIVE REST доступен.
 - Синхронизировать `shared/published-articles.md` с LIVE WP (или генерировать denylist в `research_start` / indexer post-publish).
 - Поправить drift scout skill/agent: ниша Авто-Сейлс, не Cursor/Make/ИИ.
+- Pre-commit hook падает на `CLOUD_AGENT_INJECTED_SECRET_NAMES` с invalid variable name: документировать workaround `export CLOUD_AGENT_INJECTED_SECRET_NAMES=` (и ALL) перед `git commit` в Cloud.
 
 ### Suggested files to inspect/change
 - `shared/wp-slug-denylist.json`

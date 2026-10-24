@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-1304-scout-wp-slug-denylist-missing
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- На ветке отсутствовал `shared/wp-slug-denylist.json`, хотя scout обязан сверять новые slug с LIVE WP и recent skip list.
+- Без файла риск повторно выбрать уже опубликованную модель (на LIVE уже Raize/Stepwgn/Vezel и др.).
+
+### How the agent recovered this run
+- Выгрузил все посты через `PUBLIC_SITE_URL` REST `wp/v2/posts` (1214 slug; pages=0).
+- Восстановил `shared/wp-slug-denylist.json` со всеми slug + `recent_skip_slugs` (80 новейших) + director reject prefixes.
+- Выбрал Honda Freed (нет в LIVE); Raize из прошлых scout-notes уже LIVE – отклонён.
+
+### Durable fix needed before next run
+- Закоммитить denylist в репозиторий и держать обновление после каждого publish (Indexer/Publish hook или doctor check).
+- Добавить в scout helper проверку `--check-slug` против denylist + recent skip.
+- Зафиксировать в scout skill: MCP `wordpress_*` не единственный источник denylist; при отсутствии файла – REST rebuild + incident.
+
+### Suggested files to inspect/change
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

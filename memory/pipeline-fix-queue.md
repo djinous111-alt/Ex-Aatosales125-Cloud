@@ -39,6 +39,38 @@ category: api
 ### Fixer resolution
 - pending
 
+## INC-20261025-2110-scout-precommit-invalid-secret-name
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- First `git commit` failed in Cloud pre-commit secrets scanner: `pre-commit.cursor` expands `${!SECRET_NAME}` and crashes with `invalid variable name` when `CLOUD_AGENT_INJECTED_SECRET_NAMES` contains a non-identifier secret name.
+- On this branch `scripts/excalibur_blog_filter_secret_names.sh` / `scripts/excalibur_git.sh` are absent, so there was no repo helper to sanitize names before commit.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` (and `CLOUD_AGENT_ALL_SECRET_NAMES`) to valid bash identifiers in the shell session, then re-ran commit successfully (`819d4923`).
+
+### Durable fix needed before next run
+- Restore or add `scripts/excalibur_blog_filter_secret_names.sh` + document `source` before every Cloud git commit.
+- Prefer fixing the pre-commit scanner to skip non-identifier names instead of aborting the whole commit.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `scripts/excalibur_git.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261025-2106-scout-missing-wp-slug-denylist
 status: open
 run_date: 2026-10-25

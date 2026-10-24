@@ -26,11 +26,21 @@ Append new Topic Card to blog-topics.md
 
 ## Подробный алгоритм действий
 
+### Шаг 0 — WP slug denylist (обязательно)
+* Файл `shared/wp-slug-denylist.json` должен существовать с непустым `slugs[]` **до** выбора нового slug.
+* Проверка / восстановление:
+  ```bash
+  python3 scripts/excalibur_blog_wp_slug_denylist.py --check
+  # если missing/empty:
+  python3 scripts/excalibur_blog_wp_slug_denylist.py --rebuild
+  ```
+* Doctor тоже FAIL без denylist. В git коммить только slugs + метаданные источника (без полных secret URL).
+
 ### Шаг 1 — Анализ прошлого и получение ID
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
   Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
 

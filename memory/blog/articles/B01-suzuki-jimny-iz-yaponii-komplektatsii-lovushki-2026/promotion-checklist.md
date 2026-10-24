@@ -1,15 +1,15 @@
 # Promotion checklist — B01 suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-24 (planned; pre-publish)  
-Live URL: /blog/suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-24  
+Live URL: https://avtosales125.ru/2026/10/24/suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
-- [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
-- [ ] Проверить internal links из статьи (200)
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (WP post 4507; HEAD 200)
+- [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin; schema_meta=1 на post)
+- [x] Проверить internal links из статьи (200) — link-verify pass pre-publish
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
 
 ## Соцсети / каналы (из conversion-tracking-map)

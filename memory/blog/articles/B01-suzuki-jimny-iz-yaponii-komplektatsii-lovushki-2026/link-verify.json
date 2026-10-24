@@ -14,16 +14,13 @@
       "skipped": false
     },
     {
-      "url": "env:TELEGRAM_URL",
+      "url": "https://t.me/avtosales125",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "external",
-      "skipped": false,
-      "url_note": "value omitted from git; live HEAD 200 during GEO QA",
-      "verified_ok": true
+      "skipped": false
     }
-  ],
-  "secret_redaction": "TELEGRAM_URL omitted from committed report"
+  ]
 }

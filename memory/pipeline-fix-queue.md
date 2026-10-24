@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-1735-publish-paramiko-missing-cloud-install
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `import paramiko` failed in Cloud VM (`ModuleNotFoundError`) before SSH publish.
+- `.cursor/cloud-agent-install.sh` / environment install often still omits `paramiko` despite `requirements.txt` (repeat of INC-20261024-1340 and earlier).
+- `memory/site.env.local` was missing at publish start (gitignored); had to materialize from Cloud Secrets.
+
+### How the agent recovered this run
+- `python3 -m pip install --break-system-packages paramiko` → 5.1.0.
+- Wrote `memory/site.env.local` from env (no quotes; `SSH_ROOT=.`; `SSH_PASS` from `SSH_PASSWORD`).
+- Publish Jimny only: post 4507; HTTP OK without FALLBACK.
+
+### Durable fix needed before next run
+- Ensure `paramiko` is installed in `.cursor/cloud-agent-install.sh` / `environment.json` install and verified by doctor `--publish`.
+- Optional: doctor `--env-check` should fail clearly if paramiko missing (not only at SSH import time).
+- Document site.env.local bootstrap from Cloud Secrets in publish skill (already in publish-patterns memory).
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/environment.json`
+- `requirements.txt`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_wp_publish.py` (`--env-check` import paramiko)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261024-1727-indexer-doctor-llms-blog-path-mismatch
 status: open
 run_date: 2026-10-24

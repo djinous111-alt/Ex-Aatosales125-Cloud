@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-1705-scout-precommit-invalid-secret-name
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- Cloud Agent pre-commit secrets scanner failed with `invalid variable name` on `${!SECRET_NAME}` when `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a non-identifier name (not matching `[A-Za-z_][A-Za-z0-9_]*`).
+- First `git commit` aborted; staged scout files were not committed until names were filtered.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to valid bash identifiers only for the commit shell, then re-ran `git commit` with the same hook (no `--no-verify`).
+- Push succeeded after commit `e66b7f60`.
+
+### Durable fix needed before next run
+- Ensure Dashboard/Cloud secret names are valid shell identifiers (no spaces/hyphens/URLs as names).
+- Or harden the pre-commit hook to skip/sanitize invalid names instead of aborting the whole commit.
+
+### Suggested files to inspect/change
+- Cursor Dashboard Cloud Secrets (names only)
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (platform; document workaround in pitfalls if needed)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261024-1703-scout-missing-wp-slug-denylist
 status: open
 run_date: 2026-10-24

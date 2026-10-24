@@ -131,7 +131,9 @@ python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
-Пишет `cover/quad-mcp-result.json` / `cover/kie-image-task.json`. Sync MCP `gpt-image-2` — **legacy fallback** только если Kie script недоступен; при `-32001` не делай слепой retry.
+Пишет `cover/quad-mcp-result.json` / `cover/kie-image-task.json`.
+
+Если live discovery `MCP-KV` = `namespaceStatus: error` (или sync `gpt-image-2` недоступен) — **сразу** Kie async script (не только при `-32001`). Sync MCP `gpt-image-2` — legacy fallback только если Kie script недоступен; при `-32001` не делай слепой retry. Допиши incident при MCP-KV error.
 
 `input_urls` обязан быть **https** (hero_reference_url: catbox → 0x0 → litterbox; http WP URL = stale → upgrade/rehost).
 

@@ -74,15 +74,16 @@ python3 scripts/excalibur_blog_wp_publish.py \
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
 - расширяет `env:` плейсхолдеры в `schema.jsonld` / HTML и пишет post meta `_excalibur_blog_schema_jsonld`.
 
-### 4. Cloud WebFetch Fallback
+### 4. Cloud WebFetch Fallback + REST reconstruct
 
 Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
 
-1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+1. Скрипт сначала пробует **REST reconstruct** по `slug` (`/wp-json/wp/v2/posts?slug=…`) — если пост уже LIVE, **не** делай второй HTTP/FALLBACK trigger (иначе дубли media `*-1.png`).
+2. Иначе печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
+3. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
+4. Скрипт читает ответ; **nginx 504/502 HTML ≠ success** (не пиши HTML в webfetch-response как OK). Снова REST reconstruct, если slug LIVE.
 
-**Не останавливайся** на первом timeout — используй fallback.
+HTTP timeout в скрипте ≈300s (крупный bootstrap ~6MB). **Не republish** LIVE пост после успешного reconstruct.
 
 ### 5. Post-publish артефакты
 

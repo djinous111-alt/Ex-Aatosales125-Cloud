@@ -27,6 +27,7 @@
 - `memory/site.env.local` gitignored — на старте publish материализуй из Cloud Secrets (`SSH_PASS` ← `SSH_PASSWORD`, `SSH_ROOT=.`), не печатай значения.
 - В git `schema.jsonld` / link-verify держи `env:PUBLIC_SITE_URL` (и др.); publish расширяет плейсхолдеры перед WP meta. Абсолютный host из secrets в staged files → COMMIT BLOCKED.
 - SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
+- HTTP trigger timeout для большого bootstrap (~6MB) — 300s. При timeout/nginx **504** сначала REST reconstruct по slug; **не** второй overlapping trigger (дубли media `*-1.png`). 504 HTML в `webfetch-response.txt` ≠ success.
 
 ## Writer / Fact Check Box
 
@@ -44,15 +45,19 @@
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- MCP-KV / sync `gpt-image-2` `namespaceStatus: error` → сразу `excalibur_blog_kie_gpt_image2_api.py` (async Kie), не только при `-32001`.
+- После split `excalibur_blog_cover_quad_split.py` по умолчанию PIL-штампует угол `avto-sales125.ru` на `cover.png`.
 
 ## Scout
 
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- MCP-KV `namespaceStatus: error` / Wordstat unavailable → non-blocking: LIVE denylist + Autostat/WebSearch; impressions `n/a`; допиши incident (не выдумывай объёмы).
 - До выбора slug обязателен `shared/wp-slug-denylist.json` (doctor FAIL если нет). Restore: `python3 scripts/excalibur_blog_wp_slug_denylist.py --rebuild`.
 
 ## Research
 
 - `research_notes_gate` technical_topic: короткие маркеры `ии`/`ai` матчятся как токены (word-boundary). Подстрока «Японии»/«комплектации» больше не делает авто-тему technical.
+- Wordstat MCP error path = тот же non-blocking fallback, что у Scout (`⚠️ WORDSTAT AUTH WARNING` + incident).
 
 ## Indexer
 

@@ -134,6 +134,10 @@ def main() -> int:
         check=False,
     )
     check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check("--out-dir" in llms_help.stdout, "llms generator supports --out-dir", errors, warnings)
+    check("--blog-path" not in llms_help.stdout, "llms generator has no stale --blog-path", errors, warnings)
+
+    check(module_available("paramiko"), "paramiko importable (publish SSH)", errors, warnings, warn=not args.publish)
 
     denylist = root / "shared/wp-slug-denylist.json"
     if denylist.is_file():

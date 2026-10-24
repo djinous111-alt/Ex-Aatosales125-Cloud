@@ -35,6 +35,23 @@ def detect_anchor_toc(html: str) -> list[str]:
     return errors
 
 
+def detect_placeholder_hrefs(html: str) -> list[str]:
+    """Fail if article has literal redacted/placeholder CTA hrefs."""
+    errors: list[str] = []
+    pattern = re.compile(
+        r"""href\s*=\s*["']([^"']*(?:\[REDACTED\]|\$\{?(?:CATALOG_URL|TELEGRAM_URL|PUBLIC_SITE_URL)\}?|YOUR_[A-Z0-9_]+|TODO_URL|REPLACE_ME|example\.com)[^"']*)["']""",
+        flags=re.I,
+    )
+    for match in pattern.finditer(html):
+        href = match.group(1)
+        errors.append(
+            f"Forbidden placeholder CTA href={href!r}. "
+            "Use live env CATALOG_URL/TELEGRAM_URL (+ <!-- pragma: allowlist secret -->); "
+            "do not write literal [REDACTED] into article.html."
+        )
+    return errors
+
+
 def detect_duplicate_faq_sections(html: str) -> list[str]:
     """Fail if article has more than one FAQ heading block."""
     errors: list[str] = []
@@ -122,6 +139,7 @@ def lint_html_file(html_path: Path, whitelist: set[str]) -> dict[str, Any]:
     linter.check_unclosed_tags()
     linter.errors.extend(detect_anchor_toc(html_content))
     linter.errors.extend(detect_duplicate_faq_sections(html_content))
+    linter.errors.extend(detect_placeholder_hrefs(html_content))
 
     return {
         "file": str(html_path.name),

@@ -31,3 +31,16 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-24 — B01 honda-freed-iz-yaponii-komplektatsii-lovushki-2026
+
+- **verdict:** PASS
+- **post_id:** 4501
+- **permalink:** [REDACTED]/2026/10/24/honda-freed-iz-yaponii-komplektatsii-lovushki-2026/
+- **featured_image:** 4502
+- **inline_images:** 4503 (`inline-01.png`), 4504 (`inline-02.png`), 4505 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH/SFTP (paramiko) + HTTP trigger OK (no WebFetch fallback)
+- **note:** first attempt failed `ModuleNotFoundError: paramiko`; installed via `pip3 install --break-system-packages paramiko`; cloud-agent-install.sh missing paramiko despite requirements.txt
+- **result:** `memory/blog/articles/B01-honda-freed-iz-yaponii-komplektatsii-lovushki-2026/wp-publish-result.json`

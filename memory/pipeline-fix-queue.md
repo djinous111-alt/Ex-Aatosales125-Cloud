@@ -539,3 +539,37 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261024-1340-publish-paramiko-missing-from-cloud-install
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-freed-iz-yaponii-komplektatsii-lovushki-2026
+severity: high
+category: env
+
+### What went wrong
+- `excalibur_blog_wp_publish.py` failed on first publish: `ModuleNotFoundError: No module named 'paramiko'`.
+- `requirements.txt` lists `paramiko`, but `.cursor/cloud-agent-install.sh` installs only `requests pillow python-dotenv`.
+- `apt-get install python3-paramiko` unavailable in this image.
+
+### How the agent recovered this run
+- Installed with `pip3 install --break-system-packages paramiko` (paramiko 5.1.0).
+- Retried publish → PASS (post 4501, featured 4502, inline 4503–4505).
+
+### Durable fix needed before next run
+- Add `paramiko` to `.cursor/cloud-agent-install.sh` pip install list (and environment.json install if separate).
+- Optionally have `excalibur_blog_wp_publish.py --env-check` verify `import paramiko` and fail early with clear blocker.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/environment.json`
+- `scripts/excalibur_blog_wp_publish.py` (`--env-check`)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

@@ -1,7 +1,8 @@
 # Promotion checklist — B01 honda-freed-iz-yaponii-komplektatsii-lovushki-2026
 
 Дата публикации: 2026-10-24  
-Live URL: /blog/honda-freed-iz-yaponii-komplektatsii-lovushki-2026/
+Live URL: https://avtosales125.ru/2026/10/24/honda-freed-iz-yaponii-komplektatsii-lovushki-2026/
+WP post_id: 4501
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

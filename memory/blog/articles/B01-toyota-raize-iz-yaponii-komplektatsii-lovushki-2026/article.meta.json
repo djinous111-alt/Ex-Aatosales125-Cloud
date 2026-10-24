@@ -29,12 +29,16 @@
     "description_aeo": "Toyota Raize из Японии выбирают по коду кузова (A201A 1.2 FWD или A210A 1.0T 4WD), месяцу выпуска под дату декларации и аукционному листу до ставки."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 72,
+    "verdict": "FAIL",
     "date": "2026-10-24",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility_gate": "BLOCK",
+    "link_verify": "FAIL",
+    "research_notes_gate": "PASS"
   },
   "cover_family": "brand_collage"
 }

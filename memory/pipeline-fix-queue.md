@@ -6,6 +6,114 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-0920-geo-qa-typed-task-missing
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-raize-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Cloud API не принял typed Task `excalibur-blog-geo-qa`.
+- Директор запустил роль через fallback `Task(generalPurpose)` с путями `.cursor/agents/excalibur-blog-geo-qa.md` и `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+
+### How the agent recovered this run
+- Выполнил полный GEO QA контракт в generalPurpose (все скрипты + article-qa.md).
+- Не делал cover/schema; не правил текст статьи.
+
+### Durable fix needed before next run
+- Зарегистрировать / починить typed Task type `excalibur-blog-geo-qa` в Cloud automation config.
+- В runbook явно держать fallback: один `generalPurpose` = одна роль + пути agent/skill.
+
+### Suggested files to inspect/change
+- `CLOUD-AUTOMATION.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/pipeline-task-map.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261024-0921-geo-qa-utility-pain-outcome-markers-missing
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-raize-iz-yaponii-komplektatsii-lovushki-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` читает `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json`.
+- В policy этих ключей нет → списки пустые → `pain_markers=0`, `outcome_markers=0` всегда → `UTILITY ARTICLE BLOCKER` при `min_pain_markers=2` / `min_outcome_markers=3`.
+- При этом `excalibur_blog_human_voice_gate.py` использует hardcoded PAIN/OUTCOME маркеры и для B01 дал PASS (боль/результат в тексте есть).
+
+### How the agent recovered this run
+- Зафиксировал BLOCK в `utility-gate-report.json` и `article-qa.md` verdict FAIL.
+- Не правил статью под несуществующие маркеры; вернул Writer FIX только по реальным контент-багам (CTA href).
+- Durable fix отдал fixer: синхронизировать policy с human-voice маркерами или не считать min при пустом списке.
+
+### Durable fix needed before next run
+- Добавить в `editorial-policy.json` `pain_markers_ru` / `outcome_markers_ru` (канон — списки из human_voice_gate) и при необходимости `min_*` в `article_required_signals`.
+- Либо в utility_gate: если markers list пуст — skip / warning, не BLOCK.
+- Regression: прогон utility gate на AS09/B01 после фикса.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261024-0922-writer-cta-href-literal-redacted
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-raize-iz-yaponii-komplektatsii-lovushki-2026
+severity: high
+category: qa
+
+### What went wrong
+- В `article.html` три CTA записаны как литерал `href="[REDACTED]"` (не маскировка логов — байты файла = `[REDACTED]`).
+- `excalibur_blog_link_verify.py` → verdict fail, HTTP 404 на все ссылки.
+- Вероятная причина: Writer/oversensitive secret hygiene подставил placeholder вместо URL из conversion-map/fact-bank.
+
+### How the agent recovered this run
+- Не правил HTML (зона Writer FIX).
+- Описал FIX в `article-qa.md`: восстановить каталог + Telegram URL из brief; ≤3 CTA.
+
+### Durable fix needed before next run
+- В writer contract/skill: запрет литерала `[REDACTED]` / `YOUR_*` в `href`; CTA брать из `memory/brief/conversion-map.md` / fact-bank.
+- Preflight или html-linter warning на `href="[REDACTED]"`.
+- Pitfalls: не путать redaction в handoff/логах с содержимым article.html.
+
+### Suggested files to inspect/change
+- `shared/excalibur-article-writing-contract.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_html_linter.py` (optional check)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261024-0930-writer-precommit-secret-names-format
 status: open
 run_date: 2026-10-24

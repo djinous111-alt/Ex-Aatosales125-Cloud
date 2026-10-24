@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/B01-honda-fit-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 5,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "депозита: что проходное для прямого вывоза в РФ в 2026, чем GP1/GP4 отличаются от GP5/GP6 и e:HEV, как ч",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2022",
+      "kind": "date_or_year",
+      "context": "к при непроходной силовой. Представьте сцену: Fit 2022 \"HYBRID\", пробег \"как новый\", бюджет уже прикинут",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "бензин, мягкий гибрид и e:HEV на листе С августа 2023 Япония ограничила экспорт в РФ легковых авто с ДВС",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1900",
+      "kind": "date_or_year",
+      "context": "ограничила экспорт в РФ легковых авто с ДВС свыше 1900 см³, гибридов, PHEV и электромобилей. Для Fit объё",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2024",
+      "kind": "date_or_year",
+      "context": "1/GP4 – мягкий гибрид IMA; по уточнениям практики 2024+ мягкие не в той же корзине, что полные, но не де",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "9 973",
+      "kind": "large_number",
+      "context": "одкам Autostat за январь–август 2026 модель около 9 973 штук и третье место после Freed и Stepwgn. Конкуре",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

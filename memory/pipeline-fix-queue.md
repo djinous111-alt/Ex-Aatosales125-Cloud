@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261025-2130-geo-qa-utility-pain-markers-empty
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-fit-iz-yaponii-komplektatsii-lovushki-2026
+severity: blocker
+category: qa
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` считает `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json` и требует min 2 / 3 (defaults), но в policy этих списков нет → всегда `pain_markers=0`, `outcome_markers=0`.
+- На том же `article.html` human-voice gate PASS (свои hardcoded PAIN_MARKERS / OUTCOME_MARKERS).
+- Регрессия подтверждена: AS08/AS09 с прежним PASS тоже дают utility BLOCK на текущем tip.
+
+### How the agent recovered this run
+- GEO QA зафиксировал FAIL (utility mandatory), не правил `article.html`.
+- Описал FIX: Fixer добавляет маркеры в policy (выровнять с human-voice); Writer убирает ярлык `TL;DR / Быстрый инсайт` и при необходимости слегка правит длины списков.
+
+### Durable fix needed before next run
+- Добавить в `editorial-policy.json` `pain_markers_ru` / `outcome_markers_ru` (и опционально `min_pain_markers` / `min_outcome_markers`) в согласии с `excalibur_blog_human_voice_gate.py`.
+- Либо: если списки пусты — не применять min-пороги (skip check).
+- Документировать в pitfalls/QA, что utility и human-voice должны делить один набор маркеров.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-geo-qa/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261025-0017-research-mcp-kv-wordstat-unavailable
 status: open
 run_date: 2026-10-25

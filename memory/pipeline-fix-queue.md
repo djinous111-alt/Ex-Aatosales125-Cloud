@@ -6,6 +6,72 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261025-2105-scout-mcp-kv-wordstat-unavailable
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: api
+
+### What went wrong
+- MCP namespace `MCP-KV` returned `namespaceStatus: error` during live tool discovery; `wordstat_get_top_requests` was unavailable for cluster-first demand validation.
+- Scout could not fetch Yandex Wordstat totals/phrases for parent clusters (авто из японии / кореи / китая) or narrow how-to queries.
+
+### How the agent recovered this run
+- Continued without blocking: used LIVE WP slug denylist (1216 unique posts), WebSearch Autostat Q1 2026 Japan import ranking, and competitor/auction demand pages.
+- Selected Honda Fit (Autostat top-3 RHD Japan used imports; no LIVE model slug) with utility checklist angle; utility gate PASS for B01.
+
+### Durable fix needed before next run
+- Restore MCP-KV / Wordstat auth and discovery so Scout can call `wordstat_get_top_requests` cluster-first.
+- Document Scout fallback contract when MCP-KV is in error state (LIVE denylist + Autostat/WebSearch evidence, still append incident).
+
+### Suggested files to inspect/change
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- MCP config for MCP-KV / Wordstat (`${env:...}` secrets)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261025-2106-scout-missing-wp-slug-denylist
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- On this branch (`origin/main` tip without Jimny/Freed fixer merge) `shared/wp-slug-denylist.json` and `scripts/excalibur_blog_wp_slug_denylist.py` are absent.
+- Scout helper `--check-query` only sees `## Bxx` cards and ledger AS* rows; it does not replace a LIVE WP slug denylist for model cannibalization.
+
+### How the agent recovered this run
+- Rebuilt denylist at runtime from `PUBLIC_SITE_URL` `wp-json/wp/v2/posts` pagination (1216 unique slugs).
+- Rejected LIVE models (Jimny, Freed, Raize, Stepwgn, Vezel, Sonata, K5, Sportage, Seltos, Coolray, CX-5, Harrier, Monjaro, Carnival, etc.) before choosing Fit.
+
+### Durable fix needed before next run
+- Merge or restore `shared/wp-slug-denylist.json` + helper script on the default branch used by Cloud scout runs.
+- Teach Scout skill to treat missing denylist as required LIVE REST rebuild + incident (not silent skip).
+
+### Suggested files to inspect/change
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_wp_slug_denylist.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

@@ -14,22 +14,27 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short tokens need word-boundary matching so "pain" / "reader_pain" do not
+# falsely trigger technical_topic via substring "ai".
+TECH_MARKERS_WORD = (
     "ai",
     "ии",
+    "api",
+    "rag",
+    "mcp",
+    "n8n",
+)
+TECH_MARKERS_SUBSTR = (
     "agent",
     "агент",
-    "mcp",
-    "api",
     "cursor",
-    "make",
-    "n8n",
-    "github",
     "docker",
-    "rag",
+    "github",
     "workflow",
     "автоматизац",
     "нейросет",
+    "make.com",
+    "n8n.io",
 )
 
 
@@ -74,13 +79,51 @@ def has_wordstat(text_lower: str) -> bool:
 
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect tech/automation topics without false positives from reader_pain text."""
     topic = context.get("topic") or {}
+    # Prefer structured topic fields; strip reader_pain/outcome blocks from notes sample.
+    notes_sample = notes[:2500]
+    notes_sample = re.sub(
+        r"(?is)(?:^|\n)\s*(?:[-*]\s*)?(?:\*\*)?(?:reader[_ ]?pain|reader[_ ]?outcome|боль читателя)(?:\*\*)?\s*:.*",
+        " ",
+        notes_sample,
+    )
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    blob += " " + notes_sample.lower()
+    for marker in TECH_MARKERS_WORD:
+        if re.search(rf"(?<![a-zа-яё0-9_]){re.escape(marker)}(?![a-zа-яё0-9_])", blob, flags=re.I):
+            return True
+    return any(marker in blob for marker in TECH_MARKERS_SUBSTR)
+
+
+def count_accessed_at(text: str) -> int:
+    """Count source access dates from `accessed_at:` literals and markdown table cells."""
+    text_lower = text.lower()
+    literal = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    # Table rows: | source | url | 2026-10-22 | ... | under an accessed_at header
+    header = re.search(
+        r"^\s*\|[^\n]*\baccessed_at\b[^\n]*\|\s*$",
+        text_lower,
+        flags=re.M,
+    )
+    table_dates = 0
+    if header:
+        # Count ISO dates in subsequent table rows until blank / non-table
+        start = header.end()
+        rest = text[start:]
+        for line in rest.splitlines():
+            if not line.strip().startswith("|"):
+                if line.strip():
+                    break
+                continue
+            if re.match(r"^\s*\|\s*[-:| ]+\|\s*$", line):
+                continue
+            table_dates += len(re.findall(r"\b20\d{2}-\d{2}-\d{2}\b", line))
+    # Prefer the stronger signal; avoid double-counting the same log.
+    return max(literal, table_dates)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,9 +173,23 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    # Data rows must contain pain/solution/result keywords; bare header "| pain | solution |" alone is not enough.
+    pain_map_rows = 0
+    for line in text_lower.splitlines():
+        if not line.strip().startswith("|"):
+            continue
+        if re.match(r"^\s*\|\s*[-:| ]+\|\s*$", line):
+            continue
+        if not re.search(r"(?:боль|pain|решение|solution|result|результат)", line):
+            continue
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        # Skip header-only rows where every cell is just a column label.
+        labels = {"pain", "solution", "result", "боль", "решение", "результат", "outcome", "итог"}
+        if cells and all((c in labels or c.replace("_", " ") in labels) for c in cells if c):
+            continue
+        pain_map_rows += 1
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:

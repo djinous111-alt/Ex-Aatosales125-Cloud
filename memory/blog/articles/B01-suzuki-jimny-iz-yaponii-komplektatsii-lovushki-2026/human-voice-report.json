@@ -1,0 +1,127 @@
+{
+  "gate": "human-voice",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026",
+  "errors": [],
+  "warnings": [
+    "Fact Check block uses a repeated template; vary wording while preserving facts",
+    "multiple exactly-5-step lists detected; vary list size when editorially possible"
+  ],
+  "metrics": {
+    "h2_count": 6,
+    "repeated_h2_openers": [],
+    "textbook_h2_count": 0,
+    "paragraph_count": 25,
+    "paragraph_avg_words": 33.5,
+    "paragraph_variance_ratio": 0.44,
+    "concrete_markers": [
+      "например",
+      "на практике",
+      "типичная ошибка",
+      "в реальном проекте"
+    ],
+    "pain_markers": [
+      "боль",
+      "ошиб"
+    ],
+    "outcome_markers": [
+      "получите",
+      "проверьте",
+      "соберите",
+      "выберите"
+    ],
+    "ai_opening_hits": [],
+    "reader_story_overlap": [
+      "5-дверный",
+      "jimny",
+      "nomade",
+      "sierra",
+      "готов",
+      "депозит",
+      "карту",
+      "коррозии",
+      "красивым",
+      "кузова",
+      "листа",
+      "листе",
+      "оценкой",
+      "пометками",
+      "посредника",
+      "рекламе",
+      "сначала",
+      "старый",
+      "статьи",
+      "яркий"
+    ],
+    "reader_pain_overlap": [
+      "jimny",
+      "sierra",
+      "аукциона",
+      "листа",
+      "осмотра",
+      "оценку",
+      "перепутать",
+      "японии"
+    ],
+    "reader_outcome_overlap": [
+      "jimny",
+      "nomade",
+      "sierra",
+      "вслепую",
+      "депозита",
+      "карту",
+      "кузова",
+      "листа",
+      "новичок",
+      "оплаты",
+      "оценку",
+      "пройти",
+      "прочитать",
+      "пунктов",
+      "ставки"
+    ],
+    "success_criteria_overlap": [
+      "lift-up",
+      "telegram",
+      "днищу",
+      "карта",
+      "каталог",
+      "красные",
+      "кузова",
+      "отмечены",
+      "оценка",
+      "перед",
+      "прочитаны",
+      "расчётом",
+      "сверен",
+      "следующий",
+      "ставкой",
+      "флаги"
+    ],
+    "voice_angle_overlap": [
+      "авто-сейлс",
+      "объявлении",
+      "пошлин",
+      "ставка",
+      "эксперт"
+    ],
+    "surprising_fact_overlap": [
+      "japan",
+      "jimny",
+      "nomade",
+      "sierra",
+      "suzuki",
+      "автостата",
+      "апреля",
+      "дверей",
+      "импорта",
+      "модели",
+      "разные",
+      "сиерра",
+      "стабильно",
+      "японии"
+    ],
+    "exactly_five_lists": 2,
+    "fact_check_template_blocks": 1
+  }
+}

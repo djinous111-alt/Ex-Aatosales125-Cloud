@@ -1,0 +1,29 @@
+{
+  "source": "memory/blog/articles/B01-suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "total_links": 2,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "https://avto-sales125.ru",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "env:TELEGRAM_URL",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false,
+      "url_note": "value omitted from git; live HEAD 200 during GEO QA",
+      "verified_ok": true
+    }
+  ],
+  "secret_redaction": "TELEGRAM_URL omitted from committed report"
+}

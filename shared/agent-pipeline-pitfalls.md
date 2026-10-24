@@ -34,6 +34,7 @@
 - MCP URLs в production article.html → fix перед publish.
 - `article.html` должен проходить whitelist HTML-линтера: `<pre>`/`<code>` запрещены, пока не добавлены в whitelist; код/шаблоны оформляй через blockquote/table/list.
 - Cannibalization guard CLI: `--blog-dir memory/blog/articles -o <article_dir>/cannibalization-report.json`, не `--article-dir`.
+- `excalibur_blog_utility_gate.py` требует `pain_markers_ru` / `outcome_markers_ru` в `memory/brief/editorial-policy.json`; при пустых списках дефолты `min_pain_markers=2` / `min_outcome_markers=3` дают ложный BLOCK. Не чинить longread — сначала проверить policy.
 
 ## Cover
 

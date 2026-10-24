@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-1716-geo-qa-utility-missing-pain-outcome-markers
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026
+severity: high
+category: qa
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` вернул BLOCK: `pain_markers=0 < 2`, `outcome_markers=0 < 3` на валидной статье B01.
+- В `memory/brief/editorial-policy.json` не было ключей `pain_markers_ru` / `outcome_markers_ru`, а скрипт при отсутствии `min_pain_markers` / `min_outcome_markers` подставляет дефолты 2 и 3 → любой article.html получал ложный BLOCK.
+- Human-voice gate при этом уже PASS (свои встроенные маркеры), расхождение контрактов.
+
+### How the agent recovered this run
+- Longread не переписывался.
+- В `memory/brief/editorial-policy.json` добавлены `pain_markers_ru`, `outcome_markers_ru` и явные `min_pain_markers` / `min_outcome_markers` (согласовано с human-voice).
+- Повтор utility gate: PASS (pain=13, outcome=12).
+- Урок записан в `shared/agent-pipeline-pitfalls.md` (секция QA).
+
+### Durable fix needed before next run
+- Держать списки маркеров utility и human-voice синхронными (общий модуль или единый JSON).
+- В скрипте: если список маркеров пуст — warning + skip check, а не hard BLOCK с дефолтным min.
+- Regression: utility gate на фикстуре без policy-маркеров не должен BLOCK из-за пустого списка.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_human_voice_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261024-1710-research-tech-marker-ii-false-positive
 status: open
 run_date: 2026-10-24
@@ -358,3 +395,17 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261024-1715-director-geo-qa-task-type-missing
+
+- **status:** open
+- **severity:** medium
+- **run_date:** 2026-10-24
+- **topic_id:** B01
+- **stage:** geo-qa
+- **symptom:** Cloud Task API rejected subagent_type `excalibur-blog-geo-qa` (not in allowed enum); fallback Task(generalPurpose) used.
+- **expected:** typed Task `excalibur-blog-geo-qa` available like research/writer/cover.
+- **workaround:** Director launched generalPurpose with `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`.
+- **durable_fix_target:** ensure `.cursor/agents/excalibur-blog-geo-qa.md` is registered in Cloud Task types / agent catalog; document fallback in AGENTS.md if intentional.
+- **reported_by:** director
+

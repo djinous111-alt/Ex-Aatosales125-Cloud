@@ -25,6 +25,7 @@ category: qa
 - В `memory/brief/editorial-policy.json` добавлены `pain_markers_ru`, `outcome_markers_ru` и явные `min_pain_markers` / `min_outcome_markers` (согласовано с human-voice).
 - Повтор utility gate: PASS (pain=13, outcome=12).
 - Урок записан в `shared/agent-pipeline-pitfalls.md` (секция QA).
+- Commit hygiene: в `link-verify.json` значение `TELEGRAM_URL` заменено на `env:TELEGRAM_URL` (live HEAD 200), иначе pre-commit secrets scanner блокировал commit.
 
 ### Durable fix needed before next run
 - Держать списки маркеров utility и human-voice синхронными (общий модуль или единый JSON).

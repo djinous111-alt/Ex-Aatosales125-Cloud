@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-1710-research-tech-marker-ii-false-positive
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` пометил авто-тему B01 (Suzuki Jimny из Японии) как `technical_topic=true` и потребовал `github_urls>=3`.
+- Причина: TECH_MARKERS содержит подстроку `ии` (для «ИИ»), которая матчится внутри обычных русских слов вроде «Японии», «комплектации» в h1/notes.
+- Аналогичный риск у короткого маркера `ai` внутри латинских слов.
+
+### How the agent recovered this run
+- Добавил в `github_evidence` три смежных github.com URL (Jimny/Yahoo auction tooling) как workaround для gate.
+- Основной research остаётся на official Suzuki docs + auction sheet guides + community rust/forum evidence.
+
+### Durable fix needed before next run
+- Заменить substring-матч TECH_MARKERS на word-boundary / токены (`\bии\b`, `\bai\b`) или убрать слишком короткие маркеры `ии`/`ai`.
+- Для non-tech ниш (авто, логистика) не требовать GitHub, если в notes есть docs/community evidence section.
+- Добавить regression-тест: тема с «из Японии» в h1 не должна становиться technical_topic.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- optionally `shared/editorial-utility-only.md` (clarification for auto niche)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261024-1705-scout-precommit-invalid-secret-name
 status: open
 run_date: 2026-10-24

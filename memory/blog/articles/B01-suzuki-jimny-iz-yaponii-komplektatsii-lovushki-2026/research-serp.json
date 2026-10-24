@@ -1,0 +1,567 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-24",
+    "today_ru": "24.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-26",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-24 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Suzuki Jimny из Японии: комплектации, ловушки аукциона и чек-лист до ставки 2026",
+    "primary_query": "сузуки джимни из японии",
+    "secondary_queries": [
+      "сузуки джимни из японии купить",
+      "сузуки джимни владивосток",
+      "сузуки джимни сиерра",
+      "сузуки джимни 5 дверей",
+      "suzuki jimny из японии"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "сузуки джимни из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "сузуки джимни из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Продажа Suzuki Jimny 2026 года с аукционов Японии: цена и фото",
+          "url": "https://sferacar.ru/statistika/suzuki/jimny/?year_from=2026&year_to=2026",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Suzuki Jimny Из Японии С Аукциона Без Пробега По Рф - Каталог ...",
+          "url": "https://autosender.ru/japan-auto/suzuki/jimny",
+          "snippet": "В данном разделе представлены автомобили Suzuki Jimny 2026 года с аукционов Японии. Цены указаны в рублях уже с учётом всех расходов: затрат в Японии, доставки в Россию, брокерских услуг, пошлины и СВХ."
+        },
+        {
+          "title": "Suzuki Jimny из Японии: цена и растаможка — калькулятор 2026",
+          "url": "https://auto-rul.ru/calculate-rastamogka-japan/Suzuki-Jimny-rastamogka",
+          "snippet": "Вы можете выбрать и купить новые и б/у SUZUKI JIMNY из каталога - все автомобили с реальными фотографиями, техническими характеристиками, описанием и окончательными ценами."
+        },
+        {
+          "title": "Купить Сузуки Джимни 2026 года с аукциона Японии - Токай Авто",
+          "url": "https://tokai-auto.ru/suzuki/jimny/?year_from=2026&year_to=2026",
+          "snippet": "Расчёт растаможки Suzuki Jimny из Японии в Россию: пошлина, сборы, поколения, модификации и характеристики. Предварительные данные на 2026 год."
+        },
+        {
+          "title": "Suzuki Jimny из Японии: цена, особенности привоза и реальный спрос в ...",
+          "url": "https://onlyjpcars.ru/blog/suzuki-jimny-iz-yaponii",
+          "snippet": "Список лотов Сузуки Джимни 2026 года на online аукционах Японии, наши специалисты помогут с выбором и покупкой автомобиля с аукциона Японии"
+        },
+        {
+          "title": "Статистика продаж Suzuki Jimny 2026 года из Японии",
+          "url": "https://bravomotorrs.com/statistika/suzuki/jimny/?year_from=2026&year_to=2026",
+          "snippet": "Привоз Suzuki Jimny (JB64/JB74) из Японии под ключ в Сибирь: цены аукционов, дефицит на рынке, льготный утильсбор. Ориентировочно от 1,4 млн ₽. Если и есть автомобиль, который сложнее всего достать на японских аукционах в последние годы, — это Suzuki Jimny четвёртого поколения."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "сузуки джимни из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "SUZUKI JIMNY 2026 из Японии за 1 150 000 - Rutube",
+          "url": "https://rutube.ru/video/9ebc1d3d2cc1be8ab42a2639dbf634db/",
+          "snippet": ""
+        },
+        {
+          "title": "Suzuki Jimny из Японии: цена, особенности привоза и реальный спрос в ...",
+          "url": "https://onlyjpcars.ru/blog/suzuki-jimny-iz-yaponii",
+          "snippet": "В этом видео показываем Suzuki Jimny JB64, который мы привезли из Японии для нашего клиента в России. Автомобиль был куплен на аукционе Японии с оценкой 4,5 балла, пробегом 60 000 км и доставлен под ключ за 1 150 000 ₽ в 2026 году."
+        },
+        {
+          "title": "Suzuki Jimny 2026: полный обзор, плюсы и минусы",
+          "url": "https://avtospart.ru/blog/articles/detail/suzuki-jimny-2026",
+          "snippet": "Привоз Suzuki Jimny (JB64/JB74) из Японии под ключ в Сибирь: цены аукционов, дефицит на рынке, льготный утильсбор. Ориентировочно от 1,4 млн ₽. Если и есть автомобиль, который сложнее всего достать на японских аукционах в последние годы, — это Suzuki Jimny четвёртого поколения."
+        },
+        {
+          "title": "Обновленный Suzuki Jimny Nomade 2026 представлен в Японии",
+          "url": "https://avtozen.ru/obnovlennyj-suzuki-jimny-nomade-2026-predstavlen-v-yaponii/",
+          "snippet": "Полный обзор Suzuki Jimny 2026: салон, характеристики, комплектации, расход, обслуживание, плюсы и минусы. Для кого подойдёт этот внедорожник."
+        },
+        {
+          "title": "Новости Suzuki Jimny",
+          "url": "https://news.drom.ru/suzuki/jimny/",
+          "snippet": "Компания Suzuki анонсировала выпуск обновленной версии своего рамного внедорожника Jimny, который теперь называется Nomade и предназначен для рынка Японии в модели 2026 года. Новинка получила значительные улучшения в области технологий и комфорта."
+        },
+        {
+          "title": "Suzuki Jimny большой 2026 - НОВОСТИ В МИРЕ АВТОМОБИЛЕЙ",
+          "url": "https://automarino.ru/suzuki-jimny-bolshoy-2026/",
+          "snippet": "Актуально сегодня: На Москвиче начали собирать новый электромобиль, У RAV4 появились две новые версии, а также Эксперты подсчитали, сколько «пиратских» BMW российской сборки продали в 2025-м."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com сузуки джимни из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "сузуки джимни из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "PDF 20326_20943_14402_jimny 3-door_brochure_july 2026",
+          "url": "https://cars.webeng.co/wp-content/uploads/2026/10/suzuki-jimny-brochure-20261022.pdf",
+          "snippet": ""
+        },
+        {
+          "title": "Руководство по эксплуатации SUZUKI Jimny: книги по ремонту, инструкции ...",
+          "url": "https://www.avtogermes.ru/servis/suzuki/jimny/obsluzhivanie/download/",
+          "snippet": "THE HERITAGE OF THREE GENERATIONS For over 50 years, the Jimny 3-Door's unique off -road abilities have brought driving satisfaction. The new generation builds on this legacy, making the Jimny a vehicle truly born for adventure."
+        },
+        {
+          "title": "Сузуки Джимни 2026 технические характеристики. Suzuki Jimny 2026 ...",
+          "url": "https://www.drom.ru/catalog/suzuki/jimny/2026/",
+          "snippet": "Техническая документация для автомобилей SUZUKI Jimny: сервисные книги, инструкции по эксплуатации, сетка и регламент обслуживания, ремонт и руководство пользователя."
+        },
+        {
+          "title": "Официальный сайт Suzuki: японские автомобили и мотоциклы",
+          "url": "https://suzuki-motor.ru/",
+          "snippet": "Подробно расписан модельный ряд Suzuki Jimny 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Suzuki Jimny 2026: полный обзор, плюсы и минусы",
+          "url": "https://avtospart.ru/blog/articles/detail/suzuki-jimny-2026",
+          "snippet": "Официальный сайт Suzuki в России, Беларуси и Казахстане. Модели и цены на новые автомобили и мотоциклы, оригинальные запчасти и аксессуары Suzuki."
+        },
+        {
+          "title": "JIMNY | AUTOMOBILE |Global Suzuki",
+          "url": "https://www.globalsuzuki.com/automobile/lineup/jimny/",
+          "snippet": "Полный обзор Suzuki Jimny 2026: салон, характеристики, комплектации, расход, обслуживание, плюсы и минусы. Для кого подойдёт этот внедорожник."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "сузуки джимни из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Сузуки Джимни 2026 отзывы владельцев - поломки и проблемы",
+          "url": "https://www.drom.ru/reviews/suzuki/jimny/5kopeek/2026-all/breakages/",
+          "snippet": ""
+        },
+        {
+          "title": "Suzuki Jimny 2026 вопросы, ответы и жалобы владельцев",
+          "url": "https://www.drom.ru/faq/suzuki/jimny/?year=2026",
+          "snippet": "Отзывы владельцев Сузуки Джимни 2026 - поломки и проблемы. Опыт эксплуатации реальных владельцев автомобилей Сузуки Джимни: поломки, минусы, недостатки и проблемы."
+        },
+        {
+          "title": "Suzuki Jimny owners of Reddit",
+          "url": "https://www.reddit.com/r/Jimny/",
+          "snippet": "Вопросы и ответы по Suzuki Jimny 2026. Обсуждение проблем и дефектов, о которых сообщили владельцы Jimny. Всё о ремонте и эксплуатации автомобиля Suzuki Jimny."
+        },
+        {
+          "title": "Suzuki Jimny из Японии: цена, особенности привоза и реальный спрос в ...",
+          "url": "https://onlyjpcars.ru/blog/suzuki-jimny-iz-yaponii",
+          "snippet": "I'm 41 years old, married and father of a 3-year-old son. I would like to know if the Jimny can also be a vehicle for a (small) family. I don't like the Jimny with 4 doors (Maruti), little engine for a lot of weight. Anyone who has a wife and child to tell me about their experience and encourage me to buy the Suzuki?"
+        },
+        {
+          "title": "Бортжурнал Suzuki Jimny - клуб, форум о Сузуки Джимни на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/suzuki/jimny/",
+          "snippet": "Привоз Suzuki Jimny (JB64/JB74) из Японии под ключ в Сибирь: цены аукционов, дефицит на рынке, льготный утильсбор. Ориентировочно от 1,4 млн ₽. Если и есть автомобиль, который сложнее всего достать на японских аукционах в последние годы, — это Suzuki Jimny четвёртого поколения."
+        },
+        {
+          "title": "Jimny - SUZUKI CLUB RUSSIA",
+          "url": "https://suzuki-club.ru/forums/suzuki-jimny/",
+          "snippet": "Бортжурнал Suzuki Jimny: реальные истории, опыт эксплуатации и обслуживания. Читайте в Бортжурнале Авто.ру"
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "сузуки джимни из японии купить 2026",
+      "purpose": "вторичный запрос: сузуки джимни из японии купить",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Купить Сузуки Джимни JC74, JB64 2026 в России: продажа Suzuki Jimny ...",
+          "url": "https://auto.drom.ru/suzuki/jimny/generation4/year-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Suzuki Jimny Из Японии С Аукциона Без Пробега По Рф - Каталог ...",
+          "url": "https://autosender.ru/japan-auto/suzuki/jimny",
+          "snippet": "Suzuki Jimny, 2026 Nomade 1.5 FC 4WD 1.5 л (102 л.с.), бензин, механика, 4WD в наличии в Японии"
+        },
+        {
+          "title": "Купить Suzuki Jimny из Японии — ⚡ Цены в РФ, каталог, статистика",
+          "url": "https://jplife.ru/statistic/suzuki/jimny/",
+          "snippet": "Как купить автомобиль SUZUKI JIMNY с японского аукциона? Продажа автомобилей SUZUKI JIMNY с надежных аукционов Японии на заказ напрямую без посредников берем на себя все функции брокера помогаем выбрать, осуществляем ..."
+        },
+        {
+          "title": "Продажа Suzuki Jimny 2026 года с аукционов Японии: цена и фото",
+          "url": "https://sferacar.ru/statistika/suzuki/jimny/?year_from=2026&year_to=2026",
+          "snippet": "Мы предоставляем возможность приобрести Suzuki Jimny напрямую с Японского аукциона без посредников. В статистике представлены автомобили из исторического архива продаж Японских аукционов. Наш менеджер поможет подобрать авто в Ваш бюджет и с необходимыми характеристиками без пробега по РФ."
+        },
+        {
+          "title": "Купить Suzuki Jimny Nomade Из Японии С Аукциона Без Пробега По Рф ...",
+          "url": "https://autosender.ru/japan-auto/suzuki/jimny-nomade",
+          "snippet": "В данном разделе представлены автомобили Suzuki Jimny 2026 года с аукционов Японии. Цены указаны в рублях уже с учётом всех расходов: затрат в Японии, доставки в Россию, брокерских услуг, пошлины и СВХ."
+        },
+        {
+          "title": "Купить Сузуки Джимни 2026 в России: продажа Suzuki Jimny 2026 года с ...",
+          "url": "https://auto.drom.ru/suzuki/jimny/year-2026/",
+          "snippet": "Вы можете выбрать и купить новые и б/у SUZUKI JIMNY NOMADE из каталога - все автомобили с реальными фотографиями, техническими характеристиками, описанием и окончательными ценами."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "сузуки джимни владивосток 2026",
+      "purpose": "вторичный запрос: сузуки джимни владивосток",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "сузуки джимни сиерра 2026",
+      "purpose": "вторичный запрос: сузуки джимни сиерра",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Сузуки Джимни Сиерра 2026 технические характеристики. Suzuki Jimny ...",
+          "url": "https://www.drom.ru/catalog/suzuki/jimny_sierra/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Сузуки Джимни 2026 технические характеристики. Suzuki Jimny 2026 ...",
+          "url": "https://www.drom.ru/catalog/suzuki/jimny/2026/",
+          "snippet": "Подробно расписан модельный ряд Suzuki Jimny Sierra 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Купить Suzuki Jimny Sierra 4-местный 2026 года выпуска",
+          "url": "https://auto.ru/cars/suzuki/jimny-sierra/2026-year/all/seats-4/",
+          "snippet": "Подробно расписан модельный ряд Suzuki Jimny 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Сузуки Джимни 2026 между собой."
+        },
+        {
+          "title": "Купить Suzuki Jimny 2026 года по цене от 1 699 000 рублей - более 81 ...",
+          "url": "https://auto.ru/cars/suzuki/jimny/2026-year/all/",
+          "snippet": "Полный модельный ряд Suzuki Jimny Sierra 2026 года 4 места по цене от 2 440 000 рублей - много Сузуки Джимни Sierra, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        },
+        {
+          "title": "Купить Сузуки Джимни Сиерра 2026 в России: продажа Suzuki Jimny Sierra ...",
+          "url": "https://auto.drom.ru/suzuki/jimny_sierra/year-2026/",
+          "snippet": "Полный модельный ряд Suzuki Jimny 2026 года по цене от 1 699 000 рублей - более 81 Сузуки Джимни, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        },
+        {
+          "title": "Сузуки Джимни новый: полный обзор 2026-2026, цены, характеристики",
+          "url": "https://crossdrive.vercel.app/articles/s/su/suzuki-dzhimni-novyj.html",
+          "snippet": "Объявления о продаже Сузуки Джимни Сиерра 2026 б/у и новых в России - частные объявления. Узнать стоимость Suzuki Jimny Sierra 2026 года и купить с пробегом на Дроме."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "сузуки джимни 5 дверей 2026",
+      "purpose": "вторичный запрос: сузуки джимни 5 дверей",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "secondary_5",
+      "query": "suzuki jimny из японии 2026",
+      "purpose": "вторичный запрос: suzuki jimny из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Сузуки Джимни 2026 технические характеристики. Suzuki Jimny 2026 ...",
+          "url": "https://www.drom.ru/catalog/suzuki/jimny/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Suzuki Jimny 2026: полный обзор, плюсы и минусы",
+          "url": "https://avtospart.ru/blog/articles/detail/suzuki-jimny-2026",
+          "snippet": "Подробно расписан модельный ряд Suzuki Jimny 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "SUZUKI JIMNY 2026 из Японии за 1 150 000 - Rutube",
+          "url": "https://rutube.ru/video/9ebc1d3d2cc1be8ab42a2639dbf634db/",
+          "snippet": "Полный обзор Suzuki Jimny 2026: салон, характеристики, комплектации, расход, обслуживание, плюсы и минусы. Для кого подойдёт этот внедорожник."
+        },
+        {
+          "title": "Купить Suzuki Jimny Из Японии С Аукциона Без Пробега По Рф - Каталог ...",
+          "url": "https://autosender.ru/japan-auto/suzuki/jimny",
+          "snippet": "В этом видео показываем Suzuki Jimny JB64, который мы привезли из Японии для нашего клиента в России. Автомобиль был куплен на аукционе Японии с оценкой 4,5 балла, пробегом 60 000 км и доставлен под ключ за 1 150 000 ₽ в 2026 году."
+        },
+        {
+          "title": "Купить Suzuki Jimny 2026 — параллельный импорт под ключ от 2 млн ₽ | CARTO",
+          "url": "https://carto-auto.ru/brand/suzuki/jimny/2026/",
+          "snippet": "Вы можете выбрать и купить новые и б/у SUZUKI JIMNY из каталога - все автомобили с реальными фотографиями, техническими характеристиками, описанием и окончательными ценами."
+        },
+        {
+          "title": "SUZUKI JIMNY 2026 из Японии за 1 150 000 - vkvideo.ru",
+          "url": "https://vkvideo.ru/video-46100047_456239034",
+          "snippet": "Купить Suzuki Jimny 2026 (Jimny 2026 — MY2026) с импортом из Японии и ОАЭ. Цена под ключ от 2 190 000 ₽. Внедорожник, 102 л.с., 4WD. Договор…"
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Suzuki Jimny из Японии: комплектации, ловушки аукциона и чек-лист до ставки 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Suzuki Jimny из Японии: обзор, цены, комплектации, поколения",
+          "url": "https://4ringcars.ru/13-suzuki-jimny-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+          "snippet": ""
+        },
+        {
+          "title": "Suzuki Jimny из Японии: поколения, комплектации, цены и аукционы",
+          "url": "https://avtomost-asia.ru/models/suzuki-jimny",
+          "snippet": "Suzuki Jimny — один из самых узнаваемых автомобилей на вторичном рынке Японии. Модель заслужила репутацию надёжного, практичного и экономичного транспортного средства, которое отлично ..."
+        },
+        {
+          "title": "Каталог Suzuki Jimny (Сузуки Джимни) из Японии — все комплектации и цены",
+          "url": "https://jpstar.ru/catalog/suzuki/jimny/",
+          "snippet": "Как выбрать Suzuki Jimny из Японии: версии, комплектации, поколения, преимущества и особенности. Условия ввоза и аукционы выбранной модели."
+        },
+        {
+          "title": "Suzuki Jimny из Японии: цена, особенности привоза и реальный спрос в ...",
+          "url": "https://onlyjpcars.ru/blog/suzuki-jimny-iz-yaponii",
+          "snippet": "Захотел я купить себе автомобиль из Японии, вопрос как это сделать?. Пересмотрел сотни роликов на ютубе, и свежих и те которым уже больше года, решил так сказать копнуть из далека!"
+        },
+        {
+          "title": "Suzuki Jimny из Японии — характеристики, комплектации и цены | Темп-А",
+          "url": "https://tempa-cars.ru/catalog/suzuki/jimny/",
+          "snippet": "Разберём технические особенности, текущую ситуацию с предложением на аукционах и итоговую стоимость привоза в Сибирь. С 2018 года Jimny выпускается в двух основных вариантах: JB64W — базовая версия для японского рынка, двигатель K15B 1,5 л, 102 л.с., 3-дверный кузов."
+        },
+        {
+          "title": "Suzuki Jimny - комплектации, характеристики, цены | YumeAuto",
+          "url": "https://yume-auto.ru/catalog/suzuki/jimny/",
+          "snippet": "На этой странице представлены ориентировочные цены на Suzuki Jimny из Японии с учётом основных расходов на покупку, доставку, растаможку и оформление в России."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://sferacar.ru/statistika/suzuki/jimny/?year_from=2026&year_to=2026",
+      "title": "Продажа Suzuki Jimny 2026 года с аукционов Японии: цена и фото",
+      "from_query": "сузуки джимни из японии октябрь 2026"
+    },
+    {
+      "url": "https://autosender.ru/japan-auto/suzuki/jimny",
+      "title": "Купить Suzuki Jimny Из Японии С Аукциона Без Пробега По Рф - Каталог ...",
+      "from_query": "сузуки джимни из японии октябрь 2026"
+    },
+    {
+      "url": "https://auto-rul.ru/calculate-rastamogka-japan/Suzuki-Jimny-rastamogka",
+      "title": "Suzuki Jimny из Японии: цена и растаможка — калькулятор 2026",
+      "from_query": "сузуки джимни из японии октябрь 2026"
+    },
+    {
+      "url": "https://tokai-auto.ru/suzuki/jimny/?year_from=2026&year_to=2026",
+      "title": "Купить Сузуки Джимни 2026 года с аукциона Японии - Токай Авто",
+      "from_query": "сузуки джимни из японии октябрь 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/suzuki-jimny-iz-yaponii",
+      "title": "Suzuki Jimny из Японии: цена, особенности привоза и реальный спрос в ...",
+      "from_query": "сузуки джимни из японии октябрь 2026"
+    },
+    {
+      "url": "https://bravomotorrs.com/statistika/suzuki/jimny/?year_from=2026&year_to=2026",
+      "title": "Статистика продаж Suzuki Jimny 2026 года из Японии",
+      "from_query": "сузуки джимни из японии октябрь 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/9ebc1d3d2cc1be8ab42a2639dbf634db/",
+      "title": "SUZUKI JIMNY 2026 из Японии за 1 150 000 - Rutube",
+      "from_query": "сузуки джимни из японии новости 2026"
+    },
+    {
+      "url": "https://avtospart.ru/blog/articles/detail/suzuki-jimny-2026",
+      "title": "Suzuki Jimny 2026: полный обзор, плюсы и минусы",
+      "from_query": "сузуки джимни из японии новости 2026"
+    },
+    {
+      "url": "https://avtozen.ru/obnovlennyj-suzuki-jimny-nomade-2026-predstavlen-v-yaponii/",
+      "title": "Обновленный Suzuki Jimny Nomade 2026 представлен в Японии",
+      "from_query": "сузуки джимни из японии новости 2026"
+    },
+    {
+      "url": "https://news.drom.ru/suzuki/jimny/",
+      "title": "Новости Suzuki Jimny",
+      "from_query": "сузуки джимни из японии новости 2026"
+    },
+    {
+      "url": "https://automarino.ru/suzuki-jimny-bolshoy-2026/",
+      "title": "Suzuki Jimny большой 2026 - НОВОСТИ В МИРЕ АВТОМОБИЛЕЙ",
+      "from_query": "сузуки джимни из японии новости 2026"
+    },
+    {
+      "url": "https://cars.webeng.co/wp-content/uploads/2026/10/suzuki-jimny-brochure-20261022.pdf",
+      "title": "PDF 20326_20943_14402_jimny 3-door_brochure_july 2026",
+      "from_query": "сузуки джимни из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.avtogermes.ru/servis/suzuki/jimny/obsluzhivanie/download/",
+      "title": "Руководство по эксплуатации SUZUKI Jimny: книги по ремонту, инструкции ...",
+      "from_query": "сузуки джимни из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/suzuki/jimny/2026/",
+      "title": "Сузуки Джимни 2026 технические характеристики. Suzuki Jimny 2026 ...",
+      "from_query": "сузуки джимни из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://suzuki-motor.ru/",
+      "title": "Официальный сайт Suzuki: японские автомобили и мотоциклы",
+      "from_query": "сузуки джимни из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.globalsuzuki.com/automobile/lineup/jimny/",
+      "title": "JIMNY | AUTOMOBILE |Global Suzuki",
+      "from_query": "сузуки джимни из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/suzuki/jimny/5kopeek/2026-all/breakages/",
+      "title": "Сузуки Джимни 2026 отзывы владельцев - поломки и проблемы",
+      "from_query": "сузуки джимни из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/faq/suzuki/jimny/?year=2026",
+      "title": "Suzuki Jimny 2026 вопросы, ответы и жалобы владельцев",
+      "from_query": "сузуки джимни из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.reddit.com/r/Jimny/",
+      "title": "Suzuki Jimny owners of Reddit",
+      "from_query": "сузуки джимни из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/suzuki/jimny/",
+      "title": "Бортжурнал Suzuki Jimny - клуб, форум о Сузуки Джимни на Авто.ру",
+      "from_query": "сузуки джимни из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://suzuki-club.ru/forums/suzuki-jimny/",
+      "title": "Jimny - SUZUKI CLUB RUSSIA",
+      "from_query": "сузуки джимни из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/suzuki/jimny/generation4/year-2026/",
+      "title": "Купить Сузуки Джимни JC74, JB64 2026 в России: продажа Suzuki Jimny ...",
+      "from_query": "сузуки джимни из японии купить 2026"
+    },
+    {
+      "url": "https://jplife.ru/statistic/suzuki/jimny/",
+      "title": "Купить Suzuki Jimny из Японии — ⚡ Цены в РФ, каталог, статистика",
+      "from_query": "сузуки джимни из японии купить 2026"
+    },
+    {
+      "url": "https://autosender.ru/japan-auto/suzuki/jimny-nomade",
+      "title": "Купить Suzuki Jimny Nomade Из Японии С Аукциона Без Пробега По Рф ...",
+      "from_query": "сузуки джимни из японии купить 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/suzuki/jimny/year-2026/",
+      "title": "Купить Сузуки Джимни 2026 в России: продажа Suzuki Jimny 2026 года с ...",
+      "from_query": "сузуки джимни из японии купить 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/suzuki/jimny_sierra/2026/",
+      "title": "Сузуки Джимни Сиерра 2026 технические характеристики. Suzuki Jimny ...",
+      "from_query": "сузуки джимни сиерра 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/suzuki/jimny-sierra/2026-year/all/seats-4/",
+      "title": "Купить Suzuki Jimny Sierra 4-местный 2026 года выпуска",
+      "from_query": "сузуки джимни сиерра 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/suzuki/jimny/2026-year/all/",
+      "title": "Купить Suzuki Jimny 2026 года по цене от 1 699 000 рублей - более 81 ...",
+      "from_query": "сузуки джимни сиерра 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/suzuki/jimny_sierra/year-2026/",
+      "title": "Купить Сузуки Джимни Сиерра 2026 в России: продажа Suzuki Jimny Sierra ...",
+      "from_query": "сузуки джимни сиерра 2026"
+    },
+    {
+      "url": "https://crossdrive.vercel.app/articles/s/su/suzuki-dzhimni-novyj.html",
+      "title": "Сузуки Джимни новый: полный обзор 2026-2026, цены, характеристики",
+      "from_query": "сузуки джимни сиерра 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/brand/suzuki/jimny/2026/",
+      "title": "Купить Suzuki Jimny 2026 — параллельный импорт под ключ от 2 млн ₽ | CARTO",
+      "from_query": "suzuki jimny из японии 2026"
+    },
+    {
+      "url": "https://vkvideo.ru/video-46100047_456239034",
+      "title": "SUZUKI JIMNY 2026 из Японии за 1 150 000 - vkvideo.ru",
+      "from_query": "suzuki jimny из японии 2026"
+    },
+    {
+      "url": "https://4ringcars.ru/13-suzuki-jimny-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+      "title": "Suzuki Jimny из Японии: обзор, цены, комплектации, поколения",
+      "from_query": "Как выбрать Suzuki Jimny из Японии: комплектации, ловушки аукциона и чек-лист до ставки 2026 2026"
+    },
+    {
+      "url": "https://avtomost-asia.ru/models/suzuki-jimny",
+      "title": "Suzuki Jimny из Японии: поколения, комплектации, цены и аукционы",
+      "from_query": "Как выбрать Suzuki Jimny из Японии: комплектации, ловушки аукциона и чек-лист до ставки 2026 2026"
+    },
+    {
+      "url": "https://jpstar.ru/catalog/suzuki/jimny/",
+      "title": "Каталог Suzuki Jimny (Сузуки Джимни) из Японии — все комплектации и цены",
+      "from_query": "Как выбрать Suzuki Jimny из Японии: комплектации, ловушки аукциона и чек-лист до ставки 2026 2026"
+    },
+    {
+      "url": "https://tempa-cars.ru/catalog/suzuki/jimny/",
+      "title": "Suzuki Jimny из Японии — характеристики, комплектации и цены | Темп-А",
+      "from_query": "Как выбрать Suzuki Jimny из Японии: комплектации, ловушки аукциона и чек-лист до ставки 2026 2026"
+    },
+    {
+      "url": "https://yume-auto.ru/catalog/suzuki/jimny/",
+      "title": "Suzuki Jimny - комплектации, характеристики, цены | YumeAuto",
+      "from_query": "Как выбрать Suzuki Jimny из Японии: комплектации, ловушки аукциона и чек-лист до ставки 2026 2026"
+    }
+  ]
+}

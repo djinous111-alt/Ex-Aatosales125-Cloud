@@ -1,0 +1,107 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-24",
+    "today_ru": "24.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-26",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-24 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Suzuki Jimny из Японии: комплектации, ловушки аукциона и чек-лист до ставки 2026",
+    "primary_query": "сузуки джимни из японии",
+    "secondary_queries": [
+      "сузуки джимни из японии купить",
+      "сузуки джимни владивосток",
+      "сузуки джимни сиерра",
+      "сузуки джимни 5 дверей",
+      "suzuki jimny из японии"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "сузуки джимни из японии 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "сузуки джимни из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "сузуки джимни из японии новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com сузуки джимни из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "сузуки джимни из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "сузуки джимни из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "сузуки джимни из японии купить 2026",
+      "purpose": "вторичный запрос: сузуки джимни из японии купить"
+    },
+    {
+      "id": "secondary_2",
+      "query": "сузуки джимни владивосток 2026",
+      "purpose": "вторичный запрос: сузуки джимни владивосток"
+    },
+    {
+      "id": "secondary_3",
+      "query": "сузуки джимни сиерра 2026",
+      "purpose": "вторичный запрос: сузуки джимни сиерра"
+    },
+    {
+      "id": "secondary_4",
+      "query": "сузуки джимни 5 дверей 2026",
+      "purpose": "вторичный запрос: сузуки джимни 5 дверей"
+    },
+    {
+      "id": "secondary_5",
+      "query": "suzuki jimny из японии 2026",
+      "purpose": "вторичный запрос: suzuki jimny из японии"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать Suzuki Jimny из Японии: комплектации, ловушки аукциона и чек-лист до ставки 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

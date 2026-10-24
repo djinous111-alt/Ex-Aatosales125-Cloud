@@ -1,0 +1,482 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-24",
+    "today_ru": "24.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-26",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-24 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "toyota-raize-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Toyota Raize из Японии: моторы 1.0T/1.2, 4WD и ловушки до ставки в 2026",
+    "primary_query": "как выбрать toyota raize из японии",
+    "secondary_queries": [
+      "тойота райз из японии",
+      "тойота райз комплектации",
+      "toyota raize 1.0",
+      "тойота райз владивосток"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "как выбрать toyota raize из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "как выбрать toyota raize из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Raize из Японии 2026: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-raize-iz-yaponii-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Raize из Японии: характеристики, клиренс и отзывы",
+          "url": "https://azway.ru/blog/toyota-raize-iz-yaponii-obzor",
+          "snippet": "Toyota Raize — компактный японский кроссовер с клиренсом 185 мм, выбором между турбомотором 1.0 с полным приводом и простым 1.2, льготным утильсбором и обычными сроками доставки."
+        },
+        {
+          "title": "Toyota Raize из Японии: бюджетный городской кроссовер за 800 тыс. - 1,4 ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-raize-iz-yaponii",
+          "snippet": "Проверим доступные машины в Японии, документы, состояние и подготовим полную смету до вашего города. Raize привлекает кроссоверной посадкой при габаритах компактного хэтчбека."
+        },
+        {
+          "title": "Toyota Raize из Японии под ключ: цена и растаможка | AZWAY",
+          "url": "https://azway.ru/cars-160hp/toyota-raize",
+          "snippet": "Toyota Raize (A200A, 2019-2023) из японских аукционов — 1.0 Turbo и гибрид, цены и растаможка 2026. Один из самых доступных свежих японских кроссоверов."
+        },
+        {
+          "title": "Toyota Raize под заказ из Японии / Стоит ли брать в 2026?",
+          "url": "https://rutube.ru/video/52f85ca805075756a7ecc724bde65ede/",
+          "snippet": "Toyota Raize — субкомпактный кроссовер, разработанный совместно с Daihatsu (платформа DNGA). Турбированный 1.0-литровый мотор обеспечивает 98 л.с. при расходе 5.5 л/100 км."
+        },
+        {
+          "title": "Toyota Raize 2026: цены, комплектации и где купить выгодно",
+          "url": "https://toyotabase.vercel.app/articles/k/ku/kupit-toyota-raize.html",
+          "snippet": "Смотрите видео онлайн «Toyota Raize под заказ из Японии / Стоит ли брать в 2026?» на канале «Autorium» в хорошем качестве и бесплатно, опубликованное 28 июля 2026 года в 3:48, длительностью 00:10:25, на видеохостинге RUTUBE."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "как выбрать toyota raize из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com как выбрать toyota raize из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "как выбрать toyota raize из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Raize из Японии: бюджетный городской кроссовер за 800 тыс. - 1,4 ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-raize-iz-yaponii",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Raize из Японии: характеристики, клиренс и отзывы",
+          "url": "https://azway.ru/blog/toyota-raize-iz-yaponii-obzor",
+          "snippet": "Toyota Raize — субкомпактный кроссовер японского рынка, который стал одним из бестселлеров в своём сегменте с момента дебюта в 2019 году. Небольшие размеры, высокая посадка, турбомотор или гибридная установка, и — главное — конкурентные цены на японских аукционах."
+        },
+        {
+          "title": "Toyota Raize из Японии 2026: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-raize-iz-yaponii-2026",
+          "snippet": "Нужна точная цена Toyota Raize? Проверим доступные машины в Японии, документы, состояние и подготовим полную смету до вашего города."
+        },
+        {
+          "title": "Растаможка авто из Японии в 2026: Просто и Понятно!",
+          "url": "https://club-mashin.ru/strahovanie-i-pravo/rastamozhka-toyota-iz-yaponii-v-2026-godu.html",
+          "snippet": "Toyota Raize — компактный японский кроссовер с клиренсом 185 мм, выбором между турбомотором 1.0 с полным приводом и простым 1.2, льготным утильсбором и обычными сроками доставки."
+        },
+        {
+          "title": "Toyota из Японии 2026: модельный ряд и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-iz-yaponii-2026",
+          "snippet": "Растаможка Toyota из Японии в 2026 году - это реально! Разбираемся в нюансах, помогаем избежать ошибок и экономим ваше время и деньги. Узнайте, как растаможить авто без головной боли!"
+        },
+        {
+          "title": "Заказать Toyota из Японии в 2026 году: Полный гид по покупке мечты без ...",
+          "url": "https://vitavto.ru/2026/03/zakazat-toyota-iz-yaponii-v-2026-godu-polnyj-gid-po-pokupke-mechty-bez-pereplat/",
+          "snippet": "Какую Toyota привезти из Японии в 2026: девять моделей с годом и пробегом лота, Roomy и Sienta для семьи, Raize и Harrier, почему Camry и RAV4 без льготы."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "как выбрать toyota raize из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "тойота райз из японии 2026",
+      "purpose": "вторичный запрос: тойота райз из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Райз 2026 технические характеристики. Toyota Raize 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/raize/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Toyota Raize 2026 года - много Тойота Райз 2026 года на Авто.ру",
+          "url": "https://auto.ru/cars/toyota/raize/2026-year/all/",
+          "snippet": "Подробно расписан модельный ряд Toyota Raize 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Райз 2026 между собой."
+        },
+        {
+          "title": "Toyota Raize из Японии 2026: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-raize-iz-yaponii-2026",
+          "snippet": "Полный модельный ряд Toyota Raize 2026 года - много Тойота Райз, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        },
+        {
+          "title": "Toyota из Японии 2026: модельный ряд и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-iz-yaponii-2026",
+          "snippet": "Toyota Raize — компактный японский кроссовер с клиренсом 185 мм, выбором между турбомотором 1.0 с полным приводом и простым 1.2, льготным утильсбором и обычными сроками доставки."
+        },
+        {
+          "title": "Купить Toyota Raize из Японии — ⚡ Цены в РФ, каталог, статистика",
+          "url": "https://jplife.ru/statistic/toyota/raize/",
+          "snippet": "Какую Toyota привезти из Японии в 2026: девять моделей с годом и пробегом лота, Roomy и Sienta для семьи, Raize и Harrier, почему Camry и RAV4 без льготы."
+        },
+        {
+          "title": "Toyota Raize обзор и характеристики: сильные и слабые стороны ...",
+          "url": "https://avtoservis.online/toyota/toyota-raize-obzor-i-harakteristiki/",
+          "snippet": "В данном разделе Вы можете ознакомиться с ценами на TOYOTA RAIZE различных комплектаций и характеристик. Мы предоставляем возможность приобрести Toyota Raize напрямую с Японского аукциона без посредников. В статистике представлены автомобили из исторического архива продаж Японских аукционов."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "тойота райз комплектации 2026",
+      "purpose": "вторичный запрос: тойота райз комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Райз 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/toyota/raize/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Автосалон Тойота Райз | Официальный дилер Toyota Raize в Москве ...",
+          "url": "https://www.rolf.ru/catalog/toyota/raize/",
+          "snippet": "Подробно расписан модельный ряд Toyota Raize 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Райз 2026 между собой."
+        },
+        {
+          "title": "Toyota Raize 2026: комплектации, цены и сравнение в России",
+          "url": "https://toyotabase.vercel.app/articles/t/to/toyota-raize-komplektatsii.html",
+          "snippet": "Официальный дилер Тойота Райз Кроссовер РОЛЬФ в Москве: модельный ряд, технические характеристики, комплектации и цены на новые Toyota Raize 2026-2025 года на особых условиях."
+        },
+        {
+          "title": "Тойота Райз технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/toyota/raize/",
+          "snippet": "В этом руководстве мы разберём все доступные комплектации Toyota Raize на 2026 год, сравним их технические характеристики, цены и поможем определиться с выбором."
+        },
+        {
+          "title": "Toyota Raize G 2026: комплектация, цены, отзывы и сравнение",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-rejz-komplektatsiya-g.html",
+          "snippet": "Подробно расписан модельный ряд Toyota Raize: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Райз между собой."
+        },
+        {
+          "title": "Комплектации Toyota Raize И Технические Характеристики",
+          "url": "https://sferacar.ru/catalog-komplektatsii/toyota/raize/",
+          "snippet": "Подробный разбор комплектации Toyota Raize G: технические характеристики, отличия от других версий, плюсы и минусы, реальные отзывы владельцев и советы по выбору."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "toyota raize 1.0 2026",
+      "purpose": "вторичный запрос: toyota raize 1.0",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Райз 2026 технические характеристики. Toyota Raize 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/raize/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Raize 2026: технические характеристики, двигатели, расход ...",
+          "url": "https://toyotabase.vercel.app/articles/t/to/toyota-raize-tekhnicheskie-kharakteristiki.html",
+          "snippet": "Подробно расписан модельный ряд Toyota Raize 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Райз 2026 между собой."
+        },
+        {
+          "title": "Toyota Raize 2026: цены, комплектации и где купить выгодно",
+          "url": "https://toyotabase.vercel.app/articles/k/ku/kupit-toyota-raize.html",
+          "snippet": "Полный обзор технических параметров Toyota Raize: габариты, двигатели 1.0/1.2 турбо, трансмиссия, подвеска, расход топлива и сравнение с конкурентами. Актуальные данные 2026 года."
+        },
+        {
+          "title": "Toyota Raize 2026 1.0 Z 4WD Япония - infocar.group",
+          "url": "https://infocar.group/catalog/toyota/raize/2026-raize-10-z-4wd-4010743756",
+          "snippet": "Хотите купить Toyota Raize? Сравните цены, комплектации и двигатели 1.0/1.2 Turbo. Где выгоднее оформить покупку — у дилера или с пробегом? Полный гайд + FAQ."
+        },
+        {
+          "title": "Toyota Raize 2026 1.0 Z 4WD Япония - infocar.group",
+          "url": "https://infocar.group/catalog/toyota/raize/2026-raize-10-z-4wd-3156545756",
+          "snippet": "Практически новый Toyota Raize 2026 года выпуска в топовой комплектации Z с полным приводом (4WD) и бензиновым двигателем объёмом 1.0 л предлагается к импорту из Японии."
+        },
+        {
+          "title": "Тойота Райз технические характеристики. Toyota Raize комплектации и ...",
+          "url": "https://www.drom.ru/catalog/toyota/raize/",
+          "snippet": "Toyota Raize 2026 года в комплектации Z 4WD с турбомотором 1.0 л — доступен к импорту из Японии с доставкой в Россию."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "тойота райз владивосток 2026",
+      "purpose": "вторичный запрос: тойота райз владивосток",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Райз 2026 технические характеристики. Toyota Raize 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/raize/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Тойота Райз во Владивостоке: продажа Toyota Raize с пробегом и ...",
+          "url": "https://auto.drom.ru/vladivostok/toyota/raize/",
+          "snippet": "Подробно расписан модельный ряд Toyota Raize 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Купить Toyota Raize 2026 года - много Тойота Райз 2026 года на Авто.ру",
+          "url": "https://auto.ru/cars/toyota/raize/2026-year/all/",
+          "snippet": "Узнать стоимость Toyota Raize и купить с пробегом на Drom.ru."
+        },
+        {
+          "title": "Купить Toyota Raize по цене от 1 000 010 рублей во Владивостоке - более ...",
+          "url": "https://auto.ru/vladivostok/cars/toyota/raize/all/",
+          "snippet": "Полный модельный ряд Toyota Raize 2026 года - много Тойота Райз, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        },
+        {
+          "title": "Toyota Raize на Дроме Владивосток: цены, выбор и советы покупателям 2026",
+          "url": "https://toyotabase.vercel.app/articles/d/dr/drom-vladivostok-prodazha-avtomobilej-tojota-rajz.html",
+          "snippet": "Полный модельный ряд Toyota Raize по цене от 1 000 010 рублей во Владивостоке - более 82 Тойота Райз, свежие объявления о продаже от частников и дилеров на Авто.ру."
+        },
+        {
+          "title": "Купить Тойота Райз без пробега от 1 280 000 рублей - 86 объявлений на ...",
+          "url": "https://vladivostok.drom.ru/toyota/raize/bez-probega/",
+          "snippet": "Ищем Toyota Raize на Дроме во Владивостоке? Сравните цены, комплектации и узнайте, как купить кроссовер с пробегом без рисков. Актуальные предложения и экспертные рекомендации."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Toyota Raize из Японии: моторы 1.0T/1.2, 4WD и ловушки до ставки в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Raize: 1.0 турбо или 1.2 — что выбрать из Японии",
+          "url": "https://cars-from-japan.ru/blog/toyota-raize-1-0-turbo-ili-1-2-atmosfernyj-kakuyu-versiyu-vybrat-iz-yaponii",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Raize из Японии 2026: болячки и цена",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-raize-iz-yaponii-2026",
+          "snippet": "Сравниваем Toyota Raize 1.0 turbo и 1.2: тягу, расход, привод и обслуживание. Что проверить в японском лоте и какую версию выбрать под свои маршруты."
+        },
+        {
+          "title": "Toyota Raize из Японии: характеристики, клиренс и отзывы",
+          "url": "https://azway.ru/blog/toyota-raize-iz-yaponii-obzor",
+          "snippet": "Toyota Raize — компактный японский кроссовер с клиренсом 185 мм, выбором между турбомотором 1.0 с полным приводом и простым 1.2, льготным утильсбором и обычными сроками доставки."
+        },
+        {
+          "title": "Toyota Raize 2026: технические характеристики, двигатели, расход ...",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-rejz-tekhnicheskie-kharakteristiki.html",
+          "snippet": "Нужна точная цена Toyota Raize? Проверим доступные машины в Японии, документы, состояние и подготовим полную смету до вашего города."
+        },
+        {
+          "title": "Toyota Raize из Японии: бюджетный городской кроссовер за 800 тыс. - 1,4 ...",
+          "url": "https://onlyjpcars.ru/blog/toyota-raize-iz-yaponii",
+          "snippet": "Полный обзор технических параметров Toyota Raize: габариты, двигатели (1.0/1.2 турбо), трансмиссия, подвеска, расход топлива и особенности кроссовера для России и Японии."
+        },
+        {
+          "title": "Toyota Raize 2026: полный обзор, цены, плюсы и минусы",
+          "url": "https://toyotabase.vercel.app/articles/o/ob/obzor-tojota-rajs.html",
+          "snippet": "Toyota Raize — субкомпактный кроссовер японского рынка, который стал одним из бестселлеров в своём сегменте с момента дебюта в 2019 году. Небольшие размеры, высокая посадка, турбомотор или гибридная установка, и — главное — конкурентные цены на японских аукционах."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/toyota-raize-iz-yaponii-2026",
+      "title": "Toyota Raize из Японии 2026: болячки и цена",
+      "from_query": "как выбрать toyota raize из японии октябрь 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/toyota-raize-iz-yaponii-obzor",
+      "title": "Toyota Raize из Японии: характеристики, клиренс и отзывы",
+      "from_query": "как выбрать toyota raize из японии октябрь 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/toyota-raize-iz-yaponii",
+      "title": "Toyota Raize из Японии: бюджетный городской кроссовер за 800 тыс. - 1,4 ...",
+      "from_query": "как выбрать toyota raize из японии октябрь 2026"
+    },
+    {
+      "url": "https://azway.ru/cars-160hp/toyota-raize",
+      "title": "Toyota Raize из Японии под ключ: цена и растаможка | AZWAY",
+      "from_query": "как выбрать toyota raize из японии октябрь 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/52f85ca805075756a7ecc724bde65ede/",
+      "title": "Toyota Raize под заказ из Японии / Стоит ли брать в 2026?",
+      "from_query": "как выбрать toyota raize из японии октябрь 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/k/ku/kupit-toyota-raize.html",
+      "title": "Toyota Raize 2026: цены, комплектации и где купить выгодно",
+      "from_query": "как выбрать toyota raize из японии октябрь 2026"
+    },
+    {
+      "url": "https://club-mashin.ru/strahovanie-i-pravo/rastamozhka-toyota-iz-yaponii-v-2026-godu.html",
+      "title": "Растаможка авто из Японии в 2026: Просто и Понятно!",
+      "from_query": "как выбрать toyota raize из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/toyota-iz-yaponii-2026",
+      "title": "Toyota из Японии 2026: модельный ряд и цены",
+      "from_query": "как выбрать toyota raize из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://vitavto.ru/2026/03/zakazat-toyota-iz-yaponii-v-2026-godu-polnyj-gid-po-pokupke-mechty-bez-pereplat/",
+      "title": "Заказать Toyota из Японии в 2026 году: Полный гид по покупке мечты без ...",
+      "from_query": "как выбрать toyota raize из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/raize/2026/",
+      "title": "Тойота Райз 2026 технические характеристики. Toyota Raize 2026 ...",
+      "from_query": "тойота райз из японии 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/toyota/raize/2026-year/all/",
+      "title": "Купить Toyota Raize 2026 года - много Тойота Райз 2026 года на Авто.ру",
+      "from_query": "тойота райз из японии 2026"
+    },
+    {
+      "url": "https://jplife.ru/statistic/toyota/raize/",
+      "title": "Купить Toyota Raize из Японии — ⚡ Цены в РФ, каталог, статистика",
+      "from_query": "тойота райз из японии 2026"
+    },
+    {
+      "url": "https://avtoservis.online/toyota/toyota-raize-obzor-i-harakteristiki/",
+      "title": "Toyota Raize обзор и характеристики: сильные и слабые стороны ...",
+      "from_query": "тойота райз из японии 2026"
+    },
+    {
+      "url": "https://www.rolf.ru/catalog/toyota/raize/",
+      "title": "Автосалон Тойота Райз | Официальный дилер Toyota Raize в Москве ...",
+      "from_query": "тойота райз комплектации 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/toyota-raize-komplektatsii.html",
+      "title": "Toyota Raize 2026: комплектации, цены и сравнение в России",
+      "from_query": "тойота райз комплектации 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/raize/",
+      "title": "Тойота Райз технические характеристики, комплектации и цены",
+      "from_query": "тойота райз комплектации 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-rejz-komplektatsiya-g.html",
+      "title": "Toyota Raize G 2026: комплектация, цены, отзывы и сравнение",
+      "from_query": "тойота райз комплектации 2026"
+    },
+    {
+      "url": "https://sferacar.ru/catalog-komplektatsii/toyota/raize/",
+      "title": "Комплектации Toyota Raize И Технические Характеристики",
+      "from_query": "тойота райз комплектации 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/toyota-raize-tekhnicheskie-kharakteristiki.html",
+      "title": "Toyota Raize 2026: технические характеристики, двигатели, расход ...",
+      "from_query": "toyota raize 1.0 2026"
+    },
+    {
+      "url": "https://infocar.group/catalog/toyota/raize/2026-raize-10-z-4wd-4010743756",
+      "title": "Toyota Raize 2026 1.0 Z 4WD Япония - infocar.group",
+      "from_query": "toyota raize 1.0 2026"
+    },
+    {
+      "url": "https://infocar.group/catalog/toyota/raize/2026-raize-10-z-4wd-3156545756",
+      "title": "Toyota Raize 2026 1.0 Z 4WD Япония - infocar.group",
+      "from_query": "toyota raize 1.0 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/vladivostok/toyota/raize/",
+      "title": "Купить Тойота Райз во Владивостоке: продажа Toyota Raize с пробегом и ...",
+      "from_query": "тойота райз владивосток 2026"
+    },
+    {
+      "url": "https://auto.ru/vladivostok/cars/toyota/raize/all/",
+      "title": "Купить Toyota Raize по цене от 1 000 010 рублей во Владивостоке - более ...",
+      "from_query": "тойота райз владивосток 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/d/dr/drom-vladivostok-prodazha-avtomobilej-tojota-rajz.html",
+      "title": "Toyota Raize на Дроме Владивосток: цены, выбор и советы покупателям 2026",
+      "from_query": "тойота райз владивосток 2026"
+    },
+    {
+      "url": "https://vladivostok.drom.ru/toyota/raize/bez-probega/",
+      "title": "Купить Тойота Райз без пробега от 1 280 000 рублей - 86 объявлений на ...",
+      "from_query": "тойота райз владивосток 2026"
+    },
+    {
+      "url": "https://cars-from-japan.ru/blog/toyota-raize-1-0-turbo-ili-1-2-atmosfernyj-kakuyu-versiyu-vybrat-iz-yaponii",
+      "title": "Toyota Raize: 1.0 турбо или 1.2 — что выбрать из Японии",
+      "from_query": "Как выбрать Toyota Raize из Японии: моторы 1.0T/1.2, 4WD и ловушки до ставки в 2026 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-rejz-tekhnicheskie-kharakteristiki.html",
+      "title": "Toyota Raize 2026: технические характеристики, двигатели, расход ...",
+      "from_query": "Как выбрать Toyota Raize из Японии: моторы 1.0T/1.2, 4WD и ловушки до ставки в 2026 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/o/ob/obzor-tojota-rajs.html",
+      "title": "Toyota Raize 2026: полный обзор, цены, плюсы и минусы",
+      "from_query": "Как выбрать Toyota Raize из Японии: моторы 1.0T/1.2, 4WD и ловушки до ставки в 2026 2026"
+    }
+  ]
+}

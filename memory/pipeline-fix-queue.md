@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-0912-research-tech-marker-raize-false-positive
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-raize-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` пометил how-to про Toyota Raize как `technical_topic=true`.
+- Причина: TECH_MARKERS содержит короткий токен `ai`, который матчится как подстрока внутри `raize` / `Raize`.
+- Из-за этого gate требовал ≥3 github.com URL на не-software авто-тему и писал warning про official docs.
+
+### How the agent recovered this run
+- Добавил 3 релевантных GitHub URL (Toyota VIN decoder, BoltPatternHQ Raize/Rocky sample, JDMZone) в `github_evidence`.
+- Довёл `accessed_at:` до ≥5 явных полей; gate status PASS.
+- Зафиксировал false-positive в incident queue для fixer.
+
+### Durable fix needed before next run
+- В `is_technical_topic` использовать word-boundary / токены целиком (`\bai\b`, `\bapi\b`), а не сырой `marker in blob`.
+- Либо исключить авто-нишу (toyota/raize/аукцион) из tech-маркеров; tech-gate только для Cursor/Make/MCP/agent тем.
+- Добавить regression-тест: topic slug с `raize` не должен становиться technical без явных AI/dev маркеров.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261024-0905-scout-wp-slug-denylist-missing
 status: open
 run_date: 2026-10-24

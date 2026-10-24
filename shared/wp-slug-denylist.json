@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-10-24",
   "source": "wp/v2/posts REST rebuild (pages=0); host from runtime PUBLIC_SITE_URL only",
-  "post_count": 1214,
+  "post_count": 1215,
   "page_count": 0,
   "slugs": [
     "10-aziatskih-universalov-kotorye-perevernut-vashe-predstavlenie-o-semejnom-avtomobile-v-rossii",
@@ -345,6 +345,7 @@
     "hendaj-palisad-iz-korei-kak-kupit-7-mestnyj-suv-bez-pereplaty-dileru",
     "hendaj-stariya-iz-korei-passazhirskij-ili-kommercheskij-chto-vybrat",
     "hendaj-tussan-iz-korei-za-chto-pereplachivayut-i-kogda-ne-stoit-brat",
+    "honda-freed-iz-yaponii-komplektatsii-lovushki-2026",
     "honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026",
     "honda-vezel-iz-yaponii-komplektatsii-lovushki-2026",
     "hyundai-avante-iz-korei-kak-vybrat-2026",
@@ -1220,6 +1221,7 @@
     "zimnie-krossovery-top-7-luchshih-modelej-dlya-surovyh-rossijskih-zim"
   ],
   "recent_skip_slugs": [
+    "honda-freed-iz-yaponii-komplektatsii-lovushki-2026",
     "toyota-raize-iz-yaponii-komplektatsii-lovushki-2026",
     "honda-stepwgn-iz-yaponii-komplektatsii-lovushki-2026",
     "honda-vezel-iz-yaponii-komplektatsii-lovushki-2026",
@@ -1298,8 +1300,7 @@
     "lgotnyy-utilsbor-fizlico-2026-kak-proverit",
     "rastamozhka-elektromobilya-iz-kitaya-2026",
     "avtovoz-iz-vladivostoka-2026-kak-vybrat",
-    "avto-iz-korei-ili-kitaya-2026",
-    "avto-iz-yaponii-pod-zakaz-2026"
+    "avto-iz-korei-ili-kitaya-2026"
   ],
   "director_reject_prefixes": [
     "toyota-raize",
@@ -1328,5 +1329,6 @@
     "jolion",
     "chulian"
   ],
-  "notes": "Rebuilt because shared/wp-slug-denylist.json was missing on branch. Do not use MCP wordpress_* as sole denylist."
+  "notes": "Rebuilt because shared/wp-slug-denylist.json was missing on branch. Do not use MCP wordpress_* as sole denylist.",
+  "update_rule": "After each LIVE publish append slug here (or REST rebuild). Indexer/Publish must keep denylist current."
 }

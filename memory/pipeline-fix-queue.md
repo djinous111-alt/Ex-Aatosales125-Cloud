@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-2148-indexer-skill-llms-blog-path-stale
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-fit-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md` and `.cursor/agents/excalibur-blog-indexer.md` still prescribe `excalibur_blog_llms_generator.py --blog-path /`.
+- Actual CLI only accepts `--blog-dir` / `--out-dir` (no `--blog-path`); following skill literally would fail.
+- Related open: INC-20261025-2112 (doctor still expects `--blog-path` in help).
+
+### How the agent recovered this run
+- Ran working CLI: `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base "" --out-dir memory/blog` → relative `/blog/<slug>/` URLs; B01 present in both outputs.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer skill/agent contracts; document `--blog-dir` + `--out-dir` + empty `--site-base` for relative `/blog/<slug>/`.
+- Align doctor check with actual generator CLI (same as INC-2112).
+- Expand Indexer section in `shared/agent-pipeline-pitfalls.md` beyond `python3` note.
+
+### Suggested files to inspect/change
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261024-2144-cover-mcp-kv-unavailable-kie-fallback
 status: open
 run_date: 2026-10-25

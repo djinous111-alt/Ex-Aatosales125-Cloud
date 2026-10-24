@@ -1,0 +1,190 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/honda-freed-iz-yaponii-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/honda-freed-iz-yaponii-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Honda Freed из Японии: как выбрать комплектацию и не ошибиться до ставки на аукционе",
+      "description": "Honda Freed из Японии: как выбрать поколение, бензин или гибрид, комплектацию G и пройти чек-лист аукционного листа до ставки. Без депозита вслепую.",
+      "datePublished": "2026-10-24",
+      "dateModified": "2026-10-24",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru"
+        },
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru",
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125"
+        ]
+      },
+      "keywords": [
+        "хонда фрид из японии",
+        "хонда фрид комплектации",
+        "хонда фрид аукцион",
+        "хонда фрид гибрид из японии",
+        "комплектация g хонда фрид"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/honda-freed-iz-yaponii-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Honda Freed отличается от Freed Spike?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Spike первого поколения – 5-местная линия (GB3/GB4/GP3), не полный аналог 6/7-местного Freed. Смотрите код кузова и число мест в листе. Нужен третий ряд – Spike обычно не тот лот."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли в 2026 брать гибрид Freed напрямую из Японии?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Прямой вывоз гибридов в РФ ограничен с 09.08.2023. Full hybrid и soft-hybrid у брокеров ведут по-разному. До ставки сверьте код кузова и маршрут; новичку безопаснее бензин 1.5."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какая комплектация G нужна семье с детьми?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ориентир – G Honda Sensing или Just Selection с двумя электросдвижными дверями. Голый B или \"просто G\" без нужных дверей часто разочаровывает. Проверьте Sensing и power-slide в тексте листа."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "На что смотреть в аукционном листе до ставки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Код кузова и топливо, комплектацию, оценку, схему повреждений, фото салона и рельсов дверей, заметки инспектора. Оценка 4–5 спокойнее, чем R/RA/***/низкий балл. Лист не заменяет проверку вариатора на ходу."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если в лоте Hybrid, а бюджет считали как на бензин?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Остановить ставку. Уточнить код (GB7/GB8/GT e:HEV/GP3), срок и маршрут. Пересчитать логистику отдельно или искать бензиновый GB5/GB6."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как понять, что я готов ставить лимит на аукционе?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Когда зелёные все пункты мини-фильтра: кузов, топливо, комплектация, оценка, фото дверей и салона. Нет ясности – следующий лот или разбор листа с подборщиком Авто-Сейлс в Telegram."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/honda-freed-iz-yaponii-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать комплектацию Honda Freed из Японии до ставки на аукционе",
+      "description": "Пошаговый фильтр до ставки: сценарий семьи, поколение и код кузова, бензин или гибрид, комплектация G Honda Sensing, красные флаги аукционного листа и чек-лист из 10 пунктов.",
+      "totalTime": "PT30M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Аукционный лист Honda Freed (оценка, схема кузова, комплектация)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Фото салона, третьего ряда и рельсов сдвижных дверей"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Мини-фильтр: кузов / топливо / комплектация / оценка / фото дверей"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Список допустимых кодов кузова (GB/GP/GT)"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Решите, нужен ли вам Freed",
+          "text": "Запишите сценарий семьи: число мест, две электросдвижные двери, город или трасса, готовность к правому рулю. Не берите Freed только потому, что «все везут».",
+          "url": "https://avtosales125.ru/honda-freed-iz-yaponii-komplektatsii-lovushki-2026/#решите-нужен-ли-вам-freed-семья-двери-и-третий-ряд"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Разберите поколения и кузова",
+          "text": "Отделите Freed, Freed Spike и GT: выпишите допустимые коды (часто GB5/GB6 бензин). Spike первого поколения — 5 мест, не полный аналог 6/7-местного Freed.",
+          "url": "https://avtosales125.ru/honda-freed-iz-yaponii-komplektatsii-lovushki-2026/#разберите-поколения-и-кузова-gb-spike-gt"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Выберите топливо до ставки",
+          "text": "По умолчанию фильтруйте бензин 1.5. Hybrid — пауза: сверьте код кузова и маршрут (прямой Владивосток или третья страна) до лимита ставки.",
+          "url": "https://avtosales125.ru/honda-freed-iz-yaponii-komplektatsii-lovushki-2026/#выберите-топливо-до-ставки-бензин-или-гибрид"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Сравните комплектации G и Sensing",
+          "text": "Ориентир для семьи — G Honda Sensing или Just Selection с двумя power-slide. Проверьте Sensing и двери в тексте листа, не выбирайте по цвету.",
+          "url": "https://avtosales125.ru/honda-freed-iz-yaponii-komplektatsii-lovushki-2026/#сравните-комплектации-g-g-honda-sensing-и-just-selection"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Проверьте красные флаги листа",
+          "text": "Смотрите оценку (ориентир 4 / 4.5 / 5), схему кузова (W2/W3, C, X/XX), фото дверей и салона, пробег и заметки. Лист не заменяет проверку вариатора на ходу.",
+          "url": "https://avtosales125.ru/honda-freed-iz-yaponii-komplektatsii-lovushki-2026/#проверьте-красные-флаги-аукционного-листа"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Пройдите чек-лист из 10 пунктов",
+          "text": "Перед ставкой закройте мини-фильтр: кузов, топливо, комплектация, оценка, фото дверей и салона. Красный пункт — ставка не идёт, следующий лот.",
+          "url": "https://avtosales125.ru/honda-freed-iz-yaponii-komplektatsii-lovushki-2026/#пройдите-чек-лист-из-10-пунктов-перед-ставкой"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Соберите фильтр на сегодня",
+          "text": "За 20–30 минут зафиксируйте коды кузова, топливо, минимум комплектации и порог оценки. Подбор и расчёт — в каталоге Авто-Сейлс или Telegram, без форм в статье.",
+          "url": "https://avtosales125.ru/honda-freed-iz-yaponii-komplektatsii-lovushki-2026/#что-сделать-сегодня-первый-результат-без-команды-профи"
+        }
+      ]
+    }
+  ]
+}

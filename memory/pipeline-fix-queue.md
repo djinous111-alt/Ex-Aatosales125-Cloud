@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-0932-cover-hero-reference-reupload
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-raize-iz-yaponii-komplektatsii-lovushki-2026
+severity: low
+category: api
+
+### What went wrong
+- `python3 scripts/excalibur_blog_hero_reference_url.py --force` failed: catbox HTTP 412, 0x0 SSL handshake timeout.
+- Existing `reference_url_hosted` points at WordPress media also used by AS08/AS09; local face PNG could not be re-hosted this run.
+
+### How the agent recovered this run
+- Kept existing `memory/cover/blog-hero.json` → `reference_url_hosted` (same as AS08/AS09 successful covers).
+- Proceeded with Kie async i2i (`excalibur_blog_kie_gpt_image2_api.py`) + split/inject; cover face likeness acceptable.
+
+### Durable fix needed before next run
+- Add WordPress media upload fallback in `excalibur_blog_hero_reference_url.py` when catbox/0x0 fail (Cloud already has WP MCP/media).
+- Or pin a durable public face URL (catbox/WP) and document refresh path in cover skill.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261024-0931-schema-precommit-public-url-secrets
 status: open
 run_date: 2026-10-24

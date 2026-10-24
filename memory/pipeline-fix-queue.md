@@ -51,7 +51,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - unit checks for is_gateway_error_html / HTTP_TRIGGER_TIMEOUT_SEC
-commit: 1d48df53
+commit: 49e1a70c
 
 ## INC-20261024-2148-indexer-skill-llms-blog-path-stale
 status: fixed
@@ -77,7 +77,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `rg` confirms no stale CLI `--blog-path` requirement in doctor
-commit: 1d48df53
+commit: 49e1a70c
 
 ## INC-20261024-2144-cover-mcp-kv-unavailable-kie-fallback
 status: fixed
@@ -101,7 +101,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` for Kie/MCP-KV fallback wording in cover skill
-commit: 1d48df53
+commit: 49e1a70c
 
 ## INC-20261024-2145-cover-missing-corner-brand-pil
 status: fixed
@@ -124,7 +124,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_split.py`
 - `--help` shows stamp flags
-commit: 1d48df53
+commit: 49e1a70c
 
 ## INC-20261025-2130-geo-qa-utility-pain-markers-empty
 status: fixed
@@ -149,7 +149,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - Fit article utility gate PASS (pain=8, outcome=13)
-commit: 1d48df53
+commit: 49e1a70c
 
 ## INC-20261025-0017-research-mcp-kv-wordstat-unavailable
 status: fixed
@@ -171,7 +171,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` for MCP-KV error fallback in research skill
-commit: 1d48df53
+commit: 49e1a70c
 
 ## INC-20261025-0018-research-notes-gate-false-technical
 status: fixed
@@ -191,7 +191,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - unit: Honda Fit notes → technical_topic=False; MCP agent topic → True
-commit: 1d48df53
+commit: 49e1a70c
 
 ## INC-20261025-2112-director-doctor-llms-blog-path
 status: fixed
@@ -210,7 +210,7 @@ files_changed:
 - `scripts/excalibur_blog_doctor.py`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 warnings=0
-commit: 1d48df53
+commit: 49e1a70c
 
 ## INC-20261025-2113-director-paramiko-missing-main
 status: fixed
@@ -234,7 +234,7 @@ files_changed:
 - `scripts/excalibur_blog_wp_publish.py`
 checks_run:
 - doctor paramiko OK; `import paramiko`
-commit: 1d48df53
+commit: 49e1a70c
 
 ## INC-20261025-2105-scout-mcp-kv-wordstat-unavailable
 status: fixed
@@ -257,7 +257,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` MCP-KV fallback in scout skill/agent
-commit: 1d48df53
+commit: 49e1a70c
 
 ## INC-20261025-2110-scout-precommit-invalid-secret-name
 status: fixed
@@ -281,7 +281,7 @@ files_changed:
 checks_run:
 - sourced filter: invalid names skipped; valid kept
 - `scripts/excalibur_git.sh status` runs
-commit: 1d48df53
+commit: 49e1a70c
 
 ## INC-20261025-2106-scout-missing-wp-slug-denylist
 status: fixed
@@ -305,7 +305,7 @@ files_changed:
 - `agents/excalibur-blog-scout.md`
 checks_run:
 - denylist --check ok; doctor denylist OK; Fit/Jimny slugs present
-commit: 1d48df53
+commit: 49e1a70c
 
 
 ## Fixed incidents (historical)

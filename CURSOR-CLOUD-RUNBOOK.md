@@ -111,3 +111,21 @@ git add .github/workflows/cloud-preflight.yml
 git commit -m "Add cloud preflight workflow"
 git push
 ```
+
+## Commit hygiene (Cloud secret-scan)
+
+Cursor `pre-commit.cursor` splits `CLOUD_AGENT_INJECTED_SECRET_NAMES` on **commas**. Cloud may inject **space-separated** names → `invalid variable name`.
+
+Перед каждым commit с hooks:
+
+```bash
+eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+git commit -m "..."
+# или:
+bash scripts/excalibur_git.sh commit -m "..."
+```
+
+Фильтр: whitespace→comma, только bash identifiers, по умолчанию исключает public marketing URL names (`PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`) чтобы `article.html` / `schema.jsonld` могли коммититься с absolute CTA/sameAs.
+
+Канонический publish root secret: `SSH_ROOT=.` (не только `SSH_PATH`).
+

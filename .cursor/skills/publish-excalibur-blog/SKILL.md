@@ -20,17 +20,28 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | Cloud Secrets / `memory/site.env.local` (auto-write): `SSH_*`, `SSH_ROOT=.`, `PUBLIC_SITE_URL`; пакет `paramiko` |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
 
 ## Алгоритм
 
+
+### 0. Env-check + site.env.local
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+Скрипт сам пишет gitignored `memory/site.env.local` из process env, если файла нет; `SSH_ROOT` по умолчанию `.` (не путай с `SSH_PATH`). Нужен `paramiko` (`requirements.txt` / cloud-agent-install).  
+WARN на missing local `<img src="assets/...">` без файла — не оставляй placeholder assets без реального файла.
+
+
 ### 1. Preflight publish
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
   --site-base https://avtosales125.ru
@@ -41,7 +52,7 @@ Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
@@ -51,7 +62,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
@@ -84,7 +95,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 6. Post-publish (рекомендуется)
 
 ```bash
-python scripts/excalibur_blog_interlinker.py --apply \
+python3 scripts/excalibur_blog_interlinker.py --apply \
   --blog-dir memory/blog/articles \
   --site-base https://avtosales125.ru
 ```

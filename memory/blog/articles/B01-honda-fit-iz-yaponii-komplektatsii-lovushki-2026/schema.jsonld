@@ -1,0 +1,192 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "env:PUBLIC_SITE_URL/honda-fit-iz-yaponii-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "env:PUBLIC_SITE_URL/honda-fit-iz-yaponii-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Honda Fit из Японии в 2026: комплектации и ловушки до ставки",
+      "description": "Чеклист Honda Fit с аукциона Японии: коды кузова GP/GS/e:HEV, грейды BASIC/X/Z, красные флаги листа R/RA и CVT до ставки и депозита.",
+      "datePublished": "2026-10-25",
+      "dateModified": "2026-10-25",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "env:PUBLIC_SITE_URL/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "env:PUBLIC_SITE_URL/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "env:CATALOG_URL"
+        },
+        "sameAs": [
+          "env:CATALOG_URL",
+          "env:TELEGRAM_URL",
+          "env:MAX_URL",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "env:PUBLIC_SITE_URL/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "env:CATALOG_URL",
+        "sameAs": [
+          "env:CATALOG_URL",
+          "env:TELEGRAM_URL",
+          "env:MAX_URL"
+        ]
+      },
+      "keywords": [
+        "хонда фит из японии",
+        "honda fit из японии",
+        "honda fit аукцион япония",
+        "фит из японии комплектации",
+        "honda fit ehev вывоз"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "env:PUBLIC_SITE_URL/honda-fit-iz-yaponii-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем GP5/GP6 отличаются от GP1/GP4 по вывозу?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сделайте сверку по коду: GP5/GP6 – полный гибрид i-DCD, для прямого вывоза в РФ это стоп. GP1/GP4 – мягкий гибрид IMA; по уточнениям практики 2024+ мягкие не в той же корзине, что полные, но не делайте ставку без подтверждения экспортёра по конкретному шасси."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли брать e:HEV Fit прямым фрахтом в 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не делайте ставку на e:HEV (типично GR3/GR4, Crosstar часто GR6/GR8) в расчёте на прямой вывоз: канал закрыт ограничениями Японии. Ищите бензиновый код или явно сверенный мягкий вариант."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какой объём у Fit проходной для физлица?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Проверьте код и объём на листе: у бензиновых Fit обычно 1.3 или 1.5 – это ниже порога \"свыше 1900 см³\". Главный стоп для модели – полный гибрид/e:HEV, а не \"полтора литра\". Итоговую пошлину считайте в каталоге, не по чужим скринам."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "BASIC, HOME и новые X/Z – что брать?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сначала силовая и код вывоза, потом грейд. После 10.07.2026 BASIC→X и HOME→Z; на торгах старые и новые имена живут рядом. Не сравнивайте лоты только по названию грейда – сверяйте год, код и оснащение."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если на листе оценка 4.5, но есть R или тяжёлые метки арок?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Избегайте автоматической ставки \"оценка хорошая\". Поставьте лот на паузу, разберите схему кузова и флаги R/RA/RB с тем, кто читает листы. Красивая оценка не отменяет ремонт."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли депозит до проверки кода Hybrid?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не делайте депозит до шагов с кодом кузова и ответом экспортёра по вывозу. Сначала чеклист, потом деньги. Подбор и расчёт – через каталог и Telegram Авто-Сейлс, без форм на этой странице."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "env:PUBLIC_SITE_URL/honda-fit-iz-yaponii-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать Honda Fit из Японии до ставки",
+      "description": "Пошаговый выбор Fit с аукциона Японии: код кузова, бензин/мягкий гибрид/e:HEV, грейды после июля 2026, красные флаги листа и чеклист из 10 пунктов до депозита.",
+      "totalTime": "PT45M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Аукционный лист Fit: код кузова, оценка, R/RA/RB, схема кузова"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Матрица вывоза: бензин GK/GS, GP1/GP4, GP5/GP6, e:HEV"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Чеклист из 10 пунктов до ставки и депозита"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Код кузова с листа (не заголовок лота)"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Грейд с учётом ренейминга июля 2026 (BASIC/HOME/LUXE vs X/Z/RS/Crosstar)"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Подтверждение вывоза шасси от экспортёра до депозита"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Сверить код кузова до ставки",
+          "text": "Откройте аукционный лист и выпишите код кузова одной строкой. Не делайте ставку, пока этой строки нет в блокноте: слово Fit или Hybrid на листе ничего не решает.",
+          "url": "env:PUBLIC_SITE_URL/honda-fit-iz-yaponii-komplektatsii-lovushki-2026/#сверьте-код-кузова-до-ставки-не-верьте-слову-fit"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Отличить бензин, мягкий гибрид и e:HEV",
+          "text": "Сверьте код с матрицей: бензин GK*/GS* и ранние GR1/GR2 – рабочий путь; GP5/GP6 и e:HEV (GR3/GR4 и соседние) для прямого вывоза в РФ – стоп; GP1/GP4 – только после явной сверки экспортёра.",
+          "url": "env:PUBLIC_SITE_URL/honda-fit-iz-yaponii-komplektatsii-lovushki-2026/#как-отличить-бензин-мягкий-гибрид-и-ehev-на-листе"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Выбрать грейд с учётом ренейминга 2026",
+          "text": "Сначала силовая и код вывоза, потом грейд. После 10.07.2026 BASIC→X и HOME→Z; на торгах старые и новые имена живут рядом – сравнивайте год, код и оснащение, не только название грейда.",
+          "url": "env:PUBLIC_SITE_URL/honda-fit-iz-yaponii-komplektatsii-lovushki-2026/#выбор-грейда-basic-home-luxe-и-новые-x-z-rs-crosstar"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Проверить красные флаги аукционного листа",
+          "text": "Проверьте оценку и флаги R/RA/RB, на схеме кузова отметьте арки, пороги, крышу, лонжероны; найдите замечания по CVT, мотору и утечкам. Красивая оценка не отменяет ремонт.",
+          "url": "env:PUBLIC_SITE_URL/honda-fit-iz-yaponii-komplektatsii-lovushki-2026/#проверьте-красные-флаги-аукционного-листа"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Пройти чеклист из 10 пунктов до ставки",
+          "text": "Закройте пункты 1–10: код кузова, матрица вывоза, объём и КПП, грейд, флаги R/RA/RB, схема кузова, замечания по CVT, подтверждение вывоза, расчёт не по чужим прайсам, лимит ставки. Не делайте депозит между шагами 1 и 8.",
+          "url": "env:PUBLIC_SITE_URL/honda-fit-iz-yaponii-komplektatsii-lovushki-2026/#чеклист-из-10-пунктов-до-ставки-и-депозита"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Зафиксировать критерий результата и запросить расчёт",
+          "text": "Результат дня: список «можно / нельзя» по кодам, понятная разница грейдов и заполненный чеклист. Если лист спорный – передайте код и скрин в Telegram avtosales125 или каталог; без оплаты вслепую.",
+          "url": "env:PUBLIC_SITE_URL/honda-fit-iz-yaponii-komplektatsii-lovushki-2026/#что-изменится-после-сверки-критерий-результата"
+        }
+      ]
+    }
+  ]
+}

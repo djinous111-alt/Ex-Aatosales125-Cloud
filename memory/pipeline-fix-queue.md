@@ -254,6 +254,43 @@ category: docs
 ### Fixer resolution
 - pending
 
+## INC-20261024-1334-indexer-llms-stale-blog-path-flag
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-freed-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Preflight doctor FAIL: «llms generator supports --blog-path (expected: use --blog-dir)» — doctor still asserts presence of removed flag.
+- Indexer agent/skill shell examples still document `--blog-path /` and non-empty `${PUBLIC_SITE_URL}` for llms generator, while CLI only accepts `--blog-dir` / `--site-base` / `--out-dir`.
+- Repeat of prior `INC-20261022-1729-indexer-llms-stale-blog-path-flag`; Raize fixer claimed docs cleanup, but this branch still has stale contracts.
+
+### How the agent recovered this run
+- Followed director override: `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base "" --out-dir memory/blog` (no `--blog-path`).
+- Relative `/blog/<slug>/` URLs written to `memory/blog/llms.txt` and `llms-full.txt` (3 articles including B01 Freed).
+
+### Durable fix needed before next run
+- Remove `--blog-path` from `.cursor/agents/excalibur-blog-indexer.md`, `agents/excalibur-blog-indexer.md`, `.cursor/skills/indexer-excalibur-blog/SKILL.md`, `skills/indexer-excalibur-blog/SKILL.md`.
+- Document empty `--site-base` for relative git URLs in skill + `shared/agent-pipeline-pitfalls.md`.
+- Fix `scripts/excalibur_blog_doctor.py`: check for `--blog-dir` / `--out-dir`, not `--blog-path`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

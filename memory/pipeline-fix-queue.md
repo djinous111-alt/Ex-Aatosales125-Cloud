@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-1721-schema-secret-urls-precommit-block
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: publish
+
+### What went wrong
+- First `schema.jsonld` with absolute `PUBLIC_SITE_URL` / `TELEGRAM_URL` / `MAX_URL` / `CATALOG_URL` from registry+env was blocked by Cloud pre-commit secrets scanner.
+- `excalibur_blog_wp_publish.py` uploads `schema.jsonld` as-is and does not expand `env:VAR` placeholders before writing `_excalibur_blog_schema_jsonld`.
+- Related: `CLOUD_AGENT_INJECTED_SECRET_NAMES` still can include a non-identifier fragment (see `#INC-20261024-1705`).
+
+### How the agent recovered this run
+- Rewrote B01 `schema.jsonld` with git-safe `env:PUBLIC_SITE_URL` / `env:TELEGRAM_URL` / `env:MAX_URL` / `env:CATALOG_URL` (same pattern as GEO QA `link-verify.json`).
+- Filtered invalid secret names in the commit shell, then committed `b1432dd8` without `--no-verify`.
+- Schema types remain BlogPosting + FAQPage + HowTo; FAQ text matches HTML.
+
+### Durable fix needed before next run
+- Publish script: expand `env:VAR` and `env:VAR/path` in `schema.jsonld` (and optionally HTML) from process env before WP meta upload.
+- Document in schema skill: never commit absolute secret host URLs; use `env:` placeholders.
+- Optionally keep public-only sameAs (Instagram/2GIS) in git and inject private sameAs at publish.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `shared/authors-registry.json` (sameAs may hold secret URLs)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261024-1716-geo-qa-utility-missing-pain-outcome-markers
 status: open
 run_date: 2026-10-24

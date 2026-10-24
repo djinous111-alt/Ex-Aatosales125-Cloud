@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_none — Honda Fit 2026-10-25 fixer closed all open incidents below._
+
+## Fixed this run (2026-10-25 B01 Honda Fit)
+
 ## INC-20261025-2205-publish-http-fallback-504-reconstruct
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-publish
 topic_id: B01
@@ -16,392 +20,295 @@ severity: medium
 category: publish
 
 ### What went wrong
-- SSH bootstrap upload OK (~5.97MB); local HTTP trigger hit urllib TimeoutError (120s).
-- FALLBACK curl of bootstrap URL returned nginx 504 HTML (not `OK post=`).
-- Publish script then raised Cloud WebFetch Fallback timed out / failed before writing wp-publish-result.json.
-- Overlapping HTTP+FALLBACK triggers created duplicate media (*-1.png): featured 4519 + inline 4521/4522/4523; orphans 4514–4517.
+- SSH bootstrap upload OK; local HTTP trigger timed out (120s); FALLBACK curl returned nginx 504; overlapping triggers created duplicate media.
 
 ### How the agent recovered this run
-- Did **not** republish. Verified LIVE via REST `posts?slug=honda-fit-…` → post_id **4513**, featured_media **4519**, HEAD 200.
-- Content img srcs point at *-1.png (latest). Web PHP meta-check: schema_meta ok (12131), skip_theme_faq=1.
-- Reconstructed `wp-publish-result.json` verdict=pass; updated ledger/log/promotion/handoff.
+- Did not republish. Verified LIVE REST post 4513; reconstructed wp-publish-result.json.
 
 ### Durable fix needed before next run
-- Increase HTTP trigger timeout beyond 120s for ~6MB payloads OR make FALLBACK wait longer than nginx 504 and prefer REST reconstruct path in script when slug already LIVE.
-- Document: never write 504 HTML into webfetch-response as success; poll REST by slug before second trigger.
-- Optionally delete orphaned first-wave media after successful *-1 content rewrite.
+- Increase HTTP timeout; reject 504 HTML; REST reconstruct by slug before second trigger.
 
 ### Suggested files to inspect/change
-- `scripts/excalibur_blog_wp_publish.py` (`trigger_bootstrap_http` timeout / FALLBACK loop)
-- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
 - `shared/agent-pipeline-pitfalls.md`
 
 ### Secrets
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- HTTP trigger timeout 300s; FALLBACK poll 180s; nginx 504/HTML rejected as success.
+- REST reconstruct by slug before second overlapping trigger; publish_method `ssh+rest-reconstruct`.
+- Publish skill + pitfalls document no-republish / no 504-as-OK.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- unit checks for is_gateway_error_html / HTTP_TRIGGER_TIMEOUT_SEC
+commit: pending-parent-commit
 
 ## INC-20261024-2148-indexer-skill-llms-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-indexer
 topic_id: B01
-article_dir: memory/blog/articles/B01-honda-fit-iz-yaponii-komplektatsii-lovushki-2026
 severity: medium
 category: docs
 
-### What went wrong
-- `.cursor/skills/indexer-excalibur-blog/SKILL.md` and `.cursor/agents/excalibur-blog-indexer.md` still prescribe `excalibur_blog_llms_generator.py --blog-path /`.
-- Actual CLI only accepts `--blog-dir` / `--out-dir` (no `--blog-path`); following skill literally would fail.
-- Related open: INC-20261025-2112 (doctor still expects `--blog-path` in help).
-
-### How the agent recovered this run
-- Ran working CLI: `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base "" --out-dir memory/blog` → relative `/blog/<slug>/` URLs; B01 present in both outputs.
-
-### Durable fix needed before next run
-- Remove `--blog-path` from indexer skill/agent contracts; document `--blog-dir` + `--out-dir` + empty `--site-base` for relative `/blog/<slug>/`.
-- Align doctor check with actual generator CLI (same as INC-2112).
-- Expand Indexer section in `shared/agent-pipeline-pitfalls.md` beyond `python3` note.
-
-### Suggested files to inspect/change
-- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- Indexer skill/agent: `--blog-dir` / `--out-dir` / `--site-base ""`; removed `--blog-path` from commands.
+- Doctor aligned (same as INC-2112). Pitfalls Indexer section expanded.
+files_changed:
 - `skills/indexer-excalibur-blog/SKILL.md`
-- `.cursor/agents/excalibur-blog-indexer.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
 - `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
 - `scripts/excalibur_blog_doctor.py`
 - `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `rg` confirms no stale CLI `--blog-path` requirement in doctor
+commit: pending-parent-commit
 
 ## INC-20261024-2144-cover-mcp-kv-unavailable-kie-fallback
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-cover
 topic_id: B01
-article_dir: memory/blog/articles/B01-honda-fit-iz-yaponii-komplektatsii-lovushki-2026
 severity: medium
 category: api
 
-### What went wrong
-- MCP namespace `MCP-KV` returned `namespaceStatus: error` during live tool discovery; sync `gpt-image-2` unavailable for quad canvas i2i.
-
-### How the agent recovered this run
-- Used durable fallback `scripts/excalibur_blog_kie_gpt_image2_api.py` (ONE async Kie job, `input_urls` from batch) → split PASS + inject ok.
-- task_id `d0f5b33cb21dfec2d7049d1a88aebe5d`.
-
-### Durable fix needed before next run
-- Restore MCP-KV / `gpt-image-2` tool discovery for cover.
-- Keep Kie async script as documented fallback in cover skill when MCP-KV is error (not only -32001).
-
-### Suggested files to inspect/change
-- `.cursor/skills/cover-excalibur-blog/SKILL.md`
-- `scripts/excalibur_blog_kie_gpt_image2_api.py`
-- MCP config for MCP-KV (`${env:...}` secrets)
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- Cover skill: MCP-KV `namespaceStatus: error` → immediately Kie async `excalibur_blog_kie_gpt_image2_api.py` (not only -32001).
+- Pitfalls Cover section documents Kie fallback; MCP OAuth restore remains ops outside repo.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` for Kie/MCP-KV fallback wording in cover skill
+commit: pending-parent-commit
 
 ## INC-20261024-2145-cover-missing-corner-brand-pil
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-cover
 topic_id: B01
-article_dir: memory/blog/articles/B01-honda-fit-iz-yaponii-komplektatsii-lovushki-2026
 severity: low
 category: prompt
 
-### What went wrong
-- Generated cover panel omitted corner catalog brand `avto-sales125.ru` despite prompt/design-code lock (recurring across articles).
-
-### How the agent recovered this run
-- PIL overlay on `cover/cover.png` only (no second image gen): navy pill + `avto-sales125.ru` bottom-right.
-
-### Durable fix needed before next run
-- Add post-split corner-brand ensure step in `excalibur_blog_quad_apply.py` / split script (detect missing text → overlay).
-- Or strengthen prompt + QA check that fails when corner brand missing.
-
-### Suggested files to inspect/change
-- `scripts/excalibur_blog_quad_apply.py`
-- `scripts/excalibur_blog_cover_quad_split.py`
-- `memory/cover/cover-design-code.json`
-- `.cursor/skills/cover-excalibur-blog/SKILL.md`
-
-### Secrets
-- none recorded
-
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- `excalibur_blog_cover_quad_split.py` PIL-stamps `avto-sales125.ru` on cover.png (+ TL canvas) by default (`--stamp-corner-brand`, opt-out `--no-stamp-corner-brand`).
+- Cover skill documents post-split corner brand step.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_split.py`
+- `--help` shows stamp flags
+commit: pending-parent-commit
 
 ## INC-20261025-2130-geo-qa-utility-pain-markers-empty
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-geo-qa
 topic_id: B01
-article_dir: memory/blog/articles/B01-honda-fit-iz-yaponii-komplektatsii-lovushki-2026
 severity: blocker
 category: qa
 
-### What went wrong
-- `excalibur_blog_utility_gate.py` считает `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json` и требует min 2 / 3 (defaults), но в policy этих списков нет → всегда `pain_markers=0`, `outcome_markers=0`.
-- На том же `article.html` human-voice gate PASS (свои hardcoded PAIN_MARKERS / OUTCOME_MARKERS).
-- Регрессия подтверждена: AS08/AS09 с прежним PASS тоже дают utility BLOCK на текущем tip.
-
-### How the agent recovered this run
-- GEO QA зафиксировал FAIL (utility mandatory), не правил `article.html`.
-- Описал FIX: Fixer добавляет маркеры в policy (выровнять с human-voice); Writer убирает ярлык `TL;DR / Быстрый инсайт` и при необходимости слегка правит длины списков.
-
-### Durable fix needed before next run
-- Добавить в `editorial-policy.json` `pain_markers_ru` / `outcome_markers_ru` (и опционально `min_pain_markers` / `min_outcome_markers`) в согласии с `excalibur_blog_human_voice_gate.py`.
-- Либо: если списки пусты — не применять min-пороги (skip check).
-- Документировать в pitfalls/QA, что utility и human-voice должны делить один набор маркеров.
-
-### Suggested files to inspect/change
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- `editorial-policy.json`: `pain_markers_ru` / `outcome_markers_ru` aligned with human-voice; mins under `article_required_signals`.
+- `utility_gate.py`: empty lists → warn+skip (no hard BLOCK on defaults).
+- GEO QA skill notes shared marker source.
+files_changed:
 - `memory/brief/editorial-policy.json`
 - `scripts/excalibur_blog_utility_gate.py`
-- `scripts/excalibur_blog_human_voice_gate.py`
-- `shared/agent-pipeline-pitfalls.md`
+- `skills/excalibur-geo-qa/SKILL.md`
 - `.cursor/skills/excalibur-geo-qa/SKILL.md`
-
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- Fit article utility gate PASS (pain=8, outcome=13)
+commit: pending-parent-commit
 
 ## INC-20261025-0017-research-mcp-kv-wordstat-unavailable
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-research
 topic_id: B01
-article_dir: memory/blog/articles/B01-honda-fit-iz-yaponii-komplektatsii-lovushki-2026
 severity: medium
 category: api
 
-### What went wrong
-- MCP namespace `MCP-KV` returned `namespaceStatus: error` during live tool discovery; `wordstat_get_top_requests` unavailable for primary/secondary queries.
-- Exact Wordstat impressions could not be fetched; research continued with SERP + Autostat demand proxy.
-
-### How the agent recovered this run
-- Wrote `⚠️ WORDSTAT AUTH WARNING` (MCP error path) in `research-notes.md` wordstat table with `n/a` impressions (no invented volumes).
-- Used WebSearch + Honda/METI/GTYRES/Autostat sources; research-notes-gate PASS.
-
-### Durable fix needed before next run
-- Restore MCP-KV / Wordstat OAuth so Research can call `wordstat_get_top_requests`.
-- Align Research skill with Scout: when MCP-KV is `error` (not only 401), document non-blocking fallback + incident.
-
-### Suggested files to inspect/change
-- `.cursor/skills/excalibur-research/SKILL.md`
-- MCP config for MCP-KV / Wordstat (`${env:...}` secrets)
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- Research skill: MCP-KV `namespaceStatus: error` = non-blocking Wordstat fallback (`n/a` + warning + incident), aligned with Scout.
+- MCP OAuth restore remains Cursor Dashboard / ops (outside repo).
+files_changed:
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` for MCP-KV error fallback in research skill
+commit: pending-parent-commit
 
 ## INC-20261025-0018-research-notes-gate-false-technical
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-research
 topic_id: B01
-article_dir: memory/blog/articles/B01-honda-fit-iz-yaponii-komplektatsii-lovushki-2026
 severity: medium
 category: script
 
-### What went wrong
-- `excalibur_blog_research_notes_gate.py` marks auto topic as `technical_topic=true` via substring TECH_MARKERS: `ai` inside `reader_pain` / `pain`, and `ии` inside `японии`.
-- Gate then required `github_urls >= 3` for a non-tech Honda Fit checklist article; first run BLOCK until workaround URLs added.
-
-### How the agent recovered this run
-- Added five `accessed_at:` lines, pain_solution_map rows with explicit `pain`/`solution`/`result` tokens, and three `github.com` search/topic URLs as workaround evidence.
-- Gate PASS with warning about missing `/docs` URL; article facts remain Honda/METI-based.
-
-### Durable fix needed before next run
-- Match TECH_MARKERS with word boundaries (or token set) so `pain`/`японии` do not trigger technical mode.
-- Exempt auto/import niche topics or require GitHub only when topic slug/intent is truly technical.
-
-### Suggested files to inspect/change
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- TECH markers `ai`/`ии` use Cyrillic-safe word-boundary match; Honda Fit / «Японии» / «pain» no longer force technical_topic + github_urls≥3.
+files_changed:
 - `scripts/excalibur_blog_research_notes_gate.py`
 - `shared/agent-pipeline-pitfalls.md`
-- `.cursor/skills/excalibur-research/SKILL.md`
-
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
+checks_run:
+- unit: Honda Fit notes → technical_topic=False; MCP agent topic → True
+commit: pending-parent-commit
 
 ## INC-20261025-2112-director-doctor-llms-blog-path
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-director
 topic_id: B01
-article_dir: memory/blog/articles/B01-honda-fit-iz-yaponii-komplektatsii-lovushki-2026
 severity: medium
 category: script
 
-### What went wrong
-- `excalibur_blog_doctor.py` checks that llms generator help contains `--blog-path`, but `excalibur_blog_llms_generator.py` only exposes `--blog-dir` / `--out-dir`.
-- Doctor SUMMARY errors=1 on every preflight of this main tip.
-
-### How the agent recovered this run
-- Continued pipeline; Indexer will use `--blog-dir`/`--out-dir` per automation memory.
-
-### Durable fix needed before next run
-- Align doctor check with actual CLI (`--blog-dir`/`--out-dir`) or restore `--blog-path` alias; merge prior Jimny/Freed fixer PRs that already addressed this.
-
-### Suggested files to inspect/change
-- `scripts/excalibur_blog_doctor.py`
-- `scripts/excalibur_blog_llms_generator.py`
-- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
-
-### Secrets
-- none recorded
-
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- Doctor checks `--blog-dir` / `--out-dir` / `--site-base` (not `--blog-path`).
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 warnings=0
+commit: pending-parent-commit
 
 ## INC-20261025-2113-director-paramiko-missing-main
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-director
 topic_id: B01
-article_dir: memory/blog/articles/B01-honda-fit-iz-yaponii-komplektatsii-lovushki-2026
 severity: blocker
 category: env
 
-### What went wrong
-- Cloud run boots from origin/main tip `9a63ea85`; open draft PRs #116–#130 (Jimny/Freed/etc durable fixes) are not merged.
-- `paramiko` is not installed; `excalibur_blog_wp_publish.py` imports it for SSH publish.
-- `shared/wp-slug-denylist.json` and rebuild script also absent on this tip.
-
-### How the agent recovered this run
-- Proceed with article pipeline; Scout used LIVE WP REST as denylist fallback.
-- Publish step will attempt install/workaround or return PUBLISH BLOCKER; Fixer must merge durable install/requirements after run.
-
-### Durable fix needed before next run
-- Merge at least one recent fixer PR into main (paramiko in cloud-agent-install/requirements, denylist script, doctor llms flags) before next cron.
-- Ensure environment build installs paramiko.
-
-### Suggested files to inspect/change
-- `scripts/cloud-agent-install.sh` or Dockerfile/requirements
-- `scripts/excalibur_blog_doctor.py` (`--publish` / paramiko check)
-- `shared/wp-slug-denylist.json` + rebuild script from prior PRs
-
-### Secrets
-- none recorded
-
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- `paramiko` in `requirements.txt`, `.cursor/cloud-agent-install.sh` (verify), `.cursor/Dockerfile`.
+- Doctor warns without paramiko; `--publish` hard-fails. Denylist restored separately (INC-2106).
+files_changed:
+- `requirements.txt`
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/Dockerfile`
+- `scripts/excalibur_blog_doctor.py`
+- `scripts/excalibur_blog_wp_publish.py`
+checks_run:
+- doctor paramiko OK; `import paramiko`
+commit: pending-parent-commit
 
 ## INC-20261025-2105-scout-mcp-kv-wordstat-unavailable
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-scout
 topic_id: B01
-article_dir: n/a
 severity: medium
 category: api
 
-### What went wrong
-- MCP namespace `MCP-KV` returned `namespaceStatus: error` during live tool discovery; `wordstat_get_top_requests` was unavailable for cluster-first demand validation.
-- Scout could not fetch Yandex Wordstat totals/phrases for parent clusters (авто из японии / кореи / китая) or narrow how-to queries.
-
-### How the agent recovered this run
-- Continued without blocking: used LIVE WP slug denylist (1216 unique posts), WebSearch Autostat Q1 2026 Japan import ranking, and competitor/auction demand pages.
-- Selected Honda Fit (Autostat top-3 RHD Japan used imports; no LIVE model slug) with utility checklist angle; utility gate PASS for B01.
-
-### Durable fix needed before next run
-- Restore MCP-KV / Wordstat auth and discovery so Scout can call `wordstat_get_top_requests` cluster-first.
-- Document Scout fallback contract when MCP-KV is in error state (LIVE denylist + Autostat/WebSearch evidence, still append incident).
-
-### Suggested files to inspect/change
-- `.cursor/skills/scout-excalibur-blog/SKILL.md`
-- `.cursor/agents/excalibur-blog-scout.md`
-- MCP config for MCP-KV / Wordstat (`${env:...}` secrets)
-- `shared/agent-pipeline-pitfalls.md`
-
-### Secrets
-- none recorded
-
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- Scout skill/agent: MCP-KV error → non-blocking fallback (denylist + Autostat/WebSearch) + incident; no invented impressions.
+files_changed:
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` MCP-KV fallback in scout skill/agent
+commit: pending-parent-commit
 
 ## INC-20261025-2110-scout-precommit-invalid-secret-name
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-scout
 topic_id: B01
-article_dir: n/a
 severity: medium
 category: env
 
-### What went wrong
-- First `git commit` failed in Cloud pre-commit secrets scanner: `pre-commit.cursor` expands `${!SECRET_NAME}` and crashes with `invalid variable name` when `CLOUD_AGENT_INJECTED_SECRET_NAMES` contains a non-identifier secret name.
-- On this branch `scripts/excalibur_blog_filter_secret_names.sh` / `scripts/excalibur_git.sh` are absent, so there was no repo helper to sanitize names before commit.
-
-### How the agent recovered this run
-- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` (and `CLOUD_AGENT_ALL_SECRET_NAMES`) to valid bash identifiers in the shell session, then re-ran commit successfully (`819d4923`).
-
-### Durable fix needed before next run
-- Restore or add `scripts/excalibur_blog_filter_secret_names.sh` + document `source` before every Cloud git commit.
-- Prefer fixing the pre-commit scanner to skip non-identifier names instead of aborting the whole commit.
-
-### Suggested files to inspect/change
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- Restored `scripts/excalibur_blog_filter_secret_names.sh` (INJECTED + ALL secret name lists) and `scripts/excalibur_git.sh` wrapper.
+- Pitfalls + Scout skill document `source` before Cloud commit.
+files_changed:
 - `scripts/excalibur_blog_filter_secret_names.sh`
 - `scripts/excalibur_git.sh`
 - `shared/agent-pipeline-pitfalls.md`
-- `.cursor/skills/scout-excalibur-blog/SKILL.md`
-
-### Secrets
-- none recorded
-
-### Fixer resolution
-- pending
+- `skills/scout-excalibur-blog/SKILL.md`
+checks_run:
+- sourced filter: invalid names skipped; valid kept
+- `scripts/excalibur_git.sh status` runs
+commit: pending-parent-commit
 
 ## INC-20261025-2106-scout-missing-wp-slug-denylist
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-scout
 topic_id: B01
-article_dir: n/a
 severity: medium
 category: docs
 
-### What went wrong
-- On this branch (`origin/main` tip without Jimny/Freed fixer merge) `shared/wp-slug-denylist.json` and `scripts/excalibur_blog_wp_slug_denylist.py` are absent.
-- Scout helper `--check-query` only sees `## Bxx` cards and ledger AS* rows; it does not replace a LIVE WP slug denylist for model cannibalization.
-
-### How the agent recovered this run
-- Rebuilt denylist at runtime from `PUBLIC_SITE_URL` `wp-json/wp/v2/posts` pagination (1216 unique slugs).
-- Rejected LIVE models (Jimny, Freed, Raize, Stepwgn, Vezel, Sonata, K5, Sportage, Seltos, Coolray, CX-5, Harrier, Monjaro, Carnival, etc.) before choosing Fit.
-
-### Durable fix needed before next run
-- Merge or restore `shared/wp-slug-denylist.json` + helper script on the default branch used by Cloud scout runs.
-- Teach Scout skill to treat missing denylist as required LIVE REST rebuild + incident (not silent skip).
-
-### Suggested files to inspect/change
+### Fixer resolution
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- Restored `shared/wp-slug-denylist.json` from LIVE WP REST (1217 slugs incl. honda-fit + jimny) + `scripts/excalibur_blog_wp_slug_denylist.py --rebuild/--check`.
+- Doctor FAIL without denylist; Scout skill/agent require rebuild when missing.
+files_changed:
 - `shared/wp-slug-denylist.json`
 - `scripts/excalibur_blog_wp_slug_denylist.py`
-- `.cursor/skills/scout-excalibur-blog/SKILL.md`
-- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+checks_run:
+- denylist --check ok; doctor denylist OK; Fit/Jimny slugs present
+commit: pending-parent-commit
 
-### Secrets
-- none recorded
 
-### Fixer resolution
-- pending
+## Fixed incidents (historical)
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

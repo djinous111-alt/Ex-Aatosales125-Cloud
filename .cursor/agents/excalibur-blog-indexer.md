@@ -22,8 +22,8 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 
 ## Твои задачи
 
-1. `python3 scripts/excalibur_blog_interlinker.py --apply --article-dir <dir> --site-base ${PUBLIC_SITE_URL}`
-2. `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base ${PUBLIC_SITE_URL} --blog-path / --out-dir memory/blog`
+1. `python3 scripts/excalibur_blog_interlinker.py --apply --article-dir <dir> --site-base ""` (relative `/blog/<slug>/` для git-safe артефактов; не подставляй `$PUBLIC_SITE_URL` в файлы под git).
+2. `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base "" --out-dir memory/blog` (флага `--blog-path` больше нет).
 3. `promotion-checklist.md` из template.
 4. Handoff `=== EXCALIBUR BLOG INDEXER ===`.
 

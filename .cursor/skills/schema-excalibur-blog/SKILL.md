@@ -22,3 +22,13 @@ description: Excalibur BLOG Schema — BlogPosting + FAQPage JSON-LD, автор
 `memory/blog/articles/<topic_id>-<slug>/schema.jsonld`
 
 Контракт HTML/schema: `shared/excalibur-article-writing-contract.md` (секция schema).
+
+## Commit
+
+Hydrated `schema.jsonld` с живыми sameAs/CTA URL коммить через:
+
+```bash
+bash scripts/excalibur_git.sh commit -m "…"
+```
+
+Helper фильтрует невалидные имена из `CLOUD_AGENT_INJECTED_SECRET_NAMES` и публичные CTA (`PUBLIC_SITE_URL`, `CATALOG_URL`, …). Не печатай host/URL в fragment.

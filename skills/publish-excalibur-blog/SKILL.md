@@ -12,6 +12,12 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 
 `shared/excalibur-wp-publish-contract.md`
 
+## Dependencies
+
+- `paramiko` обязателен (Cloud install: `.cursor/cloud-agent-install.sh` + `requirements.txt`).
+- Preflight: `python3 scripts/excalibur_blog_wp_publish.py --env-check` — FAIL если нет `paramiko`.
+- После LIVE publish: добавь slug в `shared/wp-slug-denylist.json` (`slugs` + `recent_skip_slugs`) и закоммить вместе с ledger — иначе следующий Scout может выбрать уже опубликованную модель.
+
 ## Preconditions (все обязательны)
 
 | Проверка | Файл / env |

@@ -1,0 +1,466 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-24",
+    "today_ru": "24.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-26",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-24 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "honda-freed-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Honda Freed из Японии: как выбрать комплектацию и не ошибиться до ставки на аукционе",
+    "primary_query": "хонда фрид из японии",
+    "secondary_queries": [
+      "хонда фрид комплектации",
+      "хонда фрид аукцион",
+      "хонда фрид гибрид из японии",
+      "комплектация g хонда фрид"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "хонда фрид из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "хонда фрид из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "хонда фрид из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda Freed 2024-2026: обзор e:HEV из Японии | AZWAY",
+          "url": "https://azway.ru/blog/honda-freed-iz-yaponii-obzor",
+          "snippet": ""
+        },
+        {
+          "title": "Honda Freed с аукциона Японии - что выбирать в 2026 году",
+          "url": "https://www.klerk.ru/user/RusTourClub/705127/",
+          "snippet": "Третье поколение Freed сохранило компактные внешние размеры, но получило новую двухмоторную e:HEV и разные семейные компоновки. Главное — выбрать не цвет, а AIR/CROSSTAR, число мест и привод. Honda Freed GT длиной 4310 мм бывает бензиновым 1.5 или e:HEV, с передним либо полным приводом."
+        },
+        {
+          "title": "Honda из Японии 2026: модельный ряд и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/honda-iz-yaponii-2026",
+          "snippet": "Какой Honda Freed искать на японском аукционе в 2026 году? Сравниваем поколения, бензиновые и гибридные версии, i-DCD и e:HEV, 6- и 7-местные салоны, передний и полный привод."
+        },
+        {
+          "title": "Кому он нужен? Обзор, новый Honda Freed 2026 - Rutube",
+          "url": "https://rutube.ru/video/778797dd781f03ef7239e4ea05c565a1/",
+          "snippet": "Какую Honda привезти из Японии в 2026: шесть моделей с реальными лотами и годами, Freed или Stepwgn для семьи, где кончается льгота и почему гибрид едет дольше."
+        },
+        {
+          "title": "Хонда Фрид 2026 технические характеристики. Honda Freed 2026 ...",
+          "url": "https://www.drom.ru/catalog/honda/freed/2026/",
+          "snippet": "Смотрите видео онлайн «Кому он нужен? Обзор, новый Honda Freed 2026» на канале «Priority Auto | Авто из Японии, Кореи и Китая» в хорошем качестве и бесплатно, опубликованное 18 августа 2026 года в 6:19, длительностью 00:18:25, на видеохостинге RUTUBE."
+        },
+        {
+          "title": "Honda Freed может получить новую версию Black Style и расширение ...",
+          "url": "https://daily-motor.ru/autonews/176905",
+          "snippet": "Подробно расписан модельный ряд Honda Freed 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com хонда фрид из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "хонда фрид из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хонда Фрид 2026 технические характеристики. Honda Freed 2026 ...",
+          "url": "https://www.drom.ru/catalog/honda/freed/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Хонда документация и оригинальный мануал на русском | Honda руководство ...",
+          "url": "https://hondaworld.ru/documentation.htm",
+          "snippet": "Подробно расписан модельный ряд Honda Freed 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "FREED Digital Catalog 2026.5",
+          "url": "https://www.honda.co.jp/FREED/catalog/digital/",
+          "snippet": "Руководство по эксплуатации автомобиля Honda - регламенты ТО, спецификации 🚗 Компания HondaWorld - запчасти для Honda и Acura с доставкой 📞 Звоните в Москве +7 (495) 660-36-30, Санкт-Петербурге +7 (812) 407-28-35"
+        },
+        {
+          "title": "PDF 2026 Honda Digital FactBook",
+          "url": "https://www.honda.com/-/media/Honda-Homepage/PDF/DFB_2026_FINAL_CONSUMER.pdf",
+          "snippet": "FREED Digital Catalog 2026.5"
+        },
+        {
+          "title": "Honda Freed: Полная инструкция по эксплуатации на русском языке",
+          "url": "https://honda-library.vercel.app/articles/k/kh/khonda-frid-instruktsiya-po-ekspluatatsii-na-russkom.html",
+          "snippet": "1 198 3,405 5,598 16,826 1,660 366,927 335,384 325,981 336,180 317,909 221,235 260,218 259,722 339,289 331,095 316,638 308,415 309,196 299,672 313,159 331,780 324,528 ..."
+        },
+        {
+          "title": "PDF Honda Report 2026 - Honda Global",
+          "url": "https://global.honda/en/integratedreport/pdf/2026/Honda_Report_2026-en-all.pdf",
+          "snippet": "Подробное руководство по эксплуатации Honda Freed. Разбор мультимедиа, систем безопасности, обслуживания и советы по уходу за японским минивэном."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "хонда фрид из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Бортжурнал Honda Freed - клуб, форум о Хонда Фрид на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/honda/freed/",
+          "snippet": ""
+        },
+        {
+          "title": "Форум — Клуб Honda Freed и Honda Freed Spike",
+          "url": "https://h-freed.ru/forum",
+          "snippet": "Бортжурнал Honda Freed: реальные истории, опыт эксплуатации и обслуживания. Читайте в Бортжурнале Авто.ру"
+        },
+        {
+          "title": "Хонда Фрид отзывы владельцев - поломки и проблемы",
+          "url": "https://www.drom.ru/reviews/honda/freed/5kopeek/breakages/?year1=2024&year2=2026",
+          "snippet": "Что и чем можно заменить при поломке? Обсуждаем совместимость. Спрашиваем совета. Делимся опытом. Просьба по каждой запчасти начинать новую тему, чтобы было легче найти... Тюнинг авто. Красота и удобство. Кто что делал или хочет сделать? Расскажите! Фотоотчеты приветствуются. Авто. Закон и право."
+        },
+        {
+          "title": "Honda Freed, Honda Freed Spike, Honda Freed Plus - Другие темы",
+          "url": "https://freed-club.ru/viewforum.php?f=1",
+          "snippet": "Отзывы владельцев Хонда Фрид - поломки и проблемы. Опыт эксплуатации реальных владельцев автомобилей Хонда Фрид: поломки, минусы, недостатки и проблемы."
+        },
+        {
+          "title": "Хонда Фрид отзывы владельцев: недостатки и проблемы",
+          "url": "https://honda-library.vercel.app/articles/k/kh/khonda-frid-otzyvy-vladeltsev-nedostatki.html",
+          "snippet": "Honda Freed, Honda Freed Spike, Honda Freed Plus Клуб дружелюбных владельцев Хонды Фрид"
+        },
+        {
+          "title": "Форум Honda Freed с ИИ от ChatGPT - Хонда Фрид форум сервис",
+          "url": "https://honda.forums.services/freed",
+          "snippet": "Честные отзывы владельцев Honda Freed о надежности, расходе топлива и типичных поломках. Разбор недостатков гибридной и бензиновой версий."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "хонда фрид комплектации 2026",
+      "purpose": "вторичный запрос: хонда фрид комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хонда Фрид 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/honda/freed/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Хонда Фрид технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/honda/freed/",
+          "snippet": "Подробно расписан модельный ряд Honda Freed 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Технические характеристики Хонда Фрид (Honda Freed) 2026 годов выпуска",
+          "url": "https://110km.ru/tth/honda/freed/",
+          "snippet": "Хонда Фрид комплектации и цены, фото. Подробно расписан модельный ряд Honda Freed: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть ..."
+        },
+        {
+          "title": "Honda Freed: характеристики, комплектации, цены, фото",
+          "url": "https://getcar.ru/blog/honda-freed-tehnicheskie-harakteristiki-komplektaczii-czeny-i-foto/",
+          "snippet": "Все комплектации и технические характеристики автомобилей Honda Freed, как официально поставляемых в РФ, так и ттх остальных авто."
+        },
+        {
+          "title": "Honda Freed — Технические Характеристики, Комплектации И Цены",
+          "url": "https://tokai-auto.ru/katalog-komplektatsiy/honda/freed/",
+          "snippet": "В нашей статье мы более детально рассмотрим Honda Freed, его комплектации, а также цены и фото, чтобы вы могли получить полное представление о этом представителе класса минивэнов."
+        },
+        {
+          "title": "Honda Freed: каталог Honda, технические характеристики, фото, отзывы ...",
+          "url": "https://hondaworld.ru/honda_freed.htm",
+          "snippet": "Характеристики и комплектации HONDA FREED В этом разделе вы можете подробно изучить комплектации и технические характеристики HONDA FREED."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "хонда фрид аукцион 2026",
+      "purpose": "вторичный запрос: хонда фрид аукцион",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Купить Хонда Фрид 2026 года с аукциона Японии - Токай Авто",
+          "url": "https://tokai-auto.ru/honda/freed/?year_from=2026&year_to=2026",
+          "snippet": ""
+        },
+        {
+          "title": "Honda FREED (Хонда Фрид) 2026 года с аукционов Японии",
+          "url": "https://asiaga.ru/statistika/honda/freed/?year_from=2026&year_to=2026",
+          "snippet": "Список лотов Хонда Фрид 2026 года на online аукционах Японии, наши специалисты помогут с выбором и покупкой автомобиля с аукциона Японии"
+        },
+        {
+          "title": "Honda Freed 2026 Года На Аукционах Японии Онлайн - Avtoban",
+          "url": "https://avtoban.org/auktsiony/honda/freed/?year_from=2026&year_to=2026",
+          "snippet": "Автомобили Honda FREED (Хонда Фрид) 2026 года на аукционах Японии, с подробным расчетом реальной стоимости в России. Удобный поиск по марке, модели, году и комплектации авто"
+        },
+        {
+          "title": "Купить Honda Freed 2026 года | Лот: 70103 от 09.02.2026 Honda Kansai ...",
+          "url": "https://www.drom.ru/world/japan/honda/freed/7160123/",
+          "snippet": "Продажи автомобилей HONDA FREED 2026 года на онлайн аукционах Японии, с расчетом стоимости доставки и растаможки в РФ. Удобный поиск по марке, модели, комплектации и поколению"
+        },
+        {
+          "title": "HONDA FREED 2026 Лот 26108 - аукцион японских авто Antares Avto",
+          "url": "https://antaresjp.ru/aukciony/honda/freed/9k5rpjphnxeLsaB/",
+          "snippet": "Статистика проданных Honda Freed на аукционах Японии. Фотографии, характеристики, цены и расчет реальной стоимости Honda Freed в России."
+        },
+        {
+          "title": "Купить Honda Freed 2026 года с аукционов Японии",
+          "url": "https://jptrade.ru/auktsiony-yaponii-on-line/?marka_name=honda&model_name=freed&year_from=2026&year_to=2026",
+          "snippet": "Аукцион: Honda AA Tokyo Дата: 2026-07-13 Год: 2026 Кузов: GT3 Цвет: Pearl White Пробег: 0 км Объем: 1 500 см³ KPP: DAT Оценка: S Расходы в ЯпонииJPYUSDRUB Аукционная стоимость0 Расходы по Японии85 000 Фрахт до Владивостока55 000 ..."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "хонда фрид гибрид из японии 2026",
+      "purpose": "вторичный запрос: хонда фрид гибрид из японии",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "комплектация g хонда фрид 2026",
+      "purpose": "вторичный запрос: комплектация g хонда фрид",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хонда Фрид 2026 технические характеристики. Honda Freed 2026 ...",
+          "url": "https://www.drom.ru/catalog/honda/freed/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Хонда Фрид технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/honda/freed/",
+          "snippet": "Подробно расписан модельный ряд Honda Freed 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Honda Freed комплектация G: Обзор, характеристики и особенности",
+          "url": "https://honda-library.vercel.app/articles/h/ho/honda-freed-komplektatsiya-g.html",
+          "snippet": "Подробно расписан модельный ряд Honda Freed: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хонда Фрид между собой."
+        },
+        {
+          "title": "Honda Freed комплектация G: Полный обзор, характеристики и нюансы",
+          "url": "https://honda-library.vercel.app/articles/k/kh/khonda-frid-komplektatsiya-g.html",
+          "snippet": "Подробный разбор комплектации Honda Freed G. Технические характеристики, оснащение салона, безопасность и отличия от других версий. Узнайте всё о популярном минивэне."
+        },
+        {
+          "title": "Honda Freed: характеристики, комплектации, цены, фото",
+          "url": "https://getcar.ru/blog/honda-freed-tehnicheskie-harakteristiki-komplektaczii-czeny-i-foto/",
+          "snippet": "Подробный разбор комплектации Honda Freed G. Технические характеристики, особенности двигателя, оснащение салона и сравнение с другими версиями минивэна."
+        },
+        {
+          "title": "Хонда Фрид — технические характеристики | Car.ms",
+          "url": "https://car.ms/specifications/honda/freed/",
+          "snippet": "В нашей статье мы более детально рассмотрим Honda Freed, его комплектации, а также цены и фото, чтобы вы могли получить полное представление о этом представителе класса минивэнов."
+        }
+      ],
+      "searched_at": "2026-10-24"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Honda Freed из Японии: как выбрать комплектацию и не ошибиться до ставки на аукционе 2026",
+      "purpose": "SERP по H1",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-24"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://azway.ru/blog/honda-freed-iz-yaponii-obzor",
+      "title": "Honda Freed 2024-2026: обзор e:HEV из Японии | AZWAY",
+      "from_query": "хонда фрид из японии новости 2026"
+    },
+    {
+      "url": "https://www.klerk.ru/user/RusTourClub/705127/",
+      "title": "Honda Freed с аукциона Японии - что выбирать в 2026 году",
+      "from_query": "хонда фрид из японии новости 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/honda-iz-yaponii-2026",
+      "title": "Honda из Японии 2026: модельный ряд и цены",
+      "from_query": "хонда фрид из японии новости 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/778797dd781f03ef7239e4ea05c565a1/",
+      "title": "Кому он нужен? Обзор, новый Honda Freed 2026 - Rutube",
+      "from_query": "хонда фрид из японии новости 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/honda/freed/2026/",
+      "title": "Хонда Фрид 2026 технические характеристики. Honda Freed 2026 ...",
+      "from_query": "хонда фрид из японии новости 2026"
+    },
+    {
+      "url": "https://daily-motor.ru/autonews/176905",
+      "title": "Honda Freed может получить новую версию Black Style и расширение ...",
+      "from_query": "хонда фрид из японии новости 2026"
+    },
+    {
+      "url": "https://hondaworld.ru/documentation.htm",
+      "title": "Хонда документация и оригинальный мануал на русском | Honda руководство ...",
+      "from_query": "хонда фрид из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.honda.co.jp/FREED/catalog/digital/",
+      "title": "FREED Digital Catalog 2026.5",
+      "from_query": "хонда фрид из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.honda.com/-/media/Honda-Homepage/PDF/DFB_2026_FINAL_CONSUMER.pdf",
+      "title": "PDF 2026 Honda Digital FactBook",
+      "from_query": "хонда фрид из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://honda-library.vercel.app/articles/k/kh/khonda-frid-instruktsiya-po-ekspluatatsii-na-russkom.html",
+      "title": "Honda Freed: Полная инструкция по эксплуатации на русском языке",
+      "from_query": "хонда фрид из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://global.honda/en/integratedreport/pdf/2026/Honda_Report_2026-en-all.pdf",
+      "title": "PDF Honda Report 2026 - Honda Global",
+      "from_query": "хонда фрид из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/honda/freed/",
+      "title": "Бортжурнал Honda Freed - клуб, форум о Хонда Фрид на Авто.ру",
+      "from_query": "хонда фрид из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://h-freed.ru/forum",
+      "title": "Форум — Клуб Honda Freed и Honda Freed Spike",
+      "from_query": "хонда фрид из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/honda/freed/5kopeek/breakages/?year1=2024&year2=2026",
+      "title": "Хонда Фрид отзывы владельцев - поломки и проблемы",
+      "from_query": "хонда фрид из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://freed-club.ru/viewforum.php?f=1",
+      "title": "Honda Freed, Honda Freed Spike, Honda Freed Plus - Другие темы",
+      "from_query": "хонда фрид из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://honda-library.vercel.app/articles/k/kh/khonda-frid-otzyvy-vladeltsev-nedostatki.html",
+      "title": "Хонда Фрид отзывы владельцев: недостатки и проблемы",
+      "from_query": "хонда фрид из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://honda.forums.services/freed",
+      "title": "Форум Honda Freed с ИИ от ChatGPT - Хонда Фрид форум сервис",
+      "from_query": "хонда фрид из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/honda/freed/",
+      "title": "Хонда Фрид технические характеристики, комплектации и цены",
+      "from_query": "хонда фрид комплектации 2026"
+    },
+    {
+      "url": "https://110km.ru/tth/honda/freed/",
+      "title": "Технические характеристики Хонда Фрид (Honda Freed) 2026 годов выпуска",
+      "from_query": "хонда фрид комплектации 2026"
+    },
+    {
+      "url": "https://getcar.ru/blog/honda-freed-tehnicheskie-harakteristiki-komplektaczii-czeny-i-foto/",
+      "title": "Honda Freed: характеристики, комплектации, цены, фото",
+      "from_query": "хонда фрид комплектации 2026"
+    },
+    {
+      "url": "https://tokai-auto.ru/katalog-komplektatsiy/honda/freed/",
+      "title": "Honda Freed — Технические Характеристики, Комплектации И Цены",
+      "from_query": "хонда фрид комплектации 2026"
+    },
+    {
+      "url": "https://hondaworld.ru/honda_freed.htm",
+      "title": "Honda Freed: каталог Honda, технические характеристики, фото, отзывы ...",
+      "from_query": "хонда фрид комплектации 2026"
+    },
+    {
+      "url": "https://tokai-auto.ru/honda/freed/?year_from=2026&year_to=2026",
+      "title": "Купить Хонда Фрид 2026 года с аукциона Японии - Токай Авто",
+      "from_query": "хонда фрид аукцион 2026"
+    },
+    {
+      "url": "https://asiaga.ru/statistika/honda/freed/?year_from=2026&year_to=2026",
+      "title": "Honda FREED (Хонда Фрид) 2026 года с аукционов Японии",
+      "from_query": "хонда фрид аукцион 2026"
+    },
+    {
+      "url": "https://avtoban.org/auktsiony/honda/freed/?year_from=2026&year_to=2026",
+      "title": "Honda Freed 2026 Года На Аукционах Японии Онлайн - Avtoban",
+      "from_query": "хонда фрид аукцион 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/japan/honda/freed/7160123/",
+      "title": "Купить Honda Freed 2026 года | Лот: 70103 от 09.02.2026 Honda Kansai ...",
+      "from_query": "хонда фрид аукцион 2026"
+    },
+    {
+      "url": "https://antaresjp.ru/aukciony/honda/freed/9k5rpjphnxeLsaB/",
+      "title": "HONDA FREED 2026 Лот 26108 - аукцион японских авто Antares Avto",
+      "from_query": "хонда фрид аукцион 2026"
+    },
+    {
+      "url": "https://jptrade.ru/auktsiony-yaponii-on-line/?marka_name=honda&model_name=freed&year_from=2026&year_to=2026",
+      "title": "Купить Honda Freed 2026 года с аукционов Японии",
+      "from_query": "хонда фрид аукцион 2026"
+    },
+    {
+      "url": "https://honda-library.vercel.app/articles/h/ho/honda-freed-komplektatsiya-g.html",
+      "title": "Honda Freed комплектация G: Обзор, характеристики и особенности",
+      "from_query": "комплектация g хонда фрид 2026"
+    },
+    {
+      "url": "https://honda-library.vercel.app/articles/k/kh/khonda-frid-komplektatsiya-g.html",
+      "title": "Honda Freed комплектация G: Полный обзор, характеристики и нюансы",
+      "from_query": "комплектация g хонда фрид 2026"
+    },
+    {
+      "url": "https://car.ms/specifications/honda/freed/",
+      "title": "Хонда Фрид — технические характеристики | Car.ms",
+      "from_query": "комплектация g хонда фрид 2026"
+    }
+  ]
+}

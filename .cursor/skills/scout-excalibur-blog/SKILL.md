@@ -17,7 +17,7 @@ WebSearch (Cursor native trend scouting for 2026)
               ↓
 wordstat_get_top_requests (Yandex Wordstat API demand verify)
               ↓
-excalibur_blog_scout_helper.py --check-query (Cannibalization Guard)
+excalibur_blog_scout_helper.py --check-query --check-slug (Cannibalization + WP denylist)
               ↓
 Append new Topic Card to blog-topics.md
 ```
@@ -44,12 +44,17 @@ Append new Topic Card to blog-topics.md
 * **Цель:** Найти ключевой запрос (primary query) с живым спросом в Яндексе и выписать 3–5 связанных поисковых вопросов для FAQ и secondary queries.
 * **Фильтр:** Если тема имеет микро-спрос (меньше 10 показов в месяц) и нет смежных тем — отложи её и возьми другую, более востребованную.
 
-### Шаг 4 — Тест на каннибализацию ключевых слов
+### Шаг 4 — Тест на каннибализацию + WP denylist
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py \
+  --check-query "<выбранный_запрос>" \
+  --check-slug "<kebab-case-slug>"
 ```
-Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
+Если возвращается `OVERLAP DETECTED` / `SLUG DENYLIST HIT` — измени формулировку или выбери другую тему.
+
+Канонический republish-барьер: `shared/wp-slug-denylist.json` (live slugs).
+**Не** считай WordPress MCP единственным источником denylist; при отсутствии файла — REST rebuild из `PUBLIC_SITE_URL` + incident в `memory/pipeline-fix-queue.md`.
 
 ### Шаг 5 — Сборка карточки темы (Utility-Only)
 Сформируй карточку темы по шаблону:

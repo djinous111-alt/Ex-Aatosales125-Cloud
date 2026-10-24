@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-24",
+    "today_ru": "24.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-26",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-24 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "honda-freed-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Honda Freed из Японии: как выбрать комплектацию и не ошибиться до ставки на аукционе",
+    "primary_query": "хонда фрид из японии",
+    "secondary_queries": [
+      "хонда фрид комплектации",
+      "хонда фрид аукцион",
+      "хонда фрид гибрид из японии",
+      "комплектация g хонда фрид"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "хонда фрид из японии 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "хонда фрид из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "хонда фрид из японии новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com хонда фрид из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "хонда фрид из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "хонда фрид из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "хонда фрид комплектации 2026",
+      "purpose": "вторичный запрос: хонда фрид комплектации"
+    },
+    {
+      "id": "secondary_2",
+      "query": "хонда фрид аукцион 2026",
+      "purpose": "вторичный запрос: хонда фрид аукцион"
+    },
+    {
+      "id": "secondary_3",
+      "query": "хонда фрид гибрид из японии 2026",
+      "purpose": "вторичный запрос: хонда фрид гибрид из японии"
+    },
+    {
+      "id": "secondary_4",
+      "query": "комплектация g хонда фрид 2026",
+      "purpose": "вторичный запрос: комплектация g хонда фрид"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Honda Freed из Японии: как выбрать комплектацию и не ошибиться до ставки на аукционе 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-honda-freed-iz-yaponii-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

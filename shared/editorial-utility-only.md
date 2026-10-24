@@ -57,6 +57,15 @@ python scripts/excalibur_blog_research_notes_gate.py \
   -o research-notes-gate.json
 ```
 
+## Writer markers (точные строки policy)
+
+Utility gate считает подстроки из `memory/brief/editorial-policy.json`:
+
+- action: `сделайте`, `не делайте`, `чеклист` (без дефиса), `шаг `, …
+- pain / outcome: списки `pain_markers_ru` / `outcome_markers_ru` (обязательны, `_markers_pinned: true`)
+
+Синонимы «Делать/Не делать» и «чек-лист» **не** засчитываются.
+
 ## Gate 3 — writer
 
 Контракт: `shared/excalibur-article-writing-contract.md`

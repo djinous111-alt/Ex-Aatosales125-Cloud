@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/B01-honda-freed-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 5,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "листу. Коротко до ставки: Honda Freed из Японии в 2026 часто берут семьи, но Hybrid в объявлении не равно",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2024",
+      "kind": "date_or_year",
+      "context": "зин; GB7/GB8 гибрид Старт – бензин GB5/GB6 3-е (с 2024) GT1–GT4 / GT5–GT8 Бензин / e:HEV Новее; маршрут",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "топливо до ставки: бензин или гибрид С 9 августа 2023 Япония ограничила вывоз в РФ гибридов, PHEV, элект",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1900",
+      "kind": "date_or_year",
+      "context": "в РФ гибридов, PHEV, электромобилей и ДВС больше 1900 см³ (пресс METI). Слово Hybrid в красивом лоте – п",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "30 минут",
+      "kind": "metric_or_duration",
+      "context": "сегодня: первый результат без команды профи За 20–30 минут соберите фильтр в заметках: нужные коды кузова, т",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1496",
+      "kind": "large_number",
+      "context": "логистика другая. Безопасный старт – бензин около 1496 см³. Сделайте: по умолчанию фильтруйте бензин; Hyb",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

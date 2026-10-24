@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Красивый Hybrid — ещё не ставка",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у семейного Honda Freed и аукционного листа, плашка «до ставки», порт Владивостока",
+      "scene_hint": "WEATHER: cool overcast Vladivostok port mist, harbour cranes soft background; OUTFIT: thick heavyweight white hoodie per lock (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie next to modern family Honda Freed minivan + taped fake Japanese auction sheet scrap with grade 4.5 and Hybrid word circled; torn paper Cyrillic hook plaque «Красивый Hybrid — ещё не ставка» with yellow highlighter on «ставка»; red plaque sticker «до ставки»; shocked meme cutout + cat reaction sticker (different formats, max one Drake if any); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; NO toxic insult labels on visible text",
+      "meme_caption_ru": "до ставки"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Решите, нужен ли вам Freed: семья, двери и третий ряд",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns Семья 4–5 | Вдвоём; rows места, две power-slide, третий ряд, узкая парковка; green check vs grey skip; pink sticky «сначала сценарий»; scotch tape corner; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица: когда семье нужен Freed с дверями и третьим рядом, а когда — нет"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Разберите поколения и кузова: GB, Spike, GT",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 4 steps: сценарий семьи → коды GB/GP/GT → Spike ≠ полный Freed → фильтр поиска; body codes badges GB5/GB6 vs Spike GP3 vs GT; sticky «код кузова»; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема: от сценария семьи к кодам кузова GB, Spike и GT до поиска лота"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Выберите топливо до ставки: бензин или гибрид",
+      "visual_type": "checklist_board",
+      "scene_hint": "RU printable checklist board stop-rule: увидел Hybrid → сверил код кузова → спросил маршрут Владивосток или третья страна → только потом лимит ставки; default бензин 1.5 highlighted; red stamp «пауза»; sticky «до депозита»; NO hero face; NO Wordstat/Metrika",
+      "alt": "Чеклист топлива: Hybrid = пауза, сверка кузова и маршрута до ставки"
+    }
+  }
+}

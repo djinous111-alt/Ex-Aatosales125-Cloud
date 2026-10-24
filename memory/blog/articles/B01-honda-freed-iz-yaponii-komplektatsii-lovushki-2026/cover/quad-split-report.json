@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-honda-freed-iz-yaponii-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1276,
+      725
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 725,
+        "end": 767
+      },
+      "v_gutter_px": {
+        "start": 1276,
+        "end": 1299
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 3,
+          "right": 1276,
+          "bottom": 721
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1276,
+          "bottom": 725
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у семейного Honda Freed и аукционного листа, плашка «до ставки», порт Владивостока",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1299,
+          "top": 8,
+          "right": 2560,
+          "bottom": 717
+        },
+        "raw_box_px": {
+          "left": 1299,
+          "top": 0,
+          "right": 2560,
+          "bottom": 725
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: когда семье нужен Freed с дверями и третьим рядом, а когда — нет",
+        "h2_anchor": "Решите, нужен ли вам Freed: семья, двери и третий ряд"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 40,
+          "top": 767,
+          "right": 1236,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 767,
+          "right": 1276,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: от сценария семьи к кодам кузова GB, Spike и GT до поиска лота",
+        "h2_anchor": "Разберите поколения и кузова: GB, Spike, GT"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1331,
+          "top": 767,
+          "right": 2527,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1299,
+          "top": 767,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист топлива: Hybrid = пауза, сверка кузова и маршрута до ставки",
+        "h2_anchor": "Выберите топливо до ставки: бензин или гибрид"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Решите, нужен ли вам Freed: семья, двери и третий ряд",
+    "injected inline_2 after H2 — Разберите поколения и кузова: GB, Spike, GT",
+    "injected inline_3 after H2 — Выберите топливо до ставки: бензин или гибрид"
+  ]
+}

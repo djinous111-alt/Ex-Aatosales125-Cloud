@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-0905-scout-wp-slug-denylist-missing
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: high
+category: docs
+
+### What went wrong
+- На ветке cron-run отсутствовал `shared/wp-slug-denylist.json`, хотя LIVE WordPress уже содержит свежие Oct 2026 посты.
+- `shared/published-articles.md` почти пуст (только AS08/AS09) и не защищает от дублей LIVE slug/title.
+- Без denylist scout мог выбрать уже опубликованную модельную тему (Stepwgn, Vezel, Sonata, Coolray и др.).
+
+### How the agent recovered this run
+- Выгрузил все посты и страницы через WP REST (`/wp-json/wp/v2/posts`, `/pages`) с пагинацией.
+- Дополнил проверку Latin+Cyrillic `wp/v2/search` по кандидатам (Raize/Райз, Freed/Фрид, Jolion/Джолион и др.).
+- Восстановил `shared/wp-slug-denylist.json` (1213 post slugs + titles + recent_skip_slugs) и выбрал свободный slug `toyota-raize-iz-yaponii-komplektatsii-lovushki-2026`.
+
+### Durable fix needed before next run
+- Закоммитить и держать в tip `shared/wp-slug-denylist.json`; обновлять после каждого publish.
+- Добавить в scout/preflight явный blocker, если denylist отсутствует, а LIVE REST доступен.
+- Синхронизировать `shared/published-articles.md` с LIVE WP (или генерировать denylist в `research_start` / indexer post-publish).
+- Поправить drift scout skill/agent: ниша Авто-Сейлс, не Cursor/Make/ИИ.
+
+### Suggested files to inspect/change
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/published-articles.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

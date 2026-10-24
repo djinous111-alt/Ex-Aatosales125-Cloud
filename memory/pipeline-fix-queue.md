@@ -66,7 +66,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (paramiko_available=true, root=dot)
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0 warnings=0
 - load_article B01 → WARN missing placeholder-raize-auction-sheet.png
-commit: pending-parent-commit
+commit: b02d506a (scripts 2f508fe0; cloud 865c2557; docs 65fe3cab)
 
 
 ## INC-20261024-0940-indexer-skill-stale-blog-path-flag
@@ -117,7 +117,7 @@ files_changed:
 checks_run:
 - `rg` no stale `--blog-path` flag usages in agents/skills
 - doctor: llms --blog-dir/--out-dir OK, no --blog-path
-commit: pending-parent-commit
+commit: b02d506a (scripts 2f508fe0; cloud 865c2557; docs 65fe3cab)
 
 ## INC-20261024-0932-cover-hero-reference-reupload
 status: fixed
@@ -162,7 +162,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_hero_reference_url.py` → OK existing WP URL
 - `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
-commit: pending-parent-commit
+commit: b02d506a (scripts 2f508fe0; cloud 865c2557; docs 65fe3cab)
 
 ## INC-20261024-0931-schema-precommit-public-url-secrets
 status: fixed
@@ -208,7 +208,7 @@ files_changed:
 - `CURSOR-CLOUD-RUNBOOK.md`
 checks_run:
 - filter export drops PUBLIC_SITE_URL from injected names
-commit: pending-parent-commit
+commit: b02d506a (scripts 2f508fe0; cloud 865c2557; docs 65fe3cab)
 
 ## INC-20261024-0920-geo-qa-typed-task-missing
 status: fixed
@@ -253,7 +253,7 @@ files_changed:
 - `.cursor/agents/excalibur-blog-geo-qa.md`
 checks_run:
 - `rg` generalPurpose geo-qa fallback present in docs
-commit: pending-parent-commit
+commit: b02d506a (scripts 2f508fe0; cloud 865c2557; docs 65fe3cab)
 
 
 ## INC-20261024-0921-geo-qa-utility-pain-outcome-markers-missing
@@ -363,7 +363,7 @@ files_changed:
 checks_run:
 - html-linter FAIL on href=[REDACTED]
 - link-verify FAIL kind=placeholder on href=[REDACTED]
-commit: pending-parent-commit
+commit: b02d506a (scripts 2f508fe0; cloud 865c2557; docs 65fe3cab)
 
 
 
@@ -411,7 +411,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - space-separated names → `SSH_HOST,SSH_USER` (public URL names dropped)
-commit: pending-parent-commit
+commit: b02d506a (scripts 2f508fe0; cloud 865c2557; docs 65fe3cab)
 
 
 ## INC-20261024-0912-research-tech-marker-raize-false-positive
@@ -456,7 +456,7 @@ files_changed:
 checks_run:
 - unit: slug toyota-raize… → technical=False; mcp-cursor → True
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
-commit: pending-parent-commit
+commit: b02d506a (scripts 2f508fe0; cloud 865c2557; docs 65fe3cab)
 
 ## INC-20261024-0905-scout-wp-slug-denylist-missing
 status: fixed

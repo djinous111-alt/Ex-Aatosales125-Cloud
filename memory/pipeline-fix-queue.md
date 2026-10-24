@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261025-2205-publish-http-fallback-504-reconstruct
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-fit-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: publish
+
+### What went wrong
+- SSH bootstrap upload OK (~5.97MB); local HTTP trigger hit urllib TimeoutError (120s).
+- FALLBACK curl of bootstrap URL returned nginx 504 HTML (not `OK post=`).
+- Publish script then raised Cloud WebFetch Fallback timed out / failed before writing wp-publish-result.json.
+- Overlapping HTTP+FALLBACK triggers created duplicate media (*-1.png): featured 4519 + inline 4521/4522/4523; orphans 4514–4517.
+
+### How the agent recovered this run
+- Did **not** republish. Verified LIVE via REST `posts?slug=honda-fit-…` → post_id **4513**, featured_media **4519**, HEAD 200.
+- Content img srcs point at *-1.png (latest). Web PHP meta-check: schema_meta ok (12131), skip_theme_faq=1.
+- Reconstructed `wp-publish-result.json` verdict=pass; updated ledger/log/promotion/handoff.
+
+### Durable fix needed before next run
+- Increase HTTP trigger timeout beyond 120s for ~6MB payloads OR make FALLBACK wait longer than nginx 504 and prefer REST reconstruct path in script when slug already LIVE.
+- Document: never write 504 HTML into webfetch-response as success; poll REST by slug before second trigger.
+- Optionally delete orphaned first-wave media after successful *-1 content rewrite.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`trigger_bootstrap_http` timeout / FALLBACK loop)
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261024-2148-indexer-skill-llms-blog-path-stale
 status: open
 run_date: 2026-10-25

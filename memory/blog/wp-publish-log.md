@@ -31,3 +31,16 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-25 — B01 honda-fit-iz-yaponii-komplektatsii-lovushki-2026
+
+- verdict: PASS (reconstructed after HTTP/FALLBACK 504)
+- post_id: 4513
+- featured_image: 4519
+- inline_images: 4521, 4522, 4523 (content uses *-1.png; earlier 4514–4517 orphaned duplicates)
+- schema_meta: ok (len=12131, BlogPosting+FAQPage, env expanded)
+- skip_theme_faq: 1
+- permalink: https://avtosales125.ru/2026/10/25/honda-fit-iz-yaponii-komplektatsii-lovushki-2026/
+- HEAD: 200
+- method: SSH_ROOT=. upload + HTTP timeout → FALLBACK curl 504 → REST/meta reconstruct (no republish)
+- foreign posts NOT touched: Jimny 4507, Freed 4501, …

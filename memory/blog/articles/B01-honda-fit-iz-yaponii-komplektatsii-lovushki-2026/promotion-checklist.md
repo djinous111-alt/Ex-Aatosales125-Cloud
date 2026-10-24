@@ -1,13 +1,13 @@
 # Promotion checklist — B01 honda-fit-iz-yaponii-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-25 (planned; pre-publish)  
-Live URL: /blog/honda-fit-iz-yaponii-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-25  
+Live URL: https://avtosales125.ru/2026/10/25/honda-fit-iz-yaponii-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)

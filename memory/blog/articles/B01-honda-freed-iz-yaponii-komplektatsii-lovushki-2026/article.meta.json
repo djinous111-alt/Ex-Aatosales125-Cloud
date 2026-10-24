@@ -12,7 +12,7 @@
     "хонда фрид гибрид из японии",
     "комплектация g хонда фрид"
   ],
-  "char_count": 9039,
+  "char_count": 9036,
   "article_mode": "B",
   "author_id": "avtosales-editorial",
   "anchor_variants": [
@@ -29,9 +29,13 @@
     "description_aeo": "До ставки на Honda Freed из Японии сверьте код кузова, топливо, комплектацию с двумя power-slide и Honda Sensing, оценку листа и фото дверей."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
-    "date": "2026-10-24"
+    "score": 87,
+    "verdict": "PASS",
+    "date": "2026-10-24",
+    "core_eeat": "18/20",
+    "human_voice": "PASS",
+    "utility_gate": "PASS",
+    "research_notes_gate": "PASS"
   },
   "cover_family": "brand_collage"
 }

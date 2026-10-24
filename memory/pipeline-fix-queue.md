@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-1330-geo-qa-utility-policy-pain-outcome-missing
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-freed-iz-yaponii-komplektatsii-lovushki-2026
+severity: high
+category: script
+
+### What went wrong
+- `excalibur_blog_utility_gate.py` считает `pain_markers_ru` / `outcome_markers_ru` и требует min 2 / 3 по умолчанию.
+- В `memory/brief/editorial-policy.json` этих списков не было → count всегда 0 → utility gate BLOCK на любой статье (в т.ч. ранее PASS AS09).
+- Отдельно writer дал action-маркеры «Делать/Не делать» и «чек-лист», а policy ищет «сделайте/не делайте» и «чеклист» без дефиса → action 5<8.
+
+### How the agent recovered this run
+- Добавил в policy `pain_markers_ru`, `outcome_markers_ru` и min в `article_required_signals` (в духе human-voice маркеров).
+- Минимальный FIX article.html: императивы «Сделайте/Не делайте», «избегайте/используйте/чеклист/шаг», инсайт без ярлыка TL;DR.
+- Повтор utility + human-voice + остальные QA-скрипты → PASS.
+
+### Durable fix needed before next run
+- Зафиксировать в pitfalls/writer skill: utility recommendation markers — точные строки policy (`сделайте`, `чеклист` без дефиса).
+- Регрессионный тест: utility gate на fixture/AS09 не должен падать из-за пустых pain/outcome lists (fail-closed только если списки заданы, либо списки обязательны в policy schema).
+- Doctor/preflight: warn если policy не содержит `pain_markers_ru`/`outcome_markers_ru` при наличии checks в скрипте.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261024-1325-writer-cta-env-not-brief-redacted
 status: open
 run_date: 2026-10-24

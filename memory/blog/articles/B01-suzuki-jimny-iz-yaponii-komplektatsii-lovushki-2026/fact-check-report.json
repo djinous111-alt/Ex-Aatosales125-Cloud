@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/B01-suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 5,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "том идите за расчётом под ключ. В первом квартале 2026 Jimny стабильно в топе б/у импорта из Японии: рамн",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025 года",
+      "kind": "date_or_year",
+      "context": "ra и 5 дверей: у Suzuki Japan это разные модели с 2025 года. Мы в Авто-Сейлс во Владивостоке разбираем такие",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "74 / JC74W 5 дверей, K15B ~1.5 л Линейка с апреля 2025; база длиннее Sierra на 340 мм В карточке лота св",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1000",
+      "kind": "large_number",
+      "context": "сли приоритет – дети, багажник на неделю и трасса 1000 км – чаще выгоднее обычный кроссовер. Честно говор",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "211",
+      "kind": "large_number",
+      "context": "ирах тесен для семьи. 5-дверный Nomade даёт около 211 л – уже ближе к \"можно жить\", но это всё ещё рамни",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "340",
+      "kind": "large_number",
+      "context": "5 л Линейка с апреля 2025; база длиннее Sierra на 340 мм В карточке лота сверьте год, КПП (механика в сп",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

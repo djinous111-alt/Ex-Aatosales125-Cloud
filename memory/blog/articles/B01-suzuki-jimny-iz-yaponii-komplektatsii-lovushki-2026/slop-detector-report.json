@@ -1,0 +1,34 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 5,
+  "over_long_sentences": [
+    {
+      "sentence": "Хотите Suzuki Jimny с аукциона Японии, но уже боитесь перепутать kei, Sierra и 5 дверей, не понимаете оценку листа и рискуете дать депозит по красивым фото без осмотра рамы",
+      "word_count": 28
+    },
+    {
+      "sentence": "TL;DR / Быстрый инсайт: Сначала выберите ветку кузова по коду (JB64/JB23 kei, JB74 Sierra 3дв, JC74 Nomade 5дв), потом читайте лист: оценка → история ремонта → пробег → карта A/U/W/C/X",
+      "word_count": 26
+    },
+    {
+      "sentence": "5 л Линейка с апреля 2025; база длиннее Sierra на 340 мм В карточке лота сверьте год, КПП (механика в спросе), 4WD и комплектацию (XC/JL/JC/FC, Safety Support)",
+      "word_count": 26
+    },
+    {
+      "sentence": "Как понять, что готовы к ставке: код кузова сверен, оценка и карта прочитаны, красные флаги (R/RA, C/S по днищу, lift-up без фото рамы) отмечены, есть следующий шаг – расчёт под ключ",
+      "word_count": 32
+    },
+    {
+      "sentence": "Достоверность данных: факты сверены с материалами Suzuki Japan (линейка Sierra JB74 / Nomade JC74), гайдами аукционных листов (Towa, AntaresJP, Japan Vehicle Data), community BigJimny по ржавчине рамы и сигналами Автостата / RBC Autonews по импорту б/у из Японии на 2026; актуальные расчёты под ключ – только в каталоге",
+      "word_count": 43
+    }
+  ],
+  "readability": {
+    "score": 78.1,
+    "level": "Easy (Standard modern readable web content)",
+    "avg_sentence_len": 11.0,
+    "avg_syllables_per_word": 1.9
+  }
+}

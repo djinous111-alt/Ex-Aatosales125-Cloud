@@ -24,10 +24,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Keep in sync with requirements.txt / .cursor/cloud-agent-install.sh
 RUN python3 -m pip install --break-system-packages --no-cache-dir \
     requests \
     pillow \
     python-dotenv \
-    || python3 -m pip install --no-cache-dir requests pillow python-dotenv
+    paramiko \
+    numpy \
+    || python3 -m pip install --no-cache-dir requests pillow python-dotenv paramiko numpy
 
 WORKDIR /workspace

@@ -1,0 +1,199 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "env:PUBLIC_SITE_URL/suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "env:PUBLIC_SITE_URL/suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Как выбрать Suzuki Jimny из Японии: комплектации, ловушки аукциона и чек-лист до ставки 2026",
+      "description": "Suzuki Jimny из Японии: как отличить kei, Sierra и Nomade, прочитать аукционный лист и пройти чеклист из 10 пунктов до ставки. Без оплаты по красивым фото.",
+      "datePublished": "2026-10-24",
+      "dateModified": "2026-10-24",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "env:PUBLIC_SITE_URL/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "env:PUBLIC_SITE_URL/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "env:CATALOG_URL"
+        },
+        "sameAs": [
+          "env:CATALOG_URL",
+          "env:TELEGRAM_URL",
+          "env:MAX_URL",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "env:PUBLIC_SITE_URL/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "env:CATALOG_URL",
+        "sameAs": [
+          "env:CATALOG_URL",
+          "env:TELEGRAM_URL",
+          "env:MAX_URL"
+        ]
+      },
+      "keywords": [
+        "сузуки джимни из японии",
+        "сузуки джимни из японии купить",
+        "сузуки джимни владивосток",
+        "сузуки джимни сиерра",
+        "сузуки джимни 5 дверей"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "env:PUBLIC_SITE_URL/suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Jimny отличается от Sierra?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В быту \"Jimny\" часто называют всю линейку. На японском рынке Sierra (JB74) – это 3-дверный 1.5, а kei Jimny (JB64/JB23) – отдельная малолитражная ветка ~0.66. Сделайте ставку только после сверки кода кузова в листе, не по слову \"Sierra\" в рекламе."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли везти 5-дверный Jimny в 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, смотрите Nomade с кодом JC74 (линейка с апреля 2025). Не ищите \"Sierra 5 дверей\" – такого кода у Suzuki Japan нет. Проверьте лист и запросите расчёт под ключ до депозита."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить на раме до ставки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Запросите фото днища, рамы, body mounts, арок и пола багажника. На карте листа ловите C и S по низу. При lift-up без крупных фото днища – стоп или доп. осмотр."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда Jimny невыгоден против компактного кроссовера?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Если нужны семья, трасса и большой багажник каждый день – чаще берите кроссовер. Jimny имеет смысл при реальном off-road / даче / снеге и готовности к правому рулю и компактному салону."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что значат оценки R и RA на листе?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "R/RA указывают на историю ремонта. Не отбрасывайте лот автоматически и не берите без разбора: откройте карту силовых зон и примечания. Нет ясности – не ставьте, отдайте лист на разбор."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где получить расчёт под ключ по Jimny из Японии?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Соберите код кузова, год, мотор и КПП, затем откройте каталог Авто-Сейлс или напишите в Telegram avtosales125. Не опирайтесь на чужие суммы пошлин из постов – нужен расчёт под ваш лот."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "env:PUBLIC_SITE_URL/suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026/#howto",
+      "name": "Как выбрать Suzuki Jimny из Японии до ставки",
+      "description": "Пошаговый выбор Jimny с аукциона Японии: сценарий, код кузова kei/Sierra/Nomade, чтение аукционного листа, ловушки рамы и чеклист из 10 пунктов до ставки.",
+      "totalTime": "PT45M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Аукционный лист (оценка, карта A/U/W/C/X, R/RA)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Фото рамы, днища, арок и body mounts"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Чеклист из 10 пунктов до ставки"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Желаемый код кузова (JB64/JB23, JB74, JC74)"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Сценарий поездок: город / дача / бездорожье / семья"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Вводные для расчёта под ключ: год, мотор, КПП"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Решить, нужен ли рамный Jimny или кроссовер",
+          "text": "Зафиксируйте сценарий в одном предложении. Jimny – короткий рамник для дачи, снега и колеи; для семьи, трассы и большого багажника чаще выгоднее кроссовер.",
+          "url": "env:PUBLIC_SITE_URL/suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026/#решите-нужен-ли-вам-рамный-jimny-или-кроссовер"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Сверить код кузова: kei, Sierra и Nomade",
+          "text": "Выпишите код до ставки: JB64/JB23 – kei ~0.66; JB74 – Sierra 3дв 1.5; JC74 – Nomade 5дв. Не соглашайтесь на «сиерра 5 дверей» – такого кода у Suzuki Japan нет.",
+          "url": "env:PUBLIC_SITE_URL/suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026/#сверьте-код-кузова-kei-sierra-и-nomade"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Прочитать общую оценку и историю ремонта на листе",
+          "text": "Найдите оценку (S/6/5/4.5/4/3.5) и проверьте R/RA и пометку 修復歴. Не ставьте вслепую, пока не разобрали карту силовых зон.",
+          "url": "env:PUBLIC_SITE_URL/suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026/#как-прочитать-аукционный-лист-до-ставки"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Сверить пробег и карту кузова A/U/W/C/X",
+          "text": "Сверьте пробег с возрастом и салоном. На карте читайте A/U/W/C/S/X/XX; для Jimny отдельно ловите C/S по порогам, днищу и раме.",
+          "url": "env:PUBLIC_SITE_URL/suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026/#как-прочитать-аукционный-лист-до-ставки"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Проверить ловушки: ржавчина рамы, lift-up и правый руль",
+          "text": "До ставки запросите фото днища, рамы, арок, пола багажника и body mounts. Lift-up без крупных фото низа – стоп. Правый руль для японского аукциона – норма.",
+          "url": "env:PUBLIC_SITE_URL/suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026/#ловушки-новичка-ржавчина-рамы-lift-up-и-правый-руль"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Пройти чеклист из 10 пунктов до ставки",
+          "text": "Закройте все пункты «да» или осознанным «принимаю риск»: код кузова, оценка, R/RA, пробег, C/S по низу, фото рамы, lift-up, правый руль, расчёт под ключ. Пока есть «не смотрел» – депозит рано.",
+          "url": "env:PUBLIC_SITE_URL/suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026/#пройдите-чеклист-из-10-пунктов-до-ставки"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Запросить расчёт под ключ в каталоге или Telegram",
+          "text": "Передайте код кузова, год, мотор и скрин/перевод листа. Получите свежий расчёт под ключ и только после этого обсуждайте лимит ставки; в день ставки повторите чеклист.",
+          "url": "env:PUBLIC_SITE_URL/suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026/#запросите-расчет-под-ключ-в-каталоге-или-telegram"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1283,
+      725
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 725,
+        "end": 760
+      },
+      "v_gutter_px": {
+        "start": 1283,
+        "end": 1304
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1283,
+          "bottom": 725
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1283,
+          "bottom": 725
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у порта Владивостока, компактный Jimny, плашка «до ставки» и фейк-лист аукциона",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1304,
+          "top": 9,
+          "right": 2560,
+          "bottom": 715
+        },
+        "raw_box_px": {
+          "left": 1304,
+          "top": 0,
+          "right": 2560,
+          "bottom": 725
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения: рамный Jimny против кроссовера по сценариям использования",
+        "h2_anchor": "Решите, нужен ли вам рамный Jimny или кроссовер"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 37,
+          "top": 760,
+          "right": 1246,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 760,
+          "right": 1283,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема разведения кодов кузова kei, Sierra и Nomade",
+        "h2_anchor": "Сверьте код кузова: kei, Sierra и Nomade"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1327,
+          "top": 760,
+          "right": 2536,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1304,
+          "top": 760,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап аукционного листа: оценка, карта кузова и пометки до ставки",
+        "h2_anchor": "Как прочитать аукционный лист до ставки"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Решите, нужен ли вам рамный Jimny или кроссовер",
+    "injected inline_2 after H2 — Сверьте код кузова: kei, Sierra и Nomade",
+    "injected inline_3 after H2 — Как прочитать аукционный лист до ставки"
+  ]
+}

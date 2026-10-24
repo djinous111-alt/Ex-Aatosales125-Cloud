@@ -68,3 +68,8 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 - `❌ RESEARCH BLOCKER` — нет источников для ключевых утверждений
 - `❌ RESEARCH BLOCKER` — research angle ушёл в материал для профи/архитекторов и не даёт новичку первого понятного результата
 
+
+## Research notes gate
+
+- Gate `technical_topic` использует word-boundary для коротких маркеров (`ai`/`ии`/`api`); авто-тема вроде Honda Freed не должна требовать github_urls>=3 из-за `reader_pain`.
+- `pain_solution_map`: markdown table data-rows после заголовка считаются; префиксы pain/solution/результат помогают.

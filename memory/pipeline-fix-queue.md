@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None for run 2026-10-24 after fixer._
+
+
 ## INC-20261024-1328-cover-mcp-timeout-kie-async
-status: open
+status: fixed
 run_date: 2026-10-24
 role: excalibur-blog-cover
 topic_id: B01
@@ -39,10 +42,24 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- Cover agent/skill: Cloud default = Kie async script; sync MCP gpt-image-2 = legacy fallback; no blind retry after -32001.
+- timeout_policy already in cover_quad_prompt batch; pitfalls updated.
+files_changed:
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg Kie async / timeout_policy in cover skill`
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+commit: pending-parent-commit
 
 ## INC-20261024-1331-cover-missing-corner-brand
-status: open
+status: fixed
 run_date: 2026-10-24
 role: excalibur-blog-cover
 topic_id: B01
@@ -70,10 +87,22 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- cover_quad_split.py stamps avto-sales125.ru on cover.png (+ TL canvas) by default (--stamp-corner-brand).
+- Cover skill documents apply + corner brand step.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_split.py`
+- `rg stamp_corner_brand scripts/excalibur_blog_cover_quad_split.py`
+commit: pending-parent-commit
 
 ## INC-20261024-1326-schema-commit-secret-scan-filter
-status: open
+status: fixed
 run_date: 2026-10-24
 role: excalibur-blog-schema
 topic_id: B01
@@ -105,11 +134,27 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
-
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- Restored scripts/excalibur_git.sh + filter_commit_secret_env.sh (+ filter_secret_names.sh).
+- Schema skill: commit via excalibur_git.sh; cloud-agent-install hardens pre-commit secret-name IDs.
+files_changed:
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/cloud-agent-install.sh`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `bash -n scripts/excalibur_git.sh`
+- `eval filter_commit_secret_env.sh`
+- `doctor: excalibur_git.sh present`
+commit: pending-parent-commit
 
 ## INC-20261024-1330-geo-qa-utility-policy-pain-outcome-missing
-status: open
+status: fixed
 run_date: 2026-10-24
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -143,10 +188,26 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- editorial-policy.json keeps pain/outcome markers + _markers_pinned true.
+- utility_gate POLICY BLOCK if marker lists empty; doctor checks non-empty lists.
+- Writer/pitfalls: exact markers сделайте/не делайте/чеклист.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `shared/editorial-utility-only.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `utility_gate B01 Freed PASS`
+- `doctor pain/outcome/_markers_pinned OK`
+commit: pending-parent-commit
 
 ## INC-20261024-1325-writer-cta-env-not-brief-redacted
-status: open
+status: fixed
 run_date: 2026-10-24
 role: excalibur-blog-writer
 topic_id: B01
@@ -181,10 +242,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- conversion-map uses ${CATALOG_URL}/${TELEGRAM_URL}/${MAX_URL}; writer forbids [REDACTED] href.
+- html-linter FAIL on href=[REDACTED]; git commit via excalibur_git.sh.
+files_changed:
+- `memory/brief/conversion-map.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-writer.md`
+- `.cursor/agents/excalibur-blog-writer.md`
+- `scripts/excalibur_blog_html_linter.py`
+- `scripts/excalibur_git.sh`
+checks_run:
+- `html_linter FAIL on [REDACTED] fixture`
+- `doctor git helpers present`
+commit: pending-parent-commit
 
 ## INC-20261024-1315-research-tech-markers-false-positive
-status: open
+status: fixed
 run_date: 2026-10-24
 role: excalibur-blog-research
 topic_id: B01
@@ -217,10 +294,22 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- research_notes_gate: word-boundary TECH markers; strip reader_pain from sample; table data-rows for pain_solution_map.
+- B01 Freed recheck: technical_topic=false, PASS.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `research_notes_gate B01 Freed PASS technical=False`
+commit: pending-parent-commit
 
 ## INC-20261024-1304-scout-wp-slug-denylist-missing
-status: open
+status: fixed
 run_date: 2026-10-24
 role: excalibur-blog-scout
 topic_id: B01
@@ -252,10 +341,28 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- shared/wp-slug-denylist.json tracked; Freed slug appended after LIVE 4501.
+- scout_helper --check-slug against denylist; scout skill/agent document REST rebuild + incident if missing.
+- Publish skill: update denylist after LIVE.
+files_changed:
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_scout_helper.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `skills/publish-excalibur-blog/SKILL.md`
+checks_run:
+- `scout --check-slug freed → DENYLIST HIT`
+- `scout --check-slug raize → DENYLIST HIT`
+- `doctor denylist exists`
+commit: pending-parent-commit
 
 ## INC-20261024-1334-indexer-llms-stale-blog-path-flag
-status: open
+status: fixed
 run_date: 2026-10-24
 role: excalibur-blog-indexer
 topic_id: B01
@@ -289,7 +396,22 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- doctor checks --blog-dir/--out-dir and warns if stale --blog-path present.
+- Indexer agent/skill: empty --site-base, no --blog-path.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `doctor llms --blog-dir OK / no stale --blog-path`
+- `python3 scripts/excalibur_blog_llms_generator.py --help`
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -541,7 +663,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261024-1340-publish-paramiko-missing-from-cloud-install
-status: open
+status: fixed
 run_date: 2026-10-24
 role: excalibur-blog-publish
 topic_id: B01
@@ -572,4 +694,20 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-24
+fix_summary:
+- cloud-agent-install.sh installs paramiko (+ pre-commit secret-name guard).
+- wp_publish --env-check reports paramiko_available / missing paramiko.
+- doctor checks paramiko available.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `doctor paramiko available`
+- `wp_publish --env-check paramiko_available True`
+commit: pending-parent-commit

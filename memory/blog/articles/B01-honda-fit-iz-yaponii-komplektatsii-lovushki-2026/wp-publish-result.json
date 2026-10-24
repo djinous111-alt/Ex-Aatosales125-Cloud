@@ -1,0 +1,19 @@
+{
+  "slug": "honda-fit-iz-yaponii-komplektatsii-lovushki-2026",
+  "topic_id": "B01",
+  "post_id": 4513,
+  "featured_image": 4519,
+  "inline_images": [
+    4521,
+    4522,
+    4523
+  ],
+  "schema_meta": true,
+  "skip_theme_faq": "1",
+  "permalink": "https://avtosales125.ru/2026/10/25/honda-fit-iz-yaponii-komplektatsii-lovushki-2026/",
+  "publish_method": "ssh+http-timeout-reconstruct",
+  "reconstructed": true,
+  "note": "HTTP trigger timed out; FALLBACK curl got nginx 504; LIVE verified via REST+web meta-check. Content uses *-1.png media (dup from overlapping trigger). Did not republish.",
+  "raw_output": "OK post=4513\nOK featured_image=4519\nOK schema_meta=1\nOK inline_image_upload=4521 src=cover/inline-01.png url=https://avtosales125.ru/wp-content/uploads/2026/10/honda-fit-iz-yaponii-komplektatsii-lovushki-2026-inline-01-1.png\nOK inline_image_upload=4522 src=cover/inline-02.png url=https://avtosales125.ru/wp-content/uploads/2026/10/honda-fit-iz-yaponii-komplektatsii-lovushki-2026-inline-02-1.png\nOK inline_image_upload=4523 src=cover/inline-03.png url=https://avtosales125.ru/wp-content/uploads/2026/10/honda-fit-iz-yaponii-komplektatsii-lovushki-2026-inline-03-1.png\npermalink=https://avtosales125.ru/2026/10/25/honda-fit-iz-yaponii-komplektatsii-lovushki-2026/",
+  "verdict": "pass"
+}

@@ -1,0 +1,661 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-25",
+    "today_ru": "25.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-27",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-25 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "honda-fit-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Honda Fit из Японии в 2026: комплектации и ловушки до ставки",
+    "primary_query": "хонда фит из японии",
+    "secondary_queries": [
+      "honda fit из японии",
+      "honda fit аукцион япония",
+      "фит из японии комплектации",
+      "honda fit ehev вывоз"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "хонда фит из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda Fit 2026 из Японии: e:HEV, обзор и цена | AZWAY",
+          "url": "https://azway.ru/blog/honda-fit-iz-yaponii-obzor",
+          "snippet": ""
+        },
+        {
+          "title": "Хонда Фит 2026 технические характеристики. Honda Fit 2026 комплектации ...",
+          "url": "https://www.drom.ru/catalog/honda/fit/2026/",
+          "snippet": "Нужна точная цена Honda Fit? Проверим доступные машины в Японии, документы, состояние и подготовим полную смету до вашего города."
+        },
+        {
+          "title": "Honda Fit из Японии: поколения, цена",
+          "url": "https://asia-pod-klyuch.ru/blog/honda-fit-iz-yaponii-2026",
+          "snippet": "Подробно расписан модельный ряд Honda Fit 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Honda Fit из Японии: купить, цена под ключ | AZWAY",
+          "url": "https://azway.ru/model/honda-fit",
+          "snippet": "Honda Fit из Японии: экономичный правый руль, весь модельный ряд проходит под льготный утильсбор. Разбираем поколения GK/GP/GR, болячки, цена от 650 тысяч."
+        },
+        {
+          "title": "Продажа HONDA FIT из Японии - autosender.ru",
+          "url": "https://autosender.ru/japan-auto/honda/fit",
+          "snippet": "Honda Fit 2026 из Японии под ключ: e:HEV и 1.5 бензин, X/Z/CROSSTAR/RS, 2WD/4WD, аукционная проверка и точный расчёт."
+        },
+        {
+          "title": "Honda Fit из Японии: обзор, цены, комплектации, поколения",
+          "url": "https://4ringcars.ru/12-honda-fit-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+          "snippet": "Вы можете выбрать и купить новые и б/у HONDA FIT из каталога - все автомобили с реальными фотографиями, техническими характеристиками, описанием и окончательными ценами."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "хонда фит из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda Fit 2026 из Японии: e:HEV, обзор и цена | AZWAY",
+          "url": "https://azway.ru/blog/honda-fit-iz-yaponii-obzor",
+          "snippet": ""
+        },
+        {
+          "title": "Honda Fit из Японии: купить, цена под ключ | AZWAY",
+          "url": "https://azway.ru/model/honda-fit",
+          "snippet": "Нужна точная цена Honda Fit? Проверим доступные машины в Японии, документы, состояние и подготовим полную смету до вашего города."
+        },
+        {
+          "title": "Хонда Фит 2026 технические характеристики. Honda Fit 2026 комплектации ...",
+          "url": "https://www.drom.ru/catalog/honda/fit/2026/",
+          "snippet": "Honda Fit 2026 из Японии под ключ: e:HEV и 1.5 бензин, X/Z/CROSSTAR/RS, 2WD/4WD, аукционная проверка и точный расчёт."
+        },
+        {
+          "title": "Honda Fit из Японии: поколения, цена",
+          "url": "https://asia-pod-klyuch.ru/blog/honda-fit-iz-yaponii-2026",
+          "snippet": "Подробно расписан модельный ряд Honda Fit 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Продажа Honda Fit 2026 года с аукционов Японии: цена и фото",
+          "url": "https://sferacar.ru/statistika/honda/fit/?year_from=2026&year_to=2026",
+          "snippet": "Honda Fit из Японии: экономичный правый руль, весь модельный ряд проходит под льготный утильсбор. Разбираем поколения GK/GP/GR, болячки, цена от 650 тысяч."
+        },
+        {
+          "title": "Honda Fit из Японии: цена под ключ и растаможка 2026",
+          "url": "https://atletauto.ru/yaponiya/honda-fit.html",
+          "snippet": "В данном разделе представлены автомобили Honda Fit 2026 года с аукционов Японии. Цены указаны в рублях уже с учётом всех расходов: затрат в Японии, доставки в Россию, брокерских услуг, пошлины и СВХ."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "хонда фит из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda Fit 2026 из Японии: e:HEV, обзор и цена | AZWAY",
+          "url": "https://azway.ru/blog/honda-fit-iz-yaponii-obzor",
+          "snippet": ""
+        },
+        {
+          "title": "Honda Fit из Японии: поколения, цена",
+          "url": "https://asia-pod-klyuch.ru/blog/honda-fit-iz-yaponii-2026",
+          "snippet": "Honda обновила японский Fit летом 2026: в текущих материалах появились X и Z, а CROSSTAR и RS сохранили отдельное позиционирование. На аукционах при этом ещё долго будут доминировать прежние BASIC, HOME и LUXE. Сравнивать комплектации только по названию нельзя."
+        },
+        {
+          "title": "Представлен обновленный Honda Fit: 123 гибридные лошадиные силы и ...",
+          "url": "https://www.ixbt.com/news/2026/07/12/honda-fit-123.html",
+          "snippet": "Honda Fit из Японии: экономичный правый руль, весь модельный ряд проходит под льготный утильсбор. Разбираем поколения GK/GP/GR, болячки, цена от 650 тысяч."
+        },
+        {
+          "title": "Honda обновила Fit в Японии: новая версия Z и цена от $11 тыс.",
+          "url": "https://101auto.ru/2026/07/honda-obnovila-fit-v-yaponii-novaya-versiya-z-i-cena-ot-11-tys/",
+          "snippet": "В отличие от китайской версии Fit, недавно получившей полностью переработанную переднюю часть, японская модификация сохранила дизайн после рестайлинга 2022 года. Основные изменения коснулись комплектаций и оснащения. В линейке появилась новая версия Z, которая заменила прежнюю комплектацию Home."
+        },
+        {
+          "title": "Honda Fit обновился в Японии: гибрид e:HEV получил полный привод, а RS ...",
+          "url": "https://abcars.ru/novinki/honda-fit-2026/",
+          "snippet": "Honda обновила Fit для Японии к 25-летию модели. Внешность почти не тронули, зато пересобрали линейку версий, а RS и Crosstar теперь продаются только с гибридом."
+        },
+        {
+          "title": "Honda Fit 2026 готовят к июльскому обновлению: дилеры в Японии уже ...",
+          "url": "https://tarantas.news/posts/id68560-honda-fit-2026-gotovjat-k-ijulskomu-obnovleniju-dilery-v-japonii-uzhe-prinimajut-predvaritelnye-zakazy",
+          "snippet": "Продажи обновлённого Honda Fit в Японии стартовали 10 июля 2026 года. За 25 лет Honda продала в Японии более 3,25 млн автомобилей Fit — это одна из самых успешных моделей бренда на домашнем рынке."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com хонда фит из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - eduardremish/practice2026: Эдуард Ремиш фит-252",
+          "url": "https://github.com/eduardremish/practice2026",
+          "snippet": ""
+        },
+        {
+          "title": "docs/favicon.svg at main · tokirk-netizen/docs · GitHub",
+          "url": "https://github.com/tokirk-netizen/docs/blob/main/favicon.svg",
+          "snippet": "Эдуард Ремиш фит-252. Contribute to eduardremish/practice2026 development by creating an account on GitHub."
+        },
+        {
+          "title": "Steam из России в 2026: низкий пинг, обход замедления, голосовой чат ...",
+          "url": "https://gist.github.com/evilork/a40aa5841ba2f9236aa72c7b35551823",
+          "snippet": "Contribute to tokirk-netizen/docs development by creating an account on GitHub."
+        },
+        {
+          "title": "GitHub - zaryanezrya/ch-2026",
+          "url": "https://github.com/zaryanezrya/ch-2026",
+          "snippet": "Полный разбор: почему Steam стал медленнее, как падает пинг в CS2, Dota 2, PUBG, и что делать чтобы пятничный вечер не превращался в борьбу с лагами. Если хочется коротко: Дальше — детальный разбор почему так, как проверить лично, и как настроить решение за 5 минут. 2022-2024: Steam работал нормально."
+        },
+        {
+          "title": "Farming-Sim/icon.svg at main · Mobeen88/Farming-Sim · GitHub",
+          "url": "https://github.com/Mobeen88/Farming-Sim/blob/main/icon.svg",
+          "snippet": "Contribute to zaryanezrya/ch-2026 development by creating an account on GitHub."
+        },
+        {
+          "title": "card-game/icon.svg at main · sam-baker/card-game · GitHub",
+          "url": "https://github.com/sam-baker/card-game/blob/main/icon.svg",
+          "snippet": "Contribute to Mobeen88/Farming-Sim development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "хонда фит из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хонда документация и оригинальный мануал на русском | Honda руководство ...",
+          "url": "https://hondaworld.ru/documentation.htm",
+          "snippet": ""
+        },
+        {
+          "title": "Fit Digital Catalog 2026.7",
+          "url": "https://www.honda.co.jp/Fit/catalog/digital/",
+          "snippet": "Руководство по эксплуатации автомобиля Honda - регламенты ТО, спецификации 🚗 Компания HondaWorld - запчасти для Honda и Acura с доставкой 📞 Звоните в Москве +7 (495) 660-36-30, Санкт-Петербурге +7 (812) 407-28-35"
+        },
+        {
+          "title": "フィット（2026年6月終了モデル）｜Honda公式サイト",
+          "url": "https://www.honda.co.jp/auto-archive/fit/2026/",
+          "snippet": "Fit Digital Catalog 2026.7. © Honda Motor Co., Ltd. and its subsidiaries and affiliates. All Rights Reserved."
+        },
+        {
+          "title": "Honda Fit 2026 из Японии: e:HEV, обзор и цена | AZWAY",
+          "url": "https://azway.ru/blog/honda-fit-iz-yaponii-obzor",
+          "snippet": "Hondaのコンパクトカー、FIT（フィット）の公式サイト。タイプ、価格、燃費、デザイン、性能・安全、機能・装備などをご紹介しています。セルフ見積り、販売会社検索、試乗車検索、商談申し込みなど購入検討に便利なツールもご用意しております。"
+        },
+        {
+          "title": "Хонда Фит технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/honda/fit/",
+          "snippet": "Нужна точная цена Honda Fit? Проверим доступные машины в Японии, документы, состояние и подготовим полную смету до вашего города."
+        },
+        {
+          "title": "Хонда Фит 2026 технические характеристики. Honda Fit 2026 комплектации ...",
+          "url": "https://www.drom.ru/catalog/honda/fit/2026/",
+          "snippet": "Подробно расписан модельный ряд Honda Fit: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хонда Фит между собой."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "хонда фит из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Клуб владельцев Honda Fit (Honda Jazz)",
+          "url": "https://m.honda-fit.ru/forums/",
+          "snippet": ""
+        },
+        {
+          "title": "Honda Fit/Jazz из Японии 2026: лучший бюджетник до 1 млн рублей",
+          "url": "https://autoprofiasia.ru/blog/honda-fit-jazz-iz-yaponii-2026",
+          "snippet": "В этом разделе обсуждаем автозук и самостоятельное изготовление достойной звуковой аппаратуры (а также видео аппаратуры) для Fit (Jazz) второго поколения (2008-2012)."
+        },
+        {
+          "title": "Бортжурнал Honda Fit - клуб, форум о Хонда Фит на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/honda/fit/",
+          "snippet": "В 2026 году ситуация на японском аукционе сложилась так, что Fit можно взять буквально за копейки, главное — понимать, какой двигатель брать, а какой обходить стороной. Разберёмся по порядку."
+        },
+        {
+          "title": "Welcome to the Fit family! - Reddit",
+          "url": "https://www.reddit.com/r/hondafit/",
+          "snippet": "Бортжурнал Honda Fit: реальные истории, опыт эксплуатации и обслуживания. Читайте в Бортжурнале Авто.ру"
+        },
+        {
+          "title": "Драйв 2 Хонда Фит: Отзывы владельцев, проблемы, эксплуатация и цены",
+          "url": "https://honda-library.vercel.app/articles/d/dr/drajv-2-khonda-fit.html",
+          "snippet": "Anything and everything about the Honda Fit/Jazz. Photos, videos, how-to guides, \"Should I buy?\" posts, maintenance, modifications and more!"
+        },
+        {
+          "title": "Отзывы владельцев Хонда Фит, расход, надёжность, минусы",
+          "url": "https://antaresjp.ru/news/honda-fit-otzyvy-vladelcev/",
+          "snippet": "В этой статье мы собрали ключевые моменты, обсуждаемые в сообществах Honda Fit на Драйв 2, от нюансов выбора кузова до специфических неисправностей моторов."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "honda fit из японии 2026",
+      "purpose": "вторичный запрос: honda fit из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda Fit 2026 из Японии: e:HEV, обзор и цена | AZWAY",
+          "url": "https://azway.ru/blog/honda-fit-iz-yaponii-obzor",
+          "snippet": ""
+        },
+        {
+          "title": "Хонда Фит 2026 технические характеристики. Honda Fit 2026 комплектации ...",
+          "url": "https://www.drom.ru/catalog/honda/fit/2026/",
+          "snippet": "Нужна точная цена Honda Fit? Проверим доступные машины в Японии, документы, состояние и подготовим полную смету до вашего города."
+        },
+        {
+          "title": "Honda Fit из Японии: купить, цена под ключ | AZWAY",
+          "url": "https://azway.ru/model/honda-fit",
+          "snippet": "Подробно расписан модельный ряд Honda Fit 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Honda Fit/Jazz из Японии 2026: лучший бюджетник до 1 млн рублей",
+          "url": "https://autoprofiasia.ru/blog/honda-fit-jazz-iz-yaponii-2026",
+          "snippet": "Honda Fit 2026 из Японии под ключ: e:HEV и 1.5 бензин, X/Z/CROSSTAR/RS, 2WD/4WD, аукционная проверка и точный расчёт."
+        },
+        {
+          "title": "Honda Fit из Японии: поколения, цена",
+          "url": "https://asia-pod-klyuch.ru/blog/honda-fit-iz-yaponii-2026",
+          "snippet": "Если ищете надёжный, дешёвый в содержании автомобиль до миллиона рублей — Honda Fit (он же Jazz) остаётся одним из лучших вариантов. За 10 лет мы привезли не одну сотню таких машин."
+        },
+        {
+          "title": "Продажа Honda Fit 2026 года с аукционов Японии: цена и фото",
+          "url": "https://sferacar.ru/statistika/honda/fit/?year_from=2026&year_to=2026",
+          "snippet": "Honda Fit из Японии: экономичный правый руль, весь модельный ряд проходит под льготный утильсбор. Разбираем поколения GK/GP/GR, болячки, цена от 650 тысяч."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "honda fit аукцион япония 2026",
+      "purpose": "вторичный запрос: honda fit аукцион япония",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Купить Honda Fit 2026 Года С Аукционов Японии — Цены, Фото, Доставка В ...",
+          "url": "https://www.vladdiler.ru/auktsiony/honda/fit/?year_from=2026&year_to=2026",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Хонда Фит 2026 года с аукциона Японии - Токай Авто",
+          "url": "https://tokai-auto.ru/honda/fit/?year_from=2026&year_to=2026",
+          "snippet": "Купить автомобили HONDA FIT 2026 года с аукционов Японии под заказ: актуальные цены в рублях, фото, пробег, состояние. Полная проверка, выкуп и доставка по России."
+        },
+        {
+          "title": "Купить Honda FIT HYBRID 2026 года с аукциона Японии - Токай Авто",
+          "url": "https://tokai-auto.ru/honda/fit-hybrid/?year_from=2026&year_to=2026",
+          "snippet": "Список лотов Хонда Фит 2026 года на online аукционах Японии, наши специалисты помогут с выбором и покупкой автомобиля с аукциона Японии"
+        },
+        {
+          "title": "HONDA FIT на аукционе Японии - noharaauto.com",
+          "url": "https://noharaauto.com/auktsiony/honda/fit/?year_from=2026&year_to=2026",
+          "snippet": "Список лотов Honda FIT HYBRID 2026 года на online аукционах Японии, наши специалисты помогут с выбором и покупкой автомобиля с аукциона Японии"
+        },
+        {
+          "title": "Honda Fit 2026 года с аукционов Японии",
+          "url": "https://avtoimport-group.ru/statistika/honda/fit/?year_from=2026&year_to=2026",
+          "snippet": "Онлайн торги автомобилей HONDA FIT в Японии: фото, аукционные листы и цены."
+        },
+        {
+          "title": "Honda Fit 2026 Года На Аукционах Японии Онлайн - Avtoban",
+          "url": "https://avtoban.org/auktsiony/honda/fit/?year_from=2026&year_to=2026",
+          "snippet": "Автомобили Honda Fit 2026 года на аукционах Японии, с подробным расчетом реальной стоимости в России. Удобный поиск по марке, модели, году и комплектации авто."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "фит из японии комплектации 2026",
+      "purpose": "вторичный запрос: фит из японии комплектации",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda Fit 2026 из Японии: e:HEV, обзор и цена | AZWAY",
+          "url": "https://azway.ru/blog/honda-fit-iz-yaponii-obzor",
+          "snippet": ""
+        },
+        {
+          "title": "Хонда Фит 2026 технические характеристики. Honda Fit 2026 комплектации ...",
+          "url": "https://www.drom.ru/catalog/honda/fit/2026/",
+          "snippet": "В июле 2026 японский Fit обновил линейку комплектаций. Разбираем актуальные X, Z, CROSSTAR и RS, но отдельно учитываем прежние HOME/LUXE, которые остаются на аукционах."
+        },
+        {
+          "title": "Honda Fit из Японии: купить, цена под ключ | AZWAY",
+          "url": "https://azway.ru/model/honda-fit",
+          "snippet": "Подробно расписан модельный ряд Honda Fit 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Хонда Фит технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/honda/fit/",
+          "snippet": "Honda Fit 2026 из Японии под ключ: e:HEV и 1.5 бензин, X/Z/CROSSTAR/RS, 2WD/4WD, аукционная проверка и точный расчёт."
+        },
+        {
+          "title": "Honda Fit из Японии: поколения, цена",
+          "url": "https://asia-pod-klyuch.ru/blog/honda-fit-iz-yaponii-2026",
+          "snippet": "Хонда Фит комплектации и цены, фото. Подробно расписан модельный ряд Honda Fit: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть ..."
+        },
+        {
+          "title": "Honda Fit из Японии: обзор, цены, комплектации, поколения",
+          "url": "https://4ringcars.ru/12-honda-fit-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+          "snippet": "Идёт из Японии, правый руль, бензин 1.3/1.5 или мягкий гибрид. Отличный вариант, если трансформер-багажник нужен ещё вместительнее, а по цене это одни из самых доступных лотов."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "honda fit ehev вывоз 2026",
+      "purpose": "вторичный запрос: honda fit ehev вывоз",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda Fit 1.5 e:HEV Z 4WD (07.2026 - н.в ... - Дром",
+          "url": "https://www.drom.ru/catalog/honda/fit/558462/",
+          "snippet": ""
+        },
+        {
+          "title": "Honda Fit 1.5 e:HEV RS (07.2026 - н.в ... - Дром",
+          "url": "https://www.drom.ru/catalog/honda/fit/558460/",
+          "snippet": "Подробно расписаны модификации автомобилей Honda Fit 1.5 e:HEV Z 4WD: все технические спецификации, полная комплектация салона, цвета, в которые окрашивался автомобиль, фотографии внешнего вида и ..."
+        },
+        {
+          "title": "Honda Fit 2026 из Японии: e:HEV, обзор и цена | AZWAY",
+          "url": "https://azway.ru/blog/honda-fit-iz-yaponii-obzor",
+          "snippet": "В каталоге содержатся технические характеристики и фотографии Honda Fit 1.5 e:HEV RS (07.2026 - н.в.)."
+        },
+        {
+          "title": "Honda из Японии под ключ 2026: цена и растаможка | ДАРЭ",
+          "url": "https://importdare.ru/blog/honda-iz-yaponii-pod-klyuch",
+          "snippet": "Нужна точная цена Honda Fit? Проверим доступные машины в Японии, документы, состояние и подготовим полную смету до вашего города."
+        },
+        {
+          "title": "Какие машины можно ввозить из Японии в Россию в 2026 году",
+          "url": "https://tokidoki.su/blog/kakie-mashiny-mozhno-vvozit-iz-yaponii-v-rossiyu/",
+          "snippet": "Honda из Японии под ключ: честная смета в рублях, растаможка CR-V, Fit, Vezel. Какие модели реально ввезти в 2026, а какие под запретом гибридов e:HEV."
+        },
+        {
+          "title": "Стало известно, какие автомобили везут из Японии в Россию в 2026 году",
+          "url": "https://carfrance.ru/stalo-izvestno-kakie-avtomobili-vezyt-iz-iaponii-v-rossiu-v-2026-gody/",
+          "snippet": "Какие машины чаще всего ввозят из Японии в 2026? Обзор моделей, новые правила растаможки и риски при покупке санкционных авто. Советы по выбору и оформлению."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Honda Fit из Японии в 2026: комплектации и ловушки до ставки 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Honda Fit 2026 из Японии: e:HEV, обзор и цена | AZWAY",
+          "url": "https://azway.ru/blog/honda-fit-iz-yaponii-obzor",
+          "snippet": ""
+        },
+        {
+          "title": "Honda Fit из Японии: поколения, цена",
+          "url": "https://asia-pod-klyuch.ru/blog/honda-fit-iz-yaponii-2026",
+          "snippet": "В июле 2026 японский Fit обновил линейку комплектаций. Разбираем актуальные X, Z, CROSSTAR и RS, но отдельно учитываем прежние HOME/LUXE, которые остаются на аукционах."
+        },
+        {
+          "title": "Honda Fit/Jazz из Японии 2026: лучший бюджетник до 1 млн рублей",
+          "url": "https://autoprofiasia.ru/blog/honda-fit-jazz-iz-yaponii-2026",
+          "snippet": "Если выбираете между японскими моделями, смотрите Honda Freed из Японии и Subaru Forester из Японии, а также гайд о том, как читать аукционный лист и оценки R/RA."
+        },
+        {
+          "title": "Honda Fit из Японии: купить, цена под ключ | AZWAY",
+          "url": "https://azway.ru/model/honda-fit",
+          "snippet": "В 2026 году ситуация на японском аукционе сложилась так, что Fit можно взять буквально за копейки, главное — понимать, какой двигатель брать, а какой обходить стороной. Разберёмся по порядку."
+        },
+        {
+          "title": "Хонда Фит 2026 технические характеристики. Honda Fit 2026 комплектации ...",
+          "url": "https://www.drom.ru/catalog/honda/fit/2026/",
+          "snippet": "Honda Fit 2026 из Японии под ключ: e:HEV и 1.5 бензин, X/Z/CROSSTAR/RS, 2WD/4WD, аукционная проверка и точный расчёт."
+        },
+        {
+          "title": "Honda Fit обновился в Японии: гибрид e:HEV получил полный привод, а RS ...",
+          "url": "https://abcars.ru/novinki/honda-fit-2026/",
+          "snippet": "Подробно расписан модельный ряд Honda Fit 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хонда Фит 2026 между собой."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://azway.ru/blog/honda-fit-iz-yaponii-obzor",
+      "title": "Honda Fit 2026 из Японии: e:HEV, обзор и цена | AZWAY",
+      "from_query": "хонда фит из японии 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/honda/fit/2026/",
+      "title": "Хонда Фит 2026 технические характеристики. Honda Fit 2026 комплектации ...",
+      "from_query": "хонда фит из японии 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/honda-fit-iz-yaponii-2026",
+      "title": "Honda Fit из Японии: поколения, цена",
+      "from_query": "хонда фит из японии 2026"
+    },
+    {
+      "url": "https://azway.ru/model/honda-fit",
+      "title": "Honda Fit из Японии: купить, цена под ключ | AZWAY",
+      "from_query": "хонда фит из японии 2026"
+    },
+    {
+      "url": "https://autosender.ru/japan-auto/honda/fit",
+      "title": "Продажа HONDA FIT из Японии - autosender.ru",
+      "from_query": "хонда фит из японии 2026"
+    },
+    {
+      "url": "https://4ringcars.ru/12-honda-fit-iz-japonii-obzor-tseny-komplektatsii-pokolenija/",
+      "title": "Honda Fit из Японии: обзор, цены, комплектации, поколения",
+      "from_query": "хонда фит из японии 2026"
+    },
+    {
+      "url": "https://sferacar.ru/statistika/honda/fit/?year_from=2026&year_to=2026",
+      "title": "Продажа Honda Fit 2026 года с аукционов Японии: цена и фото",
+      "from_query": "хонда фит из японии октябрь 2026"
+    },
+    {
+      "url": "https://atletauto.ru/yaponiya/honda-fit.html",
+      "title": "Honda Fit из Японии: цена под ключ и растаможка 2026",
+      "from_query": "хонда фит из японии октябрь 2026"
+    },
+    {
+      "url": "https://www.ixbt.com/news/2026/07/12/honda-fit-123.html",
+      "title": "Представлен обновленный Honda Fit: 123 гибридные лошадиные силы и ...",
+      "from_query": "хонда фит из японии новости 2026"
+    },
+    {
+      "url": "https://101auto.ru/2026/07/honda-obnovila-fit-v-yaponii-novaya-versiya-z-i-cena-ot-11-tys/",
+      "title": "Honda обновила Fit в Японии: новая версия Z и цена от $11 тыс.",
+      "from_query": "хонда фит из японии новости 2026"
+    },
+    {
+      "url": "https://abcars.ru/novinki/honda-fit-2026/",
+      "title": "Honda Fit обновился в Японии: гибрид e:HEV получил полный привод, а RS ...",
+      "from_query": "хонда фит из японии новости 2026"
+    },
+    {
+      "url": "https://tarantas.news/posts/id68560-honda-fit-2026-gotovjat-k-ijulskomu-obnovleniju-dilery-v-japonii-uzhe-prinimajut-predvaritelnye-zakazy",
+      "title": "Honda Fit 2026 готовят к июльскому обновлению: дилеры в Японии уже ...",
+      "from_query": "хонда фит из японии новости 2026"
+    },
+    {
+      "url": "https://github.com/eduardremish/practice2026",
+      "title": "GitHub - eduardremish/practice2026: Эдуард Ремиш фит-252",
+      "from_query": "site:github.com хонда фит из японии 2026"
+    },
+    {
+      "url": "https://github.com/tokirk-netizen/docs/blob/main/favicon.svg",
+      "title": "docs/favicon.svg at main · tokirk-netizen/docs · GitHub",
+      "from_query": "site:github.com хонда фит из японии 2026"
+    },
+    {
+      "url": "https://gist.github.com/evilork/a40aa5841ba2f9236aa72c7b35551823",
+      "title": "Steam из России в 2026: низкий пинг, обход замедления, голосовой чат ...",
+      "from_query": "site:github.com хонда фит из японии 2026"
+    },
+    {
+      "url": "https://github.com/zaryanezrya/ch-2026",
+      "title": "GitHub - zaryanezrya/ch-2026",
+      "from_query": "site:github.com хонда фит из японии 2026"
+    },
+    {
+      "url": "https://github.com/Mobeen88/Farming-Sim/blob/main/icon.svg",
+      "title": "Farming-Sim/icon.svg at main · Mobeen88/Farming-Sim · GitHub",
+      "from_query": "site:github.com хонда фит из японии 2026"
+    },
+    {
+      "url": "https://github.com/sam-baker/card-game/blob/main/icon.svg",
+      "title": "card-game/icon.svg at main · sam-baker/card-game · GitHub",
+      "from_query": "site:github.com хонда фит из японии 2026"
+    },
+    {
+      "url": "https://hondaworld.ru/documentation.htm",
+      "title": "Хонда документация и оригинальный мануал на русском | Honda руководство ...",
+      "from_query": "хонда фит из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.honda.co.jp/Fit/catalog/digital/",
+      "title": "Fit Digital Catalog 2026.7",
+      "from_query": "хонда фит из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.honda.co.jp/auto-archive/fit/2026/",
+      "title": "フィット（2026年6月終了モデル）｜Honda公式サイト",
+      "from_query": "хонда фит из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/honda/fit/",
+      "title": "Хонда Фит технические характеристики, комплектации и цены",
+      "from_query": "хонда фит из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://m.honda-fit.ru/forums/",
+      "title": "Клуб владельцев Honda Fit (Honda Jazz)",
+      "from_query": "хонда фит из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://autoprofiasia.ru/blog/honda-fit-jazz-iz-yaponii-2026",
+      "title": "Honda Fit/Jazz из Японии 2026: лучший бюджетник до 1 млн рублей",
+      "from_query": "хонда фит из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/honda/fit/",
+      "title": "Бортжурнал Honda Fit - клуб, форум о Хонда Фит на Авто.ру",
+      "from_query": "хонда фит из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.reddit.com/r/hondafit/",
+      "title": "Welcome to the Fit family! - Reddit",
+      "from_query": "хонда фит из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://honda-library.vercel.app/articles/d/dr/drajv-2-khonda-fit.html",
+      "title": "Драйв 2 Хонда Фит: Отзывы владельцев, проблемы, эксплуатация и цены",
+      "from_query": "хонда фит из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://antaresjp.ru/news/honda-fit-otzyvy-vladelcev/",
+      "title": "Отзывы владельцев Хонда Фит, расход, надёжность, минусы",
+      "from_query": "хонда фит из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.vladdiler.ru/auktsiony/honda/fit/?year_from=2026&year_to=2026",
+      "title": "Купить Honda Fit 2026 Года С Аукционов Японии — Цены, Фото, Доставка В ...",
+      "from_query": "honda fit аукцион япония 2026"
+    },
+    {
+      "url": "https://tokai-auto.ru/honda/fit/?year_from=2026&year_to=2026",
+      "title": "Купить Хонда Фит 2026 года с аукциона Японии - Токай Авто",
+      "from_query": "honda fit аукцион япония 2026"
+    },
+    {
+      "url": "https://tokai-auto.ru/honda/fit-hybrid/?year_from=2026&year_to=2026",
+      "title": "Купить Honda FIT HYBRID 2026 года с аукциона Японии - Токай Авто",
+      "from_query": "honda fit аукцион япония 2026"
+    },
+    {
+      "url": "https://noharaauto.com/auktsiony/honda/fit/?year_from=2026&year_to=2026",
+      "title": "HONDA FIT на аукционе Японии - noharaauto.com",
+      "from_query": "honda fit аукцион япония 2026"
+    },
+    {
+      "url": "https://avtoimport-group.ru/statistika/honda/fit/?year_from=2026&year_to=2026",
+      "title": "Honda Fit 2026 года с аукционов Японии",
+      "from_query": "honda fit аукцион япония 2026"
+    },
+    {
+      "url": "https://avtoban.org/auktsiony/honda/fit/?year_from=2026&year_to=2026",
+      "title": "Honda Fit 2026 Года На Аукционах Японии Онлайн - Avtoban",
+      "from_query": "honda fit аукцион япония 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/honda/fit/558462/",
+      "title": "Honda Fit 1.5 e:HEV Z 4WD (07.2026 - н.в ... - Дром",
+      "from_query": "honda fit ehev вывоз 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/honda/fit/558460/",
+      "title": "Honda Fit 1.5 e:HEV RS (07.2026 - н.в ... - Дром",
+      "from_query": "honda fit ehev вывоз 2026"
+    },
+    {
+      "url": "https://importdare.ru/blog/honda-iz-yaponii-pod-klyuch",
+      "title": "Honda из Японии под ключ 2026: цена и растаможка | ДАРЭ",
+      "from_query": "honda fit ehev вывоз 2026"
+    },
+    {
+      "url": "https://tokidoki.su/blog/kakie-mashiny-mozhno-vvozit-iz-yaponii-v-rossiyu/",
+      "title": "Какие машины можно ввозить из Японии в Россию в 2026 году",
+      "from_query": "honda fit ehev вывоз 2026"
+    },
+    {
+      "url": "https://carfrance.ru/stalo-izvestno-kakie-avtomobili-vezyt-iz-iaponii-v-rossiu-v-2026-gody/",
+      "title": "Стало известно, какие автомобили везут из Японии в Россию в 2026 году",
+      "from_query": "honda fit ehev вывоз 2026"
+    }
+  ]
+}

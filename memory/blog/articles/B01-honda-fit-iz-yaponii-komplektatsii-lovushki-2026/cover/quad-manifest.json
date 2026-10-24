@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Hybrid на листе — ещё не вывоз",
+  "mcp_note": "ONE gpt-image-2 / Kie i2i call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у порта Владивостока с аукционным листом Honda Fit и плашкой «до ставки»",
+      "scene_hint": "WEATHER: cool grey Vladivostok port mist/light drizzle; OUTFIT: matte navy softshell jacket over grey crewneck (NOT reference tank/t-shirt), NO cap NO hood, glasses on; reference EXACT face likeness; action selfie at port with compact modern white Honda Fit hatchback behind cranes/containers; holding Japanese auction sheet print with chassis code GP5 circled in red marker; torn paper hook plaque Cyrillic «Hybrid на листе — ещё не вывоз» with yellow highlighter on «не вывоз»; sticky note «сверь код»; shocked meme cutout + facepalm sticker (different formats); DIY zine collage; corner footer ONLY avto-sales125.ru catalog site (NOT Telegram, NOT avtosales125); NEVER Wordstat NEVER Metrika NEVER SEO analytics; NO toxic labels",
+      "meme_caption_ru": "Сначала код кузова"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Сверьте код кузова до ставки – не верьте слову Fit",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean RU comparison table UI: columns Код кузова | Тип | Прямой вывоз; rows GK/GS бензин OK, GP1/GP4 мягкий сверка, GP5/GP6 стоп, GR3/GR4 e:HEV стоп; yellow highlight on GP5 row; pink sticky «не верь слову Fit»; scotch tape; NO hero face; NO Wordstat/Metrika",
+      "alt": "Таблица кодов кузова Honda Fit: бензин OK, GP5/e:HEV — стоп для прямого вывоза"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Как отличить бензин, мягкий гибрид и e:HEV на листе",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake Japan auction sheet screenshot mock: fields Model Fit, Grade HOME, Chassis GP5, Engine hybrid; red marker circle on Chassis code; Cyrillic callouts «бензин / мягкий / e:HEV»; sticky «смотри код, не Hybrid»; NO hero face; NO Wordstat/Metrika",
+      "alt": "Мокап аукционного листа: как отличить бензин, мягкий гибрид и e:HEV по коду"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Выбор грейда: BASIC, HOME, LUXE и новые X, Z, RS, Crosstar",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "RU workflow diagram 4 steps: 1) год лота 2) старый грейд BASIC/HOME/LUXE 3) новый после июля 2026 X/Z/RS/Crosstar 4) сверка оснащения; arrow «не сравнивай только по названию»; tape corner; NO hero face; NO Wordstat/Metrika",
+      "alt": "Схема выбора грейда Fit: BASIC/HOME/LUXE vs новые X/Z/RS/Crosstar после июля 2026"
+    }
+  }
+}

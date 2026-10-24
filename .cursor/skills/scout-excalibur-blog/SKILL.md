@@ -26,11 +26,21 @@ Append new Topic Card to blog-topics.md
 
 ## Подробный алгоритм действий
 
+### Шаг 0 — WP slug denylist (обязательно)
+* Файл `shared/wp-slug-denylist.json` должен существовать с непустым `slugs[]` **до** выбора нового slug.
+* Проверка / восстановление:
+  ```bash
+  python3 scripts/excalibur_blog_wp_slug_denylist.py --check
+  # если missing/empty:
+  python3 scripts/excalibur_blog_wp_slug_denylist.py --rebuild
+  ```
+* Doctor тоже FAIL без denylist. В git коммить только slugs + метаданные источника (без полных secret URL).
+
 ### Шаг 1 — Анализ прошлого и получение ID
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
   Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
 
@@ -40,9 +50,10 @@ Append new Topic Card to blog-topics.md
 * Найди свежие, практические боли пользователей, по которым не хватает качественных гайдов.
 
 ### Шаг 3 — Валидация спроса (Yandex Wordstat)
-Для 2-3 отобранных вариантов тем вызови инструмент `wordstat_get_top_requests` сервера `user-mcp-kv`.
+Для 2-3 отобранных вариантов тем вызови инструмент `wordstat_get_top_requests` сервера `MCP-KV` / `user-mcp-kv`.
 * **Цель:** Найти ключевой запрос (primary query) с живым спросом в Яндексе и выписать 3–5 связанных поисковых вопросов для FAQ и secondary queries.
 * **Фильтр:** Если тема имеет микро-спрос (меньше 10 показов в месяц) и нет смежных тем — отложи её и возьми другую, более востребованную.
+* **MCP-KV unavailable / `namespaceStatus: error` / 401:** не блокируй Scout. Fallback: LIVE denylist + Autostat/WebSearch/competitor evidence; в карточке темы и incident queue отметь `WORDSTAT AUTH WARNING` / MCP error; **не выдумывай** impressions. Допиши incident в `memory/pipeline-fix-queue.md`.
 
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
@@ -80,4 +91,8 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 ## Блокеры скаута
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
-* Выдумывание цифр спроса без вызова Wordstat API.
+* Выдумывание цифр спроса без вызова Wordstat API (или без явного MCP/Wordstat fallback + incident).
+* Выбор slug при отсутствии `shared/wp-slug-denylist.json` без LIVE REST `--rebuild`.
+
+## Git commit (Cloud)
+Перед `git commit` в Cloud: `source scripts/excalibur_blog_filter_secret_names.sh` или `source scripts/excalibur_git.sh` — иначе pre-commit может упасть на `invalid variable name`.

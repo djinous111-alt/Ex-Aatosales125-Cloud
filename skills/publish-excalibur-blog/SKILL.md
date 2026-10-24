@@ -20,20 +20,33 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | `memory/site.env.local` из Cloud Secrets: `SSH_*`, `PUBLIC_SITE_URL` (не FTP) |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
+| Python deps | `paramiko` (SSH); `python3 scripts/excalibur_blog_wp_publish.py --env-check` FAIL если нет |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
+
+### Bootstrap `memory/site.env.local` (gitignored)
+
+Файл часто отсутствует в свежей Cloud VM. Создай из env **без кавычек**, без печати значений в handoff:
+
+- `PUBLIC_SITE_URL`, `SSH_HOST`, `SSH_PORT`, `SSH_USER`, `SSH_ROOT=.`
+- `SSH_PASS` ← значение из `SSH_PASSWORD` или `SSH_PASS`
+- `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` только если Secret разрешает publish
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
 
 ## Алгоритм
 
 ### 1. Preflight publish
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
-  --site-base https://avtosales125.ru
+  --site-base ""
 ```
 
 Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
@@ -41,17 +54,17 @@ Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
 ### 2. Dry-run
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --dry-run
 ```
 
-Проверь: slug, title, размер PHP payload без ошибок.
+Проверь: slug, title, размер PHP payload без ошибок. Скрипт расширяет `env:VAR` в schema/HTML из env перед сборкой PHP.
 
 ### 3. Publish
 
 ```bash
-python scripts/excalibur_blog_wp_publish.py \
+python3 scripts/excalibur_blog_wp_publish.py \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 ```
 
@@ -59,17 +72,18 @@ python scripts/excalibur_blog_wp_publish.py \
 - создаёт/обновляет WP post;
 - загружает featured image + alt;
 - загружает **все локальные inline `<img>`** и подменяет `src` на WP media URL;
-- пишет post meta `_excalibur_blog_schema_jsonld`.
+- расширяет `env:` плейсхолдеры в `schema.jsonld` / HTML и пишет post meta `_excalibur_blog_schema_jsonld`.
 
-### 4. Cloud WebFetch Fallback
+### 4. Cloud WebFetch Fallback + REST reconstruct
 
 Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
 
-1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+1. Скрипт сначала пробует **REST reconstruct** по `slug` (`/wp-json/wp/v2/posts?slug=…`) — если пост уже LIVE, **не** делай второй HTTP/FALLBACK trigger (иначе дубли media `*-1.png`).
+2. Иначе печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
+3. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
+4. Скрипт читает ответ; **nginx 504/502 HTML ≠ success** (не пиши HTML в webfetch-response как OK). Снова REST reconstruct, если slug LIVE.
 
-**Не останавливайся** на первом timeout — используй fallback.
+HTTP timeout в скрипте ≈300s (крупный bootstrap ~6MB). **Не republish** LIVE пост после успешного reconstruct.
 
 ### 5. Post-publish артефакты
 
@@ -84,9 +98,9 @@ python scripts/excalibur_blog_wp_publish.py \
 ### 6. Post-publish (рекомендуется)
 
 ```bash
-python scripts/excalibur_blog_interlinker.py --apply \
+python3 scripts/excalibur_blog_interlinker.py --apply \
   --blog-dir memory/blog/articles \
-  --site-base https://avtosales125.ru
+  --site-base ""
 ```
 
 Inbound-ссылки из старых статей на новую.

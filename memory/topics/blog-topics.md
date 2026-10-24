@@ -184,3 +184,27 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Honda Fit из Японии: комплектации и ловушки 2026
+
+- **priority:** P0
+- **slug:** honda-fit-iz-yaponii-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Honda Fit из Японии в 2026: комплектации и ловушки до ставки
+- **primary_query:** хонда фит из японии
+- **secondary_queries:** honda fit из японии, honda fit аукцион япония, фит из японии комплектации, honda fit ehev вывоз
+- **search_intent:** checklist
+- **article_mode:** B
+- **h2_outline:**
+  1. Зачем сверять код кузова до ставки, а не "просто Fit"
+  2. Бензин 1.3/1.5 vs e:HEV: как не перепутать мягкий и полный гибрид
+  3. Грейды Basic / Home / RS / Crosstar / Luxe – что реально меняет бюджет
+  4. Красные флаги аукционного листа: R/RA, пробег, арки, CVT
+  5. Чек-лист из 10 пунктов до ставки и депозита
+- **faq_hints:** чем GP5/GP6 отличаются от GP1/GP4 по вывозу; какой объём у Fit проходной для физлица; можно ли брать e:HEV Fit прямым фрахтом в 2026
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** компактный Honda Fit у порта Владивостока, герой с аукционным листом и плашкой "до ставки", угол avto-sales125.ru
+- **demand_signal:** Autostat Q1 2026 – Honda Fit в топ-3 моделей б/у из Японии (RHD-канал); LIVE WP без slug honda-fit; Wordstat MCP-KV unavailable – fallback WebSearch + LIVE denylist
+- **rejected_alternatives:** Jimny/Freed/Raize/Stepwgn/Vezel/Harrier/Sonata/K5/Sportage/Seltos/Coolray/CX-5/Monjaro/Carnival LIVE; Corolla/Yaris/Wish/Roomy – ниже Fit по частоте импорта; Palisade/крупные ICE >2.0L – Korea export permit

@@ -1,0 +1,130 @@
+{
+  "gate": "human-voice",
+  "status": "PASS",
+  "article_dir": "memory/blog/articles/B01-honda-fit-iz-yaponii-komplektatsii-lovushki-2026",
+  "errors": [],
+  "warnings": [
+    "multiple exactly-5-step lists detected; vary list size when editorially possible"
+  ],
+  "metrics": {
+    "h2_count": 6,
+    "repeated_h2_openers": [],
+    "textbook_h2_count": 0,
+    "paragraph_count": 25,
+    "paragraph_avg_words": 35.3,
+    "paragraph_variance_ratio": 0.39,
+    "concrete_markers": [
+      "например",
+      "на практике",
+      "типичная ошибка",
+      "представьте"
+    ],
+    "pain_markers": [
+      "боль",
+      "ошиб",
+      "долго"
+    ],
+    "outcome_markers": [
+      "результат",
+      "получите",
+      "сможете",
+      "проверьте",
+      "выберите"
+    ],
+    "ai_opening_hits": [],
+    "reader_story_overlap": [
+      "hybrid",
+      "бюджет",
+      "вывоз",
+      "гибрид",
+      "закрыт",
+      "красоту",
+      "кузова",
+      "листе",
+      "новый",
+      "оценка",
+      "полный",
+      "потом",
+      "пробег",
+      "прямой",
+      "сначала",
+      "ставку",
+      "статьи"
+    ],
+    "reader_pain_overlap": [
+      "hybrid",
+      "аукционе",
+      "грейд",
+      "красивый",
+      "потом",
+      "просто",
+      "ставку",
+      "человек",
+      "японии"
+    ],
+    "reader_outcome_overlap": [
+      "бензин",
+      "вслепую",
+      "гибрид",
+      "депозита",
+      "кузова",
+      "мягкий",
+      "непроходной",
+      "новичок",
+      "полный",
+      "пунктов",
+      "ставки"
+    ],
+    "success_criteria_overlap": [
+      "hybrid",
+      "грейдов",
+      "депозита",
+      "заполненный",
+      "кодам",
+      "короткий",
+      "кузова",
+      "нельзя",
+      "непроходные",
+      "отсеяны",
+      "понятная",
+      "разница",
+      "список",
+      "ставки"
+    ],
+    "voice_angle_overlap": [
+      "hybrid",
+      "который",
+      "модели",
+      "найди",
+      "открой",
+      "спокойный",
+      "строки"
+    ],
+    "surprising_fact_overlap": [
+      "basic",
+      "crosstar",
+      "honda",
+      "hybrid",
+      "аукционах",
+      "висят",
+      "грейда",
+      "долго",
+      "линейке",
+      "листе",
+      "мягкий",
+      "названию",
+      "нельзя",
+      "новой",
+      "новыми",
+      "полный",
+      "рядом",
+      "слово",
+      "сравнивать",
+      "старые",
+      "только",
+      "японии"
+    ],
+    "exactly_five_lists": 2,
+    "fact_check_template_blocks": 0
+  }
+}

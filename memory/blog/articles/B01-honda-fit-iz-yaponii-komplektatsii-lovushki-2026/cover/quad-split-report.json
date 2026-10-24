@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-honda-fit-iz-yaponii-komplektatsii-lovushki-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1271,
+      713
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 713,
+        "end": 731
+      },
+      "v_gutter_px": {
+        "start": 1271,
+        "end": 1318
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1271,
+          "bottom": 713
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1271,
+          "bottom": 713
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у порта Владивостока с аукционным листом Honda Fit и плашкой «до ставки»",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1318,
+          "top": 7,
+          "right": 2560,
+          "bottom": 706
+        },
+        "raw_box_px": {
+          "left": 1318,
+          "top": 0,
+          "right": 2560,
+          "bottom": 713
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица кодов кузова Honda Fit: бензин OK, GP5/e:HEV — стоп для прямого вывоза",
+        "h2_anchor": "Сверьте код кузова до ставки – не верьте слову Fit"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 5,
+          "top": 731,
+          "right": 1265,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 731,
+          "right": 1271,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Мокап аукционного листа: как отличить бензин, мягкий гибрид и e:HEV по коду",
+        "h2_anchor": "Как отличить бензин, мягкий гибрид и e:HEV на листе"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1318,
+          "top": 736,
+          "right": 2560,
+          "bottom": 1435
+        },
+        "raw_box_px": {
+          "left": 1318,
+          "top": 731,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема выбора грейда Fit: BASIC/HOME/LUXE vs новые X/Z/RS/Crosstar после июля 2026",
+        "h2_anchor": "Выбор грейда: BASIC, HOME, LUXE и новые X, Z, RS, Crosstar"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Сверьте код кузова до ставки – не верьте слову Fit",
+    "injected inline_2 after H2 — Как отличить бензин, мягкий гибрид и e:HEV на листе",
+    "injected inline_3 after H2 — Выбор грейда: BASIC, HOME, LUXE и новые X, Z, RS, Crosstar"
+  ]
+}

@@ -93,7 +93,7 @@ checks_run:
 - `utility_gate B01` → PASS, pain=9, outcome=5
 - `utility_gate AS09` → PASS, pain=4, outcome=4
 - fail-soft empty lists → PASS + warnings, no pain/outcome errors
-commit: pending
+commit: c2de9bef
 
 
 ## INC-20261024-0922-writer-cta-href-literal-redacted
@@ -257,7 +257,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0 (`--blog-dir` OK, denylist 1213)
 - denylist JSON keys/slugs count validated
-commit: pending
+commit: 2cb374d5
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

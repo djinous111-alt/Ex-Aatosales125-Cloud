@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-1325-writer-cta-env-not-brief-redacted
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-freed-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- В `memory/brief/conversion-map.md`, `site-brief.md` и `fact-bank.md` URL каталога и Telegram заменены на литерал `[REDACTED]`.
+- Предыдущие статьи (например AS09) уже уходили в `article.html` с `href="[REDACTED]"` – это ломает CTA и link-verify.
+- Writer-контракт требует живые CTA, но brief не даёт значения; без явного правила агент копирует placeholder.
+
+### How the agent recovered this run
+- Взял `CATALOG_URL` и `TELEGRAM_URL` из env Cloud Secrets и подставил в `article.html` (без печати секретов в handoff).
+- Проверил отсутствие литерала `[REDACTED]` в готовом HTML.
+
+### Durable fix needed before next run
+- В writer skill/agent явно: CTA href только из `CATALOG_URL` / `TELEGRAM_URL` (env), никогда из brief-литерала `[REDACTED]`.
+- Добавить preflight/doctor или html-linter правило: fail если `href="[REDACTED]"` или текст `[REDACTED]` в article.html.
+- В conversion-map держать плейсхолдеры вида `${CATALOG_URL}` / `${TELEGRAM_URL}`, а не слово REDACTED, либо короткий comment "read from env".
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-writer.md`
+- `scripts/excalibur_blog_html_linter.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `memory/brief/conversion-map.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261024-1315-research-tech-markers-false-positive
 status: open
 run_date: 2026-10-24

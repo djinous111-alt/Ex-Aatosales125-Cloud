@@ -31,3 +31,15 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+## 2026-10-24 — B01 toyota-raize-iz-yaponii-komplektatsii-lovushki-2026
+
+- **verdict:** PASS
+- **post_id:** 4495
+- **permalink:** /2026/10/24/toyota-raize-iz-yaponii-komplektatsii-lovushki-2026/
+- **featured_image:** 4496
+- **inline_images:** 4497 (`inline-01.png`), 4498 (`inline-02.png`), 4499 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH (`SSH_ROOT=.`) + HTTP trigger OK (~2 min; no FALLBACK)
+- **note:** NEW post — foreign untouched (Stepwgn 4489, Vezel 4483, Sonata 4477). Missing local `assets/placeholder-raize-auction-sheet.png` skipped (not uploaded). Ledger status=published, date=EXCALIBUR_RUN_DATE 2026-10-24.
+- **result:** `memory/blog/articles/B01-toyota-raize-iz-yaponii-komplektatsii-lovushki-2026/wp-publish-result.json`

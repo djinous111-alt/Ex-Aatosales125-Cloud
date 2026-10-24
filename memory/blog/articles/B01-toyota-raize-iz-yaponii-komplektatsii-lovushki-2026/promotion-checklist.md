@@ -1,13 +1,13 @@
 # Promotion checklist — B01 toyota-raize-iz-yaponii-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-24 (planned)  
-Live URL: /blog/toyota-raize-iz-yaponii-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-24  
+Live URL: /2026/10/24/toyota-raize-iz-yaponii-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
 
-- [ ] Открыть live URL — title, excerpt, featured image, FAQ
+- [x] Открыть live URL — title, excerpt, featured image, FAQ (HEAD 200; WP REST id=4495 featured_media=4496)
 - [ ] View source — JSON-LD BlogPosting + FAQPage (theme или plugin)
 - [ ] Проверить internal links из статьи (200)
 - [ ] Яндекс.Вебмастер / GSC — URL отправлен (если настроено)
@@ -47,4 +47,5 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir …/B01-… --site-base ""` — 0 links applied (topic mismatch с AS08 soft-suspension / AS09 Trust Encar).
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (relative URLs, 3 articles, B01 включён).
-- Publish: pending (Indexer only).
+- Publish: PASS — post_id=4495; featured=4496; inline=4497/4498/4499; schema_meta ok; skip_theme_faq=1.
+- Post-publish interlinker `--apply --blog-dir memory/blog/articles`: 0 inbound opportunities (AS08/AS09).

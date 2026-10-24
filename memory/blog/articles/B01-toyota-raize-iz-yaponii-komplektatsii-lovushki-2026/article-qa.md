@@ -1,24 +1,25 @@
-# Article QA — B01
+# Article QA — B01 (RETRY after Writer FIX + Fixer markers)
 
 **topic_id:** B01  
 **slug:** toyota-raize-iz-yaponii-komplektatsii-lovushki-2026  
 **article_dir:** memory/blog/articles/B01-toyota-raize-iz-yaponii-komplektatsii-lovushki-2026  
 **date:** 2026-10-24  
-**verdict:** FAIL  
-**score:** 72 (veto: hard blockers)
+**retry:** 1 (после Writer FIX CTA/insight + Fixer pain/outcome markers)  
+**verdict:** PASS  
+**score:** 92
 
 ## Scripts
 
 | Script | Verdict | Notes |
 |--------|---------|-------|
-| research-notes-gate | PASS | warnings: technical false-positive on «raize» (см. INC research) |
+| research-notes-gate | PASS | warn: technical false-positive «raize» / нет official docs URL |
 | fact-check | PASS | 17 stats; 1 verified in fact-bank (2026); остальные в research-notes |
-| link-verify | **FAIL** | 3/3 CTA `href` = литерал `[REDACTED]` → HTTP 404; не реальные URL каталога/Telegram |
-| html-linter | PASS | 0 errors; TOC в теле нет |
-| slop-detector | PASS | 0 клише; 5 over-long; Flesch RU 66.2 |
+| link-verify | PASS | 2 unique external (каталог + Telegram), failed=0, HTTP 200; литерал `[REDACTED]` в href отсутствует |
+| html-linter | PASS | 0 errors; TOC в теле нет; whitelist OK |
+| slop-detector | PASS | 0 клише; 5 over-long; Flesch RU 66.0 |
 | cannibalization | PASS | 0 issues (`--blog-dir memory/blog/articles`) |
-| utility gate | **BLOCK** | `pain_markers=0`, `outcome_markers=0` — в `editorial-policy.json` нет `pain_markers_ru` / `outcome_markers_ru` (пустые списки → вечный BLOCK). Контент статьи при маркерах human-voice проходит |
-| human-voice gate | PASS | concrete/pain/outcome/story overlap OK; warn: 3× списки ровно из 5 пунктов |
+| utility gate | PASS | pain_markers=9, outcome_markers=5, action_markers=9; policy markers restored |
+| human-voice gate | PASS | story/pain/outcome/success overlap OK; warn: 3× списки ровно из 5 пунктов |
 
 ## Pain / solution / beginner-fit
 
@@ -30,19 +31,19 @@
 | Термины «на пальцах» | Код кузова A201A/A210A/A202A, проходной месяц, remarks, оценка 4+, D-CVT — без тона «для профи» |
 | Beginner-fit | **PASS** |
 
-## Scores (до veto)
+## Scores
 
 | Блок | Балл | Комментарий |
 |------|------|-------------|
-| SEO structure | 16/20 | Primary в H1/meta; CTA сломаны литералом REDACTED |
-| GEO / citability | 22/25 | TL;DR+схема+таблица+FAQ×7+чеклист; ярлык «TL;DR / Быстрый инсайт» запрещён skill |
-| CORE-EEAT lite | 18/20 | см. таблицу ниже |
-| Human voice | 14/15 | human-voice PASS; предупреждение про одинаковые ol×5 |
+| SEO structure | 18/20 | Primary в H1/meta; CTA каталог×2 + Telegram×1 рабочие |
+| GEO / citability | 23/25 | Инсайт «Коротко до ставки» + схема + таблица + FAQ×7 + чеклист |
+| CORE-EEAT lite | 19/20 | см. таблицу ниже |
+| Human voice | 14/15 | human-voice PASS; warn про одинаковые ol×5 |
 | Fact safety | 12/15 | fact-check PASS; много дат вне fact-bank (есть в research) |
-| Contract HTML | 8/10 | whitelist OK; объём 9346; **битые href** |
-| **Итого** | **72/100** | veto link-verify + utility BLOCK |
+| Contract HTML | 10/10 | whitelist OK; объём ~9341; href из CATALOG_URL/TELEGRAM_URL |
+| **Итого** | **92/100** | hard gates все PASS |
 
-## CORE-EEAT lite: 18/20
+## CORE-EEAT lite: 19/20
 
 | ID | Result | Comment |
 |----|--------|---------|
@@ -60,55 +61,51 @@
 | R04 | ✓ | FAQ отвечает действием в 1-м предложении |
 | E01 | ✓ | Угол «до ставки / лист важнее фото» |
 | E02 | ✓ | Делайте / Не делайте |
-| E03 | ✗ | CTA href = `[REDACTED]` (некликабельно / 404) |
+| E03 | ✓ | CTA href = рабочие URL каталога и Telegram (200) |
 | Exp01 | ✓ | Mode B, без fake first-person |
 | Exp02 | ✓ | Тон Авто-Сейлс / Владивосток |
 | Exp03 | ✓ | Slop hits = 0 |
 | Ept01 | ✓ | Гибрид, возраст, remarks, логистика |
-| Ept02 | ✗ | Нет internal blog links на другие посты (только каталог+TG — и те битые) |
+| Ept02 | ✗ | Нет internal blog links на другие посты (только каталог+TG) — non-blocking |
 
-**Target:** ≥16/20 ✓ · hard veto: link-verify FAIL, utility BLOCK
+**Target:** ≥16/20 ✓
 
 ## Link verify
 
-- total: 3 (internal_relative после `--site-base`), failed: 3  
-- причина: в `article.html` записано буквально `href="[REDACTED]"` (hex `5b52454441435445445d`), не URL из conversion-map/fact-bank  
+- total unique: 2 external, failed: 0, verdict: **pass**
+- CTA: catalog host `avto-sales125.ru` ×2 + Telegram `t.me` ×1; литерал `href="[REDACTED]"` count=0
 - see `link-verify.json`
 
 ## AI-slop scan
 
 - cliches: 0  
 - over-long: 5  
-- Flesch RU: 66.2  
+- Flesch RU: 66.0  
 
 ## Schema ready
 
-BlogPosting: pending | FAQPage: yes (7) | HowTo: yes (чеклисты) — **cover/schema не стартовать** до PASS
+BlogPosting: pending | FAQPage: yes (7) | HowTo: yes (чеклисты) — **READY FOR COVER\|\|SCHEMA**
 
-## Blockers
+## Previous blockers (resolved)
 
-1. **LINK VERIFY FAIL** — восстановить реальные CTA: каталог сайта + Telegram avtosales125 из `memory/brief/conversion-map.md` / fact-bank (не строка `[REDACTED]`).
-2. **UTILITY ARTICLE BLOCKER** — machine gate: `pain_markers_ru` / `outcome_markers_ru` отсутствуют в `memory/brief/editorial-policy.json` → счётчики всегда 0. Нужен durable fix (fixer): добавить маркеры (как в `excalibur_blog_human_voice_gate.py`) или не требовать min при пустом списке. Контент статьи по human-voice уже содержит боль/результат.
-3. **Insight label** — блок начинается с `TL;DR / Быстрый инсайт` (запрет skill/linter guidance) → переименовать (напр. «Коротко до ставки:»).
+1. ~~LINK VERIFY FAIL~~ → CTA из CATALOG_URL / TELEGRAM_URL, HTTP 200  
+2. ~~UTILITY ARTICLE BLOCKER~~ → `pain_markers_ru` / `outcome_markers_ru` в `memory/brief/editorial-policy.json`; utility PASS  
+3. ~~Insight label TL;DR~~ → «Коротко до ставки»
 
-## FIX cycle (QA → Writer) — цикл 1
+## Non-blocking notes
 
-Writer **должен** (без правок от GEO QA):
-
-1. Заменить все `href="[REDACTED]"` на рабочие URL каталога и Telegram из brief (≤3 CTA).
-2. Убрать ярлык `TL;DR` / `Быстрый инсайт` из первого blockquote.
-3. (Опционально non-blocking) варьировать длину ol (не три списка ровно по 5); 1–2 internal blog links когда slug LIVE.
-
-**Параллельно Director/Fixer:** починить `editorial-policy.json` (+ pitfalls), иначе utility gate останется BLOCK даже после контент-FIX.
+- human-voice warn: варьировать длину ol (не три списка ровно по 5) — можно в следующем polish  
+- 1–2 internal blog links когда соседние slug LIVE  
+- research-notes-gate warn: technical false-positive на «raize»
 
 ## Gate
 
-- score ≥ 80 → **72** ✗ (veto)  
-- CORE-EEAT ≥ 16/20 → **18/20** ✓  
-- link-verify pass → ✗  
+- score ≥ 80 → **92** ✓  
+- CORE-EEAT ≥ 16/20 → **19/20** ✓  
+- link-verify pass → ✓  
 - research notes gate PASS → ✓  
-- utility gate PASS → ✗  
+- utility gate PASS → ✓  
 - human voice gate PASS → ✓  
 - beginner-fit PASS → ✓  
 
-**Итог:** FAIL — **не** READY FOR COVER\|\|SCHEMA. Вернуть **Writer FIX** (+ Fixer на policy markers).
+**Итог:** PASS — **READY FOR COVER\|\|SCHEMA**

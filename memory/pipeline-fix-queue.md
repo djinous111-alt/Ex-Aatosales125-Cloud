@@ -6,6 +6,47 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-0945-publish-siteenv-paramiko-ssh-root
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-raize-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `memory/site.env.local` missing at publish start (Cloud Secrets present in process env only).
+- `paramiko` not importable until `pip install --break-system-packages paramiko` (env-check does not import it).
+- Cloud Secrets expose `SSH_PATH` (…/public_html) but not `SSH_ROOT`; publish script reads `SSH_ROOT` only.
+- Article references `assets/placeholder-raize-auction-sheet.png` but file absent — upload skipped (inline 01–03 + featured OK).
+
+### How the agent recovered this run
+- Wrote gitignored `memory/site.env.local` from Cloud Secrets (no quoted values); set `SSH_ROOT=.`.
+- Installed paramiko 5.1.0; env-check → dry-run → publish.
+- SSH upload + HTTP trigger succeeded (~2 min, no FALLBACK). NEW post_id=4495; foreign 4489/4483/4477 untouched.
+
+### Durable fix needed before next run
+- Ensure Cloud install installs `paramiko` from `requirements.txt` (`.cursor/cloud-agent-install.sh`).
+- Set Cursor Secret `SSH_ROOT=.` (or map `SSH_PATH` → `SSH_ROOT` in `load_env`).
+- Auto-create `memory/site.env.local` from env in publish preflight (gitignored).
+- Writer/cover: do not leave `<img src="assets/…">` without a real local file, or publish should warn loudly.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`load_env` SSH_PATH alias; missing-inline warning)
+- `.cursor/cloud-agent-install.sh`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Dashboard Cloud Secrets (`SSH_ROOT` only)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261024-0940-indexer-skill-stale-blog-path-flag
 status: open
 run_date: 2026-10-24

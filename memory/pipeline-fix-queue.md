@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-1315-research-tech-markers-false-positive
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-freed-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` помечает non-tech автотему как `technical_topic=true`, потому что TECH_MARKERS матчит подстроки: `ai` внутри обязательного поля `reader_pain`, `ии` внутри русских форм вроде "японии"/"комплектации".
+- Из-за этого gate требует `github_urls >= 3` и иначе BLOCK даже для utility how-to про Honda Freed.
+- Дополнительно `pain_solution_map` считал строки только при наличии слов pain/solution/result в теле ряда; заголовок таблицы не спасал data-rows.
+
+### How the agent recovered this run
+- Добавил 3 релевантных github.com URL (Honda/VIN decode) в `github_evidence`.
+- Переписал ряды `pain_solution_map` с явными префиксами pain/solution/результат.
+- Повторил gate до PASS.
+
+### Durable fix needed before next run
+- В `is_technical_topic` использовать word-boundary / token match, а не `marker in blob` для коротких маркеров (`ai`, `ии`, `api`, `rag`, `make`).
+- Исключить имена обязательных research-полей (`reader_pain`) из проверки маркеров.
+- Для `pain_solution_map` считать markdown table data-rows после заголовка, а не только строки с keywords.
+- Добавить авто-нишевый allowlist или `technical_topic` флаг из research-context / topic card.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261024-1304-scout-wp-slug-denylist-missing
 status: open
 run_date: 2026-10-24

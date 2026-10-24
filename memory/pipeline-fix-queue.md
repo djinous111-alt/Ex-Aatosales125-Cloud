@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-1703-scout-missing-wp-slug-denylist
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `shared/wp-slug-denylist.json` отсутствовал на старте scout-прогона при `EXCALIBUR_TOPIC_SELECTION=needs_scout`.
+- Без denylist риск повторно выбрать LIVE slug (сегодня/недавно: Freed, Raize, Stepwgn, Vezel, Sonata, Coolray и др.).
+
+### How the agent recovered this run
+- Восстановил файл из WordPress REST: `GET /wp-json/wp/v2/posts` (paginated, `_fields=slug,status,link,modified,date,title`) и `GET /wp-json/wp/v2/pages`.
+- Записал `shared/wp-slug-denylist.json` с `generated_at=2026-10-24`, `posts_count=1215`, `pages_count=0`, `unique_slugs=1215`.
+- Проверил кандидатов B01 против denylist (латиница + кириллица) и recent LIVE списка.
+
+### Durable fix needed before next run
+- Гарантировать наличие denylist до scout: doctor/preflight должен FAIL если файл отсутствует, либо auto-rebuild из PUBLIC_SITE_URL REST.
+- Зафиксировать в scout skill/agent шаг "restore denylist if missing" как обязательный, не опциональный.
+- Не коммитить секреты/полные URL; только slugs + метаданные источника.
+
+### Suggested files to inspect/change
+- `shared/wp-slug-denylist.json`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

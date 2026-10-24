@@ -184,3 +184,26 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+## B01 — Suzuki Jimny из Японии: комплектации и ловушки
+
+- **priority:** P0
+- **slug:** suzuki-jimny-iz-yaponii-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Suzuki Jimny из Японии: комплектации, ловушки аукциона и чек-лист до ставки 2026
+- **primary_query:** сузуки джимни из японии
+- **secondary_queries:** сузуки джимни из японии купить, сузуки джимни владивосток, сузуки джимни сиерра, сузуки джимни 5 дверей, suzuki jimny из японии
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Кому реально нужен Jimny, а кому лучше смотреть кроссовер
+  2. Что сверить в аукционном листе до ставки: оценка, пробег, кузов, опции
+  3. 3-дверный vs 5-дверный и Sierra: как не переплатить за "не тот" кузов
+  4. Ловушки новичка: мощность/утиль, правый руль, ржавчина рамы, красивые фото без осмотра
+  5. Чек-лист из 10 пунктов до ставки или депозита
+  6. Куда идти за актуальным расчётом под ключ (каталог / Telegram)
+- **faq_hints:** чем Jimny отличается от Sierra; можно ли везти 5-дверный в 2026; что проверить на раме до ставки; когда Jimny невыгоден против компактного кроссовера
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** компактный Suzuki Jimny у прибрежной дороги Владивостока или на фоне ролкера, герой Авто-Сейлс в smart casual и очках, плашка «до ставки», угол avto-sales125.ru
+- **wordstat_signal:** parent «авто из японии» 108323; узкий «сузуки джимни из японии» 1449 (фраза 1397); бренд «сузуки джимни» 199036; Autostat Q1/8м 2026 – Jimny в топ-5 импорта из Японии
+- **rejected_note:** Freed/Raize/Stepwgn/Vezel LIVE; Alphard/skip-list; Fit 611; Corolla 294; Aqua 22; Coolray/Monjaro/Sonata/Carnival/Sorento LIVE

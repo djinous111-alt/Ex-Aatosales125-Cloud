@@ -64,7 +64,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_doctor.py scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` → paramiko_available=true
-commit: pending-parent-commit
+commit: 90c7a8a3
 
 ## INC-20261024-1727-indexer-doctor-llms-blog-path-mismatch
 status: fixed
@@ -121,7 +121,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → llms flags OK
 - `rg` no durable `--blog-path /` in indexer contracts
-commit: pending-parent-commit
+commit: 90c7a8a3
 
 ## INC-20261024-1721-schema-secret-urls-precommit-block
 status: fixed
@@ -171,7 +171,7 @@ files_changed:
 checks_run:
 - unit: expand_env_placeholders
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
-commit: pending-parent-commit
+commit: 90c7a8a3
 
 ## INC-20261024-1716-geo-qa-utility-missing-pain-outcome-markers
 status: fixed
@@ -222,7 +222,7 @@ files_changed:
 checks_run:
 - empty-markers policy → PASS + skip warnings
 - B01 utility gate → PASS pain=13 outcome=12
-commit: pending-parent-commit
+commit: 90c7a8a3
 
 ## INC-20261024-1710-research-tech-marker-ii-false-positive
 status: fixed
@@ -267,7 +267,7 @@ files_changed:
 checks_run:
 - regression: «из Японии» → not technical; MCP/Cursor → technical
 - `research_notes_gate` B01 → PASS tech=false
-commit: pending-parent-commit
+commit: 90c7a8a3
 
 ## INC-20261024-1705-scout-precommit-invalid-secret-name
 status: fixed
@@ -310,7 +310,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - filter smoke: bad-name skipped, PUBLIC_SITE_URL/SSH_HOST kept
-commit: pending-parent-commit
+commit: 90c7a8a3
 
 ## INC-20261024-1703-scout-missing-wp-slug-denylist
 status: fixed
@@ -363,7 +363,7 @@ files_changed:
 checks_run:
 - denylist --check OK (1216 slugs)
 - doctor OK denylist present
-commit: pending-parent-commit
+commit: 90c7a8a3
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -639,5 +639,5 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` geo-qa generalPurpose fallback in AGENTS.md / director skill
-commit: pending-parent-commit
+commit: 90c7a8a3
 

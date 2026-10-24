@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-0940-indexer-skill-stale-blog-path-flag
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-raize-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer skill/agent shell examples still pass `--blog-path /` to `excalibur_blog_llms_generator.py`.
+- Actual CLI on this tip accepts only `--blog-dir` + `--out-dir` (no `--blog-path`); doctor already documents `--blog-dir`.
+- Stale examples would fail argparse and waste a retry; Director handoff already flagged doctor FAIL for the same drift.
+
+### How the agent recovered this run
+- Ran llms generator with `--blog-dir memory/blog/articles --out-dir memory/blog --site-base ""` (relative URLs matching existing `memory/blog/llms.txt`).
+- Did not use `--blog-path`.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent/skill shell blocks; keep `--blog-dir` + `--out-dir`.
+- Document empty `--site-base ""` when committing relative `/blog/<slug>/` URLs in git.
+- Align `.cursor/` and `agents/` / `skills/` copies.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261024-0932-cover-hero-reference-reupload
 status: open
 run_date: 2026-10-24

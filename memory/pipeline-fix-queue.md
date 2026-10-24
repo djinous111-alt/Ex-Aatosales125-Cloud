@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-0930-writer-precommit-secret-names-format
+status: open
+run_date: 2026-10-24
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-raize-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `pre-commit.cursor` secrets scanner failed before commit: `IFS=',' read` expects comma-separated `CLOUD_AGENT_INJECTED_SECRET_NAMES`, but Cloud env injects space-separated names.
+- Result: entire list treated as one invalid bash variable → commit aborted (`invalid variable name`).
+
+### How the agent recovered this run
+- Re-exported `CLOUD_AGENT_INJECTED_SECRET_NAMES` / `CLOUD_AGENT_ALL_SECRET_NAMES` as comma-separated valid identifiers for the commit subprocess only.
+- Commit of `article.html` + `article.meta.json` succeeded.
+
+### Durable fix needed before next run
+- Align Cloud secret-name injection with hook parser (comma-separated) OR change hook to split on whitespace/comma.
+- Document workaround in pitfalls for writer/publish commits.
+
+### Suggested files to inspect/change
+- `shared/agent-pipeline-pitfalls.md`
+- Cloud env / pre-commit.cursor secret-name injection (platform)
+- `CURSOR-CLOUD-RUNBOOK.md` (commit hygiene note)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261024-0912-research-tech-marker-raize-false-positive
 status: open
 run_date: 2026-10-24

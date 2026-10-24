@@ -6,6 +6,69 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261024-2144-cover-mcp-kv-unavailable-kie-fallback
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-fit-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- MCP namespace `MCP-KV` returned `namespaceStatus: error` during live tool discovery; sync `gpt-image-2` unavailable for quad canvas i2i.
+
+### How the agent recovered this run
+- Used durable fallback `scripts/excalibur_blog_kie_gpt_image2_api.py` (ONE async Kie job, `input_urls` from batch) → split PASS + inject ok.
+- task_id `d0f5b33cb21dfec2d7049d1a88aebe5d`.
+
+### Durable fix needed before next run
+- Restore MCP-KV / `gpt-image-2` tool discovery for cover.
+- Keep Kie async script as documented fallback in cover skill when MCP-KV is error (not only -32001).
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_kie_gpt_image2_api.py`
+- MCP config for MCP-KV (`${env:...}` secrets)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261024-2145-cover-missing-corner-brand-pil
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-honda-fit-iz-yaponii-komplektatsii-lovushki-2026
+severity: low
+category: prompt
+
+### What went wrong
+- Generated cover panel omitted corner catalog brand `avto-sales125.ru` despite prompt/design-code lock (recurring across articles).
+
+### How the agent recovered this run
+- PIL overlay on `cover/cover.png` only (no second image gen): navy pill + `avto-sales125.ru` bottom-right.
+
+### Durable fix needed before next run
+- Add post-split corner-brand ensure step in `excalibur_blog_quad_apply.py` / split script (detect missing text → overlay).
+- Or strengthen prompt + QA check that fails when corner brand missing.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_quad_apply.py`
+- `scripts/excalibur_blog_cover_quad_split.py`
+- `memory/cover/cover-design-code.json`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261025-2130-geo-qa-utility-pain-markers-empty
 status: open
 run_date: 2026-10-25

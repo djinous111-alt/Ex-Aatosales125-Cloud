@@ -108,7 +108,13 @@ def main() -> int:
     ap.add_argument("--blog-dir", type=Path, default=None)
     ap.add_argument("--site-name", type=str, default="Авто-Сейлс")
     ap.add_argument("--site-desc", type=str, default="Блог Авто-Сейлс: автомобили под заказ из Японии, Кореи и Китая, растаможка и доставка через Владивосток.")
-    ap.add_argument("--site-base", type=str, default="https://avtosales125.ru")
+    # Empty default → relative /blog/<slug>/ (git-safe; avoids Cloud secrets scanner on host URLs).
+    ap.add_argument(
+        "--site-base",
+        type=str,
+        default="",
+        help='Site origin for absolute URLs; use "" for git-safe relative /blog/<slug>/ paths',
+    )
     ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for llms.txt/llms-full.txt")
     args = ap.parse_args()
 

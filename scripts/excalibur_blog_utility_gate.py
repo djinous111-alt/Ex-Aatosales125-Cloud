@@ -190,13 +190,27 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 
-    min_pain = int(req.get("min_pain_markers") or 2)
-    if pain_count < min_pain:
-        errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
+    # Empty marker lists → skip (warning), do not hard-BLOCK with default mins.
+    # Keep lists in sync with human_voice_gate PAIN_MARKERS / OUTCOME_MARKERS.
+    if not pain_markers:
+        warnings.append(
+            "pain_markers_ru пуст в editorial-policy.json — pain check skipped "
+            "(добавьте маркеры; иначе utility/human-voice расходятся)"
+        )
+    else:
+        min_pain = int(req.get("min_pain_markers") or 2)
+        if pain_count < min_pain:
+            errors.append(f"слабо раскрыта боль читателя: pain_markers={pain_count} < {min_pain}")
 
-    min_outcome = int(req.get("min_outcome_markers") or 3)
-    if outcome_count < min_outcome:
-        errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
+    if not outcome_markers:
+        warnings.append(
+            "outcome_markers_ru пуст в editorial-policy.json — outcome check skipped "
+            "(добавьте маркеры; иначе utility/human-voice расходятся)"
+        )
+    else:
+        min_outcome = int(req.get("min_outcome_markers") or 3)
+        if outcome_count < min_outcome:
+            errors.append(f"слабо раскрыта польза/результат: outcome_markers={outcome_count} < {min_outcome}")
 
     if req.get("requires_workflow_or_table_or_checklist"):
         has_utility_block = bool(tables or blockquotes or ul_lists >= 2 or "→" in html)

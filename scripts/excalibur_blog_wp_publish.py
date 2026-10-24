@@ -71,11 +71,44 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
     return missing
 
 
+def paramiko_available() -> bool:
+    try:
+        import importlib.util
+
+        return importlib.util.find_spec("paramiko") is not None
+    except Exception:
+        return False
+
+
+def expand_env_placeholders(text: str, env: dict[str, str]) -> str:
+    """Expand git-safe placeholders like env:PUBLIC_SITE_URL or env:PUBLIC_SITE_URL/blog/slug/.
+
+    Schema/HTML in git must not embed secret host URLs; publish expands before WP upload.
+    """
+    import re
+
+    pattern = re.compile(r"\benv:([A-Z][A-Z0-9_]*)(/[^\s\"'<>]*)?")
+
+    def repl(match: re.Match[str]) -> str:
+        key = match.group(1)
+        suffix = match.group(2) or ""
+        value = (env.get(key) or os.environ.get(key) or "").strip().rstrip("/")
+        if not value:
+            return match.group(0)
+        return value + suffix
+
+    return pattern.sub(repl, text)
+
+
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
     root_label = ssh_root_label(env)
+    missing = validate_publish_env(env)
+    if not paramiko_available():
+        missing = [*missing, "paramiko"]
     return {
         "allow_publish": env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes",
         "public_site_url_configured": bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")),
+        "paramiko_available": paramiko_available(),
         "ssh": {
             "host_configured": bool(env.get("SSH_HOST")),
             "user_configured": bool(env.get("SSH_USER")),
@@ -83,7 +116,7 @@ def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
             "root": root_label,
             "dot_fallback_enabled": root_label == "configured-non-dot",
         },
-        "missing": validate_publish_env(env),
+        "missing": missing,
     }
 
 
@@ -569,9 +602,13 @@ def main() -> int:
 
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
     payload = load_article(article_dir)
-    php = build_php(payload)
 
     if args.dry_run:
+        # Expand placeholders with process env only (no secrets printed).
+        dry_env = load_env(root)
+        payload["schema_jsonld"] = expand_env_placeholders(payload.get("schema_jsonld") or "", dry_env)
+        payload["content"] = expand_env_placeholders(payload.get("content") or "", dry_env)
+        php = build_php(payload)
         print(json.dumps({"dry_run": True, "slug": payload["slug"], "title": payload["title"]}, ensure_ascii=False, indent=2))
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
@@ -581,6 +618,8 @@ def main() -> int:
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1
     missing = validate_publish_env(env)
+    if not paramiko_available():
+        missing = [*missing, "paramiko"]
     if missing:
         print(f"BLOCKER: missing publish env: {', '.join(missing)}", file=sys.stderr)
         return 2
@@ -588,6 +627,10 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
+    # Expand env:VAR placeholders in schema/HTML before SSH/WP upload (git keeps placeholders).
+    payload["schema_jsonld"] = expand_env_placeholders(payload.get("schema_jsonld") or "", env)
+    payload["content"] = expand_env_placeholders(payload.get("content") or "", env)
+    php = build_php(payload)
     out = publish_via_ssh(env, php, public)
     print(out)
 

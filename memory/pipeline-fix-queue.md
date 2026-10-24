@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None for B01 Raize 2026-10-24 after fixer._
+
+
 ## INC-20261024-0945-publish-siteenv-paramiko-ssh-root
-status: open
+status: fixed
 run_date: 2026-10-24
 role: excalibur-blog-publish
 topic_id: B01
@@ -44,11 +47,30 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-24
+fix_summary:
+- `ensure_site_env_local` + default `SSH_ROOT=.` (SSH_PATH non-canonical; ENOENT fallback kept).
+- cloud-agent-install / Dockerfile / requirements install `paramiko`; env-check reports `paramiko_available`.
+- Publish WARN on missing local `<img src="assets/…">` files.
+- Publish skill/pitfalls/runbook synced.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/Dockerfile`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check` (paramiko_available=true, root=dot)
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0 warnings=0
+- load_article B01 → WARN missing placeholder-raize-auction-sheet.png
+commit: pending-parent-commit
 
 
 ## INC-20261024-0940-indexer-skill-stale-blog-path-flag
-status: open
+status: fixed
 run_date: 2026-10-24
 role: excalibur-blog-indexer
 topic_id: B01
@@ -81,10 +103,24 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-24
+fix_summary:
+- Removed `--blog-path` from indexer agent/skill shell examples; CLI is `--blog-dir` + `--out-dir` (+ optional empty `--site-base`).
+- Doctor asserts no stale `--blog-path` in llms --help.
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` no stale `--blog-path` flag usages in agents/skills
+- doctor: llms --blog-dir/--out-dir OK, no --blog-path
+commit: pending-parent-commit
 
 ## INC-20261024-0932-cover-hero-reference-reupload
-status: open
+status: fixed
 run_date: 2026-10-24
 role: excalibur-blog-cover
 topic_id: B01
@@ -114,10 +150,22 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-24
+fix_summary:
+- `hero_reference_url.py`: litterbox fallback; on upload failure / temp host keep pinned WordPress media URL (`avtosales125.ru`).
+- Cover skill documents keep-WP path; `--force` no longer blocks cover when WP URL already present.
+files_changed:
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_hero_reference_url.py` → OK existing WP URL
+- `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
+commit: pending-parent-commit
 
 ## INC-20261024-0931-schema-precommit-public-url-secrets
-status: open
+status: fixed
 run_date: 2026-10-24
 role: excalibur-blog-schema
 topic_id: B01
@@ -147,10 +195,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-24
+fix_summary:
+- `excalibur_blog_filter_commit_secret_env.sh` excludes PUBLIC_SITE_URL/CATALOG_URL/TELEGRAM_URL/MAX_URL from commit scan by default.
+- Schema skill + pitfalls document filter / `excalibur_git.sh` commit path; keep absolute URLs in schema.jsonld.
+files_changed:
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_git.sh`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `CURSOR-CLOUD-RUNBOOK.md`
+checks_run:
+- filter export drops PUBLIC_SITE_URL from injected names
+commit: pending-parent-commit
 
 ## INC-20261024-0920-geo-qa-typed-task-missing
-status: open
+status: fixed
 run_date: 2026-10-24
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -180,7 +241,19 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-24
+fix_summary:
+- Documented durable fallback: typed `excalibur-blog-geo-qa` missing → `Task(generalPurpose)` + agent/skill paths (AGENTS/CLOUD-AUTOMATION/pitfalls/task-map/geo-qa agent).
+- Platform catalog registration remains outside repo; runtime path is explicit.
+files_changed:
+- `CLOUD-AUTOMATION.md`
+- `shared/pipeline-task-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `agents/excalibur-blog-geo-qa.md`
+- `.cursor/agents/excalibur-blog-geo-qa.md`
+checks_run:
+- `rg` generalPurpose geo-qa fallback present in docs
+commit: pending-parent-commit
 
 
 ## INC-20261024-0921-geo-qa-utility-pain-outcome-markers-missing
@@ -240,7 +313,7 @@ commit: c2de9bef
 
 
 ## INC-20261024-0922-writer-cta-href-literal-redacted
-status: open
+status: fixed
 run_date: 2026-10-24
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -275,11 +348,27 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- pending (content CTA fixed in article.html; durable contract/linter still needed)
+fixed_at: 2026-10-24
+fix_summary:
+- Writer contract/skill forbid literal `href="[REDACTED]"`; CTA from env + pragma.
+- html-linter + link-verify reject placeholder hrefs (`kind=placeholder`).
+- Commit filter excludes public CTA URL secret names so Writer need not placeholder for scan.
+files_changed:
+- `shared/excalibur-article-writing-contract.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_html_linter.py`
+- `scripts/excalibur_blog_link_verify.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- html-linter FAIL on href=[REDACTED]
+- link-verify FAIL kind=placeholder on href=[REDACTED]
+commit: pending-parent-commit
+
 
 
 ## INC-20261024-0930-writer-precommit-secret-names-format
-status: open
+status: fixed
 run_date: 2026-10-24
 role: excalibur-blog-writer
 topic_id: B01
@@ -308,11 +397,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-24
+fix_summary:
+- Added `filter_secret_names.sh` / `filter_commit_secret_env.sh` / `excalibur_git.sh` (whitespace→comma + identifier-only).
+- cloud-agent-install patches pre-commit.cursor: ID guard + space→comma normalize.
+- Runbook/pitfalls document commit hygiene.
+files_changed:
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_git.sh`
+- `.cursor/cloud-agent-install.sh`
+- `CURSOR-CLOUD-RUNBOOK.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- space-separated names → `SSH_HOST,SSH_USER` (public URL names dropped)
+commit: pending-parent-commit
 
 
 ## INC-20261024-0912-research-tech-marker-raize-false-positive
-status: open
+status: fixed
 run_date: 2026-10-24
 role: excalibur-blog-research
 topic_id: B01
@@ -343,7 +446,17 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+fixed_at: 2026-10-24
+fix_summary:
+- `is_technical_topic` uses word-boundary / stem patterns; prefers topic-card fields (avoids `ai` inside `raize`).
+- Pitfalls document research gate token-match rule.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: slug toyota-raize… → technical=False; mcp-cursor → True
+- `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
+commit: pending-parent-commit
 
 ## INC-20261024-0905-scout-wp-slug-denylist-missing
 status: fixed

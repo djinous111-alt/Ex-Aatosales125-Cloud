@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261025-0945-cover-mcp-timeout-kie-fallback
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-corolla-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` (MCP-KV) с `input_urls` + 16:9 2K вернул `HTTP MCP error -32001: Request timed out`.
+- После timeout в agent-tools / локальных логах не было recoverable image URL / task_id.
+- Async status/result MCP tools для gpt-image-2 отсутствуют в Available Tools.
+
+### How the agent recovered this run
+- Не делал второй sync MCP create (избежать duplicate job).
+- Использовал preferred Cloud flow из `quad-mcp-batch.json`: `scripts/excalibur_blog_kie_gpt_image2_api.py` с тем же `jobs[0].mcp_args` payload.
+- Kie task success → `quad-mcp-result.json` → `quad_apply --inject-html` PASS.
+
+### Durable fix needed before next run
+- MCP gpt-image-2 должен отдавать async create/status (task_id → url), либо Cloud cover runbook по умолчанию стартовать с Kie API script без sync MCP.
+- Зафиксировать в cover skill/agent: при -32001 без URL → один Kie API path, не второй sync MCP.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `scripts/excalibur_blog_cover_quad_prompt.py` (timeout_policy / preferred_image_flow)
+- `shared/blog-cover-quad-canvas-contract.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261025-0935-geo-qa-empty-pain-outcome-markers
 status: fixed
 run_date: 2026-10-25

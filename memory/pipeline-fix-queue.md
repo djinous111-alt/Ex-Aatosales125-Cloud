@@ -6,6 +6,41 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261025-2015-writer-editorial-pain-outcome-markers
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-tank-300-iz-kitaya-chek-list-do-depozita-2026
+severity: medium
+category: docs
+
+### What went wrong
+- В `memory/brief/editorial-policy.json` снова отсутствовали `pain_markers_ru` и `outcome_markers_ru`.
+- `excalibur_blog_utility_gate.py` при пустых списках всегда даёт `pain_markers=0` / `outcome_markers=0` и BLOCK на статье, даже если боль и результат явно есть в тексте.
+- Повторный сбой из прошлых B01 writer-run (Sonata/Monjaro/Palisade): маркеры пропадают из policy между прогонами.
+
+### How the agent recovered this run
+- Восстановил `pain_markers_ru` и `outcome_markers_ru` в editorial-policy (совместимо с human-voice маркерами).
+- Selfcheck: html_linter PASS, utility PASS, human_voice PASS.
+
+### Durable fix needed before next run
+- Зафиксировать списки маркеров в каноне policy/template и не давать им вымываться.
+- Либо в utility gate: fallback на встроенные PAIN/OUTCOME маркеры (как в human_voice_gate), если policy-списки пустые.
+- Добавить doctor/preflight check: `pain_markers_ru` и `outcome_markers_ru` не пустые.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261025-2010-research-gate-accessed-at-pain-map
 status: open
 run_date: 2026-10-25

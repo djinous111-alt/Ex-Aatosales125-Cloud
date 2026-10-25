@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261026-2121-schema-jsonld-secret-allowlist
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-schema
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-noah-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` schema.jsonld blocked by pre-commit secret scan: BlogPosting `@id` / author `sameAs` embed `PUBLIC_SITE_URL`, `CATALOG_URL`, `TELEGRAM_URL`, `MAX_URL`.
+- Schema skill/contract do not document the required `pragma: allowlist secret` pattern for JSON-LD (HTML CTA lines already use HTML comments).
+- Related: `CLOUD_AGENT_*_SECRET_NAMES` can include a raw URL token → `${!SECRET_NAME}` invalid-variable failure (see INC-20261026-2110).
+
+### How the agent recovered this run
+- Sanitized secret-name lists to valid bash identifiers.
+- Rewrote schema lines that contain those URLs to also include `pragma: allowlist secret` via `x-excalibur-pragma` / `@id` objects so JSON stays parseable and the hook allowlists the line.
+- Commit `653e7e78` pushed.
+
+### Durable fix needed before next run
+- Document in schema skill: site/CTA URLs in schema.jsonld need same-line `pragma: allowlist secret` (JSON-safe pattern).
+- Prefer a stable helper/script that emits allowlisted schema.jsonld without ad-hoc `x-excalibur-pragma` pollution.
+- Keep secret-name sanitization workaround in pitfalls until platform fixes name list.
+
+### Suggested files to inspect/change
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/excalibur-article-writing-contract.md` (schema section)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261026-2119-geo-qa-typed-task-fallback
 status: open
 run_date: 2026-10-26

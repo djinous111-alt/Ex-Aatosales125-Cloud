@@ -6,8 +6,11 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_(none — current-run incidents closed below as fixed)_
+
+
 ## INC-20261026-2133-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-publish
 topic_id: B01
@@ -37,11 +40,28 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- cloud-agent-install.sh and Dockerfile install paramiko via requirements.txt + explicit fallback.
+- doctor checks paramiko; --env-check fails when paramiko missing (`paramiko_available`).
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/Dockerfile`
+- `requirements.txt` (already listed paramiko)
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+- `agents/excalibur-blog-publish.md`
+- `.cursor/agents/excalibur-blog-publish.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check` → paramiko_available true
+commit: pending-parent-commit
 
 
 ## INC-20261026-2134-publish-http-fallback-504-reconstruct
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-publish
 topic_id: B01
@@ -75,11 +95,27 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- HTTP trigger timeout raised to 300s; gateway 504/502 HTML is not success.
+- Fallback wait 300s with parallel WP REST poll by slug; auto-reconstruct OK output without republish.
+- Publish skill/agent document REST reconstruct path.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-publish.md`
+- `.cursor/agents/excalibur-blog-publish.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- unit: is_gateway_error_html / reconstruct_ok_output_from_rest
+commit: pending-parent-commit
 
 
 ## INC-20261026-2121-schema-jsonld-secret-allowlist
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-schema
 topic_id: B01
@@ -112,11 +148,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- Schema skill/agent + writing contract document JSON-safe same-line `x-excalibur-pragma: pragma: allowlist secret` for site/CTA URLs in schema.jsonld.
+files_changed:
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-schema.md`
+- `.cursor/agents/excalibur-blog-schema.md`
+- `shared/excalibur-article-writing-contract.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `rg` for x-excalibur-pragma / allowlist secret in schema skill
+commit: pending-parent-commit
 
 
 ## INC-20261026-2119-geo-qa-typed-task-fallback
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-geo-qa
 topic_id: B01
@@ -143,10 +192,24 @@ category: other
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- Documented typed→generalPurpose as the standard Cloud path; do not open an incident solely for this fallback.
+files_changed:
+- `CLOUD-AUTOMATION.md`
+- `shared/pipeline-task-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/director-excalibur-blog/SKILL.md`
+- `.cursor/skills/director-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-director.md`
+- `.cursor/agents/excalibur-blog-director.md`
+checks_run:
+- `rg` for штатный fallback / generalPurpose in pitfalls and CLOUD-AUTOMATION
+commit: pending-parent-commit
 
 ## INC-20261026-2110-precommit-redacted-secret-name
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-research
 topic_id: B01
@@ -171,10 +234,23 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- Added `scripts/excalibur_blog_sanitize_secret_names.sh` to filter invalid names like literal [REDACTED] while keeping comma-lists.
+- Documented Cloud commit workaround in pitfalls/writer skill. Platform pre-commit.cursor still needs a permanent fix upstream.
+files_changed:
+- `scripts/excalibur_blog_sanitize_secret_names.sh`
+- `shared/agent-pipeline-pitfalls.md`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+checks_run:
+- `bash -n scripts/excalibur_blog_sanitize_secret_names.sh`
+- sanitize --export drops [REDACTED], keeps PUBLIC_SITE_URL,SSH_HOST
+commit: pending-parent-commit
 
 ## INC-20261026-2105-research-notes-gate-false-technical
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-research
 topic_id: B01
@@ -205,7 +281,23 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- technical_topic now uses topic h1/slug/intent only (not notes body).
+- Short markers (ии/ai/mcp/api/rag/n8n) use word-boundary matching so «японии» ≠ ИИ.
+- Research agent/skill document ≥5 accessed_at and pain_solution_map keywords.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `agents/excalibur-blog-research.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- unit: auto Noah topic technical=False; MCP/ИИ topics True
+- B01 research_notes_gate PASS with technical_topic=false
+commit: pending-parent-commit
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -457,7 +549,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261026-2135-writer-empty-pain-outcome-markers
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-writer
 topic_id: B01
@@ -487,11 +579,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- Confirmed editorial-policy.json has _markers_pinned + non-empty pain/outcome lists.
+- utility_gate falls back to built-in DEFAULT_* markers with warning when lists empty.
+- Writer skill documents pinned markers + secret-name sanitize before commit.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- JSON parse editorial-policy.json; _markers_pinned true
+- `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
+commit: pending-parent-commit
 
 
 ## INC-20261026-2128-indexer-llms-stale-blog-path
-status: open
+status: fixed
 run_date: 2026-10-26
 role: excalibur-blog-indexer
 topic_id: B01
@@ -521,4 +628,19 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-26
+fix_summary:
+- doctor asserts --blog-dir/--out-dir (not --blog-path).
+- Indexer agent/skill examples drop --blog-path /.
+files_changed:
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` → errors=0
+- `rg` no `--blog-path /` in indexer durable sources
+commit: pending-parent-commit

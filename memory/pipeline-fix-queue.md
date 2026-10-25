@@ -57,7 +57,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` → paramiko_available true
-commit: pending-parent-commit
+commit: 8e60c043
 
 
 ## INC-20261026-2134-publish-http-fallback-504-reconstruct
@@ -111,7 +111,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - unit: is_gateway_error_html / reconstruct_ok_output_from_rest
-commit: pending-parent-commit
+commit: 8e60c043
 
 
 ## INC-20261026-2121-schema-jsonld-secret-allowlist
@@ -161,7 +161,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` for x-excalibur-pragma / allowlist secret in schema skill
-commit: pending-parent-commit
+commit: 8e60c043
 
 
 ## INC-20261026-2119-geo-qa-typed-task-fallback
@@ -206,7 +206,7 @@ files_changed:
 - `.cursor/agents/excalibur-blog-director.md`
 checks_run:
 - `rg` for штатный fallback / generalPurpose in pitfalls and CLOUD-AUTOMATION
-commit: pending-parent-commit
+commit: 8e60c043
 
 ## INC-20261026-2110-precommit-redacted-secret-name
 status: fixed
@@ -247,7 +247,7 @@ files_changed:
 checks_run:
 - `bash -n scripts/excalibur_blog_sanitize_secret_names.sh`
 - sanitize --export drops [REDACTED], keeps PUBLIC_SITE_URL,SSH_HOST
-commit: pending-parent-commit
+commit: 8e60c043
 
 ## INC-20261026-2105-research-notes-gate-false-technical
 status: fixed
@@ -297,7 +297,7 @@ files_changed:
 checks_run:
 - unit: auto Noah topic technical=False; MCP/ИИ topics True
 - B01 research_notes_gate PASS with technical_topic=false
-commit: pending-parent-commit
+commit: 8e60c043
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
@@ -594,7 +594,7 @@ files_changed:
 checks_run:
 - JSON parse editorial-policy.json; _markers_pinned true
 - `python3 -m py_compile scripts/excalibur_blog_utility_gate.py`
-commit: pending-parent-commit
+commit: 8e60c043
 
 
 ## INC-20261026-2128-indexer-llms-stale-blog-path
@@ -643,4 +643,4 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `rg` no `--blog-path /` in indexer durable sources
-commit: pending-parent-commit
+commit: 8e60c043

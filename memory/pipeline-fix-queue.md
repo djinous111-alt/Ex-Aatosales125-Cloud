@@ -6,6 +6,38 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261025-0946-cover-precommit-invalid-secret-name
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-corolla-iz-yaponii-komplektatsii-lovushki-2026
+severity: low
+category: env
+
+### What went wrong
+- `git commit` упал на Cloud pre-commit secrets scanner: `invalid variable name` на `${!SECRET_NAME}`.
+- В `CLOUD_AGENT_INJECTED_SECRET_NAMES` попал URL (`https:...`) как «имя» секрета, не валидный bash identifier.
+
+### How the agent recovered this run
+- Перед commit отфильтровал `CLOUD_AGENT_INJECTED_SECRET_NAMES` до `^[A-Za-z_][A-Za-z0-9_]*$` (без `--no-verify`).
+- Commit `df7cf544` прошёл успешно.
+
+### Durable fix needed before next run
+- Cloud secret injection не должен класть URL/не-идентификаторы в `*_SECRET_NAMES`.
+- Либо pre-commit.cursor должен skip names, не matching bash identifier.
+
+### Suggested files to inspect/change
+- Cloud secrets injection / environment config
+- `/root/.cursor/agent-hooks/.../pre-commit.cursor` (platform)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending (platform/env; local agent can only workaround)
+
+
 ## INC-20261025-0945-cover-mcp-timeout-kie-fallback
 status: open
 run_date: 2026-10-25

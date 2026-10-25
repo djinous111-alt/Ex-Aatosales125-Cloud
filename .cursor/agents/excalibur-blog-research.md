@@ -59,6 +59,12 @@ surprising_fact: неожиданный факт или конфликт мне�
 
 ## source_table
 | source | url | accessed_at | why_it_matters |
+| Example Source | https://example.com/page | 2026-10-25 | why it matters |
+
+Gate `excalibur_blog_research_notes_gate.py` counts `accessed_at` from:
+- `accessed_at: YYYY-MM-DD` literals anywhere, and
+- ISO dates (`YYYY-MM-DD`) in markdown table rows that also contain a URL
+  (column header `accessed_at` is enough; colon prefix in the cell is optional).
 
 ## wordstat
 | phrase | impressions |
@@ -66,8 +72,16 @@ surprising_fact: неожиданный факт или конфликт мне�
 ## github_evidence
 | repo/issue/doc | url | signal |
 
+`github_evidence` is required for community signal, but the word `github` in notes
+alone does **not** mark the topic as `technical_topic`. Tech detection uses topic
+card fields (h1/primary_query/search_intent/slug), not the notes body keyword `github`.
+
 ## pain_solution_map
 | pain | solution | proof/source | reader_result |
+| читатель боится депозита без VIN | stop-правило до перевода | source URL | аванс только после листа лота |
+
+Gate counts **data rows** of the markdown table under `## pain_solution_map`
+(header + separator skipped). Explicit `pain:` / `solution:` prefixes are optional.
 
 ## action_outline
 1. ...

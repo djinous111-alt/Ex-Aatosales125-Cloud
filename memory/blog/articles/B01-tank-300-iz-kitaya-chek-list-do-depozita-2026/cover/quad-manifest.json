@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Депозит без VIN — лотерея?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у рамного Tank 300 в порту Владивостока, плашка до депозита, угол avto-sales125.ru",
+      "scene_hint": "Герой Авто-Сейлс (EXACT face+glasses from reference) в непромокаемой тёмной куртке под туман/мокрый порт Владивостока у рамного Tank 300 (современный рамный внедорожник), терминал/краны на фоне; action selfie 24mm; плашка кириллицей «до депозита»; fake UI: чеклист документов + карточка каталога авто; рваная бумага, скотч, жёлтый стикер «стоп»; мем shocked face; угол avto-sales125.ru; БЕЗ токсичного текста, БЕЗ Wordstat/Метрики/Telegram",
+      "meme_caption_ru": "Стоп до депозита"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Выберите задачу авто: рамный Tank 300 или кроссовер",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Чистая UI-таблица сравнения без лица героя: колонки «рамный Tank 300» vs «кроссовер» — клиренс, брод, багажник, расход, оффроуд; стикер tape, маркер на «рамный»; без токсичного текста",
+      "alt": "Таблица: рамный Tank 300 против кроссовера — клиренс, брод, багажник"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните официальный дилер и заказ из Китая до денег",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема-сравнение без героя: две ветки «официальный дилер РФ» vs «заказ из Китая» до депозита — гарантия/сервис/зимний пакет vs дизель/редкая комплектация; стрелки workflow; мини sticky «до денег»; без сумм пошлин и токсичного текста",
+      "alt": "Схема: дилер РФ против заказа из Китая — что сравнить до депозита"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Проверьте лот: VIN, мощность, дизель/бензин и история",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake скрин карточки лота/аукциона или каталога авто без лица героя: поля VIN, мощность л.с., дизель/бензин, дата регистрации в КНР, история; чеклист stop-флаги; tape corner; без токсичного текста и SEO-аналитики",
+      "alt": "Карточка лота: VIN, мощность, топливо, дата регистрации в КНР"
+    }
+  }
+}

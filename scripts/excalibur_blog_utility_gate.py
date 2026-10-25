@@ -89,9 +89,54 @@ def is_actionable_h2(title: str) -> bool:
     return False
 
 
+# Built-in fallbacks aligned with human_voice_gate when editorial-policy lists are empty.
+DEFAULT_PAIN_MARKERS_RU = [
+    "боль",
+    "проблем",
+    "ошиб",
+    "ломает",
+    "не работает",
+    "теряет",
+    "дорого",
+    "долго",
+    "рутин",
+    "хаос",
+    "застр",
+    "сложно",
+    "риск",
+    "ловуш",
+    "боюсь",
+    "давлени",
+]
+
+DEFAULT_OUTCOME_MARKERS_RU = [
+    "результат",
+    "получите",
+    "сможете",
+    "сэконом",
+    "проверьте",
+    "запустите",
+    "соберите",
+    "настройте",
+    "исправьте",
+    "выберите",
+    "чеклист",
+    "сверьте",
+]
+
+
 def count_markers(text: str, markers: list[str]) -> int:
     hay = text.lower()
     return sum(hay.count(marker.lower()) for marker in markers)
+
+
+def resolve_marker_list(policy_list: Any, defaults: list[str]) -> tuple[list[str], bool]:
+    """Return (markers, used_fallback). Empty/missing policy lists fall back to defaults."""
+    if isinstance(policy_list, list):
+        cleaned = [str(x).strip() for x in policy_list if str(x).strip()]
+        if cleaned:
+            return cleaned, False
+    return list(defaults), True
 
 
 def gate_topic(topic: dict[str, str], policy: dict[str, Any]) -> dict[str, Any]:
@@ -185,8 +230,16 @@ def gate_article(article_dir: Path, policy: dict[str, Any]) -> dict[str, Any]:
     if marker_count < min_rec:
         errors.append(f"мало action-маркеров в тексте: {marker_count} < {min_rec}")
 
-    pain_markers = policy.get("pain_markers_ru") or []
-    outcome_markers = policy.get("outcome_markers_ru") or []
+    pain_markers, pain_fallback = resolve_marker_list(
+        policy.get("pain_markers_ru"), DEFAULT_PAIN_MARKERS_RU
+    )
+    outcome_markers, outcome_fallback = resolve_marker_list(
+        policy.get("outcome_markers_ru"), DEFAULT_OUTCOME_MARKERS_RU
+    )
+    if pain_fallback or outcome_fallback:
+        warnings.append(
+            "editorial-policy pain_markers_ru/outcome_markers_ru empty — using built-in utility fallbacks"
+        )
     pain_count = count_markers(plain, pain_markers)
     outcome_count = count_markers(plain, outcome_markers)
 

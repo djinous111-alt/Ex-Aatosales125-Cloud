@@ -184,7 +184,7 @@ summary: ...
 
 | Скрипт                                 | Назначение                          |
 | -------------------------------------- | ----------------------------------- |
-| `excalibur_blog_hero_reference_url.py` | catbox/0x0 → `reference_url_hosted` |
+| `excalibur_blog_hero_reference_url.py` | host hero PNG; primary = WP media on avtosales125.ru; catbox/0x0 temp only; keep verified WP URL if temp hosts fail |
 | `excalibur_blog_quad_manifest.py`      | `cover/quad-manifest.json`          |
 | `excalibur_blog_cover_quad_prompt.py`  | prompt + `--write-batch`            |
 | `excalibur_blog_quad_apply.py`         | download URL → split → inject       |

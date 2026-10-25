@@ -1,0 +1,101 @@
+{
+  "article": "memory/blog/articles/B01-tank-300-iz-kitaya-chek-list-do-depozita-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 13,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 12,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "товых сумм из чата. TL;DR / Быстрый инсайт: С мая 2026 Tank 300 серийно собирают на АВТОТОР в Калининград",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2020",
+      "kind": "date_or_year",
+      "context": "и для учёта. ЭПТС – электронный паспорт: с ноября 2020 на импорт оформляют именно его, бумажный \"как рань",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180 дней",
+      "kind": "metric_or_duration",
+      "context": "цены. Потом всплыли типичные риски: машина моложе 180 дней без ясного экспорта, мощность выше льготного поро",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "300",
+      "kind": "large_number",
+      "context": "В Тюмени человек увидел в Telegram лот \"Tank 300 дизель из Китая, дешевле дилера, депозит сегодня\"",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "цены. Потом всплыли типичные риски: машина моложе 180 дней без ясного экспорта, мощность выше льготного",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4760",
+      "kind": "large_number",
+      "context": "Официальные ТХ: рамный 5-местный SUV, длина около 4760 мм, база 2750 мм, клиренс 224 мм, брод до 700 мм.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2750",
+      "kind": "large_number",
+      "context": ": рамный 5-местный SUV, длина около 4760 мм, база 2750 мм, клиренс 224 мм, брод до 700 мм. Это не городск",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "224",
+      "kind": "large_number",
+      "context": "й SUV, длина около 4760 мм, база 2750 мм, клиренс 224 мм, брод до 700 мм. Это не городской паркетник с м",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "700",
+      "kind": "large_number",
+      "context": "ло 4760 мм, база 2750 мм, клиренс 224 мм, брод до 700 мм. Это не городской паркетник с мягкой подвеской.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "220",
+      "kind": "large_number",
+      "context": "ода и снега. Официал в РФ – бензин 2.0T около 218–220 л.с. и 8-ступенчатый автомат. Расход в городе у вл",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "100",
+      "kind": "large_number",
+      "context": "томат. Расход в городе у владельцев часто 13–16 л/100 км: заложите ожидание до покупки. Делать: выберите",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "я физлица в публичных разборах 2026 – порог около 160 л.с. Типичный Tank 2.0 около 218 л.с. в \"льготу ка",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "218",
+      "kind": "large_number",
+      "context": "26 – порог около 160 л.с. Типичный Tank 2.0 около 218 л.с. в \"льготу как у малолитражки\" не попадает. То",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

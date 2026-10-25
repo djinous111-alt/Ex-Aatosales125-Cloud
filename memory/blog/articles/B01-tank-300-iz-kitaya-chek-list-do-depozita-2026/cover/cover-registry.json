@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "tank-300-iz-kitaya-chek-list-do-depozita-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у рамного Tank 300 в порту Владивостока, плашка до депозита, угол avto-sales125.ru",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-25T17:30:46+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у рамного Tank 300 в порту Владивостока, плашка до депозита, угол avto-sales125.ru",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица: рамный Tank 300 против кроссовера — клиренс, брод, багажник",
+      "h2_anchor": "Выберите задачу авто: рамный Tank 300 или кроссовер",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема: дилер РФ против заказа из Китая — что сравнить до депозита",
+      "h2_anchor": "Сравните официальный дилер и заказ из Китая до денег",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Карточка лота: VIN, мощность, топливо, дата регистрации в КНР",
+      "h2_anchor": "Проверьте лот: VIN, мощность, дизель/бензин и история",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

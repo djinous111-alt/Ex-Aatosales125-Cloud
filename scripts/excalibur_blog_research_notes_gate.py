@@ -14,23 +14,29 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
-TECH_MARKERS = (
+# Short tokens must use word-boundary matching so "ии" does not hit "японии"
+# and "ai" does not hit random Latin substrings inside auto niches.
+TECH_MARKERS_BOUNDED = (
     "ai",
     "ии",
-    "agent",
-    "агент",
     "mcp",
     "api",
-    "cursor",
-    "make",
+    "rag",
     "n8n",
+)
+TECH_MARKERS_SUBSTRING = (
+    "agent",
+    "агент",
+    "cursor",
+    "make.com",
     "github",
     "docker",
-    "rag",
     "workflow",
     "автоматизац",
     "нейросет",
 )
+# Legacy alias for docs/tests; prefer the split lists above.
+TECH_MARKERS = TECH_MARKERS_BOUNDED + TECH_MARKERS_SUBSTRING
 
 
 REQUIRED_FIELDS = (
@@ -73,14 +79,32 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
-def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+def _tech_marker_hit(blob: str) -> bool:
+    for marker in TECH_MARKERS_BOUNDED:
+        if re.search(rf"(?<![a-zа-яё0-9_]){re.escape(marker)}(?![a-zа-яё0-9_])", blob, flags=re.I):
+            return True
+    return any(marker in blob for marker in TECH_MARKERS_SUBSTRING)
+
+
+def is_technical_topic(context: dict[str, Any], notes: str = "") -> bool:
+    """Detect tech niche from topic intent fields only.
+
+    Do NOT scan research-notes body: required sections like github_evidence /
+    Wordstat MCP always contain markers (github, mcp, api) even for auto/parent
+    niches and would false-positive technical_topic=true.
+
+    Also avoid substring traps: marker "ии" must not match inside "японии".
+    """
+    del notes  # kept for call-site compatibility; intentionally unused
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    # Also check top-level topic_id/slug if present outside topic object.
+    blob += " " + str(context.get("slug") or "").lower()
+    blob += " " + str(context.get("topic_id") or "").lower()
+    return _tech_marker_hit(blob)
 
 
 def field_present(text_lower: str, field: str) -> bool:

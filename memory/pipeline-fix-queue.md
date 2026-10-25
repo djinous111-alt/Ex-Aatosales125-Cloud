@@ -316,3 +316,37 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261026-2135-writer-empty-pain-outcome-markers
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-noah-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `editorial-policy.json` не содержал `pain_markers_ru` / `outcome_markers_ru`; utility gate давал BLOCK (pain=0, outcome=0) даже при живом тексте о боли и результате.
+- Writer также поймал повтор INC-20261026-2110: pre-commit `${!SECRET_NAME}` падает на литерале `[REDACTED]` в comma-list; space-join ломает список.
+
+### How the agent recovered this run
+- Восстановил pinned списки pain/outcome (синхронно с human_voice_gate) и `_markers_pinned: true`.
+- В статье усилил маркеры `сделайте`/`не делайте`/`чеклист`/`сможете`/`выберите`; CTA из env + allowlist pragma; один `<ol>` ≥5.
+- Commit: фильтр `CLOUD_AGENT_INJECTED_SECRET_NAMES` с сохранением запятых.
+
+### Durable fix needed before next run
+- Держать `_markers_pinned` + non-empty pain/outcome lists в editorial-policy; utility gate fallback если списки пусты.
+- Санитизировать secret names в pre-commit (уже в INC-20261026-2110).
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- Cloud `pre-commit.cursor` secret-name filter
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

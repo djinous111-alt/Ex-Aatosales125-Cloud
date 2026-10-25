@@ -6,6 +6,45 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261025-1732-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-tank-300-iz-kitaya-chek-list-do-depozita-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer agent/skill/doctor still document or check `--blog-path` for `excalibur_blog_llms_generator.py`.
+- Actual CLI accepts only `--blog-dir`, `--site-name`, `--site-desc`, `--site-base`, `--out-dir`.
+- Stale invocation fails with argparse: `unrecognized arguments: --blog-path /`.
+- Preflight doctor already FAIL: "llms generator supports --blog-path" while script moved to `--blog-dir`/`--out-dir`.
+
+### How the agent recovered this run
+- Ran generator with current flags: `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
+- Confirmed `--help` has no `--blog-path`; regenerated `memory/blog/llms.txt` and `memory/blog/llms-full.txt`.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent + skill shell examples; keep `--blog-dir` + `--out-dir`.
+- Update `scripts/excalibur_blog_doctor.py` check to assert current flags (`--blog-dir` / `--out-dir`), not `--blog-path`.
+- Optionally note pitfall in `shared/agent-pipeline-pitfalls.md`.
+
+### Suggested files to inspect/change
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261025-1731-cover-hero-host-upload-fallback
 status: open
 run_date: 2026-10-25

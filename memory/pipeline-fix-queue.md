@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261025-0920-research-false-technical-topic
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-corolla-iz-yaponii-komplektatsii-lovushki-2026
+severity: low
+category: script
+
+### What went wrong
+- `excalibur_blog_research_notes_gate.py` пометил авто-тему B01 как `technical_topic=true` из-за маркеров вроде `github` / упоминаний Wordstat-инструмента в research-notes.
+- Из-за этого gate потребовал ≥3 github.com URL на how-to про Toyota Corolla (непрофильный критерий для niche Авто-Сейлс).
+- Первый прогон: BLOCK (`accessed_at` в таблице без литерала `accessed_at:` + github_urls меньше 3).
+
+### How the agent recovered this run
+- Перевёл колонку дат в source_table на формат `accessed_at: 2026-10-25`.
+- Добавил ≥3 релевантных github.com ссылки в `github_evidence` (OCR листа / VIN / Toyota Corolla repos).
+- Повторный gate: PASS (остался warning про official docs URL).
+
+### Durable fix needed before next run
+- В `is_technical_topic()` не считать тему технической только из-за секции `github_evidence` или слова `github` в notes; брать маркеры из topic card (h1/slug/primary_query), а не из всего текста notes.
+- Либо для non-tech niche (авто) отключить требование github_urls≥3.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261025-0908-scout-precommit-invalid-secret-name
 status: open
 run_date: 2026-10-25

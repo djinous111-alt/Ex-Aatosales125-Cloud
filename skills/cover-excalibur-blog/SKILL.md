@@ -90,11 +90,19 @@ inject <figure> after H2 in article.html
 ### Шаг 1 — reference URL
 
 ```bash
-python scripts/excalibur_blog_hero_reference_url.py
+python3 scripts/excalibur_blog_hero_reference_url.py
+# optional: python3 scripts/excalibur_blog_hero_reference_url.py --force
 ```
 
-Проверить `memory/cover/blog-hero.json` → `reference_url_hosted`.  
-Fallback env: `BLOG_HERO_REFERENCE_URL`.
+Проверить `memory/cover/blog-hero.json` → `reference_url_hosted`.
+
+**Host priority (durable):**
+1. Existing WordPress media URL on `avtosales125.ru` that matches local `blog-hero-reference.png` size (Content-Length) — **primary** for `cover_quad_prompt` gate.
+2. Env `BLOG_HERO_REFERENCE_URL` if set.
+3. Temporary mirrors catbox → 0x0 only if no verified WP URL; temp hosts alone will BLOCK `cover_quad_prompt` (required host `avtosales125.ru`).
+4. If `--force` and catbox/0x0 fail, script **keeps** the verified WP URL instead of failing hard.
+
+Do not replace a good WP media URL with litterbox/catbox just because `--force` was used.
 
 ### Шаг 2 — manifest
 

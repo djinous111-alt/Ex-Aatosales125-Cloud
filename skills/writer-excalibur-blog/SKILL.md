@@ -6,6 +6,7 @@
 - `shared/excalibur-article-writing-contract.md`
 - `shared/editorial-utility-only.md`
 - `memory/brief/site-brief.md`, `conversion-map.md`
+- `memory/brief/editorial-policy.json` — **не удаляй** ключи `pain_markers_ru` и `outcome_markers_ru` (utility gate + doctor). Если списки пустые, `excalibur_blog_utility_gate.py` использует встроенный fallback, но канон — непустые списки в policy.
 
 ## Задача
 

@@ -490,3 +490,40 @@ category: env
 ### Fixer resolution
 - pending
 
+## INC-20261025-0949-indexer-stale-blog-path-cli
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-corolla-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- Indexer skill/agent still document `excalibur_blog_llms_generator.py --blog-path /`, but the script argparse has no `--blog-path` (only `--blog-dir`, `--out-dir`, `--site-base`).
+- `excalibur_blog_doctor.py` still asserts `"--blog-path" in llms_help.stdout`, so doctor warns on a stale check while the real CLI is `--blog-dir` / `--out-dir`.
+- Director prompt had to override contracts with fixer memory: use `--out-dir`, never `--blog-path`; empty `--site-base` → relative `/blog/<slug>/`.
+
+### How the agent recovered this run
+- Ran llms generator with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
+- Interlinker: `--apply --article-dir …/B01-… --site-base $PUBLIC_SITE_URL` → 0 opportunities (not a failure).
+- Wrote `promotion-checklist.md` and INDEXER handoff.
+
+### Durable fix needed before next run
+- Remove `--blog-path` from indexer agent/skill shell examples; document `--out-dir memory/blog` and relative URL behavior when `--site-base` is empty.
+- Change doctor check to assert `--out-dir` (and optionally `--blog-dir`) instead of `--blog-path`.
+- Sync `.cursor/` copies with `agents/` / `skills/` after the fix.
+
+### Suggested files to inspect/change
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `scripts/excalibur_blog_doctor.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

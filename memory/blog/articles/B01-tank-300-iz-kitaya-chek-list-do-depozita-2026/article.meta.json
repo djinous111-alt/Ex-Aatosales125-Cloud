@@ -29,12 +29,15 @@
     "description_aeo": "До депозита за Tank 300 из Китая нужны полный VIN, мощность, дата регистрации в КНР и сравнение с дилером после локализации АВТОТОР 2026."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 87,
+    "verdict": "PASS",
     "date": "2026-10-25",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "PASS",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility_gate": "PASS",
+    "core_eeat": "18/20"
   },
   "cover_family": "brand_collage"
 }

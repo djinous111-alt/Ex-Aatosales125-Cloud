@@ -1,0 +1,107 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-25",
+    "today_ru": "25.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-27",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-25 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "hyundai-palisade-iz-korei-komplektatsii-lovushki-2026",
+    "h1": "Hyundai Palisade из Кореи: комплектации, ловушки вывоза и чек-лист до депозита в 2026",
+    "primary_query": "хендай палисад из кореи",
+    "secondary_queries": [
+      "палисад из кореи",
+      "hyundai palisade из кореи",
+      "хендай палисад под заказ",
+      "комплектации хендай палисад из кореи",
+      "хендай палисад пригнать из кореи"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "checklist",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "хендай палисад из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "хендай палисад из кореи октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "хендай палисад из кореи новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com хендай палисад из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "хендай палисад из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "хендай палисад из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "палисад из кореи 2026",
+      "purpose": "вторичный запрос: палисад из кореи"
+    },
+    {
+      "id": "secondary_2",
+      "query": "hyundai palisade из кореи 2026",
+      "purpose": "вторичный запрос: hyundai palisade из кореи"
+    },
+    {
+      "id": "secondary_3",
+      "query": "хендай палисад под заказ 2026",
+      "purpose": "вторичный запрос: хендай палисад под заказ"
+    },
+    {
+      "id": "secondary_4",
+      "query": "комплектации хендай палисад из кореи 2026",
+      "purpose": "вторичный запрос: комплектации хендай палисад из кореи"
+    },
+    {
+      "id": "secondary_5",
+      "query": "хендай палисад пригнать из кореи 2026",
+      "purpose": "вторичный запрос: хендай палисад пригнать из кореи"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Hyundai Palisade из Кореи: комплектации, ловушки вывоза и чек-лист до депозита в 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-hyundai-palisade-iz-korei-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

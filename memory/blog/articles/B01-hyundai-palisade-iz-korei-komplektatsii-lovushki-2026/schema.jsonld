@@ -1,0 +1,209 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/hyundai-palisade-iz-korei-komplektatsii-lovushki-2026/#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/hyundai-palisade-iz-korei-komplektatsii-lovushki-2026/"
+      },
+      "headline": "Hyundai Palisade из Кореи: комплектации, ловушки вывоза и чек-лист до депозита в 2026",
+      "description": "Чеклист до депозита: лимит вывоза >2,0 л, комплектации Exclusive/Prestige/Calligraphy, Encar, Carhistory и стоп-сигналы серых схем. План Б без калькулятора пошлин.",
+      "datePublished": "2026-10-25",
+      "dateModified": "2026-10-25",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru"
+        },
+        "sameAs": [
+          "https://avto-sales125.ru/",
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz",
+          "https://www.instagram.com/avtosales_rf",
+          "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru",
+        "sameAs": [
+          "https://t.me/avtosales125",
+          "https://max.ru/id2508140890_biz"
+        ]
+      },
+      "keywords": [
+        "хендай палисад из кореи",
+        "палисад из кореи",
+        "hyundai palisade из кореи",
+        "хендай палисад под заказ",
+        "комплектации хендай палисад из кореи"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/hyundai-palisade-iz-korei-komplektatsii-lovushki-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Можно ли привезти новый Palisade из Кореи в 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Прямой легальный вывоз почти всегда недоступен: моторы 2.5 turbo и hybrid – 2 497 см³ при пороге 2 000. Сделайте ставку на уже растаможенный в РФ экземпляр или легальную альтернативу, не на схему через третью страну."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие двигатели Palisade не проходят на вывоз?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не проходят новый 2.5 (бензин и гибрид), б/у 2.2 diesel (2 199), 3.5 и 3.8. Проверьте см³ в карточке до депозита – если больше 2 000, лот непроходной без спецразрешения."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем Calligraphy отличается от Prestige для заказа?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Calligraphy – верхний трим: богаче отделка, чаще 21″, панорамный дисплей, HUD. Prestige – середина. Для РФ сначала решите вывоз; иначе разница тримов не спасёт непроходной мотор."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить в Encar до депозита?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Выпишите объём в см³, комплектацию, пробег, откройте диагностику и Carhistory по VIN. Не делайте перевод, пока история не сходится, а конечная страна в договоре не Россия."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Работает ли схема \"через Казахстан или Киргизию\"?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В 2026 это высокий риск: контроль реэкспорта усилили, санкции жёсткие. Требуйте письменное основание вывоза; при давлении на депозит без документов – отказывайтесь."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что взять семье на 7 мест вместо Palisade?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сравните Carnival Hybrid, Santa Fe/Sorento Hybrid, японские 7-местные или уже растаможенный Palisade в РФ. Выберите 2–3 варианта и запросите персональный расчёт."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужно ли платить депозит, чтобы \"забронировать\" Calligraphy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет, пока не закрыт чеклист: см³, вывоз, история, договор. Если торопят без пакета – стоп-сигнал. Сначала факты, потом деньги."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/hyundai-palisade-iz-korei-komplektatsii-lovushki-2026/#howto",
+      "name": "Как проверить Hyundai Palisade из Кореи до депозита в 2026",
+      "description": "Чеклист до депозита: лимит вывоза >2,0 л, комплектации Exclusive/Prestige/Calligraphy, Encar, Carhistory и стоп-сигналы серых схем. План Б без калькулятора пошлин.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Карточка Encar: объём см³, комплектация, пробег"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Отчёт Carhistory по VIN"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Encar진단 / report (если доступен)"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "ТЗ семьи: места, маршрут, гибрид, готовность к плану Б"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Чеклист до депозита: см³, вывоз, история, договор"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Зафиксируйте задачу: нужен Palisade или большой семейный кроссовер",
+          "text": "Типичная ошибка – смешивать две цели. \"Хочу именно Palisade Calligraphy\" и \"нужен спокойный 7–9-местный для семьи\" – разные маршруты. Если важна модель, смотрите уже растаможенные в РФ. Если важны места без серых схем – сравните легальные альтернативы.",
+          "url": "https://avtosales125.ru/hyundai-palisade-iz-korei-komplektatsii-lovushki-2026/#зафиксируйте-задачу-нужен-palisade-или-большой-семейный-кроссовер"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Проверьте лимит вывоза: какие моторы не выпускают в РФ",
+          "text": "С февраля 2024 под контроль попали легковые авто с объёмом больше 2 000 см³ для РФ и Беларуси. \"См³\" – кубические сантиметры; на пальцах рекламные \"2.5\" почти всегда около 2 500 см³, то есть выше порога.",
+          "url": "https://avtosales125.ru/hyundai-palisade-iz-korei-komplektatsii-lovushki-2026/#проверьте-лимит-вывоза-какие-моторы-не-выпускают-в-рф"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Сравните Exclusive, Prestige и Calligraphy без ловушки блеска",
+          "text": "На рынке Кореи 2026: Exclusive – вход в богатый уровень, Prestige – середина, Calligraphy – верх. Ориентиры в вонах (Naver): около 45,10 / 50,93 / 57,87 млн ₩. У Calligraphy чаще Nappa, 21″, panoramic display, HUD – но это вторично, если машину нельзя вывезти.",
+          "url": "https://avtosales125.ru/hyundai-palisade-iz-korei-komplektatsii-lovushki-2026/#сравните-exclusive-prestige-и-calligraphy-без-ловушки-блеска"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Как проверить карточку Encar до депозита",
+          "text": "Encar – корейская площадка объявлений с плотными отчётами. Carhistory – официальная страховая история по VIN: показывает выплаты, но не ремонт \"мимо страховой\". Encar진단 – диагностика состояния; окно компенсации ошибки 90 дней / 5 000 км – не индульгенция.",
+          "url": "https://avtosales125.ru/hyundai-palisade-iz-korei-komplektatsii-lovushki-2026/#как-проверить-карточку-encar-до-депозита"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Отсейте серые схемы через третьи страны",
+          "text": "\"Через Казахстан же возят\" в 2026 – риск, не лазейка. Весной 2026 корейская таможня усилила борьбу с реэкспортом: за 2023–2025 выявлено нарушений на ~179,6 млрд вон, наказание – до 7 лет или штраф до 5× стоимости. Типовые схемы: ложный destination (KZ/KG), занижение объёма, \"новый как б/у\".",
+          "url": "https://avtosales125.ru/hyundai-palisade-iz-korei-komplektatsii-lovushki-2026/#отсейте-серые-схемы-через-третьи-страны"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Выберите легальную альтернативу, если Palisade не проходит",
+          "text": "Тупика нет. Легальная развилка по объёму ≤2,0 л: Kia Carnival Hybrid, Santa Fe Hybrid, Sorento Hybrid (вывоз по литражу обычно возможен, льготный утиль по мощности часто нет). Нужен именно Palisade – смотрите уже растаможенные в РФ. Нужен объём салона – сравните японские 7-местные вроде Delica D:5.",
+          "url": "https://avtosales125.ru/hyundai-palisade-iz-korei-komplektatsii-lovushki-2026/#выберите-легальную-альтернативу-если-palisade-не-проходит"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Пройдите чеклист из 10 пунктов перед переводом денег",
+          "text": "Результат достигнут, когда вы открываете карточку, видите см³, отмечаете стоп-сигналы серой схемы и либо отказываетесь от депозита, либо выбираете легальную альтернативу без ощущения обмана на полпути.",
+          "url": "https://avtosales125.ru/hyundai-palisade-iz-korei-komplektatsii-lovushki-2026/#пройдите-чеклист-из-10-пунктов-перед-переводом-денег"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Что дальше",
+          "text": "Форм на странице нет: подбор живёт в каталоге и переписке. Так вы сохраняете контроль до первого перевода.",
+          "url": "https://avtosales125.ru/hyundai-palisade-iz-korei-komplektatsii-lovushki-2026/#что-дальше"
+        }
+      ]
+    }
+  ]
+}

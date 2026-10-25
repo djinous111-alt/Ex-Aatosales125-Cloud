@@ -184,3 +184,28 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Hyundai Palisade из Кореи
+
+- **priority:** P0
+- **slug:** hyundai-palisade-iz-korei-komplektatsii-lovushki-2026
+- **h1:** Hyundai Palisade из Кореи: комплектации, ловушки вывоза и чек-лист до депозита в 2026
+- **primary_query:** хендай палисад из кореи
+- **secondary_queries:** палисад из кореи, hyundai palisade из кореи, хендай палисад под заказ, комплектации хендай палисад из кореи, хендай палисад пригнать из кореи
+- **search_intent:** checklist
+- **article_mode:** B
+- **h2_outline:**
+  1. Кому подходит Palisade и какой результат нужен до депозита
+  2. Лимит вывоза из Кореи в 2026: какие моторы не выпускают в РФ
+  3. Что смотреть в карточке Encar: комплектация, пробег, история
+  4. Серые схемы через третьи страны: стоп-сигналы для покупателя
+  5. Если Palisade не проходит: как выбрать легальную альтернативу без путаницы моделей
+  6. Чек-лист из 10 пунктов перед переводом денег
+- **faq_hints:** можно ли привезти новый Palisade из Кореи в 2026; какие двигатели Palisade не проходят на вывоз; чем Calligraphy отличается от Prestige для заказа; что проверить в Encar до депозита
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** крупный семиместный корейский SUV у порта Владивостока, герой Авто-Сейлс с чек-листом «до депозита», плашка «Palisade / ловушки вывоза», угол avto-sales125.ru
+- **metrika_signal:** zen rank 21 gap (Palisade); Wordstat parent «хендай палисад» ~76k, narrow «палисад из кореи» ~661 с хвостом под заказ/комплектации
+- **wordstat_notes:** parent hyundai palisade ~22k; narrow hyundai palisade из кореи ~149; low-detail на toyota voxy из японии (totalCount only) – не fatal, тему не брали

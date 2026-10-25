@@ -46,7 +46,7 @@ Research-агент **отклоняет** угол без практики. В 
 - `reader_outcome`: одно предложение — какой первый результат сможет сделать новичок
 - `success_criteria`: как новичок поймёт, что проблема решена
 - `voice_angle`, `reader_story`, `surprising_fact`: материал для человеческого lead/H2
-- `pain_solution_map`: таблица pain → solution → proof/source → reader_result
+- `pain_solution_map`: markdown-таблица ≥3 data-rows (pain → solution → proof/source → reader_result); gate считает pipe-rows под `## pain_solution_map`, не keyword в каждой ячейке
 - `action_outline`: 5–9 шагов или чеклист-пунктов
 
 Машинный gate:

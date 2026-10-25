@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import os
 import subprocess
 import sys
@@ -114,6 +115,54 @@ def main() -> int:
     check(module_available("PIL"), "Pillow available", errors, warnings)
     check(module_available("numpy"), "numpy available", errors, warnings)
 
+    policy_path = root / "memory/brief/editorial-policy.json"
+    check(policy_path.is_file(), "editorial-policy.json exists", errors, warnings)
+    if policy_path.is_file():
+        try:
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+            pain = policy.get("pain_markers_ru") or []
+            outcome = policy.get("outcome_markers_ru") or []
+            req = policy.get("article_required_signals") or {}
+            check(
+                isinstance(pain, list) and len(pain) >= 3,
+                "editorial-policy pain_markers_ru non-empty",
+                errors,
+                warnings,
+            )
+            check(
+                isinstance(outcome, list) and len(outcome) >= 3,
+                "editorial-policy outcome_markers_ru non-empty",
+                errors,
+                warnings,
+            )
+            check(
+                int(req.get("min_pain_markers") or 0) >= 1,
+                "editorial-policy min_pain_markers set",
+                errors,
+                warnings,
+            )
+            check(
+                int(req.get("min_outcome_markers") or 0) >= 1,
+                "editorial-policy min_outcome_markers set",
+                errors,
+                warnings,
+            )
+            check(
+                bool(policy.get("_markers_pinned")),
+                "editorial-policy _markers_pinned true",
+                errors,
+                warnings,
+            )
+        except Exception as exc:  # noqa: BLE001
+            check(False, f"editorial-policy.json parses ({exc})", errors, warnings)
+
+    git_sh = root / "scripts/excalibur_git.sh"
+    filter_commit_sh = root / "scripts/excalibur_blog_filter_commit_secret_env.sh"
+    filter_names_sh = root / "scripts/excalibur_blog_filter_secret_names.sh"
+    check(git_sh.is_file(), "excalibur_git.sh present", errors, warnings)
+    check(filter_commit_sh.is_file(), "excalibur_blog_filter_commit_secret_env.sh present", errors, warnings)
+    check(filter_names_sh.is_file(), "excalibur_blog_filter_secret_names.sh present", errors, warnings)
+
     interlinker = root / "scripts/excalibur_blog_interlinker.py"
     help_proc = subprocess.run(
         [sys.executable, str(interlinker), "--help"],
@@ -132,7 +181,17 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    # CLI uses --blog-dir / --out-dir (legacy --blog-path removed).
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check("--out-dir" in llms_help.stdout, "llms generator supports --out-dir", errors, warnings)
+    check("--site-base" in llms_help.stdout, "llms generator supports --site-base", errors, warnings)
+    check(
+        "--blog-path" not in llms_help.stdout,
+        "llms generator has no stale --blog-path flag",
+        errors,
+        warnings,
+        warn=True,
+    )
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

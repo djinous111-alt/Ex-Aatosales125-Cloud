@@ -37,6 +37,11 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## Editorial policy markers
+
+- `memory/brief/editorial-policy.json` обязан содержать непустые `pain_markers_ru` / `outcome_markers_ru` и `_markers_pinned: true` (doctor FAIL иначе).
+- Если utility gate репортит `pain_markers=0` / `outcome_markers=0` при живом тексте боли/результата — это **policy defect** (восстанови маркеры / положись на FALLBACK в `excalibur_blog_utility_gate.py`), **не** рерайт статьи ради маркеров.
+
 ## Blockers
 
 - нет research-notes.md

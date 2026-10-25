@@ -61,6 +61,8 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 5. Каждая цифра → таблица фактов в `research-notes.md` или не использовать.
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
+8. `## pain_solution_map` — markdown-таблица ≥3 data-rows (header + separator не считаются). Gate считает pipe-rows секции, не требует буквальных токенов «боль/решение» в каждой ячейке.
+9. GitHub-квота для `technical_topic` смотрит **только topic card** (h1/query/slug/intent). Упоминание API/GitHub в evidence auto/import-темы само по себе квоту не включает.
 
 ## Blockers
 

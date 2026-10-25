@@ -6,6 +6,34 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261026-2110-precommit-redacted-secret-name
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-noah-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `pre-commit.cursor` упал с `line 270: [REDACTED]: invalid variable name` при `${!SECRET_NAME}`: в `CLOUD_AGENT_INJECTED_SECRET_NAMES` попадало литеральное имя `[REDACTED]`, невалидное для bash.
+
+### How the agent recovered this run
+- Перед `git commit` отфильтровал список secret names до `^[A-Za-z_][A-Za-z0-9_]*$` и повторил commit (успех).
+
+### Durable fix needed before next run
+- Санитизировать `CLOUD_AGENT_INJECTED_SECRET_NAMES` / pre-commit scanner: пропускать невалидные имена; не подставлять placeholder `[REDACTED]` как имя переменной.
+
+### Suggested files to inspect/change
+- Cloud Agent secrets injection / pre-commit.cursor (platform)
+- `shared/agent-pipeline-pitfalls.md` (workaround note for agents)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261026-2105-research-notes-gate-false-technical
 status: open
 run_date: 2026-10-26

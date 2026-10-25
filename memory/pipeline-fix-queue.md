@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261025-1326-writer-editorial-pain-outcome-markers
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-hyundai-palisade-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `memory/brief/editorial-policy.json` again lacked `pain_markers_ru` / `outcome_markers_ru`.
+- `excalibur_blog_utility_gate.py` then scored pain_markers=0 and outcome_markers=0 → UTILITY GATE BLOCK despite article text having pain/outcome language.
+- Same gap previously hit other B01 writer runs (Fit/Monjaro notes); lists keep disappearing from policy.
+
+### How the agent recovered this run
+- Restored `pain_markers_ru` and `outcome_markers_ru` (aligned with human-voice gate lists) and set `min_pain_markers` / `min_outcome_markers` defaults in `article_required_signals`.
+- Re-ran utility gate → PASS; article char_count 9359 kept in range.
+
+### Durable fix needed before next run
+- Pin pain/outcome marker lists in editorial-policy (or hardcode fallbacks inside `excalibur_blog_utility_gate.py` when policy keys are missing).
+- Add a doctor/preflight check that fails if those arrays are empty.
+- Document in writer skill that empty arrays are a policy defect, not a content rewrite.
+
+### Suggested files to inspect/change
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261025-1320-research-pain-map-keyword-regex
 status: open
 run_date: 2026-10-25

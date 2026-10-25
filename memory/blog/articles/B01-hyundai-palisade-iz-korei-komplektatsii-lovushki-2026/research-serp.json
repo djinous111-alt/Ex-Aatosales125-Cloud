@@ -1,0 +1,716 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-25",
+    "today_ru": "25.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-27",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-25 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "hyundai-palisade-iz-korei-komplektatsii-lovushki-2026",
+    "h1": "Hyundai Palisade из Кореи: комплектации, ловушки вывоза и чек-лист до депозита в 2026",
+    "primary_query": "хендай палисад из кореи",
+    "secondary_queries": [
+      "палисад из кореи",
+      "hyundai palisade из кореи",
+      "хендай палисад под заказ",
+      "комплектации хендай палисад из кореи",
+      "хендай палисад пригнать из кореи"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "хендай палисад из кореи 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хендай Палисад 2026 технические характеристики. Hyundai Palisade 2026 ...",
+          "url": "https://www.drom.ru/catalog/hyundai/palisade/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Palisade из Кореи: цена под ключ 2026",
+          "url": "https://export-motors.com/blog/hyundai-palisade-iz-korei",
+          "snippet": "Подробно расписан модельный ряд Hyundai Palisade 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Hyundai Palisade, Santa Fe, Tucson и Sonata 2026: цены под ключ из Кореи",
+          "url": "https://carto-auto.ru/blog/hyundai-palisade-santa-fe-tucson-sonata-2026-tseny-pod-klyuch/",
+          "snippet": "Hyundai Palisade из Кореи — лидер ввоза и большой 7-8-местный SUV. Честно про коммерческий утильсбор после реформы, версии, комплектации и цену под ключ."
+        },
+        {
+          "title": "Продажа Hyundai Palisade из Кореи | Цены на Хендай Палисад в Корее",
+          "url": "https://www.drom.ru/world/korea/hyundai/palisade/",
+          "snippet": "В этом материале — подробный разбор четырёх самых востребованных Hyundai 2026 года под параллельный импорт из Кореи: реальные цены под ключ в рублях, разница между комплектациями, какие моторы доступны, сроки доставки и нюансы оформления."
+        },
+        {
+          "title": "Hyundai Palisade — цена под ключ и как купить из Кореи в 2026 | АИ Авто",
+          "url": "https://ai-import.ru/catalog/korea/hyundai/palisade",
+          "snippet": "Объявления о продаже Hyundai Palisade под заказ из Кореи с фото авто и ценами. Стоимость и характеристики Хендай Палисад на аукционе в Корее."
+        },
+        {
+          "title": "Hyundai Palisade 2 поколение: цена под ключ из Кореи",
+          "url": "https://ai-import.ru/catalog/korea/hyundai/palisade/2-pokolenie-lx3",
+          "snippet": "Hyundai Palisade (Хендай Палисад) купить под заказ от 6 090 000 ₽ под ключ — цены, комплектации и сроки доставки из Кореи. Выкуп, проверка, растаможка и доставка по России по одному договору."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "хендай палисад из кореи октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хендай Палисад 2026 технические характеристики. Hyundai Palisade 2026 ...",
+          "url": "https://www.drom.ru/catalog/hyundai/palisade/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Новый Hyundai Palisade из Кореи | КАКАЯ ЦЕНА В ОКТЯБРЕ 2026?",
+          "url": "https://rutube.ru/video/dae7d0f510d685ae0862edb1795ec3f9/",
+          "snippet": "Подробно расписан модельный ряд Hyundai Palisade 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Hyundai Palisade из Кореи: цена под ключ 2026",
+          "url": "https://export-motors.com/blog/hyundai-palisade-iz-korei",
+          "snippet": "Смотрите видео онлайн «Новый Hyundai Palisade из Кореи | КАКАЯ ЦЕНА В ОКТЯБРЕ 2026?» на канале «АВТО ИЗ КОРЕИ И КИТАЯ | BORZ AUTO» в хорошем качестве и бесплатно, опубликованное 19 октября 2026 года в 17:42 ..."
+        },
+        {
+          "title": "Hyundai Palisade, Santa Fe, Tucson и Sonata 2026: цены под ключ из Кореи",
+          "url": "https://carto-auto.ru/blog/hyundai-palisade-santa-fe-tucson-sonata-2026-tseny-pod-klyuch/",
+          "snippet": "Hyundai Palisade из Кореи — лидер ввоза и большой 7-8-местный SUV. Честно про коммерческий утильсбор после реформы, версии, комплектации и цену под ключ."
+        },
+        {
+          "title": "Hyundai Palisade — цена под ключ и как купить из Кореи в 2026 | АИ Авто",
+          "url": "https://ai-import.ru/catalog/korea/hyundai/palisade",
+          "snippet": "В этом материале — подробный разбор четырёх самых востребованных Hyundai 2026 года под параллельный импорт из Кореи: реальные цены под ключ в рублях, разница между комплектациями, какие моторы доступны, сроки доставки и нюансы оформления."
+        },
+        {
+          "title": "Продажа Hyundai Palisade из Кореи | Цены на Хендай Палисад в Корее",
+          "url": "https://www.drom.ru/world/korea/hyundai/palisade/",
+          "snippet": "Hyundai Palisade (Хендай Палисад) купить под заказ от 6 090 000 ₽ под ключ — цены, комплектации и сроки доставки из Кореи. Выкуп, проверка, растаможка и доставка по России по одному договору."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "хендай палисад из кореи новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Palisade из Кореи: цена под ключ 2026",
+          "url": "https://export-motors.com/blog/hyundai-palisade-iz-korei",
+          "snippet": ""
+        },
+        {
+          "title": "Новый Hyundai Palisade 2026: гибрид, дизайн, характеристики",
+          "url": "https://avtoservis.online/hyundai/hyundai-palisade-novogo-pokoleniya-2026/",
+          "snippet": "Hyundai Palisade из Кореи — лидер ввоза и большой 7-8-местный SUV. Честно про коммерческий утильсбор после реформы, версии, комплектации и цену под ключ."
+        },
+        {
+          "title": "Hyundai Palisade, Santa Fe, Tucson и Sonata 2026: цены под ключ из Кореи",
+          "url": "https://carto-auto.ru/blog/hyundai-palisade-santa-fe-tucson-sonata-2026-tseny-pod-klyuch/",
+          "snippet": "Хендай Палисад нового поколения 2026: глобальный запуск, финал World Car of the Year, гибрид 329 л.с., версия XRT Pro, дизайн, салон и технологии."
+        },
+        {
+          "title": "Hyundai Palisade Hybrid 2026: обзор, характеристики и заказ из Кореи в ...",
+          "url": "https://caromoto.com/Home/Blog?id=218",
+          "snippet": "В этом материале — подробный разбор четырёх самых востребованных Hyundai 2026 года под параллельный импорт из Кореи: реальные цены под ключ в рублях, разница между комплектациями, какие моторы доступны, сроки доставки и нюансы оформления."
+        },
+        {
+          "title": "Хендай Палисад 2026 технические характеристики. Hyundai Palisade 2026 ...",
+          "url": "https://www.drom.ru/catalog/hyundai/palisade/2026/",
+          "snippet": "Hyundai Palisade Hybrid 2026 года: обзор гибридного флагмана Hyundai Palisade 2026 модельного года пережил полное обновление, а вместе с ним в линейке впервые появилась гибридная версия."
+        },
+        {
+          "title": "Hyundai Palisade 2026 взорвал рынок: что скрывает новый гигант из Кореи",
+          "url": "https://www.moneytimes.ru/news/hyundai-palisade-2026-obzor/80197/",
+          "snippet": "Подробно расписан модельный ряд Hyundai Palisade 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com хендай палисад из кореи 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Portfolio/logo.svg at main · aadi9082/Portfolio · GitHub",
+          "url": "https://github.com/aadi9082/Portfolio/blob/main/logo.svg",
+          "snippet": ""
+        },
+        {
+          "title": "leapmux/icons/leapmux-icon.svg at main · leapmux/leapmux",
+          "url": "https://github.com/leapmux/leapmux/blob/main/icons/leapmux-icon.svg",
+          "snippet": "I have created a portfolio showcasing my professional experience and projects. - Portfolio/logo.svg at main · aadi9082/Portfolio."
+        },
+        {
+          "title": "Solaris 11.4.42 CBE Install on Proxmox · GitHub",
+          "url": "https://gist.github.com/831jsh/497eb0a39cf7ce952a823319be759287",
+          "snippet": "Contribute to leapmux/leapmux development by creating an account on GitHub."
+        },
+        {
+          "title": "GitHub Pages documentation - GitHub Docs",
+          "url": "https://docs.github.com/pages",
+          "snippet": "Solaris 11.4.42 CBE Install on Proxmox. GitHub Gist: instantly share code, notes, and snippets."
+        },
+        {
+          "title": "training-materials/slides/boot-time-hardware-init/klaasvangend ...",
+          "url": "https://github.com/bootlin/training-materials/blob/master/slides/boot-time-hardware-init/klaasvangend_processor_clock.svg",
+          "snippet": "GitHub Pages supports using custom domains, or changing the root of your site's URL from the default, like octocat.github.io, to any domain you own. Jekyll is a static site generator with built-in support for GitHub Pages."
+        },
+        {
+          "title": "TPDS-Usecases/apps/keystream_fota/Images/td_keystream_fota.png at main ...",
+          "url": "https://github.com/Microchip-TrustPlatformDesignSuite/TPDS-Usecases/blob/main/apps/keystream_fota/Images/td_keystream_fota.png",
+          "snippet": "Bootlin embedded Linux and kernel training materials - bootlin/training-materials"
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "хендай палисад из кореи official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "PDF Document - 현대자동차",
+          "url": "https://www.hyundai.com/content/dam/hyundai/kz/ru/files/guide/palisade-2026-guide-ru.pdf",
+          "snippet": ""
+        },
+        {
+          "title": "PDF Hyundai",
+          "url": "https://www.hyundainews.com/assets/documents/original/67179-2026PalisadeSpecsFeaures20260706.pdf",
+          "snippet": "Данное руководство относится ко всем моделям этого автомобиля и включает в себя описания и пояснения к дополнительному и стандартному оборудованию. Поэтому в данном руководстве вы можете обнаружить материалы, не имеющие отношения именно к вашей модели автомобиля."
+        },
+        {
+          "title": "Hyundai Palisade: инструкция, руководство по эксплуатации, брошюра",
+          "url": "https://www.hyundai.ru/service/manuals/palisade",
+          "snippet": "Hyundai ... Hyundai"
+        },
+        {
+          "title": "Хендай Палисад 2026 технические характеристики. Hyundai Palisade 2026 ...",
+          "url": "https://www.drom.ru/catalog/hyundai/palisade/2026/",
+          "snippet": "Документация Hyundai Palisade: инструкция и руководство по эксплуатации, брошюра, каталог аксессуаров. Скачать онлайн."
+        },
+        {
+          "title": "Характеристики Hyundai Palisade 2026 — технические данные",
+          "url": "https://hyundai.kz/ru/find-a-car/crossovers/palisade-2026/specification/",
+          "snippet": "Подробно расписан модельный ряд Hyundai Palisade 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "2026 Hyundai Palisade PDF Manuals",
+          "url": "https://carmanuals2.com/brand/hyundai/palisade-2026-16911",
+          "snippet": "Полные технические характеристики Hyundai Palisade 2026: размеры, моторы, трансмиссия и оснащение подробно описаны на официальном сайте у дистрибьютора."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "хендай палисад из кореи forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Palisade Club - Hyundai Club / Форум Хендай Клуб",
+          "url": "https://hyundai-clubs.ru/forums/forum/285-hyundai-palisade-club/",
+          "snippet": ""
+        },
+        {
+          "title": "Палисад Клуб / Форум Hyundai Palisade - Hyundai Club / Форум Хендай Клуб",
+          "url": "https://hyundai-clubs.ru/palisade/",
+          "snippet": "Все про Hyundai Palisade Разные темы Палисад Клуб Выбор, комплектации, цены Palisade Тех. характеристики и опции Palisade Обзоры и публикации Palisade ПРОБЛЕМЫ / косяки Palisade"
+        },
+        {
+          "title": "Hyundai форум - клуб владельцев автомобилей Хендэ",
+          "url": "https://hyundaiforum.ru/index.php",
+          "snippet": "Добро пожаловать на форум Хендай Палисад Клуб - сообщество поклонников и владельцев Hyundai Palisade, обзоры и отзывы, комплектации и цены, отзывы владельцев, техническое обслуживание ..."
+        },
+        {
+          "title": "Hyundai Palisade | Hyundai Клуб - форум автомобилей Хeндай",
+          "url": "https://hyundai-com.ru/forums/hyundai-palisade.70/",
+          "snippet": "Общий форум Хендэ новости, события, интересное Обмен опытом делимся опытом эксплуатации автомобилей Hyundai и не только"
+        },
+        {
+          "title": "Palisade Forum",
+          "url": "https://www.palisadeforum.org/",
+          "snippet": "После выключения двигателя палисад начинает сам включать магнитолу двигать кресло, как будто включается и выключается. На полисаде нет запаски и домкрата. Заказал с Кореи. Кто подскажет бывает вообще с завода или нет. Кто в каком режиме (Комфорт, Эко, Спорт или Смарт) ездит. Рассматриваю возможность приобретения палисада с Кореи."
+        },
+        {
+          "title": "Хендай Палисад отзывы владельцев - поломки и проблемы",
+          "url": "https://www.drom.ru/reviews/hyundai/palisade/5kopeek/breakages/",
+          "snippet": "\"The #1 Hyundai Palisade forum dedicated to Hyundai Palisade owners and enthusiasts."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "палисад из кореи 2026",
+      "purpose": "вторичный запрос: палисад из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хендай Палисад 2026 технические характеристики. Hyundai Palisade 2026 ...",
+          "url": "https://www.drom.ru/catalog/hyundai/palisade/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Palisade из Кореи: цена под ключ 2026",
+          "url": "https://export-motors.com/blog/hyundai-palisade-iz-korei",
+          "snippet": "Подробно расписан модельный ряд Hyundai Palisade 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Hyundai Palisade (Хендай Палисад) 2026 г. лот №42585199 из Кореи, цены ...",
+          "url": "https://catalog.mass-car.ru/korea/hyundai/palisade/2507917.html",
+          "snippet": "Hyundai Palisade из Кореи — лидер ввоза и большой 7-8-местный SUV. Честно про коммерческий утильсбор после реформы, версии, комплектации и цену под ключ."
+        },
+        {
+          "title": "Hyundai Palisade, Santa Fe, Tucson и Sonata 2026: цены под ключ из Кореи",
+          "url": "https://carto-auto.ru/blog/hyundai-palisade-santa-fe-tucson-sonata-2026-tseny-pod-klyuch/",
+          "snippet": "Hyundai Palisade (Хендай Палисад) 2026 г. из Кореи: обзор цен и комплектаций, полный расчет с доставкой во Владивосток, понятная схема покупки, отслеживание этапов покупки авто в личном кабинете ..."
+        },
+        {
+          "title": "Хендай Палисад 2026 цены модели, комплектации, фото, новый кузов",
+          "url": "https://cenyavto.com/hyundai-palisade-2026/",
+          "snippet": "В этом материале — подробный разбор четырёх самых востребованных Hyundai 2026 года под параллельный импорт из Кореи: реальные цены под ключ в рублях, разница между комплектациями, какие моторы доступны, сроки доставки и нюансы оформления."
+        },
+        {
+          "title": "Hyundai Palisade 2026 года из Южной Кореи под заказ",
+          "url": "https://regionauto.org/korea/hyundai/palisade/?year_from=2026&year_to=2026",
+          "snippet": "Актуальный Хендай Палисад 2026 предлагает разнообразие технических характеристик (включая гибридные версии), комплектаций и обширный диапазон цен."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "hyundai palisade из кореи 2026",
+      "purpose": "вторичный запрос: hyundai palisade из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Palisade из Кореи: цена под ключ 2026",
+          "url": "https://export-motors.com/blog/hyundai-palisade-iz-korei",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Palisade, Santa Fe, Tucson и Sonata 2026: цены под ключ из Кореи",
+          "url": "https://carto-auto.ru/blog/hyundai-palisade-santa-fe-tucson-sonata-2026-tseny-pod-klyuch/",
+          "snippet": "Hyundai Palisade из Кореи — лидер ввоза и большой 7-8-местный SUV. Честно про коммерческий утильсбор после реформы, версии, комплектации и цену под ключ."
+        },
+        {
+          "title": "Hyundai Palisade 2026 (New Body): первые оценки",
+          "url": "https://carexkorea.ru/hyundai-palisade-2026-new-body-pervye-oczenki/",
+          "snippet": "В этом материале — подробный разбор четырёх самых востребованных Hyundai 2026 года под параллельный импорт из Кореи: реальные цены под ключ в рублях, разница между комплектациями, какие моторы доступны, сроки доставки и нюансы оформления."
+        },
+        {
+          "title": "Hyundai Palisade 2026 под ключ из Кореи — цена, фото, растаможка",
+          "url": "https://carwowlip.ru/cars/hyundai-palisade-lx3-gasoline-2-5t-2wd-7-seater-2026-4916",
+          "snippet": "Для тяжелого семейного кроссовера это приятный бонус. Иными словами, Hyundai Palisade 2026 года станет прекрасным решением для тех, кто ценит плавность хода и комфорт в водительском кресле."
+        },
+        {
+          "title": "Hyundai Palisade из Кореи: цена, растаможка, сроки и этапы пригона",
+          "url": "https://altezza.team/blog/prigon-hyundai-palisade-iz-korei.html",
+          "snippet": "Hyundai Palisade, 2026 г. — импорт из Кореи под ключ с растаможкой и доставкой. Цена под ключ от 7 190 723 ₽. Проверенная карточка, реальные фото, расчёт стоимости и помощь с оформлением."
+        },
+        {
+          "title": "Купить Hyundai Palisade из Кореи в Россию, Москву под ключ",
+          "url": "https://westmotors.ru/catalog-avto-korea/hyundai/palisade",
+          "snippet": "Подробно о пригона Hyundai Palisade из Кореи: как выбрать, этапы покупки, растаможку, сроки доставки и нюансы. Всё о стоимости — от Encar до расчёта в калькуляторе Altezza."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "хендай палисад под заказ 2026",
+      "purpose": "вторичный запрос: хендай палисад под заказ",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хендай Палисад 2026 технические характеристики. Hyundai Palisade 2026 ...",
+          "url": "https://www.drom.ru/catalog/hyundai/palisade/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Купить Hyundai Palisade от 3 450 000 ₽ во ... - Авито",
+          "url": "https://www.avito.ru/all/avtomobili/hyundai/palisade-ASgBAgICAkTgtg2imzHitg3GzDQ",
+          "snippet": "Подробно расписан модельный ряд Hyundai Palisade 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хендай Палисад 2026 между собой."
+        },
+        {
+          "title": "Купить Хендай Палисад 2026 год в Москве, x2705;Комплектация: 1.6t ...",
+          "url": "https://auto.drom.ru/moscow/hyundai/palisade/773537939.html",
+          "snippet": "Автомобиль Hyundai Palisade от дилерского центра премиальных автомобилей «БорисХоф Люкс». В наличии и под заказ — автомобили премиум- и люкс-класса с прозрачной историей и высоким уровнем ..."
+        },
+        {
+          "title": "Купить новые Hyundai Palisade 2026 года по цене от 8 000 000 рублей ...",
+          "url": "https://auto.ru/cars/hyundai/palisade/2026-year/new/",
+          "snippet": "🔑 Авто \"под ключ\" - от выкупа до доставки в ваш город. 🚘 Привезем любой авто - даже санкционные модели. 🛠 Всё для вашего удобства: ️- Trade-In, Кредит, Лизинг -️ Доставка по всей России"
+        },
+        {
+          "title": "Хендай Палисад 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+          "url": "https://naavtotrasse.ru/hyundai/hyundai-palisade-2026.html",
+          "snippet": "Полный модельный ряд новых Hyundai Palisade 2026 года по цене от 8 000 000 рублей - у нас вы можете выбрать и купить новую машину, ознакомиться с ценами и комплектациями."
+        },
+        {
+          "title": "Новый Hyundai Palisade 2026: гибрид, дизайн, характеристики",
+          "url": "https://avtoservis.online/hyundai/hyundai-palisade-novogo-pokoleniya-2026/",
+          "snippet": "Хендай Палисад 2026 - крупный семейный кроссовер с 6-ти или 7-местным салоном и гибридной силовой установкой. Цены и особенности модели"
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "комплектации хендай палисад из кореи 2026",
+      "purpose": "вторичный запрос: комплектации хендай палисад из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хендай Палисад 2026 технические характеристики, комплектации и цены",
+          "url": "https://www.drom.ru/catalog/hyundai/palisade/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Palisade из Кореи: цена под ключ 2026",
+          "url": "https://export-motors.com/blog/hyundai-palisade-iz-korei",
+          "snippet": "Подробно расписан модельный ряд Hyundai Palisade 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Хендай Палисад 2026 цены модели, комплектации, фото, новый кузов",
+          "url": "https://cenyavto.com/hyundai-palisade-2026/",
+          "snippet": "Hyundai Palisade из Кореи — лидер ввоза и большой 7-8-местный SUV. Честно про коммерческий утильсбор после реформы, версии, комплектации и цену под ключ."
+        },
+        {
+          "title": "Хендай Палисад 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+          "url": "https://naavtotrasse.ru/hyundai/hyundai-palisade-2026.html",
+          "snippet": "Актуальный Хендай Палисад 2026 предлагает разнообразие технических характеристик (включая гибридные версии), комплектаций и обширный диапазон цен."
+        },
+        {
+          "title": "Хендай Палисад технические характеристики. Hyundai Palisade ...",
+          "url": "https://www.drom.ru/catalog/hyundai/palisade/",
+          "snippet": "Хендай Палисад 2026 - крупный семейный кроссовер с 6-ти или 7-местным салоном и гибридной силовой установкой. Цены и особенности модели"
+        },
+        {
+          "title": "Hyundai Palisade, Santa Fe, Tucson и Sonata 2026: цены под ключ из Кореи",
+          "url": "https://carto-auto.ru/blog/hyundai-palisade-santa-fe-tucson-sonata-2026-tseny-pod-klyuch/",
+          "snippet": "Подробно расписан модельный ряд Hyundai Palisade: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Хендай Палисад между собой."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "secondary_5",
+      "query": "хендай палисад пригнать из кореи 2026",
+      "purpose": "вторичный запрос: хендай палисад пригнать из кореи",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хендай Палисад 2026 технические характеристики. Hyundai Palisade 2026 ...",
+          "url": "https://www.drom.ru/catalog/hyundai/palisade/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Palisade из Кореи: цена под ключ 2026",
+          "url": "https://export-motors.com/blog/hyundai-palisade-iz-korei",
+          "snippet": "Подробно расписан модельный ряд Hyundai Palisade 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Hyundai Palisade, Santa Fe, Tucson и Sonata 2026: цены под ключ из Кореи",
+          "url": "https://carto-auto.ru/blog/hyundai-palisade-santa-fe-tucson-sonata-2026-tseny-pod-klyuch/",
+          "snippet": "Hyundai Palisade из Кореи — лидер ввоза и большой 7-8-местный SUV. Честно про коммерческий утильсбор после реформы, версии, комплектации и цену под ключ."
+        },
+        {
+          "title": "Hyundai Palisade — цена под ключ и как купить из Кореи в 2026 | АИ Авто",
+          "url": "https://ai-import.ru/catalog/korea/hyundai/palisade",
+          "snippet": "В этом материале — подробный разбор четырёх самых востребованных Hyundai 2026 года под параллельный импорт из Кореи: реальные цены под ключ в рублях, разница между комплектациями, какие моторы доступны, сроки доставки и нюансы оформления."
+        },
+        {
+          "title": "Продажа Hyundai Palisade из Кореи | Цены на Хендай Палисад в Корее",
+          "url": "https://www.drom.ru/world/korea/hyundai/palisade/",
+          "snippet": "Hyundai Palisade (Хендай Палисад) купить под заказ от 6 090 000 ₽ под ключ — цены, комплектации и сроки доставки из Кореи. Выкуп, проверка, растаможка и доставка по России по одному договору."
+        },
+        {
+          "title": "Купить Hyundai Palisade из Кореи в Россию, Москву под ключ",
+          "url": "https://westmotors.ru/catalog-avto-korea/hyundai/palisade",
+          "snippet": "Объявления о продаже Hyundai Palisade под заказ из Кореи с фото авто и ценами. Стоимость и характеристики Хендай Палисад на аукционе в Корее."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Hyundai Palisade из Кореи: комплектации, ловушки вывоза и чек-лист до депозита в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hyundai Palisade из Кореи: подобрать LX2 или LX3 | AZWAY",
+          "url": "https://azway.ru/import/koreya/hyundai-palisade",
+          "snippet": ""
+        },
+        {
+          "title": "Hyundai Palisade из Кореи: цена под ключ 2026",
+          "url": "https://export-motors.com/blog/hyundai-palisade-iz-korei",
+          "snippet": "Подбор Hyundai Palisade из Кореи: LX2 2,2 дизель и 3,8 бензин; LX3 2,5 Turbo или Hybrid. Места, документы, история и полная цена в России."
+        },
+        {
+          "title": "Hyundai Palisade из Кореи: цена, растаможка, сроки и этапы пригона",
+          "url": "https://altezza.team/blog/prigon-hyundai-palisade-iz-korei.html",
+          "snippet": "Hyundai Palisade из Кореи — лидер ввоза и большой 7-8-местный SUV. Честно про коммерческий утильсбор после реформы, версии, комплектации и цену под ключ."
+        },
+        {
+          "title": "Hyundai Palisade из Кореи: LX2, LX3, дизель и гибрид | AZWAY",
+          "url": "https://azway.ru/blog/hyundai-palisade-iz-korei-obzor",
+          "snippet": "Подробно о пригона Hyundai Palisade из Кореи: как выбрать, этапы покупки, растаможку, сроки доставки и нюансы. Всё о стоимости — от Encar до расчёта в калькуляторе Altezza."
+        },
+        {
+          "title": "Hyundai Palisade, Santa Fe, Tucson и Sonata 2026: цены под ключ из Кореи",
+          "url": "https://carto-auto.ru/blog/hyundai-palisade-santa-fe-tucson-sonata-2026-tseny-pod-klyuch/",
+          "snippet": "Palisade бывает очень разным: старый LX2 с дизелем 2,2 или V6, новый LX3 с турбобензином либо гибридом 2,5. Разбираем корейские установки, места, документы, расход и семейный груз."
+        },
+        {
+          "title": "Hyundai Palisade из Кореи: флагманский семейный SUV под ключ в Сибирь",
+          "url": "https://onlyjpcars.ru/blog/hyundai-palisade-iz-korei",
+          "snippet": "В этом материале — подробный разбор четырёх самых востребованных Hyundai 2026 года под параллельный импорт из Кореи: реальные цены под ключ в рублях, разница между комплектациями, какие моторы доступны, сроки доставки и нюансы оформления."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.drom.ru/catalog/hyundai/palisade/2026/",
+      "title": "Хендай Палисад 2026 технические характеристики. Hyundai Palisade 2026 ...",
+      "from_query": "хендай палисад из кореи 2026"
+    },
+    {
+      "url": "https://export-motors.com/blog/hyundai-palisade-iz-korei",
+      "title": "Hyundai Palisade из Кореи: цена под ключ 2026",
+      "from_query": "хендай палисад из кореи 2026"
+    },
+    {
+      "url": "https://carto-auto.ru/blog/hyundai-palisade-santa-fe-tucson-sonata-2026-tseny-pod-klyuch/",
+      "title": "Hyundai Palisade, Santa Fe, Tucson и Sonata 2026: цены под ключ из Кореи",
+      "from_query": "хендай палисад из кореи 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/korea/hyundai/palisade/",
+      "title": "Продажа Hyundai Palisade из Кореи | Цены на Хендай Палисад в Корее",
+      "from_query": "хендай палисад из кореи 2026"
+    },
+    {
+      "url": "https://ai-import.ru/catalog/korea/hyundai/palisade",
+      "title": "Hyundai Palisade — цена под ключ и как купить из Кореи в 2026 | АИ Авто",
+      "from_query": "хендай палисад из кореи 2026"
+    },
+    {
+      "url": "https://ai-import.ru/catalog/korea/hyundai/palisade/2-pokolenie-lx3",
+      "title": "Hyundai Palisade 2 поколение: цена под ключ из Кореи",
+      "from_query": "хендай палисад из кореи 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/dae7d0f510d685ae0862edb1795ec3f9/",
+      "title": "Новый Hyundai Palisade из Кореи | КАКАЯ ЦЕНА В ОКТЯБРЕ 2026?",
+      "from_query": "хендай палисад из кореи октябрь 2026"
+    },
+    {
+      "url": "https://avtoservis.online/hyundai/hyundai-palisade-novogo-pokoleniya-2026/",
+      "title": "Новый Hyundai Palisade 2026: гибрид, дизайн, характеристики",
+      "from_query": "хендай палисад из кореи новости 2026"
+    },
+    {
+      "url": "https://caromoto.com/Home/Blog?id=218",
+      "title": "Hyundai Palisade Hybrid 2026: обзор, характеристики и заказ из Кореи в ...",
+      "from_query": "хендай палисад из кореи новости 2026"
+    },
+    {
+      "url": "https://www.moneytimes.ru/news/hyundai-palisade-2026-obzor/80197/",
+      "title": "Hyundai Palisade 2026 взорвал рынок: что скрывает новый гигант из Кореи",
+      "from_query": "хендай палисад из кореи новости 2026"
+    },
+    {
+      "url": "https://github.com/aadi9082/Portfolio/blob/main/logo.svg",
+      "title": "Portfolio/logo.svg at main · aadi9082/Portfolio · GitHub",
+      "from_query": "site:github.com хендай палисад из кореи 2026"
+    },
+    {
+      "url": "https://github.com/leapmux/leapmux/blob/main/icons/leapmux-icon.svg",
+      "title": "leapmux/icons/leapmux-icon.svg at main · leapmux/leapmux",
+      "from_query": "site:github.com хендай палисад из кореи 2026"
+    },
+    {
+      "url": "https://gist.github.com/831jsh/497eb0a39cf7ce952a823319be759287",
+      "title": "Solaris 11.4.42 CBE Install on Proxmox · GitHub",
+      "from_query": "site:github.com хендай палисад из кореи 2026"
+    },
+    {
+      "url": "https://docs.github.com/pages",
+      "title": "GitHub Pages documentation - GitHub Docs",
+      "from_query": "site:github.com хендай палисад из кореи 2026"
+    },
+    {
+      "url": "https://github.com/bootlin/training-materials/blob/master/slides/boot-time-hardware-init/klaasvangend_processor_clock.svg",
+      "title": "training-materials/slides/boot-time-hardware-init/klaasvangend ...",
+      "from_query": "site:github.com хендай палисад из кореи 2026"
+    },
+    {
+      "url": "https://github.com/Microchip-TrustPlatformDesignSuite/TPDS-Usecases/blob/main/apps/keystream_fota/Images/td_keystream_fota.png",
+      "title": "TPDS-Usecases/apps/keystream_fota/Images/td_keystream_fota.png at main ...",
+      "from_query": "site:github.com хендай палисад из кореи 2026"
+    },
+    {
+      "url": "https://www.hyundai.com/content/dam/hyundai/kz/ru/files/guide/palisade-2026-guide-ru.pdf",
+      "title": "PDF Document - 현대자동차",
+      "from_query": "хендай палисад из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.hyundainews.com/assets/documents/original/67179-2026PalisadeSpecsFeaures20260706.pdf",
+      "title": "PDF Hyundai",
+      "from_query": "хендай палисад из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://www.hyundai.ru/service/manuals/palisade",
+      "title": "Hyundai Palisade: инструкция, руководство по эксплуатации, брошюра",
+      "from_query": "хендай палисад из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://hyundai.kz/ru/find-a-car/crossovers/palisade-2026/specification/",
+      "title": "Характеристики Hyundai Palisade 2026 — технические данные",
+      "from_query": "хендай палисад из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://carmanuals2.com/brand/hyundai/palisade-2026-16911",
+      "title": "2026 Hyundai Palisade PDF Manuals",
+      "from_query": "хендай палисад из кореи official docs documentation 2026"
+    },
+    {
+      "url": "https://hyundai-clubs.ru/forums/forum/285-hyundai-palisade-club/",
+      "title": "Hyundai Palisade Club - Hyundai Club / Форум Хендай Клуб",
+      "from_query": "хендай палисад из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://hyundai-clubs.ru/palisade/",
+      "title": "Палисад Клуб / Форум Hyundai Palisade - Hyundai Club / Форум Хендай Клуб",
+      "from_query": "хендай палисад из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://hyundaiforum.ru/index.php",
+      "title": "Hyundai форум - клуб владельцев автомобилей Хендэ",
+      "from_query": "хендай палисад из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://hyundai-com.ru/forums/hyundai-palisade.70/",
+      "title": "Hyundai Palisade | Hyundai Клуб - форум автомобилей Хeндай",
+      "from_query": "хендай палисад из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.palisadeforum.org/",
+      "title": "Palisade Forum",
+      "from_query": "хендай палисад из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/hyundai/palisade/5kopeek/breakages/",
+      "title": "Хендай Палисад отзывы владельцев - поломки и проблемы",
+      "from_query": "хендай палисад из кореи forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://catalog.mass-car.ru/korea/hyundai/palisade/2507917.html",
+      "title": "Hyundai Palisade (Хендай Палисад) 2026 г. лот №42585199 из Кореи, цены ...",
+      "from_query": "палисад из кореи 2026"
+    },
+    {
+      "url": "https://cenyavto.com/hyundai-palisade-2026/",
+      "title": "Хендай Палисад 2026 цены модели, комплектации, фото, новый кузов",
+      "from_query": "палисад из кореи 2026"
+    },
+    {
+      "url": "https://regionauto.org/korea/hyundai/palisade/?year_from=2026&year_to=2026",
+      "title": "Hyundai Palisade 2026 года из Южной Кореи под заказ",
+      "from_query": "палисад из кореи 2026"
+    },
+    {
+      "url": "https://carexkorea.ru/hyundai-palisade-2026-new-body-pervye-oczenki/",
+      "title": "Hyundai Palisade 2026 (New Body): первые оценки",
+      "from_query": "hyundai palisade из кореи 2026"
+    },
+    {
+      "url": "https://carwowlip.ru/cars/hyundai-palisade-lx3-gasoline-2-5t-2wd-7-seater-2026-4916",
+      "title": "Hyundai Palisade 2026 под ключ из Кореи — цена, фото, растаможка",
+      "from_query": "hyundai palisade из кореи 2026"
+    },
+    {
+      "url": "https://altezza.team/blog/prigon-hyundai-palisade-iz-korei.html",
+      "title": "Hyundai Palisade из Кореи: цена, растаможка, сроки и этапы пригона",
+      "from_query": "hyundai palisade из кореи 2026"
+    },
+    {
+      "url": "https://westmotors.ru/catalog-avto-korea/hyundai/palisade",
+      "title": "Купить Hyundai Palisade из Кореи в Россию, Москву под ключ",
+      "from_query": "hyundai palisade из кореи 2026"
+    },
+    {
+      "url": "https://www.avito.ru/all/avtomobili/hyundai/palisade-ASgBAgICAkTgtg2imzHitg3GzDQ",
+      "title": "Купить Hyundai Palisade от 3 450 000 ₽ во ... - Авито",
+      "from_query": "хендай палисад под заказ 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/moscow/hyundai/palisade/773537939.html",
+      "title": "Купить Хендай Палисад 2026 год в Москве, x2705;Комплектация: 1.6t ...",
+      "from_query": "хендай палисад под заказ 2026"
+    },
+    {
+      "url": "https://auto.ru/cars/hyundai/palisade/2026-year/new/",
+      "title": "Купить новые Hyundai Palisade 2026 года по цене от 8 000 000 рублей ...",
+      "from_query": "хендай палисад под заказ 2026"
+    },
+    {
+      "url": "https://naavtotrasse.ru/hyundai/hyundai-palisade-2026.html",
+      "title": "Хендай Палисад 2026 новый кузов, цены, комплектации, фото, видео тест-драйв",
+      "from_query": "хендай палисад под заказ 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/hyundai/palisade/",
+      "title": "Хендай Палисад технические характеристики. Hyundai Palisade ...",
+      "from_query": "комплектации хендай палисад из кореи 2026"
+    },
+    {
+      "url": "https://azway.ru/import/koreya/hyundai-palisade",
+      "title": "Hyundai Palisade из Кореи: подобрать LX2 или LX3 | AZWAY",
+      "from_query": "Hyundai Palisade из Кореи: комплектации, ловушки вывоза и чек-лист до депозита в 2026 2026"
+    },
+    {
+      "url": "https://azway.ru/blog/hyundai-palisade-iz-korei-obzor",
+      "title": "Hyundai Palisade из Кореи: LX2, LX3, дизель и гибрид | AZWAY",
+      "from_query": "Hyundai Palisade из Кореи: комплектации, ловушки вывоза и чек-лист до депозита в 2026 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/hyundai-palisade-iz-korei",
+      "title": "Hyundai Palisade из Кореи: флагманский семейный SUV под ключ в Сибирь",
+      "from_query": "Hyundai Palisade из Кореи: комплектации, ловушки вывоза и чек-лист до депозита в 2026 2026"
+    }
+  ]
+}

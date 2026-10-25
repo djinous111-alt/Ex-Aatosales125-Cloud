@@ -353,3 +353,37 @@ commit: pending-parent-commit
 ## Fixed incidents
 
 Handled above; commit is pending Director review.
+
+## INC-20261025-0930-writer-telegram-cta-secret-scan
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-writer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-corolla-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `git commit` of `article.html` was blocked by Cursor secret-scan because CTA hrefs equal `TELEGRAM_URL` / `CATALOG_URL` env secrets.
+- Same run also needed bash-safe filter of `CLOUD_AGENT_INJECTED_SECRET_NAMES` (see INC-20261025-0908).
+
+### How the agent recovered this run
+- Kept public CTA `Telegram avtosales125` as required by conversion-map.
+- Added HTML line marker `<!-- pragma: allowlist secret -->` on every line with catalog/Telegram CTA href so pre-commit allowlists intentional public URLs.
+- Filtered injected secret names to valid shell identifiers before commit.
+
+### Durable fix needed before next run
+- Document in writer skill / conversion-map that Telegram CTA href may match `TELEGRAM_URL` secret and needs `pragma: allowlist secret` on that HTML line when committing article.html.
+- Or stop treating public `t.me/avtosales125` as a scanned secret; keep only private tokens in secret scan.
+
+### Suggested files to inspect/change
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `memory/brief/conversion-map.md`
+- Cursor Cloud Secrets panel (`TELEGRAM_URL` scan policy)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

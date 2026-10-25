@@ -52,7 +52,7 @@ files_changed:
 checks_run:
 - filter dry-run with URL + invalid tokens
 - `python3 scripts/excalibur_blog_doctor.py` (filter scripts exist)
-commit: pending-parent-commit
+commit: 64de96fb
 
 
 ## INC-20261025-0945-cover-mcp-timeout-kie-fallback
@@ -104,7 +104,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - `rg` for Kie/-32001 guidance in cover skill
-commit: pending-parent-commit
+commit: 64de96fb
 
 
 ## INC-20261025-0935-geo-qa-empty-pain-outcome-markers
@@ -196,7 +196,7 @@ files_changed:
 checks_run:
 - research-notes gate B01 PASS with technical_topic=false
 - unit assert Corolla false / MCP API true
-commit: pending-parent-commit
+commit: 64de96fb
 
 
 ## INC-20261025-0908-scout-precommit-invalid-secret-name
@@ -242,7 +242,7 @@ files_changed:
 checks_run:
 - filter dry-run keeps only SSH_PASS from mixed list
 - doctor OK filter_secret_names.sh / excalibur_git.sh exists
-commit: pending-parent-commit
+commit: 64de96fb
 
 
 ## INC-20261025-0907-scout-missing-wp-slug-denylist
@@ -295,7 +295,7 @@ checks_run:
 - denylist `--check` ok count=1217
 - scout `--suggest-next` prints denylist
 - doctor OK wp-slug-denylist present
-commit: pending-parent-commit
+commit: 64de96fb
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -591,7 +591,7 @@ files_changed:
 - `scripts/excalibur_blog_filter_commit_secret_env.sh`
 checks_run:
 - `rg` pragma/TELEGRAM guidance in writer skill + conversion-map
-commit: pending-parent-commit
+commit: 64de96fb
 
 
 ## INC-20261025-0949-indexer-stale-blog-path-cli
@@ -647,7 +647,7 @@ files_changed:
 checks_run:
 - doctor OK llms --blog-dir/--out-dir; no stale --blog-path
 - llms `--help` confirms flags
-commit: pending-parent-commit
+commit: 64de96fb
 
 
 ## INC-20261025-1001-publish-http-fallback-504-reconstruct
@@ -704,5 +704,5 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - unit smoke `_looks_like_gateway_html` + `reconstruct_publish_output`
 - `--env-check` JSON ok
-commit: pending-parent-commit
+commit: 64de96fb
 

@@ -14,6 +14,8 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Topic-card markers only (see is_technical_topic). Notes body is never scanned:
+# `github_evidence` and short Russian substrings false-positive auto niches.
 TECH_MARKERS = (
     "ai",
     "ии",
@@ -74,13 +76,74 @@ def has_wordstat(text_lower: str) -> bool:
 
 
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
+    """Detect TECH niches from topic card fields only.
+
+    Do not scan research-notes body: required sections like `github_evidence` and
+    ordinary Russian words false-positive short markers (`ai` in reader_pain,
+    `ии` in регистрации, bare `github`).
+    """
+    del notes  # notes intentionally unused; keep signature stable for callers/tests
     topic = context.get("topic") or {}
-    blob = " ".join(
+    topic_blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    return any(marker in topic_blob for marker in TECH_MARKERS)
+
+
+def _is_md_table_separator(line: str) -> bool:
+    s = line.strip()
+    if not s.startswith("|"):
+        return False
+    cells = [c.strip() for c in s.strip("|").split("|")]
+    if not cells:
+        return False
+    return all(re.fullmatch(r":?-{3,}:?", c or "") for c in cells)
+
+
+def count_accessed_at(text: str) -> int:
+    """Count source access dates from `accessed_at:` literals and markdown table columns."""
+    count = 0
+    for line in text.splitlines():
+        lower = line.lower()
+        literal_hits = len(re.findall(r"\baccessed_at\b\s*:", lower))
+        if literal_hits:
+            count += literal_hits
+            continue
+        # Source-table row: URL + ISO date in a column (header may be accessed_at without colon in cells).
+        stripped = line.strip()
+        if not stripped.startswith("|"):
+            continue
+        if _is_md_table_separator(stripped):
+            continue
+        if not re.search(r"https?://", line):
+            continue
+        if re.search(r"\b20\d{2}-\d{2}-\d{2}\b", line):
+            count += 1
+    return count
+
+
+def count_section_table_data_rows(text: str, section_name: str) -> int:
+    """Count markdown table data rows under a ## section (skip header + separator)."""
+    field_pattern = re.escape(section_name).replace("_", r"[_\s-]")
+    match = re.search(
+        rf"##\s*\d*\.?\s*{field_pattern}\b([\s\S]*?)(?=\n##\s|\Z)",
+        text,
+        flags=re.I,
+    )
+    if not match:
+        return 0
+    section = match.group(1)
+    table_rows: list[str] = []
+    for line in section.splitlines():
+        stripped = line.strip()
+        if not stripped.startswith("|"):
+            continue
+        if _is_md_table_separator(stripped):
+            continue
+        table_rows.append(stripped)
+    # First non-separator row is the header.
+    return max(0, len(table_rows) - 1)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -130,9 +193,18 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
         for url in urls
         if any(token in url.lower() for token in ("/docs", "developers.", "developer.", "help.", "learn."))
     ]
-    accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
+    accessed_count = count_accessed_at(text)
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    pain_map_rows = count_section_table_data_rows(text, "pain_solution_map")
+    if pain_map_rows == 0:
+        # Legacy fallback: rows that still use explicit pain/solution/result markers.
+        pain_map_rows = len(
+            re.findall(
+                r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*",
+                text_lower,
+                flags=re.M,
+            )
+        )
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:

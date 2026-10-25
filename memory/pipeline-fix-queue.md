@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261025-0907-scout-missing-wp-slug-denylist
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: docs
+
+### What went wrong
+- On scout branch `shared/wp-slug-denylist.json` was missing, while LIVE WP already has 1217 post slugs including recent model guides (Fit/Jimny/Freed/…).
+- Without denylist, scout `--check-query` only sees `## Bxx` cards and can miss LIVE slug/model cannibalization.
+
+### How the agent recovered this run
+- Rebuilt denylist from `PUBLIC_SITE_URL` WP REST (`/wp-json/wp/v2/posts`, 13 pages, pages=0).
+- Verified Toyota Corolla has no dedicated LIVE slug; WP search for королла/corolla has no model how-to.
+- Chose B01 Corolla (Autostat #4 JP used import; Wordstat narrow 1800–2061) and appended utility card.
+
+### Durable fix needed before next run
+- Keep `shared/wp-slug-denylist.json` committed on main after each publish, or add a scout preflight script that rebuilds denylist when file missing.
+- Document in scout skill that AS* pool + LIVE denylist + recent model denylist must be checked even when B-pool is empty.
+
+### Suggested files to inspect/change
+- `shared/wp-slug-denylist.json`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_scout_helper.py`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

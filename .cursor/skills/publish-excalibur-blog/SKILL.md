@@ -20,17 +20,31 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 | Links | `link-verify.json` → pass |
 | Cover | `cover/cover.png` + alt в `cover-registry.json` |
 | Schema | `schema.jsonld` |
-| Credentials | `memory/site.env.local`: `FTP_*`, `FTP_ROOT`, `PUBLIC_SITE_URL` |
+| Credentials | Cloud Secrets overlay **or** `memory/site.env.local` (`SSH_*`, `PUBLIC_SITE_URL`) — site.env.local optional when Secrets cover all keys |
 | Allow flag | `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` |
+| SSH dep | `paramiko` (installed via `requirements.txt` / `.cursor/cloud-agent-install.sh` / Dockerfile) |
 
 Если allow flag ≠ yes → **`❌ PUBLISH BLOCKER`** (не silent skip).
 
 ## Алгоритм
 
+### 0. Env + dependency check
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+JSON must show `paramiko_installed: true`. If false:
+
+```bash
+python3 -m pip install --break-system-packages paramiko
+# or: python3 -m pip install -r requirements.txt
+```
+
 ### 1. Preflight publish
 
 ```bash
-python scripts/excalibur_blog_link_verify.py \
+python3 scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
   --site-base https://avtosales125.ru

@@ -6,8 +6,12 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+_None for run 2026-10-25 after fixer._
+
+## Recently fixed (2026-10-25)
+
 ## INC-20261025-1737-publish-paramiko-missing
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-publish
 topic_id: B01
@@ -41,11 +45,29 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- `requirements.txt` already listed paramiko; `.cursor/cloud-agent-install.sh` and Dockerfile now install it every boot (with explicit import check).
+- `excalibur_blog_wp_publish.py --env-check` reports `paramiko_installed` and treats missing paramiko as a missing dep.
+- Doctor checks paramiko; publish skill documents install path and optional `site.env.local` when Cloud Secrets overlay keys.
+files_changed:
+- `.cursor/cloud-agent-install.sh`
+- `.cursor/Dockerfile`
+- `scripts/excalibur_blog_wp_publish.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -c "import paramiko"`
+- `python3 scripts/excalibur_blog_wp_publish.py --env-check` → paramiko_installed true
+- `python3 scripts/excalibur_blog_doctor.py` → OK paramiko
+commit: pending-parent-commit
 
 
 ## INC-20261025-1732-indexer-llms-blog-path-stale
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-indexer
 topic_id: B01
@@ -80,11 +102,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- Indexer agent/skill examples use `--blog-dir` + `--out-dir` only; removed stale `--blog-path`.
+- Doctor asserts `--blog-dir`/`--out-dir` present and `--blog-path` absent from llms generator help.
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 scripts/excalibur_blog_doctor.py` (llms --blog-dir/--out-dir OK; no --blog-path)
+- `rg blog-path` on indexer agent/skill → only doctor negative assertion remains
+commit: pending-parent-commit
 
 
 ## INC-20261025-1731-cover-hero-host-upload-fallback
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-cover
 topic_id: B01
@@ -113,11 +150,26 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- `excalibur_blog_hero_reference_url.py` keeps verified WordPress media URL on avtosales125.ru when catbox/0x0 fail (Content-Length match); warns that temp hosts alone break cover gate.
+- Cover agent/skill document WP-primary host priority and `--force` fallback behavior.
+files_changed:
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
+- `python3 scripts/excalibur_blog_hero_reference_url.py --help`
+commit: pending-parent-commit
 
 
 ## INC-20261025-1722-schema-precommit-hook-invalid-var
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-schema
 topic_id: B01
@@ -149,10 +201,25 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- Added `scripts/excalibur_blog_patch_precommit_secret_scanner.sh` to skip non-identifier entries in CLOUD_AGENT_INJECTED_SECRET_NAMES before `${!SECRET_NAME}` (fixes pre-commit.cursor and commit-msg.cursor).
+- Invoked from `.cursor/cloud-agent-install.sh`; schema skill + pitfalls document the repair path (no git reset / avoid --no-verify after patch).
+files_changed:
+- `scripts/excalibur_blog_patch_precommit_secret_scanner.sh`
+- `.cursor/cloud-agent-install.sh`
+- `skills/schema-excalibur-blog/SKILL.md`
+- `.cursor/skills/schema-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `bash scripts/excalibur_blog_patch_precommit_secret_scanner.sh`
+- probe `git commit` of non-secret file succeeded after patch (pre-commit + commit-msg skip junk URL name)
+commit: pending-parent-commit
+
 
 ## INC-20261025-2015-writer-editorial-pain-outcome-markers
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-writer
 topic_id: B01
@@ -184,10 +251,28 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- Restored/expanded durable `pain_markers_ru` / `outcome_markers_ru` in `memory/brief/editorial-policy.json`.
+- Utility gate falls back to built-in PAIN/OUTCOME markers when policy lists are empty (with warning).
+- Doctor preflight fails if either list is empty; writer skill forbids wiping the keys.
+files_changed:
+- `memory/brief/editorial-policy.json`
+- `scripts/excalibur_blog_utility_gate.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m json.tool memory/brief/editorial-policy.json`
+- doctor OK pain/outcome non-empty
+- utility `resolve_marker_list([], defaults)` → used_fallback True
+commit: pending-parent-commit
+
 
 ## INC-20261025-2010-research-gate-accessed-at-pain-map
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-research
 topic_id: B01
@@ -221,7 +306,24 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- Research notes gate counts `accessed_at` from colon literals AND ISO dates in markdown table URL rows.
+- `pain_solution_map` counted as markdown table data-rows under the section (header/separator skipped).
+- `technical_topic` uses topic-card fields only (notes/`github` no longer false-positive auto niches).
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `agents/excalibur-blog-research.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- synthetic helpers: accessed≥5, pain rows=3, github-in-notes ⇒ technical_topic False
+- B01 gate PASS, technical_topic False, accessed_at=17, pain_solution_rows=5
+commit: pending-parent-commit
+
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed

@@ -46,3 +46,29 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator CLI: `--blog-dir` + `--out-dir` (+ `--site-base`). Флаг `--blog-path` устарел и ломает argparse.
+
+## Research notes gate
+
+- `accessed_at` в source_table можно писать ISO-датой в колонке (`2026-10-25`); gate считает и `accessed_at:`, и ISO в URL-строках таблицы.
+- `pain_solution_map` считается по data-rows markdown-таблицы; префиксы `pain:`/`solution:` необязательны.
+- Слово `github` в notes/`github_evidence` само по себе не делает тему `technical_topic`.
+
+## Writer / utility markers
+
+- Не вычищай `pain_markers_ru` / `outcome_markers_ru` из `memory/brief/editorial-policy.json`.
+- Если списки пустые, utility gate использует built-in fallback (как human_voice), но doctor требует непустые списки.
+
+## Cover / hero host
+
+- Primary host для `reference_url_hosted` — WordPress media на `avtosales125.ru` (size/hash check).
+- catbox/0x0 — только временные зеркала; при их падении `--force` должен сохранить verified WP URL.
+
+## Cloud git pre-commit
+
+- Если `pre-commit.cursor` / `commit-msg.cursor` падает с `invalid variable name`: в `CLOUD_AGENT_INJECTED_SECRET_NAMES` попал non-identifier (часто raw URL). Запусти `bash scripts/excalibur_blog_patch_precommit_secret_scanner.sh` (ставится из cloud-agent-install).
+
+## Publish deps
+
+- `paramiko` обязателен для SSH publish; ставится из `requirements.txt` / cloud-agent-install / Dockerfile.
+- `--env-check` сообщает `paramiko_installed`; `site.env.local` опционален, если Cloud Secrets перекрывают PUBLISH_ENV_KEYS.

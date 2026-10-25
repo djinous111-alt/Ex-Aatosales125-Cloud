@@ -121,5 +121,7 @@
     "настройте",
     "исправьте",
     "выберите"
-  ]
+  ],
+  "_markers_pinned": true,
+  "_markers_note": "pain_markers_ru / outcome_markers_ru must stay non-empty and aligned with excalibur_blog_human_voice_gate PAIN_MARKERS / OUTCOME_MARKERS. Empty arrays are a POLICY defect (doctor FAIL), not a reason to rewrite the article."
 }

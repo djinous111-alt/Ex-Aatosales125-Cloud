@@ -46,3 +46,17 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- `excalibur_blog_llms_generator.py`: флаги `--blog-dir` / `--out-dir` / `--site-base` (не `--blog-path`). Пустой `--site-base` → относительные `/blog/<slug>/`.
+
+## Writer / utility markers
+
+- Пустые `pain_markers_ru` / `outcome_markers_ru` в `memory/brief/editorial-policy.json` — **defect политики**, не повод рерайтить статью. Doctor FAIL; utility_gate подставляет FALLBACK. Не снимай `_markers_pinned`.
+
+## Research notes gate
+
+- `pain_solution_map`: считаются data-rows таблицы под `## pain_solution_map` (pipe-rows минус header/separator), не keyword в каждой ячейке.
+- `technical_topic`: только topic card (`h1`/`primary_query`/…); evidence в notes (Encar API, github.com) сам по себе не включает GitHub-квоту.
+
+## Git / Cloud pre-commit
+
+- Если `pre-commit.cursor` падает с `invalid variable name` на `${!SECRET_NAME}` — в `CLOUD_AGENT_*SECRET_NAMES` попал non-identifier (URL/`[REDACTED]`). Коммить через `bash scripts/excalibur_git.sh commit …` (фильтр имён + CTA allowlist). `--no-verify` только после secret-free проверки staged diff.

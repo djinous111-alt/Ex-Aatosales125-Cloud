@@ -417,3 +417,36 @@ category: docs
 ### Fixer resolution
 - pending
 
+
+## INC-20261026-2128-indexer-llms-stale-blog-path
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-noah-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_doctor.py` still checks that llms generator help contains `--blog-path`, but the CLI only exposes `--blog-dir` / `--out-dir`.
+- Indexer agent/skill shell examples still pass `--blog-path /`, which would fail if followed literally.
+
+### How the agent recovered this run
+- Ran llms generator with `--blog-dir memory/blog/articles --out-dir memory/blog` only (no `--blog-path`), as directed for this run; generated `memory/blog/llms.txt` and `memory/blog/llms-full.txt`.
+
+### Durable fix needed before next run
+- Remove or rewrite doctor check for `--blog-path`; assert `--blog-dir` and `--out-dir` instead.
+- Drop `--blog-path` from indexer agent/skill command examples; keep `--blog-dir` + `--out-dir`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

@@ -502,15 +502,18 @@ category: docs
 ### What went wrong
 - Indexer skill/agent still document `excalibur_blog_llms_generator.py --blog-path /`, but the script argparse has no `--blog-path` (only `--blog-dir`, `--out-dir`, `--site-base`).
 - `excalibur_blog_doctor.py` still asserts `"--blog-path" in llms_help.stdout`, so doctor warns on a stale check while the real CLI is `--blog-dir` / `--out-dir`.
-- Director prompt had to override contracts with fixer memory: use `--out-dir`, never `--blog-path`; empty `--site-base` → relative `/blog/<slug>/`.
+- First llms/interlink run with `--site-base $PUBLIC_SITE_URL` embedded the secret into `llms.txt` / `llms-full.txt` / `interlink-suggestions.json`; pre-commit secret-scan blocked the commit.
+- Director/fixer memory already said: empty `--site-base` → relative `/blog/<slug>/`, but contracts still push `${PUBLIC_SITE_URL}`.
 
 ### How the agent recovered this run
-- Ran llms generator with `--blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL --out-dir memory/blog` (no `--blog-path`).
-- Interlinker: `--apply --article-dir …/B01-… --site-base $PUBLIC_SITE_URL` → 0 opportunities (not a failure).
-- Wrote `promotion-checklist.md` and INDEXER handoff.
+- Re-ran llms generator and interlinker with `--site-base ""` → relative `/blog/<slug>/` (secret-scan safe).
+- CLI without `--blog-path`; used `--blog-dir` + `--out-dir memory/blog`.
+- Interlinker: 0 opportunities (not a failure). Wrote `promotion-checklist.md` and INDEXER handoff.
+- Reused known filter of `CLOUD_AGENT_INJECTED_SECRET_NAMES` to bash identifiers (INC-20261025-0908 / 0946).
 
 ### Durable fix needed before next run
-- Remove `--blog-path` from indexer agent/skill shell examples; document `--out-dir memory/blog` and relative URL behavior when `--site-base` is empty.
+- Remove `--blog-path` from indexer agent/skill shell examples; document `--out-dir memory/blog`.
+- Default indexer `--site-base` for committed artifacts to `""` (relative `/blog/<slug>/`); do not bake `PUBLIC_SITE_URL` into `memory/blog/llms*.txt`.
 - Change doctor check to assert `--out-dir` (and optionally `--blog-dir`) instead of `--blog-path`.
 - Sync `.cursor/` copies with `agents/` / `skills/` after the fix.
 

@@ -30,10 +30,10 @@ is_background: false
 
 ## Твои задачи (строго по порядку)
 
-1. **Preflight:** link-verify с `--site-base` из `PUBLIC_SITE_URL`.
+1. **Preflight:** link-verify с `--site-base` из `PUBLIC_SITE_URL`; `python3 scripts/excalibur_blog_wp_publish.py --env-check` → `paramiko_available: true` (иначе `pip install -r requirements.txt`).
 2. **Dry-run:** `excalibur_blog_wp_publish.py --dry-run`.
 3. **Publish:** `excalibur_blog_wp_publish.py` без dry-run.
-4. **Fallback:** при timeout HTTP-триггера — WebFetch URL из `FALLBACK_TRIGGER_URL` → `memory/webfetch-response.txt`.
+4. **Fallback / REST:** при timeout или 504 HTML — WebFetch → `memory/webfetch-response.txt`; скрипт поллит WP REST по slug. **Не republish.** Если скрипт упал, а пост уже есть — reconstruct `wp-publish-result.json` (см. skill).
 5. **Ledger:** обновить `shared/published-articles.md`.
 6. **Logs:** дописать `memory/blog/wp-publish-log.md`.
 7. **Promotion:** Live URL в `promotion-checklist.md`.

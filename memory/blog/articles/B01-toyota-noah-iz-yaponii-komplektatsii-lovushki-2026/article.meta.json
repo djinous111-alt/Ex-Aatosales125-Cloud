@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "slug": "toyota-noah-iz-yaponii-komplektatsii-lovushki-2026",
+  "title": "Как выбрать Toyota Noah из Японии: комплектации и ловушки до ставки 2026",
+  "h1": "Как выбрать Toyota Noah из Японии: комплектации и ловушки до ставки 2026",
+  "description": "Чек-лист Toyota Noah из Японии 2026: R80/R90, Si и Hybrid, Noah vs Voxy, чтение аукционного листа и стоп-правила до ставки. Расчёт – в каталоге Авто-Сейлс.",
+  "cover_alt": "Герой Авто-Сейлс у семейного минивэна Toyota Noah на фоне порта Владивостока, плашка до ставки",
+  "primary_query": "тойота ноах из японии",
+  "secondary_queries": [
+    "тойота ноах владивосток",
+    "тойота ноах гибрид",
+    "ноах или вокси"
+  ],
+  "char_count": 9487,
+  "article_mode": "B",
+  "author_id": "avtosales-editorial",
+  "anchor_variants": [
+    "как выбрать Toyota Noah из Японии до ставки",
+    "чеклист комплектаций Noah R80 и R90",
+    "аукционный лист Noah: стоп-оценки до депозита"
+  ],
+  "meta_ab": {
+    "title_seo": "Тойота Ноах из Японии: комплектации и ловушки до ставки",
+    "title_ctr": "🚗 Тойота Ноах из Японии: какой кузов брать и где стоп до ставки?",
+    "title_aeo": "Как выбрать Toyota Noah из Японии и не купить восстановленный лот?",
+    "description_seo": "Чек-лист Toyota Noah из Японии 2026: R80/R90, Si и Hybrid, Noah vs Voxy, чтение аукционного листа и стоп-правила до ставки. Расчёт – в каталоге Авто-Сейлс.",
+    "description_ctr": "⚡ Семья почти ставит ставку на красивый гибрид Si. Чек-лист R80/R90, лист и стоп-оценки до депозита – без выдуманных лотов.",
+    "description_aeo": "Toyota Noah из Японии выбирают по сценарию семьи, коду кузова R80/R90 и аукционному листу до ставки. Пошлины считают у импортёра."
+  },
+  "geo_qa": {
+    "score": 89,
+    "verdict": "PASS",
+    "date": "2026-10-26",
+    "html_linter": "PASS",
+    "slop_score": "WARNING (0 cliches, 6 over-long)",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility": "PASS",
+    "core_eeat": "19/20"
+  },
+  "cover_family": "brand_collage"
+}

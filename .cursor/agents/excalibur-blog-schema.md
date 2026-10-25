@@ -25,7 +25,8 @@ incident_report: none | memory/pipeline-fix-queue.md#INC-...
 1. Прочитать article.html, article.meta.json, research-notes, authors-registry.
 2. Собрать `schema.jsonld`: BlogPosting + FAQPage (+ HowTo если нужно).
 3. datePublished из research-context (today).
-4. Fragment `.cursor/excalibur-blog-fragments/schema.md`:
+4. На каждой строке с site/CTA URL добавь `"x-excalibur-pragma": "pragma: allowlist secret"` (JSON-safe; см. skill).
+5. Fragment `.cursor/excalibur-blog-fragments/schema.md`:
 
 ```text
 === EXCALIBUR BLOG SCHEMA ===

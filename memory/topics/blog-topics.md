@@ -184,3 +184,29 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Toyota Noah из Японии
+
+- **priority:** P0
+- **slug:** toyota-noah-iz-yaponii-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Toyota Noah из Японии: комплектации и ловушки до ставки 2026
+- **primary_query:** тойота ноах из японии
+- **secondary_queries:** тойота ноах владивосток, тойота ноах гибрид, ноах или вокси
+- **search_intent:** checklist
+- **article_mode:** B
+- **h2_outline:**
+  1. Зафиксируйте сценарий семьи: места, багаж, город или трасса, готовность к правому рулю
+  2. Сверьте поколение и код кузова (R80/R90) с лотом до депозита
+  3. Разберите комплектации Si / Z / Hybrid и 4WD: что реально нужно, а что маркетинг
+  4. Сравните Noah и Voxy под ваш сценарий без спора «что красивее»
+  5. Прочитайте аукционный лист: оценка, схема, комментарий инспектора, стоп-оценки
+  6. Пройдите путь Япония → Владивосток: что проверить до ставки, а что после прихода
+  7. Чек-лист из 10 пунктов до ставки или депозита
+- **faq_hints:** чем Noah отличается от Voxy; стоит ли брать гибрид Noah из Японии; что смотреть в аукционном листе Noah до ставки; как понять 4WD в карточке лота
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс в smart casual у семейного минивэна Noah на фоне порта Владивостока / ролкера, плашка «до ставки», угол каталога avto-sales125.ru; без кепки, стильные очки, одежда под прохладную погоду порта
+- **wordstat_signal:** parent «тойота ноах» ~54334; «тойота ноах владивосток» ~833; narrow «тойота ноах из японии» ~118; secondary «тойота ноах гибрид» ~2024, «ноах или вокси» ~250
+- **live_denylist_check:** не пересекается с Tank 300 / Palisade / Corolla / Fit / Jimny / Freed / Raize / Stepwgn / Vezel / Sonata / Coolray / CX-5 / Harrier / Monjaro / Alphard / LHD Japan / Kia* / Hyundai Avante-Santa Fe-Tucson / rastamozhka Korea / utilzbor; на LIVE нет статьи Noah

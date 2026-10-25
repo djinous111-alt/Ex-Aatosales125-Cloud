@@ -31,3 +31,17 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-26 — B01 toyota-noah-iz-yaponii-komplektatsii-lovushki-2026
+
+- **verdict:** PASS (reconstructed)
+- **post_id:** 4549
+- **permalink:** [REDACTED]/2026/10/26/toyota-noah-iz-yaponii-komplektatsii-lovushki-2026/
+- **featured_image:** 4555
+- **inline_images:** 4551 (`inline-01.png`), 4552 (`inline-02.png`), 4553 (`inline-03.png`)
+- **orphan_media:** 4550 (cover first upload), 4557 (inline-01-2 from FALLBACK partial) — content uses 4551–4553; featured=4555
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`, 12869 bytes; SSH meta-check)
+- **skip_theme_faq_meta:** ok
+- **method:** SSH (`SSH_ROOT=.`) + HTTP TimeoutError → FALLBACK curl 504 → REST+SSH meta reconstruct; **no republish**
+- **HEAD:** 200
+- **result:** `memory/blog/articles/B01-toyota-noah-iz-yaponii-komplektatsii-lovushki-2026/wp-publish-result.json`

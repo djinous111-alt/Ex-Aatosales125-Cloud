@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B01-toyota-noah-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2014",
+      "kind": "date_or_year",
+      "context": "кузова\" точно бывает. На практике у R80 (примерно 2014–2021) гибрид ZWR80 – только 2WD; полный привод на",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2021",
+      "kind": "date_or_year",
+      "context": "а\" точно бывает. На практике у R80 (примерно 2014–2021) гибрид ZWR80 – только 2WD; полный привод на бенз",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2022",
+      "kind": "date_or_year",
+      "context": "зине идёт через коды *85 (например ZRR85). R90 (с 2022) новее: бензин MZRA90/95, гибрид ZWR90/95, E-Four",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "oyota JP (FAQ Noah/Voxy, спецификации R80, lineup 2026), Goo-net, JapanAuc grading, гайдами по аукционно",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    }
+  ]
+}

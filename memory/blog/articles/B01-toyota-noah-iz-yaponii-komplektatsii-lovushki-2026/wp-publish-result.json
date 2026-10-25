@@ -1,0 +1,27 @@
+{
+  "slug": "toyota-noah-iz-yaponii-komplektatsii-lovushki-2026",
+  "topic_id": "B01",
+  "permalink": "https://avtosales125.ru/2026/10/26/toyota-noah-iz-yaponii-komplektatsii-lovushki-2026/",
+  "publish_method": "ssh",
+  "wp_post_id": 4549,
+  "featured_image": 4555,
+  "inline_images": [
+    4551,
+    4552,
+    4553
+  ],
+  "schema_meta": 1,
+  "skip_theme_faq_meta": 1,
+  "reconstructed": true,
+  "reconstruct_note": "HTTP trigger completed server-side; client TimeoutError + FALLBACK 504; verified via REST+SSH meta-check; no republish",
+  "attachments_all": [
+    4550,
+    4551,
+    4552,
+    4553,
+    4555,
+    4557
+  ],
+  "raw_output": "OK post=4549 slug=toyota-noah-iz-yaponii-komplektatsii-lovushki-2026\nOK featured_image=4555\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4551 src=cover/inline-01.png url=https://avtosales125.ru/wp-content/uploads/2026/10/toyota-noah-iz-yaponii-komplektatsii-lovushki-2026-inline-01.png\nOK inline_image_upload=4552 src=cover/inline-02.png url=https://avtosales125.ru/wp-content/uploads/2026/10/toyota-noah-iz-yaponii-komplektatsii-lovushki-2026-inline-02.png\nOK inline_image_upload=4553 src=cover/inline-03.png url=https://avtosales125.ru/wp-content/uploads/2026/10/toyota-noah-iz-yaponii-komplektatsii-lovushki-2026-inline-03.png\npermalink=https://avtosales125.ru/2026/10/26/toyota-noah-iz-yaponii-komplektatsii-lovushki-2026/\n",
+  "verdict": "pass"
+}

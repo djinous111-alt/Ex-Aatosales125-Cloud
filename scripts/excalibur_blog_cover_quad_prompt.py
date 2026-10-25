@@ -178,11 +178,11 @@ def main() -> int:
                     "status": "Poll an available status/result MCP tool by task_id every 10-15 seconds until url is ready, up to backend_max_wait_seconds.",
                     "idempotency": "Do not create a second image job unless status/result confirms the previous job was not created or failed.",
                 },
-                "blocker_only_if": "Sync gpt-image-2 times out with -32001 and no generated URL, task_id, or async status/result MCP tool is available.",
-                "mcp_invocation": "Legacy fallback only. Cursor Cloud should prefer direct Kie API via scripts/excalibur_blog_kie_gpt_image2_api.py because sync MCP gpt-image-2 is client-timeout-prone for 2K i2i.",
+                "blocker_only_if": "KIE_API_KEY missing AND sync gpt-image-2 times out with -32001 and no generated URL/task_id/async status tool is available.",
+                "mcp_invocation": "Legacy optional probe only. Cursor Cloud should prefer direct Kie API via scripts/excalibur_blog_kie_gpt_image2_api.py because sync MCP gpt-image-2 is client-timeout-prone for 2K i2i.",
                 "log_recovery": "If the MCP/Cloud log or expanded MCP tool response already contains a generated image URL after the HTTP timeout, treat it as success: save that URL to cover/quad-mcp-result.json yourself or pass it directly to quad_apply. Do not search cover/* for the URL; it will not exist there until you save it. Do not start another image job while a generated URL exists.",
-                "recovery_needed": "If there is no URL/task_id and no async status/result tool after a sync timeout, stop with COVER MCP ASYNC BLOCKER. Do not blindly retry and create a duplicate generation.",
-                "instruction": "Prefer async image tools if Available Tools exposes them. If only sync gpt-image-2 exists, call it once. If the HTTP MCP client times out with -32001, inspect the expanded MCP tool response / Cursor MCP Logs for a generated URL or task_id. If a URL exists, save it as cover/quad-mcp-result.json or pass it directly to quad_apply. If task_id exists, use the status/result MCP tool. If no URL/task_id/status tool exists, stop with COVER MCP ASYNC BLOCKER because the MCP backend must expose async retrieval for late image results. Do not continue to split/apply without a real image URL.",
+                "recovery_needed": "On -32001 without URL/task_id: do NOT start a second sync MCP create. Run preferred Kie API script once (same jobs[0].mcp_args payload). Only if KIE_API_KEY is missing and no async status tool exists, stop with COVER MCP ASYNC BLOCKER.",
+                "instruction": "Cloud default: after --write-batch, run preferred_image_flow (Kie API) first when KIE_API_KEY is set. Sync gpt-image-2 is optional probe only (max 1 attempt). On -32001 without URL/task_id → one Kie API path, never a second sync MCP. If a URL appears in MCP logs after timeout, save it and apply; do not duplicate jobs.",
             },
             "jobs": [
                 {

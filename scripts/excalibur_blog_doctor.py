@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import os
 import subprocess
 import sys
@@ -82,6 +83,19 @@ def git_ls_files(root: Path, pathspec: str) -> list[str]:
     return [line.strip() for line in proc.stdout.splitlines() if line.strip()]
 
 
+def denylist_ok(path: Path) -> tuple[bool, str]:
+    if not path.is_file():
+        return False, "shared/wp-slug-denylist.json missing"
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        return False, f"shared/wp-slug-denylist.json invalid JSON: {exc}"
+    slugs = data.get("slugs")
+    if not isinstance(slugs, list) or not slugs:
+        return False, "shared/wp-slug-denylist.json has empty/missing slugs[]"
+    return True, f"wp-slug-denylist present ({len(slugs)} slugs)"
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Excalibur BLOG preflight doctor")
     parser.add_argument("--publish", action="store_true", help="Require publish credentials and allow flag")
@@ -113,6 +127,31 @@ def main() -> int:
 
     check(module_available("PIL"), "Pillow available", errors, warnings)
     check(module_available("numpy"), "numpy available", errors, warnings)
+    # paramiko is required for SSH publish; warn on normal doctor, hard-fail with --publish
+    check(
+        module_available("paramiko"),
+        "paramiko available (SSH publish)",
+        errors,
+        warnings,
+        warn=not args.publish,
+    )
+
+    denylist_path = root / "shared/wp-slug-denylist.json"
+    ok_denylist, denylist_label = denylist_ok(denylist_path)
+    check(ok_denylist, denylist_label, errors, warnings)
+
+    check(
+        (root / "scripts/excalibur_blog_filter_secret_names.sh").is_file(),
+        "filter_secret_names.sh exists",
+        errors,
+        warnings,
+    )
+    check(
+        (root / "scripts/excalibur_git.sh").is_file(),
+        "excalibur_git.sh exists",
+        errors,
+        warnings,
+    )
 
     interlinker = root / "scripts/excalibur_blog_interlinker.py"
     help_proc = subprocess.run(
@@ -132,7 +171,16 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    # CLI uses --blog-dir / --out-dir (legacy --blog-path removed).
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check("--out-dir" in llms_help.stdout, "llms generator supports --out-dir", errors, warnings)
+    check("--site-base" in llms_help.stdout, "llms generator supports --site-base", errors, warnings)
+    check(
+        "--blog-path" not in llms_help.stdout,
+        "llms generator does not expose stale --blog-path",
+        errors,
+        warnings,
+    )
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

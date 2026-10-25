@@ -1,0 +1,665 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-25",
+    "today_ru": "25.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-27",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-25 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "toyota-corolla-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Toyota Corolla из Японии: комплектации и ловушки до ставки",
+    "primary_query": "тойота королла из японии",
+    "secondary_queries": [
+      "королла из японии",
+      "тойота королла кросс из японии",
+      "тойота королла филдер из японии",
+      "toyota corolla axio"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "тойота королла из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Королла 2026 технические характеристики. Toyota Corolla 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/corolla/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Тойота ГР Королла 2026 технические характеристики. Toyota GR Corolla ...",
+          "url": "https://www.drom.ru/catalog/toyota/gr_corolla/2026/",
+          "snippet": "Подробно расписан модельный ряд Toyota Corolla 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Toyota Corolla из Японии: поколения, стоимость под ключ и выбор в 2026",
+          "url": "https://onlyjpcars.ru/blog/toyota-corolla-iz-yaponii",
+          "snippet": "Подробно расписан модельный ряд Toyota GR Corolla 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Тойота Королла 2026 цены модели, комплектации, фото, новый кузов, видео",
+          "url": "https://cenyavto.com/toyota-corolla-2026/",
+          "snippet": "Toyota Corolla из Японии под ключ в 2026: поколения E210 (седан и универсал Touring), аукционные цены, таможня и ключевое преимущество 1.8 л по утильсбору, стоимость в Сибири."
+        },
+        {
+          "title": "Toyota Corolla 2026 2.0h CVT GR Sport Япония - infocar.group",
+          "url": "https://infocar.group/catalog/toyota/corolla/2026-corolla-20h-cvt-gr-sport-0189110556",
+          "snippet": "Тойота Королла 2026 — это практичный седан с современной электроникой и невысоким расходом топлива. Модель представлена в нескольких комплектациях, отличающихся не только оснащением, но и силовыми агрегатами, настройками трансмиссии и даже размерами."
+        },
+        {
+          "title": "Toyota Corolla 2026 1.8L Hybrid Япония - infocar.group",
+          "url": "https://infocar.group/catalog/toyota/corolla/2026-corolla-12951",
+          "snippet": "Toyota Corolla 2026 года в комплектации GR Sport с гибридным двигателем 2.0 л и полным приводом — доступна к импорту из Японии с доставкой в Россию."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "тойота королла из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Corolla из Японии: поколения, стоимость под ключ и выбор в 2026",
+          "url": "https://onlyjpcars.ru/blog/toyota-corolla-iz-yaponii",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Corolla из Японии: растаможка, утильсбор и срок 2026",
+          "url": "https://aa-dv.ru/rastamozhka-toyota-corolla.html",
+          "snippet": "Toyota Corolla из Японии под ключ в 2026: поколения E210 (седан и универсал Touring), аукционные цены, таможня и ключевое преимущество 1.8 л по утильсбору, стоимость в Сибири."
+        },
+        {
+          "title": "Тойота Королла 2026 технические характеристики. Toyota Corolla 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/corolla/2026/",
+          "snippet": "Мы привозим из Японии любую Toyota Corolla — седан, универсал Touring, Axio, Fielder и Corolla Cross, бензиновую и гибридную. Поможем купить и привезти любую машину — вопрос только во времени: гибриды и версии 2,0 идут в среднем два месяца, цену и срок фиксируем в договоре."
+        },
+        {
+          "title": "Toyota Corolla из Японии под ключ — цена 2026 — OnlyJPCars",
+          "url": "https://onlyjpcars.ru/catalog/toyota-corolla",
+          "snippet": "Подробно расписан модельный ряд Toyota Corolla 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Toyota Corolla продолжает отмечать юбилей: теперь спецверсии появились ...",
+          "url": "https://www.kolesa.ru/news/toyota-corolla-prodolzaet-otmecat-iubilei-teper-specversii-poiavilis-i-v-evrope",
+          "snippet": "Точная сумма зависит от года, комплектации и мощности. Откройте калькулятор OnlyJPCars для Toyota Corolla: таможня 2026, утильсбор, фрахт и доставка до вашего города."
+        },
+        {
+          "title": "Toyota Corolla 2026 года из Японии - sferacar.ru",
+          "url": "https://sferacar.ru/statistika/toyota/corolla/?year_from=2026&year_to=2026",
+          "snippet": "«Праздничные» исполнения появились у седана, хэтчбека и универсала Corolla. Особенные варианты уже доступны для заказа, первые покупатели получат свои машины в конце октября 2026 года."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "тойота королла из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Corolla из Японии: поколения, стоимость под ключ и выбор в 2026",
+          "url": "https://onlyjpcars.ru/blog/toyota-corolla-iz-yaponii",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Corolla продолжает отмечать юбилей: теперь спецверсии появились ...",
+          "url": "https://www.kolesa.ru/news/toyota-corolla-prodolzaet-otmecat-iubilei-teper-specversii-poiavilis-i-v-evrope",
+          "snippet": "Toyota Corolla из Японии под ключ в 2026: поколения E210 (седан и универсал Touring), аукционные цены, таможня и ключевое преимущество 1.8 л по утильсбору, стоимость в Сибири."
+        },
+        {
+          "title": "Тойота Королла 2026 технические характеристики. Toyota Corolla 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/corolla/2026/",
+          "snippet": "«Праздничные» исполнения появились у седана, хэтчбека и универсала Corolla. Особенные варианты уже доступны для заказа, первые покупатели получат свои машины в конце октября 2026 года."
+        },
+        {
+          "title": "Toyota Corolla 2026: праздничная версия с новыми технологиями и ...",
+          "url": "https://podolyaka.ru/toyota-corolla-2026-prazdnichnaya-versiya-s-novymi-tehnologiyami-i-dizaynom/",
+          "snippet": "Подробно расписан модельный ряд Toyota Corolla 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Toyota Corolla 2026: праздничная версия с новыми технологиями и ...",
+          "url": "https://svobodanews.ru/avto/toyota-corolla-2026-prazdnichnaya-versiya-s-novymi-tehnologiyami-i-dizaynom.html",
+          "snippet": "Юбилейная Toyota Corolla 2026 года впечатляет не только новым дизайном, но и расширенным набором функций. Модель получила такие опции, которые ранее были доступны только в премиум-классе."
+        },
+        {
+          "title": "Toyota Corolla из Китая: почему она стала главным бестселлером импорта ...",
+          "url": "https://jckauto.ru/blog/toyota-corolla-import-china",
+          "snippet": "От 3,4 млн иен: старт продаж уже в Японии. Для российских автолюбителей новость о выходе обновленной Toyota Corolla 2026 года может стать сигналом к переменам на рынке массовых автомобилей."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com тойота королла из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "docs/favicon.svg at main · yao-dev/docs · GitHub",
+          "url": "https://github.com/yao-dev/docs/blob/main/favicon.svg",
+          "snippet": ""
+        },
+        {
+          "title": "docs/favicon.svg at main · matiasstanghelini/docs · GitHub",
+          "url": "https://github.com/matiasstanghelini/docs/blob/main/favicon.svg",
+          "snippet": "Contribute to yao-dev/docs development by creating an account on GitHub."
+        },
+        {
+          "title": "zmk-sofle/keymap-drawer/eyelash_sofle.svg at main - GitHub",
+          "url": "https://github.com/mackziller/zmk-sofle/blob/main/keymap-drawer/eyelash_sofle.svg",
+          "snippet": "Contribute to matiasstanghelini/docs development by creating an account on GitHub."
+        },
+        {
+          "title": "BDBV2026-Epidemic_Dashboard/Data/Branding/all_logos.png at main · INRB ...",
+          "url": "https://github.com/INRB-UMIE/BDBV2026-Epidemic_Dashboard/blob/main/Data/Branding/all_logos.png",
+          "snippet": "Contribute to mackziller/zmk-sofle development by creating an account on GitHub."
+        },
+        {
+          "title": "mutsu/HISTORY-pass.svg at main · tokuhirom/mutsu · GitHub",
+          "url": "https://github.com/tokuhirom/mutsu/blob/main/HISTORY-pass.svg",
+          "snippet": "Dashboard based on open access, public data related to the the 2026 Ebola Bundibugyo oubtreak - BDBV2026-Epidemic_Dashboard/Data/Branding/all_logos.png at main · INRB-UMIE/BDBV2026-Epidemic_Dashboard"
+        },
+        {
+          "title": "phantom/Logo.svg at main · Hoivo25/phantom · GitHub",
+          "url": "https://github.com/Hoivo25/phantom/blob/main/Logo.svg",
+          "snippet": "Contribute to tokuhirom/mutsu development by creating an account on GitHub."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "тойота королла из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "PDF Toyota Corolla Brochure",
+          "url": "https://engage.toyota.com/static/files/ebrochures/2026/2026_corolla_eBrochure.pdf",
+          "snippet": ""
+        },
+        {
+          "title": "Тойота Королла 2026 технические характеристики. Toyota Corolla 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/corolla/2026/",
+          "snippet": "Toyota Audio Multimedia System Corolla's Toyota Audio Multimedia system heightens your interaction through sight, touch and voice activation—helping you stay connected to every adventure."
+        },
+        {
+          "title": "Toyota PDF Brochure | Download Free PDF Brochures for Toyota Vehicles",
+          "url": "https://www.toyota.com/brochures/cars-minivan/",
+          "snippet": "Подробно расписан модельный ряд Toyota Corolla 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Королла 2026 между собой."
+        },
+        {
+          "title": "Руководство по эксплуатации Тойота Королла: полное руководство",
+          "url": "https://toyotabase.vercel.app/articles/r/ru/rukovodstvo-po-ekspluatatsii-tojota-korolla.html",
+          "snippet": "Download a free Toyota PDF brochure. Choose any Toyota car, truck, SUV or hybrid in our lineup, and select a complete, condensed, or customized PDF brochure"
+        },
+        {
+          "title": "User manual Toyota Corolla (2026) (English - 473 pages)",
+          "url": "https://www.manua.ls/toyota/corolla-2026/manual",
+          "snippet": "Ниже представлена структурированная информация, охватывающая все этапы жизни автомобиля. Мы рассмотрим жидкости, интервалы замены, особенности бортового компьютера и ответы на самые частые вопросы, возникающие у водителей."
+        },
+        {
+          "title": "Руководство пользователя по техническим характеристикам Toyota Corolla ...",
+          "url": "https://www.autouserguide.com/ru/%D0%A2%D0%BE%D0%B9%D0%BE%D1%82%D0%B0/%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5-%D1%85%D0%B0%D1%80%D0%B0%D0%BA%D1%82%D0%B5%D1%80%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B8-Toyota-Corolla-2026-%D0%B3%D0%BE%D0%B4%D0%B0.-%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F./",
+          "snippet": "Manual Toyota Corolla (2026). View the Toyota Corolla (2026) manual for free or ask your question to other Toyota Corolla (2026) owners."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "тойота королла из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Королла 2026 отзывы владельцев: все минусы и недостатки",
+          "url": "https://www.drom.ru/reviews/toyota/corolla/5kopeek/2026-all/",
+          "snippet": ""
+        },
+        {
+          "title": "Тойота Королла 2026 отзывы владельцев - поломки и проблемы",
+          "url": "https://www.drom.ru/reviews/toyota/corolla/5kopeek/2026-all/breakages/",
+          "snippet": "Опыт эксплуатации реальных владельцев автомобилей Тойота Королла: плюсы и минусы."
+        },
+        {
+          "title": "Toyota Corolla Клуб - Форум Тойота Королла",
+          "url": "https://corolla-auto.ru/",
+          "snippet": "Отзывы владельцев Тойота Королла 2026 - поломки и проблемы. Опыт эксплуатации реальных владельцев автомобилей Тойота Королла: поломки, минусы, недостатки и проблемы."
+        },
+        {
+          "title": "Отзывы владельцев Тойота Королла: плюсы, минусы и реальный опыт",
+          "url": "https://toyotabase.vercel.app/articles/o/ot/otzyvy-vladeltsev-tojota-korolla.html",
+          "snippet": "Всем привет, такая проблема получается. Ремонтировали перед вытаскивали косу, который идёт со стороны двигателя. Тойота Королла аксио. Но делал не я забрал у того человека. Сейчас ..."
+        },
+        {
+          "title": "Toyota Corolla отзывы владельцев 2026: плюсы и минусы модели",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-korolla-otzyvy.html",
+          "snippet": "Вы узнаете, с какими проблемами сталкиваются водители после 100 000 км пробега и стоит ли переплачивать за японскую сборку. Информация базируется на реальном опыте тысяч автолюбителей, которые делятся своими наблюдениями на профильных форумах и в клубах."
+        },
+        {
+          "title": "Форум клуба Toyota Corolla",
+          "url": "https://corolla-club.ru/forum.php",
+          "snippet": "Реальные отзывы о Toyota Corolla 2020-2026: надежность, расход топлива, комфорт, типичные проблемы. Сравнение с конкурентами и советы по выбору."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "королла из японии 2026",
+      "purpose": "вторичный запрос: королла из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Corolla из Японии: поколения, стоимость под ключ и выбор в 2026",
+          "url": "https://onlyjpcars.ru/blog/toyota-corolla-iz-yaponii",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Corolla из Японии под ключ — цена 2026 — OnlyJPCars",
+          "url": "https://onlyjpcars.ru/catalog/toyota-corolla",
+          "snippet": "Toyota Corolla из Японии под ключ в 2026: поколения E210 (седан и универсал Touring), аукционные цены, таможня и ключевое преимущество 1.8 л по утильсбору, стоимость в Сибири."
+        },
+        {
+          "title": "Toyota Corolla из Японии: растаможка, утильсбор и срок 2026",
+          "url": "https://aa-dv.ru/rastamozhka-toyota-corolla.html",
+          "snippet": "Точная сумма зависит от года, комплектации и мощности. Откройте калькулятор OnlyJPCars для Toyota Corolla: таможня 2026, утильсбор, фрахт и доставка до вашего города."
+        },
+        {
+          "title": "Toyota Corolla 2026 1.8L Hybrid Япония - infocar.group",
+          "url": "https://infocar.group/catalog/toyota/corolla/2026-corolla-12951",
+          "snippet": "Мы привозим из Японии любую Toyota Corolla — седан, универсал Touring, Axio, Fielder и Corolla Cross, бензиновую и гибридную. Поможем купить и привезти любую машину — вопрос только во времени: гибриды и версии 2,0 идут в среднем два месяца, цену и срок фиксируем в договоре."
+        },
+        {
+          "title": "Toyota Corolla 2026 года из Японии - sferacar.ru",
+          "url": "https://sferacar.ru/statistika/toyota/corolla/?year_from=2026&year_to=2026",
+          "snippet": "Toyota Corolla 2026 года, гибрид 1.8 L, комплектация Elite, пробег 2 тыс. км — доступен к импорту из Японии с доставкой в Россию."
+        },
+        {
+          "title": "Тойота Королла 2026 технические характеристики. Toyota Corolla 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/corolla/2026/",
+          "snippet": "В данном разделе представлены автомобили Toyota Corolla 2026 года с аукционов Японии. Цены указаны в рублях уже с учётом всех расходов: затрат в Японии, доставки в Россию, брокерских услуг, пошлины и ..."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "тойота королла кросс из японии 2026",
+      "purpose": "вторичный запрос: тойота королла кросс из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Corolla Cross 2026 - Аукционный Лот Из Японии №73006",
+          "url": "https://jplife.ru/japan/?id=oyHtX8mAbUY1lkW&lot=73006&auction=TAA%20Chubu&auction_date=2026-10-22&vendor=TOYOTA&model=COROLLA%20CROSS&year=2026&body=ZVG16",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Corolla Cross — цена под ключ и как купить из Японии в 2026 | АИ ...",
+          "url": "https://ai-import.ru/catalog/japan/toyota/corolla_cross",
+          "snippet": "TOYOTA COROLLA CROSS 2026 торгуется на аукционе 22.10.2026 10:01 лот 73006. Фотографии, аукционный лист, характеристики, пробег, оценка и дата торгов на японском аукционе."
+        },
+        {
+          "title": "Купить Toyota Corolla Cross 2026 года | Лот ... - Дром",
+          "url": "https://www.drom.ru/world/japan/toyota/corolla_cross/8773203/",
+          "snippet": "Toyota Corolla Cross купить под заказ от 1 740 000 ₽ под ключ — цены, комплектации и сроки доставки из Японии. Выкуп, проверка, растаможка и доставка по России по одному договору."
+        },
+        {
+          "title": "Тойота Королла Кросс 2026 технические характеристики. Toyota Corolla ...",
+          "url": "https://www.drom.ru/catalog/toyota/corolla_cross/2026/",
+          "snippet": "Статистика проданных Toyota Corolla Cross на аукционах Японии. Фотографии, характеристики, цены и расчет реальной стоимости Toyota Corolla Cross в России."
+        },
+        {
+          "title": "Toyota Corolla Cross из Японии под ключ: цена и растаможка | AZWAY",
+          "url": "https://azway.ru/cars-160hp/toyota-corolla-cross",
+          "snippet": "Подробно расписан модельный ряд Toyota Corolla Cross 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Заказать Toyota Corolla Cross 2026 Года За 2 791 318 ₽ Из Японии ...",
+          "url": "https://asiaexpressauto.ru/japan/toyota/corolla-cross/toyota_corolla_cross-5/",
+          "snippet": "Toyota Corolla Cross из Японии под ключ: 98-150 л.с., растаможка и утильсбор 2026 в цене. Доставка в любой город РФ за 30-45 дней. Цена от 2 183 305 ₽. Расчёт…"
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "тойота королла филдер из японии 2026",
+      "purpose": "вторичный запрос: тойота королла филдер из японии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Corolla Fielder из Японии: цена под ключ 2026",
+          "url": "https://atletauto.ru/yaponiya/toyota-corolla-fielder.html",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Corolla Fielder из Японии — купить, цена от 773 000 ₽ | MYCAR",
+          "url": "https://mycarjp.ru/cars/japan/toyota/corolla-fielder/",
+          "snippet": "Corolla Fielder с аукционов Японии: расчёт под ключ по курсу ЦБ, моторы 1.5 и гибрид, полный привод, что смотреть в листе, доставка по России."
+        },
+        {
+          "title": "Тойота Королла 2026 технические характеристики. Toyota Corolla 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/corolla/2026/",
+          "snippet": "Toyota Corolla Fielder с аукционов Японии Планируете купить Toyota Corolla Fielder из Японии? Сравните предложения по году, пробегу и комплектации."
+        },
+        {
+          "title": "Toyota Corolla Fielder в 2026 — японский ... - Дзен",
+          "url": "https://dzen.ru/a/afaeBBFy5VS5dFVA",
+          "snippet": "Подробно расписан модельный ряд Toyota Corolla 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Королла 2026 между собой."
+        },
+        {
+          "title": "Тойота Королла Филдер — обзор, поколения и характеристики | Карском",
+          "url": "https://carscom.ru/blog/obzor-toyota-corolla-fielder/",
+          "snippet": "Если бы во Владивостоке провели голосование «самая узнаваемая японская машина», Fielder вошёл бы в первую тройку. Эти универсалы здесь катаются по 15 лет, переходят от отца к сыну, отбегают по 400 тысяч километров и потом всё равно продаются за вменяемые деньги."
+        },
+        {
+          "title": "Toyota Corolla Fielder из Японии: актуальные цены «под ключ» — осень ...",
+          "url": "https://dzen.ru/a/aOeUMrTQM2qJM6c3",
+          "snippet": "Обзор Toyota Corolla Fielder: кузова E140 и E160, моторы 1NZ-FE и 2NR-FKE, гибрид, реальный расход и что проверить перед заказом из Японии."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "toyota corolla axio 2026",
+      "purpose": "вторичный запрос: toyota corolla axio",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "2026 Toyota Corolla Axio Full Review - Features, Specs & Interior Tour",
+          "url": "https://www.youtube.com/watch?v=F1PJaHkyBEg",
+          "snippet": ""
+        },
+        {
+          "title": "2026 Toyota Corolla Axio Full Review | Interior, Exterior & Specs",
+          "url": "https://www.youtube.com/watch?v=TRNCuzTrSbk",
+          "snippet": "In this video, we take you through the latest updates in the 2026 model, including advanced driver assistance features like Toyota Safety Sense, a refreshed aerodynamic exterior, and an..."
+        },
+        {
+          "title": "Тойота Королла 2026 технические характеристики. Toyota Corolla 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/corolla/2026/",
+          "snippet": "Watch the full video to discover everything about the 2026 Toyota Corolla Axio, including its design, interior, technology, engine performance, and safety features."
+        },
+        {
+          "title": "Toyota Corolla Axio: полные характеристики 2026 года",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-korolla-aksio-kharakteristiki.html",
+          "snippet": "Подробно расписан модельный ряд Toyota Corolla 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Королла 2026 между собой."
+        },
+        {
+          "title": "Купить Toyota Corolla Axio 2026 С Аукциона Японии С Доставкой По ...",
+          "url": "https://www.starmotors.biz/auto-from-japan/toyota/corolla-axio/ZvkSTBQSU8WjQv/",
+          "snippet": "В этой статье мы подробно разберем технические характеристики всех поколений Toyota Corolla Axio, включая параметры двигателей, трансмиссий, подвески и безопасности."
+        },
+        {
+          "title": "Японский седан за миллион: Toyota Corolla Axio вернулась - разбираем ...",
+          "url": "https://dzen.ru/a/acrWJA2DMQBBCtHe",
+          "snippet": "TOYOTA COROLLA AXIO 2026 купить с аукциона Японии с доставкой и растаможкой в Россию. Лот № 30046. Цена 0 км. Реальные фото автомобиля, подробные характеристики. Без пробега по РФ."
+        }
+      ],
+      "searched_at": "2026-10-25"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Toyota Corolla из Японии: комплектации и ловушки до ставки 2026",
+      "purpose": "SERP по H1",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-25"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.drom.ru/catalog/toyota/corolla/2026/",
+      "title": "Тойота Королла 2026 технические характеристики. Toyota Corolla 2026 ...",
+      "from_query": "тойота королла из японии 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/gr_corolla/2026/",
+      "title": "Тойота ГР Королла 2026 технические характеристики. Toyota GR Corolla ...",
+      "from_query": "тойота королла из японии 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/blog/toyota-corolla-iz-yaponii",
+      "title": "Toyota Corolla из Японии: поколения, стоимость под ключ и выбор в 2026",
+      "from_query": "тойота королла из японии 2026"
+    },
+    {
+      "url": "https://cenyavto.com/toyota-corolla-2026/",
+      "title": "Тойота Королла 2026 цены модели, комплектации, фото, новый кузов, видео",
+      "from_query": "тойота королла из японии 2026"
+    },
+    {
+      "url": "https://infocar.group/catalog/toyota/corolla/2026-corolla-20h-cvt-gr-sport-0189110556",
+      "title": "Toyota Corolla 2026 2.0h CVT GR Sport Япония - infocar.group",
+      "from_query": "тойота королла из японии 2026"
+    },
+    {
+      "url": "https://infocar.group/catalog/toyota/corolla/2026-corolla-12951",
+      "title": "Toyota Corolla 2026 1.8L Hybrid Япония - infocar.group",
+      "from_query": "тойота королла из японии 2026"
+    },
+    {
+      "url": "https://aa-dv.ru/rastamozhka-toyota-corolla.html",
+      "title": "Toyota Corolla из Японии: растаможка, утильсбор и срок 2026",
+      "from_query": "тойота королла из японии октябрь 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/catalog/toyota-corolla",
+      "title": "Toyota Corolla из Японии под ключ — цена 2026 — OnlyJPCars",
+      "from_query": "тойота королла из японии октябрь 2026"
+    },
+    {
+      "url": "https://www.kolesa.ru/news/toyota-corolla-prodolzaet-otmecat-iubilei-teper-specversii-poiavilis-i-v-evrope",
+      "title": "Toyota Corolla продолжает отмечать юбилей: теперь спецверсии появились ...",
+      "from_query": "тойота королла из японии октябрь 2026"
+    },
+    {
+      "url": "https://sferacar.ru/statistika/toyota/corolla/?year_from=2026&year_to=2026",
+      "title": "Toyota Corolla 2026 года из Японии - sferacar.ru",
+      "from_query": "тойота королла из японии октябрь 2026"
+    },
+    {
+      "url": "https://podolyaka.ru/toyota-corolla-2026-prazdnichnaya-versiya-s-novymi-tehnologiyami-i-dizaynom/",
+      "title": "Toyota Corolla 2026: праздничная версия с новыми технологиями и ...",
+      "from_query": "тойота королла из японии новости 2026"
+    },
+    {
+      "url": "https://svobodanews.ru/avto/toyota-corolla-2026-prazdnichnaya-versiya-s-novymi-tehnologiyami-i-dizaynom.html",
+      "title": "Toyota Corolla 2026: праздничная версия с новыми технологиями и ...",
+      "from_query": "тойота королла из японии новости 2026"
+    },
+    {
+      "url": "https://jckauto.ru/blog/toyota-corolla-import-china",
+      "title": "Toyota Corolla из Китая: почему она стала главным бестселлером импорта ...",
+      "from_query": "тойота королла из японии новости 2026"
+    },
+    {
+      "url": "https://github.com/yao-dev/docs/blob/main/favicon.svg",
+      "title": "docs/favicon.svg at main · yao-dev/docs · GitHub",
+      "from_query": "site:github.com тойота королла из японии 2026"
+    },
+    {
+      "url": "https://github.com/matiasstanghelini/docs/blob/main/favicon.svg",
+      "title": "docs/favicon.svg at main · matiasstanghelini/docs · GitHub",
+      "from_query": "site:github.com тойота королла из японии 2026"
+    },
+    {
+      "url": "https://github.com/mackziller/zmk-sofle/blob/main/keymap-drawer/eyelash_sofle.svg",
+      "title": "zmk-sofle/keymap-drawer/eyelash_sofle.svg at main - GitHub",
+      "from_query": "site:github.com тойота королла из японии 2026"
+    },
+    {
+      "url": "https://github.com/INRB-UMIE/BDBV2026-Epidemic_Dashboard/blob/main/Data/Branding/all_logos.png",
+      "title": "BDBV2026-Epidemic_Dashboard/Data/Branding/all_logos.png at main · INRB ...",
+      "from_query": "site:github.com тойота королла из японии 2026"
+    },
+    {
+      "url": "https://github.com/tokuhirom/mutsu/blob/main/HISTORY-pass.svg",
+      "title": "mutsu/HISTORY-pass.svg at main · tokuhirom/mutsu · GitHub",
+      "from_query": "site:github.com тойота королла из японии 2026"
+    },
+    {
+      "url": "https://github.com/Hoivo25/phantom/blob/main/Logo.svg",
+      "title": "phantom/Logo.svg at main · Hoivo25/phantom · GitHub",
+      "from_query": "site:github.com тойота королла из японии 2026"
+    },
+    {
+      "url": "https://engage.toyota.com/static/files/ebrochures/2026/2026_corolla_eBrochure.pdf",
+      "title": "PDF Toyota Corolla Brochure",
+      "from_query": "тойота королла из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.toyota.com/brochures/cars-minivan/",
+      "title": "Toyota PDF Brochure | Download Free PDF Brochures for Toyota Vehicles",
+      "from_query": "тойота королла из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/r/ru/rukovodstvo-po-ekspluatatsii-tojota-korolla.html",
+      "title": "Руководство по эксплуатации Тойота Королла: полное руководство",
+      "from_query": "тойота королла из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.manua.ls/toyota/corolla-2026/manual",
+      "title": "User manual Toyota Corolla (2026) (English - 473 pages)",
+      "from_query": "тойота королла из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.autouserguide.com/ru/%D0%A2%D0%BE%D0%B9%D0%BE%D1%82%D0%B0/%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5-%D1%85%D0%B0%D1%80%D0%B0%D0%BA%D1%82%D0%B5%D1%80%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B8-Toyota-Corolla-2026-%D0%B3%D0%BE%D0%B4%D0%B0.-%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F./",
+      "title": "Руководство пользователя по техническим характеристикам Toyota Corolla ...",
+      "from_query": "тойота королла из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/toyota/corolla/5kopeek/2026-all/",
+      "title": "Тойота Королла 2026 отзывы владельцев: все минусы и недостатки",
+      "from_query": "тойота королла из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/toyota/corolla/5kopeek/2026-all/breakages/",
+      "title": "Тойота Королла 2026 отзывы владельцев - поломки и проблемы",
+      "from_query": "тойота королла из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://corolla-auto.ru/",
+      "title": "Toyota Corolla Клуб - Форум Тойота Королла",
+      "from_query": "тойота королла из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/o/ot/otzyvy-vladeltsev-tojota-korolla.html",
+      "title": "Отзывы владельцев Тойота Королла: плюсы, минусы и реальный опыт",
+      "from_query": "тойота королла из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-korolla-otzyvy.html",
+      "title": "Toyota Corolla отзывы владельцев 2026: плюсы и минусы модели",
+      "from_query": "тойота королла из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://corolla-club.ru/forum.php",
+      "title": "Форум клуба Toyota Corolla",
+      "from_query": "тойота королла из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://jplife.ru/japan/?id=oyHtX8mAbUY1lkW&lot=73006&auction=TAA%20Chubu&auction_date=2026-10-22&vendor=TOYOTA&model=COROLLA%20CROSS&year=2026&body=ZVG16",
+      "title": "Toyota Corolla Cross 2026 - Аукционный Лот Из Японии №73006",
+      "from_query": "тойота королла кросс из японии 2026"
+    },
+    {
+      "url": "https://ai-import.ru/catalog/japan/toyota/corolla_cross",
+      "title": "Toyota Corolla Cross — цена под ключ и как купить из Японии в 2026 | АИ ...",
+      "from_query": "тойота королла кросс из японии 2026"
+    },
+    {
+      "url": "https://www.drom.ru/world/japan/toyota/corolla_cross/8773203/",
+      "title": "Купить Toyota Corolla Cross 2026 года | Лот ... - Дром",
+      "from_query": "тойота королла кросс из японии 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/corolla_cross/2026/",
+      "title": "Тойота Королла Кросс 2026 технические характеристики. Toyota Corolla ...",
+      "from_query": "тойота королла кросс из японии 2026"
+    },
+    {
+      "url": "https://azway.ru/cars-160hp/toyota-corolla-cross",
+      "title": "Toyota Corolla Cross из Японии под ключ: цена и растаможка | AZWAY",
+      "from_query": "тойота королла кросс из японии 2026"
+    },
+    {
+      "url": "https://asiaexpressauto.ru/japan/toyota/corolla-cross/toyota_corolla_cross-5/",
+      "title": "Заказать Toyota Corolla Cross 2026 Года За 2 791 318 ₽ Из Японии ...",
+      "from_query": "тойота королла кросс из японии 2026"
+    },
+    {
+      "url": "https://atletauto.ru/yaponiya/toyota-corolla-fielder.html",
+      "title": "Toyota Corolla Fielder из Японии: цена под ключ 2026",
+      "from_query": "тойота королла филдер из японии 2026"
+    },
+    {
+      "url": "https://mycarjp.ru/cars/japan/toyota/corolla-fielder/",
+      "title": "Toyota Corolla Fielder из Японии — купить, цена от 773 000 ₽ | MYCAR",
+      "from_query": "тойота королла филдер из японии 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/afaeBBFy5VS5dFVA",
+      "title": "Toyota Corolla Fielder в 2026 — японский ... - Дзен",
+      "from_query": "тойота королла филдер из японии 2026"
+    },
+    {
+      "url": "https://carscom.ru/blog/obzor-toyota-corolla-fielder/",
+      "title": "Тойота Королла Филдер — обзор, поколения и характеристики | Карском",
+      "from_query": "тойота королла филдер из японии 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/aOeUMrTQM2qJM6c3",
+      "title": "Toyota Corolla Fielder из Японии: актуальные цены «под ключ» — осень ...",
+      "from_query": "тойота королла филдер из японии 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=F1PJaHkyBEg",
+      "title": "2026 Toyota Corolla Axio Full Review - Features, Specs & Interior Tour",
+      "from_query": "toyota corolla axio 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=TRNCuzTrSbk",
+      "title": "2026 Toyota Corolla Axio Full Review | Interior, Exterior & Specs",
+      "from_query": "toyota corolla axio 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-korolla-aksio-kharakteristiki.html",
+      "title": "Toyota Corolla Axio: полные характеристики 2026 года",
+      "from_query": "toyota corolla axio 2026"
+    },
+    {
+      "url": "https://www.starmotors.biz/auto-from-japan/toyota/corolla-axio/ZvkSTBQSU8WjQv/",
+      "title": "Купить Toyota Corolla Axio 2026 С Аукциона Японии С Доставкой По ...",
+      "from_query": "toyota corolla axio 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/acrWJA2DMQBBCtHe",
+      "title": "Японский седан за миллион: Toyota Corolla Axio вернулась - разбираем ...",
+      "from_query": "toyota corolla axio 2026"
+    }
+  ]
+}

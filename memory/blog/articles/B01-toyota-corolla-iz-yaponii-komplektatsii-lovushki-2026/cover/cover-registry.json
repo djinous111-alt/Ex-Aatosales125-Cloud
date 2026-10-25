@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "toyota-corolla-iz-yaponii-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у правого руля Toyota Corolla с аукционным листом у порта Владивостока, плашка «до ставки»",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-25T09:44:55+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у правого руля Toyota Corolla с аукционным листом у порта Владивостока, плашка «до ставки»",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сравнения кузовов Toyota Corolla: Axio, седан, Fielder, Touring, Cross",
+      "h2_anchor": "Выберите кузов до ставки: Axio, седан, Fielder, Touring или Cross",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Чеклист моторов и гибридов Corolla: где ловушка по утильсбору",
+      "h2_anchor": "Проверьте моторы и гибриды: где ловушка по утилю",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема отсева комплектаций Corolla, которые раздувают цену лота",
+      "h2_anchor": "Отсейте комплектации, которые раздувают цену лота",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

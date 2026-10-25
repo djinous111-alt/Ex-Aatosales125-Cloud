@@ -8,6 +8,7 @@ import io
 import json
 import os
 import sys
+import urllib.parse
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -467,33 +468,140 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+def _is_gateway_timeout(exc: BaseException) -> bool:
+    text = str(exc).lower()
+    if "504" in text or "gateway time" in text:
+        return True
+    code = getattr(exc, "code", None)
+    return code == 504
+
+
+def _looks_like_gateway_html(body: str) -> bool:
+    low = body.lower()
+    return (
+        "504 gateway" in low
+        or "gateway time-out" in low
+        or "gateway timeout" in low
+        or ("<html" in low and "ok post=" not in low and "permalink=" not in low)
+    )
+
+
+def probe_live_post_by_slug(public_base: str, slug: str) -> dict[str, Any] | None:
+    """REST probe after nginx 504: return post dict if published live."""
+    api = (
+        public_base.rstrip("/")
+        + "/wp-json/wp/v2/posts?slug="
+        + urllib.parse.quote(slug)
+        + "&_fields=id,slug,link,status"
+    )
+    try:
+        with urllib.request.urlopen(
+            urllib.request.Request(api, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
+            timeout=30,
+        ) as response:
+            payload = json.loads(response.read().decode("utf-8", errors="replace"))
+    except Exception as exc:  # noqa: BLE001
+        print(f"WARN REST slug probe failed: {type(exc).__name__}: {exc}", file=sys.stderr)
+        return None
+    if not isinstance(payload, list) or not payload:
+        return None
+    post = payload[0]
+    if not isinstance(post, dict):
+        return None
+    if str(post.get("status") or "") not in {"publish", "future", ""}:
+        if not post.get("link"):
+            return None
+    return post
+
+
+def reconstruct_publish_output(post: dict[str, Any], slug: str) -> str:
+    post_id = post.get("id") or ""
+    permalink = str(post.get("link") or "").strip()
+    lines = [
+        f"OK post={post_id} slug={slug}",
+        f"permalink={permalink}",
+        "# reconstructed_after_nginx_504 via REST (no republish)",
+    ]
+    return "\n".join(lines) + "\n"
+
+
+def trigger_bootstrap_http(
+    url: str,
+    root: Path,
+    *,
+    slug: str = "",
+    public_base: str = "",
+) -> str:
     try:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=300,
         ) as response:
             return response.read().decode("utf-8", errors="replace")
     except Exception as e:
+        # Print FALLBACK immediately so Cloud agent can WebFetch/curl without waiting.
         print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
+        print(
+            "ACTION: open FALLBACK_TRIGGER_URL via WebFetch/curl NOW and write the body to "
+            "memory/webfetch-response.txt (do not wait for another local HTTP attempt). "
+            "Use `set -o pipefail` if piping to tee. Never write nginx 504 HTML as success. "
+            "Never start a second overlapping publish trigger after timeout when slug may already be LIVE."
+        )
+
+        if _is_gateway_timeout(e) and slug and public_base:
+            print("nginx/gateway 504 detected — probing WP REST by slug before FAIL...")
+            live = probe_live_post_by_slug(public_base, slug)
+            if live and live.get("link"):
+                print(
+                    f"REST reconstruct: live post id={live.get('id')} slug={live.get('slug')} — "
+                    "treating publish as OK without republish"
+                )
+                return reconstruct_publish_output(live, slug)
+
         print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
         import time
 
-        for _ in range(120):
+        for _ in range(300):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
+                if _looks_like_gateway_html(out):
+                    print(
+                        "WARN webfetch-response looks like nginx/gateway HTML — "
+                        "ignoring and probing REST (no second publish trigger)",
+                        file=sys.stderr,
+                    )
+                    if slug and public_base:
+                        live = probe_live_post_by_slug(public_base, slug)
+                        if live and live.get("link"):
+                            return reconstruct_publish_output(live, slug)
+                    # keep waiting for a real OK body / REST success
+                    continue
                 print("Cloud response detected successfully!")
                 return out
+            # Re-probe REST every ~30s while waiting — PHP may have finished after nginx 504.
+            if slug and public_base and _ % 30 == 29:
+                live = probe_live_post_by_slug(public_base, slug)
+                if live and live.get("link"):
+                    print(
+                        f"REST reconstruct during WebFetch wait: id={live.get('id')} — OK without republish"
+                    )
+                    return reconstruct_publish_output(live, slug)
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+
+        if slug and public_base:
+            live = probe_live_post_by_slug(public_base, slug)
+            if live and live.get("link"):
+                print("REST reconstruct after WebFetch timeout — OK without republish")
+                return reconstruct_publish_output(live, slug)
+        raise RuntimeError("Cloud WebFetch Fallback timed out after 300 seconds. Please trigger manually.")
 
 
-def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
+def publish_via_ssh(env: dict[str, str], php: str, public_base: str, slug: str = "") -> str:
     remote = "excalibur-blog-publish-once.php"
     data = php.encode("utf-8")
     url = public_base.rstrip("/") + "/" + remote
@@ -502,7 +610,7 @@ def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        out = trigger_bootstrap_http(url, root, slug=slug, public_base=public_base)
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)
@@ -588,7 +696,7 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ssh(env, php, public)
+    out = publish_via_ssh(env, php, public, slug=str(payload.get("slug") or ""))
     print(out)
 
     result_path = article_dir / "wp-publish-result.json"

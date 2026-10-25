@@ -37,6 +37,14 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## CTA href + Cloud secret-scan
+
+- Пиши живые CTA из env / conversion-map: `CATALOG_URL`, `TELEGRAM_URL` (публичные маркетинговые URL).
+- Эти URL часто совпадают с Cloud Secrets → pre-commit secret-scan блокирует commit `article.html`.
+- На **каждой** HTML-строке с catalog/Telegram CTA href добавь `<!-- pragma: allowlist secret -->`.
+- Перед commit: `bash scripts/excalibur_git.sh commit …` (или `eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"` затем `git commit`).
+- Не копируй литерал `[REDACTED]` в `href` — HTML-linter падает; hydrate делает publish.
+
 ## Blockers
 
 - нет research-notes.md

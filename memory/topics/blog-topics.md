@@ -184,3 +184,26 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Toyota Corolla из Японии
+
+- **priority:** P0
+- **slug:** toyota-corolla-iz-yaponii-komplektatsii-lovushki-2026
+- **h1:** Как выбрать Toyota Corolla из Японии: комплектации и ловушки до ставки
+- **primary_query:** тойота королла из японии
+- **secondary_queries:** королла из японии, тойота королла кросс из японии, тойота королла филдер из японии, toyota corolla axio
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Зачем решать кузов до ставки: седан, Axio, Fielder, Touring или Cross
+  2. Моторы и гибриды: что реально везут из Японии и где ловушка по утилю
+  3. Комплектации и поколения: какие опции важны новичку, а какие раздувают цену лота
+  4. Аукционный лист Corolla: оценки, кузов, пробег, типовые красные флаги
+  5. Чек-лист из 10 пунктов перед ставкой на Toyota Corolla
+- **faq_hints:** чем Corolla Cross отличается от обычной Corolla при заказе из Японии; Fielder или седан что ликвиднее после пригона; можно ли брать гибрид Corolla напрямую без третьей страны
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у правого руля свежей Toyota Corolla (седан или Axio), японский аукционный лист и смартфон со ставкой, порт Владивостока на фоне, плашка «до ставки», угол avto-sales125.ru
+- **demand_signal:** Autostat янв–авг 2026 – Corolla #4 импорта б/у из Японии (~9893 шт.); Wordstat parent «авто из японии» 108323; узкий «королла из японии» 2061 / «тойота королла из японии» 1800; LIVE slug модели отсутствует

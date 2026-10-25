@@ -2,6 +2,8 @@
 
 Директор **не** Task. Все роли ниже — `Task(<name>)`.
 
+Если Cloud не принимает typed `excalibur-blog-*` — **штатный** fallback: отдельный `Task(generalPurpose)` на каждую роль с `.cursor/agents/<role>.md` + `.cursor/skills/<skill>/SKILL.md`. Это не blocker и не повод для incident на каждый run.
+
 ## Схема
 
 ```text

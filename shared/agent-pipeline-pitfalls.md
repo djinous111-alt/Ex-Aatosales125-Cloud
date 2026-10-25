@@ -2,9 +2,10 @@
 
 ## Cloud / Task
 
-- Cloud не принимает `excalibur-blog-*` как Task types → fallback `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path.
+- Cloud не принимает `excalibur-blog-*` как Task types → **штатный** fallback `Task(generalPurpose)` + `.cursor/agents/<role>.md` + skill path. Это **не** incident на каждый run (пока generalPurpose работает).
 - Parent-agent сам пишет статью вместо `excalibur-blog-writer` → **блокер**, перезапуск writer Task.
 - Объединение cover+schema в один Task → запрещено; только параллельные отдельные Task.
+- Перед `git commit` в Cloud: `source scripts/excalibur_blog_sanitize_secret_names.sh` — иначе pre-commit может упасть на литерале `[REDACTED]` в `CLOUD_AGENT_*_SECRET_NAMES` (`${!SECRET_NAME}` → invalid variable name). Фильтруй до `^[A-Za-z_][A-Za-z0-9_]*$`, сохраняй comma-list.
 
 ## Handoff / fragments
 
@@ -15,13 +16,16 @@
 
 - Перед пайплайном: `python3 scripts/excalibur_blog_today.py` и `python3 scripts/excalibur_blog_research_start.py --topic-id …`.
 - Если `EXCALIBUR_RUN_DATE` нет в выводе today.py — старая ветка/код, **блокер**.
+- `research_notes_gate`: ≥5 `accessed_at:`; pain_solution_map rows с pain/solution/result; `technical_topic` смотрит только h1/slug/intent (не body notes с github/mcp/api).
 
 ## Publish
 
 - `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` только в Cloud Secrets, не в git.
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
-- Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
+- Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`. `--env-check` обязан иметь `paramiko_available: true` (install: `requirements.txt` / cloud-agent-install.sh).
 - SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
+- HTTP trigger timeout/504 HTML ≠ fail если пост уже в WP: скрипт поллит REST по slug и reconstruct; **не republish** (orphan media).
+- `schema.jsonld` с site/CTA URL: same-line `"x-excalibur-pragma": "pragma: allowlist secret"`.
 
 ## Writer / Fact Check Box
 
@@ -46,3 +50,8 @@
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms generator CLI: `--blog-dir` + `--out-dir` (флага `--blog-path` нет).
+
+## Writer / utility markers
+
+- `memory/brief/editorial-policy.json` должен держать `_markers_pinned: true` и non-empty `pain_markers_ru` / `outcome_markers_ru`. Utility gate при пустых списках использует built-in defaults + warning.

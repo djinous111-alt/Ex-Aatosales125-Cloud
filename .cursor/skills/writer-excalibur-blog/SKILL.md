@@ -37,6 +37,12 @@ memory/blog/articles/<topic_id>-<slug>/article.html
 memory/blog/articles/<topic_id>-<slug>/article.meta.json
 ```
 
+## Utility markers
+
+Перед сдачей убедись, что `memory/brief/editorial-policy.json` содержит `_markers_pinned: true` и non-empty `pain_markers_ru` / `outcome_markers_ru` (синхронно с human_voice_gate). Пустые списки дают false BLOCK в utility gate; скрипт теперь fallback на defaults + warning, но pinned lists — канон.
+
+Перед `git commit` в Cloud: `source scripts/excalibur_blog_sanitize_secret_names.sh` (см. pitfalls).
+
 ## Blockers
 
 - нет research-notes.md

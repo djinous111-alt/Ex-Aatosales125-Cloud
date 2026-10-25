@@ -348,6 +348,8 @@ Excalibur BLOG следует этому контракту для каждой 
 
 Все поля должны быть валидными по валидаторам Schema.org / Google Rich Results. Валидный JSON-LD, без разрывов строк внутри строк, экранирование кавычек.
 
+**Secret-scan:** если в `schema.jsonld` есть site/CTA URL из Cloud Secrets, на той же строке нужен JSON-safe `"x-excalibur-pragma": "pragma: allowlist secret"` (HTML-комментарий в JSON-LD нельзя). См. `skills/schema-excalibur-blog/SKILL.md`.
+
 ## Чеклист перед сдачей
 
 1. Первый абзац 350–500 символов, ответ по сути (GEO)

@@ -6,6 +6,36 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261026-2119-geo-qa-typed-task-fallback
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-geo-qa
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-noah-iz-yaponii-komplektatsii-lovushki-2026
+severity: low
+category: other
+
+### What went wrong
+- Typed Task `excalibur-blog-geo-qa` недоступен в Cloud; директор запустил роль через `Task(generalPurpose)` fallback.
+
+### How the agent recovered this run
+- GEO QA выполнен как generalPurpose с контрактами `.cursor/agents/excalibur-blog-geo-qa.md` + `.cursor/skills/excalibur-geo-qa/SKILL.md`; все gates PASS.
+
+### Durable fix needed before next run
+- Зарегистрировать typed Task types `excalibur-blog-*` в Cloud Task API / automation config, либо явно задокументировать generalPurpose-fallback как штатный путь без incident на каждый run.
+
+### Suggested files to inspect/change
+- `CLOUD-AUTOMATION.md`
+- `shared/pipeline-task-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+- Cursor Cloud Task type registry (platform)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261026-2110-precommit-redacted-secret-name
 status: open
 run_date: 2026-10-26

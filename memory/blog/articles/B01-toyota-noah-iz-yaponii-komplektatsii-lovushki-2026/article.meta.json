@@ -28,12 +28,15 @@
     "description_aeo": "Toyota Noah из Японии выбирают по сценарию семьи, коду кузова R80/R90 и аукционному листу до ставки. Пошлины считают у импортёра."
   },
   "geo_qa": {
-    "score": null,
-    "verdict": "pending",
+    "score": 89,
+    "verdict": "PASS",
     "date": "2026-10-26",
-    "html_linter": "pending",
-    "slop_score": "pending",
-    "cannibalization": "pending"
+    "html_linter": "PASS",
+    "slop_score": "WARNING (0 cliches, 6 over-long)",
+    "cannibalization": "PASS",
+    "human_voice": "PASS",
+    "utility": "PASS",
+    "core_eeat": "19/20"
   },
   "cover_family": "brand_collage"
 }

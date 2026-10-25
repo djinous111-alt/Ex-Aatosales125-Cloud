@@ -57,7 +57,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 warnings=0
 - `python3 scripts/excalibur_blog_llms_generator.py --help` (no --blog-path)
-commit: pending-parent-commit
+commit: 4f62bad0
 
 
 ## INC-20261025-1326-writer-editorial-pain-outcome-markers
@@ -110,7 +110,7 @@ checks_run:
 - doctor editorial-policy checks OK
 - utility gate on B01 Palisade → PASS (pain=10 outcome=13)
 - JSON parse editorial-policy.json
-commit: pending-parent-commit
+commit: 4f62bad0
 
 
 
@@ -160,7 +160,7 @@ files_changed:
 checks_run:
 - research_notes_gate B01 Palisade → PASS; pain_rows=6; technical_topic=False
 - unit asserts: 3 keyword-free rows counted; notes with api → non-tech; topic with api → tech
-commit: pending-parent-commit
+commit: 4f62bad0
 
 
 ## INC-20261025-1310-scout-precommit-invalid-secret-name
@@ -209,7 +209,7 @@ files_changed:
 checks_run:
 - filter dry-run drops `[REDACTED]`/URL; keeps valid identifiers; strips PUBLIC_SITE_URL by default
 - doctor OK for git filter scripts present
-commit: pending-parent-commit
+commit: 4f62bad0
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch

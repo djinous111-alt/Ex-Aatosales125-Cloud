@@ -1,7 +1,7 @@
 # Promotion checklist — B01 hyundai-palisade-iz-korei-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-25 (pending WP publish)  
-Live URL: /blog/hyundai-palisade-iz-korei-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-25  
+Live URL: /2026/10/25/hyundai-palisade-iz-korei-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -47,4 +47,4 @@ Calligraphy блестит — вывоз стоп
 
 - Indexer: interlinker `--apply --article-dir …/B01-hyundai-palisade-iz-korei-komplektatsii-lovushki-2026` — applied 0 links.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (CLI: `--blog-dir` + `--out-dir`, без `--blog-path`).
-- Publish: не выполнен (indexer only).
+- Publish: PASS — WP post **4537**; featured **4538**; inline **4539/4540/4541**; schema_meta ok; skip_theme_faq=1; method SSH (`SSH_ROOT=.`) + HTTP OK.

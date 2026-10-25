@@ -6,6 +6,39 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261025-1731-cover-hero-host-upload-fallback
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-tank-300-iz-kitaya-chek-list-do-depozita-2026
+severity: low
+category: api
+
+### What went wrong
+- `excalibur_blog_hero_reference_url.py --force` failed: catbox HTTP 412, 0x0 HTTP 503.
+- Temporary litterbox HTTPS URL worked, but `excalibur_blog_cover_quad_prompt.py` rejects non-`avtosales125.ru` hosts (COVER HERO BLOCKER).
+
+### How the agent recovered this run
+- Kept existing `reference_url_hosted` WordPress media URL; HEAD/GET confirmed same Content-Length as local `blog-hero-reference.png` (1443352 bytes).
+- Cover generated via preferred Kie API flow (`excalibur_blog_kie_gpt_image2_api.py`), not sync MCP.
+
+### Durable fix needed before next run
+- Document WP media as primary host when catbox/0x0 fail; keep size/hash check that local PNG matches hosted bytes.
+- Optionally allow temporary HTTPS mirrors only as MCP fallback when WP is http-blocked, without breaking the avtosales125.ru gate for batch writing.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_hero_reference_url.py`
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261025-1722-schema-precommit-hook-invalid-var
 status: open
 run_date: 2026-10-25

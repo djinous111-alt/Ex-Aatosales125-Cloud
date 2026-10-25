@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B01-tank-300-iz-kitaya-chek-list-do-depozita-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2560,
+      1440
+    ],
+    "panel_size_px": [
+      1281,
+      719
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 719,
+        "end": 757
+      },
+      "v_gutter_px": {
+        "start": 1281,
+        "end": 1314
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1281,
+          "bottom": 719
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1281,
+          "bottom": 719
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Герой Авто-Сейлс у рамного Tank 300 в порту Владивостока, плашка до депозита, угол avto-sales125.ru",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1314,
+          "top": 9,
+          "right": 2560,
+          "bottom": 710
+        },
+        "raw_box_px": {
+          "left": 1314,
+          "top": 0,
+          "right": 2560,
+          "bottom": 719
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица: рамный Tank 300 против кроссовера — клиренс, брод, багажник",
+        "h2_anchor": "Выберите задачу авто: рамный Tank 300 или кроссовер"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 33,
+          "top": 757,
+          "right": 1247,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 757,
+          "right": 1281,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: дилер РФ против заказа из Китая — что сравнить до депозита",
+        "h2_anchor": "Сравните официальный дилер и заказ из Китая до денег"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1330,
+          "top": 757,
+          "right": 2544,
+          "bottom": 1440
+        },
+        "raw_box_px": {
+          "left": 1314,
+          "top": 757,
+          "right": 2560,
+          "bottom": 1440
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Карточка лота: VIN, мощность, топливо, дата регистрации в КНР",
+        "h2_anchor": "Проверьте лот: VIN, мощность, дизель/бензин и история"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Выберите задачу авто: рамный Tank 300 или кроссовер",
+    "injected inline_2 after H2 — Сравните официальный дилер и заказ из Китая до денег",
+    "injected inline_3 after H2 — Проверьте лот: VIN, мощность, дизель/бензин и история"
+  ]
+}

@@ -1,0 +1,661 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-26",
+    "today_ru": "26.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-28",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-26 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "toyota-noah-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Toyota Noah из Японии: комплектации и ловушки до ставки 2026",
+    "primary_query": "тойота ноах из японии",
+    "secondary_queries": [
+      "тойота ноах владивосток",
+      "тойота ноах гибрид",
+      "ноах или вокси"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "тойота ноах из японии 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Noah из Японии 2026: кузова, болячки и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-noah-iz-yaponii-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Тойота Ноах 2026 технические характеристики. Toyota Noah 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/noah/2026/",
+          "snippet": "Toyota Noah из Японии: все поколения от Town Ace Noah до 90 кузова, бензин 2.0 или гибрид, болячки по пробегу, расход, санкции. Пять лотов от 1,97 млн ₽."
+        },
+        {
+          "title": "Купить Тойота Ноах 2026 года с аукциона Японии - Токай Авто",
+          "url": "https://tokai-auto.ru/toyota/noah/?year_from=2026&year_to=2026",
+          "snippet": "Подробно расписан модельный ряд Toyota Noah 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Ноах 2026 между собой."
+        },
+        {
+          "title": "Продажа Toyota Noah 2026 года с аукционов Японии: цена и фото",
+          "url": "https://sferacar.ru/statistika/toyota/noah/?year_from=2026&year_to=2026",
+          "snippet": "Список лотов Тойота Ноах 2026 года на online аукционах Японии, наши специалисты помогут с выбором и покупкой автомобиля с аукциона Японии"
+        },
+        {
+          "title": "TOYOTA NOAH на аукционе Японии - noharaauto.com",
+          "url": "https://noharaauto.com/auktsiony/toyota/noah/?year_from=2026&year_to=2026",
+          "snippet": "В данном разделе представлены автомобили Toyota Noah 2026 года с аукционов Японии. Цены указаны в рублях уже с учётом всех расходов: затрат в Японии, доставки в Россию, брокерских услуг, пошлины и СВХ."
+        },
+        {
+          "title": "Toyota Noah 2026 Года На Аукционах Японии | Регион Авто",
+          "url": "https://regionauto.org/auktsiony/toyota/noah/?year_from=2026&year_to=2026",
+          "snippet": "Онлайн торги автомобилей TOYOTA NOAH в Японии: фото, аукционные листы и цены."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "тойота ноах из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Noah из Японии 2026: кузова, болячки и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-noah-iz-yaponii-2026",
+          "snippet": ""
+        },
+        {
+          "title": "TOYOTA NOAH на аукционе Японии - noharaauto.com",
+          "url": "https://noharaauto.com/auktsiony/toyota/noah/?year_from=2026&year_to=2026",
+          "snippet": "Toyota Noah из Японии: все поколения от Town Ace Noah до 90 кузова, бензин 2.0 или гибрид, болячки по пробегу, расход, санкции. Пять лотов от 1,97 млн ₽."
+        },
+        {
+          "title": "Купить Тойота Ноах 2026 года с аукциона Японии - Токай Авто",
+          "url": "https://tokai-auto.ru/toyota/noah/?year_from=2026&year_to=2026",
+          "snippet": "Онлайн торги автомобилей TOYOTA NOAH в Японии: фото, аукционные листы и цены."
+        },
+        {
+          "title": "Продажа Toyota Noah 2026 года с аукционов Японии: цена и фото",
+          "url": "https://sferacar.ru/statistika/toyota/noah/?year_from=2026&year_to=2026",
+          "snippet": "Список лотов Тойота Ноах 2026 года на online аукционах Японии, наши специалисты помогут с выбором и покупкой автомобиля с аукциона Японии"
+        },
+        {
+          "title": "Toyota Noah 2026 Года На Аукционах Японии | Регион Авто",
+          "url": "https://regionauto.org/auktsiony/toyota/noah/?year_from=2026&year_to=2026",
+          "snippet": "В данном разделе представлены автомобили Toyota Noah 2026 года с аукционов Японии. Цены указаны в рублях уже с учётом всех расходов: затрат в Японии, доставки в Россию, брокерских услуг, пошлины и СВХ."
+        },
+        {
+          "title": "Toyota Noah 2026 Года На Онлайн Аукционах Японии",
+          "url": "https://vladdiler.ru/auktsiony/toyota/noah/?year_from=2026&year_to=2026",
+          "snippet": "Используя свежие лоты TOYOTA NOAH с аукционов Японии, вы сможете заранее выбрать подходящие варианты, сравнить предложения и спланировать бюджет до начала торгов."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "тойота ноах из японии новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Noah из Японии 2026: кузова, болячки и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-noah-iz-yaponii-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Noah и Voxy обновились в 2026 году: аэродинамика теперь у всех ...",
+          "url": "https://cenyavto.com/toyota-noah-i-voxy-obnovilis-v-2026-godu/",
+          "snippet": "Toyota Noah из Японии: все поколения от Town Ace Noah до 90 кузова, бензин 2.0 или гибрид, болячки по пробегу, расход, санкции. Пять лотов от 1,97 млн ₽."
+        },
+        {
+          "title": "Минивэны Toyota Noah и Voxy готовятся к скорому рестайлингу",
+          "url": "https://abit.ee/ru/avto/toyota-noah-voxy-facelift-minivan-hybrid-update-ru",
+          "snippet": "В апреле 2026 года японский производитель Toyota объявил об обновлении двух своих популярных минивэнов Noah и Voxy. Изменения затронули не только внешний."
+        },
+        {
+          "title": "Тойота Ноах 2026 технические характеристики. Toyota Noah 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/noah/2026/",
+          "snippet": "Японские СМИ сообщают, что Toyota готовит рестайлинг популярных минивэнов Noah и Voxy. Обновленные модели будут представлены в мае 2026 года. Ожидается, что изменения будут умеренными, но затронут важные аспекты."
+        },
+        {
+          "title": "Toyota Noah и Voxy готовятся к весеннему обновлению: отказ от бензина и ...",
+          "url": "https://abit.ee/ru/avto/toyota-noah-toyota-voxy-facelift-hybrid-minivan-japan-update-2026-ru",
+          "snippet": "Подробно расписан модельный ряд Toyota Noah 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона. Есть возможность сравнивать комплектации Тойота Ноах 2026 между собой."
+        },
+        {
+          "title": "Toyota Noah и Voxy окончательно отказались от бензина в пользу HEV",
+          "url": "https://cenyavto.com/toyota-noah-i-voxy-okonchatelno-otkazalis-ot-benzina/",
+          "snippet": "Теперь их ждёт обновление — дебют ожидается весной 2026 года. Японские дилеры уже прекратили приём заказов на текущие версии. Что изменится? Пожалуй, главная новость — полный отказ от бензиновых версий. Обновлённые Noah и Voxy будут предлагаться исключительно в гибридном исполнении."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "github_evidence",
+      "query": "site:github.com тойота ноах из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "croptails/icon.svg at main · EdmondWang/croptails · GitHub",
+          "url": "https://github.com/EdmondWang/croptails/blob/main/icon.svg",
+          "snippet": ""
+        },
+        {
+          "title": "Bow/icon.svg at main · mhgolkar/Bow · GitHub",
+          "url": "https://github.com/mhgolkar/Bow/blob/main/icon.svg",
+          "snippet": "Contribute to EdmondWang/croptails development by creating an account on GitHub."
+        },
+        {
+          "title": "Steam из России в 2026: низкий пинг, обход замедления, голосовой чат ...",
+          "url": "https://gist.github.com/evilork/a40aa5841ba2f9236aa72c7b35551823",
+          "snippet": "Contribute to mhgolkar/Bow development by creating an account on GitHub."
+        },
+        {
+          "title": "godot_custom-3dx-/icon.svg at master · Sreejith-nair511/godot ... - GitHub",
+          "url": "https://github.com/Sreejith-nair511/godot_custom-3dx-/blob/master/icon.svg",
+          "snippet": "Полный разбор: почему Steam стал медленнее, как падает пинг в CS2, Dota 2, PUBG, и что делать чтобы пятничный вечер не превращался в борьбу с лагами. Если хочется коротко: Дальше — детальный разбор почему так, как проверить лично, и как настроить решение за 5 минут. 2022-2024: Steam работал нормально."
+        },
+        {
+          "title": "godot-reactive-ui/icon.svg at main · NoBS-Code/godot-reactive-ui",
+          "url": "https://github.com/NoBS-Code/godot-reactive-ui/blob/main/icon.svg",
+          "snippet": "Godot Engine - Multi-platform 2D and 3D game engine - Sreejith-nair511/godot_custom-3dx-"
+        },
+        {
+          "title": "login/logo.svg at main · emonemon1312/login · GitHub",
+          "url": "https://github.com/emonemon1312/login/blob/main/logo.svg",
+          "snippet": "Repo for a YouTube video about creating flexible User Interfaces in Godot by separating State and Controls. - NoBS-Code/godot-reactive-ui"
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "official_docs",
+      "query": "тойота ноах из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Ноах 2026 технические характеристики. Toyota Noah 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/noah/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Noah из Японии 2026: кузова, болячки и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-noah-iz-yaponii-2026",
+          "snippet": "Подробно расписан модельный ряд Toyota Noah 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Toyota Motor Corporation Official Global Website",
+          "url": "https://global.toyota/en/",
+          "snippet": "Toyota Noah из Японии: все поколения от Town Ace Noah до 90 кузова, бензин 2.0 или гибрид, болячки по пробегу, расход, санкции. Пять лотов от 1,97 млн ₽."
+        },
+        {
+          "title": "Toyota Noah 2026: технические характеристики, комплектации и цены",
+          "url": "https://toyotabase.vercel.app/articles/n/no/noah-toyota-kharakteristiki.html",
+          "snippet": "Let's Get Fired Up! Toyota Group Joint Athlete Press Conference Ahead of Aichi-Nagoya 2026. Toyota Motor Corporation Official Global Website―company, ir, newsroom, mobility, sustainability."
+        },
+        {
+          "title": "PDF 2026年9月 View Cars - トヨタ自動車WEBサイト",
+          "url": "https://toyota.jp/pages/contents/request/webcatalog/noah/noah_main.pdf",
+          "snippet": "В этой статье мы детально разберем технические характеристики всех поколений Toyota Noah, включая данные по двигателям, трансмиссии, расходу топлива и габаритам."
+        },
+        {
+          "title": "Официальный сайт ООО \"Тойота Мотор\" | Toyota",
+          "url": "https://www.toyota.ru/",
+          "snippet": "Make more Stories Photo:S-Z(2WD・7人乗り)。ボディカラーのプラチナホワイトパールマイカ〈089〉はメーカーオプション。デジタルインナーミラー、ユニバーサルステップ、デジタルキー、ITS Connectはメーカーオプション。プロジェクター式LEDヘッドランプ+LEDターンランプ+LEDクリアランスランプと ..."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "community_experience",
+      "query": "тойота ноах из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Бортжурнал Toyota Noah - клуб, форум о Тойота Ноа на Авто.ру",
+          "url": "https://auto.ru/logbook/cars/toyota/noah/",
+          "snippet": ""
+        },
+        {
+          "title": "Форум Тойота Ноах: советы владельцев, ремонт и отзывы",
+          "url": "https://toyotabase.vercel.app/articles/f/fo/forum-tojota-noakh.html",
+          "snippet": "Бортжурнал Toyota Noah: реальные истории, опыт эксплуатации и обслуживания. Читайте в Бортжурнале Авто.ру"
+        },
+        {
+          "title": "Тойота Ноах форум: реальные отзывы, поломки и тюнинг",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-noakh-forum.html",
+          "snippet": "В этой статье мы подробно разберем, как эффективно использовать ресурсы сообщества для обслуживания вашего Toyota Noah, какие темы стоит изучить в первую очередь и где искать редкие запчасти."
+        },
+        {
+          "title": "Обо всём Toyota Noah — отзывы и Бортжурналы на DRIVE2",
+          "url": "https://www.drive2.ru/experience/toyota/m1418",
+          "snippet": "Ищете Тойота Ноах форум? Узнайте о реальных расходах, типичных неисправностях, выборе двигателя и тюнинге из первых уст владельцев."
+        },
+        {
+          "title": "Тойота Ноах отзывы владельцев - поломки и проблемы",
+          "url": "https://www.drom.ru/reviews/toyota/noah/5kopeek/breakages/?keywords=%F0%E5%E4%F3%EA%F2%EE%F0",
+          "snippet": "Человек как раз пишет, что клиренс из-за выступающих агрегатов из под днища на его машине меньше относительно порогов, если ставить защиту, то уменьшится клиренс по днищу, будите задевать еще больше чем до этого. 😊"
+        },
+        {
+          "title": "Toyota Noah вопросы, ответы и жалобы владельцев",
+          "url": "https://www.drom.ru/faq/toyota/noah/",
+          "snippet": "Опыт эксплуатации реальных владельцев автомобилей Тойота Ноах: поломки, минусы, недостатки и проблемы."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "тойота ноах владивосток 2026",
+      "purpose": "вторичный запрос: тойота ноах владивосток",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Продажа Toyota Noah, 2026 год во Владивостоке",
+          "url": "https://auto.drom.ru/vladivostok/toyota/noah/917498782.html",
+          "snippet": ""
+        },
+        {
+          "title": "Продам автомобиль Тойота Ноах 21 года во Владивостоке, Дата прибытия во ...",
+          "url": "https://auto.drom.ru/vladivostok/toyota/noah/650172077.html",
+          "snippet": "Характеристики Продавец поможет подобрать и доставить Toyota Noah с похожими параметрами"
+        },
+        {
+          "title": "Купить, заказать TOYOTA NOAH ZWR90W Hybrid X 2026 за 1 780 249 ₽ в ...",
+          "url": "https://search-cars.ru/japan/toyota_noah_zwr90w_hybrid_x_1800_iat_2026_ubdm4kkinlh1ls.html",
+          "snippet": "Тойота Ноах 21 года во Владивостоке, гибрид, Дата прибытия во Владивосток - 10 СЕНТЯБРЯ 2026 года, 1.8 литра, белый, 1.8 Hybrid Si WxB III (7 Seater), АКПП, бензин, правый руль, цена 2.6 млн.р."
+        },
+        {
+          "title": "Сколько стоит Тойота Ной 2026 года, цена в Владивостоке",
+          "url": "https://cenamashin.ru/cena/toyota/noah/2026/vladivostok",
+          "snippet": "Если вы хотите купить, заказать автомобиль TOYOTA NOAH Hybrid X 2026 года выпуска лот 36003, то обращайтесь к нам. Мы поможем вам сделать правильный выбор и приобрести автомобиль вашей мечты."
+        },
+        {
+          "title": "Купить Тойота Ноах б/у от 750 000 рублей - 126 объявлений во ...",
+          "url": "https://vladivostok.drom.ru/toyota/noah/used/",
+          "snippet": "Средняя цена (стоимость) Тойота Ной 2026 года в Владивостоке, статистика цены и продаж, ликвидность в городе, сколько стоил новый в 2026 году и еще много полезной информации."
+        },
+        {
+          "title": "Купить Toyota Noah во Владивостоке",
+          "url": "https://www.avito.ru/vladivostok/avtomobili/toyota/noah-ASgBAgICAkTgtg20mSjitg3wqyg",
+          "snippet": "126 объявлений о продаже Тойота Ноах с пробегом во Владивостоке от 750 000 рублей. Цены на б/у Toyota Noah от частных продавцов и официальных дилеров. Узнать стоимость подержанных автомобилей."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "тойота ноах гибрид 2026",
+      "purpose": "вторичный запрос: тойота ноах гибрид",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Ноах 2026 технические характеристики. Toyota Noah 2026 ...",
+          "url": "https://www.drom.ru/catalog/toyota/noah/2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Noah 1.8 Hybrid S-G (7 Seater) (04.2026 - н.в ... - Дром",
+          "url": "https://www.drom.ru/catalog/toyota/noah/551943/",
+          "snippet": "Подробно расписан модельный ряд Toyota Noah 2026: технические характеристики, полная комплектация салона, цвета, в которые окрашивался автомобиль, фото внешнего вида и салона."
+        },
+        {
+          "title": "Toyota Noah Hybrid S-G (2026) — технические характеристики",
+          "url": "https://sferacar.ru/catalog-komplektatsii/toyota/noah/g_2026_3366110/",
+          "snippet": "В каталоге содержатся технические характеристики и фотографии Toyota Noah 1.8 Hybrid S-G (7 Seater) (04.2026 - н.в.)."
+        },
+        {
+          "title": "Toyota Noah 2026 — купить гибрид из Японии | JCK AUTO",
+          "url": "https://jckauto.ru/catalog/cars/toyota-noah-2026-gibrid-iz-yaponii-02075666",
+          "snippet": "Подробные характеристики комплектации Toyota Noah Hybrid S-G (2026): тип двигателя, расход топлива, трансмиссия, привод, оснащение и актуальные цены."
+        },
+        {
+          "title": "Toyota Noah из Японии 2026: кузова, болячки и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-noah-iz-yaponii-2026",
+          "snippet": "Toyota Noah 2026 года из Японии — это свежий минивэн на переднем приводе с гибридной установкой 1.8 и вариатором."
+        },
+        {
+          "title": "Toyota Noah 2026: полный обзор, цены, плюсы и минусы минивэна",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-noakh-obzor.html",
+          "snippet": "Toyota Noah из Японии: все поколения от Town Ace Noah до 90 кузова, бензин 2.0 или гибрид, болячки по пробегу, расход, санкции. Пять лотов от 1,97 млн ₽."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "ноах или вокси 2026",
+      "purpose": "вторичный запрос: ноах или вокси",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Тойота Вокси или Ноах: что лучше выбрать в 2026 году",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-voksi-ili-noakh-chto-luchshe.html",
+          "snippet": ""
+        },
+        {
+          "title": "Тойота Вокси и Ноах: в чем разница, сравнение поколений и цены",
+          "url": "https://toyotabase.vercel.app/articles/t/to/tojota-voksi-i-noakh-chem-otlichayutsya.html",
+          "snippet": "Именно эти нюансы определяют, какая из моделей станет идеальным компаньоном для вашей семьи или бизнеса."
+        },
+        {
+          "title": "Toyota Noah или Toyota Voxy - Авто.ру",
+          "url": "https://auto.ru/compare-cars/toyota-noah-vs-toyota-voxy/",
+          "snippet": "Подробное сравнение Toyota Voxy и Noah: отличия дизайна, салона и цены. Какую модель выбрать в 2026 году? Полный разбор характеристик и комплектаций."
+        },
+        {
+          "title": "Сравнение Тойота Ноах и Тойота Вокси",
+          "url": "https://www.drom.ru/compare/toyota-noah-vs-toyota-voxy.html",
+          "snippet": "Как выбрать между Тойота Ноа и Тойота Вокси по характеристикам, стоимости покупки и обслуживания."
+        },
+        {
+          "title": "Сравнение Тойота Вокси и Тойота Ноах",
+          "url": "https://www.drom.ru/compare/toyota-voxy-vs-toyota-noah.html",
+          "snippet": "Что лучше Тойота Ноах или Тойота Вокси? Сравнить Noah и Voxy."
+        },
+        {
+          "title": "Toyota Noah, Voxy или Esquire 2026: чем отличаются",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-noah-voxy-ili-esquire-2026",
+          "snippet": "Что лучше Тойота Вокси или Тойота Ноах? Сравнить Voxy и Noah."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как выбрать Toyota Noah из Японии: комплектации и ловушки до ставки 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Toyota Noah из Японии 2026: кузова, болячки и цены",
+          "url": "https://asia-pod-klyuch.ru/blog/toyota-noah-iz-yaponii-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Toyota Noah 2026: технические характеристики, комплектации и цены",
+          "url": "https://toyotabase.vercel.app/articles/n/no/noah-toyota-kharakteristiki.html",
+          "snippet": "Правило простое: выбираете внешность и комплектацию, а болячки и советы по выбору у них общие. Под именем Noah прошло пять поколений. Запросы «Тойота Таун Айс Ноах», «Лит Айс Ноах», «Ноах 70 кузов» и «Ноах 80» — это совершенно разные машины."
+        },
+        {
+          "title": "Toyota Noah и Voxy: гид покупателя для экспорта — близнецы-минивэны на ...",
+          "url": "https://www.auto-x.jp/ru/blog/toyota-noah-voxy-buyers-guide",
+          "snippet": "В этой статье мы детально разберем технические характеристики всех поколений Toyota Noah, включая данные по двигателям, трансмиссии, расходу топлива и габаритам."
+        },
+        {
+          "title": "Toyota Noah 2026: цены, комплектации и где купить в России",
+          "url": "https://toyotabase.vercel.app/articles/k/ku/kupit-mashinu-tojota-noakh.html",
+          "snippet": "Гид по Toyota Noah и Voxy для экспорта из Японии: поколения R60-R90, бензин 2.0 или гибрид 1.8, аукционный чек-лист и реальные диапазоны цен FOB от лицензированного экспортёра."
+        },
+        {
+          "title": "Toyota Noah из Японии — характеристики, комплектации и цены | Темп-А",
+          "url": "https://tempa-cars.ru/catalog/toyota/noah/",
+          "snippet": "В этом руководстве мы разберём все ключевые аспекты покупки Toyota Noah: от сравнения поколений и анализов цен до проверки юридической чистоты автомобиля и нюансов оформления."
+        },
+        {
+          "title": "Toyota Noah MZRA90 из Японии — цена под ключ · калькулятор 2026",
+          "url": "https://onlyjpcars.ru/catalog/toyota-noah-mzra90",
+          "snippet": "На этой странице представлены ориентировочные цены на Toyota Noah из Японии с учётом основных расходов на покупку, доставку, растаможку и оформление в России. Информация поможет заранее оценить бюджет, сравнить разные поколения и комплектации модели и понять примерную стоимость машины «под ключ»."
+        }
+      ],
+      "searched_at": "2026-10-26"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/toyota-noah-iz-yaponii-2026",
+      "title": "Toyota Noah из Японии 2026: кузова, болячки и цены",
+      "from_query": "тойота ноах из японии 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/noah/2026/",
+      "title": "Тойота Ноах 2026 технические характеристики. Toyota Noah 2026 ...",
+      "from_query": "тойота ноах из японии 2026"
+    },
+    {
+      "url": "https://tokai-auto.ru/toyota/noah/?year_from=2026&year_to=2026",
+      "title": "Купить Тойота Ноах 2026 года с аукциона Японии - Токай Авто",
+      "from_query": "тойота ноах из японии 2026"
+    },
+    {
+      "url": "https://sferacar.ru/statistika/toyota/noah/?year_from=2026&year_to=2026",
+      "title": "Продажа Toyota Noah 2026 года с аукционов Японии: цена и фото",
+      "from_query": "тойота ноах из японии 2026"
+    },
+    {
+      "url": "https://noharaauto.com/auktsiony/toyota/noah/?year_from=2026&year_to=2026",
+      "title": "TOYOTA NOAH на аукционе Японии - noharaauto.com",
+      "from_query": "тойота ноах из японии 2026"
+    },
+    {
+      "url": "https://regionauto.org/auktsiony/toyota/noah/?year_from=2026&year_to=2026",
+      "title": "Toyota Noah 2026 Года На Аукционах Японии | Регион Авто",
+      "from_query": "тойота ноах из японии 2026"
+    },
+    {
+      "url": "https://vladdiler.ru/auktsiony/toyota/noah/?year_from=2026&year_to=2026",
+      "title": "Toyota Noah 2026 Года На Онлайн Аукционах Японии",
+      "from_query": "тойота ноах из японии октябрь 2026"
+    },
+    {
+      "url": "https://cenyavto.com/toyota-noah-i-voxy-obnovilis-v-2026-godu/",
+      "title": "Toyota Noah и Voxy обновились в 2026 году: аэродинамика теперь у всех ...",
+      "from_query": "тойота ноах из японии новости 2026"
+    },
+    {
+      "url": "https://abit.ee/ru/avto/toyota-noah-voxy-facelift-minivan-hybrid-update-ru",
+      "title": "Минивэны Toyota Noah и Voxy готовятся к скорому рестайлингу",
+      "from_query": "тойота ноах из японии новости 2026"
+    },
+    {
+      "url": "https://abit.ee/ru/avto/toyota-noah-toyota-voxy-facelift-hybrid-minivan-japan-update-2026-ru",
+      "title": "Toyota Noah и Voxy готовятся к весеннему обновлению: отказ от бензина и ...",
+      "from_query": "тойота ноах из японии новости 2026"
+    },
+    {
+      "url": "https://cenyavto.com/toyota-noah-i-voxy-okonchatelno-otkazalis-ot-benzina/",
+      "title": "Toyota Noah и Voxy окончательно отказались от бензина в пользу HEV",
+      "from_query": "тойота ноах из японии новости 2026"
+    },
+    {
+      "url": "https://github.com/EdmondWang/croptails/blob/main/icon.svg",
+      "title": "croptails/icon.svg at main · EdmondWang/croptails · GitHub",
+      "from_query": "site:github.com тойота ноах из японии 2026"
+    },
+    {
+      "url": "https://github.com/mhgolkar/Bow/blob/main/icon.svg",
+      "title": "Bow/icon.svg at main · mhgolkar/Bow · GitHub",
+      "from_query": "site:github.com тойота ноах из японии 2026"
+    },
+    {
+      "url": "https://gist.github.com/evilork/a40aa5841ba2f9236aa72c7b35551823",
+      "title": "Steam из России в 2026: низкий пинг, обход замедления, голосовой чат ...",
+      "from_query": "site:github.com тойота ноах из японии 2026"
+    },
+    {
+      "url": "https://github.com/Sreejith-nair511/godot_custom-3dx-/blob/master/icon.svg",
+      "title": "godot_custom-3dx-/icon.svg at master · Sreejith-nair511/godot ... - GitHub",
+      "from_query": "site:github.com тойота ноах из японии 2026"
+    },
+    {
+      "url": "https://github.com/NoBS-Code/godot-reactive-ui/blob/main/icon.svg",
+      "title": "godot-reactive-ui/icon.svg at main · NoBS-Code/godot-reactive-ui",
+      "from_query": "site:github.com тойота ноах из японии 2026"
+    },
+    {
+      "url": "https://github.com/emonemon1312/login/blob/main/logo.svg",
+      "title": "login/logo.svg at main · emonemon1312/login · GitHub",
+      "from_query": "site:github.com тойота ноах из японии 2026"
+    },
+    {
+      "url": "https://global.toyota/en/",
+      "title": "Toyota Motor Corporation Official Global Website",
+      "from_query": "тойота ноах из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/n/no/noah-toyota-kharakteristiki.html",
+      "title": "Toyota Noah 2026: технические характеристики, комплектации и цены",
+      "from_query": "тойота ноах из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://toyota.jp/pages/contents/request/webcatalog/noah/noah_main.pdf",
+      "title": "PDF 2026年9月 View Cars - トヨタ自動車WEBサイト",
+      "from_query": "тойота ноах из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://www.toyota.ru/",
+      "title": "Официальный сайт ООО \"Тойота Мотор\" | Toyota",
+      "from_query": "тойота ноах из японии official docs documentation 2026"
+    },
+    {
+      "url": "https://auto.ru/logbook/cars/toyota/noah/",
+      "title": "Бортжурнал Toyota Noah - клуб, форум о Тойота Ноа на Авто.ру",
+      "from_query": "тойота ноах из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/f/fo/forum-tojota-noakh.html",
+      "title": "Форум Тойота Ноах: советы владельцев, ремонт и отзывы",
+      "from_query": "тойота ноах из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-noakh-forum.html",
+      "title": "Тойота Ноах форум: реальные отзывы, поломки и тюнинг",
+      "from_query": "тойота ноах из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drive2.ru/experience/toyota/m1418",
+      "title": "Обо всём Toyota Noah — отзывы и Бортжурналы на DRIVE2",
+      "from_query": "тойота ноах из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/reviews/toyota/noah/5kopeek/breakages/?keywords=%F0%E5%E4%F3%EA%F2%EE%F0",
+      "title": "Тойота Ноах отзывы владельцев - поломки и проблемы",
+      "from_query": "тойота ноах из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://www.drom.ru/faq/toyota/noah/",
+      "title": "Toyota Noah вопросы, ответы и жалобы владельцев",
+      "from_query": "тойота ноах из японии forum reddit discussion проблемы опыт 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/vladivostok/toyota/noah/917498782.html",
+      "title": "Продажа Toyota Noah, 2026 год во Владивостоке",
+      "from_query": "тойота ноах владивосток 2026"
+    },
+    {
+      "url": "https://auto.drom.ru/vladivostok/toyota/noah/650172077.html",
+      "title": "Продам автомобиль Тойота Ноах 21 года во Владивостоке, Дата прибытия во ...",
+      "from_query": "тойота ноах владивосток 2026"
+    },
+    {
+      "url": "https://search-cars.ru/japan/toyota_noah_zwr90w_hybrid_x_1800_iat_2026_ubdm4kkinlh1ls.html",
+      "title": "Купить, заказать TOYOTA NOAH ZWR90W Hybrid X 2026 за 1 780 249 ₽ в ...",
+      "from_query": "тойота ноах владивосток 2026"
+    },
+    {
+      "url": "https://cenamashin.ru/cena/toyota/noah/2026/vladivostok",
+      "title": "Сколько стоит Тойота Ной 2026 года, цена в Владивостоке",
+      "from_query": "тойота ноах владивосток 2026"
+    },
+    {
+      "url": "https://vladivostok.drom.ru/toyota/noah/used/",
+      "title": "Купить Тойота Ноах б/у от 750 000 рублей - 126 объявлений во ...",
+      "from_query": "тойота ноах владивосток 2026"
+    },
+    {
+      "url": "https://www.avito.ru/vladivostok/avtomobili/toyota/noah-ASgBAgICAkTgtg20mSjitg3wqyg",
+      "title": "Купить Toyota Noah во Владивостоке",
+      "from_query": "тойота ноах владивосток 2026"
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/noah/551943/",
+      "title": "Toyota Noah 1.8 Hybrid S-G (7 Seater) (04.2026 - н.в ... - Дром",
+      "from_query": "тойота ноах гибрид 2026"
+    },
+    {
+      "url": "https://sferacar.ru/catalog-komplektatsii/toyota/noah/g_2026_3366110/",
+      "title": "Toyota Noah Hybrid S-G (2026) — технические характеристики",
+      "from_query": "тойота ноах гибрид 2026"
+    },
+    {
+      "url": "https://jckauto.ru/catalog/cars/toyota-noah-2026-gibrid-iz-yaponii-02075666",
+      "title": "Toyota Noah 2026 — купить гибрид из Японии | JCK AUTO",
+      "from_query": "тойота ноах гибрид 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-noakh-obzor.html",
+      "title": "Toyota Noah 2026: полный обзор, цены, плюсы и минусы минивэна",
+      "from_query": "тойота ноах гибрид 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-voksi-ili-noakh-chto-luchshe.html",
+      "title": "Тойота Вокси или Ноах: что лучше выбрать в 2026 году",
+      "from_query": "ноах или вокси 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/t/to/tojota-voksi-i-noakh-chem-otlichayutsya.html",
+      "title": "Тойота Вокси и Ноах: в чем разница, сравнение поколений и цены",
+      "from_query": "ноах или вокси 2026"
+    },
+    {
+      "url": "https://auto.ru/compare-cars/toyota-noah-vs-toyota-voxy/",
+      "title": "Toyota Noah или Toyota Voxy - Авто.ру",
+      "from_query": "ноах или вокси 2026"
+    },
+    {
+      "url": "https://www.drom.ru/compare/toyota-noah-vs-toyota-voxy.html",
+      "title": "Сравнение Тойота Ноах и Тойота Вокси",
+      "from_query": "ноах или вокси 2026"
+    },
+    {
+      "url": "https://www.drom.ru/compare/toyota-voxy-vs-toyota-noah.html",
+      "title": "Сравнение Тойота Вокси и Тойота Ноах",
+      "from_query": "ноах или вокси 2026"
+    },
+    {
+      "url": "https://asia-pod-klyuch.ru/blog/toyota-noah-voxy-ili-esquire-2026",
+      "title": "Toyota Noah, Voxy или Esquire 2026: чем отличаются",
+      "from_query": "ноах или вокси 2026"
+    },
+    {
+      "url": "https://www.auto-x.jp/ru/blog/toyota-noah-voxy-buyers-guide",
+      "title": "Toyota Noah и Voxy: гид покупателя для экспорта — близнецы-минивэны на ...",
+      "from_query": "Как выбрать Toyota Noah из Японии: комплектации и ловушки до ставки 2026 2026"
+    },
+    {
+      "url": "https://toyotabase.vercel.app/articles/k/ku/kupit-mashinu-tojota-noakh.html",
+      "title": "Toyota Noah 2026: цены, комплектации и где купить в России",
+      "from_query": "Как выбрать Toyota Noah из Японии: комплектации и ловушки до ставки 2026 2026"
+    },
+    {
+      "url": "https://tempa-cars.ru/catalog/toyota/noah/",
+      "title": "Toyota Noah из Японии — характеристики, комплектации и цены | Темп-А",
+      "from_query": "Как выбрать Toyota Noah из Японии: комплектации и ловушки до ставки 2026 2026"
+    },
+    {
+      "url": "https://onlyjpcars.ru/catalog/toyota-noah-mzra90",
+      "title": "Toyota Noah MZRA90 из Японии — цена под ключ · калькулятор 2026",
+      "from_query": "Как выбрать Toyota Noah из Японии: комплектации и ловушки до ставки 2026 2026"
+    }
+  ]
+}

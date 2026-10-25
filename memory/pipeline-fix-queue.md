@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261025-2010-research-gate-accessed-at-pain-map
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-research
+topic_id: B01
+article_dir: memory/blog/articles/B01-tank-300-iz-kitaya-chek-list-do-depozita-2026
+severity: low
+category: script
+
+### What went wrong
+- Первый прогон `excalibur_blog_research_notes_gate.py` дал BLOCK: `accessed_at=2 < 5` и `pain_solution_map rows=2 < 3`, хотя таблица источников и map уже были заполнены.
+- Gate считает только литералы `accessed_at:` (с двоеточием), а не даты в колонке `accessed_at` markdown-таблицы.
+- Gate считает строки pain_map только если в строке есть слова pain/solution/result/боль/решение/результат; обычные русские ячейки без этих маркеров не засчитываются.
+- Тема авто/чеклист ложно помечена `technical_topic: true` из-за маркера `github` в секции `github_evidence`, из-за чего появляется WARN про official docs URL.
+
+### How the agent recovered this run
+- Переписал ячейки source_table как `accessed_at: 2026-10-25`.
+- Добавил префиксы `pain:` / `solution:` / `reader_result:` в строки pain_solution_map.
+- Повторный gate: PASS (warning technical docs остался harmless).
+
+### Durable fix needed before next run
+- В gate: считать `accessed_at` и в колонках таблиц (дата ISO рядом с URL), не только `accessed_at:`.
+- В gate: для pain_solution_map считать любые data-rows таблицы после заголовка, либо документировать обязательные маркеры в skill/template.
+- Исключить ложный `technical_topic` для ниш без TECH intent (не триггерить только по слову github в notes).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `.cursor/agents/excalibur-blog-research.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

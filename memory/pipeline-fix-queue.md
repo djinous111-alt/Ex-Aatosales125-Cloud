@@ -6,6 +6,42 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261025-1338-indexer-llms-blog-path-stale
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-indexer
+topic_id: B01
+article_dir: memory/blog/articles/B01-hyundai-palisade-iz-korei-komplektatsii-lovushki-2026
+severity: medium
+category: docs
+
+### What went wrong
+- `excalibur_blog_doctor.py` still requires `--blog-path` in llms generator help → doctor error=1.
+- Agent/skill contracts still document `--blog-path /` for `excalibur_blog_llms_generator.py`.
+- Actual CLI only accepts `--blog-dir`, `--site-base`, `--out-dir` (no `--blog-path`); following stale docs would fail the indexer step.
+
+### How the agent recovered this run
+- Ran current CLI: `python3 scripts/excalibur_blog_llms_generator.py --blog-dir memory/blog/articles --site-base ${PUBLIC_SITE_URL} --out-dir memory/blog` (no `--blog-path`).
+- Generated `memory/blog/llms.txt` and `memory/blog/llms-full.txt` successfully (3 articles indexed).
+
+### Durable fix needed before next run
+- Remove `--blog-path` check from doctor; assert `--blog-dir` / `--out-dir` instead.
+- Sync indexer agent + skill Shell blocks to the current CLI (drop `--blog-path`).
+- Document empty `--site-base` → relative `/blog/<slug>/` URLs.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_doctor.py`
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261025-1326-writer-editorial-pain-outcome-markers
 status: open
 run_date: 2026-10-25

@@ -530,3 +530,41 @@ category: docs
 ### Fixer resolution
 - pending
 
+## INC-20261025-1001-publish-http-fallback-504-reconstruct
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-corolla-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: publish
+
+### What went wrong
+- SSH bootstrap upload OK (~6.75MB PHP), but local HTTP trigger hit `RemoteDisconnected`.
+- FALLBACK curl of `excalibur-blog-publish-once.php` returned nginx **504** after ~120s (HTML body, not `OK post=`).
+- Publish script wait for `memory/webfetch-response.txt` timed out (120s) while FALLBACK curl itself already spent ~120s; `tee` without `pipefail` reported EXIT:0 despite RuntimeError.
+- First HTTP attempt and FALLBACK overlapped enough to leave orphan media (4526–4529); content uses *-1.png attachments.
+
+### How the agent recovered this run
+- Did **not** write 504 HTML into webfetch-response; did **not** start a second overlapping publish trigger after 504.
+- Verified LIVE via WP REST `posts?slug=toyota-corolla-iz-yaponii-komplektatsii-lovushki-2026` → post **4525**, featured **4531**, HEAD 200.
+- Confirmed schema/skip_theme_faq via one-shot SSH meta-check PHP (deleted after).
+- Reconstructed `wp-publish-result.json`, ledger, log; Honda Fit **4513** left untouched.
+
+### Durable fix needed before next run
+- Increase FALLBACK wait / coordinate agent curl to finish before script's 120s webfetch wait expires; or have script accept REST reconstruct helper.
+- Document/enforce: never write nginx 504 HTML as success; never second trigger after first timeout when slug already LIVE.
+- Ensure publish invocations use `set -o pipefail` when piping to `tee`.
+- Prefer longer HTTP timeout or async job status for large payloads (~6–9MB).
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`trigger_bootstrap_http` wait loop / reconstruct helper)
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending

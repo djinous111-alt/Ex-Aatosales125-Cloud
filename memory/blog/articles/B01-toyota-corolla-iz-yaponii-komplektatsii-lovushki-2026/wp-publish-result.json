@@ -1,0 +1,18 @@
+{
+  "verdict": "pass",
+  "post_id": 4525,
+  "slug": "toyota-corolla-iz-yaponii-komplektatsii-lovushki-2026",
+  "permalink": "/2026/10/25/toyota-corolla-iz-yaponii-komplektatsii-lovushki-2026/",
+  "featured_image": 4531,
+  "inline_images": [
+    4532,
+    4534,
+    4535
+  ],
+  "schema_meta": true,
+  "skip_theme_faq": true,
+  "method": "ssh_upload+http_timeout+fallback_504+rest_meta_reconstruct",
+  "raw_output": "OK post=4525 slug=toyota-corolla-iz-yaponii-komplektatsii-lovushki-2026\nOK featured_image=4531\nOK schema_meta=1\nOK inline_image_upload=4532 src=cover/inline-01.png\nOK inline_image_upload=4534 src=cover/inline-02.png\nOK inline_image_upload=4535 src=cover/inline-03.png\npermalink=/2026/10/25/toyota-corolla-iz-yaponii-komplektatsii-lovushki-2026/\n",
+  "notes": "Primary HTTP RemoteDisconnected; FALLBACK curl nginx 504; LIVE verified via REST+meta-check; no republish. Orphan media 4526-4529 from overlapping first HTTP attempt; content uses *-1.png ids 4532/4534/4535.",
+  "permalink_path": "/2026/10/25/toyota-corolla-iz-yaponii-komplektatsii-lovushki-2026/"
+}

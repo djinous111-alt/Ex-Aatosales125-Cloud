@@ -1,7 +1,7 @@
 # Promotion checklist — B01 toyota-corolla-iz-yaponii-komplektatsii-lovushki-2026
 
 Дата публикации: 2026-10-25  
-Live URL: /blog/toyota-corolla-iz-yaponii-komplektatsii-lovushki-2026/
+Live URL: /2026/10/25/toyota-corolla-iz-yaponii-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -47,4 +47,11 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 
 - Indexer: interlinker `--apply --article-dir …/B01-… --site-base ""` — 0 links applied.
 - llms.txt / llms-full.txt обновлены в `memory/blog/` (relative `/blog/<slug>/`, site-name «Авто-Сейлс»), B01 в индексе.
-- Publish: pending (после Indexer, publish=yes).
+- Publish: PASS — WP 4525; featured 4531; inline 4532/4534/4535; schema_meta ok; HEAD 200.
+
+## Publish result
+
+- post_id: 4525
+- featured_image: 4531
+- inline_images: 4532, 4534, 4535
+- schema_meta: ok

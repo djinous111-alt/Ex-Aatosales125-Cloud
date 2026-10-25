@@ -6,6 +6,37 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261025-0908-scout-precommit-invalid-secret-name
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: env
+
+### What went wrong
+- `pre-commit.cursor` crashed with `line 270: [REDACTED]: invalid variable name` because `CLOUD_AGENT_INJECTED_SECRET_NAMES` contained a non-identifier entry.
+- Commit of scout artifacts was blocked until names were filtered.
+
+### How the agent recovered this run
+- Filtered `CLOUD_AGENT_INJECTED_SECRET_NAMES` to bash-safe identifiers only, then re-ran `git commit` successfully (commit `6727fc6f`).
+
+### Durable fix needed before next run
+- Restore `scripts/excalibur_blog_filter_secret_names.sh` + `scripts/excalibur_git.sh` on main, or harden `pre-commit.cursor` to skip non-identifier secret names before `${!SECRET_NAME}`.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `scripts/excalibur_git.sh`
+- Cursor Cloud Secrets panel (names must be valid shell identifiers)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261025-0907-scout-missing-wp-slug-denylist
 status: open
 run_date: 2026-10-25

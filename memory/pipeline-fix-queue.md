@@ -6,6 +6,78 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261026-2133-publish-paramiko-missing
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-noah-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+
+### What went wrong
+- `paramiko` missing in Cloud shell (`ModuleNotFoundError`) before real SSH publish.
+- `--env-check` does not import paramiko, so preflight green-lights without the transport dependency.
+- Recurring: INC-20261020-1733 / INC-20261024-1735 / INC-20261025-1737.
+
+### How the agent recovered this run
+- `python3 -m pip install --break-system-packages paramiko` (5.1.0) then publish.
+
+### Durable fix needed before next run
+- Ensure `.cursor/cloud-agent-install.sh` / environment install installs `paramiko` from `requirements.txt`.
+- Optionally make `--env-check` fail if paramiko cannot be imported.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `scripts/excalibur_blog_wp_publish.py` (`--env-check`)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
+## INC-20261026-2134-publish-http-fallback-504-reconstruct
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-toyota-noah-iz-yaponii-komplektatsii-lovushki-2026
+severity: high
+category: publish
+
+### What went wrong
+- SSH bootstrap upload OK (~6.9MB PHP). Local HTTP trigger hit `TimeoutError` (120s).
+- FALLBACK curl `--max-time 300` returned nginx **504** HTML (not `OK post=`).
+- Publish script waited for `memory/webfetch-response.txt` then raised RuntimeError after 120s; exit fail even though WP post already existed.
+- FALLBACK partial left orphan media (cover first upload + `inline-01-2`).
+
+### How the agent recovered this run
+- Did **not** republish.
+- Verified via WP REST `posts?slug=` + HEAD 200 + SSH one-shot meta-check: post=4549, featured=4555, schema_meta=1, skip_theme_faq=1, content inlines 4551/4552/4553.
+- Reconstructed `wp-publish-result.json` (verdict pass) and ledger row with `EXCALIBUR_RUN_DATE=2026-10-26`.
+
+### Durable fix needed before next run
+- Increase client HTTP timeout and/or detect server-side completion via REST while waiting (auto-reconstruct).
+- Do not treat 504 HTML as success; document agent reconstruct path in publish skill (already in publish-patterns memory).
+- Consider longer FALLBACK wait than `range(120)` or parallel REST poll inside the script.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`trigger_bootstrap_http`, wait loop)
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261026-2121-schema-jsonld-secret-allowlist
 status: open
 run_date: 2026-10-26

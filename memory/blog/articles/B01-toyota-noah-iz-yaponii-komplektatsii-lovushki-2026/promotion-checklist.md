@@ -1,7 +1,7 @@
 # Promotion checklist — B01 toyota-noah-iz-yaponii-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-26 (planned; до publish)  
-Live URL: /blog/toyota-noah-iz-yaponii-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-26
+Live URL: https://avtosales125.ru/2026/10/26/toyota-noah-iz-yaponii-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • У R80 гибрид — только 2WD; полный гибрид ищите на R90
 • Лист: оценка → салон → схема → комментарий; XX ≠ автоматически R
 
-Читать: /blog/toyota-noah-iz-yaponii-komplektatsii-lovushki-2026/
+Читать: https://avtosales125.ru/2026/10/26/toyota-noah-iz-yaponii-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка

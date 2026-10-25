@@ -1,0 +1,50 @@
+{
+  "topic_id": "B01",
+  "slug": "toyota-noah-iz-yaponii-komplektatsii-lovushki-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Герой Авто-Сейлс у семейного минивэна Toyota Noah на фоне порта Владивостока, плашка «до ставки»",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-25T21:25:11+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Герой Авто-Сейлс у семейного минивэна Toyota Noah на фоне порта Владивостока, плашка «до ставки»",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сценария семьи: места, багаж, город или трасса, 4WD до поиска лота Noah",
+      "h2_anchor": "Зафиксируйте сценарий семьи до поиска лота",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Скрин карточки лота: сверка кода кузова R80/R90 с Chassis ID Noah",
+      "h2_anchor": "Сверьте поколение и код кузова R80/R90 с карточкой лота",
+      "visual_type": "tool_screenshot",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема выбора комплектации Noah: Hybrid, 4WD и грейды без переплаты",
+      "h2_anchor": "Разберите комплектации Si, Hybrid и 4WD без переплаты за буквы",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

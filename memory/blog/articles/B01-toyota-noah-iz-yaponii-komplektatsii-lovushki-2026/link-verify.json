@@ -14,15 +14,13 @@
       "skipped": false
     },
     {
-      "url": "[REDACTED_TELEGRAM_CTA]",
+      "url": "https://t.me/avtosales125",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "external",
-      "skipped": false,
-      "url_redacted_for_commit": true,
-      "verified_ok": true
+      "skipped": false
     }
   ]
 }

@@ -1,0 +1,59 @@
+{
+  "article": "memory/blog/articles/B01-toyota-corolla-iz-yaponii-komplektatsii-lovushki-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 7,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 6,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "одкам Автостата через Autonews за январь–сентябрь 2026 Corolla – лидер среди б/у Toyota в импорте в РФ (1",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "elder завершила производство около октября–ноября 2025: на аукционе они остаются как б/у, а свежий японс",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 минут",
+      "kind": "metric_or_duration",
+      "context": "кие лоты каждый день. Задача простая: чтобы вы за 5 минут понимали, ставить или нет, и не гадали по хрому.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "30 мин",
+      "kind": "metric_or_duration",
+      "context": "и ДВС и 30-минутной мощности электромотора; цифру 30 мин берут из документов конкретной машины (ОТТС / СБК",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 лет",
+      "kind": "metric_or_duration",
+      "context": "Возрастной коридор для физлица чаще смотрят как 3–5 лет; лоты младше или старше – только после отдельного",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "17 236",
+      "kind": "large_number",
+      "context": "Corolla – лидер среди б/у Toyota в импорте в РФ (17 236 шт.), Япония даёт около 63% импорта марки. Линейка",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1500",
+      "kind": "large_number",
+      "context": "ашины (ОТТС / СБКТС / ЭПТС). Ступень объёма после 1500 см³ меняет единую ставку: 1.5 и 1.8 – разные истор",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -36,13 +36,30 @@ Append new Topic Card to blog-topics.md
 
 
 ### Шаг 1b — WP slug denylist (обязательно)
-* Канон: `shared/wp-slug-denylist.json` (recent Alphard/Mohave/K3/Avante/… + live slugs).
+* Канон: `shared/wp-slug-denylist.json` (LIVE WP slugs + recent model guides). Без файла scout `--check-query` видит только `## Bxx` cards и пропускает LIVE cannibalization.
+* Если файла нет / `slugs[]` пуст — сразу rebuild (нужен `PUBLIC_SITE_URL`):
+  ```bash
+  python3 scripts/excalibur_blog_wp_slug_denylist.py --rebuild
+  python3 scripts/excalibur_blog_wp_slug_denylist.py --check
+  # или:
+  python3 scripts/excalibur_blog_scout_helper.py --rebuild-denylist
+  ```
 * Helper печатает denylist при `--suggest-next`; перед финальным slug:
   ```bash
   python3 scripts/excalibur_blog_scout_helper.py --check-slug "<candidate-slug>"
   python3 scripts/excalibur_blog_scout_helper.py --check-query "<primary_query>"
   ```
+* Сверяй AS* pool + LIVE denylist + recent model guides, даже когда B-pool пуст.
 * Также сверяй `EXCALIBUR_RECENT_WP_POSTS` из `excalibur_blog_today.py`. Не предлагай темы-клоны уже живых комплектаций.
+
+### Шаг 1c — Cloud commit (secret names)
+Перед `git commit` фильтруй невалидные имена секретов (URL в `CLOUD_AGENT_INJECTED_SECRET_NAMES` ломает pre-commit `${!name}`):
+```bash
+bash scripts/excalibur_git.sh commit -m "..."
+# или:
+eval "$(bash scripts/excalibur_blog_filter_commit_secret_env.sh)"
+git commit -m "..."
+```
 
 ### Шаг 2 — Поиск горячих трендов в реальном времени (WebSearch)
 Сделай 2-3 поисковых запроса через инструмент `WebSearch` Курсора по вашей нише:
@@ -57,9 +74,10 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-slug "<candidate-slug>"
 ```
-Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
+Если возвращается `OVERLAP DETECTED` / `SLUG BLOCKED` — измени формулировку или выбери другую тему. Не допускай семантического пересечения с опубликованными, LIVE WP slug denylist или запланированными статьями!
 
 ### Шаг 5 — Сборка карточки темы (Utility-Only)
 Сформируй карточку темы по шаблону:

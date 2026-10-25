@@ -52,6 +52,10 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
   - Для анализа конкурентов в SERP **всегда используй инструмент `WebSearch`**. Ищи статьи, руководства, гайды по `primary_query` и ключевым словам в Яндексе и Google.
   - Игнорируй сырой `research-serp.json` из шага 0, если он пуст, неполный или нерелевантный. Твой собственный поиск через `WebSearch` — приоритетный источник свежих данных 2026 года.
 
+## Gate: technical_topic
+
+`excalibur_blog_research_notes_gate.py` определяет tech-тему **только по topic card** (`h1` / `slug` / `primary_query` / … в `research-context.json`), не по телу notes. Обязательная секция `github_evidence` и упоминания Wordstat/GitHub в notes **не** делают авто-тему технической и **не** требуют github_urls≥3.
+
 ## Правила
 
 1. **Сначала** `excalibur_blog_research_start.py` (шаг 0) — для валидации даты/года и utility-gate темы.

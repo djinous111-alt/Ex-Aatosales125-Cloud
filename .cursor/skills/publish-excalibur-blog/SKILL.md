@@ -65,10 +65,12 @@ python scripts/excalibur_blog_wp_publish.py \
 
 Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060 / nginx **504**):
 
-1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
+1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php` сразу (не жди второго локального HTTP).
 2. Cloud-агент открывает URL через WebFetch/curl и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт читает файл; **HTML 504 ≠ успех** — нужен литерал `OK post=` или REST reconstruct.
-4. При 504/timeout скрипт сам polling'ит WP REST по slug и, если post+media уже live, пишет reconstructed `wp-publish-result.json` **без republish**.
+3. При `curl … | tee` обязателен `set -o pipefail` — иначе EXIT:0 при RuntimeError в пайпе.
+4. Скрипт читает файл; **HTML 504 ≠ успех** — нужен литерал `OK post=` или REST reconstruct. Не записывай nginx 504 HTML как success.
+5. При 504/timeout скрипт polling'ит WP REST `posts?slug=` (до ~300s) и, если post уже LIVE, reconstruct `wp-publish-result.json` + ledger **без republish**.
+6. **Запрещено** второй overlapping publish trigger после timeout, когда slug уже может быть LIVE (orphan media).
 
 Перед SSH publish hydrates `[REDACTED]` в article/schema из `PUBLIC_SITE_URL` / `TELEGRAM_URL`.
 

@@ -7,7 +7,7 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 ## Open incidents
 
 ## INC-20261025-0946-cover-precommit-invalid-secret-name
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-cover
 topic_id: B01
@@ -35,11 +35,28 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending (platform/env; local agent can only workaround)
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- Restored `scripts/excalibur_blog_filter_secret_names.sh`, `scripts/excalibur_blog_filter_commit_secret_env.sh`, `scripts/excalibur_git.sh`.
+- Filter keeps only bash-safe identifiers; commit wrapper drops public URL secret names from scan list by default.
+- Cover/scout/writer skills document `bash scripts/excalibur_git.sh commit …` before Cloud commits.
+- Platform still should not inject raw URLs into `*_SECRET_NAMES` (out of repo); local filter is the durable agent path.
+files_changed:
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_git.sh`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- filter dry-run with URL + invalid tokens
+- `python3 scripts/excalibur_blog_doctor.py` (filter scripts exist)
+commit: pending-parent-commit
 
 
 ## INC-20261025-0945-cover-mcp-timeout-kie-fallback
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-cover
 topic_id: B01
@@ -71,7 +88,23 @@ category: api
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- Cover skill/agent: Cloud default = Kie API after `--write-batch`; sync MCP optional probe only.
+- `timeout_policy.recovery_needed` / `instruction`: on `-32001` without URL/task_id → one Kie path, never second sync MCP.
+- Pitfalls document the same policy.
+files_changed:
+- `scripts/excalibur_blog_cover_quad_prompt.py`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-cover.md`
+- `.cursor/agents/excalibur-blog-cover.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
+- `rg` for Kie/-32001 guidance in cover skill
+commit: pending-parent-commit
 
 
 ## INC-20261025-0935-geo-qa-empty-pain-outcome-markers
@@ -106,11 +139,20 @@ category: qa
 - none recorded
 
 ### Fixer resolution
-- GEO QA применил durable fix в этом run (policy markers + skip-empty). Fixer: проверить commit, дописать pitfalls, закрыть/подтвердить.
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- Confirmed prior GEO QA durable fix (policy markers + utility_gate skip-empty). Pitfalls already document empty markers ≠ article without pain.
+- LIVE WP post 4525 not modified.
+files_changed:
+- `shared/agent-pipeline-pitfalls.md` (confirm only)
+checks_run:
+- none required beyond existing PASS
+commit: n/a (already fixed this run)
 
 
 ## INC-20261025-0920-research-false-technical-topic
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-research
 topic_id: B01
@@ -140,11 +182,25 @@ category: script
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- `is_technical_topic()` uses topic card fields only (h1/slug/primary_query/…); does not scan research-notes body.
+- Word-boundary match for short markers (`ai`/`ии`) so «Японии» is not a false hit.
+- Auto niche (Toyota Corolla) no longer requires github_urls≥3 just because `github_evidence` section exists.
+files_changed:
+- `scripts/excalibur_blog_research_notes_gate.py`
+- `skills/excalibur-research/SKILL.md`
+- `.cursor/skills/excalibur-research/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- research-notes gate B01 PASS with technical_topic=false
+- unit assert Corolla false / MCP API true
+commit: pending-parent-commit
 
 
 ## INC-20261025-0908-scout-precommit-invalid-secret-name
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-scout
 topic_id: B01
@@ -171,11 +227,26 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- Restored secret-name filter scripts + `excalibur_git.sh` commit wrapper on branch.
+- Scout skill documents filter before commit; doctor checks scripts exist.
+files_changed:
+- `scripts/excalibur_blog_filter_secret_names.sh`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+- `scripts/excalibur_git.sh`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `scripts/excalibur_blog_doctor.py`
+checks_run:
+- filter dry-run keeps only SSH_PASS from mixed list
+- doctor OK filter_secret_names.sh / excalibur_git.sh exists
+commit: pending-parent-commit
 
 
 ## INC-20261025-0907-scout-missing-wp-slug-denylist
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-scout
 topic_id: B01
@@ -205,7 +276,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- Kept committed `shared/wp-slug-denylist.json` (1217 slugs).
+- Restored `scripts/excalibur_blog_wp_slug_denylist.py` (`--check` / `--rebuild`) and scout helper `--rebuild-denylist` / `--check-slug`.
+- Scout skill/agent: denylist mandatory; rebuild when missing; check AS* + LIVE + recent models even if B-pool empty.
+- Doctor fails if denylist missing/empty.
+files_changed:
+- `shared/wp-slug-denylist.json` (present)
+- `scripts/excalibur_blog_wp_slug_denylist.py`
+- `scripts/excalibur_blog_scout_helper.py`
+- `scripts/excalibur_blog_doctor.py`
+- `skills/scout-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-scout.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- denylist `--check` ok count=1217
+- scout `--suggest-next` prints denylist
+- doctor OK wp-slug-denylist present
+commit: pending-parent-commit
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -458,7 +548,7 @@ commit: pending-parent-commit
 Handled above; commit is pending Director review.
 
 ## INC-20261025-0930-writer-telegram-cta-secret-scan
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-writer
 topic_id: B01
@@ -488,10 +578,24 @@ category: env
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- Writer skill + conversion-map: CTA href from env; `<!-- pragma: allowlist secret -->` on CTA lines; commit via `excalibur_git.sh`.
+- Filter scripts also drop public URL secret names from scan list by default (second line of defense).
+files_changed:
+- `skills/writer-excalibur-blog/SKILL.md`
+- `.cursor/skills/writer-excalibur-blog/SKILL.md`
+- `memory/brief/conversion-map.md`
+- `shared/agent-pipeline-pitfalls.md`
+- `scripts/excalibur_blog_filter_commit_secret_env.sh`
+checks_run:
+- `rg` pragma/TELEGRAM guidance in writer skill + conversion-map
+commit: pending-parent-commit
+
 
 ## INC-20261025-0949-indexer-stale-blog-path-cli
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-indexer
 topic_id: B01
@@ -528,10 +632,26 @@ category: docs
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- Indexer agent/skill: `--blog-dir` + `--out-dir` only; `--site-base ""` for committed relative `/blog/<slug>/`.
+- Doctor asserts `--blog-dir`/`--out-dir` and that stale `--blog-path` is absent from llms help.
+files_changed:
+- `agents/excalibur-blog-indexer.md`
+- `.cursor/agents/excalibur-blog-indexer.md`
+- `skills/indexer-excalibur-blog/SKILL.md`
+- `.cursor/skills/indexer-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_doctor.py`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- doctor OK llms --blog-dir/--out-dir; no stale --blog-path
+- llms `--help` confirms flags
+commit: pending-parent-commit
+
 
 ## INC-20261025-1001-publish-http-fallback-504-reconstruct
-status: open
+status: fixed
 run_date: 2026-10-25
 role: excalibur-blog-publish
 topic_id: B01
@@ -567,4 +687,22 @@ category: publish
 - none recorded
 
 ### Fixer resolution
-- pending
+status: fixed
+fixed_at: 2026-10-25
+fix_summary:
+- `trigger_bootstrap_http`: HTTP timeout 300s; FALLBACK printed immediately; wait 300s; reject nginx 504 HTML as success.
+- REST probe by slug on 504 / during wait / after timeout → reconstruct `OK post=` without republish.
+- Publish skill/agent: pipefail for curl|tee; no second overlapping trigger when slug may be LIVE.
+files_changed:
+- `scripts/excalibur_blog_wp_publish.py`
+- `skills/publish-excalibur-blog/SKILL.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+- `agents/excalibur-blog-publish.md`
+- `.cursor/agents/excalibur-blog-publish.md`
+- `shared/agent-pipeline-pitfalls.md`
+checks_run:
+- `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
+- unit smoke `_looks_like_gateway_html` + `reconstruct_publish_output`
+- `--env-check` JSON ok
+commit: pending-parent-commit
+

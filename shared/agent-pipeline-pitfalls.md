@@ -15,6 +15,7 @@
 
 - Перед пайплайном: `python3 scripts/excalibur_blog_today.py` и `python3 scripts/excalibur_blog_research_start.py --topic-id …`.
 - Если `EXCALIBUR_RUN_DATE` нет в выводе today.py — старая ветка/код, **блокер**.
+- `is_technical_topic()` смотрит только topic card (h1/slug/primary_query/…), не тело `research-notes.md`. Секция `github_evidence` / слово `github` в notes ≠ tech-тема; авто-ниша не требует github_urls≥3.
 
 ## Publish
 
@@ -22,11 +23,13 @@
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
 - Для publish-preflight используй `python3 scripts/excalibur_blog_wp_publish.py --env-check`, не ad-hoc import без `scripts/` в `sys.path`.
 - SSH root может быть login cwd: если bootstrap upload получает ENOENT на настроенном root, publish-скрипт пробует `.` и пишет warning; после warning обнови `SSH_ROOT` в Cloud Secrets на `.`.
+- При nginx 504 / HTTP timeout: не пиши 504 HTML как success; не делай второй overlapping trigger. Скрипт REST-probe по slug и reconstruct без republish. `curl|tee` → `set -o pipefail`.
 
 ## Writer / Fact Check Box
 
 - Fact Check Box **не копирует** пример из `shared/excalibur-article-writing-contract.md`. Автор — только из `shared/authors-registry.json` по `author_id` в `article.meta.json`.
 - Запрещены legacy-имена вне реестра (в т.ч. «Елена Ковалева»). Human voice gate блокирует несовпадение автора и generic-шаблон «все статистические показатели…».
+- CTA `TELEGRAM_URL`/`CATALOG_URL` часто = Cloud Secrets → на строке href нужен `<!-- pragma: allowlist secret -->` + commit через `excalibur_git.sh`.
 
 ## QA
 
@@ -39,11 +42,15 @@
 ## Cover
 
 - Meme/sticker style можно сохранять, но видимый текст не должен быть токсичным или оскорбительным: `лох`, `лохов`, `для лохов` и похожие ярлыки запрещены.
+- Cloud default: Kie API (`excalibur_blog_kie_gpt_image2_api.py`) после `--write-batch`. Sync MCP `gpt-image-2` — optional probe; при `-32001` без URL/task_id → один Kie path, не второй sync MCP.
 
 ## Scout
 
 - Wordstat проверяй cluster-first: широкий parent-запрос → узкий how-to. `totalCount`-only ответ на узкий запрос = low-result signal, не fatal.
+- `shared/wp-slug-denylist.json` обязателен до выбора slug; если missing → `python3 scripts/excalibur_blog_wp_slug_denylist.py --rebuild` (или scout `--rebuild-denylist`). Без denylist LIVE cannibalization пропускается.
+- Перед commit: `bash scripts/excalibur_git.sh commit …` — фильтрует non-identifier entries в `CLOUD_AGENT_*SECRET_NAMES` (URL как «имя» ломает pre-commit `${!name}`).
 
 ## Indexer
 
 - В Cloud shell используй `python3` для interlinker/llms generator; `python` может отсутствовать.
+- llms CLI: `--blog-dir` + `--out-dir` (нет `--blog-path`). Для committed артефактов `--site-base ""` → relative `/blog/<slug>/`; не вшивай `PUBLIC_SITE_URL` (secret-scan).

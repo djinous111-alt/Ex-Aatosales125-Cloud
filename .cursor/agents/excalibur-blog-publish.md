@@ -33,8 +33,8 @@ is_background: false
 1. **Preflight:** link-verify с `--site-base` из `PUBLIC_SITE_URL`.
 2. **Dry-run:** `excalibur_blog_wp_publish.py --dry-run`.
 3. **Publish:** `excalibur_blog_wp_publish.py` без dry-run.
-4. **Fallback:** при timeout HTTP-триггера — WebFetch URL из `FALLBACK_TRIGGER_URL` → `memory/webfetch-response.txt`.
-5. **Ledger:** обновить `shared/published-articles.md`.
+4. **Fallback:** при timeout/nginx **504** — сразу WebFetch/curl `FALLBACK_TRIGGER_URL` → `memory/webfetch-response.txt` (`set -o pipefail` если `| tee`). HTML 504 ≠ success. Скрипт сам REST-probe по slug и может reconstruct без republish. Не запускай второй overlapping trigger.
+5. **Ledger:** обновить `shared/published-articles.md` (+ denylist slug после LIVE).
 6. **Logs:** дописать `memory/blog/wp-publish-log.md`.
 7. **Promotion:** Live URL в `promotion-checklist.md`.
 8. **Handoff:** блок `=== EXCALIBUR BLOG PUBLISH ===` + permalink в `=== EXCALIBUR BLOG (PIPELINE DONE) ===`.

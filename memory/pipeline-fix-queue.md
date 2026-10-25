@@ -6,6 +6,44 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261025-1737-publish-paramiko-missing
+status: open
+run_date: 2026-10-25
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-tank-300-iz-kitaya-chek-list-do-depozita-2026
+severity: medium
+category: env
+
+### What went wrong
+- `paramiko` missing in Cloud Agent image (`ModuleNotFoundError`) before real SSH publish.
+- `memory/site.env.local` absent; publish still worked via Cloud Secrets overlay in `load_env`.
+- `--env-check` does not import paramiko, so missing dep is discovered only at publish time.
+
+### How the agent recovered this run
+- `python3 -m pip install --break-system-packages paramiko` (5.1.0).
+- Set `SSH_ROOT=.` for this host; HTTP trigger succeeded without FALLBACK (~138s).
+- Relied on process env for SSH_*/PUBLIC_SITE_URL/ALLOW_PUBLISH.
+
+### Durable fix needed before next run
+- Ensure `.cursor/cloud-agent-install.sh` / `requirements.txt` install installs `paramiko` on every Cloud boot.
+- Optionally make `--env-check` verify `import paramiko` and report `paramiko_installed`.
+- Document that `site.env.local` is optional when Cloud Secrets overlay all PUBLISH_ENV_KEYS.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `scripts/excalibur_blog_wp_publish.py` (`publish_env_check_report`)
+- `shared/agent-pipeline-pitfalls.md`
+- `.cursor/skills/publish-excalibur-blog/SKILL.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+
 ## INC-20261025-1732-indexer-llms-blog-path-stale
 status: open
 run_date: 2026-10-25

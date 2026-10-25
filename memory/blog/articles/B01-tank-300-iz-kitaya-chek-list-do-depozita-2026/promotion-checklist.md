@@ -1,8 +1,7 @@
 # Promotion checklist — B01 tank-300-iz-kitaya-chek-list-do-depozita-2026
 
 Дата публикации: 2026-10-25  
-Live URL: https://avtosales125.ru/blog/tank-300-iz-kitaya-chek-list-do-depozita-2026/
-
+Live URL: https://avtosales125.ru/2026/10/25/tank-300-iz-kitaya-chek-list-do-depozita-2026/
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
 ## Сразу после publish
@@ -29,7 +28,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • До денег: полный VIN, мощность, дата регистрации в КНР, дилер vs заказ
 • Пошлины и утиль — только расчёт в каталоге, не из чата
 
-Читать: https://avtosales125.ru/blog/tank-300-iz-kitaya-chek-list-do-depozita-2026/
+Читать: https://avtosales125.ru/2026/10/25/tank-300-iz-kitaya-chek-list-do-depozita-2026/
 ```
 
 ## Перелинковка

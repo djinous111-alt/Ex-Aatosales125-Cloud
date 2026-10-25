@@ -31,3 +31,18 @@ FTP/SFTP: djinoum7.beget.tech → `/` (FTP chroot = public_html WP; `FTP_ROOT=/`
 - **method:** FTP upload + curl fallback (local HTTP trigger timeout 15s; WebFetch wait 120s empty; curl `--max-time 300` OK)
 - **note:** `FTP_ROOT=/`; remote `excalibur-blog-publish-once.php` удалён после curl
 - **result:** `memory/blog/articles/AS09-trust-encar-carhistory-proverka-do-depozita/wp-publish-result.json`
+
+## 2026-10-25 — B01 tank-300-iz-kitaya-chek-list-do-depozita-2026
+
+- **verdict:** PASS
+- **post_id:** 4543
+- **permalink:** https://avtosales125.ru/2026/10/25/tank-300-iz-kitaya-chek-list-do-depozita-2026/
+- **featured_image:** 4544
+- **inline_images:** 4545 (`inline-01.png`), 4546 (`inline-02.png`), 4547 (`inline-03.png`)
+- **schema_meta:** ok (`_excalibur_blog_schema_jsonld`)
+- **skip_theme_faq_meta:** ok (`_excalibur_blog_skip_theme_faq=1`)
+- **method:** SSH (`SSH_ROOT=.`) + HTTP trigger OK (~138s, no FALLBACK)
+- **live_check:** HEAD 200; REST slug id=4543 status=publish
+- **note:** installed `paramiko` via pip (missing in image); site.env.local absent — Cloud Secrets overlay used
+- **result:** `memory/blog/articles/B01-tank-300-iz-kitaya-chek-list-do-depozita-2026/wp-publish-result.json`
+

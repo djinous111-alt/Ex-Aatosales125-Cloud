@@ -63,7 +63,7 @@ checks_run:
 - `python3 -c "import paramiko"`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` → paramiko_installed true
 - `python3 scripts/excalibur_blog_doctor.py` → OK paramiko
-commit: pending-parent-commit
+commit: 6a560352
 
 
 ## INC-20261025-1732-indexer-llms-blog-path-stale
@@ -117,7 +117,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` (llms --blog-dir/--out-dir OK; no --blog-path)
 - `rg blog-path` on indexer agent/skill → only doctor negative assertion remains
-commit: pending-parent-commit
+commit: 6a560352
 
 
 ## INC-20261025-1731-cover-hero-host-upload-fallback
@@ -165,7 +165,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_hero_reference_url.py`
 - `python3 scripts/excalibur_blog_hero_reference_url.py --help`
-commit: pending-parent-commit
+commit: 6a560352
 
 
 ## INC-20261025-1722-schema-precommit-hook-invalid-var
@@ -215,7 +215,7 @@ files_changed:
 checks_run:
 - `bash scripts/excalibur_blog_patch_precommit_secret_scanner.sh`
 - probe `git commit` of non-secret file succeeded after patch (pre-commit + commit-msg skip junk URL name)
-commit: pending-parent-commit
+commit: 6a560352
 
 
 ## INC-20261025-2015-writer-editorial-pain-outcome-markers
@@ -268,7 +268,7 @@ checks_run:
 - `python3 -m json.tool memory/brief/editorial-policy.json`
 - doctor OK pain/outcome non-empty
 - utility `resolve_marker_list([], defaults)` → used_fallback True
-commit: pending-parent-commit
+commit: 6a560352
 
 
 ## INC-20261025-2010-research-gate-accessed-at-pain-map
@@ -322,7 +322,7 @@ files_changed:
 checks_run:
 - synthetic helpers: accessed≥5, pain rows=3, github-in-notes ⇒ technical_topic False
 - B01 gate PASS, technical_topic False, accessed_at=17, pain_solution_rows=5
-commit: pending-parent-commit
+commit: 6a560352
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch

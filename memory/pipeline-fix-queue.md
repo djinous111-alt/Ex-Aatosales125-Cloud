@@ -57,7 +57,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (paramiko_available true)
 - `python3 scripts/excalibur_blog_doctor.py` SUMMARY errors=0
-commit: pending-parent-commit
+commit: 43e7ce8b
 
 
 ## INC-20261027-2146-publish-http-timeout-reconstruct
@@ -109,7 +109,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `--env-check` shows http_trigger_timeout_sec=300 fallback_poll_sec=300
 - `rg` no hardcoded timeout=120 in publish script
-commit: pending-parent-commit
+commit: 43e7ce8b
 
 
 ## INC-20261027-2141-indexer-llms-blog-path-stale-docs
@@ -162,7 +162,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` SUMMARY errors=0
 - `rg` no `--blog-path /` in agents/skills
-commit: pending-parent-commit
+commit: 43e7ce8b
 
 
 ## INC-20261027-2140-cover-mcp-timeout-kie-fallback
@@ -212,7 +212,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
-commit: pending-parent-commit
+commit: 43e7ce8b
 
 
 ## INC-20261027-2132-schema-jsonld-secret-scan-block
@@ -264,7 +264,7 @@ files_changed:
 - `scripts/excalibur_git.sh`
 checks_run:
 - `bash scripts/excalibur_git.sh help`
-commit: pending-parent-commit
+commit: 43e7ce8b
 
 
 ## INC-20261027-2130-geo-qa-cta-href-literal-redacted
@@ -321,7 +321,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `link_verify unit: href=[REDACTED] → verdict fail invalid_placeholder`
-commit: pending-parent-commit
+commit: 43e7ce8b
 
 
 ## INC-20261027-0035-writer-utility-gate-missing-pain-outcome-markers
@@ -374,7 +374,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_utility_gate.py --article-dir ...B01...` → PASS
 - `JSON parse editorial-policy.json`
-commit: pending-parent-commit
+commit: 43e7ce8b
 
 
 ## INC-20261027-0020-research-tech-marker-false-positive
@@ -422,7 +422,7 @@ files_changed:
 checks_run:
 - `unit asserts for _tech_marker_hit / is_technical_topic`
 - `python3 -m py_compile scripts/excalibur_blog_research_notes_gate.py`
-commit: pending-parent-commit
+commit: 43e7ce8b
 
 
 ## INC-20261027-0025-research-precommit-secret-name-invalid
@@ -466,7 +466,7 @@ files_changed:
 - `CURSOR-CLOUD-RUNBOOK.md`
 checks_run:
 - `filter drops URL-like invalid names from CLOUD_AGENT_*_SECRET_NAMES`
-commit: pending-parent-commit
+commit: 43e7ce8b
 
 
 ## INC-20261026-2103-scout-live-slugs-cli-missing
@@ -514,7 +514,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --help` shows --live-slugs
 - `python3 -m py_compile scripts/excalibur_blog_scout_helper.py`
-commit: pending-parent-commit
+commit: 43e7ce8b
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
@@ -567,7 +567,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_cannibalization_guard.py --help`
 - `rg` check for old Writer `<pre><code>` instruction strings
 - `rg` check for old cannibalization `--article-dir` command in source docs
-commit: pending-parent-commit
+commit: 43e7ce8b
 
 ## INC-20260616-2018-cover-toxic-sticker
 status: fixed
@@ -618,7 +618,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_cover_quad_prompt.py`
 - JSON parse for `memory/cover/quad-style-digital-meme-collage-ru.json`
 - JSON parse for `memory/cover/cover-design-code.json`
-commit: pending-parent-commit
+commit: 43e7ce8b
 
 ## INC-20260616-1950-scout-wordstat-format
 status: fixed
@@ -659,7 +659,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for Wordstat cluster-first/totalCount guidance in Scout source docs
-commit: pending-parent-commit
+commit: 43e7ce8b
 
 ## INC-20260616-2031-indexer-python-missing
 status: fixed
@@ -706,7 +706,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `rg` check for old `python scripts/excalibur_blog_interlinker.py` and `python scripts/excalibur_blog_llms_generator.py` in source docs
-commit: pending-parent-commit
+commit: 43e7ce8b
 
 
 ## INC-20260616-2042-publish-ssh-root-dot
@@ -760,7 +760,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` (JSON output validated; non-publish env may return exit 1)
 - `python3 -m json.tool /tmp/excalibur_publish_env_check.json`
-commit: pending-parent-commit
+commit: 43e7ce8b
 
 ## Fixed incidents
 

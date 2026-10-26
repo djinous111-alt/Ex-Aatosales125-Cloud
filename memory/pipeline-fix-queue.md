@@ -6,6 +6,40 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261026-2103-scout-live-slugs-cli-missing
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-scout
+topic_id: B01
+article_dir: n/a
+severity: medium
+category: script
+
+### What went wrong
+- Automation memory and scout notes document `python3 scripts/excalibur_blog_scout_helper.py --live-slugs` as the LIVE dedup path via `PUBLIC_SITE_URL`.
+- Actual helper CLI only exposes `--suggest-next` and `--check-query`; `--live-slugs` fails with argparse unrecognized arguments.
+- Scout had to manually REST-search `PUBLIC_SITE_URL/wp-json/wp/v2/posts` for Cyrillic+Latin Jolion queries as a workaround.
+
+### How the agent recovered this run
+- Used direct WP REST search against `PUBLIC_SITE_URL` for `джолион` / `jolion` / `haval jolion` and exact slug probe for `haval-jolion-iz-kitaya-komplektatsii-lovushki-2026` (count=0).
+- Confirmed no model-specific Jolion guide; only brand comparison `haval-changan-geely-kak-vybrat-krossover-2026` (allowed per denylist exception for model-specific guide).
+- Appended B01 utility card; utility gate PASS.
+
+### Durable fix needed before next run
+- Add `--live-slugs` (and optional search) to `scripts/excalibur_blog_scout_helper.py` reading `PUBLIC_SITE_URL`, or update scout skill/memory to document the REST workaround as canonical until the flag exists.
+- Keep reminder that MCP-KV `wordpress_*` is non-authoritative for LIVE dedup.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_scout_helper.py`
+- `.cursor/skills/scout-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20260616-2015-geo-qa-html-cli-mismatch
 status: fixed
 run_date: 2026-06-16

@@ -184,3 +184,27 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 - **cta:** каталог + Telegram avtosales125
 - **cover_scene_hint:** герой в smart casual у смартфона с отчётом проверки авто, дождь/Владивосток или офисный свет, плашка «до депозита», угол avto-sales125.ru
 - **metrika_signal:** Korea gap + Wordstat спрос на проверку; на live-блоге Trust/Carhistory = 0
+
+---
+
+## B01 — Haval Jolion из Китая: комплектации и ловушки
+
+- **priority:** P0
+- **slug:** haval-jolion-iz-kitaya-komplektatsii-lovushki-2026
+- **h1:** Хавал Джолион из Китая: чек-лист комплектаций и ловушек до депозита в 2026
+- **primary_query:** хавал джолион из китая
+- **secondary_queries:** хавал джолион комплектации, комплектации хавал джолион 2026, хавал джолион премиум комплектация, хавал джолион комфорт комплектация
+- **search_intent:** checklist
+- **article_mode:** B
+- **h2_outline:**
+  1. Зачем сверять китайскую комплектацию с РФ-дилерской до депозита
+  2. Comfort / Elite-Оптимум / Premium / Techno+: что реально меняется в оснащении
+  3. Ловушки параллельного ввоза: мотор/КПП, 2WD vs 4WD, русификация, гарантия
+  4. Какие документы и VIN-поля проверить до перевода денег
+  5. Чек-лист из 10 пунктов перед депозитом и логистикой через Владивосток
+- **faq_hints:** чем Jolion из Китая отличается от версии у дилера в РФ; какую комплектацию брать для города без переплаты; что проверить по приводу и коробке до оплаты
+- **internal_links:** /
+- **cta:** каталог + Telegram avtosales125
+- **cover_scene_hint:** герой Авто-Сейлс у кроссовера Haval Jolion на фоне порта Владивостока, плашка «до депозита», угол avto-sales125.ru
+- **wordstat_signal:** parent «хавал джолион» ~386887; «хавал джолион комплектации» ~8541; «хавал джолион из китая» ~283; how-to «как выбрать хавал джолион» totalCount-only 57
+- **live_dedup:** slug jolion/джолион отсутствует; LIVE только brand comparison haval-changan-geely-kak-vybrat-krossover-2026 – модель-специфичный гайд OK

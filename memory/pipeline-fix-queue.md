@@ -56,7 +56,7 @@ checks_run:
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
 - `python3 scripts/excalibur_blog_wp_publish.py --env-check` → paramiko_available true
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
-commit: pending-parent-commit
+commit: 7a7ee65d
 
 ## INC-20261026-1741-publish-fallback-504-reconstruct
 status: fixed
@@ -106,7 +106,7 @@ files_changed:
 checks_run:
 - `rg` FALLBACK_POLL_SEC=300 + reconstruct_publish_from_rest
 - `python3 -m py_compile scripts/excalibur_blog_wp_publish.py`
-commit: pending-parent-commit
+commit: 7a7ee65d
 
 ## INC-20261026-1737-indexer-llms-blog-path-stale
 status: fixed
@@ -157,7 +157,7 @@ checks_run:
 - `python3 scripts/excalibur_blog_llms_generator.py --help`
 - `python3 scripts/excalibur_blog_doctor.py` → errors=0
 - `rg` durable sources: no instructional `--blog-path /` command
-commit: pending-parent-commit
+commit: 7a7ee65d
 
 ## INC-20261026-1734-cover-brand-corner-missing
 status: fixed
@@ -207,7 +207,7 @@ files_changed:
 checks_run:
 - `python3 -m py_compile` cover prompt/split
 - assert no `Outfit lock: thick heavyweight white hoodie`
-commit: pending-parent-commit
+commit: 7a7ee65d
 
 ## INC-20261026-1731-schema-precommit-public-url-secrets
 status: fixed
@@ -258,7 +258,7 @@ files_changed:
 checks_run:
 - bash syntax via chmod+patch_precommit run
 - doctor checks filter/excalibur_git scripts exist
-commit: pending-parent-commit
+commit: 7a7ee65d
 
 ## INC-20261026-1724-geo-qa-typed-task-unavailable
 status: fixed
@@ -300,7 +300,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - `python3 -m json.tool .cursor/environment.json`
-commit: pending-parent-commit
+commit: 7a7ee65d
 
 ## INC-20261026-1724-geo-qa-redacted-cta-hrefs
 status: fixed
@@ -350,7 +350,7 @@ files_changed:
 checks_run:
 - unit assert is_placeholder_href('[REDACTED]')
 - `python3 -m py_compile` link_verify + html_linter
-commit: pending-parent-commit
+commit: 7a7ee65d
 
 ## INC-20261026-1718-writer-utility-pain-outcome-markers-missing
 status: fixed
@@ -399,7 +399,7 @@ files_changed:
 checks_run:
 - utility gate PASS on B01 Delica
 - empty-list resolve_marker_lists returns FALLBACK + warns
-commit: pending-parent-commit
+commit: 7a7ee65d
 
 ## INC-20261026-1713-research-notes-gate-tech-false-positive
 status: fixed
@@ -439,7 +439,7 @@ files_changed:
 - `shared/agent-pipeline-pitfalls.md`
 checks_run:
 - research_notes_gate on B01 → PASS, technical_topic=false
-commit: pending-parent-commit
+commit: 7a7ee65d
 
 ## INC-20261026-1714-research-precommit-invalid-secret-name
 status: fixed
@@ -484,7 +484,7 @@ files_changed:
 checks_run:
 - patch_precommit applied to agent-hooks
 - doctor OK for filter scripts
-commit: pending-parent-commit
+commit: 7a7ee65d
 
 ## INC-20261026-1703-director-doctor-blog-path-stale
 status: fixed
@@ -522,7 +522,7 @@ files_changed:
 - `scripts/excalibur_blog_doctor.py`
 checks_run:
 - `python3 scripts/excalibur_blog_doctor.py` → SUMMARY errors=0 warnings=0
-commit: pending-parent-commit
+commit: 7a7ee65d
 
 ## INC-20261026-1703-director-scout-live-slugs-missing
 status: fixed
@@ -568,7 +568,7 @@ files_changed:
 checks_run:
 - `python3 scripts/excalibur_blog_scout_helper.py --help` shows --live-slugs
 - doctor: denylist 1217 slugs OK
-commit: pending-parent-commit
+commit: 7a7ee65d
 
 
 ## INC-20260616-2015-geo-qa-html-cli-mismatch

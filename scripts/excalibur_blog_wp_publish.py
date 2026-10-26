@@ -8,6 +8,7 @@ import io
 import json
 import os
 import sys
+import urllib.parse
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -73,9 +74,22 @@ def validate_publish_env(env: dict[str, str]) -> list[str]:
 
 def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
     root_label = ssh_root_label(env)
+    try:
+        import paramiko  # noqa: F401
+
+        paramiko_ok = True
+        paramiko_error = ""
+    except ImportError as exc:
+        paramiko_ok = False
+        paramiko_error = str(exc)
+    missing = validate_publish_env(env)
+    if not paramiko_ok:
+        missing = list(missing) + ["paramiko"]
     return {
         "allow_publish": env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() == "yes",
         "public_site_url_configured": bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL")),
+        "paramiko_import_ok": paramiko_ok,
+        "paramiko_error": paramiko_error,
         "ssh": {
             "host_configured": bool(env.get("SSH_HOST")),
             "user_configured": bool(env.get("SSH_USER")),
@@ -83,7 +97,7 @@ def publish_env_check_report(env: dict[str, str]) -> dict[str, object]:
             "root": root_label,
             "dot_fallback_enabled": root_label == "configured-non-dot",
         },
-        "missing": validate_publish_env(env),
+        "missing": missing,
     }
 
 
@@ -467,42 +481,139 @@ def delete_bootstrap_ssh(env: dict[str, str], remote: str, remote_path: str | No
         transport.close()
 
 
-def trigger_bootstrap_http(url: str, root: Path) -> str:
+FALLBACK_WAIT_SECONDS = 300
+REST_POLL_INTERVAL_SECONDS = 5
+
+
+def poll_wp_post_by_slug(public_base: str, slug: str) -> dict[str, Any] | None:
+    """Detect partial publish success after HTTP/fallback timeout (avoid duplicate trigger)."""
+    slug = (slug or "").strip()
+    if not public_base or not slug:
+        return None
+    api = public_base.rstrip("/") + "/wp-json/wp/v2/posts?slug=" + urllib.parse.quote(slug)
+    try:
+        with urllib.request.urlopen(
+            urllib.request.Request(api, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
+            timeout=30,
+        ) as response:
+            payload = json.loads(response.read().decode("utf-8", errors="replace"))
+    except Exception as exc:  # noqa: BLE001
+        print(f"WARN REST slug poll failed: {type(exc).__name__}: {exc}", file=sys.stderr)
+        return None
+    if isinstance(payload, list) and payload:
+        post = payload[0]
+        if isinstance(post, dict) and post.get("id"):
+            return post
+    return None
+
+
+def reconstruct_publish_output(post: dict[str, Any], slug: str) -> str:
+    post_id = post.get("id")
+    link = str(post.get("link") or "").strip()
+    lines = [
+        f"OK post={post_id} slug={slug}",
+        f"permalink={link}",
+        "WARN reconstructed_from_rest_after_fallback_timeout=1",
+        "WARN do_not_retrigger_bootstrap=1",
+    ]
+    return "\n".join(lines) + "\n"
+
+
+def trigger_bootstrap_http(
+    url: str,
+    root: Path,
+    *,
+    public_base: str = "",
+    slug: str = "",
+) -> str:
+    import time
+
+    lock_path = root / "memory" / "publish-bootstrap.lock"
+    if lock_path.is_file():
+        print(
+            "WARN publish-bootstrap.lock present — another FALLBACK may be in flight. "
+            "Poll REST for slug before starting a second HTTP trigger.",
+            file=sys.stderr,
+        )
+        existing = poll_wp_post_by_slug(public_base, slug)
+        if existing:
+            print("REST slug already LIVE after lock — reconstructing without second trigger.")
+            return reconstruct_publish_output(existing, slug)
+
     try:
         print(f"Triggering HTTP publish on {url}...")
+        lock_path.parent.mkdir(parents=True, exist_ok=True)
+        lock_path.write_text(f"url={url}\nslug={slug}\n", encoding="utf-8")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=120,
+            timeout=180,
         ) as response:
-            return response.read().decode("utf-8", errors="replace")
+            out = response.read().decode("utf-8", errors="replace")
+            lock_path.unlink(missing_ok=True)
+            return out
     except Exception as e:
         print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
-        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
+        print(
+            "Waiting for cloud-agent to write response to memory/webfetch-response.txt "
+            f"(max {FALLBACK_WAIT_SECONDS}s). Do NOT start a second trigger until REST slug check."
+        )
         fallback_file = root / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
-        import time
 
-        for _ in range(120):
+        for elapsed in range(FALLBACK_WAIT_SECONDS):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
+                lock_path.unlink(missing_ok=True)
                 print("Cloud response detected successfully!")
                 return out
+            # Periodic REST poll: large PHP payloads often finish after peer-reset.
+            if slug and public_base and elapsed > 0 and elapsed % REST_POLL_INTERVAL_SECONDS == 0:
+                post = poll_wp_post_by_slug(public_base, slug)
+                if post:
+                    lock_path.unlink(missing_ok=True)
+                    print(
+                        f"REST detected LIVE post id={post.get('id')} for slug={slug} "
+                        "after FALLBACK wait — reconstructing (no second trigger)."
+                    )
+                    return reconstruct_publish_output(post, slug)
             time.sleep(1)
-        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+
+        post = poll_wp_post_by_slug(public_base, slug)
+        lock_path.unlink(missing_ok=True)
+        if post:
+            print(
+                f"FALLBACK wait exhausted but REST has post id={post.get('id')} — "
+                "reconstructing (do not re-trigger)."
+            )
+            return reconstruct_publish_output(post, slug)
+        raise RuntimeError(
+            f"Cloud WebFetch Fallback timed out after {FALLBACK_WAIT_SECONDS} seconds "
+            "and REST slug poll found no post. Please trigger manually once, then poll REST."
+        )
 
 
-def publish_via_ssh(env: dict[str, str], php: str, public_base: str) -> str:
+def publish_via_ssh(env: dict[str, str], php: str, public_base: str, slug: str = "") -> str:
     remote = "excalibur-blog-publish-once.php"
     data = php.encode("utf-8")
     url = public_base.rstrip("/") + "/" + remote
     root = project_root()
 
+    # Fail closed before upload if slug already LIVE — avoids duplicate media from re-trigger.
+    if slug:
+        existing = poll_wp_post_by_slug(public_base, slug)
+        if existing:
+            print(
+                f"WARN slug already LIVE post_id={existing.get('id')} — "
+                "skipping bootstrap upload/trigger (reconstruct)."
+            )
+            return reconstruct_publish_output(existing, slug)
+
     uploaded_remote_path = upload_bootstrap_ssh(env, remote, data)
 
     try:
-        out = trigger_bootstrap_http(url, root)
+        out = trigger_bootstrap_http(url, root, public_base=public_base, slug=slug)
     finally:
         try:
             delete_bootstrap_ssh(env, remote, uploaded_remote_path)
@@ -588,7 +699,7 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ssh(env, php, public)
+    out = publish_via_ssh(env, php, public, slug=str(payload.get("slug") or ""))
     print(out)
 
     result_path = article_dir / "wp-publish-result.json"

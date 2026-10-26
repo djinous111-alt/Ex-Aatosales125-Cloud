@@ -1,0 +1,181 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://avtosales125.ru/mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026/#blogposting", "x-excalibur-pragma": "pragma: allowlist secret",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://avtosales125.ru/mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026/", "x-excalibur-pragma": "pragma: allowlist secret"
+      },
+      "headline": "Как выбрать Mitsubishi Outlander из Японии: комплектации и ловушки до ставки 2026",
+      "description": "Как выбрать Outlander из Японии в 2026: коды XL/GF/GG/GN, экспортный контроль, лист R/RA, чеклист до ставки. Расчёт – в каталоге Авто-Сейлс.",
+      "datePublished": "2026-10-26",
+      "dateModified": "2026-10-26",
+      "inLanguage": "ru-RU",
+      "image": "cover/cover.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://avtosales125.ru/#author-avtosales-editorial", "x-excalibur-pragma": "pragma: allowlist secret",
+        "name": "Редакция Авто-Сейлс",
+        "jobTitle": "Эксперты по авто под заказ из Японии, Кореи и Китая",
+        "description": "Команда Авто-Сейлс из Владивостока: подбор, проверка, логистика и растаможка автомобилей из Азии под ключ.",
+        "image": "https://avtosales125.ru/wp-content/uploads/2026/02/best-winter-cars-top-e1770034445390.png", "x-excalibur-pragma": "pragma: allowlist secret",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Авто-Сейлс",
+          "alternateName": "AVTO SALES",
+          "url": "https://avtosales125.ru", "x-excalibur-pragma": "pragma: allowlist secret"
+        },
+        "sameAs": ["https://avto-sales125.ru/", "https://t.me/avtosales125", "https://max.ru/id2508140890_biz", "https://www.instagram.com/avtosales_rf", "https://2gis.ru/vladivostok/search/авто%20сейлс%20владивосток/firm/70000001090415417"], "x-excalibur-pragma": "pragma: allowlist secret"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://avtosales125.ru/#organization", "x-excalibur-pragma": "pragma: allowlist secret",
+        "name": "Авто-Сейлс",
+        "alternateName": "AVTO SALES",
+        "url": "https://avtosales125.ru", "x-excalibur-pragma": "pragma: allowlist secret",
+        "sameAs": ["https://avto-sales125.ru/", "https://t.me/avtosales125"], "x-excalibur-pragma": "pragma: allowlist secret"
+      },
+      "keywords": [
+        "аутлендер из японии",
+        "мицубиси аутлендер из японии",
+        "аутлендер владивосток",
+        "аутлендер phev"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://avtosales125.ru/mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026/#faq", "x-excalibur-pragma": "pragma: allowlist secret",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Можно ли везти Outlander PHEV из Японии в 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Прямой вывоз PHEV/гибрида в РФ упирается в японский экспортный контроль с 09.08.2023. Не делайте ставку на PHEV \"как с аукциона вчера\" без подтверждённого маршрута у команды, которая ведёт такие сделки. Сначала ответ по вывозу, потом деньги."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем 3-е поколение отличается от XL для ввоза?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "XL – более ранняя линия (часто CW), \"третье\" на бензине обычно GF7W/GF8W. Выберите код кузова на листе и сверьте объём двигателя: от этого зависят и риски вывоза, и вопросы по вариатору."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что проверить в аукционном листе до ставки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Проверьте шапку лота, пробег, общую оценку вместе со схемой кузова, заметки инспектора и наличие R/RA. Комплектацию сверяйте по строкам листа, а не по слову \"P\" в рекламе."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что значат R и RA на японском листе?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "На практике R/RA указывают на историю ремонта силовых элементов. Это стоп или повод для жёсткой проверки, а не скидка \"за красоту\". XX на навесном элементе само по себе не равно R."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужно ли отдельно смотреть вариатор и батарею?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Для бензина GF задайте вопросы по CVT и пробегу. Для PHEV аукционный балл не заменяет диагностику батареи – добавьте этот пункт в чеклист до ставки."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько этапов до выдачи во Владивостоке?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ориентир без жёстких сроков: ставка и выкуп → логистика из Японии → таможенный контур и СВХ во Владивостоке → выдача или доставка по РФ. Конкретные сроки и суммы зависят от лота – уточняйте расчёт в каталоге."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где взять актуальный расчёт пошлин и утиля?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Только под ваш лот в каталоге или в переписке с Авто-Сейлс. Не копируйте статичные \"цены под ключ\" из чужих обзоров – цифры устаревают, а ошибка бьёт по бюджету."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://avtosales125.ru/mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026/#howto", "x-excalibur-pragma": "pragma: allowlist secret",
+      "name": "Как выбрать Mitsubishi Outlander из Японии до ставки",
+      "description": "Пошаговый выбор Outlander с японского аукциона: код кузова, экспортный контроль 2026, лист R/RA, чеклист и расчёт до лимита ставки.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Аукционный лист (оценка, схема кузова, R/RA)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Каталог Авто-Сейлс для расчёта под ключ"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Код кузова и тип силовой (бензин / PHEV)"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Чеклист из 10 пунктов до ставки"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Зафиксировать задачу и бюджет под ключ",
+          "text": "Запишите город выдачи, сценарий и рамку «до ключей» без чужих сумм до поиска лотов.",
+          "url": "https://avtosales125.ru/mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026/#зафиксируйте-задачу-и-бюджет-под-ключ-до-лотов", "x-excalibur-pragma": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Выбрать поколение и код кузова",
+          "text": "Выберите один код кузова (XL / GF / GG / GN) и тип силовой — бензин или PHEV.",
+          "url": "https://avtosales125.ru/mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026/#выберите-поколение-и-код-кузова-xl-gf-gg-или-gn", "x-excalibur-pragma": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Проверить японский экспортный контроль",
+          "text": "Получите актуальный ответ по легальному вывозу 2026 до любой ставки.",
+          "url": "https://avtosales125.ru/mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026/#проверьте-японский-экспортный-контроль-до-ставки", "x-excalibur-pragma": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Прочитать аукционный лист",
+          "text": "Разберите полный лист: оценка вместе со схемой, R/RA, пробег и заметки инспектора.",
+          "url": "https://avtosales125.ru/mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026/#прочитайте-аукционный-лист-оценка-rra-и-схема", "x-excalibur-pragma": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Пройти чеклист из 10 пунктов",
+          "text": "Закройте код кузова, маршрут вывоза, лист, CVT/батарею и расчёт в каталоге до лимита ставки.",
+          "url": "https://avtosales125.ru/mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026/#пройдите-чеклист-из-10-пунктов-до-ставки", "x-excalibur-pragma": "pragma: allowlist secret"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Зафиксировать лимит ставки после расчёта",
+          "text": "Запросите расчёт в каталоге Авто-Сейлс и только потом подтверждайте лимит ставки.",
+          "url": "https://avtosales125.ru/mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026/#что-дальше-шаг-за-шагом-до-лимита-ставки", "x-excalibur-pragma": "pragma: allowlist secret"
+        }
+      ]
+    }
+  ]
+}

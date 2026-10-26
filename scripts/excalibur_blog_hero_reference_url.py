@@ -91,6 +91,14 @@ def resolve_reference_path(root: Path, hero: dict) -> Path:
     return path
 
 
+def normalize_https_url(url: str) -> str:
+    """Plain http:// media URLs often 301 to https and break Kie i2i createTask."""
+    text = (url or "").strip()
+    if text.startswith("http://"):
+        return "https://" + text[len("http://") :]
+    return text
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--hero-json", default="memory/cover/blog-hero.json")
@@ -112,13 +120,24 @@ def main() -> int:
         print(f"❌ HERO BLOCKER: reference image not found: {ref_path}", file=sys.stderr)
         return 1
 
-    existing = (hero.get("reference_url_hosted") or "").strip()
+    existing = normalize_https_url((hero.get("reference_url_hosted") or "").strip())
+    if existing and existing != (hero.get("reference_url_hosted") or "").strip():
+        hero["reference_url_hosted"] = existing
+        hero["reference_url_updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+        save_json(hero_path, hero)
+        print(f"WARN upgraded reference_url_hosted http→https", file=sys.stderr)
     if existing and not args.force:
+        if not existing.startswith("https://"):
+            print(f"❌ HERO BLOCKER: reference_url_hosted must be HTTPS, got: {existing}", file=sys.stderr)
+            return 1
         print(f"OK reference_url_hosted={existing}")
         return 0
 
-    env_url = os.environ.get("BLOG_HERO_REFERENCE_URL", "").strip()
+    env_url = normalize_https_url(os.environ.get("BLOG_HERO_REFERENCE_URL", "").strip())
     if env_url:
+        if not env_url.startswith("https://"):
+            print(f"❌ HERO BLOCKER: BLOG_HERO_REFERENCE_URL must be HTTPS, got: {env_url}", file=sys.stderr)
+            return 1
         hero["reference_url_hosted"] = env_url
         hero["reference_url_source"] = "env:BLOG_HERO_REFERENCE_URL"
         hero["reference_url_updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")

@@ -1,0 +1,101 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-26",
+    "today_ru": "26.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-28",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-26 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B01",
+    "priority": "P0",
+    "slug": "mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026",
+    "h1": "Как выбрать Mitsubishi Outlander из Японии: комплектации и ловушки до ставки 2026",
+    "primary_query": "аутлендер из японии",
+    "secondary_queries": [
+      "мицубиси аутлендер из японии",
+      "аутлендер владивосток",
+      "аутлендер phev",
+      "мицубиси аутлендер"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "аутлендер из японии 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "аутлендер из японии октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "аутлендер из японии новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "github_evidence",
+      "query": "site:github.com аутлендер из японии 2026",
+      "purpose": "GitHub repos/issues/README для технических сигналов и реального опыта"
+    },
+    {
+      "id": "official_docs",
+      "query": "аутлендер из японии official docs documentation 2026",
+      "purpose": "официальная документация, changelog, developer docs"
+    },
+    {
+      "id": "community_experience",
+      "query": "аутлендер из японии forum reddit discussion проблемы опыт 2026",
+      "purpose": "форумы, обсуждения, ошибки пользователей и живые сценарии"
+    },
+    {
+      "id": "secondary_1",
+      "query": "мицубиси аутлендер из японии 2026",
+      "purpose": "вторичный запрос: мицубиси аутлендер из японии"
+    },
+    {
+      "id": "secondary_2",
+      "query": "аутлендер владивосток 2026",
+      "purpose": "вторичный запрос: аутлендер владивосток"
+    },
+    {
+      "id": "secondary_3",
+      "query": "аутлендер phev 2026",
+      "purpose": "вторичный запрос: аутлендер phev"
+    },
+    {
+      "id": "secondary_4",
+      "query": "мицубиси аутлендер 2026",
+      "purpose": "вторичный запрос: мицубиси аутлендер"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как выбрать Mitsubishi Outlander из Японии: комплектации и ловушки до ставки 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B01-mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

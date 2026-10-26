@@ -113,6 +113,12 @@ def main() -> int:
 
     check(module_available("PIL"), "Pillow available", errors, warnings)
     check(module_available("numpy"), "numpy available", errors, warnings)
+    check(module_available("paramiko"), "paramiko available (SSH publish)", errors, warnings, warn=not args.publish)
+
+    sanitize = root / "scripts/excalibur_blog_sanitize_secret_names.sh"
+    filter_env = root / "scripts/excalibur_blog_filter_commit_secret_env.sh"
+    check(sanitize.is_file(), "sanitize_secret_names.sh present", errors, warnings)
+    check(filter_env.is_file(), "filter_commit_secret_env.sh present", errors, warnings)
 
     interlinker = root / "scripts/excalibur_blog_interlinker.py"
     help_proc = subprocess.run(
@@ -132,7 +138,34 @@ def main() -> int:
         text=True,
         check=False,
     )
-    check("--blog-path" in llms_help.stdout, "llms generator supports --blog-path", errors, warnings)
+    # CLI is --blog-dir / --out-dir (not legacy --blog-path).
+    check("--blog-dir" in llms_help.stdout, "llms generator supports --blog-dir", errors, warnings)
+    check("--out-dir" in llms_help.stdout, "llms generator supports --out-dir", errors, warnings)
+
+    policy_path = root / "memory/brief/editorial-policy.json"
+    if policy_path.is_file():
+        try:
+            import json
+
+            policy = json.loads(policy_path.read_text(encoding="utf-8"))
+            pain_list = policy.get("pain_markers_ru") or []
+            outcome_list = policy.get("outcome_markers_ru") or []
+            check(
+                isinstance(pain_list, list) and len(pain_list) > 0,
+                "editorial-policy pain_markers_ru non-empty",
+                errors,
+                warnings,
+            )
+            check(
+                isinstance(outcome_list, list) and len(outcome_list) > 0,
+                "editorial-policy outcome_markers_ru non-empty",
+                errors,
+                warnings,
+            )
+        except (json.JSONDecodeError, TypeError, ValueError) as exc:
+            check(False, f"editorial-policy.json parseable ({exc})", errors, warnings)
+    else:
+        check(False, "memory/brief/editorial-policy.json exists", errors, warnings, warn=True)
 
     env = merged_publish_env(root)
     has_public = bool(env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or env.get("WP_SITE_URL"))

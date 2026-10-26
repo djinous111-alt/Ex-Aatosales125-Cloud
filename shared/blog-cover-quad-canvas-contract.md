@@ -14,24 +14,25 @@ Cover-агент работает **после** `article.html` + GEO QA PASS.
 ## Workflow
 
 ```bash
-# 1. Публичный URL эталона (обязательно для i2i)
-python scripts/excalibur_blog_hero_reference_url.py
+# 1. Публичный URL эталона (обязательно для i2i; HTTPS only)
+python3 scripts/excalibur_blog_hero_reference_url.py
 
 # 2. Manifest: cover_hook + visual_type для inline
-python scripts/excalibur_blog_quad_manifest.py \
+python3 scripts/excalibur_blog_quad_manifest.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> --merge
 
 # 3. Промпт + MCP batch (1 job)
-python scripts/excalibur_blog_cover_quad_prompt.py \
+python3 scripts/excalibur_blog_cover_quad_prompt.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> --write-batch
 
 # 4. ONE CallMcpTool gpt-image-2 по cover/quad-mcp-batch.json
-#    input_urls: [reference_url_hosted] — обязательно
+#    input_urls: [reference_url_hosted] — HTTPS обязательно
+#    on MCP timeout: python3 scripts/excalibur_blog_kie_gpt_image2_api.py --article-dir ...
 
-# 5. Скачать canvas + split
-python scripts/excalibur_blog_quad_apply.py \
+# 5. Скачать canvas + split (corner brand overlay on cover.png)
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<mcp_url>" --inject-html
+  --url "<mcp_or_kie_url>" --inject-html
 ```
 
 ## Раскладка 2×2

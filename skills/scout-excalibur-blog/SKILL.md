@@ -28,9 +28,14 @@ Append new Topic Card to blog-topics.md
 
 ### Шаг 1 — Анализ прошлого и получение ID
 * Считай список опубликованных статей из `shared/published-articles.md` и пул тем из `memory/topics/blog-topics.md`.
+* **LIVE dedup (обязательно):** бери инвентарь с `PUBLIC_SITE_URL` REST, не из MCP-KV `wordpress_*` (тот хост может быть чужим → ложный «пустой LIVE» и риск republish).
+  ```bash
+  python3 scripts/excalibur_blog_scout_helper.py --live-slugs
+  # optional: python3 scripts/excalibur_blog_scout_helper.py --live-slugs --search "prado"
+  ```
 * Вызови helper-скрипт:
   ```bash
-  python scripts/excalibur_blog_scout_helper.py --suggest-next
+  python3 scripts/excalibur_blog_scout_helper.py --suggest-next
   ```
   Запомни следующий `topic_id` (например, `B02`) и список невыполненных тем.
 
@@ -47,9 +52,11 @@ Append new Topic Card to blog-topics.md
 ### Шаг 4 — Тест на каннибализацию ключевых слов
 Перед созданием темы запусти:
 ```bash
-python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
+python3 scripts/excalibur_blog_scout_helper.py --check-query "<выбранный_запрос>"
 ```
 Если возвращается `OVERLAP DETECTED` — измени формулировку запроса или выбери другую тему. Не допускай семантического пересечения с опубликованными или запланированными статьями!
+
+Сверь модель/slug также с LIVE REST (`--live-slugs` / `--search`) и Director denylist. WP MCP не авторитетен для этого блога.
 
 ### Шаг 5 — Сборка карточки темы (Utility-Only)
 Сформируй карточку темы по шаблону:
@@ -81,3 +88,4 @@ python scripts/excalibur_blog_scout_helper.py --check-query "<выбранный
 * Создание темы с `article_mode: A` (новости, разборы) — разрешен только режим **B**.
 * Игнорирование проверки на каннибализацию ключей.
 * Выдумывание цифр спроса без вызова Wordstat API.
+* LIVE dedup только через WP MCP без `PUBLIC_SITE_URL` REST.

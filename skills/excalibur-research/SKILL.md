@@ -62,6 +62,19 @@ python scripts/excalibur_blog_research_start.py --topic-id B01
 6. Не копировать структуру конкурента 1:1.
 7. `reader_pain`, `reader_outcome`, `success_criteria`, `pain_solution_map` формулируй для обычного человека без технического бэкграунда. Если тема звучит как для профи/архитектора и не даёт новичку первого результата — это research blocker.
 
+## pain_solution_map
+
+В таблице строк предпочтительно явные префиксы `боль:` / `решение:` / `результат:` (gate считает и labeled cells, и data-rows секции). Auto-темы (Япония/Корея/Китай) не должны ложно стать `technical_topic` из substring `ai`/`ии`.
+
+## Git commit
+
+```bash
+source scripts/excalibur_blog_sanitize_secret_names.sh
+git commit ...
+```
+
+`--no-verify` только last resort.
+
 ## Blockers
 
 - `❌ RESEARCH BLOCKER` — тема не найдена и не создана из запроса пользователя

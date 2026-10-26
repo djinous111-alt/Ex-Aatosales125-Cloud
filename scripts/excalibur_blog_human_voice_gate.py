@@ -228,12 +228,17 @@ def analyze_human_voice(article_dir: Path) -> dict[str, Any]:
     concrete_hits = [marker for marker in CONCRETE_MARKERS if marker in text_lower]
     ai_opening_hits = [marker for marker in AI_OPENERS if marker in text_lower[:900]]
     blockquotes = re.findall(r"<blockquote[\s\S]*?</blockquote>", html, flags=re.I)
+    # «Достоверность данных» = stale Writer label; contract uses «Достоверность:».
     fact_check_templates = [
         quote
         for quote in blockquotes
         if "материал проверен" in quote.lower() and "достоверность данных" in quote.lower()
     ]
-    exactly_five_lists = len(re.findall(r"<ol[\s\S]*?(?:<li[\s\S]*?){5}</ol>", html, flags=re.I))
+    # Exactly five <li> inside one <ol> (not ≥5 — previous regex false-flagged longer lists).
+    exactly_five_lists = 0
+    for ol_match in re.finditer(r"<ol\b[^>]*>([\s\S]*?)</ol>", html, flags=re.I):
+        if len(re.findall(r"<li\b", ol_match.group(1), flags=re.I)) == 5:
+            exactly_five_lists += 1
 
     reader_story = extract_field(notes, "reader_story")
     reader_pain = extract_field(notes, "reader_pain")

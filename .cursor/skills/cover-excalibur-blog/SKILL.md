@@ -28,6 +28,14 @@ inject <figure> after H2 in article.html
 
 ---
 
+## HTTPS reference + MCP timeout → Kie
+
+- `reference_url_hosted` must be **HTTPS** on the stable WP media host. Plain `http://` often 301-fails Kie createTask; `excalibur_blog_hero_reference_url.py` / cover prompt normalize http→https.
+- Prefer ONE MCP `gpt-image-2` i2i. On MCP timeout (`-32001`) or host errors: **one** Kie async job via `python3 scripts/excalibur_blog_kie_gpt_image2_api.py` using the same `cover/quad-mcp-batch.json` — do not launch 4 separate panels.
+- After split, `excalibur_blog_cover_quad_split.py` overlays corner brand `avto-sales125.ru` on `cover.png` if generation omitted it (no second MCP). Manual PIL overlay remains an allowed last resort.
+
+---
+
 ## Контракты и конфиги
 
 | Путь | Назначение |
@@ -90,7 +98,7 @@ inject <figure> after H2 in article.html
 ### Шаг 1 — reference URL
 
 ```bash
-python scripts/excalibur_blog_hero_reference_url.py
+python3 scripts/excalibur_blog_hero_reference_url.py
 ```
 
 Проверить `memory/cover/blog-hero.json` → `reference_url_hosted`.  
@@ -99,7 +107,7 @@ Fallback env: `BLOG_HERO_REFERENCE_URL`.
 ### Шаг 2 — manifest
 
 ```bash
-python scripts/excalibur_blog_quad_manifest.py \
+python3 scripts/excalibur_blog_quad_manifest.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --merge
 ```
@@ -115,26 +123,33 @@ python scripts/excalibur_blog_quad_manifest.py \
 ### Шаг 3 — prompt + batch
 
 ```bash
-python scripts/excalibur_blog_cover_quad_prompt.py \
+python3 scripts/excalibur_blog_cover_quad_prompt.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
   --write-batch
 ```
 
-Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст.
+Проверить `cover/quad-mcp-batch.json`: **jobs.length === 1**, `input_urls` не пуст, URL = HTTPS.
 
-### Шаг 4 — ONE MCP
+### Шаг 4 — ONE MCP (или Kie fallback)
 
 `CallMcpTool` → `user-mcp-kv` / `gpt-image-2`  
 Аргументы = `jobs[0].mcp_args` из batch.
 
 Ожидание: Image to Image, 1 входное фото, aspect 16:9, 2K.
 
+Если MCP timeout / tool error — **один** вызов:
+
+```bash
+python3 scripts/excalibur_blog_kie_gpt_image2_api.py \
+  --article-dir memory/blog/articles/<topic_id>-<slug>
+```
+
 ### Шаг 5 — apply
 
 ```bash
-python scripts/excalibur_blog_quad_apply.py \
+python3 scripts/excalibur_blog_quad_apply.py \
   --article-dir memory/blog/articles/<topic_id>-<slug> \
-  --url "<MCP result url>" \
+  --url "<MCP or Kie result url>" \
   --inject-html
 ```
 

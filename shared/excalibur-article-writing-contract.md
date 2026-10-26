@@ -337,6 +337,7 @@ Excalibur BLOG следует этому контракту для каждой 
     - `jobTitle`: должность эксперта из реестра.
     - `worksFor`: название бренда (Авто-Сейлс / AVTO SALES).
     - `sameAs`: массив ссылок на авторитетные профили автора (LinkedIn, GitHub, Habr) из реестра для подтверждения E-E-A-T.
+    - Commit-safe shape: site/CTA/`sameAs` URL на одной строке с `"x-excalibur-pragma": "pragma: allowlist secret"`; перед commit — `source scripts/excalibur_blog_sanitize_secret_names.sh`.
 2. **Разметка частых вопросов (`FAQPage`):**
   - Добавляется, если в статье есть FAQ. `mainEntity` содержит массив `Question` и `Answer`, текст которых должен строго соответствовать видимому контенту в HTML.
 3. **Разметка для пошаговых инструкций (`HowTo`):**

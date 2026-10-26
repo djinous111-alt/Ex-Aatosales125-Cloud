@@ -66,10 +66,11 @@ python scripts/excalibur_blog_wp_publish.py \
 Если локальный HTTP-триггер bootstrap упал (timeout / WinError 10060):
 
 1. Скрипт печатает `=== FALLBACK_TRIGGER_URL ===` с URL `excalibur-blog-publish-once.php`.
-2. Cloud-агент открывает URL через WebFetch и пишет ответ в `memory/webfetch-response.txt`.
-3. Скрипт продолжает и читает ответ из файла.
+2. Cloud-агент открывает URL через WebFetch/curl **один раз** и пишет ответ в `memory/webfetch-response.txt`.
+3. Скрипт ждёт до ~300s и параллельно poll'ит REST `posts?slug=…`. При LIVE post — reconstruct, **не** второй trigger.
+4. Если peer-reset / пустой webfetch: сначала REST(+meta) check. Второй HTTP trigger только если slug ещё нет.
 
-**Не останавливайся** на первом timeout — используй fallback.
+**Не останавливайся** на первом timeout — используй fallback. **Не** запускай второй FALLBACK параллельно (гонка → duplicate media).
 
 ### 5. Post-publish артефакты
 
@@ -119,3 +120,12 @@ blockers:
 - Генерировать cover/schema с нуля
 - Пропускать dry-run
 - Завершать пайплайн без записи в `published-articles.md` при успешном publish
+- Повторный HTTP trigger bootstrap, пока REST уже видит slug / post_id
+
+## Env / paramiko
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+`--env-check` must report `paramiko_import_ok: true`. If missing, install from `requirements.txt`. Cloud install (`.cursor/cloud-agent-install.sh` / `.cursor/Dockerfile`) installs `paramiko`.

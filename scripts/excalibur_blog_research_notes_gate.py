@@ -14,6 +14,8 @@ from urllib.parse import urlparse
 from excalibur_repo_paths import repo_relative
 
 
+# Short Latin markers must use token boundaries — naive "ai"/"api" substrings
+# false-positive inside field names (reader_pain) and ordinary RU prose.
 TECH_MARKERS = (
     "ai",
     "ии",
@@ -30,6 +32,30 @@ TECH_MARKERS = (
     "workflow",
     "автоматизац",
     "нейросет",
+)
+
+# Strip required meta labels before classifying notes body (avoids ai∈reader_pain).
+_TECH_FIELD_LABEL_RE = re.compile(
+    r"(?:"
+    + "|".join(
+        re.escape(name).replace("_", r"[_\s-]")
+        for name in (
+            "research_date",
+            "accessed_at",
+            "reader_pain",
+            "reader_outcome",
+            "success_criteria",
+            "voice_angle",
+            "reader_story",
+            "surprising_fact",
+            "pain_solution_map",
+            "github_evidence",
+            "action_outline",
+            "utility_verdict",
+        )
+    )
+    + r")",
+    flags=re.I,
 )
 
 
@@ -73,14 +99,61 @@ def has_wordstat(text_lower: str) -> bool:
     return "wordstat" in text_lower or "вордстат" in text_lower or "wordstat_get_top_requests" in text_lower
 
 
+def count_pain_solution_rows(text: str) -> int:
+    """Count pain_solution_map rows: labeled cells OR table data rows under the section."""
+    labeled = len(
+        re.findall(
+            r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*",
+            text.lower(),
+            flags=re.M,
+        )
+    )
+    if labeled >= 3:
+        return labeled
+    match = re.search(
+        r"##\s*\d*\.?\s*pain[_\s-]*solution[_\s-]*map\b([\s\S]*?)(?=\n##\s|\Z)",
+        text,
+        flags=re.I,
+    )
+    if not match:
+        return labeled
+    data_rows = 0
+    for line in match.group(1).splitlines():
+        stripped = line.strip()
+        if not stripped.startswith("|"):
+            continue
+        if re.match(r"^\|?\s*[-:| ]+\s*$", stripped):
+            continue
+        cells = [c.strip() for c in stripped.strip("|").split("|")]
+        if len(cells) >= 2 and any(cells):
+            data_rows += 1
+    # Header row usually present — count body rows.
+    body = max(0, data_rows - 1)
+    return max(labeled, body)
+
+
+def _tech_marker_matches(marker: str, text: str) -> bool:
+    """Token-aware match: avoid ai∈pain / ии∈японии substring false positives."""
+    m = marker.lower()
+    if re.fullmatch(r"[a-z0-9]+", m):
+        return bool(re.search(rf"(?<![a-z0-9_]){re.escape(m)}(?![a-z0-9_])", text))
+    # Short Cyrillic tokens (ии): both sides non-letter. Longer stems: left boundary only.
+    if len(m) <= 3:
+        return bool(
+            re.search(rf"(?<![0-9a-zа-яё_]){re.escape(m)}(?![0-9a-zа-яё_])", text, flags=re.I)
+        )
+    return bool(re.search(rf"(?<![0-9a-zа-яё_]){re.escape(m)}", text, flags=re.I))
+
+
 def is_technical_topic(context: dict[str, Any], notes: str) -> bool:
     topic = context.get("topic") or {}
     blob = " ".join(
         str(topic.get(key) or "")
         for key in ("h1", "primary_query", "secondary_queries", "search_intent", "slug")
     ).lower()
-    blob += " " + notes[:2000].lower()
-    return any(marker in blob for marker in TECH_MARKERS)
+    notes_body = _TECH_FIELD_LABEL_RE.sub(" ", notes[:2000]).lower()
+    blob += " " + notes_body
+    return any(_tech_marker_matches(marker, blob) for marker in TECH_MARKERS)
 
 
 def field_present(text_lower: str, field: str) -> bool:
@@ -132,7 +205,7 @@ def validate_research_notes(article_dir: Path) -> dict[str, Any]:
     ]
     accessed_count = len(re.findall(r"\baccessed_at\b\s*:", text_lower))
     source_rows = len(re.findall(r"^\s*\|.*https?://", text, flags=re.M))
-    pain_map_rows = len(re.findall(r"^\s*\|.*(?:боль|pain|решение|solution|result|результат).*", text_lower, flags=re.M))
+    pain_map_rows = count_pain_solution_rows(text)
     action_items = count_action_items(text)
 
     for field in REQUIRED_FIELDS:

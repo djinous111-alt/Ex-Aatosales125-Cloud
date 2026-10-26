@@ -119,3 +119,11 @@ blockers:
 - Генерировать cover/schema с нуля
 - Пропускать dry-run
 - Завершать пайплайн без записи в `published-articles.md` при успешном publish
+
+## Env / paramiko
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --env-check
+```
+
+`--env-check` must report `paramiko_import_ok: true`. If missing, install from `requirements.txt` (`paramiko` is required for SSH publish). Cloud install (`.cursor/cloud-agent-install.sh` / Dockerfile) installs `requirements.txt` including paramiko.

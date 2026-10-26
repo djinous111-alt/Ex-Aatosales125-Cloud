@@ -27,7 +27,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN python3 -m pip install --break-system-packages --no-cache-dir \
     requests \
     pillow \
+    numpy \
+    paramiko \
     python-dotenv \
-    || python3 -m pip install --no-cache-dir requests pillow python-dotenv
+    || python3 -m pip install --no-cache-dir requests pillow numpy paramiko python-dotenv
 
 WORKDIR /workspace

@@ -1,7 +1,7 @@
 # Promotion checklist — B01 mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026
 
-Дата публикации: 2026-10-26 (план; live после publish)  
-Live URL: /blog/mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026/
+Дата публикации: 2026-10-26  
+Live URL: https://avtosales125.ru/2026/10/26/mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • PHEV и мотор >1900 cc — стоп без подтверждённого маршрута
 • R/RA на листе — не «мелочь», а история ремонта силовых
 
-Читать: /blog/mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026/
+Читать: https://avtosales125.ru/2026/10/26/mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026/
 ```
 
 ## Перелинковка

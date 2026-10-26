@@ -1,0 +1,21 @@
+{
+  "slug": "mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026",
+  "topic_id": "B01",
+  "post_id": 4573,
+  "permalink": "https://avtosales125.ru/2026/10/26/mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026/",
+  "featured_image": 4577,
+  "inline_images": [
+    4575,
+    4578,
+    4579
+  ],
+  "schema_meta": 1,
+  "skip_theme_faq_meta": 1,
+  "orphan_media": [
+    4574,
+    4581
+  ],
+  "raw_output": "OK post=4573 slug=mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026\nOK featured_image=4577\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=4575 src=cover/inline-01.png\nOK inline_image_upload=4578 src=cover/inline-02.png\nOK inline_image_upload=4579 src=cover/inline-03.png\npermalink=https://avtosales125.ru/2026/10/26/mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026/\nNOTE: reconstructed after local HTTP TimeoutError + FALLBACK curl peer-reset; verified via WP REST slug + SSH one-shot meta; Prado 4561 untouched; no republish.\n",
+  "verdict": "pass",
+  "publish_method": "ssh_upload_http_timeout_fallback_curl_peer_reset_rest_ssh_meta_reconstruct"
+}

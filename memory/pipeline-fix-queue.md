@@ -559,3 +559,67 @@ category: prompt
 
 ### Fixer resolution
 - pending
+
+## INC-20261026-1345-publish-paramiko-missing
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026
+severity: medium
+category: env
+recurrence_of: INC-20261026-0936
+
+### What went wrong
+- `paramiko` missing in Cloud image (`ModuleNotFoundError`); `--env-check` does not import it, so preflight looked green until real SSH upload.
+
+### How the agent recovered this run
+- `python3 -m pip install --break-system-packages paramiko` (5.1.0) before publish.
+
+### Durable fix needed before next run
+- Add `paramiko` to Cloud install / `.cursor/cloud-agent-install.sh` / environment build; optionally make `--env-check` fail if paramiko import fails.
+
+### Suggested files to inspect/change
+- `.cursor/cloud-agent-install.sh`
+- `requirements.txt`
+- `scripts/excalibur_blog_wp_publish.py` (`--env-check`)
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
+## INC-20261026-1348-publish-fallback-timeout-reconstruct
+status: open
+run_date: 2026-10-26
+role: excalibur-blog-publish
+topic_id: B01
+article_dir: memory/blog/articles/B01-mitsubishi-outlander-iz-yaponii-komplektatsii-lovushki-2026
+severity: high
+category: publish
+recurrence_of: INC-20261026-2134
+
+### What went wrong
+- ~7.6MB PHP bootstrap: local HTTP trigger TimeoutError; FALLBACK curl `--max-time 300` got peer-reset (exit 56) before writing `memory/webfetch-response.txt`; script exited after 120s wait even though WP post was created.
+- Second FALLBACK attempt raced first run → duplicate media (`cover-1.png` 4577 as featured; orphan `cover.png` 4574, `inline-01-1.png` 4581).
+
+### How the agent recovered this run
+- Did **not** republish. Verified REST `posts?slug=mitsubishi-outlander-…` → post **4573**, HEAD 200; SSH one-shot meta → schema_len=11815, skip_theme_faq=1; Prado **4561** untouched. Wrote `wp-publish-result.json` + ledger/log/handoff from reconstruct.
+
+### Durable fix needed before next run
+- Extend FALLBACK wait beyond 120s for large payloads OR write partial OK detection via REST poll inside `trigger_bootstrap_http`.
+- Document: never start a second HTTP trigger until REST slug check; if peer-reset, poll REST/meta before FAIL.
+- Consider streaming/chunked media upload to shrink bootstrap PHP.
+
+### Suggested files to inspect/change
+- `scripts/excalibur_blog_wp_publish.py` (`trigger_bootstrap_http`, range(120))
+- `skills/publish-excalibur-blog/SKILL.md`
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+

@@ -6,6 +6,43 @@ Contract: `shared/pipeline-incident-fix-contract.md`
 
 ## Open incidents
 
+## INC-20261027-2140-cover-mcp-timeout-kie-fallback
+status: open
+run_date: 2026-10-27
+role: excalibur-blog-cover
+topic_id: B01
+article_dir: memory/blog/articles/B01-haval-jolion-iz-kitaya-komplektatsii-lovushki-2026
+severity: medium
+category: api
+
+### What went wrong
+- Sync MCP `gpt-image-2` (MCP-KV) returned `HTTP -32001 Request timed out` on 16:9 2K i2i with `input_urls`.
+- Cursor cloud events had no recoverable image URL / task_id after the client timeout.
+- Hero re-host via catbox returned 412; 0x0 returned 503; litterbox returned 500. Stable WP media URL on `avtosales125.ru` already matched local face PNG bytes, so i2i proceeded with that URL.
+
+### How the agent recovered this run
+- Waited ~20s and inspected cloud events (empty) — no late URL from sync MCP.
+- Used preferred async path: `python3 scripts/excalibur_blog_kie_gpt_image2_api.py` with the same `cover/quad-mcp-batch.json` `mcp_args` (ONE image job).
+- Kie `task_id=d4baf50a5666300f335140dafe674117` → success URL → `excalibur_blog_quad_apply.py --inject-html` PASS (3 figures).
+- Cover visual QA: softshell/crewneck, Jolion + Vladivostok, corner `avto-sales125.ru`, no toxic stickers лох/лохов.
+
+### Durable fix needed before next run
+- Cover Cloud default: skip sync MCP gpt-image-2; always start with Kie async script when `KIE_API_KEY` is present.
+- Document MCP -32001 → Kie fallback as first-class path in cover skill (not only in batch timeout_policy JSON).
+- Optional: keep WP face media as canonical `reference_url_hosted`; treat catbox/0x0 as secondary.
+
+### Suggested files to inspect/change
+- `.cursor/skills/cover-excalibur-blog/SKILL.md`
+- `skills/cover-excalibur-blog/SKILL.md`
+- `scripts/excalibur_blog_cover_quad_prompt.py` (timeout_policy / preferred_image_flow)
+- `shared/agent-pipeline-pitfalls.md`
+
+### Secrets
+- none recorded
+
+### Fixer resolution
+- pending
+
 ## INC-20261027-2132-schema-jsonld-secret-scan-block
 status: open
 run_date: 2026-10-27

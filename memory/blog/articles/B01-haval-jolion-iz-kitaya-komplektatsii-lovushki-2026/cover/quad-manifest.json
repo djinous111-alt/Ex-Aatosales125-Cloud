@@ -1,0 +1,42 @@
+{
+  "topic_id": "B01",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Premium из Китая ≠ Оптимум в РФ — сверь до депозита",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Герой Авто-Сейлс у Haval Jolion на фоне порта Владивостока, плашка «до депозита», угол avto-sales125.ru",
+      "scene_hint": "Hyper-realistic action selfie: EXACT face+glasses from reference; OUTFIT = dark navy softshell jacket over charcoal crewneck (port Vladivostok cool fog, NO hoodie NO cap NO tank-top from reference); background = modern silver/gray Haval Jolion crossover + Vladivostok port cranes/containers foggy morning; layered human collage: fake catalog card «Jolion Comfort/Оптимум/Premium/Techno+», torn paper checklist «до депозита», pink sticky «CN ≠ РФ», scotch tape, yellow highlight on «депозита»; shocked meme reaction sticker (not Drake); Cyrillic plaque hook; corner footer brand ONLY avto-sales125.ru (NOT Telegram); FORBIDDEN toxic stickers лох/лохов/лохотрон; NO Wordstat NO Metrika",
+      "meme_caption_ru": "Сверь до депозита"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Зачем сверять китайскую оферту с РФ-линейкой до депозита",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Clean Cyrillic comparison table UI mock: columns «Китайская оферта» vs «РФ-линейка» rows Comfort / Оптимум / Premium / Techno+ with check/warn icons; sticky note «до депозита»; scotch tape corner; NO host face; NO toxic words",
+      "alt": "Таблица сравнения китайской оферты Haval Jolion с РФ-линейкой комплектаций до депозита"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните Comfort, Оптимум, Premium и Techno+: что реально меняется",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "4-step workflow diagram Cyrillic: Comfort → Оптимум → Premium → Techno+ with arrows showing what really changes (привод, КПП, пакеты); torn-paper strip style; marker arrows; NO host face",
+      "alt": "Схема отличий комплектаций Comfort, Оптимум, Premium и Techno+ у Haval Jolion"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Отсейте ловушки ввоза: мотор, КПП, привод, язык, гарантия",
+      "visual_type": "checklist_board",
+      "scene_hint": "Clipboard checklist board Cyrillic items: мотор, КПП, привод 2WD/4WD, язык мультимедиа, гарантия; red pen marks; tape; Vladivostok SVH mini note; NO host face; NO toxic stickers",
+      "alt": "Чеклист ловушек ввоза Haval Jolion: мотор, КПП, привод, язык, гарантия"
+    }
+  }
+}
